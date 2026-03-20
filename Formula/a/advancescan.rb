@@ -5,8 +5,6 @@ class Advancescan < Formula
   sha256 "8c346c6578a1486ca01774f30c3e678058b9b8b02f265119776d523358d24672"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "911a3103d9849fb5bd1ec1b79d63a77efe11af81bdcda9306682ac32c0a5feaa"

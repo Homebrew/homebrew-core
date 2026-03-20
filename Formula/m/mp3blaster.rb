@@ -6,8 +6,6 @@ class Mp3blaster < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "2cbfef0efe3e24570f47c861959ab0cd66697709e878f9fc29525b8b25ce703e"
     sha256 arm64_sequoia:  "63db46a60c041370f9850800c5db80e4aae38d3bf3f2320cbbfcc03e5bffa2d5"

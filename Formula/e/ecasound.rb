@@ -10,8 +10,6 @@ class Ecasound < Formula
     regex(/href=.*?ecasound[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "12e39a10c26842235843e303cf99bb10db7666a1fcd812d88b418ed2eae540c0"
     sha256 arm64_sequoia:  "44c42355a7959b320035dc42229da1ea6996934e220820a8e51c8c9b45e882ed"

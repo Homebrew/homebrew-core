@@ -5,8 +5,6 @@ class Mummer < Formula
   sha256 "bc20ae2701a0b2e323e4e515b7cfa18a0f0cb34a4ff5844b289b2de0154e3d3e"
   license "Artistic-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "ea0c12fffc202ecffba587be17af6930099814e91deed4a211e8a61b0bba6813"

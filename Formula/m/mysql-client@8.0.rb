@@ -12,12 +12,13 @@ class MysqlClientAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e64173ee56c31739134cd06df27f4590f970b336b8584b6809746890d07659b7"
-    sha256 arm64_sequoia: "06d29c681212f7f7ccdc8aecb8ca436344cf8ce1dc76d0faab11b9a7d15ef39b"
-    sha256 arm64_sonoma:  "ea81b8fd4dc4dff70258bfed613c2314ffa2627ed7041fbb5a5acbfcc87cb090"
-    sha256 sonoma:        "23f362f731daf2989cb506994fcb69d5d0e52b71770fa06f4e2adb80e5d5d0cb"
-    sha256 arm64_linux:   "16912c662fb071e209bfa44de3ab0ebf26967a861fcdfd6a77df90f0bb7f5540"
-    sha256 x86_64_linux:  "f9f8b84a8fff348c2a215ffd5d25a7aaeb67b9f0b881ba67532427c7bb7993ab"
+    rebuild 1
+    sha256 arm64_tahoe:   "e0eee02438c1171ce3b91f7169fc736ec5726121b2f18f9faabe86d57bfa9762"
+    sha256 arm64_sequoia: "986fbca72239104460859c4c49116ec7487347a9b4559c632bc4a731875b0a59"
+    sha256 arm64_sonoma:  "09fe421464e5cece5defe612b3e7249fc9badd2273f21e462530f5f91a9fb7da"
+    sha256 sonoma:        "a1c6b120c3459343c2904e08998f8b08df8245ed96de9da0fc33a95fd414f0fc"
+    sha256 arm64_linux:   "93b7add6884734fbb9725277ea5ff92d2b683ee422830d8c8412ed8ef0622868"
+    sha256 x86_64_linux:  "60fcf50ff63a630ce3d4e65a0130956a008e55958ca572a128bc2188dde00281"
   end
 
   keg_only :versioned_formula
@@ -28,7 +29,7 @@ class MysqlClientAT80 < Formula
   depends_on "libevent"
   depends_on "libfido2"
   depends_on "openssl@3"
-  depends_on "zlib" # Zlib 1.2.13+
+  depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
   uses_from_macos "libedit"

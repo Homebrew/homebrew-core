@@ -11,8 +11,6 @@ class Mairix < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "91307d1806d9def7532d3966be022cc28f5493f0989c03c44ba32a43f4cf52e4"

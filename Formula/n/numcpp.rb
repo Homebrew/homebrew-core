@@ -1,13 +1,13 @@
 class Numcpp < Formula
   desc "C++ implementation of the Python Numpy library"
   homepage "https://dpilger26.github.io/NumCpp"
-  url "https://github.com/dpilger26/NumCpp/archive/refs/tags/Version_2.16.0.tar.gz"
-  sha256 "a63cf216a1cb5a33c89053a01b1e761fe8e005d2b8e0dcf47cdebd01c4fba9ba"
+  url "https://github.com/dpilger26/NumCpp/archive/refs/tags/Version_2.16.1.tar.gz"
+  sha256 "e543049b267ce6bc28463e45db3eaefa4e7c0944c89d709df515736bfef807b4"
   license "MIT"
   head "https://github.com/dpilger26/NumCpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cfecbf1e25d81f4c5b4720b3e76dc43c374fd4ab772b064851948830591c66d1"
+    sha256 cellar: :any_skip_relocation, all: "f23815b665eae65f08b30363689724f4b729489dd78ce1a30248ad6cc22aa6ed"
   end
 
   depends_on "cmake" => :build

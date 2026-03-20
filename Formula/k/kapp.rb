@@ -1,8 +1,8 @@
 class Kapp < Formula
   desc "CLI tool for Kubernetes users to group and manage bulk resources"
   homepage "https://carvel.dev/kapp/"
-  url "https://github.com/carvel-dev/kapp/archive/refs/tags/v0.65.0.tar.gz"
-  sha256 "cfe141f6e00816e9bddaa3d32216295176386b42d9202adbb76f48b78fd5e979"
+  url "https://github.com/carvel-dev/kapp/archive/refs/tags/v0.65.1.tar.gz"
+  sha256 "b3052206113574e32a4f2f84985139ca2ece1ce81ab714b5b8f802ae902659d0"
   license "Apache-2.0"
   head "https://github.com/carvel-dev/kapp.git", branch: "develop"
 
@@ -12,13 +12,12 @@ class Kapp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5392d1c444411b771ab5651b09c4779004a8a979ef1e4db20ebb9a1010e6716f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5392d1c444411b771ab5651b09c4779004a8a979ef1e4db20ebb9a1010e6716f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5392d1c444411b771ab5651b09c4779004a8a979ef1e4db20ebb9a1010e6716f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a87e16dce4aeff42ab1e88096e35c6a78d3eaa1fcca5076b1a8b7461aed92864"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "405507876fe4b05e0420112238c97f7ef22971dca45137139474f09525e7fa15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97526aee57e11d21f2bb509ab8787c5f4f70b7ca58a65f2f7098f9e194769ec9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe73d8448578e9c25d2d8d4796f8324ebc7128f92c19f676a897badebaf37009"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe73d8448578e9c25d2d8d4796f8324ebc7128f92c19f676a897badebaf37009"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe73d8448578e9c25d2d8d4796f8324ebc7128f92c19f676a897badebaf37009"
+    sha256 cellar: :any_skip_relocation, sonoma:        "18ccb02f72f8fde9f6f795da1d7761f3ce93f80fad9c9f49e8d0296dea9ac52c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c006f6de59bcb6d47d1ae1cbf1beeb15bdd7798fe7573f220fbbdafd5fd5931"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd605a305a77e35c7bf97f2afb2f3a982181167a23be08dee14528e850b9374f"
   end
 
   depends_on "go" => :build

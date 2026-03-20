@@ -14,6 +14,8 @@ class Cogapp < Formula
 
   depends_on "python@3.14"
 
+  conflicts_with "cocogitto", "cog", because: "both install `cog` binaries"
+
   def install
     virtualenv_install_with_resources
   end

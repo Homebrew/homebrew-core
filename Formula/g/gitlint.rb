@@ -57,7 +57,7 @@ class Gitlint < Formula
     assert_path_exists testpath/".git/hooks/commit-msg"
 
     # Verifies that the second line of the hook is the title
-    output = File.open(testpath/".git/hooks/commit-msg").each_line.take(2).last
+    output = (testpath/".git/hooks/commit-msg").readlines.take(2).last
     assert_equal "### gitlint commit-msg hook start ###\n", output
   end
 end

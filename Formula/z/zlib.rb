@@ -1,11 +1,11 @@
 class Zlib < Formula
   desc "General-purpose lossless data-compression library"
   homepage "https://zlib.net/"
-  url "https://zlib.net/zlib-1.3.1.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.3.1/zlib-1.3.1.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/zlib-1.3.1.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/zlib-1.3.1.tar.gz"
-  sha256 "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23"
+  url "https://zlib.net/zlib-1.3.2.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.3.2/zlib-1.3.2.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/zlib-1.3.2.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/zlib-1.3.2.tar.gz"
+  sha256 "bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16"
   license "Zlib"
   head "https://github.com/madler/zlib.git", branch: "develop"
 
@@ -15,26 +15,18 @@ class Zlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "b1f6105bc71a21cad7eb7015d9d363ec1097bf80f91fd3c0d56bc0bece086364"
-    sha256 cellar: :any,                 arm64_sequoia:  "a801a93f88dba4df7319e46cd9ea5939351e73f7aa62a5153a2f7a0b0d79404d"
-    sha256 cellar: :any,                 arm64_sonoma:   "f867540472a59ab3fb1201625df546593e5fae2e98948c4c16c6154b0468b682"
-    sha256 cellar: :any,                 arm64_ventura:  "9033eedbd240076116fea9fa181882e75edee7fe0c5d2e3850258a185c52792f"
-    sha256 cellar: :any,                 arm64_monterey: "ebf10e203575beb64d6a8637ec2dc31774fa3141cfccab8ae7039f88b9efa7f6"
-    sha256 cellar: :any,                 sonoma:         "217f4245cd1da65a3388f512530089f526cd63a38d49ee5f29a90576dfeb3bb7"
-    sha256 cellar: :any,                 ventura:        "6012d7831245716d8507da3d1eb14ad274f8aa0b71b59275fe6bbbd6cebd787f"
-    sha256 cellar: :any,                 monterey:       "56bbfa3d7bd6a5ccf17ffa53ab926e67f24e74bd64b4740b56fd96c312e37c44"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "8f5d3038615e17d8de3a4b92895a151388e7adfe608f295f89aa669604541f39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38f2469db2ce63b70855a98e5ee27b5b5a92874e52542cbdc0b230bba1e7195f"
+    sha256 cellar: :any,                 arm64_tahoe:   "5457abac7b01f56603e06b1cbc17fbca5cc34fb82c78bf503cee99e5028a1bc3"
+    sha256 cellar: :any,                 arm64_sequoia: "c43efaa12e3d22914f41882679ad8c86b58958660852f1edd7b305daee5860f0"
+    sha256 cellar: :any,                 arm64_sonoma:  "ca032109db39a64b5eeb8d90a179c7d873f2de3f8b298f9546430d7b8cddc09f"
+    sha256 cellar: :any,                 sonoma:        "14940211b29d719bcabe03e43d7c06086c9c436c391c5b33f273763c3110f8e4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e606565d4ae9f860a4d15992140a8cb48fc33408d65d4e5d061d5ef2715069e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "352c7d94d5b64b31b636b3d0b3252a1a8ca82e1020a5b71c7be829667e278dcf"
   end
 
   keg_only :provided_by_macos
 
-  # https://zlib.net/zlib_how.html
-  resource "test_artifact" do
-    url "https://zlib.net/zpipe.c"
-    mirror "http://zlib.net/zpipe.c"
-    version "20051211"
-    sha256 "68140a82582ede938159630bca0fb13a93b4bf1cb2e85b08943c26242cf8f3a6"
+  on_linux do
+    keg_only "it conflicts with zlib-ng-compat"
   end
 
   def install
@@ -46,11 +38,18 @@ class Zlib < Formula
   end
 
   test do
-    testpath.install resource("test_artifact")
+    # https://zlib.net/zlib_how.html
+    resource "zpipe.c" do
+      url "https://raw.githubusercontent.com/madler/zlib/3f5d21e8f573a549ffc200e17dd95321db454aa1/examples/zpipe.c"
+      mirror "http://zlib.net/zpipe.c"
+      sha256 "e79717cefd20043fb78d730fd3b9d9cdf8f4642307fc001879dc82ddb468509f"
+    end
+
+    testpath.install resource("zpipe.c")
     system ENV.cc, "zpipe.c", "-I#{include}", "-L#{lib}", "-lz", "-o", "zpipe"
 
     text = "Hello, Homebrew!"
-    compressed = pipe_output("./zpipe", text)
-    assert_equal text, pipe_output("./zpipe -d", compressed)
+    compressed = pipe_output("./zpipe", text, 0)
+    assert_equal text, pipe_output("./zpipe -d", compressed, 0)
   end
 end

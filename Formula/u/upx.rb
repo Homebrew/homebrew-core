@@ -1,19 +1,18 @@
 class Upx < Formula
   desc "Compress/expand executable files"
   homepage "https://upx.github.io/"
-  url "https://github.com/upx/upx/releases/download/v5.1.0/upx-5.1.0-src.tar.xz"
-  sha256 "9f7a810b8a810b1ca2c5cb01ffcf23066e3fb8a51ddc406ea05bdd5d37d0b8bd"
+  url "https://github.com/upx/upx/releases/download/v5.1.1/upx-5.1.1-src.tar.xz"
+  sha256 "8eb914115b306fd9fd2110bd3d27ddb8ae7c5a03bb965f7d10f046a3a4ff9dfe"
   license "GPL-2.0-or-later"
   head "https://github.com/upx/upx.git", branch: "devel"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea8de1cee73e3c033a070b3fa33c9bed619efe82082d9cbf8c545f6bc1fd17b1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b8730e894f00b5f36888f721fb0dee68bedd8b6888bc6b72cad6343d64580cc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "269b3401ab172073e318512abb07ae06ca764c294f5b1aeb84cca93427d0a2dd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f5c07d79e2aa6fb3635540ed69d390221c00670954cc4ff37f0515881306d376"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bbb2b44e8162af055e25a8e384c40fb8f3541f4f45cd5e71ffb330a7e0f7455"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b44dc31ec96d3cd2eca8d4cd054fd1dba7bb898661883efb2448c57ae9c9b01e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea9792e388feed47fb93fa3ac4445c29da427c1c58ce7d61893bfebe07b432ec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ac81c14ccf5d7568cd7831dda33ee26adc2995f6688443e1d2c76a7034e20898"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44cae4d0d58031d25b465bc0694db716baccca93dfbd2b436a2f76a34d54d8bf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ceace73c72ce5579b77e459c8c2cc0937dd59d996d3318239052de60b73189a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e9ee8e3613ef3434dff4dfed0ff37eb87406446a6c9cd5dfff4f8beff451754"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae12d1951368371224a793b2fefbf7f76fb25eca11eaf32caf039fcd348c0b61"
   end
 
   depends_on "cmake" => :build

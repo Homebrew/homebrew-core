@@ -1,8 +1,8 @@
 class C3c < Formula
   desc "Compiler for the C3 language"
   homepage "https://github.com/c3lang/c3c"
-  url "https://github.com/c3lang/c3c/archive/refs/tags/v0.7.9.tar.gz"
-  sha256 "d9867c80e9dea5a96badd7c88937e155ead31f3dc6aa0758010ce0734877d17b"
+  url "https://github.com/c3lang/c3c/archive/refs/tags/v0.7.10.tar.gz"
+  sha256 "54bc00eb3ed69d89af80362ef3ee17d30dc7186eccd8b2f4fb9afbf616136115"
   license "LGPL-3.0-only"
   head "https://github.com/c3lang/c3c.git", branch: "master"
 
@@ -15,23 +15,23 @@ class C3c < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bb9c2b45c04628b7c78e977610af4e6dea6809dbdeaee4ae7cb269f8967ab580"
-    sha256 cellar: :any,                 arm64_sequoia: "2accf9471d9628de0b288aec01d2b98b1fd7bd620d29ad0725432a1af450e71e"
-    sha256 cellar: :any,                 arm64_sonoma:  "884941b1705c4a6239276d1b9e2c835636a42a4c742bb5690bded30fb9d05422"
-    sha256 cellar: :any,                 sonoma:        "74668d3f7a88a779a36469fc77d2f7f85deeb910bbb217ff7588ee5c83c879b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "63e9cecbe430a0ea1bff4f085e98a3df3a2ea9da5d0b9881f005857308ebfcdd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06be78cae0c8f890d2af424b39e92f3192fb183da32c182570fef11d7fe9edb7"
+    sha256 cellar: :any,                 arm64_tahoe:   "4caa65b939edc037622f75659a1326dec13691ea5b02778d63e090bd2ca8cb74"
+    sha256 cellar: :any,                 arm64_sequoia: "6ef52612f7e4dc257eb2cd5fe6b1454526ccdacaa06adb79b4bff06aef60fa6c"
+    sha256 cellar: :any,                 arm64_sonoma:  "711a9f68fa713ace15d502e51da183e599e30df50bdfbc87645b8d1a98dab1a1"
+    sha256 cellar: :any,                 sonoma:        "584b6aea037f54d68e1f26ce9c160de885be59243c36fcd897943522970cbea0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "081ae9dda67d0ff6a585974ecbdb27d76f28466684a891275253c92acb6ba3f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75f29f3cffb1f98e1e0b8cb9c4009a3dbb7c99b6e8f240e46513f287db8c43b5"
   end
 
   depends_on "cmake" => :build
-  depends_on "lld"
-  depends_on "llvm"
+  depends_on "lld@21"
+  depends_on "llvm@21"
 
   uses_from_macos "curl"
 
   def install
-    lld = Formula["lld"]
-    llvm = Formula["llvm"]
+    lld = Formula["lld@21"]
+    llvm = Formula["llvm@21"]
 
     args = [
       "-DC3_LINK_DYNAMIC=ON",

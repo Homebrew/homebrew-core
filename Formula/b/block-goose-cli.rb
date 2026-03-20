@@ -1,8 +1,8 @@
 class BlockGooseCli < Formula
   desc "Open source, extensible AI agent that goes beyond code suggestions"
   homepage "https://block.github.io/goose/"
-  url "https://github.com/block/goose/archive/refs/tags/v1.23.2.tar.gz"
-  sha256 "0274686a33bb1368e742a8f3be9c8c4fc485a25fdf86a229582748925d18c00e"
+  url "https://github.com/block/goose/archive/refs/tags/v1.28.0.tar.gz"
+  sha256 "b3cb08206a88cd177663e3329881c5273e3082b2caf4566444d15f9650c2de64"
   license "Apache-2.0"
   head "https://github.com/block/goose.git", branch: "main"
 
@@ -12,18 +12,20 @@ class BlockGooseCli < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "71c71da53142e15f75ef92444caa5cfc190c64a307369c7f8454c8d01fa1eb99"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3981b58c485f55ef366861adc8c876a1f66b1c706a18be4a49c420cac2e0ae54"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bc2284301c5ff6d10b6eb0216a6d82dadc753285d2b792ee9a0c37a4601cc50e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b1d93904a9e1c2a9ff794eaba2ccf8b40ceb092724c7db2d5d01e907d3af31d2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "65a8a071f68dde549b690054bceb1dddce148f4ab57198114bd0ea033b62de9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d4621837d204a399380bc286bbb367c6bd673eb133007e439ec7b00b90a16ac"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "514755589a9357206d0627a31712bc38ffea118e2ae1d5a770404034b3304f85"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c834182832a69c8501701350431b339380724c22e3a24de620599e3710e35c25"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bdac1572ca9ad70869b43a15e478a308174c895152343106347e93fe98e70210"
+    sha256 cellar: :any_skip_relocation, sonoma:        "07ea8698faeca2f2357c35191866d5705927f076c2d10ac21ff1bc766b5c1750"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "204e30a279d808a57a4365e2aa8ab856a383b2033dc554834a07511b660cbaf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c2a7c6063fc717666b204a932709dbcfcdc59a2482aa8b330f056c9bf3117c6"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build # for lance-encoding
   depends_on "rust" => :build
+
+  uses_from_macos "llvm" => :build # for libclang
 
   on_linux do
     depends_on "dbus"

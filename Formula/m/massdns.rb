@@ -5,8 +5,6 @@ class Massdns < Formula
   sha256 "93b14431496b358ee9f3a5b71bd9618fe4ff1af8c420267392164f7b2d949559"
   license "GPL-3.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4ccc67bf2a881c34a2cd1ab5fab97cb109e9cdf1ac60eb6861ae8cea2f02b31d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a9a5d00f32970e270e6d1ab85b7ec437efdd1b74e1e4b40f6d938f74f74ee7f0"

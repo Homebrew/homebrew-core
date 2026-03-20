@@ -6,8 +6,6 @@ class Aha < Formula
   license any_of: ["LGPL-2.0-or-later", "MPL-1.1"]
   head "https://github.com/theZiz/aha.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c5c635a3945439e2666c6387fc7adf040ae53448b69cdd10ead335c19238abe0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "16696aeddc832f4f9f7c61ce7d3e6a8327f229bdeb941aded1bce4b2285f8470"

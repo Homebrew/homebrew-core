@@ -1,41 +1,28 @@
 class Libid3tag < Formula
   desc "ID3 tag manipulation library"
   homepage "https://codeberg.org/tenacityteam/libid3tag"
+  url "https://codeberg.org/tenacityteam/libid3tag/releases/download/0.16.4/id3tag-0.16.4-source.tar.gz"
+  sha256 "8b6bc96016f6ab3a52b753349ed442e15181de9db1df01884f829e3d4f3d1e78"
   license "GPL-2.0-only"
   head "https://codeberg.org/tenacityteam/libid3tag.git", branch: "main"
 
-  stable do
-    url "https://codeberg.org/tenacityteam/libid3tag/archive/0.16.3.tar.gz"
-    sha256 "0561009778513a95d91dac33cee8418d6622f710450a7cb56a74636d53b588cb"
-    # Allow build with CMake 4.0.0
-    # Remove on next release.
-    patch do
-      url "https://codeberg.org/tenacityteam/libid3tag/commit/eee94b22508a066f7b9bc1ae05d2d85982e73959.patch"
-      sha256 "f4278e88cb23b0a2aa2bb2c074c6fc2e61029b6d0d77856f4439c3f75f888cbc"
-    end
-  end
-
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "bf039c13ec5c83ddad086ffc8d351ceab2c7424d7ee91804de65c736787ca07c"
-    sha256 cellar: :any,                 arm64_sequoia:  "511a214c725978fd5596e7bb1a4c1b9846d3f95a59c1da05aa49ac687d997d07"
-    sha256 cellar: :any,                 arm64_sonoma:   "ddcf954105ff32bf933c7989b29b275c73eff81c6f036aae28646aa282b2d693"
-    sha256 cellar: :any,                 arm64_ventura:  "cb4c5b313fafc30aa641a61fb0aa8b84b8c7232d7eea9e6d55c486664d129dc2"
-    sha256 cellar: :any,                 arm64_monterey: "1dc3d797b3838163199a5496cad1018c204c87559292dd716b309acd33b780d5"
-    sha256 cellar: :any,                 sonoma:         "09c2bb42b12b186cce68cc20388585b26452eb75a39caebaaefd7c36beb9460e"
-    sha256 cellar: :any,                 ventura:        "2fea4c1d71287947cf0bbb995782f610c671608f811bebcd2f1f80e5a137705a"
-    sha256 cellar: :any,                 monterey:       "1569b5187d5108de0a9fa10ff46c87634e5a6164dcff622aa5b46d0084db50ab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "238671fe5e115d97846ea8b1d07d23970451659d2fd169b26f6854eec2cbf858"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9833f57ba6eec9cc19fdc34e93077cd21ec11636320aad4d9945196a7cd69f7b"
+    sha256 cellar: :any,                 arm64_tahoe:   "100a58c3e4e26404d62e85fcabe8d0b5ba411094db8c97c46be1d916f95524ca"
+    sha256 cellar: :any,                 arm64_sequoia: "648b4d4cd348899aca1edeb95d63f3039083fe86319ac3c502e929fafa2388ce"
+    sha256 cellar: :any,                 arm64_sonoma:  "05c43972f0fffabb9b0868391f43e23238e2041faeaf179dbd9318468468ec37"
+    sha256 cellar: :any,                 sonoma:        "b3c1ed4dfbe28dedb19408cdd3fbddab9beb38ab3268b01585418a0e694bbcdf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "33f3757644b9124896fc61ecdc425b351cea0086a4268979925be50fca2bb5c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7ebccce6746bc7b0ce3cbd51794cb119ff4b1a5a3c7713ba20567744261b062"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :test
 
   uses_from_macos "gperf" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

@@ -6,8 +6,9 @@ class Xmount < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_linux:  "6364ff6f1f3f58abba37dc41dfabc8d1a937c1866a06de6d41688f1a382c3811"
-    sha256 x86_64_linux: "352b5cff0298c4e3f548a11c25695dd9f84cce545f2c04acff2a9d2fc941b159"
+    rebuild 1
+    sha256 arm64_linux:  "8d3444a83f6d79aa7b8034a4bcc93a3d2711b7209911ce0fd3b733011b94d2da"
+    sha256 x86_64_linux: "fe78cd0d0609e30fa63acce7871b03734181cb931948485158b70b687082a1c8"
   end
 
   depends_on "cmake" => :build
@@ -16,7 +17,7 @@ class Xmount < Formula
   depends_on "libewf"
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args

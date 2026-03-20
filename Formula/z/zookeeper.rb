@@ -1,22 +1,19 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.9.4/apache-zookeeper-3.9.4.tar.gz"
-  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.9.4/apache-zookeeper-3.9.4.tar.gz"
-  sha256 "b84d0847d5b56c984fe3e50fdd28702340e66db5fd00701fa553d9899b09cabe"
+  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.9.5/apache-zookeeper-3.9.5.tar.gz"
+  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.9.5/apache-zookeeper-3.9.5.tar.gz"
+  sha256 "0e2d7c487daeff75b38354b231a006caa14c4596ddc21fd37a840c078419357b"
   license "Apache-2.0"
   head "https://gitbox.apache.org/repos/asf/zookeeper.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "3a3e616c0425979bce887bb1877a1c9dbac8f7b1084d1063d0866cceb7e316e3"
-    sha256 cellar: :any,                 arm64_sequoia: "c043dd88af99227da093e9ef7a1136c3312aad202434a400b72aaefffdca1ded"
-    sha256 cellar: :any,                 arm64_sonoma:  "c0589e76ede2fd9ba0e3b72cfc76a8cfaf8a532eb6cc5444a1758de771cdef4d"
-    sha256 cellar: :any,                 arm64_ventura: "753fb3e9dc9010f36e650e1314ed958b3e8ffcbf05eaa99c1bb4aa666dc85ca0"
-    sha256 cellar: :any,                 sonoma:        "7ee73700ab93a4c025d257cd971bda6ef2529d628209f432b2ca14194cc7aa4b"
-    sha256 cellar: :any,                 ventura:       "3b229907351bb11466ccf04ffa41d92f514d16f155842f5735ba9c4c8d0ada9b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ccad26bf750b09df6f7f3a4291360a1a3d172e295d7c8360a60a05e6dea8f4b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "241acb246366f78df065cba11917cc41845b185c520ca0632d5bf14d03c505db"
+    sha256 cellar: :any,                 arm64_tahoe:   "f91fb927cb73a86eaec23244cbadc075103a0be7aae4dd8607ad8cbace61fc37"
+    sha256 cellar: :any,                 arm64_sequoia: "af56f7c9860c1cac7df366af4ef67f2468f22da0f86df6014d27a98842b77ffe"
+    sha256 cellar: :any,                 arm64_sonoma:  "f4f7470323f32eb3895d9c19a0029fe26e2721d08086c11c62b20f1e6cb67458"
+    sha256 cellar: :any,                 sonoma:        "bfa429b82f2bbe542a3d23468424fcbc71797539874436a401572a6d9d9fa23f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1782caca768915452beeee04c9432d715fdb26c74596664cd2a66ba52c2f51b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19589017b7367c465a31ecf568c1aeb238a6ab8d38fcba0a63a5f5bbdaa2e064"
   end
 
   depends_on "autoconf" => :build

@@ -4,16 +4,15 @@ class Pdftoipe < Formula
   url "https://github.com/otfried/ipe-tools/archive/refs/tags/v7.2.29.2.tar.gz"
   sha256 "c8de0dc7eb8fa959c96539fb19ebfb8e16f459e9b4ef9259aeb30b76072cd083"
   license "GPL-2.0-or-later"
-
-  no_autobump! because: :requires_manual_review
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "925ab674cfe54fa896be09d5955cbe34a8a6bd360d470f5b27138f6f54285f30"
-    sha256 cellar: :any,                 arm64_sequoia: "239e474e57bde672ebd95ce5080707dd19f53657e0758fb793f5a3bddabc22f3"
-    sha256 cellar: :any,                 arm64_sonoma:  "d678c4d7391400822f77932e1aec8c390f2bfe0319d23db8d873594a1ee37ec0"
-    sha256 cellar: :any,                 sonoma:        "e86b1e00edbb1a724aa885127946f79546dbc249e22faff0404aa815f1c3105d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "93193eb8c9f505cb67170d1f9ed201f1be0272256f4426c3b745f01d0d6c14e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6129577ea54ba9866d6a8bd8ef777fd1d8ed7c554f3dc994ebe5d01ec1500ec9"
+    sha256 cellar: :any,                 arm64_tahoe:   "7b0514955c452b9caac3b8fe502f4b1aa3eb6c05666002e0b39d0ea3f76ce91f"
+    sha256 cellar: :any,                 arm64_sequoia: "4eb658e9e51ce83bd51a0a8e40f3cfd5cad8642e2d44bab8f0d7a6ef4733bad5"
+    sha256 cellar: :any,                 arm64_sonoma:  "991c0fabc47c9bc3f94110137b364f23c9f1cc46a0acd680c7f554d63039f7b9"
+    sha256 cellar: :any,                 sonoma:        "32faef4740ea692d32d316e2b5f87e2b989274dfea7796f396d8e314e2e1e941"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "118fdfe3d540b443edf3f3b1bb874b58d5855e11f4c13c93ceaa724a4f5a3ef4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91a47d78a7cdc55924649eaa4987a062a0f84e00c0909d59d63303129e3d74cf"
   end
 
   depends_on "pkgconf" => :build

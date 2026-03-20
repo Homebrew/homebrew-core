@@ -1,18 +1,18 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftpmirror.gnu.org/gnu/gnunet/gnunet-0.26.2.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/gnunet/gnunet-0.26.2.tar.gz"
-  sha256 "8fd2dc4e6eaac0dc8d828d4e2a5afc271bd77d2b820de2f0cba7589ab30ce46e"
+  url "https://ftpmirror.gnu.org/gnu/gnunet/gnunet-0.27.0.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/gnunet/gnunet-0.27.0.tar.gz"
+  sha256 "9dd8feb3f3b8d0993766a49ab618f80bb93017f3bc795b6dda84697397302a07"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "745b60dc91143a7bf3bf54910b06812b4e97d97a05123ea8416a00d8bb345c22"
-    sha256 cellar: :any, arm64_sequoia: "42a83e9648276a12e3bd4636fdc96a86b1841ec5ff5e9789a6eb7e0fd312409e"
-    sha256 cellar: :any, arm64_sonoma:  "2f43e93423c6c685429847b8acdcc255164b7be93419c429d950cc3db510e0e5"
-    sha256 cellar: :any, sonoma:        "2f5cfe3cded73e0b021088c75650cf12b89e89599d1ad7a5d91be9672d7c0291"
-    sha256               arm64_linux:   "c2d3eabe9e8c33588504e61e462c7df1104447de37641b7c966bec2e7445c0ce"
-    sha256               x86_64_linux:  "7bd8dec99aad1a7e10c9a88935715f929819d59c5ec3955216400d1dfa52cd5c"
+    sha256 cellar: :any, arm64_tahoe:   "056d46173e490e99d20a9a745bc5aa663f9848cc06131ad6ecfa9b04b6ac6f59"
+    sha256 cellar: :any, arm64_sequoia: "4ea40d021709b5effb91c1599c92cc61ed38db01c4ad9e20a99a2fb5ceddad12"
+    sha256 cellar: :any, arm64_sonoma:  "39dffccef2f229ea2ee723bdaf15f9c35ca5ac97046bc302479a2b74c5a02fce"
+    sha256 cellar: :any, sonoma:        "29c2c40b192f09055ce531bdf0959a570739cd0c2b704a4fcc6f6cb5385e92cf"
+    sha256               arm64_linux:   "1af534f987e8bb580f89808a4e273da007d7d69baea284cb64d8ef278ea37273"
+    sha256               x86_64_linux:  "2e09b29bffd50dc8efbb3c5c2a191ca72a6101a99f233c449b049aec20d7af95"
   end
 
   depends_on "meson" => :build
@@ -32,10 +32,13 @@ class Gnunet < Formula
 
   uses_from_macos "curl", since: :ventura # needs curl >= 7.85.0
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libgpg-error"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

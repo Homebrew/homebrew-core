@@ -6,8 +6,6 @@ class Pachi < Formula
   license "GPL-2.0-only"
   head "https://github.com/pasky/pachi.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "3fc9dffa9c09610c0e425d534cfbffbf06ab07ad152c54772d36f7961ce6be33"
     sha256 arm64_sequoia:  "fd4a7a487d1c0d4c7597970a99008f0def56e08ae402d1d63832b0b5d41f2823"

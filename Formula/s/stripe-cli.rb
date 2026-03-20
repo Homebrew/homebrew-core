@@ -1,17 +1,17 @@
 class StripeCli < Formula
   desc "Command-line tool for Stripe"
   homepage "https://docs.stripe.com/stripe-cli"
-  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.35.0.tar.gz"
-  sha256 "8a3867c0f119556245e34913c55cd74d540fd517a1d49a9bc623f33bfa2562b8"
+  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.37.8.tar.gz"
+  sha256 "9ffb414ce79770252ba0ec78a0a72ebd74a89e1df0400a2292c3a4c2e7fc5b7f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bc79a9c6ba52a5e108f8482d2e2be56ca4f54996ad75dad73583d3809a073b27"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "560cd018b9024feddbd988b6ce0b958d3d5fcbefba454f553f594eea71917705"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a6f6d56daa179a1b9da40a95d6a09e839cdeb1cd3bd72e58f8ca8afba395f595"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1b0ff323441b0d1691efa5eda5b4e7c24afc95dbe13411f26f6677e52e8f121d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ffb7e166bba9d9226bc0d998a2831b87c8dfaaa7fbde8a557422e6c4f1c0c4c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e02b5a22542733d14c7924d13a1095f96d56a2d0d9ba389d11144dcfb57a0537"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2c198cd6deb2277fc6cd203baf45f690fcd43ab20456844031cbf769b299bd13"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "62b6a642037cc0d29878e114c5d0c7c3684383dcf04ca401c308655dc27189c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8ac202f60f6580ba6c2e4965e0aa561bd489b5b7b0e4be66a5cba16894d2278d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cdf986c07e5c26a351376337cc00565d34891f556c9b4df21bdd33c748cae995"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e93d22bdbcff0573dd1e96b44cfc04d844aabd138c93d903c83c592654c28dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "575e2395331a2b77a85b248e76cb47e4cbadc18e32f00249ebbfae2ed55501fa"
   end
 
   depends_on "go" => :build

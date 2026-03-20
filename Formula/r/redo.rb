@@ -8,8 +8,6 @@ class Redo < Formula
   license "Apache-2.0"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 7
     sha256 cellar: :any_skip_relocation, all: "fb1815e2abd0a29b23eb4fe2111213fa1942ec1e48bb53d40601a5a06e7ccb26"

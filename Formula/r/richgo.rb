@@ -6,8 +6,6 @@ class Richgo < Formula
   license "MIT"
   head "https://github.com/kyoh86/richgo.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f1b78098f87488a5c1b495ff94ce40d6734d11a6db077b03356fe7d281cccbb"

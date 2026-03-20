@@ -1,8 +1,8 @@
 class KimApi < Formula
   desc "Knowledgebase of Interatomic Models (KIM) API"
   homepage "https://openkim.org"
-  url "https://s3.openkim.org/kim-api/kim-api-2.4.1.txz"
-  sha256 "225e3136d43e416a4424551e9e5f6d92cc6ecfe11389a1b6e97d6dcdfed83d44"
+  url "https://s3.openkim.org/kim-api/kim-api-2.4.2.txz"
+  sha256 "1710bd6ceaea093062e000d2308719c51cc0a2d2def1bdcb0a03df8ed867b11f"
   license "CDDL-1.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class KimApi < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "d79142cae17a24d254880b026a8137762fe02c82bed8f3b7350f18a8ffd5dda8"
-    sha256 cellar: :any,                 arm64_sequoia: "6f92c783490359b5af15dca8d0b8384392640aedecbb60690c11ebe3cb3f6e54"
-    sha256 cellar: :any,                 arm64_sonoma:  "e0c81eb361cbad87a74edfff4746cc111516a16227b1e771d9bbfc1e12681fe7"
-    sha256 cellar: :any,                 sonoma:        "cdf27f43903be385039cf5807c405594077dab622db22ca2b6769852386ccbd5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7e993a48b7e16c52e42273e60fca86c3c3a7020ebde221107bfe9cc5478c29e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "471b9f1da935d02529fee88ca227059900744cd0d61444ae94e5e0a3f6f8198e"
+    sha256 cellar: :any,                 arm64_tahoe:   "f0d402382a7e3acc25fadf264e845cfd38ce6d90f3655c378131733b12b423ca"
+    sha256 cellar: :any,                 arm64_sequoia: "1181985a7e96785c5ddc7260827b287d0d0903252dc8b3322f0a99cff91be5ea"
+    sha256 cellar: :any,                 arm64_sonoma:  "a1c9e33c70217ca4bab42c68fcd75dc9f3fe85cde8b93921068d907bb66e7d56"
+    sha256 cellar: :any,                 sonoma:        "7c2d3a557941e0592e68277f76e7313d3c29587622e5c073fed418c68de78f01"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "be9b43027b8e9b74b00523c55967e4473cdf1d8eb0502d30e591b804d76a0512"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89ab47d448baf6377f979a0c78ba00c1b5b85faa8d14a3a74026ba40df4edfea"
   end
 
   depends_on "cmake" => :build

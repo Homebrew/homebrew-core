@@ -6,20 +6,21 @@ class Makensis < Formula
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2977f4bff74d9073ff6a05a8a072f30b8263137b39fa51094ef816d6b58c6a00"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "edd2d0dcc5ca368334522b123210e7d9d3336efc5e0091f12500fa02a8e304d8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "065f088b4c9681f571c8e73b76bcd730ac34b5ab86ac011707d31b28479b8533"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "71dd1af5b0c2c9a040bac2d58965ba3141dbb2c23a95f36d7ad7fb2b2e1b40fa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "985171f35c2c617499f333b4926367ee656660b85e9a83c045a691633e1af9d1"
-    sha256 cellar: :any_skip_relocation, ventura:       "b41b708bb2a20b5f006d3123070d7a9d16c02796201a86fa5456b7673a299994"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "232ea0628f6282522669f5d4763bfe740ce920696e1f4fb0e5c68f4eabc186c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c8e1672901d8376fcbcc0579302f0338629852fde0a262cdab694613fe89785"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "37bf97b867b0e8d8dd1322e5e330a2345d941934417e1c7bc956dd6ef02f265d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "788a8a8f9daabfadfa6a8e57574cbf7761fe148758fb757217855f87719b52ea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84d006d850db7d168f29ab56ca64ae67321e01111fb146c93aa6d4f25a006146"
+    sha256 cellar: :any_skip_relocation, sonoma:        "031c1099e339009d054af61e9665dad745136eec93085b639c2bc8f2d0e30b4e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "668f6299c22e38c737e7b56d9843bc0d8d50a65d0433626a4a05667841cc393d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "591f9144c014b90068724623f2b6acee6e58ea6811e2c1ffc99c0d9dd2dbf0f3"
   end
 
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "nsis" do
     url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.11/nsis-3.11.zip"
@@ -32,7 +33,7 @@ class Makensis < Formula
 
   def install
     if OS.linux?
-      ENV.append_to_cflags "-I#{Formula["zlib"].opt_include}"
+      ENV.append_to_cflags "-I#{Formula["zlib-ng-compat"].opt_include}"
       ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
     end
 

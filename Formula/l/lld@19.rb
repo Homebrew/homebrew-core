@@ -7,20 +7,17 @@ class LldAT19 < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   livecheck do
-    formula "llvm@19"
+    skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "db755b343e7fbf13bffe78d21c4e844f0aa5046f74a88a605608ad27cee6e980"
-    sha256 cellar: :any,                 arm64_sequoia: "e8e71f728007bf1d4b8941fd08e8f80ba22c4828671145bd59c6358c750cb92f"
-    sha256 cellar: :any,                 arm64_sonoma:  "083f908ec5c6b6d667a5c43cb737d2a826a83be781dda8856640e372ac4c0b2b"
-    sha256 cellar: :any,                 arm64_ventura: "5bc9959a85616afc59418594aae9cae42e907738c2f57beac74332132c791619"
-    sha256 cellar: :any,                 sonoma:        "ed20ffe6301dcc2dc7c2e7e1197cdb4d3b210fe75e9b3f525edf6fe2f29929e0"
-    sha256 cellar: :any,                 ventura:       "d7395e5c60ce34541002e3be335463a81cb168f859dbcdbbaa01d985fb451c5b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aae1ed5877dbc2837f9b02547fed455965914eb45bf6d6e40d8ffce97f0ee77f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8d2ef191e0b229ac246866dc5e017f9e39ce350410ce2e1141c468924314bdb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9ddd9901b7878ee213380fac1b20ea3623f69071bda4d78582762434604c21d6"
+    sha256 cellar: :any,                 arm64_sequoia: "91bf5d8928c18a461e1b3223513526b176194a7873597eaf21298aee1fc1510a"
+    sha256 cellar: :any,                 arm64_sonoma:  "58080e6765d2bb2177de344b622f7084a1d0897a6925888a561cac99f34113f5"
+    sha256 cellar: :any,                 sonoma:        "363576465702b57491a005d7ba9a12aa03b147810bfd8ef3ae563d608427a00d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d3245e8959335acaadec464c1a92d26416c5d9a4b0bb9ea7f3d9b7e28569ed84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e1a6298d29b4b92b99d00c31e753d77ad3a9f4a70b7e27efc5fc37407723405"
   end
 
   keg_only :versioned_formula
@@ -28,7 +25,10 @@ class LldAT19 < Formula
   depends_on "cmake" => :build
   depends_on "llvm@19"
   depends_on "zstd"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     rpaths = [rpath]

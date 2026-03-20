@@ -7,12 +7,13 @@ class Stgit < Formula
   head "https://github.com/stacked-git/stgit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cfa705de0e5b9cf7922189296afc03f16fef2811f5c24cedbe5c135d5cb95429"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "865742c4070ee13e3c4748ac2bcae3922f672ab08ddaa79ca8464460e35d4cf3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0cff8da4697cfc9c7194d8ea374f17a1a91294034f4100cfb4f2f4b8a8e66c4b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "af4ca09482dab011146d4a1a2f70b9ec064ccd206746dcfa2239d64ef49235aa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c269dbb61d372efc698fe438f201358a25799455964580b5759d7af287a21394"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f763cbd3a555abae3450c8d3bd755f1cc6def5ecec49d20764653a38f9875fcc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2245c222ebdc50df69174e08fca409001fa02cc99834cac0a475c1a3394c3f18"
+    sha256 cellar: :any,                 arm64_sequoia: "0ef7c40a70e9e127f869c3dfc533655d59dc8269118af2b3aeea7f9bcd952333"
+    sha256 cellar: :any,                 arm64_sonoma:  "b10ad29537f513ca8610cfad69ae4edc674a8cb6c357cb9c1144153803baa125"
+    sha256 cellar: :any,                 sonoma:        "ab4711c2838f32cbe2a605b5475b67026db843aec069749f08e280716d68df26"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "292c59af8ad6eece0537482b16abaf7e65b8ba7c56cd251e2aa3bf98fde34619"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "429022ab9a5b49d42b49966aec2a1dfec8049e50abda14c6b790da3028cf4a7b"
   end
 
   depends_on "asciidoc" => :build
@@ -22,7 +23,14 @@ class Stgit < Formula
   depends_on "git"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libiconv"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"

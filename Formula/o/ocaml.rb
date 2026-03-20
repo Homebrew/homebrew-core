@@ -23,8 +23,6 @@ class Ocaml < Formula
     regex(%r{href=.*?/releases/v?(\d+(?:\.\d+)+)/?["']}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256               arm64_tahoe:   "9e52a52b1b531cb999c24f7f7d524f840b4630a376c3888c5e91875d15cda6ce"
     sha256               arm64_sequoia: "0e269db9117ff10e44a62f85521a46f85da8c1dca79915795776f3a0f26ab5a5"

@@ -5,8 +5,6 @@ class Openslp < Formula
   sha256 "924337a2a8e5be043ebaea2a78365c7427ac6e9cee24610a0780808b2ba7579b"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "03318a808866a33ea675a2520d6d889c9aa74f6817b9a30bed9bbc0cf4a6938d"

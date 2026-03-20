@@ -6,19 +6,14 @@ class Comby < Formula
   license "Apache-2.0"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any, arm64_tahoe:    "e1ce03e0fb0b0363900de5e46b8be9a46cefe3cf343ea7da2a3e8627a83c6975"
-    sha256 cellar: :any, arm64_sequoia:  "02e4b812a3a7196017189b30aba83d058f72fbe37107c554c517538eeb153fee"
-    sha256 cellar: :any, arm64_sonoma:   "6547d31a4235741700836ce54b0fdf64bbc0ca2ac42e31ce003c1d86bef079f0"
-    sha256 cellar: :any, arm64_ventura:  "0c2cc4ae48e83842879b731399da84e9eb6891bf2c62a10087250db18c257a38"
-    sha256 cellar: :any, arm64_monterey: "c5e30b40a5bfca4e550da1ff541deeb4a467eef42298de85c72110e373b68c11"
-    sha256 cellar: :any, sonoma:         "1d1399b5fb4f1c0c1fc167a8a758392a8e7fd261ee351f40460079d110dbc27b"
-    sha256 cellar: :any, ventura:        "615cb295eabe9a99891de27aff6950ce729664949a92c705b5e5ce1d61f20687"
-    sha256 cellar: :any, monterey:       "660da52140d4812766f9f942966068c6076d8122b41dfc2a2a2c21e0de2066cb"
-    sha256               arm64_linux:    "09a23c45c18a469df962efd914eb19de9b967f1dd63dd21f9124733f31434e54"
-    sha256               x86_64_linux:   "6a87649180d98f7555771ceb9d6062a1ce98f2aaaff996f52f9f8249bf300a8c"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "a14c34f746c83276aab070a8b4c374fb67e3a2226a889dfaa2074f4fa25dfa7c"
+    sha256 cellar: :any, arm64_sequoia: "e9e977b807fdf51032eb7f7c28abad907dca2669ec81533e76b00ce0534eb740"
+    sha256 cellar: :any, arm64_sonoma:  "6eb60059840e52ae180b9047f35ec501c7a1018a129561470841c7a5d688cecf"
+    sha256 cellar: :any, sonoma:        "b0f4a77f35f43d41ae307751856fa7c45adfef51610814a502178d5f59b2a294"
+    sha256               arm64_linux:   "a8d1c6ed89c97eb202e20f69ac97e7ff2d66f219779af199cf2a84f1773e3587"
+    sha256               x86_64_linux:  "9712877884110dfdc5b25e2bd9ac75960ebecafb5191669894680123bd767664"
   end
 
   # https://github.com/comby-tools/comby/issues/358
@@ -39,7 +34,6 @@ class Comby < Formula
   uses_from_macos "m4"
   uses_from_macos "sqlite"
   uses_from_macos "unzip"
-  uses_from_macos "zlib"
 
   # Workaround for error due to `-mpopcnt` on arm64 macOS with Xcode 16.3+.
   # TODO: Remove once base >= 0.17.3 or if fix is backported to 0.14 and released
@@ -57,6 +51,10 @@ class Comby < Formula
         sha256 "07654aaab7e891ccae019d008155aaf2a48cfd64b5dc402c0779554d6e59967a"
       end
     end
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

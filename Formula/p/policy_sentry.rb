@@ -6,16 +6,16 @@ class PolicySentry < Formula
   url "https://files.pythonhosted.org/packages/2d/84/fc0594aead9d0bae80251f1415c0c76b053d7abeb2fd9a69a3993d88f6ec/policy_sentry-0.15.1.tar.gz"
   sha256 "5ab684b1a26970e33e7e8cb028eec93f1483616fb483c1c09568858a42983a30"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/salesforce/policy_sentry.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "31e5634165dcc2a6e7644943ed850a23e3562e4c2cab8e2cf591a8b5341ec39c"
-    sha256 cellar: :any,                 arm64_sequoia: "836c8cfc3d4bce688cf7bee63ff5bfdeb7b1cba12f7403db19a1060b7b02c3cb"
-    sha256 cellar: :any,                 arm64_sonoma:  "93450dd2786f074b8f8d0d293a3fafbf7ed0aa9f8f095e2239d5cd35ad012690"
-    sha256 cellar: :any,                 sonoma:        "46bd05dd8b27ae3663abb605253848156d98bfeae932705328bd054e3c04c6c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b43a6623a56759c2454e08e2c2e04c71fc3b04b45031c54c56b367efd2b3b78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9af54e08154c456233abde208c8f656ce9bacdb3dadd52addd169c2bff9d9cd"
+    sha256 cellar: :any,                 arm64_tahoe:   "9d9df1904c9ea1ae80dae531ce8a4739b413322b67a71ee0cd4c67ff0f6b9018"
+    sha256 cellar: :any,                 arm64_sequoia: "e149d44a3da17f3d9ae360cf771d9b02af1962f7a4af44deb9e4e41fd0587e99"
+    sha256 cellar: :any,                 arm64_sonoma:  "fabbd1dc4d0927c7f2a86d44774d34854e4382ff161027b1121aa1cd07f6df44"
+    sha256 cellar: :any,                 sonoma:        "c7956a4fc321e509c7f88854400010fe5d39a61bebe36e35ae2f248d2e21015b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "95ed3583e9ef57bf547a36db1f5d1fa513cb3c1547595080dbe93d7526fff497"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d4cb3105d52779084cf7ffb53245843168c4d7c9a4db0a808621a805de6d1d0"
   end
 
   depends_on "rust" => :build # for orjson
@@ -31,8 +31,8 @@ class PolicySentry < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/1d/35/02daf95b9cd686320bb622eb148792655c9412dbb9b67abb5694e5910a24/charset_normalizer-3.4.5.tar.gz"
+    sha256 "95adae7b6c42a6c5b5b559b1a99149f090a57128155daeea91732c8d970d8644"
   end
 
   resource "click" do
@@ -46,8 +46,8 @@ class PolicySentry < Formula
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/04/b8/333fdb27840f3bf04022d21b654a35f58e15407183aeb16f3b41aa053446/orjson-3.11.5.tar.gz"
-    sha256 "82393ab47b4fe44ffd0a7659fa9cfaacc717eb617c93cde83795f14af5c2e9d5"
+    url "https://files.pythonhosted.org/packages/53/45/b268004f745ede84e5798b48ee12b05129d19235d0e15267aa57dcdb400b/orjson-3.11.7.tar.gz"
+    sha256 "9b1a67243945819ce55d24a30b59d6a168e86220452d2c96f4d1f093e71c0c49"
   end
 
   resource "pyyaml" do
@@ -66,8 +66,8 @@ class PolicySentry < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/89/23/adf3796d740536d63a6fbda113d07e60c734b6ed5d3058d1e47fc0495e47/soupsieve-2.8.1.tar.gz"
-    sha256 "4cf733bc50fa805f5df4b8ef4740fc0e0fa6218cf3006269afd3f9d6d80fd350"
+    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
+    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
   end
 
   resource "typing-extensions" do

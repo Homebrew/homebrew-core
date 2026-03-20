@@ -7,8 +7,6 @@ class ActivemqCpp < Formula
   license "Apache-2.0"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "a0f11adf35cbc7f7295a0d056b8255af8d54bab66c242fa31704f54070aaa1a7"
     sha256 cellar: :any,                 arm64_sequoia:  "9662d2f91d16d3077aabec66a532efde437d18987dd1a7be434e3c118a5e1eb9"

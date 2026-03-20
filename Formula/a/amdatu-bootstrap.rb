@@ -6,7 +6,7 @@ class AmdatuBootstrap < Formula
   license "Apache-2.0"
   revision 2
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 1

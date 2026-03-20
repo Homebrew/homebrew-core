@@ -9,8 +9,6 @@ class YelpTools < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "aadb2689c5b993d7f4905f462f40ef9f83c2460e35122d580da4e7fd5303b3db"
     sha256 cellar: :any,                 arm64_sequoia: "194d205a98e507aa391c1ee0df60a573a1f208cf18c44a8818de61fbe2cfea0c"

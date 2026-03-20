@@ -1,6 +1,7 @@
 class Dpp < Formula
   desc "Directly include C headers in D source code"
   homepage "https://github.com/atilaneves/dpp"
+  # TODO: Remove `sumtype` resource in the next release
   url "https://github.com/atilaneves/dpp.git",
       tag:      "v0.6.0",
       revision: "9c2b175b32cc46581a94a7ee1c0026f0cda045fc"
@@ -29,6 +30,13 @@ class Dpp < Formula
   resource "libclang" do
     url "https://code.dlang.org/packages/libclang/0.3.3.zip"
     sha256 "281b1b02f96c06ef812c7069e6b7de951f10c9e1962fdcfead367f9244e77529"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/atilaneves/dpp/refs/tags/v#{LATEST_VERSION}/dub.selections.json"
+      strategy :json do |json|
+        json.dig("versions", "libclang")
+      end
+    end
   end
 
   resource "sumtype" do
@@ -39,6 +47,13 @@ class Dpp < Formula
   resource "unit-threaded" do
     url "https://code.dlang.org/packages/unit-threaded/2.1.9.zip"
     sha256 "1e06684e7f542e2c3d20f3b0f6179c16af2d80806a3a322d819aec62b6446d74"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/atilaneves/dpp/refs/tags/v#{LATEST_VERSION}/dub.selections.json"
+      strategy :json do |json|
+        json.dig("versions", "unit-threaded")
+      end
+    end
   end
 
   def install

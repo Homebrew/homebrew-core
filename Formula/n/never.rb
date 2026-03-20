@@ -11,8 +11,6 @@ class Never < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "56ada0c97c552e92c8b84dadd236772dcf5b2c6315390f32a4fe99baf0481fff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1ec72ae68f2d53ebd8a8e21e712726b4b0ed35f083e95a7752db9ef4df9d2814"

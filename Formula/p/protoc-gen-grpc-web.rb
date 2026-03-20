@@ -4,7 +4,7 @@ class ProtocGenGrpcWeb < Formula
   url "https://github.com/grpc/grpc-web/archive/refs/tags/2.0.2.tar.gz"
   sha256 "0f0c8c0c1104306d67dad678be7c14efe52a698795a58b2b72ab67a8bb100c15"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class ProtocGenGrpcWeb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9af493e95682f631439158b401f97298ce962cb800b7b9124669c771f4a8765d"
-    sha256 cellar: :any,                 arm64_sequoia: "eb6bb14dcfe3c1aa89abfdbb933c09f33626c2b6b4c5de5666986692e6364cc1"
-    sha256 cellar: :any,                 arm64_sonoma:  "b8856c973c1d821803a2616b22275f4c94b5ae4bb3390990e53044fad0a063b4"
-    sha256 cellar: :any,                 sonoma:        "ec9590373e9414070067925b83954e9920957c631ff740478eeb14775d9b9776"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b32d54f7a13da54578aa4fea781eeb4981343354d839caa42fe5ccaa1722d5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a78f69a6baf9b44939f78c40f7b73ea85de1a4fd87f0cddd7f5958eb494fbd70"
+    sha256 cellar: :any,                 arm64_tahoe:   "01e1a6986e6d6270ce5ed29e94d619285fcecb7334d35a216cde210e18191d84"
+    sha256 cellar: :any,                 arm64_sequoia: "c8bf0dab8dcc53e13b636e99164b0f6b878eaa47c0672337435be9fd06138d87"
+    sha256 cellar: :any,                 arm64_sonoma:  "498a819a0a45f7b0358aa6ceb20d8a063a0a5e8189c7c41b1b37393715322582"
+    sha256 cellar: :any,                 sonoma:        "7f136a33bda68450cd1e5bf62f0a6a8687cbeaf3eda428f7c1c2cadb535267ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ea14c30f166c04e7682aae5b679ce641a219b1d2418a742a71e6b0508906d46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e344960398e594495b8a0e3c5d656c518bf0104bbc1b73053da903480358e7b5"
   end
 
   depends_on "cmake" => :build

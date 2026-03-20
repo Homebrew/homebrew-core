@@ -18,7 +18,7 @@ class ContainerDiff < Formula
   end
 
   deprecate! date: "2024-04-05", because: :repo_archived
-  disable! date: "2025-04-08", because: :repo_archived
+  disable! date: "2025-04-08", because: :repo_archived, replacement_formula: "diffoci"
 
   depends_on "go" => :build
 

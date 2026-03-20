@@ -10,8 +10,6 @@ class Ccfits < Formula
     regex(/href=.*v?(\d+(?:\.\d+)+)/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "e095d123708d4f5c4c57b26c82155a75405f6e19f29c955ac7b52f4121d2df1d"
     sha256 cellar: :any,                 arm64_sequoia: "da6f787ac55d5f93ad25617af795ac878443371ca2bab55bf9fd64736d592cfd"

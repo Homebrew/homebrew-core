@@ -5,8 +5,6 @@ class Bioawk < Formula
   sha256 "5cbef3f39b085daba45510ff450afcf943cfdfdd483a546c8a509d3075ff51b5"
   license "HPND"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dc8c77af3f46588cab03f40541d48dfa09fe06115be3be5c42495213ad7fa003"

@@ -6,18 +6,22 @@ class Tmx < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "33622bf420772d45c0204fb92ec1590b87d3369a58f763a6e114741485a542e7"
-    sha256 cellar: :any,                 arm64_sequoia: "e6dc29611a21a58d607b8f909c28da5fe03747e11b3b5deb6fd1772a02b1808a"
-    sha256 cellar: :any,                 arm64_sonoma:  "9d60c6c581f835bf59b0bc732cd0c8137e11c5c4e4ae2a52556dd85e17122ccd"
-    sha256 cellar: :any,                 sonoma:        "b02700086955197cb6eaf260927995d83661e158785b5f187ed1160b25f7ba66"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee63fd16c842235aea7f716fee0baccb34a34e6bc1902c0ba2902bc1c8cbea29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e57cc9a54b874ed75a89a4b559c02214b8535c52f44631d09a776c03a17f2a7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5f299ad5a15bd8980248c045bf1e4948b7033159bdbc7d8bd57890011f2be9fe"
+    sha256 cellar: :any,                 arm64_sequoia: "4dc24cd556641d149cc4ddd3a0a11d96d75e2a19e2dc7abfb728e5157a38f809"
+    sha256 cellar: :any,                 arm64_sonoma:  "085ced6177fc9a1390c4a401f517ea0bb4c92bc8c5e9aa00636b9442f830dc07"
+    sha256 cellar: :any,                 sonoma:        "7b7cb76c9a2a09de91b29dbe0ca5b940a1a170c432612918ec2fa3c407d79e9c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "304496df28bef1fc022139489fb5c5f428badd24aa3e4f30e8e03d618f0cec56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38bc73075f593d2ddc29c5eb7e7ce1728b4d3c1143d0d1160fcc06f9987d5dcc"
   end
 
   depends_on "cmake" => :build
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
@@ -55,7 +59,7 @@ class Tmx < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "#{lib}/#{shared_library("libtmx")}", "-lz", "-lxml2", "-o", "test"
+    system ENV.cc, "test.c", "#{lib}/#{shared_library("libtmx")}", "-lxml2", "-o", "test"
     system "./test"
   end
 end

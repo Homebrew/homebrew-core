@@ -10,8 +10,6 @@ class Gputils < Formula
     regex(%r{url=.*?/gputils[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "2320be53fb17f6a272346de555bd3aa73422f990493a92c24e693346e334f5e8"
     sha256 arm64_sequoia:  "002f4b80984f18e0c836c7672e342110f8a1fa7f8d45572acf70610361047d61"

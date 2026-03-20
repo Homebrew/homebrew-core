@@ -5,8 +5,6 @@ class Avra < Formula
   sha256 "cc56837be973d1a102dc6936a0b7235a1d716c0f7cd053bf77e0620577cff986"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "00e1f1cfce097d5ffae9d1c99fec5a225eddc92bf806227ee55aa50c585d442f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "761db2506786dee44f9e36284b588b38692bdef86870ebacf6d90472585627cd"

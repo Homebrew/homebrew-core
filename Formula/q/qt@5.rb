@@ -13,15 +13,14 @@ class QtAT5 < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cd8c7ae611392bd37adbb4627da29590a449364bf791eadbc844ab43af09a793"
-    sha256 cellar: :any,                 arm64_sequoia: "bf59af2d056ff752867e4a7644c5345294db703dd530b27a12696252a3d049cf"
-    sha256 cellar: :any,                 arm64_sonoma:  "ef8f1cad7f33032b321ef7ce0c615d6cc088858dd83348051d029b46cd2b1226"
-    sha256 cellar: :any,                 sonoma:        "2f51c28d5df0a599c59f83dba9b622bea6956711bc1faabd7d4aa1701000501b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d60e61eff3d32923ef688aaf8424b6db13ba03b3bb67027cc0bdceeabf8c8bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2a8a128dbd22813720394f555be69b3bde75e530e1b5d8257787caf77cba012"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "4ce6952f894ddae8cc4b0d7532b580884a2a8604d848eceb7e32d4dbbf97db5f"
+    sha256 cellar: :any,                 arm64_sequoia: "e3848bb310f2187e0698b5f4395efd9ff6b2da1ac4b3a637fb9a205476406fe4"
+    sha256 cellar: :any,                 arm64_sonoma:  "68637da482bcc8a3efc48aa389210e4bd2cfb7ddc425e68b0ec985e176516979"
+    sha256 cellar: :any,                 sonoma:        "b8366510a237752d4aa5902b3ed14bf77f3ea41e3b305fdf2d81aeaeb46b5c39"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6e96dedd3e8f3870c47e389dfa3396823f161d0fce6bfaa1f9d730cdb82aa15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17c739d5396293f1220ae0750b75fd533b0a11653615373f8362184cdd38e3ab"
   end
 
   keg_only :versioned_formula
@@ -55,7 +54,6 @@ class QtAT5 < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -86,6 +84,7 @@ class QtAT5 < Formula
     depends_on "xcb-util-keysyms"
     depends_on "xcb-util-renderutil"
     depends_on "xcb-util-wm"
+    depends_on "zlib-ng-compat"
   end
 
   # Fix build with ICU 75

@@ -11,8 +11,6 @@ class Libspectre < Formula
     regex(/href=.*?libspectre[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "827462a01392f7b4ba24ec5b45ea4aeee0e7e0a674efe43d5b0e52ffeb150bf0"
     sha256 cellar: :any,                 arm64_sequoia: "d9e00969398b5ccd244aed543e3a6468f56e07dbc1939d7bde6b4b9d19701001"

@@ -10,8 +10,6 @@ class Backupninja < Formula
     regex(/^backupninja[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9df3e07340b1c7c046d9d83009c271cb27105940e6be345a50013abcd04357b"
@@ -22,17 +20,22 @@ class Backupninja < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1b2ff8288fc767429a63559e1c4a59bee787610a32ed320cd34d57492885f65"
   end
 
-  depends_on "bash"
   depends_on "dialog"
-  depends_on "gawk"
+
+  on_macos do
+    depends_on "bash"
+  end
 
   def install
-    system "./configure", "BASH=#{Formula["bash"].opt_bin}/bash",
-                          "--disable-silent-rules",
-                          "--sysconfdir=#{etc}",
-                          "--localstatedir=#{var}",
-                          *std_configure_args
-    system "make", "install", "SED=sed"
+    args = %W[
+      --disable-silent-rules
+      --sysconfdir=#{etc}
+      --localstatedir=#{var}
+    ]
+    args << "BASH=#{Formula["bash"].opt_bin}/bash" if OS.mac?
+
+    system "./configure", *args, *std_configure_args
+    system "make", "install"
     (var/"log").mkpath
   end
 

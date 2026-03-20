@@ -11,11 +11,12 @@ class Klee < Formula
   head "https://github.com/klee/klee.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "421635321178c30ef79f3aa342d7df9bfd7968b7bd6f3b02fbdf42623e80dca2"
-    sha256 arm64_sequoia: "b8f260fadb301622f193e9466a8734bb8530d17f93590a3e74651a7f143c7e6e"
-    sha256 arm64_sonoma:  "c62509d999dd15e6f2116139e6b44cffc8a6a1ddcd5a55f8c1cca142070bb0ad"
-    sha256 sonoma:        "38c8d19adcd33cfea3175f0eca22d3ecf2f762766140b3bb552e3c3e45ad8455"
-    sha256 x86_64_linux:  "75128bdec9c7cbe12b19d81c974fdeab261f999271f4dcd876e797cfc8243b11"
+    rebuild 1
+    sha256 arm64_tahoe:   "5a6b573c25130976ca751247e04d9fccb13fcaed6c509c4c6b4fdad39344c470"
+    sha256 arm64_sequoia: "2a75e77d76dbf1c19948be54c31e5ea6f0f555ffb61a33919cc3c2594c03559d"
+    sha256 arm64_sonoma:  "c6e8559baf8e80ac61123eff04d32fed8523b2760dd8982f6041902b7a921f14"
+    sha256 sonoma:        "c5da5c3aa76ee6df601a07b20bc4c2c31ed07730a80d31764338a0684cf7318a"
+    sha256 x86_64_linux:  "92dd88ee1ef927f42257db072817fa552f0040c9cecb3128792de3643f1faf32"
   end
 
   depends_on "cmake" => :build
@@ -29,8 +30,6 @@ class Klee < Formula
   depends_on "wllvm"
   depends_on "z3"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "cryptominisat"
     depends_on "gmp"
@@ -42,6 +41,7 @@ class Klee < Formula
     # * https://github.com/klee/klee/issues/1670
     # * https://github.com/klee/klee/issues/1767
     depends_on arch: :x86_64
+    depends_on "zlib-ng-compat"
   end
 
   # klee needs a version of libc++ compiled with wllvm

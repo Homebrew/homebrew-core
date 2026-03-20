@@ -22,8 +22,6 @@ class Frege < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "644724d94a5b46f40c49bd15c1e979a4cbb06c73d018891245c4ae69c46bbd23"

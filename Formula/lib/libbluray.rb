@@ -1,10 +1,9 @@
 class Libbluray < Formula
   desc "Blu-Ray disc playback library for media players like VLC"
   homepage "https://www.videolan.org/developers/libbluray.html"
-  url "https://download.videolan.org/videolan/libbluray/1.4.0/libbluray-1.4.0.tar.xz"
-  sha256 "77937baf07eadda4b2b311cf3af4c50269d2ea3165041f5843d96476c4c92777"
+  url "https://download.videolan.org/videolan/libbluray/1.4.1/libbluray-1.4.1.tar.xz"
+  sha256 "76b5dc40097f28dca4ebb009c98ed51321b2927453f75cc72cf74acd09b9f449"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://code.videolan.org/videolan/libbluray.git", branch: "master"
 
   livecheck do
@@ -12,15 +11,13 @@ class Libbluray < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "0ec773a6a338ab74b0e563a13065853d94252ff2c8adbbe5758bed9086d052de"
-    sha256 cellar: :any, arm64_sequoia: "b14c0952114a372fe73e50c6110b8970e01e6e0d5227c5357bc0080a0a0033c6"
-    sha256 cellar: :any, arm64_sonoma:  "dbe261eb5439a5343510b81e30df6c594a92fc9cedd079ada19b2f8967d26541"
-    sha256 cellar: :any, sonoma:        "fa37611ed58f0f605ed1851b67c3b06ea40072b08f2470b82aaa2d831e94bf03"
-    sha256               arm64_linux:   "ed084dfc530c28566bf359d39ca0c163e996c9fba68ebc96446e83e2638ed68f"
-    sha256               x86_64_linux:  "e31331a46d51e377ef252a0ed10aec41479d35dd99e58a67c2420dfc419cd901"
+    sha256 cellar: :any, arm64_tahoe:   "3895fef0bbc04ee7271992f3908569416a67d97efba1c492a4ccc053de0a89c3"
+    sha256 cellar: :any, arm64_sequoia: "f20ad084fb722697dd0658fb7de27d94497f5849fd18fa3aacba1e2ea664fbc6"
+    sha256 cellar: :any, arm64_sonoma:  "fa3daea45cc9170bcb15d3d8fd7b238ebdb75ec241afe1488d57dbd7559d9982"
+    sha256 cellar: :any, sonoma:        "1aa87a3cf82c6b914c78856a9283e838e1d7426f4d1377537dae81e1041f64b0"
+    sha256               arm64_linux:   "0839ef787f9411f8056674b5f7e1dd7e68d5b5df330a11ed1e845f1635683ef1"
+    sha256               x86_64_linux:  "153b38bf91479d363e0dcaaef4ddebc96793a7db980baa3993a56f5a0082e477"
   end
 
   depends_on "meson" => :build

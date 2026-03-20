@@ -5,8 +5,6 @@ class FastqTools < Formula
   sha256 "0cd7436e81129090e707f69695682df80623b06448d95df483e572c61ddf538e"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "f57dd1230850ef71d77be3507a7b7067f4d0a22eb574fffc98c1f5fe1a62bbe4"
     sha256 cellar: :any,                 arm64_sequoia:  "676774cb2b0ed5421d985f2e97120b61d9b0e376b21ca90415bf6e25ba98407a"

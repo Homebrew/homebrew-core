@@ -1,9 +1,10 @@
 class NodeAT24 < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v24.13.1/node-v24.13.1.tar.xz"
-  sha256 "b227bc868fb5e9ec8670620e2b25530eb12c17d43e6c7bc51bb38a660684192d"
+  url "https://nodejs.org/dist/v24.14.0/node-v24.14.0.tar.xz"
+  sha256 "9fe025ef4028aba95d16e7810518bf4a5e8abfb0bdc07d8a3fdbb0afd538d77f"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -11,12 +12,12 @@ class NodeAT24 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5c130e19101ef72440c003c6fafad14a3eeafe25aa490428ed38ac1563df1264"
-    sha256 cellar: :any,                 arm64_sequoia: "5208506a43462d1227af7be38fa5f77bb878a0a67ec7a05098bc44cd0d0ebdd0"
-    sha256 cellar: :any,                 arm64_sonoma:  "deb669019d79ba01c91459e664ca8beaf38f5c62087dcb762b3f6d92fc3c8dbc"
-    sha256 cellar: :any,                 sonoma:        "c8c189a406f1519c3d0bd60efb1de91b977009c86a7eba252dbc244fa6a8449e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "94ff38077e5b0b1b69af648795ae80ae1f7a951a710f3f7082737bd11e0bf67f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ae54dd9f812a40486b61c9172f4f12cc58cd9e48973ce6c372ad48ff3a82bb5"
+    sha256 cellar: :any,                 arm64_tahoe:   "504865176e329ffa05b4ca665f3b8bbb5dda8eeba0fa79bfd0f398ac786c3030"
+    sha256 cellar: :any,                 arm64_sequoia: "e1bca60121cf55e298f42ff52a772fa18651261df539b0fa57ac7cd4baf53026"
+    sha256 cellar: :any,                 arm64_sonoma:  "9f5bbfd2d5b6f8dd932660aa75010f8ef99f2d9c6c1110c5400c207c05df47c6"
+    sha256 cellar: :any,                 sonoma:        "f4b36907402c56aa6a81132cc7d69e34b5926dbc9848ad7989099c7905806353"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4943de9a385c2800f93471ff3cd72b0d809874791d9a1aadc07d734d91c8250d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d763a997d98648fadc14a6e0447c615afe10734653a8886047635fa21a410e4"
   end
 
   keg_only :versioned_formula
@@ -29,6 +30,7 @@ class NodeAT24 < Formula
   depends_on "python@3.13" => :build
   depends_on "brotli"
   depends_on "c-ares"
+  depends_on "hdrhistogram_c"
   depends_on "icu4c@78"
   depends_on "libnghttp2"
   depends_on "libnghttp3"
@@ -78,6 +80,7 @@ class NodeAT24 < Formula
       --shared
       --shared-brotli
       --shared-cares
+      --shared-hdr-histogram
       --shared-libuv
       --shared-nghttp2
       --shared-nghttp3
@@ -92,6 +95,8 @@ class NodeAT24 < Formula
       --shared-brotli-libpath=#{Formula["brotli"].lib}
       --shared-cares-includes=#{Formula["c-ares"].include}
       --shared-cares-libpath=#{Formula["c-ares"].lib}
+      --shared-hdr-histogram-includes=#{Formula["hdrhistogram_c"].include}
+      --shared-hdr-histogram-libpath=#{Formula["hdrhistogram_c"].lib}
       --shared-libuv-includes=#{Formula["libuv"].include}
       --shared-libuv-libpath=#{Formula["libuv"].lib}
       --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
@@ -122,10 +127,16 @@ class NodeAT24 < Formula
 
     # TODO: Try to devendor these libraries.
     # - `--shared-ada` needs the `ada-url` formula, but requires C++20
+    # - `--shared-gtest` is only used for building the test suite, which we don't run here.
+    # - `--shared-merve` is not available as dependency in Homebrew.
+    # - `--shared-nbytes` is not available as dependency in Homebrew.
     # - `--shared-simdutf` seems to result in build failures.
     # - `--shared-http-parser` and `--shared-uvwasi` are not available as dependencies in Homebrew.
     ignored_shared_flags = %w[
       ada
+      gtest
+      merve
+      nbytes
       http-parser
       simdutf
     ].map { |library| "--shared-#{library}" }

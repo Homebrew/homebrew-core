@@ -1,18 +1,17 @@
 class AddDeterminism < Formula
   desc "Build postprocessor to reset metadata fields for build reproducibility"
   homepage "https://github.com/keszybz/add-determinism"
-  url "https://github.com/keszybz/add-determinism/archive/refs/tags/v0.7.2.tar.gz"
-  sha256 "232c4f9fdc482dee5e6d38ef45a2c983b88283fe23d6ff4bcb26164b4c9a2dcb"
+  url "https://github.com/keszybz/add-determinism/archive/refs/tags/v0.7.3.tar.gz"
+  sha256 "d1f5eac303807fa31e25b4f8ccb08fed23d15f4ffdbe3bb4ee35a29504c766b2"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e08437b35c45a7bdcff8b5be9a89c78b6291180dbdf2f8a5f35f31fcba1f9038"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56b74ec88c63286d1070ec90e1a3d9d113e58725788dec4eedac9671dff0b989"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8717e88a79b2578cc54556067082c02211042705b5609ee142a047ab80d738dd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9a8b414a82271c69f2d31bc067ba7d089ea93aeadd788279887b869c04d87a47"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdb0959fa422e0da1beb136dea3031af3347e24a8c4dd431f1a51e9b23ed7d96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "533ad581a42ceac9ec2d0e483d023e24e06998776a517836d299eab3f06295a1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a4acaeccbe7f1e8390d00e81f85104468a061865aa885de7bd2c5980583d47ca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca533c86ffccf0438b6498f38fc7ec05fd10bb74bb8afeaef4a22f378ca6eb42"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "913e2ae4671e6be498e000325049cbe2637b2f6ebb480e8ff12a174132e61325"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4a6e9027ec99269def2d6823502b933e3290ab59fd64003cb68ce3836d0d65a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f81478dd7b06b5f7d120447e2552aad28a48edb0ac53c77d402137d27ecbc6f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e38dcf219d4522e98b3b313c830f480c0bc318fa8243b0586e7053cde7691aac"
   end
 
   depends_on "pkgconf" => :build

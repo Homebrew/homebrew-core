@@ -1,18 +1,18 @@
 class Jql < Formula
   desc "JSON query language CLI tool"
   homepage "https://github.com/yamafaktory/jql"
-  url "https://github.com/yamafaktory/jql/archive/refs/tags/jql-v8.0.10.tar.gz"
-  sha256 "f8c26ed8178de263ad06bbe6096de0e81dbf22f90a281d6fbd87d25c9f7e2dc7"
+  url "https://github.com/yamafaktory/jql/archive/refs/tags/jql-v8.1.2.tar.gz"
+  sha256 "a8d76cf0d6c15988034cb186975fb0da360041e59350b2abead52c7801747315"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/yamafaktory/jql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "84968f0bd4795164136f2812467afce9bf94fa885d84ed3a63e859d568f2dcf0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e3813b1af5cefd55ffd35a7ce51c95b71275d490038c45aebfd7ccb602a2f843"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53dd91c250fca472c4415143cb8db298673cdba335739a4304f75873371f6903"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ac630a373ba506551dea9f991535546476344e6536ee2d9e48df75f78b5a9c79"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f33adb947aa5c5868e1ccc1437f47a45e4a397b26ff164d9fbf56202a09d5c26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9df115cbf7add4f682b2ef2d54f2c65dcf5147570537795709f30299cfc5523"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a82127900b48ff5cab1b78b1b1a4f502491aaf7a5c9108cf5f40774e3ce3a856"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0af5b5ae39fb698d0d51505b252a69c7608ad9c01493307fefd7cb4a9bef26f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d53f0562177b605d34917aee2b142c63ee92e9bb9fce6adab96f1605ef017eea"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b5460290197caa35f2a9f4bb0624fcbf5090efb45073a8a37821ffb3dab7fc2e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3dcc62490d154fe8bca6ef6a93aa42a69fdff2c9910140afa16df7366941f1a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de3883d7e0ce9eca2dafe0a3e714b38cb16257786cbb9186e28c8772620d266d"
   end
 
   depends_on "rust" => :build

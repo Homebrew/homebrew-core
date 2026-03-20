@@ -10,8 +10,6 @@ class Chadwick < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "a25e4a468f0a8202822cbed14f6b357e9bb08d39ac2ab2b6440b76a1a5fbd468"
     sha256 cellar: :any,                 arm64_sequoia: "7f2f912f0bd0d1e01b9c5c79756c1871ee38ca5db5867eb00a8b329a964c6e4a"

@@ -17,7 +17,7 @@ class Arabica < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c5797a1e8e13b35bfb400c09bd783382c517006dafae47a33204a1f292faddd0"

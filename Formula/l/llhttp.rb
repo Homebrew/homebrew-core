@@ -1,17 +1,17 @@
 class Llhttp < Formula
   desc "Port of http_parser to llparse"
   homepage "https://llhttp.org/"
-  url "https://github.com/nodejs/llhttp/archive/refs/tags/release/v9.3.0.tar.gz"
-  sha256 "1a2b45cb8dda7082b307d336607023aa65549d6f060da1d246b1313da22b685a"
+  url "https://github.com/nodejs/llhttp/archive/refs/tags/release/v9.3.1.tar.gz"
+  sha256 "c14a93f287d3dbd6580d08af968294f8bcc61e1e1e3c34301549d00f3cf09365"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cc07b427e2545215f867aaae837cca859ab4d7f977a903f2bf56866e454191e1"
-    sha256 cellar: :any,                 arm64_sequoia: "cb4f21fcb1c909d42679963fec493d1d84202d05e56d64ec849298216a50cc74"
-    sha256 cellar: :any,                 arm64_sonoma:  "fec602a007081b888cbad8c6bb8992c57493fce0c8896c9218829ac5ddb7b8f0"
-    sha256 cellar: :any,                 sonoma:        "90a5d55c5c8ce33af4fba41a2bc408091aeec6311ac1684fd963004212425af6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3011938e267301ad551e6cc7697b35757e322ab9b1df8420c2516e157b91321"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2f3274725d2060bf5c6a19d95e211a4c34ffbd37385eb7b869d8e2b146ba674"
+    sha256 cellar: :any,                 arm64_tahoe:   "35c5eb5a905ba0729cf2af32593498a8c62f289941e141c46836335b8e428a20"
+    sha256 cellar: :any,                 arm64_sequoia: "5dce7dc5e8c5cea5bd819da5b4df5b8c07a88414cd26fed46c4800084007f39a"
+    sha256 cellar: :any,                 arm64_sonoma:  "e5ec03abe69e8861845736d9c02392c0228dd14f2a972084d0f4d8e0d67cea3b"
+    sha256 cellar: :any,                 sonoma:        "7a68099f251edee5ec013af565622c06569b7d46f66175edc04768230b71a7cc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c0ff9594e5ab4ef4bb38860f7a42ab5c27a1a774791ab08ceaed4268e8c0a4bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9758338dfa51d0eb47445d9a279a7e0525c3fd3a8aa4f2e4c9b2ffd48224023a"
   end
 
   depends_on "cmake" => :build

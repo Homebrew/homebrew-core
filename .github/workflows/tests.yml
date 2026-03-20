@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'CI-no-fail-fast-syntax') }}
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:${{ matrix.stable && 'latest' || 'main'}}
+      image: ghcr.io/homebrew/brew:${{ matrix.stable && 'latest' || 'main'}}
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
@@ -67,7 +67,7 @@ jobs:
     if: github.repository_owner == 'Homebrew' && github.event_name != 'push'
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
     outputs:
       testing_formulae: ${{ steps.formulae-detect.outputs.testing_formulae }}
       added_formulae: ${{ steps.formulae-detect.outputs.added_formulae }}
@@ -181,7 +181,7 @@ jobs:
       !fromJson(needs.setup_tests.outputs.syntax-only)
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
     outputs:
       runners: ${{steps.determine-runners.outputs.runners}}
       runners_present: ${{steps.determine-runners.outputs.runners_present}}
@@ -310,7 +310,7 @@ jobs:
       fromJson(needs.setup_dep_tests.outputs.test-dependents)
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
     outputs:
       runners: ${{steps.determine-dependent-runners.outputs.runners}}
       runners_present: ${{steps.determine-dependent-runners.outputs.runners_present}}

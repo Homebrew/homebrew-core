@@ -7,17 +7,21 @@ class Libmatio < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4714998f82694d1ff038f9f988e2defcffe7d357b149101d02707444234fb54f"
-    sha256 cellar: :any,                 arm64_sequoia: "c01d728dd7dcf70725970e28fc3f2b9ad4f3487fd674d9d383ca084e9fc17148"
-    sha256 cellar: :any,                 arm64_sonoma:  "b356feaa4538cb11be3d90bbb1ea6b4067fdd05660961af4235a840572696a0f"
-    sha256 cellar: :any,                 sonoma:        "5cbc6aa0d449de22ffe87a5a284df337470fc862fa9e5479f68de25c09556c1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2b1d7df74db4ceefd07bcfb1881e0870b6bc29613d11731568a298747fa7da1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac75cede8b26686a16ac02c0f5e0c50fa9331ee0739f9f53dd6de88074afb1eb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9ca72d65bf5da29bddfbe606984e69151d6e26744783b2893a34e9318e7ae22c"
+    sha256 cellar: :any,                 arm64_sequoia: "7f5745b00f477b3aa6544162e3bb0ae280898c04041f3b1350bfc507638f040e"
+    sha256 cellar: :any,                 arm64_sonoma:  "047c7d990b169c3ba1215246b4db54cd8ff33b7a194c67e8060aa7ce62c66486"
+    sha256 cellar: :any,                 sonoma:        "83734b9696e4075b6bb93b5759a39f61195f01fa915879912d2622489813d2af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "96ccac4352f0a05a8b17132ffd0ea5f0d6fa9fc26f0f7512c0e3b85616eaf8d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75875bd017f8e01b60e5bf97fc8140440e0dcaa018c4e2d7809f20b31cfd3071"
   end
 
   depends_on "pkgconf" => :test
   depends_on "hdf5"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # fix pkg-config linkage for hdf5 and zlib
   patch :DATA
@@ -28,7 +32,7 @@ class Libmatio < Formula
       --enable-mat73=yes
       --with-hdf5=#{Formula["hdf5"].opt_prefix}
     ]
-    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" unless OS.mac?
+    args << "--with-zlib=#{Formula["zlib-ng-compat"].opt_prefix}" unless OS.mac?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

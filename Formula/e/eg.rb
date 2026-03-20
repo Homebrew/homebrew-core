@@ -6,8 +6,6 @@ class Eg < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/davep/eg.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_tahoe:    "8edac665cd76232a32ac5bb583b8002fa084c089a399a3d0c34e6843176fa47b"
     sha256                               arm64_sequoia:  "88dbfa7cf9217122bc925c3681ee19cefcdb758063696fa00577967301b34fbb"

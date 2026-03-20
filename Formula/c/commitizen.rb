@@ -3,18 +3,18 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/16/18/8d88d98251fe3cdf5ae97a780807ecd33dcb394875ba7ce7664ac92c4fa1/commitizen-4.13.7.tar.gz"
-  sha256 "61b1872a3b5b9da69f1819a4e238249071a636ef422cf6f3735c491eb77e9526"
+  url "https://files.pythonhosted.org/packages/a6/44/10f95e8178ab5a584298726a4a94ceb83a7f77e00741fec4680df05fedd5/commitizen-4.13.9.tar.gz"
+  sha256 "2b4567ed50555e10920e5bd804a6a4e2c42ec70bb74f14a83f2680fe9eaf9727"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "81a25808acc5ecd0a512d8c560804c0937169f4c57d712297ef0fc43c2f2bc3b"
-    sha256 cellar: :any,                 arm64_sequoia: "c75fc2fc5e3d552d170180e5bea5e2bc3b36045ecace0b2bc323ed2938450989"
-    sha256 cellar: :any,                 arm64_sonoma:  "544272d58fbe67c74290b34b587876650776ed525276354435bcd8c8eddff0c2"
-    sha256 cellar: :any,                 sonoma:        "f22026fceefa3f93319f42f5d5db43c4daf28cfd3d757fbbb3d6d1ef98a71b59"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1171b6af132a720416a354208ac82c0a323b3bd4dfe8813dec23d208e54abbfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffe3ce455f00ab9cb463779f6cd755884deb63963f3336d7b157bc445422aa08"
+    sha256 cellar: :any,                 arm64_tahoe:   "89db9ed9c30351ff31d1a338470e928cb0b237722d7b05fbd18de22e4db761ba"
+    sha256 cellar: :any,                 arm64_sequoia: "09a5c18b000b8265a13598ea9dcaa193fb88349ecb3dcd24a6ab7efe2ced8849"
+    sha256 cellar: :any,                 arm64_sonoma:  "39bedb8b6afa12b4ecea68d3c8f22805bbec7d13441d8de0d03964bdf0be457a"
+    sha256 cellar: :any,                 sonoma:        "c48f64af422c4b0e4517bf33e088f7f5263d69ac29df9decace5139e7bd5ac09"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef2806a78619d18bb5adeeb7b7d6e38a2266aaaaea67b6ebb4d97faaea5107c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1b4e3cb05dd8329c9e248bea1932cddcef5a6bee4d4de9e6fa444db5d1d4e14"
   end
 
   depends_on "maturin" => :build
@@ -98,10 +98,6 @@ class Commitizen < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
 
     generate_completions_from_executable(

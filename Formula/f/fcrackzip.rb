@@ -10,8 +10,6 @@ class Fcrackzip < Formula
     regex(/href=.*?fcrackzip[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7c9ec0de20570467b787bfe40641aad62b1c0426f8d8441491d169f255daeac2"

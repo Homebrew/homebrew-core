@@ -14,7 +14,7 @@ class Libcaca < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "d84c3e4996866fd306f6ee465d2b26248af532f726187327b08fbc2c1fbae48d"

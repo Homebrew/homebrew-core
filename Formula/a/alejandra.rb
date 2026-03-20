@@ -6,8 +6,6 @@ class Alejandra < Formula
   license "Unlicense"
   head "https://github.com/kamadorueda/alejandra.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ee21f9015c2853fb4ccd0b5e8b8674c7d1c27ef9c17ff73771ca33f035a4eddd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a105b8e8c06f4e240b052d62e5b271e4a1c196f8367780ae22fe4bf705ad65b1"

@@ -32,6 +32,8 @@ class Wiredtiger < Formula
     depends_on "zlib-ng-compat"
   end
 
+  conflicts_with "worktrunk", because: "both install `wt` binaries"
+
   def install
     # CRC32 hardware detection: https://github.com/wiredtiger/wiredtiger/tree/develop/src/checksum
     ENV.runtime_cpu_detection

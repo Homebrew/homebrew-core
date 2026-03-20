@@ -5,8 +5,6 @@ class Bgpstream < Formula
   sha256 "c6be2c761ed216edc23a85409a5de3639172bc42db115c8574c2108ace7481a4"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c060368caac64c91df708d5b62f1e5ff276d94447b98c59cd168a0158890d1e2"
     sha256 cellar: :any,                 arm64_sequoia:  "8db317338ecbca23c82ea862d2f50c557262929d5c805abe88cf601dd5377da5"

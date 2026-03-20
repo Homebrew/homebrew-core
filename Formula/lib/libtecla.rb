@@ -10,8 +10,6 @@ class Libtecla < Formula
     regex(/href=.*?libtecla[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "3883edbec56c880a52d9805b5fa4688136ccdb26fe9fe8b4c8b302b3f3c79de4"
     sha256 cellar: :any,                 arm64_sequoia:  "389b4e8a32591e201b3c174ce301bfaeb27a38dd8398992eff9171678d1b4bfc"

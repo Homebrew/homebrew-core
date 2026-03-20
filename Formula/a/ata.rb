@@ -5,8 +5,6 @@ class Ata < Formula
   sha256 "a70498492fce7b46a2a62175886a801f61f9f530c5c6d01b664af2750d3af555"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "61e1c7235e1db8bd6b2dca88f24e1dce32658c60817c274a8a3a74f8e93865f0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e4e98e4c055e41cc706441024e03f621e29598cf9889dd8735542dea055a34e1"

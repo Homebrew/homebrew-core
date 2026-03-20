@@ -54,7 +54,7 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
     outputs:
       runners: ${{steps.runner-matrix.outputs.result}}
     steps:
@@ -83,7 +83,7 @@ jobs:
                 return {
                   runner:    s,
                   container: {
-                    image:   "ghcr.io/homebrew/ubuntu22.04:main",
+                    image:   "ghcr.io/homebrew/brew:main",
                     options: "--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"
                   },
                   workdir:   "/github/home",
@@ -201,7 +201,7 @@ jobs:
     needs: bottle
     if: inputs.upload
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
       GH_REPO: ${{github.repository}}
@@ -218,7 +218,7 @@ jobs:
           cask: false
 
       - name: Download bottles from GitHub Actions
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           pattern: bottles_*
           path: ${{ env.BOTTLES_DIR }}
@@ -236,7 +236,7 @@ jobs:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
       - name: Generate build provenance
-        uses: actions/attest-build-provenance@96278af6caaf10aea03fd8d33a09a777ca52d62f # v3.2.0
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
         with:
           subject-path: ${{ env.BOTTLES_DIR }}/*.tar.gz
 

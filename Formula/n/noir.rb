@@ -1,21 +1,20 @@
 class Noir < Formula
   desc "Attack surface detector that identifies endpoints by static analysis"
   homepage "https://owasp.org/www-project-noir/"
-  url "https://github.com/owasp-noir/noir/archive/refs/tags/v0.27.1.tar.gz"
-  sha256 "da4f9fe2359164edacba9b485efcfe363c2ee00869ede54cb52abc9fe322961f"
+  url "https://github.com/owasp-noir/noir/archive/refs/tags/v0.28.0.tar.gz"
+  sha256 "2480e0d61b4d8670f2a7665f93038f37277e15ab19b4f307418f047929c0349f"
   license "MIT"
   head "https://github.com/owasp-noir/noir.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "ad73676db9d36cb3a0baf6fdd2f0b111fb4e76d0bcce1d92a83dec2ab2b38773"
-    sha256 cellar: :any,                 arm64_sequoia: "8fbb13d6480a8c637ee4ac3b98de110f0840ec7b7ac1e11c7c56acca5ccb77fc"
-    sha256 cellar: :any,                 arm64_sonoma:  "723c7d2a07427d0257432a3773caf39cc50a35079a8ba01688683301a4a4fe97"
-    sha256 cellar: :any,                 sonoma:        "78658c7e805d60b2498781aaba920e989fe916923ae48d84e3c3f2e13de9faa2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d28affa37f93bd3733c4eba37fc566cf19e194443677276be4cca17126471f40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04f80ff9fda228acefa522c694781c2d0af7517c03d1c835d18869df2c68c7b6"
+    sha256 cellar: :any,                 arm64_tahoe:   "786f6890a9f48b96282a21074229be3343adae3ac4a174b679eae1bcd358a3b8"
+    sha256 cellar: :any,                 arm64_sequoia: "72a5748a5c8f233c47b982f6d064e6190e2c726c87b4522d818c0a64a3cafff5"
+    sha256 cellar: :any,                 arm64_sonoma:  "f1de46698eb8af4e5cab9c167719d93df57b34ac5cd217a891eedc5474344ad5"
+    sha256 cellar: :any,                 sonoma:        "87602a0ecb5cf147c2734a36c79a02b8823942a05c248bff4c915363b8fe4e8f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "467fa1a03ebe71e401b510d32b27189220177470a48476086f66153896a9be0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f62c4495f939d65315e63fbe46e57db3fbd359b4ebf4d7c3d698568e42402764"
   end
 
   depends_on "crystal" => :build

@@ -1,12 +1,12 @@
 class WikibaseCli < Formula
   desc "Command-line interface to Wikibase"
   homepage "https://github.com/maxlath/wikibase-cli"
-  url "https://registry.npmjs.org/wikibase-cli/-/wikibase-cli-20.0.0.tgz"
-  sha256 "5919a2b0e4d996139579f831740fa4c563d6b9b06950c4b05494864b0301a945"
+  url "https://registry.npmjs.org/wikibase-cli/-/wikibase-cli-20.1.0.tgz"
+  sha256 "ebdb6fa7481ee6bb77684d31ad80ab50a7e810d6523d1f72caf3e13354abc213"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c09009575b01f257cf5b663f79894f8c5c87b2798662891328707ec6b7a1502a"
+    sha256 cellar: :any_skip_relocation, all: "4ce87facf80882631c1fd3fbaf692eca2e6dbe15f2a26d4c527ec550400f2124"
   end
 
   depends_on "node"

@@ -10,8 +10,6 @@ class P0f < Formula
     regex(/href=.*?p0f[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 arm64_tahoe:    "cdd36b28e785533aadfafbd8067b7f6370894b1e709aeb22824efc7247716349"

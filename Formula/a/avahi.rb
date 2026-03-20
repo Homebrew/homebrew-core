@@ -1,23 +1,23 @@
 class Avahi < Formula
   desc "Service Discovery for Linux using mDNS/DNS-SD"
   homepage "https://avahi.org"
-  url "https://github.com/avahi/avahi/archive/refs/tags/v0.8.tar.gz"
-  sha256 "c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f"
+  # NOTE: Temporary exception to use release candidates due to numerous CVEs in 0.8.
+  # Same decision made by Arch Linux, Fedora and Gentoo. Debian chose to apply patches.
+  # CVE-2021-3468, CVE-2021-3502, CVE-2021-36217, CVE-2021-26720, CVE-2023-1981,
+  # CVE-2023-38469, CVE-2023-38470, CVE-2023-38471, CVE-2023-38472, CVE-2023-38473,
+  # CVE-2025-59529, CVE-2025-68276, CVE-2025-68468, CVE-2025-68471, CVE-2026-24401
+  url "https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc3.tar.gz"
+  sha256 "9f2ff92864c56364d711eb2acec4c0455d1375d8c3266e420611730a2c9ccba5"
   license "LGPL-2.1-or-later"
-  revision 2
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 arm64_linux:  "4167489c0fe787b170d0646faab665700577fcc05ab10e3a0a556112df77d6fc"
-    sha256 x86_64_linux: "c2a968c40c0683c2a1cb9e45bbe693434581f0b209e0215f9c610b17069001e8"
+    sha256 arm64_linux:  "69106be7b282ddec41efb0024110a07704b19069ff804620ef64e9d2d7c84bac"
+    sha256 x86_64_linux: "ff3e50d92ac159dcd9640611bd76e8a5ba6a1a01a57de122152d3f79de75d459"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gettext" => :build
-  depends_on "intltool" => :build
   depends_on "libtool" => :build
   depends_on "m4" => :build
   depends_on "perl" => :build
@@ -28,13 +28,15 @@ class Avahi < Formula
   depends_on "expat"
   depends_on "gdbm"
   depends_on "glib"
+  depends_on "libcap"
   depends_on "libdaemon"
   depends_on :linux
+  depends_on "systemd"
 
   def install
     system "./bootstrap.sh", "--disable-silent-rules",
                              "--sysconfdir=#{prefix}/etc",
-                             "--localstatedir=#{prefix}/var",
+                             "--localstatedir=#{var}",
                              "--disable-mono",
                              "--disable-monodoc",
                              "--disable-python",
@@ -50,7 +52,7 @@ class Avahi < Formula
     system "make", "install"
 
     # mDNSResponder compatibility
-    ln_s include/"avahi-compat-libdns_sd/dns_sd.h", include/"dns_sd.h"
+    include.install_symlink include/"avahi-compat-libdns_sd/dns_sd.h"
   end
 
   test do
@@ -102,8 +104,8 @@ class Avahi < Formula
       }
     C
 
-    pkg_config_flags = shell_output("pkg-config --cflags --libs avahi-client avahi-core avahi-glib").chomp.split
-    system ENV.cc, "test.c", *pkg_config_flags, "-o", "test"
-    assert_match "Avahi", shell_output("#{testpath}/test 2>&1", 134)
+    pkg_config_flags = shell_output("pkgconf --cflags --libs avahi-client avahi-core avahi-glib").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
+    assert_match "Avahi", shell_output("./test 2>&1", 134)
   end
 end

@@ -1,18 +1,17 @@
 class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
-  url "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.4.4.tar.gz"
-  sha256 "7c663c3c41da9354b5af277bc2fd1d2360788050b4e0751a32bcd50e8abaef8f"
+  url "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.4.7.tar.gz"
+  sha256 "6f57641fb12b019867a766e602252ed4ccb26d7354e3a15688fe9c85a391716e"
   license "BSD-3-Clause"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "65cb3c318b1f61e78562689de8068799092473dc9967a433c7513507b4e3e762"
-    sha256 cellar: :any,                 arm64_sequoia: "2c9b82a02381d023df9913f2d8930e276869b989858803fa5231035459642d94"
-    sha256 cellar: :any,                 arm64_sonoma:  "42de5681c202c46b293958daf4b59292c398edf98e6eb7233627f4ce6dd435fc"
-    sha256 cellar: :any,                 sonoma:        "0569bee2053e22dcc57643ef51a1a5b6109c30c1fde69f5281ed6c5c5ed5d0fb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "56842c457c8fd20c917b53898aeea29e777ae56d072c6b47b77a137b5f798b3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5890b0d036b79cb4e1c2f875e15ca43a62948c87f3d6403d4b3339ed831f8606"
+    sha256 cellar: :any,                 arm64_tahoe:   "69d53f0a32469314ca4ee273beccc765ee4997d305b354e158e5d8ea7e0b46d5"
+    sha256 cellar: :any,                 arm64_sequoia: "fd0ed2883fef93319cbfa75b9ba55fcd090b5647f3b3eef78bc8619adae94867"
+    sha256 cellar: :any,                 arm64_sonoma:  "206e3e86cc89e4dcc6208b87cedba63046d9b8cbd32747c35a426dbc1b1af17a"
+    sha256 cellar: :any,                 sonoma:        "ce90c48b801c352679a41307c4cdb1056dc385db3be7d028c6fe2bb16833b5bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "13c36e02128fe2090edd4736414c731ba7dcd8fd9a7c6375a91a5e8952e3fe0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b987db335c3432e86f4e795d61d4b7d4cb0fc1946355da9735d11b76e76d774a"
   end
 
   depends_on "cmake" => :build

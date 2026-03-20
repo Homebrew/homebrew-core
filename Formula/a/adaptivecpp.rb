@@ -4,15 +4,16 @@ class Adaptivecpp < Formula
   url "https://github.com/AdaptiveCpp/AdaptiveCpp/archive/refs/tags/v25.10.0.tar.gz"
   sha256 "334b16ebff373bd2841f83332c2ae9a45ec192f2cf964d5fdfe94e1140776059"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/AdaptiveCpp/AdaptiveCpp.git", branch: "develop"
 
   bottle do
-    sha256 arm64_tahoe:   "47170783eb0de616f48a47f956ead8d7940144c6d942c068ec47d6b5039800b4"
-    sha256 arm64_sequoia: "2541023a8c2434dfe59c6e8fe3da3092c238aa253fe6cb3584e16dbd8b3b4890"
-    sha256 arm64_sonoma:  "e9c912e6c181be13a3238c9ad4ae3c8d55c367717872955ba471066cd08fe375"
-    sha256 sonoma:        "3084318448f81ec7c534cdc5533c8e04776e609a7a3749e8494c5b957f35dfe5"
-    sha256 arm64_linux:   "0cb9c3ee690bb883104eeff0bef2a0961c194f63e37779dcff364adeb34a8571"
-    sha256 x86_64_linux:  "6b697146bf34c4d6ec13b85483297174f9e88e5b989d0af56abdc38ab44ccce8"
+    sha256 arm64_tahoe:   "b03aa7145c4c95b0eb07bb56a163742e17a95ca172958c93cfab371debbf94e9"
+    sha256 arm64_sequoia: "20564093bcd1393f762ec007ede0922450ab60012db7bbfa5d723f9807909461"
+    sha256 arm64_sonoma:  "8f2192a582cefc9512f60f14c6f2b8570f445c0ced4055553755f8760b2f0669"
+    sha256 sonoma:        "ca9715cf73fc66f4f305ca7415be18cf892be66cb40e9e5cea1c0e21166e5be3"
+    sha256 arm64_linux:   "8d14507b04a9f0e8e0480609fd5d1c421327817145b01f39474e05b78f7bd99d"
+    sha256 x86_64_linux:  "4a78902bb2bc797d30058c1b31ac600bb07759f09178112d19dce02305367aa4"
   end
 
   depends_on "cmake" => :build
@@ -24,8 +25,8 @@ class Adaptivecpp < Formula
   end
 
   on_linux do
-    depends_on "lld"
-    depends_on "llvm"
+    depends_on "lld@21"
+    depends_on "llvm@21"
     depends_on "numactl"
   end
 
@@ -36,8 +37,8 @@ class Adaptivecpp < Formula
     else
       %W[
         -DACPP_EXPERIMENTAL_LLVM=ON
-        -DCLANG_EXECUTABLE_PATH=#{Formula["llvm"].opt_bin/"clang++"}
-        -DACPP_LLD_PATH=#{Formula["lld"].opt_bin/"ld.lld"}
+        -DCLANG_EXECUTABLE_PATH=#{Formula["llvm@21"].opt_bin}/clang++
+        -DACPP_LLD_PATH=#{Formula["lld@21"].opt_bin}/ld.lld
       ]
     end
 
@@ -72,7 +73,7 @@ class Adaptivecpp < Formula
     system "./hello"
 
     unless OS.mac?
-      refute_match Formula["llvm"].prefix.realpath.to_s,
+      refute_match Formula["llvm@21"].prefix.realpath.to_s,
                    (etc/"AdaptiveCpp/acpp-core.json").read,
                    "`acpp-core.json` references `llvm`'s cellar path"
     end

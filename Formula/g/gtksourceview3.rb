@@ -11,8 +11,6 @@ class Gtksourceview3 < Formula
     regex(/gtksourceview[._-]v?(3\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "72ddfb15569484b9703111b8e49c012ef5b58ef5e13c528d7b69773e1033826e"
     sha256 arm64_sequoia: "8260f146baeaee7420598450f7c4929891722c45afd354a601c8ff1f9ee60b71"

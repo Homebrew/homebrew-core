@@ -144,10 +144,6 @@ class Codelimit < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     # Turn on shell completions option
     inreplace "codelimit/__main__.py", "add_completion=False", "add_completion=True"
 

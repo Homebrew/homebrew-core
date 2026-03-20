@@ -10,7 +10,7 @@ class Umlet < Formula
     regex(/href=.*?umlet-standalone[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 1

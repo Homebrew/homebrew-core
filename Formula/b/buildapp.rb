@@ -7,8 +7,6 @@ class Buildapp < Formula
   revision 3
   head "https://github.com/xach/buildapp.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 arm64_tahoe:   "1b91e415cf7ddeab7dc5585efe5b7e58d4798f336ae19bd8c33ebd4d24b19e58"

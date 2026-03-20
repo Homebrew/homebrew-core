@@ -1,8 +1,8 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
   homepage "https://stian.cubic.org/project-ocp.php"
-  url "https://stian.cubic.org/ocp/ocp-3.1.3.tar.xz"
-  sha256 "4e8579b18d47ba2f4c667f577aa3286f6f8c4ea0b6192ff743f0f21678e60afd"
+  url "https://stian.cubic.org/ocp/ocp-3.2.0.tar.xz"
+  sha256 "c2f6fe7edc89a2625ae22f88628f9bc294621cb49efaacb1cd42a4005920098a"
   license "GPL-2.0-or-later"
   head "https://github.com/mywave82/opencubicplayer.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Ocp < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "2d23e0b0530d6bafafef1259a1fff14c2916dd79a870bb7b27756624d3b35350"
-    sha256 arm64_sequoia: "f01b64978bdb81b847488dc78660843931c48b2ad6b1aefe6eb16c8b1847cf63"
-    sha256 arm64_sonoma:  "25b6f1b7d06c8bac738883be72159dbc678d6cf9c7f5dc32e97769f071dc77ad"
-    sha256 sonoma:        "92b55ed46999d3426fde9c7c8760875ad5122fee38b5701f756f1fe19aea2a0c"
-    sha256 arm64_linux:   "9ab4e98fe3824a0e1368452702963e872da9d9e13a85237a5a36b519bc362f71"
-    sha256 x86_64_linux:  "935e516dcc588bb438eee0531c18242d49a4d3b532ff6579c3302b5de37f39d5"
+    sha256 arm64_tahoe:   "414fcd1dcc5e1a3fc03bcb53c0f3eec4044fd87b8df8bb1273f34540d73e9637"
+    sha256 arm64_sequoia: "40b1ae9d29fcf9bcb03a876451cbc1d06b8157aab4827b5faae29f8672f2b587"
+    sha256 arm64_sonoma:  "29a2049d72156bee3b6277264f48cb9491359caaa5cf1145496adf3ef035905f"
+    sha256 sonoma:        "17c7965a78768c612d9b836dc36904b9fc4b1985ceea69ae4945648a1429e365"
+    sha256 arm64_linux:   "94ab3e17dd820d8408243bed7b41d25a27ea6099139c19dfdbcb7b1c40d41fd6"
+    sha256 x86_64_linux:  "7f2e230299f3db23ac72465114fe0f74eb0693227c18a6ef73bcaeaf9c6f93a7"
   end
 
   depends_on "pkgconf" => :build
@@ -33,7 +33,7 @@ class Ocp < Formula
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "sdl2"
+  depends_on "sdl3"
 
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
@@ -48,17 +48,20 @@ class Ocp < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Fix qoaplay.c:226:5: error: expected expression
-  # PR ref: https://github.com/mywave82/opencubicplayer/pull/147
-  # pin to 16.0.02 to use precompiled fonts
   # https://github.com/mywave82/opencubicplayer/blob/master/mingw/versionsconf.sh#L20
   resource "unifont" do
-    url "https://ftpmirror.gnu.org/gnu/unifont/unifont-16.0.02/unifont-16.0.02.tar.gz"
-    sha256 "f128ec8763f2264cd1fa069f3195631c0b1365366a689de07b1cb82387aba52d"
+    url "https://ftpmirror.gnu.org/gnu/unifont/unifont-17.0.03/unifont-17.0.03.tar.gz"
+    sha256 "9a26aa9adfa8eb1f91b0cd9b83e7f95ea9e14c6e85be71aa3ab0df5cb4e69c35"
+  end
+
+  # Fix clang parse failure for declarations after labels, upstream PR ref, https://github.com/mywave82/opencubicplayer/pull/168
+  patch do
+    url "https://github.com/mywave82/opencubicplayer/commit/af5e034a317abbf5e352fd371308fae47d0d1e58.patch?full_index=1"
+    sha256 "1c0d58d4097e1d439718b0eddfdf46c60f53721f3b66c9bf180b566de3f342f0"
   end
 
   def install
-    # Required for SDL2
+    # Required for SDL3
     resource("unifont").stage do |r|
       cd "font/precompiled" do
         share.install "unifont-#{r.version}.otf" => "unifont.otf"

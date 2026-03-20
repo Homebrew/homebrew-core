@@ -5,8 +5,6 @@ class Sourcedocs < Formula
   sha256 "07547c929071124264ec9cc601331f21dc67a104ffc76fbc1801c1ecb4c35bbf"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4ece7ed5a98c8df2e5e4589c10559f8ed042a413da225b2ca7eb051fe0da7ef"

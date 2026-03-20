@@ -11,18 +11,21 @@ class Tintin < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "703ec5ebcc98c21a3d5d6b07ac46a6f9fa873424a5c4d3bb72099a99d70ed74a"
-    sha256 cellar: :any,                 arm64_sequoia: "45a2bd003f8af9e75652aa3eae618565b7d3855c64e27e959ce619503c50431d"
-    sha256 cellar: :any,                 arm64_sonoma:  "29db49a2c0495ee7f69d736d1175dc1629f6910647cb82ffaee82d36e32912d1"
-    sha256 cellar: :any,                 sonoma:        "0a26a3534747268cdb94ff00ca79f1bc82c60c4baf5511d339b58385bf70cabe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "55c5da4c7f337551822f85be46322e99b3885db87d50df1ec4f3accdba33dea5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be0a084d5f7c9bb8a0b273a4fd509c0ab115e5c8c7d1ffaa8e11911eae07149c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "1b32873045afd7f28de23d1f2e7bb8cf6d2443b5be875a075e9788f338f941b0"
+    sha256 cellar: :any,                 arm64_sequoia: "a7173fdb565b12114bf44ab36fab43de5d51d1fa31210463fb4dd895d880b87b"
+    sha256 cellar: :any,                 arm64_sonoma:  "29429cbfdd5bfa3b8e05c7d047d1be43eab5b206cddd3d15e9075f3f82c1674d"
+    sha256 cellar: :any,                 sonoma:        "ed898b18d439132d6275d38e94a2f4dacc7d71de933bfe637562782e32e06def"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f935a18a99c16d1f8f9544970620f0e06877c933f5ca081b7dd30d4eedf3de29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09c43f08ffc98738dff09bbec41da931652f2ab68f932c6ac74f5271313bc170"
   end
 
   depends_on "gnutls"
   depends_on "pcre2"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # find Homebrew's libpcre

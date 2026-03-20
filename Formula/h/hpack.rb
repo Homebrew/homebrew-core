@@ -1,19 +1,18 @@
 class Hpack < Formula
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
-  url "https://github.com/sol/hpack/archive/refs/tags/0.39.1.tar.gz"
-  sha256 "87f89f175b20ad436aa913d711a1e8eea202c7fc6a534e14ca3b7a2f033c1c30"
+  url "https://hackage.haskell.org/package/hpack-0.39.3/hpack-0.39.3.tar.gz"
+  sha256 "75c51500435219f30ef685ef53c91f56c7addeee1eac01c86e96878188f83ab2"
   license "MIT"
   head "https://github.com/sol/hpack.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "6d24fee8d0bbb3e9e5effcf8ab18f845e9f31c2f769925496fbb109c887e4c61"
-    sha256 cellar: :any,                 arm64_sequoia: "e0576352e01db128281fd5cf4944185c5199dc00f23a147a11a51c7f33b0f201"
-    sha256 cellar: :any,                 arm64_sonoma:  "e3dc50702b68bb461844321420793be6006cfbf9e2c41046e3df0fe3f9bf8770"
-    sha256 cellar: :any,                 sonoma:        "10acf47f872a22560f35cdfef1b78682691bc7d05d862d64892c99778c08016c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d98373f8b719147e0755b980225eead700cccc7c7a05e6ff63cec7cb49fb23e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8eb68c22ecd1373502fd2f657f99e26afa7f3cfce4700954130e7912529e213"
+    sha256 cellar: :any,                 arm64_tahoe:   "f3f5948c10791930b1aed31aba527dff2bb7e086cd33303e372569a08c50526b"
+    sha256 cellar: :any,                 arm64_sequoia: "2973a038dc0b48304f972f7bbeca5e02f73fe19275d64d580e872456c84a6afa"
+    sha256 cellar: :any,                 arm64_sonoma:  "02076f191366ad4ac0f2c608b6b05598f6fdeed51eb7cf6fb884fca665289756"
+    sha256 cellar: :any,                 sonoma:        "27634d3c6a9fe105e13a8fcc97b6bf94d277cd8ff97b7b973ed699a33622efa8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d5886ee0551e5e8ae39476a2e6b81436ef17e39a108950190f56f26a85dbd45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe50bbf64a54ba812c21c4437b0e41be51ba935ffeacc976d932d335009af166"
   end
 
   depends_on "cabal-install" => :build

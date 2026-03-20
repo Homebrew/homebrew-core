@@ -35,11 +35,6 @@ class Tmux < Formula
 
   uses_from_macos "bison" => :build # for yacc
 
-  resource "completion" do
-    url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/8da7f797245970659b259b85e5409f197b8afddd/completions/tmux"
-    sha256 "4e2179053376f4194b342249d75c243c1573c82c185bfbea008be1739048e709"
-  end
-
   def install
     system "sh", "autogen.sh" if build.head?
 
@@ -59,7 +54,6 @@ class Tmux < Formula
     system "make", "install"
 
     pkgshare.install "example_tmux.conf"
-    bash_completion.install resource("completion")
   end
 
   def caveats

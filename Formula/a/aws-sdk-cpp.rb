@@ -1,8 +1,8 @@
 class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
-  url "https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.11.735.tar.gz"
-  sha256 "a977236b12b8c16c9a31780723e35f838cd07c44a08dbd34a7a385ed0af7b573"
+  url "https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.11.765.tar.gz"
+  sha256 "0a61a9f83f2b621b4841c054c1dbb82829daa471190c1ab696676ede625f81a7"
   license "Apache-2.0"
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
@@ -11,12 +11,12 @@ class AwsSdkCpp < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "e53d5a02af5325d77a5c34e793ab9dd2e6d70ca8f4a0a8fad8138c517aa2292a"
-    sha256                               arm64_sequoia: "2dbd3b6aaf2444a0b73b1e071b7d9e8df67d456623f748dbbde1870ee1e1d8bc"
-    sha256                               arm64_sonoma:  "83b1f9f085cba7df4b3c6e273c701b74fbb3610485964b8a0b9b19cd47819fde"
-    sha256 cellar: :any,                 sonoma:        "c4b5a395bc70d42c95fcea0cc2dc74d2b07f6dafced10a810961b11c9cc13c81"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f2b795823c22f74e808322ff764134b8fb065cf3c1068e40447bccfedf90ec3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7eb5a3dd164f5b845f2faf322543a5f8d754158f0e7cce3bd4846be395af8a58"
+    sha256                               arm64_tahoe:   "aec87511eca6398a24a183a3840ab807eff700f125c9de86173e1184109cac6b"
+    sha256                               arm64_sequoia: "dc822f9aaee107d43d20e0cdad96efad6320d04d530717edd1073fb23a28259d"
+    sha256                               arm64_sonoma:  "1ee07025d28bb97b113346e43798b1b9d6cc912832416315f1edca060db51265"
+    sha256 cellar: :any,                 sonoma:        "ae328fedfa43a66d38ec2ddc81c413af08bfa1472dd715b89f9d3e8d2cedfdfe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "951c3ddaa2e968e616f6dc2b2c8bb1705bce6f56e10e9e45d8570538104a5204"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33b79e1c7d1063caff2ab5455e9007912fcd3884e79ba1229e25f1dfd9fa6790"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +29,10 @@ class AwsSdkCpp < Formula
   depends_on "aws-crt-cpp"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Avoid OOM failure on Github runner

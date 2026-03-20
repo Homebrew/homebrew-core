@@ -1,8 +1,8 @@
 class Squashfs < Formula
   desc "Compressed read-only file system for Linux"
   homepage "https://github.com/plougher/squashfs-tools"
-  url "https://github.com/plougher/squashfs-tools/archive/refs/tags/4.7.4.tar.gz"
-  sha256 "91c49f9a1ed972ad00688a38222119e2baf49ba74cf5fda05729a79d7d59d335"
+  url "https://github.com/plougher/squashfs-tools/archive/refs/tags/4.7.5.tar.gz"
+  sha256 "547b7b7f4d2e44bf91b6fc554664850c69563701deab9fd9cd7e21f694c88ea6"
   license "GPL-2.0-or-later"
   head "https://github.com/plougher/squashfs-tools.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Squashfs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e2cee5166e1e9461ab5cecb429bdb1bc86f0a345b5fb4ae3b55a5dc8b81d1037"
-    sha256 cellar: :any,                 arm64_sequoia: "67c4ba832d3d8e03f6160d2d287d11825e13685b0a11a716564fb3f041dabf6d"
-    sha256 cellar: :any,                 arm64_sonoma:  "489b9cf9e5228bdd6b8176ff8b43e8cf3a1dd117bdda0d0bc6d64f52d32408ba"
-    sha256 cellar: :any,                 sonoma:        "ce60ff8f9345d6cdc7d5f26f4deabdb75d861138f6068d7952334e399161d24f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "315c19c678535e71df91af9f0cef727b7080bd9c75f8e5c86bd28fd8cbece29b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b070dd272ab724f2740ca86f476b2d3d44facdfa331523360b8614ded0772ce"
+    sha256 cellar: :any,                 arm64_tahoe:   "4457ab0b11eff5278270c2bcf8de450879d4e8d9d3b6b3c2aac3d3aef822e5db"
+    sha256 cellar: :any,                 arm64_sequoia: "279c65c00b406c9bff6a6db0ea2d2912502cabae119acb12f1ca1d0702645e28"
+    sha256 cellar: :any,                 arm64_sonoma:  "67388efdf366eb667070a2a3c89259f0bd94ddc358b89fa3da9db3b54d5acbe3"
+    sha256 cellar: :any,                 sonoma:        "d0946ffe57592ee0837e4f9930c6af5fa5944054e1cc7ad19b4375c03a7537f1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "72d51e9a40472471e870fbf47e31f77bdb2dcd58848a0575c6f46e4824045226"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "931a2bcc184485cc0b1d449de2a3e8bfbb128c655194648915d9638469f1f16c"
   end
 
   depends_on "gnu-sed" => :build
@@ -29,7 +29,16 @@ class Squashfs < Formula
   depends_on "xz"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
+
+  # Fix Darwin `struct stat` field selection (`st_atimespec` vs `st_atim`).
+  # Upstream PR ref: https://github.com/plougher/squashfs-tools/pull/356
+  patch do
+    url "https://github.com/plougher/squashfs-tools/commit/f88f4a659d6ab432a57e90fe2f6191149c6b343f.patch?full_index=1"
+    sha256 "3f3f568514c57fd50f508fef67e0e293a9668067801f42d4471b429a79bd1575"
+  end
 
   def install
     args = %W[

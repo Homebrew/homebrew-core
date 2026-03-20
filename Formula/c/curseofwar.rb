@@ -6,8 +6,6 @@ class Curseofwar < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/a-nikolaev/curseofwar.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0cdb7f580eebe419880f3cfc725410eb05f0f10ec349f48c4c9cd68dfed8d368"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e7cb41ed1daf26dfe62143dec8cc795d6fe88d2748eac64f6ec5df187f8695b9"

@@ -15,8 +15,6 @@ class Popt < Formula
     regex(/^(?:popt[._-])?v?(\d+(?:[._]\d+)+)(?:[._-]release)?$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "365d143d0d38003c60c1d6fb6d399ab4361690a64467d46a8f27c2f50d2dcfb6"
     sha256 cellar: :any,                 arm64_sequoia:  "4ff5f0c8c34f510a7336b16f42a6e058d028ff2025e9b01093b294be84d90bb2"

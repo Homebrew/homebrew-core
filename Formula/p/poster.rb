@@ -5,8 +5,6 @@ class Poster < Formula
   sha256 "1df49dfd4e50ffd66e0b6e279b454a76329a36280e0dc73b08e5b5dcd5cff451"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "34f60256105b4965b85f65e6dafaba94f046ce0bc39dd94b9ccbdef4721b756a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e1d75eca414c1495f824f18e6b8007e5352233f9afb9c63d2b588f15f0a44cf8"

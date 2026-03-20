@@ -1,28 +1,26 @@
 class Frei0r < Formula
   desc "Minimalistic plugin API for video effects"
   homepage "https://frei0r.dyne.org/"
-  url "https://github.com/dyne/frei0r/archive/refs/tags/v2.5.1.tar.gz"
-  sha256 "318ec4a3042c94a00a58fccdc1eb0d911f36a22beb3504d27aefcca4598f40b0"
+  url "https://github.com/dyne/frei0r/archive/refs/tags/v2.5.5.tar.gz"
+  sha256 "e2d01f58fa0f96a7452715f052fe452212044da4bad50bf7cc1d5d0db514a9a9"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e2047ddbfd007416c55d75edbfc1c71a8ce83c0443ad5901e443b79df2e7606f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7185662489177e81190e769c8d407b99d3c438443f5942b073f27b02c72f46c3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "395b5e3b1837a3f171bb4b7be4ad2dfca2a210754396a75bdc0fce43fa537421"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d668f703092d5c525f8a968e4c969755356de1abc6979ce18c87081448147194"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7334ae0b75380b6d14b8d2e054e5b8ade2792e517c155004664375c2d8711a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f188e001f3d5ef0af3d5e75fffc72b984dcd73ca3cdd6792782c0fcd13e02ef"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b4b9fdb23adb1a2929dfd626d476a3d3847c539ff7e470eabba69845171b8dad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b505077dd5ad5921fc8a3dd82dbf7b738102dedeb7de681959fb2871f12ac41e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f090c9ea017daf4fee2f80725a2cddcb6afc4d8f65d096106967609020c8dde2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6ad642481f264d5e966a4a39b80121cfe612d95d106c5b2e2e1dc99db29f0c1f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "77d7dae245358f62b9785476ce1b7f1b025c3045c89d2241189ca0dd42308870"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "335d422eddda2cf9d320548778fb337d4b6b20ef40d43835876b789f964237e5"
   end
 
   depends_on "cmake" => :build
 
   def install
-    # Disable opportunistic linking against Cairo
-    inreplace "CMakeLists.txt", "find_package (Cairo)", ""
-
     args = %w[
       -DWITHOUT_OPENCV=ON
       -DWITHOUT_GAVL=ON
+      -DWITHOUT_CAIRO=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

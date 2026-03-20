@@ -6,8 +6,6 @@ class Wordle < Formula
       revision: "757ede5453457f58b5299fec0b6a0e79fbb27fa9"
   license "AGPL-3.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f6332474a053c58c236812202429c2b5685e581276b067efbccc785278ab5fdd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8186eac18fc030dd6a97de477d2fe257a9824dd542b917a57398bb5ef0fd7acd"

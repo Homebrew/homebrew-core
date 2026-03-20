@@ -11,8 +11,6 @@ class Yuicompressor < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "85fa9d1169b77f59259088ebe086f6611f7d14b87216c4e3ed0090f3c04f34cd"

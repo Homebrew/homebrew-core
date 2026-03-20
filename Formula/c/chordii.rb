@@ -10,8 +10,6 @@ class Chordii < Formula
     regex(%r{url=.*?/chordii[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d07735a1513b3c86ea5fa4db756e4c2238c7bb4ab60bfda160e56940c5abca28"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d957516291bf50268bfc7a90bfb72ae62ae3e54e249a6156033f0938c9d4fbbf"

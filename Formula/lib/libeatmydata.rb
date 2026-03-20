@@ -16,8 +16,6 @@ class Libeatmydata < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:   "b3541c1127dc057cc98e54fe64f65e7cea63040258b7d8dd33dcaa99cdd2f9bc"

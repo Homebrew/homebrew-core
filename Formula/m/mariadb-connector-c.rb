@@ -6,6 +6,7 @@ class MariadbConnectorC < Formula
   mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.4.8-src.tar.gz/"
   sha256 "156aed3b49f857d0ac74fb76f1982968bcbfd8382da3f5b6ae71f616729920d7"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/mariadb-corporation/mariadb-connector-c.git", branch: "3.4"
 
   # The REST API may omit the newest major/minor versions unless the
@@ -24,12 +25,12 @@ class MariadbConnectorC < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e6a0bbb96d47363e4a7f5e06879e1578865c8ef43bcf1a44a6116d7d3a22f9e8"
-    sha256 arm64_sequoia: "5d6a83ad23b28075bcb4396f9c551eea46a2eb41319b971d5753940248168e40"
-    sha256 arm64_sonoma:  "c4ead6e03193044e0848aebb0ead7e37e0d212358e2233c405e669aae61402c6"
-    sha256 sonoma:        "6eab78fa3a278544397565e6a6264ea6113bd1cdd76277cd9422f1ae486a7ac5"
-    sha256 arm64_linux:   "cb30c78a233c4ce73cd6d7858276b1a11eaa3c46ff00330f5da423a4d02af6d6"
-    sha256 x86_64_linux:  "b0756f514abf577ac92f2b6bf9c0919d590373b6bf52e62e07c9deca64554d56"
+    sha256 arm64_tahoe:   "01d614467287c61b78cb78e9234d1c445dbd79beb4b9c12bf99ed0beb1a01535"
+    sha256 arm64_sequoia: "0970698d342c0c98b3a4efeb408e764d4ca12d6c015d2cd41e0f1700bab34bdc"
+    sha256 arm64_sonoma:  "78e4cc822105fd0699d3913dedb784b5d30596a0ee140932071933afd1b1a338"
+    sha256 sonoma:        "79501ef30e2ab77c3894897428269d33b80a9cb1c7a9ee4df3a119ecc508473a"
+    sha256 arm64_linux:   "b3242cc136211ae92f6559f959e94ff963fa6822900784c0f98c7893e30cf01d"
+    sha256 x86_64_linux:  "9a2b2d89b014881733d2ee25d06a4ce7f0c17bcdb159059036ed068784a6d415"
   end
 
   keg_only "it conflicts with mariadb"
@@ -40,7 +41,10 @@ class MariadbConnectorC < Formula
 
   uses_from_macos "curl"
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     rm_r "external"

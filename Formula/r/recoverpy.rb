@@ -3,14 +3,13 @@ class Recoverpy < Formula
 
   desc "TUI to recover overwritten or deleted data"
   homepage "https://github.com/PabloLec/recoverpy"
-  url "https://files.pythonhosted.org/packages/81/fe/ddc0694fc530839f8f854c88725d434fd4adcc05352a580906a2a73223d8/recoverpy-2.2.1.tar.gz"
-  sha256 "3b0db026bcb8df6178162558b3fcb2f91b70a35a34fbf36290f5543ecef612db"
+  url "https://files.pythonhosted.org/packages/00/d0/2b19cad9334b3f10d60d8f50fbcec9780b144605ebd337e542558a41341f/recoverpy-2.3.0.tar.gz"
+  sha256 "86244abf9db5eee5c002d603a8f88e30b162ac377130738393c18ed0a3991cc5"
   license "GPL-3.0-or-later"
   head "https://github.com/PabloLec/recoverpy.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "9a1c7eb0190968f0df4c177633683f61fb8c28d0b7343df97ffa5bcbd1be3eca"
+    sha256 cellar: :any_skip_relocation, all: "4b5bf6fec7c583ec230400636c79e4f3c44c593db2dfcff322486bc7efc46060"
   end
 
   depends_on :linux
@@ -37,8 +36,8 @@ class Recoverpy < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/61/33/9611380c2bdb1225fdef633e2a9610622310fed35ab11dac9620972ee088/platformdirs-4.5.0.tar.gz"
-    sha256 "70ddccdd7c99fc5942e9fc25636a8b34d04c24b335100223152c2803e4063312"
+    url "https://files.pythonhosted.org/packages/41/9b/20c8288dc591129bf9dd7be2c91aec6ef23e450605c3403716bd6c74833e/platformdirs-4.8.0.tar.gz"
+    sha256 "c1d4a51ab04087041dd602707fbe7ee8b62b64e590f30e336e5c99c2d0c542d2"
   end
 
   resource "pygments" do
@@ -47,13 +46,13 @@ class Recoverpy < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/74/99/a4cab2acbb884f80e558b0771e97e21e939c5dfb460f488d19df485e8298/rich-14.3.2.tar.gz"
+    sha256 "e712f11c1a562a11843306f5ed999475f09ac31ffb64281f73ab29ffdda8b3b8"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/8a/87/eda3ef12ac40b46a6d2930b89f19ffb1b8cde1ead8b24b0a31521eb8d2e6/textual-3.0.1.tar.gz"
-    sha256 "a5bfc924d63ceb16a4c63ce4ff4b424e5c554c4dfd71336450885c85dfc6247e"
+    url "https://files.pythonhosted.org/packages/9f/38/7d169a765993efde5095c70a668bf4f5831bb7ac099e932f2783e9b71abf/textual-7.5.0.tar.gz"
+    sha256 "c730cba1e3d704e8f1ca915b6a3af01451e3bca380114baacf6abf87e9dac8b6"
   end
 
   resource "typing-extensions" do

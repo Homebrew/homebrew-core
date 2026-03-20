@@ -6,8 +6,6 @@ class Gqlplus < Formula
   license "GPL-2.0-only"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "9397a0096269caa5527b82304329ef4504f54978ed22d11dc37195f257fba161"

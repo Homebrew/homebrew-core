@@ -11,8 +11,6 @@ class Minimodem < Formula
     regex(/href=.*?minimodem[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "733a179f707e522c3b44c603a5fddfc616d22a4c94dc0a721f76f000c3499a66"
     sha256 cellar: :any,                 arm64_sequoia:  "4bf7e151ffff1de41f8ce86bab303b7afb6e40b0f5417fdfada6a73fe633b6d6"

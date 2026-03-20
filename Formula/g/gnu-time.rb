@@ -6,8 +6,6 @@ class GnuTime < Formula
   sha256 "fbacf0c81e62429df3e33bda4cee38756604f18e01d977338e23306a3e3b521e"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "feac0744561e6ed40145815079575f4066bb3f8c363d1c9fc2302fde2f93b7bf"

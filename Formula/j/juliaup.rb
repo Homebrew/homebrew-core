@@ -1,8 +1,8 @@
 class Juliaup < Formula
   desc "Julia installer and version multiplexer"
   homepage "https://github.com/JuliaLang/juliaup"
-  url "https://github.com/JuliaLang/juliaup/archive/refs/tags/v1.19.8.tar.gz"
-  sha256 "3c33179c8de15f2090e817f5a492f069dd0c5bc548d2ad31faa9717f3eefe683"
+  url "https://github.com/JuliaLang/juliaup/archive/refs/tags/v1.19.9.tar.gz"
+  sha256 "faf3fb713d1f6609bfd8820074e4685a26a2c389d8c26ad1fef379d06025d766"
   license "MIT"
   head "https://github.com/JuliaLang/juliaup.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Juliaup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "281655e393fd0c72e74aa0d0f71943a61b2bc4a2a7df71273c6bb7cdf4337923"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "315ca6c999d773b05bfc4be7008383f5bd8b8f511d801aad8f1b6848430d13a3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "338fabb6c636dcdb3c38b53db0132cd41689a4ffdcb7ae3fc0d57985499d68c1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b78473872a2ce3715ae580dd184908246233c5964fdd55ad87e430e05d931199"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ffee395183d0b0f18ab43f4f297f88ae4d7e3cee756e2bba889bb08339859924"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aab52f9b27d23c4798543b7f381f062b36379cea1950dc61dd8c27119de0639c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bccaf9578242f8b9af469454c64ac919afaf4d54338f5396920f1efa083612f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ccb27786a411f0074cafd2f9a0a89f616c33d509766e4ecf32d4948ffae10acf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a2fa254fd89a9e8b35d1d94dceb89bd10d40f3d3b8edf7920ad90b0a1a1eca5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b0525c01dcd355424d63783ec14985a7d9611c742d3b63c29ea1af9026b16c60"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b288d339d8d27d8effe6b28777e2c22f784fd304c280864be1553c547343f01f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a03668e9e5c6a3c85802ffeda076a5d584358a277ae0745a2691109eed9f1a14"
   end
 
   depends_on "rust" => :build
@@ -26,7 +26,7 @@ class Juliaup < Formula
 
   def install
     system "cargo", "install", "--bin", "juliaup", *std_cargo_args
-    system "cargo", "install", "--bin", "julialauncher", "--features", "binjulialauncher", *std_cargo_args
+    system "cargo", "install", "--bin", "julialauncher", *std_cargo_args(features: "binjulialauncher")
 
     bin.install_symlink "julialauncher" => "julia"
 

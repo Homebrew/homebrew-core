@@ -1,9 +1,9 @@
 class Socat < Formula
   desc "SOcket CAT: netcat on steroids"
   homepage "http://www.dest-unreach.org/socat/"
-  url "https://distfiles.alpinelinux.org/distfiles/edge/socat-1.8.1.0.tar.gz"
-  mirror "http://www.dest-unreach.org/socat/download/socat-1.8.1.0.tar.gz"
-  sha256 "9a884880b1b00dfb2ffc6959197b1554b200af731018174cd048115dc28ef239"
+  url "https://distfiles.alpinelinux.org/distfiles/edge/socat-1.8.1.1.tar.gz"
+  mirror "http://www.dest-unreach.org/socat/download/socat-1.8.1.1.tar.gz"
+  sha256 "f68b602c80e94b4b7498d74ec408785536fe33534b39467977a82ab2f7f01ddb"
   license "GPL-2.0-only"
 
   livecheck do
@@ -12,12 +12,12 @@ class Socat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "91543aa167477e8c387300658044d1bbe468f0be8e7163d4a5fa67c5f09e71a6"
-    sha256 cellar: :any,                 arm64_sequoia: "970538b7e516f15ebd996bb334fe6055a128274ad02670d73a39900f7dba4b7b"
-    sha256 cellar: :any,                 arm64_sonoma:  "4941aaa2611794ba979e67afa19627255574616331323073a153ccd0423e88a2"
-    sha256 cellar: :any,                 sonoma:        "89308a55b06e28349010a85de1d0951d31f2b3053c19d90af8d0811b43238609"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6fd2104b6d8ceb9c5434de09a4d9ce4e1f3431439f5d8ac4c8429c6356c10a49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5b6e1c2042c826eb23d6c9c705db3d48325723e184bc20e233f384e52d0b5cd"
+    sha256 cellar: :any,                 arm64_tahoe:   "ac0c47bcebd304502db55e0a67b3fbca2af8b882c331f6f238f00f543c997ea6"
+    sha256 cellar: :any,                 arm64_sequoia: "34e3d8eabea5928b3f37d589b32d118c5aa47e3aef264da0d8b2470e3eb81787"
+    sha256 cellar: :any,                 arm64_sonoma:  "97441f063428c38f4313079e8bafc4ea2835b9c93a9f757ed3d7d022acd46f2d"
+    sha256 cellar: :any,                 sonoma:        "00617f292b2d5e3887321fead711ee7a7de79b773829027f872f66e898ce4bb5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8516bb17bc2e9ff8382a3038ec2ad58c2d2198224cbc1601e0086adeb5bed764"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f5785c495d7e676ca4b2c34d16ad61363fb3c7efd5f2f7e2cc5e7bb1e413fa5"
   end
 
   depends_on "openssl@3"

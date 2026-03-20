@@ -5,7 +5,7 @@ class Libnl < Formula
   sha256 "fc51ca7196f1a3f5fdf6ffd3864b50f4f9c02333be28be4eeca057e103c0dd18"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 arm64_linux:  "75c3dff2c1bd4a952ab0b661639b0629829b1d447e20cb6bb7471655d13ffe83"

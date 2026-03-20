@@ -1,8 +1,8 @@
 class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://docs.solo.io/gloo-edge/main/reference/cli/glooctl/"
-  url "https://github.com/solo-io/gloo/archive/refs/tags/v1.20.9.tar.gz"
-  sha256 "343639c893a85ace9c54d8781f793c534e96ad6ebdf34800f1f8501391cb0dd0"
+  url "https://github.com/solo-io/gloo/archive/refs/tags/v1.20.12.tar.gz"
+  sha256 "7ab9c31d957931dcce1845ce085baa2a0d07429c7dff8febfebac01e6c03a21a"
   license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git", branch: "main"
 
@@ -16,12 +16,12 @@ class Glooctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bda003555ccc787fdd2ab5fae1941f977df2348b99e901a5c63030d8f1d5db26"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "308ca68a7d3e52aebf75bd3b160e4112d4893b83b10f6c7b8b40d30e8127af11"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94d0ee114fa89c968414207b86ee0ff2beb5d0f9e3261867e150c96a4d80c688"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fcb4db1fab794ce26144744a73a68b5d6ac8aa736c5e7a113c30b8ac854e1b3d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "35347ac68aac604c4670e1d6fc89801f716a9785556723e43782e8d5ef938d4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0add007b8b57fcfcde00697a5e0a4ee66660f29e77aba9f6957944b1675e8efb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0274048fd489eb035c6fcb01c3564cc9760127eff7b940eff27070f7c747a972"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fe2e5a7c480f731f2bd715a64e71fd6e20fd2517dc86bdefba87bae92178e6b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58fdb69d2c391a72ee77a4e4e07e7e539b4852f95d7b64a4b49d2450b80295fc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b0a10de6f21f03158fdab199c30a0f1ec7910756f3bebedc30620ae28955c19b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ef0c0808417308970187fd3c47f95fcf7937cd35830d230bbfcdae0d834943a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b111749b96e30783a6ea6b629a63fb8b7d91fc02cd57f911908e5a871400f844"
   end
 
   depends_on "go" => :build

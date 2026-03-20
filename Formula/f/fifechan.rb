@@ -10,8 +10,6 @@ class Fifechan < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:   "1a4e6bb77b1d87e8b0d27ebd76e5c649d6ae8a9cf3b2701e8ccac99586c69540"

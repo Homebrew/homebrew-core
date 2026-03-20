@@ -7,12 +7,14 @@ class Lc0 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80eac538cad677c06ca03410d3499a47885d90a9d77d65faf5578a8fd8c1eb51"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f980cd903c469545962a5f05121057f093088711e842d62e3c0fa11dfc8216de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3050bbdbb6ee889347dd645657a9e7b7d3b8d5a97ce5a67f07b972bfe52eb43c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9e00ec4151f69e3b3766425f45885084e72938bb479f79412aa7216bb3f19d18"
-    sha256                               arm64_linux:   "55a6ad7109bfe95e15153f49943ff9d71aacc1d36007acb991a09e564ef87eb7"
-    sha256                               x86_64_linux:  "e6d32af046f1abc89dd50835f1cb93d2515b0ddb278e48f4bf0d2c19d831b14a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9af0c3404413f7d61bdabebed5b36f18cd46d38d67435add1737ea07c0c09849"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d26534ed3db2d70eeb6b02f404defdfa04bc3a402437d2fc334bdac71baff11e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4210f76c40249e7e81c682f80edb881bbba6e6e9508d484e4fb4649ac45b42df"
+    sha256 cellar: :any_skip_relocation, tahoe:         "0864f484b7eec673ec082e6979c258db9e33243def5d23b9d003ff3d7877a42c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "685a0fcf141311b503520396025e4296f9f3656582d030e854667ac07d5d4bd4"
+    sha256                               arm64_linux:   "01f90bf4ae497e1a3c8de9db65a7a85f3d3366e056eff269d2f6b0497fcda731"
+    sha256                               x86_64_linux:  "a37761e31c707318e6c92cb6b7c11567e3e1e925146270f86ec344fa0b038419"
   end
 
   depends_on "cmake" => :build
@@ -22,10 +24,10 @@ class Lc0 < Formula
   depends_on "eigen"
 
   uses_from_macos "python" => :build # required to compile .pb files
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openblas"
+    depends_on "zlib-ng-compat"
   end
 
   # We use "753723" network with 15 blocks x 192 filters (from release notes)

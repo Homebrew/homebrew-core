@@ -13,8 +13,6 @@ class SolcSelect < Formula
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fad784f517f25560079fab570297d97420e85c31be47b21446f5c6bf3623494f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "99b2972e69f47d5d216c916090a0584e543389e80d2e8520ec894fb1dc0b6a30"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c77a374d6ac0bc29041979b11b31f6f4622ace9bb51beffc2c40bfa7f923828"
-    sha256 cellar: :any_skip_relocation, tahoe:         "ca6c1da8fbf96201cdcd31f93696f2f775a18ac210e80d9b8cb57599ddaf985f"
-    sha256 cellar: :any_skip_relocation, sequoia:       "471c53b820c0372635b8199c5ed395488644edd40526dcbbae1d149ceda1f05b"
     sha256 cellar: :any_skip_relocation, sonoma:        "e37a09d2e64296b744e12be0feae56ab5f2fa1a2009a93d5855ffa83bef3eb6b"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "3d4c92940ff09255409d65c0f4655474d3cbec26e84e1ec0a730f25a122e495d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d93f3a1db63e47bf89cf93bad487060ef2ad929b34d687e16e1cd322c8d01502"

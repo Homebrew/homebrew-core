@@ -1,9 +1,9 @@
 class Hadoop < Formula
   desc "Framework for distributed processing of large data sets"
   homepage "https://hadoop.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=hadoop/common/hadoop-3.4.2/hadoop-3.4.2.tar.gz"
-  mirror "https://archive.apache.org/dist/hadoop/common/hadoop-3.4.2/hadoop-3.4.2.tar.gz"
-  sha256 "fe5cb5b4fd4fd0f8dad3a96eb2fdac077a619d74c018bc358ff5608815a2d40a"
+  url "https://www.apache.org/dyn/closer.lua?path=hadoop/common/hadoop-3.4.3/hadoop-3.4.3.tar.gz"
+  mirror "https://archive.apache.org/dist/hadoop/common/hadoop-3.4.3/hadoop-3.4.3.tar.gz"
+  sha256 "ca65b67a9cdad27b3aa1cb81496a3136de572bab3e8f2289c2aade965f687353"
   license "Apache-2.0"
 
   livecheck do
@@ -12,7 +12,7 @@ class Hadoop < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d9a7cb536f6e189c3037e9c3ad118baa09cd9bd3e1f75df849b8bf08c862b71b"
+    sha256 cellar: :any_skip_relocation, all: "c2857c82afa8e3d419db199214486108eb2a3169f207940ad3ba71e3f2028763"
   end
 
   # WARNING: Check https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions before updating JDK version

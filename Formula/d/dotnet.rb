@@ -7,13 +7,12 @@ class Dotnet < Formula
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.102-sb1.tar.gz"
-    version "10.0.102"
-    sha256 "cc544f357e3674f3f4d170c82f781f6f9406760e8badbe1fbcaf04657e1554d4"
+    url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.105.tar.gz"
+    sha256 "c634e849db52424b75c82c010116cb8290bc952431b7ccf6078ed7365d57b90e"
 
     resource "release.json" do
-      url "https://github.com/dotnet/dotnet/releases/download/v10.0.102-sb1/release.json"
-      sha256 "f22c317a69e38fbd5f1b0cf482065c8cc40dddedb4c3dc7f659c07b3603c46ed"
+      url "https://github.com/dotnet/dotnet/releases/download/v10.0.105/release.json"
+      sha256 "e8f1ccc6f7f1e2f5b2265bcab5a5351535288c9c5261ac7c677e865a6a547dcd"
 
       livecheck do
         formula :parent
@@ -21,18 +20,22 @@ class Dotnet < Formula
     end
   end
 
+  # Upstream has unstable tags that use the same scheme as release tags so we cannot use git strategy.
+  # Also, we currently only support building 1xx band since 2xx/3xx/4xx bands require additional work:
+  # https://github.com/dotnet/source-build/blob/main/Documentation/feature-band-source-building.md
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(\d+\.\d+\.1\d\d)$/i)
+    strategy :github_releases
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a9deaed142a3b459cd2ef0bdcef80e35ebc969e23829bd67cf27d8d70f5f4847"
-    sha256 cellar: :any,                 arm64_sequoia: "f493923c039918e9ffb6df9a0aecc99d6dc41a2d739ebb4d0ff0df5e6c438dc4"
-    sha256 cellar: :any,                 arm64_sonoma:  "0bb256b07f545fae407a2b113ab836bc39cc26184d9ce56176e5f27de94ec7ff"
-    sha256 cellar: :any,                 sonoma:        "a367371bb8c135d7383fa3b9c57052b4faaf18a336e1125bf2d8d5afb9521406"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3df0c663104332af2706dab8a7806f58937be0426e401e31efe8e9918093c85"
-    sha256                               x86_64_linux:  "8e8217be0316b539ecf9e345e3edd2c58762af31deaee9ff4e992f4292232f06"
+    sha256 cellar: :any,                 arm64_tahoe:   "7a473a10c5f4b75cc5c4ded89263cfeb5c9d50e2520935cce75be400f5b14ffa"
+    sha256 cellar: :any,                 arm64_sequoia: "3dc28e3e729add4029a3b0b2b302c449a4321bdd1e189091d1d5cd2ee912420a"
+    sha256 cellar: :any,                 arm64_sonoma:  "410db18a7f83def7d657cd67f5e8e79e5d54d3f55226bf2ed44196d8fa55a710"
+    sha256 cellar: :any,                 sonoma:        "28ea46ab7b6fffced27292dc10790063a2d426c1792170a863fdc0704127044e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e72ff8fed4f6b10b62f78dd62fc996d3d5c3c1dde9b2c3f6eadf5b09f1c0a9a6"
+    sha256                               x86_64_linux:  "bdab4c1a8a2cd86ac784ba1d95d18ff9b9bc796c159f86655b6929e9befabee2"
   end
 
   depends_on "cmake" => :build
@@ -44,16 +47,15 @@ class Dotnet < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
-    depends_on "bash" => :build
     depends_on "grep" => :build # grep: invalid option -- P
   end
 
   on_linux do
     depends_on "libunwind"
     depends_on "lttng-ust"
+    depends_on "zlib-ng-compat"
 
     on_intel do
       depends_on "llvm" => :build
@@ -107,18 +109,17 @@ class Dotnet < Formula
     end
 
     args = %w[
-      --branding release
       --clean-while-building
       --source-build
       --with-system-libs all
     ]
     if build.stable?
-      args += ["--release-manifest", "release.json"]
+      args += %w[--release-manifest release.json]
       odie "Update release.json resource!" if resource("release.json").version != version
       buildpath.install resource("release.json")
     end
 
-    system "./prep-source-build.sh"
+    system "./prep-source-build.sh", "--"
     system "./build.sh", *args
 
     libexec.mkpath

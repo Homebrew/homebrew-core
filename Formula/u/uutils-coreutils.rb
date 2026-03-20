@@ -1,8 +1,8 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://uutils.github.io/coreutils/"
-  url "https://github.com/uutils/coreutils/archive/refs/tags/0.6.0.tar.gz"
-  sha256 "f751b8209ec05ae304941a727e42a668dcc45674986252f44d195ed43ccfad2f"
+  url "https://github.com/uutils/coreutils/archive/refs/tags/0.7.0.tar.gz"
+  sha256 "dc56a3c4632742357d170d60a7dcecb9693de710daeaafa3ad925750b1905522"
   license "MIT"
   head "https://github.com/uutils/coreutils.git", branch: "main"
 
@@ -12,22 +12,16 @@ class UutilsCoreutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "924e04cc141bcc932b40bc227a08870284fd97e12ef878e708fbda7520fe1221"
-    sha256 cellar: :any,                 arm64_sequoia: "c873ce99aeb0582375b6200020d8ed8caf4fda2ad4766b4f61445cc420da714b"
-    sha256 cellar: :any,                 arm64_sonoma:  "75840cfa19f39f32d53936f2c87d6f546b86336cef332ab1716347490cb44b65"
-    sha256 cellar: :any,                 sonoma:        "30a21dfd48fc8aa7829555b59770b67db8ff303d5218efad2054271a43010bd7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f53fcc66d49a33f9241eea86eb0a99c17100e773c6d6a55fde64bbe27059cf60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a495f658272b20d8ded7e0152f10e68932de7b97103c310cc5b5327120884d5"
+    sha256 cellar: :any,                 arm64_tahoe:   "59d7fc0df88ced1afca1745149671efd09c0bc4199ef6b85d7fc880be5824850"
+    sha256 cellar: :any,                 arm64_sequoia: "ce36b9388e0b2aa9430c6db15f9d010a89d989d0da8467067ba8099313697c5c"
+    sha256 cellar: :any,                 arm64_sonoma:  "2b03e93d33ddfecb81550d393d467b9775cc705bb8ff87d2a053148bd2e40fcf"
+    sha256 cellar: :any,                 sonoma:        "8dd12b9a70865c41532a83d551eedd319108bbf6d0b2c8d9adbef3fa32825bbb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8b3d9fe5447b3be3d26d528b0c19f9b0ce95a1639c9e6f19f3297b94d552ce4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e14b9304ce344ca444d8fe1533e152949a97ceeb80410604515f3b5f2fbfff0"
   end
 
-  depends_on "make" => :build
   depends_on "rust" => :build
   depends_on "sphinx-doc" => :build
-
-  on_macos do
-    # TODO: remove conflict in follow-up CI-syntax-only PR
-    conflicts_with "coreutils", because: "uutils-coreutils and coreutils install the same binaries"
-  end
 
   # TODO: remove in follow-up to 0.8.0 bump PR
   conflicts_with "unp", because: "both install `ucat` binaries"
@@ -43,8 +37,7 @@ class UutilsCoreutils < Formula
       PREFIX=#{prefix}
       SPHINXBUILD=#{Formula["sphinx-doc"].opt_bin}/sphinx-build
     ]
-    # Call `make` as `gmake` to use Homebrew `make`.
-    system "gmake", "install", *args
+    system "make", "install", *args
 
     # Symlink all commands into libexec/uubin without the 'uu-' prefix
     coreutils_filenames(bin).each do |cmd|

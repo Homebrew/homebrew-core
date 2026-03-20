@@ -1,18 +1,18 @@
 class Goose < Formula
   desc "Go Language's command-line interface for database migrations"
   homepage "https://pressly.github.io/goose/"
-  url "https://github.com/pressly/goose/archive/refs/tags/v3.26.0.tar.gz"
-  sha256 "fb93daf1aa33a5ef0dd5a3b8ca18f79181b4947930df3fb26e2ae26c9bd2385a"
+  url "https://github.com/pressly/goose/archive/refs/tags/v3.27.0.tar.gz"
+  sha256 "4bc91796341475bed5686a59ee84ebd695e6738a9cdbf805f8efeebbe73716ee"
   license "MIT"
   head "https://github.com/pressly/goose.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "30530a391aac72dec45db4eff2dfcefd6bb1a9095161fd15e1fa8cada6a10be7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2c6066f878c5e0aeafbdbccadf574e324ed3d888c27869b3cfb7fad4828ea52"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "093568865fda9c25594bc98250c276a18da697ae11235f4d3977265a53293870"
-    sha256 cellar: :any_skip_relocation, sonoma:        "74559ab416949e294e5de5648da820c96b651b50d9c866ef94f1cff6c4dd71eb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac71ed3180cab9193c6bce59f909d030ea8b2deacefe96d1e8076256a362a364"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c31a5b03d697c746a4d67aad2308335d50505d9a7900627d87abfd3e787b4adb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09e1efb554269c8265ffbbad3437720de3db171504362ae3336ab22ef2336e2f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fce429cdb7e1d4b4bba0ac2d4c6b515b57dd75847be3a2103419e70f9c83d504"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "86a3f4e3d54e726793f2a6e20aa0e56305f403e4174725bfc6032ccd0adf5632"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ae635028df61e39a05e73d56e069bce779b43e9ff0d155100025c452c7bbe109"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5889c91f2942f52db67e8959a146100a90b2fb95be2f466001589783bf5892b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3ff9f656a18cd24255a8a13be71670da8ac78c71ca174c228dc432cac271574"
   end
 
   depends_on "go" => :build

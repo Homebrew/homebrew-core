@@ -5,8 +5,6 @@ class Libb2 < Formula
   sha256 "53626fddce753c454a3fea581cbbc7fe9bbcf0bc70416d48fdbbf5d87ef6c72e"
   license "CC0-1.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "4c161a089a39249a589b88d39f57998c6a2183426647ce886708861774b001eb"
     sha256 cellar: :any,                 arm64_sequoia:  "cc4304b760722128b914944f85788795f1f02de3072d1fd8e921b836b508776f"

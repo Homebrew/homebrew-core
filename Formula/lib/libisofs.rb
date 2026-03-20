@@ -21,12 +21,13 @@ class Libisofs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "91745e9aaaf63e3aa7091f09d06b334dde568da0e517c476d12d436231929b8e"
-    sha256 cellar: :any,                 arm64_sequoia: "dde88abfa9bf4de11ff3651116092d3e48ed73a4edde2b06a5f18f58c237d2b2"
-    sha256 cellar: :any,                 arm64_sonoma:  "b87c10636af673e4955f45e59c84bc59006f95164901523a2b1949ddcbfc7f5e"
-    sha256 cellar: :any,                 sonoma:        "b718bf4b7ea56c1e064e538a97b46c81e32f97e9dbc604c0e514efe584ba2b6c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d06187d556a812c2ee1de797cabbb570132ef12f10f58d50fd652ab1e7ec634"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c62d9f3b97f96ff2cdc2867372690016c4b2e07adb3d20da58bfda08b40ea9e9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e1fbe54b14ab090312efb7e87b22e59e1914f20f70b11f2dae9ba31f7a36bc9b"
+    sha256 cellar: :any,                 arm64_sequoia: "653342c516c2cfabf4b40bce418ba706a3e7a218a8872f4be37c5ca227c0cf69"
+    sha256 cellar: :any,                 arm64_sonoma:  "8cb0fdec1618c88fc89901a15571c486547bcaea4f32e4f52fb99808daf4bf3b"
+    sha256 cellar: :any,                 sonoma:        "cffe8b203438edfedda9d7a3490c05f8223a06189b8ab6dcc38aad72fb65020d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "460614b2690b6a47bffd1fb5b61add40d6b6ace8df09a5b8f0d8edc94c6691d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ba65052f0f50669ffaddaa72ef94e575909ddea93ee60ac745d743bf4c7a875"
   end
 
   head do
@@ -39,7 +40,10 @@ class Libisofs < Formula
 
   depends_on "libzip"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "acl"
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     if build.head?

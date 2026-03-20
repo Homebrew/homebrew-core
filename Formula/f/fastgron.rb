@@ -5,8 +5,6 @@ class Fastgron < Formula
   sha256 "3011a3b99cd07d42648b2e964f459024b13ecc904d30501f0493fb0dc9fc33b2"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a0ba70774cc9059d34d06e9f02cdcffe2f4c0aa7913b91e1d7de51172cec688b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5a9d6d87cbb8c5643bd1ab68dcbe7004a28d7743ca4213e83be2c40ed5978348"

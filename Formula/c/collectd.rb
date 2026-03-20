@@ -20,8 +20,6 @@ class Collectd < Formula
     regex(/href=.*?collectd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "96b35082902fad36f2eebfadecfb13424f4f019cb051fb7cc8a80aa10369e618"
     sha256 arm64_sequoia: "bd6bbc019cd159129bf0ae691889eb75bdb223852a510b968ac1d9f80e2f0fbe"

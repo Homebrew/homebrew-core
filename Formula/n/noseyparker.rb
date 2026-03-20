@@ -30,7 +30,8 @@ class Noseyparker < Formula
     ENV["VERGEN_GIT_BRANCH"] = "main"
     ENV["VERGEN_GIT_COMMIT_TIMESTAMP"] = time.iso8601
     ENV["VERGEN_GIT_SHA"] = tap.user
-    system "cargo", "install", "--features", "release", *std_cargo_args(path: "crates/noseyparker-cli")
+
+    system "cargo", "install", *std_cargo_args(path: "crates/noseyparker-cli", features: "release")
     mv bin/"noseyparker-cli", bin/"noseyparker"
 
     generate_completions_from_executable(bin/"noseyparker", "generate", "shell-completions", "--shell")

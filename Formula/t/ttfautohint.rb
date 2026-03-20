@@ -10,8 +10,6 @@ class Ttfautohint < Formula
     regex(%r{url=.*?/ttfautohint[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "9efb3056dde7f1557a920fe397c958c996c0f34d2a03d8913255845f9661f2e2"
     sha256 cellar: :any,                 arm64_sequoia:  "707de245f1d8feaa830ef678f1d658c59a8a2ed6a8b1aba8aa65b9981e2d0758"

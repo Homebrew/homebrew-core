@@ -1,18 +1,18 @@
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-3.2.0.tgz"
-  sha256 "02ac874baff8634b47e78d2c7f5bf67c540b773270699b3cef7a31274db23cdb"
+  url "https://registry.npmjs.org/appium/-/appium-3.2.2.tgz"
+  sha256 "6e2d758c1d91e22f0aab9925e9d20725f43f33d988abcce7db330ec7fd275155"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    sha256                               arm64_tahoe:   "62bc8fc89786cd840fab1884b9961b57b2aee6d6bb06a39a9b1c3e51212c0507"
-    sha256                               arm64_sequoia: "5b7970624b640fd96921a480fdedc80214a1d0f4e9eeeb2aaef26b51a5d37a26"
-    sha256                               arm64_sonoma:  "1ca41083bb4e3e77781e8c784ab5659136f618f018914e2b734fb521448e0ea4"
-    sha256                               sonoma:        "8282f33ffa607ac199bb7bb8a7c51f9130511a0b24c0e4a4f8505e3e93dc6f40"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "967c32df5d242dfdee30ad2d058259fa68e15cb38ca3c9a37c8df5f7bf80927d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9727bc83f8b9374c356cb911b82d822f9f7d022b0226cce1069b3a833b9f9efe"
+    sha256                               arm64_tahoe:   "a2732cc7a0b94710eea7ac0ccd0fbdddfd8f63fa3c07464a91e48b518f531840"
+    sha256                               arm64_sequoia: "9164df4aadb6b74deeec37919aa6581f1d8734bda3303942d491b4a7631d95a9"
+    sha256                               arm64_sonoma:  "db66acca426b760e17e7be07fa10125c640e687b37434795f81433fd5f778d57"
+    sha256                               sonoma:        "2116ba2d51d6a08ec5166c6ee9a71b2735c44371a3f1fb986552e20f15a0c8d9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f37a9088358f12806d8e2000ce537b06ed7f1e7d2fdf31b188f90cc79539023b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e58a1212964adf3a66d968ed07cf4254b0d9ebfb1be507904c66cdc1c6c68f90"
   end
 
   depends_on "pkgconf" => :build
@@ -27,13 +27,13 @@ class Appium < Formula
   # Resources needed to build sharp from source to avoid bundled vips
   # https://sharp.pixelplumbing.com/install/#building-from-source
   resource "node-addon-api" do
-    url "https://registry.npmjs.org/node-addon-api/-/node-addon-api-8.5.0.tgz"
-    sha256 "d12f07c8162283b6213551855f1da8dac162331374629830b5e640f130f07910"
+    url "https://registry.npmjs.org/node-addon-api/-/node-addon-api-8.6.0.tgz"
+    sha256 "e3029e9581015874cc794771ec9b970be83b12c456ded15cfba9371bddc42569"
   end
 
   resource "node-gyp" do
-    url "https://registry.npmjs.org/node-gyp/-/node-gyp-12.1.0.tgz"
-    sha256 "492bca8e813411386e61e488f95b375262aa8f262e6e8b20d162e26bdf025f16"
+    url "https://registry.npmjs.org/node-gyp/-/node-gyp-12.2.0.tgz"
+    sha256 "8689bbeb45a3219dfeb5b05a08d000d3b2492e12db02d46c81af0bee5c085fec"
   end
 
   def install
@@ -45,6 +45,7 @@ class Appium < Formula
 
     # Remove prebuilts which still get installed as optional dependencies
     rm_r(libexec.glob("lib/node_modules/appium/node_modules/@img/sharp-*"))
+    rm_r(libexec.glob("lib/node_modules/appium/node_modules/bare-{fs,os,url}/prebuilds/*"))
   end
 
   service do

@@ -31,7 +31,7 @@ class Taplo < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--features", "lsp", *std_cargo_args(path: "crates/taplo-cli")
+    system "cargo", "install", *std_cargo_args(path: "crates/taplo-cli", features: "lsp")
   end
 
   test do

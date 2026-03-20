@@ -10,8 +10,6 @@ class Bibclean < Formula
     regex(/href=.*?bibclean[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "879cc1d92309684de3e1d3aac3f3ceae0751b013e52bee638c67c18fd63dbf92"
     sha256 arm64_sequoia:  "13c1d6444ba0a4dd09e6840c29240a230d4d5bab8946912b275fc53fca9558bc"

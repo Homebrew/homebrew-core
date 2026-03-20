@@ -2,8 +2,8 @@ class DotnetAT9 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.114.tar.gz"
-  sha256 "4867b44f6f34af941e05b1277841135c43142bab127612fca8d16f6932d4c478"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.115.tar.gz"
+  sha256 "4e9bb987d5311395e0d516b2db98bcfe02a7eb8054bb8603b6db0b8ea39b81ca"
   license "MIT"
 
   livecheck do
@@ -12,11 +12,11 @@ class DotnetAT9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "38cd6fd0ae366df47d714f4a29d8190051a7f2daa131a5a79d04aa9ed68e364c"
-    sha256 cellar: :any,                 arm64_sequoia: "61e4e4c78bc68d8b59c3a7e0e081c998005bb14ede6a43d0bb06e162f2b22f7d"
-    sha256 cellar: :any,                 arm64_sonoma:  "fe9cf3babd77c50078a197c1dc0d5e924ffc179e56aac05128f04b6e398adf44"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7091dad7f016961066403490b6da99ec81c4669fa038fd083cbd51ac0ca68e35"
-    sha256                               x86_64_linux:  "ea93cb5f995167750d9244ad711924f00a7193cc4d9e752fbadf08272a7ed559"
+    sha256 cellar: :any,                 arm64_tahoe:   "d0210ac9abe86301be17f2ef799950b29e673048a5e686c1eff4129f25cf07a5"
+    sha256 cellar: :any,                 arm64_sequoia: "8c50dc8fff007cc4c89e56249b168e98c7733cbcb57ad065a537c5081561035e"
+    sha256 cellar: :any,                 arm64_sonoma:  "0b8c0f69051f57cd3339a6173cf28b65d575ec1acf16f8c3b0613b5abc5a4abc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f3fedb5b3fdb90696e1b19e25eef83ef312d5d4656f77d91f7f17e12094bfb2"
+    sha256                               x86_64_linux:  "91b020b30ee7c6e901e227c70413a68a85adc96c7e7d52dcae7c53155ec6573e"
   end
 
   keg_only :versioned_formula
@@ -33,7 +33,6 @@ class DotnetAT9 < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "grep" => :build # grep: invalid option -- P
@@ -42,6 +41,7 @@ class DotnetAT9 < Formula
   on_linux do
     depends_on "libunwind"
     depends_on "lttng-ust"
+    depends_on "zlib-ng-compat"
 
     on_intel do
       depends_on "llvm" => :build
@@ -59,8 +59,8 @@ class DotnetAT9 < Formula
   end
 
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v9.0.114/release.json"
-    sha256 "543ca45787b56fa683e92f2e03217f1f0a6fe1747bf99c0a052fd54d617a5d05"
+    url "https://github.com/dotnet/dotnet/releases/download/v9.0.115/release.json"
+    sha256 "72b1fa8d56ded253f234741b88985dab54bac7e079b044ce78292405b83d4fd8"
 
     livecheck do
       formula :parent

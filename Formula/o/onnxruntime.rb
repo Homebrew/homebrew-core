@@ -1,9 +1,8 @@
 class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
-  url "https://github.com/microsoft/onnxruntime.git",
-      tag:      "v1.24.1",
-      revision: "470ae16099a74fe05e31f2530489332c0525edb5"
+  url "https://github.com/microsoft/onnxruntime/archive/refs/tags/v1.24.4.tar.gz"
+  sha256 "0cf4d2ee4392fbb8aedaabc6b2ba11b4a680d1071fa4f75546c2289ca5b404cf"
   license "MIT"
 
   livecheck do
@@ -12,12 +11,12 @@ class Onnxruntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c079078f39161704606b1ea57c69844ad76db72c4da1011256986c29e4c2b88d"
-    sha256 cellar: :any,                 arm64_sequoia: "a82aef765849cc24065dbdd12678a438590c1bb3fcb3f670d6df5fd28aa9f5c6"
-    sha256 cellar: :any,                 arm64_sonoma:  "0705554ef05144840de46747d0e61a58f7146da223e674c70bee3bc88d1c3b6d"
-    sha256 cellar: :any,                 sonoma:        "156693d1c96fff01d42fb69f6c91d51d419c970cb6ab4d1e4305d7d2e88c4e06"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2801dea1eb0a09f26bc9ca4cc6afb96b134694b2df808e3538cf946441ac2bf6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "997b25b4b141c87c09a07c7acf0c87a4aae9fee37f9d5906f2f6e056e34b6bf6"
+    sha256 cellar: :any,                 arm64_tahoe:   "8dd9e26d3cba8fa91acc3d65c657b308476ba7df75639f6d0ce4760546b93241"
+    sha256 cellar: :any,                 arm64_sequoia: "7d6e336784fbd4d7bf400fe0063d7ea208bd682b844e3c8decff7136c097b41f"
+    sha256 cellar: :any,                 arm64_sonoma:  "6a51d0a23801b62a4c255fa277bb456c4d74b611286500a49679ac1d19c4e3a1"
+    sha256 cellar: :any,                 sonoma:        "8688ab809331f70fdba32ec77be418c6ef827ae6444d86139d593b2e69e4ecef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6221a0c03753858a6eb99a1d5c94f0fec4e5cc215e524b3d7d75ec83e4f8b653"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30d8af8518ba1bdba1ff9f030f77c9212c064a1f4f7ca67373a88c16eae45378"
   end
 
   depends_on "boost" => :build
@@ -45,6 +44,38 @@ class Onnxruntime < Formula
     end
   end
 
+  resource "coremltools" do
+    url "https://github.com/apple/coremltools/archive/refs/tags/7.1.tar.gz"
+    sha256 "d3222966982367b2be4ce62f1bd2b3dddc5a0ae018724a9acf850fbf2b0cc09a"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
+      regex(%r{^coremltools;.*/v?(\d+(?:\.\d+)+)\.zip}i)
+    end
+  end
+
+  resource "fp16" do
+    url "https://github.com/Maratyszcza/FP16/archive/0a92994d729ff76a58f692d3028ca1b64b145d91.tar.gz"
+    version "0a92994d729ff76a58f692d3028ca1b64b145d91"
+    sha256 "a91f4770ff9c39f4d72e339c379f566b3bbb359fa66122d85fc0bae3dde7abc7"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
+      regex(%r{^fp16;.*/(\h+)\.zip}i)
+    end
+  end
+
+  resource "psimd" do
+    url "https://github.com/Maratyszcza/psimd/archive/072586a71b55b7f8c584153d223e95687148a900.tar.gz"
+    version "072586a71b55b7f8c584153d223e95687148a900"
+    sha256 "f6c4dab91ae9a03b3019e7cab0572743afd0e1b6e75b97fcca50259c737c924e"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
+      regex(%r{^psimd;.*/(\h+)\.zip}i)
+    end
+  end
+
   # Apply Fedora's workaround[^1] to allow `onnxruntime` to use `onnx` built without
   # ONNX_DISABLE_STATIC_REGISTRATION[^2]. We can't use this option as it will
   # break functionality for any dependents/users expecting the default behavior.
@@ -63,6 +94,7 @@ class Onnxruntime < Formula
     end
 
     args = %W[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DHOMEBREW_ALLOW_FETCHCONTENT=ON
       -DFETCHCONTENT_FULLY_DISCONNECTED=ON
       -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
@@ -75,6 +107,12 @@ class Onnxruntime < Formula
       -Donnxruntime_RUN_ONNX_TESTS=OFF
       -Donnxruntime_USE_FULL_PROTOBUF=OFF
     ]
+
+    args << if OS.mac?
+      "-Donnxruntime_USE_COREML=ON"
+    else
+      "-Donnxruntime_USE_COREML=OFF"
+    end
 
     # Regenerate C++ bindings to use newer `flatbuffers`
     flatc = Formula["flatbuffers"].opt_bin/"flatc"
@@ -96,10 +134,19 @@ class Onnxruntime < Formula
       #include <cassert>
       #include <iostream>
       #include <onnxruntime/onnxruntime_cxx_api.h>
+      #ifdef __APPLE__
+      #include <Availability.h>
+      #include <onnxruntime/coreml_provider_factory.h>
+      #endif
 
       int main(void) {
         Ort::Env ort_env;
-        Ort::Session session{ort_env, "mul_1.onnx", Ort::SessionOptions{nullptr}};
+        Ort::SessionOptions so;
+        #if defined(__MAC_OS_X_VERSION_MAX_ALLOWED) && __MAC_OS_X_VERSION_MAX_ALLOWED >= 150000
+        uint32_t coreml_flags = 0;
+        Ort::ThrowOnError(OrtSessionOptionsAppendExecutionProvider_CoreML(so, coreml_flags));
+        #endif
+        Ort::Session session{ort_env, "mul_1.onnx", so};
         auto memory_info = Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeCPU);
 
         std::array<float, 6> input_data{1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f};

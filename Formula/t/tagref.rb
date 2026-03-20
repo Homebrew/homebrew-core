@@ -5,8 +5,6 @@ class Tagref < Formula
   sha256 "47d18c8fe3b037fd32fbeeeb91cf763840a809050a82a386dd56f73505a375fd"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ddb3d0e12f6c24a0b83a387e5e1392fdeb16fbc0c8dc858690448dcd6575b7ae"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ead16f369050ce660900f833ef63cfa2040c7f0deba8a0545ee5fea24f57d15e"

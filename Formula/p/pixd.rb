@@ -5,8 +5,6 @@ class Pixd < Formula
   sha256 "011440a8d191e40a572910b0ce7a094e9b4ee75cf972abc6d30674348edf4158"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00a4d99285c81b2948df43e3e25515596d12980af8f535419d1665ba77b5ef33"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c41c69c03c8f20507a9014e41e7e02cc6813abe0c919ae40a16f82e0b01fe899"

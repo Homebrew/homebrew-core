@@ -5,8 +5,6 @@ class Gptsync < Formula
   sha256 "c4b0803683c9f8a1de0b9f65d2b5a25a69100dcc608d58dca1611a8134cde081"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bbe45718163e20c2768294dc78efc0193617838f559bcd5b1a5dda8cbec58beb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ea49cd4b6cbba08342f764f78e56496a594edc524a8dd6ee3e0a475d6b558710"

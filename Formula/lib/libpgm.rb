@@ -16,7 +16,7 @@ class Libpgm < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "d78bfc9ac9873ac2b3756155e86e9df6fca639872048aed76446856e08635588"

@@ -13,8 +13,6 @@ class Uniutils < Formula
     regex(/href=.*?uniutils[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c8c2a6ab2e7fd876281c9b107d275f17ab9620a3241a664cdd11af7f02d08fc2"
     sha256 cellar: :any,                 arm64_sequoia:  "b1e77b1c7bb772f82fa4f847d6d08f8b7b4da149516636d45ec0aaa662937490"

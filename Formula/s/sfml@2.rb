@@ -6,8 +6,6 @@ class SfmlAT2 < Formula
   license "Zlib"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "3b56c69d70b30eca4493fcd6ab9063a5f281cc3c82def8c43d55a63312372971"
     sha256 cellar: :any,                 arm64_sequoia: "7cb3afc70bc71a9a3c45edd4bf9ca54dc9514bc576a894f5f01d58c3b04e0b44"

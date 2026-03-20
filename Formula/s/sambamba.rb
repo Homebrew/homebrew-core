@@ -5,28 +5,24 @@ class Sambamba < Formula
   sha256 "955a51a00be9122aa9b0c27796874bfdda85de58aa0181148ef63548ea5192b0"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "a0977e58642b6de8b967a4e01b7b2edf218a6c7b911a98d7e362d4fda1d1fa24"
-    sha256 cellar: :any,                 arm64_sequoia:  "920be291227ca05e361411dc0199507c0c341b492b47db42248b52b27ed99ccc"
-    sha256 cellar: :any,                 arm64_sonoma:   "ddb87f1e11e5f6c241ba9165e9902311d40216ce3a5a7fac3b0d020e24ff17cc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ec988d75fd0cb7ceb2c2ba1ce9e4081e70004caca8ac99793f1d0452a2afe32"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad59fcbbff179f5b753d40baf1c9e1e1b9e24feef3275d38e409d3199e3e9d55"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc71f03090dc0b8a09e1309f436ac38bd4eb6963e6a057e37bf8503323864cce"
-    sha256 cellar: :any,                 sonoma:         "12d22d28d83f10dc8d26d12de9b7b826ea88623b432068cbe2f470cc07c24fe4"
-    sha256 cellar: :any_skip_relocation, ventura:        "40d87797c5a61358da3981c7a1e798fe72b6c1047407b4d8a0f37c21d7b056f2"
-    sha256 cellar: :any_skip_relocation, monterey:       "4ba6feddd3eeafa845c0f66dc6aea389f554c09a8a0c3609644fa44d028e5563"
-    sha256 cellar: :any_skip_relocation, big_sur:        "da17c4589ffb5d927025ce617fafa051c6690665643f5c5544b319882b3bf298"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "8bf2af3910f3a4bdb5e3c20c1755f0eb345cabe44861dca0b2c2799d02a68f03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1981702ab5c074bebeb8054d69f81b4d6df4daea2907026efae832baa8d362ae"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "995c464037926a0520fba05804aa852d59632359ca69fc5790f01a408c6ca23e"
+    sha256 cellar: :any,                 arm64_sequoia: "44b20d7fcc0b1828d02be2a4806ebce8186a037de50bb00b81ae78d41b7e9897"
+    sha256 cellar: :any,                 arm64_sonoma:  "6ee13b99ad2f3efbfa9ce7432afcddfdab1b6e9c650264fdef26ed7013e02ba0"
+    sha256 cellar: :any,                 sonoma:        "7fac5a9ba6145a7b151b1930b490705bfa420f7b2ca73d0a2eea06c93e815426"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7d72d27c226414501cbc4c4d96dbc5df33e071e8aa3b343851ed77648d292be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca216432fad1f1c7c38d6805f8f819c81cf1f85522fcfb7046e89941ccd94d70"
   end
 
   depends_on "ldc" => :build
   depends_on "lz4"
 
   uses_from_macos "python" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # remove `-flto=full` flag
   patch :DATA

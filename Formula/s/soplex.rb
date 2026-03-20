@@ -11,19 +11,23 @@ class Soplex < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "727c7c47c4156e0c67c6a154be58baa7cdc4c05b86738cdae413df1735e34ac3"
-    sha256 cellar: :any,                 arm64_sequoia: "5c3d180e504f68f0c01550830642b1d0ce661b31e0c19bca1db3eecb7b5b323f"
-    sha256 cellar: :any,                 arm64_sonoma:  "b19e58a699a0849efca6c1c740a8469a65d41a0ca03b0926aa5c062a9167bd61"
-    sha256 cellar: :any,                 sonoma:        "c49e509a0f4052de3a45b2ef266fd4667cba3a1174c1b983a6830bf8b0ccf3f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5607efa770fcc6c38d7e6058f06fcdd3e17a5af9f8b36e246219a2f0aed3c452"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b92c6ae4732d9d9e1d1eb51a2b9a2bed8939424198de66e29bd1aba14e2e936"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6b30073cd1aae2cc5e7d43401b8a9a21fd21d62ddf7efe2a73e2fc31bacd45f5"
+    sha256 cellar: :any,                 arm64_sequoia: "a33f607da757db612a384dd7b052d7ce8a09d9bb7a948263dd44a3bcf237bf38"
+    sha256 cellar: :any,                 arm64_sonoma:  "93067dc7706ae314e3c892aae19081fc5faed06d88714a0b06711f18e44a40ee"
+    sha256 cellar: :any,                 sonoma:        "29c87b1dc260aa6aafa317f50f8e0fabe17036800915bd9b764d5e314c20db2d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "22b7daaeb89051d2162e6ec33169ba933c121cae9f4cf37ee2cc938688ec5f96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ceac79de714dafb666899c3a8338f924ce59b5cb9feead41bc1bbc2044513f0"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DPAPILO=OFF", *std_cmake_args

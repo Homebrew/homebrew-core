@@ -3,12 +3,12 @@ class Httptap < Formula
 
   desc "HTTP request visualizer with phase-by-phase timing breakdown"
   homepage "https://httptap.dev"
-  url "https://files.pythonhosted.org/packages/f0/e0/30f1dbc1b00fb38729ee1d2249e24d9303185355625c79d1a8d57b38d820/httptap-0.4.3.tar.gz"
-  sha256 "ec70bbc0a653b05de5805bf9e9ff0dac449bf04027b0b68cf47010d914bc3c9b"
+  url "https://files.pythonhosted.org/packages/16/4e/2995eb663cf92043dfbc9a186284aea4085d2612d822bb03d8055796bbcc/httptap-0.4.5.tar.gz"
+  sha256 "ddbf6f869de1959b4eae5595525da17aa21e1dbae8b81240dcc45b6a616cd74b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6d187c0932affaa7ce934d296d3ab85dfe9c3a9726f42a3d6bdf4e3093f8118a"
+    sha256 cellar: :any_skip_relocation, all: "32cc515dccf320a840eaf144f341ba250ccf46476ff3c469172fab98ef941c86"
   end
 
   depends_on "rust" => :build
@@ -84,8 +84,8 @@ class Httptap < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "socksio" do
@@ -100,10 +100,6 @@ class Httptap < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     venv = virtualenv_install_with_resources
 
     generate_completions_from_executable(

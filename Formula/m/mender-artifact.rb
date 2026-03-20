@@ -1,8 +1,8 @@
 class MenderArtifact < Formula
   desc "CLI tool for managing Mender artifact files"
   homepage "https://mender.io"
-  url "https://github.com/mendersoftware/mender-artifact/archive/refs/tags/4.2.0.tar.gz"
-  sha256 "14ba008df9b24321de72821de394bc4326e4dd9e17ed7c111340689e90d8b596"
+  url "https://github.com/mendersoftware/mender-artifact/archive/refs/tags/4.3.0.tar.gz"
+  sha256 "12cd9b6f8408df8697c4907c8ea639e50958a9e55816cc276e57d22d19227c46"
   license "Apache-2.0"
 
   # exclude tags like `3.4.0b1` and `internal-v2020.02`
@@ -12,12 +12,12 @@ class MenderArtifact < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9f1ed0f0e51051da55cb919c1a4125a767a97f326d9a0898d1c7ed0cbd9ec303"
-    sha256 cellar: :any,                 arm64_sequoia: "f1ff305b7019e60a2da814e997f604b9e8d2c852a324e486dfc370ca532e4f79"
-    sha256 cellar: :any,                 arm64_sonoma:  "e2596b83eb8c1ff193d4df5e57ff1b3eeabba5a270885a8e2e5c86e2295966b7"
-    sha256 cellar: :any,                 sonoma:        "90a3ba363fd15ef0a110c87f8434d017eb1c092774119570535ca02f119bedc3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6883b8d3f4b8b6b571d5b8b1eb0df19594651b33af7777a2c63ad48521dd300d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bc04e3ccb4cd4838c1cbcf2f8e07906346c28fbb45d766f526ead3f66da51c0"
+    sha256 cellar: :any,                 arm64_tahoe:   "3567bec3746023c8ed817443f890cfc10861ae5e458d975bc23911fe16435953"
+    sha256 cellar: :any,                 arm64_sequoia: "9dc83efe348be8c6fcc0f0cd4a9c673f2f433a3a36c4bd13a4c4bb29a6d70dd3"
+    sha256 cellar: :any,                 arm64_sonoma:  "eae5331deb3080625a42c7b401b678bb647ec9ad9158156357bdd0a59c4e983c"
+    sha256 cellar: :any,                 sonoma:        "12ef6ce4e6ed7c6bf0d80ed67fa0b9333d7f0559b0cd1f14c37b45769c59800a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dbcd872397e2ea799bb7f84692fb3ec49970fdac6c89af548d101c0eb49e21ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "323bfc97ecbe583bb71a076ec11e339f6c2c4d8fb519556be51ba2a5a606d85f"
   end
 
   depends_on "go" => :build
@@ -64,7 +64,7 @@ class MenderArtifact < Formula
         Format: mender
         Version: 3
         Signature: no signature
-        Compatible devices: [beaglebone]
+        Compatible types: [beaglebone]
     EOS
   end
 end

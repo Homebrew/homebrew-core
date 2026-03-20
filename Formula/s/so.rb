@@ -5,8 +5,6 @@ class So < Formula
   sha256 "36d8bc53b9c05e242fd4c9ba8ae447fae6c4a35d8c7e071f8994a7c0f07c225d"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d106bc00111838ead6bb1875827882b2b38271384a2b5d486163f8ec355be0a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "82b3ba2bd29430167b84cbc7116ca22c70679e0c6a59b340c3349ead364c0e16"

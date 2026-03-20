@@ -5,8 +5,6 @@ class Ulfius < Formula
   sha256 "19cf789b2af1919b69f77c7701237bfc318a9781ec657b68fd4b6ffa9d53f111"
   license "LGPL-2.1-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "bb83f403a0e3afaaa29a55a287d41397502b098108788889be264e68fa406f93"

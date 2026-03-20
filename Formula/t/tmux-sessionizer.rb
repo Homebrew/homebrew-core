@@ -6,19 +6,20 @@ class TmuxSessionizer < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "31eba54816ac3d642e85c0c3ccc08c1738edea0278a8706423ab6acda7dc4315"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20971b1673ee2cfa08f990642538eadb168ef54dce98400ff72cd1696c4ba283"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91922de190efa1c9899f4e2479f8b4ad089b7d599b77bb1d06325b330d9b9fb1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "80aa9e9af59eddeba40896b474cd216e8fcb84556e8439bde6946c3c8d35a881"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d419591132c0593b5a0404be795a04464026f4ceb98c4f3ff011ec5e8913409e"
-    sha256 cellar: :any_skip_relocation, ventura:       "807e3f2c36d3c0535d8f70ac197c777a112fcaa43c8baa21599c4508611086d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dc042dfb028a16bbf7c7c5d56d8e1a66be403debdcc52805b10d98c804192a8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c1267d366d4184bfd6620de0b6f7ed966c86b9a0a88761cf16e16c1f2132da3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9ed8c2b2b44c4a59cd9bf195d3ad1acb7981e450fbe0261d4fe2902f5d103d1d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "99eee27a5e5b7e25cc15e3ca1cc68f502bf27331f5fa40f9a43a8f6298f8de60"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "304beda28af19425e12aa2913298f576cfda84026dfb76327d417dc361156d9f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "85cacea135842182e012520f4d85920105f85da0c63e3aa7b0d7d5b13fd0ccf5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c00fc1402d4707139bf7b6664d53526ef1654e13c650a7ab5208ad61b8c06c76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5aab4af1e5367b530e729a336708f7296265cfe6430e104324d87a24fbdb6c2"
   end
 
   depends_on "rust" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

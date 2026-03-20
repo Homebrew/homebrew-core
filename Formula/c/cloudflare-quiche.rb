@@ -2,8 +2,8 @@ class CloudflareQuiche < Formula
   desc "Savoury implementation of the QUIC transport protocol and HTTP/3"
   homepage "https://docs.quic.tech/quiche/"
   url "https://github.com/cloudflare/quiche.git",
-      tag:      "0.24.9",
-      revision: "bbfe6205b8af2e6fadbb6d7818de463fbe123342"
+      tag:      "0.26.1",
+      revision: "445292f46e05b72d56b9b957da77bfac3d24fc77"
   license "BSD-2-Clause"
   head "https://github.com/cloudflare/quiche.git", branch: "master"
 
@@ -13,12 +13,12 @@ class CloudflareQuiche < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6ca6ad968cf8b1598652acb61a85711cd0249389208a751a7165a2dcce617cf3"
-    sha256 cellar: :any,                 arm64_sequoia: "4b0fa50c30a37ec0340136a0914560f1e30ba91ef009552046bad8d1267cc515"
-    sha256 cellar: :any,                 arm64_sonoma:  "784c2af35f2b10bc2b3599ff81d15e0bc8a2900f9a74bdae68d4f27145f0f655"
-    sha256 cellar: :any,                 sonoma:        "33bc40c259994cccd1986794f9b099fe73da523c688f73d87e318bba3a4d2bf0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfe0792f8226a038d830b55a80ade177f892c143e226a2af109923f699d37ce9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f087b8ea7a5dbbde76e3e961b2b85b28229e012b8d425f3384d3564fd2ce14f5"
+    sha256 cellar: :any,                 arm64_tahoe:   "ca8968b996a55e96b74b46a113faab89750e7df04ae765508358511e81b7b3c8"
+    sha256 cellar: :any,                 arm64_sequoia: "79a446ec7a4560e3301e1251736370849de911ccf7f29799b250c5f6c36d4e69"
+    sha256 cellar: :any,                 arm64_sonoma:  "9c2f55550eccdbbd89b826355e8f473adc43479ca23445ccbcedce34d1c4d839"
+    sha256 cellar: :any,                 sonoma:        "86c3b9db3c51b27fbbbc1e56f31d40fcf56e2dddf4d4cdf5e93b870433bc857b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "370c6c86ea463fb456adae976bbd04ca0653231c6d9d926b476f91a50e864a0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22b0bfdafe47603b38c6040099ec3a2573265f388cb2625702162cb2d12e8e82"
   end
 
   depends_on "cmake" => :build
@@ -53,7 +53,8 @@ class CloudflareQuiche < Formula
   end
 
   test do
-    assert_match "it does support HTTP/3!", shell_output("#{bin}/quiche-client https://http3.is/")
+    assert_match "your browser used <strong>HTTP/3</strong>",
+                 shell_output("#{bin}/quiche-client https://cloudflare-quic.com/")
     (testpath/"test.c").write <<~C
       #include <quiche.h>
       int main() {

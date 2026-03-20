@@ -11,8 +11,6 @@ class Xqilla < Formula
     regex(%r{url=.*?/XQilla[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "b34e7fa213e9280c6343d21d71355f5ac4e115540d2c81b31027172af5de305f"
     sha256 cellar: :any,                 arm64_sequoia: "83e21758a4570293176969d68d027817a4cabbda27702a1f17df9d21256ef45d"

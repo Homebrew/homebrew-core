@@ -11,19 +11,22 @@ class Scamper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8f88168dd53c5bc9bd43d9c273a34c46874f1a943024bbf506d6411af3066072"
-    sha256 cellar: :any,                 arm64_sequoia: "ad224f4b2bc732bfca4c2414b99c6b2e13825687cef129a75d3a0cc0c17e110d"
-    sha256 cellar: :any,                 arm64_sonoma:  "0d4a7b9eccdcfe3f8bf30b94b0dd5b568865aada164d6de64a42e2a4b9d0331a"
-    sha256 cellar: :any,                 sonoma:        "473c3452f79a37a8ae87600d94e8a23d20ee6027337ee994c095ead9c66b8177"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "980d19a4165575f19c17744bbae41ddc6d743d5cd3df0e5a270fe0c4bf117d7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79bca285932c5f3265fdfe6e3362c3f35eafce8e9deb0b581d9ae1332b0b7261"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8aa94286816fcbe152e2032e5897f420f68385bb44a5863a7bce8c9c57a5d5e5"
+    sha256 cellar: :any,                 arm64_sequoia: "ae1bb5f421f78238e2bf2dde5ca2015d8b0bd2d330c8159d58b45b747602acc5"
+    sha256 cellar: :any,                 arm64_sonoma:  "dfac4a1de62631ac400dcd96da1d72e7ed82302c171a9b6adfb395c5871ba3a8"
+    sha256 cellar: :any,                 sonoma:        "df86bbe854d1945a8dc4f6eadf416463f8cf735f28963c4df0415a7711ece941"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f125eaa55edf070d1c8513f29e7c806ebcc23f4bb6e2477bbf60801102aafc55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7c20a4d8bada5168b79826d13a9c4eb84e317807b5a7742c6e12088fb7e8635"
   end
 
   depends_on "pkgconf" => :build
   depends_on "openssl@3"
   depends_on "xz" # for LZMA
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", *std_configure_args

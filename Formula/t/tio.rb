@@ -4,17 +4,16 @@ class Tio < Formula
   url "https://github.com/tio/tio/releases/download/v3.9/tio-3.9.tar.xz"
   sha256 "06fe0c22e3e75274643c017928fbc85e86589bc1acd515d92f98eecd4bbab11b"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/tio/tio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "31136d19c38be07ad62a597959f7477b9afbd9aaafeae6f88c8a55391fd35f0e"
-    sha256 cellar: :any, arm64_sequoia: "d859f7a3951e0cf44e33cef1cd9fe1cf1f5ea2027e8a0f2f7241d802f6345528"
-    sha256 cellar: :any, arm64_sonoma:  "815733f3d33d84e6b6f16a616dd4c1ee1dfea19d1310842579796c86c80d78d2"
-    sha256 cellar: :any, arm64_ventura: "ef6cda9f15f7419c8786fde48e36050b8e0527d1ac9b7da60c701cd8be29893f"
-    sha256 cellar: :any, sonoma:        "eff6132fd0c5bc4d35e5f44a97e8b7538881f3d35c75d45bb5ce58c7116fa024"
-    sha256 cellar: :any, ventura:       "af299fc0c5b32da363167450793ca0ae78f40605353db850da9f9c684d384ffe"
-    sha256               arm64_linux:   "42266b46a3364e7b85daec0a33922996016880c7905707dc23aead6a8baa3c9a"
-    sha256               x86_64_linux:  "2a5457998f6b942835c7bcfdb22fb9673abaecf9dce98eb65c3ab67a18529aa9"
+    sha256 cellar: :any, arm64_tahoe:   "6cb51485dcb3c3ecd0cfc60130ee73ea411e49b221aece71c220ea308a429cf4"
+    sha256 cellar: :any, arm64_sequoia: "bac206b4c14cd4070ea893cfcd4ceba2e103c7031ce31223221441462fc326f5"
+    sha256 cellar: :any, arm64_sonoma:  "a69f119bcd8f576264bd7de362f0d9f949272b885fa5d6dbff88b91c9ab8a1e9"
+    sha256 cellar: :any, sonoma:        "6205aa635e36060d9dda5af20f21cbd293c496be2039bfc340849aacc10cbb13"
+    sha256               arm64_linux:   "5f92757b91dc466fa689ba967a097e24d0eb0a5357b84e7fae59095b803dba30"
+    sha256               x86_64_linux:  "f659369b4ff6e0d857a677d8d8ec08bdacaba3dc1a81c7894f5667c7889e1072"
   end
 
   depends_on "meson" => :build

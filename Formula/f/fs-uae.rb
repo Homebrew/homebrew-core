@@ -11,12 +11,13 @@ class FsUae < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "769d5c85cb160bbd2521c0000f754cd09a722ac8479d75adb3d27590aaf8e33e"
-    sha256 cellar: :any,                 arm64_sequoia: "f7e449b37471f4581edf74125ab3eb5fa63c6748ea69234fb71f1f3403e24053"
-    sha256 cellar: :any,                 arm64_sonoma:  "6bb679b91db7baf47a786aa26f0b70f8326fe909e43f691a61dd518cb9666fa5"
-    sha256 cellar: :any,                 sonoma:        "6a14ab40de477077a5c17fed2cb17cbb20e441a0d378214e0d53823ade1c520a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4786d5f639c34e2776d6089d9a19274890ae57ff3b615a5a52cd738212965a18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "531c484788d6a7ac1f7ffb1ee8786d1f0f992f4a2a0a8a5ef7e276f359395125"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "741ffe6927eb47d81ac9b456c89289250398f7d5b2baf6d353876620406f726c"
+    sha256 cellar: :any,                 arm64_sequoia: "8cf15d35c2e0a8964ad55a1b42fe2b8bf0411af03e2d854cae780c8cacacd94e"
+    sha256 cellar: :any,                 arm64_sonoma:  "5c7aa678ddfa3c123c46d29ebdbbf32d0b26e014ea191a85b427126f47cf3c31"
+    sha256 cellar: :any,                 sonoma:        "5cac6160964a608e299f905cd36bbba764f7dc6130d0dd908f472ae2d3667de2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "322f417b0344b31e267e41f328d9ae6281be7310c286bf2e61c3e162891ad349"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0685abd95a223cbf2af21a16b4f78dba2c73169c79a16d85063d7b8b3514078d"
   end
 
   head do
@@ -37,7 +38,6 @@ class FsUae < Formula
   depends_on "sdl2"
 
   uses_from_macos "zip"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -46,6 +46,7 @@ class FsUae < Formula
   on_linux do
     depends_on "libx11"
     depends_on "openal-soft"
+    depends_on "zlib-ng-compat"
   end
 
   def install

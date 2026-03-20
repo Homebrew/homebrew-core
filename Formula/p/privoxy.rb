@@ -11,12 +11,13 @@ class Privoxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "711388f3a2676dfdbd54e2653f477c1f75b08702efb67fe45785d92ed1c7f47e"
-    sha256 cellar: :any,                 arm64_sequoia: "0cc5e99582a9045a4a09b818eea04c6a2d44b0cf429b8616e95b5263142df2a9"
-    sha256 cellar: :any,                 arm64_sonoma:  "689b7feae3d74e45dd819b5fc99660465622b03d7317ee183c1baf3ba30882f4"
-    sha256 cellar: :any,                 sonoma:        "fd44e98d51314e7ac4d518684d7931a1baf48aa34e946630c6a15aad737a0065"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7832b8650f419d38f63f27f48c5a669208dfd714d5469cfe5ca7cb0d8901519c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fda2b1458d6b7067b029dc05e8f4c1c1d5b9d19fab689f052f8431276248b0a7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "c0ae969ac878ba8034f22bc56240e5994bd9a042116fc7e7d23fa788fe1e484e"
+    sha256 cellar: :any,                 arm64_sequoia: "82c2364535cd0c530fd02bf4082021445c4fe23b68fa2cb509ff801a37f6ef43"
+    sha256 cellar: :any,                 arm64_sonoma:  "c480bbb71e9cdac494396bd35a155410a2970989c7e1557f9b4727e262b4d052"
+    sha256 cellar: :any,                 sonoma:        "65fe313f31698cef56c5537b4edc8b475ea94b23cbd46e8e598e02d2644a4dd8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "38b56a0785bf29774bfe49fc96a7746b5b1434075aeef27f089fdd9ed47b2a95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71ec0d7dd8b9eaa5d3729dfda746c25ae91eba7dfc3d28ef35861778b3dbf003"
   end
 
   depends_on "autoconf" => :build
@@ -24,7 +25,9 @@ class Privoxy < Formula
   depends_on "libtool" => :build
   depends_on "pcre2"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"

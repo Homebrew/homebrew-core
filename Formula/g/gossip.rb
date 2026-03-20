@@ -28,7 +28,7 @@ class Gossip < Formula
 
   def install
     ENV.append_to_rustflags "--cfg tokio_unstable"
-    system "cargo", "install", *std_cargo_args(path: "gossip-bin"), "--features", "lang-cjk"
+    system "cargo", "install", *std_cargo_args(path: "gossip-bin", features: "lang-cjk")
   end
 
   test do

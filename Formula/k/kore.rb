@@ -11,8 +11,6 @@ class Kore < Formula
     regex(/href=.*?kore[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "059c350956eced72b4ef7d31a358fac3e5df1b7132fabad051c2fef4a9f55c34"

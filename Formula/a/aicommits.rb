@@ -1,13 +1,12 @@
 class Aicommits < Formula
   desc "Writes your git commit messages for you with AI"
   homepage "https://github.com/Nutlope/aicommits"
-  url "https://registry.npmjs.org/aicommits/-/aicommits-1.11.0.tgz"
-  sha256 "b74cf25eb31eb7098d01f482cd64a87e2f59d7efa11f5273fbb353f35e850c5d"
+  url "https://registry.npmjs.org/aicommits/-/aicommits-3.0.0.tgz"
+  sha256 "52538ba25dbf61e85a60f35666f0973b920df223eef99d0662db1531f7a70e4a"
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "605e05c0b7da41359670b8ed4b085303685c3398bf624db9cdde9b2fb38a38aa"
+    sha256 cellar: :any_skip_relocation, all: "53dc930125c5a7512f43e119a83ed9d1bee2ffc69a7e14b79dc190c7aba9746b"
   end
 
   depends_on "node"
@@ -18,14 +17,13 @@ class Aicommits < Formula
   end
 
   test do
-    assert_match "The current directory must be a Git repository!", shell_output(bin/"aicommits", 1)
+    assert_match "The current directory must be a Git repository!", shell_output("#{bin}/aicommits 2>&1", 1)
 
     system "git", "init"
     assert_match "No staged changes found. Stage your changes manually, or automatically stage all changes with the",
-      shell_output(bin/"aicommits", 1)
+      shell_output("#{bin}/aicommits 2>&1", 1)
     touch "test.txt"
     system "git", "add", "test.txt"
-    assert_match "Please set your OpenAI API key via `aicommits config set OPENAI_KEY=<your token>`",
-      shell_output(bin/"aicommits", 1)
+    assert_match "No configuration found.", shell_output("#{bin}/aicommits 2>&1", 1)
   end
 end

@@ -15,8 +15,6 @@ class IkeScan < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "c6ffd9dfa6a9f7ad65866b0a815dc92d00ebd6a1385949fbb0654494ea15efd4"

@@ -1,26 +1,23 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
-  homepage "https://libuv.org"
-  url "https://github.com/libuv/libuv/archive/refs/tags/v1.51.0.tar.gz"
-  sha256 "27e55cf7083913bfb6826ca78cde9de7647cded648d35f24163f2d31bb9f51cd"
+  homepage "https://libuv.org/"
+  url "https://dist.libuv.org/dist/v1.52.1/libuv-v1.52.1.tar.gz"
+  sha256 "66d511b9e6e334c0e62279eb234fbfb2b3110b1479c09b95b44c7afca8cff9e7"
   license "MIT"
   head "https://github.com/libuv/libuv.git", branch: "v1.x"
 
   livecheck do
-    url :stable
+    url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "4baeae937cc36f3daf93336337b69357f9b666ec89ecb4937999f46cde964627"
-    sha256 cellar: :any,                 arm64_sequoia: "47f6323a3b3ac0d2026ac75948e54b940bce1cc2ed3b809818bada0fca0b402b"
-    sha256 cellar: :any,                 arm64_sonoma:  "594446ed876368a6ef6bf158fb6e1fdadd3973b1813846994423f417a7e5b965"
-    sha256 cellar: :any,                 arm64_ventura: "db92705f40c7175fc957ad40ca096ab9577d20ea0d6782e7051bb1e0a1df21b1"
-    sha256 cellar: :any,                 sonoma:        "89296bb1520f6d2f60061a6dee3c8f0ad4a86e69e37c4c452223267a411b0c35"
-    sha256 cellar: :any,                 ventura:       "c760f64fff00acf565b63456ea48c6f8348eb58d81aa8632acb6bfc209455bd3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcfffc19eff957b8cdc9f007580435ce70d6315c19f737c55c9979f43e14955f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "674de0e23792c9d2135a04cd3df09655e68768a30e393f16fd527de1c9df7579"
+    sha256 cellar: :any,                 arm64_tahoe:   "6e8478545dc49bd505a4fac61617cd15d8fec4475d2add5ea1cc92f7281818bf"
+    sha256 cellar: :any,                 arm64_sequoia: "495b7322c4b9d0a2e5ceb96de24f5cc10d781e99179f94ca5e31d350547a235d"
+    sha256 cellar: :any,                 arm64_sonoma:  "6300ab64e5d20aa145fe987c40f65f994a54f571cf113d96100c07feb98e0c10"
+    sha256 cellar: :any,                 sonoma:        "4630cfebfbc75d75a085568e7e6183cc805271871aa8d70f5fa515b05141f641"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "601a1e2db4efec5d8464aba357970310183925c80fe32c7b449fbfc8b8d71b19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae4d9ac18871f6a4f4250be25da29e904755fb3067c8fb08d48fdc71311c623b"
   end
 
   depends_on "cmake" => :build

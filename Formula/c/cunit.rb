@@ -5,8 +5,6 @@ class Cunit < Formula
   sha256 "f5b29137f845bb08b77ec60584fdb728b4e58f1023e6f249a464efa49a40f214"
   license "LGPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "79ec3ecdcc6e1f8b253b5093c45c25a272005796cebb0ca2c7cfb6f8d21d0d90"
     sha256 cellar: :any,                 arm64_sequoia:  "ed2227559e5ab1d8239ee28d11b8728832ac2301041631b31702a12be8f0d3fe"

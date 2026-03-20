@@ -3,19 +3,18 @@ class Kaskade < Formula
 
   desc "TUI for Kafka"
   homepage "https://github.com/sauljabin/kaskade"
-  url "https://files.pythonhosted.org/packages/8e/e0/58bfb461d4cf41aaa673957308ed66a251e7f6aa78acde36360f800d84ae/kaskade-4.0.6.tar.gz"
-  sha256 "8f88866fdb275f14be05e6e137718b7bc9667aa52434e8f21e37267b8b8a7337"
+  url "https://files.pythonhosted.org/packages/37/3b/88be2113f39216a6ad36680ad599927cbb57dbd9eef9f4af3af138134187/kaskade-4.0.7.tar.gz"
+  sha256 "cd907eb673d733ba27f4f89b649ad6bf19cd829745ae0dd8879989eb5a6bcc36"
   license "MIT"
-  revision 4
   head "https://github.com/sauljabin/kaskade.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "98366e0e727dae15891779cc73df044c4c4510a42d29ae6ea7262b9f520f955d"
-    sha256 cellar: :any,                 arm64_sequoia: "e51551cb2bbdbd7e6dc9193d96b0a3e33495d832cafd57403e9e1b926b4ccbd2"
-    sha256 cellar: :any,                 arm64_sonoma:  "aa5df1477fe9cbbfffd34fc06f28e2f6e3aaa014ebd85bdce9d5399b9b4d66b3"
-    sha256 cellar: :any,                 sonoma:        "c950c181244195b529bfbb503a5955502f9d8136178c4cd3fe83b5773d5f57cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d89e6b74b780c8d06eca833e5ec04f815babc4c717769076c2afc4c2e7302a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dec6f3c4a6e2dc480c75e34613b0a78b9ef968ed87b75df812ac14be00f57d9c"
+    sha256 cellar: :any,                 arm64_tahoe:   "4a0b4f69740303178b241fab280528e7b6786d37f41c809fdcef7c8030733b77"
+    sha256 cellar: :any,                 arm64_sequoia: "de31a4b1777549c98ebe2e52acfbb4131b4f2f38e59b20ad965817c2c8b77f82"
+    sha256 cellar: :any,                 arm64_sonoma:  "52c7b0d7f23984affbce96568891d3e8cabe9d1d7e432735eac6cb839d2764f2"
+    sha256 cellar: :any,                 sonoma:        "9bd31a6a848e676de53ecafcf232cbf81bdc8be2570c30f8749e99b3fa5d5f6b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b110ebc3de34b8ad8437b240f767577af38b6dc903ae3ccbd98181688926c5a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1085ed04cb87886a080537d5fc62959ff77346f8b80729acc5b891ec08b14557"
   end
 
   depends_on "rust" => :build # for orjson
@@ -38,8 +37,8 @@ class Kaskade < Formula
   end
 
   resource "authlib" do
-    url "https://files.pythonhosted.org/packages/bb/9b/b1661026ff24bc641b76b78c5222d614776b0c085bcfdac9bd15a1cb4b35/authlib-1.6.6.tar.gz"
-    sha256 "45770e8e056d0f283451d9996fbb59b70d45722b45d854d58f32878d0a40c38e"
+    url "https://files.pythonhosted.org/packages/af/98/00d3dd826d46959ad8e32af2dbb2398868fd9fd0683c26e56d0789bd0e68/authlib-1.6.9.tar.gz"
+    sha256 "d8f2421e7e5980cc1ddb4e32d3f5fa659cfaf60d8eaf3281ebed192e4ab74f04"
   end
 
   resource "avro" do
@@ -48,8 +47,8 @@ class Kaskade < Formula
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/39/91/d9ae9a66b01102a18cd16db0cf4cd54187ffe10f0865cc80071a4104fbb3/cachetools-6.2.6.tar.gz"
-    sha256 "16c33e1f276b9a9c0b49ab5782d901e3ad3de0dd6da9bf9bcd29ac5672f2f9e6"
+    url "https://files.pythonhosted.org/packages/d4/07/56595285564e90777d758ebd383d6b0b971b87729bbe2184a849932a3736/cachetools-7.0.1.tar.gz"
+    sha256 "e31e579d2c5b6e2944177a0397150d312888ddf4e16e12f1016068f0c03b8341"
   end
 
   resource "charset-normalizer" do
@@ -68,8 +67,8 @@ class Kaskade < Formula
   end
 
   resource "confluent-kafka" do
-    url "https://files.pythonhosted.org/packages/b4/d0/1f5055331fa660225de6829b143e6f083913f0a96481134a91390bad62c1/confluent_kafka-2.13.0.tar.gz"
-    sha256 "eff7a4391a9e6d4a33f0c05d0935b200a7463834f1f5d6e6253be318f910babd"
+    url "https://files.pythonhosted.org/packages/7a/38/f5855cae6d328fa66e689d068709f91cbbd4d72e7e03959998bd43ac6b26/confluent_kafka-2.13.2.tar.gz"
+    sha256 "619d10d1d77c9821ba913b3e42a33ade7f889f3573c7f3c17b57c3056e3310f5"
   end
 
   resource "fastavro" do
@@ -113,8 +112,8 @@ class Kaskade < Formula
   end
 
   resource "linkify-it-py" do
-    url "https://files.pythonhosted.org/packages/2a/ae/bb56c6828e4797ba5a4821eec7c43b8bf40f69cda4d4f5f8c8a2810ec96a/linkify-it-py-2.0.3.tar.gz"
-    sha256 "68cda27e162e9215c17d786649d1da0021a451bdc436ef9e0fa0ba5234b9b048"
+    url "https://files.pythonhosted.org/packages/2e/c9/06ea13676ef354f0af6169587ae292d3e2406e212876a413bf9eece4eb23/linkify_it_py-2.1.0.tar.gz"
+    sha256 "43360231720999c10e9328dc3691160e27a718e280673d444c38d7d3aaa3b98b"
   end
 
   resource "markdown-it-py" do
@@ -133,13 +132,13 @@ class Kaskade < Formula
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/70/a3/4e09c61a5f0c521cba0bb433639610ae037437669f1a4cbc93799e731d78/orjson-3.11.6.tar.gz"
-    sha256 "0a54c72259f35299fd033042367df781c2f66d10252955ca1efb7db309b954cb"
+    url "https://files.pythonhosted.org/packages/53/45/b268004f745ede84e5798b48ee12b05129d19235d0e15267aa57dcdb400b/orjson-3.11.7.tar.gz"
+    sha256 "9b1a67243945819ce55d24a30b59d6a168e86220452d2c96f4d1f093e71c0c49"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cf/86/0248f086a84f01b37aaec0fa567b397df1a119f73c16f6c7a9aac73ea309/platformdirs-4.5.1.tar.gz"
-    sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
+    url "https://files.pythonhosted.org/packages/1b/04/fea538adf7dbbd6d186f551d595961e564a3b6715bdf276b477460858672/platformdirs-4.9.2.tar.gz"
+    sha256 "9a33809944b9db043ad67ca0db94b14bf452cc6aeaac46a88ea55b26e2e9d291"
   end
 
   resource "protobuf" do
@@ -168,13 +167,13 @@ class Kaskade < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/a1/84/4831f881aa6ff3c976f6d6809b58cdfa350593ffc0dc3c58f5f6586780fb/rich-14.3.1.tar.gz"
-    sha256 "b8c5f568a3a749f9290ec6bddedf835cec33696bfc1e48bcfecb276c7386e4b8"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/64/8d/2fbd6b8652f4cabf9cb0852d7af1aa45b6cad32d0f50735856e8f9e41719/textual-7.4.0.tar.gz"
-    sha256 "1a9598e485492f9a8f033c7ec5e59528df3ab0742fda925681acf78b0fb210de"
+    url "https://files.pythonhosted.org/packages/fb/e4/0f6b6c22a30d2dc2850b4d09c8684742cc4ab79501d4588ea05269c1de3f/textual-8.0.1.tar.gz"
+    sha256 "fe6544e57651a7c2a8249b90ec542b45fa945ce4560e69b0d563fb440e7c4db3"
   end
 
   resource "typing-extensions" do
@@ -183,8 +182,8 @@ class Kaskade < Formula
   end
 
   resource "uc-micro-py" do
-    url "https://files.pythonhosted.org/packages/91/7a/146a99696aee0609e3712f2b44c6274566bc368dfe8375191278045186b8/uc-micro-py-1.0.3.tar.gz"
-    sha256 "d321b92cff673ec58027c04015fcaa8bb1e005478643ff4a500882eaab88c48a"
+    url "https://files.pythonhosted.org/packages/78/67/9a363818028526e2d4579334460df777115bdec1bb77c08f9db88f6389f2/uc_micro_py-2.0.0.tar.gz"
+    sha256 "c53691e495c8db60e16ffc4861a35469b0ba0821fe409a8a7a0a71864d33a811"
   end
 
   resource "urllib3" do
@@ -193,9 +192,6 @@ class Kaskade < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"kaskade", shell_parameter_format: :click)

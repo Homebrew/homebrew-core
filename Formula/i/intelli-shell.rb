@@ -7,19 +7,22 @@ class IntelliShell < Formula
   head "https://github.com/lasantosr/intelli-shell.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ffd9d2a13c48bbfec521698a7883fa794f108011af1ffb0c665dd4613b3b84d6"
-    sha256 cellar: :any,                 arm64_sequoia: "783083d7c75d572d49060cf91498826d7255b14022500ed41d777191a943514a"
-    sha256 cellar: :any,                 arm64_sonoma:  "7786822f5c6fdec78def58e16d340d7144cb186cd8d5069352ac2210d481c6c8"
-    sha256 cellar: :any,                 sonoma:        "c4a65c06321e443053116a370ca8564e661d8c5e9773477c2761fe11824fe950"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "595861721ec054f8a3476b4bed7f422927ed673e58bbd79029c20106ce0820c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eacef2a0159919efcfc2793a02d91d6718fd6d6bc4238074896a22f72da8b258"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "a866f596b657e9767f18ccb6662f0140a030991ad2bf4a4ca4eb15febc910820"
+    sha256 cellar: :any,                 arm64_sequoia: "08150e5234950a8396d798dbd9bc570a368d421a050688c05898bc9ec631957c"
+    sha256 cellar: :any,                 arm64_sonoma:  "b801a9ef49f818cf25141f208cff0baef2a0d65518d159428f0daee1e3f9435b"
+    sha256 cellar: :any,                 sonoma:        "4511eb7a9ef917c8eea3fad6488c93c7db468442842794fbd2b1fe2275a679b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "92ab652310a0c3d980648ef0565c44a782e2b6dda87e7b3c5d9a5d0d8adf2e72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26198ee83287fa56bee15edace4c0a166cfc64b3c3ec17b41dfc746b3d823ef3"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

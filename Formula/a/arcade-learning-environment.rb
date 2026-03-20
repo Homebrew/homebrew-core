@@ -10,12 +10,13 @@ class ArcadeLearningEnvironment < Formula
   head "https://github.com/Farama-Foundation/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "07721a46da29649eae3b86700a82d0d3607cf8bf892618386b993bd7d83f9bbf"
-    sha256 cellar: :any,                 arm64_sequoia: "1d0fe5fb5b101c445af92040aad1a2f0266403cba429574c509c669f2f5d3a8c"
-    sha256 cellar: :any,                 arm64_sonoma:  "95b58973de90266dbe8eb0d13906728e0296f81c65006fb7f823fc1a60154fab"
-    sha256 cellar: :any,                 sonoma:        "e333435bee44a87a5801d92da22052285309add5af3d8d4af65c1f3eef117b93"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "95b42ddc09df18ef6dc46e269c3caeb81e4bf013c77dc9dae8d5cb0df676fda9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "014165614d2bd86806bbc2232fa074360b493d54805968e5fd330a0ad217c805"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "76355356efae81795ecaccb33fa80a2b4a4e91c2d9e3f41a38d857d0b3ad139b"
+    sha256 cellar: :any,                 arm64_sequoia: "0fab3be9388930353e91b7864ec6e63700e811c428c91d92052e4563c449cd1f"
+    sha256 cellar: :any,                 arm64_sonoma:  "17da271bcc589571ed4ede577c24429f1e536970c587f58b479dc898811e772c"
+    sha256 cellar: :any,                 sonoma:        "5434effd020431c4a6eeb795eff45fff2f7469ccd58d2b679367b4cf952a1f06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e21960f3aa4002f7060e68a54b3d389c5988e56bc9b8f5d3218571324bc80cc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36d134126295238dbfaebbcdff48e0954ab769e11915df02c62f863eedcfb967"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +27,9 @@ class ArcadeLearningEnvironment < Formula
   depends_on "python@3.14"
   depends_on "sdl2"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   pypi_packages exclude_packages: "numpy",
                 extra_packages:   "gymnasium"

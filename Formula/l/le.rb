@@ -10,8 +10,6 @@ class Le < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "536dab79fee1b51a836e94ae60923a4db7860c58512052249875a8012e816802"
     sha256 arm64_sequoia:  "4c5be48a3e8a62904eae2419ba95fa1146897cdc9946c8d388b7d610fa888f0b"

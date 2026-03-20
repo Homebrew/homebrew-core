@@ -27,8 +27,6 @@ class Calabash < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "c9cd2c20bea227a53c297e2bf265302d5c8fc696e5a5efb99982ab4eaf7ed6b6"

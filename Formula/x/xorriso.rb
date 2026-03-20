@@ -12,8 +12,6 @@ class Xorriso < Formula
     regex(/href=.*?xorriso[._-]v?(\d+(?:\.\d+)+(?:\.pl\d+)?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fceeb65166fc6b9aec4b74b77897da475a890384717df9ebc46488a3bfbcdeb5"

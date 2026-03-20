@@ -21,8 +21,6 @@ class Pulseaudio < Formula
     regex(/href=["']?pulseaudio[._-]v?((?!\d+\.9\d+)\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 arm64_tahoe:   "73c349f7d337ebb0bdd1169325685e79f4cb4c253dd920339a7bc52c833ea4c7"

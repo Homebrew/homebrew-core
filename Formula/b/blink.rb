@@ -6,8 +6,6 @@ class Blink < Formula
   license "ISC"
   head "https://github.com/jart/blink.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe96f01e4cb3db83a0d8fe235ce54e5a00ff81d82da4872ac75772d93b49fe02"
@@ -18,8 +16,11 @@ class Blink < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd87330b12e6d29f51065b58eeef882b7509537e145218f5d49b3102caf6e53e"
   end
 
-  depends_on "make" => :build # Needs Make 4.0+
   depends_on "pkgconf" => :build
+
+  on_macos do
+    depends_on "make" => :build # Needs Make 4.0+
+  end
 
   on_linux do
     depends_on "zlib-ng-compat"

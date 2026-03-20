@@ -6,8 +6,6 @@ class ZshFSyH < Formula
   license "BSD-3-Clause"
   head "https://github.com/z-shell/F-Sy-H.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "471a7ee20877bec72b47a50515a8cab4b768ff09ad72560d3d0647a6d0a94be1"

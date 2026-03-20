@@ -6,16 +6,16 @@ class Khaos < Formula
   url "https://files.pythonhosted.org/packages/7f/0c/932228842cb6c0357fa4f41c5e68afaf3b41b7698f0794af300533594432/khaos_cli-0.7.1.tar.gz"
   sha256 "f5eb232f427dab15bbaa7ff8200a17d04c036a695c1c614e862bf87d93917b20"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/aleksandarskrbic/khaos.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f093bf3aca78af2ef48f3c1c70038f67a5b97c37c5e835f48e6e77c5dee242f5"
-    sha256 cellar: :any,                 arm64_sequoia: "efbe1e36604db2a0b7569f3ccf25ae5d5bbb951e8a6b79c96cf3faef11a3ca06"
-    sha256 cellar: :any,                 arm64_sonoma:  "d919b0d1bc42d5bbe52c6ae76563d308fd5e899baf6e02bcf8359d92d6ce7f73"
-    sha256 cellar: :any,                 sonoma:        "7c761a194bdff94fde36638fdf0117204444a64d4664c6bd252dc1697a842378"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "73b6bf894c21f65e7cf4aba61653a83f9596d4a52ded8406a348e9cb1b37f6a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04e40c5230c5298d142524aa3483db76ca05ef46483285b65bd60051bbd976c9"
+    sha256 cellar: :any,                 arm64_tahoe:   "d100d4b759b70a7077fbd5503a3330d4f75daea455bc5efacd142c232d0d26b0"
+    sha256 cellar: :any,                 arm64_sequoia: "2dd383b9578810c0a17537f36f873f0ee8bff2c7c5da7b8cf4ad38ff25912d26"
+    sha256 cellar: :any,                 arm64_sonoma:  "f983d8d1f84571e49fffc1c068cec478447b641c1569308a5795b8494f864da8"
+    sha256 cellar: :any,                 sonoma:        "92ea4005eaa23d98ab9c04327ec90aa8f42758574f2fda0fec9f6b8e04e5f1ad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "863274b31f823b05f0fced994f96754584eacf28bb752ae844753fb1e5caecb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c95e9bb487ffb2aff3684d7e553d24d7a83a09e86ee48d0420bf04febb478db8"
   end
 
   depends_on "certifi" => :no_linkage
@@ -25,6 +25,11 @@ class Khaos < Formula
   depends_on "python@3.14"
 
   pypi_packages exclude_packages: %w[certifi cryptography]
+
+  resource "annotated-doc" do
+    url "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz"
+    sha256 "fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"
+  end
 
   resource "anyio" do
     url "https://files.pythonhosted.org/packages/96/f0/5eb65b2bb0d09ac6776f2eb54adee6abe8228ea05b20a5ad0e4945de8aac/anyio-4.12.1.tar.gz"
@@ -37,13 +42,13 @@ class Khaos < Formula
   end
 
   resource "authlib" do
-    url "https://files.pythonhosted.org/packages/bb/9b/b1661026ff24bc641b76b78c5222d614776b0c085bcfdac9bd15a1cb4b35/authlib-1.6.6.tar.gz"
-    sha256 "45770e8e056d0f283451d9996fbb59b70d45722b45d854d58f32878d0a40c38e"
+    url "https://files.pythonhosted.org/packages/af/98/00d3dd826d46959ad8e32af2dbb2398868fd9fd0683c26e56d0789bd0e68/authlib-1.6.9.tar.gz"
+    sha256 "d8f2421e7e5980cc1ddb4e32d3f5fa659cfaf60d8eaf3281ebed192e4ab74f04"
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/39/91/d9ae9a66b01102a18cd16db0cf4cd54187ffe10f0865cc80071a4104fbb3/cachetools-6.2.6.tar.gz"
-    sha256 "16c33e1f276b9a9c0b49ab5782d901e3ad3de0dd6da9bf9bcd29ac5672f2f9e6"
+    url "https://files.pythonhosted.org/packages/6c/c7/342b33cc6877eebc6c9bb45cb9f78e170e575839699f6f3cc96050176431/cachetools-7.0.2.tar.gz"
+    sha256 "7e7f09a4ca8b791d8bb4864afc71e9c17e607a28e6839ca1a644253c97dbeae0"
   end
 
   resource "click" do
@@ -52,13 +57,13 @@ class Khaos < Formula
   end
 
   resource "confluent-kafka" do
-    url "https://files.pythonhosted.org/packages/b4/d0/1f5055331fa660225de6829b143e6f083913f0a96481134a91390bad62c1/confluent_kafka-2.13.0.tar.gz"
-    sha256 "eff7a4391a9e6d4a33f0c05d0935b200a7463834f1f5d6e6253be318f910babd"
+    url "https://files.pythonhosted.org/packages/7a/38/f5855cae6d328fa66e689d068709f91cbbd4d72e7e03959998bd43ac6b26/confluent_kafka-2.13.2.tar.gz"
+    sha256 "619d10d1d77c9821ba913b3e42a33ade7f889f3573c7f3c17b57c3056e3310f5"
   end
 
   resource "faker" do
-    url "https://files.pythonhosted.org/packages/5e/77/1c3ff07b6739b9a1d23ca01ec0a90a309a33b78e345a3eb52f9ce9240e36/faker-40.1.2.tar.gz"
-    sha256 "b76a68163aa5f171d260fc24827a8349bc1db672f6a665359e8d0095e8135d30"
+    url "https://files.pythonhosted.org/packages/70/03/14428edc541467c460d363f6e94bee9acc271f3e62470630fc9a647d0cf2/faker-40.8.0.tar.gz"
+    sha256 "936a3c9be6c004433f20aa4d99095df5dec82b8c7ad07459756041f8c1728875"
   end
 
   resource "fastavro" do
@@ -117,8 +122,8 @@ class Khaos < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/a1/84/4831f881aa6ff3c976f6d6809b58cdfa350593ffc0dc3c58f5f6586780fb/rich-14.3.1.tar.gz"
-    sha256 "b8c5f568a3a749f9290ec6bddedf835cec33696bfc1e48bcfecb276c7386e4b8"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "shellingham" do
@@ -127,13 +132,8 @@ class Khaos < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/36/bf/8825b5929afd84d0dabd606c67cd57b8388cb3ec385f7ef19c5cc2202069/typer-0.21.1.tar.gz"
-    sha256 "ea835607cd752343b6b2b7ce676893e5a0324082268b48f27aa058bdb7d2145d"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f5/24/cb09efec5cc954f7f9b930bf8279447d24618bb6758d4f6adf2574c41780/typer-0.24.1.tar.gz"
+    sha256 "e39b4732d65fbdcde189ae76cf7cd48aeae72919dea1fdfc16593be016256b45"
   end
 
   def install

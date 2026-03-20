@@ -1,8 +1,8 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://qsv.dathere.com/"
-  url "https://github.com/dathere/qsv/archive/refs/tags/16.0.0.tar.gz"
-  sha256 "524b5a9b43da6f54d60a5f3063ba8b608fb28f23eb9155f3fec9fdb7ee2fe1c9"
+  url "https://github.com/dathere/qsv/archive/refs/tags/17.0.0.tar.gz"
+  sha256 "433f0ad953ae04ecbd2bff737b824c2b1aff84c4fdb675c4e8184335c806d36c"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/dathere/qsv.git", branch: "master"
 
@@ -15,12 +15,12 @@ class Qsv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "773bbcf6ccbac17cbb24da7ba1d32095eadd0543a90ec8a729a988ad85bd4381"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7831fe89dfd7107b5a214282ad3bcce5682b7dae3dd4cf7e5481f56dc512457b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0c8bfe9071a16d78caf8a0e6accc93f5bea807a45b951afadbd4cb87274c9b38"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9836c88de9f7dbf37c8cf32dc1b3e18529b840bd690e627cf878fb4661d674ef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72e4e34a92ebdf30040a9a631784f01db6cf63f622ab6b533c6c73f034e6981c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c00bc2dab404eee0fc6c83d919291326cafd1b941e47f5254d84ac40446b213"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5394865618e07590fce0698bb1ca2dbab10e324afaa74ae9fbdbdfb8d1ee2a64"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ae742a9a4f355a2e5c0e56366f6b4805d00477453f4098b1af6e0bef0c319cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d66f67ea410278710a7e074888d117061c58836a64a6995f17fd57201f1e8caa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "09a0110b8a627817842818cccd8787050d7d21f58a96c3bc4ef4ed50f1907745"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7348af6b0eb1ed197ded3f161b7fdb72f368450bd2e21248e7c1b69f8182da6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfab3df20b2f5ed6f11c0e1c068dbeeee2beb3a512f14d7879b6940a0fae3911"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys
@@ -36,7 +36,9 @@ class Qsv < Formula
     # see discussion at https://github.com/briansmith/ring/discussions/2528#discussioncomment-13196576
     ENV.append_to_rustflags "-C target-cpu=apple-m1" if OS.mac? && Hardware::CPU.arm?
 
-    system "cargo", "install", *std_cargo_args, "--features", "apply,lens,luau,feature_capable"
+    features = %w[apply fetch foreach geocode lens luau to feature_capable]
+    system "cargo", "install", *std_cargo_args(features:)
+
     bash_completion.install "contrib/completions/examples/qsv.bash" => "qsv"
     fish_completion.install "contrib/completions/examples/qsv.fish"
     zsh_completion.install "contrib/completions/examples/qsv.zsh" => "_qsv"

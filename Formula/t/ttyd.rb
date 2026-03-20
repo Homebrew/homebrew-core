@@ -4,16 +4,16 @@ class Ttyd < Formula
   url "https://github.com/tsl0922/ttyd/archive/refs/tags/1.7.7.tar.gz"
   sha256 "039dd995229377caee919898b7bd54484accec3bba49c118e2d5cd6ec51e3650"
   license "MIT"
-  revision 6
+  revision 10
   head "https://github.com/tsl0922/ttyd.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "feb7342f18d4a06b41572151f929940feda53dccd67c96c6bae6dae31d0185fb"
-    sha256 arm64_sequoia: "a799d5922af9614ebad142e35c65587e05d71d51728de254e1b5af344bd22fca"
-    sha256 arm64_sonoma:  "bc0fd1559a12c5865ac450587838d5a270e74351e6812d4ae5c07f543784f618"
-    sha256 sonoma:        "9bd353f6a7004259e77484df80ecc015b33ca66d8d2fa7a8edcba47ae45d4c2f"
-    sha256 arm64_linux:   "c2868a264f813c57bc0bf5969671346ca63f8d923f2338c6ef65e0913242f78a"
-    sha256 x86_64_linux:  "f6feba2fc94869ffdffc0773a4fd08d2d61759b525a953be0db6f75797accf57"
+    sha256 arm64_tahoe:   "ed40285cce6a7d42ae2c8f0fe38d63ba741ad16143641df491b9cd0c3abd6cb0"
+    sha256 arm64_sequoia: "cf813272eb937840a84e27b907d743e2e9bcccffe4dd318c717378270ecba429"
+    sha256 arm64_sonoma:  "8efb67825e540a44b813428181b17fdee5ff3e9300fa86a86919d0eadd18afcb"
+    sha256 sonoma:        "9da6d5ebb891b922b64bdd650f9485983fe6e11476d452ea328bb37ae31658b3"
+    sha256 arm64_linux:   "00cfabc8d8efb557e0fa55b24490b7600b01e0b066440b4fc60d9901f035b97a"
+    sha256 x86_64_linux:  "7e5a94ba9f95c572b7074ecd1bd21fd67d41132992d249fb4c109c9e2a6bcac5"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +24,10 @@ class Ttyd < Formula
   depends_on "openssl@3"
 
   uses_from_macos "vim" # needed for xxd
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",
@@ -40,8 +43,7 @@ class Ttyd < Formula
     fork do
       system bin/"ttyd", "--port", port.to_s, "bash"
     end
-    sleep 5
-
-    system "curl", "-sI", "http://localhost:#{port}"
+    output = shell_output("curl --silent --retry 5 --retry-connrefused http://localhost:#{port}")
+    assert_match "<title>ttyd - Terminal</title>", output[..256]
   end
 end

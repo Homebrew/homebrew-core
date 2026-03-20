@@ -6,12 +6,13 @@ class OsmiumTool < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bc1baa5dd5df76da0e60f58ab7aeca9dcc6777db4a17e0dfb504bacc257d9244"
-    sha256 cellar: :any,                 arm64_sequoia: "e57e2cba4963d12d94581a3a36a4c72da6cb1d525424fcb453b7fd0aaed010a2"
-    sha256 cellar: :any,                 arm64_sonoma:  "fc65c6b56db4e2d6c82c11aceede8839433d417cb1e03db37f7ce60c99cc046d"
-    sha256 cellar: :any,                 sonoma:        "4ef02a031522ff53efdf941b319ac1f6cc87e03cb2f90f3955c642ab4c594bdc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a7b8de027ed75631ab6ed95bf5d49f64ec865f863cf1f52bd036cdd55299b74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5df231e42fafe4d7e276c602219adce1c84ac38e536871af96322730caa7f795"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "56aa31ece77621faa6d77d4ca2c477ccfc79c27cc1a7e7103b2a0eb94e0e5e94"
+    sha256 cellar: :any,                 arm64_sequoia: "9d870ea12d0d8c312be211d39af65b76e3c8f98c9ae4fce5757be66a105df725"
+    sha256 cellar: :any,                 arm64_sonoma:  "6e87840c8c5123626e4e35e70338208033bbe1f3b18a9666581d5c8fae2a0c9a"
+    sha256 cellar: :any,                 sonoma:        "ec7db1d7bff5552e5915f0800b6704569e974c0319fd402324ef462e642c2ecb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d3510e3c24b08f1e086981e75f4f77116fdb0ca621dcbc46169c1dd35d61b1d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62e18c5d574d7ba904a6527b942f5ab00db567e93faf4105c56f8dd7802d4141"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +25,10 @@ class OsmiumTool < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     protozero = Formula["protozero"].opt_include

@@ -1,19 +1,19 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net/docs/"
-  url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.5.1.tar.gz"
-  sha256 "4a6ef13d01b949c953767188aab5f394d0a0b13ed926c1c91584d2d0cdf38b03"
+  url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.6.2.tar.gz"
+  sha256 "762742f3ff65c3ceadf4520ed7cf8e8c42aa6bf40bd99c2e2754368ea0c1b207"
   license "MIT"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "942a470f118b326107a6b3c702c514d05fa50e57fd51b6f472b325bcf93b35ef"
-    sha256 cellar: :any,                 arm64_sequoia: "fcdd4dc3b2cd6de103045baf5e07e56ff0b8b46e4a20c7aa7bed9ec02fa3d2a6"
-    sha256 cellar: :any,                 arm64_sonoma:  "bd96d2e19f8a8d999948c77097a021a905896b632cf4567f0aad1ca9fced3a51"
-    sha256 cellar: :any,                 sonoma:        "15c4f6703ffbc8ad7f6e5ad19daeae2e608b82de5cd3575ae0f2892d672a9b1f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ab18f5bf4377626a877cb5c52758e3ec3ec43ce4efef36e4d07b8ddc91fe366"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e6c4f74f405abc6729397b7afeba17ff235bbdd7f083ffc12311d6c9e24a16d"
+    sha256 cellar: :any,                 arm64_tahoe:   "4c64d15f5af79bd4ba31c8afd4a18c8fa6a3be4a1331d4d6e88f6dab836d673e"
+    sha256 cellar: :any,                 arm64_sequoia: "00763396739ed720a18ebec237d6230aeabffccd9d579a88806ef9471c772a27"
+    sha256 cellar: :any,                 arm64_sonoma:  "2d5e353aa38618370ed47afdb6fd731d95e7a61afcaa0fe171c5470963949820"
+    sha256 cellar: :any,                 sonoma:        "1f8d6a0ffda67d09d40fa8625df816e27c1eb366571811aa668bc9462f32d7e4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "295f89da8184ff8387c2b03db6095c0ddc95b17306f8983e5d25232f762d6d50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f82d96e499d2c4447cc1cec9ef8ccde01c0edf69b5e90c01872fb99c8fbd0a6e"
   end
 
   depends_on "dotnet"

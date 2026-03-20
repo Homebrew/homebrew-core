@@ -11,8 +11,6 @@ class Sparse < Formula
     regex(/href=.*?sparse[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1812b2141b6a73fa59159ad4600fad73eced788c86121bada4c764f33c0d279f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "56f5a3f7e3acbbd57f46ef1bf435a2a5130d719dd9f28e3578eabe79097aef3a"

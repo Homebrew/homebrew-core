@@ -11,14 +11,13 @@ class Riscv64ElfGcc < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6cba35afe40fc91c061f682552d6d54555cdc0b2542355378e0386eb45e9bfdb"
-    sha256 arm64_sequoia: "ceca8ec306dc54b68c0074b74aad473b2057f94cc4cfcbc27dabba604e0a4955"
-    sha256 arm64_sonoma:  "5a8fc8f663db03cd1ab061339fd16f32b684aabe0ec579176e074a6824d74167"
-    sha256 arm64_ventura: "f4a69d072e2a835e9dd00d6eca8a555107f0f8145d282d2614d2d633b6de972f"
-    sha256 sonoma:        "2cf316a08babf8a9d47de5a189077ede89c7cf0f44c0af5e5541f5bd6ff4213c"
-    sha256 ventura:       "c733c2ddcd91e90353d7387dd01f2e4cf8b793212befd1c39bbd9ef5862d3873"
-    sha256 arm64_linux:   "3cc5509b449398991d5668270aa1b87558739984c5c2cdef5787cd2742448b8b"
-    sha256 x86_64_linux:  "6df2988c8f83337254c05e04754c7720d39720d6440afec158a82b5bd161f6ac"
+    rebuild 1
+    sha256 arm64_tahoe:   "6a6b9c6a1a1ab30d64f79c4c9b12a1b7f89bf343443c93acea3f44cb0e3fd024"
+    sha256 arm64_sequoia: "eda840ed9aaacfdde29945a1325d50059be192215fd503f7ad753fe6a725a2e0"
+    sha256 arm64_sonoma:  "45056ecd7ba6c56903bba4818af026245cbd835f35103ba855c3b3d4135f520e"
+    sha256 sonoma:        "14b7e6f6aa5b7ba859c8e1fcae88569f7e3394d33623935ac3383c97c964e4f1"
+    sha256 arm64_linux:   "76017c17d960c82448240e53d2da221ba33ceffc88a280da36da5de17847a0c4"
+    sha256 x86_64_linux:  "58d842ae0c40efa2fc02e673a634723797ac19b422dc816b3e8854c4568a80da"
   end
 
   depends_on "gmp"
@@ -27,7 +26,9 @@ class Riscv64ElfGcc < Formula
   depends_on "riscv64-elf-binutils"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     target = "riscv64-elf"

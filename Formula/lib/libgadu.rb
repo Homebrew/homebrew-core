@@ -5,19 +5,18 @@ class Libgadu < Formula
   sha256 "28e70fb3d56ed01c01eb3a4c099cc84315d2255869ecf08e9af32c41d4cbbf5d"
   license "LGPL-2.1-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "879445863308113193c508342b36698ecdf0d0e5f44f3844458429283d8a1c17"
     sha256 cellar: :any,                 arm64_sequoia: "faad50d22aae75f047e8a3bbf4241ca918cad6808e306400123af10e820902f9"
     sha256 cellar: :any,                 arm64_sonoma:  "3e6826d330db02d16c49436a862860afb6da95c2b2dd32506a090954d284a643"
-    sha256 cellar: :any,                 tahoe:         "3218a3314c6f9eb6c34ecbbe1566bc9fab28afeaf3c265f8e926981aababb468"
-    sha256 cellar: :any,                 sequoia:       "4f57e32213f5415895b1de403d335d2b80b5e6156f0a1cc094e99692640ef667"
     sha256 cellar: :any,                 sonoma:        "199ce413350e6e9544e2bdc1ae6bc7c485ea0344340b13892388daaf2a2f5215"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "61f21d773a75489c8f69d2ab1430995e724b04025e4273e68f3fea8e2fc1dfe4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b5899baf91f55702652d744655613adb2c276e48c8f300b93fd52993ae4cc58"
   end
+
+  deprecate! date: "2026-02-20", because: :repo_archived
+  disable! date: "2027-02-20", because: :repo_archived
 
   on_linux do
     depends_on "zlib-ng-compat"

@@ -10,8 +10,6 @@ class Libdaemon < Formula
     regex(/href=.*?libdaemon[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:    "b5a484b80371d6d282f43e26bad28db36b03be6ffb54e54e0a453ab57492c3ef"

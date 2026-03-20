@@ -11,8 +11,6 @@ class Librttopo < Formula
     regex(/^(?:librttopo[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "96402f9ebcae6c7b387f95565523e927a702cee02b90253b8fa0c1e654e3a4a5"
     sha256 cellar: :any,                 arm64_sequoia:  "93fca6e17145fc8eacdc667787aa422507c03c5cc868907ef140892ac8be1394"

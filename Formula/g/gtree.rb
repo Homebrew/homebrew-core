@@ -1,18 +1,18 @@
 class Gtree < Formula
   desc "Generate directory trees and directories using Markdown or programmatically"
   homepage "https://ddddddo.github.io/gtree/"
-  url "https://github.com/ddddddO/gtree/archive/refs/tags/v1.13.3.tar.gz"
-  sha256 "08caaa8340d565482da00a4b985be66a744216b0c16ca92ffa68d13f50271752"
+  url "https://github.com/ddddddO/gtree/archive/refs/tags/v1.13.5.tar.gz"
+  sha256 "f661a1ad7b447128a122eebd1d602839ec00d1e39eb66e3224abc95d79a1ebf2"
   license "BSD-2-Clause"
   head "https://github.com/ddddddO/gtree.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7596ffb33074bb609b87f0afc4de7f8b6b25f1eb7f8c6225fd8b969ee0a6bbb4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7596ffb33074bb609b87f0afc4de7f8b6b25f1eb7f8c6225fd8b969ee0a6bbb4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7596ffb33074bb609b87f0afc4de7f8b6b25f1eb7f8c6225fd8b969ee0a6bbb4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9fab18c77843e300035bbe57210b41ea38b97ff6cc94125f08161e89d2340a44"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "02d0b1ec759601a80dca8730d531b2046bae8cb22311515d347d17e5031ff600"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5acbb6505fa9ff0753225c732d64ded50624d79fbfed18f052efd8746309f96e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "69bbf66c6d8c4811d8a4134aaf25230f1ffeeb07b97f004f852851451a08ccbd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69bbf66c6d8c4811d8a4134aaf25230f1ffeeb07b97f004f852851451a08ccbd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69bbf66c6d8c4811d8a4134aaf25230f1ffeeb07b97f004f852851451a08ccbd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "72d47fa901ac3749f0a3b4a20a561a2e94beda1d08dd8e9e7cb0c3830047d27a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5814cf19102645550b570ee7f180898bbd3123da97306e032163484e33e4450c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10046444756484015a2b2a55f236c772e4047a46d918b1f6e6de39257cf97dec"
   end
 
   depends_on "go" => :build

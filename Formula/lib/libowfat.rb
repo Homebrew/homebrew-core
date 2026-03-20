@@ -12,8 +12,6 @@ class Libowfat < Formula
     regex(/href=.*?libowfat[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bc30d254df3bcd360e4f3171d2afc99997cadfec8fd46a90f2c56991677ee87b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3846b7776a5350100cf8a734e0a45fcbe822f53128ab88bce24cfb259b3d27c"

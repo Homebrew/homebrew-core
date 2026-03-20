@@ -6,28 +6,22 @@ class Libmng < Formula
   license "Zlib"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "ac704e4cbe5c85dfd745778fe9b4167fbfb76b0479bf93095d3442d400b2bf7d"
-    sha256 cellar: :any,                 arm64_sequoia:  "b689a6894b260bf093409615d0057769421cda51c8f4a7b59f06d692c6000104"
-    sha256 cellar: :any,                 arm64_sonoma:   "6d30bcfb0460246fd86bd7f59dcf8b52b1e1fb3533ff8ff252a7cb23091ed9a9"
-    sha256 cellar: :any,                 arm64_ventura:  "746b8bbf3aa5373c6545ce90fca5e84af114ecfce0f2b0e35fd7ec4c9853b15a"
-    sha256 cellar: :any,                 arm64_monterey: "554dd35c3a73f040a23f212cbc64c0b9214b4cc4bfb9031341a71b695d64a4ec"
-    sha256 cellar: :any,                 arm64_big_sur:  "f48583469a9c65f5f9733d43e2bbea2d004228d45ff0b7cdd101b4c44f05dfc5"
-    sha256 cellar: :any,                 sonoma:         "17a8b7fffb5d320e5f0d6535aaf5d25ddde6da85bdaf5b4d260f0703a087a2e0"
-    sha256 cellar: :any,                 ventura:        "68e6c1de7f5abe3668f229a99bde8ec9425d9f9136275c8218bf58b6839dff63"
-    sha256 cellar: :any,                 monterey:       "6646b4ceca926b35750ef1abcfb15744ca286698f86b3c7407f8b5b9dfafa06a"
-    sha256 cellar: :any,                 big_sur:        "a0cf8d4fb509d251ea7a559c1a5814466bd20fef027646c8cf1715ca85d5beea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "c552c0bec65776496b75f11bda010df689dba3ff7f00271113eb3a4e85941fdb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10b82f077fcb7b44e8183c31aa73a5b6df139bcbba9becfd44222f8d29e0ceeb"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "c1e187e0cbf4b730d8116e16edab09cc0b774101d4af55605239de0afe858d8f"
+    sha256 cellar: :any,                 arm64_sequoia: "1292213d5064a51e8fac3d0f10401859bee1537daf1b922a2814ea97e24b8067"
+    sha256 cellar: :any,                 arm64_sonoma:  "26b05e912102b23da3e0dc7c67c1ac6db8c4a71dc99a1069d95d3305840725bb"
+    sha256 cellar: :any,                 sonoma:        "9bc364469479667acd2f770cc23c08214a0ed8df7cb807d0aad931c69e93b003"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fcc2b1c40ef908b1106fc6823a44071ec282337683fe27dbdb80d3d7bf1bd52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f91c91262cde7078e9bd6c31810e1fd3e338b85e03ca6467ce6deb1451edf3b"
   end
 
   depends_on "jpeg-turbo"
   depends_on "little-cms2"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "sample" do
     url "https://telparia.com/fileFormatSamples/image/mng/abydos.mng"

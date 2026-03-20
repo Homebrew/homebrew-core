@@ -6,8 +6,6 @@ class ThePlatinumSearcher < Formula
   license "MIT"
   head "https://github.com/monochromegane/the_platinum_searcher.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "83e283a230eb2226c0664d30e2bfceebf1e5cf42dbf4841bbdafc96cffd6307e"

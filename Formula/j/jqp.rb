@@ -6,18 +6,20 @@ class Jqp < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "17f5afee30bb1f40cca378ee991b6ba46dd8cc95b1146765ee04985e150ab08a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17f5afee30bb1f40cca378ee991b6ba46dd8cc95b1146765ee04985e150ab08a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17f5afee30bb1f40cca378ee991b6ba46dd8cc95b1146765ee04985e150ab08a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a491c1f6699c1d793e9608d6f99c7b5042dfaca793924f09b47a4cb70fda8f1c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "02e04e3abd5d401e10ced7c84ebc5eab5037430f6629c3e3e60575a44be5079a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bce8f30853634cdf279db4adbfa9cf434e968be3a5c2b38b164200ba62df296"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aad8b70dd5386d6cd26c7aed40cafb238ba26175ca3592c0ccc9c29720ff82b1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aad8b70dd5386d6cd26c7aed40cafb238ba26175ca3592c0ccc9c29720ff82b1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aad8b70dd5386d6cd26c7aed40cafb238ba26175ca3592c0ccc9c29720ff82b1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2a1f293efd1fdbd3ba47f82e3f14a87dbd23c2e06844cf6b856e3ae837bcbea7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "58a43e2ab2c33c66ce1756830fa2f0f871135f216967ce847bccc61517446c09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e402ca44a3bcb9ca8ce67ac679b202c548019b7f57042ba153c5a72fed04ab1"
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+    generate_completions_from_executable(bin/"jqp", shell_parameter_format: :cobra)
   end
 
   test do

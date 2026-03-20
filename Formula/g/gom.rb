@@ -1,8 +1,8 @@
 class Gom < Formula
   desc "GObject wrapper around SQLite"
   homepage "https://wiki.gnome.org/Projects/Gom"
-  url "https://download.gnome.org/sources/gom/0.5/gom-0.5.5.tar.xz"
-  sha256 "ad61f05af2317a7ab1771fcfa816989fbba3b18957d2e0b5dede9ef45f09b534"
+  url "https://download.gnome.org/sources/gom/0.5/gom-0.5.6.tar.xz"
+  sha256 "4d7a5e268698c8e7e40603e36e9e3a2b76133931ce1b637c1136301491b54cc3"
   license "LGPL-2.1-or-later"
 
   # We use a common regex because gom doesn't use GNOME's "even-numbered
@@ -12,15 +12,13 @@ class Gom < Formula
     regex(/gom[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "52a58d24dad257ba7321f42acd30b67c6aac05a7efe5b9d3fb8b1b76657808e4"
-    sha256 cellar: :any, arm64_sequoia: "e9241ed6619c79c2cebe1b5508672aec223f464dbc7f1ab29e1e49151a1fe942"
-    sha256 cellar: :any, arm64_sonoma:  "772d157dfb130510e77b4499c4a6d31b77f3883e699b5c48576f53fc99019954"
-    sha256 cellar: :any, sonoma:        "d6c9b90b0ea895edc45d71215c52e078c01ec924843a9594d0252139bfe03ab9"
-    sha256               arm64_linux:   "2b147cf4c58a9dd1297191fa92a99b93e5245ba9102ea22c287d49f5ccf56b97"
-    sha256               x86_64_linux:  "469ff80ce89cc419eef6768b5672d25f8f3c557d269d02f0e2554f784da92a47"
+    sha256 cellar: :any, arm64_tahoe:   "511ed8f353a51336ea55364d8cd3fd626ecb5f6d04f91d7cfc0c23be3b0fb04b"
+    sha256 cellar: :any, arm64_sequoia: "4c93590b5956c317a7d2bc6a38aede4e0c047c9925e967ebc7884a6f4b77dbbc"
+    sha256 cellar: :any, arm64_sonoma:  "ea9dc8fd99c38aff11dd81cb0eebae01044ad73b6a6cffc4f117726edbf50ba0"
+    sha256 cellar: :any, sonoma:        "d560aa062fcbb20f4a5085682fa3f862b6dca8c30eb21b562418e7e83965634c"
+    sha256               arm64_linux:   "c1131eafb65f0da08a9e3d1d63ff1b00e9caaf801bbd1ed5ce94f6d3b840c79d"
+    sha256               x86_64_linux:  "028268f8e15073088bd20359757d2436a43e0b018d07f44b9ff3d25c6a6eeacc"
   end
 
   depends_on "gdk-pixbuf" => :build # https://gitlab.gnome.org/GNOME/gom/-/issues/18

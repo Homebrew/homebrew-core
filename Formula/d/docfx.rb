@@ -1,8 +1,8 @@
 class Docfx < Formula
   desc "Tools for building and publishing API documentation for .NET projects"
   homepage "https://dotnet.github.io/docfx/"
-  url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.4.tar.gz"
-  sha256 "255f71f4a6fc7b9ffd0c598d0eba11630dc01262f1fa45ec4f1794508f7033cf"
+  url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.5.tar.gz"
+  sha256 "79f9e2c4bb8de2225d91a812a4e9d2cc71a8ed5613b3b4b2940d2a1d5db38793"
   license "MIT"
 
   livecheck do
@@ -11,11 +11,12 @@ class Docfx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e2aa098788350e0ade470448132aaea0606cd12696fc3067c379f0d2a8c1ed8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c44b39e9d561d333cb41db6d268bba9d7f77ac6db339fce1c7af42c8412404d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "618cc85be0dae390ec7bb4b28c7e4aeb14037e35dd6cf5233de5ee70e01a750a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "03bd4f3996e6a3b9ba86d77ecc8edec829ff967c9c633b88e5ac82ee28e097c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c36e01983226081a6660535b0314e43930cb49af39a2280bed57b5a19fac3da1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "523bb3a1bb69486ba96ed04a14cf5275a03eaee24666548664367c6ec751008b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4285f72a9207278e027124dacd47cfca73a31697f318a55699b27f5a0f586231"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2ea16f5a93cabc62e5206f4b58fc4962f7193502983909d8d8706ff1011153e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "74dd5ee74560f786debd8cbda5021834c5b2199b9890f385325de614f6be39be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef38f65f11a369979e4a188ba5677a49831eac7d2c5160f65b80bd324d8ea38c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f703a20bc12c55ae2083dadc0364892ee5aa0bec6b34c53aa2758fa48cd0d762"
   end
 
   depends_on "node" => :build

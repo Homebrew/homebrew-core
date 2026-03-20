@@ -3,19 +3,18 @@ class MongoOrchestration < Formula
 
   desc "REST API to manage MongoDB configurations on a single host"
   homepage "https://github.com/mongodb-labs/mongo-orchestration"
-  url "https://files.pythonhosted.org/packages/70/ff/16fc299ee7ee4a2f48fc9a6eefde91ab0817073437da39b9c1cda3e4045e/mongo_orchestration-0.11.1.tar.gz"
-  sha256 "53e70343ab6d3e2085a45f8c16d60244308d9e8964bd92ef38a21928cef68a52"
+  url "https://files.pythonhosted.org/packages/c9/3b/6e579eb7aae04e95c194e6ca57666bc4d1cd0dff4f81de0b3f7e663222b5/mongo_orchestration-0.11.2.tar.gz"
+  sha256 "6f0996e5bb072e8dbd0009289b31debb88a647f562c486cfc2c73583ab059993"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/mongodb-labs/mongo-orchestration.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8bb72d2331ba1b768c6afb814a337434458c813e2171415c86d0717b8324bcd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d37146173b00554738052a17cb60183e0e899d473c613266244f5c862c80f56a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b8499e858b1e5338700971e18724e635edbb92ae8c442433a8cd9b700fca57e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6d2a28b7586416640edbff2b925dddeb22860d0f652412d06f5ab587a361392e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "28bb415d4b3894d32aa56f70353fcc456c3da306fc4a966c23b0f3c1e75e2285"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bae652f3320aae58848ef39c8acd9ef09ec98d3ab3632fba0140fee4a803094"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2d947869a1425ba65bd120e8a01e5a1e7aa89e04570087d01e6f8e4b1eeaa84e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8abfa8767d3c0617274ec058461270540048ce7a18508e351b1adf336fb9e614"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12a4823e7756b7ec2369525e92d081ee9e383c8390eb3e8b3ac018b7f28818da"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c7d4c6465fc14d7529ca7c1d9639c42b451b87f7bf437b403606f0d0a91c3c17"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8d8159cae821be828e79d479e72f9f580b1ead8de133a394f921f57bd3cacb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c69f6f30a71390e06116c17c48441f0a9b0a801de76177ae5acd93fb28596da0"
   end
 
   depends_on "certifi" => :no_linkage

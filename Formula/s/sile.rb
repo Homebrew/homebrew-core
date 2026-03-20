@@ -7,12 +7,13 @@ class Sile < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "137fd80d6b6e8812d9b90cc8908c2e2c75affd9bdadd75f0d410558d712dbc73"
-    sha256 cellar: :any,                 arm64_sequoia: "d53c7a4d4bf67c91689dc483647470d9cd79db64b17fff852bb457879bfae0a4"
-    sha256 cellar: :any,                 arm64_sonoma:  "b751c2855f43928c0873190189d861ddb3bd7852377fc8896121d3b96150babd"
-    sha256 cellar: :any,                 sonoma:        "da2e73c35b48f82bcb01951b95c88b6e2495ddcf8d9394615538d731eb1f54db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "235e4e2d47371e96b17b7bc8886dc5dab2d8f0a410c2b9953705f6ef9f29fd87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bcc75f4518d9590e63400af67ed63dea2ecf7883edfc87f1be1a801fa2df03b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "84311a8e0777cad0808ef2e936df25589c908410fdf80f8e59a336c07530eb0d"
+    sha256 cellar: :any,                 arm64_sequoia: "758458193f72b63e0404eb5475aeb44bdd6819942918e758e97dcb32bdc05090"
+    sha256 cellar: :any,                 arm64_sonoma:  "ad308a0c985244934ca559aab8ba718e217e72e4ad805504e6c8dc8c1037e458"
+    sha256 cellar: :any,                 sonoma:        "1fbd167ab091deeb57811129b2c31446acef25597accf72de9a1bf9efe8c55e6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f05214a3fe6b2a84909859ab5484935dcba0045e3aff5bc5104e2a39f56eb4a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6074cb5bbd1485cbcda34b290269ed29990895d800d9458e7d8c814904b8ad11"
   end
 
   head do
@@ -38,10 +39,13 @@ class Sile < Formula
   uses_from_macos "jq" => :build, since: :sequoia
   uses_from_macos "unzip" => :build
   uses_from_macos "expat"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "freetype"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   resource "compat53" do
@@ -162,7 +166,7 @@ class Sile < Formula
     if OS.mac?
       zlib_dir = expat_dir = "#{MacOS.sdk_path_if_needed}/usr"
     else
-      zlib_dir = Formula["zlib"].opt_prefix
+      zlib_dir = Formula["zlib-ng-compat"].opt_prefix
       expat_dir = Formula["expat"].opt_prefix
     end
 

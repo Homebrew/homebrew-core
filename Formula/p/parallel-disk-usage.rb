@@ -20,7 +20,8 @@ class ParallelDiskUsage < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--features", "cli,cli-completions", *std_cargo_args
+    features = ["cli", "cli-completions"]
+    system "cargo", "install", *std_cargo_args(features:)
 
     system bin/"pdu-completions", "--name", "pdu", "--shell", "bash", "--output", "pdu.bash"
     system bin/"pdu-completions", "--name", "pdu", "--shell", "fish", "--output", "pdu.fish"

@@ -4,21 +4,24 @@ class Libssh < Formula
   url "https://www.libssh.org/files/0.12/libssh-0.12.0.tar.xz"
   sha256 "1a6af424d8327e5eedef4e5fe7f5b924226dd617ac9f3de80f217d82a36a7121"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://git.libssh.org/projects/libssh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "92e32c71ce8d43597bd5305745825e1b53c21bf851092c4072c484020d006f6d"
-    sha256 cellar: :any,                 arm64_sequoia: "36c6234407a28413a0c389a232d272a584be9e0f273c6f05db42d2bb53c94d64"
-    sha256 cellar: :any,                 arm64_sonoma:  "43f63a8689e7972bbf5568e99388ed60fe693c85bad7940137bdf6d60d896108"
-    sha256 cellar: :any,                 sonoma:        "aa04743019e28b780925d68a4c6184adc4a71fae84106d5758bcaa8ac79617be"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3ca4ba4e6f214929a60056a2875a24e544bfc0ee7f176004557b262ff3df146"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55f4bffc8eae46c1636667035bdaf0b4226c5069c436c509b1b575ea37efe216"
+    sha256 cellar: :any,                 arm64_tahoe:   "cfbd08103692e8ffbb2cf33596a8b1f40dea83dba35621732994c921dc50e338"
+    sha256 cellar: :any,                 arm64_sequoia: "90d7d2f53f98da8a7f02c13a661575370941603f1409f7e4a3667d7360c4c58a"
+    sha256 cellar: :any,                 arm64_sonoma:  "28078e9854ab58dbedd7f8d9391cb28869932c73907c54a9c00612af2bc689eb"
+    sha256 cellar: :any,                 sonoma:        "95737ba81393b810ef51b6e88e1422067987edc9843dc4263442d3e93b05104d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "488dbc9708070ad0586823f1a17e4a53605205be5a39948aba60af8dacbc6285"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c7bd3b80655c34b25165fef797c3e1bb9b223423d58ba04353d2b6239ea1189"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %w[

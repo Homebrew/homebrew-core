@@ -1,8 +1,8 @@
 class Osi < Formula
   desc "Open Solver Interface"
   homepage "https://github.com/coin-or/Osi"
-  url "https://github.com/coin-or/Osi/archive/refs/tags/releases/0.108.11.tar.gz"
-  sha256 "1063b6a057e80222e2ede3ef0c73c0c54697e0fee1d913e2bef530310c13a670"
+  url "https://github.com/coin-or/Osi/archive/refs/tags/releases/0.108.12.tar.gz"
+  sha256 "1d80d0b4275f2e1ceefc6dda66b8616e3a8c8b07a926ef4456db4a0d55249333"
   license "EPL-2.0"
 
   livecheck do
@@ -11,16 +11,12 @@ class Osi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "cba7ab1ccf3bfe814eef30dfe9def0b9ff44a29a31e93efbcdef050174d08f5b"
-    sha256 cellar: :any,                 arm64_sequoia:  "d481d371981a212968f123ab295b4a2f891040f411dfa9cbf6b537adc851c155"
-    sha256 cellar: :any,                 arm64_sonoma:   "92e1f220abefbedf5afa236f48941731101b6bc6cf3c0a5a3a42c4ded4af2a58"
-    sha256 cellar: :any,                 arm64_ventura:  "62ff3b164a73eb23614ab0bf0ae1fcca5bb41e83fd64ebccb8f245cc5aa23c0c"
-    sha256 cellar: :any,                 arm64_monterey: "ab536eb79add604baa066582abcda1ad72018ce2aa1e74144d11d4a4988ad259"
-    sha256 cellar: :any,                 sonoma:         "c24c4a4d44b819fa097e9b3f77602f8d21175a1ca94199933396ffb334575306"
-    sha256 cellar: :any,                 ventura:        "d83b00f27e81af9188cc1066ec87b0375c3c8dcc32c71d2ea6a89aacae006003"
-    sha256 cellar: :any,                 monterey:       "d05eb1c3f01d1687b03107578ed1054bfb34424c2b388a0b5c98cd2bcc0e442b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "215b27d8b21a6756ec8174cebb1e8e9c2f0a2769bee7fef39b95630f7b67cb47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "093a334ad180ed10951e23866b1d6df68087fc29aee54a749899bb8b5d629780"
+    sha256 cellar: :any,                 arm64_tahoe:   "0d215e7ad0f3a078c75cce63ecb8251cf894f48277c6f13c0ccc743f4ade0916"
+    sha256 cellar: :any,                 arm64_sequoia: "f5abb88e0d063c5cfe7eef120ff21afc5e12716a52298fd6f66df79328bdb27d"
+    sha256 cellar: :any,                 arm64_sonoma:  "fe7f58a5520c9a7b283ec86dffff13eebb97fa4e9f703b37bf39a79fe883091d"
+    sha256 cellar: :any,                 sonoma:        "7378c5f7af3af543edac9c323582ac7fc7ec55faa793ea1c03d432a8c15aa27f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bf910c306aabca83e0e51bd03b0de37eddd2ab47d86a8512326c4e1121db0dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51a5f1fa24bde3164a6fbb181b77a2a5a34391aac49c7619499bfd946e0e7dd2"
   end
 
   depends_on "pkgconf" => :build

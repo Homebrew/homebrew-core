@@ -1,18 +1,11 @@
 class ActionValidator < Formula
   desc "Tool to validate GitHub Action and Workflow YAML files"
   homepage "https://github.com/mpalmer/action-validator"
+  # Using crates.io source as it includes schemastore submodule code
+  url "https://static.crates.io/crates/action-validator/action-validator-0.8.0.crate"
+  sha256 "775af1141ba0d546fd6dcd3b9f648e0ec340ea06b585e303b585b728bc236d86"
   license "GPL-3.0-only"
-
-  stable do
-    url "https://github.com/mpalmer/action-validator/archive/refs/tags/v0.8.0.tar.gz"
-    sha256 "2a75ecde0a5e58b525623db1f270f7d0153e3707d3ad87adee73fd4ef6adeac6"
-
-    # always pull the HEAD commit hash
-    resource "schemastore" do
-      url "https://github.com/SchemaStore/schemastore.git",
-          revision: "d94af770cffaa34559f5279acbcc3a548bb0ea8c"
-    end
-  end
+  head "https://github.com/mpalmer/action-validator.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2fca02f94098fb5318e9cf6a729e498a08788e7d165895f5dddfa321781d606a"
@@ -25,21 +18,10 @@ class ActionValidator < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "94e49dda6b381d74167f63da53903bf8a3e7b243d456eeb6d305b91b1ec43d10"
   end
 
-  head do
-    url "https://github.com/mpalmer/action-validator.git", branch: "main"
-
-    resource "schemastore" do
-      url "https://github.com/SchemaStore/schemastore.git", branch: "master"
-    end
-  end
-
   depends_on "rust" => :build
 
   def install
     ENV["GEN_DIR"] = buildpath
-
-    (buildpath/"src/schemastore").install resource("schemastore")
-
     system "cargo", "install", *std_cargo_args
   end
 

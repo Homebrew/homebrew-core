@@ -12,8 +12,6 @@ class Avce00 < Formula
     regex(/href=.*?avce00[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "380d933d3d32aa65c7afd933544c0f8a3d4b9fd349288627eeb6211753ad8c0c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cbfe81486e3dc61f284643a89726e5d94927eaa359f3fe63664baaae8c9bc0ec"

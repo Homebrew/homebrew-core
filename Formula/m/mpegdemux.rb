@@ -11,8 +11,6 @@ class Mpegdemux < Formula
     regex(/href=.*?mpegdemux[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c8009d2002ba680af6e0ef4d3addb176638b15450967b07caa5817f95606e80b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "596de6513b152e156fcffbfb37e42b097606fc3efed168190998049ddef8b9ff"

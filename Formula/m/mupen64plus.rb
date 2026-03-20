@@ -10,8 +10,6 @@ class Mupen64plus < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "73a594a4179e8c405898e24d23a3de66e3476734fe4d6271229a65ad9d94d143"

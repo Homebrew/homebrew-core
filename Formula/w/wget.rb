@@ -5,8 +5,6 @@ class Wget < Formula
   sha256 "766e48423e79359ea31e41db9e5c289675947a7fcf2efdcedb726ac9d0da3784"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "03be72d23a113a3273245b3e071667b611ea5d81dab6f52e995a84420d0ed734"

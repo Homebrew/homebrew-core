@@ -8,7 +8,7 @@ class Neko < Formula
   revision 1
   head "https://github.com/HaxeFoundation/neko.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 1

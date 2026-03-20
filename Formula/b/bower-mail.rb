@@ -7,8 +7,6 @@ class BowerMail < Formula
   revision 1
   head "https://github.com/wangp/bower.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "6c529955bcdd18e610441bd154d41cdbb03e164ea51aee9be99db4d4fa388553"
     sha256 cellar: :any,                 arm64_sequoia: "d47f47f021948b197519c8153299af29c6daf61303ec3271202a3db295d778fa"

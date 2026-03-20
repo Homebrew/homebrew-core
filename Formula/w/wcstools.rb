@@ -11,8 +11,6 @@ class Wcstools < Formula
     regex(/href=.*?wcstools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "77a31db1617c161a3b9b32c79738444ee90e0493eae441dc5782b790331a37a0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "71c2d28775be44e3d583d1058fc42b7ed1facc6d2a47fa0f51a6c4be76642bf9"

@@ -6,8 +6,6 @@ class Minisat < Formula
   license "MIT"
   head "https://github.com/stp/minisat.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "cf6593a34e4fccf6f0e21cd5a5ff25f1228a88bfa865a2a11d87e0a106186a7c"

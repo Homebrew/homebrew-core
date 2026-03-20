@@ -5,8 +5,6 @@ class Libxspf < Formula
   sha256 "ce78a7f7df73b7420b6a54b5766f9b74e396d5e0b37661c9a448f2f589754a49"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "211b569e374951a2f546836312639bf1aa937ecbf4426147663d57e4fded5f2b"
     sha256 cellar: :any,                 arm64_sequoia:  "f89d8d32a4bfb4ceb5254b1bd40d8bbb6ad1363143c1897a4ad945664b39b70d"

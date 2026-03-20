@@ -3,17 +3,17 @@ class Apprise < Formula
 
   desc "Send notifications from the command-line to popular notification services"
   homepage "https://pypi.org/project/apprise/"
-  url "https://files.pythonhosted.org/packages/bc/f5/97dc06b3401bb67abcef6e8bef7155f192b75795c2a2aa4d59eb5aa7fa66/apprise-1.9.7.tar.gz"
-  sha256 "2f73cc1e0264fb119fdb9b7cde82e8fde40a0f531ac885d8c6f0cf0f6e13aec2"
+  url "https://files.pythonhosted.org/packages/2a/65/341fce6f9c8848219ee588bed3acfa36314ae32640d79fd5c31bbcf83f04/apprise-1.9.8.tar.gz"
+  sha256 "2e06f9ebad47e67f3f184bb789a7966bec3261a53556c90acb1b1cdb85d84a2c"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "68a746b82167390f8f0af612c703e48fcda79d1a42d75abdaa0bb2145f1270f0"
-    sha256 cellar: :any,                 arm64_sequoia: "bf248741a80db0d00e4829593c6e5739a5ca633c383a65f9ff7713de0e994f72"
-    sha256 cellar: :any,                 arm64_sonoma:  "43b7393d57a510b7bfd4b3d6b56c78599c0eb63141158d46b189d0e37dffd86f"
-    sha256 cellar: :any,                 sonoma:        "dc0c5799f4b0546754dadda3a659f7b09904aa2afc9420fdd257fea62cbc902d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6177cf15c75a43f5a3f7f7e89748ca1c0a6b779ce0b4e174430b3e64e7ae07f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9693775916784897cba7792ba5d58ba1a0373f487ea25de99ed966f7de4b306c"
+    sha256 cellar: :any,                 arm64_tahoe:   "173a4569f946f56f4083fc4e108feaa507592f0dee3f702a20f6051c1011bcf8"
+    sha256 cellar: :any,                 arm64_sequoia: "2a0a7ffd04975ea5f2f78b0ea6957c28aed6e365c955b93dc61507320f6a1280"
+    sha256 cellar: :any,                 arm64_sonoma:  "ef697daac7459a8faf2bd93d570dd08cf038271b11f04c904a7a1bb768acb106"
+    sha256 cellar: :any,                 sonoma:        "762e1c6afe47aa9cefb7a72130a3929eb137ef5697f690e616c9399dc71aa488"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa9ca52b536fb6f02c9a4c888ca3350b1f319896d330fbf2d6a802f976c3d40c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be450bfcdf1d9c9b84329087ef5fc8b56a25733c79dec6b228e59d4be6dc07b6"
   end
 
   depends_on "certifi"
@@ -23,8 +23,8 @@ class Apprise < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/1d/35/02daf95b9cd686320bb622eb148792655c9412dbb9b67abb5694e5910a24/charset_normalizer-3.4.5.tar.gz"
+    sha256 "95adae7b6c42a6c5b5b559b1a99149f090a57128155daeea91732c8d970d8644"
   end
 
   resource "click" do
@@ -38,8 +38,8 @@ class Apprise < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/7d/ab/7dd27d9d863b3376fcf23a5a13cb5d024aed1db46f963f1b5735ae43b3be/markdown-3.10.tar.gz"
-    sha256 "37062d4f2aa4b2b6b32aefb80faa300f82cc790cb949a35b8caede34f2b68c0e"
+    url "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz"
+    sha256 "994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950"
   end
 
   resource "oauthlib" do

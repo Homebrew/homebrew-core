@@ -3,17 +3,17 @@ class Ramalama < Formula
 
   desc "Goal of RamaLama is to make working with AI boring"
   homepage "https://github.com/containers/ramalama"
-  url "https://files.pythonhosted.org/packages/54/8b/c62e8f95c6bd166c690fe61f5678f0e821a9ed164449277866db13bc1e9c/ramalama-0.17.1.tar.gz"
-  sha256 "a7afc80c9c5430fa0f984e52d143df04ff0b0311ed72b1166e4e77b38678bb8e"
+  url "https://files.pythonhosted.org/packages/78/00/785b31f9458fbe12b33724e79ca25bb8f537d5c88873b9f1fad4b8f98df2/ramalama-0.18.0.tar.gz"
+  sha256 "18bb2af79d96468e3c306f11ee41e52bd29d5900b20627e3f8d147037801e92e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c117d55f78edc01689de31faeb5e7286709f516c22ea3787aa0db54bb11086b5"
-    sha256 cellar: :any,                 arm64_sequoia: "3c4da08121e7866da89e6f4a4ef3884aee45ae98aecd97d60836a3ba054844d5"
-    sha256 cellar: :any,                 arm64_sonoma:  "0f744e29b3da3d1a1613064374d7d27e08826cf779eaf3bbc12a44a4eb3784f7"
-    sha256 cellar: :any,                 sonoma:        "f33e14d34089e20350f38c817d91a5448704dc62dc1cacd0bd0cf7cdee167831"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b546840de2619b3b781de6b8ccfc18de42b9ff3bafa36f76bf021e16c34e1c88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5e5be95e3d030b9a99be0bee3dad3fe3ee869b5045d5b57ce38c47ea0c26ca1"
+    sha256 cellar: :any,                 arm64_tahoe:   "d8fd5b816acfa9193fc6fac992c381d14f465cd2f5fcdac98cbeee4506703994"
+    sha256 cellar: :any,                 arm64_sequoia: "6f81e22270ef956253e72bf83a1221639e757047c30827aae62ab650ef0139db"
+    sha256 cellar: :any,                 arm64_sonoma:  "d1bd8e1d0f1dc6af332796eabf4e41ff22588a161217f5e6d77fb1792545a925"
+    sha256 cellar: :any,                 sonoma:        "4501f3af4d4e8e28fb59fee8817f4b1cbb7a371f60cd6783d941435fa6e0657d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "65ffa09511f0746d752ade097f007242db64c72b75d83581190faa821ebeafa4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "393da892a3b5e45aeec7b0dede1fd87a8c6cd39f343131c42529810637c066b0"
   end
 
   depends_on "libyaml"
@@ -32,8 +32,8 @@ class Ramalama < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
-    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "jinja2" do

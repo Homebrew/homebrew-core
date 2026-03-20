@@ -1,18 +1,24 @@
 class Radicle < Formula
   desc "Sovereign code forge built on Git"
   homepage "https://radicle.xyz"
-  url "https://files.radicle.xyz/releases/latest/heartwood-1.6.1.tar.gz"
-  sha256 "a4806357baf162263002a24fc24660dfed7a43d566a24fc5428b0948d67e2011"
+  url "https://files.radicle.xyz/releases/latest/heartwood-1.7.1.tar.gz"
+  sha256 "3263219e470862cc2489ed684c6d947ec6d462354954f5e2ac1aba0939d851a8"
   license all_of: ["MIT", "Apache-2.0"]
 
+  livecheck do
+    url "https://files.radicle.xyz/releases/latest/radicle.json"
+    strategy :json do |json|
+      json["version"]
+    end
+  end
+
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f82b1f36f71d6c52b290713efc2b47b4f6c020cb298ce6926938dd9a391dfbae"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fac4a06307d6a25d8b3b405e96e1a6af085e99101477ba9b6d33acab6c8b474c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2552aaa82a06b43a195cdef7e8cf5ff1e75523736c6544bccb3912cbf893d0aa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "813d5d88508b7895c495cd83d7259aee6058a9d48a4aa18af53f3cf54796c173"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d90155b9be9457d45102ef00b1f88177e9750a7090b4d347edbd91184d1a5d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9e82ca7d7210cf9bf27a910f505db24197c40d763359da8d6bfe349bb8590e8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e71464307cab48d0fa169d010bb1b6207289a3ed02e54b31cf6d6a2a4cfdcc0a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "78a078aea6cf4d58e7f973890afef6a318186c5e5cf02102297365380b105509"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd67bfec110bd744f7c16cd41a0d95bb0067553182f2130e968acb0fa3695512"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c03efe8cd243725f5b7bcbdb4fd8f89863cef6d29a06d91c39ff2dc9ce5f4a8d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c667b42aff1b507a927bb5033f70c11cf84dd27cb84e3f05bbc2bc0f86bbcf7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "727c6f48e6f98916cf6d61188c15bfb13e86b103816cdfbe381b3ee764a38257"
   end
 
   depends_on "asciidoctor" => :build

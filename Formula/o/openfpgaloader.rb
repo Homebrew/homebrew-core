@@ -1,19 +1,18 @@
 class Openfpgaloader < Formula
   desc "Universal utility for programming FPGA"
   homepage "https://github.com/trabucayre/openFPGALoader"
-  url "https://github.com/trabucayre/openFPGALoader/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "cf19b596e5dea21891b1be3cb9a04be7a1501926ee0919dcc5c9f1b6d3bd0a96"
+  url "https://github.com/trabucayre/openFPGALoader/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "ca965f933c52a2a9dbb318df4d4de70fac5f095a8e64523f81036ab467a4b567"
   license "Apache-2.0"
   head "https://github.com/trabucayre/openFPGALoader.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "b9207b7099937acb9e926b69b49f33281bf8d08e3558aa35d4846f681f0e7ec1"
-    sha256 arm64_sequoia: "b217a3ee5dc8d327297b48799b4d3b9faa862c0e87c70e1df5e840769a509149"
-    sha256 arm64_sonoma:  "0efaa2b14608d264fb1fc6bffef6d55f95c55ecf6d07a2b6abbd447acc94280d"
-    sha256 sonoma:        "f46d32ce54fe5935ae691dc5af7b888583ed4fa8a71135b9295248d1e7d296c3"
-    sha256 arm64_linux:   "210c9f278ed7788d5e5f9663b8534a16efb2c15b45073b72c15549cda1c0c3ac"
-    sha256 x86_64_linux:  "0bbf089c13b16a3aa1b26ed8ea95cc56c8bf35d2e2cb127b05aabfc2a795e48a"
+    sha256 arm64_tahoe:   "5fcb0ca1f40b157a892db1b780e1b10f24d9d082e45465ff03c5fabf034681b6"
+    sha256 arm64_sequoia: "8614fcca0f77cd93f87960c5c28ef0caeb0abce7147534155e8fa67d23c5fb75"
+    sha256 arm64_sonoma:  "3d74847d2cfcf600f3b8ae60551a4e769b8208a19f4d3da62546cc435d2cfb33"
+    sha256 sonoma:        "34caa66947e3bc29f8cd47266d2cbac8ec12ee1fd8090c55eda4663f87e57439"
+    sha256 arm64_linux:   "c779c9691fc3917e44f149774edd4ae4573cebe4fa75d4fbf009719b295f1bc8"
+    sha256 x86_64_linux:  "89ec85a2ce8460887a33d687fe685f9d2e7c3500a7c3710dbfa6b80cbe347e93"
   end
 
   depends_on "cmake" => :build

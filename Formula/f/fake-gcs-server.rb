@@ -1,18 +1,18 @@
 class FakeGcsServer < Formula
   desc "Emulator for Google Cloud Storage API"
   homepage "https://github.com/fsouza/fake-gcs-server"
-  url "https://github.com/fsouza/fake-gcs-server/archive/refs/tags/v1.53.1.tar.gz"
-  sha256 "54391b07f61254eff2e58a78894ec68da702e1583e17fdb75c10b905536d919a"
+  url "https://github.com/fsouza/fake-gcs-server/archive/refs/tags/v1.54.0.tar.gz"
+  sha256 "12a874a6e3e8160a59c820e52ce1a5100c1c213720f0b033067269480d92cd6e"
   license "BSD-2-Clause"
   head "https://github.com/fsouza/fake-gcs-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "077abb0b7943aedcb4b39adf101b6cb32478cabb2cf91003ddb2a36224fe719b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "077abb0b7943aedcb4b39adf101b6cb32478cabb2cf91003ddb2a36224fe719b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "077abb0b7943aedcb4b39adf101b6cb32478cabb2cf91003ddb2a36224fe719b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1b66c3a64c5afcbecebb33654b15340f23757daded46038ae6f21a1913d8967d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d1f37cdcb6d259a0ce40a75de8245f67f8ab4d6764789aa189c12fbf692a49e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f65839239fb2c10cd7c5a7ef669e91322df86f629d6500fe4c3fa09e8c405b7c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9874810bbac6adc4a82460c22755680f02d16be0af9b6cb951fa3443ac2e02d4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9874810bbac6adc4a82460c22755680f02d16be0af9b6cb951fa3443ac2e02d4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9874810bbac6adc4a82460c22755680f02d16be0af9b6cb951fa3443ac2e02d4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "49ecdca1f224a4495343611ad17cec9be45d7ec037f799ec78dcf950c259248f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e79602e94a2c884818627eace2e9a4adb0a1ba944240f8892547764859762ce9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7338498911cb9cb566c7d367ef8e2bb710be7a549e936e1c0ab273eaadc08a65"
   end
 
   depends_on "go" => :build

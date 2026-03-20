@@ -10,8 +10,6 @@ class Z80asm < Formula
     regex(/href=.*?z80asm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "196ce6ca6e3dc40b4cc7a96be32fd22c7addc3d411eb227bb8a67407f749810f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ce392c70bff0caa5fd981cb09caca7a54d579c4e1f12c4f4e5644d2934e199fb"

@@ -1,8 +1,8 @@
 class Nak < Formula
   desc "CLI for doing all things nostr"
   homepage "https://github.com/fiatjaf/nak"
-  url "https://github.com/fiatjaf/nak/archive/refs/tags/v0.18.3.tar.gz"
-  sha256 "4b4b54934646716c56ba91dc9141a14bbcb1cc18174b9d4aecf6f92a2764b71c"
+  url "https://github.com/fiatjaf/nak/archive/refs/tags/v0.19.1.tar.gz"
+  sha256 "cf83adf7796ab9a8208aecf4eb2bbd435b698dea44baabffee3fd909ab50b986"
   license "Unlicense"
   head "https://github.com/fiatjaf/nak.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Nak < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9c0ead931f445aabdaddb6d6e87188ec6d48122ef6c455406390444c0644512"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9c0ead931f445aabdaddb6d6e87188ec6d48122ef6c455406390444c0644512"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9c0ead931f445aabdaddb6d6e87188ec6d48122ef6c455406390444c0644512"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0e4408b6f940c355dfcf6ddc8b4d13c298a964ed60213572c3d4198e5ccd8c6d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cffc076930050a739eef5b6c0c7b96ce46e09fb9af303070b51c2b13336e76f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e1a2e82a461c5390b69ff97af0188ce9853541878673d9ec6f86ac28d5241fd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6545658aef99218198af59862a1a15c425b7f3e4057f8bfb6456132b2dbac558"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6545658aef99218198af59862a1a15c425b7f3e4057f8bfb6456132b2dbac558"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6545658aef99218198af59862a1a15c425b7f3e4057f8bfb6456132b2dbac558"
+    sha256 cellar: :any_skip_relocation, sonoma:        "00254095a630462e310d204e0bdb9cc3eca8963aeded081ce4936e7832c8d06c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8a865b0a237c91a8c6177292dc6100a24208f8d94c812f8dd471fe254cd1370"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6232482008e06ecdc266c7226767db3719347f7481575454fea79c770d73f05e"
   end
 
   depends_on "go" => :build

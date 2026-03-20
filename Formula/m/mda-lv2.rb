@@ -10,8 +10,6 @@ class MdaLv2 < Formula
     regex(/href=.*?mda-lv2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:    "87a2bd9d397365ef18ac869774f67b94835d998465e5b78d4b8ec69a47a1aaa9"

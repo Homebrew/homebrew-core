@@ -27,8 +27,6 @@ class Pit < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f777c3a9a9df0126578d3bfcac99340c9de06de98f9a81af90a5e0f1c11a2dfc"

@@ -7,20 +7,17 @@ class LlvmAT19 < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   livecheck do
-    url :stable
-    regex(/^llvmorg[._-]v?(19(?:\.\d+)+)$/i)
+    skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "4ea352020fbe109623ee1737e24625a68d207aed9c48ce5be35edf7231178622"
-    sha256 cellar: :any,                 arm64_sequoia: "42a13d15ba57363bb209e68c21a75dda9ff247969d453a778d4fc3bf43d994d7"
-    sha256 cellar: :any,                 arm64_sonoma:  "3388313ecb5ced7024b481d696351bdc43ad32da4701e6498d64ab9a65fb43db"
-    sha256 cellar: :any,                 sonoma:        "a0da1eaeeb6d2f4719b081855d02047a9dd847f6941a206c43ece5bce66b232e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "173e13c4dccb1151d88dda647d6db96a112de1e9d1c516ee2a82b41f0501684b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca1f1961a6b5168d56947cd8c74cdbf49e4e7b11ea2073350a18ab9d0b1e656d"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "28c7fece7d2ea7a8952f747f7d5d2c16f071eb9816f1cb3b052705121993142c"
+    sha256 cellar: :any,                 arm64_sequoia: "7c5f193a831e4296a73ae06d611be2bcbab357510bfb1110c2a124a7da2f9ff4"
+    sha256 cellar: :any,                 arm64_sonoma:  "37747f7b66d323ef07f18d471b928480a67ad93de8d5f7bdd3418367f1a8eac6"
+    sha256 cellar: :any,                 sonoma:        "7739d54a784eafaa3c7d76a112bbafdd16214e60a58e60bc9a41240d2b981577"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ef18f97820ef8d630e7bebec7e429a8db87511e7e51e4432d1ec95967afb265"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdc5c9b0be11f6047a801b1bcc56e75d3047be1f91ade13965ffdadf077406a6"
   end
 
   keg_only :versioned_formula
@@ -29,19 +26,15 @@ class LlvmAT19 < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "python@3.14" => [:build, :test]
-  depends_on "swig" => :build
-  depends_on "xz"
   depends_on "zstd"
 
   uses_from_macos "libedit"
   uses_from_macos "libffi"
-  uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_linux do
+    depends_on "binutils" => :build # needed for LLVMgold plugin
     depends_on "pkgconf" => :build
-    depends_on "binutils" # needed for gold
-    depends_on "elfutils" # openmp requires <gelf.h>
+    depends_on "zlib-ng-compat"
   end
 
   # Backport relative `CLANG_CONFIG_FILE_SYSTEM_DIR` patch.
@@ -97,14 +90,6 @@ class LlvmAT19 < Formula
                              .select { |name| name.start_with? "python@" }
                              .map { |py| py.delete_prefix("python@") }
 
-    # Work around build failure (maybe from CMake 4 update) by using environment
-    # variable for https://cmake.org/cmake/help/latest/variable/CMAKE_OSX_SYSROOT.html
-    # TODO: Consider if this should be handled in superenv as impacts other formulae
-    ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path if OS.mac?
-
-    # Apple's libstdc++ is too old to build LLVM
-    ENV.libcxx if ENV.compiler == :clang
-
     # compiler-rt has some iOS simulator features that require i386 symbols
     # I'm assuming the rest of clang needs support too for 32-bit compilation
     # to work correctly, but if not, perhaps universal binaries could be
@@ -112,9 +97,6 @@ class LlvmAT19 < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
-    # we install the lldb Python module into libexec to prevent users from
-    # accidentally importing it with a non-Homebrew Python or a Homebrew Python
-    # in a non-default prefix. See https://lldb.llvm.org/resources/caveats.html
     args = %W[
       -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
       -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
@@ -132,11 +114,6 @@ class LlvmAT19 < Formula
       -DLLVM_TARGETS_TO_BUILD=all
       -DLLVM_USE_RELATIVE_PATHS_IN_FILES=ON
       -DLLVM_SOURCE_PREFIX=.
-      -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
-      -DLLDB_ENABLE_PYTHON=OFF
-      -DLLDB_ENABLE_LUA=OFF
-      -DLLDB_ENABLE_LZMA=ON
-      -DLIBOMP_INSTALL_ALIASES=OFF
       -DLIBCXX_INSTALL_MODULES=ON
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{python_versions.join(";")}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=OFF

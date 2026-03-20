@@ -7,12 +7,13 @@ class Rocksdb < Formula
   head "https://github.com/facebook/rocksdb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c30b38a794af560e0af606cd0f283f7b5bef70c2d6425b1b85ee4102899a4b42"
-    sha256 cellar: :any,                 arm64_sequoia: "c008b0f1b20dc09dbd14210cc058d7246b513dd7e700ad378dc97029a3e1efc1"
-    sha256 cellar: :any,                 arm64_sonoma:  "351f19962d33a93255796c3a1c8eefd3cb71c3753eb9f509eab01a091dfb7f82"
-    sha256 cellar: :any,                 sonoma:        "69347ffccff1bf4e47cf463c1c0af7b45426e2016912a4ef0d727da1afb1a46e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "90de5e47dbd2746a04f0d4cac1ffe1441334eb89167da350305da702080a0c80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7d9961c19c555ab81f1902e7ba5715611ebecdfc63a7c122c0883e43e3dcfdf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d1614d2a4c5acb5bf39aebcb2792717cff23ef9d8dd761cbc4c03f42227a44f3"
+    sha256 cellar: :any,                 arm64_sequoia: "fbd10ebeaf9b1518d3af65eec5ba4bbf9a71dfe53f6022163af62068dfcfa72f"
+    sha256 cellar: :any,                 arm64_sonoma:  "5fcd71d99272f69748d20547639cd29f8b74eee68c7cbdcc965f64c1c79c54ac"
+    sha256 cellar: :any,                 sonoma:        "04b506ca88a63e1f6f17d9710c175642b139f570d4601c2062403e0a2483eccc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad10f71bedbadd5f0cd51bc782704e0e10d710ee1599500916331d79d1af7d9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90c4057d4b34589ce782a576fca13702246c2f9bb94cb421930f7dd1e9b45f93"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +23,10 @@ class Rocksdb < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

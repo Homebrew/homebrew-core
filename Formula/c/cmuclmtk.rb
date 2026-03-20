@@ -13,8 +13,6 @@ class Cmuclmtk < Formula
     strategy :page_match
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "e382dbebb03c49d129bb2eacd23102d828d9814296bb751f275e2bd5cd4ac8e4"
     sha256 cellar: :any,                 arm64_sequoia:  "17749777bf2cedd02ab511ce2bab36a69389ea9c1f0b03c8a92927e3e54a5fae"

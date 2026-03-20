@@ -5,8 +5,6 @@ class RpcsvcProto < Formula
   sha256 "81c3aa27edb5d8a18ef027081ebb984234d5b5860c65bd99d4ac8f03145a558b"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "4bbc594d97b03ddb65f8a7caaf4521cd12c5a7bc463f3e4c051d5ff08dd010b1"
     sha256 cellar: :any,                 arm64_sequoia:  "076bec1fd5bdddb95185b92aa72a11b94e72cece029eb771edabe98cf805b91d"

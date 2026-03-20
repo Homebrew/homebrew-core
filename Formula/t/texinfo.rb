@@ -1,21 +1,20 @@
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
-  url "https://ftpmirror.gnu.org/gnu/texinfo/texinfo-7.2.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/texinfo/texinfo-7.2.tar.xz"
-  sha256 "0329d7788fbef113fa82cb80889ca197a344ce0df7646fe000974c5d714363a6"
+  url "https://ftpmirror.gnu.org/gnu/texinfo/texinfo-7.3.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/texinfo/texinfo-7.3.tar.xz"
+  sha256 "51f74eb0f51cfa9873b85264dfdd5d46e8957ec95b88f0fb762f63d9e164c72e"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "860131f9432cb4fce12c4ffc6440e91373d40d9cf79db0e09498029c9055d97c"
-    sha256 arm64_sequoia: "a28e8dfcc909b1fcf3d7084cb85b2437c34f75c96f837f178b22cc7501c3c056"
-    sha256 arm64_sonoma:  "9ceddadff536aea2594d32c5a4f6c9f87d0d7d215c4e79b9d828356b6004e11c"
-    sha256 tahoe:         "4f43bf3f89a5ec53f3f1b567c37ac0e5ebcfe9fb3bb7a7a418fb2ebb9cfbe0e6"
-    sha256 sequoia:       "60d14960da05f3e0ac1edfae9e6ae9d086b06823fcf82219279d2d2980de8ebb"
-    sha256 sonoma:        "5def5754597c20c93f9d4cfad57f6590be2f966f4a138e4c6a67c937fd45a1ad"
-    sha256 arm64_linux:   "26bc9ccc084ae18c42003b4efdca2439a5c8a8986cdb839db0de8011c16c46e9"
-    sha256 x86_64_linux:  "8c1fcbbb14cf2b3f7279b740636a6402db90287ae6c8dff8c6467ce39f56fe37"
+    sha256 arm64_tahoe:   "af864341784c9958f6ce991fa0e0bc3b5727dfc7c8f53a90cbf2339e080c2232"
+    sha256 arm64_sequoia: "e26c8c7d0d1f5b68bb7e78e59f701838d45fa73e3ce768ab6b68e1a051ff751c"
+    sha256 arm64_sonoma:  "6edceba78cb173242c77e481aa0adc88e6efbddf4e05239322d72f05b144b2bc"
+    sha256 tahoe:         "0e80a4ba0a2a3a48eebb8078f1c79fe563e374c3c2ed77642901941fc42e015c"
+    sha256 sequoia:       "93f14818e722ccc3152e9d2824095eb4ca79c58b37bc1ce58f0469a6e2735f21"
+    sha256 sonoma:        "cf213ea4a3f93a42c4ad178e602e1eda6cf17dcf3c9fbeb024c4758910dc4878"
+    sha256 arm64_linux:   "ae0c709a08d1e093bddc8c4c4f696592e38faed5c261d020f027dcf195425ddc"
+    sha256 x86_64_linux:  "0dd622bb0151013803cdf5977f76cf78622fcb92478062d6ce2612199f7a049f"
   end
 
   uses_from_macos "ncurses"

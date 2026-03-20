@@ -6,7 +6,8 @@ class Libosmium < Formula
   license "BSL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d17d41d5ed5b8a4139ae6bbffe2d78d705938abe360d957dc9639fcb98eaab16"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "cb25dc7303f0d4351ae7929fe2290e908bcd514ff1856ad3a32a34de52fd558a"
   end
 
   depends_on "boost" => :build
@@ -16,7 +17,10 @@ class Libosmium < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

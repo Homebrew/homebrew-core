@@ -5,8 +5,6 @@ class Diskonaut < Formula
   sha256 "355367dbc6119743d88bfffaa57ad4f308596165a57acc2694da1277c3025928"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "46ddaf75fd4b61414cb76fa4ac54aabb931aac13253e52e68888852468c14ede"

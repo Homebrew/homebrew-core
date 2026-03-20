@@ -1,9 +1,8 @@
 class GerbilScheme < Formula
   desc "Opinionated dialect of Scheme designed for Systems Programming"
   homepage "https://cons.io"
-  url "https://github.com/vyzo/gerbil.git",
-      tag:      "v0.18.1",
-      revision: "23c30a6062cd7e63f9d85300ce01585bb9035d2d"
+  url "https://github.com/mighty-gerbils/gerbil/releases/download/v0.18.1/gerbil-v0.18.1.tar.gz"
+  sha256 "e1827bb88bdb74a01a99f0d94a50a6469ae4e760905be83dd3064ffc1709ceb5"
   license any_of: ["LGPL-2.1-or-later", "Apache-2.0"]
 
   livecheck do
@@ -11,29 +10,27 @@ class GerbilScheme < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "6c166d32e62d375fab7baf018d875b4f0a44536b9e33158bf9894af87b8964d7"
-    sha256 arm64_sequoia: "939444b532cbb429e5385d5b9eaf5c998e5100cd6f44c73a08e03d81cf5390d6"
-    sha256 arm64_sonoma:  "f82c1f9904a538503b8465a690f2eeb492b719a76fc0e581610ff46ab10fba98"
-    sha256 arm64_ventura: "3a84f0abe9b30ccbbcfc7e5915f75af455b45b53b032f92e3bccae0fe3cf59bb"
-    sha256 sonoma:        "4b5ad778a0eb69040087799891cef2915423e36bee59b44b429846ac750a6b50"
-    sha256 ventura:       "333d0738fe5d912401ccee0cc0958db84b4e90e304c0365805580d071fb45b95"
-    sha256 arm64_linux:   "4d104632dda501548237d32ba5a454dccb9409b3b58b380f39a552017349193d"
-    sha256 x86_64_linux:  "6b5f1a9d1e67afb310f18b033089eafa83514b33a9a32605651ff3ddbc5765e8"
+    rebuild 1
+    sha256 arm64_tahoe:   "6745d8bce39a3b89bbf4b5c3c69cac16ada9073a9a8216ebba04507b63f298c3"
+    sha256 arm64_sequoia: "d42dd1a6b7f7b922eae3a3f9d3d51ff97893d4fb93ad98ba919381d4dddf3717"
+    sha256 arm64_sonoma:  "4e67eee05dd06c0e744af6e715ffdebe003f3f3d207de6f5805c75d27dc95a20"
+    sha256 sonoma:        "e1c3c27f77b53389a64aa3c46179877217f8b1b411dec0de2940e57cc1efab07"
+    sha256 arm64_linux:   "28192cc2a3d65cd154d33e86b8d4c341cd487fc32aa62762238285d34e2899bc"
+    sha256 x86_64_linux:  "ead102fa71b688c6923afa46460741d75848aa18c13f521854358f545ae8d6a7"
   end
 
-  depends_on "coreutils" => :build
   depends_on "pkgconf" => :build
-
   depends_on "openssl@3"
 
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gcc"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "ghostscript", because: "both install `gsc` binary"

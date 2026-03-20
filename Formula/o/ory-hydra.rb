@@ -12,12 +12,13 @@ class OryHydra < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "274aabae4b98765b98ce3f76009442d38da0bc5ddd0f7c742525b45f61f68026"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "71b0f3ecf4c9d762e28c0181e6b2cac901027e7dafb7a3839bbab9898012838a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f11da4d0cde25e0b87efb35b4073da9071ca00699421572d04ebbc868a5969fb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f69f9f90d69047df0462ff793e2685e1e04ff1135a7efb3b44da1b6ef68b3472"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ca48ceb1eaff823a4b9e9f8ad04f94f161407f3e8c83dc9aab5e232c2aec688"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50dd566a516cde0ed8a8cbcc8a0771a61331c5ef275a2573e2275098330260bf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "99bcc505b6e5a8cb0bb3e2b21695510b3aa3c6e684950d9372005581b6badaf4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dbaaf9558607784db178e4510ffcafc1331de7b1becbda4aa69f02e682f8273d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3bceb901ec3dfc2d01f0c0cddef258092894c963280e5b304c6026e7e23b208e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4950121368b93bc7bdbd76e90f6d85fc99d6b78d9ad736ccb4fc03794780f75c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "01afd4dea51ceb09f0fae57803eaa4097e6c2b7b40c5a320bbf6edb15349e780"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72c69e079a5c665954ef23bf93b612c66b36d0f7bf5e32f07f33fca3369fcb36"
   end
 
   depends_on "go" => :build
@@ -34,6 +35,8 @@ class OryHydra < Formula
       -X github.com/ory/hydra/v2/driver/config.Commit=#{Utils.git_head}
     ]
     system "go", "build", *std_go_args(ldflags:, tags: "sqlite", output: bin/"hydra")
+
+    generate_completions_from_executable(bin/"hydra", shell_parameter_format: :cobra)
   end
 
   test do

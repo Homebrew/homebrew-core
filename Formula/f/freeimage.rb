@@ -7,7 +7,7 @@ class Freeimage < Formula
   license "FreeImage"
   head "https://svn.code.sf.net/p/freeimage/svn/FreeImage/trunk/"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 3

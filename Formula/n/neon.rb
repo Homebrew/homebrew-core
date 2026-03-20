@@ -1,9 +1,9 @@
 class Neon < Formula
   desc "HTTP and WebDAV client library with a C interface"
   homepage "https://notroj.github.io/neon/"
-  url "https://notroj.github.io/neon/neon-0.36.0.tar.gz"
-  mirror "https://fossies.org/linux/www/neon-0.36.0.tar.gz"
-  sha256 "70cc7f2aeebde263906e185b266e04e0de92b38e5f4ecccbf61e8b79177c2f07"
+  url "https://notroj.github.io/neon/neon-0.37.1.tar.gz"
+  mirror "https://fossies.org/linux/www/neon-0.37.1.tar.gz"
+  sha256 "a99b7262525a454d1065cf76dd17240fd808dfc4ef15636990ff83a5d0d9e740"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -12,13 +12,12 @@ class Neon < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "30ba4e84e339e497e1fe0933a8bf18073e732a580d5a780e344e2ff6f4322418"
-    sha256 cellar: :any,                 arm64_sequoia: "75aecc98faa1ed5f176c8ea3094179152f916525e3239e2ee21ff44867a5a223"
-    sha256 cellar: :any,                 arm64_sonoma:  "dd3284af74c1f672db2340c11a531661efc6a015b751d1740ce4d9e082ae59a1"
-    sha256 cellar: :any,                 sonoma:        "006e4f3e377aad08164df051a21403b679ee0f0117c2799a566f85bc918e1b88"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "114a10ae6f014a154425402e4cd3d3b209620c5cb4e264a472d1ed5d9e97f9ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b122d373423865c5baf83761cb9687cc7a5f2885f3dd7dfcec2ea304cb88d6e9"
+    sha256 cellar: :any,                 arm64_tahoe:   "656135b04dc530d4ac18b1def2648582f0ef31ca4514c9a451df1825bcc0578f"
+    sha256 cellar: :any,                 arm64_sequoia: "08ecfda5a308299635e7053a865443c66ebbc143aebcba26c3ce887b664fec80"
+    sha256 cellar: :any,                 arm64_sonoma:  "95ec8950f5f94037051bb97151197f090b6450cba5d4bb939c05d949ae98e953"
+    sha256 cellar: :any,                 sonoma:        "7a853aea4377ef387f5865eac35a7ac76a0e19bccf8a5c25224555e0a8f56452"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e555fea5f08acec473709fdb443a3706356ae0147e4b9c8c5d08a438f8260f18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "336b2b3b5081772f881787ba2396b76e371e61cba9035c5233f96fcb6dea6562"
   end
 
   depends_on "pkgconf" => :build

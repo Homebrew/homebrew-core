@@ -1,19 +1,19 @@
 class Libunistring < Formula
   desc "C string library for manipulating Unicode strings"
   homepage "https://www.gnu.org/software/libunistring/"
-  url "https://ftpmirror.gnu.org/gnu/libunistring/libunistring-1.4.1.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.1.tar.gz"
-  mirror "http://ftp.gnu.org/gnu/libunistring/libunistring-1.4.1.tar.gz"
-  sha256 "12542ad7619470efd95a623174dcd4b364f2483caf708c6bee837cb53a54cb9d"
+  url "https://ftpmirror.gnu.org/gnu/libunistring/libunistring-1.4.2.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.2.tar.gz"
+  mirror "http://ftp.gnu.org/gnu/libunistring/libunistring-1.4.2.tar.gz"
+  sha256 "e82664b170064e62331962126b259d452d53b227bb4a93ab20040d846fec01d8"
   license any_of: ["GPL-2.0-only", "LGPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b9abc2b3782640cabca4ee0e0e2072478f4eab5c3c74bfdb8a9fbf2eff80c4b1"
-    sha256 cellar: :any,                 arm64_sequoia: "dbc874f78025281d97cf683531c635a6a4195b928f1af4288bda71e6dba723cd"
-    sha256 cellar: :any,                 arm64_sonoma:  "7b03a079d5408f0d111accb2331f8f881fbb9e395ee05a583ca436c218ff44e1"
-    sha256 cellar: :any,                 sonoma:        "4e3960f18ae73ba2bdb6b046431c9fac5936138cb68f454752b8e7de0aea54f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f79d9d9e62971a416bff77be8f9b50251514941a859f4a92c469e7996ffe715c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f870ec882a5579d1d26fe194454b7c32559268cc0854758b85690385ce844d32"
+    sha256 cellar: :any,                 arm64_tahoe:   "bae6d6d8dffc573c039a850a96e36f1b7fd846abd9ccada8260b7e888b5a3646"
+    sha256 cellar: :any,                 arm64_sequoia: "463b68c92d30d845df10b1b137aa8e41a744f1ce2d2cab024dd26c766335b797"
+    sha256 cellar: :any,                 arm64_sonoma:  "dc4d4b4406a2c7032dd838ae362ecaeba114d8ac9d9daaa18f760d1d71ba3577"
+    sha256 cellar: :any,                 sonoma:        "fbb3a7908a19f306823dbd51b417705c73f710a9a1fb1e34ba7aa67a3c966094"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "362f8bd62dc8a3db8ca85938b2bfc7ebd09bd3d4f676ae1491183239d576b7ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2491acf49407cf75d5f95a6296f2a1c0294646834022fdcad7e22471c0c9a6d4"
   end
 
   def install

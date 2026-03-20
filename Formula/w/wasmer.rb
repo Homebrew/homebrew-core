@@ -25,7 +25,7 @@ class Wasmer < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "cranelift", *std_cargo_args(path: "lib/cli")
+    system "cargo", "install", *std_cargo_args(path: "lib/cli", features: "cranelift")
 
     generate_completions_from_executable(bin/"wasmer", "gen-completions")
   end

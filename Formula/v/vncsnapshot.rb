@@ -11,8 +11,6 @@ class Vncsnapshot < Formula
     regex(%r{url=.*?/vncsnapshot[._-]v?(\d+(?:\.\d+)+[a-z]?)-src\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "cdc55184ba7f8d8bf9c418d2f76e64a0a58e53e99d6bc9cf0e1859c671e7879d"

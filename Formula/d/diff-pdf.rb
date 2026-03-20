@@ -6,8 +6,6 @@ class DiffPdf < Formula
   license "GPL-2.0-only"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "39d3ffa2ca4a7c23b19d569d3ad80308cb2a427ee9386024770f27ee48bfe1ef"
     sha256 cellar: :any,                 arm64_sequoia: "a6fdb5286aa134dcdc600dbabf9c84c5f8f9c1efc83ea73311bb7bb2a0840739"

@@ -1,8 +1,8 @@
 class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/archive/refs/tags/v3.9.1.tar.gz"
-  sha256 "9e3a40df6bcf3ca012d5b924eaf3b5b24563bfe07a6b4ed20098b73b15870c54"
+  url "https://github.com/commercialhaskell/stack/archive/refs/tags/v3.9.3.tar.gz"
+  sha256 "144bc7eaaf384228f6b0f960ced130b503dc4945ffa42f3ca2037abbc8136c05"
   license "BSD-3-Clause"
   head "https://github.com/commercialhaskell/stack.git", branch: "master"
 
@@ -12,12 +12,12 @@ class HaskellStack < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c6b50ab326697af395bb385a55167324d1f2eab1fcf52faf71b95cd25531153e"
-    sha256 cellar: :any,                 arm64_sequoia: "febdcc3b72055ced04faa19d5fcc48d1cbc419f0474d0a9f42f893935f6daa27"
-    sha256 cellar: :any,                 arm64_sonoma:  "428c6647e21e176a6988b959d8ef8aa1096b4149f07463274fda2214adfe165c"
-    sha256 cellar: :any,                 sonoma:        "4cedb63d472a8daefbf529b612549a0fc37bcd0b0c7c5ac6c646dea62ffbe5d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7f0ed813cb29ccfd1e78d237dc9dd1e4bd35d0901cd0df760c31bdff2ec7856"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "302102c37c197fad07cfb8e35d34de036e27708558f796e836813bdfc889c81b"
+    sha256 cellar: :any,                 arm64_tahoe:   "966bac3da41b3141075c09addb159676fbb19da6d720a277e892504d465336ea"
+    sha256 cellar: :any,                 arm64_sequoia: "3e73b1dbc050a2df69198f99cb120138947f69e8a4c97afb8d5a6494e525fa5c"
+    sha256 cellar: :any,                 arm64_sonoma:  "ed684089667e38615fc512b86cada8061f76d5e5068b056bd9956dba54d148a3"
+    sha256 cellar: :any,                 sonoma:        "8e4b8ace611090ae24e80d33046f7603d523bc66b2407e4ee44843e03a5ea6c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af0742873c1d14df060eb3e3efce2ffb20356838c6ca48c1676febd4bdcb63e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b6589ec069f26a6b7ff4cc21a94284d8a0c1c3df37ba74cbdec5f76c2b4b1db"
   end
 
   depends_on "cabal-install" => :build
@@ -25,7 +25,10 @@ class HaskellStack < Formula
   depends_on "gmp"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Remove locked dependencies which only work with a single patch version of GHC.

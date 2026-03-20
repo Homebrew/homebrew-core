@@ -5,8 +5,6 @@ class Yetris < Formula
   sha256 "720c222325361e855e2dcfec34f8f0ae61dd418867a87f7af03c9a59d723b919"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "20e107c4ccac64993e5c8f794bc50299d759df2b0b9badab5d0a5ec2708cfc04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b5358a7a07d701232e1a75a4b28f2e66879d973ef3eb9c848552347505f16ea2"

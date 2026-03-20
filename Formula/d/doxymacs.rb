@@ -6,8 +6,6 @@ class Doxymacs < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe13bd89660f57f1c74c95e0b0ae7def510c8a80d6a9ec1bb05799153d546496"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e22393964e0e2f3f1b841be5fcadcf4cacc9d6ac8597e4ba77cdd2a883e0417a"

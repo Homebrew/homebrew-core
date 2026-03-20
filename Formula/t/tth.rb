@@ -10,8 +10,6 @@ class Tth < Formula
     regex(%r{url=.*?/tth[._-]?v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "78e1ec7d5be8797a77a217fcc2554a1449311cd638fba7ef1f3c9a706c50f027"

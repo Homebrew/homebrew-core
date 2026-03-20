@@ -5,6 +5,7 @@ class Mavsdk < Formula
       tag:      "v3.15.0",
       revision: "721efdc45eedfe8761ceb7280dedca6004b1ea92"
   license "BSD-3-Clause"
+  revision 2
 
   livecheck do
     url :stable
@@ -12,13 +13,12 @@ class Mavsdk < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256               arm64_tahoe:   "3e25100fd1760f119e0ddd83c681978a806ea0e15a13c3d023fc9d867ac29a32"
-    sha256               arm64_sequoia: "5169f5d4c74f7c3aa773a2d226ee29c8922df654cd2658cf97bf395c7f5233d5"
-    sha256               arm64_sonoma:  "85ceaf761be90594df98d77ffca939d8b08d882f9b1947c292718297dc5730a7"
-    sha256 cellar: :any, sonoma:        "e1dbfb27492e0dcea65ae71a76ad1f7eef4e27020f17f46057f1e57cf3fc2b26"
-    sha256               arm64_linux:   "0fa155bdf6d777a691ed3c0918f2e22288f398f0203ed4bb0797481da0db2e33"
-    sha256               x86_64_linux:  "83e2aeade090c02850479b09523265e56a4f96387992881cbc335aab30317025"
+    sha256               arm64_tahoe:   "b4c2267cdd5c13cbea9450373d53f150a47305068a6e381c16030f14fd7f3108"
+    sha256               arm64_sequoia: "e977610e20027c3a1c1e03fec9987add8337794933d10592d038268cbc03eef5"
+    sha256               arm64_sonoma:  "f28aba3616c9fa4b7663e2c4cc23dda6df6a9b17b65f38ad496fb9429f07c63e"
+    sha256 cellar: :any, sonoma:        "210f69bfaabdecde96e11b2993bbc54e5de7519d779d8aa8167384d9f9235440"
+    sha256               arm64_linux:   "e01af51e70622e212cb392f8b5fc66dacc612256f8fc1c311115f70efb0adf12"
+    sha256               x86_64_linux:  "0566773e4cfaf2d8606cf25b56df0d686c019fbb457b348d9e9c00c5e3af7d0d"
   end
 
   depends_on "cmake" => :build
@@ -106,9 +106,6 @@ class Mavsdk < Formula
   end
 
   test do
-    # Force use of Clang on Mojave
-    ENV.clang if OS.mac?
-
     (testpath/"test.cpp").write <<~CPP
       #include <iostream>
       #include <mavsdk/mavsdk.h>
@@ -119,8 +116,7 @@ class Mavsdk < Formula
           return 0;
       }
     CPP
-    system ENV.cxx, "-std=c++17", testpath/"test.cpp", "-o", "test",
-                    "-I#{include}", "-L#{lib}", "-lmavsdk"
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-lmavsdk"
     assert_match "v#{version}-#{tap.user}", shell_output("./test").chomp
 
     assert_equal "Usage: #{bin}/mavsdk_server [Options] [Connection URL]",

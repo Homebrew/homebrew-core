@@ -6,8 +6,6 @@ class Glpk < Formula
   sha256 "4a1013eebb50f728fc601bdd833b0b2870333c3b3e5a816eeba921d95bec6f15"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c60115e0b7c9c13a5e6fc91ceab0aab253c1bd161dae6151e56713a6de6589d5"
     sha256 cellar: :any,                 arm64_sequoia:  "d1711f363503b065183cf833d4d58ecd91dd06ac2b168af7bb217727a46e8f7b"

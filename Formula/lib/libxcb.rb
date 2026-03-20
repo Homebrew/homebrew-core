@@ -5,8 +5,6 @@ class Libxcb < Formula
   sha256 "599ebf9996710fea71622e6e184f3a8ad5b43d0e5fa8c4e407123c88a59a6d55"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "059edd054b17234abb0ce8a34dcbbd927e104445d09a3f5904ea82f7c5aa7ded"

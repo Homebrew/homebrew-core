@@ -5,8 +5,6 @@ class Wput < Formula
   sha256 "229d8bb7d045ca1f54d68de23f1bc8016690dc0027a16586712594fbc7fad8c7"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "228f7a8a4bc5246862d4ccdd64c22f11ae8fc5400f1a5a923ca999ad308a5919"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c7b895351c316eeb37308ac163b54d36c997c2909a00b7ecf3837081af4a1e4d"

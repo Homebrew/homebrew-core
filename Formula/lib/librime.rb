@@ -5,15 +5,15 @@ class Librime < Formula
       tag:      "1.16.1",
       revision: "de4700e9f6b75b109910613df907965e3cbe0567"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6feb455e7b6bbb32323888c00cd899c1b342195a52c54818a1d086c60a3acc62"
-    sha256 cellar: :any,                 arm64_sequoia: "8be1cb169d731ed4f8f32a1903031d6fb564ae2d4bce8ba479d863ab7e7614ce"
-    sha256 cellar: :any,                 arm64_sonoma:  "23f67cd725caa6f8b5fce1f82be575e256568d487ccf66014f9c9d386f5b6943"
-    sha256 cellar: :any,                 sonoma:        "e59fc1bf550177eb6b079f43cc9367fed029168f30180c989699414431b1be8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cb43ddd71738756956d2880b4182c8258bf9973d1dce60f4de2861a21bc4098"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78c7b484f2a4e0c5ba239d8803a7e46448ccc6aded2efafa80e9aa33e32148b0"
+    sha256 cellar: :any,                 arm64_tahoe:   "654b9fd252224219de309cd53a8f39420a440f78c8f563008cc78d97a1ecbeb8"
+    sha256 cellar: :any,                 arm64_sequoia: "a3cd8893f80309f9f2da2c61d60540ee5217e2a46c4f8664c20e6925ae1ea07c"
+    sha256 cellar: :any,                 arm64_sonoma:  "3eb23f3bf1870807a2e8b83b769276d67e195aacbba43b4e39fd3a5a7861bc90"
+    sha256 cellar: :any,                 sonoma:        "390c9aef53873722bbda5fdc5d2cefcd94698df4ba5669a96aab24cb5aaa7362"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf23b3d017fe7bf9703e3ee5980e57f33c15979e566c15dbbcf0ca59525d7871"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b99d2dffe86f4c2ccb055a6c607b9456f2357f2d0c240a5f83f48661b39159a"
   end
 
   depends_on "boost" => :build

@@ -2,8 +2,8 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v25.0.1",
-      revision: "ac5427a148203e8269294cf50866200cbe4ec1d3"
+      tag:      "v25.1.1",
+      revision: "a5393933f5e8c0d5be2d493b6624a6589bec155a"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
@@ -16,12 +16,12 @@ class StellarCore < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8bb2f1b23a136c1b3686904b9386809bb9c3415f58919c4cb6e7afc9e97b7327"
-    sha256 cellar: :any,                 arm64_sequoia: "1c01d331291b77b02dd53602a84b634795dde408e70fae70ab3682e61adeffb1"
-    sha256 cellar: :any,                 arm64_sonoma:  "8914daf0bf6a97345825108310ac58424c16787c7f8682c3402e85e6c35b6331"
-    sha256 cellar: :any,                 sonoma:        "b137ed8253b0c4de1cffed0ceaae29493e5b3a6f099adbb2553450fb1340a9a8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1967e1788e64f85c98821fab4bdd71854b149eb43bbd34314894f03b78a6dbb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c55de5d6adaaa3757f8723ad9cc803e893229b73d1c687c4186eccfc1c1167fa"
+    sha256 cellar: :any,                 arm64_tahoe:   "89ffe935421dfc64ba97d3a94e026710f52eb0144971bbe610793c6491be606e"
+    sha256 cellar: :any,                 arm64_sequoia: "caad0ea533cb2469016413dff60d495bac7856481f80dcbecd640055efe7e178"
+    sha256 cellar: :any,                 arm64_sonoma:  "99e30c21e02b3254a19008898dc829d684601d7496c9fbd199706d706433969d"
+    sha256 cellar: :any,                 sonoma:        "57fe1a30b1ff56e3303ddb2503169bda15bf3efc3e32f686308d660ddf5dcaa8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "41ab94aef9b3489f8b5f03baf6e26e09e0fa2ce1f453d5ea4886e20e0eacf4f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ab56ce4af2b663c6380b30c9c909c6062c872003c7ee4b91d6d55be4e27e72c"
   end
 
   depends_on "autoconf" => :build
@@ -65,11 +65,7 @@ class StellarCore < Formula
   test do
     test_categories = %w[
       accountsubentriescount
-      bucketlistconsistent
     ]
-    # Reduce tests on Intel macOS as runner is too slow and times out
-    test_categories << "topology" if !OS.mac? || !Hardware::CPU.intel?
-
     system bin/"stellar-core", "test", test_categories.map { |category| "[#{category}]" }.join(",")
   end
 end

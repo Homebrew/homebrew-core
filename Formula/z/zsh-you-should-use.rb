@@ -1,12 +1,12 @@
 class ZshYouShouldUse < Formula
   desc "ZSH plugin that reminds you to use existing aliases for commands you just typed"
   homepage "https://github.com/MichaelAquilina/zsh-you-should-use"
-  url "https://github.com/MichaelAquilina/zsh-you-should-use/archive/refs/tags/1.11.0.tar.gz"
-  sha256 "dca42c9df5dd43875156eee1b1d6e2cd22122844a1173088c7d7523336851927"
+  url "https://github.com/MichaelAquilina/zsh-you-should-use/archive/refs/tags/1.11.1.tar.gz"
+  sha256 "4d884aed12f1301f4620888e322c406c215b719e49385aa3088dc84c8ed383ed"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "350034749860a420e21c835a98e25897706badc378b5cb66961aa64f33372264"
+    sha256 cellar: :any_skip_relocation, all: "01d4355f8d2ac4b7030007a49e4c96f37277569d3e76aa8791ffa60988d2a873"
   end
 
   uses_from_macos "zsh"

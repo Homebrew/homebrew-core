@@ -1,18 +1,18 @@
 class CargoDist < Formula
   desc "Tool for building final distributable artifacts and uploading them to an archive"
   homepage "https://opensource.axo.dev/cargo-dist/"
-  url "https://github.com/axodotdev/cargo-dist/archive/refs/tags/v0.30.3.tar.gz"
-  sha256 "6df36011ee90735ed11904fb6a58dfa92cae67ca4c0ca119cfcd0f1ff2ce27f4"
+  url "https://github.com/axodotdev/cargo-dist/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "6ec097f0916343c7a481d44c18b898c2eb41f00f0c04e58da74248fd3647b16f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/axodotdev/cargo-dist.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b666ff95907f8fa5d4f06dee1e78681f03f8ac92f6b287e2d2c2c91917704c2e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8670b2b61eade3c9391eaf8a61acd49e76874eba2406ba1540dc8224bb2447ef"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db67f13f4d66c6b630d198b21622207b3ced38f64cef83a1ad9596cb4d2d5a9e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "740dee8d90b3362fa82e488e840cdb866b108d967e63edc6e2d7f927b9b9f54e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "041883a6e4e56303ec3d1839425bee7d2989ab5e07fac9ef64507bff93b89109"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8ceff3ac5681f47179303ad32c7f282db0ecb574759c33b5bcc9e229bdca506"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a6ea59f0de4192fdb792c9bc2594b3d7d843a9193e275378dc604b94947ac871"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7bd6380f8e6032202eb508e0c30e5759716a8a0546cca9c1151bfdb5de2fb75"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ce320138d845e5581590b4656a7e4a049715af7ed275074a6d39ec85c6105a7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4d535ce54dffaf036da7202a1e2479f3da4e4efca5e3b1fc80ff04a294136658"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3a0dfa3e2449b06adce08ec524e89c2516a3dbb0c6672a28baab15e4cbb121d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d3e314ea5e9e1d888c3b3d9e9e6963337b40ba40a4cbbcbc920570762396c9d"
   end
 
   depends_on "rust" => :build

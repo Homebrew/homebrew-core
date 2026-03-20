@@ -6,8 +6,6 @@ class Reg < Formula
   sha256 "b65787bff71bff21f21adc933799e70aa9b868d19b1e64f8fd24ebdc19058430"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "84e42284b946dc3f88d65243680eeb75761c66ad88125bcfd0f95545c42371d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3467572641a49a95d3337e16c68fe76dd65377026f02478d955512679303cf42"

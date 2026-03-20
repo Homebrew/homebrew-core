@@ -4,8 +4,8 @@ class Samba < Formula
   # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
   homepage "https://www.samba.org/"
-  url "https://download.samba.org/pub/samba/stable/samba-4.23.5.tar.gz"
-  sha256 "593a43ddd0d57902237dfa76888f7b02cb7fc7747111369cb31e126db4836b9f"
+  url "https://download.samba.org/pub/samba/stable/samba-4.24.0.tar.gz"
+  sha256 "1b1e457fd651a612cd08226cc6efd04e5d01e36d918c8b4c4e470e74e86881ea"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -14,12 +14,12 @@ class Samba < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5038c21262a618d3793ba5b6f742c59ec89ddd725c4105af256b2f4b063d509c"
-    sha256 arm64_sequoia: "ee91a82bda16b4282addb5343b699d4f14dce4234811dcff8a8c25229a3c872e"
-    sha256 arm64_sonoma:  "cf5e9081dea3a189a3d1dffc01c42681577292bb8bc15695fd36a2a9cac987b6"
-    sha256 sonoma:        "1ca6190634311ff6c7bf2db40869e414c6ff3fa8e40e87eaacb7ed8361a00f5c"
-    sha256 arm64_linux:   "fb0486bf1a4b077d1edc0a12ed0f48bb7a7441b55d022676440e7988b6b99739"
-    sha256 x86_64_linux:  "ed4456ea2d610761d1634900f6b8d817214fa3d4049284ed96b6fca3b8bc5560"
+    sha256 arm64_tahoe:   "74448233be190512589ccc4663b988a577591ec6658dc972d6bea2beb3525d24"
+    sha256 arm64_sequoia: "05b9b152a4b06ffdd8a6b2a934b847c7961b4723f66c504062ab9ad24ab3335b"
+    sha256 arm64_sonoma:  "6f522b148a9755a086d5ae272a8d04a872edfa615867a8d4c9c8ab1a73bfc624"
+    sha256 sonoma:        "433a9b3f63b849a573cb9ea508a923cf54f291355db25d4db4de0e677ade7455"
+    sha256 arm64_linux:   "57feb751bd0bf4727a9149a7a28c74e49bb6a99cfc3deca2c91e72992481fbb4"
+    sha256 x86_64_linux:  "58240489d5be582badc09e76c22ceadd7a63983708daaa1062ed8ccf8933d9a7"
   end
 
   depends_on "bison" => :build
@@ -43,7 +43,6 @@ class Samba < Formula
   uses_from_macos "perl" => :build
   uses_from_macos "python" => :build # configure requires python3 binary
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -52,6 +51,7 @@ class Samba < Formula
 
   on_linux do
     depends_on "libtirpc"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "jena", because: "both install `tdbbackup` binaries"

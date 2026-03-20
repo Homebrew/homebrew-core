@@ -1,18 +1,18 @@
 class Libaec < Formula
   desc "Adaptive Entropy Coding implementing Golomb-Rice algorithm"
   homepage "https://gitlab.dkrz.de/k202009/libaec"
-  url "https://gitlab.dkrz.de/k202009/libaec/-/archive/v1.1.5/libaec-v1.1.5.tar.bz2"
-  sha256 "f129d7252de350713a398aa39353e709fd7ef2690fc68c9c32ec4e993cb207a9"
+  url "https://gitlab.dkrz.de/k202009/libaec/-/archive/v1.1.6/libaec-v1.1.6.tar.bz2"
+  sha256 "41777c62cd109bee692a4976496ad680aa015016840b79ce2f84b8ac0d4d7dac"
   license "BSD-2-Clause"
   head "https://gitlab.dkrz.de/k202009/libaec.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "73ecd34168e9061b0194fd51866ab1583c332ee16913781a89fcc3ffcf788a8b"
-    sha256 cellar: :any,                 arm64_sequoia: "ab75c786f54188ea7f2ee396fdbfb3aac2b77109dcdb82da4205cba0ac41b5da"
-    sha256 cellar: :any,                 arm64_sonoma:  "51efef7e6f1a4490c9fa112d7c042cce83957c90a841642f76b6f3f8fdfdc29e"
-    sha256 cellar: :any,                 sonoma:        "14ad03840669dea79f40f71d3d99ddffd99e5d9fe3b26e06dc7c69b693bf8abe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "16dbe3097ccfbbc0aa85e408a63b04c535a61c2dc1a52732e7b8360e943f902b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e486505f19a3c98f19697450d3922dc460b2ad5300400bc7a4d0543cb9132b9"
+    sha256 cellar: :any,                 arm64_tahoe:   "d190d6d012003126a1eafb3dc218bb33eef869ae7bb8cca7e8637ac6f2cd703c"
+    sha256 cellar: :any,                 arm64_sequoia: "01d7d32366e84925fe8d1bbbad28b614862298d88d8db4d6e540c030585c5753"
+    sha256 cellar: :any,                 arm64_sonoma:  "8cc94718f5b8e9b4b2aba76a8a86f20d03519f0e35cfd6c8188be5141247d73b"
+    sha256 cellar: :any,                 sonoma:        "f70bd70809d3884ac7992e8a145698ec6ab4987311a98b562a36bb56ddca9ba4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "01b9577127b1597ba3be92bc0d7df3da1da4a040a79ffc0b0a56722385b11aba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f37c5777a53b8c787c337a8d6c199e5bd269166f7ebf325ad5b6ddfa3d6a7a10"
   end
 
   depends_on "cmake" => [:build, :test]

@@ -1,8 +1,8 @@
 class VirustotalCli < Formula
   desc "Command-line interface for VirusTotal"
   homepage "https://github.com/VirusTotal/vt-cli"
-  url "https://github.com/VirusTotal/vt-cli/archive/refs/tags/1.2.0.tar.gz"
-  sha256 "4f7cd36b73511709b01448340d904fd4d7e291a50263d0d3f946502a8173fc9c"
+  url "https://github.com/VirusTotal/vt-cli/archive/refs/tags/1.3.0.tar.gz"
+  sha256 "10a6edbbb7c81e6978ac55f65544b916906c9400d596beb2fe54f1093a3f7f98"
   license "Apache-2.0"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -14,12 +14,12 @@ class VirustotalCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f6435c7783f637607c200a9610fc0a2eca11237de71245989593fb4a8e82267f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f6435c7783f637607c200a9610fc0a2eca11237de71245989593fb4a8e82267f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f6435c7783f637607c200a9610fc0a2eca11237de71245989593fb4a8e82267f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d290dab039ad26bd14c6306c662b6fdc04b96831c5925b24677e476da6bfd1a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "14f862e8f87ce5a7262002c7429afb48765024dfc301372f2b2107e84917a1e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69e50be69ffd0c5503f14e514af40c632d1d69d7b3c9e959da5e9f6a2c44359b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f956db59fc8a7ec3172cd02ba5de8f5c178971c60c6feb38d3dee3ba1bdc0742"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f956db59fc8a7ec3172cd02ba5de8f5c178971c60c6feb38d3dee3ba1bdc0742"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f956db59fc8a7ec3172cd02ba5de8f5c178971c60c6feb38d3dee3ba1bdc0742"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cb723b9f87be9cd427b2f63f47353da64dea17d8f71c2b75199ad3c215a4de53"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6125dfa1c0be784e7505ebc359f6180686b2a1c6e526710af5e6eda1444c70fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0372fc134276136d63cdd731fa3e42467fd3e132834c5e081c30624b13c72851"
   end
 
   depends_on "go" => :build

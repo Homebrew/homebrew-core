@@ -16,8 +16,6 @@ class Ponysay < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 4
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "436a1f52adab32d7d21c3ebe39dee39f8d2bec2cdcfe0c650973b47961aa3852"

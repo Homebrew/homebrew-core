@@ -8,12 +8,13 @@ class Xrootd < Formula
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e17e1a006be3149a52d22d04b63778ccfb9ac702b391c22d40149ed8e0741610"
-    sha256 cellar: :any,                 arm64_sequoia: "2bcaa3a0e5f21d166a513bd4512fdb3428d93020b983e989330bbdfb719196c1"
-    sha256 cellar: :any,                 arm64_sonoma:  "20372f4511f80bc1c3e6d9c3b65776756290179f6bd56bd5237a2009b28d98b3"
-    sha256 cellar: :any,                 sonoma:        "ba884b887699f4dc3767b1bc976cb602c56a777c8e2702078f44a067f59f970b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bee9840dfb63fdd91812e336caa3c9f71a6dc5c4d556827b2b0ff99f2572257"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e3fd497674e6051cb16c26ac7f9b34200d817bdc382a2332b8d4f75975eab77"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "1278b69fc8fa1e6fa1dc37f09315147671cc28b352b261052fb28b3788747135"
+    sha256 cellar: :any,                 arm64_sequoia: "645d195b2add0484efd35889218b7d697b60541d5229dd154cf4979ed6bdf98d"
+    sha256 cellar: :any,                 arm64_sonoma:  "223703167d111befddccda5ddd9f6e4acba8d8165a7693c0f4f42bb97a80d068"
+    sha256 cellar: :any,                 sonoma:        "0b011704d071049320e8915002d889f72c348ffe22017565dc4f1a3698e1b751"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c131286fd8a2b9f33d120b72fd83439e97668b02322433d63d3d496f4df27d38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5f3cfa19a96faa8b60fb0300f01b171cae453e8f073327e545918d65de0f68f"
   end
 
   depends_on "cmake" => :build
@@ -27,10 +28,10 @@ class Xrootd < Formula
   uses_from_macos "curl"
   uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "util-linux" # for libuuid
+    depends_on "zlib-ng-compat"
   end
 
   def python3

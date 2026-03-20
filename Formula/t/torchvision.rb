@@ -12,8 +12,6 @@ class Torchvision < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "539634362d5cc968e3f9a820c1c0dd8c2e9b7d9ac5ad81e2592cddf4426ed23a"
     sha256 cellar: :any,                 arm64_sequoia: "e0340d938d02c2c16302e8c6a5ed68bd337af67bd56a3c1192384a7e0ba4396c"

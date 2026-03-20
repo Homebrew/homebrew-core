@@ -6,8 +6,6 @@ class GnomeRecipes < Formula
   license "GPL-3.0-or-later"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "aa4f377580d2f261bf6997d22203eab2ab4a41dd25ac493c31c156712ffeebb8"

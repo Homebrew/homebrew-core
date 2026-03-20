@@ -1,19 +1,18 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://wiki.gnome.org/Projects/libsoup"
-  url "https://download.gnome.org/sources/libsoup/3.6/libsoup-3.6.5.tar.xz"
-  sha256 "6891765aac3e949017945c3eaebd8cc8216df772456dc9f460976fbdb7ada234"
+  url "https://download.gnome.org/sources/libsoup/3.6/libsoup-3.6.6.tar.xz"
+  sha256 "51ed0ae06f9d5a40f401ff459e2e5f652f9a510b7730e1359ee66d14d4872740"
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "74618fb6f2ecb96b9c7080d4cb270c46ac547196e08982bff59b8f7796b5ab5b"
-    sha256 arm64_sequoia: "9347047d84f194d6079f4a42bd07a493182bff757bcd099498d344f608996b68"
-    sha256 arm64_sonoma:  "3524cbb252af5c9cc9b39cb0ff9733d2130be70e264339c926189564c121b82d"
-    sha256 arm64_ventura: "7af02d6ee61baf7463f21b0261430cccb10bc72102a3bad27be16c5f74173c57"
-    sha256 sonoma:        "3be670d505dedb3a71e0b9617e4c0b8096cafcf70486a3657c38f02f0502f28e"
-    sha256 ventura:       "430c7a028fbcc2239b1213faec338814bf055c037a4cfc22828a0ab3e3edc245"
-    sha256 arm64_linux:   "dc576162b656fc666022b3a276dda763823e13fed31e7da72b5189602460f2da"
-    sha256 x86_64_linux:  "426c2decb12e1fc035d9f50477a173fa04625cd1e3895dbf04cecce15aefe3a3"
+    rebuild 1
+    sha256 arm64_tahoe:   "5f72f9159dbbe2d66fe9fe9b2dedeacba280390f50d10ff337b35d2343fedf0c"
+    sha256 arm64_sequoia: "85f9669848a5936194b531c35fdbc011ad26b856b235ea0aab0386153694cadc"
+    sha256 arm64_sonoma:  "1b11895e9bc1ae1cb472689c9fdeec59e306adaa9d572bd5bc60529c0cb82d75"
+    sha256 sonoma:        "6829a788855e2989eaa02a3f3cd96f043a8902729d045c9f36f620653c7ef5fd"
+    sha256 arm64_linux:   "f90f3792a0ace929f8b719754fa5fac11cb8fa1677f1e64dd50083bc007ed7a6"
+    sha256 x86_64_linux:  "7ebfdb0452d9fb68b33bc374afe63441ce9ee387f5b666342a617f1074bbf128"
   end
 
   depends_on "gobject-introspection" => :build
@@ -31,7 +30,6 @@ class Libsoup < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -39,6 +37,7 @@ class Libsoup < Formula
 
   on_linux do
     depends_on "brotli"
+    depends_on "zlib-ng-compat"
   end
 
   def install

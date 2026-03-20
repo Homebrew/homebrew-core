@@ -1,18 +1,18 @@
 class Jj < Formula
   desc "Git-compatible distributed version control system"
   homepage "https://github.com/jj-vcs/jj"
-  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.38.0.tar.gz"
-  sha256 "f28e280c01abb11aa9ff5ae7a35df3e9822fd37a013b6c1d79d1453a5f21f5ad"
+  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.39.0.tar.gz"
+  sha256 "52a60f058cf66ba3dc0bf69f189e99763b33b6770b3068b2be4fe76ecd287282"
   license "Apache-2.0"
   head "https://github.com/jj-vcs/jj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4beb37418a193d3c1ba15dd1eea0c7243b5f7d6a4a2ced6cc9495e82c69f6a91"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "60b6ab2559e1d0322a182f11c4a41e19e3fde5475a1d7ad1ead816aa366f7df0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e523fd76505441f4536a3a9331eaab23e83f5ace7d37dbfd5f6f73c78ba33702"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b19dccf92346cb645424a2d5d678189cce7a51705a0218ed893c88a75324e5da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5d5c11cbb5ab6683dd3ede34c25e30e61a95e23a078c6a34df1aa770050509f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68295af29ac3b898d2cf2bf4bcb45e57396da80b90d2ee1b6e57d55a9c54f0a1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "94418d1c38adb5add9e8e4a9de853af1cc61d6ab981959df17b1a78c457837c9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e0d6abf8ec92f512b0a8598ce32ec736330624c7be5057ff481fa0466385a92"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0469e577868ede409810d4fecd237a0b0dfe74106e707d38ebf833612e95fdc2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d0699fd6c863c0eae151964d64aa5a1e2bd95e729a3df571b14e8c858932115d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8bf180e9b14f44065ee151c2784c1b8616f17eeccbad42d760d6ff490f8a9626"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "543c47f1eb390ae92b04c750874d1abd2b0fa92cf6b905be36defffffa7764dc"
   end
 
   depends_on "rust" => :build

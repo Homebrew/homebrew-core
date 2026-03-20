@@ -8,8 +8,6 @@ class Tsung < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/processone/tsung.git", branch: "develop"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1da5e28ebc2cdbbc423599d8ad4a10558df7a0e3435a7dc1dd03d5de86989308"

@@ -5,8 +5,6 @@ class Xlearn < Formula
   sha256 "7b0e9db901c0e6feda4dfb793748ec959b2b56188fc2a80de5983c37e2b9f7d2"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 sonoma:       "7ec1cd645264843122f75e157e366c1cc0ef84be1b8a4a0d3705d9e04619d256"

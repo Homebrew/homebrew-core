@@ -1,8 +1,8 @@
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
   homepage "https://gmsh.info/"
-  url "https://gmsh.info/src/gmsh-4.15.0-source.tgz"
-  sha256 "abb2632715bd7d0130ded7144fd6263635cd7dea883b8df61ba4da58ce6a1dfe"
+  url "https://gmsh.info/src/gmsh-4.15.1-source.tgz"
+  sha256 "eba8e4064f6586c8ca880f1cfdf697f4d70f026f398a93b458f247f7e4364fed"
   license "GPL-2.0-or-later"
   head "https://gitlab.onelab.info/gmsh/gmsh.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Gmsh < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "8807d1d5d37417122fd66993161a02a28cbc6cd0fe0b49f30ae44aa64f4dbc77"
-    sha256 cellar: :any,                 arm64_sequoia: "5609e9c8d652a59724f0d0706a4cc01e9e91122da86f94b26aaf74a1eb682bcc"
-    sha256 cellar: :any,                 arm64_sonoma:  "7f4d73af055c6d6bb0ddf314f109cbbe85e2df493361813c106cc812f4a47bdc"
-    sha256 cellar: :any,                 sonoma:        "863abbfc1ae158444eb5195caec8af043a6810731b7383ecf853214bc5581ee3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "42c97abfba2cc654aab332da85b7dacea8502e968d23ee84155fdb31a044545f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6638ce7feabf23f50d02bb5759a5ad11a96f3d2abc369d072a208a71f337efd"
+    sha256 cellar: :any,                 arm64_tahoe:   "1cb373fde7e3f6f31454676fbabb9cb508720c7efb9267316fbfbe80faf54c1a"
+    sha256 cellar: :any,                 arm64_sequoia: "78f00331e2c998f04ab0cd4282dbc15342703bd93a78c3223d2988e52a14478e"
+    sha256 cellar: :any,                 arm64_sonoma:  "838cfe7f30bd56988375465bef943da45392a4215fe5f4eca16385336cc9fdfc"
+    sha256 cellar: :any,                 sonoma:        "2eb1629e09d260b2a9176d62a169649dc778392f35cf7045f643d26232186573"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "86cbc296324aca959e4f5be71c292029f8dd05fcc96090dcaf69af41141ec33d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a27ddf2c2994932c0c879eb436ebf6e3036b10670ac3a7964ebb6ed3ce7966ef"
   end
 
   depends_on "cmake" => :build

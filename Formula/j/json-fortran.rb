@@ -1,18 +1,18 @@
 class JsonFortran < Formula
   desc "Fortran 2008 JSON API"
   homepage "https://github.com/jacobwilliams/json-fortran"
-  url "https://github.com/jacobwilliams/json-fortran/archive/refs/tags/9.2.0.tar.gz"
-  sha256 "74317b334f453e440d7d9cdfe18917b764cb05dff1d57ca99962816a3edec1c4"
+  url "https://github.com/jacobwilliams/json-fortran/archive/refs/tags/9.2.1.tar.gz"
+  sha256 "f1158a684a5328f6e5e970009ddb75284ef1fc4b85d6726e8cbfc6291a4e47a3"
   license "BSD-3-Clause"
   head "https://github.com/jacobwilliams/json-fortran.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b821255d59eebecf840d21eb2611db6c581a8e87e46f41e5caab870fe7cfda24"
-    sha256 cellar: :any,                 arm64_sequoia: "1a426ceab43129311217d4bac2ca7c82c916839190e06c27f94f856a4c154e6e"
-    sha256 cellar: :any,                 arm64_sonoma:  "e129cd071c41cd14c02dc0fdd5728a2faf60ebf8c4748cf79da50b76670ccd57"
-    sha256 cellar: :any,                 sonoma:        "bedf218894bbba4af1c730534c2014ff9ac97cd7ddb4ffb859a2445b3af1cd97"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4434c002ab2b8672dbd5f63b0cd43c51ce1bca5443b2a1b92576acd96e418eed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a81456d3ee0746cf86c4d2752774a35b91ba85fc7e9ba3c20ff56722f2d7c3a"
+    sha256 cellar: :any,                 arm64_tahoe:   "929c1b206838de37e6c22f75c00d7919e4c22d0e20ba5189cedee3dd822a43c8"
+    sha256 cellar: :any,                 arm64_sequoia: "9f1eaeec1c66713cfd135385cf75e69ab7462d43ee95a4c90a4c722a12e3d8a0"
+    sha256 cellar: :any,                 arm64_sonoma:  "f85987d41d3505338d41d570817f0ae000166b4f8bf7dfa4a2403390283b954e"
+    sha256 cellar: :any,                 sonoma:        "13964a7249baa6b829a56f49d1762d2a3dec098523a148d7d37492675ee43ca7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "31c6327981a6384db8fa92429cf52f5b0975bf1bed2957d12af9f4a3205fbc6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5edc1d769751635aafdb8ddb00be926afc981c53c7e180edced749091cc4ecca"
   end
 
   depends_on "cmake" => :build

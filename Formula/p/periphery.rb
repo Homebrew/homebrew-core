@@ -1,16 +1,16 @@
 class Periphery < Formula
   desc "Identify unused code in Swift projects"
   homepage "https://github.com/peripheryapp/periphery"
-  url "https://github.com/peripheryapp/periphery/archive/refs/tags/3.5.0.tar.gz"
-  sha256 "8618d41870636b7231592d9bec06d346c68f3ab1f525fb0649411fe9feb9d390"
+  url "https://github.com/peripheryapp/periphery/archive/refs/tags/3.6.0.tar.gz"
+  sha256 "c922f700df77a199fabe3f671b424c5f0177c8760cf778e45061e9ac18a4ba48"
   license "MIT"
   head "https://github.com/peripheryapp/periphery.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b3e6433d9a7878f053615c8fd5abed710f3300fdad96afc823cc88a115964c93"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9e879fd7ef0b7542baf60435bd0178fd86b524d0ad536ce8d96662fd8b95620b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6eb39c56f0dbd8440a336c101d4e8353bd4207e08140c2a1557625abc69a7d68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf23dccbdd0680d6c04b73aade061b2beb864c25ce58b4f816204dc95ab21288"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7206b948c99b5de7d582085a2b6b4033e66f0ce788e1a13dcaf2900415aa75a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "01ccc914b3a5bf43320833fcfee697a64d4f8fc211d4426c34db7bdabf34ec25"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9f0dac9c9b5a2bc8eababa69481bc41b2df5459595f48c7984ef37a04a3978a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e009dab6e5079c82adb0cf6c2818b7a76dec6dc23b7c6331cfb70c65d4e42ef9"
   end
 
   depends_on xcode: ["16.4", :build]

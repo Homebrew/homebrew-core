@@ -1,12 +1,12 @@
 class E2b < Formula
   desc "CLI to manage E2B sandboxes and templates"
   homepage "https://e2b.dev"
-  url "https://registry.npmjs.org/@e2b/cli/-/cli-2.6.1.tgz"
-  sha256 "9d83c56600cd982294f290c7a13526c8a830d90607ae0509b8c3177b46ea368a"
+  url "https://registry.npmjs.org/@e2b/cli/-/cli-2.8.1.tgz"
+  sha256 "1a0e9f71c15e29835f0aa82604faa56097b0907531d7c6bc98a54dbd70f1cfc3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6623ef8b2917d9068a431068890d4a115d2d3b04389f9cd66a22ec6fa3f6a785"
+    sha256 cellar: :any_skip_relocation, all: "077cd3bc09d786c2b628fa729a6391d79480c99eec1d2e1120fe91a101226b80"
   end
 
   depends_on "node"

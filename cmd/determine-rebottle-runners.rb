@@ -32,7 +32,7 @@ module Homebrew
         {
           runner:    linux_runner,
           container: {
-            image:   "ghcr.io/homebrew/ubuntu22.04:main",
+            image:   "ghcr.io/homebrew/brew:main",
             options: "--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED",
           },
           workdir:   "/github/home",

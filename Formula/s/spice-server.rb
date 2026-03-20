@@ -8,12 +8,13 @@ class SpiceServer < Formula
   head "https://gitlab.freedesktop.org/spice/spice.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c58bf2bae5cd9a5af25fdc41cf9a9bfbd7442c31d5c1aefb0beba267fc5bb2f9"
-    sha256 cellar: :any,                 arm64_sequoia: "adfedc8beb6e4a6b1f13323ed4ad575cfd595612fb75f79de2d9a30aefa22284"
-    sha256 cellar: :any,                 arm64_sonoma:  "0469cd892791f90ac5ac230507f617e988f8c7c9fccb9c05f09739bfa621ce9b"
-    sha256 cellar: :any,                 sonoma:        "bc93d05ec9e1635aa6ad819e72cf268a85a3543309e6c7446b10f04f779624b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e26a5e2aeb72d322a637647810fd834945f3ae3c01edec503720b75812448076"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf9d4dad6c0aa62a44e40689bac61082e8872c257b0c3ba70373e87f61b44497"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "07095428a0e9637309224c9dc6302a91caa37e2b22f8a678bf5c2a21d250b7ee"
+    sha256 cellar: :any,                 arm64_sequoia: "0f9f963c11eb9ee7b46b8a0bbf09d6bf41c5aed8f9efee35bfd8f79876c3fc48"
+    sha256 cellar: :any,                 arm64_sonoma:  "ca403a88aa347d491f11d11a909293a90ac40253200cadc91c6ec6f62e3a628e"
+    sha256 cellar: :any,                 sonoma:        "222e8fd73393fb53e9b48f137d4d68abc5be1c7d99dfdeb54f430ac31af2c2a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "896f8baf333c39adb63fc0e59a7169a09e2b667d992d1d0ae305cdfa1703ecb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5a261c1f9a99a02795a3530791493d4992ca792c5f9ba30204149b47a0701df"
   end
 
   depends_on "spice-protocol" => [:build, :test]
@@ -29,7 +30,6 @@ class SpiceServer < Formula
   depends_on "pixman"
 
   uses_from_macos "cyrus-sasl"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -37,6 +37,7 @@ class SpiceServer < Formula
 
   on_linux do
     depends_on "systemd"
+    depends_on "zlib-ng-compat"
   end
 
   def install

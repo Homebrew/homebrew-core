@@ -7,8 +7,6 @@ class Wordgrinder < Formula
   revision 1
   head "https://github.com/davidgiven/wordgrinder.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "3246a1cccfec9059f9801b89d70312543e99eb7d9c7804af04f6bf4b97221eff"

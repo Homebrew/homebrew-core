@@ -1,20 +1,18 @@
 class Nextdns < Formula
   desc "CLI for NextDNS's DNS-over-HTTPS (DoH)"
   homepage "https://nextdns.io"
-  url "https://github.com/nextdns/nextdns/archive/refs/tags/v1.46.0.tar.gz"
-  sha256 "4260824fc20d9d15956c681e6c2025a097f3d350c6dd03dca662f5bbc12bcacc"
+  url "https://github.com/nextdns/nextdns/archive/refs/tags/v1.47.1.tar.gz"
+  sha256 "3356b283a8eeb675efee8163854c83c65d1dbb7743bac04db696751290f8ee64"
   license "MIT"
   head "https://github.com/nextdns/nextdns.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d31d85ac7c1b07cd591db0e152b19bb24f0ca19c0c4caee04446a8836bb9115d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f672ae407065c3ef101887a756ddd985f30cb626266204a4790224bd63aec4e3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "141b5b861acf7888d241c18f83d2636596f7f6f0c68f90ad081c8a9f58e7b18e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cf3fbb66344f1ed946878fed8e595a9e8c3f208c25ced6b89c2e3dc510c10d9d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "19a58a90339973be0450f4c7edfbf8667f04f19d2212bc999b2f4fe1035d98b7"
-    sha256 cellar: :any_skip_relocation, ventura:       "6c73488ba8fdb273712fb7cf9c14d0743228845ac67459fe3a4163083c33e9e0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dfc718c32615c7d565d27ab62ba9d5472f8304ad7128714e1bd5a5529320193"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9fc4d299d13dec764c87e745d9eb3a597d5fa47734727fe05bfb9b0ea1e5e62"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "42b9ae4eab445ad25eadd9f211bee8e3933e17cf25057ae73c9ce2fba4927a90"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1deb8eb5df9c2adca09b2370283fd0fb1b25479df9ee7e5a74519479bb9f1984"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5535b2daa84051caa7707687be529ba88adc23c178cd4788b2cf1abbff32b063"
+    sha256 cellar: :any_skip_relocation, sonoma:        "334796163a459547e92494904446e807f6be8e914dd2326998f376fef0cbc5b0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "049a091172de82955386167851938838c48ab61e57dc2b5ae89135a3e9b52589"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3d3979d0fef14e2c70d334dfe867f5ca6ec4bc10ddc6262ab5564cfdf65d781"
   end
 
   depends_on "go" => :build

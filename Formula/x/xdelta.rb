@@ -5,8 +5,6 @@ class Xdelta < Formula
   sha256 "7515cf5378fca287a57f4e2fee1094aabc79569cfe60d91e06021a8fd7bae29d"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "ee37900b3dc66de43cbffbd9fc486d9532f519cf36a10c66a198c64ae7a94e07"
     sha256 cellar: :any,                 arm64_sequoia:  "2a4d522dbb3bd2fb960b11396eb6f2f2cb5525acab75a5fc949676b261c8468b"

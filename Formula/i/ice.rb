@@ -1,8 +1,8 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/refs/tags/v3.8.0.tar.gz"
-  sha256 "ec03e18b1bb0e83547744f3d0d0b73b60e5b497bed10de6f933b54525802a3cb"
+  url "https://github.com/zeroc-ice/ice/archive/refs/tags/v3.8.1.tar.gz"
+  sha256 "87aa0381f2347715467686547bccf253fa208948bf2a462584872d2d0f8b1720"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,12 +11,12 @@ class Ice < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e0571d68dbdc9d073f52bcc8dde10ba8273cea43d6fd245b5929905cbf1a18f9"
-    sha256 cellar: :any,                 arm64_sequoia: "5b59424b75dd9c915c2ae6f7ca309fb24a7d86daa0f8016ba86bcff4ef9cecd7"
-    sha256 cellar: :any,                 arm64_sonoma:  "8d1f90a90863feb399931937ae20030dbab7b59370f985f7af98d0be12025429"
-    sha256 cellar: :any,                 sonoma:        "606185d3a72b5f41517abd9820a5d9aecde6e2f29ba40cbcdf57e72b054fffa9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1f791eec7808a1d4a4eaebe3d8f9c751d1a8f462e0eb220f563762b617f08f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb9505307af9af938603a49a7078ef093337a7a8b760a29a25d541ebeab26e96"
+    sha256 cellar: :any,                 arm64_tahoe:   "e73d5cc15f629eb8381d7dbbb6dc196f67234bba957ca78bc6f7884e925eb763"
+    sha256 cellar: :any,                 arm64_sequoia: "fa69325f0ba3ad72906a3f86e40cb52908b6f89aea97c68424256ac3d537db81"
+    sha256 cellar: :any,                 arm64_sonoma:  "31fffc8a580481083e88786d2996e47fadf8ddde7478e1018db0aec5d470605d"
+    sha256 cellar: :any,                 sonoma:        "32f6816651a201d6c364b04745e2df920777bbaac0d3d5599e1edf0477a2097c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9586db5fca4281079514d7b00c50f9c40204d789d81abd854d99274e2261c595"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8440c54d6797e2ccfdc0bd26dc0b64d6e3563b976a8d19936dbe4e2dd6280a8b"
   end
 
   depends_on "lmdb"

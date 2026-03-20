@@ -1,8 +1,8 @@
 class Lunzip < Formula
   desc "Decompressor for lzip files"
   homepage "https://www.nongnu.org/lzip/lunzip.html"
-  url "https://download-mirror.savannah.gnu.org/releases/lzip/lunzip/lunzip-1.15.tar.gz"
-  sha256 "fdb930b87672a238a54c4b86d63df1c86038ff577d512adbc8e2c754c046d8f2"
+  url "https://download-mirror.savannah.gnu.org/releases/lzip/lunzip/lunzip-1.16.tar.gz"
+  sha256 "f13809a1aeaf953f32b07f822c3804bfb11056c08d465b93750b4e45190becda"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class Lunzip < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ee545b7641e3df03be2ed317246239ec92a16537e2ecd17ada8a338725c5e87"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2485e72af992bc5c7b2cdb9be3383c1aeb9bde5f07f35e17964d8ba962ee5f9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f3c9cc0617cdea5815738623129348ae40566793c31c1d9d2788f43f32eb5a6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f061dbeb231b41011d5c925239ec0679c7456eb9242bab6155c55553930bd7b8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "71198791087ef6380858c64097848d8f9d8860e65fd6fbab3fa1c45e018f39b4"
-    sha256 cellar: :any_skip_relocation, ventura:       "1a41f6efcd7b83a0ee333075ab595c66eabd0e7228ee2fdd3629d34e1d474d74"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c3ce13001ea04a7c88a7611cb9f2447bd2cbfa654cef5382a461b42538d0218"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33207f9159131abd7656dc1f657bca8a18b90853a83f32506fa82996296d265a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1dc588e22b50b7d39507443df148d8a2ca055e31ed8e7d2a383b701f8006537b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68207de85c6fd73a7d36e1cf7994227769563cbe21eba7bc15209e0f89ff1750"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e52b1fe664ab2c763dd3e1a0ab348904e3d30ec35ee5aa89aa80b9109386380e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa8baefaf9f55a75e2e246bb53bacefa5a1a4676e3a7bae517679f66c8cf352c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab42bf3c8abd80b7b029d15ac4e366aeaea557890b6f600311ced3ee6590177c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6121f21bb49d13bb7542984ba53b79ed66534bfcf31180b3da77fc4350e35ab1"
   end
 
   depends_on "lzip" => :test

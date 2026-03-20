@@ -1,19 +1,17 @@
 class Libxmp < Formula
   desc "C library for playback of module music (MOD, S3M, IT, etc)"
   homepage "https://xmp.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.6.3/libxmp-4.6.3.tar.gz"
-  sha256 "b189a2ff3f3eef0008512e0fb27c2cdc27480bc1066b82590a84d02548fab96d"
+  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.7.0/libxmp-4.7.0.tar.gz"
+  sha256 "b6251de1859352c6988752563d60983cb8aa9fd7dfe9f81b8bc6688da47f3464"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f6f2e2a3e5ff0282530bd409b107b808cb289fb35606e96d5c6250d939a347a7"
-    sha256 cellar: :any,                 arm64_sequoia: "746c3d92562469f5200fe2bb32f18f43c7bac6416e4e6cfa4ceb825d10ee13c8"
-    sha256 cellar: :any,                 arm64_sonoma:  "7bad2e453d99d72bf38ab45f8c843c3ca96f9e845a24493d889000afe5a1cbd9"
-    sha256 cellar: :any,                 arm64_ventura: "d69cfd7a46845980beb6169e957088d81259cbfc22149f86d0d81e47b8ea261c"
-    sha256 cellar: :any,                 sonoma:        "c632e6c890ccb5aa8fd15b67323a25b197465771515088844cb6d3a9f739eae6"
-    sha256 cellar: :any,                 ventura:       "dc9a1c17688c400188dbb91726bb2b8d4749ff477d494df1b1c8d6c4d8f010b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6533f946457471d6fc7fe7fe7481085be039c7ac7bf4f0813939b21d9f74e34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a650c8549008d6e0b13fc813e9988372a943b0a2a8859b303d755da69e5deea"
+    sha256 cellar: :any,                 arm64_tahoe:   "88d5d2388523d805708402d5fcadb0f3063e7bf11f2d5fe8ddd035710efb50ee"
+    sha256 cellar: :any,                 arm64_sequoia: "f2e1fef29eb4abc782ab10aa63c6c72e1fefaaa22d9aafa2f466065ae83b3cc5"
+    sha256 cellar: :any,                 arm64_sonoma:  "8b6fc49f02c1f0d33ddf757dc1c6ac79ccb6abb286440458514bf4c7f4958de7"
+    sha256 cellar: :any,                 sonoma:        "08ee2e1f97a46b501c5a8b7d379c91374f52c1e24f988ea02198cb43d5b952d9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8cd5f291ec22438e9858e6004785557d40091ca60ca69383c39478b687f995fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0dcdfe5efc08578f47881a4143f474122ba91a603c001ef0fb3ddedc9dbdcb68"
   end
 
   head do

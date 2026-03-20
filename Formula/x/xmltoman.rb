@@ -10,8 +10,6 @@ class Xmltoman < Formula
   license "GPL-2.0-or-later"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a"

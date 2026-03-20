@@ -11,8 +11,6 @@ class Diary < Formula
     regex(/href=.*?diary[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2cf6dc0be5b3beea462918ef2b58d2c94ecec01aba46b260a85772abbef73b94"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d4d8011263079585a4927de9a321597b04e522c33940059d1a97b9f31acf8763"

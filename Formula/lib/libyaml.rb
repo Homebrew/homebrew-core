@@ -10,8 +10,6 @@ class Libyaml < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "5cd5a1875da18599e25283465b2fb8735eb8717ee7158ef17f8f4260205404f2"
     sha256 cellar: :any,                 arm64_sequoia:  "0ec9bf8082245c008803b42dcae3e6a0c8cd7a67aed589d9b6482b115c0a543b"

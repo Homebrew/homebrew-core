@@ -12,12 +12,13 @@ class Podofo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7d392f6365b35254ed306291dec5492f0906dc4c649a9f25bed8c2a2896d46ba"
-    sha256 cellar: :any,                 arm64_sequoia: "17ae73de90ee1fa537cadfd91ca0b0eb1fdb47da0ac96af2dfb1502d9b35a94b"
-    sha256 cellar: :any,                 arm64_sonoma:  "1680689f073bb1763fd6fede40fb6fe6623fb7575135fba72d72e695cb588ee6"
-    sha256 cellar: :any,                 sonoma:        "e48947350364ddf6ff7f62edbfc576423e689323f5867e04247a10f3adfd279a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ddcfa3be237be6e97c7569bb3e44624975296a4f7ebaf8d06afe40053f7d28c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21f85126552f9abdff2f83e543aa9c56a56cd7725328ac32417f8d45fcf1a0c4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9a6e4ab30d6d9c3f4048d2e50af123295fe41aabf46f8cdf04fda16b80634f5b"
+    sha256 cellar: :any,                 arm64_sequoia: "dc1910830503d893481807302ab276b8c7b6af2a2eb5f2b037a2fde24a6f869d"
+    sha256 cellar: :any,                 arm64_sonoma:  "8af3bbe091cd5fcd623fd26fe720bbc4d43c2fd1d83d54ddbfd2b84b753788b5"
+    sha256 cellar: :any,                 sonoma:        "1e8b850aa39280bcd77c5c008f2a40368155dc1010d7ec2bf02a17b8b3f1c24c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff0ffddeb53e9590f5ae388f4c33a79ff51b66604fa74f058b182d09b423006c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "312f1f9db2bb46c3de26b0062ea1316d641ecf47705c47f223ba99870eb37a96"
   end
 
   depends_on "cmake" => :build
@@ -31,7 +32,6 @@ class Podofo < Formula
   depends_on "openssl@3"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_ventura :or_older do
     depends_on "llvm"
@@ -39,6 +39,10 @@ class Podofo < Formula
     fails_with :clang do
       cause "error: 'to_chars' is unavailable: introduced in macOS 13.3"
     end
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

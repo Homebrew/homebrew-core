@@ -7,8 +7,6 @@ class Pdfsandwich < Formula
   revision 4
   head "https://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "16c76bd4f3d4fd4a22a1b23737aedd8d017cc0a51cc5aea380e6879b958184ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8f02d04e6517c0a842df56f9e7e381a2c3520f20669507f9fe52412c462baa6d"

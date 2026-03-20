@@ -10,8 +10,6 @@ class Djview4 < Formula
     regex(%r{url=.*?/djview[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "97d3a20862eef89b5dff5f2792ee3f5b08adcbb5c4edfc50d350030a9c326c67"

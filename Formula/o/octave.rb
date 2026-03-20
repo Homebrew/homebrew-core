@@ -1,11 +1,11 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://octave.org/index.html"
-  url "https://ftpmirror.gnu.org/gnu/octave/octave-10.3.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/octave/octave-10.3.0.tar.xz"
-  sha256 "92ae9bf2edcd288bd2df9fd0b4f7aa719b49d3940fceb154c5fdcd846f254da1"
+  url "https://ftpmirror.gnu.org/gnu/octave/octave-11.1.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/octave/octave-11.1.0.tar.xz"
+  sha256 "8b3e2d0ec1809e8a2bed11de779014b6eb6a469c0caad1b339d29a6126e3cb6a"
   license "GPL-3.0-or-later"
-  revision 1
+  compatibility_version 1
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
   # announced, so we check the octave.org download page instead.
@@ -15,12 +15,12 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "489022e9222a73eae12511661e5fbcf9eb648dbbc8eb38382c9b628e897bdc39"
-    sha256 arm64_sequoia: "784bf2de8e4cdd7b627910bea13fe36fd9a416c5d87b9543531a22e49132fbd1"
-    sha256 arm64_sonoma:  "389ceaced13256a12a704dfc7fa3cae68f3beeeaa22528b4a7d869dea95c5ede"
-    sha256 sonoma:        "450a61ac6b1c52781de453ac55fb1d327974244c2a2c5032844d1bafd06fcb76"
-    sha256 arm64_linux:   "a2bc05f2f9da8f2da5553d11c048849873a7e7aa1c81ae8777ad36f16cac991a"
-    sha256 x86_64_linux:  "1e69fe82b287d5328e570fc9e58328b8b10db8fe4b91d0094382e2a1c262f1b2"
+    sha256 arm64_tahoe:   "eb9e33aae3eda5c4c6f317c870051bf760af6e8baffcabf495ec096a1ac552db"
+    sha256 arm64_sequoia: "60710c4bccda4b8d3758a9901ee362325a88f302ef037526a7ae765bcef931df"
+    sha256 arm64_sonoma:  "3718cbdecc5fd7e80b4cdb02fc132dc38a0ed985e49a0916d184bdeb6eae3f8b"
+    sha256 sonoma:        "b6da3844e5b5a94578bdca36291c38d84e0e163da6fd9ac118b737ea08615749"
+    sha256 arm64_linux:   "9c891f169b5a0bd821550baa5f63c7007e46b404acf526d912fdbf49e83422ca"
+    sha256 x86_64_linux:  "ae513c984d980c0ced1b4d3be890f5183b59cae6712b49162fdd65d57f412d2a"
   end
 
   head do
@@ -70,10 +70,13 @@ class Octave < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "little-cms2"
+  end
+
+  on_sequoia :or_older do
+    depends_on "fast_float" => :build
   end
 
   on_linux do
@@ -81,12 +84,11 @@ class Octave < Formula
     depends_on "automake"
     depends_on "mesa"
     depends_on "mesa-glu"
+    depends_on "wayland"
+    depends_on "zlib-ng-compat"
   end
 
   def install
-    # Workaround until release with https://hg.octave.org/octave/rev/8cf9d5e68c96
-    inreplace "configure", " --cflags-only-I $QT_", " --cflags $QT_" if build.stable?
-
     system "./bootstrap" if build.head?
     args = [
       "--disable-silent-rules",

@@ -1,10 +1,9 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "https://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2026.0.tar.gz"
-  sha256 "229726f436cc515bfd8c4aa7af3a97b18072f71b5ebd0b08daf6565571e2d9eb"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2026.1.tar.gz"
+  sha256 "d95a313f56db7e05ee3a21e50f582fdee5176c2f60b900bab2461fd95c5e81be"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
@@ -12,13 +11,12 @@ class Gromacs < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "416fb4578d2f6dd801674f76017cd0f04230cb99af6547f34749297eb4c4adbf"
-    sha256                               arm64_sequoia: "00ed7dc686a83c6ef1136d2d4546023a8322bcfd8f4b87d036c71c9ed89a3c7e"
-    sha256                               arm64_sonoma:  "bbe7052b9d5e56d0a71c9c71d0c834fb7138f95eb695d5f3aa63a5ad7865108d"
-    sha256                               sonoma:        "528825ebe6e5b5923e67f4c14df053932fd40cbcf259a767e96a5ad1aa2f8945"
-    sha256                               arm64_linux:   "e81669bc46f0c677bf3f45714031a92aa29b7acaa0836d433015c149dd92e332"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e30b8041b642f69ddcf978325c108dfd276d3bfabc673849cf9dbacdb4b88d54"
+    sha256                               arm64_tahoe:   "a251cb841fbf8a2f3b67f236c310d9533512945b0fbeeec2ac1510e6b638a4c5"
+    sha256                               arm64_sequoia: "3130e7ee83d460bcd366a6dbca8db5ae353a2ca52c8f6d15bf0f6b42ec355417"
+    sha256                               arm64_sonoma:  "68027f2275bd6c37f3cf68089fdaa7385f9a2f0d542333ae3041f8b4e69d9dba"
+    sha256                               sonoma:        "ac0c6d551978b96551339ecb78cf4d34886030cb69b1fcdcee694493b7ab611f"
+    sha256                               arm64_linux:   "c6d9150209e24005c68959723ee18d56680dd97bd1d9a9ff59abb87151d961de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c3e5871f11f53468331f0d77d1c17bee72d75d7e495e2a0811ffa0b4d172daf"
   end
 
   depends_on "cmake" => :build
@@ -73,6 +71,7 @@ class Gromacs < Formula
       -DGMX_USE_LMFIT=EXTERNAL
       -DGMX_USE_MUPARSER=EXTERNAL
       -DGMX_SIMD=#{gmx_simd}
+      -DGMX_USE_RDTSCP=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args

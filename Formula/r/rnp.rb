@@ -4,6 +4,7 @@ class Rnp < Formula
   url "https://github.com/rnpgp/rnp/releases/download/v0.18.1/rnp-v0.18.1.tar.gz"
   sha256 "423c8e32e1e591462f759adf8441b1c44bca96d9f5daff13b82e81a79f18ecfd"
   license all_of: ["MIT", "BSD-2-Clause", "BSD-3-Clause"]
+  revision 1
   head "https://github.com/rnpgp/rnp.git", branch: "main"
 
   livecheck do
@@ -12,13 +13,12 @@ class Rnp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "6a2ecfe7414873e058469fd0220f05572a35b83a62cf22d9f12cf58c26d79fc7"
-    sha256 cellar: :any,                 arm64_sequoia: "fe20273522197c6d524ef75674cfad1f8814868d5cb445c183d01be6dbfbabfa"
-    sha256 cellar: :any,                 arm64_sonoma:  "245324c4b41228123aff0f791cb317652cc658773fbcea4159ceb2c24265a6b3"
-    sha256 cellar: :any,                 sonoma:        "c74ab53d956170a5c321b3eeb984c4e100ce15c995e0f606de5bcab0b5fcd060"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "82d8e226eb32638112fde260c44d95cebe551190e30bd50b69f416d43b4b2cd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "561a320aae32d97588869ea843fdec9cac8c18eb00201293f69c5db30263bfcd"
+    sha256 cellar: :any,                 arm64_tahoe:   "47196b99e7ce95c4321785266f05084c18f935efcab165b7d78612c6556c6332"
+    sha256 cellar: :any,                 arm64_sequoia: "fc1b11f0ac1e476f6fbe0f19637b1a301f0090455148bb2441f0add820a0a548"
+    sha256 cellar: :any,                 arm64_sonoma:  "7b942b2d37b54d5252440ba931502a312c676c35b5ed52b6452464687162693b"
+    sha256 cellar: :any,                 sonoma:        "dc917f41e573c19a3255a8649f24957bbd8717dcd80417ee475214da896e5505"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "64ebe0a2a1390be568fbe20ae76808f1853353af20cf2f63b3687c93b152a8c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bdd2d6cae58daf0287d95bbc2ef321976091e628fcfba2b9eff2356e13109a9"
   end
 
   depends_on "cmake" => :build
@@ -28,6 +28,12 @@ class Rnp < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Backport upstream fix for the missing standard header with Botan 3.11. upstream pr ref, https://github.com/rnpgp/rnp/pull/2382
+  patch do
+    url "https://github.com/chenrui333/rnp/commit/29758631b5dde64b0059abe226c86c24ea08c3ce.patch?full_index=1"
+    sha256 "f8903db07fd136c54932c088da92ef87e1c8091936c9301f416361d04c1d31e8"
   end
 
   def install

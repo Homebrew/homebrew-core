@@ -6,8 +6,6 @@ class Samurai < Formula
   license "Apache-2.0"
   head "https://github.com/michaelforney/samurai.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3cbfa0ba7e77472c117829bb5cd8dba6022f219beb688070730e10958908c85a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5dbf52962ed4a4191d77edd3b9970621f5f543ed42eb64d85673f7bc572f0a01"

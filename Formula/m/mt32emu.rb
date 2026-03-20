@@ -11,7 +11,7 @@ class Mt32emu < Formula
     regex(/^libmt32emu[._-]v?(\d+(?:[._-]\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "51037c0eac2abd5e9470bc021f98ce2eb2034acfd16e381594277e90dd016232"

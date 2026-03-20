@@ -99,10 +99,6 @@ class MacCleanupPy < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     # Allow 3.14: https://github.com/mac-cleanup/mac-cleanup-py/pull/277
     inreplace "pyproject.toml", 'python = ">=3.10,<3.14"', 'python = ">=3.10"'
     virtualenv_install_with_resources

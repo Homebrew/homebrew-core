@@ -5,8 +5,6 @@ class Wy60 < Formula
   sha256 "f7379404f0baf38faba48af7b05f9e0df65266ab75071b2ca56195b63fc05ed0"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "27074202271ebad114a776e830498514e56da281471bdd05eed3d4eb00dbee09"
     sha256 arm64_sequoia:  "6e8b275623922f42137e8d90712e41890ac44f9218dc7ff8d8476068d7497f01"

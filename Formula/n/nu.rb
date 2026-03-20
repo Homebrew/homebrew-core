@@ -7,8 +7,6 @@ class Nu < Formula
   revision 4
   head "https://github.com/programming-nu/nu.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "b58a4f88db0117eae2d986cfb083129c6247b160f4a79f45d8af94b32a557ec1"
     sha256 cellar: :any, arm64_sequoia: "d3bb01d2370d369f17fc335866e16b316332705eb82ac79c9ec5572abefc3dba"

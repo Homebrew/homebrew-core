@@ -6,6 +6,7 @@ class Cryptominisat < Formula
   # Everything that's needed to run/build/install/link the system is MIT licensed. This allows
   # easy distribution and running of the system everywhere.
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -13,30 +14,48 @@ class Cryptominisat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "70bf28562a05a8aaf76e1a5807e7057eebfb59e237441068c842114a4a74a71f"
-    sha256 cellar: :any,                 arm64_sequoia: "b506255464c537d13d70d7b61b622f7c20bf0684f61ee0b3e078146d99a3aa06"
-    sha256 cellar: :any,                 arm64_sonoma:  "97f377a954302387397eedd2721534ec085c6022ffc1e71b448c65da05353457"
-    sha256 cellar: :any,                 sonoma:        "ff0109fe3a9173ecbfc63dfc51285602f9163627b96f9e385d0dbffb3b29487a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a2046c1aa8b5e7ec0d39c5135b992ba232b00976b75ebbaa311a3773e5b6390"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7411367b3a354849291f1d37a3f70fa73603068ef2b5e7272f07f30f2b2d3ce"
+    sha256 cellar: :any,                 arm64_tahoe:   "d56074a77028dcfdb9d9d59b2fcd57aad7e2df80c9f99df8f5c4286ef16c3b7f"
+    sha256 cellar: :any,                 arm64_sequoia: "bf9b8dbe11fa244c8f7f6b052f12630a38040f9c02d17be2e075306eb98e2b02"
+    sha256 cellar: :any,                 arm64_sonoma:  "cbd9e3001b700ea908fe9873fd9b059d634f437818ea3ccc2e38a6fa21195cb8"
+    sha256 cellar: :any,                 sonoma:        "50c0d3151e24e96ec77ce11263d701b9c2e911dd4a9eb1fbfb9173cc85777500"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1f973a7d348b3dc75f6bc4ef3c4d243617103a1e18e42be3c927ca075b8029de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a14f3873914b9f6631948386fe1a9ef164d7a5812597e508117aab2ea83f382c"
   end
 
   depends_on "cmake" => :build
   depends_on "python@3.14" => [:build, :test]
   depends_on "gmp"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Currently using revision in flake.lock
   resource "cadical" do
     url "https://github.com/meelgroup/cadical/archive/8fcb8139c453e7cb85c470cea5d783db8e229518.tar.gz"
+    version "8fcb8139c453e7cb85c470cea5d783db8e229518"
     sha256 "9880d09a7ff3d9dc4b633fa8230ff168b089c78a4c1811efd467925eb9972f9b"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/msoos/cryptominisat/refs/tags/release/#{LATEST_VERSION}/flake.lock"
+      strategy :json do |json|
+        json.dig("nodes", "cadical", "locked", "rev")
+      end
+    end
   end
 
   # Currently using revision in flake.lock
   resource "cadiback" do
     url "https://github.com/meelgroup/cadiback.git",
         revision: "c24a73f62da2f984df6d3f1cf37283b1ca1c9f9e"
+    version "c24a73f62da2f984df6d3f1cf37283b1ca1c9f9e"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/msoos/cryptominisat/refs/tags/release/#{LATEST_VERSION}/flake.lock"
+      strategy :json do |json|
+        json.dig("nodes", "cadiback", "locked", "rev")
+      end
+    end
   end
 
   # Apply modified Arch Linux patch to avoid rebuilding C++ library for Python bindings

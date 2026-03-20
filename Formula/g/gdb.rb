@@ -7,8 +7,6 @@ class Gdb < Formula
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "2295e7004a3c90fe6098270d09ca48a7889925dcf34a07c54e9a1a47e09db70e"

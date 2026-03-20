@@ -1,10 +1,10 @@
 class Qtimageformats < Formula
   desc "Plugins for additional image formats: TIFF, MNG, TGA, WBMP"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.10/6.10.1/submodules/qtimageformats-everywhere-src-6.10.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.1/submodules/qtimageformats-everywhere-src-6.10.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.1/submodules/qtimageformats-everywhere-src-6.10.1.tar.xz"
-  sha256 "498eabdf2381db96f808942b3e3c765f6360fe6c0e9961f0a45ff7a4c68d7a72"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.2/submodules/qtimageformats-everywhere-src-6.10.2.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.2/submodules/qtimageformats-everywhere-src-6.10.2.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.2/submodules/qtimageformats-everywhere-src-6.10.2.tar.xz"
+  sha256 "8b8f9c718638081e7b3c000e7f31910140b1202a98e98df5d1b496fe6f639d67"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
@@ -16,12 +16,12 @@ class Qtimageformats < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "57ce2d0fbbd052a667976afeff75398608333c1d55bc4873f98eb18fa7ca153e"
-    sha256 cellar: :any,                 arm64_sequoia: "795872488bde73f32a248d7974f466ea4c6b04b7b10bc7c2c5946596692894e2"
-    sha256 cellar: :any,                 arm64_sonoma:  "c1c2956dad1eb69d3a96d71e3355ee9ac1e94ca3aea031369585b64bcd167699"
-    sha256 cellar: :any,                 sonoma:        "28da3fddd23a8295a8eac48752973e0092383026933cdfe11900a2577d4a0029"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a86bf65018b8baf711740b9d1a0363ab010cd4351fa3c5d781a02a378cdb1390"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3768c56ad529a9ef9f4cb182cdfe7ebf2aca8ceb73e10251ff7e9d790732fa0d"
+    sha256 cellar: :any,                 arm64_tahoe:   "a729f9f5f99df3dfd76cb76f1801765a90860a90dddb34481302dea23bb3d80e"
+    sha256 cellar: :any,                 arm64_sequoia: "06b33728c004ed6c1f5a7d5061fc62ca28cc862106a1aefe5a6c20617c10b96e"
+    sha256 cellar: :any,                 arm64_sonoma:  "dc15301aa09effa6e1b02c062003794df8dddd1a32a02fc7f87932764740fb11"
+    sha256 cellar: :any,                 sonoma:        "3ff74a6f3f8e679e1a9c74f3fbfac48f31ea3787a5394cdd57931a83be56cdb9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "273786f628e638d04527b2060a8fad067bcd0ec253c02a49f6904daa2be9b4a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b59afe6136898b905d57aa0404697e9046a8d8d6fae03cbe6b6f3b3712eb2e9e"
   end
 
   depends_on "cmake" => [:build, :test]

@@ -11,8 +11,6 @@ class Libev < Formula
     regex(/href=.*?libev[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "6f3bcc66907452a0f795ad6532d69deacdb1059379ca5a94da3a3e286342f94c"
     sha256 cellar: :any,                 arm64_sequoia:  "67740e5ba01e82c140ceadc512aa26a3990bfadaef0f4b545ba7f9aaf24c50bf"

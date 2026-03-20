@@ -6,8 +6,6 @@ class Urlfinder < Formula
   license "MIT"
   head "https://github.com/pingc0y/URLFinder.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "26b43818b3c94162949546ae14e4f0cf43ca8868a7e16558ce9c7620867a93be"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ba0d3713537c7c40ac307a3911c7f96096a03270e8bfb029c73c37a0dbc25357"

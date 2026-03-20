@@ -6,8 +6,6 @@ class WebpPixbufLoader < Formula
   license "LGPL-2.0-or-later"
   head "https://github.com/aruiz/webp-pixbuf-loader.git", branch: "mainline"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_tahoe:   "e3a73f1544d69019b2b351dfe0d77e7d43267dbe80fa5f74afe35f88f1f99618"

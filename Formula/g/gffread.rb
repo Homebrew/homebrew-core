@@ -5,8 +5,6 @@ class Gffread < Formula
   sha256 "bfde1c857495e578f5b3af3c007a9aa40593e69450eafcc6a42c3e8ef08ed1f5"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "13fd1969b97e3117c0f06a55d3e957e2453dcef7331f03014d45a73a59fd70f3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "defe51476a0787bf947f7f1ef4303b52302dbe96b163937eb59e6d491e753a01"

@@ -8,12 +8,13 @@ class Vtk < Formula
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6a404451bc75f2e87bed93f0b1317732e6a4f64faac8904b5027df1e7aa9035d"
-    sha256 cellar: :any,                 arm64_sequoia: "d15103e929fc467e48a58f370f3e0e7dcec3606ee00846e6cdaaf164e6b89afa"
-    sha256 cellar: :any,                 arm64_sonoma:  "c6abc4c8f786d992716a221d3af7b57c3d28081fac6ccbafad3bda99e2e95ee5"
-    sha256 cellar: :any,                 sonoma:        "85306ce7d65dbf0b374fe880bde15ddcd378a7355839c419a0fc0f6cd6895964"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "74c97f51d11842d28689f867add2ea7f7124b9fda635cb8bbdcbf2cfec17a76e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8eb6d5cbe2266a2f7b19672b9a907ff1861bae277b446ccae9b9e76a2e8b047"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "100fd9e37f999ded1ea0094a95f2ef9a7dc15251f5dca51e44107afed5831233"
+    sha256 cellar: :any,                 arm64_sequoia: "81595c5a9f1fd3fba4f5eec3aaa5eaaf1aaa187f5ea0bacad5058b4a4164bc93"
+    sha256 cellar: :any,                 arm64_sonoma:  "1f4d4b2900cbeb4923959a555d832d27d24498fa59d44ece4516b76a278c02a5"
+    sha256 cellar: :any,                 sonoma:        "462e3c9d703713bedca3e6152c113084eab8b4440a79245c2c459b46945bf389"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e432d600806ba0c6c594e791bfe2aaa664ebeb0a9caa516a989f4b37c6601cec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3cf4fa567b7a0be93666a081cdb512489b7656c43a4d5b4a97ea601a4deab16"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -46,13 +47,13 @@ class Vtk < Formula
 
   uses_from_macos "expat"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "gl2ps"
     depends_on "libx11"
     depends_on "libxcursor"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   # Backport fix for HDF5 2.0.0

@@ -16,8 +16,6 @@ class ZshCompletions < Formula
   ]
   head "https://github.com/zsh-users/zsh-completions.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "98d3985c4c7883eceb5136fef89f1e169067fe290eb540efeb5fec4ace5396be"

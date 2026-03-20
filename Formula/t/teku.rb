@@ -2,13 +2,18 @@ class Teku < Formula
   desc "Java Implementation of the Ethereum 2.0 Beacon Chain"
   homepage "https://docs.teku.consensys.net/"
   url "https://github.com/ConsenSys/teku.git",
-      tag:      "26.2.0",
-      revision: "137d5ff42f9ac4b88939b4c78ea38e1f610ff352"
+      tag:      "26.3.0",
+      revision: "db53981bd18680729f06f99a07b87cb6aad3382e"
   license "Apache-2.0"
   head "https://github.com/ConsenSys/teku.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "84b443ee7c5b8926fe1241b82861cb825f0520ecc1f87ba653b9533d8a722987"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "30f6bfe434ba4e9d9c706be8c9fc088f72b5d77901b2667f5d4404bc92a9db3e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30f6bfe434ba4e9d9c706be8c9fc088f72b5d77901b2667f5d4404bc92a9db3e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30f6bfe434ba4e9d9c706be8c9fc088f72b5d77901b2667f5d4404bc92a9db3e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "30f6bfe434ba4e9d9c706be8c9fc088f72b5d77901b2667f5d4404bc92a9db3e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48c5f7e2ad3464ee41d1555a2a9f539ed77bb621d21f3e8057db229601de793f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48c5f7e2ad3464ee41d1555a2a9f539ed77bb621d21f3e8057db229601de793f"
   end
 
   depends_on "gradle@8" => :build
@@ -27,12 +32,13 @@ class Teku < Formula
 
     rest_port = free_port
     test_args = %W[
-      --ee-endpoint=http://127.0.0.1
-      --ignore-weak-subjectivity-period-enabled
+      --network=minimal
+      --Xinterop-enabled
+      --Xinterop-number-of-validators=8
       --rest-api-enabled
       --rest-api-port=#{rest_port}
       --p2p-enabled=false
-
+      --data-path=#{testpath}
     ]
     spawn bin/"teku", *test_args
     sleep 15

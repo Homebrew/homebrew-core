@@ -11,8 +11,6 @@ class Espeak < Formula
     regex(%r{url=.*?/espeak[._-]v?(\d+(?:\.\d+)+)(?:-source)?\.(?:t|zip)}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "b3714356a1701d170fc7c6eb121a3db31c25e43c3ebae3e91dd5a6438d060c60"

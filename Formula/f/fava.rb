@@ -3,8 +3,8 @@ class Fava < Formula
 
   desc "Web interface for the double-entry bookkeeping software Beancount"
   homepage "https://beancount.github.io/fava/"
-  url "https://files.pythonhosted.org/packages/2f/bc/8dcbaf4711603a8c62f3943b19bebfed25a8226d921ad942b19e3d8abec7/fava-1.30.11.tar.gz"
-  sha256 "384b71b654e1ea8df23f6f7a2a11a2c5f8ebe6206d3b01b7f77f9677e5e88b37"
+  url "https://files.pythonhosted.org/packages/57/d4/9cb24ac4fd50f017fcf8c16d354ebc2d715efdfcba96f67c0b5f92dfad1c/fava-1.30.12.tar.gz"
+  sha256 "7c87145635c36605dcadfea877198d683f9c565239af166d5557e39ee3de8145"
   license "MIT"
   head "https://github.com/beancount/fava.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Fava < Formula
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "898e634e34297e131af4ee22ed4f3f6b926462d71f2ce35a33e1405b5682f474"
-    sha256 cellar: :any,                 arm64_sequoia: "9c7afbd30b8a1543b14e57058d68803ffc0a593acc29a94612adbe201537b918"
-    sha256 cellar: :any,                 arm64_sonoma:  "2265e3337cc503bf61f4df750e82936c27117611cfec7437af15b493e20c7a84"
-    sha256 cellar: :any,                 sonoma:        "9fbc1ae1fb9d004ac95273ce49208440f30b4aa0893056aa74d8c7a98b49b898"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "60eee0180f1050920c0f111344ed2d2ade7853f2a7aa639fdb413cff74d28e7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd3bcb29a6406737187c21912a98817a57653afa5334f2088a7e4c758e3075be"
+    sha256 cellar: :any,                 arm64_tahoe:   "0de53d1e18d59dccb62c06714c6513dfe6d1a903f283720d4a9c9dd962036a20"
+    sha256 cellar: :any,                 arm64_sequoia: "aa658dcc8d735b2517b883a93294b339d1066d1bf6a42d41bfbebfe7e5b8c897"
+    sha256 cellar: :any,                 arm64_sonoma:  "a3f816d7a0cf6a0b57a9f3da2aadcb8cbab6e1fdc54958873d1d19485c460dcb"
+    sha256 cellar: :any,                 sonoma:        "0e134fa9fb3c246c056759bebababcdc71875197f13f7b574720f5d2b0549596"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a5a0a634ccb8088100f7ae99b62d1e2eee4fbca642f54b65ce870d8ee0b2af0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1f74a748cf0be4362e642e68bd83dde63c3d3f2c697b1b0a504fe320cf510df"
   end
 
   depends_on "bison" => :build # for beancount
@@ -43,8 +43,8 @@ class Fava < Formula
   end
 
   resource "babel" do
-    url "https://files.pythonhosted.org/packages/7d/6b/d52e42361e1aa00709585ecc30b3f9684b3ab62530771402248b1b1d6240/babel-2.17.0.tar.gz"
-    sha256 "0c54cffb19f690cdcc52a3b50bcbf71e07a808d1c80d549f2459b9d2cf0afb9d"
+    url "https://files.pythonhosted.org/packages/7d/b2/51899539b6ceeeb420d40ed3cd4b7a40519404f9baf3d4ac99dc413a834b/babel-2.18.0.tar.gz"
+    sha256 "b80b99a14bd085fcacfa15c9165f651fbb3406e66cc603abf11c5750937c992d"
   end
 
   resource "beancount" do
@@ -173,8 +173,8 @@ class Fava < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/89/23/adf3796d740536d63a6fbda113d07e60c734b6ed5d3058d1e47fc0495e47/soupsieve-2.8.1.tar.gz"
-    sha256 "4cf733bc50fa805f5df4b8ef4740fc0e0fa6218cf3006269afd3f9d6d80fd350"
+    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
+    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
   end
 
   resource "tatsu-lts" do

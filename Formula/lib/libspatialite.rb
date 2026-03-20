@@ -2,7 +2,7 @@ class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 3
+  revision 4
 
   stable do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.1.0.tar.gz"
@@ -22,15 +22,13 @@ class Libspatialite < Formula
     regex(/href=.*?libspatialite[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ec71d022fb73c458f7cffae0653b47966afedfd983505dc3f258de7cee10ae69"
-    sha256 cellar: :any,                 arm64_sequoia: "f8fce6ef602c6ba94ba50021c98ef28d4f229e2a1b68c67af847c72cc3f86340"
-    sha256 cellar: :any,                 arm64_sonoma:  "e6cdb74bf39ad03b1cbee89f33d2e0c1995e996c54b15ba616cf45035ee0a38e"
-    sha256 cellar: :any,                 sonoma:        "1ba1a71a2e5f482de9dea30d398ef7848313d2012dce11233c6d66b20bd9df40"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a76a81771f5568851ce32fbf406a060b4d7f9946f7c8e11ce99c52439bc076b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3a454cd563efc53e1636abd085bea6cbba2b5dd7c95727cb496ea8881966deb"
+    sha256 cellar: :any,                 arm64_tahoe:   "ec3bff2150de386d746181a90e8a9a706a5cd0abba9fff83b982f31cec916a93"
+    sha256 cellar: :any,                 arm64_sequoia: "587bf2902aaa3908a1dcc76dda6fe5ab38ead02dad6e6bd8f4521c28c0174686"
+    sha256 cellar: :any,                 arm64_sonoma:  "d726dbbc340c60fa4aeb0e64f7d84869af74e3ca7a3d0d536b4af8eb53760a51"
+    sha256 cellar: :any,                 sonoma:        "ea4844a4718e87cf6dab3f3216fd17f2b227c0f848a91fac80f35ce01c311a64"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "03d04b1c9c2e9383f2149bbd1fbc9c6374cdabd8b72887f0d02e17819e06ffdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9080a06cdd748903d3da061c4b50adf0435bf41fd316daf4e86ba145ac9fe47a"
   end
 
   head do
@@ -48,7 +46,10 @@ class Libspatialite < Formula
   depends_on "minizip"
   depends_on "proj"
   depends_on "sqlite"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Apply Debian patch to allow disabling the usage of removed libxml2 HTTP API.
   # Ref: https://groups.google.com/g/spatialite-users/c/nyT4iAJbttY

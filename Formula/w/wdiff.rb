@@ -7,8 +7,6 @@ class Wdiff < Formula
   license "GPL-3.0-or-later"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "4f7f90aa9ea87d7e897ac17039054345a41bd830322a44ffae5b53dbac412037"
     sha256 arm64_sequoia:  "3080690e641baa84f2f9e6099d27827911ae38604baf1eec25d49f22bf8f0cd8"

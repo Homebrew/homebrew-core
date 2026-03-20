@@ -5,8 +5,6 @@ class Run < Formula
   sha256 "942427701caa99a9a3a6458a121b5c80b424752ea8701b26083841de5ae43ff6"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "494136cea6aa2305a857c2a9091558c37516fbe4cbfe1466089cb041c56ef64a"

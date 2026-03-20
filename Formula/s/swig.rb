@@ -16,6 +16,7 @@ class Swig < Formula
     sha256 arm64_sequoia: "3f5f55dfeafa86f7fde759a6ed895c17711f795bc5c5dc653e948b160b39e095"
     sha256 arm64_sonoma:  "3deb29512380d6f2438509ef376b9c6420e0c09929f1ba46c6a6defc80b0c938"
     sha256 tahoe:         "7101266ed6af8753601bfa9e161f69b2293bf21c20d85a0215a33afadc8e2bfd"
+    sha256 sequoia:       "4a6c4df0a64de986d68c579f9fffa7b51da50a037370584e0c30575be14d86d1"
     sha256 sonoma:        "b46f000c265b1862456a228ada44689992430d48c7d913ccfbf6d39fdb39452c"
     sha256 arm64_linux:   "da35dceea818eca91178d1d69b9ebf15ba68ac343e47fec99c4a3edf889c023e"
     sha256 x86_64_linux:  "a225dfc60e2cf8404edf0275411d60d831b4fbcc707a5019e9246aef10915d98"

@@ -1,24 +1,14 @@
 class Burp < Formula
   desc "Network backup and restore"
   homepage "https://burp.grke.org/"
+  url "https://github.com/grke/burp/releases/download/3.2.0/burp-3.2.0.tar.bz2"
+  sha256 "3f5e057d40d2986fbfbebdf7a64570719c4c664882a3fd038ebac5a20326c5cf"
   license "AGPL-3.0-only" => { with: "openvpn-openssl-exception" }
-
-  stable do
-    url "https://github.com/grke/burp/releases/download/3.2.0/burp-3.2.0.tar.bz2"
-    sha256 "3f5e057d40d2986fbfbebdf7a64570719c4c664882a3fd038ebac5a20326c5cf"
-
-    resource "uthash" do
-      url "https://github.com/troydhanson/uthash/archive/refs/tags/v2.3.0.tar.gz"
-      sha256 "e10382ab75518bad8319eb922ad04f907cb20cccb451a3aa980c9d005e661acc"
-    end
-  end
 
   livecheck do
     url "https://burp.grke.org/download.html"
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >].*?:\s*Stable}i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1
@@ -36,13 +26,10 @@ class Burp < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-
-    resource "uthash" do
-      url "https://github.com/troydhanson/uthash.git", branch: "master"
-    end
   end
 
   depends_on "pkgconf" => :build
+  depends_on "uthash" => :build
   depends_on "librsync"
   depends_on "openssl@3"
 
@@ -55,12 +42,6 @@ class Burp < Formula
   end
 
   def install
-    resource("uthash").stage do
-      (buildpath/"uthash/include").install "src/uthash.h"
-    end
-
-    ENV.prepend "CPPFLAGS", "-I#{buildpath}/uthash/include"
-
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--sysconfdir=#{pkgetc}",
                           "--sbindir=#{bin}",

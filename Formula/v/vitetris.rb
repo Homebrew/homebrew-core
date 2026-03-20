@@ -6,8 +6,6 @@ class Vitetris < Formula
   license "BSD-2-Clause"
   head "https://github.com/vicgeralds/vitetris.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ab9a0fde775af14600b636a041e026c987933c871cec3e67a4184f6521a61b2e"

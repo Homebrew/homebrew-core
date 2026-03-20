@@ -11,8 +11,6 @@ class Libcuefile < Formula
     regex(/href=.*?libcuefile[._-](r\d+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "1da2975f32e5909cf63724ba5a9479544a0398a7a0d2e958a5ded75262f83799"

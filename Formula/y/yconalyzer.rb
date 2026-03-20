@@ -5,8 +5,6 @@ class Yconalyzer < Formula
   sha256 "3b2bd33ffa9f6de707c91deeb32d9e9a56c51e232be5002fbed7e7a6373b4d5b"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f8e293d34a2bfead5ac9adc620c89fa89f551e4ece73f6a1df952b7f6ab960b5"

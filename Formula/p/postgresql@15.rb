@@ -1,10 +1,9 @@
 class PostgresqlAT15 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v15.15/postgresql-15.15.tar.bz2"
-  sha256 "5753aaeb8b09cbf61016f78aa69bf5cbdf01b43263f010cbf168c82896213aaa"
+  url "https://ftp.postgresql.org/pub/source/v15.17/postgresql-15.17.tar.bz2"
+  sha256 "ae14f24c14727e0b2ded1c5553031666099bd1054db3ef44bfa6e2bd6d554a56"
   license "PostgreSQL"
-  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -12,12 +11,12 @@ class PostgresqlAT15 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "732e37722d70d8440d7da029f93c5ea7248ee48ed85a854381da6a6d79b94422"
-    sha256 arm64_sequoia: "ecf6ea06555ba1ad173193cefbaff8ce787ba1b8238a9f79319423c568df19c9"
-    sha256 arm64_sonoma:  "b9f4ad76c11adb8db08620c51fa5661e4c10aee3fe22cc92ece7211bd6af7b84"
-    sha256 sonoma:        "671614e9f0a15939f6e9dd53991b6463c998ac3da1c0f0ad7092ecea7173fc44"
-    sha256 arm64_linux:   "3634f7148357725cbca2d8cbffb81d05478cf2df43ff8093a74d4352d971a184"
-    sha256 x86_64_linux:  "aaf0f3638e06643e7edbe1d80cfcdce2de5a705e737c4cc52de65dfb78093299"
+    sha256 arm64_tahoe:   "f708c1537b0b452bb6c3cc380ad0aa2ca8c88055126a742caea92a3dd8798c41"
+    sha256 arm64_sequoia: "72f3367f698b43857f1b4237651c79500cef66b99dfb1d5ad33afb5383809364"
+    sha256 arm64_sonoma:  "e9dc9c5a16042b26ff4678fe74348d038fa37ed981b45eab0ba94ffdd4d10b8e"
+    sha256 sonoma:        "044b3250b8735c72a4d0efa264d15ec0c40c6b1d39f95ecc36a3afbaccbe34c8"
+    sha256 arm64_linux:   "1894d22dbedefeffa87a3616a32bcdcfa4516de7a857960edaa9aeac7a381092"
+    sha256 x86_64_linux:  "69c96ceb87a90cbabe2b33c7715833a358df4578d2cbdadcb21e6d6880324d43"
   end
 
   keg_only :versioned_formula
@@ -42,7 +41,6 @@ class PostgresqlAT15 < Formula
   uses_from_macos "libxslt"
   uses_from_macos "openldap"
   uses_from_macos "perl"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -51,6 +49,7 @@ class PostgresqlAT15 < Formula
   on_linux do
     depends_on "linux-pam"
     depends_on "util-linux"
+    depends_on "zlib-ng-compat"
   end
 
   def install

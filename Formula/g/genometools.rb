@@ -37,7 +37,7 @@ class Genometools < Formula
     depends_on "zlib-ng-compat"
   end
 
-  conflicts_with "libslax", because: "both install `bin/gt`"
+  conflicts_with "gastown", "libslax", because: "both install `gt` binaries"
 
   def python3
     which("python3.14")

@@ -2,17 +2,17 @@ class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://search.carrot2.org/"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.8.4",
-      revision: "0f03127e58a6a10a8d0f5f0a0c4807f0f9e5b6cd"
+      tag:      "release/4.8.6",
+      revision: "fa471b2f70b2f54afa594fa23f170f3bb6435c6a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "42fba9ccb181cbecc379c25e36212abbe2ceb0a3c2a5dc931874f50c76e3e83a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "119098d2b7b04c96ed7f0853671d9bd9913a5181fea3176c0e16c5780aeecd63"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a917893929339e7fe46e84e895f6c45f4b128dad85d2863cb8d10080692f8b2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a96c3308d3758c16b4ec0819ae66bde55503e69620f2ce56ee9054d8f7e34e7d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b71e7f3e5a5b9adcaf46e0f69d6251b00daf2fdd461b2c76047d505a120d675"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92af6e592c552ba28bbe9397ff5e6036e0aad737cc5538f1d1c938d915e41e76"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "26a2e0710f7f3b0b86af79fd864096a49414fe8d8bb25ab9f077715a0270a7dd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7fb93a44e7da0f3b19e3a4cff6c7263daccf2bb7ebb20ecc96cd8e6d186ea1d2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b14477c06f381620f1e897ef65ce1bff59ad4c34f8cdd07810d8132560f32f02"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1894c5d3399c5335ce5726ee51fcc12fbd4d21b3155af2475b8d81af946d11a6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a2f9dc7f4462db3ef46a5940544d7f83d7d065f0b5e528ae5f5a5c89cde7dc1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f38906fe8f4c2e76336954ef2fc9449e706c29469ea179b78217048e1f64d725"
   end
 
   depends_on "gradle" => :build
@@ -28,7 +28,7 @@ class Carrot2 < Formula
 
   def install
     # Make possible to build the formula with the latest available in Homebrew gradle
-    inreplace "gradle/wrapper/gradle-wrapper.properties", "gradle-9.2.1", "gradle-#{Formula["gradle"].version}"
+    inreplace "gradle/wrapper/gradle-wrapper.properties", "gradle-9.3.1", "gradle-#{Formula["gradle"].version}"
 
     # Use yarn and node from Homebrew
     inreplace "gradle/node/yarn-projects.gradle", "download = true", "download = false"

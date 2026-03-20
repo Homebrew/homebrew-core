@@ -1,10 +1,9 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library with Python bindings"
   homepage "https://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/v2.0.11/libtorrent-rasterbar-2.0.11.tar.gz"
-  sha256 "f0db58580f4f29ade6cc40fa4ba80e2c9a70c90265cd77332d3cdec37ecf1e6d"
+  url "https://github.com/arvidn/libtorrent/releases/download/v2.0.12/libtorrent-rasterbar-2.0.12.tar.gz"
+  sha256 "25b898d02e02e43ee9a8ea5480c20007f129091b5754d0283f94e4d51d11a19e"
   license "BSD-3-Clause"
-  revision 4
   head "https://github.com/arvidn/libtorrent.git", branch: "RC_2_0"
 
   livecheck do
@@ -13,12 +12,12 @@ class LibtorrentRasterbar < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "00693fe717a3800ed4d6251cd19cc29834e8d55bd68124ce0d5dcb9f5ef3b1b7"
-    sha256 cellar: :any,                 arm64_sequoia: "2ce931771a0e204ab86b0f2cad6ab21a7fbd4739523be7614083056d83681876"
-    sha256 cellar: :any,                 arm64_sonoma:  "1e7c95c935dc4b8df3aaf6119b16fbfd4aac0f6a502bb22cc13d9f64694bd369"
-    sha256 cellar: :any,                 sonoma:        "0325acefb705f5c27fb7b40153304ebc513976c17cdcd5c90b99ff83242de6ab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d66a67aa87689f618f972e8764dfec8075450cfbc5e8706254e32ef65049a86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "247594ddb1b34948f45acc2e02b7c3ed1f6d68d79d5048cd98da9759675bcf35"
+    sha256 cellar: :any,                 arm64_tahoe:   "4255708e576d6b2c498248df030073c028cc48b9c7952bc07ed0f3affc702e01"
+    sha256 cellar: :any,                 arm64_sequoia: "1c4bd2f4fa99881269417869070c3bbc40d0a2ccdc2c2f7f862bbd5178dd2cdd"
+    sha256 cellar: :any,                 arm64_sonoma:  "8290140206a01587132933168b983084dce61be37b8d3b28541d7b4c61cfcee3"
+    sha256 cellar: :any,                 sonoma:        "ccaa971dc8b4ad10998a0b7998a9e1fdc805196300f0827abc326e35cc821719"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40e68b9edb4a76ebef6d619b69b13e70aa9951769a858ff6797456eccf182b74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67709387cbaf02f41f5b5ad3088c0b23e806941e82ae5a7f4dd282fd45e6c7cb"
   end
 
   depends_on "cmake" => :build
@@ -31,6 +30,11 @@ class LibtorrentRasterbar < Formula
   conflicts_with "libtorrent-rakshasa", because: "both use the same libname"
 
   def install
+    # Work around Homebrew's prefix scheme, which makes Python's reported
+    # site-packages path absolute and outside the keg.
+    site_packages = prefix/Language::Python.site_packages("python3.14")
+    inreplace "bindings/python/CMakeLists.txt", "${_PYTHON3_SITE_ARCH}", site_packages
+
     args = %W[
       -DCMAKE_CXX_STANDARD=14
       -Dencryption=ON

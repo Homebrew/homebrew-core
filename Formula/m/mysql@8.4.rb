@@ -6,21 +6,20 @@ class MysqlAT84 < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.8.tar.gz"
   sha256 "be9d96cdf87f276952a2cdd960f106b960a8860e46c115ed39c1b5f2e0387a20"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.4.html?tpl=files&os=src&version=8.4"
     regex(/href=.*?mysql[._-](?:boost[._-])?v?(8\.4(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256 arm64_tahoe:   "6cdfe342dc41fbd745c2852632b06066615d0cdfee7d1203d08d713e8e6fe420"
-    sha256 arm64_sequoia: "25a0f96b86fa0e45209498f8adbb8219024bd5e0efdd53efe8dc06efa427879a"
-    sha256 arm64_sonoma:  "1a650a3cff377ab30924bd2a9d67dc3ff598a1c22898fe719b42457a14c98320"
-    sha256 sonoma:        "c9de140d9777cd3e240d9872829321a44f4d5da0da12bedef4eabc034ea9fa9b"
-    sha256 arm64_linux:   "58064211c9d12d5a76ee4dffa23b0170f759013573365156eb26b6ee699380db"
-    sha256 x86_64_linux:  "21e98dfa0aeb46d7590ec7c68f678fceba70652c80e9319f0e7a9498948e79f5"
+    sha256 arm64_tahoe:   "7d3af0d53b05621cfbe07095e6699950c13ff5a16d81f5412437bb5a8b224b70"
+    sha256 arm64_sequoia: "5dfd4e94a2e60017b618c0db669749cb74bb27bd30d9b3dc7c2940c28074db5b"
+    sha256 arm64_sonoma:  "099478d25440a5ed312c1790cf7ac162fc3c1159526fd75e0bbf4f8fc92f6efb"
+    sha256 sonoma:        "2cf37cbf47fe6eea64fba33618d0ddd848d0a1f8c3ac3749075138c1346a7ff8"
+    sha256 arm64_linux:   "74116286da848a0de5f8d86fabe47c670a7b960e7598d82a1a786c7f9e2d8284"
+    sha256 x86_64_linux:  "8cff172f2d4c7da6b320f8042c561a2a831c6a3c710ad92974a3ca9ebbf9008a"
   end
 
   keg_only :versioned_formula
@@ -36,7 +35,7 @@ class MysqlAT84 < Formula
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "protobuf"
-  depends_on "zlib" # Zlib 1.2.13+
+  depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
   uses_from_macos "curl"
@@ -78,17 +77,8 @@ class MysqlAT84 < Formula
     keep = %w[boost libbacktrace libcno lz4 rapidjson unordered_dense xxhash]
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
 
-    if OS.linux?
-      # Disable ABI checking
-      inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
-    elsif DevelopmentTools.clang_build_version <= 1400
-      ENV.llvm_clang
-      # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
-      # Undefined symbols for architecture arm64:
-      #   "std::exception_ptr::__from_native_exception_pointer(void*)", referenced from:
-      #       std::exception_ptr std::make_exception_ptr[abi:ne180100]<std::runtime_error>(std::runtime_error) ...
-      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
-    end
+    # Disable ABI checking
+    inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0" if OS.linux?
 
     icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
                 .to_formula

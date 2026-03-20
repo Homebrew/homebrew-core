@@ -7,8 +7,6 @@ class Mabel < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/smmr-software/mabel.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "960ea70939b5cd3392ea1390f43e87e9d2690a03ca8a2e602935dcc381a8df8e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1dd81700a7baedc7bca0ec9daa263464c693f57f56cdcbb57e2def3449207e01"

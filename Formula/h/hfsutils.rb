@@ -11,8 +11,6 @@ class Hfsutils < Formula
     regex(/href=.*?hfsutils[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3d8d4be93e186cb4e5f1aee2e128bbe94f68341e463b3fa86ea5cf15c30d0603"

@@ -6,15 +6,6 @@ class Kcptun < Formula
   license "MIT"
   head "https://github.com/xtaci/kcptun.git", branch: "master"
 
-  # Upstream appears to use GitHub releases to indicate that a version is
-  # released (and some tagged versions don't end up as a release), so it's
-  # necessary to check release versions instead of tags.
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)*)$/i)
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "966cf0596429206627bddde19064d5056c205f7bbaa2f4a8359d7b3e045ee433"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "966cf0596429206627bddde19064d5056c205f7bbaa2f4a8359d7b3e045ee433"
@@ -23,6 +14,10 @@ class Kcptun < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:   "48bd3cba76710b64c3ec47769984b02cc006e79c344af099ce0cfd6233fc315e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c71cd11997ea6c9d0454a6ee452c619b178dfa34918e8f9c909998a138ab423"
   end
+
+  # Purged repository so unable to build on any support OS
+  deprecate! date: "2026-02-11", because: :repo_archived
+  disable! date: "2026-05-11", because: :repo_archived
 
   depends_on "go" => :build
 

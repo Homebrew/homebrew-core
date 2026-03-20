@@ -6,8 +6,6 @@ class Bork < Formula
   license "Apache-2.0"
   head "https://github.com/borksh/bork.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "16ffe8fc8e92fb6b7a8563cf610e9ebef39bb4123b8c092087aba936df7ed44b"

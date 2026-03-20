@@ -16,15 +16,15 @@ class Lanraragi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "062e2b9bc86d06ab91ba517c8b039762e8e26883a660c13264adf53e6f7a6c27"
   end
 
+  depends_on "cpanminus" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "cpanminus"
   depends_on "ghostscript"
   depends_on "imagemagick"
   depends_on "libarchive"
   depends_on "node"
   depends_on "openssl@3"
-  depends_on "perl"
+  depends_on "perl" # perl >= 5.36.0
   depends_on "redis" # TODO: migrate to `valkey`
   depends_on "zstd"
 
@@ -33,6 +33,11 @@ class Lanraragi < Formula
   resource "Image::Magick" do
     url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/Image-Magick-7.1.1-28.tar.gz"
     sha256 "bc54137346c1d45626e7075015f7d1dae813394af885457499f54878cfc19e0b"
+
+    livecheck do
+      url :url
+      regex(/href=.*?Image-Magick[._-]v?(\d+(?:\.\d+)*(?:-\d+)?)\.t/i)
+    end
   end
 
   def install

@@ -1,10 +1,9 @@
 class Tinysparql < Formula
   desc "Low-footprint RDF triple store with SPARQL 1.1 interface"
   homepage "https://tinysparql.org/"
-  url "https://download.gnome.org/sources/tinysparql/3.10/tinysparql-3.10.1.tar.xz"
-  sha256 "5a7f3e789db6671a550ed6280ed4f60a60bea77368da92be68dc7d8d7e230265"
+  url "https://download.gnome.org/sources/tinysparql/3.11/tinysparql-3.11.0.tar.xz"
+  sha256 "011e758a53f31112a8c45700fd6039ae55617f0dac70119d9eddafc03cf68fe5"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 2
   head "https://gitlab.gnome.org/GNOME/tinysparql.git", branch: "main"
 
   # TinySPARQL doesn't follow GNOME's "even-numbered minor is stable" version
@@ -16,12 +15,12 @@ class Tinysparql < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "845cd93f5a701ab4297653c6ef23b242f5a2f4a820f8d61a26c06f2f4e570d5f"
-    sha256 arm64_sequoia: "12534910709b1fc55e9b24854f918b6313da54fa04d9fdd64d4064f2d5e14301"
-    sha256 arm64_sonoma:  "1346694737ed77c3df31cdd8311667510289a56237f0d0aa2383fce61cf32bce"
-    sha256 sonoma:        "b9b30ec6e30f93fabd4b834821daed5ef87d0f4c20cc9ce7b660f7899eab4581"
-    sha256 arm64_linux:   "fd75e5b220b81b87cdd19bf356eab55984992e3327b0dd885a818a9af332d654"
-    sha256 x86_64_linux:  "af5e3d9e4f303698993dde336842e0dd37afc08f701ae88ca86c51693265cc25"
+    sha256 arm64_tahoe:   "de1f0fd87b3725ca75dd651f6b6cccdbade9a49b206f1993dbf5824d74b4f585"
+    sha256 arm64_sequoia: "701428db04e01b79f081710b4ce37fcde5fbb04e3543fe0ec4da813fd7c7c3cc"
+    sha256 arm64_sonoma:  "df83b90506db3849d55757dc6de409064c73bc44b5c725ff2ea2039a9f6f2973"
+    sha256 sonoma:        "bc7f868620da17dd9e847b4f72172296a4a49903ec6ffe1da8453e06591efe9e"
+    sha256 arm64_linux:   "fe643e5cadb33ac30d5b209e596861307d76b11e039a43c8e6e96a9d45f7b972"
+    sha256 x86_64_linux:  "57708914141e8d9b89901d4e7877bb846459f03c44176d7849a06a6b7ca05a40"
   end
 
   depends_on "gettext" => :build
@@ -42,6 +41,23 @@ class Tinysparql < Formula
 
   on_macos do
     depends_on "gettext"
+  end
+
+  # TODO: Remove patches when fix is in a release.
+  # https://gitlab.gnome.org/GNOME/tinysparql/-/merge_requests/808
+  patch do
+    url "https://gitlab.gnome.org/GNOME/tinysparql/-/commit/1219e5ff4c4ce3afcbc5161baa27ef54153b2a99.diff"
+    sha256 "67f9780f4438906b55c7f295b5f7afde30faef0885f94209e6c52654ea5b75d6"
+  end
+
+  patch do
+    url "https://gitlab.gnome.org/GNOME/tinysparql/-/commit/b139706196da17089dbd0b5ee0f8713d1d50264d.diff"
+    sha256 "16ec2db418b424991fd0c45130ef328ff76d4f21a8e6dbab69bef439fc6d3ab0"
+  end
+
+  patch do
+    url "https://gitlab.gnome.org/GNOME/tinysparql/-/commit/806771f99e42c0ee8c7d9b2f66f5d65241131ce8.diff"
+    sha256 "23b7124ab989e416787d98727f40b291260f786622e4a9d414df403bea7e403d"
   end
 
   def install

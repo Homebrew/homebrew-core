@@ -6,8 +6,6 @@ class Cc65 < Formula
   license "Zlib"
   head "https://github.com/cc65/cc65.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "f920a8752f63358eadceb552629837af0fe7e35461c0d98c0430ede6cda0a4c5"
     sha256 arm64_sequoia:  "55807c89176cd3d4570b3728a7fabf1ac2c7014d11f6aec4ca5ed7fdd58c364b"

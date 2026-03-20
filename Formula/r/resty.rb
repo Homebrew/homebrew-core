@@ -9,8 +9,6 @@ class Resty < Formula
   revision 1
   head "https://github.com/micha/resty.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "822ecff7134608cd2f8b77f018ed5cdfe080ff2246ae16676b878d80e37dfee3"

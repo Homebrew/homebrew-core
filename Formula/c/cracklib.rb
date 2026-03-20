@@ -39,6 +39,10 @@ class Cracklib < Formula
   resource "cracklib-words" do
     url "https://github.com/cracklib/cracklib/releases/download/v2.10.3/cracklib-words-2.10.3.bz2"
     sha256 "ec25ac4a474588c58d901715512d8902b276542b27b8dd197e9c2ad373739ec4"
+
+    livecheck do
+      formula :parent
+    end
   end
 
   def install

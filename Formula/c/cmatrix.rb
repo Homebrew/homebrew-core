@@ -5,8 +5,6 @@ class Cmatrix < Formula
   sha256 "ad93ba39acd383696ab6a9ebbed1259ecf2d3cf9f49d6b97038c66f80749e99a"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3e9a355625f0fde46f71845797d28ee84f3613df8ede85373b754f13ca156170"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4dc801fdcf6bbf449a1b6a73a68c1ab8cfe990de6d9fbcf686c40998cd5c9f31"

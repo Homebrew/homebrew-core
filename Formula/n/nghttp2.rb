@@ -1,20 +1,18 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.68.0/nghttp2-1.68.0.tar.gz"
-  mirror "http://fresh-center.net/linux/www/nghttp2-1.68.0.tar.gz"
-  sha256 "2c16ffc588ad3f9e2613c3fad72db48ecb5ce15bc362fcc85b342e48daf51013"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.68.1/nghttp2-1.68.1.tar.gz"
+  mirror "http://fresh-center.net/linux/www/nghttp2-1.68.1.tar.gz"
+  sha256 "ceb434c1f9dfe2a9d305b6b797786fb9227484dfa88508d14ca1c50263db55d3"
   license "MIT"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "a2d1e55d45369690662a1c729ee2e0261b373f3afc4954666d8c5b6a9898acbc"
-    sha256 cellar: :any,                 arm64_sequoia: "5f1406f8602d219785670c46b8b8426f0bd0d3056e196132ef7cdcdd839c1170"
-    sha256 cellar: :any,                 arm64_sonoma:  "1680f9e557ce6ab597e6ba797c64af7b3d810471334ac83f570bee189c488b20"
-    sha256 cellar: :any,                 sonoma:        "58b8610ecbbf4e5c7e376334b86228a3d80551f275972730a76153cdd3928ff7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "66278dfee59169e7e2054e4490884d2593f3e22b5ab02479c7d4edd05762648e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b398fcfab78f81b200b70dc2b0320694a99e73c50777379f309fa287b4c7bd15"
+    sha256 cellar: :any,                 arm64_tahoe:   "f81a8883531828de7adf70d56055aa62ec0330bd3b36fa137e5fed621660c292"
+    sha256 cellar: :any,                 arm64_sequoia: "477d3f318b64df6e5696dc9c8617d76cf4360b2c9d9f532a8498cefeb9ae90ea"
+    sha256 cellar: :any,                 arm64_sonoma:  "b1bfeb7a05bb626b237d762cd71d4c33134e1718eb46a46b12dafafa438f1346"
+    sha256 cellar: :any,                 sonoma:        "acb8c68c592c42de4982d973a751885ad01e65c88904d919d5965c8e5c0e3c46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "88e1463f0dd01540e92e7db68e01d3fd97a33ba31d78ec4279695266203beda8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c369643d01639747a6af3b3fcc3fd40848ffa29c3e8b3e958bbb0a6f896ab172"
   end
 
   head do

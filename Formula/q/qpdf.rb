@@ -6,19 +6,22 @@ class Qpdf < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fe0fd011dc8311bb3cae11b34341c9c7e067e9ef17c973a19f69b1d20d7460d0"
-    sha256 cellar: :any,                 arm64_sequoia: "850f009fea4ded376f7b5fa4a575b91a491435af2f4f9a52cd009f45a111ee6b"
-    sha256 cellar: :any,                 arm64_sonoma:  "33f1043fce8ded869ea9d1d3d41694eff327780653bba51d73d209556b588cf8"
-    sha256 cellar: :any,                 sonoma:        "15e353a47e6629f5e545bbb84878b034dcc2339c1153ae8452da154123fc3ef5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1153b497aea393021e0fe0f0e07a1e283bb35d06b7159967bdacbf01db720507"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed3fcc5ef9565b5f1cb74c033dbe34f9621b20efeed0949a2af606a6dfdb27fc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e1c5478e15efb7eccf35f0e1464ea0384d4afcd8c6d8347de2dd1ef3cdbd48da"
+    sha256 cellar: :any,                 arm64_sequoia: "ef43a7ee011cdc0f8401a11392270f07c6c1de49dfbcdc516c53a218fd576402"
+    sha256 cellar: :any,                 arm64_sonoma:  "18e956371a6fdc8607834ef6cb7424aac6e925ab72b5621a5517bb1926b66019"
+    sha256 cellar: :any,                 sonoma:        "ae97ea43f6d048aeb39bb4ef894305a6c5181bfc1436e415073add0c0ac93b3f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "017679e381a1b0179fead06203c3fceb0123d239c5443840a2e62e6327d3f38a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "257890275f350e66b25c6cdd5769713d038c41890d4710c644cffc1eb5cc6d66"
   end
 
   depends_on "cmake" => :build
   depends_on "jpeg-turbo"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",

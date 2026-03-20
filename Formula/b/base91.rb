@@ -5,8 +5,6 @@ class Base91 < Formula
   sha256 "02cfae7322c1f865ca6ce8f2e0bb8d38c8513e76aed67bf1c94eab1343c6c651"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3c288d4a7310b87b44e080c9b10ae3f541945cc7ba1e990edd1006df84c6ad9e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c592a7056137ae37fd39f580b4f5b94abb84943d2c9910854ddf149d4099becf"

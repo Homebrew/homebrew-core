@@ -1,10 +1,10 @@
 class Openldap < Formula
   desc "Open source suite of directory software"
   homepage "https://www.openldap.org/software/"
-  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.12.tgz"
-  mirror "http://fresh-center.net/linux/misc/openldap-2.6.12.tgz"
-  mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.12.tgz"
-  sha256 "1716ad779e85d743694c3e3b05277fb71b6a5eadca43c7a958aa62683b22208e"
+  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.13.tgz"
+  mirror "http://fresh-center.net/linux/misc/openldap-2.6.13.tgz"
+  mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.13.tgz"
+  sha256 "d693b49517a42efb85a1a364a310aed16a53d428d1b46c0d31ef3fba78fcb656"
   license "OLDAP-2.8"
 
   livecheck do
@@ -13,12 +13,12 @@ class Openldap < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "8cb64538e7047125ebed0c6e4c3cad8faab9bd88b9c9c7619c2a86df7c61d06c"
-    sha256 arm64_sequoia: "9ac2a75ba7526cf1e674729654a0aeb01b689e365e6d3dfe805a6f1dc709186e"
-    sha256 arm64_sonoma:  "3783fea9b9faeaab9695e1e8119cc35e57cd05752049f29a4e4f5ce59f2eeac7"
-    sha256 sonoma:        "49334307f6719cd0beb84944ff4a909cca9d138f63729e1689ed344de9e5545f"
-    sha256 arm64_linux:   "b84940413640e188179bf85dbf1435402299f3d9c37e6690bfe17b66dc009328"
-    sha256 x86_64_linux:  "1c9d3e5c1c68949711f2a272a420a1e44f6451fbd42a7fe47ed6ca966f7365d3"
+    sha256 arm64_tahoe:   "a7e2d742e8b2d70ab77446b4a596bb10f7efd2ee0589f2eaeec24a37e4c2744a"
+    sha256 arm64_sequoia: "28c2a98c69c5e64adbbbf2da4f3ff4cdea5169277679e26cb5e721c0d9dca513"
+    sha256 arm64_sonoma:  "d1b5d4cf45357617d67c11d4e8830563cca78fff27436ab39030809ff5facf55"
+    sha256 sonoma:        "e2041deb3ff2c7d88578218c3a414f9b870c0f3d3f8a111909ef1c0bdff3cbaa"
+    sha256 arm64_linux:   "5de6229ea5d0fa4844d49d256ad34664b1b0295f8f3a773b78b2fcd32938c737"
+    sha256 x86_64_linux:  "5a958deb06792794bc4ccbca62276d85998cdde566c517d55c127935927e0bf7"
   end
 
   keg_only :provided_by_macos

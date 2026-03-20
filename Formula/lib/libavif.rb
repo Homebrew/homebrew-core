@@ -1,18 +1,17 @@
 class Libavif < Formula
   desc "Library for encoding and decoding .avif files"
   homepage "https://github.com/AOMediaCodec/libavif"
-  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "0a545e953cc049bf5bcf4ee467306a2f113a75110edf59e61248873101cd26c1"
+  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "713e2b998ca0bf5473fe4624afdbc7fa9f6e4799dd414020fe67d56f6997bf4e"
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "63b4d4e52ebf66e819f6fc0c518fb22ec478e407d5f8b50b130ac16dd64ea3e0"
-    sha256 cellar: :any,                 arm64_sequoia: "b054d452e2c1052cde33b729b2b683b92a69411024da1c0616eb7cd2272aa0ca"
-    sha256 cellar: :any,                 arm64_sonoma:  "c8706fb82b2af538a636ae67ccf7610422ff49f57e7e55a037320fd2aef8618d"
-    sha256 cellar: :any,                 sonoma:        "872e29f2f8d23d4e6835f0d255a32971ee7ff26e22030e3d104a4a53a3f5e010"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e13d2879a23634af1a5fbe4f16bd9cb5c40a6fdddfc370ab9c00e1c0e4848546"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae5d0f32ff6f2b1f5c2c5f886c710c14ea2e934945c63c7089eb6cfb5efc53a4"
+    sha256 cellar: :any,                 arm64_tahoe:   "1c56406e359dde4df0875ff0a4436d8e86b85cc98c6210c2348c9b2283be1f9d"
+    sha256 cellar: :any,                 arm64_sequoia: "e98f3ffa71916de475d6684f10099613836a2aa8fd1940c85a3a8aefef9c0b50"
+    sha256 cellar: :any,                 arm64_sonoma:  "957d39eb29ccafd6809b8cd443889d3e262431807b15b4132c7be7b854e48b1f"
+    sha256 cellar: :any,                 sonoma:        "b2fd0142c91bec58b5fe63a2b026de94662483ac6684c5798f34c9e156c19ed3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d97e73d516ef3802aced612e98fd3c853cbba5f0aae22ed52c71e2626e138c2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e6b10839fd213f70c6c64f1e9458a0b0e530455c8e053de2966d1f938f213a1"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +21,9 @@ class Libavif < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

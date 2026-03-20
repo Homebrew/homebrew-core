@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/cli.git",
-      tag:      "v29.2.1",
-      revision: "a5c7197d720daef7d8b9e6174ee78c0743cea166"
+      tag:      "v29.3.0",
+      revision: "5927d80c76b3ce5cf782be818922966e8a0d87a3"
   license "Apache-2.0"
   head "https://github.com/docker/cli.git", branch: "master"
 
@@ -13,12 +13,13 @@ class Docker < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "22f9479c4bf4ab09ce0e07107efeedcd0f141462496a0367e1052ba3d7eec81f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "022cbc5204661a76c5bbdbe2c97d54f1ec65dbef7ddad328d3807978ca7c6ca2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d89c4720fd7f7324b05de6ce7f7b7f64d369057abd7716e4ddec209a9e5dad5b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5addad45cc92ca06a7a700808195549c53a53ce75f1d8c74dea94185ed80d415"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2c07a14258bc121c8b145f19a58d58fc94a0885b1506ce2dcce294222ad749a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c31d41cc1981fc06c01e49ed2e2e7fdbf6635344c2362ae14f5f45009e21ef6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a61c924104b1240b53cfcb88ec04ed228f460d0df17f3c258d8294b7a50bd0d9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce00d76977f8c24e643f8c39f4427065225be9861802b465dbaf374c885df6bd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78e1b23e4e97cb523b5a6ee159e47234e1fcc50d42392ab041e86217c167def3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f59f2171dfd46f5313ae2b348444b321cba92a4549c5e367fdf9eb5342e41b90"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "25f3bd5f4112b0eb6b82350b72a32440bbbd52d220549753671eda1501fb1cf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "083413e120d3181155bd0d13f509b56383eed5d673664c713d38c67bdb0bd44a"
   end
 
   depends_on "go" => :build
@@ -48,6 +49,15 @@ class Docker < Formula
       section = md.to_s[/\.(\d+)\.md\Z/, 1]
       (man/"man#{section}").mkpath
       system "go-md2man", "-in=#{md}", "-out=#{man}/man#{section}/#{md.stem}"
+    end
+  end
+
+  def caveats
+    on_linux do
+      <<~EOS
+        The daemon component is provided in a separate formula:
+          brew install docker-engine
+      EOS
     end
   end
 

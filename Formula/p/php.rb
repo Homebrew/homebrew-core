@@ -2,10 +2,9 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  # TODO: Remove TAILCALL VM workaround in next release
-  url "https://www.php.net/distributions/php-8.5.2.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.5.2.tar.xz"
-  sha256 "cb75a9b00a2806f7390dd64858ef42a47b443b3475769c8af6af33a18b1381f1"
+  url "https://www.php.net/distributions/php-8.5.4.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.5.4.tar.xz"
+  sha256 "c1569f1f543f6b025c583cdc0e730e5c5833c603618613f1aa8e75d1524b8c91"
   license all_of: [
     "PHP-3.01",
 
@@ -37,12 +36,12 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "c5b132c0bf56d68ad6c240ddf72bf610eb41b03a6a60c50b8875ead25263e079"
-    sha256 arm64_sequoia: "265c26d2873a7a016ef3c742ec9690fb804609bdff6c4208bccea6adae85f52a"
-    sha256 arm64_sonoma:  "08f7b891905ba9117ddbe214750ce1fe0f2bcdb685bd1f76500b5377f6f1c585"
-    sha256 sonoma:        "a151f64a4d1f0644ac83383a2b961615397c7449dae4883cfc7ca836ec274b0c"
-    sha256 arm64_linux:   "55698912be71be10f1b43afb645dac4205a01c93b5f245fc5cf160d1a64cc804"
-    sha256 x86_64_linux:  "0a6102245c0810cc990bdb74633f20dad39564fed5bb8042f36fe60aea447ee2"
+    sha256 arm64_tahoe:   "615b22941131ee1495ce9c2ecf241747390d088c818fc049f48444f911b0316f"
+    sha256 arm64_sequoia: "675e99fc9d5bfef8f4e073a511039103c91c3a34581d581952ecfe8c9f90e108"
+    sha256 arm64_sonoma:  "17e819e4675103e915722c015e34d0e86fcf515d493f8ede51295c21f30103d8"
+    sha256 sonoma:        "5116a9682364b6400251fcf0044887a280787876cede5447050ee28248a7a5d1"
+    sha256 arm64_linux:   "b4c59492237e2f366f4e9ebafe14fc74cc39dc2320bb8c505c8f3f702fab3593"
+    sha256 x86_64_linux:  "6373b84c0bde1133b4b865aebe64cbec82bd3944f21b560c9e3160fb80eae502"
   end
 
   head do
@@ -81,10 +80,13 @@ class Php < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -97,9 +99,6 @@ class Php < Formula
               "APXS_LIBEXECDIR='$(INSTALL_ROOT)#{lib}/httpd/modules'"
       s.gsub! "-z $($APXS -q SYSCONFDIR)",
               "-z ''"
-
-      # Workaround to enable TAILCALL VM, issue ref: https://github.com/php/php-src/issues/20546
-      s.gsub!(/("(?:call|bl)\s+)(fun\\n")/, "\\1_\\2") if OS.mac? && build.stable?
 
       # NOTE: `versioned_formula?` conditionals are to make sure correct changes
       # are applied if copied from `php`. Remove dead code when creating `php@x.y`

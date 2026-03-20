@@ -6,8 +6,6 @@ class Xmlstarlet < Formula
   license "MIT"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a8da4979558af0c5679c2cadfac4c5a0a9f851eccd6a3ef74e0475b1dae7edfb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0c422e59ff501221aafa5679bcb5c83703f54c83768c0a144fc80d997b1961d"

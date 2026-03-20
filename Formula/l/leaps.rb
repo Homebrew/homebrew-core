@@ -6,8 +6,6 @@ class Leaps < Formula
   license "MIT"
   head "https://github.com/jeffail/leaps.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "103b30a47094dfd56795de6c70cf5baa989711429147f6db55328529aa2e8823"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "43d3cbf4a3539d7309b2d12ddab84541f1360921b6d67d7b727096998329d952"

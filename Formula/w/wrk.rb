@@ -14,8 +14,6 @@ class Wrk < Formula
   revision 1
   head "https://github.com/wg/wrk.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "006efeee8686cc28a2c7a52afc6e1d21593ff274a6c5a206cc7aec60a756a097"

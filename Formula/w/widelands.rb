@@ -1,10 +1,9 @@
 class Widelands < Formula
   desc "Free real-time strategy game like Settlers II"
   homepage "https://www.widelands.org/"
-  url "https://github.com/widelands/widelands/archive/refs/tags/v1.3.tar.gz"
-  sha256 "8468b6bc0ddb70749c09c5603109ceeb79b95f3602d3aa55ecfad84f8ea82571"
+  url "https://github.com/widelands/widelands/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "e6f3e8f4fcafd367962dbacde80e26fc63afad38cfe26fadba9c92d4a01bd687"
   license "GPL-2.0-or-later"
-  revision 1
   version_scheme 1
 
   livecheck do
@@ -13,13 +12,12 @@ class Widelands < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "4f2cbd089a6fe70dcbdbbb48ed3c36c0e6588d50b04ba7792865dbda6e539dc3"
-    sha256 arm64_sequoia: "e896feb4c4cc20ea17f410588b4335652453941ac7d9548de4a900a07e3fb6f4"
-    sha256 arm64_sonoma:  "dbfc14654014187e99ea8680689b27c74ccf067f9ad7b65011dc246a0f5d729b"
-    sha256 sonoma:        "8c19bd1cf681931a78a0b8683ecd5002156ef343731df648de45ca7dbd74abe9"
-    sha256 arm64_linux:   "5a1efa728ff06f26ead513c821c1a092c237ee1564ae5ce9491a3fb6d1c36642"
-    sha256 x86_64_linux:  "ffa41e2bf59b3e7f5548bcd40b43b1a703d1ae58340027bed5f80e4994e7c6de"
+    sha256 arm64_tahoe:   "e61c9fed2f752bd87cfae05918936c9c14f34cf1c23d2ebe42d7d858cb57a70a"
+    sha256 arm64_sequoia: "7e17bf998e0c713eb41e7431d04d1934e9e13072ae8e015940c38305ec54c5b6"
+    sha256 arm64_sonoma:  "2b1b4a6c64156b8b5b74031e165a71eb386877ba7b962376b59b6152a5ca3a73"
+    sha256 sonoma:        "36eb4c3ee035cebae44213d5c6a76a57b13714c47b70f6aaea44f46badf00295"
+    sha256 arm64_linux:   "5d0a8eb18082b2e40898313d7c83f94e06e33c9587037a10ff74130e476847d5"
+    sha256 x86_64_linux:  "eced0f3c4f891673c94286a75b9cf31fdcacc2a370db7045b9983f48ba960bc7"
   end
 
   depends_on "asio" => :build

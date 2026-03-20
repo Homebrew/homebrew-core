@@ -5,8 +5,6 @@ class Tass64 < Formula
   sha256 "9d83be3d23a2c55e085b7c7a7856c2f96080447ea120a6a8c21a217ed76427f0"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "LGPL-2.1-only", "MIT"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03b1af6642d7196b136bc4b001706670f3c390c8b20c241b257a2d3b06f750be"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d23f98e527d005deb40dd737df7e79ddcaa192953a55effa2fbaa9907b0ce9cb"

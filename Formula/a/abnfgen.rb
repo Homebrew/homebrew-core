@@ -10,8 +10,6 @@ class Abnfgen < Formula
     regex(%r{href=.*?/abnfgen[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "eab87d7376a80c7f80ea531c0d416ffd17c8382339891c38158763e67cab67e3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e2396295b6a6b0952355321d37830f2a2f42b2b2deda9a7ec9162d7f224f0c98"

@@ -2,8 +2,8 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/refs/tags/v9.1.2100.tar.gz"
-  sha256 "5042505291ff23f8388013b48c034dea13f4eea322880d077b0ce7c8210bd618"
+  url "https://github.com/vim/vim/archive/refs/tags/v9.2.0200.tar.gz"
+  sha256 "8456b6e7688e742df5df0498f80081a0ec323c0c213d4565dd5d41aff4cd5c9d"
   license "Vim"
   head "https://github.com/vim/vim.git", branch: "master"
 
@@ -25,17 +25,17 @@ class Vim < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "24dcdc713a9bb052b14b1ba5518c56238e1840e55a5ddee0b4a7804b67fdf2c9"
-    sha256 arm64_sequoia: "0f02877d2fd160ac5f343060cf365593dbcb0bcb7550552f450f009d053aa893"
-    sha256 arm64_sonoma:  "95718156457b88800e322a65f1dff0cf43a1464b4c267c54f25b43fa10927972"
-    sha256 sonoma:        "13bbe67da85885050615587a6d5593ff9b929627aa55066871972afa06460502"
-    sha256 arm64_linux:   "9e37841b13cb15f92e1a8f46343b7e2da4687f8cdd8dd01b2f17f4d9aef47e49"
-    sha256 x86_64_linux:  "46b2beab009da10ef090c5f32f42f52504866b29ea008c251ae2402f7c7016e6"
+    sha256 arm64_tahoe:   "e1f448bb0f1d3315648d525edfb0078de7c04076a3f763f0bb1ceb51076506d4"
+    sha256 arm64_sequoia: "bb5eb97a86719dd222584a57dd3fb80d6bee92727e4e110067553bdaa7d7449d"
+    sha256 arm64_sonoma:  "f5d2d03ea5b3fcf0254ed20bb0b816b5bb88584036ff2a3cc89b4fce64675eed"
+    sha256 sonoma:        "850671d7d54d985ca2bfaa5be8bed5ee5e4acc4d94d940956f34bb5859903cd1"
+    sha256 arm64_linux:   "61b6a483ccac2face468eddf2b0b452319f1bde1ecc73829cd26fa781838cde2"
+    sha256 x86_64_linux:  "bcea480abe83669a34aa9864ab7c7afc259c7bd43e188ea2d439af260a7d571a"
   end
 
   depends_on "gettext" => :build
   depends_on "libsodium"
-  depends_on "lua"
+  depends_on "lua@5.4" # Lua 5.5 doesn't work for now, see https://github.com/vim/vim/issues/19639
   depends_on "ncurses"
   depends_on "python@3.14"
   depends_on "ruby"
@@ -83,7 +83,7 @@ class Vim < Formula
                           "--disable-gui",
                           "--without-x",
                           "--enable-luainterp",
-                          "--with-lua-prefix=#{Formula["lua"].opt_prefix}"
+                          "--with-lua-prefix=#{Formula["lua@5.4"].opt_prefix}"
     system "make"
     # Parallel install could miss some symlinks
     # https://github.com/vim/vim/issues/1031

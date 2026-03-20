@@ -14,8 +14,6 @@ class Flawfinder < Formula
     regex(/href=.*?flawfinder[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 5
     sha256 cellar: :any_skip_relocation, all: "ef4160192048471cc1fdda78cbfbda11725e3a826118988878a286f08a71d9a0"

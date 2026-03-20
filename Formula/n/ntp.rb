@@ -11,7 +11,7 @@ class Ntp < Formula
     regex(/href=.*?ntp[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "67f312e7b755756bb74869269cb8b4fd9e582e6f265be0730c39d541422b54cd"

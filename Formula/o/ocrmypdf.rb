@@ -3,17 +3,17 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://ocrmypdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/1b/25/7e1e88a4efbfb4ed7569894da9454503f0b30ddc9d7436378e179ab45196/ocrmypdf-17.2.0.tar.gz"
-  sha256 "ad4dc266f6cf63608716707a76c54177687c422c75ee301d454b3d9b1d9b434a"
+  url "https://files.pythonhosted.org/packages/fa/fe/60bdc79529be1ad8b151d426ed2020d5ac90328c54e9ba92bd808e1535c1/ocrmypdf-17.3.0.tar.gz"
+  sha256 "4022f13aad3f405e330056a07aa8bd63714b48b414693831b56e2cf2c325f52d"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "80084158e205e37d8d3dd295ea9764f3823a722e83d2a201052a3554de7c0e2a"
-    sha256 cellar: :any,                 arm64_sequoia: "9ffe4f0c067d3f5ce05b3616bf2e7e7aa83c87bd95782a8f6a97376c0d6a76e6"
-    sha256 cellar: :any,                 arm64_sonoma:  "302647977521430f6507a754349d3efae1f036432226f9b68fc2fae2f5602bf1"
-    sha256 cellar: :any,                 sonoma:        "9c769a0611fc0193e3d0b403be6a000d472f68378474c56f46576585b72c5f04"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "50b65ce27d48907758e5f0480d1fb61a36c98b9b7c6785145850e77ba5f0890e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d07a59e57226fc7cc7f586ad9fec7ca7e9490d1039f00ae7992af1a649cd0a0f"
+    sha256 cellar: :any,                 arm64_tahoe:   "eda3d600cb52fdf1d609a10ba0d40a10aed7b7e8febfc3bea40ebf01147b5e80"
+    sha256 cellar: :any,                 arm64_sequoia: "d2aac374e80d2b64c7537b79de336512e5911a05bbc50c156cb3224d2e0c705f"
+    sha256 cellar: :any,                 arm64_sonoma:  "2e8fcac4f5946532d984dd50a94bd29c29735dc43687ba8e9197851edbb8be91"
+    sha256 cellar: :any,                 sonoma:        "0dde28a9811894e67b5cc580fd3673b5acf069bb06c474018a648529c2a9ec44"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "39dc07e9e04c13c6459d041d741c0cad11e3e81f70f2aa53aaacd13c10d682f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db735e75ae9af67a9beea2450959f8b215daa4b37c0f5c57db6afc0e523c2d68"
   end
 
   depends_on "cmake" => :build # for pikepdf
@@ -66,8 +66,8 @@ class Ocrmypdf < Formula
   end
 
   resource "fpdf2" do
-    url "https://files.pythonhosted.org/packages/e9/c0/784b130a28f4ed612e9aff26d1118e1f91005713dcd0a35e60b54d316b56/fpdf2-2.8.5.tar.gz"
-    sha256 "af4491ef2e0a5fe476f9d61362925658949c995f7e804438c0e81008f1550247"
+    url "https://files.pythonhosted.org/packages/74/3f/b23cf3a1943905645f44df95de8289770e69f85c9442abf89f93dc5c4a74/fpdf2-2.8.6.tar.gz"
+    sha256 "5132f26bbeee69a7ca6a292e4da1eb3241147b5aea9348b35e780ecd02bf5fc2"
   end
 
   resource "img2pdf" do
@@ -101,8 +101,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pi-heif" do
-    url "https://files.pythonhosted.org/packages/c5/0b/0c97767b8171c7f9f0584c0a70e7b86655a1898c2f5b8ae04a69f4e481a1/pi_heif-1.2.0.tar.gz"
-    sha256 "52bbbc8c30b803288a9f1bb02e4575797940fdc1f5091fce743c699e812418cc"
+    url "https://files.pythonhosted.org/packages/c5/e2/ec73060f02e328bdeb86cb13c6717916fcb530c5fa595d5d48e4b831c675/pi_heif-1.2.1.tar.gz"
+    sha256 "a5c5fd4d92b4f0541d8629eaadd95403ccdfd1b7f2ddced52844fa610713685d"
   end
 
   resource "pikepdf" do
@@ -121,13 +121,13 @@ class Ocrmypdf < Formula
   end
 
   resource "pypdfium2" do
-    url "https://files.pythonhosted.org/packages/99/23/b3979a1d4f536fabce02e3d9f332e8aeeed064d9df9391f2a77160f4ab36/pypdfium2-5.4.0.tar.gz"
-    sha256 "7219e55048fb3999fc8adcaea467088507207df4676ff9e521a3ae15a67d99c4"
+    url "https://files.pythonhosted.org/packages/fb/f6/42f5f1b9beb7e036f5532832b9c590fd107c52a78f704302c03bc6793954/pypdfium2-5.5.0.tar.gz"
+    sha256 "3283c61f54c3c546d140da201ef48a51c18b0ad54293091a010029ac13ece23a"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/74/99/a4cab2acbb884f80e558b0771e97e21e939c5dfb460f488d19df485e8298/rich-14.3.2.tar.gz"
-    sha256 "e712f11c1a562a11843306f5ed999475f09ac31ffb64281f73ab29ffdda8b3b8"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "uharfbuzz" do

@@ -31,8 +31,6 @@ Layout/EndAlignment:
 Layout/HashAlignment:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table
-Layout/IndentationWidth:
-  Enabled: false
 Layout/LeadingCommentSpace:
   Exclude:
   - Taps/*/*/cmd/*.rb
@@ -149,6 +147,16 @@ Style/FetchEnvVar:
   - Taps/*/*/*.rb
   - "/**/Formula/**/*.rb"
   - "**/Formula/**/*.rb"
+Style/OneClassPerFile:
+  Exclude:
+  - "**/*.rbi"
+  - Taps/*/*/*.rb
+  - "/**/Abstract/**/*.rb"
+  - "**/Abstract/**/*.rb"
+  - "/**/Formula/**/*.rb"
+  - "**/Formula/**/*.rb"
+  - "/**/developer/bin/*"
+  - "**/developer/bin/*"
 Style/FrozenStringLiteralComment:
   EnforcedStyle: always
   Exclude:

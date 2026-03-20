@@ -11,8 +11,6 @@ class Launch < Formula
     regex(/href=.*?launch[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d2a2a782722ff22b6b83014e8d62aed20453c44ec04cbe797daa4e2cec79882e"

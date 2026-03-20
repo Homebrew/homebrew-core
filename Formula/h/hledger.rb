@@ -15,12 +15,13 @@ class Hledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "25b1afe20cd127c6254ac425978c081aed7a3f82d5e0ffa59d8429a77bef18e2"
-    sha256 cellar: :any,                 arm64_sequoia: "eb1f29d270f5f4911cac26bbbce2945f345b72746ba28896c0859e910aabdfdb"
-    sha256 cellar: :any,                 arm64_sonoma:  "8c69ef24ba81563121c82e59f50ba8ba43a0cc6a2feca19584e822790ced14bb"
-    sha256 cellar: :any,                 sonoma:        "5fbaa764c63753f15bc9d2187627480da5291ece0774a3733d57ad0810b286a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f35009c7cf2cd47b059cdabfb1690347d77205ffeddf895e741fd7359ac2eef6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9d97cca9eb369c60dfdf2570b28c35a083b66dd8cc0c1bbb22dc92f7fa89f37"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e9e4a48a878f750c0c07ccc78dd0a69f45c487fc2cced59f2d994eaef667ed95"
+    sha256 cellar: :any,                 arm64_sequoia: "5adceee6935800db30e43c4d18f7d17a4756edf3863f97becd4a79143e3ff325"
+    sha256 cellar: :any,                 arm64_sonoma:  "cbc43c16daf43e39ce3d3cc697edea5a8bb61bd0ca18a45561bb03d716ac1a40"
+    sha256 cellar: :any,                 sonoma:        "6d0291a8eb31bc0cbad40e07ad635058537cb68ea08d68645013dcb0bf411c44"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "45868c81b64a86a9ff5145f1c65a80c17c1c4bf2f2f27cad99589dac947e6f0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c83d020d0f12549ba2caa4a6f076b201acf3cc6c4ae046fde1f68661d0433d29"
   end
 
   depends_on "ghc" => :build
@@ -29,7 +30,10 @@ class Hledger < Formula
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "stack", "update"

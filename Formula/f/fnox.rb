@@ -1,18 +1,18 @@
 class Fnox < Formula
   desc "Fort Knox for your secrets - flexible secret management tool"
   homepage "https://fnox.jdx.dev/"
-  url "https://github.com/jdx/fnox/archive/refs/tags/v1.12.1.tar.gz"
-  sha256 "e3fff95624c37902f73dc3960a46fa50358c735ca4a50e7a04429462219d8f54"
+  url "https://github.com/jdx/fnox/archive/refs/tags/v1.18.0.tar.gz"
+  sha256 "c22ff2d6fc43f4f049de5b5768f97961e03387e67b371dcd8ad0b76b81d4409e"
   license "MIT"
   head "https://github.com/jdx/fnox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6896a7c7c78f797f4a01fe4eb4b8372fed1b109275f169cbc5cbd1f573718b02"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb23788f735f78e8f313c381dbf532f7d4cb4781699c9955d259e9b89391a009"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b638824dd0ecce6d34467a6224da190bb4a3a7913edd4df88c782b1ea55039ea"
-    sha256 cellar: :any_skip_relocation, sonoma:        "90a45a730939092f52a87d4fffc2dcf8ecfe8c738e9c50bd041f090822a94aba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4378d8f7e7af7c035a2db8ba8dfaa2e4196ec052cbfdbdedacd47e556c41f656"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "897673037f39bcf3c5f31c2c11ee75bbe9f64e18c74f451e41d9baa1b8da79a0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "672f13afba77f471c1dc64abedc0f5f1512a654e84246f78b6e2efdbabbc4fdb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "728db498c8ce8b79baabbb78ee2ba2ad4289c4c009afd0cb7b9c8706351bfd3f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f50e1bebeb4f2ec7015d6a295aafa30a3b0704f758efe875d246b8c1023a905"
+    sha256 cellar: :any_skip_relocation, sonoma:        "44180be33573f7ef7aba14e75cabef48acfd1228c7514a2cd94d6419cdb0bf7b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b3e274da24c6d42e3781ea937742fe1f89e9c66067a39ee4d7ebcf663dbffe5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b27da3933ee11a45e9619974ca702cf8beaa2278b91dd8765d97810de480ade6"
   end
 
   depends_on "pkgconf" => :build
@@ -22,6 +22,7 @@ class Fnox < Formula
 
   on_linux do
     depends_on "openssl@3"
+    depends_on "systemd" # libudev
   end
 
   def install

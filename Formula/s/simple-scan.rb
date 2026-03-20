@@ -5,15 +5,14 @@ class SimpleScan < Formula
   sha256 "9ae8d4151ecaf95845eb9f99b436d579c838f2cf02763fba3bc03780251be334"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256 arm64_tahoe:   "5fe085c85f2967327041afa613d8016352f19156b098d67ca010148a217be3ff"
-    sha256 arm64_sequoia: "d89032a5bf6c0e345c6ddc07fcfdfda8418c7d5a08e9e1d98bdb7b1005442ddd"
-    sha256 arm64_sonoma:  "2227cf61e91dce38d6fe1940f68f3ec0479e2dd4281e0e968d4667e8d45572a7"
-    sha256 sonoma:        "32b1b1a42f0a31b9b8bf40a679405cebcbcd68b7bde435cd0a3cb04470c5fedf"
-    sha256 arm64_linux:   "a4f06e8f35418562c92bcd97ca36a81796c147679c881dcb1bb10aa6c04fad75"
-    sha256 x86_64_linux:  "219f864806981e8005ffe0749d53e4fd8b927da202d5892cecd093f5f52255eb"
+    rebuild 1
+    sha256 arm64_tahoe:   "e4ff2b33c03720942a9e4c85ad6a67aab642a4c0cf4e2610b9d2bdf61ef666a3"
+    sha256 arm64_sequoia: "5d23ebaecaee138bf8a565355a24986fe50d5a4624b51930245cf97e75702f29"
+    sha256 arm64_sonoma:  "24679c9f519ee2748eaef1b614ddfc1323df7d563f469532fde0b7bbf1d23e7e"
+    sha256 sonoma:        "86788fde5e41cbb727c779c41e7b00c6203d131dfa0860aeda940bd2169465b0"
+    sha256 arm64_linux:   "6df30f86f56028f2e0060011a0271f51d224e88226c0bc4c679c907a1cc14ad7"
+    sha256 x86_64_linux:  "e852c24277cf7a2e93d7730ce61de3faf5a0c3488ba26886bf32c71e3d742148"
   end
 
   depends_on "gettext" => :build # for msgfmt
@@ -32,10 +31,12 @@ class SimpleScan < Formula
   depends_on "sane-backends"
   depends_on "webp"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

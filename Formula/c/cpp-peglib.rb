@@ -1,19 +1,17 @@
 class CppPeglib < Formula
   desc "Header-only PEG (Parsing Expression Grammars) library for C++"
   homepage "https://github.com/yhirose/cpp-peglib"
-  url "https://github.com/yhirose/cpp-peglib/archive/refs/tags/v1.9.1.tar.gz"
-  sha256 "f57aa0f14372cbb772af29e3a4549a8033ea07eb25c39949cba6178e0e2ba9cc"
+  url "https://github.com/yhirose/cpp-peglib/archive/refs/tags/v1.10.1.tar.gz"
+  sha256 "3ba50bdc1be5521affc507e9fa589526372f6d7396ec490f706255a2b30d9635"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1faee0c9bfafa9d959755e07b3b67d7cd6cdd6d90044ea73d39b00a85b139dca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e8a5a22292f52bfe919d39d201e60dc711526eae0022c8fc304f6007448fdc3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bc7e6670b936f8d5c3b876ad586274c5368087d430e8cc025d48c4984fd73bee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5b7c05e469149aa8d2e58804ee8077848a568e4b0fa04464b834df1da72c8e03"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c792060f2dc7c50971f47fced6a91ad21ce4b2716370b310f30a152c6ee7336c"
-    sha256 cellar: :any_skip_relocation, ventura:       "bcac68f110273496870596a4b0cdaac43759abc62c03332c5242c938c16d95fb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3dba6d295fb60a0018b6cb8618de1bcc9f0e76560c0b43d63e57f62e9a7a72c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76d939b93adb7280e5a2a7632acb1341317f6a243656e51be439b5d5cb0566a0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "610891314ff4a9a889aacf9135d223a3fbdf25212cb0c549b567467cfeaf10f0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "db9d3ab13ddb41c1e9bbcdfde53b2beed27c106276f5add43c333caaaf3bafe2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "48e7d704a75d814454163da99fbc84eb67d1e953577d442756f1c29e65f09759"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6f15164f12722f1166e9672905c04592ad734fc72b94664c0a609d39974af4dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f140706e105477e379e88ff39a30666f922334a8d6f2ecb81d903e0aa9133f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8923edce46cc520ceef3c69bbf9ef3b320fb57b03a117e51627859472b15f05"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Temporal < Formula
   desc "Command-line interface for running and interacting with Temporal Server and UI"
   homepage "https://temporal.io/"
-  url "https://github.com/temporalio/cli/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "b12c08859c91aebb0c01ac37c46add7411d8bf54b9ed3be7f8b72354e6347fb2"
+  url "https://github.com/temporalio/cli/archive/refs/tags/v1.6.1.tar.gz"
+  sha256 "c74d7a3b1999aea3462efd8d773e690e2ea38a010452cee3fab3182c2715e1cf"
   license "MIT"
   head "https://github.com/temporalio/cli.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Temporal < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "22dc4278c3de7eaecb6b91d273cab4edb0a8f20bb75b31b1716fb5e8dfbaa7d0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2598c1c65e04a6240e028a7e89d7daaa03b02f76c374fd4b93ce7ca1f4ea9802"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9f33509c85aa870a809f070efb76756334272f70940814e740ad0ae0e1e91da"
-    sha256 cellar: :any_skip_relocation, sonoma:        "706f0faa139658313c6334860d6ee72e7f837754ed6ca1b1c16e2350876f9043"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c249af0d12b59ac1bcd718c940da9cd546b254e66bdb72facbb0f4da1bb669a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cb174822a9b1d84f53a22e624ee4b5b1934d48ceb27aa801227268fdca4d795"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f0964f6afb165d09f13d7995465d6213a659aec0fb1b83d21ce58c3bf42a0698"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "befcae38b59deb9cd7fae0004da3acbb458a632eaf640c4025c0c6e9087cc1b7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d7e5d1daaaf5cc401135474e557280745545aea6c8d8be80b4995e4b2ee2ea16"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ded10dd64ba06d5dc19f8c9d8fb7a239efe01fa54d4ec17d8f4b5509687ccfe1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "35e650243e7a962595bb4a5cbcb3a03435fdff3c10042316036b8f5af518a530"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d805cf9b2ff1cc3b77685a0ace49d4e0040308268561722c566599a267f491d8"
   end
 
   depends_on "go" => :build

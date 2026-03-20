@@ -6,15 +6,15 @@ class Acronym < Formula
   url "https://files.pythonhosted.org/packages/e3/1a/1a364f93053f9ad0d4f38b5c0078637db484bb4c1388ad0234b85c9d2ca8/acronym-2.0.0.tar.gz"
   sha256 "163cc1630b7c65cbca6426f80e267f5253ea787e17a329d1d55517868897bbf1"
   license "MIT"
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "28f9d722ad4f7ca4cac9b84faf09f19536bebc7e4fe17887cc1666eac6281f47"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f0bf7427caeeb3f33476658bd69bbfebd547df49c90db6a328ebabbbf7b7a78"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "527bcd0322a0b731e280b2f75905a19bccd0e14490123f6f3b57709105eb993d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0a745d5f44b5fb3d34c850e7d391a19c1e938631cf381b10c5374ae8b29524d4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9bfabc3eda08a2f8f3c38ccba43b2cc1d34be7cd0ac0880485f5dcc8c6944ee5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6056bea3ce25ae1105f1de1129a5ca5bbaf133ee2151fd94c841a81062a6fdb5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe9d58a50861621cc1e5cc93adbe8079337051eed85a84a19b1890e34f627b3d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3248848b1b141ad55b49c0b932db4e95f74a6006087b02c1e6aba614e03ed66f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c14f87e7d22b78a0acdfd37325733325242dc5f46f998d752491e89e9b4da53"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e58f08df88a9d4153f9fb31ea0b7d016935b5f65f56f16c60373cb4ca0c15fa4"
+    sha256                               arm64_linux:   "d6d9686539b292e0e0b80e80bb7431c8f60a3a769cf0deb0029ea50e29bf9426"
+    sha256                               x86_64_linux:  "e7a7706a8da238c0a30682d3c65565157ceb6d6f30b54792753ccc3aae0015b8"
   end
 
   depends_on "cmake" => :build
@@ -30,23 +30,23 @@ class Acronym < Formula
   pypi_packages exclude_packages: "numpy"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "joblib" do
-    url "https://files.pythonhosted.org/packages/64/33/60135848598c076ce4b231e1b1895170f45fbcaeaa2c9d5e38b04db70c35/joblib-1.4.2.tar.gz"
-    sha256 "2382c5816b2636fbd20a09e0f4e9dad4736765fdfb7dca582943b9c1366b3f0e"
+    url "https://files.pythonhosted.org/packages/41/f2/d34e8b3a08a9cc79a50b2208a93dce981fe615b64d5a4d4abee421d898df/joblib-1.5.3.tar.gz"
+    sha256 "8561a3269e6801106863fd0d6d84bb737be9e7631e33aaed3fb9ce5953688da3"
   end
 
   resource "nltk" do
-    url "https://files.pythonhosted.org/packages/3c/87/db8be88ad32c2d042420b6fd9ffd4a149f9a0d7f0e86b3f543be2eeeedd2/nltk-3.9.1.tar.gz"
-    sha256 "87d127bd3de4bd89a4f81265e5fa59cb1b199b27440175370f7417d2bc7ae868"
+    url "https://files.pythonhosted.org/packages/e1/8f/915e1c12df07c70ed779d18ab83d065718a926e70d3ea33eb0cd66ffb7c0/nltk-3.9.3.tar.gz"
+    sha256 "cb5945d6424a98d694c2b9a0264519fab4363711065a46aa0ae7a2195b92e71f"
   end
 
   resource "pandas" do
-    url "https://files.pythonhosted.org/packages/9c/d6/9f8431bacc2e19dca897724cd097b1bb224a6ad5433784a44b587c7c13af/pandas-2.2.3.tar.gz"
-    sha256 "4f18ba62b61d7e192368b84517265a99b4d7ee8912f8708660fb4a366cc82667"
+    url "https://files.pythonhosted.org/packages/2e/0c/b28ed414f080ee0ad153f848586d61d1878f91689950f037f976ce15f6c8/pandas-3.0.1.tar.gz"
+    sha256 "4186a699674af418f655dbd420ed87f50d56b4cd6603784279d9eef6627823c8"
   end
 
   resource "python-dateutil" do
@@ -54,14 +54,9 @@ class Acronym < Formula
     sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/3a/31/3c70bf7603cc2dca0f19bdc53b4537a797747a58875b552c8c413d963a3f/pytz-2024.2.tar.gz"
-    sha256 "2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"
-  end
-
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/8e/5f/bd69653fbfb76cf8604468d3b4ec4c403197144c7bfe0e6a5fc9e02a07cb/regex-2024.11.6.tar.gz"
-    sha256 "7ab159b063c52a0333c884e4679f8d7a85112ee3078fe3d9004b2dd875585519"
+    url "https://files.pythonhosted.org/packages/ff/c0/d8079d4f6342e4cec5c3e7d7415b5cd3e633d5f4124f7a4626908dbe84c7/regex-2026.2.19.tar.gz"
+    sha256 "6fb8cb09b10e38f3ae17cc6dc04a1df77762bd0351b6ba9041438e7cc85ec310"
   end
 
   resource "six" do
@@ -70,13 +65,8 @@ class Acronym < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
-  end
-
-  resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/e1/34/943888654477a574a86a98e9896bae89c7aa15078ec29f490fef2f1e5384/tzdata-2024.2.tar.gz"
-    sha256 "7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
   end
 
   def install

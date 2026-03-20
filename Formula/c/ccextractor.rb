@@ -1,19 +1,17 @@
 class Ccextractor < Formula
   desc "Tool for extracting closed captions from video files"
   homepage "https://www.ccextractor.org"
-  url "https://github.com/CCExtractor/ccextractor/archive/refs/tags/v0.96.5.tar.gz"
-  sha256 "821614d7b31d47bf3bf6217a66464b826c0f86d2bcde070b6fba74f54dff55ff"
+  url "https://github.com/CCExtractor/ccextractor/archive/refs/tags/v0.96.6.tar.gz"
+  sha256 "d2bda9d2071ccf7a81a43c10e82ec00899b2a25b391c300e965274f92ad46208"
   license "GPL-2.0-only"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "57424ac4a479d33b9d8e7fcf7daa25547f0a334e62c359c72fe3d564593a5a11"
-    sha256 cellar: :any,                 arm64_sequoia: "b45ed020f9eb17eb5b2c0ca92f271bf527ecd723c0de429f5cfca3b6014f49c6"
-    sha256 cellar: :any,                 arm64_sonoma:  "90394f6c8a27e460e2bcd81402cb63da19315e08c72dfa158b17dd7096b99174"
-    sha256 cellar: :any,                 sonoma:        "b1268962dd74828fe4a82ab2fd96db286a5efc4fc982cea05cd6c38462ab0e18"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "62191c5fdad0261d3f5ccb7f11edd33175de28a4e9d784153c29881c1f8ba979"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2239762cc7c6f7bc3deab365a45b8a68625ba2c26fa96502c9f25d003dfd7f8a"
+    sha256 cellar: :any,                 arm64_tahoe:   "12c08c826b1c250658d66d379f72561580175beefe027cc0c171dffa67eba093"
+    sha256 cellar: :any,                 arm64_sequoia: "0fcdc7c0b826a813a867b827dd893fe2cc37febbf6288f2a5d7b548044d6260a"
+    sha256 cellar: :any,                 arm64_sonoma:  "a852bf9a730bd1551c295ba37541f8f70b39c5f7544a42e292735791a25dffef"
+    sha256 cellar: :any,                 sonoma:        "123f78f64acb113f4d0115ff351399d7f4c7e370b53aed233294b8edf0647cfb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8594c9a98cd6eb8251c1c88cbcea50d1dd4ece4dfe8461664847558e4d3d3f12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0ef2ceeff67d6a30349edf4eeef1e452788f44f0c8d7d880c76cb58ae25a8c6"
   end
 
   depends_on "pkgconf" => :build

@@ -252,6 +252,9 @@ class Rawdog < Formula
     venv = virtualenv_install_with_resources(without: "hf-xet")
 
     resource("hf-xet").stage do
+      # `hf-xet` sdist has an invalid Python source path in `pyproject.toml`.
+      inreplace "pyproject.toml", 'python-source = "hf_xet/python"', 'python-source = "."'
+
       if ENV.effective_arch == :armv8
         # Disable sha2-asm which requires a minimum of -march=armv8-a+crypto
         inreplace "data/Cargo.toml",

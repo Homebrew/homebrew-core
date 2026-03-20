@@ -11,8 +11,6 @@ class Smap < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "fcac3c34ff7362e78d5674837d531780a9b3b0bd54b54b0172f5dd47ba523f9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "76fbb860e3293a917a8c0ea81e911cda57c0af6cb4e8cd89afb5c5063e45676f"

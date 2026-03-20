@@ -1,22 +1,16 @@
 class Libdivide < Formula
   desc "Optimized integer division"
   homepage "https://libdivide.com"
-  url "https://github.com/ridiculousfish/libdivide/archive/refs/tags/v5.2.0.tar.gz"
-  sha256 "73ae910c4cdbda823b7df2c1e0e1e7427464ebc43fc770b1a30bb598cb703f49"
+  url "https://github.com/ridiculousfish/libdivide/archive/refs/tags/v5.3.0.tar.gz"
+  sha256 "de3933bf2fd21300d99fcc6460a8a4a1343ae90b965d6893f044c350bac68c6e"
   license any_of: ["Zlib", "BSL-1.0"]
   head "https://github.com/ridiculousfish/libdivide.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1bcba36eed605054470693093dd47baf69817c8aaa85d9a046e5f665e124fce8"
+    sha256 cellar: :any_skip_relocation, all: "73dd9a2cb0aa33ae2d15a3beeba9b8ff3a5cccca5c0c6d2a41eb77cbb993166b"
   end
 
   depends_on "cmake" => :build
-
-  # include sanitisers for release build, upstream pr ref, https://github.com/ridiculousfish/libdivide/pull/129
-  patch do
-    url "https://github.com/ridiculousfish/libdivide/commit/41c04ea14b9c661e891ef35b122c5cce74837c8a.patch?full_index=1"
-    sha256 "e431c9dd5163d1636dc53e689b33d27f38f9dce674532f8e1df1ff90ae112efc"
-  end
 
   def install
     # Skip `cmake --build`, as this is only for building tests.

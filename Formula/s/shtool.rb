@@ -6,8 +6,6 @@ class Shtool < Formula
   sha256 "1298a549416d12af239e9f4e787e6e6509210afb49d5cf28eb6ec4015046ae19"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "3edcbc54268a95648cc37c6f08b9ccf66968d3a7b8f76966c4038a1559203a56"

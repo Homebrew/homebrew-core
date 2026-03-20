@@ -18,22 +18,24 @@ class CabalInstall < Formula
     patch :DATA
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bbdbd2d24abedde5ad3aab56bf78c13014d7af25ca24b932c93c2ad4ccb5db01"
-    sha256 cellar: :any,                 arm64_sequoia: "0fffcb2447db94c51f83ba808fb6bf5e589a7d681ded946586dcba4d0b6dfb97"
-    sha256 cellar: :any,                 arm64_sonoma:  "e37e0f711065c866c67503915bc2ca93b5c88700937722ea1f2df84e9bae101b"
-    sha256 cellar: :any,                 sonoma:        "8986f33f58368f5b09227b2bcc8fd60537568f08364617e99f20fe30764f6003"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b797af2df63f560d5172e7fb6effda985482b94689cb90c0241578c8922f88a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebe5f10854e5a41d1d2f515f83852605a215cdaf5e22113b5bcd8abbed9958c4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7b5a61167c4730638dd45f0b665ff76c4534b0b6a8d62bc8b5d29627b0150e8d"
+    sha256 cellar: :any,                 arm64_sequoia: "b6c71062345d79fc64f3afaa4b787c2f1b07a618cd6a62524b980007fd3bbb4d"
+    sha256 cellar: :any,                 arm64_sonoma:  "269d4e22fa1e7bfaaa5acdf54578d595bc3d0701a401dddddc7295ed20620736"
+    sha256 cellar: :any,                 sonoma:        "f3785b4fb636a5f0ff0fc3a58d47171716e6e2977996b69a0be37ef20f3c484c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "daa322f3e8bd2937ca8676931992686254023eee825c2262866c893cf0c6a992"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fe0e54f097314c3eeb7a457097b51ff077237c0f7c66dffaac41b876af6ab14"
   end
 
   depends_on "ghc" => [:build, :test]
   depends_on "gmp"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Make sure bootstrap version supports GHC provided by Homebrew
   resource "bootstrap" do

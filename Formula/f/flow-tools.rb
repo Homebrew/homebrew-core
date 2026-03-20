@@ -5,27 +5,22 @@ class FlowTools < Formula
   sha256 "80bbd3791b59198f0d20184761d96ba500386b0a71ea613c214a50aa017a1f67"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "2204560fae3ac7eff92549b4fbfc7475fd3ea527ab62ef1f0b2b93ce2a778532"
-    sha256 arm64_sequoia:  "f99aa518b7c94faa3be0ea9d263a7de70ef5778f65c5f620cee6b6e03f42b2d5"
-    sha256 arm64_sonoma:   "84db73f5e249e77d5aaef609008c7fcc3d3667262a9e0c1c7f07b14870e31f51"
-    sha256 arm64_ventura:  "c90987ead84d52f84bf1f156cd04ef871b4aa2a47ceeb26dcef0a4c6d97f25fb"
-    sha256 arm64_monterey: "21de46ca9080f98898aaeb06a9b33b0c56c7246dc8f01443939b9b621186fc92"
-    sha256 arm64_big_sur:  "2b3f15c05b798474764d6efa91aa0fb31d8f24fc4291b3c0c37d450a9d15e1d0"
-    sha256 sonoma:         "d2638337270268f5a43d2903f6f1abc422dcbe08d2edc149703b528ace2a383c"
-    sha256 ventura:        "65926d38c6c80db3795420c4693c2ff10f2d0976350bf1ec8df88267e29d4a77"
-    sha256 monterey:       "07a3f8962e183463a3780df8867e6bb5f02d238f550e14eaf9157ba1cb84b0a8"
-    sha256 big_sur:        "871477b9ba37ffd6ff5d85c96cac7602c3df7c420422071ca03bcc296f8f24e7"
-    sha256 arm64_linux:    "61f4c991d614265a39f70712db315f5abc4da60b9d574383fb465e06bd6772b2"
-    sha256 x86_64_linux:   "30934a57a2b7c02704b76e05e81106f7e4aeefab82b7b23ef8f86a368639f74a"
+    rebuild 2
+    sha256 arm64_tahoe:   "c6ac8dfec95def2a25acdf33db6ddd896f473f64c402e415753a316d0eef78b1"
+    sha256 arm64_sequoia: "7e2efd253c92894d3d2a423bc535eb5fea7a8507b677e1346e14cd6cc925aef9"
+    sha256 arm64_sonoma:  "9e5dafcea86e53dc7e880dd4f4a978563e4e5abb7ab226386fca7f1afd40203d"
+    sha256 sonoma:        "9d5da70fb239297657612492fd4448ec29ebd54612fc2e3fc77db0d0802fece5"
+    sha256 arm64_linux:   "86b056849f21682bd1cb1c180e5df2e62790f79717c27f2cc2bd4d09ef3019be"
+    sha256 x86_64_linux:  "6ea0a8b997faf61a95f480149b697f9ee4446674e12bf5deaf34c132a1e314e8"
   end
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -46,7 +41,7 @@ class FlowTools < Formula
   def install
     args = []
     # Help old config scripts identify arm64 linux
-    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

@@ -13,28 +13,21 @@ class Httrack < Formula
     regex(/href=.*?httrack[._-]v?(\d+(?:\.\d+)+)\./i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "6410409541dfb5b45914a08f4c18aec17fbdaa323a72e7d280787a84d7d707e4"
-    sha256 arm64_sequoia:  "49d241f3883e9342da2bc7b3344f3bb4ae0e17fb2bd4f476834dbdaf3c190c6d"
-    sha256 arm64_sonoma:   "38f84248540e95dd51ab69cc3ec049b03b7193e0e4b628e2d1d5ab9d9bc3e56b"
-    sha256 arm64_ventura:  "82366a7496c4dad900d7c5de609becac2493bfaca4101e77b43120450ab9ff4b"
-    sha256 arm64_monterey: "0345ae5cd642cad43051144018ad7716f91ba9c2a7b94f3068c5b7c855a6e8ba"
-    sha256 arm64_big_sur:  "1e2db8b0a5afa31857870b780957c99975f68248c8a7e2826b4b3e9ccb1b4a64"
-    sha256 sonoma:         "f0411219cf957c47ad4e80e468fb1dc758b4042b83b6ba5550022b2d12469c6e"
-    sha256 ventura:        "ce79d5a831a8a5162a84e447625330038f98ea4797b5d6ad079198c5943ea654"
-    sha256 monterey:       "98b7f4c73a1bb5f531bdd455942ceb00226068ec7bf5f32fd8a45b01f9cbb482"
-    sha256 big_sur:        "01c1cb899db03ce18211dc2014af7f9a2592b61b32038540a8d8e5e7e40b9386"
-    sha256 catalina:       "58d9d2b9cee7fd5e4d3faad7620def7aa029f81b03d92a4150b5269fc38ea963"
-    sha256 arm64_linux:    "89bf73e6fa218309a7a07a8fb6ed1b6a6fd0f5c7928ef2dcea53ba97d25670ea"
-    sha256 x86_64_linux:   "b7688c49793f0dab8cd4ec29ec2ac3ecb978d6f15067d0806f9bbc315bdb08f1"
+    rebuild 2
+    sha256 arm64_tahoe:   "9b8bc548b4e0708efd7b6f777f8b6b846d8322c1ba96266f435ac88b376a858d"
+    sha256 arm64_sequoia: "59e6bfe01422fe49d1e1bca05c5074a243e53c99bee036b2fce99b8497860b8a"
+    sha256 arm64_sonoma:  "95a7011456d25c7d3bb2c2c1fbf2f2ef07798168e57ebac55f0e935a71210918"
+    sha256 sonoma:        "5b17229775834bfbeccbf828c4f502ee76c4158e5362226a885c8b32c7a5136f"
+    sha256 arm64_linux:   "5ab4f3d92a85acb8991909cae49edcfa1381941d92708632d871afda9e154c90"
+    sha256 x86_64_linux:  "8d0665d92f867729256ebc7c6877e4fabe66d99aa2dcbff3f6cb4c3160f419d7"
   end
 
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do

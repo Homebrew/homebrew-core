@@ -1,22 +1,18 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
-  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/refs/tags/9.10.0.tar.gz"
-  sha256 "9f4ec5cddf67af2c7aa9b380b23fe22c4b11e2109f2cbaa1314bdf3570749a4d"
+  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/refs/tags/9.11.2.tar.gz"
+  sha256 "21352230bf0e4c01fb4da1959a7338e21a3150ca5641eb2328abfc749fd32e77"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "ff869cf19aa55a6aa7d3433e576680be52cb95ff6f80062ab53da763eb39200b"
-    sha256 cellar: :any,                 arm64_sequoia: "79cdb8d2ee6df0fe49582194dc69a310a5491ac0602e27c54b75b182fa8e8973"
-    sha256 cellar: :any,                 arm64_sonoma:  "2a8d8216335c12f14f3285f3fc0193c0b1b72a6ba2987c4da3a5aeb34e0fc978"
-    sha256 cellar: :any,                 sonoma:        "f550eacee245b32b6079af6f4e5625ace1791940bf00b062c9ce98121ca7e564"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5329e9fb644bf34ed2ec521ebfbddb67339d7574d0021fefa5ab163a25834a5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09f5fe1db04b31f5e63c071b9071f9e8bf843f8ddcea109c95a6d5f2c7ec9748"
+    sha256 cellar: :any,                 arm64_tahoe:   "b0aa875aad744729cb35b5d07e6d4f114fdfa56d547a671ca89b37f83f2aa2bc"
+    sha256 cellar: :any,                 arm64_sequoia: "b2481c1fc9bff8698b47cd14f04758fd3d692bb910fbf5d04bca98edc1ff3663"
+    sha256 cellar: :any,                 arm64_sonoma:  "8e4910e79afc071a151ae018453987b45aa19ca4b45df8bf68417d010043ab48"
+    sha256 cellar: :any,                 sonoma:        "1860be73a277dd90ac3761230de3c903df37bbcc37e19fc7f4391c56a31dec21"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0059589a36a2a7bec959346f8ce478586c06a5d8bf6303fa845d87498cf069ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b464231f8052b9d51d4b3da74de076e5a93981dc60298c13cb2cac0c00ab1fd1"
   end
 
   depends_on "boost" => :build
@@ -32,19 +28,6 @@ class VowpalWabbit < Formula
 
   on_arm do
     depends_on "sse2neon" => :build
-  end
-
-  # Reported at https://github.com/VowpalWabbit/vowpal_wabbit/issues/4700
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/vowpal-wabbit/fmt11.diff"
-    sha256 "15f6f9013715bd1dc33456394b3f464aed863ef726479bb272a2f92db2ee7ea0"
-  end
-
-  # Apply open PR to support eigen 5.0.0
-  # PR ref: https://github.com/VowpalWabbit/vowpal_wabbit/pull/4720
-  patch do
-    url "https://github.com/VowpalWabbit/vowpal_wabbit/commit/1c8a86786f415d44a001e64ba823c5f3e80f48a0.patch?full_index=1"
-    sha256 "035973d7b49ac3cf266700c4777950b2b0ded095114873110b75467bfe3c2199"
   end
 
   def install

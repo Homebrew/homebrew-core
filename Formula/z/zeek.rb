@@ -12,12 +12,13 @@ class Zeek < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "20445c8a927c7800ebb1018f8bb8d35eba01dae0a64e67bbe817e3b499dcbee9"
-    sha256 arm64_sequoia: "483bc41603ebbf4eddd090954a0ad02941a022eb4db8e6196d274962e99c6c6b"
-    sha256 arm64_sonoma:  "15b8426a1e7f6cdfb7d0a8c8be1cd220f579d4a2a13b9f1f62841c78cee9bf34"
-    sha256 sonoma:        "503f98cf7e8f4b9908b358bfa7b4efb0b83c687d560fe76026d3f92e31e6a8b1"
-    sha256 arm64_linux:   "47068489ef73b07cbc7a5a4fc2a59ab9e093045fb4daa5188b98c5bbb73d803f"
-    sha256 x86_64_linux:  "20fcadcb2d359d4ab19ce99850a6052c3f6a59a57507df4b987f303e0894cb6c"
+    rebuild 1
+    sha256 arm64_tahoe:   "444fa891df006c4513561272d00eb7c7a07e98c6504637e8fe265be18c5a9a22"
+    sha256 arm64_sequoia: "33189a6424cad59aa69fc9f15327d8c742761015ee15e34bbb475a404933e449"
+    sha256 arm64_sonoma:  "834f4180afcbbd36d0b5bc60e77f0dab14c10a5bc66cc514a4e463238733a5e1"
+    sha256 sonoma:        "6b331685a5819570105c8c5d37c68cfe4840ccf6b8b70d4d2f7a005e11035950"
+    sha256 arm64_linux:   "0b99912e2ce0c49354f6af8010d29cf35238304c70bebb81b6a0db296af4011c"
+    sha256 x86_64_linux:  "20566003c46777f2c2b6c1eaef8630bd6034f20e3350e99625c6ac82a90defde"
   end
 
   depends_on "bison" => :build
@@ -26,6 +27,8 @@ class Zeek < Formula
   depends_on "swig" => :build
   depends_on "c-ares"
   depends_on "libmaxminddb"
+  depends_on "libuv"
+  depends_on "node@24"
   depends_on "openssl@3"
   depends_on "python@3.14"
   depends_on "zeromq"
@@ -60,6 +63,8 @@ class Zeek < Formula
                     "-DPYTHON_EXECUTABLE=#{which("python3.14")}",
                     "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                     "-DZEEK_LOCAL_STATE_DIR=#{var}",
+                    "-DDISABLE_JAVASCRIPT=off",
+                    "-DNODEJS_ROOT_DIR=#{Formula["node@24"].opt_prefix}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

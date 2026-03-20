@@ -12,8 +12,6 @@ class JohnJumbo < Formula
     regex(/^v?(\d+(?:\.\d+)+)-jumbo-\d$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 arm64_tahoe:   "448e0b52a33cd8611647ecc701949472f5ef720c473a63664b28ffa481e9beb0"

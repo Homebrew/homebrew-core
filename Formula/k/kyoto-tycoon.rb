@@ -11,8 +11,6 @@ class KyotoTycoon < Formula
     regex(/href=.*?kyototycoon[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "409039aba15f91854558024a2b4b4e7238164950a0f9aaecd576c0414c9b225b"

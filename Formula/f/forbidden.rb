@@ -6,16 +6,16 @@ class Forbidden < Formula
   url "https://files.pythonhosted.org/packages/9b/aa/98fc3ee28aac41cae341a197858ff6af5d79e40dcd45c8a6e37b1fdbfd19/forbidden-13.4.tar.gz"
   sha256 "dc987150b71515810d7ae252895b3ca6e077a8d9b3cbb0d09dfc9797c933a14d"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/ivan-sincek/forbidden.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d21fcb52bada13dd9d0cf51e1d76d8c9aa791f001f51889ce62943bf7768f453"
-    sha256 cellar: :any,                 arm64_sequoia: "b6b3b1d0a4dbf3bb558d841e271abaa1c610274caf4bd7b95767bbf037a32c32"
-    sha256 cellar: :any,                 arm64_sonoma:  "9b75c4162cbe807c469e945e058f76ed35bbf90259a055b6a99ecae07bcebbac"
-    sha256 cellar: :any,                 sonoma:        "38cd1caa2f9c02ed4957ff7519fd10c945a5ddb5cbb8abf564d2a7aa9448261e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b5c5f55da4309ba5621107f839031fa983fee11077e567137e5efc49bde484ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f91cf6f82e3aed050177a1b5dcd57a7fbcba8447ef197373aafe634e721bc73"
+    sha256 cellar: :any,                 arm64_tahoe:   "883cf74585de84135d4b2079183a0654ad0aaf03c5a782cacaec998a8012685e"
+    sha256 cellar: :any,                 arm64_sequoia: "4e1c9a6bf7ce317ac30198503cf5be4f66e8915a14d93702cdd79ab93f591ed1"
+    sha256 cellar: :any,                 arm64_sonoma:  "aebdb274b5b3836ef8af70c0ca1254e606061efed569666cc06bcf5edc04aa5f"
+    sha256 cellar: :any,                 sonoma:        "bde988a5ae9d23dbc8a27a9846b4ee50ef859c09748f293548ecf1f0e77d8fd7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f8becbbb792c9b7d44fde9ce808d553ddb0e46af8876655e0aec1853168ef97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "614219fd73d43c9afe372b9c51c75fd3e6ed167e485bf2b5f600df6b28c8fa82"
   end
 
   depends_on "certifi" => :no_linkage
@@ -44,8 +44,8 @@ class Forbidden < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/1d/35/02daf95b9cd686320bb622eb148792655c9412dbb9b67abb5694e5910a24/charset_normalizer-3.4.5.tar.gz"
+    sha256 "95adae7b6c42a6c5b5b559b1a99149f090a57128155daeea91732c8d970d8644"
   end
 
   resource "colorama" do
@@ -69,13 +69,13 @@ class Forbidden < Formula
   end
 
   resource "pyjwt" do
-    url "https://files.pythonhosted.org/packages/e7/46/bd74733ff231675599650d3e47f361794b22ef3e3770998dda30d3b63726/pyjwt-2.10.1.tar.gz"
-    sha256 "3cc5772eb20009233caf06e9d8a0577824723b44e6648ee0a2aedb6cf9381953"
+    url "https://files.pythonhosted.org/packages/c2/27/a3b6e5bf6ff856d2509292e95c8f57f0df7017cf5394921fc4e4ef40308a/pyjwt-2.12.1.tar.gz"
+    sha256 "c74a7a2adf861c04d002db713dd85f84beb242228e671280bf709d765b03672b"
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/cc/a9/546676f25e573a4cf00fe8e119b78a37b6a8fe2dc95cda877b30889c9c45/regex-2025.11.3.tar.gz"
-    sha256 "1fedc720f9bb2494ce31a58a1631f9c82df6a09b49c19517ea5cc280b4541e01"
+    url "https://files.pythonhosted.org/packages/8b/71/41455aa99a5a5ac1eaf311f5d8efd9ce6433c03ac1e0962de163350d0d97/regex-2026.2.28.tar.gz"
+    sha256 "a729e47d418ea11d03469f321aaf67cdee8954cde3ff2cf8403ab87951ad10f2"
   end
 
   resource "requests" do
@@ -84,8 +84,8 @@ class Forbidden < Formula
   end
 
   resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
-    sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
+    url "https://files.pythonhosted.org/packages/46/58/8c37dea7bbf769b20d58e7ace7e5edfe65b849442b00ffcdd56be88697c6/tabulate-0.10.0.tar.gz"
+    sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
   end
 
   resource "termcolor" do

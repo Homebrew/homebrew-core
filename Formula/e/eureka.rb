@@ -6,8 +6,6 @@ class Eureka < Formula
   license "MIT"
   head "https://github.com/simeg/eureka.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:   "a6de6aac51a1f6070476d08477d227d50b78ffd6b4c6a0d5e2d49b4676ca8db8"

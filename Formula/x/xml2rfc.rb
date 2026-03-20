@@ -3,19 +3,18 @@ class Xml2rfc < Formula
 
   desc "Tool to convert XML RFC7749 to the original ASCII or the new HTML look-and-feel"
   homepage "https://xml2rfc.tools.ietf.org/"
-  url "https://files.pythonhosted.org/packages/e5/bf/958badb4a48c9a91abf1e4896f81a2164127f86b53b0b099fc024c849584/xml2rfc-3.31.0.tar.gz"
-  sha256 "0a1d4ccc4425aed39b5f0f833a8eb1e0f9e8f1897d3441c3a15877dee36cf484"
+  url "https://files.pythonhosted.org/packages/80/2b/8d90886577883e9d4e4cc60a1d9587923c1b3dc2890a61bdd3176ebf2c53/xml2rfc-3.32.0.tar.gz"
+  sha256 "506d6fb5ff0bc029991c0d7fa8e429863005e2892c1dfe49fcc3e69ee94b76c9"
   license "BSD-3-Clause"
-  revision 3
   head "https://github.com/ietf-tools/xml2rfc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bfc5079eafb3596c0c2c046dbed6bc663ae160525f1f7d998da49972bdd4cec6"
-    sha256 cellar: :any,                 arm64_sequoia: "aa78be6016946fc048b43478498fea5c78774912aaf57bc817f8067fb1f1ac2a"
-    sha256 cellar: :any,                 arm64_sonoma:  "8731eb8d0b415f3dee804a2443a3e1af00367ca184768ca0f63147a6b2620743"
-    sha256 cellar: :any,                 sonoma:        "e8d73c501f10a66e3944ee894583c4b8141cdfc3260a35d4edfb8c5527002561"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa4a72d04f00edd1dd524d0f27fc875f389725edac9066719104c3be5411184c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6da2391412a246c1b9bf7f84786ceb6427e6e7907230805e91d5fa6c4356f8e2"
+    sha256 cellar: :any,                 arm64_tahoe:   "c37d653ea236d71294b7a190f825c52c2d48ab679c3b780cdb122882eab2fa05"
+    sha256 cellar: :any,                 arm64_sequoia: "8e4bcacb99de95af6a3d1f68ae2fb30d59a71616c9dfd044d16a10b3a7db7906"
+    sha256 cellar: :any,                 arm64_sonoma:  "b54b97b6cd393b28f6bcaaa89774875cec06cc8619321c24f5882346bbe510ce"
+    sha256 cellar: :any,                 sonoma:        "e3cd62690e7fb7688ff2a5957acf6d8e8a7c7b87e50db001e19290646770e5d0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3f60bf394e9d03f12429d7b4c4a92aa5ce34b72c2333e04568169846c68a18e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fea41f2283366cbf77526f3c1c6a3d73ba0857843f5d7dc2b41a1414263aa514"
   end
 
   depends_on "certifi" => :no_linkage
@@ -74,13 +73,13 @@ class Xml2rfc < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cf/86/0248f086a84f01b37aaec0fa567b397df1a119f73c16f6c7a9aac73ea309/platformdirs-4.5.1.tar.gz"
-    sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
+    url "https://files.pythonhosted.org/packages/1b/04/fea538adf7dbbd6d186f551d595961e564a3b6715bdf276b477460858672/platformdirs-4.9.2.tar.gz"
+    sha256 "9a33809944b9db043ad67ca0db94b14bf452cc6aeaac46a88ea55b26e2e9d291"
   end
 
   resource "pycountry" do
-    url "https://files.pythonhosted.org/packages/76/57/c389fa68c50590881a75b7883eeb3dc15e9e73a0fdc001cdd45c13290c92/pycountry-24.6.1.tar.gz"
-    sha256 "b61b3faccea67f87d10c1f2b0fc0be714409e8fcdcc1315613174f6466c10221"
+    url "https://files.pythonhosted.org/packages/de/1d/061b9e7a48b85cfd69f33c33d2ef784a531c359399ad764243399673c8f5/pycountry-26.2.16.tar.gz"
+    sha256 "5b6027d453fcd6060112b951dd010f01f168b51b4bf8a1f1fc8c95c8d94a0801"
   end
 
   resource "pyyaml" do
@@ -104,8 +103,8 @@ class Xml2rfc < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
-    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   def install

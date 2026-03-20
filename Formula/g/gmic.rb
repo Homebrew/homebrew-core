@@ -1,8 +1,8 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_3.6.6.tar.gz"
-  sha256 "f93d725d8fd98122483704ec07928c3275a4b9149e81328f4b07e7d6ceb4c919"
+  url "https://gmic.eu/files/source/gmic_3.7.4.tar.gz"
+  sha256 "f9f0e5267b26b3c8e683092df87159173b649e69bccfd1481cacd4d294398adf"
   license "CECILL-2.1"
   head "https://github.com/GreycLab/gmic.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Gmic < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a1dde8e1b0a63ff2eadf598a985a40abfa8bd324eccbbf4094703867145a502c"
-    sha256 cellar: :any,                 arm64_sequoia: "a41210137047a7c047154ae24ffcc4cd3f323f2ec3a9d40d941784b0823d628c"
-    sha256 cellar: :any,                 arm64_sonoma:  "d649edc3cde2add8d636504f72474790e53a4d6e2387b1f766f886b47cd7d560"
-    sha256 cellar: :any,                 sonoma:        "729e8385b33404e551ff09e5f371c1d48806b3df09e1252fa059824c4b675b57"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fdb61b8ff49df8be2e5411156eebac5941968d2f59562ceb80dd8e071e2caa35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aecaca62ce6c15c46a6a2939204c79a9d438161687f80bc0e22bda595616a68f"
+    sha256 cellar: :any,                 arm64_tahoe:   "27f92114ee4fca966d638137a1ab24c2ea52c084df442a0a7beddb59e3e7657d"
+    sha256 cellar: :any,                 arm64_sequoia: "fed9100db6a833088c6959cc586c7f458c960ac7b76c2d9b7804e5002cadeb32"
+    sha256 cellar: :any,                 arm64_sonoma:  "17c8d73d05b5f402ed7c140252bdac73c97f38873e75da0b20ca8f60d5d1ed91"
+    sha256 cellar: :any,                 sonoma:        "569d26a83cc32f84cb5dfd25ca8967acaa2b6edfab4bf7f8e4ceac45fa0137f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8fa97dbd527bffbe73b66de5ef8c1e1a8b8981cbf8e8353500b6ae984189ad6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62346348f2570df11ef9c08068fcddf90bbf5d480abad4b7583b1787cd18d6a1"
   end
 
   depends_on "cmake" => :build
@@ -31,10 +31,14 @@ class Gmic < Formula
   depends_on "openexr"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   on_linux do
     depends_on "libx11"
+    depends_on "zlib-ng-compat"
   end
 
   def install

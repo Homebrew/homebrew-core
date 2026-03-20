@@ -6,8 +6,6 @@ class Betty < Formula
   license "Apache-2.0"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "6e05c82883d813ce98372d8ed15bf2e4b9cd11cd91f36483a07e37ccec8204ee"

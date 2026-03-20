@@ -13,16 +13,14 @@ class SpiceGtk < Formula
     regex(/href=.*?spice-gtk[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "71bee35673de1e8a8025679ea029a208ffc091a5a288a452ee290b6c919cf14b"
-    sha256 arm64_sequoia: "2dd197fba5cb101927055736fe8cf58d926b9a6935b874993c73d5795dff464e"
-    sha256 arm64_sonoma:  "3b95e14628762b0ef7967d239741aaabfcc9a22a32d14979af37969531703bc7"
-    sha256 sonoma:        "8eb8bfcf89f624432c2fe2255d2d15524c97381ffdcc21e4ab580f609bca9ed3"
-    sha256 arm64_linux:   "6dad0e797da0b6177b2186408a79fd20c9b5fa48836be158553d0324de554e45"
-    sha256 x86_64_linux:  "ae75bbd8abc31001852903eb5d0e79afcf5a61255d6fabd13db7dfe7387341cc"
+    rebuild 3
+    sha256 arm64_tahoe:   "7ad0ed6ed58e9398be517b16d9ec4b6082d871e0662b49ae45d0228f4e6ce4ee"
+    sha256 arm64_sequoia: "18e571898c70aeb70242562ae79267b34d749f3677902ab487e0a2284084b9f0"
+    sha256 arm64_sonoma:  "0d25f4afe099a8bc79aaf80258f1640ade5e9f40676bb8e2406e2005e1e8c519"
+    sha256 sonoma:        "d52d67c6476174fc7389f1eb999f649097e2c5560ab1571db1489027393cf8b3"
+    sha256 arm64_linux:   "25e897876c6900507c0cd80e3c20717d2526f1bc2240f81967565c84ed98e42b"
+    sha256 x86_64_linux:  "ca84d516eaae38af2beb7f30ebc30beaa744c6c34e84d7dcb3d9a72417b55918"
   end
 
   depends_on "gobject-introspection" => :build
@@ -56,8 +54,6 @@ class SpiceGtk < Formula
   depends_on "spice-protocol"
   depends_on "usbredir"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gobject-introspection"
     depends_on "harfbuzz"
@@ -67,6 +63,7 @@ class SpiceGtk < Formula
     depends_on "cyrus-sasl"
     depends_on "libva"
     depends_on "wayland"
+    depends_on "zlib-ng-compat"
   end
 
   resource "pyparsing" do

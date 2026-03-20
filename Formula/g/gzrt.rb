@@ -10,15 +10,11 @@ class Gzrt < Formula
     regex(/href=.*?gzrt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "670cc86444773ca0a6a1b37c47b02eedb11a330d9ee4a002be567f4721dce63b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e434b1fa6c32c30f1df2ca06548ac3ba24a4af85653c469694b063e11051d9a2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12f5aeefd8bfeb62e6108b8d7dc18ceac98abd3958dcb1c50addfc7b7d1357a4"
-    sha256 cellar: :any_skip_relocation, tahoe:         "f06b3feb598bd2b72870ec6e97e33d3be9e9460c849648d1b95acb712e440b78"
-    sha256 cellar: :any_skip_relocation, sequoia:       "38613c27d92b418077ba7093d3e538c1dfcd909942eed26c4b354d782c6ad12d"
     sha256 cellar: :any_skip_relocation, sonoma:        "640d5955f8d200207a1a10bcbaff18a3029a2f55e8dd664584d90c987b5e17a0"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "55b0cb361639c0127289a8843f8cea433e5e1cddb46522944d1c99d7b34d6f35"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2ed5bc35e21d41cb7add82444259b36d1e0b86068dddef561c44e78fbeecfa5"

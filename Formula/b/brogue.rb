@@ -1,18 +1,18 @@
 class Brogue < Formula
   desc "Roguelike game"
   homepage "https://sites.google.com/site/broguegame/"
-  url "https://github.com/tmewett/BrogueCE/archive/refs/tags/v1.15.tar.gz"
-  sha256 "62730610a75c5108ac26ec895daa5d1611ff1127b972ee97c17fdd80ececca03"
+  url "https://github.com/tmewett/BrogueCE/archive/refs/tags/v1.15.1.tar.gz"
+  sha256 "2abc186c5327342cb9ad7e45d41096ab10797d5ba76dcac843824ac2a0bfb3ac"
   license "AGPL-3.0-or-later"
   head "https://github.com/tmewett/BrogueCE.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "02246d8ca65642b8e9f6a35afe7c2c1af3f3e877e54bf48c996cae9941d92a10"
-    sha256 arm64_sequoia: "4250d433d6696b457189f82dc7a5f2f1b819daff9a4c9ce7c0547a7539410dc7"
-    sha256 arm64_sonoma:  "79ddc47ecf6bb7a7b792063e1154b6e5928f0aaf72a026a834dc0d2fbaf22968"
-    sha256 sonoma:        "98c83eb3473e6d88ac2880a6afe7e0d3bedc1a84ad0e364e72447b3abff0cab1"
-    sha256 arm64_linux:   "1671c59d1931778d330bacfedbd8bcd17aa5e3d551685190d6ea747d9d6fe86c"
-    sha256 x86_64_linux:  "cf84fdb5afeed507cef7d28ab653d866831e1dccf2fff2e8c41ef909305fa994"
+    sha256 arm64_tahoe:   "2858206ccd294ed6b8c3ac136a96c5f5af9815835fba94b10f2378dbff0ce44f"
+    sha256 arm64_sequoia: "dcf0b0db0bc9e3e8627f87ca35244787bbd89fe093b05327424f8655f598ab6a"
+    sha256 arm64_sonoma:  "47cdc97af85e8b775cb5b62e3e8e7ef61a4059a19d3ec063b5eb36bb22384d59"
+    sha256 sonoma:        "42ecd5fdcc6935a1fe4baad309b35a45d777ab9b59d134a47980c934f5800494"
+    sha256 arm64_linux:   "996c52eb84ffc7f2e92894ab0a12f9946cc0ff78ace6aec0b0a5926329f4c3a8"
+    sha256 x86_64_linux:  "55d19558ca6df95ac0ec02fa3c43160c4e20926948dfa9bfe0b1827c7ca53957"
   end
 
   depends_on "sdl2"

@@ -1,23 +1,18 @@
 class Zrepl < Formula
   desc "One-stop ZFS backup & replication solution"
   homepage "https://zrepl.github.io"
-  url "https://github.com/zrepl/zrepl/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "263c82501b75a1413f8a298c1d67d7e940c1b0cb967979790773237e2a30adbd"
+  url "https://github.com/zrepl/zrepl/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "d451ad1d05a0afdc752daf1dada9327aa338f691eca91e1c8fc9828eebd89757"
   license "MIT"
   head "https://github.com/zrepl/zrepl.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "86f94f15cab96087e5f9a17e02756dc1efe8f382635805345d6da7cf4f15a810"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86f94f15cab96087e5f9a17e02756dc1efe8f382635805345d6da7cf4f15a810"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "86f94f15cab96087e5f9a17e02756dc1efe8f382635805345d6da7cf4f15a810"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "86f94f15cab96087e5f9a17e02756dc1efe8f382635805345d6da7cf4f15a810"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0f47b589d4c5a01d645191e7963fc4e62a018f1844b22a3acfec0275354a294d"
-    sha256 cellar: :any_skip_relocation, ventura:       "0f47b589d4c5a01d645191e7963fc4e62a018f1844b22a3acfec0275354a294d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d264994b4417c3509cebcfb4b04bc6e2a88e7926d93ab6950fc8e3d5893ded0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2db65d9638d95007c9b4880052f58a08befe29686120bd8fb33d9998a214ce49"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "208277fa477884e0419b882934545194b9cc42f94b429bb94cec29095f8294de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "83603ff9603be60833fc8448a17a35eaf01598a52b467335225cc46c470e14e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bdfdc9ae054e19a5976218ec1e94ca3e777bd4c7125858aadd3c0c4ab3a20be5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "65f3263bab397da62393bedef12b5b8ed811e0cd747f57fad5bbf7f89c4683d6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bbf631d984241bf60b21e381ed24570835fa12a40ba3840fdbd73bbda4f8ae26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97a0feee7878c048a4e3a54f09a4706d433ac1cef303f42e278b074a8f86b84d"
   end
 
   depends_on "go" => :build

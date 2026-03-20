@@ -6,8 +6,6 @@ class MesaGlu < Formula
   license any_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "MIT", "SGI-B-2.0"]
   head "https://gitlab.freedesktop.org/mesa/glu.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "04be327648775a1c07ed70dd1fbe931983e013381f3459c10c12132fee8c7283"
     sha256 cellar: :any,                 arm64_sequoia:  "20ebc8dee6088f6f72e85c115535d7ae2d91af99b06dfa347bb9fb159d1e593c"

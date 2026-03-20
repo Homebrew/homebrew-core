@@ -1,8 +1,8 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.18/gperftools-2.18.tar.gz"
-  sha256 "a64c8873b63ebf631a5fc05af7f81f3ddf550c3bde37245e10311c7ae7a0c718"
+  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.18.1/gperftools-2.18.1.tar.gz"
+  sha256 "d18d919175f9e4d740ace6b52f0f4f91284160c454e91b36ffd6456282a02206"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,12 @@ class Gperftools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c5ddbbec95b03cc2717ca4721906d6d425dfa26ff9e2776d7df99fe3e151febb"
-    sha256 cellar: :any,                 arm64_sequoia: "f6cec0c19db3e1ce8c38c7bad97f548e17d214214354b7d52527ddf50caa0f67"
-    sha256 cellar: :any,                 arm64_sonoma:  "806f5a4604d5862b13aae63112492e9f5167239580f3a445b85f5973ba4232a6"
-    sha256 cellar: :any,                 sonoma:        "a50ea7e3408f3bbe379970961e593c598b801c603cde6dd22e7b9f2c6fe221ab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "38d66d5119d2c884f05d4f13a0e9d7f95e681660e907a5cd5fcf89dcf2d07166"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1968db6dba39ddad1ee9d8778f469a5434fda03d34e64b1106101410eaf3471b"
+    sha256 cellar: :any,                 arm64_tahoe:   "441be19e92f18df04aacfbe09dffe235c9bf8b070c5d5e3f8db6611c9890c23d"
+    sha256 cellar: :any,                 arm64_sequoia: "8cc759dba8cf08fe71fd36cf585b6a626bd22bd41718c26616eefa665443b383"
+    sha256 cellar: :any,                 arm64_sonoma:  "5dc611bd687d0b5b3ddadf2f200edcedad5d95b6f07d45324bb782e62d57d750"
+    sha256 cellar: :any,                 sonoma:        "96980b401d0332ec875685001597fee2a37006f40bd1e92d55bf53fa315c62bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6cf2911544eb57a83f4baeaf71e7b5e9b905af8c31d73461306cdf3bf5a728f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2dafaf048a2e362d06592fa527fba49a22eefa29f66c60edb14a10e9edbf0876"
   end
 
   head do

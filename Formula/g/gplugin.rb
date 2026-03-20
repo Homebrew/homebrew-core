@@ -12,8 +12,6 @@ class Gplugin < Formula
     url "https://sourceforge.net/projects/pidgin/rss?path=/gplugin"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "1467d4fde4bc7c78346be7deb8b19f52e9156a61e8ea10b1a4fa039655b91b5d"

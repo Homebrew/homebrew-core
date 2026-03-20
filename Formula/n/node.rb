@@ -1,9 +1,10 @@
 class Node < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v25.6.1/node-v25.6.1.tar.xz"
-  sha256 "cf756781c8b4dc5ee030f87ddf9d51b8d5bf219ad56cbd9855c4a3bdc832c78e"
+  url "https://nodejs.org/dist/v25.8.1/node-v25.8.1.tar.xz"
+  sha256 "0b25b2b5fab80ea8b43fdaa7451f50065571e0bfda2524ca42bde8b98fe4d2d9"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -12,12 +13,12 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3e636813b7281ab0b9ba80b1a9ed8c853d6798ed179dcd375beb577cbcf8e322"
-    sha256 cellar: :any,                 arm64_sequoia: "5e0a909c42eebd43eed998775b3aac6736b1ec65e5c6d0ed7292c799eae5ca0d"
-    sha256 cellar: :any,                 arm64_sonoma:  "bf9d20c7ef7e877d31451a2328a7ceeaaea84197c1291b1c42385efac5a25f79"
-    sha256 cellar: :any,                 sonoma:        "4974fad549b1f2e1759b66b3f4538746c321c370f6cf1f37a8afe4ceca93ae64"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81ae9e6814e46c1b5bb1ffeb23ae607cec564dfedd72f4628ec6f5395a40dec4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebe6bf446cd12f312564d674fe8cd26e0c5728fca5773233d4aad05d559d74b9"
+    sha256 cellar: :any,                 arm64_tahoe:   "6b4bc59a4f2e71ebeb959a43e60f145a47aa9cf6596a7de4b6ab70fd18e33d66"
+    sha256 cellar: :any,                 arm64_sequoia: "cf1d44f4c13aa6162d6bb2a89e1c4baffc061b88e791b6b7fd47ce5fd448a72e"
+    sha256 cellar: :any,                 arm64_sonoma:  "5e3a2fe131f00093b54aa2c63b7ef838f979eb62b75d0cfe7ccb785ba7aee942"
+    sha256 cellar: :any,                 sonoma:        "4d516a78db46c93f730964ae6b9fc4648f17216c161d7328cacec2462761534f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0dfe20b9401ef8c9756a925613768a65b4d85dd5de71558c26a8cdefd7a86a8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "758e27e5e7cb9f8d17857f41cf47eefd7d6d6463b3c213b081906aa4c267b7c8"
   end
 
   depends_on "pkgconf" => :build
@@ -39,10 +40,13 @@ class Node < Formula
   depends_on "zstd"
 
   uses_from_macos "python"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   link_overwrite "bin/npm", "bin/npx"
@@ -63,8 +67,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.9.0.tgz"
-    sha256 "5a172e3228e59d44cb9f44d5e83977178323bba3cc506016cae8e40b92ad418f"
+    url "https://registry.npmjs.org/npm/-/npm-11.11.0.tgz"
+    sha256 "cbcf4cc03148ccdb586a8bf2093c952f093fb43d5cbc97593c98b67ef8c003b0"
 
     livecheck do
       url "https://raw.githubusercontent.com/nodejs/node/refs/tags/v#{LATEST_VERSION}/deps/npm/package.json"
@@ -117,7 +121,7 @@ class Node < Formula
       "simdjson"      => ["simdjson",        "simdjson"],
       "sqlite"        => ["sqlite",          "sqlite"],
       "uvwasi"        => ["uvwasi",          "uvwasi"],
-      "zlib"          => ["zlib",            ("zlib" unless OS.mac?)],
+      "zlib"          => ["zlib",            ("zlib-ng-compat" unless OS.mac?)],
       "zstd"          => ["zstd",            "zstd"],
     }.each do |flag, (subdir, formula)|
       rm_r(buildpath/"deps"/subdir)

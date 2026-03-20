@@ -1,8 +1,8 @@
 class Kubetui < Formula
   desc "TUI tool for monitoring and exploration of Kubernetes resources"
   homepage "https://github.com/sarub0b0/kubetui"
-  url "https://github.com/sarub0b0/kubetui/archive/refs/tags/v1.12.0.tar.gz"
-  sha256 "d741a0ba3eed72916986747528dda2d4f2d8d91b9bcf920bf5113f057eb79090"
+  url "https://github.com/sarub0b0/kubetui/archive/refs/tags/v1.12.1.tar.gz"
+  sha256 "ded42ad435fdbf0c6f74f426de1cf30b816099c09ab10a4292c5384bb0c53c68"
   license "MIT"
   head "https://github.com/sarub0b0/kubetui.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Kubetui < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80c2412f76c162fb865e7278d5693e5fe4dd77a6d875bc7dcae923ebcdf7dd75"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ef06a4a39f662a7e4133e5f02744e63099e03e4cb4464ebbbc72e0555b8f24c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67120239032a282765dd748a98799502f8099b953ca0c4d0c012467e5d8fa884"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e0b50cacdb96f2f339e923ac9fe425c75a0707985e346901b859209866c72c6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "266e578dfa32479614cec03d4bd3fc0fcac156485aa9f3e752cf5dd4f473532c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15305425a6559c83d665be12ae5f0d205fcf90e1d56074fd5636eef10f2452fb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3b9305fca8648e75f022caf8dbec07371fa22d71cd629c374db95b9b06bb5842"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "201fc4c226e69bee11237fc50df623c765fa5397adcab905a4c4b87310857250"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1bb67e9a6bf8bd8f9bd6c04f5f9776bcc8545ea07f24a8fca6281d169456c0ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eece04566a08188048e98504734454ca6702bdde056ddc686ea5326a15d60c4a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9beca1a79a2f7870bc0ff2416270af1462da71e2dcbb4e381c7506fc8e05040"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79a460dcbe770cc5b81653be2f241b0a229075749c71e350281d197129ea7f95"
   end
 
   depends_on "rust" => :build

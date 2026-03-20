@@ -5,8 +5,6 @@ class Libxtst < Formula
   sha256 "244ba6e1c5ffa44f1ba251affdfa984d55d99c94bb925a342657e5e7aaf6d39c"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "3695416abec8f1da23fddcc232bdc5e9522f822f67c7a0c69f522f54c8653617"
     sha256 cellar: :any,                 arm64_sequoia:  "28d4af1505473aed939328ace91056e111623d0c60b817d0b98dc3e00472dc4d"

@@ -1,8 +1,8 @@
 class InfluxdbAT1 < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/refs/tags/v1.12.2.tar.gz"
-  sha256 "a3590973eb0cde8021375bc8460a8cf0c9c6a34ff7949d10c7405d732cb753d7"
+  url "https://github.com/influxdata/influxdb/archive/refs/tags/v1.12.3.tar.gz"
+  sha256 "798fff921c21e916362c00e714119df9d8f9daa97dc4e690823a785ad2b24c5a"
   # 1.x is using MIT license while 1.x and 3.x is using dual license (Apache-2.0/MIT)
   license "MIT"
 
@@ -12,14 +12,12 @@ class InfluxdbAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a303342dbf45945584393fe98e87ae2e210dcf65c69f9fc23e358d98e34da8c5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d8e84939842ae8186819923c22b0e9ba19cea82c45c715ba4da3f8d26f43c6ed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a853e07adb0fa25bed5b3d0f214125a548c2f625d34a9eb6e1ac559b9a324ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "105212cf7d4142a28a2741b5774a8440c4689b5aeac319c6243655f0d97e4d5a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9d13ec4589a0ed0656ddccb0b945f69a40db80fa3818f1596aedbd6e86e788a6"
-    sha256 cellar: :any_skip_relocation, ventura:       "560fa8fdec78ee706b0852d3560ae307229eb9a17ef68a195f57bfa5bbae9af2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "404e18314bed394a1d1f177330f91a064d5db5f939b911b2b0e616e9a04eb4c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3256763c89cf2904fbd1981ba27702f26e2f6883ec5d7f595769a8c59ef3d22"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f4d5b16c80b60982b4ac872a557dfd1d7654ef10a6fe9eec628c893f4b38cca2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42cc73d8114e612b07d45dc84fcab5443528264108c0f91e6b99455e06d2f7c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25b002e6f3eb8ca2fd6198b4e3a4d7a2d1ecda54564868010e2829bf464538c8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "de147442630ee25cb5f6db6486efa7580c8bc0ff876e06a405d0989563dfa710"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "15c0c4ab6c10ed8b62c0c3a76de6ede0bbd1dd2d98e75764a43d0dc494775c42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd4f2d3c450601d96912822f08ebadaa296b90aadc31464c01ca71f627ca084b"
   end
 
   keg_only :versioned_formula

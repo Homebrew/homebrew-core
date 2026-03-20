@@ -1,20 +1,19 @@
 class Pandoc < Formula
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://github.com/jgm/pandoc/archive/refs/tags/3.9.tar.gz"
-  sha256 "d8da16e1ad1f685123fbc1a5a83b74766bcfd939dc6989484822f023bb70438f"
+  url "https://github.com/jgm/pandoc/archive/refs/tags/3.9.0.2.tar.gz"
+  sha256 "c300c60ae4d47da6e5d265e93f89b896324cdc84ccbb504b88a9855bacd6b5d7"
   license "GPL-2.0-or-later"
-  compatibility_version 1
+  compatibility_version 3
   head "https://github.com/jgm/pandoc.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "1f542627ebcb8ad39d56fa80f4f3300c2baab0341d9e6b0324557414790a951a"
-    sha256 cellar: :any,                 arm64_sequoia: "d5f54238833f517626888a2c214dde8a94aa0f408208593e8a174fdfc2204da4"
-    sha256 cellar: :any,                 arm64_sonoma:  "f953179d3ad87a50469f3761bf33666482feda48fbf3e83dab66a99403b301d0"
-    sha256 cellar: :any,                 sonoma:        "e5e53a135af84a63c19f15eecb44249064e198e0f5f92964f55462beba538f2e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f97d5b9bd4606fa3a400a3237eecca2bca017b8f15b5e1b307fbcd86f263a16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0d27d61a020c0b9cfe48e0837a82e59438404d13d7736e58ec7c4e61a8af464"
+    sha256 cellar: :any,                 arm64_tahoe:   "40762c24f0337d9dc07466e365c0c3e0cb6023122bca9a6b36dcc0dd962f0b04"
+    sha256 cellar: :any,                 arm64_sequoia: "94e1a3309022f75f42f7aba3c9d17f14fa743ad6704c469090e555f30c1c2552"
+    sha256 cellar: :any,                 arm64_sonoma:  "400988089c12d7a44b9aa4f06214362ef3afd861a9fb2ef880787f287a91b989"
+    sha256 cellar: :any,                 sonoma:        "61e744c37e05f28910e506d594e4304ded58c5785a5ea81dd9a42ba2c9a4b73f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ff02fb459c083ca44395eb4cc5be0926a9623ef555eeb775181d7b6f8a88461"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "918d76d5425b6e862faa3eebb5f2cf3d1ccbc28fb63eb51623bea89c4947f90a"
   end
 
   depends_on "cabal-install" => :build

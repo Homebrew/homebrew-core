@@ -7,8 +7,6 @@ class Jsonpp < Formula
   revision 1
   head "https://github.com/jmhodges/jsonpp.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "42ceb483930d899b0d24a6c8a39fb5ff94e211796cc68ecc9de948612fae8361"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fee3f13de44648f26cf9c2928e2c0908117749ebed6265109b099c1259d7af2c"

@@ -11,27 +11,25 @@ class TclTkAT8 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "dcb91a0ce161a5de4411a331fbdc0443e010f16e867a26e093583ca0c6b1ebbb"
-    sha256 arm64_sequoia: "fd1ae557ac59471bc1a6b141a78273fe7b1e2154186c27ef599b508affb8c69f"
-    sha256 arm64_sonoma:  "46cb139db73eab4d113778559f21c7e8c5c3914dbf6524962bd88bf15d3915ae"
-    sha256 arm64_ventura: "e2f813b5b23dda76c8d961f118a4a77360e72caaab03255c71070dc0649078dc"
-    sha256 sonoma:        "65215a409050220c17bd917ec3738a6b97bd9328848bc289c2b370f25f1c7ee8"
-    sha256 ventura:       "44a8171122f23f667cffea136a25077b952948565eeaa6859809ed70ae128762"
-    sha256 arm64_linux:   "7ec5ecf3c4291c7b56b15aea1ebfb3812de07893579e4135d454ff2443e2d39a"
-    sha256 x86_64_linux:  "86181bc79ec5677dbcf649598e7cecb3760172ec1419caa330ace6f71e29e30f"
+    rebuild 1
+    sha256 arm64_tahoe:   "c3cef13113dc7af58e7636256289cea7e3f362347f06f96e9417895f5c84494d"
+    sha256 arm64_sequoia: "a5dc8687fecd89ea1ce437a409f3e8938161f8f9fd728679d7ba98aaf9a4a121"
+    sha256 arm64_sonoma:  "5d0e9ae8eebb1e442cb2c27d491b90ac1fdb4b97f0403eaf4de208c1ef2a499c"
+    sha256 sonoma:        "06138d4241d0aa4b4b552dde04215678194643cb5435067b43cf0e8be2b5551e"
+    sha256 arm64_linux:   "baea2f270066d9f00cdb3fc43d4657e1c566d21965b6602cefa310c6bbf586ab"
+    sha256 x86_64_linux:  "dd71d9dee7ad8ff7ac1306e5696471b106ed15081dbf3ff227173a1bccc78fdc"
   end
 
   keg_only :versioned_formula
 
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "freetype" => :build
     depends_on "pkgconf" => :build
     depends_on "libx11"
     depends_on "libxext"
+    depends_on "zlib-ng-compat"
   end
 
   resource "critcl" do

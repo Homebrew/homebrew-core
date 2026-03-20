@@ -10,8 +10,6 @@ class Dwatch < Formula
     regex(/href=.*?dwatch[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 arm64_tahoe:    "d8916e526f70eb17c0010715a61c5746c20214fe8210f544f50650358ab1bb0a"

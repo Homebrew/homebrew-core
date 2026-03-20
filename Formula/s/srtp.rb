@@ -1,8 +1,8 @@
 class Srtp < Formula
   desc "Implementation of the Secure Real-time Transport Protocol"
   homepage "https://github.com/cisco/libsrtp"
-  url "https://github.com/cisco/libsrtp/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "54facb1727a557c2a76b91194dcb2d0a453aaf8e2d0cbbf1e3c2848c323e28ad"
+  url "https://github.com/cisco/libsrtp/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "d123dcff5c56d4f1a9006f2b311ea99a85016cbf3bb24b1007885d422237db85"
   license "BSD-3-Clause"
   head "https://github.com/cisco/libsrtp.git", branch: "main"
 
@@ -12,14 +12,12 @@ class Srtp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "57899ec6d17890c82b81cdf7a80eee3a621a23e2e513d7c64fd972ae1301a311"
-    sha256 cellar: :any,                 arm64_sequoia: "bfae1fd49d88223c76e1181f78b81bbe5f4cdfb02a4aec7fbeaf071e49725796"
-    sha256 cellar: :any,                 arm64_sonoma:  "473e73636853af42e2173d6fe231380473d0bf5e7ff804ba53a2fc4a7b9b20f7"
-    sha256 cellar: :any,                 arm64_ventura: "ffda680f84d2f5cb9cf8ea9d078b8386cf2f0cf223d2dfe5147bb739f8631c9f"
-    sha256 cellar: :any,                 sonoma:        "7ac6524572afcc2962a2a22562f8253d0ef1f1bc80a78488c9a4a8fe5bdc7f3d"
-    sha256 cellar: :any,                 ventura:       "57406d7cd6cada27a6c8717c32550234e716f9ae7989e28959f53204dc5a20a8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ccb20fac89e4f213d8802f02a061735b5a55ba134d9e2c3bb4b581044c45ef51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0dcfb6ace5a4cec086e56117194b86fe25292173d200abe1b6530b5cb7a9fd6d"
+    sha256 cellar: :any,                 arm64_tahoe:   "57991308e7a77e9101f56b5746b72dc84d7ec71cccb0952255e150bb61fa8b31"
+    sha256 cellar: :any,                 arm64_sequoia: "456aa17cfcc530e2e116ea4dc8dc8bac7d1f57e82e9354da9c5afdf73efb719a"
+    sha256 cellar: :any,                 arm64_sonoma:  "fe511a421b2601d56208bca5b723dcf0cedabac7820b6dbc29b2e9a9975027be"
+    sha256 cellar: :any,                 sonoma:        "1f4d6d9dd142b054f6ce5951553620d5638bcdad5b476049a8d8aef66699f3e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8a50543ee3639a000b4e79006e72d66b7023905bb96a7b2699fc839cf16fd0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5efdbe2656736401da2b1b83008f1b61be3831f33c675d77f1b3446888a01813"
   end
 
   depends_on "pkgconf" => :build

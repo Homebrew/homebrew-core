@@ -1,10 +1,10 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.27.1-source.tar.gz"
-  sha256 "5a1fce7373048a3e8985d6616ee37caaa1885ab90c1b0b3956bdb53d6ecd22af"
+  url "https://mupdf.com/downloads/archive/mupdf-1.27.2-source.tar.gz"
+  sha256 "553867b135303dc4c25ab67c5f234d8e900a0e36e66e8484d99adc05fe1e8737"
   license "AGPL-3.0-or-later"
-  compatibility_version 1
+  compatibility_version 2
   head "git://git.ghostscript.com/mupdf.git", branch: "master"
 
   livecheck do
@@ -13,13 +13,12 @@ class Mupdf < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "c790fc7a3649d8a18302cbcc4688c07e25f05ffff787d310fe9973c6b67698e9"
-    sha256 cellar: :any,                 arm64_sequoia: "628d677c354c8c45dcbac6af62e130c6a05ca4ffabd58c35e62aae4147ad0198"
-    sha256 cellar: :any,                 arm64_sonoma:  "627a3dd36ba7de00e870ab491a982bfa4fc7e477b2b5b5e4c1983789755cbe2c"
-    sha256 cellar: :any,                 sonoma:        "227c574b62cc689618929e44c297a09b9872944d772a1ebf3abcc9b9378704b2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6791b7ad58c81f5395b3211b01e3f672762d9a6a476b24eb179959ec1b712350"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a791c2ed2290f6a126ece74aade379114b90b45dceb86088d3c8d6da3844368"
+    sha256 cellar: :any,                 arm64_tahoe:   "adfc5220c9f64113fc61920f81073107d3baf4c1139c884f6f7d78f0de3a437b"
+    sha256 cellar: :any,                 arm64_sequoia: "c8e638337695132e732310023481986c1ec2d3d72d3d5640751e31f780306c36"
+    sha256 cellar: :any,                 arm64_sonoma:  "69f930f318dd7ad6c5b12d419ed65e90ed26c6a33ca47ef7e2cc040d0f6c045c"
+    sha256 cellar: :any,                 sonoma:        "0120967cfd6b2f95be99963d5453aac7fc3f6942c48633189369fb816b0e344f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9c407b06730358c2ad4a6c3ead32af302b649ac6858fc73c013353b669672b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22d86c746fddcc6e410442ce198defcd205663c6a1b660c5308dda0ee2124cb3"
   end
 
   depends_on "llvm" => :build

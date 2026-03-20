@@ -2,17 +2,17 @@ class ThorsAnvil < Formula
   desc "Set of modern C++20 libraries for writing interactive Web-Services"
   homepage "https://github.com/Loki-Astari/ThorsAnvil"
   url "https://github.com/Loki-Astari/ThorsAnvil.git",
-      tag:      "9.0.16",
-      revision: "88d1bf13c87b8371bd1cbdb9b5b59f162f695df8"
+      tag:      "9.1.6",
+      revision: "0aeb857107b7b76ce8f53580d921f409001a3c5f"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ca930794c6bb1ca47779a4160e81c7732cf24cc11878fec297a0c39d7ab72fca"
-    sha256 cellar: :any,                 arm64_sequoia: "f58b0a7cc30237daef250ac5648df6f8913f5055f5520b8f72e1256c3cb0317e"
-    sha256 cellar: :any,                 arm64_sonoma:  "9a3a3ab017ce2028e3f45c5868789616655dc663b8b08e048ca3fb31c4e9229d"
-    sha256 cellar: :any,                 sonoma:        "85257302b332ed2fb4cb1bc06494347e6948aea8f1b3f596c6c2f5749d224173"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9bd9161cb885806859a3e0eb9f9bb685f1e3c78ec98784dc171fdb9eb3dcf1e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6787d23093ad14ccd4411bebee8520fae2c42a6ba49dbeed600b09188c44b5da"
+    sha256 cellar: :any,                 arm64_tahoe:   "d52500635669d1edf55f4f2910cece96a508de175402eef2877f0d2aaeab58fa"
+    sha256 cellar: :any,                 arm64_sequoia: "1c78b0ab0859f874f2ea04025d97295879bfa9c8d3ef9d83d0ccf0e797fd09bd"
+    sha256 cellar: :any,                 arm64_sonoma:  "e9cf66e65e44ca6b0abf18b786fd25f9c2195456f25a704d2480b2290b7c19be"
+    sha256 cellar: :any,                 sonoma:        "ac846b7c5ffdbc9af3e20dd63458c97ffa59f2eed317fc8ce54bb58eaba75266"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d85b988a10a204561a7eb2b1e6b162ac8a238e09d43dab54e3b9a95aef77afe1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "289b84cceed87bef25952787a46976f6051027aeb99081bdf341f476ff77dd2c"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +23,10 @@ class ThorsAnvil < Formula
   depends_on "openssl@3"
   depends_on "snappy"
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["COV"] = "gcov"
@@ -38,8 +41,7 @@ class ThorsAnvil < Formula
                           "--disable-Mongo-Service",
                           "--disable-slacktest",
                           *std_configure_args
-    ENV.deparallelize
-    system "make"
+    system "make", "-j", "1", "JOBS=" + ENV.make_jobs.to_s
     system "make", "install"
   end
 

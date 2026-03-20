@@ -7,8 +7,6 @@ class Nutcracker < Formula
   revision 1
   head "https://github.com/twitter/twemproxy.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "abf045b842b325b9beae4b4081057f70d458359c2fae9b4792a4130d74120943"
     sha256 cellar: :any,                 arm64_sequoia:  "9858288de204b1ebddc2500149b07ad6cc6c08f92f37936d0055b5f4820bbb03"

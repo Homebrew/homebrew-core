@@ -11,15 +11,14 @@ class Libmspub < Formula
     regex(/href=["']?libmspub[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "31f0d45061521ad60c74068d3168c7caa58063269eceb5a25e8316e8652acbfd"
-    sha256 cellar: :any,                 arm64_sequoia: "a45c64efbfb50b6132e5e0a4413ffaeca5cf5f2f0ecb4121ca45cdea442d3c4e"
-    sha256 cellar: :any,                 arm64_sonoma:  "763c9fc1fe11c7aca1e24c7a8836eee6a25aad48a6db305db59b41959ab507d8"
-    sha256 cellar: :any,                 sonoma:        "a06fe753651c7cf3031134250a2f5dc673af8bf7fe33abb4608362d81c77fd2c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d62097ea1a015c9a5627ce4bd32cb50704deb6ac7ce2331c12ee34dec39848f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba62e51b3b781d760e3739c5744091ed7d9f2e64926787467fa6f9eb281b204d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5cecb8db1dca13e86f7b8a41e9270f34e37485235327f3cca023975fb2ce630c"
+    sha256 cellar: :any,                 arm64_sequoia: "4d212ebced14322c8c144697985552a703826c17d511d168b9ffc780ece1d421"
+    sha256 cellar: :any,                 arm64_sonoma:  "164c06f73c3cba7a6c97282455db62a070f69a2dccb0ccf694788e8e452a155f"
+    sha256 cellar: :any,                 sonoma:        "dc435295289043990c51abaca7c3030409065cd293202dcb0e4d38a426e3dc04"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b15fe31563699e7f8021c51965fcd4785e18399a29a933465f68fc1f73d35b3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdc0c07625d05b05a48378cda67ba1d66ea6e549c2489b386d104594381a5f5e"
   end
 
   depends_on "boost" => :build
@@ -29,11 +28,11 @@ class Libmspub < Formula
   depends_on "librevenge"
   depends_on "libwpd"
 
-  uses_from_macos "zlib"
-
-  # Fix for missing include needed to build with recent GCC. Remove in the next release.
-  # Commit ref: https://git.libreoffice.org/libmspub/+/698bed839c9129fa7a90ca1b5a33bf777bc028d1%5E%21
   on_linux do
+    depends_on "zlib-ng-compat"
+
+    # Fix for missing include needed to build with recent GCC. Remove in the next release.
+    # Commit ref: https://git.libreoffice.org/libmspub/+/698bed839c9129fa7a90ca1b5a33bf777bc028d1%5E%21
     patch :DATA
   end
 

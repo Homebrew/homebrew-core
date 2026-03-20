@@ -8,8 +8,6 @@ class Ldid < Formula
   revision 1
   head "git://git.saurik.com/ldid.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "4c28297c1094cde3ae7fe7061400807d8936b9d0fb9fc317a354ce7cd856bf33"

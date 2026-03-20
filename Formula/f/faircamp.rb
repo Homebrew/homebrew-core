@@ -31,7 +31,7 @@ class Faircamp < Formula
     # not discovered by default by Cargo. Upstream issue:
     #   https://codeberg.org/simonrepp/faircamp/issues/45
     ENV.append_to_rustflags Utils.safe_popen_read("pkgconf", "--libs", "opus", "vips").chomp
-    system "cargo", "install", *std_cargo_args, "--features", "libvips"
+    system "cargo", "install", *std_cargo_args(features: "libvips")
   end
 
   test do

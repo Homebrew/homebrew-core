@@ -1,20 +1,10 @@
 class Gpa < Formula
   desc "Graphical user interface for the GnuPG"
   homepage "https://www.gnupg.org/related_software/gpa/"
+  url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.11.1.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.11.1.orig.tar.bz2"
+  sha256 "0bc5b2cd3e0641d07a2d8af372a09659decd918bee22fdfbefd2133d7c4d5d0b"
   license "GPL-3.0-or-later"
-  revision 1
-
-  stable do
-    url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.11.0.tar.bz2"
-    mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.11.0.orig.tar.bz2"
-    sha256 "26a8fa5bf70541cb741f0c71b7cfe291b1ea56eab68eeb07aa962cef5cdf33cc"
-
-    # Fix for `gpgme` >= 2.0.0 compatibility
-    patch do
-      url "https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gpa.git;a=patch;h=b6ba8bcc6db7765667cd6c49b7edc9a2073bc74f"
-      sha256 "3aab76d3d79cad0c756f9c73cc237b8632ae9e7f68d5f7715c3ca58e2c633bc5"
-    end
-  end
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpa/"
@@ -22,13 +12,12 @@ class Gpa < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "0f1a21e947f1268c78fb45f469d1134adef70766f2be5dbd0092ba504b31dc7e"
-    sha256 arm64_sequoia: "43fb96ff4d8c951a804b9a1e891110b2eb138925caef26d7942ce7a1cc2fd1b3"
-    sha256 arm64_sonoma:  "a3570404bc9e51826612905388c9d8f66b7ba2d25e7baf24758d63302e82ef08"
-    sha256 sonoma:        "d44cd68a57d3ec28953b8f4e3ec838846f5dbe5b115465ab2bcac8c44460810d"
-    sha256 arm64_linux:   "9e3f3b085044a1d8a9d2c5a730127ab5c8f0fe22ac46a524aa69fa4fe66cfdd5"
-    sha256 x86_64_linux:  "35990987cdef9ec1513d793652b99a2bb38fe5c270da32bfca3b6cd68faa5626"
+    sha256 arm64_tahoe:   "3a82b91a089610dccf3f303827932bc3392cd4024d0ff62efec8392f5930aeab"
+    sha256 arm64_sequoia: "2a4266a3cbad43f2f54cadb15eb3ddb790b2d2db2780604df6b42b94bf9b1afa"
+    sha256 arm64_sonoma:  "8af83db187a7f1f5e3754451774d829fa3d6e42ccc7c2e5e5a81f3188dd9fab1"
+    sha256 sonoma:        "47b09b31877384921bc68ed46e530ab9ac5bab39be5ede50f74094033bd0ecb1"
+    sha256 arm64_linux:   "2c38b595e2e3aa802f989d8b45feb610d783c0009433f8bdc28855fd3ed4765f"
+    sha256 x86_64_linux:  "d92aa141bfd3900387f1862202f6f7e7bc8d958001b5db3c68251033a572140a"
   end
 
   head do

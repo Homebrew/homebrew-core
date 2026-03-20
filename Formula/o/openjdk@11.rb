@@ -11,12 +11,13 @@ class OpenjdkAT11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e9aab4cfc0f038f4df2c56ee00b2e91b24a77b5701d8199fee2dade4a49f4f62"
-    sha256 cellar: :any,                 arm64_sequoia: "c385c29dc71f54e8497edc77f85dab140197986b97ca41a8d47891a28bbcddac"
-    sha256 cellar: :any,                 arm64_sonoma:  "c6942cedd965c52520aa647af2876f27f9302b43f4447d63334225c5c4097806"
-    sha256 cellar: :any,                 sonoma:        "dc0231e8703191255a11398b3749604c414cf2597524f7bc024282cde5cbe8cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "88427747e5a4ee4ad6261cfdbc5e03f14d96bf90c32b2cb4429ce392b759b5cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6dbbf6abb6070e722516dfecde3f2db828b11dd92fe0b9eb20569d2bc41e5cd"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "cc39878610883e6bd2b7fd4bbec7d97a4561ba8d196df32424629391cf5e32c0"
+    sha256 cellar: :any,                 arm64_sequoia: "7f50d2b87ceb160ee580777aa702e8827b82235c8c0000b75f41464b4e2d27f7"
+    sha256 cellar: :any,                 arm64_sonoma:  "0a49166a5a50ee00e65d22e80b8a5e8fb9193e6be5e6789d903d83d67c5f9eca"
+    sha256 cellar: :any,                 sonoma:        "3dccdd9e3052c5a9ddde091407d24a4fe2f7cfc41028ace08ea6d2890fbdd909"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "57585af6588c21f64a4102d776bf19fb1c44efdabb855eac3297c484a45b32b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc2c7f36d3022e4c8eb698d2afa82215ffa2f8ab58bea63c8fc2a04e84522115"
   end
 
   keg_only :versioned_formula
@@ -33,7 +34,6 @@ class OpenjdkAT11 < Formula
   uses_from_macos "cups"
   uses_from_macos "unzip"
   uses_from_macos "zip"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
@@ -45,6 +45,7 @@ class OpenjdkAT11 < Formula
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
+    depends_on "zlib-ng-compat"
   end
 
   # ARM64: https://www.azul.com/downloads/?version=java-11-lts&package=jdk

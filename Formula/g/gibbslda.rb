@@ -5,8 +5,6 @@ class Gibbslda < Formula
   sha256 "4ca7b51bd2f098534f2fdf82c3f861f5d8bf92e29a6b7fbdc50c3c2baeb070ae"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "16474e9a022ecbe4d80701a9d8c87952298af65fa230430a84be3e3dd6a1cc60"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b1a77a02b5d60541a94bc2ed69fb92cfc65c18094ec8973fdcec6eef42e7a7d3"

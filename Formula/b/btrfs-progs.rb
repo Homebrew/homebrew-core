@@ -1,8 +1,8 @@
 class BtrfsProgs < Formula
   desc "Userspace utilities to manage btrfs filesystems"
   homepage "https://btrfs.readthedocs.io/en/latest/"
-  url "https://mirrors.edge.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.17.1.tar.xz"
-  sha256 "a4be0a6ebb3c476427fb5d97b2cf027b0ccdb6b0c55ff16323320c1e8cb77658"
+  url "https://mirrors.edge.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.19.1.tar.xz"
+  sha256 "bb27e1ec54e7c3c0b7b2e596f853a73c07a3d72f21bc94042073c24dbf045796"
   license all_of: [
     "GPL-2.0-only",
     "LGPL-2.1-or-later", # libbtrfsutil
@@ -14,9 +14,8 @@ class BtrfsProgs < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "e07977170d8812a0fb14caf9b0a97f5f0b6dc6597a5394143fca403c33681ac0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0571e77b5dca66a9483df1195359a5b96c4509aacf37c15e8a2f908539b1fe67"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "011f8b31f998cb874c683b1a7d5f9123f9832abaca57564867c33404cf073a5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "722482be70a25f9e8f482ef22cec691d0919dac77d39b16cb0755151a63c41d1"
   end
 
   depends_on "pkgconf" => :build
@@ -56,7 +55,7 @@ class BtrfsProgs < Formula
     output = shell_output("#{bin}/mkfs.btrfs #{device}")
     assert_match(/Filesystem size:\s*128\.00MiB/, output)
     output = shell_output("#{bin}/btrfs filesystem show #{device}")
-    assert_match "Total devices 1 FS bytes used 144.00KiB", output
+    assert_match "Total devices 1 FS bytes used 160.00KiB", output
 
     system python3, "-c", "import btrfsutil"
   end

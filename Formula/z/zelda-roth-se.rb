@@ -9,8 +9,6 @@ class ZeldaRothSe < Formula
   ]
   head "https://gitlab.com/solarus-games/games/zelda-roth-se.git", branch: "dev"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3bf751b6f5b6313d54d4c4356a07dbad2134d30574d18706a761272ad4fef7c7"

@@ -6,7 +6,7 @@ class Apib < Formula
   license "Apache-2.0"
   head "https://github.com/apigee/apib.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 1

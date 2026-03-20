@@ -6,8 +6,6 @@ class Glui < Formula
   license "Zlib"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "291a1781d586b21b5ff3260f10e82cf9604a364ff5396b5eba33a28e6fce90cb"

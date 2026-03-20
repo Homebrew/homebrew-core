@@ -6,6 +6,7 @@ class ZlibNgCompat < Formula
   mirror "http://fresh-center.net/linux/misc/legacy/zlib-ng-2.3.3.tar.gz"
   sha256 "f9c65aa9c852eb8255b636fd9f07ce1c406f061ec19a2e7d508b318ca0c907d1"
   license "Zlib"
+  revision 1
   head "https://github.com/zlib-ng/zlib-ng.git", branch: "develop"
 
   livecheck do
@@ -13,21 +14,19 @@ class ZlibNgCompat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c68344fcda141002ce8baefbfc4b9cd89da914794d9045f7e677ec0a6cd517a9"
-    sha256 cellar: :any,                 arm64_sequoia: "48de3de7772bd13eee2a371fc3a39377962682e325e7deaa6ec5ed4503ef4048"
-    sha256 cellar: :any,                 arm64_sonoma:  "46ccc739bfabf38f5b8dfbe7348679a0931ce83c470d396a3d1c2802b2ca5e0d"
-    sha256 cellar: :any,                 sonoma:        "2a8f6d23e346425ab4e1cabb04694080447a1f486326cc93cab5af4091053912"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac366c1fa7ffa88ee7b22e6f820ebd45a865eca7bea812b4751294840e5971aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68ae6d39b4674cecdb6de15180dd613779ee391f90623fa6d10ab2d45c9d2dd0"
+    sha256 cellar: :any,                 arm64_tahoe:   "b54f4ab67f4956e7d0ede376704746985e5e8cfaa97ec299b311c74eb49708a6"
+    sha256 cellar: :any,                 arm64_sequoia: "cf654aacfa54b53a5d1d3fbb73e3053fe43349253de8515f05b7070b430ba4ae"
+    sha256 cellar: :any,                 arm64_sonoma:  "b61f5de1a8bff94d6161b1289e6d4b093842cdce1b6cfdeb768f48ddd4c4dc78"
+    sha256 cellar: :any,                 sonoma:        "e449db4f2bd6dfa5bf1931f053ed2be4406a04408754e300323a8de68156a2a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb6df814b35273cecd7caf4291ee1a972ab1ac20d11a126b0e2db556dfc50d84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb72c27ca6918fb29af89b1287471e381e15156212ccd0e99661ee393bde872d"
   end
 
   keg_only :shadowed_by_macos, "macOS provides zlib"
 
   depends_on "cmake" => :build
 
-  on_linux do
-    keg_only "it conflicts with zlib"
-  end
+  link_overwrite "include/zconf.h", "include/zlib.h", "lib/libz.*", "lib/pkgconfig/zlib.pc"
 
   def install
     ENV.runtime_cpu_detection
@@ -45,17 +44,17 @@ class ZlibNgCompat < Formula
 
   test do
     # https://zlib.net/zlib_how.html
-    resource "homebrew-test_artifact" do
-      url "https://zlib.net/zpipe.c"
-      version "20051211"
-      sha256 "68140a82582ede938159630bca0fb13a93b4bf1cb2e85b08943c26242cf8f3a6"
+    resource "zpipe.c" do
+      url "https://raw.githubusercontent.com/madler/zlib/3f5d21e8f573a549ffc200e17dd95321db454aa1/examples/zpipe.c"
+      mirror "http://zlib.net/zpipe.c"
+      sha256 "e79717cefd20043fb78d730fd3b9d9cdf8f4642307fc001879dc82ddb468509f"
     end
 
-    testpath.install resource("homebrew-test_artifact")
+    testpath.install resource("zpipe.c")
     system ENV.cc, "zpipe.c", "-I#{include}", lib/shared_library("libz"), "-o", "zpipe"
 
     text = "Hello, Homebrew!"
-    compressed = pipe_output("./zpipe", text)
-    assert_equal text, pipe_output("./zpipe -d", compressed)
+    compressed = pipe_output("./zpipe", text, 0)
+    assert_equal text, pipe_output("./zpipe -d", compressed, 0)
   end
 end

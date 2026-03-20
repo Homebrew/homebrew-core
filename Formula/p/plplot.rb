@@ -9,8 +9,6 @@ class Plplot < Formula
   license all_of: ["LGPL-2.0-or-later", "BSD-3-Clause", "HPND", :cannot_represent]
   revision 4
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "8299e82b21073d81694f33383bc0dd37931cfc8f468be9107b8c7b8fcd1cf501"

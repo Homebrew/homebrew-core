@@ -1,8 +1,8 @@
 class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/downloads/#cli"
-  url "https://downloads.getmonero.org/cli/monero-source-v0.18.4.5.tar.bz2"
-  sha256 "7c2ffec3fe0e30f6d6aca4abe26f3e1179be275ee3073fa6eea535e4b163337e"
+  url "https://downloads.getmonero.org/cli/monero-source-v0.18.4.6.tar.bz2"
+  sha256 "86668243beb87ffee3eed0a76723e4ed8a7cffd797fa59ebc2722cfc84c916a5"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Monero < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9abda2d7e64821bb17097447405975a1eb42bd009144fcbbd59c178bd24cc38f"
-    sha256 cellar: :any,                 arm64_sequoia: "aefb7aa8f7f26da42a4a74320b7fc0f50e968543b6083226a063ba49c11f29a1"
-    sha256 cellar: :any,                 arm64_sonoma:  "d39731b34ffd91f59232f541bd9ae3dad2fee4b37c7bfa40693b5900a7091f50"
-    sha256 cellar: :any,                 sonoma:        "38f6a3ce15bd649acc39499985d6808455f5c4141c0d41e0f2a9b441c0ebcda0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "65f6e4d7e1c524a68b261eefbcfe77a74d34cfb85e151bf9d6fc57b4681ba2f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8900fe698480acba97ba549e930f53ff4a197eae7eae1f0a466f4c548f480533"
+    sha256 cellar: :any,                 arm64_tahoe:   "9ced4ea863cdab1ad26250eaeb00295e9997e7987f104269b665ceec56c62465"
+    sha256 cellar: :any,                 arm64_sequoia: "fe3b9e56524f2420dcdaf570a1e44fc40420996e11a166175c538ffcc16d69b4"
+    sha256 cellar: :any,                 arm64_sonoma:  "718a73101c7820bd000f39dc93389293f5156e3656b82f63ea93c676988e0c05"
+    sha256 cellar: :any,                 sonoma:        "d0a0d9484f1f31d5afd767d125b3d069225bcff3edb03ecd8975521a6ef058b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b5f434faa479eaf4493cf47f4be61d9d78892fd6bf2a70868e507f617b45d55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cd249672c80447deec1168ebfb8d68a84ad473815d5e9ccac0c36eeaee36901"
   end
 
   head do

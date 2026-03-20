@@ -1,10 +1,11 @@
 class Lld < Formula
   desc "LLVM Project Linker"
   homepage "https://lld.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/llvm-project-21.1.8.src.tar.xz"
-  sha256 "4633a23617fa31a3ea51242586ea7fb1da7140e426bd62fc164261fe036aa142"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.1/llvm-project-22.1.1.src.tar.xz"
+  sha256 "9c6f37f6f5f68d38f435d25f770fc48c62d92b2412205767a16dac2c942f0c95"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  compatibility_version 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -12,18 +13,21 @@ class Lld < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ae7611ba868e1264da2f9ada062e53f2edd59fdc420f63804b1e031dcc4a1e26"
-    sha256 cellar: :any,                 arm64_sequoia: "bc9304083889749dcd2d1b7e9b1598c6865232b93d40c94cab0ee3154a947900"
-    sha256 cellar: :any,                 arm64_sonoma:  "e3e0fc1342ec796f2e0fa868b2f14e52e3a28ed7fedbeae9e62cb37c830ae535"
-    sha256 cellar: :any,                 sonoma:        "e6d9522e1166ba1b77991c7a3e4d94b1f0a8f064d4b0299300bec8f36e15e477"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2da9a79ec226755d411db0595b0cfb9d509ac71a5c99c72fc4cf957b4fbf86b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fc5f9590f7ba31ae3a110b3275c779dc8fa5cea1e25449a69a3f0a25e72131c"
+    sha256 cellar: :any,                 arm64_tahoe:   "25b6f668a26547a7aa03aade7ea9b5d2965d349c543cde579c385ebc4dea6a3c"
+    sha256 cellar: :any,                 arm64_sequoia: "a217b75bd876ebafaff03a1e473601efe04d3019ee3eabc89383dbbc6682238f"
+    sha256 cellar: :any,                 arm64_sonoma:  "c8966dcd89d4a47599678ea862bb0b3bcc55f0f4f7d4f44e0f08de978f911b32"
+    sha256 cellar: :any,                 sonoma:        "bab159e78800611504e555766dae90fc6a4205ccc4d27a5cea628f8d6b6e4a80"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9232c4426e3888b47db3d4eb317b2e2ff260735b22a90481de3ac8ea057c0276"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9d8409fc516750a7bc8000a748a2bf8502c75c3a141a87b45610a82903d536f"
   end
 
   depends_on "cmake" => :build
   depends_on "llvm"
   depends_on "zstd"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # These used to be part of LLVM.
   link_overwrite "bin/lld", "bin/ld64.lld", "bin/ld.lld", "bin/lld-link", "bin/wasm-ld"

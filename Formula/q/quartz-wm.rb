@@ -6,7 +6,7 @@ class QuartzWm < Formula
   sha256 "11a344d8ad9375b61461f0e90b465bc569e60ce973f78e84d3476e7542065be0"
   license "APSL-2.0"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "06ea0e9f6b34bc42af50738f3d878afd8cd0ebbf1cb5df938fdd8b1295e9c965"

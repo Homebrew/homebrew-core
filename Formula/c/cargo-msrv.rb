@@ -1,20 +1,18 @@
 class CargoMsrv < Formula
   desc "Find the minimum supported Rust version (MSRV) for your project"
   homepage "https://foresterre.github.io/cargo-msrv"
-  url "https://github.com/foresterre/cargo-msrv/archive/refs/tags/v0.18.4.tar.gz"
-  sha256 "9e8d743a9948ec91e4d82ce34b8f0f9e65385ed78739cb36376f65049d8b8da5"
+  url "https://github.com/foresterre/cargo-msrv/archive/refs/tags/v0.19.2.tar.gz"
+  sha256 "d8f49750341ef780d9799892921a2db46f309ffcf3f957c28cb6e1e65d73549f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/foresterre/cargo-msrv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c933cc8a8c2df5edcef6dd3eb66a17b7004d358d855d0409237cf69fbf2401d6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a51548c6d0b81c3dd24e17569505ad9cb6760a5dbc111fa9dc4993f162ca0eca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "813162996051721d05770fdc9ed7f8878c76ba57e12e9525e9a3547bbc4356e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a4ae3bbd41c2cbd23e07ccd1c26f8ea854d63bc49daf043384ad980029268f2a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "45e5d88a23f0d0f1dfc83b86a6d7425008d0a86ad21520fc9a42837fd9de3cfa"
-    sha256 cellar: :any_skip_relocation, ventura:       "b0048b375dbdcd010ac19829bc4d5b2733819578ebb2880f8cd772f72f88df53"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7e2393546f7f2b9a3cad3db9803e4c9a1bbdf83f2cf5e2a0cad963f1a03b930"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea9a3477964f0e30b7cae9881998f0f0520cf254e382e1c9680dbbe412d4bb89"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f189ee5f9b655754234e7812eaa143e44bd98592397b9554bb8479e0b4e90ccd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1de216a97f13ef67ad3e5a2cd2f1723e17e34101f9638b387ab430048a705513"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7055c7c672f29e25cb4b5be9cfbe432a1c59dc41f2b64ac99be0af7215d75f0b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "13e2dc40edc1d775eeca96af7af28ecfd753d50e61e3e054acc7d1ad74a0bbd7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "906f3a07a6fa42a61c9916c85887238da5634db462f9e72364820bb7f47149ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e415f199164c50d0fde49c29bca746785fa77a68578723dba57aeb4be478417"
   end
 
   depends_on "rust" => :build

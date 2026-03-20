@@ -1,10 +1,10 @@
 class Qtdatavis3d < Formula
   desc "Provides functionality for 3D visualization"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.10/6.10.1/submodules/qtdatavis3d-everywhere-src-6.10.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.1/submodules/qtdatavis3d-everywhere-src-6.10.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.1/submodules/qtdatavis3d-everywhere-src-6.10.1.tar.xz"
-  sha256 "601c7cfafd6ae525258fe5bc0f759c67237a0aa61f91fb71db2a9c5eaa50bb07"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.2/submodules/qtdatavis3d-everywhere-src-6.10.2.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.2/submodules/qtdatavis3d-everywhere-src-6.10.2.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.2/submodules/qtdatavis3d-everywhere-src-6.10.2.tar.xz"
+  sha256 "b769408bf4a3d03220331d5de59636fdf97a21831d01d3fd141c36c698355bc1"
   license all_of: [
     "GPL-3.0-only",
     "BSD-3-Clause", # *.cmake
@@ -16,12 +16,12 @@ class Qtdatavis3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c7dcc465984c4fc28e30393c2236a6efa15ac8a948a263110d5995b35021f5ef"
-    sha256 cellar: :any,                 arm64_sequoia: "cfb24c58617dbfdc57ed0d7c3613447f47e248a6f75b84dc39e0d02940c11bf4"
-    sha256 cellar: :any,                 arm64_sonoma:  "dab1b8cb70fe9ce463c1cab9db6c720f6ef07b2c2ddd1c51eba37872e95271ee"
-    sha256 cellar: :any,                 sonoma:        "8bc85c645ff865e1145d5d1bb816a3ef174bc7b58a8da515dcb3828da28cc6c9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b15d48881e94f2f183266a75e100b8087f7dc5da54a3791ebdae8430110f3ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "208ed50c394a1dfd75a73aded5763265b714eed51c97bf4a04ef88a2ebe01871"
+    sha256 cellar: :any,                 arm64_tahoe:   "32346fdbccc25a6e102599876016c5a9a47dfb4d75cb592d6693ffef2355fd1b"
+    sha256 cellar: :any,                 arm64_sequoia: "c7000be28b5fc0a3f51e109289e32324b4d429c24be67b440aaba1dbfcd4bfe0"
+    sha256 cellar: :any,                 arm64_sonoma:  "01f38b7b7b7a5d35b9f6fd1fcdc15e5de268b5b3b199fa5533afbb6ffd19521f"
+    sha256 cellar: :any,                 sonoma:        "d48d21cc0425467f736489ddaa29db17226ec1f917fd19d8819373335e6b4e80"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1dbfe61013000fa1b2bf2dedd3d5ebf1e5a0ba7f5ffdbd283906cfa688440ab8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fe8ed1d453262b7ca797ea67e8c75acd938ae2b8ba0450b717e2796ce0237cc"
   end
 
   depends_on "cmake" => [:build, :test]

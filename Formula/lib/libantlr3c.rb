@@ -10,8 +10,6 @@ class Libantlr3c < Formula
     regex(/^(?:(?:antlr|release)[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c221434cbb3dd54168524ef68ab781c223a5d4c70f33b5602feba6c3ee31af69"
     sha256 cellar: :any,                 arm64_sequoia:  "0b28c958040567aca016c773fe2d184aaf8bfe2a849a20265cae9e8980685ae9"

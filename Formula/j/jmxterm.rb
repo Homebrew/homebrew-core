@@ -5,8 +5,6 @@ class Jmxterm < Formula
   sha256 "ce3e78c732a8632f084f8114d50ca5022cef4a69d68a74b45f5007d34349872b"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "03113ff040a52832b1202c64ba4b784662b455e6aea16641d42206fa7c770661"

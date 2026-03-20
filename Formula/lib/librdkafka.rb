@@ -1,8 +1,8 @@
 class Librdkafka < Formula
   desc "Apache Kafka C/C++ library"
   homepage "https://github.com/confluentinc/librdkafka"
-  url "https://github.com/confluentinc/librdkafka/archive/refs/tags/v2.13.0.tar.gz"
-  sha256 "ac44ed450ccd2c4ab4cdeba70115e6f878d794d6df3e61c9f47902f766852058"
+  url "https://github.com/confluentinc/librdkafka/archive/refs/tags/v2.13.2.tar.gz"
+  sha256 "14972092e4115f6e99f798a7cb420cbf6daa0c73502b3c52ae42fb5b418eea8f"
   license "BSD-2-Clause"
   head "https://github.com/confluentinc/librdkafka.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Librdkafka < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "973e114bee8abc100af834a2a1571ea26456373e0cb4097354a857017c11c41f"
-    sha256 cellar: :any,                 arm64_sequoia: "1d69b44b03725da1ef0dcfba60ab4b66f972b9d8fa9c7018f7dd10244881cff6"
-    sha256 cellar: :any,                 arm64_sonoma:  "f2011aa4cacbc8904888f7d4bbb3b70b14b691f8208dc1c60d555141ce96197e"
-    sha256 cellar: :any,                 sonoma:        "b221ab1fd609d75ab7df1def9c6dbcfe11e4e54bf62a823c2b53faeb9f97166e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "041e91e277e944a9ea19718a682b2bcf4a096edfd2de9b58eb2f7c326c5a97cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d977994179f43582c738358c923c54a435fd1332b8ef2a27cbbcd5d74da4e946"
+    sha256 cellar: :any,                 arm64_tahoe:   "ed7480ac09e99c670809a37826aca6ce9458fb1d2d7a43f4c172b067c124cb16"
+    sha256 cellar: :any,                 arm64_sequoia: "26a3075e506e326388f19563e8babd2ac004b4ead23cd7abf2e304459ea993ab"
+    sha256 cellar: :any,                 arm64_sonoma:  "157db5c6848b6682b6d1ef262dfe64ed91b9722470fe29ed7c924ef0e8caa5b8"
+    sha256 cellar: :any,                 sonoma:        "f65151bb56ee1164112b68cecf98583cfa0205d2d7e6ca2aa2ee858a95124190"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5aa9bfb034918440e2c41542b24d203cf500f96ddb5f3497c275941c51e2318"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "988d1ca1076135373173eafce5be84c1fec7917409351f0c9a2fc9bc3e11e47f"
   end
 
   depends_on "pkgconf" => :build
@@ -29,7 +29,10 @@ class Librdkafka < Formula
   uses_from_macos "python" => :build
   uses_from_macos "curl"
   uses_from_macos "cyrus-sasl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}"

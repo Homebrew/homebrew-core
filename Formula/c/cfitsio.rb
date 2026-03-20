@@ -4,6 +4,7 @@ class Cfitsio < Formula
   url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.6.3.tar.gz"
   sha256 "fad44fff274fdda5ffcc0c0fff3bc3c596362722b9292fc8944db91187813600"
   license "CFITSIO"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,17 +12,20 @@ class Cfitsio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f1f544bfb17b7c775fb0d6e0ef066776eef812632068d0a907e38c3bb8112da0"
-    sha256 cellar: :any,                 arm64_sequoia: "4740877f5ef82d5de96cd115c90726d69cbb6bdbf173e658455a478014980d14"
-    sha256 cellar: :any,                 arm64_sonoma:  "4dc73f475934e5f188eefc117f64ad8ef0eac412b3b0aa65901156594b145334"
-    sha256 cellar: :any,                 sonoma:        "58d81f8c8d8af06c7ce37007789748cdfa283c2d3ef63d6dc3d217d32c295688"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3250dc2bc7f30d60e50d4739d6cce788e91afc5a0f3a350d8412eeea7fbf1fb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ff756bf08e864fbe6416cbe1513a6a88d4c377fa63188a0e2f9c87cbb1ce3ff"
+    sha256 cellar: :any,                 arm64_tahoe:   "918983cfb5da385c576dd824d187fe8ee240a7c1516a36bff814101dadb16a3b"
+    sha256 cellar: :any,                 arm64_sequoia: "b941d8b944e1f39a29dcf96f4eb5b0c52fe6a9752f681f8c0daa5f6e4d2b150d"
+    sha256 cellar: :any,                 arm64_sonoma:  "b7d90f791bb15c90eba273f60f4b9ebf26f32f75c779ec34a3e39344dff46a5c"
+    sha256 cellar: :any,                 sonoma:        "52fcd05eb4da45db0a5f3538d731af42b5c1936d3a42a4da19e759d8db608ffc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a8be3014dd22ae6e593c46523fb2b02ec2015cc0cb8583cc1500921b2e56758"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb23f4fd808a941684ba54c17eee5a6e3bc5b3a07fa9691a065f4c5df419bcee"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :test
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Incorporates upstream commits:

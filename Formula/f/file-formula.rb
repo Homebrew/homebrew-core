@@ -2,8 +2,8 @@
 class FileFormula < Formula
   desc "Utility to determine file types"
   homepage "https://darwinsys.com/file/"
-  url "https://astron.com/pub/file/file-5.46.tar.gz"
-  sha256 "c9cc77c7c560c543135edc555af609d5619dbef011997e988ce40a3d75d86088"
+  url "https://astron.com/pub/file/file-5.47.tar.gz"
+  sha256 "45672fec165cb4cc1358a2d76b5d57d22876dcb97ab169427ac385cbe1d5597a"
   license "BSD-2-Clause-Darwin"
   head "https://github.com/file/file.git", branch: "master"
 
@@ -12,17 +12,13 @@ class FileFormula < Formula
     regex(/href=.*?file[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "65b81cd6df1455e32335632e523b2dc5a8401714d3425dcb5c6d8661043a8b03"
-    sha256 cellar: :any,                 arm64_sequoia: "5fe19d9d579de777487bbaa3722d672da01bcfae88f92af992918069bb5a0ac0"
-    sha256 cellar: :any,                 arm64_sonoma:  "573bef480b6d3091dac30e1c279c18285ad25df7a30eea2805abe96aadce828a"
-    sha256 cellar: :any,                 arm64_ventura: "99647711bffd2202b37256b511b365f4d1896b4ff6c0434d280dcff204d7ff10"
-    sha256 cellar: :any,                 sonoma:        "3fea058cdd5fc0e35dc5eac1d7c50e08bea271f93bd68bcd679c3a25073aa559"
-    sha256 cellar: :any,                 ventura:       "c05544f86ae7b5a8469dede0beaa2553c083195e183cc842fd818db0cfe037e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7eeccdbca7917d06791d243ff165509f95bb086d696b25add4c288c32be099e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2ca7e9679bf47ba1ddc966bef0a2c2fa1d85280122449fae5dc877fc0ba8874"
+    sha256 cellar: :any,                 arm64_tahoe:   "8206bf8c3019a0241b7edefd65ac74ebdc2c1f4ac0aa778a3d09e130b22484b6"
+    sha256 cellar: :any,                 arm64_sequoia: "a08faff1e442c329c8b655cceffe8a00052d9d2de8221fdb64094eb7c1082295"
+    sha256 cellar: :any,                 arm64_sonoma:  "2b7186fe8745be41ea7b6ea92050445039be53158bcea6dc36918fe2dd1d8db6"
+    sha256 cellar: :any,                 sonoma:        "3d0694bb8026df521f1cd758ed06fd1d42c433ca86d2cf0280fd83e0aa207085"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e645a47df06173285da28cd793697c479b32ff69f34e6e264da7f9f6f111081a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da75088d7e5b350e6a0a84db487e30aeaa9605ac0541ad5923e0f257213b0f33"
   end
 
   keg_only :provided_by_macos

@@ -6,8 +6,6 @@ class GitGraph < Formula
   license "MIT"
   head "https://github.com/mlange-42/git-graph.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1048c932a8deab74c8eb90e4cdae3a4a4b63fd73f945607a85ae507fcc89a043"

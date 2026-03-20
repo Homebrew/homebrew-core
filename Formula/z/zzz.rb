@@ -15,8 +15,6 @@ class Zzz < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1f259a8829cd360183c6aef122efd8def3dd421f1d72f04d13d6416d7fc9d5b0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fd0ee248946ce362be9296be1706999d0e32f120f86e07923d5f98f58ddd014b"

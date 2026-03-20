@@ -8,10 +8,8 @@ class FairyStockfish < Formula
 
   livecheck do
     url :stable
-    regex(/^fairy_sf[._-]v?(\d+(?:\.\d+)*)$/i)
+    regex(/^fairy_sf[._-]v?(\d+(?:[._-]\d+)*)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ee205839b2f569fc11c0b2d09502a866be0cda2195f04a73cbc9329f2642ac9"

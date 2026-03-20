@@ -11,8 +11,6 @@ class Cpl < Formula
     regex(/href=.*?cpl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c6ae6b7cb1a84a01d0cf02626e62fa069c69ce1ddd58da71a7dbc650f4c233b5"
     sha256 cellar: :any,                 arm64_sequoia:  "44e6e7500a5c7a392a2b4d6ec6aeb8572da5c72ed27650293780e481d3fd05bf"

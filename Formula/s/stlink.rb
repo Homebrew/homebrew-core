@@ -14,8 +14,6 @@ class Stlink < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "a1318d007d2ebd3a5efac196e4c2be465b0bb7a4f6b7b937211d17ad447d983e"

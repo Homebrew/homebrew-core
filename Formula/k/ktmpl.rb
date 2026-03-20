@@ -6,8 +6,6 @@ class Ktmpl < Formula
   license "MIT"
   head "https://github.com/jimmycuadra/ktmpl.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7a4f4f2bafee96a36ab50f17f2c89af0c75c46269cd2f1ebb35de8de69984866"

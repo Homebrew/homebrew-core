@@ -1,8 +1,8 @@
 class Coturn < Formula
   desc "Free open source implementation of TURN and STUN Server"
   homepage "https://github.com/coturn/coturn"
-  url "https://github.com/coturn/coturn/archive/refs/tags/4.8.0.tar.gz"
-  sha256 "a3b302b52c5405a2595f59036c95fc3676e640436ba67e3f621937ec648b1ea5"
+  url "https://github.com/coturn/coturn/archive/refs/tags/4.9.0.tar.gz"
+  sha256 "e01c0701792231d67768e0e314ebad6395501759ea56772dc7e36d3badec5549"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Coturn < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "d38701f1c1c672a30bc5d42ef428b4c5efa22418d12e27bf94e78bf6c904f06a"
-    sha256                               arm64_sequoia: "8024d055cf20ac67e1a163583b340eb889d8b2cd83ced4e2650aec94855064e8"
-    sha256                               arm64_sonoma:  "58b8abbe7590b12749b3f10f66933e7a3dc8b685de56b2c346a725463def2881"
-    sha256 cellar: :any,                 sonoma:        "65262816d66456297922be972a056f6b8ec36e56be68c3137c07bb835371177b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "22832cccdf52b5ab2f1e05c3ca72626a13f0efb2c47daa8fcf1997dda97f9569"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9095996248a3877188d93bb39b4b37c73ab303f4bd0f3e7c8c65eb501ce94cb3"
+    sha256                               arm64_tahoe:   "e1bc1cd5d0a26a528e51ffce5f780106f91851b2256ddc3524acd3f7e37d49fc"
+    sha256                               arm64_sequoia: "9ac2525f1551dbf51574b89d307607340b2c5b8de355ba1ee1b4077e0ff9d853"
+    sha256                               arm64_sonoma:  "f4caf7856ffc1f1fc627898dd6152971d88525b9dd8ee76a2ce402a816322055"
+    sha256 cellar: :any,                 sonoma:        "57898556ba6dd2ca2db060c21638a87f836dfdec414305cd1b9bc3e871aceab2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcbf83817ad6bb9f5877771e1e428fc092dd984c8ef4bc4dd3452b9c3742b64c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba12ae36102a8e832e27a97fc93c085071a1296e77d1fef465d18821f4771683"
   end
 
   depends_on "pkgconf" => :build

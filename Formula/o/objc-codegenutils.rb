@@ -6,8 +6,6 @@ class ObjcCodegenutils < Formula
   license "Apache-2.0"
   head "https://github.com/puls/objc-codegenutils.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ae4db60ac9757d78ddb5870ca7b39d1de92d4ebda85497ee129e84c26e3f23ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "689a1e289323d187c0e1c89d5fb9c7c1292eb304ae9cbf265303ce701e14407a"

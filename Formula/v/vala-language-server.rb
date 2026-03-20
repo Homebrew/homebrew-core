@@ -5,8 +5,6 @@ class ValaLanguageServer < Formula
   sha256 "a93e09497738144792466d0c5ccb1347583d84a9987b65b08f6aa5d5a1e3f431"
   license "LGPL-2.1-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "6de961a16d8c01a87334d3e5f8952bccde9d82e321719c8b7606a173b6a4f79b"
     sha256 cellar: :any, arm64_sequoia:  "7b298f02d9378880231ad35d238897b5fa76e7a0c92efc802676f114fe20ab9f"

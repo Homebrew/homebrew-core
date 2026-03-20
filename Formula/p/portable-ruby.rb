@@ -14,10 +14,10 @@ class PortableRuby < PortableFormula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "643ad12da2e9265085a961d678f5b3219283fbc5a73cdf0615adc8609ba8539e"
-    sha256 cellar: :any_skip_relocation, catalina:      "09a5c468e76c2176c7a5a941831f28463f0035172f2fcf64f8a80f2dc1a31f01"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7cc511b5933ecb4e857994d01ddc66accdbcdb772214ba415664993fe80442f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f52e03e2799621b7f7f103173fb9c7d660d6bc1b9748efbcaab09881bb136cc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cef6f881f516d2cdbd0a5bfc7e20318da8b047cf2674ee27c5d4858d3ecd6430"
+    sha256 cellar: :any_skip_relocation, catalina:      "e4f27cef5f72bf7a99c748c0650fe3718fe661a56960dedaeec9c2c98de1d3bc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2be97b1a8197bed52727448b6a6c5aae99b81f04a6dc40c5e0a0b4f86686573"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5868bc36f93b2d9caf5457ddaa0e790637c0962d84bae078f7200c4092c936e"
   end
 
   depends_on "pkgconf" => :build
@@ -57,7 +57,13 @@ class PortableRuby < PortableFormula
   def install
     # Remove almost all bundled gems and replace with our own set.
     rm_r ".bundle"
-    allowed_gems = ["debug", "fiddle"]
+    # Allowed gem dependency tree:
+    # - debug
+    # - fiddle
+    # - irb
+    #   - reline
+    #   - rdoc
+    allowed_gems = %w[debug fiddle irb reline rdoc]
     bundled_gems = File.foreach("gems/bundled_gems").select do |line|
       line.blank? || line.start_with?("#") || allowed_gems.any? { |gem| line.match?(/\A#{Regexp.escape(gem)}\s/) }
     end
@@ -150,11 +156,6 @@ class PortableRuby < PortableFormula
     abi_version = `#{bin}/ruby -rrbconfig -e 'print RbConfig::CONFIG["ruby_version"]'`
     abi_arch = `#{bin}/ruby -rrbconfig -e 'print RbConfig::CONFIG["arch"]'`
 
-    # Update incflags so that yaml.h (and other headers) can be found when building gems.
-    inreplace lib/"ruby/#{abi_version}/#{abi_arch}/rbconfig.rb" do |s|
-      s.sub!(/(CONFIG\["incflags"\] = )""/, "\\1\"-I$(prefix)/include\"")
-    end
-
     if OS.linux?
       # Don't restrict to a specific GCC compiler binary we used (e.g. gcc-5).
       inreplace lib/"ruby/#{abi_version}/#{abi_arch}/rbconfig.rb" do |s|
@@ -169,10 +170,6 @@ class PortableRuby < PortableFormula
       # Ship libcrypt.a so that building native gems doesn't need system libcrypt installed.
       cp libxcrypt.lib/"libcrypt.a", lib/"libcrypt.a"
     end
-
-    # Ship libyaml.a & yaml.h so that building native gems doesn't need system libyaml installed.
-    cp libyaml.lib/"libyaml.a", lib/"libyaml.a"
-    cp libyaml.include/"yaml.h", include/"yaml.h"
 
     libexec.mkpath
     cp openssl.libexec/"etc/openssl/cert.pem", libexec/"cert.pem"
@@ -204,6 +201,7 @@ class PortableRuby < PortableFormula
       require "fiddle"
       require "bootsnap"
     EOS
+    system testpath/"bin/irb", "--version"
     system testpath/"bin/gem", "environment"
     system testpath/"bin/bundle", "init"
     # install gem with native components

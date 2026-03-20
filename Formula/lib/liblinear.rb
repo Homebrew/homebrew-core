@@ -29,9 +29,9 @@ class Liblinear < Formula
   def install
     soversion_regex = /^SHVER = (\d+)$/
     soversion = (buildpath/"Makefile").read
-                                      .lines
-                                      .grep(soversion_regex)
-                                      .first[soversion_regex, 1]
+                .lines
+                .grep(soversion_regex)
+                .first[soversion_regex, 1]
     system "make", "all"
     bin.install "predict", "train"
     lib.install shared_library("liblinear", soversion)

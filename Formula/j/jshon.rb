@@ -6,8 +6,6 @@ class Jshon < Formula
   sha256 "28420f6f02c6b762732898692cc0b0795cfe1a59fbfb24e67b80f332cf6d4fa2"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "ba745cfbfa0a47f539e46b599633805b202ca8766b1cce5831b49d6bf99ca7bf"
     sha256 cellar: :any,                 arm64_sequoia:  "c71de9488ca461a0438c85645c42ba5e5c8b81c9272c2639c258a5e6b80d5432"

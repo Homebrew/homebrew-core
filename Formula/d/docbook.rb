@@ -4,16 +4,17 @@ class Docbook < Formula
   url "https://github.com/docbook/docbook/releases/download/5.2/docbook-5.2.zip"
   sha256 "11992554a884786f1b78c6b478d6cec90352caf00bef54731c8d54f26751f2c5"
   license :cannot_represent
+  revision 1
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a0f63041884ef15e344abec96148793e2b18c011e3d72dbdb8bdb4d76d16deec"
+    sha256 cellar: :any_skip_relocation, all: "ba985d5405421cb25cffc5d94a824817b6a78b8387a20857e7bab0316bb61c6b"
   end
 
   uses_from_macos "libxml2"
@@ -73,12 +74,6 @@ class Docbook < Formula
           end
         end
 
-        if ["44", "45", "50"].include?(version)
-          inreplace "catalog.xml" do |s|
-            s.gsub! "http://docbook.org", "http://archive.docbook.org"
-          end
-        end
-
         if version == "51"
           mv "schemas/catalog.xml", "catalog.xml"
           mv "schemas/docbook.nvdl", "docbook.nvdl"
@@ -88,7 +83,6 @@ class Docbook < Formula
 
           inreplace "catalog.xml" do |s|
             s.gsub! "5.1CR4", "5.1"
-            s.gsub! "http://docbook.org", "http://archive.docbook.org"
           end
         end
 

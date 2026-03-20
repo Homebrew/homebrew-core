@@ -19,7 +19,7 @@ class Abook < Formula
     patch :DATA
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 arm64_tahoe:   "4179f858a3406d98bbf021e5a431cf064b6430839a4210643925af38a9c037af"

@@ -1,19 +1,18 @@
 class Godap < Formula
   desc "Complete TUI (terminal user interface) for LDAP"
   homepage "https://github.com/Macmod/godap"
-  url "https://github.com/Macmod/godap/archive/refs/tags/v2.10.7.tar.gz"
-  sha256 "5ca0c9b0220f9b30f42ffeddeee9fdf5e63feda55d3ed9d3f6dfdfd30da15f6d"
+  url "https://github.com/Macmod/godap/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "8b36a883dd571fbdb39a66be6c79ffbf2f6c4a24adcf554a5da858af626f4559"
   license "MIT"
   head "https://github.com/Macmod/godap.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec57d30d1e1d9e56b83b41007776c1242b3ad7847c2e6883e89888e6297ee34b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec57d30d1e1d9e56b83b41007776c1242b3ad7847c2e6883e89888e6297ee34b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec57d30d1e1d9e56b83b41007776c1242b3ad7847c2e6883e89888e6297ee34b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f348129aca0b2d9029dadcb851a0cba84afc65ba6182f0360f0c1573b62e1814"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4802d15759c392dc4da01682e830ccbc07971e1568d0212a13aeedc257958c82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27fcd80069c66cb432a683f8b26076c550edcc63488fd39331fc76a7e2ae1483"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b887f7f362b09b785ab6a6dcf23497dfb59913e347a7e72f9bb014185678a0a5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b887f7f362b09b785ab6a6dcf23497dfb59913e347a7e72f9bb014185678a0a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b887f7f362b09b785ab6a6dcf23497dfb59913e347a7e72f9bb014185678a0a5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d4d637e9c7422959bed7972c057cacff6777b05485936eeb9d8cdd6b8f78bb29"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "084972e71575bbccb3b62ff0891ba212bd8bbad3eb3e86c71549020c7b0a4e6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9524d91e142bfbe3a3151b3bb2ea26691ba71242d8c2f130628a26bfd514b429"
   end
 
   depends_on "go" => :build

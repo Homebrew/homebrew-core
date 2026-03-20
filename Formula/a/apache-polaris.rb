@@ -1,8 +1,8 @@
 class ApachePolaris < Formula
   desc "Interoperable, open source catalog for Apache Iceberg"
   homepage "https://polaris.apache.org/"
-  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.1.0-incubating.tar.gz"
-  sha256 "cc4e0557e7a9cc36fd0d72412842f11cbbf5acb90f13f6e32fac14aa5f9ed77c"
+  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.3.0-incubating.tar.gz"
+  sha256 "4a502ceb521c09a179d8a4e0f6b75ff0b76b60b707179df9535b2553a9585032"
   license "Apache-2.0"
 
   livecheck do
@@ -11,19 +11,21 @@ class ApachePolaris < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b7be0de8249bc27a87b9450036e69f9563476437f2627176371caba2043e471c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e06628ed638db4c7cc23537fc8ce8f455105dacacd922a2f78c9d735c38dacea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9446b5bc0c4ea66d04e1295ca6d29744c62b34d37a920142bcf48e3e9fb1356"
-    sha256 cellar: :any_skip_relocation, sonoma:        "46cebbbc97ec05299f795dd61bc8e4351134fa1918e3e56e6401be68b9d48de9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d73af81b82333cc0c6899e6446c469ecaa98a702823e6f79698b988950814432"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c455b85be6a394de94a20a4e6badb785e93f791cd730a6782e44c84c904006d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7fb75b040fe393a5b225af7ce9779e619a500f55bc87a75081bf824047e8510e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb407f578efa1ebb8693505fefaa0f810d2f8af8b6e9971b1506e6d0e648ce86"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b9392a0b73ea4056e3b955f92ae2c152d32db3c3df49d52db14caea444c081c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e56e2613dd258ec7ee6c2029a038fed632320f207256081159177a81c98ecfc3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "35ab94550957709bdaa5443e748d94a9821fa7d09ff91c7ce2d508c5f982e9d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "560c8e1e3afc88b55ff8f0f6995c6d997ba53c856dcc79730e4b0671f1536fcb"
   end
 
-  depends_on "gradle@8" => :build
+  depends_on "gradle" => :build
   depends_on "openjdk"
 
   def install
-    system "gradle", "assemble"
+    ENV.delete "CI" # work around Gradle stalling on macOS CI runners
+
+    system "gradle", "assemble", "--no-daemon"
 
     mkdir "build" do
       system "tar", "xzf", "../runtime/distribution/build/distributions/polaris-bin-#{version}-incubating.tgz", "--strip-components", "1"

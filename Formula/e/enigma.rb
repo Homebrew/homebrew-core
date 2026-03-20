@@ -11,8 +11,6 @@ class Enigma < Formula
     regex(/v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "10b0cd3364cfc8994f9a702a205e87968c36000fd23bf18c10bf0c8974e905dd"

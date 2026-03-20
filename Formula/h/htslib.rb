@@ -1,9 +1,9 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.23/htslib-1.23.tar.bz2"
-  sha256 "63927199ef9cea03096345b95d96cb600ae10385248b2ef670b0496c2ab7e4cd"
-  license "MIT"
+  url "https://github.com/samtools/htslib/releases/download/1.23.1/htslib-1.23.1.tar.bz2"
+  sha256 "f8a3f36effeec38f043c53ab1f2d9ed45064f14205c5ef8e3c815763b90803c4"
+  license all_of: ["MIT", "BSD-3-Clause"]
 
   livecheck do
     url :stable
@@ -11,13 +11,12 @@ class Htslib < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "47588a34d25dc0536df24f4bc060bcff70d8a42222305e216547ce018d1c8cd8"
-    sha256 cellar: :any,                 arm64_sequoia: "79d1fb81b378b58b97f491b004f4c0e7169c2a94e23258bac09ebc87170128d6"
-    sha256 cellar: :any,                 arm64_sonoma:  "3875b123cc1dc1e2c34bdc7f85db4764b753718e8886b681c640354d0755896a"
-    sha256 cellar: :any,                 sonoma:        "88b4bc1d39788edb7cead6d140357d67098a24fdde0d8eac503085218ef59f60"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9dec45c4d70d148f6c36841697520a39ddc56b6648f10bbcc692399b7a0aa16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e5135181a4e4a25dfbe64e1084c4e0ce0603f37d645a01aabd849fc267aeb89"
+    sha256 cellar: :any,                 arm64_tahoe:   "7a0d00e5fbe31dac3e1994e07ed57175acee4d32ad0d88180c89d1f1e966904e"
+    sha256 cellar: :any,                 arm64_sequoia: "f627661b1ec0bac1225e8e179eb583ca214b63fab33ca3bfe4b8646ea8af8e17"
+    sha256 cellar: :any,                 arm64_sonoma:  "cdccdb46501db095f4a746e4681714f9e2a11d40980a4cfeaf332f94c7eb56d8"
+    sha256 cellar: :any,                 sonoma:        "a3f478876c6ebefe567c32b2c15678984ec63621dc12f66fe30fa12806929315"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3b36bac7e8c6084eb5d6ab9a01feab6a2bfd4fa7b247791df59e12866092ed2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "831d616b08a81740389afb6b710dfff4e6a1d012a395e2c69b47341a5958e4c6"
   end
 
   depends_on "libdeflate"
@@ -32,7 +31,7 @@ class Htslib < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--enable-libcurl", "--with-libdeflate"
+    system "./configure", "--enable-libcurl", "--with-libdeflate", *std_configure_args
     system "make", "install"
   end
 

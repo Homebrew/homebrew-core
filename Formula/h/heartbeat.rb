@@ -2,18 +2,18 @@ class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/beats/heartbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v9.3.0",
-      revision: "0f4fc63162db855e0a1c5f0ec5894a8939e31d80"
+      tag:      "v9.3.2",
+      revision: "45ad74566fce5c8c6f1df8a6b90cfa76310cfcfb"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6dd71f08a8a5003406039a1e88e7d6f77627983dda30c20d3bfd4d27f97613e5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0042eff468e202c203d52b3aef6badca48465965934c3b12be5c0d6405e8c5a0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9c1db30d500ed7c471d58f13bb739b177532e97c1068ed3335b9d3967ed9e66"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0953937d16d2124895e864d4e4e3ba7a3372601059e041613612420df4d15007"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8fe9996497b7ec9bc0ca21a9a3c36f2d98443498dd4a48e82c69c26605de897"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff69f0aa4fc6baf5147c90715ff089c125844d2752ec229e8b0f7e44404015cb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "84fd44f6782d1d65d58223fee6c9a1f5cbf893c126367c4b6ac1cfd3f7dc5765"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dda2e57b9ce6d81aad8b19d51e9d7763cae004dbf065eff9fea38040fbb057a4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ac4d6657fc651cdb38780bb693b9ac054c47197fbd1bbde299e626624dde107"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2aaea1cdc416ca5be5e4c3cc9f0cb475636baa230ec9e7ade77a5333f172faa4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b905c00c5220aa75f9076c56ef3445cea20f04332bee7a429f156f854db15a28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f84d8e188f6fcedce79fb02d13c777a4530bae5b115c84655803d751d079e1f6"
   end
 
   depends_on "go" => :build
@@ -29,7 +29,7 @@ class Heartbeat < Formula
 
     cd "heartbeat" do
       # don't build docs because we aren't installing them and allows avoiding venv
-      inreplace "magefile.go", "(Fields, FieldDocs,", "(Fields,"
+      inreplace "magefile.go", "(Fields, common.FieldDocs,", "(Fields,"
 
       system "mage", "-v", "build"
       system "mage", "-v", "update"

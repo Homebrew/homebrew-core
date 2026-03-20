@@ -4,6 +4,7 @@ class Lutok < Formula
   url "https://github.com/freebsd/lutok/releases/download/lutok-0.6.2/lutok-0.6.2.tar.gz"
   sha256 "1ef51f3741d28e27b09dfaee61ab432966cff56f50940eca1cbacffc11baa2ad"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/freebsd/lutok.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Lutok < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5b5c2b7b65fbf24a1f4ebb2662b41475d9ec0dad5db6a4c0d1f137540390780e"
-    sha256 cellar: :any,                 arm64_sequoia: "8dba584b59b9ec5a9711389056ea71ab5237a0857f9a21e09ab7bf7f58eeb6a3"
-    sha256 cellar: :any,                 arm64_sonoma:  "4123f23cd62ffdb746f5772d8e7e004b032ffef68fbbb9e02d533e4b0d446ed3"
-    sha256 cellar: :any,                 sonoma:        "f6e0c7a0eef0dbefbaa303869d37050ed911fbacecb74270280c058f1470fbf7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "228d1acc93f60bf3e273895f8dd3e2380bb5331b5605adf6312aa5e8c8008568"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9750afbc1c546418d5a6b86128b954ac82c9cf9f05128258ef3be35dcf19ebda"
+    sha256 cellar: :any,                 arm64_tahoe:   "5375d9b2d49d55cda41f53ba11c44a47b6c9fe76e52a5b3592bf48afda9b9871"
+    sha256 cellar: :any,                 arm64_sequoia: "cf023d7cb40f5d1a0fbb65a3c937a1bca17828e2e2356960af0a119bfeca6e81"
+    sha256 cellar: :any,                 arm64_sonoma:  "02acd0a9b44150ba2297dddee6eb3ca10f244ca63a093e5a655e2cf8eec1fad6"
+    sha256 cellar: :any,                 sonoma:        "0f73bf9da21d6a0a923303f03d2ae52373a1885e39eb050ed291e35d33a1934a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d750bc1a48d2b4b621462e267437c33c32b0305ad4acb72c51900759068f5a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e216fa951f1f38a59d2a4962c6d58e61ec90ac9d7f27403940cbd9a79c06c4ad"
   end
 
   depends_on "autoconf" => :build

@@ -11,8 +11,6 @@ class ZanataClient < Formula
     regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "4e9a444168ef8759f044a71501e69d0d5f5d8e22dd29038bc8f784751341aa8d"

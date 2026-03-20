@@ -5,8 +5,6 @@ class TerraformDocs < Formula
   sha256 "e8180d74662707b2643930aee7ba012a29ad767ef55fd3321d6a9f3ce7fa79b8"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e0d3dc055f2dec3731d78b46495b133ff703f1552380f32020ab8efcc59f6f82"

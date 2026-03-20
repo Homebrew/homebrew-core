@@ -1,19 +1,19 @@
 class Libbpf < Formula
   desc "Berkeley Packet Filter library"
   homepage "https://github.com/libbpf/libbpf"
-  url "https://github.com/libbpf/libbpf/archive/refs/tags/v1.6.3.tar.gz"
-  sha256 "989ed3c1a3db8ff0f7c08dd43953c6b9d0c3ac252653a48d566aaedf98bc80ca"
+  url "https://github.com/libbpf/libbpf/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "7ab5feffbf78557f626f2e3e3204788528394494715a30fc2070fcddc2051b7b"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "421a520e8a32f1ec6649ecee40143990cda2930a3dedad72185ab4ef053489a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d1a7b1021a6678f835fa3b9f07bd265884674862c2ec6a324e70c0e01ac398ce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "c568bbfccbfe4b8c0a9e4d10bce51e32bd0a016c99dcf74baf050e3cc73e1c2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b097e3b166ab53800e559459b64a4167c8ebe57383f6e4cff627cf5ddbd14299"
   end
 
   depends_on "pkgconf" => :build
   depends_on "elfutils"
   depends_on :linux
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
 
   def install
     system "make", "-C", "src"

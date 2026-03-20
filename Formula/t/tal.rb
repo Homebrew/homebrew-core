@@ -11,8 +11,6 @@ class Tal < Formula
     regex(/href=.*?tal[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a3aad8a5f10c8cee1e5b9dbfb673a6b05ff97774e5cb2f0f813b76c893b3e424"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dd3c811b07d428e7beccf39eda7c3a0af73695f03188dfc7ea652472d492c794"

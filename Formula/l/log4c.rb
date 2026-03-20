@@ -11,8 +11,6 @@ class Log4c < Formula
     regex(%r{url=.*?/log4c[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "ea35b2efc5487ef7bdc2fb3cfe79889d49df229641fe0df54ee2d97ba5da6da6"
     sha256 arm64_sequoia:  "83103a56bdf9b8b2105f679fbeb44dca1c36c46d7afcc542b080e59e6e205f51"

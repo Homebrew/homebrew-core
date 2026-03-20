@@ -5,8 +5,6 @@ class Tut < Formula
   sha256 "afa8c49036461a36c091d83ef51f9a3bbd938ee78f817c6467175699a989b863"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "42b58b435946efe9b969c3b218c1f7a1786500807f93676a4d31b1680c426942"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "51d7ac8bcdb9eff188e5480de11bc29d8b0adca36c195cf3adaddd631a4db1d4"

@@ -20,7 +20,8 @@ class Dumpling < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfc64eb60af9ecd9ba221226e92abf183890db5e55ebfca027681ec52c0a2700"
   end
 
-  depends_on "go" => :build
+  # Unpin go when release supports Go 1.26. Ref https://github.com/pingcap/tidb/issues/65761
+  depends_on "go@1.25" => :build
 
   def install
     project = "github.com/pingcap/tidb/dumpling"
@@ -30,7 +31,7 @@ class Dumpling < Formula
       -X #{project}/cli.BuildTimestamp=#{time.iso8601}
       -X #{project}/cli.GitHash=#{tap.user}
       -X #{project}/cli.GitBranch=#{version}
-      -X #{project}/cli.GoVersion=go#{Formula["go"].version}
+      -X #{project}/cli.GoVersion=go#{Formula["go@1.25"].version}
     ]
 
     system "go", "build", *std_go_args(ldflags:), "./dumpling/cmd/dumpling"

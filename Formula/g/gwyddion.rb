@@ -1,9 +1,14 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "https://gwyddion.net/"
-  url "https://downloads.sourceforge.net/project/gwyddion/gwyddion/2.70/gwyddion-2.70.tar.xz"
-  sha256 "942f4e041945a850bc32d05193a115ac8a5118a6f841afa6d4dea510f9913f59"
   license "GPL-2.0-or-later"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/gwyddion/gwyddion/2.70/gwyddion-2.70.tar.xz"
+    sha256 "942f4e041945a850bc32d05193a115ac8a5118a6f841afa6d4dea510f9913f59"
+
+    depends_on "gtk+"
+  end
 
   livecheck do
     url "https://gwyddion.net/download.php"
@@ -11,13 +16,32 @@ class Gwyddion < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "2a9be119dd5c8893162a0dcbfac468e8d92b8542e308005b171d98e671d1017d"
-    sha256 arm64_sequoia: "946f4dd90604f6e89c8fc696786ca9c67c2f74252e2ead399f29dc434490a303"
-    sha256 arm64_sonoma:  "65d5b8eb804d4d996544ce6e70caba8c6cb54f41a0639015f1ad84bd381822fd"
-    sha256 sonoma:        "507f7a6ed8de871c6e6ea6576ede975c04bff306deeaeb9511b6e2c4a23d7944"
-    sha256 arm64_linux:   "e73cf62e1f3a43063c484d2bbdc962a7f94ef40b6e1688b8eb657bbb40bf9bf6"
-    sha256 x86_64_linux:  "2abe37cb9a8afe42ec478fb057e3dfc4ca19ca1de0b5428ace7df39ab8cc5a2b"
+    rebuild 2
+    sha256 arm64_tahoe:   "4600005e4a74dc2e9b3e0ec17f9e0e52c5cdebeaf4830f16e187d2b06415b44b"
+    sha256 arm64_sequoia: "f95d7836e09dfc7cdc666fd93d7125734d4b07fec1308b9c01cb3a7a875265b1"
+    sha256 arm64_sonoma:  "3c532cc85266974f4af9ba3f04b971ba1116f7a763dd9a9b9fa373033971225c"
+    sha256 sonoma:        "960dbce3c3045c936ec5bcbda40626a20664b2e8540224211e573b2784569cd4"
+    sha256 arm64_linux:   "799e34fbff79d604bdf29e5ba6e91e68466ea8ce4c208631021f73d9e0822175"
+    sha256 x86_64_linux:  "d9f991bd16d1e0e3412b2f61c9d6a6b8806c8db047482381a4f77f951294dd1f"
+  end
+
+  head do
+    url "https://svn.code.sf.net/p/gwyddion/code/branches/GWYDDION-UNSTABLE"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "docbook-xsl" => :build
+    depends_on "gettext" => :build
+    depends_on "gobject-introspection" => :build
+    depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
+    depends_on "gtk+3"
+
+    uses_from_macos "libxslt" => :build
+
+    on_macos do
+      depends_on "gtk-mac-integration"
+    end
   end
 
   depends_on "pkgconf" => [:build, :test]
@@ -25,11 +49,9 @@ class Gwyddion < Formula
   depends_on "fftw"
   depends_on "gdk-pixbuf"
   depends_on "glib"
-  depends_on "gtk+"
-  depends_on "gtkglext"
   depends_on "libpng"
   depends_on "libxml2"
-  depends_on "minizip"
+  depends_on "libzip"
   depends_on "pango"
 
   uses_from_macos "bzip2"
@@ -41,7 +63,6 @@ class Gwyddion < Formula
     depends_on "automake" => :build
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
-    # TODO: depends_on "gtk-mac-integration"
     depends_on "at-spi2-core"
     depends_on "gettext"
     depends_on "harfbuzz"
@@ -55,13 +76,26 @@ class Gwyddion < Formula
   patch :DATA
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
-    system "./configure", "--disable-desktop-file-update",
-                          "--disable-pygwy",
-                          "--disable-silent-rules",
-                          "--with-html-dir=#{doc}",
-                          "--without-gtksourceview",
-                          *std_configure_args
+    configure = if build.head?
+      ENV["LIBTOOLIZE"] = "glibtoolize"
+      ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+      ENV.append "ACLOCAL_FLAGS", "--system-acdir=#{HOMEBREW_PREFIX}/share/aclocal"
+      ENV.append_path "ACLOCAL_PATH", Formula["gettext"].pkgshare/"m4"
+      "./autogen.sh"
+    else
+      system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
+      "./configure"
+    end
+
+    args = %W[
+      --disable-desktop-file-update
+      --disable-pygwy
+      --disable-silent-rules
+      --with-html-dir=#{doc}
+      --without-gtksourceview
+    ]
+
+    system configure, *args, *std_configure_args
     system "make", "install"
   end
 

@@ -1,17 +1,17 @@
 class Libmapper < Formula
   desc "Distributed system for media control mapping"
   homepage "http://www.libmapper.org"
-  url "https://github.com/libmapper/libmapper/releases/download/2.5.1/libmapper-2.5.1.tar.gz"
-  sha256 "ce46ede6443b5c9c2d986d77e6eab901da4537394f14220f3102df2af7652495"
+  url "https://github.com/libmapper/libmapper/releases/download/2.5.2/libmapper-2.5.2.tar.gz"
+  sha256 "aff1aa623eada922a428b730dacbe9523016600d1db9a9a53212833a6bd31ddc"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3c40391b0053a48a237a9958b2eb8a7bc556f1d53bd42d83682894d8a284fe5c"
-    sha256 cellar: :any,                 arm64_sequoia: "243decca19fafb7401110a972fadbc46237c8ca1482ca508e8bdb2c167360a78"
-    sha256 cellar: :any,                 arm64_sonoma:  "740c9c2d5e885e185319df50c6f3baa6f5525008eced450def3d50251ef590e6"
-    sha256 cellar: :any,                 sonoma:        "7abd4912e21aade67e40b51b1bb5c9ab77c12871cdef5ac4cea9115415afbd6e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb7b40032574927fec3dab98515547d5a1b7ce8c21708e70edb8629574b99690"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de57d036dca0a463b09a7041a0e1f9564556209c17ca100e96085964a3883a0f"
+    sha256 cellar: :any,                 arm64_tahoe:   "eebd88eb97dd64c5e05b8f19adbb3cb69a47fe99993f39007b3f812580e5f8e3"
+    sha256 cellar: :any,                 arm64_sequoia: "82d939b92a88017d0a579d916f0f35a10ed9d0c5df4bcb2cbf04f0622bf9ac2e"
+    sha256 cellar: :any,                 arm64_sonoma:  "bd99ce2671baa099d735a048187d541e2cdc4104f5fa0e705d767d8563031212"
+    sha256 cellar: :any,                 sonoma:        "b602930e4d2ffc1950c9b947f8bae65bc6f769ba5eb0d5bfa58403d4dcd2f38c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f864aea23dafa21f4226ab0e2695fd5165e54af46892f164eff4fe5309f9af59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55c64edc6dadf0ad8f870a78960aa9b58c3d7f3a88f85249ce0d0f1da844d46d"
   end
 
   depends_on "autoconf" => :build
@@ -20,7 +20,9 @@ class Libmapper < Formula
   depends_on "pkgconf" => :build
   depends_on "liblo"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", *std_configure_args

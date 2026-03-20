@@ -6,8 +6,6 @@ class Osxutils < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/specious/osxutils.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a45395a57ca736e18ff87ce1f5e6d6a1f125a56957b26680ccb93e2611a9784b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "740ef31720ead876a8af81736ee00b5e74e29c0e77b84c7d9702cc6c7460f6c9"

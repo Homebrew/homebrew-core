@@ -16,10 +16,10 @@ class Newsboat < Formula
   end
 
   depends_on "asciidoctor" => :build
+  depends_on "gettext" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "xz" => :build
-  depends_on "gettext"
   depends_on "json-c"
 
   uses_from_macos "curl"
@@ -30,6 +30,7 @@ class Newsboat < Formula
 
   on_macos do
     depends_on "make" => :build
+    depends_on "gettext"
   end
 
   on_tahoe do

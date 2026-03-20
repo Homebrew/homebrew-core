@@ -10,8 +10,6 @@ class Epstool < Formula
     regex(/href=.*?epstool[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "29ea3ebb0169c4f25d1fae90b5abacf77cda82f3da47c9052d02427521a98535"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f50774d3fb87855e6cb3819a97739d3f5e45806a51a79b69dbcb7d1f966738a2"

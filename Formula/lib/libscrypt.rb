@@ -5,8 +5,6 @@ class Libscrypt < Formula
   sha256 "a2d30ea16e6d288772791de68be56153965fe4fd4bcd787777618b8048708936"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "1282d862a6fe6bda7018c46eb83f037202246c3f8ba35fcddae779effc79b266"
     sha256 cellar: :any,                 arm64_sequoia:  "7a251107f146f88d993fa4fe542c8fbd92d9123904359f91ac5f44aedbb90344"

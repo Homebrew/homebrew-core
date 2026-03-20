@@ -1,9 +1,17 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.4/gnuplot-6.0.4.tar.gz"
-  sha256 "458d94769625e73d5f6232500f49cbadcb2b183380d43d2266a0f9701aeb9c5b"
   license "gnuplot"
+  revision 1
+
+  stable do
+    url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.4/gnuplot-6.0.4.tar.gz"
+    sha256 "458d94769625e73d5f6232500f49cbadcb2b183380d43d2266a0f9701aeb9c5b"
+
+    # Backport fix for Lua 5.5
+    # https://sourceforge.net/p/gnuplot/gnuplot-main/ci/4442080c7152ae6b3a541e6389c053bb9f5306fd/
+    patch :DATA
+  end
 
   livecheck do
     url :stable
@@ -11,12 +19,12 @@ class Gnuplot < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "84aa92c8f37df3670debec51a5f814b8012ee27805e179d4928cf4c6348c07c6"
-    sha256 arm64_sequoia: "6786833abaf3ace2b368b7a71039b4dc3ac19143c7a68811949293cc635b2c20"
-    sha256 arm64_sonoma:  "2c4cfbe7ed0015117c8749940eebe26d9ed1c44eda5db3fc195ef23a2d7b0db8"
-    sha256 sonoma:        "dcbbb1ba4a60c36591d13df4ee978f7a548b40e4e18c809e9b6be821a9a9ba36"
-    sha256 arm64_linux:   "9ed032636aabdeb38b89739653f18f4f87e9f36b5664051c2502ca62044b39f2"
-    sha256 x86_64_linux:  "3c9c387f8b3c2db2e20783ac054fd384b8233f9447d34e39e7b8e9e520b43529"
+    sha256 arm64_tahoe:   "2423f8956648248d70bca9f18a3d01ae80093ba2fb6285456220af59d48f1e88"
+    sha256 arm64_sequoia: "ca167276564b8dde7ffb580be087aa783fcb51d64f6981e434bb08faaf806736"
+    sha256 arm64_sonoma:  "58a259f287608c11bd4533bc8bb2c4809a9141a915608ad520374fed391dd800"
+    sha256 sonoma:        "a85e158ae09b9ea340fb6203d2932c5c59479d2e68530e505d0236590a5e4e77"
+    sha256 arm64_linux:   "28cd7475405d3677b56f326d9a9b35fab9deb3d62110628030ab9e7015c4bfb2"
+    sha256 x86_64_linux:  "dbd1c5da00d909c309acd5354b6063ae903fa1a91961c739b1625af87538de80"
   end
 
   head do
@@ -74,3 +82,19 @@ class Gnuplot < Formula
     assert_path_exists testpath/"graph.txt"
   end
 end
+
+__END__
+--- a/term/lua/gnuplot-tikz.lua
++++ b/term/lua/gnuplot-tikz.lua
+@@ -2542,8 +2542,9 @@
+ 
+ term_help = function(helptext)
+   local w
+-  for w in string.gmatch(helptext, "([^\n]*)\n") do
+-    w = string.gsub(w, "\\", "\\\\")
++  local ww
++  for ww in string.gmatch(helptext, "([^\n]*)\n") do
++    w = string.gsub(ww, "\\", "\\\\")
+     w = string.gsub(w, "\"", "\\\"")
+     io.write('"'..w.."\",\n")
+   end

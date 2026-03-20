@@ -15,8 +15,6 @@ class Flex < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "62ca8b8763bc2c97fe3ec02a4f55e410a6bf80ab26c291b0914313a82d004afe"
     sha256 arm64_sequoia:  "e675e024d2d6f1946303689717a345257cbfc6ba52c20b34447a25b75ae995ff"

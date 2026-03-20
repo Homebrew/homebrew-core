@@ -9,22 +9,24 @@ class Streamrip < Formula
   revision 7
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7410e3c65b79df9f5b208ba8097f5552510d790c176ccbbdfd21726f58641a76"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30224cdcaa8c3ca3e2556fc41b3abcf8c35ebbe906c8a30b5c2fe2ba006d4f14"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50defc9faa77dd29727f9e043a17f22e97dbbae6f865bf940a2dfa6f9bd2e8b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "35ddef95f2e85edcb252d701b046f054307f40e8fc62759298ca942937e5b8e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a9e07cf21dd4e604991d45a8836a0fa79c37815eb23e4f0d180e98846b25fd2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97ef055ea54d754f48da23b5e4799c17b67eba27194803d40ce150eb5cd96f7b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7d0e6ee7dbfee55fe583d219f170936202c1ab75bd24575d817b989c1f03dad0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f688f8ae5c14f9479a4963e527da064659a1893e6a58f92eae8e3f600be0fc2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88ad6a1daf4c30b9d7d2452a0d6a675d9ba0ce4fed0e1f96f5c796ae2f0cd2c6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "df1ee18b9d995399dce0dd97023e822beda0abed7f11f4475f5c937a243355df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e64db3dd9dc89ef4c7233eabc3d10f69b32dce30ac8c871c0a49c3b022f54b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e9b8084af8f7cc09c814e99f98decddae62936d8b96704cea1252fac6587822"
   end
 
   depends_on "certifi" => :no_linkage
+  depends_on "cffi" => :no_linkage
   depends_on "ffmpeg"
   depends_on "pillow" => :no_linkage
   depends_on "python@3.14"
 
   uses_from_macos "libffi"
 
-  pypi_packages exclude_packages: %w[certifi pillow pytest-asyncio pytest-mock],
+  pypi_packages exclude_packages: %w[certifi cffi pillow pytest-asyncio pytest-mock],
                 extra_packages:   "pygments"
 
   resource "aiodns" do
@@ -67,14 +69,9 @@ class Streamrip < Formula
     sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
   end
 
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/eb/56/b1ba7935a17738ae8453301356628e8147c79dbb825bcbc73dc7401f9846/cffi-2.0.0.tar.gz"
-    sha256 "44d1b5909021139fe36001ae048dbdde8214afa20200eda0f64c068cac5d5529"
-  end
-
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/1d/35/02daf95b9cd686320bb622eb148792655c9412dbb9b67abb5694e5910a24/charset_normalizer-3.4.5.tar.gz"
+    sha256 "95adae7b6c42a6c5b5b559b1a99149f090a57128155daeea91732c8d970d8644"
   end
 
   resource "click" do
@@ -123,8 +120,8 @@ class Streamrip < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/80/1e/5492c365f222f907de1039b91f922b93fa4f764c713ee858d235495d8f50/multidict-6.7.0.tar.gz"
-    sha256 "c6e99d9a65ca282e578dfea819cfa9c0a62b2499d8677392e09feaf305e9e6f5"
+    url "https://files.pythonhosted.org/packages/1a/c2/c2d94cbe6ac1753f3fc980da97b3d930efe1da3af3c9f5125354436c073d/multidict-6.7.1.tar.gz"
+    sha256 "ec6652a1bee61c53a3e5776b6049172c53b6aaba34f18c9ad04f82712bac623d"
   end
 
   resource "mutagen" do
@@ -145,11 +142,6 @@ class Streamrip < Formula
   resource "pycares" do
     url "https://files.pythonhosted.org/packages/8d/ad/9d1e96486d2eb5a2672c4d9a2dd372d015b8d7a332c6ac2722c4c8e6bbbf/pycares-4.11.0.tar.gz"
     sha256 "c863d9003ca0ce7df26429007859afd2a621d3276ed9fef154a9123db9252557"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/fe/cf/d2d3b9f5699fb1e4615c8e32ff220203e43b248e1dfcc6736ad9057731ca/pycparser-2.23.tar.gz"
-    sha256 "78816d4f24add8f10a06d6f05b4d424ad9e96cfebf68a4ddc99c65c0720d00c2"
   end
 
   resource "pycryptodomex" do
@@ -188,15 +180,11 @@ class Streamrip < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/57/63/0c6ebca57330cd313f6102b16dd57ffaf3ec4c83403dcb45dbd15c6f3ea1/yarl-1.22.0.tar.gz"
-    sha256 "bebf8557577d4401ba8bd9ff33906f1376c877aa78d1fe216ad01b4d6745af71"
+    url "https://files.pythonhosted.org/packages/23/6e/beb1beec874a72f23815c1434518bfc4ed2175065173fb138c3705f658d4/yarl-1.23.0.tar.gz"
+    sha256 "53b1ea6ca88ebd4420379c330aea57e258408dd0df9af0992e5de2078dc9f5d5"
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"rip", shell_parameter_format: :click)

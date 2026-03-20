@@ -12,8 +12,6 @@ class Mandoc < Formula
     regex(/href=.*?mandoc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256                               arm64_tahoe:   "025ae8796e204d45e8fee68828ec019cbab0e8e91f34b2fd08b3a6520622f840"

@@ -6,8 +6,6 @@ class Confd < Formula
   license "MIT"
   head "https://github.com/kelseyhightower/confd.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e942ea00a80dc2d920a1f6bbee2903b81b82d3a0578e97f46ab169bad181a798"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "51310afd5fe23174446bd8cec35b69abf7f13075e1035b714a700f40582d05f8"

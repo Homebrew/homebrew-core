@@ -1,18 +1,18 @@
 class SwaggerCodegen < Formula
   desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/tools/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/refs/tags/v3.0.77.tar.gz"
-  sha256 "0bfe29217773f4b64f516867ff421e11ec427b93d5506967751a948cddb73ac4"
+  url "https://github.com/swagger-api/swagger-codegen/archive/refs/tags/v3.0.78.tar.gz"
+  sha256 "d936c8d525eed32edf942839dd16733c1d4bdfc28e4ed4557c5d2f55d3b28d42"
   license "Apache-2.0"
   head "https://github.com/swagger-api/swagger-codegen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7494d145a4cfd809b2e0ea179e8a096f8677f69dc15c783b4cec42d63ee23ea"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5d75fea4218598ca688c54852808a8fc86e5a10785529ed3085db06fe745607"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cba27e0839a0bb170921d3847a3be2507665a7d5ccbdd5cf05fe738df0085d0f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "54a512516e1b285952b5fca3fcc519f217d992593422f1d7ff8fb76040dc57fd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "88989b571e7712f32b3adc8e9e3518933393225184f870e663a4660075a91213"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "554ce515903dee75a1b28d9180993b60f20d555466a986d3c706a43090d7d8af"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fbc05b7faf526bf5ce367bd05ea68e3a6d52aba332354632ae13d9a4daabb04e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "118998c0750ac6d950a8c545bf8560e02f996f2b1f80c2be46ae5641c91b174c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "535155fa18046f1c9d5ca2fcd2696e0153cad7438db40c5e64d5d9f0ac95f0b1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "68fe830cad43ac807b77e385bb458cc15a1b49603277567ef6d6b41c2c04a81f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "65837ea5799d785e2f5525a683afa1f882ef1d10f0b7f65e0a9e573f5ff50385"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "975705c95bb33ebf9e6e1fdeb09b694c3bc29abe53a8f4cccde101f8c7ff1198"
   end
 
   depends_on "maven" => :build
@@ -22,7 +22,7 @@ class SwaggerCodegen < Formula
     # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
     ENV["JAVA_HOME"] = Language::Java.java_home
 
-    system "mvn", "clean", "package"
+    system "mvn", "clean", "package", "-Dnet.bytebuddy.experimental=true"
     libexec.install "modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
     bin.write_jar_script libexec/"swagger-codegen-cli.jar", "swagger-codegen"
   end
@@ -30,15 +30,15 @@ class SwaggerCodegen < Formula
   test do
     (testpath/"minimal.yaml").write <<~YAML
       ---
-      openapi: 3.0.0
+      swagger: "2.0"
       info:
-        version: 0.0.0
+        version: "1.0.0"
         title: Simple API
       paths:
         /:
           get:
             responses:
-              200:
+              "200":
                 description: OK
     YAML
     system bin/"swagger-codegen", "generate", "-i", "minimal.yaml", "-l", "html"

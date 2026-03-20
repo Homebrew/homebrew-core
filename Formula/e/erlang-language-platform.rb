@@ -3,18 +3,18 @@ class ErlangLanguagePlatform < Formula
   homepage "https://whatsapp.github.io/erlang-language-platform/"
   # We require the submodules, so we fetch via git
   url "https://github.com/WhatsApp/erlang-language-platform.git",
-      tag:      "2026-02-10",
-      revision: "f028b38661b614d8546a8f51928cba9ab7efd79e"
+      tag:      "2026-02-27",
+      revision: "3a65019ef3b85a7b0f58c998f5d5a545d7394b15"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/WhatsApp/erlang-language-platform.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd3cce12947adc9dd78f713905c964610394fe89f4987e7746dd44e035e69b13"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7ff80ebf56f48615e44bd44f731f62e752bc8096d940b663818b5b8c6775e1f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f26e1f3d5cdd37b9f4848e25cd07f81b6321245031b594e6410ff5c40e1d15c2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "65e6f6d577d6e59fd28bcbcab378c36fa51fb494700416b8322cb2d2df1dffe9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eacbd125f6bcbf61714904caa86cbdc41c325d4c90decb54bf261092f55ad5d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f96d3c51673a03d136894365145390c575145483296cb36f80b116e34bb6b7b4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5a498d14918e123192b9ab0f2da6a88b23118bd0f04889742fb6afcb7f843e9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3a78107e784f20cfd77f2a7ecb8c71fa116059764cf7d0c875e85fb408e37ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7e7e2d78e18a19f5d5ca4dea447335b282436ccc00e65f057beeb8524f88c81a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9984214c9bd155fad1fb9b28664819abfdfd18dfe64863c6571d0cd0ba92600"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "26e2191aaf4cfac4d1bf79c62c1181b5c70f81bfaf37abec5bccfa9277ef4d41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb4947af38046be0fdd8a8424f68448c1ed0f42f8ffd5609622b5ce3be67495b"
   end
 
   depends_on "rust" => :build

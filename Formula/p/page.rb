@@ -6,8 +6,6 @@ class Page < Formula
   license "MIT"
   head "https://github.com/I60R/page.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f685622827fa6bec5a9dae5fc611899eb1d1348564285a34374018e9ef870115"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "85f3c4b72af05b300edd783803e965114ee38bb7d8b6702812a9632d1386ec3a"

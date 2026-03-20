@@ -4,7 +4,7 @@ class Qca < Formula
   url "https://download.kde.org/stable/qca/2.3.10/qca-2.3.10.tar.xz"
   sha256 "1c5b722da93d559365719226bb121c726ec3c0dc4c67dea34f1e50e4e0d14a02"
   license "LGPL-2.1-or-later"
-  revision 3
+  revision 4
   head "https://invent.kde.org/libraries/qca.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class Qca < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "77cf79402fa097117462f26cda38a3a4a5177b1c51be356dcc157aceeaf594a7"
-    sha256 cellar: :any,                 arm64_sequoia: "f8999214a1a4da8b03f7f415e111e045560ab5d03772b5706a40aa457b7b063f"
-    sha256 cellar: :any,                 arm64_sonoma:  "ab0eb09c745b2c5a1086bf5be81a2010b89f856bdbb5cb0aa5b43f6b05b145ce"
-    sha256 cellar: :any,                 sonoma:        "e2017941c027c2bc3ffb6bc14e53ab1e7f84070bc0e46cac0789472381cf5206"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "68d83fb6dbd298de60bcdcd317ce9b1aa3c60005ecf4facd974c650c25462ac8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d54647e6d5e8874d3714edde1237c063aa137aa7e57024b4fdf35e853668dd30"
+    sha256 cellar: :any,                 arm64_tahoe:   "818d341dae76b762accb69b2ce4f4c9c07c58639d82dbeff6b7f1c55fd9e7a66"
+    sha256 cellar: :any,                 arm64_sequoia: "b3eb68077400ddb74b629e06466409ee5891e0dc385cbae4da39f4b7e30aa979"
+    sha256 cellar: :any,                 arm64_sonoma:  "35373ce735224f22bdfb260586ce6f1aa7a85be8bc63a0e3949d45dc055a3c4c"
+    sha256 cellar: :any,                 sonoma:        "05b9faa226a1ffc150cd6ddc6e6d7328725b81413b8e56e0007bfceebe34de47"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f5b7027eff968ab96d3eb53db93deb0b1ae3d51d08617abbfc94c689ee0f995"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "697e728c265a6852dc25ebd2a87b62a87a6abb4d2f76ae9de6b669b406bf24e8"
   end
 
   depends_on "cmake" => :build

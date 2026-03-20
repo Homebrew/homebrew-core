@@ -67,6 +67,8 @@ class XorgServer < Formula
     end
   end
 
+  conflicts_with "x-cmd", "x-cli", because: "both provide an `x` binary"
+
   def install
     # ChangeLog contains some non relocatable strings
     rm "ChangeLog"

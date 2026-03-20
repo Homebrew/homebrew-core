@@ -1,17 +1,17 @@
 class TextEmbeddingsInference < Formula
   desc "Blazing fast inference solution for text embeddings models"
   homepage "https://huggingface.co/docs/text-embeddings-inference/quick_tour"
-  url "https://github.com/huggingface/text-embeddings-inference/archive/refs/tags/v1.8.3.tar.gz"
-  sha256 "778fcfbc98d12dd8d3a47b3a670a3a9fcb245385721f5095f36e31515d44bf7d"
+  url "https://github.com/huggingface/text-embeddings-inference/archive/refs/tags/v1.9.2.tar.gz"
+  sha256 "92c289f2ce51a9df6e69d7cf4adf17e13d7c3fb561168b74fab2be4224c38b29"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "832f809af4b7b37398bca2edc0545e3aab38149bb22a676a027f92d2c2759f60"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd59feeb6cb0b596f93faaae2b64e9454accb2132d0092f195020c1084619f92"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "504bab41dca62d5f855646504a8bbc21b7439d7158abff4040b23c9889b1c2b1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "997936782ae78f1bd10abc7ae3fd2ddfdccaf8f135be3a533c659bd1ad69392e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "229d24b337d84a46750fc79d42aa9d5429521310a37a671b1874fa813f792c61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f9636dff12382578075cc7b31d2ca5c153bcf9e095e63ff93c02d98dba0e731"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2d0544b700a55278610a4f3405875107822d2b801fbb7ab5b4ca3e47f6782f9a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "173d036aa4cb307a502fbb98b1436419409e94992a55e9f91052b1bf12577074"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f30e82669f79e24aefe425950543f1d8db8870aedd8c45db51c3ded78169fc3e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "599e42486ac079dcfb7826fc15faa7174ba7647715e299f986181e095a1ea68d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d627908ede29b0544ebf52d3e32495106bdd9511e048a392fb2aee55591f6c61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8eb15c2cf8a11731239a3a09d1871042d40890462affc90a921ff449ff8e4037"
   end
 
   depends_on "pkgconf" => :build

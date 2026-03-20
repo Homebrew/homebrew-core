@@ -1,20 +1,26 @@
 class Libfyaml < Formula
   desc "Fully feature complete YAML parser and emitter"
   homepage "https://github.com/pantoniou/libfyaml"
-  url "https://github.com/pantoniou/libfyaml/releases/download/v0.9.4/libfyaml-0.9.4.tar.gz"
-  sha256 "dac2b0af7b757b32a4fa7c6493d85d0f7dea6effd20ae4352570b6a450b9e5fb"
+  url "https://github.com/pantoniou/libfyaml/releases/download/v0.9.6/libfyaml-0.9.6.tar.gz"
+  sha256 "a59cc3331e2eb903ec36933ad52a45888041cac31e44f553a00511131242c483"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5fab9ef2a5b35ceaaa66ae9651d5b360b61f11785c3f501bcbe4eeef94d0fbe9"
-    sha256 cellar: :any,                 arm64_sequoia: "ffbae1db72dca752e9c4101cac7c98eb6ce9519bfcb07a1d6a85af536ae64c78"
-    sha256 cellar: :any,                 arm64_sonoma:  "3fb3558cc25558c914181ad7a69a715a429aa91d3500a2e9df9b7655f7952024"
-    sha256 cellar: :any,                 sonoma:        "dab4726be4d9ec849dae8f8199cbafe93f50b89d238b2df612d01ad72a259a54"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "52adfa81a7599fa7b76eb853727084b7f6e9147590efd944a18c90fc4a41e0dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3c68885b9453639f731e261c39c8a04d6cfe8b150efb311635ce7cb10e30462"
+    sha256 cellar: :any,                 arm64_tahoe:   "50fb30d6db3da0bbda7d36d346e78bf30a82a13b9ed263661ab679f9fab2e2a5"
+    sha256 cellar: :any,                 arm64_sequoia: "0ecf0978f6f3abc4197219df6e0516cae6fb70224140194e8431233a5d46c661"
+    sha256 cellar: :any,                 arm64_sonoma:  "27587d70e74d903bcd0d43a2632c18a69c4d0a585dd8de4f7d6423e97bff694c"
+    sha256 cellar: :any,                 sonoma:        "6bb2bf4968461df7d2469cbab44074a2c7b3f39b2c39aea1de741b7550e1cfeb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2dc2fcfb912ad0a464b48f0e6674416d627591c06882ee61f45134c548341687"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df9c7be47669e502ab428f136732a9200c344ef8b56d390bafec34fc1151e71d"
   end
 
   uses_from_macos "m4" => :build
+
+  # TODO: Remove patch when https://github.com/pantoniou/libfyaml/pull/267 is merged
+  patch do
+    url "https://github.com/pantoniou/libfyaml/commit/45faa819b6c3eb54b2d63b46d4c7690fa1e8e8ff.patch?full_index=1"
+    sha256 "22fbbb360b96cf879397f1ab3dadf8876277f8d77708b6252c0908d37e09a4f9"
+  end
 
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"

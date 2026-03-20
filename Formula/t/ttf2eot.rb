@@ -5,8 +5,6 @@ class Ttf2eot < Formula
   sha256 "f363c4f2841b6d0b0545b30462e3c202c687d002da3d5dec7e2b827a032a3a65"
   license any_of: ["LGPL-2.0-or-later", "BSD-2-Clause"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d16324780cc0664cc3e5372cc1c6959062258a6480c23e4ca1791c0e0013f864"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a4063624dce85f67ce9f8d03c746e79350fd5ec24b3439cdef46e71bf1f07418"

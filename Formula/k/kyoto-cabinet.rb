@@ -10,15 +10,11 @@ class KyotoCabinet < Formula
     regex(/href=.*?kyotocabinet[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "8c03d0a70b2156784bf4db81491d582b8dd5791125a5621a00d9cdbd5d34da4e"
     sha256 arm64_sequoia: "e6e743ed4be2b0c94966e6622276884fe654cb266caff7f1899d09486100302a"
     sha256 arm64_sonoma:  "5f81a814035a2afa3c5c2be4d7325553120d5f4763b0d48e602d0de7e6ec89f7"
-    sha256 tahoe:         "2261bfbe90c66ff5c815c1e33e3e16edd00171bdd37303e5fa12138d03be63ff"
-    sha256 sequoia:       "9054f01ed121864136b78604cf4f3fa963d87d550df738d7a6eccd71ac4e7909"
     sha256 sonoma:        "1eec27e4a7aa9f4f345ee8c2c4025551b4d195013b6e001028d03ddbd3845d8e"
     sha256 arm64_linux:   "12244c6b610c93626dd6163c17077439df64c9390f11f145ad94392bee33dffd"
     sha256 x86_64_linux:  "c8fab699165ea045c5067847edb04c38d8b7326ad4cf0936031d93838709944e"

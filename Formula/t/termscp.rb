@@ -7,12 +7,13 @@ class Termscp < Formula
   head "https://github.com/veeso/termscp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d6b5cf7389ef5eee4d8d95379a8d988959f41b76843eecb53af9cdc744fd3f17"
-    sha256 cellar: :any,                 arm64_sequoia: "85c7d904187fdbc4a264c7f147c35314ed952db4c31e00095e53b5611852a25c"
-    sha256 cellar: :any,                 arm64_sonoma:  "e4001104a7299738e85635833c79f6189fe4bab9d2184275b6a998bfb51a2528"
-    sha256 cellar: :any,                 sonoma:        "f926eafbd17cab0bd7c289d28ef60a167811d89ebfc92ab4d38ee5475c1e2db9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb4cae56b048e15d8da7c00fd5035df24a836efb96f18dfc82ee98371c231a36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa5531d08369e20346ad30474907f6e2a8653df87a72af042a54e5c5ec75a7e3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8bdec1e7b0df8b1245316318cd2a94add2b2a3bd6e87c6b1ec45498401c19b1f"
+    sha256 cellar: :any,                 arm64_sequoia: "3a359010c1e22734ee9576b9a11202eeb1f6da04b3bb443f665dff126a678503"
+    sha256 cellar: :any,                 arm64_sonoma:  "af65ce15e43152d630e7bb55a564a255e06c085b63fa3b37c3194778b627fe2e"
+    sha256 cellar: :any,                 sonoma:        "29b1da4bed40847c693bb52e32511d4dfc53e6ac04524a3217e5cf0282a47f13"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa3958d217ee1d3a5d45de489b1cfb4df90587269211060643017c9ff45e5308"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0bec0fcc27065085c36f6cf69efec45e3d7744ff5892c6cadc4293c8de73962"
   end
 
   depends_on "pkgconf" => :build
@@ -20,10 +21,9 @@ class Termscp < Formula
   depends_on "openssl@3"
   depends_on "samba"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "dbus"
+    depends_on "zlib-ng-compat"
   end
 
   def install

@@ -5,8 +5,6 @@ class Graphene < Formula
   sha256 "922dc109d2dc5dc56617a29bd716c79dd84db31721a8493a13a5f79109a4a4ed"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "b6625af7453d52f016d1218f609bc2044066b81331b90a1536522441b7919816"
     sha256 cellar: :any, arm64_sequoia:  "11188e7d35c1a2c58483be14dc3ab2699d1829b8a1f4819abb00cdf566e6ce2f"

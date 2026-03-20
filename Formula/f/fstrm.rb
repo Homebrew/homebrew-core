@@ -20,8 +20,6 @@ class Fstrm < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "7b3467f8c2db26584cb092d8d9c4fe769f459d6a015c7f935d335a885c996697"
     sha256 cellar: :any,                 arm64_sequoia:  "d33b95ae03b379e72f20439898cb8c87f896d2994783778803c7701d92a57998"

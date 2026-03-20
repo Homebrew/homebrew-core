@@ -1,10 +1,9 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/4.4/libgweather-4.4.4.tar.xz"
-  sha256 "7017677753cdf7d1fdc355e4bfcdb1eba8369793a8df24d241427a939cbf4283"
+  url "https://download.gnome.org/sources/libgweather/4.6/libgweather-4.6.0.tar.xz"
+  sha256 "7f5d0e8c9685ef2ff46c2f3a57cae48d7bf3540b2d83921f889ef28e6a876788"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
   version_scheme 1
 
   # Ignore version 40 which is older than 4.0 as discussed in
@@ -17,12 +16,12 @@ class Libgweather < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "a0f5b2a53daf3be868d2601e99ae2119a51457676016d1f15bb0932d6a413449"
-    sha256 arm64_sequoia: "819f5d39b980380a41bab9e47e4345043691db9cde55caf74728800d968a68cb"
-    sha256 arm64_sonoma:  "457c6988412179b63a5d92df5281106dc4b09a4770448f66f855e3ab004e5675"
-    sha256 sonoma:        "772860847b0744d9ee83a44cf92ff70894473bf87ddde2c14d37e5422b873a2f"
-    sha256 arm64_linux:   "7932cb5f77bcc83782f3816e631dd48d05198affdc9e1e6a3cdab639dc147394"
-    sha256 x86_64_linux:  "cf5d68a71f9c30705d01484985fe117809f4f5ad93f853638c6ca670b32314a1"
+    sha256 arm64_tahoe:   "ac0399364b4299b04ae70b9be4364d5e7ccd08e23f5cc841adceea96cbea463a"
+    sha256 arm64_sequoia: "0d6fd8e92f625d3e6baa9ef99627e19b4504ccbb4ad5f5d887d21d6a24772146"
+    sha256 arm64_sonoma:  "d968d586e39ceb5a9ca8e7c1ecd047ac36c7abdd06ec415739f053786f502bc7"
+    sha256 sonoma:        "df230a6fe7d85a3860238afa322703f616e1d7b5d873c20a7ad32c5927315f6e"
+    sha256 arm64_linux:   "6ae4d2326fbcf68ad6b4902dc7315ad87a551a1c4ac0fc2de9487eb40b63cff6"
+    sha256 x86_64_linux:  "b6b4dcb96c53ab71fb3c243a7ed9e804c074a86061cb6e277f4e0228e656cef6"
   end
 
   depends_on "gettext" => :build
@@ -45,13 +44,18 @@ class Libgweather < Formula
     depends_on "gettext"
   end
 
-  # Backport fix for "error: call to undeclared library function 'alloca'"
-  patch do
-    url "https://gitlab.gnome.org/GNOME/libgweather/-/commit/12080775978b6d5140c741562894ea5d21601e15.diff"
-    sha256 "64f638c4ffe0936016117f7355a1bbbbf2fec41b1e67bb64eac1bdca760eba23"
+  resource "gweather-locations" do
+    url "https://gitlab.gnome.org/GNOME/gweather-locations/-/archive/2026.2/gweather-locations-2026.2.tar.bz2"
+    sha256 "6fac60bd832782bf65f8e2d47e9a33de79a1c5bae9dacdd0e414bf465b3b52a2"
   end
 
   def install
+    resource("gweather-locations").stage do
+      system "meson", "setup", "build", *std_meson_args
+      system "meson", "compile", "-C", "build", "--verbose"
+      system "meson", "install", "-C", "build"
+    end
+    ENV.prepend_path "PKG_CONFIG_PATH", share/"pkgconfig"
     ENV["DESTDIR"] = "/"
 
     system "meson", "setup", "build", "-Dgtk_doc=false", "-Dtests=false", *std_meson_args
@@ -64,6 +68,8 @@ class Libgweather < Formula
   end
 
   test do
+    assert_path_exists lib/"gweather-locations/Locations.bin"
+
     (testpath/"test.c").write <<~C
       #include <libgweather/gweather.h>
 

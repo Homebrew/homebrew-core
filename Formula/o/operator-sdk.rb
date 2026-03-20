@@ -2,8 +2,8 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://sdk.operatorframework.io/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      tag:      "v1.42.0",
-      revision: "ab5563df5499cafa4ea9d40d4b36b51899a4718e"
+      tag:      "v1.42.2",
+      revision: "6001c29067051e1a04e829ea033988b904d1845e"
   license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git", branch: "master"
 
@@ -13,13 +13,12 @@ class OperatorSdk < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "292910e2303b1807abfd2e15f36239768aa14aeecc57e8c344f1d3d0225aebfa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9016d1b8781a29b78156109cfcdd9455e8a462d73f96384dccca321e19e80023"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c80acbf5c023e2d17554f9a07388ab69c1c488763734cf06662b238a18a0804"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ada13ce55cc3cb321c796b393a29e2d102c4da57bc1878d96b7b9c1f2c272090"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe49bb3277029444d2a654cb0672c70718c4bff9439e27f87b7b95a96ff51b4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cb1e0336db204954dacbf3fef72dd6b586ec7b23e024632686815e4ce59c810"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8ac26f6202124cd135687b423d478d65c0ead0ac1178a7bf294db5a0697642f4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7cbc9ed59f8c33306bde4ba2beb16c3f8c4e305c989e2b3c71d663a0f70289f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e44d4197872ea85c600c9249019a527fb2921015b6f6020ccb9498f7c628b82"
+    sha256 cellar: :any_skip_relocation, sonoma:        "10a7169afc5dadbd985d6d679ffd0c7988691769b3e84bf11a51db8c837ce201"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8da9980171416c190a7f425c8842e983eae4d003827b6f1fa3560fb061952ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d713a149a37d45a02d8819c1578ff81f2fab470c58db46bdfa529e2f590dcda"
   end
 
   depends_on "pkgconf" => :build

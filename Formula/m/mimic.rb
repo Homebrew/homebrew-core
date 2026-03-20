@@ -8,8 +8,6 @@ class Mimic < Formula
   # * BSD license with 2 clauses but not matching BSD-2-Clause (e.g. src/speech/rateconv.c)
   license all_of: ["MIT-Festival", "BSD-2-Clause", "BSD-3-Clause", "Spencer-86", "Apache-2.0", :cannot_represent]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "c5308faf93176da28184e555f4e6978817d59676b85b5382e6fd7fffb7611bad"
     sha256 arm64_sequoia:  "809c72a67bc515dc1ae83a7c03bf27c9a8bf9d38422aff57d65a58ae27a0bb1e"

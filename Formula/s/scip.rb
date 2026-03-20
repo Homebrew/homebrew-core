@@ -11,12 +11,13 @@ class Scip < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7e3a448087a508c3b7a12c5f384013856a4add67f5fbb86c33efbc817ea39435"
-    sha256 cellar: :any,                 arm64_sequoia: "599be8b5733dca2f3f532348ab233b1bbb06dbd6a675b8701b76602a3df31f2f"
-    sha256 cellar: :any,                 arm64_sonoma:  "8120e5baf50d55d910564b92180e9e504c1c670bd7f17d349e5dc3af64ad296a"
-    sha256 cellar: :any,                 sonoma:        "f0a75e409f5b2dab85d0c4c6880c9f435d843ba5578599179a88495054ceeeb5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c580aceada57527484f3adb8753730e8e4b3341476cd2ea509d4fa67b112615f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2453826968de5894e42ed135f49276d291ac44fa7e0ca1472016d13d72d73e66"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d6763c8b4026e7a7b76d8202ab3170da7f192cd9bc35d1a1ae5e143c38ad8d7e"
+    sha256 cellar: :any,                 arm64_sequoia: "57f950b9758a74626defd154c6741919647b0784ba1503aa0157ae86ea5e5936"
+    sha256 cellar: :any,                 arm64_sonoma:  "bb1bdff5f0720197835b422faa05fcc24aa3922a607fd47aab02a55e0d79144e"
+    sha256 cellar: :any,                 sonoma:        "c06ded6eb98947e0c9bc59e0ffd2b7842ae77c6769b922768e877118b6425f8a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "59c7867bfe4349b2f42887e8a4e472ac934b5e987314efbf72793b66b3b616d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4d463b473ce46312fa9cbc28dca49bbdb08b4bace0deb40e4bf6fd00e03bce6"
   end
 
   depends_on "cmake" => :build
@@ -31,14 +32,13 @@ class Scip < Formula
   depends_on "readline"
   depends_on "tbb"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "boost"
   end
 
   on_linux do
     depends_on "boost" => :no_linkage
+    depends_on "zlib-ng-compat"
   end
 
   def install

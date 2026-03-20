@@ -5,8 +5,6 @@ class Lgeneral < Formula
   sha256 "0a26b495716cdcab63b49a294ba31649bc0abe74ce0df48276e52f4a6f323a95"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 arm64_tahoe:   "a65fba44b56f1ae92c209b5542e45371b8566fd465a8eb1c39913a4bdf334793"

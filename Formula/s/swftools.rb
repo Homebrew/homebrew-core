@@ -12,26 +12,19 @@ class Swftools < Formula
     regex(/^v?(\d+(?:\.\d+)+):/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "6f84ebd03efc6f1b60886a25c819fab4989b5ce8c9b872c217f04e63c5b8afc5"
-    sha256 arm64_sequoia:  "f61324276719da51b51203bba9f88739b126e242ee458f65b98cf04492e01114"
-    sha256 arm64_sonoma:   "748aa1b21377ed7009f151bb4e9f8beb240f52bc8b8e5cb68e88b4a5928eafdf"
-    sha256 arm64_ventura:  "e5d604b100f9911bd2d61f4f4c2bfc5bc3121734de1cef9beedb7b5ae06b1a67"
-    sha256 arm64_monterey: "f580bc8117485a0a4be18f76ffa5d3c5764aa04e1d4eb6b3e17b64239d88fb4d"
-    sha256 arm64_big_sur:  "4737739b57d119d07cca0689481151e9ed2a815d3e026d85be4354ef76200877"
-    sha256 sonoma:         "01f967e4fe8aa9edd73611dfbbc96a43cc687f4e9aaffa97e0522246a112a510"
-    sha256 ventura:        "4e099a2079eb825d49c09fd0214bdde20e9b0e52754d73b920de4de4aaa5a7bd"
-    sha256 monterey:       "109f5b7057ce61a14f6eb11eb87afb90305b0dc7d830d6ce8d70872e9338b939"
-    sha256 big_sur:        "bacf30e9986bb179127942abea49fac9ca05cf1ac3b3851cf3faf1cb970009b4"
-    sha256 catalina:       "b0791e6725e6d07610847df7e4431e5839fcf72120cea34f1890b425f8e024c4"
-    sha256 arm64_linux:    "7130ab9c8a0eefe2d3ff191ac2541f119bdb2b55eaff706fefdf5b57bea2f797"
-    sha256 x86_64_linux:   "0ed51b95634f090cb753b57fdd73df90a944cc37fc2c34de45592d74c8b74139"
+    rebuild 2
+    sha256 arm64_tahoe:   "31fb92ff926fc96545a474c61befc91c622e4cfc4651bfc73b05f2872e12a869"
+    sha256 arm64_sequoia: "42b6962749fa8b8cb8b7a7ddf8c4eb9fe6d184df6dd91e0935f4e64af47972cc"
+    sha256 arm64_sonoma:  "61eb8ad9f33f851da8b00500c356cb8187fba24bee4398e29e4e8b4292cf9d47"
+    sha256 sonoma:        "989fe21084bfc9b4e3e59e5d3ee792fd86fe00a79f32a91c741949e3f5ec9a14"
+    sha256 arm64_linux:   "01447110bbf520cc802aa349191b5cd017adfc47dfbcafd496de91919ac9097e"
+    sha256 x86_64_linux:  "d6d1fac5d61f11e3b4498b14483518f34e225689c287c1e1f9825ba7ea9ed23b"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Fixes a conftest for libfftwf.dylib that mistakenly calls fftw_malloc()
   # rather than fftwf_malloc().  Reported upstream to their mailing list:

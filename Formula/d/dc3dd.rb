@@ -5,8 +5,6 @@ class Dc3dd < Formula
   sha256 "bd1b66d20a4020ab94b512e56d76cb5f86470d0216081586d596366927cb8d8b"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "1319a1907495f80e22c8e4047ff2a3764821774313b674853ac89f0f95159c1d"
     sha256 arm64_sequoia:  "1cdfecc59688663ad056a3dc3db19a87d5e7c6356f9f88c33695126b0270639c"

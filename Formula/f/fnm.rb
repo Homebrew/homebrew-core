@@ -1,8 +1,8 @@
 class Fnm < Formula
   desc "Fast and simple Node.js version manager"
   homepage "https://github.com/Schniz/fnm"
-  url "https://github.com/Schniz/fnm/archive/refs/tags/v1.38.1.tar.gz"
-  sha256 "c24e4c26183a4d88a33e343902ed2d45da23e78c66b2a696a7420eb86deddda9"
+  url "https://github.com/Schniz/fnm/archive/refs/tags/v1.39.0.tar.gz"
+  sha256 "224081a677a02acd9f972885e824a98fa3843f5b778b28400ad5af97752f6127"
   license "GPL-3.0-only"
   head "https://github.com/Schniz/fnm.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Fnm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8d9d89231ddb338071a739ce0726afab19579fdc8e4eb10f47cc272fd95be9a9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91d181b9639018f4bdae1697761c4206cb00e8761e3840a376aa03a0852fd1de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d4a0ceb3cc135193d06217401c51baeddbb7feb5f18309f9ef907cd3ad0344a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1f6d563c6f1aa3382253d908cf245360a4240bf3114b9eb32b6e13507722bb3e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f5f592a6555b13a3d7fb5c5e9d851bc7ae5a3b24481f2c3df9cfea812c2cd91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c89e2291a47df638eef0d32c133347f216d71133d15f764a09d213b91f4ad32f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "504d89f4004b37c19fdbffd786c99982451c54d9112357f1f8bab27d85336ffc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30de486e778435421c94b5596ecf1fd009851f484b6147c4ceaa01c5bbc72506"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95d65ae8a17147eae7eca5b839ec16a4dbcee2d0a6bb4495ebb20dc721075b65"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4733aee6c9507e4100bbdb83ab062e421893ac53538dde7809d17ff619d3bd99"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "00c561bcdf8ad5c79b0be0dcc46ffcc3aae48fe5ac587530c9411de6ba1c6ed8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05e590e196d8cda53779aa9e9dd0aeb8eab19bfa1fcc699b3f11c15c70ea6b94"
   end
 
   depends_on "rust" => :build

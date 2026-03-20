@@ -1,18 +1,18 @@
 class Dnspyre < Formula
   desc "CLI tool for a high QPS DNS benchmark"
   homepage "https://tantalor93.github.io/dnspyre/"
-  url "https://github.com/Tantalor93/dnspyre/archive/refs/tags/v3.9.0.tar.gz"
-  sha256 "0f6e362018082600ac43e2b87cb0162c5f5957be601016c7a6b945b245f7cfd7"
+  url "https://github.com/Tantalor93/dnspyre/archive/refs/tags/v3.10.2.tar.gz"
+  sha256 "9e794e9b32e379efef673af23e5f8985037b1a39c839ffdfa0e70960b71cc160"
   license "MIT"
   head "https://github.com/Tantalor93/dnspyre.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d06282af94eab436ce28493f5064976ffd9ad57aa14d85823174aadff05e7701"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "125bf1a59d35165bc2f7cd993c4370c654d12f6190e91c351e39d1f99c8dd5bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "866fa6f1623d3272b9c84db7cf18e38016577977699f73f276451db28bca8dc7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f8b371ef9a81d361a51fd8eb8e81ce5fa40ece17ef8766b259b57df1c36d4f66"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb9093d14a272b31a088add54569793caaf339b63fefbd913d28ee817f902c61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34312ace135ad9e65cab60973d3edf1c8a13497069af000675356fdf94017793"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e1251ad74a454ec67f49d35d5e8c15e87fcf251ffde88fe0f98c0080dee0ecb2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e202f047c5229f5e1c40f971ac81c78623102689cb85b98bb8aafc3208be492d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5b4f8fd5d25b2ba65b44a9ec5938d50e720ba187febc222514e67701edd59c0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3fd3a24742cbf1c7f0ae68780f1df3ec274110d92f99adf8e8031f3fb2fa5e5f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7274ba1f4135285a7b02cad40a530733160599f1b3f46a6164a0a6f3b31a6cfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "555af82b5cb6787fba1a8914a1c4c94c98454b8badf2fc99da70b670d39af114"
   end
 
   depends_on "go" => :build

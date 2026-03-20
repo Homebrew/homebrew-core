@@ -1,19 +1,18 @@
 class Gup < Formula
   desc "Update binaries installed by go install"
   homepage "https://github.com/nao1215/gup"
-  url "https://github.com/nao1215/gup/archive/refs/tags/v0.28.2.tar.gz"
-  sha256 "c20d5b524442437f17d746040cc27d496a5c9fa180d31f07a643c33984053f2a"
+  url "https://github.com/nao1215/gup/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "64845b14b5974e5a314e056c16404fad08cec1a34ffd7d531b4e032b4cebd996"
   license "Apache-2.0"
   head "https://github.com/nao1215/gup.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "95d56228252c1a255ab939ad4c330632dfef0b8ae0fdcde6bbb87da56755f7fd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76ebb8387070352405fec67061993e5a03e46371442550131ba11598a3eb4e42"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6db31be41d72711b0caf46cdef8b5a9e0f6ecec03ad10e97f89c9e875f09a609"
-    sha256 cellar: :any_skip_relocation, sonoma:        "15f6bdb844e2f38b980a8f869342f50a9bee304efdc889cfa03b4b70ab880489"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf03dde80422794a12003efb4b0ff3854b7dd7ad56c397bf7d51fdbd4180c901"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c1a54c12a6bad65c99323ff11e419ae83a2259189ff27d990e5eeeaf5790a3b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c3c040994d0e742244ca64ff9480f2bd622178e5efc80495b3f4081eb525006e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3c040994d0e742244ca64ff9480f2bd622178e5efc80495b3f4081eb525006e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3c040994d0e742244ca64ff9480f2bd622178e5efc80495b3f4081eb525006e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "44fadf420265faff145e383d2793796b4d4780c02297d3db4842e74af96451ad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3075dbf87151110f0bda7dc500f5203fd5b7d0e6997cedd389a5c8959ff3b0ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c8ddb72bab46b8e49c700bbf588fff72f6b549ee8df82b486bba951341dec19"
   end
 
   depends_on "go"
@@ -22,7 +21,8 @@ class Gup < Formula
     ldflags = "-s -w -X github.com/nao1215/gup/internal/cmdinfo.Version=v#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
-    generate_completions_from_executable(bin/"gup", shell_parameter_format: :cobra)
+    # upstream bug report on powershell completion support, https://github.com/nao1215/gup/issues/233
+    generate_completions_from_executable(bin/"gup", shell_parameter_format: :cobra, shells: [:bash, :zsh, :fish])
 
     ENV["MANPATH"] = man1.mkpath
     system bin/"gup", "man"

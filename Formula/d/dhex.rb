@@ -10,8 +10,6 @@ class Dhex < Formula
     regex(/href=.*?dhex[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c43035367348acd1ea2109bfcae68108766e691eeaaf7b921f68e9306f7d9fec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6ce6ef0c4079748f07bbfb1f8f74f39caf377df59e244555fe508c63c63367a6"

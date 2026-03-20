@@ -1,19 +1,18 @@
 class CodebergCli < Formula
   desc "CLI for Codeberg"
   homepage "https://codeberg.org/Aviac/codeberg-cli"
-  url "https://codeberg.org/Aviac/codeberg-cli/archive/v0.5.4.tar.gz"
-  sha256 "dd19f9b4ada8759b8736303c24a04bc5c697d2ab72f8bbcfb13e84899cc6f635"
+  url "https://codeberg.org/Aviac/codeberg-cli/archive/v0.5.5.tar.gz"
+  sha256 "09902e3511c24316e9aab4cbd51492d00eb978ee81429e873de80bc9a485c549"
   license "AGPL-3.0-or-later"
   head "https://codeberg.org/Aviac/codeberg-cli.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "033315b17a329e110e832830faebc1f5f851836a43ef102f43aa4a6cebf4fab8"
-    sha256 cellar: :any,                 arm64_sequoia: "2c34877c98d866a1fb1623327f5209af1b265c21d522f20486d3c0cc5fa84d40"
-    sha256 cellar: :any,                 arm64_sonoma:  "ff22f53060fcffb84877fb52a2333cbfca318ca986404ea49bcb2f5977e32a2e"
-    sha256 cellar: :any,                 sonoma:        "3937bdc85512ea4c2f693a3972d2743e2b0ff809c547da9235b781d0a5435a20"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "94b0591c36b8fd02f03f0d413cb8ddfebc9a6ae82baa2a5315e9e5b73aec1d59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7827be943f3bb7aaa182a8f617885baebf62947e7232c3f638c74cb4c0d84a9a"
+    sha256 cellar: :any,                 arm64_tahoe:   "8bd5f830c3221b1ac74d72d87d2fc73e56600dc2136089223f4e1b254d12f49f"
+    sha256 cellar: :any,                 arm64_sequoia: "83a74d50b902d8ae120a460c8536f66a8a16f4f38a494148d0fc0339d8ce3be8"
+    sha256 cellar: :any,                 arm64_sonoma:  "7c253e2793055098984dbda0ce9298934d269df26a6f12833d0390895e65d1bf"
+    sha256 cellar: :any,                 sonoma:        "6d5995f7e35e1db9126b3777c035b0848915e4cb1b738d2e57230583dee34b58"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c92e3099bddbb7a90d72b69e6d829d203202361e123072fc11838b77b48ecd72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12d605e557b17e8a81d430e8d5a8bae6aec6b6206b015506a4ed8adfc497a5d2"
   end
 
   depends_on "pkgconf" => :build

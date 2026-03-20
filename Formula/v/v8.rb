@@ -3,8 +3,8 @@ class V8 < Formula
   homepage "https://v8.dev/docs"
   # Track V8 version from Chrome stable: https://chromiumdash.appspot.com/releases?platform=Mac
   # Check `brew livecheck --resources v8` for any resource updates
-  url "https://github.com/v8/v8/archive/refs/tags/14.5.201.7.tar.gz"
-  sha256 "f9fcb56533d313a93d55cf3c09351145a9fe7e21445e9ffea741a5c7cbb04909"
+  url "https://github.com/v8/v8/archive/refs/tags/14.6.202.22.tar.gz"
+  sha256 "b2f1e79748470c977d64d2b57ee462b4260b2431e9c59121551df0b0ee6c0058"
   license "BSD-3-Clause"
 
   livecheck do
@@ -23,15 +23,13 @@ class V8 < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "09974f7671058327009eeaf181105bfebb1650ffee540acfc5f80cfa0d99731a"
-    sha256 cellar: :any,                 arm64_sequoia: "5236310b97723f4e91be9987c9b86fafc897dada7e9cf2cab6eaded58443ce4b"
-    sha256 cellar: :any,                 arm64_sonoma:  "100f0e42c1341b10fe70519154bce128131f54e594cee4eb3f74c2137f2dcf67"
-    sha256 cellar: :any,                 sonoma:        "749c9fe3973d54df45af7b287ef9ac4183e3dd0a0e017270dcbdccd0a37c0e27"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1500e0cc8365c32611564f3fb93134335c3ca396c514adb9932d5f992cb43049"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffc6ab2407caddd90bec13b6fadf7df0d5aceddd3a2cd267f946c4668c8d6549"
+    sha256 cellar: :any,                 arm64_tahoe:   "d30560222396e0c979aa4fdc63d6480dfb3d05f569b54cae83628674aca8741f"
+    sha256 cellar: :any,                 arm64_sequoia: "07150c58eb1484a00427044de2896a69ef750083123cfc6da4e5b7cecf2e6c29"
+    sha256 cellar: :any,                 arm64_sonoma:  "5feb71ebbc1451b59cea0efc626851e80fe7342b4d514866cebcd2f3e039e483"
+    sha256 cellar: :any,                 sonoma:        "d27251da8b2e8a93582e950834afc52571c031990fc17fd475e6a9e65fc3df26"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb8cf68307afceb95a193e51723b112b6f7b68342b8848d87957af27c8cb8cb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38f20901d2d9b72a483bf11692dffa89c33c4f2e4a276e722eb2a6fe708499a0"
   end
 
   depends_on "llvm" => :build
@@ -46,12 +44,20 @@ class V8 < Formula
     depends_on "glib"
   end
 
+  fails_with :clang do
+    cause "Apple Clang frequently breaks as upstream often uses features from newer Clang"
+  end
+
+  fails_with :gcc do
+    cause "requires Clang"
+  end
+
   # Look up the correct resource revisions in the DEP file of the specific releases tag
   # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#74
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "5550ba0f4053c3cbb0bff3d60ded9d867b6fa371"
-    version "5550ba0f4053c3cbb0bff3d60ded9d867b6fa371"
+        revision: "103f8b437f5e791e0aef9d5c372521a5d675fabb"
+    version "103f8b437f5e791e0aef9d5c372521a5d675fabb"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -61,8 +67,8 @@ class V8 < Formula
 
   resource "build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "d747365c051153cc89f25e6adc95538aabcdd319"
-    version "d747365c051153cc89f25e6adc95538aabcdd319"
+        revision: "483cecced32ce8b098d65eb08eb77925afa90bec"
+    version "483cecced32ce8b098d65eb08eb77925afa90bec"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -72,8 +78,8 @@ class V8 < Formula
 
   resource "buildtools" do
     url "https://chromium.googlesource.com/chromium/src/buildtools.git",
-        revision: "4dc32b3f510b330137385e2b3a631ca8e13a8e22"
-    version "4dc32b3f510b330137385e2b3a631ca8e13a8e22"
+        revision: "6a18683f555b4ac8b05ac8395c29c84483ac9588"
+    version "6a18683f555b4ac8b05ac8395c29c84483ac9588"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -83,8 +89,8 @@ class V8 < Formula
 
   resource "third_party/abseil-cpp" do
     url "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp.git",
-        revision: "1597226b825a16493de66c1732171efe89b271d9"
-    version "1597226b825a16493de66c1732171efe89b271d9"
+        revision: "6d5ac0f7d3f0af5d13b78044fc31c793aa3549f8"
+    version "6d5ac0f7d3f0af5d13b78044fc31c793aa3549f8"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -182,8 +188,8 @@ class V8 < Formula
 
   resource "third_party/partition_alloc" do
     url "https://chromium.googlesource.com/chromium/src/base/allocator/partition_allocator.git",
-        revision: "b2155fca494c5b6266d42f9129ae3a7b85482c95"
-    version "b2155fca494c5b6266d42f9129ae3a7b85482c95"
+        revision: "936619c71ecb17c0e2482cf86be3f3f417b2f683"
+    version "936619c71ecb17c0e2482cf86be3f3f417b2f683"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -193,8 +199,8 @@ class V8 < Formula
 
   resource "third_party/simdutf" do
     url "https://chromium.googlesource.com/chromium/src/third_party/simdutf.git",
-        revision: "75bea7342fdac6b57f7e3099ddf4dc84d77384f6"
-    version "75bea7342fdac6b57f7e3099ddf4dc84d77384f6"
+        revision: "93b35aec29256f705c97f675fe4623578bd7a395"
+    version "93b35aec29256f705c97f675fe4623578bd7a395"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -204,8 +210,8 @@ class V8 < Formula
 
   resource "third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "2182f37a0861358faa9f6b8e0dacce32142c3a33"
-    version "2182f37a0861358faa9f6b8e0dacce32142c3a33"
+        revision: "980253c1cc835c893c57b5cfc10c5b942e10bc46"
+    version "980253c1cc835c893c57b5cfc10c5b942e10bc46"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -214,6 +220,9 @@ class V8 < Formula
   end
 
   def install
+    # Workaround for an error: no member named 'powl' in namespace 'std'
+    inreplace "src/objects/js-duration-format.cc", "std::powl", "powl"
+
     resources.each { |r| r.stage(buildpath/r.name) }
 
     # Build gn from source and add it to the PATH
@@ -247,7 +256,6 @@ class V8 < Formula
     }
 
     # workaround to use shim to compile v8
-    ENV.llvm_clang
     llvm = Formula["llvm"]
     clang_base_path = buildpath/"clang"
     clang_base_path.install_symlink (llvm.opt_prefix.children - [llvm.opt_bin])

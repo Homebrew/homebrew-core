@@ -25,8 +25,6 @@ class CeresSolver < Formula
     regex(/href=.*?ceres-solver[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "8bca5dac2f24d423391151bf8fb69c53b119eb94e5ba899f95fe961cac036ee7"
     sha256 cellar: :any,                 arm64_sequoia: "05cf5a6bb6673ae173ed0832fdd1fa8fcfe5a7fd4db1947510f0f61501d94984"

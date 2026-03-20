@@ -1,7 +1,7 @@
 class ApacheFlinkCdc < Formula
   desc "Flink CDC is a streaming data integration tool"
   homepage "https://nightlies.apache.org/flink/flink-cdc-docs-stable/"
-  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=flink/flink-cdc-3.5.0/flink-cdc-3.5.0-bin.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-cdc-3.5.0/flink-cdc-3.5.0-bin.tar.gz"
   mirror "https://archive.apache.org/dist/flink/flink-cdc-3.5.0/flink-cdc-3.5.0-bin.tar.gz"
   sha256 "50938f2e0e4eeae46241fa077123d7071d27c91ba4ff44f7594620e6278773a7"
   license "Apache-2.0"

@@ -6,8 +6,6 @@ class Dylibbundler < Formula
   license "MIT"
   head "https://github.com/auriamg/macdylibbundler.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "00c51e669f0098b7a2a6271542b9b6be6909cb3634e2b458dfbc708357d6f9c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "26795436a10e6ed4ff9114682bf35cde4ce4dc3c69f93d8b6d41b34010f60d2a"

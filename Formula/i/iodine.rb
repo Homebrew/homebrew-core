@@ -6,8 +6,6 @@ class Iodine < Formula
   license "ISC"
   head "https://github.com/yarrick/iodine.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a8e87d64fdc26c599c69d781412172b9393917733d1994e3687f4c435d32fa0c"

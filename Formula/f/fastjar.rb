@@ -10,15 +10,11 @@ class Fastjar < Formula
     regex(/href=.*?fastjar[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1cb7800d86e7f8733755399304f9ccc3ea3d44c7d7ca6fd81b2f6aeaf5cc6061"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "329d6b5ec4a5bf54fff26334797bac30f2205512ae96f20b873e2f1722936272"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "64d57548564e62bfb5596526292bcd91bfcfa98d738a3cc2dfa6ffb15ef6e7f1"
-    sha256 cellar: :any_skip_relocation, tahoe:         "cb7cb95278b7bd92763f885c4ee77dfe5f67e4fa9615ce39fa25e34aaf630b17"
-    sha256 cellar: :any_skip_relocation, sequoia:       "178e8785a42f84bdc16ad580b5fb18002766a7a335f848f7606dfe4ad71d5875"
     sha256 cellar: :any_skip_relocation, sonoma:        "10e990e3753d3b28c8921e6b9005389da42ee4967ae7ba85f266364068208847"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "640961ee6c8698dd49deb1426d811811f9a65aa31e7baa565780c2b51914cbb0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cf0d96826dfa9aa1ed077add9271eb0be8da1d8af8b0a31344d8fb9bce550ba"

@@ -1,17 +1,17 @@
 class Snapcast < Formula
   desc "Synchronous multiroom audio player"
-  homepage "https://github.com/badaix/snapcast"
-  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.34.0.tar.gz"
-  sha256 "a2918ea4d1f9b2df9c4247fd71bd452ea03a5d20ac44f60a736df90488858944"
+  homepage "https://github.com/snapcast/snapcast"
+  url "https://github.com/snapcast/snapcast/archive/refs/tags/v0.35.0.tar.gz"
+  sha256 "cb75a71479bf52910bf5f47ae8120ec41c89459b0d77d7cd560e674e437ef050"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "645caa8ed11fc578ac65e91f85fafdba5b0d39f1f127e8232e94e94c1924fb48"
-    sha256 cellar: :any,                 arm64_sequoia: "98bd7f18a7fe9d9e3ca15b574a5fbd7035df6ae35432772da37ee0da7e8fcd86"
-    sha256 cellar: :any,                 arm64_sonoma:  "bf2d72adf4a6869b4e13a7cca9b3768c865ae03a097297c78a092319a75c7972"
-    sha256 cellar: :any,                 sonoma:        "a365b2cd656103c268e2c88b742e5ba3a311d313b28213b10e86cc7c1346ab6f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc0c0174d7aeed8002be34138d445a2cebdbcc48e9898cc39857fc698b3b0b82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ac5b3447b3d7e1fd765fda683dde042994960aaaf190bf9a9dd5eb593f5304c"
+    sha256 cellar: :any,                 arm64_tahoe:   "d61c8d4bfd965dd2ddcbc77eb73e12a59aef21dd2835bbca7e8b246b110750f4"
+    sha256 cellar: :any,                 arm64_sequoia: "dacaa2ae4beec81fafada1b9549b04b8bba3d6276827b7988844b1a6810e05f8"
+    sha256 cellar: :any,                 arm64_sonoma:  "a9613d42b9eeafb28a03889f260adbc225865dca3715ddf8023a903e6fcbc807"
+    sha256 cellar: :any,                 sonoma:        "14aa0fbaf99749b161e79b1f216d1e4396f550d8ed242733bc058e7eacb4528a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7e40d4b536ed307ff8f8982fbb660ef400444c5096f894834470c3596fcf4593"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf3c9e17907d2351ada549641c22b570b970d35b46d41d6fc1e045dc50acf1f2"
   end
 
   depends_on "boost" => :build
@@ -37,9 +37,6 @@ class Snapcast < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    # FIXME: if permissions aren't changed, the install fails with:
-    # Error: Failed to read Mach-O binary: share/snapserver/plug-ins/meta_mpd.py
-    chmod 0555, share/"snapserver/plug-ins/meta_mpd.py"
   end
 
   test do

@@ -1,8 +1,8 @@
 class Lighthouse < Formula
   desc "Rust Ethereum 2.0 Client"
   homepage "https://lighthouse.sigmaprime.io/"
-  url "https://github.com/sigp/lighthouse/archive/refs/tags/v8.1.0.tar.gz"
-  sha256 "427bab4f400967711f172f2858ce21db365babd82812cccedd30f01cc9cbf830"
+  url "https://github.com/sigp/lighthouse/archive/refs/tags/v8.1.2.tar.gz"
+  sha256 "c1c51813968ea4f4372ea85a7c0a91eb261adc2d58d29847196e9467ffd6c8a7"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Lighthouse < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "75acd27820e92a7159497bac26119b2bbf4ce24bfd5d05768c81f4ed961e07f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b87d64fbbdd48fd7ce3d3c15a25b2b56c87f7e5234d8303e8c7a061e11b55ce3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0685c616147f4298d3970366d7d7fe45523c8982a85590a6613a78ec5aaffb61"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7765689ba2c89428b4a5e043b5d1536b81dbb42541fd4dce6c2c355e493e3c4e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c17883fa73e5042943f40a0838c65b07ff91479a563bc854166d83877723f29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "725fe63ee9b6b0217185a7125341ae70d7f0ee0b47bf746f4698ebfb1221df62"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06c919c043a057fbb95eedecfdc29486c4d92fae90cc1827653e94debd142cfd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df00c922c4477faf06c9e9a7d198be83804e80c35dabaf61be05958317a919bb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "567ba1d775bad0541ac6b0061e81c061f10a2bdb2672372dea13997cfb5e52d1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7687a489835c7f8a395acb69e4c3b17eea4d499b3d0a8d7226012881361babb9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e540cfdb162e1822f042165e6b4bf8c046093829e06ec0e105b558e6bd0faab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f67bbaa2541aadea92102ef643e6ff6dfb75e4c17d42923c31ebdd2bc2c7b189"
   end
 
   depends_on "cmake" => :build
@@ -37,8 +36,40 @@ class Lighthouse < Formula
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
-    # Use correct compiler to prevent blst from enabling AVX support on macOS
-    ENV["CC"] = Formula["llvm"].opt_bin/"clang" if OS.mac?
+
+    # fixing LLVM 22 builds, which got handled in https://github.com/sigp/xdelta3-rs/commit/fe3906605c87b6c0515bd7c8fc671f47875e3ccc
+    inreplace "Cargo.toml", <<~OLD, <<~NEW
+      xdelta3 = { git = "https://github.com/sigp/xdelta3-rs", rev = "4db64086bb02e9febb584ba93b9d16bb2ae3825a" }
+    OLD
+      xdelta3 = { git = "https://github.com/sigp/xdelta3-rs", rev = "fe3906605c87b6c0515bd7c8fc671f47875e3ccc" }
+    NEW
+    inreplace "Cargo.lock", <<~OLD, <<~NEW
+      name = "xdelta3"
+      version = "0.1.5"
+      source = "git+https://github.com/sigp/xdelta3-rs?rev=4db64086bb02e9febb584ba93b9d16bb2ae3825a#4db64086bb02e9febb584ba93b9d16bb2ae3825a"
+      dependencies = [
+       "bindgen",
+       "cc",
+       "futures-io",
+       "futures-util",
+       "libc",
+       "log",
+       "rand 0.8.5",
+      ]
+    OLD
+      name = "xdelta3"
+      version = "0.1.5"
+      source = "git+https://github.com/sigp/xdelta3-rs?rev=fe3906605c87b6c0515bd7c8fc671f47875e3ccc#fe3906605c87b6c0515bd7c8fc671f47875e3ccc"
+      dependencies = [
+       "bindgen 0.72.1",
+       "cc",
+       "futures-io",
+       "futures-util",
+       "libc",
+       "log",
+       "rand 0.9.2",
+      ]
+    NEW
 
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "./lighthouse")
   end

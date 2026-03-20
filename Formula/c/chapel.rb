@@ -3,27 +3,27 @@ class Chapel < Formula
 
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/2.7.0/chapel-2.7.0.tar.gz"
-  sha256 "5e3269babdae334c80fc3f25114698fdfe53e84ea06626af22d2b54eeb75bee6"
+  url "https://github.com/chapel-lang/chapel/releases/download/2.8.0/chapel-2.8.0.tar.gz"
+  sha256 "80e8c3018e33e49674c7a2542e062547ea41d64d6595edb3b799e90c88f963f8"
   license "Apache-2.0"
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 arm64_tahoe:   "82aae74accac4133783e73ba3b493c3c3c3ab52feab645cb50276469a98b348a"
-    sha256 arm64_sequoia: "080918e65887cecfe88ece72f28a8b455618fd7f52b1d44357ec63bba78ebda2"
-    sha256 arm64_sonoma:  "7f13698fd8a0aaa0a95d78daa1988764d444da247f74a1a317bcaf71cbc1fb15"
-    sha256 sonoma:        "c0905006d548fa3db07a946c92ee725d8742524416080716e39fda5ef96f4afb"
-    sha256 arm64_linux:   "2ee31f93c06a0550c453a913ffbc2f67e9a9de83236e73d55b678c9185aafcb2"
-    sha256 x86_64_linux:  "e1d4834cd0d3fa88b3c002ede65d40e1110e955b4bbe1007137824594aa04e49"
+    sha256 arm64_tahoe:   "a73efe05b4551688355d1ddc3707424ae86573fc91352aec8c0eae6e0c4f6ce4"
+    sha256 arm64_sequoia: "9dcd53c9c5b564dfe18e8adab1fcaa9bace0847b05e9a7e0895c9bc2118d0a72"
+    sha256 arm64_sonoma:  "e1deda3af30cfb9d006072dd0b87bb57f76337d5819abad0076a0281495b5589"
+    sha256 sonoma:        "8cdec547c132c71423804efa6c22c49dd802351b5e4984b8caa21ff09130e785"
+    sha256 arm64_linux:   "2a8974a412dad807f368dc6ec6d0e81be099202c12536a741cd414752b864efb"
+    sha256 x86_64_linux:  "69749327935b602942509d11a242e12641fb5d5c3692592cf7794d18519802ac"
   end
 
   depends_on "cmake"
   depends_on "gmp"
   depends_on "hwloc"
   depends_on "jemalloc"
-  depends_on "llvm@20"
+  depends_on "llvm@21"
   depends_on "pkgconf"
   depends_on "python@3.14"
 
@@ -79,6 +79,17 @@ class Chapel < Formula
       CHPL_RUNTIME_CPU=none
       CHPL_TARGET_CPU=native
     EOS
+
+    if OS.linux?
+      # we get strange build errors when trying to build with libunwind on linux
+      # the bundled build gets weird linking errors. this seems to be the fault
+      # of the homebrew build environment. we also cant use the system libunwind
+      # due to it being keg-only and not found by default.
+      # for now, disable stack unwinding with linuxbrew
+      (libexec/"chplconfig").append_lines <<~EOS
+        CHPL_UNWIND=none
+      EOS
+    end
 
     # Must be built from within CHPL_HOME to prevent build bugs.
     # https://github.com/Homebrew/legacy-homebrew/pull/35166
@@ -178,9 +189,6 @@ class Chapel < Formula
   end
 
   test do
-    # Hide ld warning until formula uses LLVM 21+ or if we apply backports to `llvm@20`
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac? && MacOS.version >= :tahoe
-
     ENV["CHPL_HOME"] = libexec
     ENV["CHPL_INCLUDE_PATH"] = HOMEBREW_PREFIX/"include"
     ENV["CHPL_LIB_PATH"] = HOMEBREW_PREFIX/"lib"

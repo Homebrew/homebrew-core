@@ -1,20 +1,18 @@
 class Caddy < Formula
   desc "Powerful, enterprise-ready, open source web server with automatic HTTPS"
   homepage "https://caddyserver.com/"
-  url "https://github.com/caddyserver/caddy/archive/refs/tags/v2.10.2.tar.gz"
-  sha256 "f63f46b7ae68ced0a5c2e31df1b6dfc7656117d162a1bc7fed4bd4afd14ddc8f"
+  url "https://github.com/caddyserver/caddy/archive/refs/tags/v2.11.2.tar.gz"
+  sha256 "ee12f7b5f97308708de5067deebb3d3322fc24f6d54f906a47a0a4e8db799122"
   license "Apache-2.0"
   head "https://github.com/caddyserver/caddy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bcbd54fcb23ed8c2be5bb2e1b23442931e798ede2ed7e8227cfb148f28925dc9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d1df2298f7b51056b57eef3a304d2807652d5c630d884de5560b271e5942e50e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1df2298f7b51056b57eef3a304d2807652d5c630d884de5560b271e5942e50e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d1df2298f7b51056b57eef3a304d2807652d5c630d884de5560b271e5942e50e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2eaf6b2c9831bbb7cac75b4b536625434d6bedd344ed6caaf2f916c34cb91016"
-    sha256 cellar: :any_skip_relocation, ventura:       "2eaf6b2c9831bbb7cac75b4b536625434d6bedd344ed6caaf2f916c34cb91016"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "29d001f80337e2bfcf0dc979b0a56953528df9f1ce3605fe18e3a6e506291182"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "529b5fc2dbf675f8440f68f83a56b39d804d08eb48a59c546764612e2fd93a52"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8abb85b3dc58e7bf0a9b9bf760dc4d69df91f75fc98fc2dc6e0bbe76048bb12d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8abb85b3dc58e7bf0a9b9bf760dc4d69df91f75fc98fc2dc6e0bbe76048bb12d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8abb85b3dc58e7bf0a9b9bf760dc4d69df91f75fc98fc2dc6e0bbe76048bb12d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4c3268d60a7701aa29dbc018566ce82f76bfa95834c7f89e49376db86f885dfc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e1ca5f23076ff3e926c75e3047185a14ab0299eed78c8f629d1eccd517b3993"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cffea493223baee8129b6bb2ad21794b3426d0fee51e709706f6dc51415134a"
   end
 
   depends_on "go" => :build

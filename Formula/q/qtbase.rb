@@ -1,6 +1,10 @@
 class Qtbase < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.2/submodules/qtbase-everywhere-src-6.10.2.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.2/submodules/qtbase-everywhere-src-6.10.2.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.2/submodules/qtbase-everywhere-src-6.10.2.tar.xz"
+  sha256 "aeb78d29291a2b5fd53cb55950f8f5065b4978c25fb1d77f627d695ab9adf21e"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # qmake
@@ -8,25 +12,6 @@ class Qtbase < Formula
     "GFDL-1.3-no-invariants-only", # *.qdoc
   ]
   head "https://code.qt.io/qt/qtbase.git", branch: "dev"
-
-  stable do
-    url "https://download.qt.io/official_releases/qt/6.10/6.10.1/submodules/qtbase-everywhere-src-6.10.1.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.1/submodules/qtbase-everywhere-src-6.10.1.tar.xz"
-    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.1/submodules/qtbase-everywhere-src-6.10.1.tar.xz"
-    sha256 "5a6226f7e23db51fdc3223121eba53f3f5447cf0cc4d6cb82a3a2df7a65d265d"
-
-    # Backport fix to add framework directory to Cflags on macOS
-    patch do
-      url "https://github.com/qt/qtbase/commit/dc9f359f3ce880b04c1c7b95d06bffc7b991ff09.patch?full_index=1"
-      sha256 "9fbd8b63bfae37cf1380dda0263623843c25b72d74baf9bd9c0ae9a28b31d392"
-    end
-
-    # Backport fix for macdeployqt to find rpath-referenced paths
-    patch do
-      url "https://github.com/qt/qtbase/commit/3bae28598774f1bf1776c0cd82f413e5b3282b7c.patch?full_index=1"
-      sha256 "2f091c0c2f28bbf0f384797cd27eb13029b097750e7b578e7ef745b0a473c6f6"
-    end
-  end
 
   # The first-party website doesn't make version information readily available,
   # so we check the `head` repository tags instead.
@@ -36,12 +21,12 @@ class Qtbase < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5845b81159deb556bb702328515a1214d0fe5a8db68a60b0779e4e2b8cf9d474"
-    sha256 cellar: :any,                 arm64_sequoia: "10d29790eed4a92b187a48c7a2f19c61fe5c89c5ee56ab62417494dde561262e"
-    sha256 cellar: :any,                 arm64_sonoma:  "1306662b99e96bfbf8d3cc0597171bc0d912287ccc10f7f84034fc178fd75134"
-    sha256 cellar: :any,                 sonoma:        "55472252982d1f461ecfa7ea402ed24c9835245c333e476b145ce440695b0de9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "db0429dc8098f4e96a239a5caf70a56d32222a4c5f08c76c6194ad796e790579"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53d38c25cc681e95848c5ffd3b3981bec77d0a9073a22f39c8d907364f56bd63"
+    sha256 cellar: :any,                 arm64_tahoe:   "62b847653b08af0913e0c006497bb98b2015c7549cf954cd10b2c6851a670480"
+    sha256 cellar: :any,                 arm64_sequoia: "aa74bb3590fcf718fd54028dd1f6d41cac584d9c79c860f1f8dd904a2e3e1665"
+    sha256 cellar: :any,                 arm64_sonoma:  "d28e4d0bcae1b026b69ea2ddd21e996332813cf23e980f2b5970e6175837ce9f"
+    sha256 cellar: :any,                 sonoma:        "ac88078b92f4f028a0a51bf5ecc44b9113fb9ec7ceedc67ca0b382309c48b320"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "82d00be342ed225f61d4762da61a8c81c88211598b0f8b84c6240cd1e49f2eac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b81bb0eaef4e7080afbb06223b371dbfbae5f479fd3395354d3affdbeead3da1"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -68,7 +53,6 @@ class Qtbase < Formula
   uses_from_macos "cups"
   uses_from_macos "krb5"
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "molten-vk" => :build
@@ -93,6 +77,7 @@ class Qtbase < Formula
     depends_on "xcb-util-keysyms"
     depends_on "xcb-util-renderutil"
     depends_on "xcb-util-wm"
+    depends_on "zlib-ng-compat"
 
     # https://github.com/orgs/Homebrew/discussions/6468#discussioncomment-14687372
     pour_bottle? only_if: :default_prefix

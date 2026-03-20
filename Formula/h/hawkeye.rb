@@ -1,17 +1,17 @@
 class Hawkeye < Formula
   desc "Simple license header checker and formatter, in multiple distribution forms"
   homepage "https://github.com/korandoru/hawkeye"
-  url "https://github.com/korandoru/hawkeye/archive/refs/tags/v6.5.0.tar.gz"
-  sha256 "90269767690e2a5e654ecff5dafdc9e5bcf22f19b21e69e3a910f972dcfc625b"
+  url "https://github.com/korandoru/hawkeye/archive/refs/tags/v6.5.1.tar.gz"
+  sha256 "ae7f7a5e16642c769c8fdb1f071e3677e01d7307b69ec745a242699c867f8a9e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3b236d29d0747c7e5dca2547f2d73fce414d3776e0af610fe9234484e22c6e45"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fce1107b7b0bfbda78a3d770cadf0a7f9f25cb44dff9848a2c977eec88f4e06e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "689012e0bdc498156e7c47c6c866c388a4378160153f4b85dfb8daf146312045"
-    sha256 cellar: :any_skip_relocation, sonoma:        "62769e84e9ae5baa2462023c7a9b95a9c46658ba9162d077f2dcdd091106659c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "47863ac10b2e0d5243ef0e4e11aa36595482447a22d8c4a82b7b32ba1595ba49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "652b56b7e57b4fb1a3d9376cc97917194ea8710c206c4e9d0f006208b15b367c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e856c08894188d6726f27fe6233bd2b4ba756e647e8bf9859b021bde14264a55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47f533656f8746d714b19db9f392226653014f7db212c7e20027de857249b7b7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a8f3833c2a22ae3f3c91ff662c144b221805f51031cba46787cc58188886d5f4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a2cf98250f379d33bcb002cb105e0fbd1d6f2ce40bbf8e8834f11c6fcc009b82"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "da76de8a0df8a47154a77701d1d7204656a2ed4d6869bac9219086d392528c9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07f3953d9340e1d7c3dcd5d1f86b584824b9bafdd0cbe8fe282a0ddd425d7f92"
   end
 
   depends_on "rust" => :build

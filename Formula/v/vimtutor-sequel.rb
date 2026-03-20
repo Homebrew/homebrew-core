@@ -5,8 +5,6 @@ class VimtutorSequel < Formula
   sha256 "c02ae36fcf847e619a2b3774c6e2f00b8c08d7df77047fb169d694d96aed76d8"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "4861ae2b888e47e777fd3f78ef878aea6b007147ec561ecc430d7abb61a85cb0"
   end

@@ -11,18 +11,19 @@ class Libunwind < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "74f000df8592676570d4d87170219e605d7839b9349b0c19f780e3c3731a01f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7e7ee2f52ee65cb604d490261817ef728b44938eb0d57d450c5ceb3eda8e302f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "c36c1cbc4e8cc6072c609ecc76f2fd8546dad4e1cebe8d41cd69984dcba2babb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "87c11a5130ea0663cb9e9b007d734470522501d25591b2a7f58034376f7aa3bb"
   end
 
   keg_only "it conflicts with LLVM"
 
   depends_on :linux
   depends_on "xz"
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
   end

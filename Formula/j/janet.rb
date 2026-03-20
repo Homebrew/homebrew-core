@@ -1,18 +1,18 @@
 class Janet < Formula
   desc "Dynamic language and bytecode vm"
   homepage "https://janet-lang.org"
-  url "https://github.com/janet-lang/janet/archive/refs/tags/v1.40.1.tar.gz"
-  sha256 "e7fdcb7ccc83a3be6181f7d7d71f0ea027a000e0eefe9bba3b8373c05eb5764a"
+  url "https://github.com/janet-lang/janet/archive/refs/tags/v1.41.2.tar.gz"
+  sha256 "168e97e1b790f6e9d1e43685019efecc4ee473d6b9f8c421b49c195336c0b725"
   license "MIT"
   head "https://github.com/janet-lang/janet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2fa3160c82a4a677ce269164b910709b28116157ea3857e49e3efb7c41bcf60a"
-    sha256 cellar: :any,                 arm64_sequoia: "93b8a690c9042fe369088c02cc0913eff00ba88da180bfb108b209780a805418"
-    sha256 cellar: :any,                 arm64_sonoma:  "120186d5f3c6411f0adcb97a793881a4e8d972a8b13af824e263ef087aac4df9"
-    sha256 cellar: :any,                 sonoma:        "1fa642c765900c1cd7b2b0510ca0166a39f7a0e2d3ec8aa3aa6e9b562586a330"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "65fc5b396bcf8cb0ef6adccc2bf37f3d1ced6efed55af1b8860c79bae5aee543"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74e59dd4b45474ce5dd2b8a7666c8bc2ddee03323fbc772da0bcf3300de4d4bf"
+    sha256 cellar: :any,                 arm64_tahoe:   "95713b9d30546fdaab9f6f1f5f519f1cbc80089fe98afca9862639e7736ba51d"
+    sha256 cellar: :any,                 arm64_sequoia: "1e161621c9e8774fdaba026fcf56a1cd8ef71ab988182784aa06a486f11a2f2f"
+    sha256 cellar: :any,                 arm64_sonoma:  "7b9915ba7cdab2c07954cd308505e608c96cf88560e32998a138d54b78d6b1d4"
+    sha256 cellar: :any,                 sonoma:        "dbd1061f7b9eb25f476d1f8f1c1e0a3dee4b38bfe779c78a61af65d47c0beec1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b93f65debdf478e42ade08470c501b78f89c9c4bfa759d228eb91bf9a412426c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "355439f1ee0ff6b1c47e00fb2ab241bc3d584cc9409c28b8978981095d08dd36"
   end
 
   resource "jpm" do

@@ -1,12 +1,12 @@
 class Apktool < Formula
   desc "Tool for reverse engineering 3rd party, closed, binary Android apps"
   homepage "https://github.com/iBotPeaches/Apktool"
-  url "https://github.com/iBotPeaches/Apktool/releases/download/v2.12.1/apktool_2.12.1.jar"
-  sha256 "66cf4524a4a45a7f56567d08b2c9b6ec237bcdd78cee69fd4a59c8a0243aeafa"
+  url "https://github.com/iBotPeaches/Apktool/releases/download/v3.0.1/apktool_3.0.1.jar"
+  sha256 "b947b945b4bc455609ba768d071b64d9e63834079898dbaae15b67bf03bcd362"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "73038ea8772d8a416a500d23d65dbee3220ebbd5ab773a13e20e298f64919d3c"
+    sha256 cellar: :any_skip_relocation, all: "6981e2ad6eaa56df54316a3765b9bf357dca76e2f965f795bdc204c5cd9b64c6"
   end
 
   depends_on "openjdk"
@@ -18,13 +18,17 @@ class Apktool < Formula
 
   test do
     resource "homebrew-test.apk" do
-      url "https://raw.githubusercontent.com/facebook/redex/fa32d542d4074dbd485584413d69ea0c9c3cbc98/test/instr/redex-test.apk"
-      sha256 "7851cf2a15230ea6ff076639c2273bc4ca4c3d81917d2e13c05edcc4d537cc04"
+      url "https://raw.githubusercontent.com/iBotPeaches/Apktool/v3.0.1/brut.apktool/apktool-lib/src/test/resources/issue1157/issue1157.apk"
+      sha256 "b3159fd172d39c6b73d1c0f18e31ceeaf1fe25c638e8946eb1a9af9432e1fd24"
     end
 
     resource("homebrew-test.apk").stage do
-      system bin/"apktool", "d", "redex-test.apk"
-      system bin/"apktool", "b", "redex-test"
+      system bin/"apktool", "d", "issue1157.apk"
+      # apktool b doesn't work on ARM Linux
+      return if OS.linux? && Hardware::CPU.arm?
+
+      system bin/"apktool", "b", "issue1157"
+      assert_path_exists "issue1157/dist/issue1157.apk"
     end
   end
 end

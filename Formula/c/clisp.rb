@@ -22,8 +22,6 @@ class Clisp < Formula
     strategy :page_match
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_tahoe:   "7c6012970cf0b4c270ea9144deb1aa018a820f333dd0a23c98116a6da81cdccd"

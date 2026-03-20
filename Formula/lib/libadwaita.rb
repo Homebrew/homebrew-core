@@ -1,8 +1,8 @@
 class Libadwaita < Formula
   desc "Building blocks for modern adaptive GNOME applications"
   homepage "https://gnome.pages.gitlab.gnome.org/libadwaita/"
-  url "https://download.gnome.org/sources/libadwaita/1.8/libadwaita-1.8.4.tar.xz"
-  sha256 "d02bb77b6f0ff1055002d299898c487cb2d83dbf940d9edf59f6fdf2572a921c"
+  url "https://download.gnome.org/sources/libadwaita/1.9/libadwaita-1.9.0.tar.xz"
+  sha256 "817837bf06363db5bbfce66085136eff1436af6625dfabff3ca08b87bfca1b6b"
   license "LGPL-2.1-or-later"
   head "https://gitlab.gnome.org/GNOME/libadwaita.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Libadwaita < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "4cd2ac3fbc9168f9555d8ad4fcaafe53cc40a2de410c9fe8ca123d37a6c161f7"
-    sha256 arm64_sequoia: "d63d098dc8c666e4e29fc5cc774fab207bb58cc97b2d9325db6e37abff6156fa"
-    sha256 arm64_sonoma:  "fbb4daa00fc390876d806615a9ee917e5ad3a33d9fc1d86e8babe1438930f5e6"
-    sha256 sonoma:        "eebf0875e60949d43c7cf4ded9cc549d9669f64565a0af4fb0a5e09e894cce01"
-    sha256 arm64_linux:   "4d5bffba28cab52832a8f02ee841bfbd2794490eee813c0fd0104f04e01d25e6"
-    sha256 x86_64_linux:  "6c2b9a7a44b8d61d33519f2bf2048117ef6d2d421cc4bc146a42bcb95b347b16"
+    sha256 arm64_tahoe:   "3645d495faea2cceea3cd940960b46b1b3434baef1479c7b0da742200090dfbf"
+    sha256 arm64_sequoia: "d25dd8ba4179c910c19c30833b85bc1430424e58c49792c757976619e80c8b44"
+    sha256 arm64_sonoma:  "76d48cee7aa9ac7fdc568f62c5313bc799595975b022b75d465b6b75e06fa25f"
+    sha256 sonoma:        "4a95fd1f17a61d71bf5dd4903f1a5a231d7a52b3395cd979af7ceaf17891e3ea"
+    sha256 arm64_linux:   "2aec703ee231963bd077303d01830b39801b52aa450e5d5b4c84a34bc350ee41"
+    sha256 x86_64_linux:  "a117edaf5c71c53a95ceafe9e025c4690ca7bbaa321210bf560d66121fc41dff"
   end
 
   depends_on "gettext" => :build

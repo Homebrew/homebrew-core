@@ -5,6 +5,7 @@ class Libopenmpt < Formula
   version "0.8.4"
   sha256 "627f9bf11aacae615a1f2c982c7e88cb21f11b2d6f0267946f7c82c5eae4943b"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://lib.openmpt.org/files/libopenmpt/src/"
@@ -12,12 +13,12 @@ class Libopenmpt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4be673aceb001642e12d2f7992946bf85305a42561227daba2b0389d4442f46d"
-    sha256 cellar: :any,                 arm64_sequoia: "684c17f93ecbc379409f75d3f275c7998cbd95fff7b7aa4c59700f03014b9be7"
-    sha256 cellar: :any,                 arm64_sonoma:  "291cc2513e0a63db6f3d11f186701c08f291b23fe1839b1c1afe5afe819e27c4"
-    sha256 cellar: :any,                 sonoma:        "486cf7ec136a7cc464593c7eb5e887cbc9852ba402c0d6258287f43801c3d663"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "690df6cd7e7e7af1ff89eb1160180f0c54fdaa0457b9e43409efe52556fb4f6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4febab73735e3851d7e10a3f88815915856ea329a8a4427d625dc82c28e2f39"
+    sha256 cellar: :any,                 arm64_tahoe:   "90eb85d01cb0b35f70fc70888edde939013c407f859a36b9f5716005d4c6f0f9"
+    sha256 cellar: :any,                 arm64_sequoia: "4cd9991a4e1e79edf673ba45fbf3bba240dd24988a933a0d93dd960d76374a84"
+    sha256 cellar: :any,                 arm64_sonoma:  "20c555a5bb1e0683a8961a0c3dac5661f9ec3852d2998ed45b81205a3466172e"
+    sha256 cellar: :any,                 sonoma:        "347c430a3d323e1df2aac0fbf23c35fb8b39b8ab74c41fd150d1c6b409147377"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c512c665eabc47c68eb9d855d401b549bee65be4594980c7e6a5680f3d571b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfc09063e376c43530eac84aabd7ddc04e06f1c1945ce2ca6544742862f60da0"
   end
 
   depends_on "pkgconf" => :build
@@ -29,15 +30,13 @@ class Libopenmpt < Formula
   depends_on "mpg123"
   depends_on "portaudio"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "pulseaudio"
+    depends_on "zlib-ng-compat"
   end
 
   def install
     system "./configure", "--disable-silent-rules",
-                          "--without-vorbisfile",
                           *std_configure_args
     system "make"
     system "make", "install"

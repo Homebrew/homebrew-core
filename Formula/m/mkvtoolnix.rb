@@ -12,12 +12,13 @@ class Mkvtoolnix < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "e453841cd51b3cddf8a548f5fba0b4fd4c0f6833b0173b0e6171572a3ef8c502"
-    sha256 cellar: :any, arm64_sequoia: "743a06fea2874eef6c51eaeb03c9253e669e3565af52e695439a20b411a861f8"
-    sha256 cellar: :any, arm64_sonoma:  "3b97f5cbea5e445b61880d0eebd5b7949c8d52c7d98958c9d989b35eba2dacc4"
-    sha256 cellar: :any, sonoma:        "bb1e89c8b2cd654b62676c2049238fb2f2e0d0249ecaa5568e1a75462d48aa1d"
-    sha256               arm64_linux:   "5a6a57905e880e317182176d731dcef803314e88992225ececd7025b11fab8f0"
-    sha256               x86_64_linux:  "e415dc4e60a4c40bd85914743d281420c44c557942bcea5cc9a531ea9d629de4"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "931bca75c5e9e75a4de2c8c8a7aafcaaf09b82dbf3510b2a3b5f30531a6143a3"
+    sha256 cellar: :any, arm64_sequoia: "d34b76af529bb7cb82edbb656cde7c8fb1ac1fc148cc014a3f9d9250a7b25eb8"
+    sha256 cellar: :any, arm64_sonoma:  "b9ced3dc51e9ea65d6cb9ced9f2a82112e65790f9149f23d1d66f0eebc038325"
+    sha256 cellar: :any, sonoma:        "4398e1b2789590bd093273eb94a1f447bdc2de4958346e6c907310bc49490854"
+    sha256               arm64_linux:   "78073ffc9cd1eb2e3aa674d6d6aaf6596593d550f7c5bd109a73bc0ec5197457"
+    sha256               x86_64_linux:  "11cf9351d97011ce359a70304cbe942ed4a2b786526b6f537e86a252ec1eb51f"
   end
 
   head do
@@ -45,10 +46,13 @@ class Mkvtoolnix < Formula
 
   uses_from_macos "libxslt" => :build
   uses_from_macos "ruby" => :build
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with cask: "mkvtoolnix-app"

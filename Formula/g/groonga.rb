@@ -4,6 +4,7 @@ class Groonga < Formula
   url "https://github.com/groonga/groonga/releases/download/v16.0.0/groonga-16.0.0.tar.gz"
   sha256 "e8cec40d59c848617912d988c69ca67445c19fd2d8fcb5b6080eded2df89d545"
   license "LGPL-2.1-or-later"
+  revision 2
   head "https://github.com/groonga/groonga.git", branch: "main"
 
   livecheck do
@@ -12,12 +13,12 @@ class Groonga < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "808aa09f3710d7a9da19fe2052151cf69a61452cb3b22ccc3abf9df1c9caf04c"
-    sha256 arm64_sequoia: "b039f98a1f6c4b11eb416023e06e66441d02effaaec914e264b917f4b01ee373"
-    sha256 arm64_sonoma:  "8fab228175a6bdd3e9013e089eb9a611efe69bfe79f7e899f2479520a2e4f057"
-    sha256 sonoma:        "1db6fe71907bfadcaaaede1e827ad08ba79bb249d0af1fd219c55f1857ff8e34"
-    sha256 arm64_linux:   "ddb4212763397cf86ad14a21bc5fb24a4f7cc761b905fc0423be4f400cde022b"
-    sha256 x86_64_linux:  "dd9d5162081fc0a3651c92961234b841779846ffd2c0e0b210ca57a26fa23606"
+    sha256 arm64_tahoe:   "626682cf7d97df6dec60b9d55a9e61b0a665b5b2134df7ba3ddf057be15df071"
+    sha256 arm64_sequoia: "682e18de7a6f5d93fa3c5ff25178c4a35eeb70836cfa96f5c460691f118343f3"
+    sha256 arm64_sonoma:  "2e1b8061bc1bcc88bd310bb14ed4ceb381ca0fff31aa803b46f87c67f1a6a488"
+    sha256 sonoma:        "bdcdf72f351393971f821fa6a5217909f801d2c50495559511a31cc6707022ba"
+    sha256 arm64_linux:   "2ef4cf7954bfbd2124a8e8c146ad03ab9f1f0ff910be298926727bd2d8f53934"
+    sha256 x86_64_linux:  "413b8da5a3c5ab73afdbb94cfd0864675b601138805f6eb2d7aa733fc6e1aefe"
   end
 
   depends_on "cmake" => :build
@@ -43,6 +44,10 @@ class Groonga < Formula
   resource "groonga-normalizer-mysql" do
     url "https://github.com/groonga/groonga-normalizer-mysql/releases/download/v1.3.0/groonga-normalizer-mysql-1.3.0.tar.gz"
     sha256 "693c24eff9ba95cd498ba28f8d5826843caec347b5aa6976e565e69535b44147"
+
+    livecheck do
+      url :url
+    end
   end
 
   def install

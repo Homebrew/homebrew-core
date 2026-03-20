@@ -1,6 +1,6 @@
 class Fits < Formula
   desc "File Information Tool Set"
-  homepage "https://projects.iq.harvard.edu/fits"
+  homepage "https://harvard-lts.github.io/fits/"
   url "https://github.com/harvard-lts/fits/releases/download/1.6.0/fits-1.6.0.zip"
   sha256 "32e436effe7251c5b067ec3f02321d5baf4944b3f0d1010fb8ec42039d9e3b73"
   license "LGPL-2.1-only"
@@ -9,8 +9,6 @@ class Fits < Formula
     url :stable
     strategy :github_latest
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "d71b24d9369f9b5737617ae4573432b87c30e8a465f433f6e99af6a78375cc09"

@@ -1,29 +1,28 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "https://astron.com/pub/file/file-5.46.tar.gz"
-  sha256 "c9cc77c7c560c543135edc555af609d5619dbef011997e988ce40a3d75d86088"
+  url "https://astron.com/pub/file/file-5.47.tar.gz"
+  sha256 "45672fec165cb4cc1358a2d76b5d57d22876dcb97ab169427ac385cbe1d5597a"
   license all_of: ["BSD-2-Clause-Darwin", "BSD-2-Clause", :public_domain]
 
   livecheck do
     formula "file-formula"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "fe356bfc03bc9d5eaeee4acdd54d1c0c13edf3645c6da7ea61831ba030a283ff"
-    sha256 arm64_sequoia: "72bb18819cf63d14cdc3c830d586bd93e542f5cf2cdbbc579bfcd5170017fff1"
-    sha256 arm64_sonoma:  "6c1bf60aeb9742e5c8c6973cbcc6ac970fbed9e255e6bbd479bd2f77513c0b46"
-    sha256 arm64_ventura: "c619199785eaf8dda4ef65c9451fa7ca0fb5bab4452d108cb3d8669d53bec5fd"
-    sha256 sonoma:        "76b116dbfc458b9c62623df89acb3b220500710823a18b604bd2add76c3ec6f6"
-    sha256 ventura:       "b40e88d1e403b33e3544bac60b4ceda2524ae0ef0127c4c676211b83bffaa04f"
-    sha256 arm64_linux:   "7654c8792fa33aece638f2b8efb56e33a6b86d2aa64c43bd65c39b0651e0e703"
-    sha256 x86_64_linux:  "ad618acdc2587bb3d3e5d0c6022fff1c37c6c91b1c818ade50a026bf79469c73"
+    sha256 arm64_tahoe:   "f7aa29830da3062c82a1573bcadb35df0951de214d908543db23f89d55fdb831"
+    sha256 arm64_sequoia: "6f52d18caa98d2f3aee461cff07e20ee353476e5612bad6ab0865f5d0b90921b"
+    sha256 arm64_sonoma:  "8fb3f8f7fdd14723f494b82c85a7c83fdedaf88a042d8c33dae09ed02e2382ae"
+    sha256 sonoma:        "b386f869ea612420b8835424308c886c7ce72667b1e9e41d08fb8358daa918cb"
+    sha256 arm64_linux:   "c66a9827c4498d168f68346243ea5ab6772b9a707b9a79dadccb59f5ec847574"
+    sha256 x86_64_linux:  "2fd518dd644a4e1b94cde7150b7d1d7f24403940a20c0a175dda85465d207b99"
   end
 
   depends_on "pkgconf" => :test
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--disable-silent-rules",

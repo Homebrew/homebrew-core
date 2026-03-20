@@ -6,8 +6,6 @@ class Karn < Formula
   license "MIT"
   head "https://github.com/prydonius/karn.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9c83b76119af53f55175126422dc60581a71961a4cec4ae02da465243d0a2fba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "56a2e364302364891e18fb7856a51e2d9bc3143ad3b98d59367b07e632ddd817"

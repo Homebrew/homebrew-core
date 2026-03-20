@@ -11,8 +11,6 @@ class Ngircd < Formula
     regex(/href=.*?ngircd[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "5427f5fc9fd0c74ef8f81724a119409ea2dae4d6f69c645ed3320eb5172631f1"

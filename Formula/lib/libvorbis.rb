@@ -11,8 +11,6 @@ class Libvorbis < Formula
     regex(%r{href=(?:["']?|.*?/)libvorbis[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "99c0de7ff87f4648bb17acd0324a15563e975b7492dbd4f11fd656a8eb6b5622"

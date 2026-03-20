@@ -1,13 +1,12 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream select audio and video codecs"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-8.0.1.tar.xz"
-  sha256 "05ee0b03119b45c0bdb4df654b96802e909e0a752f72e4fe3794f487229e5a41"
+  url "https://ffmpeg.org/releases/ffmpeg-8.1.tar.xz"
+  sha256 "b072aed6871998cce9b36e7774033105ca29e33632be5b6347f3206898e0756a"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 3
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -16,12 +15,13 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f5fa8184d47b99423b081c73d5f4bb8562a42dac8a1141a8102478ee0b2d399d"
-    sha256 arm64_sequoia: "5b649a03681dc56e278511bfa72bedfa87d37bb8343b4286952a82b7f38f87d2"
-    sha256 arm64_sonoma:  "a35c0f24b0e3cf64973cdcdc856908de25d9bebc37e699f2eb982442396ac677"
-    sha256 sonoma:        "b61e908524907e3e623e5fd24be43e84e03ca9b1179151530a4d8279320ef96b"
-    sha256 arm64_linux:   "32774f69c2ddefc61e0cc6cf050d9efcf6893d0861e69458578bbb54623bc38e"
-    sha256 x86_64_linux:  "bcd238861e09669b1fcce42265112919e933488520207d011808a04b8171710f"
+    rebuild 1
+    sha256 arm64_tahoe:   "7799f9b312c176157e897e87f07d23249b0da377573f93863f2a0934a8eb5da2"
+    sha256 arm64_sequoia: "fa65fab570180030fde32541493ba0c9ad81b2bd527f355e08942b89df6709e9"
+    sha256 arm64_sonoma:  "51b2f2fad949f77f845d5b3a597df20eac4433538c36034ff6a0f3756e8f99bc"
+    sha256 sonoma:        "da49bd1a0fb3cda65ccb444321a53f91e763051f41ac910e418187dd9ee6ccba"
+    sha256 arm64_linux:   "62b4efe1ea8f74a3f677a3a3aa7321476eb8f6baccaf7c466bc7467f20d7cf2f"
+    sha256 x86_64_linux:  "08a5335d86b762b5079a1ccb37496dd59c4064490f2aff40f21f107cb51ff5c6"
   end
 
   depends_on "pkgconf" => :build
@@ -54,19 +54,6 @@ class Ffmpeg < Formula
 
   on_intel do
     depends_on "nasm" => :build
-  end
-
-  # Fix for QtWebEngine, do not remove
-  # https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=270209
-  patch do
-    url "https://gitlab.archlinux.org/archlinux/packaging/packages/ffmpeg/-/raw/5670ccd86d3b816f49ebc18cab878125eca2f81f/add-av_stream_get_first_dts-for-chromium.patch"
-    sha256 "57e26caced5a1382cb639235f9555fc50e45e7bf8333f7c9ae3d49b3241d3f77"
-  end
-
-  # Add svt-av1 4.x support
-  patch do
-    url "https://git.ffmpeg.org/gitweb/ffmpeg.git/patch/a5d4c398b411a00ac09d8fe3b66117222323844c"
-    sha256 "1dbbc1a4cf9834b3902236abc27fefe982da03a14bcaa89fb90c7c8bd10a1664"
   end
 
   def install

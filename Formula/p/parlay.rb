@@ -7,12 +7,13 @@ class Parlay < Formula
   head "https://github.com/snyk/parlay.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bd292a2313af1696d0a9bb418fb116f684a785f0238857b9ac9d327f1c88cf87"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd292a2313af1696d0a9bb418fb116f684a785f0238857b9ac9d327f1c88cf87"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd292a2313af1696d0a9bb418fb116f684a785f0238857b9ac9d327f1c88cf87"
-    sha256 cellar: :any_skip_relocation, sonoma:        "317fc1de29e6aaeca917a94d65e1205415aaac971186de78e6362ce43c93d0ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb4424ae51442b6843720f50357049f8bc1d5ce3c3ca12fb303a424a08a15f24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de4c7f7596f1a82cfe2db2db8164285cc2619006e00b9ce5521ca8bfe22a060c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9297b5a3bb7c1157e04ff6306b7c32dc5d7ed64993fe4b10cf6d1c75cd2c6896"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9297b5a3bb7c1157e04ff6306b7c32dc5d7ed64993fe4b10cf6d1c75cd2c6896"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9297b5a3bb7c1157e04ff6306b7c32dc5d7ed64993fe4b10cf6d1c75cd2c6896"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7f42c1f875078675c7cd60c6e70ae9db99b84cf798938d7f01dce436c9737c41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "849416c24d196e8956172d41d25e1fc874190f374004e60289eae74b1dcf4345"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33be478a04fc6420f2f23d785293c5a4cf96e4489310750fe11454f2de95b63a"
   end
 
   depends_on "go" => :build
@@ -20,6 +21,8 @@ class Parlay < Formula
   def install
     ldflags = "-s -w -X github.com/snyk/parlay/internal/commands.version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
+
+    generate_completions_from_executable(bin/"parlay", shell_parameter_format: :cobra)
   end
 
   test do

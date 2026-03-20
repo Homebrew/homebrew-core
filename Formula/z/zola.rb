@@ -24,7 +24,7 @@ class Zola < Formula
 
   def install
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
-    system "cargo", "install", "--features", "native-tls", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "native-tls")
 
     generate_completions_from_executable(bin/"zola", "completion")
   end

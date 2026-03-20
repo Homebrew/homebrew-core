@@ -1,10 +1,9 @@
 class Biosig < Formula
   desc "Tools for biomedical signal processing and data conversion"
   homepage "https://biosig.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-3.9.2.src.tar.xz"
-  sha256 "3f988b0923b323d2d25d642f0f749fbfa59194a9fc18c86e224d5caaa2399c5e"
+  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-3.9.4.src.tar.xz"
+  sha256 "4895c6f39fad85693e4aae36352a4b34f5a16e64c1feeade08c80bf1b3bb1a42"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class Biosig < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "536bd0bebdfe171b1718a62f71a9cbcc9b0902bab358bf092068de7364d1df2b"
-    sha256 cellar: :any,                 arm64_sequoia: "36cd242652a84be67c67aa717b759b79bd1faeff1efdaf037e1316d4ed76e25e"
-    sha256 cellar: :any,                 arm64_sonoma:  "a869c607c6a9d2deed89898cf141c6b9acf2032beb6604a3f4bb856826d55dfe"
-    sha256 cellar: :any,                 sonoma:        "c8e6725f93f9e357fdb18a7d11690c0ffcff94cb139bb5aacad70ac470d82a32"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3589bd379b3a383937a8c6a4adcb567c116474d6d3200e050082179f985a0b78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "292bca266bc8e2287c1b906a59180ac09d971fc0e9a141f9d42abe346a43cd8a"
+    sha256 cellar: :any,                 arm64_tahoe:   "f7be3b912dd5e0e7b69f1e5efd69a6aaf4f620741e102ff2acf3a3d827885634"
+    sha256 cellar: :any,                 arm64_sequoia: "679db8676974d3a15f13984045c14090e256a2ff07443aa5684480902f8e89a2"
+    sha256 cellar: :any,                 arm64_sonoma:  "3041c1746953c98c82c1180e9129bb012413815b4dfbd083e9428391058ccc31"
+    sha256 cellar: :any,                 sonoma:        "77439da5eeafa68458b1a8b2ba661857f582e73ba826e17ff0a09089c090c570"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "49adde08cd6082bc6cafd69db23947e1a9684ad0d9a080360f5243667da73391"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7e362367ead115c1d7beb79d9fa2125abffdadf5b96a6faf2a8052564c6d062"
   end
 
   depends_on "gawk" => :build

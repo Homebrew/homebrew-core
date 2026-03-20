@@ -3,18 +3,17 @@ class Gamdl < Formula
 
   desc "Python CLI app for downloading Apple Music songs, music videos and post videos"
   homepage "https://github.com/glomatico/gamdl"
-  url "https://files.pythonhosted.org/packages/59/c2/c365c924f92f1fa04a6ca158c4333732bc6d5d419a18e549ea7a30319bf1/gamdl-2.8.4.tar.gz"
-  sha256 "80e0305f917c4f5dc0e8819ed8f964f30db853758f578726c399e2935cea4ac7"
+  url "https://files.pythonhosted.org/packages/76/62/28429c8edd8667ba9012678d3c467304907e12d793e16e8d454b89c44f3f/gamdl-2.9.3.tar.gz"
+  sha256 "a053d0801103df676af6effd348f068f2bdca51ab85551fc6aa56b684e5ffdd3"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0f0055ee1a46d253c4ada13f130a49295083dd926a1545cdd4f4f84ab999bf44"
-    sha256 cellar: :any,                 arm64_sequoia: "f63afa8c6faffac1ef6bd2e85c8313fe4042fc6f6f500db5688785c794b92fc5"
-    sha256 cellar: :any,                 arm64_sonoma:  "80577d2f039b7ae20483ea6165edeac58afd6db421bfc654d9a0b630c1b6db9c"
-    sha256 cellar: :any,                 sonoma:        "f2b3c0f840ebfc336664addd4b83aaac5106001c7dd8ea079bb50fcdc0ce5813"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "db45303429d28ae8d9f182bef80768c331a4bd4b3ed02bb2fb565eae9ea46e72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "305dce45a7fa9ae2a6eb6a1f91757d4951ac175721ed5d8b19a1992dacd943a1"
+    sha256 cellar: :any,                 arm64_tahoe:   "a1f739cf007c787d4557296b2b057a931f9bd3fa205e48a1e9a3a6436d400598"
+    sha256 cellar: :any,                 arm64_sequoia: "7d370fe37b5958131d39e5817ce5d492f3baeac1c601158418bc2315ac466d4c"
+    sha256 cellar: :any,                 arm64_sonoma:  "f3190a138268759f960d6277d535c62645e8e811d6f04b2b1b26acca0a3c25b8"
+    sha256 cellar: :any,                 sonoma:        "1b26f930257378353236e3786c34d9956cafccc2c72506734f90c69a019956bc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f144019060674af0defa4839b1e6c85ff6a3a4489eaf78acf652de906ffd2d8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "664cd2387cef766f537796aec4565ae8565067178e875ac0b24809a1149d9ea5"
   end
 
   depends_on "certifi" => :no_linkage
@@ -30,13 +29,13 @@ class Gamdl < Formula
   end
 
   resource "async-lru" do
-    url "https://files.pythonhosted.org/packages/ef/c3/bbf34f15ea88dfb649ab2c40f9d75081784a50573a9ea431563cab64adb8/async_lru-2.1.0.tar.gz"
-    sha256 "9eeb2fecd3fe42cc8a787fc32ead53a3a7158cc43d039c3c55ab3e4e5b2a80ed"
+    url "https://files.pythonhosted.org/packages/05/8a/ca724066c32a53fa75f59e0f21aa822fdaa8a0dffa112d223634e3caabf9/async_lru-2.2.0.tar.gz"
+    sha256 "80abae2a237dbc6c60861d621619af39f0d920aea306de34cb992c879e01370c"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/1d/35/02daf95b9cd686320bb622eb148792655c9412dbb9b67abb5694e5910a24/charset_normalizer-3.4.5.tar.gz"
+    sha256 "95adae7b6c42a6c5b5b559b1a99149f090a57128155daeea91732c8d970d8644"
   end
 
   resource "click" do
@@ -145,13 +144,13 @@ class Gamdl < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/5f/3e/3d456efe55d2d5e7938b5f9abd68333dd8dceb14e829f51f9a8deed2217e/wcwidth-0.5.2.tar.gz"
-    sha256 "c022c39a02a0134d1e10810da36d1f984c79648181efcc70a389f4569695f5ae"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/42/b6/b401777f2fb16cb35bfc352079b8c5a60fbc8189c655539f51a9847d1e0b/yt_dlp-2026.1.29.tar.gz"
-    sha256 "12b489eb16828cc3fff1723f244992ebae8a5bf1ad75c8e9f01d729ae237ebb9"
+    url "https://files.pythonhosted.org/packages/66/6f/7427d23609353e5ef3470ff43ef551b8bd7b166dd4fef48957f0d0e040fe/yt_dlp-2026.3.3.tar.gz"
+    sha256 "3db7969e3a8964dc786bdebcffa2653f31123bf2a630f04a17bdafb7bbd39952"
   end
 
   def install

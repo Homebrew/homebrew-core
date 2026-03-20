@@ -6,8 +6,6 @@ class Afsctool < Formula
   license all_of: ["GPL-3.0-only", "BSL-1.0"]
   head "https://github.com/RJVB/afsctool.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "551e9f8910b53ce228f1f710e100c54266cbed7ffa3a087ecec516c71bba5dbb"

@@ -2,23 +2,32 @@ class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.io/"
   url "https://github.com/ponylang/ponyc.git",
-      tag:      "0.60.6",
-      revision: "1b870304ca4c6d8a098368a3fa32fa302fab7103"
+      tag:      "0.61.1",
+      revision: "e976cc216f235bace72e2837879508283fbb2d40"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a48ba74fe68aedda5d1bf06ff7d6a9e040b2cf1aaaa9585d9d562eaca8f2f94d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "611522401eb16fc9056bf384ab160f8c22dfede675822ddfbac2819e6cc63f85"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c7363543033e2ff73ecf95cb576f9766ab8dc48c59ace413553200db33ea1d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "580688ca04f5fb8ae85a7c1dcc92232ccd4398c4187b3b68af4eb4c756d70e9a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4d386b26d296eb47bead4e78c23ef17276d0e94fc913832e7007bc7c7fd358c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42ab7da0bd4366355c50e12323388c4c7d7a8f84d73d07793bb368f26e112328"
+    sha256                               arm64_tahoe:   "94b9f6ca0821827751a52c8dc7d7792d5e1f24d17beb923287a12e59412949ab"
+    sha256                               arm64_sequoia: "3bccf44a9fdc585be496ad425f010f4e5e02509fba3dbf52336f6d275785d979"
+    sha256                               arm64_sonoma:  "fae7af833bf1e1785ca677521c9256f9e377dadec34b02ee5a0d7df6976a6ba3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b1ac91056f007409b97dc695ba1b8b1f6d5e02dcc9765edaf7445c2bb3df9709"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d679ed55fcba57e6996ad7422e09abade995aa574beb6657ff4dfea4967697d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f3814b6ebda2e5f76ca12d85bc2d95a392243ff5274fce8312cb2d441c033e0"
   end
 
   depends_on "cmake" => :build
 
   uses_from_macos "python" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
+
+  # Backport zlib libdir propagation for self-hosted tool builds. upstream pr ref, https://github.com/ponylang/ponyc/pull/5039
+  patch do
+    url "https://github.com/ponylang/ponyc/commit/8abfa19aee61a68627488095a2adbd4edfbbb986.patch?full_index=1"
+    sha256 "3d4becd4ee7ea1a49a1ff3f92a7870eb7b314ebf93711bbea70fbf894fb29973"
+  end
 
   def install
     if OS.linux?

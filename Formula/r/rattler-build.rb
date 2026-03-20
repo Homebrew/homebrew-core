@@ -1,8 +1,8 @@
 class RattlerBuild < Formula
   desc "Universal conda package builder"
   homepage "https://rattler.build"
-  url "https://github.com/prefix-dev/rattler-build/archive/refs/tags/v0.57.2.tar.gz"
-  sha256 "a66c2ddddda9ad57240f5b01b1a3ee71b762400ea3c1b2ec462ee103a130d5be"
+  url "https://github.com/prefix-dev/rattler-build/archive/refs/tags/v0.61.0.tar.gz"
+  sha256 "592e4ae8fc3a89b557588670d6e9f92b3c975f03e0d79390c526ba116eabed2a"
   license "BSD-3-Clause"
   head "https://github.com/prefix-dev/rattler-build.git", branch: "main"
 
@@ -15,13 +15,12 @@ class RattlerBuild < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "21c38aaffbde2f423975d27b13e9c1f7c3f4ce7d955f45898b44fe43bc19bcf3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38ba1f6e7a5afad2e3b5e22e1d79d89c53fd61093514a48a032a0a412d03e9cd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0182f927c6ccb7e3628674924ae57dd7944b768fbdb812df65d1a8e898d88e10"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e31a00d9b343729fcdf0c6bd6106111dfcc5c9e804ea354d0cc3a10b4c887f7b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4e0a5c85f9530186da01f6ed824926ba6469a2f29d3e96a2c95b6506343047d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cde57a3368b05eaade33121cfe9cdb505f5ef33f5de757b2188cf8e02206a61"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "45e3ae9a717c10b20203145ed550d0c20b2a442e21e5a34a833bcf6d7784620f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c42e900d6f1a599493f5bb2e1cd3e45ec505b7f0d116794d123a13426f4c885f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "de59dafa2017ee914bee9dc4f9298a5734ebe7266b970d33c6893e0c3451b161"
+    sha256 cellar: :any_skip_relocation, sonoma:        "beda36b76d4a94547be7be372707a537af8c2cb5bad1526bec07e85ba7febba6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0ed6cef18a0c6bd0750b6cfca7bcd0dd6b85e3f6d99c58f7ceabff3cf14fc13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "923fbed46490e25187214147bca232ecbb9c972c7c31be56fdb1e13cac5d30b8"
   end
 
   depends_on "pkgconf" => :build
@@ -36,7 +35,7 @@ class RattlerBuild < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "tui", *std_cargo_args
+    system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"rattler-build", "completion", "--shell")
   end

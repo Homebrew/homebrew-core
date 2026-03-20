@@ -5,8 +5,6 @@ class B2sum < Formula
   sha256 "7f2c72859d462d604ab3c9b568c03e97b50a4052092205ad18733d254070ddc2"
   license any_of: ["CC0-1.0", "OpenSSL", "Apache-2.0"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2c13b1572d5c05d0c824ffa7cc06a385d7a99c7e03ab695701a4a95964677abd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "78ff50b93a895f7bb3344a5469d54dbbd55066e27903a0411be5c8406d9bf896"

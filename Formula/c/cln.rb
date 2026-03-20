@@ -10,8 +10,6 @@ class Cln < Formula
     regex(/href=.*?cln[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "198d7aa1178fc5df110461b2718466f2cefdedf75a0e4c88287dc130da5ddefc"
     sha256 cellar: :any,                 arm64_sequoia:  "2279ade96381f9ac79cf40c1e29b2ea4fc998a25895b54a7fc0f77cc72d1782d"

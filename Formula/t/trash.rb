@@ -6,8 +6,6 @@ class Trash < Formula
   license "MIT"
   head "https://github.com/ali-rantakari/trash.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c8ea446c49b05c3be652742ae95a0be1bda3354746add8c2721c337462fe8bdb"

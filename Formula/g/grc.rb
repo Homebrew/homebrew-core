@@ -9,8 +9,6 @@ class Grc < Formula
   revision 1
   head "https://github.com/garabik/grc.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 5
     sha256 cellar: :any_skip_relocation, all: "7a9655993b72c5fa50ecd3e530cdb69ab9da8c0fc4f9352786b10c9529d26cc8"

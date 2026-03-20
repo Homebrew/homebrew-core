@@ -3,18 +3,18 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/2c/a8/302b734e7d0675e25a7c7b54bafed1259313740f36eb1321445b97c6ca93/streamlink-8.2.0.tar.gz"
-  sha256 "64523e99401ddf4ee7f09f551787dc127111eeb9ac8d8b0e8037966efdd7a1a5"
+  url "https://files.pythonhosted.org/packages/ba/6c/2693892f73a1f27642297929dbb4a6e35a3795314c0d084f3273cc492b71/streamlink-8.2.1.tar.gz"
+  sha256 "afa26582cabf343f49733d79e2bc9a5bbe90aec7dbb246ec5f97796499c637ee"
   license "BSD-2-Clause"
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cd250185abd58485ee58ae7ff254df94d6848e9ad6c80a328b1736dea5a67e6a"
-    sha256 cellar: :any,                 arm64_sequoia: "c68503978b1c856a97027fbf7113029285186b0b67891c1b2d3854a4282648f8"
-    sha256 cellar: :any,                 arm64_sonoma:  "79ce1aa4b2ba978f7b8cccc021b992d5b4aef2b3078bc2d990e1c76a38a7dc9e"
-    sha256 cellar: :any,                 sonoma:        "c8ab0f3878fc10a488bc5658ea56778a515f6a3737f40baadd8b5641ce86f128"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e414c16548e4dd131cf4e259f4ac71e0544d1948f527c460604610dc5ff20483"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f29555f23f71791d9367f0f7db1ac803dee93acbf272aad67a85cb988fa3bb3"
+    sha256 cellar: :any,                 arm64_tahoe:   "2db710ae92fec783dbdf26032e3146a187af6de754d385528318fe54198a1eea"
+    sha256 cellar: :any,                 arm64_sequoia: "29fe14468bd7308f81fd13deaad8a72cc56221c81f898811984342917329f9f0"
+    sha256 cellar: :any,                 arm64_sonoma:  "4e8c2be385cb9cc704161601d7cc667e48f32670e3fd78776014f867c208919d"
+    sha256 cellar: :any,                 sonoma:        "d83f87e64f9cbdf9c6f172c2c41598dc9761ca278416ab804e907d9709cce7fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f97b39ffd0c8693fc700fa7b6c692d851b6484e7e9e7859a1e9bc95472e57c78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67634ab56b48b788bc9ca71da86d372ce4b87462d953f9d027c8d0903a5c522d"
   end
 
   depends_on "pkgconf" => :build
@@ -63,8 +63,8 @@ class Streamlink < Formula
   end
 
   resource "pycountry" do
-    url "https://files.pythonhosted.org/packages/76/57/c389fa68c50590881a75b7883eeb3dc15e9e73a0fdc001cdd45c13290c92/pycountry-24.6.1.tar.gz"
-    sha256 "b61b3faccea67f87d10c1f2b0fc0be714409e8fcdcc1315613174f6466c10221"
+    url "https://files.pythonhosted.org/packages/de/1d/061b9e7a48b85cfd69f33c33d2ef784a531c359399ad764243399673c8f5/pycountry-26.2.16.tar.gz"
+    sha256 "5b6027d453fcd6060112b951dd010f01f168b51b4bf8a1f1fc8c95c8d94a0801"
   end
 
   resource "pycryptodome" do
@@ -93,8 +93,8 @@ class Streamlink < Formula
   end
 
   resource "trio" do
-    url "https://files.pythonhosted.org/packages/d8/ce/0041ddd9160aac0031bcf5ab786c7640d795c797e67c438e15cfedf815c8/trio-0.32.0.tar.gz"
-    sha256 "150f29ec923bcd51231e1d4c71c7006e65247d68759dd1c19af4ea815a25806b"
+    url "https://files.pythonhosted.org/packages/52/b6/c744031c6f89b18b3f5f4f7338603ab381d740a7f45938c4607b2302481f/trio-0.33.0.tar.gz"
+    sha256 "a29b92b73f09d4b48ed249acd91073281a7f1063f09caba5dc70465b5c7aa970"
   end
 
   resource "trio-websocket" do

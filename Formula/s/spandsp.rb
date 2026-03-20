@@ -11,8 +11,6 @@ class Spandsp < Formula
     regex(/href=.*?spandsp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "7eb7c7c0692b996402f9debbb20b3d87f5a0e9c17c2c3c73c5ce0589175c104a"
     sha256 cellar: :any,                 arm64_sequoia:  "fb9acce46b687e18c6e016cf9db9be77645778722eccc71589bc06b7fa7c6344"

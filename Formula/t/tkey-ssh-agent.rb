@@ -1,8 +1,8 @@
 class TkeySshAgent < Formula
   desc "SSH agent for use with the TKey security stick"
   homepage "https://tillitis.se/"
-  url "https://github.com/tillitis/tkey-ssh-agent/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "abe43e1948101a5da007ff997161216ee7d44a54e3fa6b0aa255c22fcab11ae1"
+  url "https://github.com/tillitis/tkey-ssh-agent/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "de9cec8f637378f67b48edc6f8b99301038c07c4f6ce953afa10a5bf78f4f93b"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,12 @@ class TkeySshAgent < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "07136724f75aaf2969204ecbda818cd0b66308a2d088d21984f254313d2a8804"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b6dc23d84a7f3a3b443b8adda359831d6d41105616bd06587dde36482a5ff51"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad3c70f056b623588b70a516f7e09a9571c98a885b6e373b5191f03ae134a19c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4cfb085857fead5f33b038fc74a07ee555af9f96cf445247c10fe663426e0cd2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72b5bcdb56861eee3ea3c512141a041d171c14c6977195351fa5041b5d6dac57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3dc65ac11001c1f6f963a3e9526f18565053e0a1fe674526a06cfac1beaa127"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ad7cb270b939ad428cc2436c0d42d2c7dc80933e1211343cebbec7eecddce9f1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "74bc547d565af02f5b36c04f05f438d7f94405a74f9e3124fbdee0c0a2c966a4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76d18168bf63ffaff7865cd8508b6b6ec46088f900f1804b713a8a907e3cd243"
+    sha256 cellar: :any_skip_relocation, sonoma:        "225a1243418f98c60177399981001ddc5d27bf8b1c90e03e8a301b24d377fc77"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd9ff44f25076e7a640e58d70e2766af0e48a69cc6385f12bac76071631f8267"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fd9af4454ada9bd50475fcf29714cadc450c839cc7b917a191d8e0177b85e9c"
   end
 
   depends_on "go" => :build

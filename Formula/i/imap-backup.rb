@@ -1,8 +1,8 @@
 class ImapBackup < Formula
   desc "Backup GMail (or other IMAP) accounts to disk"
   homepage "https://github.com/joeyates/imap-backup"
-  url "https://github.com/joeyates/imap-backup/archive/refs/tags/v16.5.0.tar.gz"
-  sha256 "f926446d970fd8572da3a8f6b9b8f99cea3ea03d4f73f59ef4fd782c4c006fcf"
+  url "https://github.com/joeyates/imap-backup/archive/refs/tags/v16.6.0.tar.gz"
+  sha256 "b224c2a2a2eefb6438f2da4a9954f7ae6d7b876b718f15629824b76e4e021e4d"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class ImapBackup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dc0ecbbe76960f8b5ddc5413a88fb03b311aa0267dbe120cf53ef5d2c6362753"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc0ecbbe76960f8b5ddc5413a88fb03b311aa0267dbe120cf53ef5d2c6362753"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc0ecbbe76960f8b5ddc5413a88fb03b311aa0267dbe120cf53ef5d2c6362753"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d4a4f203fc40333ada0e7c9ab1fb0c1c5e8aba24fa83cacc586c3d501b55e7b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "da490cd25a21fba6c2675d119b036476835f32055307622115bb81092a547ae8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6eafc3ae2777423bc7c1d5470db700c5965e83fb87a52fd6664bfa26995d01d7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "27032b92ee4a547f2ba88cf4b99934d61a372447eb354e5a3196c753064deb5f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "27032b92ee4a547f2ba88cf4b99934d61a372447eb354e5a3196c753064deb5f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27032b92ee4a547f2ba88cf4b99934d61a372447eb354e5a3196c753064deb5f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "afeda25fe9409022479da559e368e397e3e08be45510c490ca50fe1d1893d0cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "baae0a0eeba4def6d8ee83f0e413d9135602c128a3a737047146604dc3b33771"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f3c38aafbfc5172824709cb2c4f99d7777597dd05eb3c1a3156b2215e62a577"
   end
 
   depends_on "ruby"

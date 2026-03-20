@@ -5,8 +5,6 @@ class Eless < Formula
   sha256 "de7a7891a20a5e7f25c0b5df812edaea87ab0d3336d41821a24e2d248aaf4abc"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "562c9ae16a0fc87aa6752e240e261fa0634f908867f19d716846dceb43ecc72b"

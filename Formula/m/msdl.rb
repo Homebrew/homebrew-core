@@ -11,8 +11,6 @@ class Msdl < Formula
     regex(%r{url=.*?/msdl[._-]v?(\d+(?:\.\d+)+(?:-r\d+)?)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1624aa62efe3286085580bfc9482ff6e163e9dc3be33a0b485ebca7a0a91dd3a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9ab0083cb6623f31de8bd191354b00f627c0b7826646eae177337a2adc823dae"

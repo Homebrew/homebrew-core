@@ -7,8 +7,6 @@ class Dirt < Formula
   revision 1
   head "https://github.com/tidalcycles/Dirt.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "298bd387a65d1a91e835350f47a97b76af44b9466b32b8c2c3a7b67e03736b8c"

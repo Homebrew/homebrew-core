@@ -30,10 +30,6 @@ class Coreutils < Formula
   depends_on "gmp"
   uses_from_macos "gperf" => :build
 
-  on_macos do
-    conflicts_with "uutils-coreutils", because: "coreutils and uutils-coreutils install the same binaries"
-  end
-
   on_sonoma :or_older do
     conflicts_with "md5sha1sum", because: "both install `md5sum` and `sha1sum` binaries"
   end

@@ -4,6 +4,7 @@ class Lcm < Formula
   url "https://github.com/lcm-proj/lcm/archive/refs/tags/v1.5.2.tar.gz"
   sha256 "d443261619080f1c0693237b2019436988e1b2b2ba5fc09a49bf23769e1796de"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/lcm-proj/lcm.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Lcm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a0820b5805c1dc9787283af4bd977504bc3431fa6e7685a21e1778478b231bf8"
-    sha256 cellar: :any,                 arm64_sequoia: "350e2c304a9436ef574780ade663d065799462371d33fda7d130c364f1c65e90"
-    sha256 cellar: :any,                 arm64_sonoma:  "8189eb0848a56d7387dd4b722d068caa11b830495db510be29b559e481e58e2b"
-    sha256 cellar: :any,                 sonoma:        "6a23eae035e3467c83d90580e1dd30eb88272a504ef60016d49fe805340de6a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7cf043230b6efeca9f96c6bfc076905ccb20227408bd5a88490b7dc9ebf9eb23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f2d9a79b688298ec1f01703856bf0a70e2cbf74793aea29b754b546a698df6c"
+    sha256 cellar: :any,                 arm64_tahoe:   "67786ac0f37fa1fd51a11d36eac2c7a15e8d9374f3bf402539455cab4a04e3d4"
+    sha256 cellar: :any,                 arm64_sequoia: "44b5288a4c51bf6c703cdeb518934b993ef424593590b12247cb51da83df8daf"
+    sha256 cellar: :any,                 arm64_sonoma:  "3c098c947859fa7af78056c13507cdb50f6da1fe5a66c3d1ef5e2bac26e5dfbb"
+    sha256 cellar: :any,                 sonoma:        "0538d2bfe93470a2d9faf159a225adf8ec196f79f54af777236996341ad1aec8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2f6a5cc8b26cc546f7c02c6004f7309dcfeb4d8fbbfacd40fa29b4e766b19bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7867fc41099802b39b1ffcb7c70733c7d0dd99f22bbd0a719bb26ecde5ebb93"
   end
 
   depends_on "cmake" => :build

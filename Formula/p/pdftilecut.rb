@@ -6,8 +6,6 @@ class Pdftilecut < Formula
   license "BSD-3-Clause"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "90ee505ab0b2f3afc41e42a5ef8e5e3b02474868b9787fc73cb16d5ab66d909c"
     sha256 cellar: :any,                 arm64_sequoia: "a0233594179a8bdeb42d430dfe1384c716fff5d1062b8e00be0e0a3012778730"

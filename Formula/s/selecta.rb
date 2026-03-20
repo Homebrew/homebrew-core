@@ -5,8 +5,6 @@ class Selecta < Formula
   sha256 "737aae1677fdec1781408252acbb87eb615ad3de6ad623d76c5853e54df65347"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "9fb1dc1bfe59101569e6aea3522d36cf406a2c9b2b86464fce089cc36356b75f"
   end

@@ -1,8 +1,8 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10060/ghostpdl-10.06.0.tar.xz"
-  sha256 "3602056368cf649026231e2d65250b5860c023f3d4a0d9c35e6605e28e543ec1"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10070/ghostpdl-10.07.0.tar.xz"
+  sha256 "ba1366006a93b91e615f74aad9c0905fae503d3f5b04078ce2ddbe360bd2f9df"
   license "AGPL-3.0-or-later"
 
   # The GitHub tags omit delimiters (e.g. `gs9533` for version 9.53.3). The
@@ -19,12 +19,12 @@ class Ghostscript < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "b2b8517f38378c0a6f8cb8ef1eca487945f8324ac2c0a41456013ff3b2c45c8f"
-    sha256 arm64_sequoia: "44c53ae9203c512492b2fbe89d0620c9a25062bf4a969624b67f790215426b78"
-    sha256 arm64_sonoma:  "5957043b1e9a1b37b37aed5cee64687c0160b6f9732aca55b525520f25c20319"
-    sha256 sonoma:        "da097e4d11815b39857a6cb0065030fc2cb99d22a68003058edf187e43416902"
-    sha256 arm64_linux:   "524123d747b5b4d207735a6ef5d1d6348211fdf686ca6be9875e2e5c494332cc"
-    sha256 x86_64_linux:  "c77b2fcb699d7e7d92546e3361dae87218748d1ffa564a470c927fc5a1e4169c"
+    sha256 arm64_tahoe:   "f0ad91f4bc1139f9c68bd1fa4ffdd2d9b9fcc1013df88e54b7850ee994260d9b"
+    sha256 arm64_sequoia: "927302f491a471b2d973b4e22c48591bfe008f68f200cc06ca61f8873b2b2a17"
+    sha256 arm64_sonoma:  "f4ea965a4fbb561fc0c7d4fa68c433e1ced5a354f02aebefe5dba73fdac278c2"
+    sha256 sonoma:        "8fa0a33626c3d1223f1fa8bec57d1337f2b9e6e1789080b6eebd7d1839858708"
+    sha256 arm64_linux:   "70c8e6aa211d92e9469f8dcb4e72aa722a55f04c880abbecf89101d1a15d6bc7"
+    sha256 x86_64_linux:  "0a622fa3b8f596c6cc6e5b7d5e88c7f1a453043640138c086e59ec64a48f2002"
   end
 
   head do
@@ -50,7 +50,10 @@ class Ghostscript < Formula
   depends_on "tesseract"
 
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "gambit-scheme", because: "both install `gsc` binary"
   conflicts_with "gerbil-scheme", because: "both install `gsc` binary"
@@ -89,13 +92,6 @@ class Ghostscript < Formula
     ENV.deparallelize { system "make", "install-so" }
 
     (pkgshare/"fonts").install resource("fonts")
-
-    # Temporary backwards compatibility symlinks
-    if build.stable?
-      odie "Remove backwards compatibility symlink and caveat!" if version >= "10.07"
-      pkgshare.install_symlink pkgshare => version.to_s
-      doc.install_symlink doc => version.to_s
-    end
   end
 
   def caveats

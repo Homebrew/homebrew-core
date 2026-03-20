@@ -5,8 +5,6 @@ class Duff < Formula
   sha256 "15b721f7e0ea43eba3fd6afb41dbd1be63c678952bf3d80350130a0e710c542e"
   license "Zlib"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "643c694ade386db6a76b2da2cabedb1068774a1d4bb9f6ab48b86703e0a58935"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c424b8c034bc699eee2d55c766aad34f4f7ea1f46a5c6f0a6a221159917fd396"

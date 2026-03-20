@@ -1,8 +1,8 @@
 class Tt < Formula
   desc "Command-line utility to manage Tarantool applications"
   homepage "https://github.com/tarantool/tt"
-  url "https://github.com/tarantool/tt/releases/download/v2.11.1/tt-2.11.1-complete.tar.gz"
-  sha256 "50cf1de2105cccf824abdd4eeafc47510072fcffd0dc9e7664f984e037e45c2b"
+  url "https://github.com/tarantool/tt/releases/download/v2.11.4/tt-2.11.4-complete.tar.gz"
+  sha256 "02235b6d699d07f2ef5d406af98db28a0418e2e2ecc08a9a36e1741808e94c42"
   license "BSD-2-Clause"
 
   # There can be a notable gap between when a version is tagged and a
@@ -14,12 +14,12 @@ class Tt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a24cd3cd17e5e04054b8224c71138aa625188adaccf525b2bc15eee8ccbfb120"
-    sha256 cellar: :any,                 arm64_sequoia: "75b945cec579d1099581bef50080ec29536357fdb1e34e44ec2eebed60b6cdee"
-    sha256 cellar: :any,                 arm64_sonoma:  "80cec771281aa429d566d9a16d079762f4ffdabe5adc367a3a32f23bd8f5ca52"
-    sha256 cellar: :any,                 sonoma:        "c3898f14c9d1ab7454135dfab05dbb8fbc157efdc63b8d29f2f3f932d20100d1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eeadc59d3f15770f9fd40620b2c09495382b7fc4537d6d3ac185c7c738b8b991"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "875563b38b8763e04e86d99c36f822fbeab1ea712babcde0bad32008204585c1"
+    sha256 cellar: :any,                 arm64_tahoe:   "52bff0cf515a1153cd390ced9961c8d9bd29563879ec6c5ec610eadb90404a3f"
+    sha256 cellar: :any,                 arm64_sequoia: "7020847e2b219bdec659f70ff27d29b03591e704dfae1c900598b1e2db274891"
+    sha256 cellar: :any,                 arm64_sonoma:  "fdfce8bb5bdffaed8fe56c67731c97b88c8a5771d259ad9e0d5d7c96167e4cc9"
+    sha256 cellar: :any,                 sonoma:        "75fdb655649b07819f0ad417d1dd229fbca45b943ee9f746cca6f0a54afa5a93"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "235f244b5326b340d1ea1211251ad54ffc5f6b2a0f06ff170e5d88b03e00a246"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7595ac4484d04966db78be5bbe86e52c6caea396b3b3a2ffaf6cc094bb691b8a"
   end
 
   depends_on "go" => :build

@@ -1,17 +1,17 @@
 class Utftex < Formula
   desc "Pretty print math in monospace fonts, using a TeX-like syntax"
   homepage "https://github.com/bartp5/libtexprintf"
-  url "https://github.com/bartp5/libtexprintf/archive/refs/tags/v1.29.tar.gz"
-  sha256 "ee755fba8cad2022d42ec41177607afd669814137e239f60dea116166fc0136c"
+  url "https://github.com/bartp5/libtexprintf/archive/refs/tags/v1.31.tar.gz"
+  sha256 "265b15619c287119a73269a0d309587f697960867d01827e769826bf86a12216"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7d7ab118d40d8ba2c41a0859d173aa3965487f77601e17b52fbf87d612e8785a"
-    sha256 cellar: :any,                 arm64_sequoia: "1c06e3b8b3d9f07a0e3ad4beaf831a3abf17b9dbad2d737dc4a6d85b148dab97"
-    sha256 cellar: :any,                 arm64_sonoma:  "8557d2cfd0acaf7d123e6547ebc9da348980cac3a228d6526a5f2b8a3b969763"
-    sha256 cellar: :any,                 sonoma:        "cb4d728327b0bd56806b4bc29d300f9fdb21b00a10d6521ee293ff8f66659b2f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5710be5d99b10f3eecea43b02c70e2d4d886bfafa4d5457d7ff01bf6dfba0419"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88a96b9afe2a10cfdc3be938ec7840464a7299227744616c755d40839997d9f6"
+    sha256 cellar: :any,                 arm64_tahoe:   "a323b3b8def5c96c03e8ba1a158b38a636088317d9630f5978b7dec3a2a7b212"
+    sha256 cellar: :any,                 arm64_sequoia: "53240cfcf74836902e57d90eae41cdf8d47709b4c66d07676cdde2ac3c63da0c"
+    sha256 cellar: :any,                 arm64_sonoma:  "17ebd4a3d357197efcb58c44bc0b1a4595f453dd7b51616c41c680055cd2e938"
+    sha256 cellar: :any,                 sonoma:        "79913315c9d2ec3c2d3ac57d2ea7f395839278f7b8ce1c48181ea55b19704ba4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "144a0233f593829f428859642ed231bdf300378afdccf48c7a5887f5a9b23769"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "733b373d361275776ee9e70d15b02336adb869b19401d4b700545000b144b3a0"
   end
 
   depends_on "autoconf" => :build

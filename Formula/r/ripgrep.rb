@@ -26,7 +26,7 @@ class Ripgrep < Formula
   depends_on "pcre2"
 
   def install
-    system "cargo", "install", "--features", "pcre2", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "pcre2")
 
     generate_completions_from_executable(bin/"rg", "--generate", shell_parameter_format: "complete-")
     (man1/"rg.1").write Utils.safe_popen_read(bin/"rg", "--generate", "man")

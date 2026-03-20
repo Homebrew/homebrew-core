@@ -6,8 +6,6 @@ class Rdap < Formula
   license "MIT"
   head "https://github.com/openrdap/rdap.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "82be0fc5e32749b77743087bf6b5b6a62a61454b1891316e419242bcfaf9e6dc"

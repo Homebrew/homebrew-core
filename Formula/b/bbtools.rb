@@ -1,17 +1,17 @@
 class Bbtools < Formula
   desc "Brian Bushnell's tools for manipulating reads"
   homepage "https://bbmap.org/"
-  url "https://downloads.sourceforge.net/bbmap/BBMap_39.72.tar.gz"
-  sha256 "2cb39e1f8183d2788fa29ab6a2f1137e039b5b0df24dc0cb0dfb32b9c629cedd"
+  url "https://downloads.sourceforge.net/bbmap/BBMap_39.80.tar.gz"
+  sha256 "55883dda98f8402b1c20ea3aa1021515ff898c9540234c6a5a8214a76a5beec4"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e9e4813cf32da29c6b5a26d82e07e0b3880efa5de9140bf6fbf06ffdd1233e74"
-    sha256 cellar: :any,                 arm64_sequoia: "ff5f87fcc5956af5ae7a705799d0e4f6d188c091540a83308117be7cca2744fa"
-    sha256 cellar: :any,                 arm64_sonoma:  "b668b2234061aca032c8e7e05b7c727cbfa05f758099d8806ba8bf92a3522877"
-    sha256 cellar: :any,                 sonoma:        "15cfe23aa20067328a39257a5802fb890fd78b49a3b68f943fdc1544e904f339"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd11de237a2b2e949d7f47a47dc89a3f1e6aff0d131dbe40e0b396fda64eccd3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcfe202cd05659dfe651a9b70b9c245b41fe1e47dda18eda67f191397d7ccd3e"
+    sha256 cellar: :any,                 arm64_tahoe:   "9120e190c6dce139cf117621e917cedbc5b5c6cd325cf88020469cf905ec671f"
+    sha256 cellar: :any,                 arm64_sequoia: "68275593940352f7a7419a37c04986a3c26199e4b655ca6168010d2a84ee5645"
+    sha256 cellar: :any,                 arm64_sonoma:  "426d79cb8873615386420855b791644e55534fa26973e6ddd10962116524df1d"
+    sha256 cellar: :any,                 sonoma:        "0287b95923d8c9152abfd2460c75eecbad67fa34e26344889ec3343b1179de0e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d6436866725d517fcffe139231c255c51324a1d4e5fbac8db3d6ef3dab94ac2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0a4f8431ae74dc6afacad0ad0d7e3f27fcf622061d72d675c817756769cb6fe"
   end
 
   depends_on "openjdk"
@@ -21,7 +21,7 @@ class Bbtools < Formula
       rm Dir["libbbtoolsjni.*", "*.o"]
       system "make", "-f", OS.mac? ? "makefile.osx" : "makefile.linux"
     end
-    libexec.install %w[current jni resources]
+    libexec.install %w[bbtools.jar jni resources]
     libexec.install Dir["*.sh"]
     bin.install Dir[libexec/"*.sh"]
     bin.env_script_all_files(libexec, Language::Java.overridable_java_home_env)

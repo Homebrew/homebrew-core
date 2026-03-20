@@ -10,12 +10,13 @@ class Pwntools < Formula
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "620dd787f93c98a5dc4506f69d7764f4af36444ada3fea4d5cdb4bad08a51476"
-    sha256 cellar: :any,                 arm64_sequoia: "80e8346facb2431dcd22596781b22731d19af7a7db93e09bc8540605ddf6620c"
-    sha256 cellar: :any,                 arm64_sonoma:  "daeeca7e82acf679cb15f9817cfff08f627297aab05e94d83a39e593583650cf"
-    sha256 cellar: :any,                 sonoma:        "2fbb55f6d41dc830d10a8e2b2f36a6736a1da3c89fa312017ef46aa70471b9b8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "97cf9ed3f6aeeecbf2c81c2186ec5904fde522b1f545de991eb4d521ffd7e3a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe19848767ab22b74cadddf97eba47f2185f6ea8d3beef5b92615cd4277bbeb4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "173963053778f57f1cb1061a1b0eb425f32d4a986135dcb909cd79f56c3ba2bc"
+    sha256 cellar: :any,                 arm64_sequoia: "4d4e3fd121e820cad7d7110885aefb82a3553b4030adb487224021e7876bffe5"
+    sha256 cellar: :any,                 arm64_sonoma:  "fce7e058b56ea4ac74b9ec1a9bba9493e1a1c3d51c219b63127d87001d234c1a"
+    sha256 cellar: :any,                 sonoma:        "187722c690ddc9cf14c0384c6072c3af594ff72c548959a25c865bcc325a7a4b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2cd3a8f47cfb0a966cfd17139469f38f3e79becd201b61cc20beea0a25d34bb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cf87eb86532b4347492b3ab03a52cced0e21b7ecc0471c4f92f217fb96d6deb"
   end
 
   depends_on "rust" => :build # for bcrypt
@@ -31,7 +32,6 @@ class Pwntools < Formula
   conflicts_with "moreutils", because: "both install an `errno` executable"
   conflicts_with "cspice", because: "both install `version` binaries"
   conflicts_with "jena", because: "both install `update` binaries"
-  conflicts_with "scala", because: "both install `common` binaries"
 
   pypi_packages exclude_packages: %w[capstone certifi cryptography]
 

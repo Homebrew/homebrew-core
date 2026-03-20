@@ -7,8 +7,6 @@ class DockerMachineDriverVmware < Formula
   license "Apache-2.0"
   head "https://github.com/machine-drivers/docker-machine-driver-vmware.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "01fa7c87d4ba3e58db8cbc31e7b7f89d0a46d500d3e8d88431cd90f31e501ee8"

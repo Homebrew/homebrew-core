@@ -5,8 +5,6 @@ class Libvmaf < Formula
   sha256 "7178c4833639e6b989ecae73131d02f70735fdb3fc2c7d84bc36c9c3461d93b1"
   license "BSD-2-Clause-Patent"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "b8c8aae9ca7b114d91800ad06e7b9da7f1fd06712b99fa7054ceada1b0de00bd"

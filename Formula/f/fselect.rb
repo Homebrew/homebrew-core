@@ -1,17 +1,17 @@
 class Fselect < Formula
   desc "Find files with SQL-like queries"
   homepage "https://github.com/jhspetersson/fselect"
-  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.9.2.tar.gz"
-  sha256 "5263963ef5f02c74e968206221095722557a764ff92b7f343a92a37d718d87a6"
+  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.9.3.tar.gz"
+  sha256 "ea824bd6e57926e243c98ed2fa73bf3eb412a3bd837c388abb1451d727dc46f2"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5ad66c09932e4ed74ba415089f1c00066df73019686489f731ee711892e12739"
-    sha256 cellar: :any,                 arm64_sequoia: "b263d2b0eeb1dbb4aa54b0774c6299f893a3b5766ca6cf54147d81b013a28022"
-    sha256 cellar: :any,                 arm64_sonoma:  "480a4062148f0195d3a1b7ffb02f6b66ec52a0213a3358545285144ff38ef3c1"
-    sha256 cellar: :any,                 sonoma:        "402dfebf0395bd8f7f198ba863d423c12d10a9bca6fcf0a4b5491eff4db46e32"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc96e86e615efe87b7d69298f1b3cc0015ce9fe520c1b0a6e1dbc5fa19bf6ade"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00aa3fe78cd421137a1afa88e26914968ca03526cb6db9da04845f266b772208"
+    sha256 cellar: :any,                 arm64_tahoe:   "6012072ed385ad316f39de794afb461d421aaaa617d98d2d08e2c08a885ba799"
+    sha256 cellar: :any,                 arm64_sequoia: "dc51a0103f33d77e638b2075f26cc83ca0d4443e482b8b9f0c9992503a60cc34"
+    sha256 cellar: :any,                 arm64_sonoma:  "d76ec08ec382c41513c7a999d96e43de5c08c1f955bcf1d6020bce7028570dee"
+    sha256 cellar: :any,                 sonoma:        "fa3b635fad316dea45f716fd0617d71ccc804f8efcc9ddfd242ad93d378d0e53"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0869a3bacc37714a896575c476c16697017b81320b388987bc4e96c779a784d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d81f0ad844aa4d91a6400507bf974c7e034f73fb97fc2571a288c29a27173b6d"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys

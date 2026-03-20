@@ -5,8 +5,6 @@ class FdkAac < Formula
   sha256 "829b6b89eef382409cda6857fd82af84fabb63417b08ede9ea7a553f811cb79e"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "3219079b606e1be7284a0b184c6ccb57676190d199261a0bb67556d28da94c2d"
     sha256 cellar: :any,                 arm64_sequoia:  "d25f4bc81d87c69c9d26d29ae088caeae1778b87f6ca2e13e759ef9d5e723c9a"

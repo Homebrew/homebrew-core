@@ -13,8 +13,6 @@ class HicolorIconTheme < Formula
     regex(/href=.*?hicolor-icon-theme[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "76779247990b538d304e98b042fde85677491e428d0381a59383264ce8ef199f"
   end

@@ -1,19 +1,18 @@
 class MultiGitter < Formula
   desc "Update multiple repositories in with one command"
   homepage "https://github.com/lindell/multi-gitter"
-  url "https://github.com/lindell/multi-gitter/archive/refs/tags/v0.61.0.tar.gz"
-  sha256 "4fb912a2127bdec75ada978954b3e9a963ec6891c95657237a3e4514da02b17f"
+  url "https://github.com/lindell/multi-gitter/archive/refs/tags/v0.62.0.tar.gz"
+  sha256 "9a86abe44035610e245e2b9df4992a84b10235a0b4bb00b8f79d1207cbaa6ed0"
   license "Apache-2.0"
   head "https://github.com/lindell/multi-gitter.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fdd879cc6f72150c9d8bea936839ec55b77407e5581a0e472df792b7652d8507"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fdd879cc6f72150c9d8bea936839ec55b77407e5581a0e472df792b7652d8507"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fdd879cc6f72150c9d8bea936839ec55b77407e5581a0e472df792b7652d8507"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0339a193bf3694c6b8675d3daa8b380142f4f72948c0cb80b4c5859a583182f2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "54041c0a558aae39c7c1a9accabdfccf02d9d5f81a7a4c3ddda1a2db64becfd2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "586e199ca0a108704dd49fb8b9a603eae4b88f1c385038212c0c2cea91a6d983"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "12069a4cdf721d691623a94cb65e4380baaeb486d88f651153757a28de631663"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12069a4cdf721d691623a94cb65e4380baaeb486d88f651153757a28de631663"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12069a4cdf721d691623a94cb65e4380baaeb486d88f651153757a28de631663"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8f1b2af98e8d1f5cfce25798650a5ec8838ee2a9d887c58fb2188297241e272c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "30c3c2ddc609cd157da202aa9ed344caaf25c58e6a3696a5389a2950d9890391"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d789c65687898853c6220ded78f3dc999901abbcf39a464d7cdacde6766a265"
   end
 
   depends_on "go" => :build

@@ -1,19 +1,18 @@
 class Rsgain < Formula
   desc "ReplayGain 2.0 tagging utility"
   homepage "https://github.com/complexlogic/rsgain"
-  url "https://github.com/complexlogic/rsgain/archive/refs/tags/v3.6.tar.gz"
-  sha256 "26f7acd1ba0851929dc756c93b3b1a6d66d7f2f36b31f744c8181f14d7b5c8a7"
+  url "https://github.com/complexlogic/rsgain/archive/refs/tags/v3.7.tar.gz"
+  sha256 "ef383af1adbc01a6e858b45b67b632168ef7c1ee8c2f8267630cbd0f9bf8498e"
   license "BSD-2-Clause"
-  revision 3
   head "https://github.com/complexlogic/rsgain.git", branch: "master"
 
   bottle do
-    sha256                               arm64_tahoe:   "ed5fac0db7cf76fcf45a96c7368f88f4a27b3e4ecbe46245b59d423fef69e9f2"
-    sha256                               arm64_sequoia: "53f904faca8eed3f3cf3d18f724d949b95d9510ef4c1f3eefbc05fa5a4ff336a"
-    sha256                               arm64_sonoma:  "11c395ff3d50fe450ee3ad723f2be10292b3527c6e46fb3c9a69bc8caf87448b"
-    sha256                               sonoma:        "1822242ef3ea81df8679f2d74fd427a1b2bc26ffc44f77f11bab0f9aab9eb635"
-    sha256                               arm64_linux:   "50093b0e7182001fba4ad902780316eaf9571320121a7d2a70af6934a5511786"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8dcff63acd3a4e02941fc4194f7008131d71e01364087e4f6f07979a8222624"
+    sha256                               arm64_tahoe:   "d7dd8c1b32ed33a19ad72eca9c4165d9ad178271c838410f3e04c954dbe6976c"
+    sha256                               arm64_sequoia: "259714a012e38c92b4d4a03bb774b61f8abbabcc297c2438871e8a26b13627a3"
+    sha256                               arm64_sonoma:  "96465f5f7919d004781f8e218ae75c8e6b0cc1415b7f035690c38ecb9ba8bd3f"
+    sha256                               sonoma:        "12f667a741ea136b0317971f90de1ef5f51f7a3a9f02711441b86365d2605793"
+    sha256                               arm64_linux:   "c31ef468ac95b1de16149fead85fedb0876036eaf449b746abc6b7d6cd897fe3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c79cdae683537f6cc24fb7d42d391c69356164732cf8e2004e2924114adeaa8e"
   end
 
   depends_on "cmake" => :build

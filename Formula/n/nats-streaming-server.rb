@@ -19,6 +19,9 @@ class NatsStreamingServer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f24c7b57b3e4e5dfe672f92a7fe4386ec74a1c807666643bf895b47d57e450c"
   end
 
+  deprecate! date: "2026-02-17", because: :repo_archived
+  disable! date: "2027-02-17", because: :repo_archived, replacement_formula: "nats-server" # built-in JetStream
+
   depends_on "go" => :build
 
   def install

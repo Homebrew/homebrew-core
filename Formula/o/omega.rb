@@ -1,8 +1,8 @@
 class Omega < Formula
   desc "Packaged search engine for websites, built on top of Xapian"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.30/xapian-omega-1.4.30.tar.xz"
-  sha256 "b3faf202efd11ab6eb749bdd47f639b3dedc781eb0d579edafc80cd1340a461d"
+  url "https://oligarchy.co.uk/xapian/2.0.0/xapian-omega-2.0.0.tar.xz"
+  sha256 "85088a16cf64ea676d0856813244909f132e1b32013a56928c40a1e333a6734a"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Omega < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "7aa6af0cfb692a25f14504b9e8f5e69654b3a691062fbaa037d1a8c6cd8ea046"
-    sha256 arm64_sequoia: "873754a7c8613e0e08bdcab01c073da2f315e6261ca954e35ce28c07f6501d56"
-    sha256 arm64_sonoma:  "dc6cbb76c35f2c43f313464c99a44e37ffecfc5356688b985bed86d8222596fb"
-    sha256 sonoma:        "71b0d508818d4988be38202ea2c02b3c35a2ae33a7776542e73b06e2b6dc518b"
-    sha256 arm64_linux:   "adea94d92b0dac8f962d4e16b9397a4a53c6417966a1c13d561e258a9d44e7ca"
-    sha256 x86_64_linux:  "6963d3aa476e5656db149aa9c9b74cc68a9ef286be161c0cf9ce460ab706917c"
+    sha256 arm64_tahoe:   "f469ef4f1a35d66c86dd5401631664df649e057df44aee40bc53f7f9024dcf33"
+    sha256 arm64_sequoia: "978bbca4afa94cefd5dae18b458b1f7377f18de57caa9f8370c8d147cf643217"
+    sha256 arm64_sonoma:  "fee41f0cf3f0cfd8d7083dd8ebbba410eb84ce7ba10aff931b96f0f28b12cbb4"
+    sha256 sonoma:        "bdcff8da23e5990b3c4b7b905046a1f28585bc966c3946d657519edfb2a872f1"
+    sha256 arm64_linux:   "d978d3f8de65bfb035c10d404b4efbc396924260d12c0ff58921ed9793df9c78"
+    sha256 x86_64_linux:  "5573c8debb295912076631fc4320988fb1c1802286899bab9cb8d47495fddc05"
   end
 
   depends_on "pkgconf" => :build
@@ -24,7 +24,9 @@ class Omega < Formula
   depends_on "pcre2"
   depends_on "xapian"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args

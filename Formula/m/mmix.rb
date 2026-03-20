@@ -10,8 +10,6 @@ class Mmix < Formula
     regex(/href=.*?mmix[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7689d31c594d9eedf364554062db949537fddfca38576923554a2fbe0a9f9728"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1c3cedb93df0fcbe150243f8251870245301689823aa1f8275c897961e199a04"

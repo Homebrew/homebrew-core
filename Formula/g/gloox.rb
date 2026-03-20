@@ -10,8 +10,6 @@ class Gloox < Formula
     regex(/Latest stable version.*?href=.*?gloox[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "1818e6a640fd72abca657dee0f7dd846408f5f7854723c9a98d6c7c776f8a0f9"

@@ -5,8 +5,6 @@ class H264bitstream < Formula
   sha256 "94912cb07ef67da762be9c580b325fd8957ad400793c9030f3fb6565c6d263a7"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "77e29214581bbed1453a6aea582cafb5f4525634fca321e4ad503873722acabb"
     sha256 cellar: :any,                 arm64_sequoia:  "4616a724fcfbdc091a8be99a5746c3c1a20e9be058fd4acd09a3e4ac12ab7756"

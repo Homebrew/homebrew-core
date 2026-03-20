@@ -5,8 +5,6 @@ class SpaceinvadersGo < Formula
   sha256 "3fef982b94784d34ac2ae68c1d5dec12e260974907bce83528fe3c4132bed377"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b15177ecf88a2b31fa74e3abd9a792f2762cc58b50d201f2f6423d3c53a45dc7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3be01a0f665ce0362b3fa26c19548b9952b107d427f4c381e809ccc4a0760cba"

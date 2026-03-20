@@ -13,12 +13,13 @@ class Aqbanking < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "19192ff6c5a8ac4413f2f75f78b98d1014f0cfd548edfd5055e3a92690b88bf8"
-    sha256 arm64_sequoia: "e53568cfc60410c68468acdfc0ad57c15f94377b2fb43d0c334a9816452e7fea"
-    sha256 arm64_sonoma:  "b84fbbc035d6ac794d35d3d83e45491aaa908bc9fdf488376034ba3fea3e9a08"
-    sha256 sonoma:        "ce6ca356971ac73b29a5e814e378d5d1cdcd223c5be2cbc74e78e6b4c995fd44"
-    sha256 arm64_linux:   "d936623795fc53d502ac4028d767059eea1eaae97cf00a67c653fc73f30f804c"
-    sha256 x86_64_linux:  "176286ab56ebc76fceffda0f57a8ab01990cc7dae19e3ad36b1a7ed675a422eb"
+    rebuild 1
+    sha256 arm64_tahoe:   "4f05a3cddc798744d9174ad5ed28fb3f4bab78645d3cfa00a2420091aa3ff60b"
+    sha256 arm64_sequoia: "956ae7ad273964a10b36851c6482237d8ca60d212fd542be5b8dfee70a235bbf"
+    sha256 arm64_sonoma:  "2b97ebd2182dae86430f3e310dbcb54808b41b89352418afd7cabf3c9fc2c032"
+    sha256 sonoma:        "b920e6ccecfec70bb2e63b3ab787c648e5ecda32948735710b97ff43a3ea453a"
+    sha256 arm64_linux:   "787f1bdbca1850988b0e8c8541ede16e5ef95ab2bc03d885266fb82877df2c7c"
+    sha256 x86_64_linux:  "5b045c02d114e190ca69c13d0c878ac43c4cf6b27e629af9e259ac8bc554643d"
   end
 
   depends_on "gmp"
@@ -30,10 +31,12 @@ class Aqbanking < Formula
   depends_on "openssl@3"
   depends_on "pkgconf" # aqbanking-config needs pkg-config for execution
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

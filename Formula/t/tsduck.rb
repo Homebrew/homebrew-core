@@ -16,19 +16,17 @@ class Tsduck < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "0748c78d1f5ee0e5e2c5b06817620a2c43bb0ab5d81d4d0662be07f88a89aaa2"
-    sha256 cellar: :any,                 arm64_sequoia: "8ab669be5e06d283575341a204ca7b2bf78b6c3018e4a94fd6b42a4d5e36b6c1"
-    sha256 cellar: :any,                 arm64_sonoma:  "89a86a67809a853f1fbcd8366cd11707b577b88b7b06c8eb2e285c715b5fc17c"
-    sha256 cellar: :any,                 sonoma:        "4968c1137bd05430e330b3e9c593db20671ea1380ded6421c91a0ce86fec8b8d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b99ef57d25c736d33c9cff260a9db2fc9c0695cfc26cf84fbcc6328f75a5e352"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3d2448cd03a63c3f356d34303d89dc17c9fbffb42b3ff9036131da764bdedb6"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "9689e7dc782eb2d4ba6a37c4892785031972c51a06f299221ad7a354b1273c77"
+    sha256 cellar: :any,                 arm64_sequoia: "5a5302c71734043a23f3b908f36c39ce83bfd8c5606775af2ea90e5ec7c2e73a"
+    sha256 cellar: :any,                 arm64_sonoma:  "ddc3a7443f8580ab045ac0a938b236bbe5dc76cf818a19c0491c2e0d7f2e0f22"
+    sha256 cellar: :any,                 sonoma:        "d91a66cdad84c2a14af8e36c40d63544e965fb37869684b8c9745cf00589b732"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af4c880922c1767a187fda85b0f620aa98fb64d7652183df5ad52ab93cc7fe3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0c3336e614147bf079ce1c5feb71c03a3757488d0b43dd3e675f9f23ee972a5"
   end
 
   depends_on "asciidoctor" => :build
   depends_on "dos2unix" => :build
-  depends_on "gnu-sed" => :build
-  depends_on "grep" => :build
   depends_on "openjdk" => :build
   depends_on "qpdf" => :build
   depends_on "librist"
@@ -40,12 +38,15 @@ class Tsduck < Formula
   uses_from_macos "curl"
   uses_from_macos "libedit"
   uses_from_macos "pcsc-lite"
-  uses_from_macos "zlib"
 
   on_macos do
-    depends_on "bash" => :build
+    depends_on "gnu-sed" => :build
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1599
-    depends_on "make" => :build
+    depends_on "make" => :build # needs make 4+
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   # Needs clang 16

@@ -2,8 +2,8 @@ class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://www.synfig.org/"
   # TODO: Update livecheck to track only stable releases when 1.6.x is available.
-  url "https://github.com/synfig/synfig/releases/download/v1.5.4/synfig-1.5.4.tar.gz"
-  sha256 "b8fb9d609e3aedebde7b0efa0c3de3b1fa5c4b61f5493b7f797b496a80f15fd0"
+  url "https://github.com/synfig/synfig/releases/download/v1.5.5/synfig-1.5.5.tar.gz"
+  sha256 "95783c92925bd8ae494e00fdab0340caba9b19d2a0aac989fd8c200434b26f06"
   license "GPL-3.0-or-later"
   head "https://github.com/synfig/synfig.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Synfig < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "ca80d208eea658f17fd5da3d0bda8812cb1d6deff343dfec6512143fda9eb36d"
-    sha256                               arm64_sequoia: "795dba32598da1f2df6d7e32f60f79aaf3b02a722ad79656243cd718b566c6e4"
-    sha256                               arm64_sonoma:  "249e8ac4a156dcebf614c25758b070678274541b1c42e842fe170ab48c1b7ef3"
-    sha256                               sonoma:        "309683b869b3afd78996e9b2f0b41a9d74e7ced5a09149e21719d4bbbeed8a01"
-    sha256                               arm64_linux:   "cffc297c26ec11453ce2594f7ea9cce99bd6ccf3aff3eab15f13820a685857ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a165d435ccc9bc742b9322cea92a6dd704f8053b0bd772f1c644230ff07efb5"
+    sha256                               arm64_tahoe:   "0075ee7f2b25f9de48de93254a812e88fa322d69aa957f7ea5b6e476568a2fe2"
+    sha256                               arm64_sequoia: "5152754bac39e931dc349b505fcf372efb685c2cce060f4b55f699209ad1461a"
+    sha256                               arm64_sonoma:  "a42fa1cdaf0f9e9747cdc428856f7aae6a2d956ff2a02aa0b9813c0629711931"
+    sha256                               sonoma:        "5de592eda1f7ea792af3d7e997a57389caa25a865c68f0153c2a38287f8b12d4"
+    sha256                               arm64_linux:   "32554a263478194272fddda52532ee6a7cb8092cc470776c65cef8249bb72c39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea2ec08203b96158a0a24897ce37ff1a2f40d94ae01691df1f8df89f88f7cc33"
   end
 
   depends_on "autoconf" => :build
@@ -51,7 +51,6 @@ class Synfig < Formula
   depends_on "pango"
 
   uses_from_macos "perl" => :build
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "liblqr"
@@ -61,6 +60,7 @@ class Synfig < Formula
 
   on_linux do
     depends_on "perl-xml-parser" => :build
+    depends_on "zlib-ng-compat"
   end
 
   def install

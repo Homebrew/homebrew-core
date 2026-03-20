@@ -6,8 +6,6 @@ class Mapcrafter < Formula
   license "GPL-3.0-or-later"
   revision 16
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "44a442066454eea4959b0e1f8f25e2c1623760b204daa6a7a8e544a371012148"
     sha256 cellar: :any,                 arm64_sequoia: "f4e6c89d02bfc0ec7aae345aab5c4810228c7a1b133ac954ba453bf539dd34c0"

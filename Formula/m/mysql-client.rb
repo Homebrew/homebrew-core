@@ -12,15 +12,14 @@ class MysqlClient < Formula
     formula "mysql"
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256 arm64_tahoe:   "ba9912e4e0975f296940c8a821936fdf2a53841ed9c55ecd432de0d9c8bb4292"
-    sha256 arm64_sequoia: "9b82785c6f4d04a6897bb0c57955ad120e85c83b789a01d120b18dceb62e5795"
-    sha256 arm64_sonoma:  "0b38d66945e138bc9c0169191ae0388e24e37bb1b519a27fb6d07424d58bd765"
-    sha256 sonoma:        "b455b38c6a662af8f0e19ce5b1b4e9fc5fd133ac57cd3c05ac2c3896cc910c71"
-    sha256 arm64_linux:   "2ef33d489362983c7dd879c5f8286e03483bdd804db677f6ff357ac6275f021c"
-    sha256 x86_64_linux:  "d5407cfdd25ecd599e233193e7e0002a3bedcae348698ba319c70e3af9c73bfb"
+    rebuild 1
+    sha256 arm64_tahoe:   "3d6400b8506b200e4e7354a285c88f5ae9dcb7d9d63d39b9591475b64776508d"
+    sha256 arm64_sequoia: "59bfc71e5306c82a61c77b86593c491323b7f0fa78efada507b795b59b2481ee"
+    sha256 arm64_sonoma:  "1c973f3df2c1fe3d6a60b27da4de950ff9ca55bdfc2e883ca7dd607bed0a396c"
+    sha256 sonoma:        "23e8086ec33e795a0d909d14a4cc0f2955a2022e2293c5d4b6bab24aa4e93069"
+    sha256 arm64_linux:   "6517f09f113664259d5d3661f8f4596cdaa6d395b73b2412ed0e923d79132178"
+    sha256 x86_64_linux:  "532740bb598637db0167e0cf56063d383e14c6f734684cf4a05c928de0f8b0dc"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
@@ -30,7 +29,7 @@ class MysqlClient < Formula
   depends_on "pkgconf" => :build
   depends_on "libfido2"
   depends_on "openssl@3"
-  depends_on "zlib" # Zlib 1.2.13+
+  depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
   uses_from_macos "libedit"

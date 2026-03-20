@@ -3,20 +3,18 @@ class Cf2tf < Formula
 
   desc "Cloudformation templates to Terraform HCL converter"
   homepage "https://github.com/DontShaveTheYak/cf2tf"
-  url "https://files.pythonhosted.org/packages/ba/c4/cd7ddd8c942b71a2db200c42e9ed8c336111db94e2399d3903db6e77eef2/cf2tf-0.9.1.tar.gz"
-  sha256 "cc334b8373412745b3790bed9db71e02d4c41e274e1774b3b23626bdd78bf357"
+  url "https://files.pythonhosted.org/packages/7f/c3/a6dfdc4848cfd4fb50e15e9449c439791a009638c2bd06b6fe6982d9afc1/cf2tf-0.9.2.tar.gz"
+  sha256 "3fcae8f42f2d1aeb14deb7ef70215cc76c1f1f5cac9b465081e87729498e3ac9"
   license "GPL-3.0-only"
-  revision 2
   head "https://github.com/DontShaveTheYak/cf2tf.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "33434478c2bc6390106480dd33b588a36d4af10009d743bcb17ab35f7bfaf3ab"
-    sha256 cellar: :any,                 arm64_sequoia: "5cded3f931ec8bc2770c07f53664fa86d3b7c59d930b8c20012ed5aab8bd2adf"
-    sha256 cellar: :any,                 arm64_sonoma:  "1093d2fce827807e9c144a320b0af0b387a97f51d8bd13ab4c5fea2f645574fb"
-    sha256 cellar: :any,                 sonoma:        "223a13bf419abd5ad40794d4a8d5c96ba4b5a96c013b4efe3adf5ccb8aab55ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e00762e2d5a068485470b12a1e33f6bfc8e9ea57c8a18310fbcc4d88134d5777"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebe5ccbc615e2c1dad36c252b2cc63fd143fff95d314e4ea00de8f1985d2d026"
+    sha256 cellar: :any,                 arm64_tahoe:   "e64f42041d316d9579c4449453471cebd6e361b21d9144b8734f7a7a417f8d20"
+    sha256 cellar: :any,                 arm64_sequoia: "cda33d897f5e5d5c083eef624602f0e68c84ccbceeba16c44d7143da08756fcd"
+    sha256 cellar: :any,                 arm64_sonoma:  "cc157011457a088ba49cbc1198972b8e22818e0822569b0dca9eaa7279f35f04"
+    sha256 cellar: :any,                 sonoma:        "c019605b73112a9dcf742f96a8bf5bd5a2adcb5a1c4ef208a009acdf78bb416d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2491ae278aa1ebea84a330147299bc504e310ee35733fc62f5ba9f3a3e8e50fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "746ad0637fe62c231f3940b31f81abfb63326dc9c64d69770803171c0acdc113"
   end
 
   depends_on "cmake" => :build
@@ -32,8 +30,8 @@ class Cf2tf < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/1d/35/02daf95b9cd686320bb622eb148792655c9412dbb9b67abb5694e5910a24/charset_normalizer-3.4.5.tar.gz"
+    sha256 "95adae7b6c42a6c5b5b559b1a99149f090a57128155daeea91732c8d970d8644"
   end
 
   resource "click" do
@@ -52,38 +50,13 @@ class Cf2tf < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/9a/c8/dd58967d119baab745caec2f9d853297cec1989ec1d63f677d3880632b88/gitpython-3.1.45.tar.gz"
-    sha256 "85b0ee964ceddf211c41b9f27a49086010a190fd8132a24e21f362a4b36a791c"
+    url "https://files.pythonhosted.org/packages/df/b5/59d16470a1f0dfe8c793f9ef56fd3826093fc52b3bd96d6b9d6c26c7e27b/gitpython-3.1.46.tar.gz"
+    sha256 "400124c7d0ef4ea03f7310ac2fbf7151e09ff97f2a3288d64a440c584a29c37f"
   end
 
   resource "idna" do
     url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
     sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
-  end
-
-  resource "iniconfig" do
-    url "https://files.pythonhosted.org/packages/72/34/14ca021ce8e5dfedc35312d08ba8bf51fdd999c576889fc2c24cb97f4f10/iniconfig-2.3.0.tar.gz"
-    sha256 "c76315c77db068650d49c5b56314774a7804df16fee4402c1f19d6d15d8c4730"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
-  end
-
-  resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/f9/e2/3e91f31a7d2b083fe6ef3fa267035b518369d9511ffab804f839851d2779/pluggy-1.6.0.tar.gz"
-    sha256 "7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3"
-  end
-
-  resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
-  end
-
-  resource "pytest" do
-    url "https://files.pythonhosted.org/packages/a3/5c/00a0e072241553e1a7496d638deababa67c5058571567b92a7eaa258397c/pytest-8.4.2.tar.gz"
-    sha256 "86c0d0b93306b961d58d62a4db4879f27fe25513d4b969df351abdddb3c30e01"
   end
 
   resource "pyyaml" do
@@ -117,15 +90,11 @@ class Cf2tf < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/1e/24/a2a2ed9addd907787d7aa0355ba36a6cadf1768b934c652ea78acbd59dcd/urllib3-2.6.2.tar.gz"
-    sha256 "016f9c98bb7e98085cb2b4b17b87d2c702975664e4f060c6532e64d1c1a5e797"
+    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
+    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
   end
 
   def install
-    # Unpin Python for 3.14
-    # Issue ref: https://github.com/DontShaveTheYak/cf2tf/issues/415
-    inreplace "pyproject.toml", 'python = ">=3.9,<3.14"', 'python = ">=3.9"'
-
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"cf2tf", shell_parameter_format: :click)

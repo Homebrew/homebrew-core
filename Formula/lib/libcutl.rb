@@ -11,7 +11,7 @@ class Libcutl < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "28208d61e906d8696553ebd1b65a0d5c2abb8e889c91bed188f8bb434a112977"

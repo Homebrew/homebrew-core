@@ -12,8 +12,6 @@ class SourceHighlight < Formula
     regex(/href=.*?source-highlight[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "e05f56b94a75e09f12a5653c3b48a960a72efba4f4c449e8f00967208f271e93"
     sha256 arm64_sequoia: "8cc450abef52155d24d50527365267af448fa9ebc15d8843e779fb46f0be96a9"

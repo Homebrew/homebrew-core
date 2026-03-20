@@ -7,8 +7,6 @@ class Ctop < Formula
   license "MIT"
   head "https://github.com/bcicen/ctop.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4ddb01679cc99906cb9a7e87ce4784d8306356a4b80dbb50d2c325c7e43f893c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cd09dd7c11239dd436500639b817a7c935a16033630cfc78b5f6a3acbb763089"

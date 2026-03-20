@@ -5,8 +5,6 @@ class Cdpr < Formula
   sha256 "32d3b58d8be7e2f78834469bd5f48546450ccc2a86d513177311cce994dfbec5"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "82a48884ef52f0eac1769644d8efa9ee572031be613669d16b3b23c1e09f1393"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dfd6f6ef21a6f1fbc38367d4000fdf6a6dd9910b5959bc7c418e2a89b94d1476"

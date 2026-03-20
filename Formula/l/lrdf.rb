@@ -5,8 +5,6 @@ class Lrdf < Formula
   sha256 "d579417c477ac3635844cd1b94f273ee2529a8c3b6b21f9b09d15f462b89b1ef"
   license "GPL-2.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c09fe231441b197696150fc815ddabbcad7a895048555bf374f2064eaf277d09"
     sha256 cellar: :any,                 arm64_sequoia:  "e4f7f5611084a0b10affb934cbec578c9b021da49d439b605539da12666ee47c"

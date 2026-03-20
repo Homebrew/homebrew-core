@@ -10,8 +10,6 @@ class Xvid < Formula
     regex(/href=.*?xvidcore[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "21251c2f572311e1e1dc610bc763596ae8e3a4a181fdfca98ba168a545df4151"
     sha256 cellar: :any,                 arm64_sequoia:  "c3bf171815c62e62be978f5d1913e7ce2e045cdb3e33012499e06197775ff4bd"

@@ -6,8 +6,6 @@ class Invoice < Formula
   license "MIT"
   head "https://github.com/maaslalani/invoice.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3666463773abc10aef019abd54dbac8b4b699db7783fc0b54e7be6c59b5844df"

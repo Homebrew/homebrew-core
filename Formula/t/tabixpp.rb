@@ -6,8 +6,6 @@ class Tabixpp < Formula
   license "MIT"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c2c481a5e9c22baa108639438a9a73d383498d0740bc6737da4bbcb2c5baa50a"
     sha256 cellar: :any,                 arm64_sequoia: "66dcd09bdde2e8848334ac572ef1cf5e893350a4476de5a7437aabd8d6795be3"

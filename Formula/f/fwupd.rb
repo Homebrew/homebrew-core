@@ -3,18 +3,18 @@ class Fwupd < Formula
 
   desc "Firmware update daemon"
   homepage "https://github.com/fwupd/fwupd"
-  url "https://github.com/fwupd/fwupd/releases/download/2.0.19/fwupd-2.0.19.tar.xz"
-  sha256 "3bb7a4a1e2d00f0ab513e4c667d7bf5a3ff34a9802757849d3fedf07dd40ddbb"
+  url "https://github.com/fwupd/fwupd/releases/download/2.1.1/fwupd-2.1.1.tar.xz"
+  sha256 "0ae697f1f2011571310cef5d96429d8a5d541f73b0025bd2b622c9c7f4fe05b6"
   license "LGPL-2.1-or-later"
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "2fa5b73d90474196fc4c078ef381628c55047831cdff94c57d7ff4f4416c99c9"
-    sha256 arm64_sequoia: "7d44c4946e051921de152f991b466e3d5de1005b3a4d8b6960012498a658a676"
-    sha256 arm64_sonoma:  "36de29b6636c587053425b12fafa8405e01001041a451bc6da2dbc16c8e596d5"
-    sha256 sonoma:        "575239e884179f1ef9a1384d1637bb9b42decf4769a423ce3467ca781807a737"
-    sha256 arm64_linux:   "2c608dd2dc0c8d735145a76baa9cc7c45c5d03897e5d1cabeb03681fc9ee2f36"
-    sha256 x86_64_linux:  "4d217c35f0ab6ed08b01646301856026e20d8da0548387368ad4c8bd255b7773"
+    sha256 arm64_tahoe:   "78b0a4e435cba73b480495b554ddc03141e8faad8e51610e3173c75220d10bc1"
+    sha256 arm64_sequoia: "0c4de2faf2e4d18be5565846ca391d0448e25c137b3607d1e41b83a16bef29de"
+    sha256 arm64_sonoma:  "f311aa82bccc6fb683b7abfd0833a0d9ee97a524f680635af4da56f4322d220d"
+    sha256 sonoma:        "36b3d2a6996c800b1039827469aa6a6845f2f2ef6268d32732a1b3c2094b0e63"
+    sha256 arm64_linux:   "87a4a084eda8deab87794d7d895ff86daad0dce9744b67936d330f40d1c49942"
+    sha256 x86_64_linux:  "a31c8b63590dec1fe0abea7b1ba9ddb0b454b201e79023ad4dedf08233ee6461"
   end
 
   depends_on "gettext" => :build # for msgfmt
@@ -27,20 +27,16 @@ class Fwupd < Formula
 
   depends_on "glib"
   depends_on "gnutls"
-  depends_on "json-glib"
-  depends_on "libarchive"
   depends_on "libcbor"
   depends_on "libjcat"
   depends_on "libusb"
   depends_on "libxmlb"
-  depends_on "protobuf-c"
   depends_on "readline"
   depends_on "sqlite"
   depends_on "usb.ids"
   depends_on "xz"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -48,6 +44,7 @@ class Fwupd < Formula
 
   on_linux do
     depends_on "util-linux"
+    depends_on "zlib-ng-compat"
   end
 
   pypi_packages package_name:   "",
@@ -70,11 +67,10 @@ class Fwupd < Formula
   def install
     venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
-    ENV.prepend_path "PYTHONPATH", buildpath/"venv"/Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", venv.root/Language::Python.site_packages(python3)
 
     system "meson", "setup", "build",
                     "-Dbuild=standalone", # this is used as PolicyKit is not available on macOS
-                    "-Dlibarchive=enabled", # fail if missing
                     "-Dpython=#{which(python3)}",
                     "-Dsupported_build=enabled",
                     "-Dplugin_flashrom=disabled",

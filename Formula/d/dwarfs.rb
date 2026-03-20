@@ -1,10 +1,9 @@
 class Dwarfs < Formula
   desc "Fast high compression read-only file system for Linux, Windows, and macOS"
   homepage "https://github.com/mhx/dwarfs"
-  url "https://github.com/mhx/dwarfs/releases/download/v0.14.1/dwarfs-0.14.1.tar.xz"
-  sha256 "620cf27f2e142a5f8fc05552a70704c3bf4df23c3279c6026b3f37954d0529c5"
+  url "https://github.com/mhx/dwarfs/releases/download/v0.15.0/dwarfs-0.15.0.tar.xz"
+  sha256 "790f3bae70f18e9a6b27d821986fcdb72f00f6c821bf7466eb4b228c19ae78d7"
   license "GPL-3.0-or-later"
-  revision 4
 
   livecheck do
     url :stable
@@ -13,12 +12,12 @@ class Dwarfs < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "6ca40d057c2756095abe58a4070780788eb036e4a5992b7ce6f7a4c3cd32014b"
-    sha256                               arm64_sequoia: "362e582093c69ee2238e1184c211a54f13bd803f16076a57967287a9b6623715"
-    sha256                               arm64_sonoma:  "c880a76338b0f0a65bbd7895278801960c00a54ef0f1cd2f36df6918a4545e47"
-    sha256 cellar: :any,                 sonoma:        "6a0f9ddf890a22d1db9b164c365c468ab27def793edc99d4c7a029524eddadc1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e64760457c3691501128512b9fee94a30779d6d63e31abb6b093c9d4df559f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fbda565e1e410986963686d44c24e0736e96c4f32e2b40601abf0b26ca2f24d"
+    sha256                               arm64_tahoe:   "667971918a01d9ecf9a68e517419556518f40b1a88d129f7388e3c056dde20e1"
+    sha256                               arm64_sequoia: "010a72e9d50722ae75da2b9a90184ba3944b7209201f2727555f75bbb58adcd8"
+    sha256                               arm64_sonoma:  "88707bafc55681104dbe8ebc27cdd8320ae4efadf01052029ec8ecbec1e8ab6c"
+    sha256 cellar: :any,                 sonoma:        "c92cfb03e437391045d4f409b721430d908f5f79b9cf45679b4c683da3b48545"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "163fe1b1433eb1a91a5c1f7298176eacd3575532f6312110b35d515303a34561"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c34707a0aa4b50b2679ca80a577ebaf8ba068e59254a695fe391e4b5b6a3a280"
   end
 
   depends_on "cmake" => :build
@@ -26,15 +25,10 @@ class Dwarfs < Formula
   depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "brotli"
-  depends_on "double-conversion"
   depends_on "flac"
   depends_on "fmt"
-  depends_on "gflags"
-  depends_on "glog"
   depends_on "howard-hinnant-date"
   depends_on "libarchive"
-  depends_on "libevent"
-  depends_on "libsodium"
   depends_on "lz4"
   depends_on "nlohmann-json"
   depends_on "openssl@3"
@@ -55,12 +49,10 @@ class Dwarfs < Formula
 
   fails_with :clang do
     build 1500
-    cause "Not all required C++20 features are supported"
+    cause "Not all required C++23 features are supported"
   end
 
-  # Workaround for Boost 1.89.0 until upstream Folly fix.
-  # Issue ref: https://github.com/facebook/folly/issues/2489
-  # Fix to Undefined symbols for architecture x86_64: "_XXH3_64bits"
+  # Temporary fix for missing dependency on Boost::program_options
   patch :DATA
 
   def install
@@ -80,16 +72,6 @@ class Dwarfs < Formula
       -DDISABLE_MOLD=ON
       -DPREFER_SYSTEM_GTEST=ON
     ]
-
-    if OS.mac? && DevelopmentTools.clang_build_version <= 1500
-      # No ASAN for folly
-      ENV.append "CXXFLAGS", "-D_LIBCPP_HAS_NO_ASAN"
-
-      # Needed in order to find the C++ standard library
-      # See: https://github.com/Homebrew/homebrew-core/issues/178435
-      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
-      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
-    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -128,23 +110,26 @@ class Dwarfs < Formula
       }
     CPP
 
-    # ENV.llvm_clang doesn't work in the test block
-    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++" if OS.mac? && DevelopmentTools.clang_build_version <= 1500
-
-    system ENV.cxx, "-std=c++20", "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test", "-ldwarfs_common"
+    system ENV.cxx, "-std=c++23", "test.cpp", "-I#{include}", "-L#{lib}", "-Wl,-rpath,#{lib}",
+                    "-o", "test", "-ldwarfs_common"
 
     assert_equal version.to_s, shell_output("./test").chomp
   end
 end
 
 __END__
---- a/folly/CMake/folly-config.cmake.in
-+++ b/folly/CMake/folly-config.cmake.in
-@@ -38,7 +38,6 @@ find_dependency(Boost 1.51.0 MODULE
-     filesystem
-     program_options
-     regex
--    system
-     thread
-   REQUIRED
+--- a/cmake/libdwarfs.cmake
++++ b/cmake/libdwarfs.cmake
+@@ -335,6 +335,12 @@ target_link_libraries(
+   dwarfs_fsst
  )
+ 
++target_link_libraries(
++  dwarfs_writer
++  PRIVATE
++  Boost::program_options
++)
++
+ if(TARGET Boost::process)
+   target_link_libraries(dwarfs_common PUBLIC Boost::process)
+ endif()

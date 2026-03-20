@@ -1,18 +1,18 @@
 class StellarCli < Formula
   desc "Stellar command-line tool for interacting with the Stellar network"
   homepage "https://developers.stellar.org"
-  url "https://github.com/stellar/stellar-cli/archive/refs/tags/v25.1.0.tar.gz"
-  sha256 "ebdd40a0bee66185964f8e41e436e567709e101b7b26b6e4ea5a2a5860a900e3"
+  url "https://github.com/stellar/stellar-cli/archive/refs/tags/v25.2.0.tar.gz"
+  sha256 "1fb292367927b4d06a6fa0eeb8546066eb53f51fd838f6037c941bd0b70187fe"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca88988ccb6575e737f996f1d7408caf9d834d9238abf9188fe1500bda2df749"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8287c8cb2557a7f8ee25914014a5a510e0644717aa187c1535d3af58d201d44a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a61f3dd5cc73ce9a1532e03aba4ddff480d98e15d80802e7c53e23fff41abe30"
-    sha256 cellar: :any_skip_relocation, sonoma:        "51368477401870cdf730749d90610af06ebfc58461421551d8199cdc286ea8d7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9b7419736e49c812e69b2f64c08de8948c12aa835626eebd1d7957160a581fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fd0e2b5a0d80f494e382ad5d33fb9104ad584c0e3a963acb852ff8e3e857e10"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "587fec478e377cd418f9d8f25552b70318e0f72eb27305a796a4eee94d13f164"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "de9b285cea2c11a3a18d2076b8e04af3d0e0ace4f1490dc8a459185b5d1971cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f01d11a8917535cba2addeb6bb62aff4f0457ae8e549aa2182345770cb81d0de"
+    sha256 cellar: :any_skip_relocation, sonoma:        "02352140e9c281763730a0d561c226946b4d5d4a94fa53317055dc4bc35f552a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cfb605020c9dfc8f06209843799060abd061414a2e7b8556e471a77875180eaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "954a0f587dfdb2b9716032bcaf5cc4ab9a8914496798561b65b6824689754f89"
   end
 
   depends_on "pkgconf" => :build

@@ -11,16 +11,16 @@ class GccAT13 < Formula
     regex(%r{href=["']?gcc[._-]v?(13(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256                               arm64_tahoe:   "acb8554e3046effdc5e6bf6f392ec23ae6497ea390c6695806035ebd79a5a356"
-    sha256                               arm64_sequoia: "6e9ee065698b356a687ab2268c47ed70ce2806fab091d90b5f65d3d1bb4ec3b4"
-    sha256                               arm64_sonoma:  "06a7bdccc074fedca6ebe1cd078fc8081e6df2502baccb8530bc42714e8af702"
-    sha256                               sonoma:        "b91a8be3fecf57a37d8826dc5bfa272e5c02aaab597523f1a0558a41ce650cdd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb1cb06e602da4df873a698e5d702378f9056ec8c560573d2135f00fe7d05805"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aabbc5c7ca6bcd1cdf855f24178056af3d7d354f7a4de1ec2e0f1a48e04d803f"
+    rebuild 3
+    sha256                               arm64_tahoe:   "2ae26a4499ac71797f04f9683c7fb02516f29965e6ff7627598edbeca5e4b1a0"
+    sha256                               arm64_sequoia: "a7fc4d6151e3c922f4309f5ff12344cc9e921e0637b96b97c4833920c3418051"
+    sha256                               arm64_sonoma:  "58d90b7b779a0d4e32ffa9a7bee9ab35f62670c589643cc5be0ff9df93d42feb"
+    sha256                               tahoe:         "b3165a6e856abe35d4b04e44d10673221c4ca3f579a02361f6531125d6bc072d"
+    sha256                               sequoia:       "ec886ab2faac8aebaf7f819c25e57eb2574dd9565f27d1d507e14d3d90361424"
+    sha256                               sonoma:        "d9d26a82d4764225005049dcd46f1c11946fe89f41e9c5d5ea30c06a1547d993"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a55fe1e29dfb809af029b9ca0033aa161a8d2a1c43562e13617730c4453ec001"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "228b119f868a6df8eb73603775999f6895fd9ef55de2f963d57d53b170f01ee6"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -33,10 +33,9 @@ class GccAT13 < Formula
   depends_on "mpfr"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "binutils"
+    depends_on "zlib-ng-compat"
   end
 
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
@@ -100,8 +99,8 @@ class GccAT13 < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      ENV.append_path "CPATH", Formula["zlib"].opt_include
-      ENV.append_path "LIBRARY_PATH", Formula["zlib"].opt_lib
+      ENV.append_path "CPATH", Formula["zlib-ng-compat"].opt_include
+      ENV.append_path "LIBRARY_PATH", Formula["zlib-ng-compat"].opt_lib
     end
 
     mkdir "build" do

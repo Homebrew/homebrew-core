@@ -5,8 +5,6 @@ class Grt < Formula
   sha256 "55bcabe7a58916461dc4341758eff2a45bd5b236c263dfe6e58c176c1a7e1ac4"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c6059dfbaae19edd07d9b9c4df53dc8797cfe6d918ce9cfec5628bfefc6ca3f7"
     sha256 cellar: :any,                 arm64_sequoia:  "074ba306d1024617ace8a0f056a9c55cf8cdb53ede10471eb77eeab5435f6e6d"

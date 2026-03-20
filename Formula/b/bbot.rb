@@ -3,17 +3,18 @@ class Bbot < Formula
 
   desc "OSINT automation tool"
   homepage "https://github.com/blacklanternsecurity/bbot"
-  url "https://files.pythonhosted.org/packages/b0/98/b8056e0871a622b6d653c1ec1d7adcf85c16dc23a09f5ccd11b3e332eb84/bbot-2.8.1.tar.gz"
-  sha256 "f06aea1e068ae9e0a41b428e17e5e0e672e4f3c130160a1a5eed6b89d64da8d1"
+  url "https://files.pythonhosted.org/packages/6a/83/24a0087894d853703f64ab2044927ef56c831edb379295a873b05f34eb92/bbot-2.8.4.tar.gz"
+  sha256 "2ed4d3eda85ddb7261318a48f8a41e8543888b5d9b9eb8876aaff0e813a2429c"
   license "AGPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d8496ff68d53f6e5475a3072441caa589e8485071aded06aa5b96df0cfe1d8e7"
-    sha256 cellar: :any,                 arm64_sequoia: "3ac16a30bf914a8f5a040f825be8f45ea59aa56cd1b3cbd09d47ddbe15f852d7"
-    sha256 cellar: :any,                 arm64_sonoma:  "83f865b387cd8328ab54470cee6c1e5760621c7349b79990d4a191328ab73636"
-    sha256 cellar: :any,                 sonoma:        "3a17f4eac2f245d8b7a3cf8d88e1719ffb213564cae3074427fe615b3cc0170b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1237fdd0be29f69a5b7f10d356c9e7b489490d4ad56c80aa87ebe6e557033b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32a57ed1a87c56fd14b11d04683afd07cbe35d1f7c6189a7dc2b7893f3791ea2"
+    sha256 cellar: :any,                 arm64_tahoe:   "c7e94c2f3f9d04339a3ce1755f066cf3c9ea378dda847af2dbb1da06abfa6eeb"
+    sha256 cellar: :any,                 arm64_sequoia: "303cdd1cb3a7d1c1bee18ddcb519c1e7c1da9d9a8072a1f17ff4bd143bf08387"
+    sha256 cellar: :any,                 arm64_sonoma:  "aee0000adb46e6015452f6534094baaa804068cf4a2c5cdf803d91fa483b2e64"
+    sha256 cellar: :any,                 sonoma:        "ccab387d9d4fed6a5cced692d7ff10ebe16c6fe9491608a0bb1210b1024f252f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3963797a5ab2b098e4ff305fa7db225964fdd70fcfc2dd8c56debf4fa5c365ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f695f9d486755446c88fcf608dce98c78fe7dbf58b1ce416740f92e78fd88f0d"
   end
 
   depends_on "cmake" => :build
@@ -35,13 +36,13 @@ class Bbot < Formula
   pypi_packages exclude_packages: %w[certifi cryptography pydantic]
 
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/22/56/a76adc20dee854b52a3e20fcb9c01280bbac52ef54308e5b1c7bc67ade76/ansible_core-2.20.2.tar.gz"
-    sha256 "75e19a3ad8cf659579ea182cdf948ee0900d700e564802e92876de53dbd9715d"
+    url "https://files.pythonhosted.org/packages/03/d6/2a1fda59f9bab7519f2e94a7bec8416e080dd2e17af4f4fb5d1e3d0c997d/ansible_core-2.20.3.tar.gz"
+    sha256 "38670ab2d2ffd67ee7e9e562f7c94e0927c8b7b4b0eb69233bc008c29e32d591"
   end
 
   resource "ansible-runner" do
-    url "https://files.pythonhosted.org/packages/aa/db/65b9e058807d313c495a6f4365cc11234d0391c5843659ddc27cc4bf1677/ansible_runner-2.4.2.tar.gz"
-    sha256 "331d4da8d784e5a76aa9356981c0255f4bb1ba640736efe84b0bd7c73a4ca420"
+    url "https://files.pythonhosted.org/packages/68/4f/62222b42b52cc771db51ccc77ffac19cc5f0196ff61de7c93585845a819b/ansible_runner-2.4.3.tar.gz"
+    sha256 "5f3025529bb968fdc3b627457dd8d418dbf9d53bc73735d50e69c28544d53031"
   end
 
   resource "antlr4-python3-runtime" do
@@ -65,18 +66,18 @@ class Bbot < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "cloudcheck" do
-    url "https://files.pythonhosted.org/packages/01/27/0f4f589b38e3cd3f1def083bb5720f2d3c197e994df523ca0e7991e0ee5c/cloudcheck-9.2.0.tar.gz"
-    sha256 "961bfc102f2944a1f83fd61d3faab96fc8be47e4919089bd5ccad7a47a2738bb"
+    url "https://files.pythonhosted.org/packages/1e/c2/44eaf6fedaa57acc2c1581080366ef14c850942dd134e89233cc86fbae2e/cloudcheck-9.3.0.tar.gz"
+    sha256 "e4f92690f84b176395d01a0694263d8edb0f8fd3a63100757376b7810879e6f5"
   end
 
   resource "deepdiff" do
-    url "https://files.pythonhosted.org/packages/19/76/36c9aab3d5c19a94091f7c6c6e784efca50d87b124bf026c36e94719f33c/deepdiff-8.6.1.tar.gz"
-    sha256 "ec56d7a769ca80891b5200ec7bd41eec300ced91ebcc7797b41eb2b3f3ff643a"
+    url "https://files.pythonhosted.org/packages/89/50/767448e792d41bfb6094ee317a355c1cb221dca24b2e178e2203bbea2a77/deepdiff-8.6.2.tar.gz"
+    sha256 "186dcbd181e4d76cef11ab05f802d0056c5d6083c5a6748c1473e9d7481e183e"
   end
 
   resource "dnspython" do
@@ -85,8 +86,8 @@ class Bbot < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/1d/65/ce7f1b70157833bf3cb851b556a37d4547ceafc158aa9b34b36782f23696/filelock-3.20.3.tar.gz"
-    sha256 "18c57ee915c7ec61cff0ecf7f0f869936c7c30191bb0cf406f1341778d0834e1"
+    url "https://files.pythonhosted.org/packages/94/b8/00651a0f559862f3bb7d6f7477b192afe3f583cc5e26403b44e59a55ab34/filelock-3.25.2.tar.gz"
+    sha256 "b64ece2b38f4ca29dd3e810287aa8c48182bbecd1ae6e9ae126c9b35f1382694"
   end
 
   resource "h11" do
@@ -130,8 +131,8 @@ class Bbot < Formula
   end
 
   resource "mmh3" do
-    url "https://files.pythonhosted.org/packages/a7/af/f28c2c2f51f31abb4725f9a64bc7863d5f491f6539bd26aee2a1d21a649e/mmh3-5.2.0.tar.gz"
-    sha256 "1efc8fec8478e9243a78bb993422cf79f8ff85cb4cf6b79647480a31e0d950a8"
+    url "https://files.pythonhosted.org/packages/91/1a/edb23803a168f070ded7a3014c6d706f63b90c84ccc024f89d794a3b7a6d/mmh3-5.2.1.tar.gz"
+    sha256 "bbea5b775f0ac84945191fb83f845a6fd9a21a03ea7f2e187defac7e401616ad"
   end
 
   resource "omegaconf" do
@@ -145,8 +146,8 @@ class Bbot < Formula
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/70/a3/4e09c61a5f0c521cba0bb433639610ae037437669f1a4cbc93799e731d78/orjson-3.11.6.tar.gz"
-    sha256 "0a54c72259f35299fd033042367df781c2f66d10252955ca1efb7db309b954cb"
+    url "https://files.pythonhosted.org/packages/53/45/b268004f745ede84e5798b48ee12b05129d19235d0e15267aa57dcdb400b/orjson-3.11.7.tar.gz"
+    sha256 "9b1a67243945819ce55d24a30b59d6a168e86220452d2c96f4d1f093e71c0c49"
   end
 
   resource "packaging" do
@@ -180,8 +181,8 @@ class Bbot < Formula
   end
 
   resource "pyjwt" do
-    url "https://files.pythonhosted.org/packages/e7/46/bd74733ff231675599650d3e47f361794b22ef3e3770998dda30d3b63726/pyjwt-2.10.1.tar.gz"
-    sha256 "3cc5772eb20009233caf06e9d8a0577824723b44e6648ee0a2aedb6cf9381953"
+    url "https://files.pythonhosted.org/packages/c2/27/a3b6e5bf6ff856d2509292e95c8f57f0df7017cf5394921fc4e4ef40308a/pyjwt-2.12.1.tar.gz"
+    sha256 "c74a7a2adf861c04d002db713dd85f84beb242228e671280bf709d765b03672b"
   end
 
   resource "python-daemon" do
@@ -205,8 +206,8 @@ class Bbot < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/0b/86/07d5056945f9ec4590b518171c4254a5925832eb727b56d3c38a7476f316/regex-2026.1.15.tar.gz"
-    sha256 "164759aa25575cbc0651bef59a0b18353e54300d79ace8084c818ad8ac72b7d5"
+    url "https://files.pythonhosted.org/packages/8b/71/41455aa99a5a5ac1eaf311f5d8efd9ce6433c03ac1e0962de163350d0d97/regex-2026.2.28.tar.gz"
+    sha256 "a729e47d418ea11d03469f321aaf67cdee8954cde3ff2cf8403ab87951ad10f2"
   end
 
   resource "requests" do
@@ -291,14 +292,15 @@ class Bbot < Formula
   end
 
   resource "yara-python" do
-    url "https://files.pythonhosted.org/packages/51/38/347d1fcde4edabd338d5872ca5759ccfb95ff1cf5207dafded981fd08c4f/yara_python-4.5.4.tar.gz"
-    sha256 "4c682170f3d5cb3a73aa1bd0dc9ab1c0957437b937b7a83ff6d7ffd366415b9c"
+    url "https://files.pythonhosted.org/packages/f0/12/73703b53de2d3aa1ead055d793035739031793c32c6b20aa2f252d4eb946/yara_python-4.5.2.tar.gz"
+    sha256 "9086a53c810c58740a5129f14d126b39b7ef61af00d91580c2efb654e2f742ce"
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
+    # Workaround for https://github.com/omry/omegaconf/issues/1234
+    odie "Check if setuptools workaround can be removed!" if resource("omegaconf").version > "2.3.0"
+    (buildpath/"build-constraints.txt").write "setuptools<82\n"
+    ENV["PIP_BUILD_CONSTRAINT"] = buildpath/"build-constraints.txt"
 
     virtualenv_install_with_resources
   end

@@ -1,18 +1,18 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v4.12.3/ccache-4.12.3.tar.xz"
-  sha256 "c8e3ef79531966ecfa05bd1666c483b473df9af00896935cc468cb5ed573c16e"
+  url "https://github.com/ccache/ccache/releases/download/v4.13.1/ccache-4.13.1.tar.xz"
+  sha256 "85638df95c4d3907d9dd686583f2e0b2bd4c232d36e025a5c48e91524b491c4b"
   license "GPL-3.0-or-later"
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
-    sha256               arm64_tahoe:   "d2343f8f3f592c12fe63802123d28de951f80f19d79b0be4779ef09c73d71163"
-    sha256               arm64_sequoia: "84c425bace452eda05ece45779b6b9e6d9843259ef9a984ce48df6dd010e77fb"
-    sha256 cellar: :any, arm64_sonoma:  "b2722dae2791a8e8ce74e68f7ef4202311cd2cad329eb898ce239f5398005cc0"
-    sha256 cellar: :any, sonoma:        "81137fdf64bc0168bdc1f86ba2abaaf985555d1968be6a78c90550a3fb7f85ce"
-    sha256               arm64_linux:   "58aebb89907f81842526ea1ba58c0ac4d2312cf49eada64debfa16ee19009718"
-    sha256               x86_64_linux:  "256746a4e147ff79579272063428df17948cd3828b79d0801ba98672c29c2059"
+    sha256               arm64_tahoe:   "6078aefbbdbebc767fb48273ca27fc379b33d5719cdc0e3f066759b253ed0280"
+    sha256               arm64_sequoia: "b72e7d2ff8be844e5b8139b79e0ce25a4afc470a2673889e83ed7e60d3ba3aff"
+    sha256               arm64_sonoma:  "dd840a7f3afa68830cf1329ca354d7d3b22f38d8d5a4357f64e44c29611da0dd"
+    sha256 cellar: :any, sonoma:        "5f197f67ab1745a6351b130332e537ebb2a9bcf366cb04df809c51c46aec7273"
+    sha256               arm64_linux:   "d2964988264a5e2da4745b70911afffaf5af179495cacbfce3ae500857a85ea3"
+    sha256               x86_64_linux:  "a5cd4c872b8bd80a57338e4a4d814fcf6b85bdc3a33dad86b0857515726d39ff"
   end
 
   depends_on "asciidoctor" => :build
@@ -109,7 +109,7 @@ class Ccache < Formula
     assert_equal "6ef4b356229ca145dca726e94e88ad10", shell_output("#{bin}/ccache --checksum-file test.c").chomp
     # Test that we link with blake3 correctly.
     file_hash = shell_output("#{bin}/ccache --hash-file test.c").chomp
-    assert_equal "5af3d23skapbcgbs975geemfqv6r6utsu", file_hash
+    assert_equal "5af36887ca2b2b6417c49cb073acfd7cdb37bbcf", file_hash
 
     system bin/"ccache", ENV.cc, "-c", "test.c"
     system bin/"ccache", "debug=true", ENV.cc, "-c", "test.c"
@@ -117,7 +117,10 @@ class Ccache < Formula
     input_text = testpath.glob("test.o.*.ccache-input-text").first.read
     assert_match File.basename(ENV.cc), input_text
     assert_match "test.c", input_text
-    assert_match file_hash, input_text
+    # TODO: `--hash-file` and `ccache-input-text` does not match for now, needs to check it can be matched again.
+    # ref: https://github.com/ccache/ccache/pull/1672
+    # assert_match file_hash, input_text
+    assert_match "5af3d23skapbcgbs975geemfqv6r6utsu", input_text
 
     # The format of the log file seems to differ on Linux.
     # It's not clear how to make the assertion below work for it.

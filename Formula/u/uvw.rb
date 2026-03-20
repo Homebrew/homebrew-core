@@ -11,8 +11,6 @@ class Uvw < Formula
     regex(/^v?(\d+(?:\.\d+)+)(?:[._-]libuv[._-]v?\d+(?:\.\d+)*)?$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "594413006be49d686f144c3122cb960e9eb204a9dbc3503dd7622b8051b61e78"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9ffd8957741528fa17ff2883d204d9a86f58bf13f1d2d12e11b9e23436412c1e"

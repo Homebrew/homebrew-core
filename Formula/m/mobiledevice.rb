@@ -5,8 +5,6 @@ class Mobiledevice < Formula
   sha256 "07b167f6103175c5eba726fd590266bf6461b18244d34ef6d05a51fc4871e424"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "391242e35998f146f7b0051104f106b49f9ba4f2ec2817b2cb086fa23aa48831"

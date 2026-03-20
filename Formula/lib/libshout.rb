@@ -12,8 +12,6 @@ class Libshout < Formula
     regex(%r{href=(?:["']?|.*?/)libshout[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "76663b1032171e339e3050387e161c4428a0831ee4c0142c76ba6fd0d4dfa767"
     sha256 cellar: :any,                 arm64_sequoia: "5ff13dd8f27961848f5a16d23ce60c171146c09424e7335eb2eaee7245a78ed3"

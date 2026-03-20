@@ -3,17 +3,17 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.86/glib-2.86.3.tar.xz"
-  sha256 "b3211d8d34b9df5dca05787ef0ad5d7ca75dec998b970e1aab0001d229977c65"
+  url "https://download.gnome.org/sources/glib/2.88/glib-2.88.0.tar.xz"
+  sha256 "3546251ccbb3744d4bc4eb48354540e1f6200846572bab68e3a2b7b2b64dfd07"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "ee825ad9ee5e273c0d6e2fe8b95f7fdab185141ab3f2255719ffb748b23ca46e"
-    sha256 arm64_sequoia: "f9c803947af3f8d5c13008c1553b568cdba941c765e4eee1aefd2007186c34f2"
-    sha256 arm64_sonoma:  "7d12a5bec5af93d1744d40a9284b1ec6342bdeaac98628e8a3fd45dc851f4954"
-    sha256 sonoma:        "33b5e1f65b1c49a4e41e088d3a6939f7d271b9f52a6b03f6c4fe7c3621347721"
-    sha256 arm64_linux:   "a5210620d0bbc513c6ce4822feb0a90f690a0418e6de2570c11a88d6a9a7b971"
-    sha256 x86_64_linux:  "225c925f50d236eb9e8294a21b717c74f1cf5a6058e3fbef8de410d630a50093"
+    sha256 arm64_tahoe:   "5cc0e9470b11e995f3e2a78db6ca6c5d6f5f84fc57e5216ee11ee99cef385c78"
+    sha256 arm64_sequoia: "3cdbcb3c10760718baf7b5a5920e102a02ffe1735429f98635986188d0853f6f"
+    sha256 arm64_sonoma:  "1387d9813848f7c7516502c452c97970b439396c7ed6549d65fb4b0f619e2859"
+    sha256 sonoma:        "e08deb71c82fdb4d1da3719b05cd86c7f168f07b4f21bac63e9a53b7dc93fab2"
+    sha256 arm64_linux:   "86d88758bcdd42a4c773628d3df8a3e3e728288a303d69fd1b2f8e9b370d0aa1"
+    sha256 x86_64_linux:  "b4974a368ca1bdfabe7971d0e06b989c7fa2e84334c4e80e2014e22cdb53b4f0"
   end
 
   depends_on "bison" => :build # for gobject-introspection
@@ -28,7 +28,6 @@ class Glib < Formula
   uses_from_macos "flex" => :build # for gobject-introspection
   uses_from_macos "libffi"
   uses_from_macos "python"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -37,6 +36,7 @@ class Glib < Formula
   on_linux do
     depends_on "dbus"
     depends_on "util-linux"
+    depends_on "zlib-ng-compat"
   end
 
   # These used to live in the now defunct `glib-utils`.

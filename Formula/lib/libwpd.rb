@@ -10,8 +10,6 @@ class Libwpd < Formula
     regex(/href=["']?libwpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "1bf99b7a478fd8c861781c680257297389a1d6e1cd43930e0e6ae40a3caaac23"
     sha256 cellar: :any,                 arm64_sequoia:  "71e3f65d29d9aa0f23401a25f63b8abf5168d88a6406664c13588fb73261b897"

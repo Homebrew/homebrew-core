@@ -6,15 +6,15 @@ class Sysaidmin < Formula
   url "https://files.pythonhosted.org/packages/01/d8/f2b32cc85a544d1487bbdda7ec48d214c0e551d2d0ae6bbbb49d707fe297/sysaidmin-0.2.5.tar.gz"
   sha256 "77c40710cead7bdcc6cb98b38d74dd05e1e1c24dbc450e3b983869a7c06da91f"
   license "AGPL-3.0-or-later"
-  revision 10
+  revision 11
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b473cf94edf2f3447295295fe718d9661febdca314f1c9cb7b734c39ebcf830d"
-    sha256 cellar: :any,                 arm64_sequoia: "1068efbe026e4206910e38fecb858dd2f23de8e084f7daee755633e6a9b2c09f"
-    sha256 cellar: :any,                 arm64_sonoma:  "97939873e0a0658042be9b8108f3e0ad061bf3bf7bb3e321208a16484a58002d"
-    sha256 cellar: :any,                 sonoma:        "fd35e6b8ef66e2e8666a546ad9611ba24cbdccd58001cbf6b205eba8352351a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca51feb9a3826390659f05823e5a426f6f780d612603ea83332ca06f8f909b6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac6245873b4c6f28e8954e8f8697e2877d038f8f5117dcd33e503c26ff3caa1a"
+    sha256 cellar: :any,                 arm64_tahoe:   "46dfcc423a9fb36c33bf3844397a12d5eded458bc4a75c0d8dcc6ca178599cb7"
+    sha256 cellar: :any,                 arm64_sequoia: "ca2fcd251720368d7d6778f5c0ae8714d6b5c268660a0070ace32069fdaade51"
+    sha256 cellar: :any,                 arm64_sonoma:  "0201976065f9c6187a1d759f30c5dd9784f9e15f4f1ece540f7ccb5ffe78710f"
+    sha256 cellar: :any,                 sonoma:        "9daf1c676c963dab4b8ff845162844cb7077a36cb81d713bc0244d839f5fdc31"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0805d529702f9fed0cc6a243889ea19f3bea636b1ee903e6cd2f05ee1a9aeb1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5761475f3eef0a9c6e2a8cb13009d9c35bc110e870abca313a817bbf830b8957"
   end
 
   depends_on "rust" => :build # for jiter
@@ -37,8 +37,8 @@ class Sysaidmin < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/1d/35/02daf95b9cd686320bb622eb148792655c9412dbb9b67abb5694e5910a24/charset_normalizer-3.4.5.tar.gz"
+    sha256 "95adae7b6c42a6c5b5b559b1a99149f090a57128155daeea91732c8d970d8644"
   end
 
   resource "click" do
@@ -87,8 +87,8 @@ class Sysaidmin < Formula
   end
 
   resource "jiter" do
-    url "https://files.pythonhosted.org/packages/45/9d/e0660989c1370e25848bb4c52d061c71837239738ad937e83edca174c273/jiter-0.12.0.tar.gz"
-    sha256 "64dfcd7d5c168b38d3f9f8bba7fc639edb3418abcc74f22fdbe6b8938293f30b"
+    url "https://files.pythonhosted.org/packages/0d/5e/4ec91646aee381d01cdb9974e30882c9cd3b8c5d1079d6b5ff4af522439a/jiter-0.13.0.tar.gz"
+    sha256 "f2839f9c2c7e2dffc1bc5929a510e14ce0a946be9365fd1219e7ef342dae14f4"
   end
 
   resource "jsonschema" do
@@ -107,28 +107,28 @@ class Sysaidmin < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/94/f4/4690ecb5d70023ce6bfcfeabfe717020f654bde59a775058ec6ac4692463/openai-2.15.0.tar.gz"
-    sha256 "42eb8cbb407d84770633f31bf727d4ffb4138711c670565a41663d9439174fba"
+    url "https://files.pythonhosted.org/packages/56/87/eb0abb4ef88ddb95b3c13149384c4c288f584f3be17d6a4f63f8c3e3c226/openai-2.28.0.tar.gz"
+    sha256 "bb7fdff384d2a787fa82e8822d1dd3c02e8cf901d60f1df523b7da03cbb6d48d"
   end
 
   resource "openai-agents" do
-    url "https://files.pythonhosted.org/packages/f8/a2/63a5ff78d89fa0861fe461a7b91d2123315115dcbf2c3fdab051b99185e5/openai_agents-0.7.0.tar.gz"
-    sha256 "5a283e02ee0d7c0d869421de9918691711bf19d1b1dc4d2840548335f2d24de6"
+    url "https://files.pythonhosted.org/packages/13/fe/f831651e2e081fd93565383e799ab9f3dcca2f5b8e8ff545a27a314f8be8/openai_agents-0.12.2.tar.gz"
+    sha256 "d1746d8c35b6210174d739686fd4f375c2da7982a6938e80e8c146cfb96a342f"
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/43/4b/ac7e0aae12027748076d72a8764ff1c9d82ca75a7a52622e67ed3f765c54/pydantic_settings-2.12.0.tar.gz"
-    sha256 "005538ef951e3c2a68e1c08b292b5f2e71490def8589d4221b95dab00dafcfd0"
+    url "https://files.pythonhosted.org/packages/52/6d/fffca34caecc4a3f97bda81b2098da5e8ab7efc9a66e819074a11955d87e/pydantic_settings-2.13.1.tar.gz"
+    sha256 "b4c11847b15237fb0171e1462bf540e294affb9b86db4d9aa5c01730bdbe4025"
   end
 
   resource "pyjwt" do
-    url "https://files.pythonhosted.org/packages/e7/46/bd74733ff231675599650d3e47f361794b22ef3e3770998dda30d3b63726/pyjwt-2.10.1.tar.gz"
-    sha256 "3cc5772eb20009233caf06e9d8a0577824723b44e6648ee0a2aedb6cf9381953"
+    url "https://files.pythonhosted.org/packages/c2/27/a3b6e5bf6ff856d2509292e95c8f57f0df7017cf5394921fc4e4ef40308a/pyjwt-2.12.1.tar.gz"
+    sha256 "c74a7a2adf861c04d002db713dd85f84beb242228e671280bf709d765b03672b"
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/f0/26/19cadc79a718c5edbec86fd4919a6b6d3f681039a2f6d66d14be94e75fb9/python_dotenv-1.2.1.tar.gz"
-    sha256 "42667e897e16ab0d66954af0e60a9caa94f0fd4ecf3aaf6d2d260eec1aa36ad6"
+    url "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz"
+    sha256 "2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3"
   end
 
   resource "python-multipart" do
@@ -152,8 +152,8 @@ class Sysaidmin < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/8b/8d/00d280c03ffd39aaee0e86ec81e2d3b9253036a0f93f51d10503adef0e65/sse_starlette-3.2.0.tar.gz"
-    sha256 "8127594edfb51abe44eac9c49e59b0b01f1039d0c7461c6fd91d4e03b70da422"
+    url "https://files.pythonhosted.org/packages/5a/9f/c3695c2d2d4ef70072c3a06992850498b01c6bc9be531950813716b426fa/sse_starlette-3.3.2.tar.gz"
+    sha256 "678fca55a1945c734d8472a6cad186a55ab02840b4f6786f5ee8770970579dcd"
   end
 
   resource "starlette" do
@@ -162,8 +162,8 @@ class Sysaidmin < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
   end
 
   resource "types-requests" do
@@ -177,8 +177,8 @@ class Sysaidmin < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/c3/d1/8f3c683c9561a4e6689dd3b1d345c815f10f86acd044ee1fb9a4dcd0b8c5/uvicorn-0.40.0.tar.gz"
-    sha256 "839676675e87e73694518b5574fd0f24c9d97b46bea16df7b8c05ea1a51071ea"
+    url "https://files.pythonhosted.org/packages/32/ce/eeb58ae4ac36fe09e3842eb02e0eb676bf2c53ae062b98f1b2531673efdd/uvicorn-0.41.0.tar.gz"
+    sha256 "09d11cf7008da33113824ee5a1c6422d89fbc2ff476540d69a34c87fab8b571a"
   end
 
   def install

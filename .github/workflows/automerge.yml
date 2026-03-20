@@ -47,7 +47,7 @@ jobs:
           workflow-name: Triage tasks
 
       - name: Download `event_payload` artifact
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: event_payload
           github-token: ${{ github.token }}
@@ -181,7 +181,7 @@ jobs:
       fromJson(needs.status-check.outputs.complete) &&
       fromJson(needs.status-check.outputs.mergeable)
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
     permissions:
       contents: read
       pull-requests: read

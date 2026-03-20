@@ -11,8 +11,6 @@ class Libsvg < Formula
     regex(/href=.*?libsvg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "091152c66a1d15b4dd1fb58d23f484a24bc7e4e6f3f5d93d864400e30b2a14ad"
     sha256 cellar: :any,                 arm64_sequoia: "749dd33b051aa0a0f32dab2201dc1f34b47ca79bd40ba3c729c5a31f8ac97c59"

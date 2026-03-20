@@ -17,8 +17,6 @@ class Libusrsctp < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "6103700921dd7e4269e9cd22540acc5d28e30e3ca10a3aa57aa75bf5f05c9378"
     sha256 cellar: :any,                 arm64_sequoia:  "26779b22a8b35e70131a4fb010839955453e8d703f682d77b411c5900d2543ab"

@@ -1,19 +1,19 @@
 class Supermodel < Formula
   desc "Sega Model 3 arcade emulator"
   homepage "https://github.com/trzy/Supermodel"
-  url "https://github.com/trzy/Supermodel/archive/refs/tags/v0.3a-20260207-git-fe00551.tar.gz"
-  version "0.3a-20260207-git-fe00551"
-  sha256 "bc74409ae14ec4f37e6bf5756ec6b6881f8c3c61bf3ef403425a3d8e86337769"
+  url "https://github.com/trzy/Supermodel/archive/refs/tags/v0.3a-20260228-git-d6dec3d.tar.gz"
+  version "0.3a-20260228-git-d6dec3d"
+  sha256 "4b99ca451379436ad284d682c6849a925d8810daa229271be2e63d24c0cf340b"
   license "GPL-3.0-or-later"
   head "https://github.com/trzy/Supermodel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fd46c2ada7bef0526ba1c8c5f77e41421a181e7abcbeb1152312578d87600e4f"
-    sha256 cellar: :any,                 arm64_sequoia: "69b2f00d8e9e8a7c4081da1be8b10b588e9f84374293752c6bd29158e034ca57"
-    sha256 cellar: :any,                 arm64_sonoma:  "87ec43a75057a0fec645785bb9c97d24271bf6d9a43b39af1ddb768ee50e2503"
-    sha256 cellar: :any,                 sonoma:        "be64da4ac04c3093d4cb2ae8b084b532096f501fd4d17c459516901d719a8e9d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b314b30bf69984062bef18d9d2ce9271127038cf8f9c31dab176992a5c6c4e68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "155998a85cc992ecd6549c7b948eb3eac2cf861d7f80d7419106968cf413b08a"
+    sha256 cellar: :any,                 arm64_tahoe:   "0371f7d2f4c880a1cb0be485e0cce84256540a1000d203cbf0cfccc3dea7aa79"
+    sha256 cellar: :any,                 arm64_sequoia: "f7e3f881dfc4c4010bbde38779f7b28ff9ea53d8ea623d07a935c39e6e1154ca"
+    sha256 cellar: :any,                 arm64_sonoma:  "e4e7f42b1a731d17984fb9ffa48e02e5439280e625ecdf50da9566482f1dd54d"
+    sha256 cellar: :any,                 sonoma:        "cd2c90c6b7e2459b867b92476255d138093871804c562b2455e97405b88878b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b5c42ecc38e0cf4ccd479739c8f33a20e1feb0689530e552155bb956a6bb95c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61f47cc3b5ada785aeabd68913e9bab259ec7a3af3ce6715e512b9173e91e81b"
   end
 
   depends_on "sdl2"

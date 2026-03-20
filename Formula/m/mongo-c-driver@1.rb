@@ -11,12 +11,13 @@ class MongoCDriverAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6b9da71919127335440ca2fc3f0f09ee41706ba30bea1609192b81b5951a18f9"
-    sha256 cellar: :any,                 arm64_sequoia: "afd3399fc01330370155d4861b3bbebece5fcdcf864b1b8c12ee0ae5164959ac"
-    sha256 cellar: :any,                 arm64_sonoma:  "49caadc951f3368d3120371435ed1e4adad2465ca12a7d7e2820f96a85974ed8"
-    sha256 cellar: :any,                 sonoma:        "a7e62636ebe340df30bf11bbe56423b9d37f35f33313385fc44824da09bc4e80"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "47cf380da20c771e66c363d318e350d4103c3a249c3a50408d3a1eba94738061"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c74f2a73f7048a2e4a64c81b915bd15c8c8bb905887dffc57d32c258277cada1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "da30b69d4cb4b2be0762d80a9125aa34c2256d03670d7a31e7d2b12de1fa691d"
+    sha256 cellar: :any,                 arm64_sequoia: "dfa78f2a5d9b3abcc26db837de8b5e28bb488b6916742bcd39a4244a7bc1fcc7"
+    sha256 cellar: :any,                 arm64_sonoma:  "6140f3b7609c4425695ab49aea82e513047a5d409a557f85769052e9e949deff"
+    sha256 cellar: :any,                 sonoma:        "693819b2185f77e0f6c12cc30b1e6d340785574e2449379b4944a2b531bc5437"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8fd8f18d4e78ac98ae0e61c0a6e3e4bd829d8ea00d0b753fb667474985cd354"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "604c322948f8ac122e50970d8af4e8b1f2be763eb119ccbc6a6a226121d4bf70"
   end
 
   keg_only :versioned_formula
@@ -29,7 +30,9 @@ class MongoCDriverAT1 < Formula
   depends_on "openssl@3"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     File.write "VERSION_CURRENT", version.to_s

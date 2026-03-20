@@ -1,17 +1,17 @@
 class Difftastic < Formula
   desc "Diff that understands syntax"
   homepage "https://github.com/Wilfred/difftastic"
-  url "https://github.com/Wilfred/difftastic/archive/refs/tags/0.67.0.tar.gz"
-  sha256 "a6a15d6ca9f9ab7c034d1770417d1829deb3fbe9dcf4731b9cba867e50e78437"
+  url "https://github.com/Wilfred/difftastic/archive/refs/tags/0.68.0.tar.gz"
+  sha256 "86cfd4232f99c5dac56bd1e6fab7b8d96cfaac7a4271738b50c8189031c97a66"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "41b43ca36a81709bbfb02b6a760ecd0c5a48931a534fadc1d3e921900ed61444"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e132f932ecb6d8dee3203c4907efc1e9bc1ca56e85b67f064ff74f6f06b3ad77"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "401c38325d76090db94fd517b865f5a94e0a04ebfc1bbccff092bed641c2238d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0488707d086e79a839c484207a246cf1b0ad017ada8ad98b9049557a13d665f4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5588b99c39afd7375c0ffdc6abf1c04d0d78c22075adb3964a1e36055a0c7ae6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7720915a13a06f8e765532669ff58f632d6ccab8f12e3c639421452f8f71111"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3cb4cfa55f76562ec113c42d0888214947ded6b18f074581dd0132216c63614f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "de19cbc9e6cc0ce15766b211ab3a5084f94deefbdf27606de46fa4bc4a8f07d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f196484d5d6023cc080488c23ee0d8b469e60b056b6f0a89748f8ac0c6285444"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2330a5484d1187c7636c1906b2ed9a791d0bb127bc67cc6ff8b253a788c38678"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1866e72a4eaab65074ce7722db03395d9deb540c697b5a8fa9168e4b3113c9b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84a7520661017cfa7c67e20c3149745a314c87bc6ec481dd58686b189e5c56e8"
   end
 
   depends_on "rust" => :build
@@ -26,7 +26,7 @@ class Difftastic < Formula
     (testpath/"b.py").write("print(43)\n")
     expected = <<~EOS
       b.py --- Python
-      1 print(42)                 1 print(43)\n
+      1 print(42)                  1 print(43)\n
     EOS
     assert_equal expected, shell_output("#{bin}/difft --color never --width 80 a.py b.py")
   end

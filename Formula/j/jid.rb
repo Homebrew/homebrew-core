@@ -6,8 +6,6 @@ class Jid < Formula
   license "MIT"
   head "https://github.com/simeji/jid.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "dd788b2fba27931b86f826dc8fb3ff5f2e021df22864ec4b453a86bd640cbcd3"

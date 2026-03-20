@@ -6,8 +6,6 @@ class Mjpegtools < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "3b9ddb01e9c28192d76d02795aeec7c686663dca28d67b7997901c12ba0a3368"
     sha256 cellar: :any,                 arm64_sequoia:  "ceffd1cacfbd70df4bc8763a63379aef688299d0d454243034964ae4d990fc87"

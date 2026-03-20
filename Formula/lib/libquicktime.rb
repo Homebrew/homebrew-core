@@ -6,30 +6,24 @@ class Libquicktime < Formula
   license "LGPL-2.1-or-later"
   revision 5
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:    "b6c8fa466534babc330306dd0c67d83ba0e495764ae40900195ddac192971777"
-    sha256 arm64_sequoia:  "2d881bd765e84918db5865c5657a0399edb7908b5ee152cbe9cbe0fae4e3e83c"
-    sha256 arm64_sonoma:   "97c76d5834a9f3d1279ac572e16ed5d0eb914c01562bd9c54c55e885ac88711d"
-    sha256 arm64_ventura:  "9d47d49d00864f37daf0da37928b837402d98cb86205ce67bd31589e522cd2f5"
-    sha256 arm64_monterey: "0c803138b913239926ff1781d19d853f534c764258cbc2a2f373c4fc3b1698c3"
-    sha256 arm64_big_sur:  "7d24ece79d6792b731695618cbc2535d5e374b0cb427cb72df1a1526e04b2974"
-    sha256 sonoma:         "aa0e4cacc165f4d54e69c0125c40f073792cf5aed7d1346644630dd693cb460a"
-    sha256 ventura:        "44c12b64a34930933f422e9d6c602fc6067ab8fa8aafaaa9199d835d122877d7"
-    sha256 monterey:       "9ea15abf7204b11e955001777e677f8858a62d9eb94e9ac98e2bc107aa260f55"
-    sha256 big_sur:        "4a9a12712bedaa0ca62394a26ae842f64b4ef86108fca99c2e1712c6a7e7d9c4"
-    sha256 catalina:       "33d7a1146846e30e48e637ddd64f3e7541728df03becf8175e798a8fd3eb3bab"
-    sha256 arm64_linux:    "dc03dfa9bc5df60e0dbafe21632ecf596a95adbba0306ed86e6c1673312adc0f"
-    sha256 x86_64_linux:   "3c5ec43c6051163260865415f7a3fc0b32b7ca6b49e56ea999ac1fe4119c75d4"
+    rebuild 1
+    sha256 arm64_tahoe:   "5f0134430e06269fcef851532addb2e837cf60ef41c44ad3dd9155c1d5df6b50"
+    sha256 arm64_sequoia: "aa6f973349d6fa176f4078a6f7c7f256ecad756d6f0cdc82b7bb9f43063cb5fa"
+    sha256 arm64_sonoma:  "9a6054232de1d537092af3dfe35a2cdf19bddcc8afd7d55728201cd59a554615"
+    sha256 sonoma:        "70a9ec36aaed0263037bfd108e0da0c092432f6861d0ff17fb8730de135c3f70"
+    sha256 arm64_linux:   "370790e912c171ed805ef864de5823c80c849a8e2169547a6fb4eb3bb06990f4"
+    sha256 x86_64_linux:  "9ec46f428d1f6724ff976a745df2d3e967f5e4158e5782d345501b0269392929"
   end
 
   depends_on "pkgconf" => :build
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   # Fix CVE-2016-2399. Applied upstream on March 6th 2017.
@@ -51,7 +45,7 @@ class Libquicktime < Formula
   def install
     args = []
     # Help old config scripts identify arm64 linux
-    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
 
     system "./configure", "--enable-gpl",
                           "--without-doxygen",

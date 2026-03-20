@@ -4,14 +4,15 @@ class Wxpython < Formula
   url "https://files.pythonhosted.org/packages/22/43/81657a6b126ffc19163500a8184d683cec08eb4e1d06905cd0c371c702d0/wxpython-4.2.5.tar.gz"
   sha256 "44e836d1bccd99c38790bb034b6ecf70d9060f6734320560f7c4b0d006144793"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "748deaf966fa0d91413a15a63122699e8b6143d5afa4cead127b4ebe461b2e0f"
-    sha256 cellar: :any, arm64_sequoia: "bd135b2094967cd6dedf1bc6fc9dafb3fcb5c29fdb02542915b421ab13a3743c"
-    sha256 cellar: :any, arm64_sonoma:  "cfdfed0cf2d4026791afb1c3d509b5987177fdab04b8e6a8bcf1a885db6d18e3"
-    sha256 cellar: :any, sonoma:        "552da2bec28a9636958f80d730bc239faa8617bb49c2b85c33fee77fbc0d116c"
-    sha256               arm64_linux:   "4c6204f632286507c17fba2f191153b8d6618709b90dfb3d7f424ad92d913afc"
-    sha256               x86_64_linux:  "6ff819ffb1d79f97081cad6c3b30d8bf9286572af749166417935d010677dd4b"
+    sha256 cellar: :any, arm64_tahoe:   "f386143a6e4461fde98aaa60c28f8dc1c87270ad53aaef1fc3b059753ca7d04b"
+    sha256 cellar: :any, arm64_sequoia: "101056218733233f473e26ed0836b3c385fc55a8cb6653ab4840241df62c444e"
+    sha256 cellar: :any, arm64_sonoma:  "1d8b4b5e2a4548a25fd602ceca03f1d217a508f6160b528c88cabd5da92379ac"
+    sha256 cellar: :any, sonoma:        "fb2da74fde2f55b27d36418a776ed1a3a3f884319d406618d022f8e409450ba6"
+    sha256               arm64_linux:   "4321aecdd3168f3f2bb0ae102d2f93da7449c0f4968f5c746f18e2e25feabf39"
+    sha256               x86_64_linux:  "8b3b5bea2efe6ccac67b575e3d308d9d5688120e9da07693be91c47ff5f6f0c5"
   end
 
   depends_on "cython" => :build

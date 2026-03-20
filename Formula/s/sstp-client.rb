@@ -7,8 +7,6 @@ class SstpClient < Formula
   version_scheme 1
   head "https://gitlab.com/sstp-project/sstp-client.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "71109b298ce186a8e26fde8fc8b7ca10e0a4608452b3065cb43aded5d1927fcc"
     sha256 arm64_sequoia:  "ff9e147017fa32a2f65c2ec46fdca292e7e92f3bb7cd6bdfa5d8ef77b34acf82"

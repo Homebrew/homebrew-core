@@ -10,8 +10,6 @@ class Txt2man < Formula
     regex(/^(?:txt2man[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "fc8be081e702c9f38869232afb35214fc78bc7765ba03a508f140452ce6fe606"

@@ -30,8 +30,9 @@ class Unar < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Clang must be used on Linux because GCC Objective C support is insufficient.
-  fails_with :gcc
+  fails_with :gcc do
+    cause "GCC Objective-C support is insufficient"
+  end
 
   resource "universal-detector" do
     url "https://github.com/MacPaw/universal-detector/archive/refs/tags/1.1.tar.gz"

@@ -5,7 +5,12 @@ class Exif < Formula
   sha256 "0fe268736e0ca0538d4af941022761a438854a64c8024a4175e57bf0418117b9"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :stable
+    regex(/exif[._-]v?(\d+(?:[._-]\d+)+)[._-]release/i)
+  end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "bfb1b7b9782dd4c888442a3dc2d6872894e1acfde781fc8b819e631fd1f4ed23"

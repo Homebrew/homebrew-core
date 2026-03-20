@@ -1,8 +1,8 @@
 class GitXet < Formula
   desc "Git LFS plugin that uploads and downloads using the Xet protocol"
   homepage "https://github.com/huggingface/xet-core"
-  url "https://github.com/huggingface/xet-core/archive/refs/tags/git-xet-v0.2.0.tar.gz"
-  sha256 "551237dbed960265804c745d50531cc16d8f13fb31e1900c9c6e081bfab01874"
+  url "https://github.com/huggingface/xet-core/archive/refs/tags/git-xet-v0.2.1.tar.gz"
+  sha256 "df2a90a8266918bf2aba35e22276c745d11bd9c39850410f78ebbf2b50d0c87c"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class GitXet < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "d19a2d239649bed6cf313f6b755ec25164bbc6e6b98c694917706f1c8fd0355c"
-    sha256 cellar: :any, arm64_sequoia: "7565fcedcc0e1e9794a025ca5c75c5009ce13f1e978a0242ae34ac99342091ec"
-    sha256 cellar: :any, arm64_sonoma:  "ffefa4605deff6255ef1b6e4a8788ecf62ae8c592d8c9d2483f506a9cd999f39"
-    sha256 cellar: :any, sonoma:        "aabc9528af0da64b2794b766b28ca00366fc08828203332303406953d54d7f58"
-    sha256               arm64_linux:   "3cb48b9ef8fbc8d19652d119e99aa2e3150365248afafbb237dd9d0a405e80f1"
-    sha256               x86_64_linux:  "c4d91f1387405b1c95591bbc4f75549b80a05eaf2f0f904928c1702f1373ab94"
+    sha256 cellar: :any, arm64_tahoe:   "fa293bcf41e4dd054600a3c5d313dbd8926ea20649995ebd19841880f93c3d87"
+    sha256 cellar: :any, arm64_sequoia: "d27e811791f23f5a22ec87c2564d84aeb6147da89f0b6e32462f769bbff5fa53"
+    sha256 cellar: :any, arm64_sonoma:  "129f5809c2fad4547ea1c3bc329b634d00f5d0bfa8d84b8f59394e811da4db91"
+    sha256 cellar: :any, sonoma:        "ad5184c34799464346c53ddbaae67eae1a6bbe434e0258dc459408505681d9f9"
+    sha256               arm64_linux:   "ec75d7c4ae3420eb6f6a7bd0a247d1b40b626492f65ad512afbda27d87b71e44"
+    sha256               x86_64_linux:  "a2695818b043d4c2bd65b81b958cab2ef31af417d3270724fad2a736d873e523"
   end
 
   depends_on "pkgconf" => :build

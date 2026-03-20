@@ -7,8 +7,6 @@ class Stubby < Formula
   revision 1
   head "https://github.com/getdnsapi/stubby.git", branch: "develop"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "cf21effb238d2df0de643661b21cd67328a8cb440f7858b2fcee1ed7e7b851bf"
     sha256 arm64_sequoia:  "7e9b965dcf689e5c31274e2d5ebe0ecc6f5aa7d4b3fc17a4abefdd65d94a64a8"

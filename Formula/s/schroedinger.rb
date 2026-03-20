@@ -6,8 +6,6 @@ class Schroedinger < Formula
   sha256 "1e572a0735b92aca5746c4528f9bebd35aa0ccf8619b22fa2756137a8cc9f912"
   license any_of: ["MPL-1.1", "LGPL-2.0-only", "GPL-2.0-only", "MIT"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "802187a5994506ae665bb01bb4457ec3a3f7f41241f6d1734f59d28c02c0485d"

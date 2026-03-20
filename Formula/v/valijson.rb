@@ -1,12 +1,12 @@
 class Valijson < Formula
   desc "Header-only C++ library for JSON Schema validation"
   homepage "https://github.com/tristanpenman/valijson"
-  url "https://github.com/tristanpenman/valijson/archive/refs/tags/v1.0.6.tar.gz"
-  sha256 "bf0839de19510ff7792d8a8aca94ea11a288775726b36c4c9a2662651870f8da"
+  url "https://github.com/tristanpenman/valijson/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "bb37d86f5fe78f559f108517f30ce587c960ea5bd23d71413b7493cda6c3a4cc"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "edc5d9558ddd586d6b8e88adcae7424ed931afe9259b2da33770ed6105b156e3"
+    sha256 cellar: :any_skip_relocation, all: "af5f4d5b4c53fe39be5fb3c71afe8939216a8ec86589b4e1a38d9ff161b8c1e1"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +26,7 @@ class Valijson < Formula
 
       int main (void) { std::cout << "Hello world"; }
     CPP
-    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{Formula["jsoncpp"].opt_lib}", "-ljsoncpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++17", "-L#{Formula["jsoncpp"].opt_lib}", "-ljsoncpp", "-o", "test"
     system "./test"
   end
 end

@@ -6,18 +6,14 @@ class Libkml < Formula
   license "BSD-3-Clause"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "19536c853e34e55b5bdd36b1d566dbe546b25e8cb29374f490f8fa1bd185ebe4"
-    sha256 cellar: :any,                 arm64_sequoia: "eb94aab1bf14416741d583115f1296611b1ce5fca7cef1748bf935cb28fdea02"
-    sha256 cellar: :any,                 arm64_sonoma:  "1b1bcd07c0c72921902ad1ba84d8e184f4412b28b7553c3c293eedacab771604"
-    sha256 cellar: :any,                 arm64_ventura: "e76761b18a288e50fdab372c0098846eebe2fd422beae5478837cbbed20e2212"
-    sha256 cellar: :any,                 sonoma:        "085481f1cef637b7a0c20c9e1297fe9ad5ba68c5cfd0e4b5349cf038e17205af"
-    sha256 cellar: :any,                 ventura:       "c26ab6d33b6f3d00bd73a1eb42aa558d72b5dfff9b31a97d6f5c57d5c6f6200c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebd0dd2936b88b97b2ef2493dbcdda7103549067a4e5528fba3c3a4d1b3420d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ee2cd309d2ded095b5def7e951816110d57c122c7192564e488a3cc4fddb360"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "3ebb7ff52e177135e9778b32bced8bed361a34ac4558ad2c4f822a40c41e21ae"
+    sha256 cellar: :any,                 arm64_sequoia: "8daf78b5ae08619b23adcde8f6fd3b9c5d676bb904f912f4627a9e4b39f6752a"
+    sha256 cellar: :any,                 arm64_sonoma:  "2923f263ce5799f8432706e17c9d96df8bbda6d2672c5ed1ec606ff9c38553cc"
+    sha256 cellar: :any,                 sonoma:        "731845c227cc12dab82aca58a0ea4083c3508599ea685acc1e43509f9aaa703e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8fdd2de12de8e4c3586fe2248b6505d6e4e7eed8e21f5d3fdf0b029fe27910e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aec60fee5a674c026878ff2341d4cc41391b5b61633a8488792e945b897c5709"
   end
 
   depends_on "boost" => [:build, :test]
@@ -30,7 +26,10 @@ class Libkml < Formula
 
   uses_from_macos "curl"
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Workaround to build with CMake 4

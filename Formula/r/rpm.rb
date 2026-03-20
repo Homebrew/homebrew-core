@@ -5,6 +5,7 @@ class Rpm < Formula
     "GPL-2.0-only",
     "LGPL-2.0-or-later", # rpm-sequoia
   ]
+  revision 1
   version_scheme 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
 
@@ -24,16 +25,15 @@ class Rpm < Formula
     regex(/RPM\s+v?(\d+(?:\.\d+)+)/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "1fca702442ac94efd3fb88d1aaf14343bc182293f88d159df565180d305c2c43"
-    sha256 arm64_sequoia: "395a86e54aaeb2d9245a914f9d826768fce98fa2e0f9d1180e9db1edb761dfa8"
-    sha256 arm64_sonoma:  "1cb0a28bb10ca95b4b1d6dbbc2bcea246ce5d506f408f8cd9ec696327751c502"
-    sha256 sonoma:        "789a7b90c31e0103e3ffccf94746865906b0a19bcfa5528e673b5e067d22f5a8"
-    sha256 arm64_linux:   "dad61855770a536deb64d238671d208ce7e4fbbe72f1e72936c036986f013569"
-    sha256 x86_64_linux:  "5e4c2f9e948d8b2dd002c10cb37430aa3de2ac037c3b7a350c3b884360f708e2"
+    sha256 arm64_tahoe:   "9c214ce074bddb955970b60106ebc155f0783a04e2af65080268ccecf7bd499b"
+    sha256 arm64_sequoia: "ec075b7ef916195ac245a831715ca4305641d607f5c82e9f81b437aa20d5ab8e"
+    sha256 arm64_sonoma:  "cc9845e73233b057da077d3504d8f5a19fcedffdac8a38965246b6c162030b49"
+    sha256 sonoma:        "862e0efee8b4876888c728c3921168cc1cb8ae74d4a787ef81278cd96d873e71"
+    sha256 arm64_linux:   "c8a0598905a3f1eb1c6ca3ea74e9e1313434a6055b9a45ff7c2500facfed373b"
+    sha256 x86_64_linux:  "936bb8258a1b95397a71270123f6298891fab5b9829c80447721693aa7e45a56"
   end
 
   depends_on "cmake" => :build
@@ -55,7 +55,6 @@ class Rpm < Formula
   depends_on "xz"
   depends_on "zstd"
 
-  uses_from_macos "llvm" => :build
   uses_from_macos "bzip2"
 
   on_macos do
@@ -64,6 +63,7 @@ class Rpm < Formula
   end
 
   on_linux do
+    depends_on "llvm@21" => :build # LLVM 22 fails for nettle-sys
     depends_on "elfutils"
     depends_on "zlib-ng-compat"
   end

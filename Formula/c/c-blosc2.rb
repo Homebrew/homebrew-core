@@ -1,19 +1,18 @@
 class CBlosc2 < Formula
   desc "Fast, compressed, persistent binary data store library for C"
   homepage "https://www.blosc.org"
-  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v2.23.0.tar.gz"
-  sha256 "125e0ac2fac3d81239c1de036cb335bc8eca86b19216e97e0b23de3283d3274b"
+  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v2.23.1.tar.gz"
+  sha256 "3a1a55d1e3794fb2b51a12e722d611b3e577443abb7ff9951666511f576ea3da"
   license "BSD-3-Clause"
   head "https://github.com/Blosc/c-blosc2.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "97f03d22c09efccd0e864ca1d5fd1615be68b68dc5c62f5e76c15108a761c8fe"
-    sha256 cellar: :any,                 arm64_sequoia: "fad27821e1d3d87a8a62bb20e6d565f673783b48cb7946683efa2a0da0be1287"
-    sha256 cellar: :any,                 arm64_sonoma:  "59f2c3ecc19289407699ac89d278d187782c695d246e41a0b963c4701f50ddf0"
-    sha256 cellar: :any,                 sonoma:        "e97bb6a6b56aa107a7cd41cc36af69a03b4fc1221a368f49909ef9e0c87c970c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e17d9c09d63740371057fa101e016072ba3d725cfd4aa710e17935491c9fb24d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d8e277d6c6a39911372705664fb5573af39251fdc0c43b1ed8722b2e9e9ae00"
+    sha256 cellar: :any,                 arm64_tahoe:   "91448eaa6c8e16b006c19886acea4ac58264283dbf3ea8fd162ff1d39e6db9f0"
+    sha256 cellar: :any,                 arm64_sequoia: "0be8067bbf25c9d6b967ca40b1b00e104b6360e94dde074bfea9d9513e1708a5"
+    sha256 cellar: :any,                 arm64_sonoma:  "c5389b2626af39a505b153259d9293f76b687622a920d498725e9ed1a17d6d99"
+    sha256 cellar: :any,                 sonoma:        "bf86940c02cd637d88301284e74a606c4d4bffc830d53a48d711a4e744b8fbdf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc07ddbf6019521e4c51d1207772f53066a4e5edc613b52e46e578bdff046d1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9905447e2b2599757bebab05c143b0f94f5708d943d1e58b4520553abd1373c"
   end
 
   depends_on "cmake" => :build

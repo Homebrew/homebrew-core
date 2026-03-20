@@ -17,7 +17,8 @@ class Amass < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "af6fec44a8e37e2acf94f169a8f888551fcfdd33a1d22b4d742204fc02ac85e6"
   end
 
-  depends_on "go" => :build
+  # Unpin Go when amass supports Go 1.26, ref: https://github.com/owasp-amass/amass/issues/1100
+  depends_on "go@1.25" => :build
 
   # version patch, upstream pr ref, https://github.com/owasp-amass/amass/pull/1083
   patch do

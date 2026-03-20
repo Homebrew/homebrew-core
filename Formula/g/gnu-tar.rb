@@ -6,8 +6,6 @@ class GnuTar < Formula
   sha256 "14d55e32063ea9526e057fbf35fcabd53378e769787eff7919c3755b02d2b57e"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4e3782b9393e2e53a1cccd9c1047c2fc43b81c34746b10755050d5d162b21269"

@@ -16,6 +16,11 @@ class Srt < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "023760d7f2e532bf14d215764aa8d64c2d4e52d6fd116d51f50252269813d5ba"
     sha256 cellar: :any,                 arm64_sequoia: "2c7b2c84e165de83ce32e46bb6263158c2c9e680b816032d5b6771ccc6f32d7d"

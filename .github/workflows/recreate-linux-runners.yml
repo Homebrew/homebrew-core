@@ -47,7 +47,7 @@ jobs:
 
       - name: Download `event_payload` artifact
         if: github.event_name == 'workflow_run'
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: event_payload
           github-token: ${{ github.token }}
@@ -91,7 +91,7 @@ jobs:
           - linux-self-hosted-1
     steps:
       - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba # v0.2.1
+        uses: google-github-actions/setup-gcloud@aa5489c8933f4cc7a4f7d45035b3b1440c9c10db # v3.0.1
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}

@@ -7,12 +7,13 @@ class AvroCpp < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b89b52514a01938e58227cea3df043f72c11d92517e50e612b7b21dc21a2896e"
-    sha256 cellar: :any,                 arm64_sequoia: "87b4bc2edf4027fb23b6377efc812502ee28d5824fcaa985b505cdb74b7affaa"
-    sha256 cellar: :any,                 arm64_sonoma:  "3b5fd6eab8771d335bdcd737c3a36829517744a98d628ba4478ae3832f719d8c"
-    sha256 cellar: :any,                 sonoma:        "fc835f42954873b7b49d89070ca917f1b441e46fa3ce2ba74a66951aac80f2ad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "07d6dfb9075c7ebfe7b280a386f7ae12e05ad6359426f170de52e2333f1280ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abb4bdc11f71daeb6474d1f46bbac5dd9d8d80bd916e1386aeb457042c37964d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f35e56a672cf8d1a65f78f197f60ac5d150b048fddb580ca74e9fd503c784b8b"
+    sha256 cellar: :any,                 arm64_sequoia: "aa5264f1917927f3f685343124b31c09313c586859540bc902b03158d4f8989c"
+    sha256 cellar: :any,                 arm64_sonoma:  "a53f31ef421e8b05a64395839c204ceb958a06f320f984eda2b9d3c9c5c94fea"
+    sha256 cellar: :any,                 sonoma:        "80606fa222e24a27963e33edd318f261dadf5f286e51ac70479b3d9bbc1befa8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "080d12251a43917ee3c4a1dacdefa49004b5a751f7086ceb587cd668b6eba7a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6f9ddd021abcff92b6023d26799fb130a245a254f61f058da1d11980c0aac97"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +22,9 @@ class AvroCpp < Formula
   depends_on "boost"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Add missing cmake file from git
   resource "avro-cpp-config.cmake.in" do

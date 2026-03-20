@@ -1,22 +1,26 @@
 class SentryNative < Formula
   desc "Sentry SDK for C, C++ and native applications"
   homepage "https://docs.sentry.io/platforms/native/"
-  url "https://github.com/getsentry/sentry-native/archive/refs/tags/0.12.6.tar.gz"
-  sha256 "9d543e69fb76860624ec45ac6a20271163c6f4d6dba6fe4d1492bfb247b268f0"
+  url "https://github.com/getsentry/sentry-native/archive/refs/tags/0.13.3.tar.gz"
+  sha256 "9c830c208fe4d0972ac32b347de0f3aad97c0dce4c0ae8a9e1453850dfd0a9be"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8ded1a1b281809df7c721dfab62b16c8e57cd9e9b7f7baf6a68fd688d8bae202"
-    sha256 cellar: :any,                 arm64_sequoia: "e9f90ea7c613edec038a9a3eb4636eb5360850a6dc7ef3b684087247429fa626"
-    sha256 cellar: :any,                 arm64_sonoma:  "d673ddf5770ce675ef6f5cf0736f82ed50796cfeedd8f39f3b2afe8719808db6"
-    sha256 cellar: :any,                 sonoma:        "6a1fa7781792f72bb5ecbbbc415d59699af72e6ed0ae7bcec2e5bfefc6c6f61b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "05b9db9038d260c32198a1cf2aacb1a1b38b984d02eddca27c9b56c3c7fadef9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "064ba4f23b5774b4a7e6181e4cca0b0adc50ed32bef17d874faaadc32f57ba1b"
+    sha256 cellar: :any,                 arm64_tahoe:   "e6d9d8737ed055da24eeb64c7679d673054f14898c0179e8d6ad4771c4ac574a"
+    sha256 cellar: :any,                 arm64_sequoia: "a86bfddb6738ce282663fd49e5c149f0ffeac570e7d3c9c9090dbb9ba6a985fd"
+    sha256 cellar: :any,                 arm64_sonoma:  "82de8d95e0e998e89edbc0e30a8a9081c2ea929fa40aa43c1e47cf3600d925aa"
+    sha256 cellar: :any,                 sonoma:        "a24eb47a612a3195fe4561eb6ec64750201194518f706dc188a98bc5695dbcc0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a98aba820011761bfb5da67319efa036034229f46141aaa0fec8851d1d051fc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b845b35d28d72196b9bdf4ebef432488998c1bcd1500f85567b9473c45ec86d7"
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # No recent tagged releases, use the latest commit
   resource "breakpad" do

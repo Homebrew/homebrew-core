@@ -1,10 +1,9 @@
 class Libarchive < Formula
   desc "Multi-format archive and compression library"
   homepage "https://www.libarchive.org"
-  url "https://www.libarchive.org/downloads/libarchive-3.8.5.tar.xz"
-  sha256 "d68068e74beee3a0ec0dd04aee9037d5757fcc651591a6dcf1b6d542fb15a703"
+  url "https://www.libarchive.org/downloads/libarchive-3.8.6.tar.xz"
+  sha256 "8ac57c1f5e99550948d1fe755c806d26026e71827da228f36bef24527e372e6f"
   license "BSD-2-Clause"
-  revision 1
 
   livecheck do
     url :homepage
@@ -12,12 +11,12 @@ class Libarchive < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c9c26bdbfd989e14ed9645fafec72ccb5c845a443c9c73d57f47301f7a21bd46"
-    sha256 cellar: :any,                 arm64_sequoia: "9845f54ebf8b829bfd12710755157065f94d5cdf2ffca43390e709925e40c582"
-    sha256 cellar: :any,                 arm64_sonoma:  "b8e283c5e59aad4c2cbd7d46187c8229e3d5fa1d61b43096f1f5730c6b04127e"
-    sha256 cellar: :any,                 sonoma:        "0f2e24f6e29c8ad74326778eea1070fe4c5a5c0c285117a3e8f6a4b5707e5d76"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "533902d9205b221993cf665772eae44e2a33424d2f0a2ff13b17769fc922a202"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61c83e124381f5e889f5a1ca8bbb6cf73fbfd82b81628f2bf8bd39849f7fadac"
+    sha256 cellar: :any,                 arm64_tahoe:   "8928abf6f08744b1e63ba64835fc48bd2077de1258bbc6b66ebdc8388bdf0f65"
+    sha256 cellar: :any,                 arm64_sequoia: "28a7abe201188cad3f92e61c211323a47bc1cf0f47b863a6745fb60dfbeaf2b9"
+    sha256 cellar: :any,                 arm64_sonoma:  "6f7f2f34f07ee0bac4c2108d8f37b9aa69ff847c3d8b7a4638e98510b39c8a87"
+    sha256 cellar: :any,                 sonoma:        "4d795f0ee2fe6b7daf5306da687fbc9e7a8eef4036fe139a4a7379ed6529adcc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e86739a2b5b4b76ad38f5c5b779fef50a0a60e53a76ebf2e2b70428af6ee815"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d05b8ad5c9b587a6e3f0a702105c2132e7dd79a684f83c87a811afa3ebcc8971"
   end
 
   keg_only :provided_by_macos

@@ -7,8 +7,6 @@ class AprUtil < Formula
   license "Apache-2.0"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "c1b6ca1239679046b74a5ea73032f87a83cbc9c503455a0cf3bc12a54777a03d"
     sha256 arm64_sequoia:  "6d3282873dffcfed602c5cfb7eb5ddad4b7115aaa954e191dfd4b733a58ef43e"

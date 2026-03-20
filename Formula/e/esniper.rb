@@ -6,7 +6,7 @@ class Esniper < Formula
   sha256 "a93d4533e31640554f2e430ac76b43e73a50ed6d721511066020712ac8923c12"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0009b1cbccaa056103dc110ff59bd1bebc1f2581bf91b64ffd5aee76009efda8"

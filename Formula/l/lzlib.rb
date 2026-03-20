@@ -1,11 +1,10 @@
 class Lzlib < Formula
   desc "Data compression library"
   homepage "https://www.nongnu.org/lzip/lzlib.html"
-  url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.15.tar.gz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.15.tar.gz"
-  sha256 "4afab907a46d5a7d14e927a1080c3f4d7e3ca5a0f9aea81747d8fed0292377ff"
+  url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.16.tar.gz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.16.tar.gz"
+  sha256 "203228de911780309dad6813e51541d7ea89469784f01cb661edba080ff1b038"
   license "BSD-2-Clause"
-  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/lzip/lzlib/"
@@ -13,12 +12,12 @@ class Lzlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fffdea895f5b64466a14d6642d73fece994c792b7bf8ee75be9cc5c178eb177a"
-    sha256 cellar: :any,                 arm64_sequoia: "d37d282c89b456e608a8870d3cbba0dd210230d39929b0834fee066a925f9603"
-    sha256 cellar: :any,                 arm64_sonoma:  "e4d1233198674a8dc0f135a26b3d3b2104b44c024b2f8a87f7a62f5f67685a03"
-    sha256 cellar: :any,                 sonoma:        "e25b6fcd40cd2a97d0b36e0cd5557c4b30c66dd1a95685d20f7497252bcd9d70"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b370fbc07e1840563b7e65c23aabc942918ce7c98242a79d1ff37497731eafc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1fd813a8c33dd6a678184271f8eecc2075d522611827e0c9cb5b2190950cb3c"
+    sha256 cellar: :any,                 arm64_tahoe:   "4fa68a434a9f27132be4cc333ce3b4b9c7bb2a4f15748cc55943331100c281d8"
+    sha256 cellar: :any,                 arm64_sequoia: "0fdfdd31565885e19fbf88a2eb719871c29bd35f159debce604706fabb1ae292"
+    sha256 cellar: :any,                 arm64_sonoma:  "e4cb11bd35c2171dd6341c25849f9da475fdfc52b30aa2e3cd8328930ca9e567"
+    sha256 cellar: :any,                 sonoma:        "f96b5fbf7ea10ab92e0753625963e128d7ddde3aba3674a2755d4bd29d8bca53"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7b7147acf37add8fab2a985f9fa7d36741c29f7207ab472a7e49b81c6d5a0fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a8fa54474956feacc9818d7fd3a254d494e98f667a0267419c452c5272758e6"
   end
 
   on_macos do

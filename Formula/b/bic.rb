@@ -43,8 +43,6 @@ class Bic < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "95d273611ee6c62e77dbcf51696f2d1af33b20e76586a35d2e93975b92257cbe"

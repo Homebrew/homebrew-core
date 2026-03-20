@@ -6,8 +6,6 @@ class Libuvc < Formula
   license "BSD-3-Clause"
   head "https://github.com/libuvc/libuvc.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "f150b5d95ecef260fb7c6c2741fa52d102f8e9bd1712af32ebaf1785ec87dd39"
     sha256 cellar: :any,                 arm64_sequoia:  "94deef8d9e60b29d70cc1348b58cade333270747562c2ea151dcad2893757a84"

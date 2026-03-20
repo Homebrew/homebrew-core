@@ -1,10 +1,9 @@
 class PythonAT312 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.12/Python-3.12.12.tgz"
-  sha256 "487c908ddf4097a1b9ba859f25fe46d22ccaabfb335880faac305ac62bffb79b"
+  url "https://www.python.org/ftp/python/3.12.13/Python-3.12.13.tgz"
+  sha256 "0816c4761c97ecdb3f50a3924de0a93fd78cb63ee8e6c04201ddfaedca500b0b"
   license "Python-2.0"
-  revision 2
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,14 +11,14 @@ class PythonAT312 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5d543814f90b68a5eefe78482b7df9786b4bd7d0756a3328bc74722251983d16"
-    sha256 arm64_sequoia: "01f23ea5aaa041d372b3689b40011b706984c3c177577b960ee82949a6b78ea6"
-    sha256 arm64_sonoma:  "db337de9f986255fe69184d4005bae4fc0307cb754693b6abc4e0ecc297d0912"
-    sha256 tahoe:         "48f402fd2c7d6be44d47c1da0c9fbb4581a5945394573256da19938424dcd3ea"
-    sha256 sequoia:       "bfde489b951e3efee4bac87e5f610b7fd387a13902ecb80679a2449baefb645f"
-    sha256 sonoma:        "1e861681631ea9b6f7d86c4922efa3cfc14273e9732d405c266de2f87e035afd"
-    sha256 arm64_linux:   "97984a3d9428de8ffd665ad5515df5b63f3e591919353af19169ecc44e471b58"
-    sha256 x86_64_linux:  "78794bd48d8d66c0aecfb99e7b428e76f292cf17d1ab08241b013c984b9dfea7"
+    sha256 arm64_tahoe:   "eefd96ed3d09bcd4e68738a5f9371fc556898213666c5b409076fffff3d30e80"
+    sha256 arm64_sequoia: "2bcb6421ac5fd3ab14afb3efd4dbe4c96a9d3871bcdd26111ee2720314a3146d"
+    sha256 arm64_sonoma:  "37d87494379061f60e5c66034a3ec10081be450e2686af5906be495923a74737"
+    sha256 tahoe:         "4caa81999441c5614c1e078f64168c7219beec50bda62258959f53a2256c2b6b"
+    sha256 sequoia:       "8fc3ef5abb89e6f4e362d6c851f1a0881595d3ed7474250a0a189bdd55eb5d67"
+    sha256 sonoma:        "784bd05a485dee17d962b8119160f0266f7f30500d2b3c7a7c6e1cde0b9c9e78"
+    sha256 arm64_linux:   "e7abc557c2250e41230de7ca532da5c225dcf81003007eb22f767c76eeb95a11"
+    sha256 x86_64_linux:  "358961dc503e414a99acd2593ea2a82f839bcf84c3af66bea7f07a23b37cfa9a"
   end
 
   depends_on "pkgconf" => :build
@@ -29,18 +28,18 @@ class PythonAT312 < Formula
   depends_on "xz"
 
   uses_from_macos "bzip2"
-  uses_from_macos "expat"
+  uses_from_macos "expat", since: :sequoia
   uses_from_macos "libedit"
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "berkeley-db@5"
     depends_on "libnsl"
     depends_on "libtirpc"
+    depends_on "zlib-ng-compat"
   end
 
   link_overwrite "lib/python3.12/site-packages/pip*"

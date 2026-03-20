@@ -6,24 +6,23 @@ class TomlBombadil < Formula
   license "MIT"
   head "https://github.com/oknozor/toml-bombadil.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "2d56dd5101d3de48bc6ec47ede5a788021cd815ddaa0f3a9f39fd26f23b35ac4"
-    sha256 cellar: :any,                 arm64_sequoia: "905ddd0270646b44ff488fb84dfb605629359c4d3621f6ad4539b8965116dbef"
-    sha256 cellar: :any,                 arm64_sonoma:  "ce0dcbfe365b603d63838d1a13159dafe420206f4195c40cd9c2f6664a366760"
-    sha256 cellar: :any,                 arm64_ventura: "5a7c807337580c8c0938e10b17baca04e0cca1730d3575a1de0ebe562c3732fe"
-    sha256 cellar: :any,                 sonoma:        "a74977ffa395f041b92f6ef4e989d3cd8319cb1884bf82975b2bb889b30fe23e"
-    sha256 cellar: :any,                 ventura:       "9f03631a0c28507a788635f902f3387bfbbf7a8c533e834b78c680b685dc7e54"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b86e0ee0f27cb207b98bad86ef088454bb5950f3f5d18d751d24c8ef18adae8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2085ccd09aaa6ea756deb9d198231ffa1d83777c329f081ef3a1c62300ae1b4c"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "a5312af9bf7cb58f95099a46733121f61259c40bef05749b57ce1a3be7f8192d"
+    sha256 cellar: :any,                 arm64_sequoia: "a6ed8b993f4cbaf76727c36a1f27996f8f0713ebe3e2a902ad3e8fdfa953c8bb"
+    sha256 cellar: :any,                 arm64_sonoma:  "21429cf57a08fa53ff0b75b4e54d3e64d3cb1ce642c87e3885358e31ccd91495"
+    sha256 cellar: :any,                 sonoma:        "bf60b11d72eeb4e799e2b096f72593d76ddc9b7c2f240140d1e47ef2205cc691"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8066d1d03de5d940d4782c63f8e060a8e325efef99de59c057c956be6d809287"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbfc4c1f304f6a32a8106a2a57164220133f4266ef87d0955fc26e154124f4c6"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

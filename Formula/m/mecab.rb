@@ -11,8 +11,6 @@ class Mecab < Formula
     regex(/mecab[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 4
     sha256 arm64_tahoe:    "e0bafdf893f0650942b7482f0ae672094f530a37d18cc3047932b90a2a006a16"

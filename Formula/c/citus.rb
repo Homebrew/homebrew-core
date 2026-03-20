@@ -1,8 +1,8 @@
 class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
-  url "https://github.com/citusdata/citus/archive/refs/tags/v13.2.0.tar.gz"
-  sha256 "82cc117bb1000da9eeea1499ee9a8f2706feccc19e2c5ca623274793d98a217a"
+  url "https://github.com/citusdata/citus/archive/refs/tags/v14.0.0.tar.gz"
+  sha256 "7bb5c840f7990b96ad480462c2e25d1fb3b8129f7ceb3d514cc376a814bd0633"
   license "AGPL-3.0-only"
   head "https://github.com/citusdata/citus.git", branch: "main"
 
@@ -15,55 +15,71 @@ class Citus < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9fd8554e2257129eb8807145d02fb5c484fa8f181e6af43f9d329f6b3c4d49c9"
-    sha256 cellar: :any,                 arm64_sequoia: "eca6c59df04f920a84489a9954e6e7631027682dabe7da50caf89b92d259a03c"
-    sha256 cellar: :any,                 arm64_sonoma:  "4f0f2c768e2eaa1bcd6bc81bc9cd85a98129e95c0b1787abb8c4492d62d5d2e4"
-    sha256 cellar: :any,                 sonoma:        "5db290f355866693b94d675f6413c51a61b3d318b69123037732881428ce3502"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6480fc45619139069d2b2e95defb953ff6d1eabffb60647c7d5ae48849f218a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c084d5b9768d67e534439f61967698aa7a673509ed55b486a0da2d464b711c0a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f8e163c1669fe07f49c9efb0bb176edf0b94811bf06c34b2c0ecd8e673983c35"
+    sha256 cellar: :any,                 arm64_sequoia: "f5b32245b518a637010b179d3841df8a3b753a81fad53566147f91272d5a8864"
+    sha256 cellar: :any,                 arm64_sonoma:  "41fbcc16dc152cbaca91c37ff3b1ccf6cb091933a23aba97477847cf143d61ff"
+    sha256 cellar: :any,                 sonoma:        "eb79e0942e177c7e27b30b58a0e0e1b76db9e1acff793ddc192920dd0e1f2e78"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ccad29edead2a14d8c95f04fd5f59c76b7d605631890618c059cc3fd7f94794"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53c1a2f45e6439acff9b72cccf9f5a745c5cf18c42feb6d8dd329d268703fb77"
   end
 
+  depends_on "postgresql@17" => [:build, :test]
+  depends_on "postgresql@18" => [:build, :test]
+  depends_on "libpq"
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "postgresql@17"
   depends_on "zstd"
 
   uses_from_macos "curl"
 
-  def postgresql
-    deps.map(&:to_formula)
-        .find { |f| f.name.start_with?("postgresql@") }
+  def postgresqls
+    deps.filter_map { |f| f.to_formula if f.name.start_with?("postgresql@") }
+        .sort_by(&:version)
   end
 
   def install
-    ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
+    odie "Too many postgresql dependencies!" if postgresqls.count > 2
 
-    system "./configure", *std_configure_args
-    system "make"
-    # Override the hardcoded install paths set by the PGXS makefiles.
-    system "make", "install", "bindir=#{bin}",
-                              "datadir=#{share/postgresql.name}",
-                              "pkglibdir=#{lib/postgresql.name}",
-                              "pkgincludedir=#{include/postgresql.name}"
+    # We force linkage to `libpq` to allow building for multiple `postgresql@X` formulae.
+    # The major soversion is hardcoded to at least make sure compatibility version hasn't changed.
+    # If it does change, then need to confirm if API/ABI change impacts running on older PostgreSQL.
+    libpq_args = %W[
+      libpq=#{Formula["libpq"].opt_lib/shared_library("libpq", 5)}
+      rpathdir=#{Formula["libpq"].opt_lib}
+    ]
+
+    postgresqls.each do |postgresql|
+      ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
+
+      mkdir "build-pg#{postgresql.version.major}" do
+        system "../configure", *std_configure_args
+        system "make", *libpq_args
+        # Override the hardcoded install paths set by the PGXS makefiles.
+        system "make", "install", "bindir=#{bin}",
+                                  "datadir=#{share/postgresql.name}",
+                                  "pkglibdir=#{lib/postgresql.name}",
+                                  "pkgincludedir=#{include/postgresql.name}"
+      end
+    end
   end
 
   test do
     ENV["LC_ALL"] = "C"
-    pg_ctl = postgresql.opt_bin/"pg_ctl"
-    psql = postgresql.opt_bin/"psql"
-    port = free_port
 
-    system pg_ctl, "initdb", "-D", testpath/"test"
-    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
+    postgresqls.each do |postgresql|
+      ENV["PGDATA"] = testpath/postgresql.name
+      pg_ctl = postgresql.opt_bin/"pg_ctl"
+      psql = postgresql.opt_bin/"psql"
+      port = free_port
 
-      shared_preload_libraries = 'citus'
-      port = #{port}
-    EOS
-    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
-    begin
-      system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"citus\";", "postgres"
-    ensure
-      system pg_ctl, "stop", "-D", testpath/"test"
+      system pg_ctl, "initdb", "--options=-c port=#{port} -c shared_preload_libraries=citus"
+      system pg_ctl, "start", "-l", testpath/"log"
+      begin
+        system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"citus\";", "postgres"
+      ensure
+        system pg_ctl, "stop"
+      end
     end
   end
 end

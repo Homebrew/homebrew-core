@@ -28,7 +28,7 @@ class Sccache < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "all", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "all")
   end
 
   test do

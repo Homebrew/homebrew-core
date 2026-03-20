@@ -24,12 +24,13 @@ class Audacious < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "43dddbdc3339e46dd9f16ed25f934a8e3b7840275e34d012ab400d51214afc72"
-    sha256 arm64_sequoia: "6152a1ffc0685fe363561de8be7a1d0e48ff715b4ff84280572ae73f5d0fcdf7"
-    sha256 arm64_sonoma:  "4d50ad67057b8518b2afe81968b8b439a041807439a38282dede9405fc1e945f"
-    sha256 sonoma:        "aa642b6fb11f90296a049298ac3671e7adc0ca1d8f80f3fe57637abf4732c4ea"
-    sha256 arm64_linux:   "277e4522ad10fdac7ad7930b41b423a7ac5e895334b9b916c75c96d7bcf60967"
-    sha256 x86_64_linux:  "d29b3426f41034f8d0a4874777953e56911d5261d21fa2f83d32b2da3bc722a8"
+    rebuild 1
+    sha256 arm64_tahoe:   "2a9bed2f6fa8f367145efa89c3c7e001d7269f291a136351fe13195ddc684d87"
+    sha256 arm64_sequoia: "ea3d1f63a204ff5be34a08b216c855970e5a62d7f5bfaecf33776fbc6f80dc6f"
+    sha256 arm64_sonoma:  "1ea67ce7aee67f7e0b7bb5dd5327e9eb177829e4f9a01a1047fa7cb18b6448a5"
+    sha256 sonoma:        "795d2a596cbab91cbfc18c7ed0132d94063dad3b1752e351f57d47d10b1e2469"
+    sha256 arm64_linux:   "fc1ab8c829c3c57689dd2bcbacedec1da1942ee3563a4185667b3f249f5272f1"
+    sha256 x86_64_linux:  "c8b1e35da03f33d6aaea389e5c72e2e0240dcd5621ac04c8d32efaa51b26d804"
   end
 
   head do
@@ -74,7 +75,6 @@ class Audacious < Formula
   depends_on "wavpack"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -86,6 +86,7 @@ class Audacious < Formula
     depends_on "libx11"
     depends_on "libxml2"
     depends_on "pulseaudio"
+    depends_on "zlib-ng-compat"
   end
 
   def install

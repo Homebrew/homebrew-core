@@ -5,8 +5,6 @@ class Scale2x < Formula
   sha256 "996f2673206c73fb57f0f5d0e094d3774f595f7e7e80fcca8cc045e8b4ba6d32"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "46d736eb0b365a16a20ae85c4d4f1f957491666df314029dfa1183d986cf9f2f"

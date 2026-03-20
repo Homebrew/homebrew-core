@@ -34,8 +34,6 @@ class Gcc < Formula
     regex(%r{href=["']?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_tahoe:   "e208fa3a5ea6887bb9a81cee5ca629230f1f24eff3970f0d69f7dcf5dd5b7b80"
     sha256                               arm64_sequoia: "49b6841a2b7af55b29db5d63ee47a433bd75f85e3c5620c6615e7528252ffd63"

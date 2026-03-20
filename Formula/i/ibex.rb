@@ -11,8 +11,6 @@ class Ibex < Formula
     regex(/^ibex[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "747a401be0719a9769ff455db67125bdb0d964b6652d92a14b5472f1dbe4464e"

@@ -15,8 +15,6 @@ class Dnstracer < Formula
     regex(/href=.*?dnstracer[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bf4002b2b3c7b6e94bfbd23130cae602e9e7c7d9e3145b7210cbc4fc574b5004"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "154b03978527a24ea93fa486de2f90f51bba19a873cd8fc7760027b7cf9e965d"

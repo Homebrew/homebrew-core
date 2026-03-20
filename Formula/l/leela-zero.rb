@@ -8,8 +8,6 @@ class LeelaZero < Formula
   license "GPL-3.0-or-later"
   revision 12
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "8ccf615e92183ab7d8f06a8148e89ebe79c45e0f3e12ba4c845d15ec9492542d"

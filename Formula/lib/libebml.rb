@@ -11,8 +11,6 @@ class Libebml < Formula
     regex(/href=.*?libebml[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "b0156cbf1955e582256e75bdc14616f47df280ae9aecdf8b0b8fa5f9b5124aaa"
     sha256 cellar: :any,                 arm64_sequoia:  "2d15f6ce6df5cab89843ca6a7512a601b90ade25bbf7bcae17286664d72e11d0"

@@ -7,8 +7,6 @@ class Mikutter < Formula
   revision 1
   head "git://mikutter.hachune.net/mikutter.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "e322500fe59264b6d359eb84689553329d2bd6eb256fe2a50299bf820a8a6e5b"

@@ -30,7 +30,7 @@ jobs:
     if: github.repository_owner == 'Homebrew'
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
     env:
       REMOVAL_BRANCH: remove-disabled-packages
     permissions:

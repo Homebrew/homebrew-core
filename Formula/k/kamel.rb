@@ -1,23 +1,19 @@
 class Kamel < Formula
   desc "Apache Camel K CLI"
   homepage "https://camel.apache.org/"
-  url "https://github.com/apache/camel-k/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "6a1f3639706546e075730da65f9424522ec5f211f58f9227d86f3ae81c590ccc"
+  url "https://www.apache.org/dyn/closer.lua?path=camel/camel-k/2.9.1/camel-k-sources-2.9.1.tar.gz"
+  mirror "https://archive.apache.org/dist/camel/camel-k/2.9.1/camel-k-sources-2.9.1.tar.gz"
+  sha256 "35688ec92762fe699496eeda78abb7be5a8f6a1b15f3c1e0e55dfebf039be3f3"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git", branch: "main"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "99a4f6abd5fad338f5e4eaf257f3b9ab33537e79058fa83c5e8bcd3586db37e2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "83fcb3f651a84510efca65284c620f0ff3874b7c96be24023354b6e2da93a490"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "345d90a1847ae8c3316490f87c248f34b34cb0d61953977d44582355d8e3bbd0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ebee5a4097064b465e2c1cbe16e5c86676cdc099f9fce3684cf47507a3ab0983"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d3fd3e01f1a8061872ce3d6a017acdbbb7cfb0d85b073dbe592b3af353dedd9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93bdf0dac9dd18600e61414b2af96f6667e65f85524973b083babff2b8ad1481"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb627b95421f4e70f8b9755294e6f6df367a8d603c7996a54f91d2bf6a9cf97b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12ea3f22e4d4c30025aa2c1414cf9b1dc71bf816845adc8556b64dabf03b6e74"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef5cea32fdaa428e004e43460a998889711896236595c6297f7afe63b21a7e0e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e58377c1d306ddc59295de4ebc0638e7983341b2db1aab041acde48f4c75e650"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "141e178c3efa3e97a11e1a9a0966416823a56a1d40a725c761ca95a6a37c38d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ac5312075039bbd2e9972d719a3fb4918660b734cddd168aca20bfdf383a7c5"
   end
 
   depends_on "go" => :build

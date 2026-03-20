@@ -1,15 +1,11 @@
 class Ola < Formula
-  include Language::Python::Shebang
-  include Language::Python::Virtualenv
-
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://github.com/OpenLightingProject/ola"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 9
+  revision 10
   head "https://github.com/OpenLightingProject/ola.git", branch: "master"
 
   stable do
-    # TODO: Check if we can use unversioned `protobuf` at version bump
     url "https://github.com/OpenLightingProject/ola/releases/download/0.10.9/ola-0.10.9.tar.gz"
     sha256 "44073698c147fe641507398253c2e52ff8dc7eac8606cbf286c29f37939a4ebf"
 
@@ -27,15 +23,13 @@ class Ola < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "94d29242499d1ea493b2a269d54292d819396768da5c838a1d5833f74daf6214"
-    sha256 arm64_sequoia: "7bd3ec517bfa3204bc8f21107c7aea5d88d08f43f477272aee1d5d7a42df7996"
-    sha256 arm64_sonoma:  "9e90b8ae3863aa609e44e2b3c4c61c0966b28da8e5a6d3764811251c0439cfe2"
-    sha256 sonoma:        "84c2c04a9689035070e17c0f0337ca28d9a9d8fb0a1aa594651466fb2cbeaba8"
-    sha256 arm64_linux:   "2a155af4587bc3d4648c6c53465037e55c251f11b008d97524833e9078d85f6c"
-    sha256 x86_64_linux:  "fcc937ff426ae7bde80c4772d5dd5f4cb31e2c01d0de538d393cbbb134e33003"
+    sha256 arm64_tahoe:   "fb34b6180f13470dce28580f9bdd350c603ede26b8bd62bb3443129c0e4d5433"
+    sha256 arm64_sequoia: "c071f8995af8aff4ee3e58cf2214361bf0f6c083fda6d4ef459fb001221ca4e1"
+    sha256 arm64_sonoma:  "54575f5e84d7144b90eaafee13aa99035b01722db62be371bbb6c0f45df8fc95"
+    sha256 sonoma:        "40566e57d5025b96c56d24e1a7923b078472b8d60ef7b25c1b7ad3f02c66d6aa"
+    sha256 arm64_linux:   "6560cf82bf62934ffa92c091bf5f6caf10a0f666757b7ff472d54a00ebea4ce6"
+    sha256 x86_64_linux:  "4145a9279e35b9da53fec95e9c3d83e10470f4035a672ad1bd4eb3aa3a09fe0d"
   end
 
   depends_on "autoconf" => :build
@@ -49,8 +43,7 @@ class Ola < Formula
   depends_on "libmicrohttpd"
   depends_on "libusb"
   depends_on "numpy"
-  depends_on "protobuf@29"
-  depends_on "python@3.14"
+  depends_on "protobuf"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -66,24 +59,15 @@ class Ola < Formula
     depends_on "util-linux"
   end
 
-  resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/7e/57/394a763c103e0edf87f0938dafcd918d53b4c011dfc5c8ae80f3b0452dbb/protobuf-5.29.6.tar.gz"
-    sha256 "da9ee6a5424b6b30fd5e45c5ea663aef540ca95f9ad99d1e887e819cdf9b8723"
-  end
-
   # Apply open PR to support Protobuf 22+ API
   # PR ref: https://github.com/OpenLightingProject/ola/pull/1984
   patch do
-    url "https://github.com/OpenLightingProject/ola/commit/4924c9908ea879b36dc9132768fca25f6f21a677.patch?full_index=1"
-    sha256 "4d3ed12a41d4c2717cfbb3fa790ddf115b084c1d3566a4d2f0e52a8ab25053ef"
+    url "https://github.com/OpenLightingProject/ola/commit/e22e9da89ba2267e6c2039e5c09adce514a93b36.patch?full_index=1"
+    sha256 "d2ac5729b898fc9bb35f6cc46ce5e8ffc666835371991cebe46fb96c46d686a5"
   end
-
-  def python3
-    "python3.14"
-  end
-
-  def extra_python_path
-    opt_libexec/Language::Python.site_packages(python3)
+  patch do
+    url "https://github.com/OpenLightingProject/ola/commit/b8c8613ebf59d0c5db0b25e9f2649c85ddf4fdf5.patch?full_index=1"
+    sha256 "28cfabd2dca822dc9198c8f81ebac71b57b2984bb5d0894301665e5f7150d31c"
   end
 
   def install
@@ -98,8 +82,6 @@ class Ola < Formula
       ENV.append "CXXFLAGS", "-D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION"
     end
 
-    # Skip flaky python tests. Remove when no longer running tests
-    inreplace "python/ola/Makefile.mk", /^test_scripts \+= \\$/, "skipped_test_scripts = \\"
     # Skip flaky tests on macOS
     if OS.mac?
       # https://github.com/OpenLightingProject/ola/pull/1655#issuecomment-696756941
@@ -109,20 +91,12 @@ class Ola < Formula
       inreplace "common/io/Makefile.mk", %r{\bcommon/io/SelectServerTester }, "#\\0"
     end
 
-    venv = virtualenv_create(libexec, python3)
-    venv.pip_install resources
-
-    args = %W[
+    args = %w[
       --disable-fatal-warnings
       --disable-silent-rules
       --enable-unittests
-      --enable-python-libs
-      --enable-rdm-tests
-      --with-python_prefix=#{libexec}
-      --with-python_exec_prefix=#{libexec}
     ]
 
-    ENV["PYTHON"] = venv.root/"bin/python"
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *args, *std_configure_args
     system "make"
@@ -134,13 +108,11 @@ class Ola < Formula
       logs.install buildpath/"test-suite.log" if (buildpath/"test-suite.log").exist?
     end
     system "make", "install"
-
-    rewrite_shebang python_shebang_rewrite_info(venv.root/"bin/python"), *bin.children
   end
 
   def caveats
     <<~EOS
-      Python support will be removed due to:
+      Python support has been removed due to:
         https://github.com/OpenLightingProject/ola/issues/2008
     EOS
   end
@@ -151,8 +123,6 @@ class Ola < Formula
   end
 
   test do
-    ENV.prepend_path "PYTHONPATH", extra_python_path
     system bin/"ola_plugin_state", "-h"
-    system python3, "-c", "from ola.ClientWrapper import ClientWrapper"
   end
 end

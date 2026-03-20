@@ -5,8 +5,6 @@ class Seqtk < Formula
   sha256 "384aa1e3cecf4f70403839d586cbb29d469b7c6f773a64bc5af48a6e4b8220a6"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1c3982f3b57602403755867dd064d61c6f02f091100b46eb415b1899ad133a95"

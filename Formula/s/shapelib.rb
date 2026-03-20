@@ -1,8 +1,8 @@
 class Shapelib < Formula
   desc "Library for reading and writing ArcView Shapefiles"
   homepage "http://shapelib.maptools.org/"
-  url "https://download.osgeo.org/shapelib/shapelib-1.6.2.tar.gz"
-  sha256 "4b74a36ced94e9a7bea401157e664addcc5be251e7df7f88d4674361da012c21"
+  url "https://download.osgeo.org/shapelib/shapelib-1.6.3.tar.gz"
+  sha256 "3ff5ead18ca6d2fe249f0e80b361e1ad6782165115268ed4a58c780a60c1e0eb"
   license any_of: ["LGPL-2.0-or-later", "MIT"]
 
   livecheck do
@@ -11,12 +11,12 @@ class Shapelib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "43e91ffabf78719346ced0f39b03e619806a4df62f1c872cadfbc95c84effd45"
-    sha256 cellar: :any,                 arm64_sequoia: "0489e4dc040f5fef2420fef08f1e016227edcda188b77097cf547275694a8cdc"
-    sha256 cellar: :any,                 arm64_sonoma:  "a42ed3ca35bcacb6ec172188e5c48864b024dd0a9f4d190e1a4398626d2d3b8b"
-    sha256 cellar: :any,                 sonoma:        "e7902a25697c5b22aeaa03c3719d00b420c7c91ee7fae2be217f9a33e9b9c0bf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2897817454fdedab4d9c78ce7b521265aa16af4c89d2c614dacdf429a1eb143"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77c2e0458eafac06eae035aa3b82151a84c6a00bd3e1cdab4fc77d08ce7a47ab"
+    sha256 cellar: :any,                 arm64_tahoe:   "1d270fad05338b3a2420a96a2b7e5b084a935e840e8deb0038369fffa7ef8586"
+    sha256 cellar: :any,                 arm64_sequoia: "bac4ff987b17640f93f9e9d0ad0c7d046ba6ea780e8804f59a6ea2ebb63c13a8"
+    sha256 cellar: :any,                 arm64_sonoma:  "d5ed7bbd8744d95d97f8d613fa5a4c2181477b02c087c5c104d4ea59a60f22c4"
+    sha256 cellar: :any,                 sonoma:        "8301afafe682bc0ef1ad02da6a875a9f17e349c448145de7cab3af3bd306f3c2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbe48e25f669a84512d7dde1882fabf63c287cb001041308cd3d1c130a2a64ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bf7deccc48ed28fd9a051b66dd668737cb9842bf9bcf8d48766ddbf52e14722"
   end
 
   depends_on "cmake" => :build

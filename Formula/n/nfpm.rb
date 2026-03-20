@@ -1,18 +1,18 @@
 class Nfpm < Formula
   desc "Simple deb and rpm packager"
   homepage "https://nfpm.goreleaser.com/"
-  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.45.0.tar.gz"
-  sha256 "6a8e556d02b1b485e11f4bb7d07ac61c55a881b4facdd9b63bc0f04346b91e0a"
+  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.45.2.tar.gz"
+  sha256 "dc56c9182c842fc9d1b5e42f1c0f4fd8815b7ec7ae49a281de767a5b5c5e099a"
   license "MIT"
   head "https://github.com/goreleaser/nfpm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1e73cbf704f5e41fdb63f92588c579634fc97c0d4ecdd7b9ab86084b51cf699b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e73cbf704f5e41fdb63f92588c579634fc97c0d4ecdd7b9ab86084b51cf699b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e73cbf704f5e41fdb63f92588c579634fc97c0d4ecdd7b9ab86084b51cf699b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "40516c17b68625da2f6abcd3a1c985125ac4a34553304d5bee204d486683ddbd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5caa59328978c2e9586ded068af47d6241620f2fc602616641786fc1a07078a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6d97b3cd19b75bbfa54c96a4515cea2b3417b81003e096a6f257bef5d012031"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "27f7692a1675c7f74a52d62071a0f962cb9f0e764067432de1e1fda829c7b75f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "27f7692a1675c7f74a52d62071a0f962cb9f0e764067432de1e1fda829c7b75f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27f7692a1675c7f74a52d62071a0f962cb9f0e764067432de1e1fda829c7b75f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1eef266b26c347d4c8af767ea85936bbd4a2f30467469153b25b5859458e8837"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e222db5c2e116944a31b0823a6e76c75657b31d78e46b17721e06ed368f563ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e584ed4f98c256694f3d39af2e4571429e0aa7b7bd3fcd1368eeffbd8a1f996e"
   end
 
   depends_on "go" => :build

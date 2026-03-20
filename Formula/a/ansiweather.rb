@@ -6,8 +6,6 @@ class Ansiweather < Formula
   license "BSD-2-Clause"
   head "https://github.com/fcambus/ansiweather.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "1d6a9dc83687c62774d4adb2da6302dac16f29a985a0eca62cb2a7fcc564a594"

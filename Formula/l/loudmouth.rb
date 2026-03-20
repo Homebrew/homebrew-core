@@ -19,8 +19,6 @@ class Loudmouth < Formula
     regex(/href=.*?loudmouth[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "6b102ebfa05ec64bba31c02b27a116e39020b136df40c25ddb1509d5fed1bef6"
     sha256 cellar: :any,                 arm64_sequoia:  "43729c1c6d565d8c39c43603f74ed9d9cec9c0245449e2b8e19f9b991fc44ea1"

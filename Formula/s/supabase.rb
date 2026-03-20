@@ -1,8 +1,8 @@
 class Supabase < Formula
   desc "Open source Firebase alternative"
   homepage "https://supabase.com/docs/reference/cli/about"
-  url "https://github.com/supabase/cli/archive/refs/tags/v2.75.0.tar.gz"
-  sha256 "90cda59c0851ad3512730936e9b2706b34c00dcc58815d0cff7392ab40e60d1c"
+  url "https://github.com/supabase/cli/archive/refs/tags/v2.78.1.tar.gz"
+  sha256 "a2108843d5af2f9c8dcbe439aff4b355373ebf73ef9b777d5f913a4a80ea62b6"
   license "MIT"
   head "https://github.com/supabase/cli.git", branch: "develop"
 
@@ -12,12 +12,12 @@ class Supabase < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "db5e821104e60b045078c15e9a44d13203c11cd8d3a3c0b131bc75f048f9f201"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56a243b92649ebd7f117ac3a1d8eb393d7feeb2d689cecde1c76352c023ea3a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "268953a6eae0cb3788bc2de0bd721f6329869d13e1a6d9d021b5fa23b67f5f2b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2258e552069e0316a07d0025d1742677f26cfbee3a4166b1dc379cffce949bb7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "425632b554d90abcb04264663ff50aaafe37e5aa79192b901cb4eb666a46443c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2db5332d02a31d584ca7c94475b089953535827d7e67d40a42f0938fd90860b7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe22d08c873566bdba5aa00e209bf8a0776020355d32072b7b246210217d1496"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "45794166d9273c99f274b854fdd104b8ac4da39e5a4bca737ff4a02cc4be8c0b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1be71cefc2d9867f48005715384375c151beace9b092128341cda89862af0ac8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fa6c115cb8533770d139f86e7ecb71823d8d704c1591237c7b9e9b1d6c9bda37"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7c763dd88c3cd0488077c0f39d4cd1b11ce8684bb0645912cfa5d668f11dea8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f139d8321bad65cc0c8f266f3bdd4d6c9c1502c06632582d3bba24be67132c8c"
   end
 
   depends_on "go" => :build

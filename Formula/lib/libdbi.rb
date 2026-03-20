@@ -5,8 +5,6 @@ class Libdbi < Formula
   sha256 "dafb6cdca524c628df832b6dd0bf8fabceb103248edb21762c02d3068fca4503"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "2a44b6636fdd1a1ec49d06a47fa0b3b82fb5de1db98f124ed6e3b6c5dc5ed7f0"

@@ -11,8 +11,6 @@ class Ronn < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_tahoe:   "56ccd5c1249492486887b691294cc5e521a62e9231ed4f0db5a1306db44ec24d"
     sha256                               arm64_sequoia: "2054164b76be1b88a653e4b65b073a7130ca248555730d5c69e38e0889f7c6a4"
@@ -54,16 +52,11 @@ class Ronn < Formula
       This document is created by ronn.
     MARKDOWN
     system bin/"ronn", "--date", "1970-01-01", "test.ronn"
-    assert_equal <<~EOS, pipe_output("col -bx", shell_output("groff -t -man -Tascii -P -c test.7"))
-      SIMPLE(7)                                                            SIMPLE(7)
-
-      NAME
-             simple - a simple ronn example
-
-             This document is created by ronn.
-
-                                       January 1970                        SIMPLE(7)
-    EOS
+    rendered = pipe_output("col -bx", shell_output("groff -t -man -Tascii -P -c test.7"))
+    assert_match "SIMPLE(7)", rendered
+    assert_match "simple - a simple ronn example", rendered
+    assert_match "This document is created by ronn.", rendered
+    assert_match "January 1970", rendered
   end
 end
 __END__

@@ -8,8 +8,6 @@ class Cpprestsdk < Formula
   revision 4
   head "https://github.com/microsoft/cpprestsdk.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "b3490b01defba37b82b788cef763a32d394ac72a3036fb80f7c85b717cf3e9e4"
     sha256 cellar: :any,                 arm64_sequoia: "326dec0d7be0b1004f74ee9b4909445a519412778ca302ce9b1c21273c1e1494"

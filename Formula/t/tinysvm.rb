@@ -11,8 +11,6 @@ class Tinysvm < Formula
     regex(/href=.*?TinySVM[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a2eb89bfd1881f7b67dce74b71a07303f8fb67833fb83d269f1a5546ef23250f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "abf56f8965d9604d945e925ce1d7fe4bb6dfe40a3290f7e60dd7308be6f7e211"

@@ -1,8 +1,8 @@
 class Icu4cAT78 < Formula
   desc "C/C++ and Java libraries for Unicode and globalization"
   homepage "https://icu.unicode.org/home"
-  url "https://github.com/unicode-org/icu/releases/download/release-78.2/icu4c-78.2-sources.tgz"
-  sha256 "3e99687b5c435d4b209630e2d2ebb79906c984685e78635078b672e03c89df35"
+  url "https://github.com/unicode-org/icu/releases/download/release-78.3/icu4c-78.3-sources.tgz"
+  sha256 "3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0"
   license "ICU"
 
   # We allow the livecheck to detect new `icu4c` major versions in order to
@@ -17,13 +17,12 @@ class Icu4cAT78 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "09a7b7f48d9545c653c69a5b815dd20688ab5645b42ec54b445197d79643e7d1"
-    sha256 cellar: :any,                 arm64_sequoia: "3222838f8607a84d15de1f8a3acada84ff52cfe9854d5dd90c1aa63dfb034f08"
-    sha256 cellar: :any,                 arm64_sonoma:  "ebffbf5bdd705b2280389cdd357249b00c7fdd04546c86235fd44f64e0c84a62"
-    sha256 cellar: :any,                 sonoma:        "07e6f9e32f5b4a8faea004fd398d15e88b4868f7d524c39bf9d41dcfe08ad649"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2922da686864b89f1667c55132a937376685960de702f7a2399d09061815a1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1551d2c21bfc6a1ef4143e41a030c8773eab13821f70491a16025e1419768893"
+    sha256 cellar: :any,                 arm64_tahoe:   "0476be299494b97e50a48b0ba08811255300228aef664058e555480d6aee4fb5"
+    sha256 cellar: :any,                 arm64_sequoia: "d1206febbce23e5014f51b631afd7129b2a247ee18a9f97226cd5889e66c1686"
+    sha256 cellar: :any,                 arm64_sonoma:  "e15b43778ccf194d2ebef8122ff654899825df30aa339ad39578c66500eaa6d8"
+    sha256 cellar: :any,                 sonoma:        "100ba33fb4652a045e921b19e0e52a8c7aa20a3e90adcdeaae58e53d4a43d39a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "76dae2c62a79c94411f88eb7c8c702429d15ad8d5d6df17bfa855539df3497a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b152f4b6f581af753a52bf6dc5b7a113cd9f77088dcc94deaf6c321109aa43c2"
   end
 
   keg_only :shadowed_by_macos, "macOS provides libicucore.dylib (but nothing else)"

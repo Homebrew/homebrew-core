@@ -6,6 +6,7 @@
     "binutils",
     "i686-elf-binutils",
     "m68k-elf-binutils",
+    "mipsel-linux-gnu-binutils",
     "riscv64-elf-binutils",
     "x86_64-elf-binutils",
     "x86_64-linux-gnu-binutils"

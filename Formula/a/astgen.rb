@@ -7,12 +7,15 @@ class Astgen < Formula
   head "https://github.com/joernio/astgen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b8c1334f238d8b4d80861999d72ccd1fa727a7112e0cdd6933f6eaaa68619376"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "aa0d4c0a0efca61052f9c3672634b339b98e4d697653d119c4cc8610ed01b1db"
   end
 
   depends_on "node"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Install `devDependency` packages to compile the TypeScript files

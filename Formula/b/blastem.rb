@@ -39,11 +39,10 @@ class Blastem < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 sonoma:       "fc574700400c587f8803417bd6b3ea8a2ca08478f5636e0349052cc80b42e4a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "934490a06247764fc9626087a1f4cae9eab85df11a3554f4bca1ef379f2dd970"
+    rebuild 1
+    sha256 cellar: :any,                 sonoma:       "06f0bb0d5d0e04267ab21bfa35f2146be7cf7c6acf85d8bd1a9141679c3741a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "482c2321fde2beccb9a1d3ba301b9f4070a57306991c7eaa486137e646c1a9dc"
   end
 
   depends_on "imagemagick" => :build
@@ -53,8 +52,6 @@ class Blastem < Formula
   depends_on "glew"
   depends_on "sdl2"
 
-  uses_from_macos "zlib"
-
   on_macos do
     # Can be undeprecated if upstream decides to support arm64 macOS
     deprecate! date: "2025-09-28", because: "is unsupported, https://docs.brew.sh/Support-Tiers#future-macos-support"
@@ -63,6 +60,7 @@ class Blastem < Formula
 
   on_linux do
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   resource "vasm" do

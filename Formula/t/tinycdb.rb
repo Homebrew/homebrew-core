@@ -11,8 +11,6 @@ class Tinycdb < Formula
     regex(/href=.*?tinycdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "bd03805a76b700768943e3216fba150262d5fb9f121f1e46e7474c761ce647da"
     sha256 cellar: :any,                 arm64_sequoia: "680cfcfc325b233fe7340563af3250740568b8a3689fae20f477e108ed673a8e"

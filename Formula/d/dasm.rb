@@ -6,8 +6,6 @@ class Dasm < Formula
   license "GPL-2.0-or-later"
   version_scheme 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1f614d82306309db519d1ec6ab82849fa699b8a688a1d22ca8ae02342178697b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "018a5c5e7494685ffa0c9f40846072fff6ba4508efc1b07bd1d45235e02a4eff"

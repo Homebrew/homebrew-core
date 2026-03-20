@@ -7,12 +7,13 @@ class Deadfinder < Formula
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "16bda27518c67963187cbf3e02885836e78ee3ab17d65f2da4cef4649e422dba"
-    sha256 cellar: :any,                 arm64_sequoia: "74df74b31f0ada58abad5f04c1ad388637a11985bdd6bf5334892e14bd530cb4"
-    sha256 cellar: :any,                 arm64_sonoma:  "f072d90102f04bd6e2c58fffe8092f631c05f799529836a489106c8928e596ad"
-    sha256 cellar: :any,                 sonoma:        "58f600effe963652e5b1a8728756f8cb4f569c24e81317bc58df4fefd2225450"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8dc0fc3a591571d5b1ad2103ebe18d7faf57e4e1784b52684606af0187159fa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "668e513fa6afb8939fa8f1401c024a63b9838ac77a25c5336b446bff2d6cabc0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "550ef54a29d20b3e71cd5a2b9d557919152369dac8a4d2dc962fe8a044d0898e"
+    sha256 cellar: :any,                 arm64_sequoia: "337cb4234cb6d861f02862fd393372b18405aa904c3589b9e6161c017551b4b8"
+    sha256 cellar: :any,                 arm64_sonoma:  "92fe261089fb4925d0229e07e85a3d70cbe1fb25e57e91da6bbd67dc2cb7bc33"
+    sha256 cellar: :any,                 sonoma:        "1ee62850abad8485e5327ec0579d30f24fb884e773eef673dab7b36c01564f30"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c3a23a3d8a2e3b19b636939a182bd3da1a01d065674637d8589cbda09cc2cfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d68f0537ef47c062571f77b1a5b6e7ca55b0d318ca5ad7d3f303c51fc608a5af"
   end
 
   depends_on "pkgconf" => :build
@@ -21,7 +22,10 @@ class Deadfinder < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["BUNDLE_FORCE_RUBY_PLATFORM"] = "1"

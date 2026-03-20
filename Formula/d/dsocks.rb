@@ -6,8 +6,6 @@ class Dsocks < Formula
   license "BSD-2-Clause"
   head "https://github.com/dugsong/dsocks.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "601324838005b2686e67ea99328ad71a5f59250b8c329bbc9a0861d1bbfe0dbe"
     sha256 cellar: :any,                 arm64_sequoia:  "9130e47d1bfae90594a9127a2aa63144b9101563558cf1fa704205c874bf23a5"

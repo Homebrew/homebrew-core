@@ -7,11 +7,9 @@ class Oclgrind < Formula
   revision 2
 
   livecheck do
-    url :homepage
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 3
@@ -27,11 +25,15 @@ class Oclgrind < Formula
   depends_on "llvm@19" # Issue for LLVM 20: https://github.com/jrprice/Oclgrind/issues/216
   depends_on "readline"
 
+  on_macos do
+    depends_on "zstd"
+  end
+
   on_linux do
     depends_on "opencl-headers" => :test
   end
 
-  # Backport support for `llvm@14`. Remove in the next release.
+  # Backport support for LLVM 14. Remove in the next release.
   patch do
     url "https://github.com/jrprice/Oclgrind/commit/6c76e7bec0aa7fa451515a5cfcb35ab2384ba6e0.patch?full_index=1"
     sha256 "8c1b8ec75d8d8c8d02246124b40452ec9ef1243d3e3c497fe4ffa8571cd98ade"

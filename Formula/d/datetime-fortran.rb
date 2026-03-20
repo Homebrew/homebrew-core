@@ -5,8 +5,6 @@ class DatetimeFortran < Formula
   sha256 "cff4c1f53af87a9f8f31256a3e04176f887cc3e947a4540481ade4139baf0d6f"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "695983e52548982491c67fd9f018cf42e9d1a5b0de590d932a6af1dabbf51317"

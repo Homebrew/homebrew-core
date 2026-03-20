@@ -7,8 +7,6 @@ class RedisLeveldb < Formula
   revision 4
   head "https://github.com/KDr2/redis-leveldb.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c271d1f63c3d093c40dfe5b388ff1fb8a16189fd3856af03a03de7b997ceacc6"
     sha256 cellar: :any,                 arm64_sequoia:  "18a394308e77b5655a37776c66a468aaa71b5bb152b59c666ef1017f88f77257"

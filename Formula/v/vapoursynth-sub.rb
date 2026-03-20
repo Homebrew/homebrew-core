@@ -8,8 +8,6 @@ class VapoursynthSub < Formula
   version_scheme 1
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_tahoe:   "66be173efb94e72979fb21fd34617d7dbfe31fc1a59a91fd327264303753c0d7"

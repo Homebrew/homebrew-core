@@ -5,8 +5,6 @@ class Cconv < Formula
   sha256 "82f46a94829f5a8157d6f686e302ff5710108931973e133d6e19593061b81d84"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "bfb30a39eb38f85420bced927f9c1db3d53a584cf4536a474621ad27a4936303"
     sha256 cellar: :any,                 arm64_sequoia:  "09a537e89790d6af0c6c2f1bd9331b1860b86800285c55c5f4420317aeac02ce"

@@ -1,20 +1,19 @@
 class ApachePulsar < Formula
   desc "Cloud-native distributed messaging and streaming platform"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-4.1.2/apache-pulsar-4.1.2-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-4.1.2/apache-pulsar-4.1.2-src.tar.gz"
-  sha256 "2b12b98ca35761ad471c3bafdc6647aeff0ad4b128f9d05595483db3dc08798e"
+  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-4.1.3/apache-pulsar-4.1.3-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-4.1.3/apache-pulsar-4.1.3-src.tar.gz"
+  sha256 "367307accfd5f95e9dc3c5939f362b2a5f5996372a7ca4009320ee0abbbe7d0d"
   license "Apache-2.0"
   head "https://github.com/apache/pulsar.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a899366ae866075bb7002f9465b4a2e72ffb9f72d567d69a7515a1e8936decac"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56151dde7654fc4c14ec156cf31cef7987011a87fb6ab8e2b84cf9b1b07cd48c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1421aec25cab53a61b4675198415318d2f04e53bbce3fd0d732a8b6e782a9e4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4ab4690ef10a1ea141b4a59c900e9d281d2b63e89e144074379ad3d06b762650"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0dde5f9467f0445424c4cb726111dd5ded6ecd82405660153e96a1b2ede9bee6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9ba5fea8eddd2bc4fb0a1019bd59cb08ab7718f3ac88d4a51a3ab913aa3608a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1a33d93802cdbbbf4bb27971edfcb6ad2d4ca4f8f010f00040b0bd6401d183d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "488bf0ede4d8140eafbd264d423a4874d4c42f155e67268530bfe7d62253f3fe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b472c79d5ff25b9133c95e873a096721e7940ff8ebd04e193d9ef6b8b6ea040"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4041aeed452b2e2bf410a850199037a32b96150378e21553ac5d86cebb5b4004"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c3aaa63c29eeb090f400a7f33d9517edcea5753527ec9e2270942dd35b2d6ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8eb29f460bb5935e502f3954e3bb7c4bf5e713b129ab31907155cfc1e6c4dc4"
   end
 
   depends_on "maven" => :build

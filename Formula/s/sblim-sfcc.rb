@@ -11,8 +11,6 @@ class SblimSfcc < Formula
     regex(%r{url=.*?/sblim-sfcc[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "91850d84d41509e73588a88dcc741a3ab9367c6e84c366689340cd9b66d00bf6"

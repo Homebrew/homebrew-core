@@ -1,8 +1,8 @@
 class Gtkmm4 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/gtkmm/4.20/gtkmm-4.20.0.tar.xz"
-  sha256 "daad9bf9b70f90975f91781fc7a656c923a91374261f576c883cd3aebd59c833"
+  url "https://download.gnome.org/sources/gtkmm/4.22/gtkmm-4.22.0.tar.xz"
+  sha256 "2e8a21b4b0725f620e33aaee0cd343ed121b533275b632896619b1c89e96de67"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Gtkmm4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "75f595a7d74ebe4f7fb3d531be9ce70cc70e6b77194d0c6984907da14497d1fd"
-    sha256 cellar: :any, arm64_sequoia: "fac1c12fd0d8e2ae213e1ac9957a1bacbe662e466144769df805c966b0322f89"
-    sha256 cellar: :any, arm64_sonoma:  "af3d4f4127d457bdef6639c83ac0c850e41d236ffd3a33e4ac0f3aaa53672ab0"
-    sha256 cellar: :any, sonoma:        "54c7c7e6a00276d3b9f21c144b8a2c3cc359f5cd2c073b6c5b51b82d4d48bb46"
-    sha256               arm64_linux:   "0077f613e776d7d5e27c23082c73cd2405a27534b025708443cf4e69979c2e29"
-    sha256               x86_64_linux:  "3ea11d6e9eeb9634d885d182615693f80b81c890d650233dbb8f20e298f141e0"
+    sha256 cellar: :any, arm64_tahoe:   "5019a6a838cfdb66402a58a076e55b75bba6047bb057d66c4b8394b750697656"
+    sha256 cellar: :any, arm64_sequoia: "fd5b4a4af9452f8362b3a89d6276aaffad7e7bcf5ea60bb0a969bb26e6faddf7"
+    sha256 cellar: :any, arm64_sonoma:  "c15e328c41f4c0b0fc58e3e8ccb397950bcd5f2f58168f1ea79630d73b961587"
+    sha256 cellar: :any, sonoma:        "a9f3106a239e143f95d1266c27bd97c8fe4642834dfb4f00e2e9c6d402a73ff9"
+    sha256               arm64_linux:   "ba6496171930003554fee4c2c985f5adab37e10a73bad7a3e744642fba694e55"
+    sha256               x86_64_linux:  "75a94d1632ef8fd4bdec9853484f828d0717b67f12e558f7bcb9bca08766e755"
   end
 
   head do

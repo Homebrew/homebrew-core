@@ -1,18 +1,18 @@
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://github.com/rfc1036/whois"
-  url "https://github.com/rfc1036/whois/archive/refs/tags/v5.6.5.tar.gz"
-  sha256 "99510048033408eae5cc3f1f421121a1f33147196b7017ebaace6e56352680f5"
+  url "https://github.com/rfc1036/whois/archive/refs/tags/v5.6.6.tar.gz"
+  sha256 "43d3b3cc64c75e8bd10aee6feff3906e9488ed335076d206e70f3b25bf644969"
   license "GPL-2.0-or-later"
   head "https://github.com/rfc1036/whois.git", branch: "next"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3f7eecdec4dc6dec07980e2908f451df7a3e778fab47785fc6615c7b8db3ea72"
-    sha256 cellar: :any,                 arm64_sequoia: "46f6549d331ea0d7b316d4bdee34afc953d3b7c9e3a35bece1089d63c767f4c7"
-    sha256 cellar: :any,                 arm64_sonoma:  "fdb9bc05c21e38b8121c7bb387cad4d2725f95d863b3dcbeef81d80a5ada58c9"
-    sha256 cellar: :any,                 sonoma:        "fdf27190150b9938875bb51cc555559b19581cf54852275f6c014de3e5ae3432"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2f57c068b7e808b997cfbad518cd35f9543908165a29212c9c1570e3eb58cdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4337035ef19d8e7c73f9abb7f4bbb775e888a71ad08352bd7d9450dbdaaa155"
+    sha256 cellar: :any,                 arm64_tahoe:   "9b65a782bd5207b250ef0fb7754658493326c1d4b72bd5f89bfdbb815795ebd7"
+    sha256 cellar: :any,                 arm64_sequoia: "76cd02aff01bd38c1cb6363a0bb418d5582330754135f982d57044b6bcae0028"
+    sha256 cellar: :any,                 arm64_sonoma:  "c0660ae80290d002a9acb72bf7c1bbd62983616f96f71eb00078b1596ceb75f6"
+    sha256 cellar: :any,                 sonoma:        "fa5e4c41154dda1a222cab6cc7e94a325d1e65b81998306ff48766cde7f41a63"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b74ce0496d081d448ec321bd25789c5417a9a105104ccbe4cbc98b0a2686c094"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b994d8b2b6493b16adb403a54f455376383a0f368f9aa08f8906e365782aa2b3"
   end
 
   keg_only :provided_by_macos

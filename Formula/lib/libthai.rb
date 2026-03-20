@@ -5,6 +5,11 @@ class Libthai < Formula
   sha256 "ddba8b53dfe584c3253766030218a88825488a51a7deef041d096e715af64bdd"
   license "LGPL-2.1-or-later"
 
+  livecheck do
+    url "https://linux.thai.net/pub/thailinux/software/libthai/"
+    regex(/href=["']?libthai[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_tahoe:   "683257ceaae0ebf522c07e2fd39b82863ff54d35ac8a985d9d62597bda8a05b3"
     sha256 arm64_sequoia: "428726b804e7bb80faef7381ba27b0be1a0087e54746d0f355c0af7575220ac6"
@@ -21,14 +26,13 @@ class Libthai < Formula
     system "./configure", "--disable-silent-rules",
                           "--disable-doxygen-doc",
                           *std_configure_args
-
     system "make"
     system "make", "install"
   end
 
   test do
     # Basic linkage test to ensure the library is installed and usable
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <thai/thctype.h>
       #include <stdio.h>
 
@@ -39,7 +43,7 @@ class Libthai < Formula
           }
           return 1;
       }
-    EOS
+    C
     flags = shell_output("pkgconf --cflags --libs libthai").chomp.split
     system ENV.cc, "test.c", *flags, "-o", "test"
     system "./test"

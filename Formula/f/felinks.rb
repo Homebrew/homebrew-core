@@ -7,12 +7,13 @@ class Felinks < Formula
   head "https://github.com/rkd77/elinks.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "3d57c8348aac682ddcb98e982aa5476cdf8a96281993a8688d65baf0ae904cc1"
-    sha256 cellar: :any, arm64_sequoia: "48930ba24682e85609abe97ee6ca7005a76a78517760320a3e9d44e7c5a0f142"
-    sha256 cellar: :any, arm64_sonoma:  "5bd30b202e3b5f5bb740a0cf6320fd216812cbf1787e6eca785fe0b910f47ac4"
-    sha256 cellar: :any, sonoma:        "30fba550985b987a34590fe68415e8a9b03f7288a5f2016f4fc09a5b635e2625"
-    sha256               arm64_linux:   "a18fa0f9a5229b0623ffe965ce8d2a6aef0e555c90419c7919781ae10ee8f1c8"
-    sha256               x86_64_linux:  "d8d17e66049123ffcd20fbdc085795ece4e0c90d5161b023dc433720f90997be"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "1bb748fa85a2021054ecfbc078da2ed3201320744a218d340732298fd90536d8"
+    sha256 cellar: :any, arm64_sequoia: "2f33fbb408dfd33c93ef83260d52a7cd6a48fbc3cad7e9c49940adcc5e92f734"
+    sha256 cellar: :any, arm64_sonoma:  "4149fe333d1d8522477d583dfce6eb4ba8e7369d6fff378cc7f59b69b8faf343"
+    sha256 cellar: :any, sonoma:        "25835e28f28a67984128bdeafe0ad342be1a5a4b649a4d4176ba227ee7cce737"
+    sha256               arm64_linux:   "5b6fa5b978fe374293f29e46dd8870c7533d67ba94170285e8dc9f261340f159"
+    sha256               x86_64_linux:  "2bbd226d828e84ea9ea36a907498ff54712896f49f3a407a8709c904e567c02a"
   end
 
   depends_on "meson" => :build
@@ -33,7 +34,10 @@ class Felinks < Formula
   uses_from_macos "curl"
   uses_from_macos "expat"
   uses_from_macos "python"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %w[

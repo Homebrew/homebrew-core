@@ -4,21 +4,19 @@ class Lsyncd < Formula
   url "https://github.com/lsyncd/lsyncd/archive/refs/tags/release-2.3.1.tar.gz"
   sha256 "fc19a77b2258dc6dbb16a74f023de7cd62451c26984cedbec63e20ff22bcbdd8"
   license "GPL-2.0-or-later"
-
-  no_autobump! because: :requires_manual_review
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "508c60c1a56dc5267e6c49781c0aaddb91767c26e926dd530a29689d8fd3cf96"
-    sha256 cellar: :any,                 arm64_sequoia: "af0f38eb7372e1a10d57e9fb2f36af97e57e9cbe84f89c1de6b80be612fab7ee"
-    sha256 cellar: :any,                 arm64_sonoma:  "f9c9bc6d091e4e9a996157fa6f0ca50f384866f876e91c0c0dec930c61b9791c"
-    sha256 cellar: :any,                 sonoma:        "8cdbd9130e3d1b8fe3b815b6806e2505bfed27ee5bbb402e4fecdb26c7c93cff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e67dd091044e053e1b1eed87fcddaf7549cf2eee8c6c9c1c5740ae8c3213823c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6560108e0b00e2ea9ecf9fa954fb584b280e6dbb794b0e36f03a29a2b04705ab"
+    sha256 cellar: :any,                 arm64_tahoe:   "da28ce3ac9d2171449adf629c00e7534e8d7309b30c656d2f143802b8d21c9ae"
+    sha256 cellar: :any,                 arm64_sequoia: "59bea69517848816c960b8fa3dfd089ac2bb297bd549579fa1d98f6e3b67c6d6"
+    sha256 cellar: :any,                 arm64_sonoma:  "67dcb602a07b2c3ad6638b51cdf15d6af57d7d7bb7ec9dc2db9903da37ac93ef"
+    sha256 cellar: :any,                 sonoma:        "0c11103090d25b5d5aff2a0674439ded937b0e79cc9328fcf3c306fc1ee28d62"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a7b53aa9e756a873482e88be4e085240b285901a359f79924226ea82ca27fe8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "515ce4cedcf728c4b540bb488e2c15145bb6bce49c83370f82cbffdd9b5511bc"
   end
 
   depends_on "cmake" => :build
-  depends_on "lua"
+  depends_on "lua@5.4"
 
   resource "xnu" do
     # From https://opensource.apple.com/releases/

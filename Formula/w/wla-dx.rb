@@ -11,8 +11,6 @@ class WlaDx < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "11d1d2d3fdc767d15e21dd37a176fe35438cf438c8ff05e9344e69da674acac2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f89cc32f88279298a841ee744557214695dffdc76c35f43f28610715c38b35d1"

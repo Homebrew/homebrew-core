@@ -2,6 +2,7 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   license "MPL-1.1"
+  revision 1
   head "https://github.com/signalwire/freeswitch.git", branch: "master"
 
   stable do
@@ -69,13 +70,12 @@ class Freeswitch < Formula
   end
 
   bottle do
-    rebuild 4
-    sha256 arm64_tahoe:   "9cb8409408cc01cc8e19a512f9eda755f265a04f206a73d8e4f1603fb83f6952"
-    sha256 arm64_sequoia: "26ad3b1d0473455bc8de23fb19319039bba987ccd691cf6f056a4bd2f287fc03"
-    sha256 arm64_sonoma:  "e10676bb9b427165069892057a399218500dba99b5f8ab6830ef425cb88d6dfe"
-    sha256 sonoma:        "86246d29684a3845246c201c54ab73c3b521b7a9cbd690cd98e649f4efc38b47"
-    sha256 arm64_linux:   "7ac4e295edcb214731c6f0acbf463e44828b33e2ebd773dbc78611cac146f75b"
-    sha256 x86_64_linux:  "c38b84dcd8b19b037354c7924ed564b942b517f1634844075b2e37d307aaf1d0"
+    sha256 arm64_tahoe:   "b286c2b3c74a917b36e09864502f009bfb081ea0de083904ae598e28face567c"
+    sha256 arm64_sequoia: "5e8a51c20e33a2ae4dd16d75c488f02f6ff6ba40f542b3a7a12b8d909d848a2f"
+    sha256 arm64_sonoma:  "6d953dfd37983cfb386b66b77bace9493f762f40823e0f37e9e344fbb8266156"
+    sha256 sonoma:        "ca349fae6d174f73f3adbfd3a63cd057f56dd8dc7ceae9ff0abe07d566832634"
+    sha256 arm64_linux:   "705bf06d87ee2f4e46d2fa6fb6665dd45fcf2be054bc1351aa3bda2cd71980d5"
+    sha256 x86_64_linux:  "6edd236baa6e161b412388f9f374aac174c53b65adf7822f86f768fed363ac00"
   end
 
   depends_on "autoconf" => :build
@@ -120,10 +120,9 @@ class Freeswitch < Formula
   #---------------
   # music on hold
   #---------------
-  moh_version = "1.0.52" # from build/moh_version.txt
   resource "sounds-music-8000" do
-    url "#{sounds_url_base}/freeswitch-sounds-music-8000-#{moh_version}.tar.gz"
-    version moh_version
+    url "#{sounds_url_base}/freeswitch-sounds-music-8000-1.0.52.tar.gz"
+    version "1.0.52"
     sha256 "2491dcb92a69c629b03ea070d2483908a52e2c530dd77791f49a45a4d70aaa07"
 
     livecheck do
@@ -132,28 +131,42 @@ class Freeswitch < Formula
     end
   end
   resource "sounds-music-16000" do
-    url "#{sounds_url_base}/freeswitch-sounds-music-16000-#{moh_version}.tar.gz"
-    version moh_version
+    url "#{sounds_url_base}/freeswitch-sounds-music-16000-1.0.52.tar.gz"
+    version "1.0.52"
     sha256 "93e0bf31797f4847dc19a94605c039ad4f0763616b6d819f5bddbfb6dd09718a"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/signalwire/freeswitch/refs/tags/v#{LATEST_VERSION}/build/moh_version.txt"
+      regex(/^v?(\d+(?:\.\d+)+)$/i)
+    end
   end
   resource "sounds-music-32000" do
-    url "#{sounds_url_base}/freeswitch-sounds-music-32000-#{moh_version}.tar.gz"
-    version moh_version
+    url "#{sounds_url_base}/freeswitch-sounds-music-32000-1.0.52.tar.gz"
+    version "1.0.52"
     sha256 "4129788a638b77c5f85ff35abfcd69793d8aeb9d7833a75c74ec77355b2657a9"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/signalwire/freeswitch/refs/tags/v#{LATEST_VERSION}/build/moh_version.txt"
+      regex(/^v?(\d+(?:\.\d+)+)$/i)
+    end
   end
   resource "sounds-music-48000" do
-    url "#{sounds_url_base}/freeswitch-sounds-music-48000-#{moh_version}.tar.gz"
-    version moh_version
+    url "#{sounds_url_base}/freeswitch-sounds-music-48000-1.0.52.tar.gz"
+    version "1.0.52"
     sha256 "cc31cdb5b1bd653850bf6e054d963314bcf7c1706a9bf05f5a69bcbd00858d2a"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/signalwire/freeswitch/refs/tags/v#{LATEST_VERSION}/build/moh_version.txt"
+      regex(/^v?(\d+(?:\.\d+)+)$/i)
+    end
   end
 
   #-----------
   # sounds-en
   #-----------
-  sounds_en_version = "1.0.53" # from build/sounds_version.txt
   resource "sounds-en-us-callie-8000" do
-    url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-8000-#{sounds_en_version}.tar.gz"
-    version sounds_en_version
+    url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-8000-1.0.53.tar.gz"
+    version "1.0.53"
     sha256 "24a2baad88696169950c84cafc236124b2bfa63114c7c8ac7d330fd980c8db05"
 
     livecheck do
@@ -162,19 +175,34 @@ class Freeswitch < Formula
     end
   end
   resource "sounds-en-us-callie-16000" do
-    url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-16000-#{sounds_en_version}.tar.gz"
-    version sounds_en_version
+    url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-16000-1.0.53.tar.gz"
+    version "1.0.53"
     sha256 "3540235ed8ed86a3ec97d98225940f4c6bc665f917da4b3f2e1ddf99fc41cdea"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/signalwire/freeswitch/refs/tags/v#{LATEST_VERSION}/build/sounds_version.txt"
+      regex(/^en-us-callie v?(\d+(?:\.\d+)+)$/i)
+    end
   end
   resource "sounds-en-us-callie-32000" do
-    url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-32000-#{sounds_en_version}.tar.gz"
-    version sounds_en_version
+    url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-32000-1.0.53.tar.gz"
+    version "1.0.53"
     sha256 "6f5a572f9c3ee1a035b9b72673ffd9db57a345ce0d4fb9f85167f63ac7ec386a"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/signalwire/freeswitch/refs/tags/v#{LATEST_VERSION}/build/sounds_version.txt"
+      regex(/^en-us-callie v?(\d+(?:\.\d+)+)$/i)
+    end
   end
   resource "sounds-en-us-callie-48000" do
-    url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-48000-#{sounds_en_version}.tar.gz"
-    version sounds_en_version
+    url "#{sounds_url_base}/freeswitch-sounds-en-us-callie-48000-1.0.53.tar.gz"
+    version "1.0.53"
     sha256 "980591a853fbf763818eb77132ea7e3ed876f8c4701e85070d612e1ebba09ae9"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/signalwire/freeswitch/refs/tags/v#{LATEST_VERSION}/build/sounds_version.txt"
+      regex(/^en-us-callie v?(\d+(?:\.\d+)+)$/i)
+    end
   end
 
   #------------------------ End sound file resources --------------------------

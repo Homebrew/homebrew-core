@@ -1,9 +1,9 @@
 class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "https://steveicarus.github.io/iverilog/"
-  url "https://github.com/steveicarus/iverilog/archive/refs/tags/v12_0.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_12.0.orig.tar.gz"
-  sha256 "a68cb1ef7c017ef090ebedb2bc3e39ef90ecc70a3400afb4aa94303bc3beaa7d"
+  url "https://github.com/steveicarus/iverilog/archive/refs/tags/v13_0.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_13.0.orig.tar.gz"
+  sha256 "c897bbfa9848688982c6d5c30529fc29d68df0b9ff22ffa73bad89db73a7ce49"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://github.com/steveicarus/iverilog.git", branch: "master"
 
@@ -12,16 +12,15 @@ class IcarusVerilog < Formula
     regex(/v?(\d+(?:[._]\d+)+)/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "51668d00e6a1130a0788dd9d7291e2758e1040a6ec112376edfcccd4925ddac2"
-    sha256 arm64_sequoia: "7911ddab9cff947d0fee3c45f6d304af8e30abaca45adafc1d7f12beffde6b59"
-    sha256 arm64_sonoma:  "a935c5891520a801dafc403ae7e0bc724f0a9fcca8df9227706a9fd74fb44015"
-    sha256 sonoma:        "dd0bf128e18ade51f0e0400ff74ce97bf87e02a62ab976107a361991853e5858"
-    sha256 arm64_linux:   "56afa46c684a210fec8b7792b50b086bc07ff5b8f934b559e88380f4e884481f"
-    sha256 x86_64_linux:  "bc29fdcee8a32639e6d1b7cca55b5a6898326bae132051f0f567e0eeddb339c0"
+    sha256 arm64_tahoe:   "9171910a21536b9bcb60e0de5b11f3d2ebc31f211cae962ad6e520ecfdba1175"
+    sha256 arm64_sequoia: "735d87e08978e857b0bd1771c7efdd91769ada308f8597400f16a560f72cbff7"
+    sha256 arm64_sonoma:  "936627d8dfbb9996d55b3f3044f6bdf45e433df0c5fe9d0f8390f1a35714978b"
+    sha256 sonoma:        "2eb03352145134b01eec88e2426a5bb066952c60f13c5d8b90067c6674ab56fe"
+    sha256 arm64_linux:   "04bdad86ad33286674ae98446235a96c1719df5bbf1fe4e85015da8031d4011b"
+    sha256 x86_64_linux:  "4aa2049753c29d8acb09a61dbcc98029dd0155111b39a8605aefbc024bd974a1"
   end
 
   depends_on "autoconf" => :build

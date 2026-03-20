@@ -5,8 +5,6 @@ class Gedit < Formula
   sha256 "f3437a675790c8593d511355252d751ab94328357bc6846d1106bf288161a5ed"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "f16f039fa3d91301dbdffbb90fe7a7e516298ca030f1d599ab9869bea105987a"
     sha256 arm64_sequoia: "a455eb1e0da6e1c6b453e53e1643c3f31a080d60870216c8c4ad7d62d69c386c"
@@ -46,8 +44,16 @@ class Gedit < Formula
   end
 
   resource "libgd" do
-    url "https://gitlab.gnome.org/GNOME/libgd.git",
-      revision: "3cccf99234288a6121b3945a25cd4ec3b7445c74"
+    url "https://gitlab.gnome.org/GNOME/libgd/-/archive/c7c7ff4e05d3fe82854219091cf116cce6b19de0.tar.bz2"
+    version "c7c7ff4e05d3fe82854219091cf116cce6b19de0"
+    sha256 "343abb090461d011dfb1bce5b5da1dfbc9f6c7b6b3223a1b322adb33675212c1"
+
+    livecheck do
+      url "https://gitlab.gnome.org/api/v4/projects/World%2Fgedit%2Fgedit/repository/files/subprojects%2Flibgd?ref=#{LATEST_VERSION}"
+      strategy :json do |json|
+        json["blob_id"]
+      end
+    end
   end
 
   def install

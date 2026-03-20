@@ -6,8 +6,6 @@ class Weggli < Formula
   license "Apache-2.0"
   head "https://github.com/weggli-rs/weggli.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3fc8c3f005f10421cca236fb2992ff2d7a8fa9470be9fd5e30d51d667a95971f"

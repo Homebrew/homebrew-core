@@ -12,8 +12,6 @@ class Jbigkit < Formula
     regex(/href=.*?jbigkit[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a7cc930c8a3652caa237eb15f5528d6a9384ba2e14b7414de8946fe0fedf6816"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "589c8a946d59e05dc1d23a0225efc605234fe4095bed2f5bce170c90b346ab96"

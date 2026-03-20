@@ -1,9 +1,9 @@
 class DeviceMapper < Formula
   desc "Userspace library and tools for logical volume management"
   homepage "https://sourceware.org/dm"
-  url "https://sourceware.org/pub/lvm2/releases/LVM2.2.03.38.tgz"
-  version "2.03.38"
-  sha256 "322d44bf40de318e6e6b52c56999aaeb86b16c8267187ac2e01a44d4dc526960"
+  url "https://sourceware.org/pub/lvm2/releases/LVM2.2.03.39.tgz"
+  version "2.03.39"
+  sha256 "54753b7d82a8ffdcc29d9f2c7ff523048a30cc0094048db129496ead1804f482"
   license "LGPL-2.1-only"
   head "https://gitlab.com/lvmteam/lvm2.git", branch: "main"
 
@@ -13,9 +13,8 @@ class DeviceMapper < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "d2aee4bf5e1d751dc34b70f7f66c1e099d7c0de5aa7b11c4c61839d128ba17b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "386ed70dd25c7a97c1a66f46fc9c328c5292988542da6330f3e56aee2771a389"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "9e1ff31f933f73da3d5b1a2ff37764f7b4ac98d7a5425638f936798c64be7102"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4f287937a1d39b248e7977b1b89bd1a134d8a88426ca1243f081705a7d8273b8"
   end
 
   depends_on "pkgconf" => :build

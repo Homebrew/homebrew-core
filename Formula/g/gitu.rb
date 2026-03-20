@@ -1,19 +1,18 @@
 class Gitu < Formula
   desc "TUI Git client inspired by Magit"
   homepage "https://github.com/altsem/gitu"
-  url "https://github.com/altsem/gitu/archive/refs/tags/v0.40.0.tar.gz"
-  sha256 "68a014a5b6b920ae1f82b473e7dddf9251755ada57df126c9a0a98725d1552bb"
+  url "https://github.com/altsem/gitu/archive/refs/tags/v0.41.0.tar.gz"
+  sha256 "eba1cd649339ee1c6f02c39bcd9fc3092df8e374bfbcd194750a966b09cb5e55"
   license "MIT"
   head "https://github.com/altsem/gitu.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1072f759f85641066d62ef806512de85fd29ed91c88243e2ecfce2efadf7edd1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "97d4c3fe4cdf3ee2f7727cc49d3863a98bc27460e5b8516f11c7a9172c206240"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ba8942b5f86ecefe7ad10b94dcfdd63581f8ff61b6d322f27147f2832655b0a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cea667d08a258bdf4c91c222d1b715c78e82657ee154761c27b1ff010d833512"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcd5cd7599db34a1e37b6114738d2f7ccd803856700f654a7316466a4510fa43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cf7e9202afc3c5ce064b6db4b699bdbb49f9f31d7808630d99b7657d00b19a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e26a16a99458e8ba03255708da91ace7d2412990bbaa07f406ace1832a10c312"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64139abb25b6584ac88caaee6ec40ec0d7897b6c3e806f723216bf79102d2cb1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a8f3f9192d82ad1ae655e43334fb65015a9203c27cabe05ca85fa879c5392e7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd8756d20bb8aefc83f82b9f1cdb99b77df4c5426857bee2e3cc5c2291e7b0c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "934a83b1dbf1b243fc07cd615cf14caba3254e468ec9bdd0d137f13f726f56c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56115a186420b966d1ebb0c245d6c7ef552dc16c93da418e568b3c47e4296907"
   end
 
   depends_on "rust" => :build

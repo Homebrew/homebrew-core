@@ -5,8 +5,6 @@ class Julius < Formula
   sha256 "74447d7adb3bd119adae7915ba9422b7da553556f979ac4ee53a262d94d47b47"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "b57b4070b691f3335a89ccbe7bc8160cf89ea13740554fe7bc139a44e27225fc"

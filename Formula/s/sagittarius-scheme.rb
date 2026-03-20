@@ -11,12 +11,13 @@ class SagittariusScheme < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1cb98830feaedcb69a562e8bd26bdf1daf75727f9e7d9b1b8f07a1ebed6bb70d"
-    sha256 cellar: :any,                 arm64_sequoia: "ecfa692112d5f7ed323514966d439476328d4bcfa051437566d1b27c06565827"
-    sha256 cellar: :any,                 arm64_sonoma:  "0b3c3c3de1b4b0f765a988fcedc436cea4afb2213c8a93f32efdf83291f7b598"
-    sha256 cellar: :any,                 sonoma:        "73859b41b1c57444c735d6b951ab619c4ee1f156502ead10fb20aadb83394145"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ce23bb1611d8dd26758aa34956309ee7cda23b8ca8762f38dadce61703835e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c44c06e01d0857f84af6d255dccd3eae30e19ae5fe25d2ae9030aae155adf7d9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d503f7f4a9bf5d88253b78a4acca89481bdd7ba73532fb3773b64df7fe60c692"
+    sha256 cellar: :any,                 arm64_sequoia: "c1bd54cd081ccb062d90ccd6ffe19374fc8db9711dbc7cd5a10763bde4ad49e3"
+    sha256 cellar: :any,                 arm64_sonoma:  "d0ec1780ff4e4a091b6220596a748334a97fdcd7c83eea4224cb328bf749f53f"
+    sha256 cellar: :any,                 sonoma:        "22f6d67387b47bbf00765825ec7712299badd39c15158e6136b305055066e142"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "94a20ad75bb3787ac9b9c9244956d13379ce57be536cb35d76a6c6a1a2329a60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "582e0af6f35a245bb4357f06908eb06913f1a1252e0e62980ba43bcd4669a1b5"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +27,10 @@ class SagittariusScheme < Formula
   depends_on "unixodbc"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Work around build error on Apple Silicon by forcing little endian.

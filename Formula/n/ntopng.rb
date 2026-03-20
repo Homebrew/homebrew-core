@@ -6,8 +6,6 @@ class Ntopng < Formula
   license "GPL-3.0-only"
   head "https://github.com/ntop/ntopng.git", branch: "dev"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "ad21a48529fb2d9342fae2ccd7917ea2ec48db11f39f1502b295a08d0014ab0c"

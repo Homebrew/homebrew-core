@@ -11,8 +11,6 @@ class SLang < Formula
     regex(/href=.*?slang[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "4501b4277af6a136a6ac81ee096feacf8e8a9d32324482f9b9cdb60ec9b513e2"

@@ -11,8 +11,6 @@ class DvdxrwTools < Formula
     skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8daeeb4d38982c4948e79c9ec20f0e600cbd0c6c55d56bb4f0b14c617e8600e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ef7c367570d1a514f8c5ee0c9a7b9e758dcd12a6ae8ece7fddc835f39ad9b319"

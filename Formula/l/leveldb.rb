@@ -6,8 +6,6 @@ class Leveldb < Formula
   license "BSD-3-Clause"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "3a3373ff147b1d86903e34ffbb189d010826bf7acfeae4de3481fabd01e156e4"
     sha256 cellar: :any,                 arm64_sequoia: "9ddcdcdaef16a4ecf52daefeea18623f769da2728bff6fcffff130ec130136e8"

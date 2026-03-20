@@ -3,10 +3,10 @@ class Notmuch < Formula
 
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.39.tar.xz"
-  sha256 "b88bb02a76c46bad8d313fd2bb4f8e39298b51f66fcbeb304d9f80c3eef704e3"
+  url "https://notmuchmail.org/releases/notmuch-0.40.tar.xz"
+  sha256 "4b4314bbf1c2029fdf793637e6c7bb15c1b1730d22be9aa04803c98c5bbc446f"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
@@ -14,19 +14,18 @@ class Notmuch < Formula
     regex(/href=.*?notmuch[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7ce6d2376e4f4c259353d1e171048c85bf531f17ed15cca6548b98bc00d6c7be"
-    sha256 cellar: :any,                 arm64_sequoia: "fd95898d652007c95dbf52a842ce3c5d085abd1dbe871e1bd760bb955a669c5c"
-    sha256 cellar: :any,                 arm64_sonoma:  "37224d35b365b81c30a7eea3d35285feb7544a15b388aeb8c724f493713b3abd"
-    sha256 cellar: :any,                 sonoma:        "7140d21693d5e91d6115cdd29a103e1c607b2346394b0a65a60755244bddb900"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "22b62f435648548fdd06dfc317f0c0df25490373b7aafb1a98daba2b4f7149c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6911d5d204d2568fc22d8b8e7535fee3479a1dbada68a1f4b5fd92eddc442b3"
+    sha256 cellar: :any,                 arm64_tahoe:   "eae24f49c3b10abfde979af48095a1a57930ed5bdcbc6812ccc54a19bad10860"
+    sha256 cellar: :any,                 arm64_sequoia: "421174ec9e5af1051572972811fa7062bd3d6e680d5881c8a11e4f538b42505f"
+    sha256 cellar: :any,                 arm64_sonoma:  "15d1e06cdc2fee25afe4812f6482d3775cf4302c5a3f66b60935322cbf9fbf1c"
+    sha256 cellar: :any,                 sonoma:        "2b990b337a8c0ed0e2e086703ae947ee5b1fbfcb3131404855faf319032c0693"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c55b7b11e0bbe8128902da95371f0ddf2c4f25b248f54aaca9ddbdb1c12b74f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9f8bd8f09dc8ccf7665e5adaba42916d2023ddc4c3420d4d5472ef1c1a784d6"
   end
 
   depends_on "doxygen" => :build
   depends_on "emacs" => :build
+  depends_on "gnupg" => :build
   depends_on "libgpg-error" => :build
   depends_on "pkgconf" => :build
   depends_on "sphinx-doc" => :build
@@ -39,10 +38,12 @@ class Notmuch < Formula
   depends_on "talloc"
   depends_on "xapian"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def python3
@@ -50,7 +51,7 @@ class Notmuch < Formula
   end
 
   def install
-    ENV.cxx11 if OS.linux?
+    ENV.append "CXXFLAGS", "-std=c++17"
     site_packages = Language::Python.site_packages(python3)
     with_env(PYTHONPATH: Formula["sphinx-doc"].opt_libexec/site_packages) do
       system "./configure", "--prefix=#{prefix}",

@@ -6,13 +6,13 @@ class Quazip < Formula
   license "LGPL-2.1-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "f1fd2fadf19095977d5632337b0bbe73cefa515ef6b17c3d9de2fea32bfd1b24"
-    sha256 cellar: :any,                 arm64_sequoia: "185ebc43b7a1136a46c8af18b442f2f2f8b7196422072a1a6835bbd0a30875a2"
-    sha256 cellar: :any,                 arm64_sonoma:  "535fb4aab113e08ae887ee225e49583f347cd727a918a46b91c84b04c5c2c465"
-    sha256 cellar: :any,                 sonoma:        "ee6d72c263395d2bd8cb95341cca19f620b851196cbfdabfd0192f51d75748cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d457d617c5a876a3ad949e196936bbdf1d26cc9d34319418a53bfd9c0df1234"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ae3f76ea4c6aed76a42025c5475c4b1a030cccd04ea102a54b98efc7d1a3f57"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "ce8d0c6f5b6d725631a9023470fd138c99d9db401f03902f828f555140fee77b"
+    sha256 cellar: :any,                 arm64_sequoia: "7272d9b6eec18911f7fef8cd0c5deb264b655463396bb220220974d32a3227dc"
+    sha256 cellar: :any,                 arm64_sonoma:  "445a4429e3a6a27ffb00565a01b994b45b8af48c6b9aa8bcba68263a3e81ec87"
+    sha256 cellar: :any,                 sonoma:        "1252f9215183b55908a1df0caf982f7dd7f209289d461a9eb3c5cd7e3146796f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7faf8e516ab4ecff091c0fe8bdc1d0d1ecdcf12ac06562fd7aa96626e58363b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "834a87bcf3b62f24ea5446e5ab3400ac499042d56a1c0065a0eb3cfea929e9a4"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +21,10 @@ class Quazip < Formula
   depends_on "qtbase"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
@@ -41,7 +44,7 @@ class Quazip < Formula
       CONFIG         -= app_bundle
       TARGET          = test
       SOURCES        += test.cpp
-      INCLUDEPATH    += #{include} #{Formula["zlib"].include}
+      INCLUDEPATH    += #{include} #{Formula["zlib-ng-compat"].include}
       LIBPATH        += #{lib}
       LIBS           += -lquazip#{version.major}-qt#{Formula["qt"].version.major}
       QMAKE_RPATHDIR += #{lib}

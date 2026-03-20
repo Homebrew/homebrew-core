@@ -1,19 +1,18 @@
 class Czkawka < Formula
   desc "Duplicate file utility"
   homepage "https://github.com/qarmin/czkawka"
-  url "https://github.com/qarmin/czkawka/archive/refs/tags/10.0.0.tar.gz"
-  sha256 "66ff3c231abe2feaeb377f52bb188eb81686c162d7f3fd28ed5b7374f0046c48"
+  url "https://github.com/qarmin/czkawka/archive/refs/tags/11.0.1.tar.gz"
+  sha256 "8a6e3f634bfd2b6ed9b7f8634e7405ebb6d756f20bcdd99d15028ffb6b030eca"
   license all_of: ["MIT", "CC-BY-4.0"]
   head "https://github.com/qarmin/czkawka.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "f4a6f85a1a1e7a47760212d0e14a68f9d4340708307e923407fdd4d512f9dc83"
-    sha256 cellar: :any,                 arm64_sequoia: "c8e96fda2372e42d926f6d2d109b3e47f6f7ec7e93f58c12532b73a90b0a044a"
-    sha256 cellar: :any,                 arm64_sonoma:  "9ec6361560f8ee4bc3f27f7335535cce2aa6974bdd6a164b637bf4e3e7896431"
-    sha256 cellar: :any,                 sonoma:        "0f8379c98f1b1245f3108adfc23af72fe785f3c8f5f7218d963f990f402df140"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "67e1164a69e5010b3e7141f43a653e128ac7021b3df1224e6cbc19a9935bd00d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5524fde6900917e902e8144e4b60537507c5c0e4fc8f099d4683d9819face7fd"
+    sha256 cellar: :any,                 arm64_tahoe:   "1b1137ad14a3250af05268e885371bb199becdfe7d32284446071073771e755e"
+    sha256 cellar: :any,                 arm64_sequoia: "be7130f184c8c7971eb969f8e498c18f773a6ad108bfaeb5e30b20940c752be6"
+    sha256 cellar: :any,                 arm64_sonoma:  "e480ebc78cc41f7661215626ebb0d17e6246aa2f228f70176800b1d6bca5a68f"
+    sha256 cellar: :any,                 sonoma:        "2ecd2be335f5e988461b7808eae9d0834ab5b6c0c8a397fbac9c3f7b8a8c306f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "95d0d648452d82c9faf8b2a72871dfa0d5ceb94118cc029f76ce3e548503390c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f642d209d45b9316ca74edeb7f8da1b31ebfd0867471fa0d78381590fa604590"
   end
 
   depends_on "rust" => :build
@@ -39,8 +38,9 @@ class Czkawka < Formula
   end
 
   def install
+    features = %w[heif libraw libavif]
     %w[czkawka_cli czkawka_gui krokiet].each do |cmd|
-      system "cargo", "install", "--features", "heif,libraw,libavif", *std_cargo_args(path: cmd)
+      system "cargo", "install", *std_cargo_args(path: cmd, features:)
     end
   end
 

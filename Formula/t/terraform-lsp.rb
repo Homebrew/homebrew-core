@@ -7,8 +7,6 @@ class TerraformLsp < Formula
   license "MIT"
   head "https://github.com/juliosueiras/terraform-lsp.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e520989a451215fc8aa36173dbce765df4d6abfa73ada73699898677a0c76baf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e98d5085bd970cb5d03bc97f210858c8de0115a912ac62dd7859749b84fd5a98"

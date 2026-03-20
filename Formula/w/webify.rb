@@ -6,8 +6,6 @@ class Webify < Formula
   license "MIT"
   head "https://github.com/beefsack/webify.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "58f65712d5c510614847dbcd64d5e96fa1728a35de3f3a31438aa644ed02afe6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "73fc38e24f8531f3ce47ffe71e79edee8f691a0f7c936263c4c32bc4a873ded3"

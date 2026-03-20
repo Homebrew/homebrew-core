@@ -1,17 +1,22 @@
 class Libsidplayfp < Formula
   desc "Library to play Commodore 64 music"
   homepage "https://github.com/libsidplayfp/libsidplayfp"
-  url "https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.16.0/libsidplayfp-2.16.0.tar.gz"
-  sha256 "81bfd58ccaa3a0ef28c903b841b4fa3014811901fd12fbb9a80b7b5d5ec2b151"
+  url "https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.16.1/libsidplayfp-2.16.1.tar.gz"
+  sha256 "ace0f73c2ef8645ab069ce1b298b10e31e36af7b5996109983b2b67ad60ff3ca"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "56f6f4b8997ae4985426151b5c32859bd2189c80623e135b0d2216ed1d0f4c1e"
-    sha256 cellar: :any,                 arm64_sequoia: "2ac2f97021ad57666a3812662bebad0f1ba80f5a9312695fa5fc368d951d350c"
-    sha256 cellar: :any,                 arm64_sonoma:  "c4c88f789cfdaceff35e23b822d636e44f7ffe5b9fa8459fa706b97d55a87714"
-    sha256 cellar: :any,                 sonoma:        "b7e7dea99fcbce1d1964df10f222d909b48eca11962b02a6e9665dd40e5f7ef1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c78207678a49117465d0ce2e5139bcde141891912d25c2daf0656ae2373df9a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddda19558705aaededbcb67ef62b6eb221c220e63d7786d165418691267298b5"
+    sha256 cellar: :any,                 arm64_tahoe:   "b4e8bd9e2d458c17ce895240352279188cb802ca03d28557f85f1e6045eb81cb"
+    sha256 cellar: :any,                 arm64_sequoia: "0e1f398dcdfdd193e2e85c820f5549918b48e9b8d71e1313c059f0dea8136ae5"
+    sha256 cellar: :any,                 arm64_sonoma:  "dc9ba9117d51c55362f71cb2ca50d7907526f2cb9ce09c56bf9b21313938d953"
+    sha256 cellar: :any,                 sonoma:        "12268da95535d62e016d9e358206b19af1d20c74e51c7fa3eb6a1e0b13e6c176"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8b710c5a3c78a41f8fcdccf57849459572733c58746aea2161be90737c178c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85066022ede61620945cc9777e6983209c16053ff1e9f307a75234ddcea295ed"
   end
 
   head do
@@ -26,6 +31,10 @@ class Libsidplayfp < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libgcrypt"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?

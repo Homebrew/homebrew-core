@@ -6,8 +6,6 @@ class Libuecc < Formula
   license "BSD-2-Clause"
   head "https://git.universe-factory.net/fastd/libuecc.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "d27a92b37c542bc9880f60bdf8dce4dec889c93b469e8cfc855d963ade17f9f8"
     sha256 cellar: :any,                 arm64_sequoia:  "a94e6f279789d442ddfce719d48af0c5a430e4d255f9c8dd16b7cb691062988f"

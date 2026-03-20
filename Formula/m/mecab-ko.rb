@@ -10,8 +10,6 @@ class MecabKo < Formula
     skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "2b3b6779398b30383fba5b14388221f8291a5fe46401f1219b728934ba4d0a1c"

@@ -8,7 +8,7 @@ class Sysdig < Formula
     { any_of: ["GPL-2.0-only", "MIT"] },                  # `falcosecurity-libs`, driver/
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # `falcosecurity-libs`, userspace/libscap/compat/
   ]
-  revision 1
+  revision 3
   head "https://github.com/draios/sysdig.git", branch: "dev"
 
   livecheck do
@@ -17,12 +17,12 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "0d2f02b82f704ff4d13dc4122d8185d022abf43a0529ab2e2e5ead9da4dac1b9"
-    sha256                               arm64_sequoia: "d2dcba7389df884dd6bd576e85ce6c92532c4587164a952a82cbd1dca62dc1e4"
-    sha256                               arm64_sonoma:  "166d4684387fd3b9ac7e6bc0b056958ff3ad3883943cc0fcb6ba73d2db47339a"
-    sha256                               sonoma:        "0976e9be70d49e09679f372d99c388194ec0505fd579cd1beae491325b686be1"
-    sha256                               arm64_linux:   "3170c0b4897d93e0b9e01220c97a34b7ba4e51df962cd9094e901641cb471e0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39a1f4f559c1bb6490b007fb8ce7c935d58f730d2e834ce446357caa9151193c"
+    sha256                               arm64_tahoe:   "0df639333fcb8267f4b3aabc636628b81a86b3f6a7cfd6a212dff1431c96c01e"
+    sha256                               arm64_sequoia: "f99c3a2bad7e30fd826eed8334fdd6dd99bc6dd2216484130d06478902554668"
+    sha256                               arm64_sonoma:  "64b07554879b8518142aa760be752743e0cf6281d923d34e58a27734db17aa7e"
+    sha256                               sonoma:        "c77d4eec59ed75ac419c498bcfa4073762ecafd94b05ea53bb281a59c94b3530"
+    sha256                               arm64_linux:   "c63e9595260f137127823df077646dd767eedea322d614545d04a0d69d0d15d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40f2bbe5313b0d1729873662d54224cee2637437d0b12bb8db458b8f4ee33a21"
   end
 
   # FIXME: switch to brewed `falcosecurity-libs`
@@ -39,8 +39,6 @@ class Sysdig < Formula
   depends_on "uthash" # for `falcosecurity-libs`
   depends_on "yaml-cpp"
 
-  uses_from_macos "zlib" # for `falcosecurity-libs`
-
   # for `falcosecurity-libs`
   on_linux do
     depends_on "abseil"
@@ -48,6 +46,7 @@ class Sysdig < Formula
     depends_on "elfutils"
     depends_on "grpc"
     depends_on "protobuf"
+    depends_on "zlib-ng-compat" # for `falcosecurity-libs`
   end
 
   link_overwrite "etc/bash_completion.d/sysdig"

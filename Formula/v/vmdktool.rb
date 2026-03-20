@@ -10,8 +10,6 @@ class Vmdktool < Formula
     regex(/href=.*?vmdktool[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9c80ae2a1f31f2ce299e628833d1e506ac03b5a0a27ba6ad7cae14455a62eec1"

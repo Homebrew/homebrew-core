@@ -6,8 +6,6 @@ class GitTrim < Formula
       revision: "1f39d85ddb242e9933fba9faaecd6f423f2b6a5b"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "c1a667c8d8f57a5a98f74f25c31b4a42c3e1a590a828d3bf15fb12610fa6c502"

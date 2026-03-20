@@ -5,8 +5,6 @@ class Guichan < Formula
   sha256 "2f3b265d1b243e30af9d87e918c71da6c67947978dcaa82a93cb838dbf93529b"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "2468a859fd2e4f902e76f3ace98dfc55a117ec1a4ed6fe3a114c63020d5743e5"
     sha256 cellar: :any,                 arm64_sequoia: "a0d1e15669f361e19d404bdbb8b311443da4c4a775fdcb1d8d17a4fe03034e5f"

@@ -68,13 +68,15 @@ class GlibcAT213 < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   revision 1
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    skip "versioned formula is pinned to specific version"
+  end
 
   bottle do
     sha256 x86_64_linux: "fcfd8511ae57b126f377789db1294e74bd48c2be941badd8e33a378dbdef9e16"
   end
 
-  keg_only :versioned_formula
+  keg_only "it can shadow system glibc if linked"
 
   depends_on GawkRequirement => :build
   depends_on "linux-headers@4.4" => :build

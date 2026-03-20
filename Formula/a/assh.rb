@@ -1,18 +1,18 @@
 class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
   homepage "https://v1.manfred.life/assh/"
-  url "https://github.com/moul/assh/archive/refs/tags/v2.17.0.tar.gz"
-  sha256 "7640558e6ce57a2c90b628cedd2f639647e4845538e3aa261870098dfdf95445"
+  url "https://github.com/moul/assh/archive/refs/tags/v2.17.1.tar.gz"
+  sha256 "9571e3424dcfa5d52e32f3f7dd19995e3d1f30c9d80420e77d47681d4a201744"
   license "MIT"
   head "https://github.com/moul/assh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "209c0e4a19e3ef7eb4c919e9890e7f097889ab2d89c5faf48bc683d1f0b009bd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d2f8e4aefe7abd4b59bf0fe304fc77aa62490f4c3c174e85ffe6ef717c5cb67"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fbf069e4fd1b164eaa887bdc7db4017829f597863bdbf100040e98eca3f24ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2c484d49632adb9f2c48718fd318943f10f7dedd7c9604150e0301ab0a94c92c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7246bde1ffd82fa3db3a9e9a3c0c27b0444a1a018422525703714d74ee45c766"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4ef049ad31bd6391ac717ccf6dbc5017a955ea9afb433bd4751948299b83161"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dfda9601a1a38d79acb4283392253abcca6922a651c7f3e37766bded440af19e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84b25532eba743cebccebf5819911f2808e468b81117385537bdff21f095080d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a812ac12e89c0d6ebf286a698dbd12203b42387697b18e1e5ddd504d14cf014f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "498ae24af8078005e9c6094f79be928fda04fa153be40640c37ee89db47deeba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "230436b583369233054a88d78be4e51a5c75509e9c50dfb609a89e8de632433e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1bb3a17a7f35cb82a642adb348100d00a69c220576402ad8bb8d500056bab90"
   end
 
   depends_on "go" => :build

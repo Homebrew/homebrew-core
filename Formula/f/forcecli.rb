@@ -1,19 +1,18 @@
 class Forcecli < Formula
   desc "Command-line interface to Force.com"
   homepage "https://force-cli.herokuapp.com/"
-  url "https://github.com/ForceCLI/force/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "2ffa9920e9577aa0e351d1703db3a450f41fc5d55117450e9a9ed2b983f0c5b9"
+  url "https://github.com/ForceCLI/force/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "d3712632060e1c14af81797bcfea42c9809fcd4a7f161f72655c25c39a2de803"
   license "MIT"
   head "https://github.com/ForceCLI/force.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "28b3a58673b3f10a4b5e37b61bc99e6a399b16f52cc05987fb9d0f54464eb2be"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "28b3a58673b3f10a4b5e37b61bc99e6a399b16f52cc05987fb9d0f54464eb2be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "28b3a58673b3f10a4b5e37b61bc99e6a399b16f52cc05987fb9d0f54464eb2be"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8432d60ed55ea04c2033465d6ade0afcf46b1dda52ded35887f174534e5151e3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "da4d6199c324e01c0056559a04d05d614bcf7cb412b2333710593ea478208869"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c122039e363edde2106af7b833df0d2f12f18ae42c6e9b75e05b214eb8df73ed"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1ce6c8ef8f40ae717271d264f48ee67973f48cc596141e2abbb97d568c2b9c59"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ce6c8ef8f40ae717271d264f48ee67973f48cc596141e2abbb97d568c2b9c59"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ce6c8ef8f40ae717271d264f48ee67973f48cc596141e2abbb97d568c2b9c59"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f17ffba1cba92ae22b568a356a428563bfcfc56da60294507e24c5732759aeda"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98f8b8b50162c999b8808614ad1080b272b227dd8e9a0e2cc71e7f7ab6b02b50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73eab8c3106b385a6cdab9ad81c988f4b0a77e0ef7f81f65df94aec148bcea02"
   end
 
   depends_on "go" => :build

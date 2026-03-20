@@ -8,12 +8,13 @@ class Qcli < Formula
   head "https://github.com/bavc/qctools.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:  "cf444e12eb4d646d9b80a325aec6df56361d9dd39ce2e80d90906f0916117dde"
-    sha256 cellar: :any,                 arm64_sonoma: "fb63a2f6ab9e1bb330fc899b52228665b941e42a9201958f9d0594df19a384ad"
-    sha256 cellar: :any,                 sonoma:       "dbac2e76a60e184f4fec01ff89c988bc5e6c6908ca3f675569749a6ba77d4ae5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "7d480d344f4e4241e95030eef80d7d38440d9079f68d3c35f6707b8dd4a29372"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "bb6419243bf6240de5d24047020a8ef6eebef3f43c8adc5c00fbecbf19f3bf2c"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "e05bc0c79aae6f0fe1a9d888e36e9d046550df0885eb4f16a0f3e9d39b6db1fc"
+    sha256 cellar: :any,                 arm64_sequoia: "589146936f71fffb6c0ef28b9f7a5e49041f2b6aa66a31029974ebf601876a2d"
+    sha256 cellar: :any,                 arm64_sonoma:  "1d9eb1a313c8d47a08709838a13d3d376ee484e65bb5835982d857ec232aca86"
+    sha256 cellar: :any,                 sonoma:        "51ec32892dfaf29f0ba4870f9fb1871f7f9053d6226002b79d76bdc9d0276097"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "266ba78a5f9da200e9ce2a3f1d857f6267e3cecbca8c5dc34b72a26b89128484"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "470749fbaafaa552f2398c6937d878609142c5c701ba1b3fa37bde12f98b8432"
   end
 
   depends_on "pkgconf" => :build
@@ -22,7 +23,9 @@ class Qcli < Formula
   depends_on "ffmpeg@6" # Issue ref: https://github.com/bavc/qctools/issues/552
   depends_on "qtbase"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["USE_BREW"] = "true"

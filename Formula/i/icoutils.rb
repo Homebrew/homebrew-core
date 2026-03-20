@@ -10,8 +10,6 @@ class Icoutils < Formula
     regex(/href=.*?icoutils[._-](\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_tahoe:    "5f28e12b6168d398c1b6a45fdd31fbe562734bf4e0bb9b92473326fe3652db3c"

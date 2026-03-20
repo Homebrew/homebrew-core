@@ -6,8 +6,6 @@ class Slacknimate < Formula
   license "MPL-2.0"
   head "https://github.com/mroth/slacknimate.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2d16153371e5e8375e39cdfb1733d6cfaf21490305b53c1792484f91ce5b1f20"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d9ac5eee6054981abdbaf4e761840dbc63ec20dfdf7c5e36abbc2f7537fd9804"

@@ -6,16 +6,16 @@ class GimmeAwsCreds < Formula
   url "https://files.pythonhosted.org/packages/63/73/9e508d37d4d301f6a3811fdc0b0a076696de87f82ad8a81ec28c3e6befb5/gimme_aws_creds-2.8.2.tar.gz"
   sha256 "12784f4b749617d7391bf2056373990277858dc9886328832b545e9e334f24d3"
   license "Apache-2.0"
-  revision 7
+  revision 8
   head "https://github.com/Nike-Inc/gimme-aws-creds.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "62555a563b379757033077605ecd2719e0a1cb26f3a066dd39b9cde85133edb1"
-    sha256 cellar: :any,                 arm64_sequoia: "b5dfed573cb8a62b5ecf8c50e0c4454c3d75521b0973163d17f74d3849e488cc"
-    sha256 cellar: :any,                 arm64_sonoma:  "24e8ad5e1378c813e8f65ebbbb91bd3e4751360e9c4cd74582d2a9ffd0eb266e"
-    sha256 cellar: :any,                 sonoma:        "5fedd866d8c812815e0313c1b693381416665de99eab826bd5fcec2d3092dae9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "575a9ad47a2af2acbd4d84be30f1f11fde44302ebf19a9aa6a4b8d5c6d84ec30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d64002ce757fd568af9ba7e0f48e91cb20b8d03be71becc4af2bb0b0af51078"
+    sha256 cellar: :any,                 arm64_tahoe:   "10350c910f93a6ed6b21ce0cae058c1c41af5f065555eb38066f9977d6df3e1e"
+    sha256 cellar: :any,                 arm64_sequoia: "c71a27c23c6f8faa940df0a5ea9ba3632a57c318183d591b9276191342efc520"
+    sha256 cellar: :any,                 arm64_sonoma:  "76cee21da4b0c344c4cd014d2549803fb17b518a7eac328c654e887c2501ebb6"
+    sha256 cellar: :any,                 sonoma:        "69dfc5bcf47fb7d1c3c14b1375b4d70bd393516f51234d4610d03db958b3d108"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "602a6cf1b182f893dbbe216f29b6ba50927552512563d25479a45001951a1714"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9882d87ea742eb39a10888fdf704b07b9a545024e5b6235266d0fc4fe5c7c21"
   end
 
   depends_on "certifi"
@@ -27,6 +27,11 @@ class GimmeAwsCreds < Formula
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
+  end
+
+  fails_with :clang do
+    build 1699
+    cause "pyobjc-core uses `-fdisable-block-signature-string`"
   end
 
   # Extra package resources are set here for platform-specific dependencies
@@ -75,18 +80,18 @@ class GimmeAwsCreds < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/68/73/2a8065918dcc9f07046f7e87e17f54a62914a8b7f1f9e506799ec533d2e9/boto3-1.42.32.tar.gz"
-    sha256 "0ba535985f139cf38455efd91f3801fe72e5cce6ded2df5aadfd63177d509675"
+    url "https://files.pythonhosted.org/packages/06/ae/60c642aa5413e560b671da825329f510b29a77274ed0f580bde77562294d/boto3-1.42.68.tar.gz"
+    sha256 "3f349f967ab38c23425626d130962bcb363e75f042734fe856ea8c5a00eef03c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/21/5e/84404e094be8e2145c7f6bb8b3709193bc4488c385edffc6cc6890b5c88b/botocore-1.42.32.tar.gz"
-    sha256 "4c0a9fe23e060c019e327cd5e4ea1976a1343faba74e5301ebfc9549cc584ccb"
+    url "https://files.pythonhosted.org/packages/3f/22/87502d5fbbfa8189406a617b30b1e2a3dc0ab2669f7268e91b385c1c1c7a/botocore-1.42.68.tar.gz"
+    sha256 "3951c69e12ac871dda245f48dac5c7dd88ea1bfdd74a8879ec356cf2874b806a"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/1d/35/02daf95b9cd686320bb622eb148792655c9412dbb9b67abb5694e5910a24/charset_normalizer-3.4.5.tar.gz"
+    sha256 "95adae7b6c42a6c5b5b559b1a99149f090a57128155daeea91732c8d970d8644"
   end
 
   resource "ctap-keyring-device" do
@@ -100,8 +105,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "flatdict" do
-    url "https://files.pythonhosted.org/packages/3e/0d/424de6e5612f1399ff69bf86500d6a62ff0a4843979701ae97f120c7f1fe/flatdict-4.0.1.tar.gz"
-    sha256 "cd32f08fd31ed21eb09ebc76f06b6bd12046a24f77beb1fd0281917e47f26742"
+    url "https://files.pythonhosted.org/packages/1f/ba/e0461697020839f60741e493fc42b20a4cd3f91594ed3228f65ae9a50aee/flatdict-4.1.0.tar.gz"
+    sha256 "63bcd906a0859d91d0aace44b327178706c7fcf85a88c7ccf0825628376ad66b"
   end
 
   resource "frozenlist" do
@@ -124,6 +129,13 @@ class GimmeAwsCreds < Formula
       url "https://github.com/html5lib/html5lib-python/commit/b90dafff1bf342d34d539098013d0b9f318c7641.patch?full_index=1"
       sha256 "779f8bab52308792b7ac2f01c3cd61335587640f98812c88cb074dce9fe8162d"
     end
+
+    # Remove pkg_resources for setuptools 81+ compatibility
+    # https://github.com/html5lib/html5lib-python/pull/592
+    patch do
+      url "https://github.com/html5lib/html5lib-python/commit/1dbc19cd6db72cb919885827bc4883423e0cb647.patch?full_index=1"
+      sha256 "5951b823f353dd70806ad6e163ab8f46899496c1e8bb53970c99abe8d1df1a78"
+    end
   end
 
   resource "idna" do
@@ -137,8 +149,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "jaraco-context" do
-    url "https://files.pythonhosted.org/packages/cb/9c/a788f5bb29c61e456b8ee52ce76dbdd32fd72cd73dd67bc95f42c7a8d13c/jaraco_context-6.1.0.tar.gz"
-    sha256 "129a341b0a85a7db7879e22acd66902fda67882db771754574338898b2d5d86f"
+    url "https://files.pythonhosted.org/packages/27/7b/c3081ff1af947915503121c649f26a778e1a2101fd525f74aef997d75b7e/jaraco_context-6.1.1.tar.gz"
+    sha256 "bc046b2dc94f1e5532bd02402684414575cc11f565d929b6563125deb0a6e581"
   end
 
   resource "jaraco-functools" do
@@ -152,8 +164,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
-    sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
+    url "https://files.pythonhosted.org/packages/d3/59/322338183ecda247fb5d1763a6cbe46eff7222eaeebafd9fa65d4bf5cb11/jmespath-1.1.0.tar.gz"
+    sha256 "472c87d80f36026ae83c6ddd0f1d05d4e510134ed462851fd5f754c8c3cbb88d"
   end
 
   resource "jwcrypto" do
@@ -172,8 +184,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/80/1e/5492c365f222f907de1039b91f922b93fa4f764c713ee858d235495d8f50/multidict-6.7.0.tar.gz"
-    sha256 "c6e99d9a65ca282e578dfea819cfa9c0a62b2499d8677392e09feaf305e9e6f5"
+    url "https://files.pythonhosted.org/packages/1a/c2/c2d94cbe6ac1753f3fc980da97b3d930efe1da3af3c9f5125354436c073d/multidict-6.7.1.tar.gz"
+    sha256 "ec6652a1bee61c53a3e5776b6049172c53b6aaba34f18c9ad04f82712bac623d"
   end
 
   resource "okta" do
@@ -202,8 +214,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "pyjwt" do
-    url "https://files.pythonhosted.org/packages/e7/46/bd74733ff231675599650d3e47f361794b22ef3e3770998dda30d3b63726/pyjwt-2.10.1.tar.gz"
-    sha256 "3cc5772eb20009233caf06e9d8a0577824723b44e6648ee0a2aedb6cf9381953"
+    url "https://files.pythonhosted.org/packages/c2/27/a3b6e5bf6ff856d2509292e95c8f57f0df7017cf5394921fc4e4ef40308a/pyjwt-2.12.1.tar.gz"
+    sha256 "c74a7a2adf861c04d002db713dd85f84beb242228e671280bf709d765b03672b"
   end
 
   resource "pyobjc-core" do
@@ -277,21 +289,19 @@ class GimmeAwsCreds < Formula
   end
 
   resource "xmltodict" do
-    url "https://files.pythonhosted.org/packages/6a/aa/917ceeed4dbb80d2f04dbd0c784b7ee7bba8ae5a54837ef0e5e062cd3cfb/xmltodict-1.0.2.tar.gz"
-    sha256 "54306780b7c2175a3967cad1db92f218207e5bc1aba697d887807c0fb68b7649"
+    url "https://files.pythonhosted.org/packages/19/70/80f3b7c10d2630aa66414bf23d210386700aa390547278c789afa994fd7e/xmltodict-1.0.4.tar.gz"
+    sha256 "6d94c9f834dd9e44514162799d344d815a3a4faec913717a9ecbfa5be1bb8e61"
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/57/63/0c6ebca57330cd313f6102b16dd57ffaf3ec4c83403dcb45dbd15c6f3ea1/yarl-1.22.0.tar.gz"
-    sha256 "bebf8557577d4401ba8bd9ff33906f1376c877aa78d1fe216ad01b4d6745af71"
+    url "https://files.pythonhosted.org/packages/23/6e/beb1beec874a72f23815c1434518bfc4ed2175065173fb138c3705f658d4/yarl-1.23.0.tar.gz"
+    sha256 "53b1ea6ca88ebd4420379c330aea57e258408dd0df9af0992e5de2078dc9f5d5"
   end
 
   def install
     if OS.mac?
       # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
       ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}"
-      # pyobjc-core uses "-fdisable-block-signature-string" introduced in clang 17
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1699
       without = %w[jeepney secretstorage]
     else
       without = resources.filter_map { |r| r.name if r.name.start_with?("pyobjc") }

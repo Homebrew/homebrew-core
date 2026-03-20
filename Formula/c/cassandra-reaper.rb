@@ -5,6 +5,11 @@ class CassandraReaper < Formula
   sha256 "67f9a55388eb2b8563df549bb766a0153c1e5dddcd850de710b3eaf07d4e81c2"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "c852b97d0a9ef1d93f60b2b1f389f4ec56e65d9383628bac84417d437706fabf"
   end

@@ -4,7 +4,7 @@ class Visp < Formula
   url "https://visp-doc.inria.fr/download/releases/visp-3.7.0.tar.gz"
   sha256 "997f247f3702c83f0a8a6dc2f72ff98cfe3a5dcbd82f7c9f01d37ccd3b8ea97a"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -12,12 +12,12 @@ class Visp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3fec437aae90a97f0522c5e4e7e1e9b870fb8ee16e5b381893af75dd8dfbf7d4"
-    sha256 cellar: :any,                 arm64_sequoia: "d6f628826fe0c579c5ee89f318a96e24f0c10e1a253164a116c262989e745d0b"
-    sha256 cellar: :any,                 arm64_sonoma:  "25634f93bb991904b24ca4af48b212f5b802f74a026accae0db0df720c72aca7"
-    sha256 cellar: :any,                 sonoma:        "ab3cb84ab7e73621b01bce370d20ac1cf748dc500ae400d872f2ffba270707c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "49537cb6c0be7530ebceb68d29ddd7c58709af155a8c6e94fc83fe0d0cf74346"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d06a60a9b2493d2034967bb6d833d208447b5593fb192156a940d4c0a0323cc"
+    sha256 cellar: :any,                 arm64_tahoe:   "e87d360a93bc731123468c94b5477f5ba0b7671d0c8e82287e5485961d75f748"
+    sha256 cellar: :any,                 arm64_sequoia: "5a29dea40e14a542420fdcfba233e619a21560e64400be603f396c02f05511f4"
+    sha256 cellar: :any,                 arm64_sonoma:  "608a5316fa9a2665061a2abfbe9250217713e3d76d607af512cb62e023885693"
+    sha256 cellar: :any,                 sonoma:        "a81d6d090c775ff46b13ff5f20907245f7e7bf9040d36a7cc7014817bf4213ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3f4da4c18762977aee9a6229ce25c8548aae804e458ea5035343cc3853b647a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6917b75a0f3820248a9fedde0ccc1be313ed093ece978de18824e5ed8fb8adaa"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -36,7 +36,6 @@ class Visp < Formula
   depends_on "zbar"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "boost"
@@ -50,6 +49,7 @@ class Visp < Formula
 
   on_linux do
     depends_on "libnsl"
+    depends_on "zlib-ng-compat"
   end
 
   def install

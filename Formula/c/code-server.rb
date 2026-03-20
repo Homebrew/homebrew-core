@@ -1,17 +1,17 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.108.2.tgz"
-  sha256 "b188d4da150211b510116619daa8c21c4bfe0a21b5aa41910b8acab60304d4f4"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.112.0.tgz"
+  sha256 "adca4415d5553e9a70ef755f36f6de944aa2d9180540ff42d899eb9ebe28d8c8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a3f0ddd6eb6c7fc6e35ef4b30a7a317f500a19b7e56d704cde86286111b6e7ea"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "476a01757451165df7af02da5b6fb9fdd913e3756fcbadb1bb8ad50a44031b20"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91f8fb98c626f25e30e71f58f984d43693d266c1ac34310f1f9deea064d22651"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e0c6dbb00567b9dc10ff44fb43a243111470b63b6eced2ce13b6b4c8c0581fcb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c32cfedb24e730cc73a279e8089bfd9b5bed49285b7ddb313ac631732eb9a25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed63830bdd367a40a2d077d820c073078b4839383371ae749bad43487f718e21"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9beab2b9faf342dbaa5285e28769f15cbca0fc7a49974eee7d55db4473e7b5de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c5925f52f54f5c9bf28e282bb9e2c44346e0847944eb537a668b94ad50bba68"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cfe6869fc47d058252388cb1aab5d13ae038bbeeb2ff414564a36a0fed0c2c48"
+    sha256 cellar: :any_skip_relocation, sonoma:        "15ccec1a1431856575a4a0e896005bd7b3e51d3deb47be0a501b9a8ed2c068e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef1cecaa8687d64eb3e46272f9c267a6d0d4d540f844b1b21ac8f8e87d7b1bf6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "037207fb5db01520481db8969a8d2c2f5ab989ae0a2b5108e96ed0847ffe6fc0"
   end
 
   depends_on "pkgconf" => :build
@@ -36,6 +36,15 @@ class CodeServer < Formula
 
     # Remove pre-built binaries which are unused as a source-built binary is available
     rm_r(libexec/"node_modules/argon2/prebuilds")
+
+    # Remove non-native binaries
+    arch = Hardware::CPU.intel? ? "arm64" : "x64"
+    anthropic_node_modules = libexec/"lib/node_modules/@anthropic-ai/node_modules"
+    vscode_node_modules = libexec/"lib/vscode/node_modules"
+    rm_r(vscode_node_modules.glob("@anthropic-ai/sandbox-runtime/dist/vendor/seccomp/#{arch}"))
+    rm_r(vscode_node_modules.glob("@anthropic-ai/sandbox-runtime/vendor/seccomp/#{arch}"))
+    rm_r(anthropic_node_modules.glob("@parcel/watcher-{darwin,linux}*"))
+    rm_r(vscode_node_modules.glob("@parcel/watcher-{darwin,linux}*"))
 
     # Remove pre-built binaries where source in not available to allow compilation
     # https://www.npmjs.com/package/@azure/msal-node-runtime

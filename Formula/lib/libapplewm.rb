@@ -5,8 +5,6 @@ class Libapplewm < Formula
   sha256 "5e5c85bcd81152b7bd33083135bfe2287636e707bba25f43ea09e1422c121d65"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "4b8eba3bb855a350470232642c48f34eb601408e1b7a4650bed5934bf0e6c6bc"
     sha256 cellar: :any, arm64_sequoia:  "9aed87eee9abadbc7e94ee746f6b54588d3eacd9fb455b2d94a96c4b7a19425e"

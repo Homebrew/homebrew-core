@@ -1,19 +1,18 @@
 class Nanobot < Formula
   desc "Build MCP Agents"
   homepage "https://www.nanobot.ai/"
-  url "https://github.com/nanobot-ai/nanobot/archive/refs/tags/v0.0.55.tar.gz"
-  sha256 "f7750dfcd943573c4ae30046879b4a3290b3bdba510e941c4490ea2e82c8282d"
+  url "https://github.com/nanobot-ai/nanobot/archive/refs/tags/v0.0.60.tar.gz"
+  sha256 "18ffbc725be7da04ab91c6f3996bd0d71a23b4a57138f7ac76115f2f5207904d"
   license "Apache-2.0"
   head "https://github.com/nanobot-ai/nanobot.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "118208e66eb6ccc15f329c88c2410905fce7506fad2742a250ad16012e47c510"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "118208e66eb6ccc15f329c88c2410905fce7506fad2742a250ad16012e47c510"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "118208e66eb6ccc15f329c88c2410905fce7506fad2742a250ad16012e47c510"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7085546c6fe7e6b267602fa9038492aff1eadafca2b78bff596a165abe836396"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9734f34587327bfacdc8ba530d8bdc867718dd332bf4ecdc5c4e24a5a7c25550"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e62f93b17098424621df08d984cb4eab5e4a7ab07c48bf16c35923e8ac6da4c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2fb76e4e3f90976f5fa2b38c95291829fc34aa05014169b344a7d80429a48af1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d3c719b65446c2e585b34ee2dc276270b0f7b07a30494effb66e13619b8ba424"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6f7bde6ccc04f24614fbf4b92321213aaed7fed2260858e6fa5d47c28b4e720e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b0555608676ece1a6ddde2dcfd9e5b691c5d585578d36b5494f4e60dd127f284"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c936b54832683feae278608ccb72f3cd2d97b4f622aec7ba00117280bd471d9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e1f2215d51370cf6ad844399b1a35d35ecb64f6ebbb37faf7396783237bf729"
   end
 
   depends_on "go" => :build

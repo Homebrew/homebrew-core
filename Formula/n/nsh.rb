@@ -6,8 +6,6 @@ class Nsh < Formula
   license any_of: ["CC0-1.0", "MIT"]
   head "https://github.com/nuta/nsh.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8de98d7c1f703f719f7cab7cd55a8f633543319cb60c8fd05bd6bdc95bf83ac7"

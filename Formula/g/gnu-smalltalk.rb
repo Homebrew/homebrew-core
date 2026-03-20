@@ -17,8 +17,6 @@ class GnuSmalltalk < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 arm64_tahoe:   "0b4242a4f666b10130804e15b8ac1cb06db8ca8c2dce4b3ff22809b27e3bed03"

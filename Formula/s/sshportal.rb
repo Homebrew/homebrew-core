@@ -5,8 +5,6 @@ class Sshportal < Formula
   sha256 "713be8542c93d91811f9643a8a2954ebc15130099e300fedb5ea4785b5337b52"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "abcd2ec2450e2535d5cb8536a5098fc61acdcc34b75c02ce84be5ea958689bfb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e41e72b749adc2be38fd48aa7bc7414b1e06cefe22e2ee83cd1e62108403d583"

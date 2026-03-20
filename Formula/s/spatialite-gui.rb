@@ -4,22 +4,20 @@ class SpatialiteGui < Formula
   url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/spatialite_gui-2.1.0-beta1.tar.gz"
   sha256 "ba48d96df18cebc3ff23f69797207ae1582cce62f4596b69bae300ca3c23db33"
   license "GPL-3.0-or-later"
-  revision 14
+  revision 15
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/"
     regex(/href=.*?spatialite[._-]gui[._-]v?(\d+(?:\.\d+)+(?:[._-]\w+\d*)?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "782748b1e6ece36b5560a2ffa6836b0da857043b4efcf082b584cd511cdd3a50"
-    sha256 cellar: :any,                 arm64_sequoia: "b92666f875dcc542493852bea5f97b7f648d464b1e90d8600981f357d015635d"
-    sha256 cellar: :any,                 arm64_sonoma:  "806b6c27347cdc00a4cff996cedbdb5a32ce7ee0b240ec16e52794bf02a9dbb5"
-    sha256 cellar: :any,                 sonoma:        "3e2f7422622873db4de5ce22db8b401687d818b6b290fb1bfdebc1d2e16f0887"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e83802a531c27070cbc1efc71269720d4959e996902f69de9cc89d236c69a33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4806bbbd650761eeaced5a47e7648e452585ad5a361fb0f7023e5df17177bff"
+    sha256 cellar: :any,                 arm64_tahoe:   "0575abdec10abefd35c1f3a62fe8037f2dfbd0da69a1da730803d5c2ece3f14c"
+    sha256 cellar: :any,                 arm64_sequoia: "e77cf85404843dc7d2ea822f7a6713f3b8a4a987d245ef2b5e770a1cd8a7d396"
+    sha256 cellar: :any,                 arm64_sonoma:  "2255cfbb7a945b8b853d7f2a7c9a7ae35f95a46d1bb3dced7a170a885b198efa"
+    sha256 cellar: :any,                 sonoma:        "828feb23aba3c8bffebd7dfc0773f7e9fa02452b99d00abe200e63371c7e5bb4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "90c82be8576e934ad0bef353308cd730e5b485ec0c94aa73b92bf8db132e57ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "258ba73a7c8997fb824839620cb3a60ad045f911713bdc6eb1f482e0b69c7828"
   end
 
   depends_on "pkgconf" => :build
@@ -44,7 +42,10 @@ class SpatialiteGui < Formula
   depends_on "zstd"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Link flags for sqlite don't seem to get passed to make, which

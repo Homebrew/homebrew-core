@@ -6,8 +6,6 @@ class OpenTyrian < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/opentyrian/opentyrian.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "f6dd404f14a99279b9ea9d9dcc7343e56e2094a329a4424340c361dcb523ca30"
     sha256 arm64_sequoia:  "7a860fc29e71e5a0fc1b97ca782c57d39eadde156b0d557880e840ac1a588e5f"

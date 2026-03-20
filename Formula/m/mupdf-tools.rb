@@ -1,8 +1,8 @@
 class MupdfTools < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.27.1-source.tar.gz"
-  sha256 "5a1fce7373048a3e8985d6616ee37caaa1885ab90c1b0b3956bdb53d6ecd22af"
+  url "https://mupdf.com/downloads/archive/mupdf-1.27.2-source.tar.gz"
+  sha256 "553867b135303dc4c25ab67c5f234d8e900a0e36e66e8484d99adc05fe1e8737"
   license "AGPL-3.0-or-later"
   head "git://git.ghostscript.com/mupdf.git", branch: "master"
 
@@ -11,12 +11,12 @@ class MupdfTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1bd2bbb92c79e573343c19d68e7f08eb23bbe29bc8cb8b7d7cdc0fd98ede68ab"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f86cfb8bce28a1b80cb7e0f38df94536820817b3b31203eef47cd169065dd17e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c748c2358e9dc6679421b8bf9588da3cacca3e218731e56ae35cb64ed762b19"
-    sha256 cellar: :any_skip_relocation, sonoma:        "22a594e304227c50b9e9b13e5a0928d021b663747eafbcc9e6f8f766ebcbbd11"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "549f0fe4ba119d4a6f9db5b5462527ffd3534f543e229eb77452bdc52d303731"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a738ce48e87b932ac5b35d81d6a90edb35592cc60901375697e14dc301516c56"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "97ad945f8b2bdf50c58442500597e7ab2ba18241af475df0773663072a7dcba3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a139a93bbc5f35c9aae74b9995061a17cfeba1f63d86a1446d4e946344a6a59d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "288f35d6e41c08fef341a1a48a59d087a6154cedefed9ec820600502696f51b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "937be5eac62e8ecfd52d4748f7fb08c9a17cd0516cd59e3a6f3a8b851b0086cf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f387c3ce63781f1db96a2d839748c8e7611b10a0232c95690d9de1bb81d2f2ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb2e08cc4dbc91859d92cf84be6f8b871dab663ef5e5f3076966a5d1694bd0ae"
   end
 
   conflicts_with "mupdf", because: "mupdf and mupdf-tools install the same binaries"

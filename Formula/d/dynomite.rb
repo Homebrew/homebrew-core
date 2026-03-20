@@ -10,8 +10,6 @@ class Dynomite < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_tahoe:    "ec342954369e6726e60c027f71e8e1fb3e6fcc8fba63255ba73149a02fa50043"
     sha256                               arm64_sequoia:  "e1eb2ecffe6ef0e08d0cc80b5f5ca44a337e2c4d79dde61be3ad2002d2e31fd3"

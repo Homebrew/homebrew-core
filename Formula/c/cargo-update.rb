@@ -1,19 +1,18 @@
 class CargoUpdate < Formula
   desc "Cargo subcommand for checking and applying updates to installed executables"
   homepage "https://github.com/nabijaczleweli/cargo-update"
-  url "https://github.com/nabijaczleweli/cargo-update/archive/refs/tags/v18.0.0.tar.gz"
-  sha256 "cfa56d6c5fb2d7d1536efb4765031731fe70bf1a8246757a7a9d6a4a046e640f"
+  url "https://github.com/nabijaczleweli/cargo-update/archive/refs/tags/v18.1.1.tar.gz"
+  sha256 "764cb9b6657fc0eca39479cd0c25c247e18c62e3bb278edec4dfcf2eda626c7c"
   license "MIT"
   head "https://github.com/nabijaczleweli/cargo-update.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "789aabcffbe092ce47d9ec1f2f1da1f2d5bde575df3500ac1753da3fccba174b"
-    sha256 cellar: :any,                 arm64_sequoia: "4095a439b598d9c0576a920c8152e604965816bfee96d6d0a9ce899b64bea724"
-    sha256 cellar: :any,                 arm64_sonoma:  "0e47ffa9b7457d3522b8581166eb1624d50e8048a7950aacad8d5fbe117fff45"
-    sha256 cellar: :any,                 sonoma:        "5225e1e62f91b7ee2d496f0892789aee7ff69934c75de0047ead6c330fa64b07"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4bdf5129e7fce8bb7674fcc1328dc9308c8e1a97b0b0764261e95b497e3622c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26f7420561d07c9bfae1019447e8a1cc713c4a094d3e37e43c75d009153c99df"
+    sha256 cellar: :any,                 arm64_tahoe:   "5569dfa80bbe593fe7d57ec8606318172b7ff37069763b790be9f8185e62d126"
+    sha256 cellar: :any,                 arm64_sequoia: "8c87cd2c91339697c3f3bc7bebacc3a35734ce392079abcfcdde4974b5fc4c22"
+    sha256 cellar: :any,                 arm64_sonoma:  "390978799d026193d544e3bc3414228402f92c0b17919f0a5a6bc04841c77432"
+    sha256 cellar: :any,                 sonoma:        "0d055d98a8329702942537f5fd0b9a0682e00f3b775b753f20bded9f24303f63"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7226bf6277cd6bb74da2cb0bf3051314e89e223bdebe1b8e38d3a34a50ac4a70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7caf715ab9ce6a3bf47e55aeca020b658aa5c29ecea0d2b32b9851d194d8c36"
   end
 
   depends_on "pkgconf" => :build

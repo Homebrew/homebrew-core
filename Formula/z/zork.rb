@@ -6,8 +6,6 @@ class Zork < Formula
   license :public_domain
   head "https://github.com/devshane/zork.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "fdce85049ae42b1a9be9102f46045e7940a47b15e9a5994f08b954721f0ac242"
     sha256 arm64_sequoia:  "05e76a8e62d4bb0e55d7aa39d39b01082ac9f6dac9305feaccd466deb3e9b54c"

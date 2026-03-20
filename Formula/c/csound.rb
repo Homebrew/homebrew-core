@@ -36,8 +36,6 @@ class Csound < Formula
     strategy :github_releases
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "ab2e032068bcb6eb84a7d800801f07f692e71098c85f07c210f1099a5eb9a2c5"

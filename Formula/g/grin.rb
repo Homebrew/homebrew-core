@@ -1,20 +1,17 @@
 class Grin < Formula
   desc "Minimal implementation of the Mimblewimble protocol"
   homepage "https://grin.mw/"
-  url "https://github.com/mimblewimble/grin/archive/refs/tags/v5.3.3_rebuild.tar.gz"
-  version "5.3.3_rebuild"
-  sha256 "c3bd99e02e078c81cd4c5f1bfe8d666c09fa6697b7bc14c5611e94c404b032d8"
+  url "https://github.com/mimblewimble/grin/archive/refs/tags/v5.4.0.tar.gz"
+  sha256 "0e1f78b59cbb05d6e010bab8b7e7ac79cf796771dd9888083c23f99b5080fbc3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "336c371ec1eb63c7adba0085bc83a842cf0ce2364b671b4916f3fd66ef26d293"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "00c9a59db44f28be5b8881f1fdeaaee14c4a9bbb88f64af340432063937d5144"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "016c32b7f78ce489e3b614ebca55c8423d128596eb69d179c5a548c77e8eabdb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7f1070ecae9f77da9eeddd752741253aeb35ff8ce9873adff32c0ea5ccc38373"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0e5a87e330211cc6c7fafe708a14d046deabeef84807b29412a891bdf92c2497"
-    sha256 cellar: :any_skip_relocation, ventura:       "81bcf9a008bd16e053b27118f8583812ca9c757f26ff86d92b674f06cf990405"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a8528cf02c89cf10683aae05c0e03bf2f1da30151f9027230dba1466ccccb1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f2a3640f0e5637c5f6f2896a87413f30a844775cdaf13753058b4a5da24d990"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bc0fb83906434b132709f5adcce9e698b31d952325905dcf57134ee9c40f8fea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b51faf9437847071fb9207d07769ed617ed02d032427fcc3c3ff96e12f4341f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "747691be9c4f67f22aee54dc64df3db8061e464c871c9d332d1f98b94b1cf631"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1e6abc496d862c084be4f22cb337758b284c30934620d261ae80d9693e0ce5de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9635e568f9f3e645241d35780e7b56a748545336b67cf15d8704b22c7f78ad3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c0583afa9eea22461074fe4847182493c3afec7f3558703fc33497ba2fb9dad"
   end
 
   depends_on "rust" => :build

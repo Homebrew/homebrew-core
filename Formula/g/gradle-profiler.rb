@@ -2,8 +2,8 @@ class GradleProfiler < Formula
   desc "Profiling and benchmarking tool for Gradle builds"
   homepage "https://github.com/gradle/gradle-profiler/"
   # TODO: Check if we can use `openjdk` 25+ when bumping the version.
-  url "https://search.maven.org/remotecontent?filepath=org/gradle/profiler/gradle-profiler/0.23.0/gradle-profiler-0.23.0.zip"
-  sha256 "7e4df8a4c50418ba9c6fba91fe692e2c689f5489d95cf38066b52657606cac1e"
+  url "https://search.maven.org/remotecontent?filepath=org/gradle/profiler/gradle-profiler/0.24.0/gradle-profiler-0.24.0.zip"
+  sha256 "74f39882a444d6d5616d35b3e9197f7423cd252f63f339bd3e01f662573b319c"
   license "Apache-2.0"
 
   livecheck do
@@ -12,7 +12,7 @@ class GradleProfiler < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8bb701c1f478e75aa2bee8539723ab90a388648cff8883fdca5af25fbbea0cc7"
+    sha256 cellar: :any_skip_relocation, all: "9eccb3ad86ebd582a98c770f366937ccee0193382d0adf0be7d06188beff9a44"
   end
 
   depends_on "openjdk@21"

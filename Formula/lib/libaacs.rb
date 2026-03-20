@@ -11,8 +11,6 @@ class Libaacs < Formula
     regex(/href=.*?libaacs[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "bb76e9a99df6cbd2ddafd00b7d2bfec36f1d2340573402d912e25f2602d2a9af"
     sha256 cellar: :any,                 arm64_sequoia:  "ff23fb9dd6dd26f6dde8ac12c298be21546d2e3696fe7b064af1647b3788156d"

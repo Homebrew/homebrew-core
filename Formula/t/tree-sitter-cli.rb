@@ -1,8 +1,8 @@
 class TreeSitterCli < Formula
   desc "Parser generator tool"
   homepage "https://tree-sitter.github.io"
-  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.26.5.tar.gz"
-  sha256 "8e012493b2103e0471d3aba8048b73bc1a3138132974e2fd8bfb89a63e62f478"
+  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.26.7.tar.gz"
+  sha256 "4343107ad1097a35e106092b79e5dd87027142c6fba5e4486b1d1d44d5499f84"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
@@ -11,12 +11,12 @@ class TreeSitterCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf2ae5557c043a1f777ec6840364f296d9a3a15b479913cd948d5acf7086147e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb10adfaf8d9e9cbaceb8677c20e91470cbc4f3d9099d43b93bd658c6c826e89"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b80f8685f6d2985311938b27167d011ad8bc1fc144b40d3ba9f52f4e35dc82df"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c98b70361b5b9113590e4557d92844536ebbdca0d85c1d98c4d776a66bfe5022"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc0ec59d1646f2dcb74567fea959829a52b5d0733539178b74dcec0cf765df4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62349563eb8f3e8b31e41511167c7321cb3e583b03f6e50fe1b32cd9be44be7e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "624bb6d7a207dabe007ed2a969472996ca13b3abeecb1f0c4ac0c26df4069b0d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2cc3e06528c6677461d28a3c9b6066592cca698762c292d8eb87775e84649ba2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2d732527598e565e482628c0ca51000325c9bc510259edfd9cfd5470063ec1e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6b370e144960aff313056418f983ed8d1323e4792dab1a3d164417f1593adcaf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f0e4b1842b051f7ce18ca9deb23d657c45042d28d187c7eeba6dd4d69e7f1e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d0a74ad1d5ec86a25b068228b9f1e22777e3bf8e2bc1adea0f27cbee14321b3"
   end
 
   depends_on "rust" => :build

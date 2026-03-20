@@ -1,17 +1,17 @@
 class AwsCHttp < Formula
   desc "C99 implementation of the HTTP/1.1 and HTTP/2 specifications"
   homepage "https://github.com/awslabs/aws-c-http"
-  url "https://github.com/awslabs/aws-c-http/archive/refs/tags/v0.10.10.tar.gz"
-  sha256 "4590538bb42a2b1f66fbae9f2ff867fb13e404e5565cdfa7d0a8af5a8258f8f6"
+  url "https://github.com/awslabs/aws-c-http/archive/refs/tags/v0.10.11.tar.gz"
+  sha256 "b375e9630aa93830f54b544298745fd30a6cb3d09e5ff8473c7455a1599bf2b7"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ace90cfcd0130c365db116f24d30d8eb4397dcb5e176899e313a821b2f252416"
-    sha256 cellar: :any,                 arm64_sequoia: "55761cc3c5d06ef60b34ac286559378e02f5921df36709293df15420549319f1"
-    sha256 cellar: :any,                 arm64_sonoma:  "c9632cec638ec40651411d6b93e018c447f438db569805fbe9f31c84286b39c2"
-    sha256 cellar: :any,                 sonoma:        "b651e3fe29af79bc36610cd0a9eb00369ffe6d056f4810eefcfed0dbcc6ee996"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d95270c3c8fd69252049b7708ea04340ba6a79cee84cdc8a88fe06eb059594c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38a6265e9e4bf45c96836fbb5512497dca9d32d29d1fe588b11d734da8b75534"
+    sha256 cellar: :any,                 arm64_tahoe:   "64e5971a0754d25c08c7287032249bf1582adcb989f5a637622aef6d23fbadc2"
+    sha256 cellar: :any,                 arm64_sequoia: "aab751a4f979acb2f7f4eb7f789720552053a991991c78a3953155281a6ba10b"
+    sha256 cellar: :any,                 arm64_sonoma:  "0222e090f2a51c2a5b995789eea7be2f96c8cb4c7c827fead59ff18177c73d1b"
+    sha256 cellar: :any,                 sonoma:        "db53c184d699037f93dc89346753d81069a4a4a8edbf81d71d52815e2cc05061"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf76693e9647fb211b043ed62fe5bd5cf55b82f64421b4542aa0680b69b49959"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11b559382e8ea301712450bbfb70a17d932a3658763305aa20726673ecbcca04"
   end
 
   depends_on "cmake" => :build

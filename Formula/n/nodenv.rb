@@ -6,8 +6,6 @@ class Nodenv < Formula
   license "MIT"
   head "https://github.com/nodenv/nodenv.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "a01dda203871fb80f56351ebb37f528f1f65de52f681a57e98d38d5fa6911792"
   end

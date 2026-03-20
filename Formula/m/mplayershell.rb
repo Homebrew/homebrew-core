@@ -6,8 +6,6 @@ class Mplayershell < Formula
   license "MIT"
   head "https://github.com/lisamelton/MPlayerShell.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "60d548374e75eccb8dfb8ebb31df066dbb482f8bbd0ec5bf273c62392d323de6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b95550c4987ef7c396da3dccfdd64e309be1d1945fec7f520215c674615174c8"

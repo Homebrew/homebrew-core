@@ -5,8 +5,6 @@ class Jsmn < Formula
   sha256 "5f0913a10657fe7ec8d5794ccf00a01000e3e1f2f1e1f143c34a0f7b47edcb38"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "14d421cf40a85a3edc9d909bf6ea5be806deee891e3f08b086292f1c1a9eee57"

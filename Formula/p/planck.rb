@@ -16,8 +16,6 @@ class Planck < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "98d3b85da67804836fdaa7db623e74ef82ab3e72ccbf8c421fa7fe7d9f16528d"
     sha256 cellar: :any,                 arm64_sequoia: "0342856b9f0638676afb22a4ba1117b942a777a17e077b808803077b7f490f7e"
@@ -26,6 +24,9 @@ class Planck < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:   "4d317813fd2924a36aa989fcbd2ac729277ad0b7b0302bdfa07f4cd7c52b14bc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "52ba1633a236729c1ef9108e169c8bbf1bc4ca262a5cd05f67f7a2dc4f70ae37"
   end
+
+  deprecate! date: "2026-02-21", because: :does_not_build
+  disable! date: "2027-02-21", because: :does_not_build
 
   depends_on "clojure" => :build
   depends_on "cmake" => :build

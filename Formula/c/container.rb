@@ -1,13 +1,13 @@
 class Container < Formula
   desc "Create and run Linux containers using lightweight virtual machines"
   homepage "https://apple.github.io/container/documentation/"
-  url "https://github.com/apple/container/archive/refs/tags/0.9.0.tar.gz"
-  sha256 "2199d9f7241d7363a7cd3687e4fc3dd571c0b6a52c971266b9f2fe24fdb66eda"
+  url "https://github.com/apple/container/archive/refs/tags/0.10.0.tar.gz"
+  sha256 "faecfbdf9c80747bbe3a20ca4994809540d6f8aa9c459b7fdcebf8f247647ce8"
   license "Apache-2.0"
   head "https://github.com/apple/container.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe: "4206649cd81aac28ad7118eaf9a8a446cac05cd91a45ddd21ff57382ffaf1823"
+    sha256 arm64_tahoe: "1c25ce376e5947eb870cc7fc4e580a0f1fe6d09e5a8dbeb6ced163583694eafd"
   end
 
   depends_on xcode: ["26.0", :build]
@@ -86,7 +86,7 @@ class Container < Formula
     # Cannot fully test, as it needs to write outside testpath
     assert_match version.to_s, shell_output("#{bin}/container --version")
 
-    output = "Error: interrupted: \"internalError: \"failed to list containers\""
-    assert_match output, shell_output("#{bin}/container list 2>&1", 1)
+    assert_match(/Error: (?:interrupted: ")?internalError: "failed to list containers"/,
+                 shell_output("#{bin}/container list 2>&1", 1))
   end
 end

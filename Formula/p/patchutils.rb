@@ -1,17 +1,17 @@
 class Patchutils < Formula
   desc "Small collection of programs that operate on patch files"
   homepage "https://cyberelk.net/tim/software/patchutils/"
-  url "https://github.com/twaugh/patchutils/releases/download/0.4.4/patchutils-0.4.4.tar.xz"
-  sha256 "2008241ee5d4f87ada3f743c719cc010b0ba929126e255f23c3fb48f614c7e32"
+  url "https://github.com/twaugh/patchutils/releases/download/0.4.5/patchutils-0.4.5.tar.xz"
+  sha256 "8386a35a4d2d3cbc28fdcc93c5be007c382c78e3ee079070139f0d822e013325"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a163bdf8c82bc4bc946e94976d8179a3b57ca8164ca778898e927cb443f3167f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "383672e0d4f49bce8347bb81a2f474d6d3c3bc130d9e375b48173c00f03a7215"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "248da7e0bdf127e9634329ff87a9033780fadbd47fbec5dafd253fdea3546e5e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6025e477cef67fccdb10eaaf15b09158d1638f6c9713e35e09a3f011a9068b82"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bd43fdb846224f2e3b453172da0befa23bcd1c4ed78c09529242dacc15dbca7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c1f74bf22d1e002dd4c471d98442be15151c0b71320cfd887c9a75ac7ac735f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f73c0a54e3ea11391794dac98bbe16d0d0a476205940e2b7545065c7efe2f2c9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9447a395cc82a522c7d7235db4a3bebb1643ce14630f4365754cfa8c9ddbc7fb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "74d12639f80f9eb681b781871e64342b8ee1b7b8d39edddb7c4351a97040550e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3b137f453b90ca585d0041a05422cf0eb30899304d0eb27aae6c297148a38a40"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e8ab3deffa04e3b0a40cb52338ab71c5434e0e5697ef45c2fdcfb5f12bf6d54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e53f763da7310b7c7a1c223e3ff7118fbb67d0fd7c45e90e058d8ae56d90898f"
   end
 
   head do

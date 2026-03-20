@@ -1,9 +1,10 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://simdutf.github.io/simdutf/"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v8.0.0.tar.gz"
-  sha256 "a21c34c52d91a229591e4ebc8822a876604cf2fffeac9ec065bfda7cbfb9d680"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v8.2.0.tar.gz"
+  sha256 "033a91b1d7d1cb818c1eff49e61faaa1b64a3a530d59ef9efef0195e56bda8b1"
   license any_of: ["Apache-2.0", "MIT"]
+  compatibility_version 2
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Simdutf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "59500b21743758c045a90e8a329ee2da10f252380780dc17e8e0ec9d55d00234"
-    sha256 cellar: :any,                 arm64_sequoia: "2d43bb23e7154e345015e7197b5fdc79a196d3ce3642cef631fb1f53dee94f84"
-    sha256 cellar: :any,                 arm64_sonoma:  "5128dbaffa8ffdb1721655a951697381da10b3199b1acbb19cc18526af0b4175"
-    sha256 cellar: :any,                 sonoma:        "927affb7b2cedfa230dfa19b2d7fa03961b0b2dc672ded12f82e03348df63423"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4ffb74e6fa33a85b0b954552feee9f0b3220de6df9259884e193f8db1b4949e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba31e56086959853739982e74a18823808f8ea5b9d43dd246ff7e3c63a9f0880"
+    sha256 cellar: :any,                 arm64_tahoe:   "56791948a39b8168ee3c09b3edb14c10a74128cb31c5ae657bd06ef3e0bd70e8"
+    sha256 cellar: :any,                 arm64_sequoia: "fbae7033d15b80e26b701addb3087ef625dfe97aaa53fd95f5410888b7adb9ca"
+    sha256 cellar: :any,                 arm64_sonoma:  "4414605c28450d470c5f7bba822169e1ee5c2146e23fc1a86cc98a4421db1497"
+    sha256 cellar: :any,                 sonoma:        "93437b4c4704da0b62a8c03d2f002838113c96f785425c13f599d42eb7e81674"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2aebe9359204e366fd840260797ca093f1271a316785f6e58b5bb743df3f1ae7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "651366aac48dce77419e10aa59b1aee36b79fc866c08a73946e85cb5c398f17d"
   end
 
   depends_on "aklomp-base64" => :build

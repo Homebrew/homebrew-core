@@ -1,18 +1,17 @@
 class Votca < Formula
   desc "Versatile Object-oriented Toolkit for Coarse-graining Applications"
   homepage "https://www.votca.org/"
-  url "https://github.com/votca/votca/archive/refs/tags/v2025.1.tar.gz"
-  sha256 "85b487d2b2a31f26869be422c98f816b95c88a4ab112ea4650cccd4c2706bdbf"
+  url "https://github.com/votca/votca/archive/refs/tags/v2026.tar.gz"
+  sha256 "bf5827e93aecdfd040131ef8427f49efac4ea87d30882c2eb83fea16a054fbc8"
   license "Apache-2.0"
-  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8ea2eec9085cfb8e8f8c964828081125904a2c2307ae570859446d8e371a0cd1"
-    sha256 cellar: :any,                 arm64_sequoia: "27c12a0e8e59974e9767d725ea90d55d3581d59361c2122396accee241bc58ec"
-    sha256 cellar: :any,                 arm64_sonoma:  "db7b0c744bb4e9f31b29060bd1329b7da560b5e05e2d49fbc4975840634031ac"
-    sha256 cellar: :any,                 sonoma:        "87c727bb540e8db157ecd161bd32b8d5770a12c9d847ef196021ebe14c921d3f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "95f1fd91d2adac48f6d14ad03b818de5b73a76b5b7b0e63738c6575b5519a7a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db9c23d28cb952eb02b554b5d59ceb3c8a0c3abdd6ca536d8293684ee48f1f5e"
+    sha256 cellar: :any,                 arm64_tahoe:   "48327d11d3107d70c65c5e1bd1dd2e1e5209d6179e8c0df0f623ec22e29ad1a1"
+    sha256 cellar: :any,                 arm64_sequoia: "2675954a5c9193d1cc46283914b8312ca4173edd4e34773cc14c3dd75ec9e2ad"
+    sha256 cellar: :any,                 arm64_sonoma:  "7de2373e697dc6c25eb3c04c8c6b877a4172a423ecc67f3106abaa44cda216bf"
+    sha256 cellar: :any,                 sonoma:        "53575de7b3f4627b382f0201874d3da6edc2f295a9151124c8b7553aa87ced39"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7d9729f829ec9735fceffe634453a2eb822ff5e12f5638a76595fa30b71da07"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "298b74dbe679bfbe6fcd723cff91d57588e1812abf73665b5b8379b0d3e0473c"
   end
 
   depends_on "cmake" => :build
@@ -33,13 +32,6 @@ class Votca < Formula
     depends_on "libomp"
   end
 
-  # Apply open PR to support eigen 5.0.0
-  # PR ref: https://github.com/votca/votca/pull/1189
-  patch do
-    url "https://github.com/votca/votca/commit/cc581d91196c3505c649e35ba69bcc8ec33fa14b.patch?full_index=1"
-    sha256 "08da2d4fd694eb1b3909fe4ef452b042a0b0733ca5d8b68e0e655b09842cb069"
-  end
-
   def install
     args = [
       "-DINSTALL_RC_FILES=OFF",
@@ -48,18 +40,24 @@ class Votca < Formula
       "-DENABLE_RPATH_INJECT=ON",
       "-DPYrdkit_FOUND=OFF",
     ]
+
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
-    system bin/"csg_property", "--help"
-    (testpath/"table.in").write <<~EOS
-      0 0 i
-      1 1 i
-    EOS
-    system bin/"csg_resample", "--in", "table.in", "--out", "table.out", "--grid", "0:0.1:1", "--type", "linear"
-    assert_path_exists "#{testpath}/table.out"
+    (testpath/"topol.xml").write <<~XML
+      <topology>
+        <molecules>
+          <molecule name="MOL" nmols="1" nbeads="1">
+            <bead name="B" type="B" mass="1.0" q="0.0" resid="1"/>
+          </molecule>
+        </molecules>
+      </topology>
+    XML
+
+    output = shell_output("#{bin}/csg_dump --top topol.xml")
+    assert_match "I have 1 beads in 1 molecules", output
   end
 end

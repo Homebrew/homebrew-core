@@ -4,17 +4,15 @@ class Onnx < Formula
   url "https://github.com/onnx/onnx/archive/refs/tags/v1.20.1.tar.gz"
   sha256 "9bcd6473c689b1ac3aeba8df572891756e01c1a151ae788df5cbc7a4499e5db5"
   license "Apache-2.0"
-  revision 2
-
-  no_autobump! because: :requires_manual_review
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bbf1df574852d99a3f963757bb9a40cb323efc459a63b071fba3412bc2541135"
-    sha256 cellar: :any,                 arm64_sequoia: "95d12d398aec1782ca39311a292f734bfb019972e3b201b8f5e72f2b8c6c80ca"
-    sha256 cellar: :any,                 arm64_sonoma:  "9d8cd9e111b67a6a9a787190efc5b08141516b06c1ca27d6b629c33a0abf6667"
-    sha256 cellar: :any,                 sonoma:        "67a9dbc10663c920dfaaab5dca20aa6a154f6ecc4f109283b0b7fcddcd29ee06"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc8ce399f13a465255d52932e60efdc2166bfb65fe1409f639c6cb2ff47ec1b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3c26bae98f2aa1e494f51af11ab7378d8db403c249727a0e99f76011cf357e8"
+    sha256 cellar: :any,                 arm64_tahoe:   "f22d77e26cb864c3990c516952526a30fa2b8a5492054ec8384f10cd28459540"
+    sha256 cellar: :any,                 arm64_sequoia: "01951a01a4af1ce69ad047373712b72767c2c33b847819104ee52f88b014143e"
+    sha256 cellar: :any,                 arm64_sonoma:  "a70ccf2167ecf579e3fd5c5a6ccc0222d44bfd1856cc3643daa2be3defb2571a"
+    sha256 cellar: :any,                 sonoma:        "e05df17cd26ecc9f591a0df00c385b698a52ea5c1f1d52cde39774681b22b15b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bf55c1b857347776dc0c2d355e492f27c4fa3fdf430ec1860523799330bcef2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e7a4dfd057c361fb43014b1f85e29bb9da7b5649d96af923a328bc38f7e33f7"
   end
 
   depends_on "cmake" => [:build, :test]

@@ -10,8 +10,6 @@ class GambitScheme < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "67a5f5bde73e525d2c488db0630747dd973391c70dca31856706a9406f63e9d2"
     sha256 arm64_sequoia: "d865948c300dca31a94bb7f6044abdf0c7b6b054c32fce1bbe20490d0956841c"

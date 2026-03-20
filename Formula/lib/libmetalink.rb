@@ -10,8 +10,6 @@ class Libmetalink < Formula
     regex(%r{<div class="version">\s*Latest version is libmetalink[._-]v?(\d+(?:\.\d+)+)\s*</div>}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "60767e9756e2cc9a6fb4c7057711e320d0d1d204913c107c2f866ddc982fea00"
     sha256 cellar: :any,                 arm64_sequoia:  "4ef91819c19bd453ad990a0cea47a38c4b11f527c6a04e91fbca1743bbe09e78"

@@ -1,12 +1,12 @@
 class ChromeDevtoolsMcp < Formula
   desc "Chrome DevTools for coding agents"
   homepage "https://github.com/chromedevtools/chrome-devtools-mcp"
-  url "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-0.17.0.tgz"
-  sha256 "b111eff3aa5c7bf56be2d68db9d44c7a52f3ca0e509383a3427bb09185339334"
+  url "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-0.20.2.tgz"
+  sha256 "9f46207f4c600bb6269c92387bb44068640a64bb37256c968568c0f9cdd6f96f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0412fe7907334b45d65128606f3ee2b522748d93d9dee3e62c083aa86b8d7ff5"
+    sha256 cellar: :any_skip_relocation, all: "ebbbca418d57247efe85a6f7659f2fafa868ddcbe8addca7a83a0594d84423c8"
   end
 
   depends_on "node"

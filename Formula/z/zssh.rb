@@ -10,8 +10,6 @@ class Zssh < Formula
     regex(%r{url=.*?/zssh[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf52245597c50c4d6d826e9be5a239ba19ac959c304ef69d75f9240092453128"

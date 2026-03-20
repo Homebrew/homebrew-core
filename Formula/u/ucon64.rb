@@ -11,8 +11,6 @@ class Ucon64 < Formula
     regex(%r{url=.*?/ucon64[._-]v?(\d+(?:\.\d+)+)-src\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "5f3fb969676e2ae50d11401a3b4da71df0a5e99adc037ba0f04fca6c9def11d7"

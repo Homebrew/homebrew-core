@@ -1,18 +1,21 @@
 class Brpc < Formula
   desc "Better RPC framework"
   homepage "https://brpc.apache.org/"
-  url "https://dlcdn.apache.org/brpc/1.16.0/apache-brpc-1.16.0-src.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=brpc/1.16.0/apache-brpc-1.16.0-src.tar.gz"
+  mirror "https://archive.apache.org/dist/brpc/1.16.0/apache-brpc-1.16.0-src.tar.gz"
   sha256 "4d5e84048e12512c008d24e52c9e0baa876b5f3f9b06f0aead38b55ea248fdc3"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/brpc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "9f749085a9ffc7bdbc37df38a1026a5c633aacd51972da257caa744ef06635b6"
-    sha256 cellar: :any, arm64_sequoia: "a0cf0ef8d126ffea67d0366cfbb0d039987b2a54c0872271e24a6231153fdd65"
-    sha256 cellar: :any, arm64_sonoma:  "e28fc3fbcd68781d861023b747078f09cbb9e4b968f8ef4b389459d2575b28ad"
-    sha256 cellar: :any, sonoma:        "766c971326938d129d6ead09bd4fdacdad6e55c6816a5935b9467d55be843ded"
-    sha256               arm64_linux:   "c9e0a00bc92e3cd7cb8a0a60de88ef65757627646baa4b1a2510e181a2453ce9"
-    sha256               x86_64_linux:  "17a192f07db661c8dde442fe7a87f18bf28f6fb340ab6ea29178c28159f88c4d"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "edf689ceb1b7f6f51524c95670c84475387d516a95b6f4862b332a0dfbf5344f"
+    sha256 cellar: :any, arm64_sequoia: "3a91db6a1c4b66e334a744dd2aa1150baf9e464e3595cdea0db8621695cb4588"
+    sha256 cellar: :any, arm64_sonoma:  "44961ac6282d2640b5c3d05d3e3e098b44cd785073420d9f821d68c83aa734c7"
+    sha256 cellar: :any, sonoma:        "591046cf78fbda05a35c75f084fd3ef2d2fef316bfd0731940e953af06c91a39"
+    sha256               arm64_linux:   "472bf124484071423230ee2f6d1b483164033331cfa40c5a71c3506ef65ad2f2"
+    sha256               x86_64_linux:  "8791f03b3104246637a4742e6a2f16f8d55f7740d1414b96772913e1dda25045"
   end
 
   depends_on "cmake" => :build
@@ -26,17 +29,23 @@ class Brpc < Formula
     depends_on "pkgconf" => :test
   end
 
-  def install
-    inreplace "CMakeLists.txt", "/usr/local/opt/openssl",
-                                Formula["openssl@3"].opt_prefix
+  # Apply open PR to support Protobuf 34
+  # PR ref: https://github.com/apache/brpc/pull/3241
+  patch do
+    url "https://github.com/apache/brpc/commit/09b50d2c144e20e687c53829c89138caa7f1f31c.patch?full_index=1"
+    sha256 "85536080d6ef84b446c7a3277dd0a6b8ac9672366bde8709abb4e592dc5f61b5"
+  end
 
-    args = %w[
+  def install
+    args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_UNIT_TESTS=OFF
       -DDOWNLOAD_GTEST=OFF
       -DWITH_DEBUG_SYMBOLS=OFF
       -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
     ]
+
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -84,7 +93,7 @@ class Brpc < Formula
     # '_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilder7ForVar2Ev'
     flags += shell_output("pkgconf --libs absl_log_internal_check_op").chomp.split if OS.linux?
 
-    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *flags
+    system ENV.cxx, "-std=gnu++17", "test.cpp", "-o", "test", *flags
     assert_equal "200", shell_output("./test")
   end
 end

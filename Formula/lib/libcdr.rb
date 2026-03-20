@@ -12,12 +12,13 @@ class Libcdr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b1a695c949efb8d7f2e380a8d01b224a90911881c0f5435ca4995c96d6d26575"
-    sha256 cellar: :any,                 arm64_sequoia: "e77030c245d7c639a0d4b5c1d0f23ff272c78bb8e46b1b3a53c62d5f7d20e723"
-    sha256 cellar: :any,                 arm64_sonoma:  "7069fcc69d37a632f544475111d491c3daea096a1e4701374c300a5862875bfa"
-    sha256 cellar: :any,                 sonoma:        "07e9e8a535ca16a5f3211825c438b32cf0dd4fcaf96eb7c0151b4ab10e13f5f2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ebc06804a889d1d207d1ffb40358e97e1f36bb9809f1022f9c47ca62b681fbb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c758fcc34e2bbc56a5554e2f0f32ee7bbd1cf8be117f2fe8829f270238b74bd6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e2428718f47c0d05853f80bc0e4578a223468a269320f8e5ca52c87e99afb96a"
+    sha256 cellar: :any,                 arm64_sequoia: "6a858bcf883c4308b08456b366f0b31c337f40d041c0cbddb2bd1994db708758"
+    sha256 cellar: :any,                 arm64_sonoma:  "df8a1571909caa08bad2913505550031b0cb6acc053d41ce5c70579c76cad69d"
+    sha256 cellar: :any,                 sonoma:        "60e655184d0b933bb7c985e87d4b179e371421992d9cd68f3db6ca84c2612306"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3425841969e05fc71350437f2f13388bc9e67fb3c1fb487f10e78cf227c8439c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79639eeb9420eed8e22b2757b6270bc7e5720ed7d8d28aa54a408a9533557b46"
   end
 
   depends_on "boost" => :build
@@ -26,7 +27,9 @@ class Libcdr < Formula
   depends_on "librevenge"
   depends_on "little-cms2"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # icu4c 75+ needs C++17 and icu4c 76+ needs icu-uc

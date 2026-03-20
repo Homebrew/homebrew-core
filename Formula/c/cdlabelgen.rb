@@ -10,8 +10,6 @@ class Cdlabelgen < Formula
     regex(/href=.*?cdlabelgen[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "b59e22a5f1b438e89d6ae6cc662a70c09c9fd3aeee92538cf6a049296a0ca2be"

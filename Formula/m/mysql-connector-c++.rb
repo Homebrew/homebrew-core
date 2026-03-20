@@ -11,20 +11,24 @@ class MysqlConnectorCxx < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "85b33ab13724c520b2e241bf9aa0e56f879a3193c9f6c79d713db38cabd6c739"
-    sha256 cellar: :any,                 arm64_sequoia: "3bf252190f11a80e20ef18227f1e4543d1aee5ddf0eebb04aab0b3f972651b0f"
-    sha256 cellar: :any,                 arm64_sonoma:  "b265e7438cae35b9db981b4b1118393d53d193767d8cbc0a1956e8526d269748"
-    sha256 cellar: :any,                 sonoma:        "9cacb7778940c1334fde91c6fd687b33079124a87ec67c38cce336e82717e5bf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f00730d63bad1ca79b7d25b0ff268555e0c6377bea52eefb1dafc44dd17537f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f7596409d95470a6887c2fb465d79fa04a3b429ae5436ac04129c00f3065dd7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "25a5e5655a23a9b4ca1c8942e51f7d48b526666c14ba27911a7f568692f853a6"
+    sha256 cellar: :any,                 arm64_sequoia: "276ae190eae1888565b428290ab05f882f21b9aaa23ce0ec75d075621b22a639"
+    sha256 cellar: :any,                 arm64_sonoma:  "56c758e115c4b0df9d79ca51f1100f9b1b8dd572ebb4352acb6f470c8e06c6d3"
+    sha256 cellar: :any,                 sonoma:        "e4f93817027db4e59c1a48323f74f41c3d3624fdbf1ceb49b3549ad74531c503"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "95f03df5bf0630b4819866f36a6d1cd811f7a72f465bba1a8a361ccc5e5e7fa0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "414bfc26006113beacde84911a23ebf239871df6df0ca8050c36382cb2b3d46f"
   end
 
   depends_on "cmake" => :build
   depends_on "rapidjson" => :build
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "zlib"
   depends_on "zstd"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"

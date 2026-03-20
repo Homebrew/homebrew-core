@@ -2,7 +2,7 @@ class Bkmr < Formula
   desc "Unified CLI Tool for Bookmark, Snippet, and Knowledge Management"
   homepage "https://github.com/sysid/bkmr"
   url "https://github.com/sysid/bkmr/archive/refs/tags/v6.5.0.tar.gz"
-  sha256 "4ec864f2678ff9eb48e612e9ce18d832b8bed969524d27169211f3484d064e7c"
+  sha256 "c8f8f60f231cb94d7261d4a6f6c9fb06e7900e04c8b8fde0e95716c0dd46fe04"
   license "BSD-3-Clause"
   head "https://github.com/sysid/bkmr.git", branch: "main"
 
@@ -12,12 +12,13 @@ class Bkmr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3019ba82f2e7eeeba3022fc84340a2d6ac8bf4b941fa6662c8a3093f9ff4c893"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82a8f8df23af13a5879b3c89fec219cd7291d6b7fc15f25390007e209d75fc6e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "627eb4a376fd470d09c0cc8c492356862da5b713f034f9dca782a6b17ad3c71d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3a729c19ae6857d6a5e09332ed840596c4f21b82daa3fa2d09aea0a2db87b681"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "99f361d376fef207fb43ce3885dbafa3bf166c0c7a875073a98f4ea8540eba7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5e0d32604a5acb5ef19805b65f670bc49de8b443019164a16cb11c46124c364"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c095ef7e09ee0d4cac424e23d2dead2b96021e74a0477126b55c425b346bc73f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a4a923753218fb1787185a527332bb7ed8558487af23d978681e0df5900a9b1b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68ecea4c58a5a71e9ff80c718f15b03135bf0af3415b10f601cecaea8c009698"
+    sha256 cellar: :any_skip_relocation, sonoma:        "500682ce24d9f4a34eaeb4cb2c1acdc2082de29172447f280f2ac6b722c8f15e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fa6abec6b827a65ac6a67f3efa354d18786c3f234c699c18b2ddafee8d6c353"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f11e2d4055b5308c72da612cc7ae82c0ce124bd10e5058883bad56a9cbec265e"
   end
 
   depends_on "rust" => :build

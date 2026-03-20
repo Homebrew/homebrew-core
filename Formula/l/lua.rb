@@ -1,9 +1,10 @@
 class Lua < Formula
   desc "Powerful, lightweight programming language"
   homepage "https://www.lua.org/"
-  url "https://www.lua.org/ftp/lua-5.4.8.tar.gz"
-  sha256 "4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae"
+  url "https://www.lua.org/ftp/lua-5.5.0.tar.gz"
+  sha256 "57ccc32bbbd005cab75bcc52444052535af691789dba2b9016d5c50640d68b3d"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url "https://www.lua.org/ftp/"
@@ -11,80 +12,61 @@ class Lua < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a4b98687e9e97e4f963a258390d968f775777332c3274dffe1f919f158dd7e2a"
-    sha256 cellar: :any,                 arm64_sequoia: "9279ae3479091e3228c233f390e696ba3e7bbcaba8e9e15311cdc862fe7bbd12"
-    sha256 cellar: :any,                 arm64_sonoma:  "e93d3935a8bc573858690650ac13f1aced0098a523bb7071dc359d556afd9100"
-    sha256 cellar: :any,                 arm64_ventura: "0b3992a9aabd0ccb38e6edcac9188a67343992058e3b72921f81c2eb0c3ffc49"
-    sha256 cellar: :any,                 sonoma:        "c8816a8327ee6a27121fa5a955fcfbac1788474f0d72a8c75876170dc455b497"
-    sha256 cellar: :any,                 ventura:       "e8e982877166d4a0b87e50a3aeae7613b98f0b596da2a292353f1df1a2e1be8a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3ca1da210601500a01485460ff6c6a7ebc2c4c396ac0d376b25295308ccf1e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4edfa03fd344d303def0992a7e02fe5e614c3e9c256e44b84348bb0fe108a13"
-  end
-
-  uses_from_macos "unzip" => :build
-
-  on_linux do
-    depends_on "readline"
+    sha256 cellar: :any,                 arm64_tahoe:   "49abafdff9b515d4efaf88f0924674d9bf904a12994d61ee097b895a6acc995e"
+    sha256 cellar: :any,                 arm64_sequoia: "4edd2e3cca37fbcb60899a874e6c6c8ab109b8fa1799b0cf74b4a13f05ac343d"
+    sha256 cellar: :any,                 arm64_sonoma:  "d4b0fa4b6d251461813ba23f12b119a3d4aa34f7b9f10557d8ed8d70eeebb85a"
+    sha256 cellar: :any,                 sonoma:        "0372a23d7fee9f77f4ec713ad066c9fbb2164571d030e542f196b61fd01ee680"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71736bbe1a40c02aa07b2588e4b71e2604d707af3327b0e6c2cd9dbcaa8b2f6f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2df2766da50231d52b6f0a24ac465843153bb387c696804548726478217684ea"
   end
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
   patch do
-    on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/lua/lua-dylib.patch"
-      sha256 "a39e2ae1066f680e5c8bf1749fe09b0e33a0215c31972b133a73d43b00bf29dc"
-    end
-
-    # Add shared library for linux. Equivalent to the mac patch above.
-    # Inspired from https://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
-    on_linux do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/lua/lua-so.patch"
-      sha256 "522dc63a0c1d87bf127c992dfdf73a9267890fd01a5a17e2bcf06f7eb2782942"
-    end
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/cd752b79c8dc7106cef6c95404308c1b1c400770/Patches/lua/lua-shared.patch"
+    sha256 "7774de7be06126805f189d321bcee595a676858c52d26f6777c79f5c1d789975"
   end
 
   def install
-    if OS.linux?
-      # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
-      # when making a shared object; recompile with -fPIC
-      # See https://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
-      ENV.append_to_cflags "-fPIC"
-    end
+    # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
+    # when making a shared object; recompile with -fPIC
+    # See https://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+    ENV.append_to_cflags "-fPIC" if OS.linux?
 
-    # Substitute formula prefix in `src/Makefile` for install name (dylib ID).
-    # Use our CC/CFLAGS to compile.
-    inreplace "src/Makefile" do |s|
-      s.gsub! "@OPT_LIB@", opt_lib if OS.mac?
-      s.remove_make_var! "CC"
-      s.change_make_var! "MYCFLAGS", ENV.cflags || ""
-      s.change_make_var! "MYLDFLAGS", ENV.ldflags || ""
-    end
+    # Substitute formula prefix in `src/Makefile` for install name (dylib ID) from our patch
+    inreplace "src/Makefile", "@OPT_LIB@", opt_lib if OS.mac?
 
     # Fix path in the config header
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
-    os = if OS.mac?
-      "macosx"
-    else
-      "linux-readline"
-    end
+    args = %W[
+      CC=#{ENV.cc}
+      INSTALL_INC=#{include}/lua
+      INSTALL_MAN=#{man1}
+      INSTALL_TOP=#{prefix}
+      MYCFLAGS=#{ENV.cflags}
+      MYLDFLAGS=#{ENV.ldflags}
+      PLAT=#{OS.mac? ? "macosx" : "linux"}
+    ]
 
-    system "make", os, "INSTALL_TOP=#{prefix}"
-    system "make", "install", "INSTALL_TOP=#{prefix}"
+    system "make", *args
+    system "make", "install", *args
+    lib.install Dir[shared_library("src/liblua", "*")]
 
     # We ship our own pkg-config file as Lua no longer provide them upstream.
     libs = %w[-llua -lm]
     libs << "-ldl" if OS.linux?
     (lib/"pkgconfig/lua.pc").write <<~EOS
-      V= #{version.major_minor}
-      R= #{version}
-      prefix=#{HOMEBREW_PREFIX}
-      INSTALL_BIN= ${prefix}/bin
-      INSTALL_INC= ${prefix}/include/lua
-      INSTALL_LIB= ${prefix}/lib
-      INSTALL_MAN= ${prefix}/share/man/man1
-      INSTALL_LMOD= ${prefix}/share/lua/${V}
-      INSTALL_CMOD= ${prefix}/lib/lua/${V}
+      V=#{version.major_minor}
+      R=#{version}
+
+      prefix=#{versioned_formula? ? opt_prefix : HOMEBREW_PREFIX}
+      INSTALL_BIN=${prefix}/bin
+      INSTALL_INC=${prefix}/include/lua
+      INSTALL_LIB=${prefix}/lib
+      INSTALL_MAN=${prefix}/share/man/man1
+      INSTALL_LMOD=${prefix}/share/lua/${V}
+      INSTALL_CMOD=${prefix}/lib/lua/${V}
       exec_prefix=${prefix}
       libdir=${exec_prefix}/lib
       includedir=${prefix}/include/lua
@@ -106,8 +88,6 @@ class Lua < Formula
     lib.install_symlink shared_library("liblua", version.major_minor.to_s) => shared_library("liblua#{version.major_minor}")
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua#{version.major_minor}.pc"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-#{version.major_minor}.pc"
-
-    lib.install Dir[shared_library("src/liblua", "*")] if OS.linux?
   end
 
   def caveats

@@ -1,8 +1,8 @@
 class Avfs < Formula
   desc "Virtual file system that facilitates looking inside archives"
   homepage "https://avf.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/avf/avfs/1.2.0/avfs-1.2.0.tar.bz2"
-  sha256 "a25a8ec43c1ee172624e1a4c79ce66a1b930841cdb545b725f1ec64bcabe889c"
+  url "https://downloads.sourceforge.net/project/avf/avfs/1.3.0/avfs-1.3.0.tar.bz2"
+  sha256 "07cd69d4c0c7ed080e80ff040d980286405ad38a443fdc52dc395efef11c44b1"
   license all_of: [
     "GPL-2.0-only",
     "LGPL-2.0-only", # for shared library
@@ -16,9 +16,8 @@ class Avfs < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_linux:  "673d7ce1b1e9df7811bb2d504b62f32e543f8781e1e75f8c16494011671abff2"
-    sha256 x86_64_linux: "595c36f4676d448414a2e25606758c50a5cadf673f5d3fbd49d2e9e5dbaf1077"
+    sha256 arm64_linux:  "d85a19151e210f1c932804b20149eb0cea8684cb4ba51796321e83c78f03f2f1"
+    sha256 x86_64_linux: "688b2dcaa878db660e2ec1a05b98376cd388aeb616bb6391cf4904f7a7625258"
   end
 
   depends_on "pkgconf" => :build

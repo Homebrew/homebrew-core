@@ -1,19 +1,17 @@
 class Ipmiutil < Formula
   desc "IPMI server management utility"
   homepage "https://ipmiutil.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.2.1.tar.gz"
-  sha256 "04811b2e657ff98cd31e44b91a700c9f33c4c9dd93a36c8fc987de1f47c24024"
+  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.2.2.tar.gz"
+  sha256 "37f9bc8e6b18c1155e4d5ea38c87b83908b7acc7a44fbc5e3af493f26ef8b767"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "GPL-2.0-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "685120f65d211d8c551962f2b7ba99bf58b5d2488498fb25ab70919b60135936"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b18ce2d2673c32032f3448fee24b12041f9295d308ae2cd8012673e5d493140e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d8932e2a1bb40be9409d1e6af6d317b358639854bb8bede8968cae75ddc47ab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3352de5466ef543f219504b8ea5cb36ae4b86394230792b3e58a608fb44a5b09"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c0a5db5e377eefc09019ff44dc4acead6bc7d39a5fbc905c69d2ec09f67b34a7"
-    sha256 cellar: :any_skip_relocation, ventura:       "81ce2a5170ab9e89315a1120048f357ae8b7658fce50b53caab7856b30615e11"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e4cdaa053ef9087f6876ec170bee57b33179a2f3878f16fd2ea2ad9d7218492"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8cb1651c4cb5ff74bbf0de01df94c49af156e8dd92df446a6cc105bf50be73c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "24816a224f9fa258ad7c86b36f9ee07f2d327c0410d5e251158b763d94f5914c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "597555cd2a88d5c85e4da54dc3159c690e018ce69a28363a5a0dfe2c3825bf1a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08735aa99f746d1f6718fcfe2e74db2840fb3d49cda8f7ff08f19bed2442dbdb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "673431272778abfd4ee2d782ab4be47bb47744c820419a6216f73b962f5f9263"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2dfc5417038aac6b08f426630e297eef8e3247e0c3e501fa2dc133fdc6a3a2a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b026ef33532c2472981201448f1c65523dce6db4fc6fdc6bbbd5fdfbccba8e3"
   end
 
   on_macos do

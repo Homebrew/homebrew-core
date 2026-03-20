@@ -1,8 +1,8 @@
 class Open62541 < Formula
   desc "Open source implementation of OPC UA"
   homepage "https://open62541.org/"
-  url "https://github.com/open62541/open62541/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "b7d92fe4b767aac2935ffb7bff9c88d528ce8a05a3767d093748f14388622636"
+  url "https://github.com/open62541/open62541/archive/refs/tags/v1.5.3.tar.gz"
+  sha256 "7fc8536c35c3582d459fd846da64d933473807f7de00de1d43766cee69882ed7"
   license "MPL-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Open62541 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "802291f9ba3a7d016466388b458decd2999a987064d58ede573b5636f8f2c3ea"
-    sha256 cellar: :any,                 arm64_sequoia: "6774f2358c2f7ee80605827cceca64b8a2a8b768fdacbbe3fb5ed1ed42b8adaf"
-    sha256 cellar: :any,                 arm64_sonoma:  "6fc1b0ad44aeab5cdc5820ef123c8a02852e8f38be1ad9af8ef11a7201d3b061"
-    sha256 cellar: :any,                 sonoma:        "c21cf490276b1a5b23d034ae2f8a6ac49c2d7f6e502d45a93bfe90ae09cde57e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed46486841b611d4497c8fc1eff0ef32170430b1cdfaeea389c7f9e95baa1598"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9255b103ca99c7d78743fbd9ee75b583ae21f16aa9cf3a8b055a2731c22a723b"
+    sha256 cellar: :any,                 arm64_tahoe:   "511f45210332216cced828852d7cd3a60ef69a7e27495f27f96a5f572274dbb1"
+    sha256 cellar: :any,                 arm64_sequoia: "f8a94c2282e20ecdf23c62c467b04e54ad6b0a4697d0954797df93a31fdad6a1"
+    sha256 cellar: :any,                 arm64_sonoma:  "f8e27578d29b00cf7af4467cd21b4d54d83b1e4170e0ba453bc06bbc352134b3"
+    sha256 cellar: :any,                 sonoma:        "f508516ac1cc16bda53d610735ec26d270cadd9476aca184bcb0a948dce0eead"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "23ed4a6514c97dee976cb7757ec82f7a9f773c9fd95c05a35ac1b8b955cb1a22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd210c0fcbf2dba0c48383e012844a4648a9cee7721039f93c4b9a34170803c3"
   end
 
   depends_on "cmake" => :build

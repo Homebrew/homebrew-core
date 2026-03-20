@@ -15,8 +15,6 @@ class Cafeobj < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "dce62a3729ca96afc0a108ddd59600066e98b82282fd448f3af759660d112537"

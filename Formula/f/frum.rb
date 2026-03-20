@@ -11,8 +11,6 @@ class Frum < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6d4203a88fd187af4d84738999e3317c6d57ec0cde8cbd16f39704810d937727"

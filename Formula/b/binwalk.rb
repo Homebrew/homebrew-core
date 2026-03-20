@@ -11,8 +11,6 @@ class Binwalk < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "11b3d0c518f81eaba097392205c002a136e25b73a81ec35551b9ca1e3858c700"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "00db81d196265d847f7241a8771bade058a6077c0db8701fa0345496b7ba1f42"

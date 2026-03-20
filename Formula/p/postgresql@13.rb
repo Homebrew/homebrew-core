@@ -6,12 +6,13 @@ class PostgresqlAT13 < Formula
   license "PostgreSQL"
 
   bottle do
-    sha256 arm64_tahoe:   "a164abe87a5feaf5499e942d14c8412f922b5887fa6a98e4d362e51d0d26a348"
-    sha256 arm64_sequoia: "728cf49c02c7764b2fb9e444c627806cae1dcbd155edef25645f03f455f36b32"
-    sha256 arm64_sonoma:  "1e5c8492c74ca97a02f88326e77913fce9a4801ff7c76d9e8569daca0353ea96"
-    sha256 sonoma:        "5d05cd9a57f5754507ed091634ae35aee997d977c32e9d6f78057277fd4c25c2"
-    sha256 arm64_linux:   "2656270dc4f6fb71addd4816ac396e09f6c7b3c66e5f93ec3da46972e1487066"
-    sha256 x86_64_linux:  "ae85182e2bd663d43d2637a9391d924c0d48c0e05742aecad4b2ebd1eac4f9ac"
+    rebuild 1
+    sha256 arm64_tahoe:   "321993150b30d800bcf757467deb84273d2551865198840c1c4ac28b00703c47"
+    sha256 arm64_sequoia: "9577b99ccaa6c84e58bed45d4c3ce5a44cd85b4f3bf95ed4bc1c68e3c78202ee"
+    sha256 arm64_sonoma:  "00b9b7e746b34e2a61db46387b2640281fae67066308c636729ae18cb3df91c5"
+    sha256 sonoma:        "3a434c0f834fcd68e81ac7ba72d12dad144655a48c464e8ee6d8cca9abdb3f71"
+    sha256 arm64_linux:   "715032d58856877e2afe412e74d2ef0a43cb02479309099b40f2b562b01976fb"
+    sha256 x86_64_linux:  "864ac82b3efe33f4cad176124787936b41797b73740f0de2b23835f473cf252a"
   end
 
   keg_only :versioned_formula
@@ -33,11 +34,11 @@ class PostgresqlAT13 < Formula
   uses_from_macos "libxslt"
   uses_from_macos "openldap"
   uses_from_macos "perl"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-pam"
     depends_on "util-linux"
+    depends_on "zlib-ng-compat"
   end
 
   def install

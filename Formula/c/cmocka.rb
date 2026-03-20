@@ -6,8 +6,6 @@ class Cmocka < Formula
   license "Apache-2.0"
   head "https://git.cryptomilk.org/projects/cmocka.git", branch: "master"
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "1526e9b10b209071770801428c41d08bf7f8601f23dce9b93ee03260dd419529"
     sha256 cellar: :any,                 arm64_sequoia: "920260e22db9b96a6bfba2c54b48286b66b654680c37067099478abdce4a472d"

@@ -3,8 +3,8 @@ class Suricata < Formula
 
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata.io"
-  url "https://www.openinfosecfoundation.org/download/suricata-8.0.3.tar.gz"
-  sha256 "3d9a7b803b97c11e060f3349b179beaafd6f96b8c8a95085d9fdc08c822817d9"
+  url "https://www.openinfosecfoundation.org/download/suricata-8.0.4.tar.gz"
+  sha256 "81cee7bae69848a9751b2ce0867620eefa52b192e79c20b5eac897600b28b191"
   license "GPL-2.0-only"
 
   livecheck do
@@ -13,12 +13,12 @@ class Suricata < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "a7270d7f8591f295f5d45e4cfd8ef0a120ee152fead5d77bda7817b0a51c980c"
-    sha256 arm64_sequoia: "d05219eca5939a7eb37f315e21f58112d2fdd3d63ed045099278a640d79b7ea0"
-    sha256 arm64_sonoma:  "40294c5405914c5a4c6d0973ed435a2c66bb1f5436a03ffb2b05393e384a35fc"
-    sha256 sonoma:        "e43ee63ce2a506e1fd6d169433c50feaa4e8ad5c14248e1d6e1c82e121257692"
-    sha256 arm64_linux:   "3cfd748d919b674a512579b2ab70857a8280bdf382364746d53339ad082bae67"
-    sha256 x86_64_linux:  "c6c5e19187809d9d0a83510e863008c0b0399b875b12d24bbc6405f5f3875ca7"
+    sha256 arm64_tahoe:   "9ff08e23cbe3c78ad7c95098d74221b552b4c498dace04964ff8f9129ecc2c7e"
+    sha256 arm64_sequoia: "ec79e69936a64dc39bd1b811e88f1e701b3c68efea72ed8ddc7d49d501e1c2e4"
+    sha256 arm64_sonoma:  "be3f13bf99413f8d5be1eedb38b588c95b2c59fd6153ddb68184a59dd23e66ad"
+    sha256 sonoma:        "6efb5b963da536e725cc2b8410cf7e425d9f2f4ff3866fa14cca5ae99fd976a1"
+    sha256 arm64_linux:   "a112b2142e7a65afec27231ad9361eb0dcd34c73791b015926526b51d06ac0f4"
+    sha256 x86_64_linux:  "1970c40449173305f48e525a1c13f0240870ab453958605b07b1abb1a13847f3"
   end
 
   depends_on "pkgconf" => :build
@@ -32,7 +32,10 @@ class Suricata < Formula
   depends_on "python@3.14"
 
   uses_from_macos "libpcap"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"

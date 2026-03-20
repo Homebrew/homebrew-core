@@ -1,19 +1,17 @@
 class Jhipster < Formula
   desc "Generate, develop and deploy Spring Boot + Angular/React applications"
   homepage "https://www.jhipster.tech/"
-  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-8.11.0.tgz"
-  sha256 "6b78675f33769a5581b716bebbeb8ef651e0be1a93c5010478cf9d7b0c1a0c1e"
+  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-9.0.0.tgz"
+  sha256 "3785dd5302ca1b3ef10dd061d51320220b0b67effa5d8ba340c133d66c2c887f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "545fb346129da0709093da8121604b7b33695cc72da5aea9cfc348dc99010699"
-    sha256 cellar: :any,                 arm64_sequoia: "b542ed1ef9eeb700b746105c2a49eaba3395328332796085f3ea15d7352ae900"
-    sha256 cellar: :any,                 arm64_sonoma:  "b542ed1ef9eeb700b746105c2a49eaba3395328332796085f3ea15d7352ae900"
-    sha256 cellar: :any,                 arm64_ventura: "b542ed1ef9eeb700b746105c2a49eaba3395328332796085f3ea15d7352ae900"
-    sha256 cellar: :any,                 sonoma:        "0398b0c32194ef0283ab8f10c82b6b21b78bd83973eb792f34db42788c91ee51"
-    sha256 cellar: :any,                 ventura:       "0398b0c32194ef0283ab8f10c82b6b21b78bd83973eb792f34db42788c91ee51"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d98b6871e0ae6b7f5b09e464e22f1eafc67ff56805370961800c9a20ebb56a49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1836ddf0f3d7cafecc18aed020773448e2a88c86c6ff2f2d195d0b2fa9800cb6"
+    sha256 cellar: :any,                 arm64_tahoe:   "ad22b413db1ecfc25d480d6dd863620bfaebafa9521dfee771231facf3e9f078"
+    sha256 cellar: :any,                 arm64_sequoia: "dbeaeebbe81a851ba31a2e77f23610f363248814bb753d805cc957e71bc86520"
+    sha256 cellar: :any,                 arm64_sonoma:  "dbeaeebbe81a851ba31a2e77f23610f363248814bb753d805cc957e71bc86520"
+    sha256 cellar: :any,                 sonoma:        "c296567cda4ebc31a69aafe7039b2982e952ec8b4ef43fdf357f964239b383da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d68bd3f1cfcc119ec15b790a978a3c71a11d4125e4236dcde02b693043a4acd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3de941726eedc92628ddea5d8fabc695dc92aea0065129e822edf6d799b9a8ed"
   end
 
   depends_on "node"

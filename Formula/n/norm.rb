@@ -5,8 +5,6 @@ class Norm < Formula
   sha256 "ef6d7bbb7b278584e057acefe3bc764d30122e83fa41d41d8211e39f25b6e3fa"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "a8b6f0061522bcf29d931c09c1b59ccaa2d80ae14567f7c5dd26daab0c4931bf"

@@ -11,6 +11,8 @@ class PythonArgcomplete < Formula
     sha256 cellar: :any_skip_relocation, all: "3cbfebfe5fc664a233aec15fcd7049e5ded3cd8d69b7ba58bce32e084e2a2db7"
   end
 
+  deprecate! date: "2026-02-13", because: "does not meet homebrew/core's requirements for Python library formulae"
+
   depends_on "python@3.14"
 
   def install

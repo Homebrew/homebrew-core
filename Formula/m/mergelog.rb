@@ -5,8 +5,6 @@ class Mergelog < Formula
   sha256 "fd97c5b9ae88fbbf57d3be8d81c479e0df081ed9c4a0ada48b1ab8248a82676d"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5ce8e33c95e90e9caa5bffd174dc681de874f7e20aee45d2c28888586dcd6ee0"

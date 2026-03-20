@@ -10,8 +10,6 @@ class Cubelib < Formula
     regex(/href=.*?cubelib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "af8563eab21f130a1c32ffebcbc1808975d166316d8ec5576a83dc2ebbc437c9"

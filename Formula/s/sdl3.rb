@@ -1,8 +1,8 @@
 class Sdl3 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://libsdl.org/"
-  url "https://github.com/libsdl-org/SDL/releases/download/release-3.4.0/SDL3-3.4.0.tar.gz"
-  sha256 "082cbf5f429e0d80820f68dc2b507a94d4cc1b4e70817b119bbb8ec6a69584b8"
+  url "https://github.com/libsdl-org/SDL/releases/download/release-3.4.2/SDL3-3.4.2.tar.gz"
+  sha256 "ef39a2e3f9a8a78296c40da701967dd1b0d0d6e267e483863ce70f8a03b4050c"
   license "Zlib"
   head "https://github.com/libsdl-org/SDL.git", branch: "main"
 
@@ -13,12 +13,12 @@ class Sdl3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "58b0c63fad4075ac8bba7a5bc8039d371081bf5c02f649aff9a24dbc967524e7"
-    sha256 cellar: :any,                 arm64_sequoia: "2cbb244ae0583b6760c40607d63cb6a53e7cfcdaa533455f7f7d6799458e5270"
-    sha256 cellar: :any,                 arm64_sonoma:  "20c554ccc61b163cd2d87ebc58d726c5c51e31eae8edbb2c0d2b10c670b7353b"
-    sha256 cellar: :any,                 sonoma:        "893eaab9be0aaa51c7f1f8fee114dcbeca7eb7d3f28e3c1734d68371edafb722"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "91beaabeab0284e41bceaffe80fab5974afbe2da92eb24ab09d8c0faf6c07cfd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbc7e8b732582c151217ec48c6bcdfe51d02b2819f3ac6fa1f19ff6432f3247a"
+    sha256 cellar: :any,                 arm64_tahoe:   "b941840dd9cf51e809caace7b82226c9c0733b50bb5e9672cff9d66bcf7aa145"
+    sha256 cellar: :any,                 arm64_sequoia: "72b0114451067003c6ad857b4a462f303f24ef756d2e01d6b6872421635d6a47"
+    sha256 cellar: :any,                 arm64_sonoma:  "bc23a37e5bd9af3fdd6fa958294d9579b5000ab9702a992332c4a2acf40edf38"
+    sha256 cellar: :any,                 sonoma:        "7691c5be02726b18dddd7ce5b4a866248eafeb1cdd8b5627f26d1c1a32cee753"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f21a84f5266c61587b23c5bb238fe5d952419062e0f81f22ac5a42c0b13b31ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7d16d1f21eb263ae96fe3afe6958b96d2e951ad2a288d0e7735561206ecb7f7"
   end
 
   depends_on "cmake" => :build

@@ -11,8 +11,6 @@ class Pazpar2 < Formula
     regex(/href=.*?pazpar2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "4185debb82ea7516fdd544cf8a7f0509cf018fe83adc7c60434fbf7b31710dff"
     sha256 cellar: :any,                 arm64_sequoia: "672d6de49b46f8aedaabb96210d47e490889528e3d75588bbd164ccbcb4eab89"

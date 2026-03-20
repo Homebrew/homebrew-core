@@ -12,16 +12,16 @@ class DoviTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d501377cf2e0ad9c041a5d6f0aeee3ba51a9886c196483017e8e60f47c5703cc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0dd620b246ba3cc023aa718042299700f412bbd8449abdea27f7724a47760610"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ad94c3fa4979b73f7ac30b956f62591f86622841bec055a62b2f4e05ca207ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "498c071bd8902b3c5bb404c1d5115912b88423bd8a1751ebaab7ade3a46a395a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0c051cf1e27759e3ee49b1dd0e50fa726953447c61c2060b60bfb93c88615cff"
-    sha256 cellar: :any_skip_relocation, ventura:       "db1ff82fb34caea4be244020fc3edadca05396465957fd6905778fe86658e16f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "13b7825ac9b6d1058cb4b743d25a77473126ca1d907b1a473908c29ff25166ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "435abf7e0424828fe2aba09c1625ef91e92fd36b1104656233f4334507d4c408"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "4fe6538417109e21ad4f85ac51d122561c7422367924a76b001c757f4da239f3"
+    sha256 cellar: :any,                 arm64_sequoia: "627d237f20823e9808125da935ee82b276525efb00e513a1da9608c384014fdd"
+    sha256 cellar: :any,                 arm64_sonoma:  "33fd11db3b81785613f4ef467e416650efad1b9f2b902466530623bf6bea66b3"
+    sha256 cellar: :any,                 sonoma:        "ba6d602037df67196a73a5d2f9e2839976e3b0587bba61d7769783231957c432"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c791123617f40517602bd82e316ab8eb4045e146dc01291ebdc50dd58f76b88e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb370cab1028ed749676dbde706c1b2bfaf58f5057cef5edaf31e4b2d1b3c5ab"
   end
 
+  depends_on "cargo-c" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
@@ -33,6 +33,13 @@ class DoviTool < Formula
   def install
     system "cargo", "install", *std_cargo_args
     pkgshare.install "assets"
+
+    # Install the C library
+    cd "dolby_vision" do
+      system "cargo", "cinstall", "--jobs", ENV.make_jobs.to_s, "--release", "--locked",
+                      "--prefix", prefix, "--libdir", lib
+    end
+    pkgshare.install "dolby_vision/examples"
   end
 
   test do
@@ -46,5 +53,11 @@ class DoviTool < Formula
     EOS
 
     assert_match "dovi_tool #{version}", shell_output("#{bin}/dovi_tool --version")
+
+    cp_r "#{pkgshare}/examples", testpath
+    inreplace "examples/capi_rpu_file.c", "../../assets", "#{pkgshare}/assets"
+
+    system ENV.cc, "-o", "test", "examples/capi_rpu_file.c", "-I#{include}", "-L#{lib}", "-ldovi"
+    assert_match "Parsed RPU file: ", shell_output("./test")
   end
 end

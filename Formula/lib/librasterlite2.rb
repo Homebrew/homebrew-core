@@ -11,15 +11,14 @@ class Librasterlite2 < Formula
     regex(/href=.*?librasterlite2[._-]v?(\d+(?:\.\d+)+[^.]*?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "18e0856e87350a08712e11c4ddc9e52eb4c2ece8b86a6db548cc83a148fdd186"
-    sha256 cellar: :any,                 arm64_sequoia: "dcf7667dca29bd93d161da5d96fa3aa08f36720c0be22878efea3d6c2a694bf6"
-    sha256 cellar: :any,                 arm64_sonoma:  "0d04e1f9c6b9c23d523bedb24213f98bdcd9a5828b75f28713eb7ac2b55178e0"
-    sha256 cellar: :any,                 sonoma:        "116ff03e7185ddd86a47605e9b26f880bf3afbbc83760066082b0d9097670f3b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b594f20544f78f0788c1b6ee9f7ad74e528b784fa7e9a825c3e9097145f5c9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a799bb515d1bf6ee8165fdf02a0db2ba0999419667b730af7d9f00c949947a7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "aedae0439b69ea9c2e069dd3d4cb868db71deb9e953806354bd57ea476f4698c"
+    sha256 cellar: :any,                 arm64_sequoia: "f02cc5381292362b7128c25c0ece3cbcbba43ef9fd0e61afa994eb22044032f0"
+    sha256 cellar: :any,                 arm64_sonoma:  "3d3f1875ddad0758159259e6608f6f170064ad474ba4912aad480c117fed161e"
+    sha256 cellar: :any,                 sonoma:        "431c45dd52bc4491321fdd17e420cfcab8c70e0854873aee1104f2296177a792"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "778b21f4a0da7c8f5bce15877479198bb03cb37c81b9682af06907773178bce8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aaacb56f12774ee2064e0993afad66d2bce90846b22d834bfd91ecff2b61bd6a"
   end
 
   depends_on "pkgconf" => [:build, :test]
@@ -47,7 +46,10 @@ class Librasterlite2 < Formula
   depends_on "zstd"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do

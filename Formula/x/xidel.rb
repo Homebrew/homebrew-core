@@ -11,8 +11,6 @@ class Xidel < Formula
     regex(/^(?:Xidel[-_])?v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "ab0881d178eb07b3b22246dea5ded4a0c5380084001b85a602aa38cbadd6e8b5"
     sha256 cellar: :any,                 arm64_sequoia:  "22631f3ff23b3aebea5c18af4df873ba77d28b46b62a9ca681dc98890d6a95da"

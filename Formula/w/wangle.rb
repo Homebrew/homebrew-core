@@ -1,39 +1,34 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/archive/refs/tags/v2026.01.12.00.tar.gz"
-  sha256 "49b8e318a44e6bcdce37d79644ffd4efc7084621d08b6822cc357047819634ec"
+  url "https://github.com/facebook/wangle/archive/refs/tags/v2026.03.09.00.tar.gz"
+  sha256 "020679cb67bbec2c2a7da678e5020f140415af0719ac7e159f028902e4eb5d8b"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/facebook/wangle.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8a172ae7dffffdca0d35b7c852325ffca9a3397d23bf7be1904c99a53591d216"
-    sha256 cellar: :any,                 arm64_sequoia: "db95b376628ec0d02351b5b1fe47e350c92e791c4a19ba602a90ce58b615bb84"
-    sha256 cellar: :any,                 arm64_sonoma:  "fcfe0362677fa2be4eb73ba01a063881e45acf1c68e0b963d40c7a17553cf3da"
-    sha256 cellar: :any,                 sonoma:        "e69a0a8b24a6f829469a9b4fc568d67a48b26519a4c529dd42d73000b0b7d213"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e39f25857a354e99e6f487022929142a611706a79919168aa132fb798723a945"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96841635b471a9006bcc9b3f53b330507bd8c9dbe1e67b04490d545dd4bf7ac2"
+    sha256 cellar: :any,                 arm64_tahoe:   "ba9ca36c6ec95ac9b0be748ffdfdf0340f3de4bd14423b9e5028e9941e69233b"
+    sha256 cellar: :any,                 arm64_sequoia: "a182f41a33e71c80fcf90d70187ad448357ac3a6f02304348d4b2e9e284767c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "481ecb3b313205bda7f4a81be0932b5ab1e19ab089a9d5c4290cf1514fe821ab"
+    sha256 cellar: :any,                 sonoma:        "cc32b8a5de8f66be7868626b5fd5b525f4bc99c618c7fe1212b932318b25a0e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06987016381e47d37fcb164b0eb88ccde48b2bf1da01dadf59f8ff89bb4ee9b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcc040adcbf74d3d7531a0bb9ae188988c88ac043e9affb60d8839f72e972492"
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "libevent" => :build
   depends_on "double-conversion"
   depends_on "fizz"
   depends_on "fmt"
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "libevent"
-  depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "zstd"
-  uses_from_macos "bzip2"
 
   def install
     args = ["-DBUILD_TESTS=OFF"]
     # Prevent indirect linkage with boost, libsodium, snappy and xz
-    linker_flags = %w[-dead_strip_dylibs]
-    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,#{linker_flags.join(",")}" if OS.mac?
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
 
     system "cmake", "-S", "wangle", "-B", "build/shared", "-DBUILD_SHARED_LIBS=ON", *args, *std_cmake_args
     system "cmake", "--build", "build/shared"

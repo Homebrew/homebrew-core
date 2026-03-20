@@ -6,8 +6,6 @@ class CrystalIcr < Formula
   license "MIT"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 arm64_tahoe:   "47b87d51941304b32356638c1fc18d7f790abc8f11d78c31cc36e3330cafaf3a"

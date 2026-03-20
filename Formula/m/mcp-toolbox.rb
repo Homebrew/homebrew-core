@@ -1,17 +1,17 @@
 class McpToolbox < Formula
   desc "MCP server for databases"
   homepage "https://github.com/googleapis/genai-toolbox"
-  url "https://github.com/googleapis/genai-toolbox/archive/refs/tags/v0.26.0.tar.gz"
-  sha256 "4a0ff01cedc7ccc8c831907af1b269c56682be7b8477fa2e09957515f73707fe"
+  url "https://github.com/googleapis/genai-toolbox/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "86404bc3ba05c582eef79f5ba55cabd4e752fd50be6c954e0119ccd2ae1c71d3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f5b0771136af48c6e1daa802a7e9a8acb60a0e213d6dd0e6d4fa70c0185f5cef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44b72329c32cdf6b2c277d6cfd79b9251b3c2c506ca0d1bce6f806002c3a7c5a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d17934d7688cbae48cf8e118eff85935646ac0ef3e318ded5b1814cc9a81145"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bde2ae5b8b6065fd1a608464b4bbec5563a4ce66c5e1cf0271d1f959227c0955"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "658f05f1e1f5b23c96bda37ab5d6fc8b14bc07e5d270e37cf416c50d0957c930"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5010a9c748a8e6414265528657735f7bc32459a486b7dcc7ff4131d0b0ba2595"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d85d1e3fb4ad19a9cc5636969ed49ae86679426aa595ba910faef13b4712380c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "082c0e3c31956179fa0df3de98a11846c4633db126832a113279996f76491c7e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ffb3846278847d3715625ce802b75ac2b23c787237c4a14f082a782a6953e966"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2bb752eb570238164d964e03c9ed92e1f6c5f40ab434581c4f540a591025ab76"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "33399b55d01573620c301250d5ce1ab153927da14c2b66d8e044c1e5e9fffb6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6846f33ce9b3554f4243d33763b9cadd76f77f6c9e5071b5148c55d46e99b9d6"
   end
 
   depends_on "go" => :build

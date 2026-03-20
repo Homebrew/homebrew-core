@@ -10,8 +10,6 @@ class Proctools < Formula
     regex(%r{url=.*?/proctools/[^/]+/proctools[._-]v?(\d+(?:\.\d+)+(?:pre\d+)?)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a04c37c6e995cbce8ff70386029b5b3a00c61cbd1e9c7399cbb177670035df8d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f9cc18c0b6d9837cad062ce69de2544bf534d4bcc7380230b81ac126dc2ca4be"

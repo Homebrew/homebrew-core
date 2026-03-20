@@ -6,7 +6,7 @@ class Skktools < Formula
   license "GPL-2.0-or-later"
   revision 2
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "20ab94e9dabb1954777337c8abb6d98e39fc9da6963e7ec852cf96b65bae7f5a"

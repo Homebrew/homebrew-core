@@ -7,8 +7,6 @@ class Pickle < Formula
   license "BSD-3-Clause"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "2d08a3524b6b3addc133a13e292110ebac7ef414b426b8158022afae6eb2a132"
   end

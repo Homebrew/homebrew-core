@@ -1,18 +1,18 @@
 class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-connectors/native/2.0.13/source/tomcat-native-2.0.13-src.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/2.0.13/source/tomcat-native-2.0.13-src.tar.gz"
-  sha256 "4f002c493c5020279acaa761a989964ba56954793a5c0718bc70969c8bb11dd5"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-connectors/native/2.0.14/source/tomcat-native-2.0.14-src.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/2.0.14/source/tomcat-native-2.0.14-src.tar.gz"
+  sha256 "51ca50295c8005e6bb4a32a0cdc7ee5bc224406ae402075b031f5b3073bf2bdb"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9e94fa4a46572efb06b80bde5ab94b15ac2742d49442206f79ced7c01bed7c78"
-    sha256 cellar: :any,                 arm64_sequoia: "1886a9e84f22c1795a1f1c7eaa4047a2927413b304696a116cf18c462375d81e"
-    sha256 cellar: :any,                 arm64_sonoma:  "4479e8dda1aa064f86ad6ed61fb29e8f7e321d2d20bcdce300a71055a67eb44d"
-    sha256 cellar: :any,                 sonoma:        "cebc2767d039638e0f7b1f8ec3bd28b024b0f07450466ed936b6b1a3a7568df8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81bd3868334e8814123286ef7b73159b727a83216a8f88a0f2b374a5c91aa227"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32c42a7aa7a685db886a626e2d9c1337d5f9690131d289315a87e38d8be87ab1"
+    sha256 cellar: :any,                 arm64_tahoe:   "01b772187233970deb6369572b96780df249dd649ee0df8d0ea377021040a1ff"
+    sha256 cellar: :any,                 arm64_sequoia: "a19f2aef3544afb5d41638df10732d2ddef713f56c9316d5a47106245a88ead6"
+    sha256 cellar: :any,                 arm64_sonoma:  "465c5a3b5ce554658afff8150d7a4094ed1beb812f4b3a3c3455bb5ee389e97a"
+    sha256 cellar: :any,                 sonoma:        "d2074e2e3e88c13c3f4654f7a486a35008d2f2f39ad7b382e7e191553c67abbd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4cd5f44f63aeb7529c886a3962daccae4b9648d5f78066f613690e07de96524e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a859cb4a87a10540f1f6ad44cbb043595d36c5049667be1097a2be24af8a54b"
   end
 
   depends_on "tomcat" => :test

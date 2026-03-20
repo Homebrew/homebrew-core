@@ -16,8 +16,6 @@ class OpenSceneGraph < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256                               arm64_tahoe:   "e3174f80b6cec2585f35be266d182172c198b4ae8e0d10adf55e023d5d670b6c"

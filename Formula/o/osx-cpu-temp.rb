@@ -5,8 +5,6 @@ class OsxCpuTemp < Formula
   sha256 "94b90ce9a1c7a428855453408708a5557bfdb76fa45eef2b8ded4686a1558363"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c7b0f3f1f33e64d4cacb4b5b8d5a7454fc23338f15caa577658ef1e0b7f3026d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e1484688d7c45ad319e94d86b098150df1a028fb85b93591664a8f5c839a1383"

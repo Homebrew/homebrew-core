@@ -6,8 +6,6 @@ class Nanomsgxx < Formula
   license "MIT"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "e859aa7a86e2a0703c6c26f69a6c841a2a92bb00c0f5617f472cac0bfed51457"
     sha256 cellar: :any,                 arm64_sequoia:  "e00674de838fa31a3eb50d9ce61925893777887d27fd28772cfc5baa2582069b"

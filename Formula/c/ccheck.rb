@@ -6,8 +6,6 @@ class Ccheck < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/nerdlem/ccheck.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "26489d1d45ade5e4462eaa3083558f872018bcd9d9e47b98e122f2dd086b402a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f0f8816e58c6387289a2ba6392a03b40c93f1f4e6fe840ff840b7550a476a7c2"

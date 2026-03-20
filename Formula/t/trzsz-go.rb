@@ -5,8 +5,6 @@ class TrzszGo < Formula
   sha256 "6577fbab008264ff4678f60f56a0dea1e68763064a638eaf54e560198a5e6fd3"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0a5410c23c2797a9ef8e138d8b14c20692f6bfb57c49ad1bc90695b3a82c7be1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a5410c23c2797a9ef8e138d8b14c20692f6bfb57c49ad1bc90695b3a82c7be1"

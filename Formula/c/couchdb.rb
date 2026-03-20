@@ -7,13 +7,13 @@ class Couchdb < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "c820b96084160809071315619ed09b6e94555f0325a5166d096422be4aebc4b2"
-    sha256 cellar: :any,                 arm64_sequoia: "1f1dbc597dcd626977b1611e6ef24b66d53646ecb3455442a70d9ec89651b03a"
-    sha256 cellar: :any,                 arm64_sonoma:  "7c2ba5172525d8f0188492d4aa4356e930895cee7d6fb1551d953db8dcb75e01"
-    sha256 cellar: :any,                 sonoma:        "5d6a38935df1a21d017c4aeebb560a40e9a60635f246b754f1d751158f97d537"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "765eafa2052c4c62cc001a8073fab62d9e3cc8eead91d7ddf04f34fa6fe483fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7a932cbacacade0dbda15f9c4d5a177457d267f102ae3795bea2ec11fd6cee2"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "b82b5b5a4b8eb3288a1a4fae6c95c275580ea9559f1caaebd287a06584208b21"
+    sha256 cellar: :any,                 arm64_sequoia: "f0e6024d3ff3e28497c84bd5276c7c6670cebdfae50bf4c619aab8df47e83cf6"
+    sha256 cellar: :any,                 arm64_sonoma:  "a8fbb5840644059150b97b5ceea647f9ee2c52eedbe6ee471b0b6ff284a345a9"
+    sha256 cellar: :any,                 sonoma:        "6829502be2b2ef5a4caabeb6f6471838e7125f3cc1b0d44625025faaac4d24cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b5a37c144e35ca34649860426938a992fb8e84a97c254da671508b2d648bf4ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed51cd3f5e7a3362173412c76b84393a68855bfec5b01dc68a9bc3513b559236"
   end
 
   depends_on "autoconf" => :build
@@ -26,7 +26,10 @@ class Couchdb < Formula
   depends_on "openssl@3"
 
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "ejabberd", because: "both install `jiffy` lib"
 

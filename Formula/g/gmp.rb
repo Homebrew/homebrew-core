@@ -13,8 +13,6 @@ class Gmp < Formula
     regex(/href=.*?gmp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "db8075f389ca0a9f9aba54762c93760db66ef92ee989f4a32b5e13b4b987339c"
     sha256 cellar: :any,                 arm64_sequoia:  "6683d73d6677d28e1e8d1b92d6ebfbc068c1d33e19b79114a22a648a99ba5991"

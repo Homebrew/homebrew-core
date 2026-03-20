@@ -1,8 +1,8 @@
 class GithubMcpServer < Formula
   desc "GitHub Model Context Protocol server for AI tools"
   homepage "https://github.com/github/github-mcp-server"
-  url "https://github.com/github/github-mcp-server/archive/refs/tags/v0.30.3.tar.gz"
-  sha256 "50b4c044b951395506974559ca459c622cbfd4ed37e84bc2295882383863ef2a"
+  url "https://github.com/github/github-mcp-server/archive/refs/tags/v0.33.0.tar.gz"
+  sha256 "3e93ef063a5c11dc9fa3cf4a68f56547e79b436f85de7f9ca59729fc4c4199bf"
   license "MIT"
   head "https://github.com/github/github-mcp-server.git", branch: "main"
 
@@ -12,12 +12,12 @@ class GithubMcpServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f9db2447a97acbbf191e1be3af42ba2cdd2b9b7605a7cae2a21531d8540104b2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f9db2447a97acbbf191e1be3af42ba2cdd2b9b7605a7cae2a21531d8540104b2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9db2447a97acbbf191e1be3af42ba2cdd2b9b7605a7cae2a21531d8540104b2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "86b75d96b541a6163b100da25426644598f8bcb7e77531d85e66405bf6afdf2a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d57f6337ca6e751c87dfb7a68e6f2848eaaec159f7294eac1527642cac859665"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58b7d86955bf52c2011e21e09123b383832999f798e6a001cd8227cba838470e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5c03dd73b792f78362f60e722f96a74e25e9d5f7a3a5790480d885190542efcd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c03dd73b792f78362f60e722f96a74e25e9d5f7a3a5790480d885190542efcd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c03dd73b792f78362f60e722f96a74e25e9d5f7a3a5790480d885190542efcd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e85ac6609e106a64d5aeb6acbcc4508bb43bb95a6c6235be86081c280e9b5614"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee270510b8b7a40311fdb2816e0622553ffc7f6184bf7bc3fc582a6f18139ac7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed8810cfa50aa899f165679ae0982582e1a56543a3847eea420c0e97fadf8ed4"
   end
 
   depends_on "go" => :build
@@ -39,7 +39,7 @@ class GithubMcpServer < Formula
       {"jsonrpc":"2.0","method":"notifications/initialized","params":{}}
     JSON
 
-    out = pipe_output("#{bin}/github-mcp-server stdio 2>&1", json, 1)
+    out = pipe_output("#{bin}/github-mcp-server stdio 2>&1", json)
     assert_includes out, "GitHub MCP Server running on stdio"
   end
 end

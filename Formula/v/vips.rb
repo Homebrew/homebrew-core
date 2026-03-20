@@ -1,10 +1,9 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.18.0/vips-8.18.0.tar.xz"
-  sha256 "b85ab92280c30d22f5c8fe2f68b809cddb7eaac437d8c33474475dac84ddc574"
+  url "https://github.com/libvips/libvips/releases/download/v8.18.1/vips-8.18.1.tar.xz"
+  sha256 "3a0d641175013df712a348d5c528e5f0b46fcbfa4b00b30fcf228c631ffee485"
   license "LGPL-2.1-or-later"
-  revision 2
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b806822f928a2678f4d29538c0c73e806ede8a6ae7d7ecf82f0e96e6d05f30e5"
-    sha256 arm64_sequoia: "a70e8caf492541c7772935b9f199cd07ce63266ca634352fa195bd2052a9e837"
-    sha256 arm64_sonoma:  "660f84803d688867e2024c50be97a30c2be6cf671bb2a0d08173fd90422e9c04"
-    sha256 sonoma:        "fc3d79657db2b998bbc323c3c3d1da206efed83758ecdfe280d9ca4e08bba6ec"
-    sha256 arm64_linux:   "a52f472c33e9a099d4aac73cb0eff64c6d04d42cb92b76ad1bd385ccba6d7f62"
-    sha256 x86_64_linux:  "e507a55b10673f0fd6679203d1d30b7d5cb9e8898e5552846039a3447ec33e9f"
+    sha256 arm64_tahoe:   "bd41208faccfb754b58e0d0eeda9268c6ae0c606fb44fb3268fc9a9341eee607"
+    sha256 arm64_sequoia: "7ebb14f67033ba06b69a212c774123d7452a15a4485c61be6e880b27a6adcabe"
+    sha256 arm64_sonoma:  "e663277e5abbab9650f6443aaeb1320d5ceaa2afdfa0b624eb3e807c5128dded"
+    sha256 sonoma:        "82775d0a5c7da161eb8b5ec7d99e4b6ef25a58e01651d74fe2ca4688c02cde25"
+    sha256 arm64_linux:   "428827e275e0b3ba35177292ca5babcc0c220cd38b388b296314d7921f93823a"
+    sha256 x86_64_linux:  "5f95f50740ff69b6fc8f100d7108b7e40132b8d3df4c0667df561d6120bd46f5"
   end
 
   depends_on "gobject-introspection" => :build
@@ -55,7 +54,10 @@ class Vips < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # mozjpeg needs to appear before libjpeg, otherwise it's not used

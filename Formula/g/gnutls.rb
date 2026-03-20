@@ -39,7 +39,7 @@ class Gnutls < Formula
   end
 
   depends_on "pkgconf" => :build
-
+  depends_on "texinfo" => :build
   depends_on "ca-certificates"
   depends_on "gmp"
   depends_on "libidn2"
@@ -50,15 +50,17 @@ class Gnutls < Formula
   depends_on "unbound"
 
   on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
     depends_on "gettext"
-  end
-
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "texinfo" => :build
   end
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  fails_with :clang do
+    build 1400
+    cause "error: CRAU_MAYBE_UNUSED is not getting defined"
   end
 
   def install

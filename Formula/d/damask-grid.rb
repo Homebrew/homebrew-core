@@ -14,12 +14,13 @@ class DamaskGrid < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "67feb496cbf763457114298ff648c31d07a02b01b699c350acf420b16e6aa071"
-    sha256 cellar: :any,                 arm64_sequoia: "34942e0fb23a92cdc84a2c98defb3b5f14192ac9ed4d8a52e6eb06c2cd7f4dee"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9f89ca390d98710fdf4b49f46d0db6ad5fd5e28624e99cf6cd5fc4c8eadeabf"
-    sha256 cellar: :any,                 sonoma:        "0bc719369eea47492e6a96b48af2d4a880d1bc2aa01d942b65a27e3fc3d9a46e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "57974533d52d8aa4a48d9b3ab8f02acf59871c7cc4d132c644a3ac663ad1f11c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b83351a277928dee503f38ef92a5fd1f74f7a3f62fde3a9e0c65b21a1da0e083"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ef7c164d6b15fac78f61d6c0b6832a4b3677a21bb055008518d4ed073c68a7d1"
+    sha256 cellar: :any,                 arm64_sequoia: "abe9e1134a90e27eba6e34cb536987d5b9ed6bcbda444fc9a9d2c86c24f977c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "911f878da45bb2625a79234875bfa0098438da433eb5654230f13678167cba78"
+    sha256 cellar: :any,                 sonoma:        "b8ea91f3e765b78baccb1fc875c2d3c8a40602b52a466c35a844a2c00e6d4c54"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "05a9a93b0cfa8969ffd550975e9180c39fb2fcd9db8741695ae0f02b1656b4a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa33f2e59c50721d54fae4173af9537f24cd5b55354414f2a1f780c9553e8882"
   end
 
   depends_on "cmake" => :build
@@ -33,10 +34,12 @@ class DamaskGrid < Formula
   depends_on "petsc"
   depends_on "scalapack"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   # Support PETSc 3.24.x

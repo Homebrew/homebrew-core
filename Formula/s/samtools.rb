@@ -1,23 +1,26 @@
 class Samtools < Formula
   desc "Tools for manipulating next-generation sequencing data"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/samtools/releases/download/1.23/samtools-1.23.tar.bz2"
-  sha256 "f228db57d25b724ea26fe55c1c91529f084ef564888865fb190dd87bd04ee74c"
+  url "https://github.com/samtools/samtools/releases/download/1.23.1/samtools-1.23.1.tar.bz2"
+  sha256 "32266198a4bc6a6df395d8526688c9697d9c8e472f888c749fdde2e08ea88dd2"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a7b121c38e13f45ad221f61f52a21243dddae63c2f80933f01e3fc9e62094452"
-    sha256 cellar: :any,                 arm64_sequoia: "7d054f88fc3038fbd0a5c1c43e0d386e6781ffb78ec938f908b850ac37574135"
-    sha256 cellar: :any,                 arm64_sonoma:  "7f7e7acea785a7083e4eeffdd322e56d199cc8a6b06d63b62af9722babb19606"
-    sha256 cellar: :any,                 sonoma:        "d4151c2b0ff6e00c02c1c6c2e29372005ec0d6bf125d9306704530ba7edbf53c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "efc4caf278e7a0fd84e6b54f085037edf3d02cb574092e3893f1b4a92aa1a52e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62e720eba3b3f4f44c3bcefe3ce0343da6eb40412eb54dad9011f2d636d12b44"
+    sha256 cellar: :any,                 arm64_tahoe:   "f90e6a1ab4dfb450306fc386b77aff90777e89d4fe918135209fd95d9c0d81e5"
+    sha256 cellar: :any,                 arm64_sequoia: "1917a110f8464fc967a692f375c939250d730f1776cdb614b2d9333300f1a2a3"
+    sha256 cellar: :any,                 arm64_sonoma:  "49f2737b5def65598ca2fa8811463a64a32c7aea8484969f5a24e0f9ce198248"
+    sha256 cellar: :any,                 sonoma:        "64e86c434b6878b264e05310ef29cd6dee574156b5b51fb638caf372a48a37ea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e32b90bbb900986a7b082eba4bdf35495a65c1330c927d439c3bbcc9186ce3bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2d8d142e02362f0009664adac7f9e5d896311a6d1bb658b8e98782181663e94"
   end
 
   depends_on "htslib"
 
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}",

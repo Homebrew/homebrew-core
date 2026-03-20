@@ -1,8 +1,8 @@
 class Mawk < Formula
   desc "Interpreter for the AWK Programming Language"
   homepage "https://invisible-island.net/mawk/"
-  url "https://invisible-mirror.net/archives/mawk/mawk-1.3.4-20260129.tgz"
-  sha256 "a71fb7efea5a63770d8fb71321ef6ae7afe0592f1aa7f7e2b496c26ccbb392a4"
+  url "https://invisible-mirror.net/archives/mawk/mawk-1.3.4-20260302.tgz"
+  sha256 "e2c08a77d0a84a01f9be454d1ca3872d4f103f9ada683d075198b0c6e965633d"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,12 +11,12 @@ class Mawk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c8a905dfb2b09aef26ce3ecb6093c9df6571155e950a1ffdf65f5c75d7de58cb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "411b3fd2a4bacce3635b62f3668397df7de0bf84df6afcb07bf95e84e21c1ff2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2c8fc1eb05962130b42a085f214f7742d2532b14fe95c450d5ab3164dec0407"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c5abc0c0d665d792fc218a4078f9dd15d55ea7d9345b1e8d2af6fd775e1eba9e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a28cd099e59c7f6348c7018747ff07d6401157acfbff960a495a4725aa9abcfa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "334826e0041bf977f41b09b305aa725891dbc731a799b620de87ecab3934a4af"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cf4ed75710af2d4e5d6a50d1563303510e789498875b7724367805f6db524361"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "803a6960151403d036b163aeb09c13248f78d63314ecc97816ad03188c39334a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2fa506e3280172fc8bb7bc33ce3eebdf8eabc8c9a952f3132340e0b8c3bdebe2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "788bb3c387eb0df4dfbf2f1a960198fffe2eb8016516fd38cf59b6eda544cb1d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "76e535fca1e876b60ab619aada6e439830832e267846a8a64482e6c01b1bd27c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb785fa963052b93f5b6a5e730baee05d3ce373b9898db1f547014208a6301fa"
   end
 
   def install

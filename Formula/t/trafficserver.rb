@@ -4,9 +4,8 @@ class Trafficserver < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://downloads.apache.org/trafficserver/trafficserver-10.1.1.tar.bz2"
+    url "https://www.apache.org/dyn/closer.lua?path=trafficserver/trafficserver-10.1.1.tar.bz2"
     mirror "https://archive.apache.org/dist/trafficserver/trafficserver-10.1.1.tar.bz2"
-    mirror "https://archive.apache.org/dist/trafficserver/trafficserver-10.1.0.tar.bz2"
     sha256 "793af06a5e45f1c53245c227a7af17a19a6cf18f04d366866e7ac62c5a28d292"
 
     depends_on "pcre" # PCRE2 issue: https://github.com/apache/trafficserver/issues/8780
@@ -18,12 +17,13 @@ class Trafficserver < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6a7d414ba4845e774e6b4d43ef084223bad75e4aaa3221d4ee92598f451da25f"
-    sha256 arm64_sequoia: "b040641bc444e293343ad6443a465bbeedf4fd599e3c8c1a72ea219a9593c1cf"
-    sha256 arm64_sonoma:  "aae83fa2f246435502f568a269d239c5b4d00abb510db55369eb23650f746138"
-    sha256 sonoma:        "8f71dfe1f7fb783d1281c73622c6f1126dac18b4974a401bb6d1dd6d9f4077a1"
-    sha256 arm64_linux:   "17e853639cdd0e238e53581df1814a85803c2cbdf1bde81057c6177d7b05c0c9"
-    sha256 x86_64_linux:  "880c8a051f548091d4968d6fc583188f96b2c7051047840516c99a865f438c86"
+    rebuild 1
+    sha256 arm64_tahoe:   "d8e4fa5e13e8822946de2772c88a334b3e7e430fba31e4e3329e6ea3f829c48d"
+    sha256 arm64_sequoia: "72b9a62fa880ace2d24edf9be492d43e15000e1c9162fde40ab1c845b2f7067f"
+    sha256 arm64_sonoma:  "ede50d93ac297899f385192c8a9df6e557e4e1eca12d4a1c71362981a0a7285f"
+    sha256 sonoma:        "226fb5553211df0c672cd07b1e4cfa912343f43b9e02766b3f68814f9f8a9033"
+    sha256 arm64_linux:   "8d77b971e1f2845185d98edcc26a28e15cabc9813e121e02b8f4c9c25b80fe15"
+    sha256 x86_64_linux:  "d796189230e2f4f0fabe59f16cebad73c323edc25dc9db03c0f5f5ac829b787b"
   end
 
   head do
@@ -54,11 +54,11 @@ class Trafficserver < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libcap"
     depends_on "libunwind"
+    depends_on "zlib-ng-compat"
   end
 
   def install

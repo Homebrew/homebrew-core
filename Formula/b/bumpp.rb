@@ -1,12 +1,12 @@
 class Bumpp < Formula
   desc "Interactive CLI that bumps your version numbers and more"
   homepage "https://github.com/antfu-collective/bumpp"
-  url "https://registry.npmjs.org/bumpp/-/bumpp-10.4.1.tgz"
-  sha256 "373b62e7841ba156fba34372b0b35e0bc481c1ded0f055f45b9bd2efaad00e93"
+  url "https://registry.npmjs.org/bumpp/-/bumpp-11.0.1.tgz"
+  sha256 "76585738f8254ba83c6a847147f96a072dd2e7c4b03a11215a98a2d9f28e987a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "038a8786c1a4b8f745cc1ce4cb2177bba508e40e6151d8725a2b5b7e12b26c66"
+    sha256 cellar: :any_skip_relocation, all: "24d528fb4bcd817206379e83982f02ff0758ce2dfd32b7516230ec08d3df9b74"
   end
 
   depends_on "node"
@@ -18,21 +18,24 @@ class Bumpp < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/bumpp --version")
-    system "git", "init"
-    (testpath/"package.json").write <<~JSON
-      {
-        "name": "bumpp-homebrew-test",
-        "version": "1.0.0"
-      }
-    JSON
 
-    system "git", "add", "package.json"
-    system "git", "commit", "-m", "Initial commit"
+    mkdir "repo" do
+      system "git", "init"
+      (testpath/"repo/package.json").write <<~JSON
+        {
+          "name": "bumpp-homebrew-test",
+          "version": "1.0.0"
+        }
+      JSON
 
-    system bin/"bumpp", "--yes", "--push", "false", "--no-commit", "--release", "patch"
+      system "git", "add", "package.json"
+      system "git", "commit", "-m", "Initial commit"
 
-    package_json = (testpath/"package.json").read
-    package_hash = JSON.parse(package_json)
-    assert_match "1.0.1", package_hash["version"]
+      system bin/"bumpp", "--yes", "--push", "false", "--no-commit", "--release", "patch"
+
+      package_json = (testpath/"repo/package.json").read
+      package_hash = JSON.parse(package_json)
+      assert_match "1.0.1", package_hash["version"]
+    end
   end
 end

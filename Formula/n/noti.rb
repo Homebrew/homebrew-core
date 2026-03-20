@@ -7,14 +7,13 @@ class Noti < Formula
   head "https://github.com/variadico/noti.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d90a1e8a186687fe12f458a6f7070f4c40dc7850a5f06ad1f513858dabd7558c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7373f99acea5809bcc89237de6cfe9b869fb194603f9ffa69d90c6a01ae60cf1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a6990ad34fe5bc000e70e99dba5d95ce91d21de18bc4aef2138af3140981da26"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9879896973d077b35c59c8485a875f45be367a68879879ba58c5ce643fa1576f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "994c5a03f74ad08b6dedf050d601701b2a72e58b9dbc078e0cf185da984a75ab"
-    sha256 cellar: :any_skip_relocation, ventura:       "ab62225e51f6f38ce4ffae1addbd91e5536dfc47ee86e9325c867030709b758f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "03b6c1144b9b6ed221ccdd41eb60e046cb4aaaa2fa3cb5b80eccf1d8a238bd63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "823432578796ba95f2e4b9dab197cb978935159e7282e83738778a3f492259da"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9df5cb0595eeccab3df88d19535d8c4959ddb31edebd05ebdaab5f256698a528"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9ce62a753d38d76f7a0da4cd1ab463085f72ccd18a5322f285ed0fda14f31b3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6c6d37577bbc6a96195d28e194a129490f2d87b9afc15639bc80418f60ff598e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9f755675d0005c92a27b5505e203225dfe64b9bf6715b49bb7840850454c5546"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d00980419a447dfbf768ee6cbe98155fe6359b77a860cbfd05977b9d07fb515e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57b3aa7759166c18af61e9a49704e7673f7b9f439eb562447d4bf12c3d6baaec"
   end
 
   depends_on "go" => :build
@@ -27,6 +26,8 @@ class Noti < Formula
     system "go", "build", *std_go_args(ldflags:), "cmd/noti/main.go"
     man1.install "docs/man/dist/noti.1"
     man5.install "docs/man/dist/noti.yaml.5"
+
+    generate_completions_from_executable(bin/"noti", shell_parameter_format: :cobra)
   end
 
   test do

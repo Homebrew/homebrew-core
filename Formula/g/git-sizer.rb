@@ -6,8 +6,6 @@ class GitSizer < Formula
   license "MIT"
   head "https://github.com/github/git-sizer.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2506ed03a733d925f2d0602928a17c905515ac73df711cdd25efc01fc58ccb34"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ccae14c242e55c103e138e715a48f7a1c7210ce2c749dc18635a60386ccace44"

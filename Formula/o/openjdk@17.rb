@@ -11,12 +11,13 @@ class OpenjdkAT17 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "50687a5526c3c0fe3437a45e3b01ac2d22af9a2dc7edec033d490b5745c53462"
-    sha256 cellar: :any, arm64_sequoia: "8983a4ffdb1b5931d8d057bce3f5cfb526985eb42af0aab4aa9283272f7e3b8a"
-    sha256 cellar: :any, arm64_sonoma:  "c10665a37f28e462ada3dffc46a6878c00eeaad671c3d14096be471e672f9d86"
-    sha256 cellar: :any, sonoma:        "5f472acdd0db687b2a3e9420763cbbafcd3bef583241c93ba52f5b538f6e7148"
-    sha256               arm64_linux:   "721c6d0f0146aeaac7a4ec00414a36c9df8ab1b349c36df425fc28d48a9a5ce5"
-    sha256               x86_64_linux:  "cbbc88a93cef5051bbc5d497c0bab5fb7f6ebaf0ad71ae07d8281a575e174061"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "e9ad612f9cd77e4625a0ea2f435836a53c7daa3dfc096e8b7cc8e1692f90523f"
+    sha256 cellar: :any, arm64_sequoia: "7a58416a3a4e307102994dd5707a237b2b63f6572700efbd41987340ffaacbd3"
+    sha256 cellar: :any, arm64_sonoma:  "cd8eb3dde743ab124f119484c6d7ba654a6da4728e86ade88da865c95353794d"
+    sha256 cellar: :any, sonoma:        "7c16fef9be614cc6034a5fae5f63f3c9ca46463888722ce37fab0eb2c6fa8467"
+    sha256               arm64_linux:   "70f0f1b67c3bb57dd855c0cfd7818e4c9f3a4cdaf8b91e7b8d9a77af1936de2d"
+    sha256               x86_64_linux:  "a4705f945ae748f1a17d6217ec78e4c2addc0959c4842847641941d155a20361"
   end
 
   keg_only :versioned_formula
@@ -35,7 +36,6 @@ class OpenjdkAT17 < Formula
   uses_from_macos "cups"
   uses_from_macos "unzip"
   uses_from_macos "zip"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
@@ -47,6 +47,7 @@ class OpenjdkAT17 < Formula
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
+    depends_on "zlib-ng-compat"
   end
 
   # From https://jdk.java.net/archive/

@@ -7,7 +7,7 @@ class Davix < Formula
   revision 1
   head "https://github.com/cern-fts/davix.git", branch: "devel"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "147668e36df19a8719d55dbb89b1e3e2cdd0d8c024e945986ff606182570db6e"

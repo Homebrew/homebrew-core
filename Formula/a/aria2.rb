@@ -6,15 +6,14 @@ class Aria2 < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "508d3d5de9d8ba5cdaa3c87f89f39d9080d24f3356f03c552144d9ab0d6e161d"
-    sha256 arm64_sequoia: "5869d2fb49078d3c094d30cc47841f64fb5c8e72ce647d7a5d5d1591784f9a3d"
-    sha256 arm64_sonoma:  "a128a4ec26ae65668b5ecee5d655148ba9b980525df819ee257c9bcfc70970b3"
-    sha256 sonoma:        "675bbd269dc627ae80e5f8c13e002539b0fe60a206b6b4579e3b09dec881f87e"
-    sha256 arm64_linux:   "b160d724fe8bc645c8cfcc173efd604442b7774bbb36713f4e4809db3bac3fef"
-    sha256 x86_64_linux:  "bb0e79ca14456bd6e4a52f91e0584c5edc96a1cb6c264646f7614f80610ffffa"
+    rebuild 1
+    sha256 arm64_tahoe:   "8253bf83d39fcdb91b7a251b2d38f0e32f21a0352f2e3798f5a376ba21ae68e9"
+    sha256 arm64_sequoia: "c7a6244ec33cb6eaf959d61616b90b08e331ae172936052709f4b2934d36dcb9"
+    sha256 arm64_sonoma:  "5822684ab206b076690a5b3b53331a4e351440a45fe6e649e3e64f6a088f2e17"
+    sha256 sonoma:        "08007898a6dc4b162547081eb85329457345688279d6dce42f98d601e19ad799"
+    sha256 arm64_linux:   "4d5aac6c6905b3274f33b2160bf446293785eebc547c2d398562eb5acf576d7f"
+    sha256 x86_64_linux:  "ce15dc949ff077b3ded7d07bb45964a17a44a603e97a6be66ead70e9682f1d96"
   end
 
   depends_on "pkgconf" => :build
@@ -23,10 +22,13 @@ class Aria2 < Formula
   depends_on "sqlite"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

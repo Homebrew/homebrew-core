@@ -16,8 +16,6 @@ class OpenBabel < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256                               arm64_tahoe:   "2c456fe61ba2215e23fa09d39cb689657c1ca8f73d46eac8e9216171e3464ac1"

@@ -6,8 +6,6 @@ class Gengetopt < Formula
   sha256 "b941aec9011864978dd7fdeb052b1943535824169d2aa2b0e7eae9ab807584ac"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f37f85a3ddffa7c215b078fc05f2980490d18d0202e6a92bcffd5ab88b2c9121"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "91c1d9533d5738baeeff859785ad663d51bb280ba1744f78183efa442b4bc37c"

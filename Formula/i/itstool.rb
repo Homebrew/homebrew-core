@@ -11,8 +11,6 @@ class Itstool < Formula
     regex(/href=.*?itstool[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "716cb0efd44428ef62000438ff166627c117befbdd87b6d9c5580afac54c9dc2"
     sha256 cellar: :any,                 arm64_sequoia: "8659b398ae66d88d974879a6a4e4372f21b81f7d018b13d9dd10b459e84ddd95"

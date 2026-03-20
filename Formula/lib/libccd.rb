@@ -6,8 +6,6 @@ class Libccd < Formula
   license "BSD-3-Clause"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "5706b5ddc123fae6306e45daf32a9485c8fa2186bb2966c5d4842c060db7f760"
     sha256 cellar: :any,                 arm64_sequoia:  "69d7221dceabfe62cded58442a541ed7b4e40dc91195ddc1032d9219d6d4eb80"

@@ -12,12 +12,13 @@ class Git < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "102fc7ec06e6faea530225cc57b9f7651de67449f1f918ec52d840e6edd48c08"
-    sha256 arm64_sequoia: "ba2abb22be25b4f6e4be4dfb2bfcd9c17e6e55a705f1e588fb16e2f536fa2ceb"
-    sha256 arm64_sonoma:  "3fea19d3dff9e81ab08a618d74fb255c83d2d3decd92db964bbd5ff045eb2abb"
-    sha256 sonoma:        "f9050c76ec1039103c2449a87580b81a249f80704b80c541206831fec6d33464"
-    sha256 arm64_linux:   "83e5dcc0bbd53bab6990b04994f168122a8c9f92c8970bdcd11eb84670db8bd5"
-    sha256 x86_64_linux:  "7a7b8d8b093036e342efb95b1792d393f60810fb6e0b40b03545f4ad87014c70"
+    rebuild 1
+    sha256 arm64_tahoe:   "822dc9a395af7f1977ae98bd584f76ccd7390381de71b5420a4b0d69b15665cf"
+    sha256 arm64_sequoia: "e54c3b8416ce766df9c6efa6f96f14c6fe43cd805e3da2706c258b5d9520c93b"
+    sha256 arm64_sonoma:  "90035e05c20b14efb12550b50431b53da8d857ccd5d29ac7fafe8ab0f959d16e"
+    sha256 sonoma:        "4831766b1d63c27c19f6c84e2f74a2c2b1131a69f818467fab6b84536ca26d90"
+    sha256 arm64_linux:   "f6946b453ca295f25ba4c855fe51e65c23b29983dc97e4f8b14c21a8b4854985"
+    sha256 x86_64_linux:  "d8c0fc6ac9824ad9c77d566018db78c252ac3c2ce0652c72d8b6d0b861867034"
   end
 
   depends_on "pkgconf" => :build
@@ -66,8 +67,8 @@ class Git < Formula
 
   # https://lore.kernel.org/git/pull.2046.v2.git.1770775169908.gitgitgadget@gmail.com/
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/46d746f92167fd0559af22f4ccb79c9ff35fbe33/Patches/git/2.53.0-osxkeychain-top-level-makefile.patch"
-    sha256 "d640f0105be66631634123de1a2cd6d950efe62b4d51c7c889fa57521a0a60cd"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/532a668f0f725a69342cbac3414475a28bd0575d/Patches/git/2.53.0-osxkeychain-top-level-makefile.patch"
+    sha256 "ef3f390f940e080548474950380edb008f31e5fd500c8ad1d470fc764b6e65ac"
   end
 
   def install
@@ -155,6 +156,11 @@ class Git < Formula
                      "CFLAGS=#{ENV.cflags}",
                      "LDFLAGS=#{ENV.ldflags}"
       git_core.install "git-subtree"
+    end
+
+    # Install git-jump
+    cd "contrib/git-jump" do
+      git_core.install "git-jump"
     end
 
     # install the completion script first because it is inside "contrib"

@@ -13,8 +13,6 @@ class Ttyrec < Formula
     regex(/href=["']?ttyrec[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2b44b170e50cd4a45a34866f55c074aa7178b26a733350d471dff58709831cf0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1bc483dbae460cdc63985077a07ab767d1f3b3b2d614ef276a038a07bbaa479c"

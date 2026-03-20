@@ -6,8 +6,6 @@ class Yafc < Formula
   license "GPL-2.0-or-later"
   revision 5
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "f97a84b632e61a767359e627ebefeb33eaa48dc3a3acc7fcb971fd18ae313228"
     sha256 cellar: :any,                 arm64_sequoia:  "2f0f7381029703774be13824194784dc2e84478fbb5680abd7d856366de3db57"

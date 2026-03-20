@@ -1,9 +1,10 @@
 class Wumpus < Formula
   desc "Exact clone of the ancient BASIC Hunt the Wumpus game"
   homepage "http://www.catb.org/~esr/wumpus/"
-  url "http://www.catb.org/~esr/wumpus/wumpus-1.10.tar.gz"
-  sha256 "aa059e163b4f516580b83931ae29fbd5796302e854da283b85cc7fc887677d7c"
+  url "https://gitlab.com/esr/wumpus/-/archive/1.11/wumpus-1.11.tar.bz2"
+  sha256 "6b60884df963d785759ecde67382cacae2989f666be7b6269af511a51fde5458"
   license "BSD-2-Clause"
+  head "https://gitlab.com/esr/wumpus.git", branch: "master"
 
   # The homepage links to the `stable` tarball but it can take longer than the
   # ten second livecheck timeout, so we check the Git tags as a workaround.
@@ -13,28 +14,22 @@ class Wumpus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2e06701869c21c2e18ef131477db256df8f876160dcc67eb17d216546f658cba"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "418502a95f4ba4577d30f5e48699cb2c434b64cb63bc34bda4d28f8525d3b3b7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb4c854f4a9ca5952140e121567c502f46af0e6ced51b8916bc9fb3147b9a085"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f37eece81c8fdacbd791f7f8365364e2de6630c5ed93bbaffb9624c347b53f8e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a59c6e421b3d461bfcfdd91b85fcba05a205df3eca4eaf0e0611f83e749f8fcb"
-    sha256 cellar: :any_skip_relocation, ventura:        "6e1866abf23ccf0920311248107cfacd4da35d2081903ade4bde1c7879c4f711"
-    sha256 cellar: :any_skip_relocation, monterey:       "1ceb6248fd61580bb9c99ab1833503cad88c84daf4816771cfdc96f087755fa0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63f9a87dd8a82fc0bf2969cedfca5dd336e0e3575d6792bf3d8e19e6f3506332"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca80b761f2f03f3dc6edf792c87aec2c1cc25a99a4c27706bdf8720047cbe141"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "735a371a20ddb23cea467834a5244743aa2d9924721eea96b68865b325ac2099"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "778ce27ccdb418011b0a7514e4427f96d19d3d203554bfacc058fdc63b2de4d8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "37e7079f488ea57258b203ed2a4ce83a23c1919dc86bac68a97c92114f11ebcc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb85d9dd188dfc4842b6816e0696322c99a00e7b2722faeca5f891112dec9437"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21f6da1c1f436b41491e88e68bd184dad53852f0aa1dd95c6d34f433c5109471"
   end
 
-  head do
-    url "https://gitlab.com/esr/wumpus.git", branch: "master"
-    depends_on "asciidoctor" => :build
-  end
-
-  # checksum got changed and no response from upstream, https://gitlab.com/esr/wumpus/-/issues/2
-  deprecate! date: "2025-09-12", because: :does_not_build
-  disable! date: "2026-09-12", because: :does_not_build
+  depends_on "asciidoctor" => :build
 
   def install
-    system "make"
-    system "make", "prefix=#{prefix}", "install"
+    system "make", "all", "wumpus.6", "CFLAGS=#{ENV.cflags}"
+    # Not using `make install` due to issues with Makefile
+    # https://gitlab.com/esr/wumpus/-/issues/3
+    bin.install "wumpus", "superhack"
+    man6.install "wumpus.6"
   end
 
   test do

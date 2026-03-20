@@ -10,8 +10,6 @@ class Malbolge < Formula
     skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "362a0dfad34c731bc75b81aa45736406c2b65b3f5f3c73894acb952d7025ec6d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a27217c73ffd65f6eeb9249e6120ec69dfbc0121bf2bd721d9270c9173f543e8"

@@ -6,8 +6,6 @@ class Pdfpc < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/pdfpc/pdfpc.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "b76907d094e032d1c6d6f67be0b1774b0ceaaad44ec21102fcb82084ae8c94c2"
     sha256 arm64_sequoia: "76900b6a726ed5f8c747a89957da0b81dd8b18c8b5bda6765f7b1ac4de0c26de"

@@ -10,8 +10,6 @@ class Pakchois < Formula
     regex(/href=.*?pakchois[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256                               arm64_tahoe:    "7f225dfdf9d1ac84b9bbd38a83157664f5b03b6951a09b9888b8b67ab586ae59"

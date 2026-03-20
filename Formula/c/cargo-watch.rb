@@ -18,6 +18,7 @@ class CargoWatch < Formula
   end
 
   deprecate! date: "2025-04-27", because: :repo_archived
+  disable! date: "2026-04-27", because: :repo_archived, replacement_formula: "bacon"
 
   depends_on "rust" => :build
   depends_on "rustup" => :test

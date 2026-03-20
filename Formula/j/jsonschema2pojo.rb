@@ -1,8 +1,8 @@
 class Jsonschema2pojo < Formula
   desc "Generates Java types from JSON Schema (or example JSON)"
   homepage "https://www.jsonschema2pojo.org/"
-  url "https://github.com/joelittlejohn/jsonschema2pojo/releases/download/jsonschema2pojo-1.2.2/jsonschema2pojo-1.2.2.tar.gz"
-  sha256 "0a5ee12fe7a413643a4afdf93d37714c8514b98cd67c17e83264df2fb2b1abc2"
+  url "https://github.com/joelittlejohn/jsonschema2pojo/releases/download/jsonschema2pojo-1.3.3/jsonschema2pojo-1.3.3.tar.gz"
+  sha256 "877924359f7f3faf4a95d95df1d9fd074ede64c0f982fa86408299e9442775c4"
   license "Apache-2.0"
 
   livecheck do
@@ -11,10 +11,13 @@ class Jsonschema2pojo < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ad532cb32089ba32d3c1725c429053620ce47eb5ecffeceaa92abb2513fe9280"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7e54288130be9a5f59b961f8627cdecaf731da193d85ffe45425cb032fd5772f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e54288130be9a5f59b961f8627cdecaf731da193d85ffe45425cb032fd5772f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7e54288130be9a5f59b961f8627cdecaf731da193d85ffe45425cb032fd5772f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7e54288130be9a5f59b961f8627cdecaf731da193d85ffe45425cb032fd5772f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "08a6643869c2531a18902af234a5a90a40106b9928a84c1918223e6454424e6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08a6643869c2531a18902af234a5a90a40106b9928a84c1918223e6454424e6e"
   end
 
   depends_on "openjdk"

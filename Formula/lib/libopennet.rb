@@ -10,8 +10,6 @@ class Libopennet < Formula
     regex(/href=.*?libopennet[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "543c5813be3a290d4f05c97abf94665d07cbc7cee5eb84c5c3c5b1689be5884d"
     sha256 cellar: :any,                 arm64_sequoia:  "e5e9c1ebe5ba34938705b7b0b1f70569348096a58d96b2a7327526f5d3aeb5f7"

@@ -1,10 +1,10 @@
 class CassandraCppDriver < Formula
   desc "DataStax C/C++ Driver for Apache Cassandra"
   homepage "https://docs.datastax.com/en/developer/cpp-driver/latest"
-  url "https://github.com/datastax/cpp-driver/archive/refs/tags/2.17.1.tar.gz"
-  sha256 "53b4123aad59b39f2da0eb0ce7fe0e92559f7bba0770b2e958254f17bffcd7cf"
+  url "https://github.com/apache/cassandra-cpp-driver/archive/refs/tags/2.17.1.tar.gz"
+  sha256 "e6ab5f5c60a916dd6c0dd9a19a883a4a1ab3d6b4e95cab925a186fecff08344e"
   license "Apache-2.0"
-  head "https://github.com/datastax/cpp-driver.git", branch: "master"
+  head "https://github.com/apache/cassandra-cpp-driver.git", branch: "trunk"
 
   livecheck do
     url :stable
@@ -12,26 +12,22 @@ class CassandraCppDriver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "c04a494d22b97cca89c1ddb9cc56a0134bf5c4091356869585cb66eafc369c2a"
-    sha256 cellar: :any,                 arm64_sequoia:  "168561f07967977a48fb1a0568b3a90d8c6f2e04eb725758924cc0d04b494b4e"
-    sha256 cellar: :any,                 arm64_sonoma:   "6d7789edcadff5905b4108444595d617ff24e99d54a7014afc2ce5c1a8d64c95"
-    sha256 cellar: :any,                 arm64_ventura:  "4b26c05be9b460b2359176859b9a4949d7f9d675f2ac9a3bf729e21c3dc5edc4"
-    sha256 cellar: :any,                 arm64_monterey: "c1589d2e2cc229a10e1d87e94612bbf55b9bdd4ab079a06563ce766b103c2c42"
-    sha256 cellar: :any,                 sonoma:         "b02aef7c39651dd641588be99ffbd45d1febf4bd79acf506c26934a1582fe387"
-    sha256 cellar: :any,                 ventura:        "4febd908b491a13787addbec6dad2dc98182f0d45cead041f8a493f0938f565c"
-    sha256 cellar: :any,                 monterey:       "dc2ad2c4d0153746a2ca9f50525d95e1b45c25a4c3a4b19c0525b6522f261f98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "46a41b8a44c7b3ee0d5b84992a3ee52fc8c01edafbe1e875fcfcf9cce64b98ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "566d29b795409300c8444c185f335a91df5f05bfde6dd303d12154bd83b6ec6b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2eac7917c3f056f8a39dbb3d1aa116dfdc801a0d77f707cf2bab60fc1f8ed683"
+    sha256 cellar: :any,                 arm64_sequoia: "256afb7d9c6714eec5a02780209860cc95ece3f567894869e32db6d6d2b8b263"
+    sha256 cellar: :any,                 arm64_sonoma:  "3122c1edeab450972cc0d8def34f9ade786ddc243c45f1e935789c45f010cf43"
+    sha256 cellar: :any,                 sonoma:        "7c8786ed29acf59ef1b011d03f81baf332ce48e5f2e62e4e1a07fe69695b1a9e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aaa58ca621b780e38766318102c90118144b2e79f2f93caeabb051bf8f96ceff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8425e4bf6558162f770e4c9b4c61f153b1d52a79a1e6f8d77d4f5d145399b9b"
   end
 
   depends_on "cmake" => :build
   depends_on "libuv"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "pkgconf" => :build
+    depends_on "zlib-ng-compat"
   end
 
   def install

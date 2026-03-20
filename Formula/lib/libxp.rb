@@ -10,8 +10,6 @@ class Libxp < Formula
     regex(/^libXp[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "71bc1ccd3aad45c90fb15295edeccc58116842c11e24958b05183feed04e6b1c"
     sha256 cellar: :any,                 arm64_sequoia:  "58ea4743cac65c66cd744b26ab6cd8e83a282e2da52ef872898e2237c948b563"

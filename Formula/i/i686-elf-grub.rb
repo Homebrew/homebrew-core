@@ -6,8 +6,6 @@ class I686ElfGrub < Formula
   sha256 "f3c97391f7c4eaa677a78e090c7e97e6dc47b16f655f04683ebd37bef7fe0faa"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "e22e948d3c138afe51718fa03e908d0dafcc149ae3a027f76627e1482523523d"

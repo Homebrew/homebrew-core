@@ -1,18 +1,24 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "https://proj.org/"
-  url "https://github.com/OSGeo/PROJ/releases/download/9.7.1/proj-9.7.1.tar.gz"
-  sha256 "6c097dc803c561929cdfcc46e4bf9945ea977611fb31493ad14e88edaeae260f"
+  url "https://github.com/OSGeo/PROJ/releases/download/9.8.0/proj-9.8.0.tar.gz"
+  mirror "https://download.osgeo.org/proj/proj-9.8.0.tar.gz"
+  sha256 "a8b493b00cf4d08b712b9e063ed5e53e2be90fcde46770e9dbd773341f378f43"
   license "MIT"
   head "https://github.com/OSGeo/proj.git", branch: "master"
 
+  livecheck do
+    url "https://download.osgeo.org/proj/"
+    regex(/href=.*?proj[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 arm64_tahoe:   "186e8a99b38e9c60591293934c53d97c9ff69d996267b2b908a068496c5fed98"
-    sha256 arm64_sequoia: "8855329696395f10f20a395e9901cb40dc1726b6ac19bc5267405933356fdde9"
-    sha256 arm64_sonoma:  "4f07764a84e344b5a6d5e7a77012b219eb61aefff835ad22fe53ec0f3a08c226"
-    sha256 sonoma:        "cdd1380c4b5f82018211aab61a0f4d4a185ce5d0ad80c240f0d28fc06bdbc520"
-    sha256 arm64_linux:   "fc43c2f4c3b50bf8b139f5c5e849aa67a66dcaedc7184f6a9781ada31050ee37"
-    sha256 x86_64_linux:  "06541b7a560f13eb2aaa2f5478e3b8f82c5b1f605f0cef1e445a273a38efac1f"
+    sha256 arm64_tahoe:   "defaf305951c06d26473ea55fa96451d530e82a74d0dd11911e6ad53e3acf50f"
+    sha256 arm64_sequoia: "489348a45b865ce6a2e2e34de21271251cda77104abfc9c3de65e3a12a4ab69d"
+    sha256 arm64_sonoma:  "5a0a7ec12a0ec3086b275be2e8fed4c26ec5cec600ad8b5f885093ae0f0422e9"
+    sha256 sonoma:        "f7acf07cc52b72edb0c528cfa0b358f886b572e75d4f03872e4cdeabdb3271ad"
+    sha256 arm64_linux:   "b72a50c2b03999df89651807900a18cca8d8b11af76a0d1e026cf9863e99b8f7"
+    sha256 x86_64_linux:  "d8425387f472b5c29ce4590aa6af183e21a81c0a4a98d7a55430d28214c31d8e"
   end
 
   depends_on "cmake" => :build

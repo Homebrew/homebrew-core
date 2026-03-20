@@ -6,8 +6,6 @@ class Id3lib < Formula
   license "LGPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "c32250cc13c45be4e25507819ad3fb788b3031ad781d97b61bb721c95e6001f3"

@@ -1,8 +1,8 @@
 class Cdi < Formula
   desc "C and Fortran Interface to access Climate and NWP model Data"
   homepage "https://code.mpimet.mpg.de/projects/cdi"
-  url "https://code.mpimet.mpg.de/attachments/download/30127/cdi-2.5.4.tar.gz"
-  sha256 "d0256f4ece04ccf0693f77b144a6d6db83296815f6a3742b49ed9c6d185066f3"
+  url "https://code.mpimet.mpg.de/attachments/download/30181/cdi-2.6.0.tar.gz"
+  sha256 "1040430a305aad6e8d78cecff5137da4466a72b834a65042634368cb9d35af68"
   license "GPL-2.0-only"
 
   livecheck do
@@ -13,12 +13,12 @@ class Cdi < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "aefe60909e3d842998c730e2e7dd44f5622033806c6bca45b4dd8b91df4a6f85"
-    sha256 cellar: :any,                 arm64_sequoia: "ca44978c7624176830178303c9155e59a1e5d85b985f6e7670451a33984239df"
-    sha256 cellar: :any,                 arm64_sonoma:  "0ba59fd7784215678d7b8a549ac9e155b8499252479fb104efb6fa29102d0702"
-    sha256 cellar: :any,                 sonoma:        "078f7264206cb23e77d4d9077088b90e036aa65abec71d8f8b767a69e877dc8a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b66da003d94aa389c5e9c0ed691b10fa0e2ffd356dc3feed46843d11f11249ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac635cedf5fee35646d1378910e67d97bb6465c28926a0c907512388d658072b"
+    sha256 cellar: :any,                 arm64_tahoe:   "8a330b1485d0f2946c11c80ac4d90579c74afc2cfd1fba035f4d6058b13034bb"
+    sha256 cellar: :any,                 arm64_sequoia: "81869260131131fcf2816a6288969bbeee4545a0ae67e14fb8cde95d2175da7a"
+    sha256 cellar: :any,                 arm64_sonoma:  "1493255fc9b380d748d802165f0689889f376e4103a3f3002cc651ce64a3664f"
+    sha256 cellar: :any,                 sonoma:        "8874e946c7f954081da61f2c6c12207c412c8a7229c1c3e6a5cb6e3226fe2ca2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aaf2ac68fef9354156f06864a46eff351e7100dcd687bc1fb579a62fab4330f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "237db750a11e5a226e617b6c571ccbe252d9c251a62163eb01fcbe0f8b29a267"
   end
 
   depends_on "eccodes"

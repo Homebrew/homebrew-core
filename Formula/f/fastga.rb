@@ -1,21 +1,27 @@
 class Fastga < Formula
   desc "Pairwise whole genome aligner"
   homepage "https://github.com/thegenemyers/FASTGA"
-  url "https://github.com/thegenemyers/FASTGA/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "391a86ff3b9355f677e891fed23f3b9524b82f88b9905f1b482ce1144add1ab5"
   license all_of: ["BSD-3-Clause", "MIT"]
   head "https://github.com/thegenemyers/FASTGA.git", branch: "main"
 
+  stable do
+    url "https://github.com/thegenemyers/FASTGA/archive/refs/tags/v1.5.tar.gz"
+    sha256 "c12e8f54ff69f76e872a8878a5a2e68c4a7bce18f91e246d2e06b21871477a0e"
+
+    # Backport fix for bad free()
+    patch do
+      url "https://github.com/thegenemyers/FASTGA/commit/6de7b91e6ee92ff3973af63255e51f08d9f77e35.patch?full_index=1"
+      sha256 "3cf4c88286b7fe37fa3305c819b80aacb094da97cb30b8c227c62b7b79c0d1b0"
+    end
+  end
+
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0f0b6daa41a3e30a34b17096e2e2c00f5497d25bccf07f9f5d93970cb87c6690"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eaabe46cde2f90f0e449a516446b020ba355f3ff00d6b4e2ace449fc7f76dc30"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "624c69a324de1184fd08f68c1fc17f3c2cc7ba3020d7b8e97f7dd28a0008809c"
-    sha256 cellar: :any_skip_relocation, tahoe:         "63abe45f86abc9a5863e41c7893618a3fa0b9c588e774ce2cb7b175703ac6058"
-    sha256 cellar: :any_skip_relocation, sequoia:       "d0bc4b02220b470fa1ee9357ac16f80fa84066a5e529994412b6c768db335d6c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5af73f9b8fc0b65e7c8d936257755dba73802bb05a141395d57e3366bb26c58d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a61e8adbad41553ba190ff117879a3c0e65196ac23bc6f442acc002c0087866"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e75ecc88983432af3b66eb378c1d227c64d707d23313652eb577b084f66cd23b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dc7e3ef73e130726949e4e4634d3bd7aa78d1fb22c5fd9bde34123417ced18b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc1497b72cdebea582d06375aa7ececc525046644bf998556ca6079c059599aa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "24ad4e0719c6e0989bde3418e81a4d351ff23e777a031f097366a26b9134614f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "93ff80dce20906e24e09a813db8d110535e3e6c7ea7bfdd140023ab14dfb3d58"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af70dcfdb57ed0d5da744ff2b4e436eda1a41d0c0280d0f173cd78b711393091"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "483d64fefe5df9f673614f9b122cd4326a3af4742780a03021ee3937cc1bce1f"
   end
 
   on_linux do

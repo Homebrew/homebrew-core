@@ -3,13 +3,13 @@ class Snakefmt < Formula
 
   desc "Snakemake code formatter"
   homepage "https://github.com/snakemake/snakefmt/"
-  url "https://files.pythonhosted.org/packages/24/32/90037b0f97cce04c4084bfede26292aa806d63226715671800104e65aacb/snakefmt-0.11.4.tar.gz"
-  sha256 "2df25561d56223cf0bfc3b5f503d739c11d488b41becc2a1c89da3845096e3e6"
+  url "https://files.pythonhosted.org/packages/df/d7/5f63d1d6a97c884c259a9df6cc5abcf6b3822a626a07a89671819107717b/snakefmt-0.11.5.tar.gz"
+  sha256 "dbbb6de4a953ae9738eb78f99baa54cfcf52e85a882abb53f4f039117782d693"
   license "MIT"
   head "https://github.com/snakemake/snakefmt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2a2678a8fc93c82c3603d1397c09262078450e5d3b0161fae636d06a514accb0"
+    sha256 cellar: :any_skip_relocation, all: "5e4de7afcb3c2a8db5e0daf43b0186882c41a6ff2425671cd8ee3431d6dd2359"
   end
 
   depends_on "python@3.14"
@@ -40,15 +40,11 @@ class Snakefmt < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cf/86/0248f086a84f01b37aaec0fa567b397df1a119f73c16f6c7a9aac73ea309/platformdirs-4.5.1.tar.gz"
-    sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
+    url "https://files.pythonhosted.org/packages/19/56/8d4c30c8a1d07013911a8fdbd8f89440ef9f08d07a1b50ab8ca8be5a20f9/platformdirs-4.9.4.tar.gz"
+    sha256 "1ec356301b7dc906d83f371c8f487070e99d3ccf9e501686456394622a01a934"
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"snakefmt", shell_parameter_format: :click)

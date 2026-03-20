@@ -11,8 +11,6 @@ class LibvirtGlib < Formula
     regex(/href=.*?libvirt-glib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "ba34897f21e90fc3c2e580b4b3a736ac40dde9df609b5e8bb650ed65d528bd41"
     sha256 arm64_sequoia: "2215ee81bf32c6dfb3e1091165cfcd1fd6130d190a368221567d26ac93a2d5a0"

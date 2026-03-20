@@ -6,8 +6,6 @@ class Crc32c < Formula
   license "BSD-3-Clause"
   head "https://github.com/google/crc32c.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "8e3aaa27057bb4e44a84d7fcdef9f8fea950c18d34017a3212f4f4ee9d0e6f03"
     sha256 cellar: :any,                 arm64_sequoia:  "8ea83fd9714095d17ddcb3b8a8f70d2c5694f35b7b6edc17aa8b32e6952295c8"

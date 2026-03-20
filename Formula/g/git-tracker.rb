@@ -6,8 +6,6 @@ class GitTracker < Formula
   license "MIT"
   head "https://github.com/stevenharman/git_tracker.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ad44db1639c5fd8aca9a1722f8d3e2dec30b2c0b83d8ea3991f846943347ec38"

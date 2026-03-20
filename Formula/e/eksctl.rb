@@ -2,18 +2,18 @@ class Eksctl < Formula
   desc "Simple command-line tool for creating clusters on Amazon EKS"
   homepage "https://eksctl.io"
   url "https://github.com/eksctl-io/eksctl.git",
-      tag:      "0.222.0",
-      revision: "c53a3a5b27a8bfb6fee25ee21c4b8ecade1881dd"
+      tag:      "0.224.0",
+      revision: "be36fd4e253a61d4c30a6d9f7a4e9148a48e5477"
   license "Apache-2.0"
   head "https://github.com/eksctl-io/eksctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b335f8db0b3b3eec7f3ca8e9c42be7a99f15eb4bae3daa4de9200b523d47753d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e25e4c3584592840ca5c80ec0aa95a7b3b7b6cd707d2eeb047921c2b10eb51bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60053c090b3c351f8a958a42c454714b8df3814212c0ea1c35f7dc2756cd59af"
-    sha256 cellar: :any_skip_relocation, sonoma:        "194fa3026d7efb05e7389993d3d4967a0b88fe46776cdba60302c09a502e263d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "07a5d6792283df7f12710d68838dc32c9a5c8d70f0052bae2d12ec681da303b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63ed47a91401c8292bfd96cf13b66829987f47e0f19c643256218c20b914036b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "19f8dc7852474c7950bc89a79f5bd224e6668b67bd14fe0ca4fb1e58d74f7185"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb74f17f747b22d7018fd6e84d45f46262e5646a288751967f6482515617f228"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "10d2379599f3e137303f1a8965f49891999e2b320af22ddbca5510f3eba5ad4d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d67e95959317155d4231552b24248f52b8e356ac3c2f6f7954189993da9421bc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "86aa7426ab91b699b0016b0ad2a85805a18ad83f50d447096fca717eb71038d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29af9e966e8c9c15f565959046cf6fae76693c1b5ec32ead90519283da5bc21a"
   end
 
   depends_on "go" => :build

@@ -14,7 +14,8 @@ class Rdb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e09d6b470d8ad19e3131d841d5d21f042c6b62c1e52eb34e2c78943073923b6d"
   end
 
-  depends_on "go" => :build
+  # Unpin Go when rdb supports Go 1.26, ref: https://github.com/HDT3213/rdb/pull/63
+  depends_on "go@1.25" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

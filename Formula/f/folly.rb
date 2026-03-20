@@ -1,19 +1,18 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/refs/tags/v2026.01.12.00.tar.gz"
-  sha256 "4b694698c773a3236d6379316f67872db77070d56ea256bec5759964712f9c34"
+  url "https://github.com/facebook/folly/archive/refs/tags/v2026.03.09.00.tar.gz"
+  sha256 "126b10954c75f5f10f7c061c56ae066d55d3a587455e9650e869d24691dc8226"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/facebook/folly.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "19d24f150c417129b27859ace4bf1df8d6ad172c023fba94ae6441b8cc36913f"
-    sha256 cellar: :any,                 arm64_sequoia: "b6e44fafe17172ff6c6b5c56d418c5398f62e955afe2c1ceee495e85083e892a"
-    sha256 cellar: :any,                 arm64_sonoma:  "049bf35605d3c63de1ecc52e9edc54d0bfc86bf8ff8a83a382e316749f2447de"
-    sha256 cellar: :any,                 sonoma:        "d7fb1a29690e2c55e12c4eab17e7b3b44a676c75ee30f081f29e0ef0e1fae2de"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "986806c063944919a737b183716136353a58bb54f505066184f1e75360b1196a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b76db3e95e8d8dab92a27c5b38d165ffcf71826eaab0460316fbc7cd723ec762"
+    sha256 cellar: :any,                 arm64_tahoe:   "8b54e5438ec87d18f363a3e3ffdf5bad4c6ad16d0f7e80c5b2e6028fe334f69e"
+    sha256 cellar: :any,                 arm64_sequoia: "a10e3897f7b5195c1eddaa010d4d68c5257880dab42d5eaae2b3a4c915136dc9"
+    sha256 cellar: :any,                 arm64_sonoma:  "52465a4f66ec87c86c88f12d3a1533e9230963640fc38a9c29632d7cfda94944"
+    sha256 cellar: :any,                 sonoma:        "067e92eb5e13ba59b98304874bd926a45c63c7b7dab662bdff145fa171d38d29"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "212a38f06b1781306fcf610dc0bb90f7560d2688e3669ace030bc07a474ef894"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9612bbe1fc8d77a4de19df6695d5da23e8fbcee673d229ddfd1e6e220b5e6910"
   end
 
   depends_on "cmake" => :build
@@ -33,10 +32,13 @@ class Folly < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do
@@ -48,15 +50,12 @@ class Folly < Formula
     EOS
   end
 
-  # Workaround to build with glog >= 0.7
-  # ref: https://github.com/facebook/folly/issues/2171
-  # ref: https://github.com/facebook/folly/pull/2320
-  # ref: https://github.com/facebook/folly/pull/2474
+  # Workaround for arm64 Linux error "Missing variable is: CMAKE_ASM_CREATE_SHARED_LIBRARY"
+  # Ref: https://github.com/facebook/folly/pull/2562#issuecomment-3988207056
   patch :DATA
 
   def install
-    args = %W[
-      -DCMAKE_LIBRARY_ARCHITECTURE=#{Hardware::CPU.arch}
+    args = %w[
       -DFOLLY_USE_JEMALLOC=OFF
     ]
 
@@ -75,9 +74,6 @@ class Folly < Formula
   end
 
   test do
-    # Force use of Clang rather than LLVM Clang
-    ENV.clang if OS.mac?
-
     (testpath/"test.cc").write <<~CPP
       #include <folly/FBVector.h>
       int main() {
@@ -90,36 +86,24 @@ class Folly < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "-std=c++17", "test.cc", "-I#{include}", "-L#{lib}",
-                    "-lfolly", "-o", "test"
+    system ENV.cxx, "-std=c++17", "test.cc", "-I#{include}", "-L#{lib}", "-lfolly", "-o", "test"
     system "./test"
   end
 end
 
 __END__
-diff --git a/CMake/folly-config.cmake.in b/CMake/folly-config.cmake.in
-index 957ae5c56..fe811d7d9 100644
---- a/CMake/folly-config.cmake.in
-+++ b/CMake/folly-config.cmake.in
-@@ -30,6 +30,7 @@ set(FOLLY_LIBRARIES Folly::folly)
+diff --git a/folly/external/aor/CMakeLists.txt b/folly/external/aor/CMakeLists.txt
+index e07e58745..1429f54e9 100644
+--- a/folly/external/aor/CMakeLists.txt
++++ b/folly/external/aor/CMakeLists.txt
+@@ -20,6 +20,10 @@
+ # Linux ELF directives (.size, etc.) that Darwin's assembler doesn't support
+ if(IS_AARCH64_ARCH)
  
- # Find folly's dependencies
- find_dependency(fmt)
-+find_dependency(glog CONFIG)
- 
- set(Boost_USE_STATIC_LIBS "@FOLLY_BOOST_LINK_STATIC@")
- find_package(Boost 1.69.0 REQUIRED
-diff --git a/CMake/folly-deps.cmake b/CMake/folly-deps.cmake
-index 2ca5cfec7..a284a91fe 100644
---- a/CMake/folly-deps.cmake
-+++ b/CMake/folly-deps.cmake
-@@ -62,7 +62,8 @@ if(LIBGFLAGS_FOUND)
-   set(FOLLY_LIBGFLAGS_INCLUDE ${LIBGFLAGS_INCLUDE_DIR})
- endif()
- 
--find_package(Glog MODULE)
-+find_package(GLOG NAMES glog CONFIG REQUIRED)
-+set(GLOG_LIBRARY glog::glog)
- set(FOLLY_HAVE_LIBGLOG ${GLOG_FOUND})
- list(APPEND FOLLY_LINK_LIBRARIES ${GLOG_LIBRARY})
- list(APPEND FOLLY_INCLUDE_DIRECTORIES ${GLOG_INCLUDE_DIR})
++if(BUILD_SHARED_LIBS)
++  set(CMAKE_ASM_CREATE_SHARED_LIBRARY ${CMAKE_C_CREATE_SHARED_LIBRARY})
++endif()
++
+ folly_add_library(
+   NAME memcpy_aarch64
+   SRCS

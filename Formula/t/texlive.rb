@@ -4,11 +4,10 @@ class Texlive < Formula
 
   desc "Free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
-  url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/texlive-20250308-source.tar.xz"
-  mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2025/texlive-20250308-source.tar.xz"
-  sha256 "fffdb1a3d143c177a4398a2229a40d6a88f18098e5f6dcfd57648c9f2417490f"
+  url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2026/texlive-20260301-source.tar.xz"
+  mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2026/texlive-20260301-source.tar.xz"
+  sha256 "cb120d314d3ceb23ac608af17ddd2c623afcf02331f400a0f25eead5b8ac1d70"
   license :cannot_represent
-  revision 2
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -33,16 +32,15 @@ class Texlive < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "180a15058e025c1da8584e299d281f83046c032470342d3a24301563f5ff7b52"
-    sha256 arm64_sequoia: "e3edcce538cd04e1cae94257e4034e49ca69a7001176074f2f1aa7049419ee01"
-    sha256 arm64_sonoma:  "1213f823c65a7055bddc2c1262ee5cf8ad3eeeda6b8124f14b1b65773dc1c264"
-    sha256 sonoma:        "6a291f2cf9da55669a766d38854a4006d3ec762673ca602833feb36829793432"
-    sha256 arm64_linux:   "b3ae8c0726854f48cfb819339985d87a6e4db7eaed2592ed3f88f42a2f747451"
-    sha256 x86_64_linux:  "943351d0f4e4b543e811b5b008a074de0ff7b2a5d6ada7f40cef9246403ccb55"
+    sha256 arm64_tahoe:   "107a9d90dadaa539a2b81965d616c213b85884e3ac11b664590cd7499d75aa3d"
+    sha256 arm64_sequoia: "f95f28f08b5ad97dabcc0ff674a2ba2628cd28a9cb72e4479028057a63afb82d"
+    sha256 arm64_sonoma:  "d0ec9ff9f399284628612edf2dffd3d962272d380216a5425d16faf28086919d"
+    sha256 sonoma:        "457d840d2e97cea5f8a11e46adc9ade67c3e197b54875889033638b143222508"
+    sha256 arm64_linux:   "f04609a0e06b0385278649da3408e8229296ef12d481d32632f564b20d3f94cc"
+    sha256 x86_64_linux:  "4ab2674e0c636ab1cd8c8428ebcac12509976bd881f83853d08310aaab23cf33"
   end
 
   depends_on "pkgconf" => :build
@@ -74,7 +72,6 @@ class Texlive < Formula
 
   uses_from_macos "ncurses"
   uses_from_macos "ruby"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libice"
@@ -87,6 +84,7 @@ class Texlive < Formula
     depends_on "libxpm"
     depends_on "libxt"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "cweb", because: "both install `cweb` binaries"
@@ -95,21 +93,21 @@ class Texlive < Formula
   conflicts_with "opendetex", because: "both install `detex` binaries"
 
   resource "texlive-extra" do
-    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/texlive-20250308-extra.tar.xz"
-    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2025/texlive-20250308-extra.tar.xz"
-    sha256 "ea69cfecbc9b138acbc45476e8cb4d9357f5e4e45fd12b3bf9ceabbebd7669d2"
+    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2026/texlive-20260301-extra.tar.xz"
+    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2026/texlive-20260301-extra.tar.xz"
+    sha256 "68d78428d012bce8c2ffaf7027c701a66c51039a16059d33f30980330033a5d0"
   end
 
   resource "install-tl" do
-    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/install-tl-unx.tar.gz"
-    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2025/install-tl-unx.tar.gz"
-    sha256 "9938f192af75f792e84282580cce6eedac32969e0e07b33cb39ca1b699e948b6"
+    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2026/install-tl-unx.tar.gz"
+    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2026/install-tl-unx.tar.gz"
+    sha256 "5cc0703d6fe49f00a2932c4e3bcee37a11cc0a969ae9fcbf9cad6f0d984d6363"
   end
 
   resource "texlive-texmf" do
-    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/texlive-20250308-texmf.tar.xz"
-    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2025/texlive-20250308-texmf.tar.xz"
-    sha256 "08dcda7430bf0d2f6ebb326f1e197e1473d3f7cc0984a2adb7236df45316c7cf"
+    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2026/texlive-20260301-texmf.tar.xz"
+    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2026/texlive-20260301-texmf.tar.xz"
+    sha256 "349eb7c5c2c15333d77490a52934b053c6dcb88834f2224978f7a4edf67940e7"
   end
 
   resource "Module::Build" do
@@ -128,13 +126,13 @@ class Texlive < Formula
   end
 
   resource "ExtUtils::InstallPaths" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-InstallPaths-0.014.tar.gz"
-    sha256 "ae65d20cc3c7e14b3cd790915c84510f82dfb37a4c9b88aa74b2e843af417d01"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-InstallPaths-0.015.tar.gz"
+    sha256 "7d64eb2dfa87ead010cdf55c8a1bdfde50b7b5852d7cb8cf2304f55bea2eb007"
   end
 
   resource "Module::Build::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.051.tar.gz"
-    sha256 "74fdce35e8cd4d787bc2d4fc1d43a291b7bbced4e94dc5fc592bd81ca93a98e9"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.052.tar.gz"
+    sha256 "bd10452c9f24d4b4fe594126e3ad231bab6cebf16acda40a4e8dc784907eb87f"
   end
 
   resource "Digest::SHA1" do
@@ -148,8 +146,8 @@ class Texlive < Formula
   end
 
   resource "Path::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.146.tar.gz"
-    sha256 "861ef09bca68254e9ab24337bb6ec9d58593a792e9d68a27ee6bec2150f06741"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.150.tar.gz"
+    sha256 "ff20713d1a14d257af9c78209001f40dc177e4b9d1496115cbd8726d577946c7"
   end
 
   resource "File::Copy::Recursive" do
@@ -168,13 +166,13 @@ class Texlive < Formula
   end
 
   resource "URI" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.31.tar.gz"
-    sha256 "b9c4d58b2614b8611ae03a95a6d60ed996f4b311ef3cd5a937b92f1825ecc564"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.34.tar.gz"
+    sha256 "de64c779a212ff1821896c5ca2bb69e74767d2674cee411e777deea7a22604a8"
   end
 
   resource "TimeDate" do
-    url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/TimeDate-2.33.tar.gz"
-    sha256 "c0b69c4b039de6f501b0d9f13ec58c86b040c1f7e9b27ef249651c143d605eb2"
+    url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/TimeDate-2.34.tar.gz"
+    sha256 "4571da8fad4393e7051be0098bd3ad028b3c60c2d75adf88b1f81b912154d6d2"
   end
 
   resource "Crypt::RC4" do
@@ -183,8 +181,8 @@ class Texlive < Formula
   end
 
   resource "Digest::Perl::MD5" do
-    url "https://cpan.metacpan.org/authors/id/D/DE/DELTA/Digest-Perl-MD5-1.9.tar.gz"
-    sha256 "7100cba1710f45fb0e907d8b1a7bd8caef35c64acd31d7f225aff5affeecd9b1"
+    url "https://cpan.metacpan.org/authors/id/D/DE/DELTA/Digest-Perl-MD5-1.91.tar.gz"
+    sha256 "718e41717fb82a9ab3f0809d211fddcdbdef91dc198887d82b88723aa54afcd5"
   end
 
   resource "IO::Scalar" do
@@ -193,8 +191,8 @@ class Texlive < Formula
   end
 
   resource "OLE::Storage_Lite" do
-    url "https://cpan.metacpan.org/authors/id/J/JM/JMCNAMARA/OLE-Storage_Lite-0.22.tar.gz"
-    sha256 "d0566d6c29d397ea736379dc515c36849f6b97107cf700ba8250505c984cf965"
+    url "https://cpan.metacpan.org/authors/id/J/JM/JMCNAMARA/OLE-Storage_Lite-0.24.tar.gz"
+    sha256 "71c3b6ef082176c9585e620dd48f0f4782c282be73f2a653ea4b618f757bb3fd"
   end
 
   resource "Spreadsheet::ParseExcel" do
@@ -223,8 +221,8 @@ class Texlive < Formula
   end
 
   resource "HTTP::Request::Common" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-7.00.tar.gz"
-    sha256 "5afa95eb6ed1c632e81656201a2738e2c1bc6cbfae2f6d82728e2bb0b519c1dc"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-7.01.tar.gz"
+    sha256 "82b79ce680251045c244ee059626fecbf98270bed1467f0175ff5ea91071437e"
   end
 
   resource "HTML::Tagset" do
@@ -278,8 +276,8 @@ class Texlive < Formula
   end
 
   resource "Net::HTTP" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.23.tar.gz"
-    sha256 "0d65c09dd6c8589b2ae1118174d3c1a61703b6ecfc14a3442a8c74af65e0c94e"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.24.tar.gz"
+    sha256 "290ed9a97b05c7935b048e6d2a356035871fca98ad72c01c5961726adf85c83c"
   end
 
   resource "WWW::RobotRules" do
@@ -288,18 +286,18 @@ class Texlive < Formula
   end
 
   resource "LWP" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.78.tar.gz"
-    sha256 "b738bdcf54e2c6bb81fd2b83ec47bc83347f97b371ea80f0dc10360f817a9a44"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.81.tar.gz"
+    sha256 "ab30552f194e8b5ae3ac0885132fd1d4ea04c4c7fe6555765b98f01af70c1736"
   end
 
   resource "CGI" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEEJO/CGI-4.67.tar.gz"
-    sha256 "f4a6896eb94a3ecaa1c1ba02f7e0d2bed0be4c5ad3378d80196ec25662ac4111"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEEJO/CGI-4.71.tar.gz"
+    sha256 "9da85b30d9404d183da7ca7aedb83702cb07ed73c3078bf6f36c87f1e8a0196a"
   end
 
   resource "HTML::Form" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Form-6.12.tar.gz"
-    sha256 "2ced87d0878afa007d22c41927f0e8da63844608f20881f645f364dc32cdce6f"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Form-6.13.tar.gz"
+    sha256 "ae5ad0f6fe70b1a382789d5e83a9b669cc541ee9d459e1bfa89b43ae0c014cdd"
   end
 
   resource "HTTP::Server::Simple" do
@@ -308,13 +306,13 @@ class Texlive < Formula
   end
 
   resource "WWW::Mechanize" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/WWW-Mechanize-2.19.tar.gz"
-    sha256 "7b02e808018ff22a8798e51b5f329d8fac333fbfa8fb63808910091dade8b61f"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/WWW-Mechanize-2.20.tar.gz"
+    sha256 "5adce695f3968565d3c8e597b988525ee4c89f40ecb1a21ecee7a16532dbb668"
   end
 
   resource "Mozilla::CA" do
-    url "https://cpan.metacpan.org/authors/id/L/LW/LWP/Mozilla-CA-20250202.tar.gz"
-    sha256 "32d43ce8cb3b201813898f0c4c593a08df350c1e47484e043fc8adebbda60dbf"
+    url "https://cpan.metacpan.org/authors/id/L/LW/LWP/Mozilla-CA-20250602.tar.gz"
+    sha256 "adeac0752440b2da094e8036bab6c857e22172457658868f5ac364f0c7b35481"
   end
 
   resource "Net::SSLeay" do
@@ -323,13 +321,13 @@ class Texlive < Formula
   end
 
   resource "IO::Socket::SSL" do
-    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.089.tar.gz"
-    sha256 "f683112c1642967e9149f51ad553eccd017833b2f22eb23a9055609d2e3a14d1"
+    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.098.tar.gz"
+    sha256 "b38473be20256b1a06447dd6769ad162bfad6a258234ed2c7e2e1819c16c4df7"
   end
 
   resource "LWP::Protocol::https" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.14.tar.gz"
-    sha256 "59cdeabf26950d4f1bef70f096b0d77c5b1c5a7b5ad1b66d71b681ba279cbb2a"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.15.tar.gz"
+    sha256 "44eec2da147ba0511090871b0ca82f69794376bc31e8c76d1040961ba57f59b8"
   end
 
   resource "Tk" do
@@ -338,8 +336,8 @@ class Texlive < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
-    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
+    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
+    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
   end
 
   def install
@@ -544,6 +542,12 @@ class Texlive < Formula
 
     # Delete ebong because it requires Python 2
     rm bin/"ebong"
+
+    # Work around 20260301 format generation failure:
+    # fmtutil [ERROR]: no (or empty) hilatex.fmt made by hitex.
+    inreplace share/"texmf-dist/web2c/fmtutil.cnf",
+              "hilatex hitex language.dat -etex -ltx hilatex.ini",
+              "# hilatex hitex language.dat -etex -ltx hilatex.ini"
 
     # Initialize texlive environment
     ENV.prepend_path "PATH", bin

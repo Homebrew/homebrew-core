@@ -12,12 +12,13 @@ class Efl < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ff9e74361fb44547be5d3b75bf79da07951908b98ef3d95b36ab1da053eaeae1"
-    sha256 arm64_sequoia: "28325e6e21f61357a195f7c59a3f92e30b5a8ad1b0385d2af6521a26a91894f0"
-    sha256 arm64_sonoma:  "fef2c199370b4f0bd018d387df3dc1bd118f5b6bcd495a1eb5a821970297ae7f"
-    sha256 sonoma:        "911cfa99069ed354357027da43d3db6bf48b0f49c5d3b425eaea82f93c00fea1"
-    sha256 arm64_linux:   "36ada6d00f35841ed4c0045fef852362498d5c5c46808bdfcf7b8119d6d5f871"
-    sha256 x86_64_linux:  "79eb03fa89429fb5bfe0f6c48388f6964f5088bb45deaed7b9489efb07c1b6ba"
+    rebuild 1
+    sha256 arm64_tahoe:   "0aedecfbc82dd64256f03aab33fa8ae335417d303f1ae5232312c7db3d83f807"
+    sha256 arm64_sequoia: "20d779a469c064dd9c5f0026d92088fd471072ff8892a198b4a4541e18be5ade"
+    sha256 arm64_sonoma:  "6f12d404e850445aa6f2e4022a661eda4125799f98e00ca8a33a6084c16f97b4"
+    sha256 sonoma:        "68674b9cc25d8d8553903bda991c6a27d96ee0c64cff9495385a7c43e6d4351a"
+    sha256 arm64_linux:   "5c03f04940d543eab7aa8229188ba8854693ad479b969da545c8fcb2f0ee305e"
+    sha256 x86_64_linux:  "9bbb7e3a1d35545a60a72cbe6f5c67ae49ae7e1bde124659822926cebb92284c"
   end
 
   depends_on "meson" => :build
@@ -50,8 +51,6 @@ class Efl < Formula
   depends_on "shared-mime-info"
   depends_on "webp"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gdk-pixbuf"
     depends_on "little-cms2"
@@ -59,6 +58,7 @@ class Efl < Formula
 
   on_linux do
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   # Fix conflicting bool definition.

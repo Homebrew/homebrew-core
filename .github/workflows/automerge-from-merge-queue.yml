@@ -41,7 +41,7 @@ jobs:
       actions: read
     steps:
       - name: Upload metadata
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: event_payload
           path: ${{ github.event_path }}
@@ -251,7 +251,7 @@ jobs:
       fromJson(needs.status-check.outputs.complete) &&
       fromJson(needs.status-check.outputs.mergeable)
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
     permissions:
       contents: read
       pull-requests: read

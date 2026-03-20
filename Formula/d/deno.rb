@@ -1,18 +1,18 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v2.6.9/deno_src.tar.gz"
-  sha256 "1c856233c2b845848b5d85f66404b6b6fa9a5e04c8cf8b13025f3ce76c5100a4"
+  url "https://github.com/denoland/deno/releases/download/v2.7.7/deno_src.tar.gz"
+  sha256 "8786a1cb51d93275da845be33e0199a7a63c6ecc7839b8feec548097288c16ac"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "10b5f8499bfb7917a18c717187504c4a32647d61c4ada95e4e687e3ba10c2454"
-    sha256 cellar: :any,                 arm64_sequoia: "5433476570d1a0141576cde808dff2a1746861b546df8d2db224b20c41e2727f"
-    sha256 cellar: :any,                 arm64_sonoma:  "0a49caba1b9e16cdb72d7b4bf341e4d05b8479cdaadfdd3f65941f2bc9db4a4a"
-    sha256 cellar: :any,                 sonoma:        "fdb2c9199c4884c704abc796aeb3196d58a01e2b5a895e8fc6a35e31387311b3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5dac43ac6742bcf4f7500aaf7014ef22ac1eb1e2787ac3761ec5961eb2737ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32128122fd7551cebca332fb6ef21ec741b333c3cf55e37bf5001d5888b2728a"
+    sha256 cellar: :any,                 arm64_tahoe:   "ea18a0a3e86d04085ea9a3d1c7a27c521ed86b171bfcbec52a63abc0d7b120be"
+    sha256 cellar: :any,                 arm64_sequoia: "0e98f492dbd69bd01d69b8133fb68f69c0587c2b2957500487b1f5d90f9f28e1"
+    sha256 cellar: :any,                 arm64_sonoma:  "d2f3e94079ec848a2f40ecc9ff76f615e0b8c7e0f62d51edd102e9d48afd03ef"
+    sha256 cellar: :any,                 sonoma:        "a77c6e98914df099a070beb96f4c316e4050cc6b0baf0c3a13969f1927f1b133"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2117a71c844a305191bf80c3ca6064725843e44ce76341d077c163b205a38c72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f9e4d14334bc8b206d3a769e56bb45660608f8f80da584cc67d809807e4e161"
   end
 
   depends_on "cmake" => :build
@@ -33,6 +33,8 @@ class Deno < Formula
     depends_on "pcre2" => :build
     depends_on "zlib-ng-compat"
   end
+
+  conflicts_with "dxpy", because: "both install `dx` binaries"
 
   def llvm
     Formula["llvm"]

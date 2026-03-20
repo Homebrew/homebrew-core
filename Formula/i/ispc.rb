@@ -14,18 +14,19 @@ class Ispc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9bdc1d455e185c88f8520edbfc67471f5b687752765811712548ed3835e11817"
-    sha256 cellar: :any,                 arm64_sequoia: "2322d9bc5f413ac944cfadd524f268a467a685e2853552a6d2781c313bb9544e"
-    sha256 cellar: :any,                 arm64_sonoma:  "913706450be7b0ddf4c2540faa9d4c6ff2d477e105f4f587da5438a423246932"
-    sha256 cellar: :any,                 sonoma:        "34d56a54439aeee4832e56b54d9c8dcff9bdcad67e35d6d2ad312fd8fd0b7d75"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b201999610c12ce48c9a70127f16fb675a84c1c78cc0f8a573d0933a1dc5447f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73c75d3435f08639793b1a886a79adbf9fb02e504d568f2620471330317f7d06"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "066c6cbceb92fa5498064ad6cded8c771ee479c7ca4c745f69499435823ca1f2"
+    sha256 cellar: :any,                 arm64_sequoia: "abb0dc3dbeea2724625b3c46a31e009357ade922b026b9bc652ee03b9a842e77"
+    sha256 cellar: :any,                 arm64_sonoma:  "0502f0c6d3be0a8ae5cfb9ebee46c1abe780294eaf3066c242011203c4b60287"
+    sha256 cellar: :any,                 sonoma:        "f25e5c473bc951a15de6fc0b9f00a881cbfffb2d059c5fd3a194064ca50bfcad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6cf3dae91df21f4e97b9232bb017ef63b3f6e3829f2a4f2ad06101b6e63f07f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4bc30e194268208bc23db431ed09e368124a4ae72e77bd7dca7592306a97783"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
-  depends_on "llvm@20"
+  depends_on "llvm"
 
   uses_from_macos "python" => :build
 

@@ -5,8 +5,6 @@ class Mdxmini < Formula
   sha256 "9b623b365e893a769084f7a2effedc9ece453c6e3861c571ba503f045471a0e0"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "9c7d6bb3128d117bd4730a9c7b59f0412b2f2ddf5dd1e2b1fe928d0f767f9750"
     sha256 cellar: :any,                 arm64_sequoia:  "8bd1fe419459be3167ff34cc8b6e709a2628f8bb38ea47b629dacb96cdce8b24"

@@ -12,12 +12,13 @@ class Libetonyek < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "1faea6adb1a62764129a5109c166335ddcb14b29773e72cf7662dd8ec37b2925"
-    sha256               arm64_sequoia: "e9a1d39588485bb16c2f55a0710bf1152a62e04c19e17aa7c1e8a09fb70ecf48"
-    sha256               arm64_sonoma:  "453067d70c2825964ea986934adb68642d4b7a979acbffd8446ecb07f55b5886"
-    sha256 cellar: :any, sonoma:        "63485b881e4d4de00b5fd986fdb4b5fcd3611e23bf3ff99069acc3f7aafbe361"
-    sha256               arm64_linux:   "63e082b7862f8e494b4df199d7ea43869332f4dc4ee91a8de6112707040b00ce"
-    sha256               x86_64_linux:  "52adea77c0e439e4c1186052e285dc1adcea5bf998bb1e4aaf3916728c4ebd68"
+    rebuild 1
+    sha256               arm64_tahoe:   "15e4106e5a95482d49ca870517bb9ec974028d31b4e6ad71b82b7bfdbf637816"
+    sha256               arm64_sequoia: "83bb5e23e86d7476934b74bda30cd21958299d3ac87f702b40536f1b4e41af96"
+    sha256               arm64_sonoma:  "d57c06d659c57a25dd60cd7e4484061640fde9f755395a783095d87f8c65fc42"
+    sha256 cellar: :any, sonoma:        "af39f35143e4fcfc2e82eb18a96c5c02957fada39033d52324ff5edbb4944efe"
+    sha256               arm64_linux:   "43d455ef90f218ca763f9821d4798b9cd09c4e9d699436c4764719646e805cdf"
+    sha256               x86_64_linux:  "b2983d0f4f6f8037ab0ec443afe5527759cb94342d60d26442b776f7c2c8e7a1"
   end
 
   depends_on "boost" => :build
@@ -27,7 +28,10 @@ class Libetonyek < Formula
   depends_on "librevenge"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Upstream bug report for release 0.6.8 download asset
   # https://bitbucket.org/tagoh/liblangtag/issues/20/404-for-liblangtag-068tarbz2-asset

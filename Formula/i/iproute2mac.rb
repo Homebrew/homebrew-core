@@ -3,15 +3,12 @@ class Iproute2mac < Formula
 
   desc "CLI wrapper for basic network utilities on macOS - ip command"
   homepage "https://github.com/brona/iproute2mac"
-  url "https://github.com/brona/iproute2mac/releases/download/v1.6.0/iproute2mac-1.6.0.tar.gz"
-  sha256 "11a4059f1d804084ac22a6ef0f71444f9f3e59485276c706fc914e779d916b29"
+  url "https://github.com/brona/iproute2mac/releases/download/v1.7.2/iproute2mac-1.7.2.tar.gz"
+  sha256 "b2460043a49f83e93f534dd7ebf31d1e3394df1c70e0a299682815bc63ff295d"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "0d85742fb0bdd9665035fffd6c8870d91702aace1438c8b0c2c507492e0f462c"
+    sha256 cellar: :any_skip_relocation, all: "a374f057368efb8bf3cf999f5176cff71db4df06d4df35bd5a7abc4898ff30dd"
   end
 
   depends_on :macos
@@ -21,8 +18,9 @@ class Iproute2mac < Formula
     libexec.install "src/iproute2mac.py"
     libexec.install "src/ip.py" => "ip"
     libexec.install "src/bridge.py" => "bridge"
-    rewrite_shebang detected_python_shebang, libexec/"ip", libexec/"bridge", libexec/"iproute2mac.py"
-    bin.write_exec_script (libexec/"ip"), (libexec/"bridge")
+    libexec.install "src/ss.py" => "ss"
+    rewrite_shebang detected_python_shebang, libexec/"ip", libexec/"bridge", libexec/"iproute2mac.py", libexec/"ss"
+    bin.write_exec_script (libexec/"ip"), (libexec/"bridge"), (libexec/"ss")
   end
 
   test do
@@ -31,5 +29,6 @@ class Iproute2mac < Formula
     system bin/"ip", "address"
     system bin/"ip", "neigh"
     system bin/"bridge", "link"
+    system bin/"ss"
   end
 end

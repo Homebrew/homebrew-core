@@ -17,7 +17,7 @@ class Jxrlib < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c4b636123bafc19b44451cfc90eecbf7ab7488527508c40a102594517d60c889"

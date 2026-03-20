@@ -4,7 +4,7 @@ class Maxima < Formula
   url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.49.0-source/maxima-5.49.0.tar.gz"
   sha256 "6d401a4aa307cd3a5a9cadca4fa96c4ef0e24ff95a18bb6a8f803e3d2114adee"
   license "GPL-2.0-only"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -12,22 +12,26 @@ class Maxima < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce16dd9f385c679fa7b7290d96be885337a173797da1779e78edb9bb6641e749"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff552e00409a275c9bc766f581b245fae1f409507090501c5470fb2d58cbdcac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc8b7dddb8efe7da03521c4fc4b32f3fca6e5305fb23d102caf26ec879f1757b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6c6794c25e9c978bb85227ce99998fc12ab58a0cc814bfd3b5b60c29b429ef7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "00d976c665b1bf76a757a56e8f572280e24d9a8403fd5f406ef81ea13fa3d740"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "124f138cdd9b5cf7f4995b245a97616cc9ea7131002c5c2286124d9341c71379"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "223f783f75d7f88aa60c66fdb347469e28beac9b190f77470531604321e66a70"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "014cf36f994218dc8fe95d2d8ae0655124e835bcbfbbaa8ea0b0c7633f983ff2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9a7e58a90cc730f4684905b2dfeaa9971fd6b503632442381b474f4f374fb98"
+    sha256 cellar: :any_skip_relocation, sonoma:        "123679820f9abcca2334836fe84cd0ff04c952f8b5eb34998bfdf66ddf966776"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1072e21438c4c9e2f94c55bdd06b4c5a1a96030ce04e0ddc186b4e65f5e1d5d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "520ba335f58a018624bf8883355745da2cd2b7e4019d05a6ec81ae1cb197b336"
   end
 
   depends_on "gawk" => :build
-  depends_on "gnu-sed" => :build
-  depends_on "perl" => :build
   depends_on "texinfo" => :build
   depends_on "gettext"
   depends_on "gnuplot"
   depends_on "rlwrap"
   depends_on "sbcl"
+
+  uses_from_macos "perl" => :build
+
+  on_macos do
+    depends_on "gnu-sed" => :build
+  end
 
   def install
     ENV["LANG"] = "C" # per build instructions

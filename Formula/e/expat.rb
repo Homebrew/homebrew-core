@@ -1,8 +1,8 @@
 class Expat < Formula
   desc "XML 1.0 parser"
   homepage "https://libexpat.github.io/"
-  url "https://github.com/libexpat/libexpat/releases/download/R_2_7_4/expat-2.7.4.tar.lz"
-  sha256 "882bb3c124cdfd6d594818276f3ea851b780473a722385150a5793277635fcae"
+  url "https://github.com/libexpat/libexpat/releases/download/R_2_7_5/expat-2.7.5.tar.lz"
+  sha256 "975e76ab8a5625190bd04a577fa9efc246798c25b8ec665acb6f7951be8b0646"
   license "MIT"
 
   livecheck do
@@ -16,12 +16,12 @@ class Expat < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a3fbc5fb0909f92b7ea4dfaf1bbf539bab9601c5ece083706b63717835809a4b"
-    sha256 cellar: :any,                 arm64_sequoia: "4ae3b12a096133bbe5b0335ce1ba9e540a2e3f7258d3564d3acd30a496c859b9"
-    sha256 cellar: :any,                 arm64_sonoma:  "4a0a6cfb3d203a3a9f48eae5e9630060edaea0a0d88c96b637e10a3cbd07f2e9"
-    sha256 cellar: :any,                 sonoma:        "57abe74689ba80399ff73e144d5798b8aee8f17e4a8f9bec90fbfeb4dec6c66e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "77a85b00651abbacd0c092a4b5a103524f2fc7b9527423b3d623c603565910e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64be96154732d144366f78afde810acc3c4d19ee550c972b5c98a3b6921f8cf9"
+    sha256 cellar: :any,                 arm64_tahoe:   "04fed88fc5ea63211829695ae832be622bba9b224f8c84f4882a6776b3f5cca7"
+    sha256 cellar: :any,                 arm64_sequoia: "266fc399a590e756abd38ce5b2923c397876253704dd4c3fde01816dffb7843e"
+    sha256 cellar: :any,                 arm64_sonoma:  "8b5d48b744487494f5649db6f7a971bff4e48aac5fc48b16c19d6622787b04d1"
+    sha256 cellar: :any,                 sonoma:        "68d8779156448d1396abf021453156bede9a0c119e35b46f64cb901fe7dc5f8c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "24a79da446d9ca71589c8951de336f0b4851828007ee9ee03f3272b4ccc288e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79b6001a08f1a82a9bd2e23d0048f6d7fd812d14f5526f482ccff75b674dcc39"
   end
 
   head do

@@ -6,8 +6,6 @@ class Libao < Formula
   license "GPL-2.0-or-later"
   head "https://gitlab.xiph.org/xiph/libao.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 arm64_tahoe:    "e5015eef806ec149f9ad6e502d1aed412e9746da6f5ba2fa23947a5e58641d0b"

@@ -6,8 +6,6 @@ class Helib < Formula
   license "Apache-2.0"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "803815f7a62fe41c3af529f91c0c5dec64562c76a9ed3c3af559f666e554a0a3"
     sha256 cellar: :any,                 arm64_sequoia: "f9bbc95593524143828d00e06eaea405c7721b737811f782cd7d906b21c2fa0b"

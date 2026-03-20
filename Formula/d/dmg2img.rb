@@ -12,8 +12,6 @@ class Dmg2img < Formula
     regex(/href=.*?dmg2img[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:   "606ad411e551ca06e51b65e8e86db388a2f8d49a684fac4b803fc06adee95f1d"

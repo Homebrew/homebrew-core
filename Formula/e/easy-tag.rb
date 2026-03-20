@@ -6,8 +6,6 @@ class EasyTag < Formula
   license "GPL-2.0-or-later"
   revision 12
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "8251a64714fcb33ae2d6952b837cc4441424c68d85194fe85fa1ffb840d8f1af"

@@ -1,8 +1,8 @@
 class Uuu < Formula
   desc "Universal Update Utility, mfgtools 3.0. NXP I.MX Chip image deploy tools"
   homepage "https://github.com/nxp-imx/mfgtools"
-  url "https://github.com/nxp-imx/mfgtools/releases/download/uuu_1.5.233/uuu_source-uuu_1.5.233.tar.gz"
-  sha256 "aadd7edb9494fe1768f7d2964aa470931da15bd83f82a1829d786f8ec80ca169"
+  url "https://github.com/nxp-imx/mfgtools/releases/download/uuu_1.5.243/uuu_source-uuu_1.5.243.tar.gz"
+  sha256 "dee3be0f337c631bf93232f5ea42440f07782ce005c9219a14731d66bbe83658"
   license "BSD-3-Clause"
   head "https://github.com/nxp-imx/mfgtools.git", branch: "master"
 
@@ -13,13 +13,12 @@ class Uuu < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "781cf15e04977227c875bee8a775a9a467e7637f5b5b66ed5348ca21ffd77d4c"
-    sha256 arm64_sequoia: "1f7d083fb0a660d6ae993992f57ad7e06f419dc1fd6701ef4e774ddcfa27e76a"
-    sha256 arm64_sonoma:  "8fd6cc628b1828bda6849151bc7214163809369e23f0bef838e077639915b62f"
-    sha256 sonoma:        "22b6cffa3305490a93fdff5c2cb6b181245507da7d1fc4ce1fcdf8927b18d42a"
-    sha256 arm64_linux:   "727d2f61c7d555622887421a49e839ec1186aa19f82a62c3d6d6b710252e6862"
-    sha256 x86_64_linux:  "bcddad7081ccf91f1d525ab5ec6602033c15e7f0e673f82fb45c076fae8af1ca"
+    sha256 arm64_tahoe:   "4647654b18285ec907a87f85da36b8ec63cf7c22836f45815c0a0ceacf1f8e36"
+    sha256 arm64_sequoia: "b40e7e680e9d7e1b2f416e2e6e1c7c1c4ecf04a30ec1744da19119dd1b570634"
+    sha256 arm64_sonoma:  "89a11b1316b94142eba3efa3286dde5384fcec4710f8000e7105b1a8dcdb2fea"
+    sha256 sonoma:        "2fd66ee2db00c408a5d62a0cf3ec3d8dd6db445057e9fe11bddb56ba0e7a22da"
+    sha256 arm64_linux:   "129e2c8078ebe4f17a6536b26784fcf149994cb8a16643f2027c640341dc67fe"
+    sha256 x86_64_linux:  "f3cbcdd779051e500329b6588600fc0241667164281d8361bbc0c0bec95ddf38"
   end
 
   depends_on "cmake" => :build

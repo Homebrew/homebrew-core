@@ -5,8 +5,6 @@ class Libsamplerate < Formula
   sha256 "16e881487f184250deb4fcb60432d7556ab12cb58caea71ef23960aec6c0405a"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "a5245adca05c76e8f9593494b5909903ffe44c5173b7b713b6c5dec75005953b"

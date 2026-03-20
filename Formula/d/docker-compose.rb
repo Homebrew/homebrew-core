@@ -1,8 +1,8 @@
 class DockerCompose < Formula
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/refs/tags/v5.0.2.tar.gz"
-  sha256 "9cd91c987bfe5924c1883b7ccd82a5a052e97d0ea149d6a00b2a8c3bf3148009"
+  url "https://github.com/docker/compose/archive/refs/tags/v5.1.1.tar.gz"
+  sha256 "32cc81d0a79004c10c6c30052ad96d0a8a72c7e22412aa80da1f8f4c468d3dc1"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git", branch: "main"
 
@@ -15,13 +15,12 @@ class DockerCompose < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a07dbf37dbac45c75c2542a42f613f919f1eb622e7cd1828e82e1d2731a87bf5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2b20efa8c6288da16d59c32780244af8d1d90605a0ca6e688080913eb1ec43c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f6189f2ca577c2e8176365c76f1452d025efb47f9409fd80ee1b711d37e72593"
-    sha256 cellar: :any_skip_relocation, sonoma:        "422a0e8618aa5bbee703be3082f6fff599e69b5a0c0627612175cfcf199a1b05"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "58d3a5a787903a32e883f74f59357ff7a169811448749a65640ee2b7d27f043b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f366a89330d5ba5581ce7d324543820064e0a86723ef0e9cb50f181758c9a63"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "716f6a211e08e4f647e90e6cee4f08b9763951b833a0000279bd6df40a412d17"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efd44dd0e422c78578b4dd5783d98397d5340685b568d46f3c86523c33b6c027"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1ef0934e94c85a14cceec14e54d3ced69eded8a84777d975003a75785934fd2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cf3d45e8c3778a64a4bda2dc4f4e9472e76e8ec8be276af8b6ba51a85977711e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f11a9edc0ba131e81c745700a006e1f1a82d074c11d872448cd0c8ed5e623b20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "053a309694de7bbca11118a83ca0382d94917f87490da0dd107e5df0ca724635"
   end
 
   depends_on "go" => :build

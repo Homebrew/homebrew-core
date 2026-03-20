@@ -6,8 +6,6 @@ class Freedink < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 arm64_tahoe:   "68cd1561bc7d6a477d2d3457a0c1867bf19cec00fd84c46f0fe74fd18d961cf1"
@@ -34,6 +32,11 @@ class Freedink < Formula
   resource "freedink-data" do
     url "https://ftpmirror.gnu.org/gnu/freedink/freedink-data-1.08.20190120.tar.gz"
     sha256 "715f44773b05b73a9ec9b62b0e152f3f281be1a1512fbaaa386176da94cffb9d"
+
+    livecheck do
+      url :url
+      regex(/href=.*?freedink-data[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    end
   end
 
   # Patch for recent SDL

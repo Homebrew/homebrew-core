@@ -1,10 +1,10 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://pdal.org/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.9.3/PDAL-2.9.3-src.tar.bz2"
-  sha256 "22e90c8b9653e2bd0eb24efbe071b6c281e972145b47c0ccfdc329d73c188d9c"
+  url "https://github.com/PDAL/PDAL/releases/download/2.10.0/PDAL-2.10.0-src.tar.bz2"
+  sha256 "65eba26e24a2cb1752d3542cc84e8035ecb8dc890b72145128f9b33bd184f2f5"
   license "BSD-3-Clause"
-  revision 3
+  compatibility_version 1
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class Pdal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2589d834dbf2999203c57ff684371f8433549e7c38b63dddc09173a0e73b79c2"
-    sha256 cellar: :any,                 arm64_sequoia: "372b317edf6a88514d3e5bc5610fdccf78fa9f825fec9bf298beb4d202b3df90"
-    sha256 cellar: :any,                 arm64_sonoma:  "dccea42d9aa84543532dcfb497d586b736cd322520b52e148a3c2f435444aca4"
-    sha256 cellar: :any,                 sonoma:        "08fa14e335be49c4487ceccb61d949d2b70f6ae73665b3c77a2d699cc1744ab8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72e457777d497619f976a965b8c98d443072c157863373172296ed7ca611fc93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c74b58226d2c7e3dc8ec6cf0b431b076a94a1e84f831802edb952cc8bba9b3fe"
+    sha256 cellar: :any,                 arm64_tahoe:   "9e0016f885a83d366f0bceeb076869ce9d82197cccf15e92b20250a4b01c3023"
+    sha256 cellar: :any,                 arm64_sequoia: "99e61a32ee87f0ea38d9f3b85fb950166f7e7ab09065d806bfb1d041b3457b07"
+    sha256 cellar: :any,                 arm64_sonoma:  "e1f14867f06d20cebb682238598a216689349c1b381b65ad7e6740a328db6ca0"
+    sha256 cellar: :any,                 sonoma:        "0a60db38ee951ecb87fe733b021cf83073e11ddf5b690f994447e1d2b34b1f38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "03153aa21808408e7c45cf6eb79bf6893dc79205024ebe1b838d1350bc023925"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ca80129201d5d8c311e15e15e275398b053a662ba6df24ccf0ac003322b5097"
   end
 
   depends_on "cmake" => :build
@@ -41,10 +41,9 @@ class Pdal < Formula
   depends_on "xerces-c"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "libunwind"
+    depends_on "zlib-ng-compat"
   end
 
   def install

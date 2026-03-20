@@ -6,8 +6,6 @@ class Ndpi < Formula
   license "LGPL-3.0-or-later"
   head "https://github.com/ntop/nDPI.git", branch: "dev"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "e36d749ae34d4213e05001e200919c6d9c96f7efbd44cd9225408e8691eceaeb"
     sha256 cellar: :any,                 arm64_sequoia: "e62b6b4475ecf76666c907dd2902a12ecb340cc7dd313a65cffb273a456e8ff6"

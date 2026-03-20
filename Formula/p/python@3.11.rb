@@ -1,10 +1,9 @@
 class PythonAT311 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.14/Python-3.11.14.tgz"
-  sha256 "563d2a1b2a5ba5d5409b5ecd05a0e1bf9b028cf3e6a6f0c87a5dc8dc3f2d9182"
+  url "https://www.python.org/ftp/python/3.11.15/Python-3.11.15.tgz"
+  sha256 "f4de1b10bd6c70cbb9fa1cd71fc5038b832747a74ee59d599c69ce4846defb50"
   license "Python-2.0"
-  revision 3
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,12 +11,13 @@ class PythonAT311 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "31deb8ec16fff80f0248318c8973e8ce476f149cef2fdb335a052159b36e3ad0"
-    sha256 arm64_sequoia: "5520c16c2d8c0d84109f2c0236509e608c63bc7c16c82e801b00ec2481b68544"
-    sha256 arm64_sonoma:  "ef46a6699a22f332dd1d188749e2a4ab3afc031c75090615c54cb691cb294c2a"
-    sha256 sonoma:        "a05467514cc3382ecffe54fcca84c38dfa9ec92cce8726f0386779b1afab238c"
-    sha256 arm64_linux:   "a873884a109d3b6d486c8af26e061368adb64054d64746c64e135a1064d935fc"
-    sha256 x86_64_linux:  "3df99325e4e92c7f2b96366e3b52d38acd5569401784d756aa026b492925ba1b"
+    sha256 arm64_tahoe:   "0ee134e8b0ea6ce288cf95ba88352725213455ade52d3cf2bcdae16c92a12b43"
+    sha256 arm64_sequoia: "6a356bf0987c357141c48021e1025d30297092062b4e5307e0cdfb33ad6fc024"
+    sha256 arm64_sonoma:  "e256e5707bb8d32ea1a388fce11b47b550e0383cf6a67d07f135c9fd51462154"
+    sha256 sequoia:       "9c0d8ed0bdb7350b49bece961378478f06e9575a899007073b234eef13583862"
+    sha256 sonoma:        "dfa6a4bff1f08e644e119323611fd55410ccdcb3705b4336f856aabebd09dbe6"
+    sha256 arm64_linux:   "f33cef2ae9e599e00f688c401cd53146f9bedf689a1c7e4f189583f639aa634e"
+    sha256 x86_64_linux:  "2fbccb255dc41a32d4b5ec6d87d63ef71c96d8690f89887ae16bb3b363c5c5c0"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -31,18 +31,18 @@ class PythonAT311 < Formula
   depends_on "xz"
 
   uses_from_macos "bzip2"
-  uses_from_macos "expat"
+  uses_from_macos "expat", since: :sequoia
   uses_from_macos "libedit"
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "berkeley-db@5"
     depends_on "libnsl"
     depends_on "libtirpc"
+    depends_on "zlib-ng-compat"
   end
 
   pypi_packages package_name:   "",
@@ -60,13 +60,13 @@ class PythonAT311 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/44/c2/65686a7783a7c27a329706207147e82f23c41221ee9ae33128fc331670a0/pip-26.0.tar.gz"
-    sha256 "3ce220a0a17915972fbf1ab451baae1521c4539e778b28127efa79b974aff0fa"
+    url "https://files.pythonhosted.org/packages/48/83/0d7d4e9efe3344b8e2fe25d93be44f64b65364d3c8d7bc6dc90198d5422e/pip-26.0.1.tar.gz"
+    sha256 "c4037d8a277c89b320abe636d59f91e6d0922d08a05b60e85e53b296613346d8"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/76/95/faf61eb8363f26aa7e1d762267a8d602a1b26d4f3a1e758e92cb3cb8b054/setuptools-80.10.2.tar.gz"
-    sha256 "8b0e9d10c784bf7d262c4e5ec5d4ec94127ce206e8738f29a437945fbc219b70"
+    url "https://files.pythonhosted.org/packages/82/f3/748f4d6f65d1756b9ae577f329c951cda23fb900e4de9f70900ced962085/setuptools-82.0.0.tar.gz"
+    sha256 "22e0a2d69474c6ae4feb01951cb69d515ed23728cf96d05513d36e42b62b37cb"
   end
 
   resource "wheel" do

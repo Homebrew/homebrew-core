@@ -7,13 +7,13 @@ class BoostAT185 < Formula
   revision 3
 
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "58d3109bff4544bf3330a452e1f9adc7205f271cbd3bfcf3efca42266e60c4ef"
-    sha256                               arm64_sequoia: "59db8c58f97cd9926876fba5b7c96b3e1028bb0f3a799ff054c85ab0018e5954"
-    sha256                               arm64_sonoma:  "e40b504912e27f0af5b475316ae2f24d0e2eec764e52d273a82e0043e1211ea5"
-    sha256 cellar: :any,                 sonoma:        "80b1b546633fe8f6feb93d0d793da86515c9b2262558b48c8f2ecd901a4d21a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee190d6bd7f2de23a6b03263eb999858ecd9e53f8058e3e7d4805aa66acc0dd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1673a1419946e14c843250f401de857263618e6b0e7888ae1426c0e040348cd0"
+    rebuild 2
+    sha256                               arm64_tahoe:   "8ebc8c02aee17d821fb71e08dc2df9cece6f9c27920a08afb77e987949cd6a9f"
+    sha256                               arm64_sequoia: "86f1d77d5e7aaf72aea541bfe5b3846ecd7ecba66c810eba4282a96ec5365598"
+    sha256                               arm64_sonoma:  "fe46b68ddc038313a967ed74ea32daf49dc247bc42cf552ff89f7f62bb444510"
+    sha256 cellar: :any,                 sonoma:        "770617eb0d409303c0b96cb73abfcfb1af7ab6397ef3f0d69f6d031e51d48c6a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7bb9de4627dfb79f061a64bee88fbd9123ea114caa362ee91b6c1ef94af57fcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3733808e2e612773e6c06b8fd75777c98f1c3acbd831de85c600e64a1582a30"
   end
 
   keg_only :versioned_formula
@@ -26,7 +26,10 @@ class BoostAT185 < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Force boost to compile with the desired compiler

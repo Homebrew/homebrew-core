@@ -6,8 +6,6 @@ class TerminalNotifier < Formula
   license "MIT"
   head "https://github.com/julienXX/terminal-notifier.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f2dfafb7ab7b14b1ce364454f260da7a23d4007fea1c863dbe78391db5bf3b3d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "838ac4918afdb8464694e9236c4c61cde9b6d36caa35d01bbc00c6445015c77e"

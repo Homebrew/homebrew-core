@@ -11,8 +11,6 @@ class Mscgen < Formula
     regex(/href=.*?mscgen-src[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "d9abf0e71de052136e3396ebb6bdfed805d918edb13f252eb052ab35e1704b89"
     sha256 cellar: :any,                 arm64_sequoia:  "ba7b5077209a47d9ab11f8d19d7d47ee0162f1fa30c20fd1e464c699e64eb9bd"

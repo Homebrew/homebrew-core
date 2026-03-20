@@ -13,8 +13,6 @@ class MonoLibgdiplus < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "d6660ea5c589c9a33ad3ac95463935c5374e524e7bb8b924a4ea5e5c257085f4"
     sha256 cellar: :any,                 arm64_sequoia: "98055b3665fb3bb6d5af85a6e7e16f1a5be9f2fe201b6d1ef72a5bfa49e5d07c"

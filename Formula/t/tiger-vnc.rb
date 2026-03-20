@@ -11,12 +11,13 @@ class TigerVnc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "8db6b19fae3c874b8c4fd1cb1c1a30691feaa3a85fde9f5c83347a9e67fef45a"
-    sha256 cellar: :any, arm64_sequoia: "9ab2f892c5b11e6fcb9adeeca3f450c617bca800bb4d1e37328636731124871d"
-    sha256 cellar: :any, arm64_sonoma:  "c085c867fad3f61d7b6ebde6dcaf621573917bbb1b92b47d5e89f7167598ec26"
-    sha256 cellar: :any, sonoma:        "6fb4e06ae703bf7d04a7ce6289d268367261e07208b9a464bd72a38e46a64fd1"
-    sha256               arm64_linux:   "b2ec5f88e5d51eec6bcbbc662a4631d290e4f974e66377685ecfcbb36dc4a778"
-    sha256               x86_64_linux:  "e002e20fcb339a14997b6cbfc745dfa9b6c6c214bc09fabef07f3a3c97e288e8"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "11e3ff190f0c4c0ef6dc463548f4f008017a945915683ae3f47db655596fe6aa"
+    sha256 cellar: :any, arm64_sequoia: "d76e50a41017f22462257503cb212f4fd3ffd051054af4de10bb856f19f150c2"
+    sha256 cellar: :any, arm64_sonoma:  "e821c79d04c568b188ce0cb1f2ec9a960c900f70d5124d6ace0bdbfdef8005db"
+    sha256 cellar: :any, sonoma:        "1bc16cfe957b118c7ab360b557830df9095ce073a2c26d949cf03cac32f35c60"
+    sha256               arm64_linux:   "321ac5c0240b6f714bd35fa76fdb9660576f4eb3de6430a994cd12bca77baecb"
+    sha256               x86_64_linux:  "5bfe19fa4c9024d64cc4e7b40c5e762df20b1acc9cc7c04c4bab469c684b12fe"
   end
 
   depends_on "cmake" => :build
@@ -27,8 +28,6 @@ class TigerVnc < Formula
   depends_on "jpeg-turbo"
   depends_on "nettle"
   depends_on "pixman"
-
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -47,6 +46,7 @@ class TigerVnc < Formula
     depends_on "libxrender"
     depends_on "libxtst"
     depends_on "linux-pam"
+    depends_on "zlib-ng-compat"
   end
 
   def install

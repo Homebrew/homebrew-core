@@ -15,8 +15,6 @@ class ProxychainsNg < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "cfc77a32629806d155490f333305c7f0e063f9c98389192c60d2e6238db4e31c"
     sha256 arm64_sequoia:  "98974765fe2ae812f54eac9b71dfc62814e11bb4cb360a17b4125076c4a0ccae"

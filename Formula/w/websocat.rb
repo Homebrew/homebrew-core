@@ -27,7 +27,7 @@ class Websocat < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "ssl", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "ssl")
   end
 
   test do

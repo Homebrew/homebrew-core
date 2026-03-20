@@ -6,8 +6,6 @@ class Sparkey < Formula
   license "Apache-2.0"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "ff757da573f4fb8d73347565dec379edfd8b4310f03a563c98996b262c6a1226"
     sha256 cellar: :any,                 arm64_sequoia:  "452230974e3670cd4241c74f20a71fdeee5ce9f89ab939a5356745e5207bb43e"

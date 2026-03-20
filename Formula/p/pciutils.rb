@@ -6,12 +6,13 @@ class Pciutils < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_linux:  "04bcc2da98a252bebdd8b6206957de9b5d4409c58fe2533197fcc6b3a71eed5f"
-    sha256 x86_64_linux: "684b1f7d95352c1d14a3a9431c7cccf4e5326e6e80c517d092afd8bd7d860fdf"
+    rebuild 1
+    sha256 arm64_linux:  "1365e67a35ba8ba7e9ab1988409a040861f7086a21e98ba80a61c634ba022cd2"
+    sha256 x86_64_linux: "a202068569c6c4beb49b207d584ffbf6a586ef55cb330e7fe305bda336bd1ea8"
   end
 
   depends_on :linux # arm64 macOS is not supported: https://github.com/pciutils/pciutils/issues/111
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
 
   def install
     args = ["ZLIB=yes", "DNS=yes", "SHARED=yes", "PREFIX=#{prefix}", "MANDIR=#{man}"]

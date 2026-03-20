@@ -6,8 +6,6 @@ class Configen < Formula
   license "MIT"
   head "https://github.com/theappbusiness/ConfigGenerator.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6065f7176f6749015d33a8b03a07fd9d4274686f797b8aadc81e2632669b242c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f4afca8fd4567771c799d14425f4085ddc23a1ca5f89e32890dba233919e3ae9"

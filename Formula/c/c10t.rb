@@ -6,8 +6,6 @@ class C10t < Formula
   license "BSD-3-Clause"
   revision 13
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "008b33ff7cc9eec1c4fce9a3fac4d9e5b3f30ad9a66b29edf911ab97f81e5238"

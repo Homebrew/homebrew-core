@@ -15,8 +15,6 @@ class SharedMimeInfo < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "fa674742c5c404fb7265f93a797e483c3ddec4a405180c467d73ffa3a4c2ad86"
     sha256 cellar: :any, arm64_sequoia: "e67c7e8b3bb8386eaebdcaae85eae6a93b8ff0c0f5a710f80c114885edd8d784"

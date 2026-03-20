@@ -5,8 +5,6 @@ class Rink < Formula
   sha256 "40048e84c2b606e50bf05dec2813acedeb48066cd48537d0dea453a72d000d60"
   license all_of: ["MPL-2.0", "GPL-3.0-or-later"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "df19bb6db1b7a86bb97c95d46bde65c6fa3b5087113dad4998fe445bcee51f74"

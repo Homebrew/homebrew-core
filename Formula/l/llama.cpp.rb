@@ -3,8 +3,8 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggml-org/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggml-org/llama.cpp.git",
-      tag:      "b7990",
-      revision: "fc0fe4004985d6749a7a05e250d161f9dbe41d65"
+      tag:      "b8420",
+      revision: "7f2cbd9a4df77a2ce10f31d69f07d4fb75eabc07"
   license "MIT"
   head "https://github.com/ggml-org/llama.cpp.git", branch: "master"
 
@@ -19,52 +19,48 @@ class LlamaCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b2197ecc30e236d76d50a751bfb0f03e1cf34856ed15f8172de17c8c139e8ab9"
-    sha256 cellar: :any,                 arm64_sequoia: "61d801a116f7ad4f93beadc95b5f09a937092574577484c4b7d88a205c7fc0d0"
-    sha256 cellar: :any,                 arm64_sonoma:  "6c42aad18d67ef94269a2733b096a4fb7dd5e847afcfbdd260e903689942c673"
-    sha256 cellar: :any,                 sonoma:        "39a11484712a266d0554d0f52bcc01b4677c6e89e98e7fe90591fd97dc88942a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7e50364a967a864aa8efa75e858818a9c6edf595d4ca9bfd963ba710143af9b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6821abe5cac4ed3bed5d2e2b057755367c179dccae583463cf2e063df293fd53"
+    sha256 cellar: :any,                 arm64_tahoe:   "efea4e33511bcaa7eef561a2d158f57ebf3d7f54de103c7b1af83eabc62378ae"
+    sha256 cellar: :any,                 arm64_sequoia: "e2f81ad233b137e38f41e734156a7d0a45f5f84e627f1a02dc7d6963eeecd1c5"
+    sha256 cellar: :any,                 arm64_sonoma:  "3b09467ca77bf2552dc6d1b34ec579fe0e34652d1666adbe29a5dfdde5fbc5c5"
+    sha256 cellar: :any,                 sonoma:        "94761e846a89d02c3a4df55695033922a64785fec1f61422e1376c5c727417b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6461d40968aafbe321f41b4c7e164e758a402bcdeef39424e8678de4cf467db0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddb05534a0c676e71ff431e0b4732c65abac2e4cd27658d46bc14de44df1b379"
   end
 
-  depends_on "cmake" => :build
-  depends_on "pkgconf" => :build
+  depends_on "cmake" => [:build, :test]
+  depends_on "ggml"
   depends_on "openssl@3"
-
-  on_linux do
-    depends_on "openblas"
-  end
 
   def install
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DGGML_ACCELERATE=#{OS.mac? ? "ON" : "OFF"}
-      -DGGML_ALL_WARNINGS=OFF
-      -DGGML_BLAS=ON
-      -DGGML_BLAS_VENDOR=#{OS.mac? ? "Apple" : "OpenBLAS"}
-      -DGGML_CCACHE=OFF
-      -DGGML_LTO=ON
-      -DGGML_METAL=#{(OS.mac? && !Hardware::CPU.intel?) ? "ON" : "OFF"}
-      -DGGML_METAL_EMBED_LIBRARY=#{OS.mac? ? "ON" : "OFF"}
-      -DGGML_NATIVE=#{build.bottle? ? "OFF" : "ON"}
       -DLLAMA_ALL_WARNINGS=OFF
+      -DLLAMA_BUILD_TESTS=OFF
       -DLLAMA_OPENSSL=ON
+      -DLLAMA_USE_SYSTEM_GGML=ON
     ]
-    args << "-DLLAMA_METAL_MACOSX_VERSION_MIN=#{MacOS.version}" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    libexec.install bin.children
-    bin.install_symlink libexec.children.select { |file|
-                          file.executable? && !file.basename.to_s.start_with?("test-")
-                        }
+    pkgshare.install "tests/test-sampling.cpp"
   end
 
   test do
-    system libexec/"test-sampling"
+    (testpath/"CMakeLists.txt").write <<~CMAKE
+      cmake_minimum_required(VERSION 4.0)
+      project(test LANGUAGES CXX)
+      set(CMAKE_CXX_STANDARD 17)
+      find_package(llama REQUIRED)
+      add_executable(test-sampling #{pkgshare}/test-sampling.cpp)
+      target_link_libraries(test-sampling PRIVATE llama)
+    CMAKE
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "./build/test-sampling"
+
     # The test below is flaky on slower hardware.
     return if OS.mac? && Hardware::CPU.intel? && MacOS.version <= :monterey
 

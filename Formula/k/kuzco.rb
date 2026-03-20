@@ -1,21 +1,20 @@
 class Kuzco < Formula
   desc "Reviews Terraform and OpenTofu resources and uses AI to suggest improvements"
   homepage "https://github.com/RoseSecurity/Kuzco"
-  url "https://github.com/RoseSecurity/Kuzco/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "e3c26877b0fa5dae633e81674d88f30d148a0b77d627cd6777c7d2825cc8062f"
+  url "https://github.com/RoseSecurity/Kuzco/archive/refs/tags/v1.9.1.tar.gz"
+  sha256 "0ed043dcb031338c40054d91631522af3cd8a859534152b67757c0ac446a1edc"
   license "Apache-2.0"
   head "https://github.com/RoseSecurity/Kuzco.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "95487a1522a341d29b92bd5c445a4dccfe1044b2ed98f9a7126223357b0084cd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95487a1522a341d29b92bd5c445a4dccfe1044b2ed98f9a7126223357b0084cd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95487a1522a341d29b92bd5c445a4dccfe1044b2ed98f9a7126223357b0084cd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a31629ad0686c63c37142d6933c52429eb83785f9e7473c09feeeb5f10fc7c2c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a88f63be38154165a86ad19dc078bbecb012d395625b3b69fa712408b9b2d45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d94364db4bf83f55afdd7fe9e3dde36774ccf8363f87f32f56d12bf7440896a8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "257b62873665e901e8dd573154e0980b693d16011c5cf67bb6d55c3fe52f5f09"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "257b62873665e901e8dd573154e0980b693d16011c5cf67bb6d55c3fe52f5f09"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "257b62873665e901e8dd573154e0980b693d16011c5cf67bb6d55c3fe52f5f09"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b861e54182109ab679aacffe4a1d891b0749be87836833a1a8b49bbf25357af9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4ce2358cd9bb85125b58ee5c767f54cb910d7d956852184766c492eb7153bcd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2c0c1cf10c9a3a8c0ffa27c4cc977738f6c55b08fd0c5da5def1276c1a449a7"
   end
 
   depends_on "go" => :build

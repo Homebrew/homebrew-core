@@ -1,19 +1,19 @@
 class Monocle < Formula
   desc "See through all BGP data with a monocle"
   homepage "https://github.com/bgpkit/monocle"
-  url "https://github.com/bgpkit/monocle/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "72df8cabe398ca98fcb25b583d902dcdf0b1ae79bc4dca20b9baf964933dceda"
+  url "https://github.com/bgpkit/monocle/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "93fdbacb3acb8d6cd0d752c18b785054a0091da06e0faaf59611646b9b4994e3"
   license "MIT"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9530c068f6516f21181655aa2ed3eba40c9ee854109c6667a5c84cc7760330c3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "99fa31d8bea07e9aa9c324f10196efa7f13a0ad2f7bd0d3d1c9b07ad3f893c49"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b15e6e681b6cc28fbd57bf1cb52fa8ab26e07d885df447640afef61017e7663"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fa1a30cd9453d59eefd229c70c3fe6b6bb7c4fbb1134e6c6fa97575db46cf341"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f7e541c75e45353dca385cec8b42c103ff3f02f1eee18a8eda7a0885f468842"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46a0e4b69088ae9fc5a2fbac746e4cd4472c1700344d28a85222527fc07b57d3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "68c50b97275bdc234b1cf83ef253609ee6e6843c771141036e1c1574bcf76364"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42c85cbfee9e07f1ba6e7c7215f64c27eea939618e1d2f225871d9d2dfb532c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "467066a9a632bfcd4d05e9beadbc13d695d998ebecda9417c9a054add964bd5d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4bcc8fc5774dee12a10f86a9c2bc596160a16971fce5e13ae81b4fd2ac24d799"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3979c3ae5bed0a90828ab2a1763236d0e302ce98e050a546936df401d8e0bcd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22ae120beef85c07fd3d6bdd8295d194b156acf6c122c264a9415be1b51aa69b"
   end
 
   depends_on "rust" => :build

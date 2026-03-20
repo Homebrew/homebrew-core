@@ -14,8 +14,6 @@ class Wv2 < Formula
     regex(%r{url=.*?/wv2[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "d264df90b7b45b15d1aafa19c346cad1fa08f825411fcb219bd42250be96930b"

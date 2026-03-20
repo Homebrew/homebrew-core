@@ -13,12 +13,13 @@ class Adios2 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "fbc554e8253e7fa4f74dbb526917d3d3dde5e51e5b01fa97cd768a2648cc87b0"
-    sha256 arm64_sequoia: "9035a92447b2b38fb26ea1e6de8dad506c5297ce09275889e3bec16e682dfe61"
-    sha256 arm64_sonoma:  "84bdb5fe77e69d39d6ce3d4c3b76fcaa5b6e8b807a29187ba5fec386085ef097"
-    sha256 sonoma:        "b8fccaec983c43208873c87a42f1537fb2c625d5b0e28aaa2b0d4e1bcceec22f"
-    sha256 arm64_linux:   "a0e3867727e880aa4a9e5de290b468092236cfbe08ca46dc9f9734c8f07bd341"
-    sha256 x86_64_linux:  "65843d7a54a5b1fc736cd8d8062389f106964e56823a1d40a3889dcbce5e67fc"
+    rebuild 1
+    sha256 arm64_tahoe:   "0fc0bba06d97e22d5c1869d158bc966d4edae99020e4ca7c8c4c13004f3b52c4"
+    sha256 arm64_sequoia: "92c091315f8dbadb845f200cace50fc6e18b55a78d8cdd6ef45872e8c8ee6486"
+    sha256 arm64_sonoma:  "45d3e08530811c78a0aa15aa60d41b44a70698a4c44b741d16be03365f103dc1"
+    sha256 sonoma:        "d9fef9268fa1e89e72598057dac3eb94651f795bda0db338ddd995c76c62fb0e"
+    sha256 arm64_linux:   "534704afd26df44507961778f55a3792962cfe487fd94efe4b9148330e976b12"
+    sha256 x86_64_linux:  "b52a6393a46cb6e8c64b502f88b2d032f029d15148347038cc709870f156cfb4"
   end
 
   depends_on "cmake" => :build
@@ -40,12 +41,15 @@ class Adios2 < Formula
   depends_on "zeromq"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1400
     depends_on "lz4"
     depends_on "zstd"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   # clang: error: unable to execute command: Segmentation fault: 11

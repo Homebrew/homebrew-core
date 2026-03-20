@@ -12,8 +12,6 @@ class Uudeview < Formula
     regex(/href=.*?uudeview[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4a0021e8cbb12c07b7c46049e72d217530ed08c2474d57f145044ab7d24674d8"

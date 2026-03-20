@@ -6,14 +6,13 @@ class Shellinabox < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9af5148d556c49c10cd2d8202f4172237928ce9c225a459eba11d4e2a6ab5945"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc3dcfc6ccd491c7a24fca6e89f3ee3c5547a379bc257904e323413dbe21619f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e5286ea7ca63bbada9f3f775f2f2d8c1006fb1f51c9640925ccceba4e0e37c6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "99818243818b0086763a7ceef6b417e5dd13b381cb9fd48e956566a26f74b3e4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e4511e725a582f0c03023a72a8178aadb64e6d8b05c359db2959fe606ab6bc4c"
-    sha256 cellar: :any_skip_relocation, ventura:       "40f88ccd430e1264efea4852697d509ce3c8fa13a2c4a0d16c6415da020a82fc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "15393ab741f33679642c18979f8b84e8f0d164cdd014cc1579a446dbd6d40125"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95159f182fd5741459af55763c3f1b3cc2e15d2339ecf59a54b23c8d83a0877b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7d44a97956451b5823ac5d47639cafe695be2866bcb2d9328c52fc4e6755f621"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd455ebd551e6bddf603d2889a98f8fdd406f68caded2f703c34f78327767862"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c57bd624d71de46310675d95c75925e1b55146c44dd7d62e5e041291820e3abb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7dba06f482a5bc45a102db5beb1fddd0e19bcfa715a9be908d04fb006e86c5c6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aaca8addc19bbac943421d2f17fff428722a7cd47607c42932acf57088ebd9bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c64cf382e610886021ffa6d53b10353798293afd68b9ac286930e429df6da58a"
   end
 
   depends_on "autoconf" => :build
@@ -21,7 +20,9 @@ class Shellinabox < Formula
   depends_on "libtool" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Upstream (Debian) patch for OpenSSL 1.1 compatibility
   # Original patch cluster: https://github.com/shellinabox/shellinabox/pull/467

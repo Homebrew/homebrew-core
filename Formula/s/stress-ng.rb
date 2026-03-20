@@ -1,8 +1,8 @@
 class StressNg < Formula
   desc "Stress test a computer system in various selectable ways"
   homepage "https://wiki.ubuntu.com/Kernel/Reference/stress-ng"
-  url "https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.20.00.tar.gz"
-  sha256 "fe9e5161ac186c6ada22963251ff701fe3275fac2c5b87bdb59c4cab08aaeaae"
+  url "https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.20.01.tar.gz"
+  sha256 "f974863d1861e7e7b5d19e381a17f22d653dcafa12096ac96d11b2e62a22ea77"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class StressNg < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dc087c615586c349b6a427ba17db998150a0c2ad940ae97d1b7f04426f73934b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "acb4260c60584236b843cd12bda45b88108f07e2efcb401685c9eeff36aa1925"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f2d5064b19bcfeb325bc1eb164b0ef73b208cc3a1108602a3789c68d40ff47b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8f747b718251f9fe933ba28b30cff5ef162e4b8bfa037dd06975513a07084459"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aab572c9f1e43c8e5b4d23af03510dce11f7a71d14b5852705de9e5829338e0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18c930b6afdd321448b66d72982cec6411d74eeaec7f5f32acc99c2d94b0ad70"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9b9c17a9f5c90c21710ae9eb5daf3e33ad4b1dd3b36ea93dd390eddc5a4da6cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3211d447a12d9e4d533642929500ee92509e7ec5a569327e4e7690ff16959eb8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3463363d8a8e425ed4a67003e2211475a1d3b8d194780bec2c78129321bbfdf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e62cda0f1edbb494d6de1403fbba8ca116d2fe70a1d7c769d9d54fb0e8430d9c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "125bba36a20c4b9a045c71d41350843c2b7a8f390f6737b77e05aae0d2c5106f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fd64fb97d9b4982e138b59839e6afc63f6d5df501bc15c46708d25455e11b05"
   end
 
   uses_from_macos "libxcrypt"

@@ -11,8 +11,6 @@ class Obfs4proxy < Formula
     regex(/^obfs4proxy[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "35257564f9b79df7a9cd7d25113bf9671291049494537c7293e26db0c8d6b630"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d5b38ec72de48413c006b6e39d6e246c1b9823a79b72b24213c9a656eb6d5d79"

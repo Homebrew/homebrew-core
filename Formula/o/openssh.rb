@@ -13,13 +13,13 @@ class Openssh < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "8923c4cd80df22606925d0a7931e8ba843eb5068f793409ef62953eb510a0d0e"
-    sha256 arm64_sequoia: "e449c08d28b2ee074f4957eb8bad98103b151e48985d5c409e829f6ad135ceaa"
-    sha256 arm64_sonoma:  "b7904cee97a78679397eba236d9f926b7b5827b5c5b865bd45a8c5e2faffc6f1"
-    sha256 sonoma:        "a6f92059c25c4a1e662b27777576fb9610314807e8f29c787e32b11431e76285"
-    sha256 arm64_linux:   "0744cf9b0786612ad2e619177e6555c82d863d9fd2f76b7c6655c0d5c77a5c9b"
-    sha256 x86_64_linux:  "01e105822a2288b23378fb4c1474d6506a9ecbb74706e64d10368799b28bfdf0"
+    rebuild 2
+    sha256 arm64_tahoe:   "bb44104d05e833f586e97f16452430c72e3e24e9d3dd248f6ec542c89de43371"
+    sha256 arm64_sequoia: "4dfd4dd735769919a0040a2e42ef48d863d8d1b4ca89cd4caaf41bbd0ba434d7"
+    sha256 arm64_sonoma:  "5d1fa1b293641878d0c7a6bc5db8be0973d3b5ced98dc7fe822cb01018bb8ffc"
+    sha256 sonoma:        "f1e4a66b3603f853290efbe81c729078bd5dc7de55a4a696263646db6dc78d1a"
+    sha256 arm64_linux:   "3972f75459865fedbd683372c7d8861c116c6cb4a6941a8e875798142d3fcefa"
+    sha256 x86_64_linux:  "69c26d0eec36935ad55e2bee0c75bae78d6d66bc0511310b4e9b2dbda52cefd0"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -35,10 +35,10 @@ class Openssh < Formula
   uses_from_macos "krb5"
   uses_from_macos "libedit"
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-pam"
+    depends_on "zlib-ng-compat"
   end
 
   resource "com.openssh.sshd.sb" do

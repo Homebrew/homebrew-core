@@ -8,8 +8,6 @@ class Retdec < Formula
   revision 1
   head "https://github.com/avast/retdec.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 4
     sha256 cellar: :any,                 arm64_tahoe:   "636b6b44b73121f25224e327ca950576cb95a2a5fd29890c882b7336993af7cc"

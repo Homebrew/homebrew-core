@@ -1,18 +1,18 @@
 class Cpr < Formula
   desc "C++ Requests, a spiritual port of Python Requests"
   homepage "https://docs.libcpr.org/"
-  url "https://github.com/libcpr/cpr/archive/refs/tags/1.14.1.tar.gz"
-  sha256 "213ccc7c98683d2ca6304d9760005effa12ec51d664bababf114566cb2b1e23c"
+  url "https://github.com/libcpr/cpr/archive/refs/tags/1.14.2.tar.gz"
+  sha256 "b9b529b47083bfe80bba855ca5308d12d767ae7c7b629aef5ef018c4343cf62b"
   license "MIT"
   head "https://github.com/libcpr/cpr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2f6fedaaf9ada689d14bc1854d24ea140cb9c42bc4920bac7b7ab476705f621c"
-    sha256 cellar: :any,                 arm64_sequoia: "48d1fd8759a8834695b3faca744b46c9da6977b2b2c5fc912d261a78a483e348"
-    sha256 cellar: :any,                 arm64_sonoma:  "518ed4d3f72ee56e3c078e6d9233726c00248c26aad77c223ecbe21243ceaa12"
-    sha256 cellar: :any,                 sonoma:        "cab1af9d093f2029d4b1fc0af5d6c15184734d3290b31f99ee61254742cacea7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "516258c353c3a7524c61b540b98e9ad31863c3145cd212aeac87a6ea168bcdc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71bc13d254bcfe7b03a844b9d49a70b92806ce146d98a0e78bd41accf89debbc"
+    sha256 cellar: :any,                 arm64_tahoe:   "a0f3e8ed113b1279c1128726e802fc8ae395195b2a0d3f730503234056b393fa"
+    sha256 cellar: :any,                 arm64_sequoia: "a98d8951a3f0155093e1378fff9b44279958871c18a1832f19e91d573572682d"
+    sha256 cellar: :any,                 arm64_sonoma:  "e5f8c5c9bf4f844e78fdde1720e3251d62e39f2ac3927bae55df110e88898979"
+    sha256 cellar: :any,                 sonoma:        "e2c8046007a51247012c7243e18324ee09571a5f88dfe62abfc8729c53cf6d9f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "67ed191360edc4aefc104c06fc5149be59c234fbdf2ee636ae1f92f1a67d877f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75cf39467eb0f010d6c26ccd5b09fe2a1da6b6a00b75bce3287c1004f2c98b63"
   end
 
   depends_on "cmake" => :build

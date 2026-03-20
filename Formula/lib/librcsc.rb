@@ -4,17 +4,15 @@ class Librcsc < Formula
   url "https://github.com/helios-base/librcsc/archive/refs/tags/rc2024.tar.gz"
   sha256 "81a3f86c9727420178dd936deb2994d764c7cd4888a2150627812ab1b813531b"
   license "LGPL-3.0-or-later"
-  revision 3
-
-  no_autobump! because: :requires_manual_review
+  revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "14821ef86b343dc13f61e7a28dff448a4bfba5cca8112bd1b0bfbdeaa8930a46"
-    sha256 cellar: :any,                 arm64_sequoia: "831081261a2182dc77ddc719e6e866f2727fa8f53a3c6d0d3a912de5aa1d992c"
-    sha256 cellar: :any,                 arm64_sonoma:  "e59bff03cd7e217bfb281e868cc4ed37ddd8ce0835e98309279b9bdb37b2a014"
-    sha256 cellar: :any,                 sonoma:        "d397df043bf01f98110c40648d768f82431ec36694995d4476036e093ce51821"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa07658ee323916191ce7fa2761674da291d85ab76219d70c3f04f9c76d55416"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e69464a5e81e618e7c66b0ab37cf77fe61f31860c64ef40974b9cd257079742"
+    sha256 cellar: :any,                 arm64_tahoe:   "74ea73f6b0d78ec266f4016283e606eea8c53d895b6232c4bbf1d7d24ed70615"
+    sha256 cellar: :any,                 arm64_sequoia: "59505e70c27a692aa3083b9254f3232bf7ff5bd0061a25719def62c627d42a9e"
+    sha256 cellar: :any,                 arm64_sonoma:  "30b26f4488ae162d627659a9bec3b1bc576f96207820f76b7799a8004d164f18"
+    sha256 cellar: :any,                 sonoma:        "1e6cd08d22ab9fe82d182aa199656008b476686058936f4cb9e498f9bfee7d9e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de295c08f63b8ce0da6bccfbe35a825d2b1eadf26e1da63d6fa2e239020b77c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b29e812c55ae1c5c81b60b6006404cfe19d85d63266c92f567c7d82beb9b20a"
   end
 
   depends_on "autoconf" => :build
@@ -24,7 +22,9 @@ class Librcsc < Formula
   depends_on "nlohmann-json" => :build
   depends_on "simdjson"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Add missing header to fix build on Monterey
   # Issue ref: https://github.com/helios-base/librcsc/issues/88

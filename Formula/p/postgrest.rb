@@ -1,8 +1,8 @@
 class Postgrest < Formula
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/PostgREST/postgrest"
-  url "https://github.com/PostgREST/postgrest/archive/refs/tags/v14.4.tar.gz"
-  sha256 "a68d01b469b653420c579dac184a6dd85e6715a37996864dc0988e2ce73e14f2"
+  url "https://github.com/PostgREST/postgrest/archive/refs/tags/v14.5.tar.gz"
+  sha256 "ffdc596aaaa10254b0c92f9edadb54bdd83b2751efa2b8e05e0f2ae31f456c93"
   license "MIT"
   head "https://github.com/PostgREST/postgrest.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Postgrest < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e60d66cc3c7b206b69cc5769d46ed88843ce80f3adf88ef4a50b68f39db8a867"
-    sha256 cellar: :any,                 arm64_sequoia: "8e5204b14b3e8f289eae4b9806b70ee2e8f27459808c183e55c536faaf0839be"
-    sha256 cellar: :any,                 arm64_sonoma:  "58f53949198c5ba909dd8f4047e47d5a5368a669e723c079e6a3215e26b294ec"
-    sha256 cellar: :any,                 sonoma:        "3fc62a418ff3b53e84b8d281969de2b371083d6e0d6b19f0885d45469973f7ec"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "be29b4ceab0e6af41517426e2a329cd4feb826d674b39f5c65f814476e2a9aff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dabfd19f5a232a2e1cf14147d9c52c107568471b32ada76332a6a8aaa4709626"
+    sha256 cellar: :any,                 arm64_tahoe:   "2e75c185ef1237b95628d3ca82dcdafc8ab14c629231106d9036cc9fb4137438"
+    sha256 cellar: :any,                 arm64_sequoia: "86832317b978599c2fa1fa8a019700a57edf0263285a337830823321bea7c902"
+    sha256 cellar: :any,                 arm64_sonoma:  "0d00459f941c960a98a4b5629c9276ad9c2abe68f334c5525fd7d2201bc08c95"
+    sha256 cellar: :any,                 sonoma:        "f2fbdd7fc20abd3517679701ad3646e5f81ba46999d82c07f7b42ce6133a6e06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7bbf2306f812d5cd090be39dec1a35d03dd3c85a2fc816fb97aae479621cf052"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bc6147bfe85295e6770c349cd6e2a62e3295d28c9f798d3c36fff420c46642b"
   end
 
   depends_on "cabal-install" => :build
@@ -26,7 +26,10 @@ class Postgrest < Formula
   depends_on "libpq"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Workaround to build with GHC >= 9.10

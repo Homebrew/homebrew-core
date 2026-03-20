@@ -7,8 +7,6 @@ class Apngasm < Formula
   revision 20
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256                               arm64_tahoe:   "f648a9450c38c86f0a2790b194a3f44534dbf8eb4cdca060ed4ba011aaf106dd"

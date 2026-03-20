@@ -1,19 +1,18 @@
 class Vhs < Formula
   desc "Your CLI home video recorder"
   homepage "https://github.com/charmbracelet/vhs"
-  url "https://github.com/charmbracelet/vhs/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "ae37fe7e52ade753f850ab81c7d5344f8e540ab6886f877bf5b613620c909893"
+  url "https://github.com/charmbracelet/vhs/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "c08b8502989fe7e9626c02938f3fc512c2a4ba21f839f455d20d7eb1da7bc39f"
   license "MIT"
   head "https://github.com/charmbracelet/vhs.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cc042cfbdee07dea3f8c861cb000601322597f7ac7486c333f10d5de8ef21cde"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc042cfbdee07dea3f8c861cb000601322597f7ac7486c333f10d5de8ef21cde"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc042cfbdee07dea3f8c861cb000601322597f7ac7486c333f10d5de8ef21cde"
-    sha256 cellar: :any_skip_relocation, sonoma:        "15bfbc955ca5dc09d33141d3994e639b76aec988a7eea564041e01c1fb121e5b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5105b1a3316e949465fbbd7f1840d721c5e84b5aa8698cc5a2184c3157fdedf9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1d30de9afd56023e000a52794944b76d746544e681da39905811384c60dce97"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0edf44b9c84f56fb39ae8982b9190380cc129c24a489d3fde161ab733d9219b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0edf44b9c84f56fb39ae8982b9190380cc129c24a489d3fde161ab733d9219b4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0edf44b9c84f56fb39ae8982b9190380cc129c24a489d3fde161ab733d9219b4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1e57d7d0c7a2e44c65e7db0b344de2ba912362c648060b7ccd9f5de6bcec784d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cdc1dcb65b659c63f95e43f6347e2cb290744431c6f0ced771c25326d098155e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15290cb92528067b54e83f001e151ff66e39b1b94bba44174e442bb803dccc70"
   end
 
   depends_on "go" => :build

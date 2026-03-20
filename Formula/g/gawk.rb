@@ -1,21 +1,19 @@
 class Gawk < Formula
   desc "GNU awk utility"
   homepage "https://www.gnu.org/software/gawk/"
-  url "https://ftpmirror.gnu.org/gnu/gawk/gawk-5.3.1.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gawk/gawk-5.3.1.tar.xz"
-  sha256 "694db764812a6236423d4ff40ceb7b6c4c441301b72ad502bb5c27e00cd56f78"
+  url "https://ftpmirror.gnu.org/gnu/gawk/gawk-5.4.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gawk/gawk-5.4.0.tar.xz"
+  sha256 "3dd430f0cd3b4428c6c3f6afc021b9cd3c1f8c93f7a688dc268ca428a90b4ac1"
   license "GPL-3.0-or-later"
   head "https://git.savannah.gnu.org/git/gawk.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "fd614919e82580434f0f863552635bc0a152e48991694b4a2cfeac8fa04b0d1f"
-    sha256 arm64_sequoia: "e569d99fb1824b0d14f1b895f34dec152c508155a7c5df851221eeb23e860544"
-    sha256 arm64_sonoma:  "0325a0e84e37ea644f401028f83c77543043a71c9b399f06196d8e54b3053363"
-    sha256 arm64_ventura: "c8c30a7f85b8cd20113553af345316cea62fcb3c3f138b624b4dba985aad7275"
-    sha256 sonoma:        "60b126aaed8aa96bad8d7a0f487331c6abbfabcbeeddb503fefc5c95526c2547"
-    sha256 ventura:       "83b3a81e89196364ceadf92485d06a5184b37529b5627b4fbe6ae87594be5181"
-    sha256 arm64_linux:   "f7cae3224ad92248271e79d6ece078fef89f4b0092171024764e625a1a62be90"
-    sha256 x86_64_linux:  "4fbe2760d1ce897fdf6726b2af2ecdaebbaa25d348e93e2dd2b4c270da71cee5"
+    sha256 arm64_tahoe:   "e1bc77dcb48a44183688670a386ee6a3cd715eab698ee0b80ee31137315142f1"
+    sha256 arm64_sequoia: "aa754b38ca8ca0faf881045cf942b830c133b1cea8070e0c236219e7833b347d"
+    sha256 arm64_sonoma:  "34ef779d06ace9e63586abd8e2e8d8c53e4b2ee8127de6c6a85281d0c8bb8740"
+    sha256 sonoma:        "5d049a18eed72add370ea73a187e7ee23521321f0b56a228eca4fb32b4e7704d"
+    sha256 arm64_linux:   "7d360bbda03e7212c6c001dfbb9b6dc97fb0c2117f001e7dafffc119f1016c3c"
+    sha256 x86_64_linux:  "299c7fbc71fe23b5c30380b6cc6419536183cd53769630bce5f86fc3311b586b"
   end
 
   depends_on "gmp"
@@ -37,16 +35,13 @@ class Gawk < Formula
       --disable-silent-rules
       --without-libsigsegv-prefix
     ]
-    # Persistent memory allocator (PMA) is enabled by default. At the time of
-    # writing, that would force an x86_64 executable on macOS arm64, because a
-    # native ARM binary with such feature would not work. See:
-    # https://git.savannah.gnu.org/cgit/gawk.git/tree/README_d/README.macosx?h=gawk-5.2.1#n1
-    args << "--disable-pma" if OS.mac? && Hardware::CPU.arm?
     system "./configure", *args, *std_configure_args
 
     system "make"
     if which "cmp"
-      system "make", "check"
+      # Cannot run pma tests in Docker container due to seccomp needed for personality syscall
+      check_args = ["NEED_PMA="] if OS.linux?
+      system "make", "check", *check_args
     else
       opoo "Skipping `make check` due to unavailable `cmp`"
     end

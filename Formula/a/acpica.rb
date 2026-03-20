@@ -11,8 +11,6 @@ class Acpica < Formula
     regex(/href=.*?acpica-unix[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c85f3de1cd6566556c244b0dca84c06cc7c29b53ec1eef0be2202037c5aac87e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd24e50694592713ffb98e41bc6d0d0db4dd797af82deedb230a7b76eba8ac1f"

@@ -3,18 +3,19 @@ class Glances < Formula
 
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://files.pythonhosted.org/packages/61/54/5a950b209fdce0a677a7a5dd0e09d3ea8c49cd3b5427a535a97837a2558a/glances-4.5.0.4.tar.gz"
-  sha256 "23b943ebe555a9aae32f0943521a7bf91216f03b58fadadf506bcd44fa40533f"
+  url "https://files.pythonhosted.org/packages/64/7b/5305b194c76fd5122900652efbee9f35ca32abe73e1592c55eee4727f6fb/glances-4.5.2.tar.gz"
+  sha256 "e150e100b328a419d5003a4d54c02a4d78b0a1f5782f0aa0816877ddbe5881e9"
   license "LGPL-3.0-or-later"
+  revision 1
   head "https://github.com/nicolargo/glances.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "181b603cdfb040bee1117218819812d4ae0f98904058745a61334aba3085dda7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2ff4a05dcd0f63d7c0b9a7c09c6ee7fb975e735826c27a0eed3c304f2a21111"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7e5bd6561c0bb397dca6ce94c77e44c29e753c72340cad5ab03a921e4764890a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b0df491017d5f159396a7c0e33a29ba0c5b2a0992a60b7bad65a030b42aa1019"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a0fae1efcde7531918922acddea86dee627cc71f9b4f78d76d32f2b4365fbfa3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41acff09afe8963051bfd301fc9bea3ae267e3fdc12fc77595217281c4d14bad"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3216aa3690873ac5e3947e9a835cb57824d2029697dfbf0aea81a88ab10f9331"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d0de3afbef4659cc6d971c24a8cf648bff7adadab44ca5df7cd269801c3d11c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "819eeea4075016c380501e7b357bf63ea4a79e008733c150ff4c288e6e8d5bbf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4db0a4137da208e5cb3bbd4291c077311ee0ab45bade666641b414e3e31013c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e16ff6fb61542677c7d600b911c75827ab80a6bf72ea603add55f31484c1df2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4a40f6fc9a3e2ec9d5a537b38fa594a17796ca820ffbd3909e669c243fe522e"
   end
 
   depends_on "rust" => :build # for annotated-docs
@@ -38,8 +39,8 @@ class Glances < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "click" do
@@ -63,8 +64,8 @@ class Glances < Formula
   end
 
   resource "fastapi" do
-    url "https://files.pythonhosted.org/packages/a0/fc/af386750b3fd8d8828167e4c82b787a8eeca2eca5c5429c9db8bb7c70e04/fastapi-0.128.7.tar.gz"
-    sha256 "783c273416995486c155ad2c0e2b45905dedfaf20b9ef8d9f6a9124670639a24"
+    url "https://files.pythonhosted.org/packages/e7/7b/f8e0211e9380f7195ba3f3d40c292594fd81ba8ec4629e3854c353aaca45/fastapi-0.135.1.tar.gz"
+    sha256 "d04115b508d936d254cea545b7312ecaa58a7b3a0f84952535b4c9afae7668cd"
   end
 
   resource "h11" do
@@ -103,8 +104,8 @@ class Glances < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/fe/b6/6e630dff89739fcd427e3f72b3d905ce0acb85a45d4ec3e2678718a3487f/pyasn1-0.6.2.tar.gz"
-    sha256 "9b59a2b25ba7e4f8197db7686c09fb33e658b98339fadb826e9512629017833b"
+    url "https://files.pythonhosted.org/packages/5c/5f/6583902b6f79b399c9c40674ac384fd9cd77805f9e6205075f828ef11fb2/pyasn1-0.6.3.tar.gz"
+    sha256 "697a8ecd6d98891189184ca1fa05d1bb00e2f84b5977c481452050549c8a72cf"
   end
 
   resource "pyinstrument" do
@@ -153,8 +154,8 @@ class Glances < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/c3/d1/8f3c683c9561a4e6689dd3b1d345c815f10f86acd044ee1fb9a4dcd0b8c5/uvicorn-0.40.0.tar.gz"
-    sha256 "839676675e87e73694518b5574fd0f24c9d97b46bea16df7b8c05ea1a51071ea"
+    url "https://files.pythonhosted.org/packages/e3/ad/4a96c425be6fb67e0621e62d86c402b4a17ab2be7f7c055d9bd2f638b9e2/uvicorn-0.42.0.tar.gz"
+    sha256 "9b1f190ce15a2dd22e7758651d9b6d12df09a13d51ba5bf4fc33c383a48e1775"
   end
 
   def install

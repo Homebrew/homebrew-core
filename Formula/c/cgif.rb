@@ -1,17 +1,17 @@
 class Cgif < Formula
   desc "GIF encoder written in C"
   homepage "https://github.com/dloebl/cgif"
-  url "https://github.com/dloebl/cgif/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "211e3dfba7138e4cbc1272999aa735be52fc14cab8cb000d9d6aa9d294423034"
+  url "https://github.com/dloebl/cgif/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "d5e603309176334406d7e4f0063ed96924fe9b0368e8037df2614c0df67bb41b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d035676b8c71ccd4ffedf70f0eaa7aa95dbc458023393ae91fb9e2c630120de3"
-    sha256 cellar: :any,                 arm64_sequoia: "2321d1e60dbdd18b13335adb3675f0d1c100f4e9333321fa8510d7f4da669d72"
-    sha256 cellar: :any,                 arm64_sonoma:  "d34ecd1c7f47c992b6d32299a717978d04692e971f8611d65b0416c8613864bb"
-    sha256 cellar: :any,                 sonoma:        "9806a84bed4c574718f8e79c136b3c46f6baac6b02b9e0a958f4415212f2f1e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8be0a54391bdbd6421384232c4ff042aed78fe2b5f496e54b3dfe29544a2211c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3bfde0d97d1abb42d323536ae50748b2fe0a2ec696cb5ce674f608013dded21"
+    sha256 cellar: :any,                 arm64_tahoe:   "934ef90557be33d46d6fdac7ac1d49bf96a22f802113415fbda84bf3cca86c99"
+    sha256 cellar: :any,                 arm64_sequoia: "6f06564b5b60edb3d75b4231148c0830a6b592bb63bd96d2f6e317059146727e"
+    sha256 cellar: :any,                 arm64_sonoma:  "2738b246f0ee2f48731ff58b6db06bb2212cbf8c957af19c8acf424408ad6fa6"
+    sha256 cellar: :any,                 sonoma:        "6d437fa9f6ac96eb2fdd69041229db21a58e3edb114c39237e9cc8ce1312c6d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c818912c75c81835494a2ab27f557162617fe6dc9ba6ebeed87a9e51313db8d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9d1c0d0963842934dbc8dfb39973c9b4b84844648a4e35a677f900675728f0e"
   end
 
   depends_on "meson" => :build

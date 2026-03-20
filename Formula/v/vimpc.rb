@@ -7,8 +7,6 @@ class Vimpc < Formula
   revision 1
   head "https://github.com/boysetsfrog/vimpc.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "8013c280a8da6f6acbe6df84589b721620b2ae2d171374a8a1775e80636d213a"
     sha256 arm64_sequoia: "1fcf1d047f24ee3ba7d4ef487535073559d3cd25129d607581784f2625e40bcf"

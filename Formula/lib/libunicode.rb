@@ -1,17 +1,17 @@
 class Libunicode < Formula
   desc "Modern C++20 Unicode library"
   homepage "https://github.com/contour-terminal/libunicode"
-  url "https://github.com/contour-terminal/libunicode/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "7b653d8cb3c620cc80118184ccab9c02f7e9a4bf9d1e4b190dae2d5681a0bca4"
+  url "https://github.com/contour-terminal/libunicode/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "1cea0180dd75a46132505330218efc102152fc4eb52462e470ea2bebf836cc58"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3cfe9a200d475b8174c7a0c1298475d489cb5b22cf349940158ed5e98762800d"
-    sha256 cellar: :any,                 arm64_sequoia: "199133e52e16eda0ccefc0e56c65f1da3c3a5b576bcb43119f661779599f378d"
-    sha256 cellar: :any,                 arm64_sonoma:  "32840c0a9239c1591156ddc4aa349d9770b9490265b50d427a3588b2cd8bb7e8"
-    sha256 cellar: :any,                 sonoma:        "be2b2a44285d930b5403dc4477dbaebd57631adad0530a8a88c6c5b6e206851b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "067367069973c9b8daf39808818ea3ceb5b78fe06d25cb89368ae414c77b74cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a201de65e18aaa11df26e12693473d2c9d9d9ec00a45e8da20692cec99b7502"
+    sha256 cellar: :any,                 arm64_tahoe:   "4846522bed2a20e0e55fc78d44bddfda8d20cc548e1ae52e11e2c515ab25497e"
+    sha256 cellar: :any,                 arm64_sequoia: "18c77a62061164b2bb648f3c0d2f81c6dc59c6d55d203c630d4b4b76502cb50c"
+    sha256 cellar: :any,                 arm64_sonoma:  "2c6d41deab236a258845bfe7cad0d1a23150b1c96ee5de45de133c342a993ef9"
+    sha256 cellar: :any,                 sonoma:        "f425c312c6fc2946ae0cc20ee4bc69279c891c3f0c81036891ddc8ffe640bb8d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a5e2f93a5968bc3f0386cc34b9ab84188d71dcd9e6418bcee9c82f3ee5439ab1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "875b32c339c1e465c6f2a1a1830b6d6e68b7a2a932638276c527088a395fb3dc"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +23,7 @@ class Libunicode < Formula
   end
 
   on_linux do
-    depends_on "gcc" if DevelopmentTools.gcc_version < 13
+    depends_on "gcc" # TODO: remove and rebuild bottle on Ubuntu 24.04
   end
 
   fails_with :clang do

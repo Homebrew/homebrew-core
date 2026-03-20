@@ -1,8 +1,8 @@
 class BrewGem < Formula
   desc "Install RubyGems as Homebrew formulae"
   homepage "https://github.com/sportngin/brew-gem"
-  url "https://github.com/sportngin/brew-gem/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "3ecb65806f7c4ea3140185dc90e0699f3d22c4b34926142f38c4d5abe5e2d2c2"
+  url "https://github.com/sportngin/brew-gem/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "a185fbc743858e2b648b974667f98410665ec6e99acddb7c80e427aea4e46b36"
   license "MIT"
   head "https://github.com/sportngin/brew-gem.git", branch: "master"
 
@@ -14,10 +14,8 @@ class BrewGem < Formula
     regex(/^v(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d15fe230ba2d3b46a3239c2c8308771f4602d1367ca09a26e87fc0b402432e54"
+    sha256 cellar: :any_skip_relocation, all: "6ef3921c4c3c009d9fb03c6f80141f8b964a361ffb005b2666f6acba26edbc50"
   end
 
   uses_from_macos "ruby"

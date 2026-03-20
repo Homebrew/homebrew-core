@@ -7,8 +7,6 @@ class Libicns < Formula
   license any_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later"]
   revision 5
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "1392fb2947748ea7d1156f9d66e18f28614106d0e25f0977ee14502e57a1201f"
     sha256 cellar: :any,                 arm64_sequoia:  "4f513b025e1f28cadb969f9546d4b9c0b77021310a3b634c0f6edf2ddcbb8c93"

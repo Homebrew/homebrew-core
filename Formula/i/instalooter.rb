@@ -9,14 +9,14 @@ class Instalooter < Formula
   revision 15
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "088c426ea8b0ca8b5da21f7b37d65897fdfc1dee860c319c080ea1bfebb400d9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "228faeb9aa087d1efb9965ffe414a395ef77766d7c5441395a3313b2b250354c"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "python@3.14"
 
-  pypi_packages exclude_packages: "certifi",
-                extra_packages:   "platformdirs"
+  pypi_packages exclude_packages: "certifi"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -53,11 +53,6 @@ class Instalooter < Formula
     sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
   end
 
-  resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cf/86/0248f086a84f01b37aaec0fa567b397df1a119f73c16f6c7a9aac73ea309/platformdirs-4.5.1.tar.gz"
-    sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
-  end
-
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
     sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
@@ -69,8 +64,8 @@ class Instalooter < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/0d/1c/73e719955c59b8e424d015ab450f51c0af856ae46ea2da83eba51cc88de1/setuptools-81.0.0.tar.gz"
+    sha256 "487b53915f52501f0a79ccfd0c02c165ffe06631443a886740b91af4b7a5845a"
   end
 
   resource "six" do
@@ -84,8 +79,8 @@ class Instalooter < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
   end
 
   resource "urllib3" do
@@ -98,15 +93,37 @@ class Instalooter < Formula
     sha256 "e33ddedcdfdafcb3a174701150430b11b46ceb64c2a9a26198c76a156568e427"
   end
 
-  def install
-    venv = virtualenv_install_with_resources
+  # Replace pkg_resources removed from setuptools 82+
+  patch :DATA
 
-    # Replace vendored platformdirs with latest version for easier relocation
-    # https://github.com/pypa/setuptools/pull/5076
-    venv.site_packages.glob("setuptools/_vendor/platformdirs*").map(&:rmtree)
+  def install
+    virtualenv_install_with_resources
   end
 
   test do
     system bin/"instalooter", "logout"
   end
 end
+
+__END__
+diff --git a/instalooter/_uadetect.py b/instalooter/_uadetect.py
+index 4763b43..1341944 100644
+--- a/instalooter/_uadetect.py
++++ b/instalooter/_uadetect.py
+@@ -9,14 +9,14 @@ import queue
+ import webbrowser
+
+ import six
+-import pkg_resources
++from importlib import resources
+
+ class UserAgentRequestHandler(six.moves.BaseHTTPServer.BaseHTTPRequestHandler):
+
+     def do_GET(self):
+         """Serve a GET request."""
+         self.do_HEAD()
+-        template = pkg_resources.resource_string(__name__, "static/splash.html")
++        template = (resources.files(__package__) / "static" / "splash.html").read_bytes()
+         page = template.decode('utf-8').format(self.headers.get("User-Agent"), self.cache)
+         self.wfile.write(page.encode('utf-8'))
+

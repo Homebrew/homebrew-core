@@ -11,14 +11,13 @@ class I686ElfGcc < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "9b1973c78b379a53dcef17ccb6bfde0eedfe4804642f49809566d41672a78a80"
-    sha256 arm64_sequoia: "9ebc28afe2308055d5c3734a6a1312e2976f12566058a818731152fe796c895b"
-    sha256 arm64_sonoma:  "a7471aa25a2e17e5e793346e7113b9c56ea5af1afde81cb776e352c11ed84b6a"
-    sha256 arm64_ventura: "84dc4edbe13331ffd0044ee60070d4a5e9a6cc02a119fe3afd80cb5f34b70cbc"
-    sha256 sonoma:        "20a35b16e55805bcfecce53cf2e65bf396496fe59b76e3ec9149c8c1ec2bcb00"
-    sha256 ventura:       "343996e94ffed850bb21ff7674a54109af7ed51b9ea93fc7855049f30f9d6735"
-    sha256 arm64_linux:   "79dfcd591eee5344728dc16b19642b353dd129449e7f9e5eca6f7f202fdcf77a"
-    sha256 x86_64_linux:  "60dac0fa2b727b1eef993102653635ddf28e6aa183e6aca96de94f9d2b0068f8"
+    rebuild 1
+    sha256 arm64_tahoe:   "dc1192f46f2f58ad2d4d72e774114a707ff15e0bbac8f02f6868fa5b0f58387e"
+    sha256 arm64_sequoia: "336cc59b76765bf151e7559e9cd1d470af2ab4bef9d24270cb656867becde841"
+    sha256 arm64_sonoma:  "7f9ad28884f1c2f7b9c0b53ad1e59018fa2728f5214f964018dcc76b3e513aba"
+    sha256 sonoma:        "abbfb1ae2d570c345fc35aa00e30ae1f63e0f55e04e1e4beb1216d8536499c60"
+    sha256 arm64_linux:   "75c212bc07d5432ac8d8d0cba1159946e5be4a4272e8c34a0693d2052ac1c11c"
+    sha256 x86_64_linux:  "40dc3970e637b82e36c47783c9956ca24d3ccd15e69ce077867bd84ca0c488fa"
   end
 
   depends_on "gmp"
@@ -27,7 +26,9 @@ class I686ElfGcc < Formula
   depends_on "mpfr"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     target = "i686-elf"

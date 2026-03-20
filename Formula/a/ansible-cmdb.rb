@@ -8,8 +8,6 @@ class AnsibleCmdb < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "b6be47954b66a7ecc04bfff866f4417a531171c2bfa3dcf1ac7c17ed5bac7e5c"

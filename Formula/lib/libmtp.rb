@@ -1,19 +1,17 @@
 class Libmtp < Formula
   desc "Implementation of Microsoft's Media Transfer Protocol (MTP)"
   homepage "https://libmtp.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.22/libmtp-1.1.22.tar.gz"
-  sha256 "c3fcf411aea9cb9643590cbc9df99fa5fe30adcac695024442973d76fa5f87bc"
+  url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.23/libmtp-1.1.23.tar.gz"
+  sha256 "74a2b6e8cb4a0304e95b995496ea3ac644c29371649b892b856e22f12a0bdeed"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cb7e77219550018cb1e31ab3335422a448155721313084dea2acbdfb827f865b"
-    sha256 cellar: :any,                 arm64_sequoia: "1142786084849b45e771a43aeb71e026fe248539172a196067679ff794eeb2fc"
-    sha256 cellar: :any,                 arm64_sonoma:  "70073e53b78c742bb5270a210a9abd301a14ec61938d4c73b0a71105e84f4d3a"
-    sha256 cellar: :any,                 arm64_ventura: "122bcdc9ef407c2395f4022f9bebed02d4bf29eeebdeea7791b7f5fce1d7ddf7"
-    sha256 cellar: :any,                 sonoma:        "5c8a42810b2c8e462121c5a30b9f416d88b36854074f05c361a29a8b2c8d9691"
-    sha256 cellar: :any,                 ventura:       "5b5b1a0918987fb736d910a8b9153cb81c9a8f059ed5bd70af6fa19c18160695"
-    sha256                               arm64_linux:   "096547e52a494fd59d2d61b4a1d23e15268e05c0d16bf546f2f861364ad04e22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa88301d0fda571bdac1fee606be3dae4a207a403c658592f9a914f53c9e9579"
+    sha256 cellar: :any,                 arm64_tahoe:   "6bd6b1027d7491cce853f34578cfecad1645e95c5002619c51f28e261122b7ba"
+    sha256 cellar: :any,                 arm64_sequoia: "a8fccff1e5fb87a33287fdccd00ff301e97377a899db19e200b0101a40631c8b"
+    sha256 cellar: :any,                 arm64_sonoma:  "e5cd66757ea323741414b6d0a52f8d5e29ed105d1ac35f8855484e655c90367c"
+    sha256 cellar: :any,                 sonoma:        "8ee478d393d41ac7c4299fd2f8c0ba640307707a9c85910b326db3770b30439e"
+    sha256                               arm64_linux:   "7379c6c656432162f854e5e6fd415564bf9d9f8469fca427709405653b82be30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f842da301974cc07cd11563aaace91d6259f244a507caa6b17ccd14951c1dc7"
   end
 
   depends_on "pkgconf" => :build

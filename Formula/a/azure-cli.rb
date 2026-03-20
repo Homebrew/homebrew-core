@@ -3,8 +3,8 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://github.com/Azure/azure-cli/archive/refs/tags/azure-cli-2.83.0.tar.gz"
-  sha256 "b79c6d45cc8709262d5cbf6b563c1b11726f5f18ef6f8a317349f62e0370f58a"
+  url "https://github.com/Azure/azure-cli/archive/refs/tags/azure-cli-2.84.0.tar.gz"
+  sha256 "999fd1967c14a46a3c3e3d4af756c1747d6619c746b5a3f5677e45beee3f57c2"
   license "MIT"
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
@@ -17,12 +17,12 @@ class AzureCli < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b2e8869b903da311dae50a7c93c55aa86f01ed02357d0413b54acb6c1f10399e"
-    sha256 cellar: :any,                 arm64_sequoia: "eb4dca74faf3445e736e951b96b88fc46e669cea70735ace1c5d12026e428ae1"
-    sha256 cellar: :any,                 arm64_sonoma:  "664910ed8ead72ab62bb81afe53b96be57221a34c8e4d24fec7b39fb8ea2935a"
-    sha256 cellar: :any,                 sonoma:        "79f5643abd6f7c644b1612cca87f07c2c200a81cb7093dcf5b4b29889ec02b04"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "422cb49fef570c96f0f596a10a206f1f213a635960d28b02c2802b102af5a890"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "015f4109934d61d50b718171a8962f402b4519e006d1d8d9863ec03af111e5a6"
+    sha256 cellar: :any,                 arm64_tahoe:   "21aff0f8e885d3cf3ac1368770575a6a6f8a978f9dcca051377fee3b4638a8f0"
+    sha256 cellar: :any,                 arm64_sequoia: "be9b5688f4c0e9f42e920ae8da9ebff227e17eedc0f588d35e63a4337322f399"
+    sha256 cellar: :any,                 arm64_sonoma:  "f2886f6d9d40b62ed13e65800bb269d678bc87c22cdccb85ba7823df01e1e690"
+    sha256 cellar: :any,                 sonoma:        "f9cf9588427d90d02041ddcbc56ec2b5fc76c7d2aa96de979300fdc60fdde0c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e74ee2fc345383b8635c7fc478fc7a782536d1dba547559bc9f27b14b6e82429"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "946520461537410d447c512e75a6c79c3e8681d5e2c8ab6d7f80dee32572e348"
   end
 
   # `pkgconf`, `rust`, and `openssl@3` are for cryptography.
@@ -331,8 +331,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-postgresqlflexibleservers" do
-    url "https://files.pythonhosted.org/packages/37/a9/b721d5e0da19b6c9ca2f5a8a7ac72840fe4edafb22df2fbeb3b0c86710c9/azure_mgmt_postgresqlflexibleservers-2.0.0.tar.gz"
-    sha256 "13d2f45ba218a364fb0405684f8070f261ae3ed597d5a54d04e3298732c4cdaa"
+    url "https://files.pythonhosted.org/packages/48/25/d4b7ea1fd4a119564119be323d49fb87ee91337de2d75ca5a31c7dbe96b3/azure_mgmt_postgresqlflexibleservers-3.0.0b1.tar.gz"
+    sha256 "568d7fbeec400205739c2a690d9093ca034500c979ba8a5cdd06e211e15b2eff"
   end
 
   resource "azure-mgmt-privatedns" do
@@ -356,8 +356,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-redhatopenshift" do
-    url "https://files.pythonhosted.org/packages/01/a2/b89ba36f4bc2708a7ab0115b451028b8888184b3c19bd9a3ac71afec8941/azure-mgmt-redhatopenshift-1.5.0.tar.gz"
-    sha256 "51fb7429c39c88acc9fa273d9f89f19303520662996a6d7d8e1122a98f5f2527"
+    url "https://files.pythonhosted.org/packages/87/ac/0ac26581db62b5492c6f0b83e284861eeadb12b495799923c220e401fb6b/azure_mgmt_redhatopenshift-3.0.0.tar.gz"
+    sha256 "4775c9bdf363238834da145e5f59f97683ab04f8ddbd250de45d45e33798327f"
   end
 
   resource "azure-mgmt-redis" do
@@ -366,8 +366,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-resource" do
-    url "https://files.pythonhosted.org/packages/a7/28/e950da2d89e55e2315ff0f4de075da4ac0fed4c27a489f7c774dedde9854/azure_mgmt_resource-23.3.0.tar.gz"
-    sha256 "fc4f1fd8b6aad23f8af4ed1f913df5f5c92df117449dc354fea6802a2829fea4"
+    url "https://files.pythonhosted.org/packages/50/4c/b27a3dfbedebbcc8e346a956a803528bd94a19fdf14b1de4bd781b03a6cc/azure_mgmt_resource-24.0.0.tar.gz"
+    sha256 "cf6b8995fcdd407ac9ff1dd474087129429a1d90dbb1ac77f97c19b96237b265"
   end
 
   resource "azure-mgmt-resource-templatespecs" do
@@ -376,8 +376,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-resource-deploymentstacks" do
-    url "https://files.pythonhosted.org/packages/85/60/870f4fe84574891283b555419b0a45c0828e06d28596fc9bdf3b65692bc0/azure_mgmt_resource_deploymentstacks-1.0.0b1.tar.gz"
-    sha256 "49b876e45c0f5bab88ec47d7c56e8fb34fbdfcfe5b831a3a2a21e817f3d9732e"
+    url "https://files.pythonhosted.org/packages/b2/6f/044446e90309017177eea4470e0048d559c1f30059e3598c0465d489a5a4/azure_mgmt_resource_deploymentstacks-1.0.0.tar.gz"
+    sha256 "808dcdd71737e9ca4e7cb84bc62a74efd5457b6a6db0e5607cd36c86fd582dc7"
   end
 
   resource "azure-mgmt-resource-deploymentscripts" do
@@ -666,8 +666,8 @@ class AzureCli < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/fe/6e/74a3f0179a4a73a53d66ce57fdb4de0080a8baa1de0063de206d6167acc2/pip-25.3.tar.gz"
-    sha256 "8d0538dbbd7babbd207f261ed969c65de439f6bc9e5dbd3b3b9a77f25d95f343"
+    url "https://files.pythonhosted.org/packages/48/83/0d7d4e9efe3344b8e2fe25d93be44f64b65364d3c8d7bc6dc90198d5422e/pip-26.0.1.tar.gz"
+    sha256 "c4037d8a277c89b320abe636d59f91e6d0922d08a05b60e85e53b296613346d8"
   end
 
   resource "py-deviceid" do
@@ -716,8 +716,8 @@ class AzureCli < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/76/95/faf61eb8363f26aa7e1d762267a8d602a1b26d4f3a1e758e92cb3cb8b054/setuptools-80.10.2.tar.gz"
-    sha256 "8b0e9d10c784bf7d262c4e5ec5d4ec94127ce206e8738f29a437945fbc219b70"
+    url "https://files.pythonhosted.org/packages/82/f3/748f4d6f65d1756b9ae577f329c951cda23fb900e4de9f70900ced962085/setuptools-82.0.0.tar.gz"
+    sha256 "22e0a2d69474c6ae4feb01951cb69d515ed23728cf96d05513d36e42b62b37cb"
   end
 
   resource "six" do
@@ -746,13 +746,13 @@ class AzureCli < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/8d/12/cd10d050f7714ccc675b486cdcbbaed54c782a5b77da2bb82e5c7b31fb40/websocket-client-1.3.1.tar.gz"
-    sha256 "6278a75065395418283f887de7c3beafb3aa68dada5cacbe4b214e8d26da499b"
+    url "https://files.pythonhosted.org/packages/e6/30/fba0d96b4b5fbf5948ed3f4681f7da2f9f64512e1d303f94b4cc174c24a5/websocket_client-1.8.0.tar.gz"
+    sha256 "3239df9f44da632f96012472805d40a23281a991027ce11d2f45a6f24ac4c3da"
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/49/2a/6de8a50cb435b7f42c46126cf1a54b2aab81784e74c8595c8e025e8f36d3/wrapt-2.0.1.tar.gz"
-    sha256 "9c9c635e78497cacb81e84f8b11b23e0aacac7a136e73b8e5b2109a1d9fc468f"
+    url "https://files.pythonhosted.org/packages/f7/37/ae31f40bec90de2f88d9597d0b5281e23ffe85b893a47ca5d9c05c63a4f6/wrapt-2.1.1.tar.gz"
+    sha256 "5fdcb09bf6db023d88f312bd0767594b414655d58090fc1c46b3414415f67fac"
   end
 
   resource "xmltodict" do

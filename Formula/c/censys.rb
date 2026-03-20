@@ -69,9 +69,6 @@ class Censys < Formula
   end
 
   def install
-    # ZIP does not support timestamps before 1980
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     venv = virtualenv_install_with_resources
 
     generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "censys",

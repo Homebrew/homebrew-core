@@ -6,14 +6,13 @@ class Tenere < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bddcfb3d99b6ff5156f85cbd3b338ebd243570526f51d8d84c2fe3ff2a4abbaa"
-    sha256 cellar: :any,                 arm64_sequoia: "0ef20facf1138986f008cd6fd4b7f0f4ee847c47f8e0f253471044d468222a14"
-    sha256 cellar: :any,                 arm64_sonoma:  "0a7a2b4307ec2afb07dcb5c766c81d7a1454d3d0b668e69e4dc8de25e0f051b5"
-    sha256 cellar: :any,                 arm64_ventura: "f1d6be5362295a0be1bf0e3d2c5e1a89f64f3e14521619e4ddcfef824a1f0af1"
-    sha256 cellar: :any,                 sonoma:        "17cde7da4a41e034a6fa20dcbfb8db9091cd6ee05b4b7fb35ad612b3bc061be7"
-    sha256 cellar: :any,                 ventura:       "3cc90383070bf3d7a567028c64914ce022e8d5a9f55c57b7119c07f512902d4c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ca836b19fd554f3f8e871363dfbe25ea82ceb2016d2209c9f622d49bddbc37d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ac1b9027c10ec8262887b680068256db66ce69499ea85d2eff4d7814031e07a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "394e418c603576f516051602ce4dcde40e0970374f6870788c96ab2115dddcc5"
+    sha256 cellar: :any,                 arm64_sequoia: "ebe0a56a1115a368c245168f523acea3382e95ba384ebc2aa717cdaeb2e6ff90"
+    sha256 cellar: :any,                 arm64_sonoma:  "54e52ab6ce214bdc60df7fb5ff5b3ff67b35e63088967a561c057d67cec3b2ef"
+    sha256 cellar: :any,                 sonoma:        "0f4d5cdeaa01cf72db185cdbf9d376092cd7ebd08e1afc62b1059389b74766d0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1320139ad039b5060bd4085fc819b1eff3c32a9e8ecd47c5f3dead25b615e66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4d51f8d4287fddeee124a6620602dc13716c2835b39898a7864b6a9ceb7a899"
   end
 
   depends_on "pkgconf" => :build
@@ -21,7 +20,9 @@ class Tenere < Formula
   depends_on "libgit2@1.8"
   depends_on "oniguruma"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"

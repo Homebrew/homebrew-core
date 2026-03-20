@@ -1,8 +1,8 @@
 class Qemu < Formula
   desc "Generic machine emulator and virtualizer"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-10.2.0.tar.xz"
-  sha256 "9e30ad1b8b9f7b4463001582d1ab297f39cfccea5d08540c0ca6d6672785883a"
+  url "https://download.qemu.org/qemu-10.2.2.tar.xz"
+  sha256 "784b296ff29c1417aa72323abcb2d2ea9ab9771724f577dcd785c3b04f21e176"
   license "GPL-2.0-only"
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Qemu < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "54cef29e9be0160316fcc296009b95b6536026e63dd0ef85493c5f07f0216e0a"
-    sha256 arm64_sequoia: "0c403b53d0dbe62a4dd2ae84a44e646d810167013a8b985f1f635c7d76bbef7e"
-    sha256 arm64_sonoma:  "f40251478ae8a7f051637d3e5b953657cc93daa393f58a1e9e039cfb32a49083"
-    sha256 sonoma:        "04ce41d1e51777f63bcc0db1f9507bbe63fc904541c879f0b842497a31226b92"
-    sha256 arm64_linux:   "a8c4292054ac58cf88a5ff77840864feac2297f891adab7c1581f107b0169994"
-    sha256 x86_64_linux:  "f096bfd84838e82806ef05fc2abbefdcb270eeb5bc49f90159f010720524d641"
+    sha256 arm64_tahoe:   "f2d32908f6edfa5537ce15e123d4093b71066694a1ce75a5a52435879844f440"
+    sha256 arm64_sequoia: "fea6573542eafdf966ec8c73251ba53dda05d9a5f2bc4abddea74483ee451273"
+    sha256 arm64_sonoma:  "2836694e064b7cc91791fda8d308e0c3ddf4b4b9f3f203ae6c09244e42785dce"
+    sha256 sonoma:        "af1bfa5c635c5b301abc5e20052e011cd6cb5cc314316be825c4332e273d9cd3"
+    sha256 arm64_linux:   "3809de28901911abb6c0aa1acb4b90d29d7a86c70a414ee47d6a682502713d7b"
+    sha256 x86_64_linux:  "04919790dfaae36a079f7efd839ab99fd45fd71479f246756b52dd7b0b656a66"
   end
 
   depends_on "libtool" => :build
@@ -46,7 +46,6 @@ class Qemu < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "attr"
@@ -61,6 +60,7 @@ class Qemu < Formula
     depends_on "libxkbcommon"
     depends_on "mesa"
     depends_on "systemd"
+    depends_on "zlib-ng-compat"
   end
 
   def install

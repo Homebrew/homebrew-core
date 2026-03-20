@@ -1,18 +1,19 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://dlcdn.apache.org/httpd/httpd-2.4.66.tar.bz2"
+  url "https://www.apache.org/dyn/closer.lua?path=httpd/httpd-2.4.66.tar.bz2"
   mirror "https://downloads.apache.org/httpd/httpd-2.4.66.tar.bz2"
   sha256 "94d7ff2b42acbb828e870ba29e4cbad48e558a79c623ad3596e4116efcfea25a"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_tahoe:   "297dc9e93b7153bf0d47a9a786c9c7d997420d6fd73aae41e6f8317c9ad9e0a1"
-    sha256 arm64_sequoia: "ceae8b60bdfc9f43fbbfa95fb21f447e86a3ba8dca564a93b2199b711922e0ff"
-    sha256 arm64_sonoma:  "c84d2ea249911b6f1efade686c4f2c3aa168634e7b9097100c899fde93bae540"
-    sha256 sonoma:        "55d9d504e4a02ab4915520d1ee7099bca5e2cb149d2cf03550377b451f7ca8a3"
-    sha256 arm64_linux:   "86f2bb170dc06107dd782e8ddefbb63b396214b1866144196f0523f9c26386d1"
-    sha256 x86_64_linux:  "93bc9ce8c8f2996105f3b3d85fe8d562f12266066a17cb1ead995fdcbdbad905"
+    rebuild 1
+    sha256 arm64_tahoe:   "b956fa6f4d92ab06b6722b937c7904c4002498024f18bdd64c0fbeca4c0c9ea6"
+    sha256 arm64_sequoia: "e2caacc4e115672f495eb3899cd63d550d55a9dc1c3510881a2a85e16724a9a3"
+    sha256 arm64_sonoma:  "e2e922180c73164d1a0498d13cf358e0c18143340b5b9fb23e041f33b8533487"
+    sha256 sonoma:        "42096dc5eccd673b58e9ccffc422b30bc1d7b1f467cbf0feefa553b4b1e3c233"
+    sha256 arm64_linux:   "41c524055486b594469f54971c00486545eb7139a34000d6f521c5eeacf1c450"
+    sha256 x86_64_linux:  "21deedd9de715b969402e66662ba9a618183d491b04a55dc75839db4dca38ee0"
   end
 
   depends_on "apr"
@@ -24,7 +25,10 @@ class Httpd < Formula
 
   uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # fixup prefix references in favour of opt_prefix references
@@ -52,7 +56,7 @@ class Httpd < Formula
       zlib = "#{MacOS.sdk_for_formula(self).path}/usr"
     else
       libxml2 = Formula["libxml2"].opt_prefix
-      zlib = Formula["zlib"].opt_prefix
+      zlib = Formula["zlib-ng-compat"].opt_prefix
     end
 
     system "./configure", "--enable-layout=Slackware-FHS",

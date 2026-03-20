@@ -1,18 +1,18 @@
 class KubernetesMcpServer < Formula
   desc "MCP server for Kubernetes"
   homepage "https://github.com/containers/kubernetes-mcp-server"
-  url "https://github.com/containers/kubernetes-mcp-server/archive/refs/tags/v0.0.57.tar.gz"
-  sha256 "e08698ba6279efe51ea0d17d830c7706efacfecf5581db62951e8159669bc0f5"
+  url "https://github.com/containers/kubernetes-mcp-server/archive/refs/tags/v0.0.59.tar.gz"
+  sha256 "fa529da8707c4e6fa24d813eaf895dc2616c2a5871b39a8a8c0973fbf93e1c40"
   license "Apache-2.0"
   head "https://github.com/containers/kubernetes-mcp-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "30b1fd2000be0ad853be033cca51101ec0ce09a89c146a2229febbac88938296"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42edc37fcf5979f3bea35cee4d568d25c10244cfd36cca4f5da3436afc8d7c8f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "259bf4cf85f54f672471348cf98e730a5883854947875c78c2eca7837d6d7a46"
-    sha256 cellar: :any_skip_relocation, sonoma:        "229b50e48a9b025b620600eac047162648baf851af3ce760e52eb58961b4cd41"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a06fffa6ade10219eb6ee51813ee9dfb0e7fb1d5641a73add36e0dd351dda7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33afccd8a11eb3669ee3cfb241dc466b0424c0ec42e7a795ecde942196a4b680"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "68100bcb3c9da2ff0337efb165f7b161ea61de31976c2280cdbf3ebbed110a97"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea846cd4a813bf971164366b78474ebc8f2b9429c102f681774ca07a1228fc24"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c349f5746adbcf812fdee66c7b39c8c7602c20dc545ffcd91111583083d1cfa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "53a5a185ead5f3a0eabe0f729fa9b53606075d77e84ff87937ace25225420e93"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd45fa71187c872de1afd17055c035e496e4840c462e110806544c064ca46d6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f0a500b212df7f47ae43b24f714cf6ad212db411d9305e17ae293ab9ecf5c22"
   end
 
   depends_on "go" => :build

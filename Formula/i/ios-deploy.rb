@@ -6,8 +6,6 @@ class IosDeploy < Formula
   license all_of: ["GPL-3.0-or-later", "BSD-3-Clause"]
   head "https://github.com/ios-control/ios-deploy.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a265970fdac2b3cbced80ce05eb80cdfeefaf3b8d7b66684b23f8799a4d2d00f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4c69eb7279d465db83c5d996a519fdc0f045338adaef8a92eb426a67f9733ee9"

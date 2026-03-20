@@ -3,18 +3,18 @@ class Tach < Formula
 
   desc "Tool to enforce dependencies using modular architecture"
   homepage "https://docs.gauge.sh/getting-started/introduction"
-  url "https://files.pythonhosted.org/packages/ae/e4/26ce2c1e56f43e2062c6056ad334ba6578c9722cca8885e00ff0a0d98bc8/tach-0.33.3.tar.gz"
-  sha256 "e5c049cb1f677fcbaaef020fb8a9bff150b9a13914a326c7686d0ea3ed9ebcea"
+  url "https://files.pythonhosted.org/packages/37/3a/8b5a6da31b503b1e8d1c41583e7a538283dca89856b6d9fa99bf91c38ec5/tach-0.34.0.tar.gz"
+  sha256 "0d531623aaa0792deb58ebbcee16fe342cfcf8db92eee664f6a2749500216cbe"
   license "MIT"
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "18b8c5153423ecea098e4ba305d641ee50fdc745344dcc7b555eca5d1a6595ea"
-    sha256 cellar: :any,                 arm64_sequoia: "087dfa0a65e479ed5620f0e72faef22f94bcf38c864af350ba1422147c537d16"
-    sha256 cellar: :any,                 arm64_sonoma:  "325d4e647a020c883290062c16d92c757b9f6a25041d586005c67ad6c160fa26"
-    sha256 cellar: :any,                 sonoma:        "776f32ef273dc18beb15b6ba22b2a0e8d89cdb795dedc6f52e4fd1ab2ed7dc02"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d19b4c354f68f16b2487695db87deeed840dc831e67d6e26f7bd9e77f6cb088"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e554679c9fe81326d3f56e54a1b3d70a1eabf648672bcce7cdcb1ad6d6aa096"
+    sha256 cellar: :any,                 arm64_tahoe:   "d1d35ff68d74c060ab5dcf7c24926d51a5092042b0e207319147b4a413d0a127"
+    sha256 cellar: :any,                 arm64_sequoia: "5902e3cc4db2171dfeb125f62171741533b847b111395ef82a86f21420d5f50c"
+    sha256 cellar: :any,                 arm64_sonoma:  "e002347c9718d1a7361fb38e0e708b3486860158322a2c1c1b27daf0877f9346"
+    sha256 cellar: :any,                 sonoma:        "f54292c04ad4b28dcb74e03847b89c064edc8836cd20958956c79f0d3d06fdbf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c6ab110116a5314c99bb7370f3c9ec3a3ba8cbd2a2b75952d8e1f10b145e297"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "732ee73490a126f705a77a27672b09381e72853f191e79d259e9191d9b1fefbd"
   end
 
   depends_on "rust" => :build
@@ -72,8 +72,8 @@ class Tach < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/74/99/a4cab2acbb884f80e558b0771e97e21e939c5dfb460f488d19df485e8298/rich-14.3.2.tar.gz"
-    sha256 "e712f11c1a562a11843306f5ed999475f09ac31ffb64281f73ab29ffdda8b3b8"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "smmap" do

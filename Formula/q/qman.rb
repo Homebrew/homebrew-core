@@ -6,12 +6,13 @@ class Qman < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 arm64_tahoe:   "474565b62a04136b4c671d9ef6f7ff126bc5d31627a09c7903522cb517a9b89c"
-    sha256 arm64_sequoia: "998e6360a22025e0ca4565178f41038e38848b859b09cae6f51d89ad9ed9d765"
-    sha256 arm64_sonoma:  "b09e71d35bd2f8152b1a0aa686286e76882d3cafb83d153a7f37e372c1f03653"
-    sha256 sonoma:        "5dd30d9d62b7f12dc6c4e0ea0c6d78062c66fbbaf9e0ec568b069fa2fb9e35cd"
-    sha256 arm64_linux:   "66cb799fe63e479fa0e912354de09ae9b30f44aed24c8750589f5a0826c2f58e"
-    sha256 x86_64_linux:  "7a5205746e5f2dfd2ef241e9c279dc20dce11c6b58ae6ac32ecdcb526b78bc4a"
+    rebuild 1
+    sha256 arm64_tahoe:   "e07746ea2c127a2ce52d95614a7ef968ee4a6866b4c22ff72129e63b93920cbd"
+    sha256 arm64_sequoia: "b9860b41ec038ef4e8ee10a812061d10200e79de99aa688b98c6e708e44e52f6"
+    sha256 arm64_sonoma:  "46bb05e8e49aadf92530d47b2d2a232826406130cf59ec48555ca6558149d8a5"
+    sha256 sonoma:        "5d8f23437a7b249837f535f648c341a1e7a66aa33a78986c2d0cf79056b25569"
+    sha256 arm64_linux:   "7edfe4210247f8336d79e9bac0da7d0e45c8acfdc87299affa0d6f631c292a5c"
+    sha256 x86_64_linux:  "035e634ee3b22a3e192c0279af1cc41c4b33b6e2a43d96712a01e27a382c0943"
   end
 
   depends_on "cogapp" => :build
@@ -21,11 +22,10 @@ class Qman < Formula
   depends_on "groff"
   depends_on "ncurses"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "man-db" => :test
     depends_on "libbsd"
+    depends_on "zlib-ng-compat"
   end
 
   def install

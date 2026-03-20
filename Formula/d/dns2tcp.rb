@@ -10,8 +10,6 @@ class Dns2tcp < Formula
     regex(/href=.*?dns2tcp[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2cefc14058fc1f4bff6d872e8b5ad5e5504891f7992857a5fa8b7f469617c4d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0eb7cacef30472d6ca9cd59507d8fe3f078ad731b1e779ff8147bb2730547adb"

@@ -5,8 +5,6 @@ class OcamlNum < Formula
   sha256 "b5cce325449aac746d5ca963d84688a627cca5b38d41e636cf71c68b60495b3e"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "8ee79694c29aed327203abaa275dee7f5e041f318cd137c3a3eceaf487317cf6"
     sha256 cellar: :any,                 arm64_sequoia: "6ee1ee0d2051f4c239c9237132fa360040acd888fc3f1e22c7d09c8d848dfa23"

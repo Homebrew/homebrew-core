@@ -14,8 +14,6 @@ class Soapysdr < Formula
     patch :DATA
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 5
     sha256                               arm64_tahoe:   "d10703185cc1b8b3312bdbc0621131238980f07481bab599dcc498a06e1c1106"

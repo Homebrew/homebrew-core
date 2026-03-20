@@ -8,6 +8,7 @@ class FalcosecurityLibs < Formula
     { any_of: ["GPL-2.0-only", "MIT"] }, # driver/
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # userspace/libscap/compat/
   ]
+  revision 2
 
   livecheck do
     url :stable
@@ -15,12 +16,12 @@ class FalcosecurityLibs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "87b28cc5019aba19e2cd7b5b50b98783d69f9daecedeb1c18dfd4c4fdb0ece00"
-    sha256 cellar: :any,                 arm64_sequoia: "e1d02fe0c79dade2fe4e5a70fa34152e3587c1a7db8aa656d2b1881060c4e359"
-    sha256 cellar: :any,                 arm64_sonoma:  "b801e47686bad7ad3a92b3f8975d014f3ad47b97d96404ea6ffeb53c3df8de9c"
-    sha256 cellar: :any,                 sonoma:        "4781af095101df212b5a1009a7f9074d7a506280544bc683468e8c3ece527d27"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a14802ce171bcd5d26cbae15d1097f1e25ea581824e50df5fabd50b1a62e39d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c7e23ec4937aa35b066762437b7c9a2e9d7435be1034b2cc8f6e6db40c4b7bf"
+    sha256 cellar: :any,                 arm64_tahoe:   "27b747d3d3084ac979f783188fa9e26341f278181196f48dace42bb72bb72399"
+    sha256 cellar: :any,                 arm64_sequoia: "276bc934131bae13ebca0401a490e5ab6688e9f5e51b129ee61a096a0468b3ed"
+    sha256 cellar: :any,                 arm64_sonoma:  "773301a5bf953dc35076d8ef5b2fccf9a439827ce3ff266f4d1941bb55570fab"
+    sha256 cellar: :any,                 sonoma:        "6e14e2e1c9085c510659349eacfab620b147f64a99f538d98425c487abb89aea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a08a7a0cbf1962a41ba265dffc4d647f84e8f70932b3be709d8d67d8c2b88122"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d95433c52e96ee4ee8548237e427e9a6e581f95c6f80aaa128dc54876ed3ad7"
   end
 
   depends_on "cmake" => :build
@@ -31,14 +32,13 @@ class FalcosecurityLibs < Formula
   depends_on "tbb"
   depends_on "uthash" # headers needed for libscap/uthash_ext.h
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "abseil"
     depends_on "curl"
     depends_on "elfutils"
     depends_on "grpc"
     depends_on "protobuf"
+    depends_on "zlib-ng-compat"
   end
 
   def install

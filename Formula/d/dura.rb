@@ -5,8 +5,6 @@ class Dura < Formula
   sha256 "6486afa167cc2c9b6b6646b9a3cb36e76c1a55e986f280607c8933a045d58cca"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:   "04d67662331f277b9b5393600713ddfbe74e834add68af49d7a58badaad41840"

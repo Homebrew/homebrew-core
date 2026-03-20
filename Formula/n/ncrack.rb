@@ -25,27 +25,21 @@ class Ncrack < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:    "75a55a9850c62e608742a25832c9890770b10d51c73e797f3f8d46346b775580"
-    sha256 arm64_sequoia:  "b060799701296da75f956960bbfe2f67b9a529a041bf66c9edfc76450b6bdbbd"
-    sha256 arm64_sonoma:   "3ca676300ebb378ef2dc4b7442b15f47df9664e62176b49a1bd7c1d1d0093f42"
-    sha256 arm64_ventura:  "79e9c8100ebba864abd6c8534c1d57d1b9d722461b5e3fca035040b3a274b600"
-    sha256 arm64_monterey: "4dd658f60d6e9a13f3027bf46c2046b5844114337d348f96e32b542f381bceb3"
-    sha256 arm64_big_sur:  "6984005a54a045373105d59303984cab69ebad3b23da23f2608de8c63f1e9850"
-    sha256 sonoma:         "ff2c043f63fd07c107395df2c44bd494610d53cc6bdb82c7d603188f3e765a60"
-    sha256 ventura:        "c0dfb39809e6c1015c1c41e1b0289326c3000ce7e4e25231b8efc3a555ecc2ea"
-    sha256 monterey:       "b85c147ff11ee53640428f7b56114b63344b48867740739e116884c52dcb8798"
-    sha256 big_sur:        "1ae6d72f2d5ef01ea183185d6a2ddf7b838649927496eee3481ad8688dba0c1c"
-    sha256 catalina:       "ab9acac2396d540a15d92485f59a0bef60434e111fb7045cb8beabfc3facb7e6"
-    sha256 arm64_linux:    "1e8fad1cf83a7e0a208d6b078bcb1cc7b3f40101b6aebae28c43a740dc992cb1"
-    sha256 x86_64_linux:   "8c7b7248266f093ccb7798273d6b789b4632b7703567e6c534a4322339c0eef5"
+    rebuild 1
+    sha256 arm64_tahoe:   "f73a2674042b2e7cf64f321316d88dd2a9f92fa116b6a77d73f2d2f348c6e742"
+    sha256 arm64_sequoia: "b21c1901137325fd1923931265abf68349d6d977943b9138ca9572aa507b5cd0"
+    sha256 arm64_sonoma:  "159b54f1da255b7c861fb23320c8e15012612f75cdbe8ee9123c6384b408d043"
+    sha256 sonoma:        "52d3c2ce600c1124c6b23231bd23ad9342f20481cb94f3ae8b94856c4dabc427"
+    sha256 arm64_linux:   "6fd8f73ef2ee53e70fb6e58641425eb6b4e692fd1b891bf6c53d279539e37eaa"
+    sha256 x86_64_linux:  "9e0c60c65ad23af0cfa59dfa65d970850ae9fab8d270c105ffc1b0672af75d60"
   end
 
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--with-openssl=#{Formula["openssl@3"].opt_prefix}", *std_configure_args

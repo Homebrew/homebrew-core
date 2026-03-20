@@ -24,6 +24,10 @@ class Amtterm < Formula
   resource "SOAP::Lite" do
     url "https://cpan.metacpan.org/authors/id/P/PH/PHRED/SOAP-Lite-1.27.tar.gz"
     sha256 "e359106bab1a45a16044a4c2f8049fad034e5ded1517990bc9b5f8d86dddd301"
+
+    livecheck do
+      url :url
+    end
   end
 
   def install

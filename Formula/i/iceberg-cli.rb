@@ -1,17 +1,17 @@
 class IcebergCli < Formula
   desc "Command-line interface for Apache Iceberg"
   homepage "https://go.iceberg.apache.org/cli.html"
-  url "https://github.com/apache/iceberg-go/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "fdb06ee9f29195571341485a8b3ed14273b1229c00e1fdafa29e0b33d545d294"
+  url "https://github.com/apache/iceberg-go/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "bde108f9c61e2976c02cd9460d887ed875289a1bbb98e247466c093c4f0fd7be"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f5556e6c250a3fcd5ccf003bc006e7773bdcb1573236faa3b2db969beabd328d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5556e6c250a3fcd5ccf003bc006e7773bdcb1573236faa3b2db969beabd328d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5556e6c250a3fcd5ccf003bc006e7773bdcb1573236faa3b2db969beabd328d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "53956640e879b235c67b7061043d0d4e731472ca396d6b46787f733a5759147d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce02a2b014837926202041afd77f5d79a55f40bd51a48b1cb95610a35fd03a56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1540eedff89d23e2bfdde840b2b3eb971935477cc0c399f90146b6ed7a1ded79"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "48004d523e189b27b46fedf18581e91bde99b85321a185c7e6cb558a069a9c5c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48004d523e189b27b46fedf18581e91bde99b85321a185c7e6cb558a069a9c5c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "48004d523e189b27b46fedf18581e91bde99b85321a185c7e6cb558a069a9c5c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b6dc3cf47cbe3bb89eeba7703bc39215156480cbdd09d929f9a3438bafec591e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "640815332e781bc84780e0120611a7ab9eb588257220ab19c229a46730466e86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5341e3ee9ea0366f779d961302f341926391ac17f291ef0e18ed1a64f65e5a9b"
   end
 
   depends_on "go" => :build

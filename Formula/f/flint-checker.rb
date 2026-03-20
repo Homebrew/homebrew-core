@@ -5,8 +5,6 @@ class FlintChecker < Formula
   sha256 "ec865ec5cad191c7fc9c7c6d5007754372696a708825627383913367f3ef8b7f"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "dcbc6af7ead098630fa98be1dddcad97432d65ccfbed01d7fb98120cadab7257"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1f101ecd31a4b9eca93ee5d2147e9179ce0e9a6f90919b00c7151859ec66fc14"

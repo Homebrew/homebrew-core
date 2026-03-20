@@ -29,7 +29,8 @@ class SpotifyPlayer < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    system "cargo", "install", "--features", "image,notify", *std_cargo_args(path: "spotify_player")
+    features = ["image", "notify"]
+    system "cargo", "install", *std_cargo_args(path: "spotify_player", features:)
     bin.install "target/release/spotify_player"
   end
 

@@ -11,8 +11,6 @@ class TaskwarriorTui < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c6f8b874e37ead71dffb8014f21b1a64b7cc63bb34751e8609f29548d902e87"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "969332438c3a9f41790608dff1603b50a0a90687fdb1992e45900666e1a2876e"

@@ -1,20 +1,23 @@
 class PlaywrightCli < Formula
   desc "CLI for Playwright: record/generate code, inspect selectors, take screenshots"
   homepage "https://playwright.dev"
-  url "https://registry.npmjs.org/@playwright/cli/-/cli-0.1.0.tgz"
-  sha256 "83cc21857b4e76645b49b8cee4663cbc49b0c549ae3ead0f76cad17937f2df5e"
+  url "https://registry.npmjs.org/@playwright/cli/-/cli-0.1.1.tgz"
+  sha256 "8dc10eca24accbe5cab280d8949c771888aedaf8aca6a3748f218be98df240df"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e604719c0a26991e2efcaded1c698262ec578c271df814e35a394b3da4ea075b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bec28e36db0c76d65708e2f5779bdb6f90a5a6fe828f1185c84f7d54e1bd5c72"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bec28e36db0c76d65708e2f5779bdb6f90a5a6fe828f1185c84f7d54e1bd5c72"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a5f342a4362fcefc614accadf5840c0cb484af0472e36d510bc416fc35cae0bb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "03ae1190bb32ee1efaed4c5349ea4c4b50849b49dc06f6d26f7a5f15bc149b9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03ae1190bb32ee1efaed4c5349ea4c4b50849b49dc06f6d26f7a5f15bc149b9b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "98424477ed3412f638fff0ad9d016183ad1dd298e5fc67924b0b6ef6ec765c55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42482884343e0c2905936a2d6116e3de131378e2d73c225fdd3af974b056dc29"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "42482884343e0c2905936a2d6116e3de131378e2d73c225fdd3af974b056dc29"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4f38242613fe7187bed5aa571e9aff3dfe605236b26382fca12a90085d1b7dee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "30a06a3bf08b82d485c20577e84f68e603942668aeda6a360474b38c29dadf86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30a06a3bf08b82d485c20577e84f68e603942668aeda6a360474b38c29dadf86"
   end
 
   depends_on "node"
+
+  # Backport upstream install-browser fix from https://github.com/microsoft/playwright/pull/39280.
+  patch :DATA
 
   def install
     system "npm", "install", *std_npm_args
@@ -29,3 +32,28 @@ class PlaywrightCli < Formula
     assert_match "no browsers", shell_output("#{bin}/playwright-cli list")
   end
 end
+
+__END__
+diff --git a/playwright-cli.js b/playwright-cli.js
+index 65f7a28..e40c780 100755
+--- a/playwright-cli.js
++++ b/playwright-cli.js
+@@ -16,4 +16,17 @@
+  * limitations under the License.
+  */
+ 
+-require('playwright/lib/cli/client/program');
++const args = process.argv.slice(2);
++
++if (args[0] === '--version' || args[0] === '-V') {
++  process.stdout.write(`${require('./package.json').version}\n`);
++  process.exit(0);
++}
++
++if (args[0] === 'install-browser') {
++  const { program } = require('playwright-core/lib/cli/program');
++  const argv = process.argv.map(arg => arg === 'install-browser' ? 'install' : arg);
++  program.parse(argv);
++} else {
++  require('playwright/lib/cli/client/program');
++}

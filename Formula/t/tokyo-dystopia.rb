@@ -10,8 +10,6 @@ class TokyoDystopia < Formula
     regex(/href=.*?tokyodystopia[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "a2f63111d93534d9aee115227c1f069d622d08d0df19e9d9664f653c28b60dc4"
     sha256 cellar: :any,                 arm64_sequoia:  "da35291f169e133bb8dcc321c5114ea62714f6e0eadab7a69cef121e0c76813f"

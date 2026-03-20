@@ -5,8 +5,6 @@ class Yder < Formula
   sha256 "c1a7f2281514d0d0bba912b6b70f371d8c127ccfd644b8c438c9301a0fd4c5f2"
   license "LGPL-2.1-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "9f885260fb16abe855f8334ab2c1b6bddaf032e7e19e1a119bf9ba6280b8e784"
     sha256 cellar: :any,                 arm64_sequoia:  "742de6bb638644e32ac9153a26fb2cecbaa8575b765ab4166221389efc71b80e"

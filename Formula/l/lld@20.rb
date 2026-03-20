@@ -11,14 +11,13 @@ class LldAT20 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6a8698904960800a3b9fb55bce40fefbb24ae841ada2b72496e3aa8af40ffe1d"
-    sha256 cellar: :any,                 arm64_sequoia: "3746c0ce88a6134e98379209fc771ece464b353d48f5fe63e4d35af34350021c"
-    sha256 cellar: :any,                 arm64_sonoma:  "6646125d0a82ea3710c55257051c9f9116207d89cf5c42c8a7d9f6e8f4b8fac0"
-    sha256 cellar: :any,                 arm64_ventura: "433b76ece02764aa43cf95702bdfb43a04774c1b636e998af52abae1ade6937d"
-    sha256 cellar: :any,                 sonoma:        "b40aa1b91f8377eeaaa9a60dc070c9302ddd8ad3e3f54023607f8d58085375da"
-    sha256 cellar: :any,                 ventura:       "19566fe747f615ca035d2a28df682976900dd745b5dbb90cb38059bd2027cace"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5664712e6320e1a4503fd903db1d147ae6e626fd7481a1957030efd8c9d4e9af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8414f1488bc24ed303f9aa5b99945b2f922a8a66c44a3cd4335a5d038670e860"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9be21e008e9d9d2acb2a58596e1ca5b5e507a79e5fb869779113f7df4f3f4a1e"
+    sha256 cellar: :any,                 arm64_sequoia: "e0c64e6dde9be4643fce1c9ed5f0a8ddfb647f85585a83776f0c9914227cce1f"
+    sha256 cellar: :any,                 arm64_sonoma:  "765b919096c9718ef2dd15103c7f9989956550dd0f4eb356dbfcda65ff96feb3"
+    sha256 cellar: :any,                 sonoma:        "d4a01c675382bd918542b3a035a8731dd338c94cf1d67769fa2aa5cc84ef4a15"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a0c70753e4a89e9db1ddc391bb53d7f92bf12fb05a78252df0ba3debecc5297"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e555cd84ee93695977e02b993695f5f768dcd6228f3f217c0913f0a1e5c5fd5d"
   end
 
   keg_only :versioned_formula
@@ -26,7 +25,10 @@ class LldAT20 < Formula
   depends_on "cmake" => :build
   depends_on "llvm@20"
   depends_on "zstd"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     rpaths = [rpath]

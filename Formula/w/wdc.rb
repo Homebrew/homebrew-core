@@ -6,8 +6,6 @@ class Wdc < Formula
   license "curl"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "6b30e7b5d8ab33c0831c6a217a4f1ec5b28745ba8f068a8fb81e714b6ca75287"

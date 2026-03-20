@@ -24,8 +24,6 @@ class Xsane < Formula
     regex(/href=.*?xsane[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "941fa6509e6e252e468c894c6066dbd46c301b2c3046059e6c4f8215d391294f"

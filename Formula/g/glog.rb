@@ -6,8 +6,6 @@ class Glog < Formula
   license "BSD-3-Clause"
   head "https://github.com/google/glog.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "15bf109a841f9381cd9086d7aecefc7d782670c90a5142bbf9f281604deff968"
     sha256 cellar: :any,                 arm64_sequoia: "c42e96a87cd7e7342ac3bf3e9c219945f116ae344b0602e9ae3274d566aa08b2"

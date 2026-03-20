@@ -5,8 +5,6 @@ class Mlogger < Formula
   sha256 "141bb9af13a8f0e865c8509ac810c10be4e21f14db5256ef5c7a6731b490bf32"
   license "BSD-4-Clause-UC"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "cc6b446dfb01998bc78128701dfbe10445b0b9433c0f089ada2a04061567e45e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3b373a36ead8caee769bdfd4632f783e948aa3f93605899ba5b08812250f9c69"

@@ -10,8 +10,6 @@ class Locateme < Formula
     regex(%r{url=.*?/LocateMe[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "105cc7bd0d5ced058850ebdd18e3b57d0969f9ef9f185665e28e785194e5cf6f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fb9d44f815969d55f09881d36089f4a34a43f7d63ad665a5dec05d8c39c55d59"

@@ -10,8 +10,6 @@ class Virtualpg < Formula
     regex(/href=.*?virtualpg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "96423b815a0781a3635f54f02bac58f5b6f97ad735184005b812b7bbe2bda8c6"

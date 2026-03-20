@@ -2,7 +2,7 @@ class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
   license "MPL-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/mgba-emu/mgba/archive/refs/tags/0.10.5.tar.gz"
@@ -16,13 +16,12 @@ class Mgba < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "3de0f1241238f443a68c044e6261498b831e428c1e8b34e693e36d3eafdcf156"
-    sha256 arm64_sequoia: "2562e2403616018e53173da2f532c6df31009ed4fac636b07b7c8e7ed291f51a"
-    sha256 arm64_sonoma:  "7bc0c369ae51b10d7842496e5460857d1e52b0b03a0f9d9b70ef81338ab8f893"
-    sha256 sonoma:        "87d1bc5459ba892d3a5bc079e330ee134a6f99889a0657966e94f76bfe90c1ca"
-    sha256 arm64_linux:   "41d64491dfdec24fa9a2a943f83c4fa2b6fd8d8c121c7000cba09f61f9081b09"
-    sha256 x86_64_linux:  "7f9ab3c875cdb0bd9f8cf13c006ee87677f411015e4b452a081dab51f7eaa3e5"
+    sha256 arm64_tahoe:   "8411364c77931ae04e12dd3b53f2774340b1b57bf38a13feb4f3698d629acf31"
+    sha256 arm64_sequoia: "4159fa434f32672ec81962e42b2d19793b4a7f0cb785e9813efd365edec522a9"
+    sha256 arm64_sonoma:  "d18b171103b78bc18a6f6e20e70bd5fdfc57b222b75d9f7134fa029dd211b712"
+    sha256 sonoma:        "b6f194de7413b6116a40547f1f1b704c459f92077a825a4c448748bd6d249bdb"
+    sha256 arm64_linux:   "5fa6abdc364db3f23966f56256075cd45285a43af359c70b8734ca37e53978b4"
+    sha256 x86_64_linux:  "222d1ca423303f2566862188a3ad8cfbf5494b812e6191b0c7ccccc7b8555e84"
   end
 
   head do

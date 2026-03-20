@@ -6,8 +6,6 @@ class Wally < Formula
   license "MPL-2.0"
   head "https://github.com/UpliftGames/wally.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "8c9d6350d3eefbe0f7ffdd8ae0e3848ecf54079dfffb4bb0dc820d41c802c2af"

@@ -11,8 +11,6 @@ class Tnftpd < Formula
     regex(/href=.*?tnftpd[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9d9d80e1b2f1df559934eb827edb881709d86a7197e56c47fb3fae56b01b4a0c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b0896487aea674c344c0b0018f331767231546c8269d940de9910f2107a17b26"

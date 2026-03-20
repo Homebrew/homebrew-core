@@ -11,8 +11,6 @@ class Fortune < Formula
     regex(/href=.*?fortune-mod[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 4
     sha256 arm64_tahoe:    "547b04ec0f01dad4bd92dc49811686b2a6ff159d9040ca79a17f0ee1494cb39d"

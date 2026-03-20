@@ -6,12 +6,13 @@ class PythonAT39 < Formula
   license "Python-2.0"
 
   bottle do
-    sha256 arm64_tahoe:   "aa558024f07820222f9eb9536205a2f25728c1702cf76b1a16ee52db7536ec6a"
-    sha256 arm64_sequoia: "4c31fe761ed46dafc847808255c353ae4b730c49c8fc7a9bb1dc3803ee088f4f"
-    sha256 arm64_sonoma:  "09c1d93f195ca5a496bc7ee8a46d87d4b1dba4b886f602615060a399f7520bf4"
-    sha256 sonoma:        "8d1b85acfac14384c9ec6ed8bc128b2da8f9250436a611b65660b9e39dfa3bce"
-    sha256 arm64_linux:   "e03890e4d8ed3ecc6e293e81eb0f6321cdf28878ca3509c0b1ee49c4fd7a0f1d"
-    sha256 x86_64_linux:  "4a147ea5bf1c217c2090baee3d6f4ec02d0a9347a2c17526072b67c20eb87cb7"
+    rebuild 1
+    sha256 arm64_tahoe:   "5dacd6c96b01ab87a5ea6112b9d90185ebaea6057d8fce7b8f4abc435a767830"
+    sha256 arm64_sequoia: "86e3f3b3e6661968121763e16e65af98631914c9fed3b6776313baae75910623"
+    sha256 arm64_sonoma:  "36ca5f187ed46be8f27b1607eeb5620c563a3deddd28f86daab972a136d274a4"
+    sha256 sonoma:        "1a1b49850f0a2ee6b9307f5edaf78a7b2bbd1f2303e7ac520cb6e9a5be236ea0"
+    sha256 arm64_linux:   "2f1119b3d9943ba00b4ff9057c9adc7312a3f7335f7743113990daa372023480"
+    sha256 x86_64_linux:  "90706d3e2fd0e65744c40d489e707adb4edace78859a1376f40705cd2999be68"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -36,11 +37,11 @@ class PythonAT39 < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libnsl"
     depends_on "libtirpc"
+    depends_on "zlib-ng-compat"
   end
 
   pypi_packages package_name:   "",

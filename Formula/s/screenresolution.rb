@@ -6,8 +6,6 @@ class Screenresolution < Formula
   license "GPL-2.0-only"
   head "https://github.com/jhford/screenresolution.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9d432fd66f354ab0bd134e8062d7777d0b2cee92b84cf8331b140e307b6c65e0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b35c70febc8d234c5a664507d682eeb80ff1541bde35128f42836559088e9290"

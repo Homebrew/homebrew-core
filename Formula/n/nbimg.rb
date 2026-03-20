@@ -5,8 +5,6 @@ class Nbimg < Formula
   sha256 "f72846656bb8371564c245ab34550063bd5ca357fe8a22a34b82b93b7e277680"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "dd7fbd304d9f838074d2fac94129b5fb2e88622619c76011e57f12c50c560923"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dcfafb2e1abf197f98f3452c53375aa0f72b9ebef04cb0b7f37d131181551330"

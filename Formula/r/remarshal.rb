@@ -3,19 +3,18 @@ class Remarshal < Formula
 
   desc "Convert between TOML, YAML and JSON"
   homepage "https://github.com/remarshal-project/remarshal"
-  url "https://files.pythonhosted.org/packages/c8/04/12595c827f1a3dfeadbb9c1b112e9b86c229e69f56b1696f0d4b5df40957/remarshal-1.2.0.tar.gz"
-  sha256 "f50950a1cca59efddaf54cd86b70377f12a4120970f3bc8a694b6c5c23ef7898"
+  url "https://github.com/remarshal-project/remarshal/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "32201c6456aa0d8dc18881c1a7508650635e389ab2e6016a6f5b6934251774c0"
   license "MIT"
-  revision 1
   head "https://github.com/remarshal-project/remarshal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2bff7745a586211adb9037470b6bd3f52d0a12f069392e36de1f471a34cce10e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "006617c9f82749315ca6de2df01cbbcf97067411cbd406234b1d7477c2b74acf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "821c67ed0793e6f398da29710928885ce915f6a71cbcd68ede45fcee707703a7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "546f30adb5b4e69b45b329b82749537aac58105ae3b5871bac9ed6467aef3ba8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e7010aa976fc6adc675f5a2ed56b2fe7ad13153c1a7eee7dd36e24892740512"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d412daddd0493308af1d04eef42e6c9e23d9850a0248c91966d8e0e7a6824357"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "976887f25e153e0d8e6bce43d4c050e1ec7e831c05b990128e8a54774f9c0c05"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76f32d74a6f923c5bf06459136d6914dcef332c71344c050f8a187c4fd4c51fe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e21159d9b7a8711d2aab756f9b9c1c4645226eb94229a0b59cc4af31aab594ae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b0dbbde294fb942f049f465337b5e02a76598edcbcb8fedefe694ff8dcfd7f0c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "76bcb67af3643ca48bbcfe543736abcb3bcd026102c587328c820c9086defcdc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb032e66414af64855feb123d8ef61839498e83a31ffebfbf88b4ae31a412933"
   end
 
   depends_on "python@3.14"
@@ -50,8 +49,8 @@ class Remarshal < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/74/99/a4cab2acbb884f80e558b0771e97e21e939c5dfb460f488d19df485e8298/rich-14.3.2.tar.gz"
+    sha256 "e712f11c1a562a11843306f5ed999475f09ac31ffb64281f73ab29ffdda8b3b8"
   end
 
   resource "rich-argparse" do
@@ -60,18 +59,18 @@ class Remarshal < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/3a/2b/7a1f1ebcd6b3f14febdc003e658778d81e76b40df2267904ee6b13f0c5c6/ruamel_yaml-0.18.17.tar.gz"
-    sha256 "9091cd6e2d93a3a4b157ddb8fabf348c3de7f1fb1381346d985b6b247dcd8d3c"
+    url "https://files.pythonhosted.org/packages/c7/3b/ebda527b56beb90cb7652cb1c7e4f91f48649fbcd8d2eb2fb6e77cd3329b/ruamel_yaml-0.19.1.tar.gz"
+    sha256 "53eb66cd27849eff968ebf8f0bf61f46cdac2da1d1f3576dd4ccee9b25c31993"
   end
 
-  resource "ruamel-yaml-clib" do
-    url "https://files.pythonhosted.org/packages/ea/97/60fda20e2fb54b83a61ae14648b0817c8f5d84a3821e40bfbdae1437026a/ruamel_yaml_clib-0.2.15.tar.gz"
-    sha256 "46e4cc8c43ef6a94885f72512094e482114a8a706d3c555a34ed4b0d20200600"
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/82/30/31573e9457673ab10aa432461bee537ce6cef177667deca369efb79df071/tomli-2.4.0.tar.gz"
+    sha256 "aa89c3f6c277dd275d8e243ad24f3b5e701491a860d5121f2cdd399fbb31fc9c"
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/cc/18/0bbf3884e9eaa38819ebe46a7bd25dcd56b67434402b66a58c4b8e552575/tomlkit-0.13.3.tar.gz"
-    sha256 "430cf247ee57df2b94ee3fbe588e71d362a941ebb545dec29b53961d61add2a1"
+    url "https://files.pythonhosted.org/packages/c3/af/14b24e41977adb296d6bd1fb59402cf7d60ce364f90c890bd2ec65c43b5a/tomlkit-0.14.0.tar.gz"
+    sha256 "cf00efca415dbd57575befb1f6634c4f42d2d87dbba376128adb42c121b87064"
   end
 
   resource "u-msgpack-python" do
@@ -80,10 +79,6 @@ class Remarshal < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
   end
 

@@ -6,14 +6,13 @@ class Souffle < Formula
   license "UPL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5811b6c5a6bf21ff0491e577590568243072a1431adc517a7880106785e9ebd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2bc7684a7337a00f830ce5d496f15b06e3870a2416737cbd791cb50e399d9c3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1df31eac00a747cd74fd31aff745ab4164362cbc737d53264d2b40178a3c2cb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "29f023e79b7d2fe1310378dcad026608895475880f80bc050131ea48842a93da"
-    sha256 cellar: :any_skip_relocation, sonoma:        "732925d732bd977ad72315894d0f2deadb35a2ac092b4dcc615b699ed3e0e243"
-    sha256 cellar: :any_skip_relocation, ventura:       "4287f9391ad73a50eb0c6e578955529a2b36d517f43e60d2e1553114d7ef56b2"
-    sha256                               arm64_linux:   "4189ff925d166433ce98ab437c26c913bd62c81e706fa3e82a2858f9ff0ce60f"
-    sha256                               x86_64_linux:  "5fd9b1a03f7400bbe208d30058cf4850a03e2c768918f5918a549f277966e9ba"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9f47ca5761cd191ab3adfc4c9fbe1d9377faeed4b0a650ccdbc1143f18c31b10"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb1d96230756607da2975eb34cc009b26c60d83db1bb208c08dca77aa91c3202"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "267ae9e05421940f911a4d2c5a232ead5488653bb17fa08b98675fa337fb8a3e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e288491afc7774e88e0ae89ce61c994e7311ad04fd5a5cf28e6581a3c29f3493"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9a1eea8ebd69b2091c22e5e5e352f9f37748041848a7fcbf140e96fecc7dccb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98ee8cb076fe6445ca477511c59ff7407731abd8fe1e8612e1e2d249e86b6526"
   end
 
   depends_on "bison" => :build # Bison included in macOS is out of date.
@@ -24,7 +23,10 @@ class Souffle < Formula
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     cmake_args = [

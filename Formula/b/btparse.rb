@@ -5,8 +5,6 @@ class Btparse < Formula
   sha256 "631bf1b79dfd4c83377b416a12c349fe88ee37448dc82e41424b2f364a99477b"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "6bcfac3d46e83b1217a57419de338fbea65b77c71d9a4f6de49665990e93b746"
     sha256 cellar: :any,                 arm64_sequoia:  "7da3060367c602412a91935267f6f8eef48d2c15fc0e5fcfd7a8bc42423ba281"

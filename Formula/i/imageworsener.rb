@@ -10,8 +10,6 @@ class Imageworsener < Formula
     regex(/href=.*?imageworsener[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "2ea02018611e3a89bd678dc6e1daa778ed958dc03d69bdc4a447cd6c43502ff7"

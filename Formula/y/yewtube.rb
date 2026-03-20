@@ -3,14 +3,13 @@ class Yewtube < Formula
 
   desc "Terminal based YouTube player and downloader"
   homepage "https://github.com/mps-youtube/yewtube"
-  url "https://github.com/mps-youtube/yewtube/archive/refs/tags/v2.12.1.tar.gz"
-  sha256 "012c1a8a185dd4ef81074631bca91e327ac4e634b36301a50ffbcd67838b847f"
+  url "https://github.com/mps-youtube/yewtube/archive/refs/tags/v2.13.1.tar.gz"
+  sha256 "cfff2f05a403b26807dd9000457bd339aff33fc437b79609b2454c0903c97895"
   license "GPL-3.0-or-later"
-  revision 5
   head "https://github.com/mps-youtube/yewtube.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "03f7657aa911a810148d9250b34e84b1df19467464ee50f5716a49e7fc0b92f9"
+    sha256 cellar: :any_skip_relocation, all: "69aa6429f5fb977d20ef38d79bd6eeed2e1573bc5d7c20cfade94ef357e4764e"
   end
 
   depends_on "certifi"
@@ -51,8 +50,8 @@ class Yewtube < Formula
   end
 
   resource "pylast" do
-    url "https://files.pythonhosted.org/packages/b9/b7/d242cbcce3e53cc69050f005672a00a639154c9e78c612951ac4513a201b/pylast-7.0.1.tar.gz"
-    sha256 "319251236ba5c3e907232aacf1d6a7ff831f2243e85ace6ec6623a552ec2e0eb"
+    url "https://files.pythonhosted.org/packages/dc/56/1729aa02df4bf959f31f6bd024775f8be0aaa08fd18a1d2bbdaab3c38e9e/pylast-7.0.2.tar.gz"
+    sha256 "825e2b5d9144c5491d9c353511169a1595813e6a1ad203faf7525cd2d1d1828e"
   end
 
   resource "pyperclip" do
@@ -75,14 +74,14 @@ class Yewtube < Formula
     sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
   end
 
-  resource "youtube-search-python" do
-    url "https://files.pythonhosted.org/packages/91/3c/dc669b0308e49f294df67bddbb16ff3eefe5b5da6fa37ead922a8301926b/youtube-search-python-1.6.6.tar.gz"
-    sha256 "4568d1d769ecd7eb4bb8365f04eec6e364c5f70eec7b3765f543daebb135fcf5"
+  resource "yewtube-search-python" do
+    url "https://files.pythonhosted.org/packages/3a/7a/8ed3133214207ff95f503e9c20a69b469a28d47f7a9bdf274b044e0f5b95/yewtube_search_python-1.6.7.tar.gz"
+    sha256 "87d0d728f8ed5a929570c061b5e7335767d04497e2141371da94744c3327506e"
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/14/77/db924ebbd99d0b2b571c184cb08ed232cf4906c6f9b76eed763cd2c84170/yt_dlp-2025.12.8.tar.gz"
-    sha256 "b773c81bb6b71cb2c111cfb859f453c7a71cf2ef44eff234ff155877184c3e4f"
+    url "https://files.pythonhosted.org/packages/66/6f/7427d23609353e5ef3470ff43ef551b8bd7b166dd4fef48957f0d0e040fe/yt_dlp-2026.3.3.tar.gz"
+    sha256 "3db7969e3a8964dc786bdebcffa2653f31123bf2a630f04a17bdafb7bbd39952"
   end
 
   def install

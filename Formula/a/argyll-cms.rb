@@ -11,20 +11,19 @@ class ArgyllCms < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "24002f7920170c3d13b1f113abe4538ed8d397db32e542002569c9ae569beec2"
-    sha256 cellar: :any, arm64_sequoia: "8cacbd7e4d802d9a905966dbd0ea02a22ee73c3c1f93fc1437869bcee278238c"
-    sha256 cellar: :any, arm64_sonoma:  "1570a7e543305f95c1ae028c67ba362e021f0b7548729a1c01568fa038f22cac"
-    sha256 cellar: :any, sonoma:        "a5dde9146ec5623306c2a80bd5e5fc903551d241d2d5d6c4d8d9302e2120974a"
-    sha256               arm64_linux:   "dd8636f783f62e38191d8cb3c6936b08519a6050fe8a433e232b7b79cd392a3a"
-    sha256               x86_64_linux:  "1af22c696cf088014d4098fa89cb4759deac8b9d3c5f34a0c735ea06774fefa2"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "ad024d41761298dfa2f61e8f233fb7601562ad3171586b572bd6592e9ef59641"
+    sha256 cellar: :any, arm64_sequoia: "ec9dc920b963d51b861d30f1bac076b2af27fa5f5b8ab7dddea552e4ba718c14"
+    sha256 cellar: :any, arm64_sonoma:  "5d8283a588d6646c5e1cefe0b1aaabb7939786d09c6e568569e7679887e1af1c"
+    sha256 cellar: :any, sonoma:        "34f854d137000aa8be85754b576214963f1f1afa01336495854ab8b300e78c1f"
+    sha256               arm64_linux:   "2125b4c16e24180474d11d494a7883c492c0e5473acd7c7838ce2b17e7f8508d"
+    sha256               x86_64_linux:  "c38a332aa8e7a21574b3144a645676b01201718e1bd9df1266b7063df6f034cb"
   end
 
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openssl@3"
-
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libx11"
@@ -34,6 +33,7 @@ class ArgyllCms < Formula
     depends_on "libxscrnsaver"
     depends_on "libxxf86vm"
     depends_on "xorgproto"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "num-utils", because: "both install `average` binaries"

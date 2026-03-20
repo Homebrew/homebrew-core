@@ -1,19 +1,18 @@
 class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
-  url "https://github.com/hrydgard/ppsspp/releases/download/v1.19.3/ppsspp-1.19.3.tar.xz"
-  sha256 "054401fa7fffbd99b7fd80e98a2951d6f0c3de83cb4b54719899c98bfad99614"
+  url "https://github.com/hrydgard/ppsspp/releases/download/v1.20.3/ppsspp-1.20.3.tar.xz"
+  sha256 "70818b8001aebb624b24aedc64a25c1808e23acc4b4b31f020288a732ce8495b"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
-  revision 1
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "3e2fcd799d8e7de99bc010dd8c80be895b4afc9a0c237e3baa7f32e0183c2756"
-    sha256 cellar: :any, arm64_sequoia: "b9fe66afc8e0ccd5cf7cd81f70457578027e80e5b98372e5ad3f79b54c8c7bc2"
-    sha256 cellar: :any, arm64_sonoma:  "31a184543316733df0dbf103c1b03724505a85b6a06ea98439d09c4e1ff50d7c"
-    sha256 cellar: :any, sonoma:        "7310a7c5ed39c5fac45c87aa99dc6663a8c0f6b9fe8ef847cfe10b7bc9a88cc3"
-    sha256               arm64_linux:   "172f34f0048cff0a1386dd25da7aa3a1d77d20b11aeb7e639bacb67612bae5f3"
-    sha256               x86_64_linux:  "2970058dad64bbdc0aac11c867034830d5d3cd4a40d42ba5477e9547b77a11bf"
+    sha256 cellar: :any, arm64_tahoe:   "528dccce4420d673cfe8a2d46b744f358c1920af70c2894c2c44e72682b849eb"
+    sha256 cellar: :any, arm64_sequoia: "c8830b54ccaa764ad176f8e260fcfaddcf90c0806e1bf9a549ac447c516aaa67"
+    sha256 cellar: :any, arm64_sonoma:  "13d6861714eb336d5b01c86759d1401b95151d5bafdaf250d0e3443b65795206"
+    sha256 cellar: :any, sonoma:        "230849d007a29cb5802e42f83a0d2160f42da181d27c30bd7964d25fcf2a35a5"
+    sha256               arm64_linux:   "e516f646953e10cc45416c10692c7a432b1dacb7086ea47a56c4eddabd0c24ee"
+    sha256               x86_64_linux:  "9c27458004d7b61c152744a119e1c11ec1d1cc8ff4472ebaf3bd621529e8099b"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +26,6 @@ class Ppsspp < Formula
   depends_on "zstd"
 
   uses_from_macos "python" => :build
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "molten-vk"
@@ -36,6 +34,7 @@ class Ppsspp < Formula
   on_linux do
     depends_on "glew"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   on_intel do

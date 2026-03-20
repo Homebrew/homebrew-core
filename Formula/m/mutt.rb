@@ -10,9 +10,9 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://ftp.osuosl.org/pub/mutt/mutt-2.3.0.tar.gz"
-  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.3.0.tar.gz"
-  sha256 "5d5ebc40843f7156d5ede30e50016798ac7336467f7ad347e716510516cc2130"
+  url "https://ftp.osuosl.org/pub/mutt/mutt-2.3.1.tar.gz"
+  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.3.1.tar.gz"
+  sha256 "470d7b0e3d134a05fb8064dedd74771b06bcd639c80fccd7773dc322aafbb7b6"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -21,13 +21,12 @@ class Mutt < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "f5aa59e57c93ebe4dbf834ea06623182f72c0192e2161be9398acfacd63d971c"
-    sha256 arm64_sequoia: "59ba570bdf75696b15b8fed0ff15e7b47038dfd850ea9b60e26d5c277e5a6d88"
-    sha256 arm64_sonoma:  "39f710476e12dd8e3616df36ac1be4451f6064754accde6750f3545e945790ff"
-    sha256 sonoma:        "6998d2b147a5c30ea2ecfd5e7e11da8e83f1a48ad0c6f85047438a5bd1a78b95"
-    sha256 arm64_linux:   "0b09516917e4253a40d189133cca26904fb17c9552c2e7716abb8a0d9a6c7514"
-    sha256 x86_64_linux:  "e08eb40aa35b734d0e8f9a43ad02bda74b703bcf236e4e4e53800f5a90f5ce58"
+    sha256 arm64_tahoe:   "b492a0d6b74fb1dbb1477a327c55b26cc8eaa8451c867b837d6e49b5181acd6d"
+    sha256 arm64_sequoia: "f09b1a41cc515b3d29eb77ff21e8e0ca7ae512420812f9a55836ad8d6d69fe13"
+    sha256 arm64_sonoma:  "2e173621795ea192e4160e2a14b10e40379331e8e71f62b6066a5ed0e141b602"
+    sha256 sonoma:        "f7456438cf78303733ab16e7ebbf8f99a216963e6a7fd14a1ecd64061dd126f5"
+    sha256 arm64_linux:   "8c2aeb33074a52410e91c6937b9cffcc0d3a4ed104df826834131e8af0d0e371"
+    sha256 x86_64_linux:  "1b4c6b177722724195f77220714a5c8aed80ae28cc5e5fa0bab09fc5bf5e05cc"
   end
 
   head do

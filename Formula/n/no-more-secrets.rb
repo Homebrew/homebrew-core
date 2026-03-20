@@ -5,8 +5,6 @@ class NoMoreSecrets < Formula
   sha256 "4422e59bb3cf62bca3c73d1fdae771b83aab686cd044f73fe14b1b9c2af1cb1b"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "78c23f5552c5d2437a61d3fbb592912b97668316aea647d3191542b37e93178d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49db28f730a1161803aea7fc495500e939e07c5b424491c8e55263a3d099a505"

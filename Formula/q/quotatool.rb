@@ -2,21 +2,17 @@ class Quotatool < Formula
   desc "Edit disk quotas from the command-line"
   homepage "https://quotatool.ekenberg.se/"
   url "https://github.com/ekenberg/quotatool.git",
-      tag:      "v1.6.5",
-      revision: "62180fb1cc7d5d4e90cbbb578cba6bcc967c7ca8"
+      tag:      "v1.7.1",
+      revision: "2a697abbc140dea5eff5aea1be8e0865369f5de9"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "848359b8b48ae2e6d493cbdd7fbcc5a75445692e0d235acd937391bf01829973"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2c0f6b1df823e091ee76ad2ed173177e9c4375f8f8cd0523b5989d4767a8d48e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "73fe8aa2a02124cafcf9abdac863eba005e9eb1ab81d8e135cd33f6eb2d40685"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5a43288144374c56357b8086915aaca5eba18e53f0940837d4cf298e70d07e9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9eecb97ad263acbc09900928486b0fe14a1b87e4e8bdff42c86bcc1ca3d8c8bd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b978f4cf5786ea8301c04df5c0ca7454c18532af3dda7b6ebc873ef05a57113a"
-    sha256 cellar: :any_skip_relocation, ventura:        "aa6e214389d5b093d52adacca8254ed4938d2b22f00e49df43b7cae204eebeef"
-    sha256 cellar: :any_skip_relocation, monterey:       "2ef1c105633c850e2f2ecff526621787052f683e6aa463c8b8be85c50ea3d6dc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "03e1221ed2e5f5bb52560e39b82a3facecf883aed167349499de3fb843712077"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c0feda58df20431481105e54c7cdc01e78168423035c50cbcf813c096dc5121"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80fc5644592b06c790eb3e6f28e3bb89c1c6abb1fa4bc778288855edc7ab65ec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b7f792ec07e3c32a31d1081fd22445bc7e4dee9861bf922a5e1356151ebcf5c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "765b8d0d12661ef8b6b91f782fdc2c252d4060587cdbe4901a162ca86beed8dd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4d0098b29dac95626f4c479f6a53c279d73c8550912cfce1e677c751772275eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "50f91c35d39eb2e832a3a2c7195b157a63f665f25ac2e4bebefbc2c5b27ab24d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27adf194893ae8236b66f0d7906cedb0081bd85adf2c773973484e02183b1583"
   end
 
   on_macos do

@@ -5,8 +5,6 @@ class Ngrep < Formula
   sha256 "6c94b31681316b7469a3ace92d2aeec7c9f490bd6782453dff2ade0e289a3348"
   license "ngrep"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "1487edf4329ee5db9a24d68a11f644e1e813d30ca8605ac62d0a057a019e21f4"
     sha256 cellar: :any,                 arm64_sequoia: "c7d7984b630b7d3195393fa8a167ae17cab51ecc52b09ef3e9eb48c2374f35ff"

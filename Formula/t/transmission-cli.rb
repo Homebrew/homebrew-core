@@ -1,8 +1,8 @@
 class TransmissionCli < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://transmissionbt.com/"
-  url "https://github.com/transmission/transmission/releases/download/4.1.0/transmission-4.1.0.tar.xz"
-  sha256 "dcd28c1c9e6126229c4c17dbc9e95c9fd4aed7e76f4a1f2a74604c8cddec49d6"
+  url "https://github.com/transmission/transmission/releases/download/4.1.1/transmission-4.1.1.tar.xz"
+  sha256 "e743283ee03a42c4d0b08fed2bd52b554aa6c9f65b4d4d45b795c32d98762a79"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   livecheck do
@@ -11,12 +11,12 @@ class TransmissionCli < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "9b87e790d245612dd2e8fd0ad870a9f0cbfa584638672cb9a2377e28a36dc88f"
-    sha256 arm64_sequoia: "3f71576bc3030780b5d28040ab385a2c8fb102c9bba02e77f589c4dce479e615"
-    sha256 arm64_sonoma:  "e879fc4ce079fc174720583304f728b8df1c42d6da274cc2a8d7fb00ce5857ad"
-    sha256 sonoma:        "7606941314d87058ccad12e8fc382ac578b8eb6107a28531d83ebda92a60077f"
-    sha256 arm64_linux:   "8a4f3e96438557d4e7481a63707957ce6e0e54d24b5587460fec310a899a8b89"
-    sha256 x86_64_linux:  "df9b4532ad338a71d2a1e59926103fa02c1a35911da8f138848a80c8aa7fc421"
+    sha256 arm64_tahoe:   "fe9261335dbea9b764860e7f7896c130224e8303c5531396c4c7ed10169c3e80"
+    sha256 arm64_sequoia: "997dba537fe42c31fe13aeadfe1c5b5916a8e4908d1712261ce9ac0cba98fabb"
+    sha256 arm64_sonoma:  "5ce3057c3dbefc13502befd6def3826b118441d3680010a94460df0502e0e4fb"
+    sha256 sonoma:        "416b077bc874b0cb0a5da08a14162401d6edae76bf23c15e78fbd218d965fa82"
+    sha256 arm64_linux:   "54110a1b36c0687ce75ff829bb125bb338790574bbc13a5412552f20523b7261"
+    sha256 x86_64_linux:  "48925f46cf3a75f1538b3860fc126eee79b69a56858c7a33f78af872aa56b82b"
   end
 
   depends_on "cmake" => :build
@@ -27,10 +27,10 @@ class TransmissionCli < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@3" # Uses CommonCrypto on macOS
+    depends_on "zlib-ng-compat"
   end
 
   def install
