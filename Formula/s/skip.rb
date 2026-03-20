@@ -43,6 +43,6 @@ class Skip < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/skip version")
     system bin/"skip", "welcome"
-    system bin/"skip", "init", "--no-build", "--transpiled-app", "some-app", "--appid", "some.app.id", "SomeApp"
+    system bin/"skip", "init", "--no-build", "--transpiled-app", "--appid", "some.app.id", "some-app", "SomeApp"
   end
 end
