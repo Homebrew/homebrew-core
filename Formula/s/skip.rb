@@ -2,8 +2,8 @@ class Skip < Formula
   desc "Tool for building Swift apps for Android"
   homepage "https://skip.dev"
   url "https://github.com/skiptools/skipstone.git",
-      tag:      "1.7.1",
-      revision: "6651ffde3d719f8ed92d4a66451c3c9e4c6bba26"
+      tag:      "1.7.7",
+      revision: "163503fbae587da7363b169858b7c27f3699d8a9"
   license "AGPL-3.0-only"
   head "https://github.com/skiptools/skipstone.git", branch: "main"
 
@@ -43,6 +43,6 @@ class Skip < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/skip version")
     system bin/"skip", "welcome"
-    system bin/"skip", "init", "--no-build", "--transpiled-app", "some-app", "SomeApp"
+    system bin/"skip", "init", "--no-build", "--transpiled-app", "some-app", "--appid", "some.app.id", "SomeApp"
   end
 end
