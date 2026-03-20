@@ -1,8 +1,8 @@
 class Gerbv < Formula
   desc "Gerber (RS-274X) viewer"
   homepage "https://gerbv.github.io/"
-  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.11.1.tar.gz"
-  sha256 "b9a01ed892702f21f78b6ef4ec701e2db3220b5702d1cf93b10e843cad1e69a1"
+  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.13.0.tar.gz"
+  sha256 "0479b333efffadc118b7e3080be5621d8890fdcd2376edbe40a686d5c3642784"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -30,12 +30,6 @@ class Gerbv < Formula
     depends_on "pango"
   end
 
-  # Backport CMake fixes, upstream pr ref, https://github.com/gerbv/gerbv/pull/303
-  patch do
-    url "https://github.com/chenrui333/gerbv/commit/13e73c2767f0170cd4ff660ba0ccceac7c080573.patch?full_index=1"
-    sha256 "d1e8adc4371cfa3b2cc033b06c26daf2aa219cdd8d7a58b3fadfbdc0cbf9f920"
-  end
-
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     # Ensure generated gettext sources exist before parallel translation build.
@@ -47,6 +41,7 @@ class Gerbv < Formula
   test do
     # executable (GUI) test
     system bin/"gerbv", "--version"
+
     # API test
     (testpath/"test.c").write <<~C
       #include <gerbv.h>
