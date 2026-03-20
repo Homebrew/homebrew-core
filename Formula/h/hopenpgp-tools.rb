@@ -5,6 +5,7 @@ class HopenpgpTools < Formula
   url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.11/hopenpgp-tools-0.23.11.tar.gz"
   sha256 "2a056bd320caafe0f7ac3c95d56819f9fef02ddafe11b59802ea5a678d88a54f"
   license "AGPL-3.0-or-later"
+  revision 1
   head "https://salsa.debian.org/clint/hOpenPGP.git", branch: "master"
 
   bottle do

@@ -4,6 +4,7 @@ class TigerVnc < Formula
   url "https://github.com/TigerVNC/tigervnc/archive/refs/tags/v1.16.0.tar.gz"
   sha256 "10512fc0254ae3bde41c19d18c15f7ebd8cd476261afe0611c41965d635d46e8"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable

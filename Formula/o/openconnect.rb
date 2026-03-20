@@ -5,7 +5,7 @@ class Openconnect < Formula
   mirror "https://deb.debian.org/debian/pool/main/o/openconnect/openconnect_9.12.orig.tar.gz"
   sha256 "a2bedce3aa4dfe75e36e407e48e8e8bc91d46def5335ac9564fbf91bd4b2413e"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.infradead.org/openconnect/download.html"

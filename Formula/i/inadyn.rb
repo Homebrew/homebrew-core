@@ -4,6 +4,7 @@ class Inadyn < Formula
   url "https://github.com/troglobit/inadyn/releases/download/v2.13.0/inadyn-2.13.0.tar.xz"
   sha256 "d08ca63a35896f2a809ba9b704da16ec6812b94dd410e7b3ea536a16d93860c2"
   license all_of: ["GPL-2.0-or-later", "ISC", "MIT"]
+  revision 1
 
   bottle do
     sha256               arm64_tahoe:   "367aa7d309e7a4f0ea0396792677dbc85c26e710b0bc0589ccb0f6a7865e04d4"
