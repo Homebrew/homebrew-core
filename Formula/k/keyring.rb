@@ -66,6 +66,10 @@ class Keyring < Formula
     without = %w[jeepney secretstorage] unless OS.linux?
     virtualenv_install_with_resources(without:)
 
+    # Ensure uniform bottles
+    site_packages = libexec/Language::Python.site_packages("python3")
+    inreplace site_packages.glob("keyring-*dist-info/METADATA"), "/opt/homebrew", HOMEBREW_PREFIX
+
     generate_completions_from_executable(bin/"keyring", "--print-completion", shells: [:bash, :zsh])
   end
 
