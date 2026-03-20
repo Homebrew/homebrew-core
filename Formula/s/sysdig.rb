@@ -8,7 +8,7 @@ class Sysdig < Formula
     { any_of: ["GPL-2.0-only", "MIT"] },                  # `falcosecurity-libs`, driver/
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # `falcosecurity-libs`, userspace/libscap/compat/
   ]
-  revision 3
+  revision 4
   head "https://github.com/draios/sysdig.git", branch: "dev"
 
   livecheck do
