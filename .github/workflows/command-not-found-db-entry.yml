@@ -6,13 +6,7 @@ on:
       - main
     paths:
       - Formula/**/*.rb
-  workflow_dispatch:
-    inputs:
-      formula:
-        description: Formula name to update (leave empty to derive from last commit)
-        required: false
 
-# Queue updates — never cancel in progress, just wait
 concurrency:
   group: command-not-found-db-entry
   cancel-in-progress: false
@@ -33,7 +27,6 @@ jobs:
     runs-on: ubuntu-slim
     permissions:
       packages: write
-
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -49,181 +42,36 @@ jobs:
           workflow-key: command-not-found-db-entry
           uninstall: true
 
-      - name: Determine formula name(s)
-        id: formula-names
-        env:
-          MANUAL_FORMULA: ${{ inputs.formula }}
-        run: |
-          if [[ -n "$MANUAL_FORMULA" ]]; then
-            # workflow_dispatch with explicit formula name
-            echo "names=$MANUAL_FORMULA" >> "$GITHUB_OUTPUT"
-          else
-            # Derive from files changed in this push commit
-            names="$(
-              git -C "${{ steps.set-up-homebrew.outputs.repository-path }}" \
-                diff-tree --no-commit-id -r --name-only "${{ github.sha }}^..${{ github.sha }}" \
-              | grep '^Formula/.*\.rb$' \
-              | sed 's|^Formula/[a-z]/||; s|^Formula/||; s|\.rb$||'
-            )"
+      - name: Detect changed formulae
+        id: formulae-detect
+        run: brew test-bot --only-formulae-detect
 
-            if [[ -z "$names" ]]; then
-              echo "::notice ::No formula files changed in this commit — skipping."
-              echo "names=" >> "$GITHUB_OUTPUT"
-            else
-              echo "names=$names" >> "$GITHUB_OUTPUT"
-            fi
-          fi
-
-      - name: Pull executables.txt from GitHub Packages
-        if: steps.formula-names.outputs.names != ''
+      - name: Pull executables.txt
+        if: steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != ''
         run: oras pull ghcr.io/homebrew/command-not-found/executables:latest
 
       - name: Update database entries
-        if: steps.formula-names.outputs.names != ''
+        if: steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != ''
         env:
-          FORMULA_NAMES: ${{ steps.formula-names.outputs.names }}
-          HOMEBREW_REPOSITORY: ${{ steps.set-up-homebrew.outputs.repository-path }}
+          TESTING_FORMULAE: ${{ steps.formulae-detect.outputs.testing_formulae }}
+          DELETED_FORMULAE: ${{ steps.formulae-detect.outputs.deleted_formulae }}
         run: |
-          # Determine the Linux bottle tag for this runner
-          BOTTLE_TAG="x86_64_linux"
-
-          for formula_name in $FORMULA_NAMES; do
-            echo "::group::Processing $formula_name"
-
-            # ------ Check if formula is disabled or deprecated ------
-            formula_status="$(
-              brew ruby -e "
-                require 'formulary'
-                f = Formulary.factory('$formula_name')
-                if f.disabled?
-                  puts 'disabled'
-                elsif f.deprecated?
-                  puts 'deprecated'
-                else
-                  puts 'active'
-                end
-              " 2>/dev/null || echo "not_found"
-            )"
-
-            echo "Formula status: $formula_status"
-
-            if [[ "$formula_status" == "not_found" || \
-                  "$formula_status" == "disabled" || \
-                  "$formula_status" == "deprecated" ]]; then
-              # Remove the formula's line from executables.txt if present
-              if grep -q "^${formula_name}(" executables.txt 2>/dev/null; then
-                sed -i "/^${formula_name}(/d" executables.txt
-                echo "::notice ::Removed $formula_name from executables.txt (status: $formula_status)"
-              else
-                echo "::notice ::$formula_name not in executables.txt — nothing to remove."
-              fi
-              echo "::endgroup::"
-              continue
-            fi
-
-            # ------ Get version ------
-            formula_version="$(
-              brew ruby -e "
-                require 'formulary'
-                puts Formulary.factory('$formula_name').pkg_version
-              " 2>/dev/null || echo ""
-            )"
-
-            if [[ -z "$formula_version" ]]; then
-              echo "::warning ::Could not determine version for $formula_name — skipping."
-              echo "::endgroup::"
-              continue
-            fi
-
-            # ------ Try to get executables from bottle manifest ------
-            executables=""
-
-            manifest_file="$(
-              find "$HOME/.cache/Homebrew" -maxdepth 1 -name "${formula_name}_bottle_manifest--*" 2>/dev/null | head -1 || true
-            )"
-
-            # Fetch manifest if not cached
-            if [[ -z "$manifest_file" ]]; then
-              brew fetch --bottle-tag="$BOTTLE_TAG" "$formula_name" 2>/dev/null || true
-              manifest_file="$(
-                find "$HOME/.cache/Homebrew" -maxdepth 1 -name "${formula_name}_bottle_manifest--*" 2>/dev/null | head -1 || true
-              )"
-            fi
-
-            if [[ -n "$manifest_file" ]]; then
-              raw_exes="$(
-                jq --raw-output \
-                  '.manifests[0].annotations."sh.brew.path_exec_files" // empty' \
-                  "$manifest_file" 2>/dev/null || true
-              )"
-
-              if [[ -n "$raw_exes" ]]; then
-                # raw_exes is space-separated paths like "bin/rg bin/foo"
-                # extract just the basenames and sort them
-                executables="$(
-                  echo "$raw_exes" \
-                  | tr ' ' '\n' \
-                  | xargs -I{} basename {} \
-                  | sort \
-                  | tr '\n' ' ' \
-                  | sed 's/ $//'
-                )"
-              fi
-            fi
-
-            # ------ Build the new DB line ------
-            new_line="${formula_name}(${formula_version}):${executables}"
-
-            # ------ Check if anything actually changed ------
-            existing_line="$(grep "^${formula_name}(" executables.txt 2>/dev/null || true)"
-
-            if [[ "$existing_line" == "$new_line" ]]; then
-              echo "::notice ::$formula_name is already up to date — skipping."
-              echo "::endgroup::"
-              continue
-            fi
-
-            # ------ Update executables.txt (remove old line, add new, re-sort) ------
-            # Remove existing entry for this formula if present
-            sed -i "/^${formula_name}(/d" executables.txt
-
-            # Append new line
-            echo "$new_line" >> executables.txt
-
-            # Re-sort the file in-place
-            sort -o executables.txt executables.txt
-
-            if [[ -z "$existing_line" ]]; then
-              echo "::notice ::Added $formula_name to executables.txt"
-            else
-              echo "::notice ::Updated $formula_name in executables.txt"
-            fi
-
-            echo "::endgroup::"
+          for formula in ${TESTING_FORMULAE//,/ } ${DELETED_FORMULAE//,/ }; do
+            [[ -n "$formula" ]] && brew which-entry --output-db=executables.txt "$formula"
           done
 
       - name: Log in to GitHub Packages
-        if: >
-          github.ref == 'refs/heads/main' &&
-          steps.formula-names.outputs.names != ''
-        run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" \
-            | oras login ghcr.io --username brewtestbot --password-stdin
+        if: github.ref == 'refs/heads/main' && (steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != '')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "$GITHUB_TOKEN" | oras login ghcr.io --username brewtestbot --password-stdin
 
-      - name: Push updated executables.txt to GitHub Packages
-        if: >
-          github.ref == 'refs/heads/main' &&
-          steps.formula-names.outputs.names != ''
-        run: |
-          oras push \
-            --artifact-type application/vnd.homebrew.command-not-found.executables \
-            ghcr.io/homebrew/command-not-found/executables:latest \
-            executables.txt:text/plain
+      - name: Push to GitHub Packages
+        if: github.ref == 'refs/heads/main' && (steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != '')
+        run: oras push --artifact-type application/vnd.homebrew.command-not-found.executables ghcr.io/homebrew/command-not-found/executables:latest executables.txt:text/plain
 
       - name: Verify upload
-        if: >
-          github.ref == 'refs/heads/main' &&
-          steps.formula-names.outputs.names != ''
+        if: github.ref == 'refs/heads/main' && (steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != '')
         run: |
           shasum --algorithm=256 executables.txt > executables.txt.sha256
           rm -f executables.txt
