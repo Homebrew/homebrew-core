@@ -1,0 +1,44 @@
+diff --git a/decoder_plugins/ffmpeg/ffmpeg.c b/decoder_plugins/ffmpeg/ffmpeg.c
+index 4ea635a..f26afab 100644
+--- a/decoder_plugins/ffmpeg/ffmpeg.c
++++ b/decoder_plugins/ffmpeg/ffmpeg.c
+@@ -430,7 +430,7 @@ static void load_video_extns (lists_t_strs *list)
+ }
+ 
+ /* Handle FFmpeg's locking requirements. */
+-#ifdef HAVE_LOCKMGR_REGISTER
++#if HAVE_LIBAV || LIBAVCODEC_VERSION_INT < AV_VERSION_INT(58,9,100)
+ static int locking_cb (void **mutex, enum AVLockOp op)
+ {
+ 	int result;
+@@ -514,10 +514,6 @@ static bool is_timing_broken (AVFormatContext *ic)
+ 
+ static void ffmpeg_init ()
+ {
+-#ifdef HAVE_LOCKMGR_REGISTER
+-	int rc;
+-#endif
+-
+ #ifdef DEBUG
+ 	av_log_set_level (AV_LOG_INFO);
+ #else
+@@ -531,8 +527,8 @@ static void ffmpeg_init ()
+ 	load_audio_extns (supported_extns);
+ 	load_video_extns (supported_extns);
+ 
+-#ifdef HAVE_LOCKMGR_REGISTER
+-	rc = av_lockmgr_register (locking_cb);
++#if HAVE_LIBAV || LIBAVCODEC_VERSION_INT < AV_VERSION_INT(58,9,100)
++	int rc = av_lockmgr_register (locking_cb);
+ 	if (rc < 0)
+ 		fatal ("Lock manager initialisation failed");
+ #endif
+@@ -540,7 +536,7 @@ static void ffmpeg_init ()
+ 
+ static void ffmpeg_destroy ()
+ {
+-#ifdef HAVE_LOCKMGR_REGISTER
++#if HAVE_LIBAV || LIBAVCODEC_VERSION_INT < AV_VERSION_INT(58,9,100)
+ 	av_lockmgr_register (NULL);
+ #endif
+ 
