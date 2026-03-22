@@ -13,6 +13,6 @@ class Paneru < Formula
   end
 
   test do
-    assert_match "paneru #{version}", shell_output("#{bin}/paneru --version")
+    assert_match version.to_s, shell_output("#{bin}/paneru --version")
   end
 end
