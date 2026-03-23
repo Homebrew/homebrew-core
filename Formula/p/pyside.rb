@@ -1,9 +1,9 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.10.2-src/pyside-setup-everywhere-src-6.10.2.tar.xz"
-  mirror "https://cdimage.debian.org/mirror/qt.io/qtproject/official_releases/QtForPython/pyside6/PySide6-6.10.2-src/pyside-setup-everywhere-src-6.10.2.tar.xz"
-  sha256 "05eec38bb71bffff8860786e3c0766cc4b86affc72439bd246c54889bdcb7400"
+  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.11.0-src/pyside-setup-everywhere-src-6.11.0.tar.xz"
+  mirror "https://cdimage.debian.org/mirror/qt.io/qtproject/official_releases/QtForPython/pyside6/PySide6-6.11.0-src/pyside-setup-everywhere-src-6.11.0.tar.xz"
+  sha256 "48d5c44d7c3ed861055d5491486e6a220ef5006573cae01a5fae3fb69d786336"
   # NOTE: We omit some licenses even though they are in SPDX-License-Identifier or LICENSES/ directory:
   # 1. LicenseRef-Qt-Commercial is removed from "OR" options as non-free
   # 2. GFDL-1.3-no-invariants-only is only used by not installed docs, e.g. sources/{pyside6,shiboken6}/doc
@@ -13,7 +13,6 @@ class Pyside < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
   ]
-  revision 2
 
   livecheck do
     url "https://download.qt.io/official_releases/QtForPython/pyside6/"
@@ -100,9 +99,6 @@ class Pyside < Formula
 
     # Install python scripts into pkgshare rather than bin
     inreplace "sources/pyside-tools/CMakeLists.txt", "DESTINATION bin", "DESTINATION #{pkgshare}"
-
-    # Avoid shim reference
-    inreplace "sources/shiboken6/ApiExtractor/CMakeLists.txt", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
     shiboken6_module = prefix/Language::Python.site_packages(python3)/"shiboken6"
 
