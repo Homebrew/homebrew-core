@@ -1,8 +1,8 @@
 class OpenclawCli < Formula
   desc "Your own personal AI assistant"
   homepage "https://openclaw.ai/"
-  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.3.13.tgz"
-  sha256 "6711d9f8c4f12bdbdcd5090e6865e2ee141b8cda3eaa8f20259304406a20e96a"
+  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.3.22.tgz"
+  sha256 "b5fd94116f8dd7b689cc3ab1e8470abd50b15d5ac0649c8c3b21d34f3f248b87"
   license "MIT"
 
   bottle do
@@ -22,6 +22,10 @@ class OpenclawCli < Formula
 
     node_modules = libexec/"lib/node_modules/openclaw/node_modules/"
     deuniversalize_machos node_modules/"@mariozechner/clipboard-darwin-universal/clipboard.darwin-universal.node"
+
+    # Remove vendored package that links against an unpackaged dependency
+    discord_node_modules = libexec/"lib/node_modules/openclaw/dist/extensions/discord/node_modules/"
+    rm_r(discord_node_modules/"@snazzah/davey-darwin-arm64") if OS.mac?
 
     # Remove incompatible pre-built @node-llama-cpp binaries (non-native
     # architectures and GPU variants requiring CUDA/Vulkan)
