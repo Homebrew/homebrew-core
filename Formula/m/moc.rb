@@ -77,15 +77,15 @@ class Moc < Formula
   depends_on "ncurses"
   depends_on "speex"
 
+  on_macos do
+    depends_on "libiconv"
+  end
+
   on_linux do
     depends_on "alsa-lib"
   end
 
   def install
-    # macOS iconv implementation is slightly broken since Sonoma.
-    # upstream bug report: https://savannah.gnu.org/bugs/index.php?66541
-    ENV["am_cv_func_iconv_works"] = "yes" if OS.mac? && MacOS.version >= :sequoia
-
     ENV.append_path "ACLOCAL_PATH", Formula["gettext"].pkgshare/"m4"
 
     # Not needed for > 2.5.2

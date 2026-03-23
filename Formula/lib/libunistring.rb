@@ -17,16 +17,14 @@ class Libunistring < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2491acf49407cf75d5f95a6296f2a1c0294646834022fdcad7e22471c0c9a6d4"
   end
 
+  on_macos do
+    depends_on "libiconv"
+  end
+
   def install
-    # macOS iconv implementation is slightly broken since Sonoma.
-    # This is also why we skip `make check`.
-    # https://github.com/coreutils/gnulib/commit/bab130878fe57086921fa7024d328341758ed453
-    # https://savannah.gnu.org/bugs/?65686
-    use_iconv_workaround = OS.mac? && MacOS.version >= :sonoma
-    ENV["am_cv_func_iconv_works"] = "yes" if use_iconv_workaround
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
-    system "make", "check" unless use_iconv_workaround
+    system "make", "check"
     system "make", "install"
   end
 

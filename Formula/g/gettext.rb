@@ -25,6 +25,10 @@ class Gettext < Formula
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
 
+  on_macos do
+    depends_on "libiconv"
+  end
+
   on_linux do
     depends_on "acl"
   end
@@ -32,10 +36,6 @@ class Gettext < Formula
   def install
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
-
-    # macOS iconv implementation is slightly broken since Sonoma.
-    # upstream bug report, https://savannah.gnu.org/bugs/index.php?66541
-    ENV["am_cv_func_iconv_works"] = "yes" if OS.mac? && MacOS.version >= :sequoia
 
     args = [
       "--with-libunistring-prefix=#{Formula["libunistring"].opt_prefix}",
