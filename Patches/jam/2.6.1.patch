@@ -1,0 +1,52 @@
+diff --git a/jam.c b/jam.c
+index 7f6e556..e37bb37 100644
+--- a/jam.c
++++ b/jam.c
+@@ -166,7 +166,7 @@ extern char **environ;
+ # endif
+ # endif
+ 
+-main( int argc, char **argv, char **arg_environ )
++int main( int argc, char **argv, char **arg_environ )
+ {
+ 	int		n;
+ 	const char	*s;
+diff --git a/jam.h b/jam.h
+index 2e8bb3e..5db7599 100644
+--- a/jam.h
++++ b/jam.h
+@@ -438,7 +438,7 @@
+ # include <sys/types.h>
+ # include <sys/stat.h>
+ 
+-# ifdef OS_HPUX
++# if defined(__APPLE__) || defined(OS_HPUX)
+ # include <unistd.h>
+ # endif
+ 
+diff --git a/mkjambase.c b/mkjambase.c
+index 26224c9..eebe354 100644
+--- a/mkjambase.c
++++ b/mkjambase.c
+@@ -24,7 +24,7 @@
+ # include <stdio.h>
+ # include <string.h>
+ 
+-main( int argc, char **argv, char **envp )
++int main( int argc, char **argv, char **envp )
+ {
+ 	char buf[ 1024 ];
+ 	FILE *fin;
+diff --git a/scan.h b/scan.h
+index e16af85..f9ed291 100644
+--- a/scan.h
++++ b/scan.h
+@@ -50,7 +50,7 @@ int yyline();
+ int yylex();
+ int yyparse();
+ const char *yyfname();
+-int yylineo();
++int yylineno();
+ 
+ # define SCAN_NORMAL	0	/* normal parsing */
+ # define SCAN_STRING	1	/* look only for matching } */

@@ -1,0 +1,360 @@
+From 934ba77add195dde2c922b4ae809968cde62a1ff Mon Sep 17 00:00:00 2001
+From: "Maciej W. Rozycki" <macro@redhat.com>
+Date: Wed, 7 Aug 2024 19:46:21 +0100
+Subject: [PATCH] nptl: Reorder semaphore release in tst-cancel7
+
+Move the release of the semaphore used to synchronize between an extra
+copy of the test run as a separate process and the main test process
+until after the PID file has been locked.  It is so that if the cleanup
+function gets called by the test driver due to premature termination of
+the main test process, then the function does not get at the PID file
+before it has been locked and conclude that the extra copy of the test
+has already terminated.  This won't usually happen due to a relatively
+high amount of time required to elapse before timeout triggers in the
+test driver, but it will change with the next change.
+
+There is still a small time window remaining with this change in place
+where the main test process gets killed for some reason between the
+extra copy of the test has been already started by pthread_create(3) and
+a successful return from the call to sem_wait(3), in which case the
+cleanup function can be reached before PID has been written to the PID
+file and the file locked.  It seems that with the test case structured
+as it is now and PID-based process management we have no means to avoid
+it.
+
+Reviewed-by: Adhemerval Zanella <adhemerval.zanella@linaro.org>
+---
+ nptl/tst-cancel7.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/nptl/tst-cancel7.c b/nptl/tst-cancel7.c
+index d2350bde20..574429098c 100644
+--- a/nptl/tst-cancel7.c
++++ b/nptl/tst-cancel7.c
+@@ -57,9 +57,6 @@ sl (void)
+   fprintf (f, "%lld\n", (long long) getpid ());
+   fflush (f);
+
+-  if (sem_post (sem) != 0)
+-    FAIL_EXIT1 ("sem_post: %m");
+-
+   struct flock fl =
+     {
+       .l_type = F_WRLCK,
+@@ -70,6 +67,9 @@ sl (void)
+   if (fcntl (fileno (f), F_SETLK, &fl) != 0)
+     FAIL_EXIT1 ("fcntl (F_SETFL): %m");
+
++  if (sem_post (sem) != 0)
++    FAIL_EXIT1 ("sem_post: %m");
++
+   sigset_t ss;
+   sigfillset (&ss);
+   sigsuspend (&ss);
+@@ -116,7 +116,7 @@ do_test (void)
+ {
+   pthread_t th = xpthread_create (NULL, tf, NULL);
+
+-  /* Wait to cancel until after the pid is written.  */
++  /* Wait to cancel until after the pid is written and file locked.  */
+   if (sem_wait (sem) != 0)
+     FAIL_EXIT1 ("sem_wait: %m");
+
+
+From bea2ad022dadae46059de681d902129e56653c85 Mon Sep 17 00:00:00 2001
+From: "Maciej W. Rozycki" <macro@redhat.com>
+Date: Wed, 7 Aug 2024 19:46:21 +0100
+Subject: [PATCH] nptl: Fix stray process left by tst-cancel7 blocking testing
+
+Fix an issue with commit b74121ae4bc5 ("Update.") and prevent a stray
+process from being left behind by tst-cancel7 (and also tst-cancelx7,
+which is the same test built with '-fexceptions' additionally supplied
+to the compiler), which then blocks remote testing until the process has
+been killed by hand.
+
+This test case creates a thread that runs an extra copy of the test via
+system(3) and using the '--direct' option so that the test wrapper does
+not interfere with this instance.  This extra copy executes its business
+and calls sigsuspend(2) and then never terminates by itself.  Instead it
+relies on being killed by the main test process directly via a thread
+cancellation request or, should that fail, by issuing SIGKILL either at
+the conclusion of 'do_test' or by the test driver via 'do_cleanup' where
+the test timeout has been hit or the test driver interrupted.
+
+However if the main test process has been instead killed by a signal,
+such as due to incorrect execution, before it had a chance to kill the
+extra copy of the test case, then the test wrapper will terminate
+without running 'do_cleanup' and consequently the extra copy of the test
+case will remain forever in its suspended state, and in the remote case
+in particular it means that the remote test wrapper will wait forever
+for the SSH command to complete.
+
+This has been observed with the 'alpha-linux-gnu' target, where the main
+test process triggers SIGSEGV and the test wrapper correctly records:
+
+Didn't expect signal from child: got `Segmentation fault'
+
+in nptl/tst-cancel7.out and terminates, but then the calling SSH command
+continues waiting for the remaining process started in the same session
+on the remote target to complete.
+
+Address this problem by also registering 'do_cleanup' via atexit(3),
+observing that 'support_delete_temp_files' is registered by the test
+wrapper before the test initializing function 'do_prepare' is called and
+that we call all the functions registered in the reverse of the order in
+which they were registered, so it is safe to refer to 'pidfilename' in
+'do_cleanup' invoked by exit(3) because by that time temporary files
+have not yet been deleted.
+
+A minor inconvenience is that if 'signal_handler' is invoked in the test
+wrapper as a result of SIGALRM rather than SIGINT, then 'do_cleanup'
+will be called twice, once as a cleanup handler and again by exit(3).
+In reality it is harmless though, because issuing SIGKILL is guarded by
+a record lock, so if the first call has succeeded in killing the extra
+copy of the test case, then the subsequent call will do nothing.
+
+Reviewed-by: Adhemerval Zanella <adhemerval.zanella@linaro.org>
+---
+ nptl/tst-cancel7.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/nptl/tst-cancel7.c b/nptl/tst-cancel7.c
+index 574429098c..3f874c2a3c 100644
+--- a/nptl/tst-cancel7.c
++++ b/nptl/tst-cancel7.c
+@@ -38,6 +38,8 @@ static char *semfilename;
+
+ static sem_t *sem;
+
++static void do_cleanup (void);
++
+ static void *
+ tf (void *arg)
+ {
+@@ -108,6 +110,8 @@ do_prepare (int argc, char *argv[])
+
+   xwrite (fd, " ", 1);
+   xclose (fd);
++
++  atexit (do_cleanup);
+ }
+
+
+
+From 70f560fc22212f733647c9121c26bbb2307f2e10 Mon Sep 17 00:00:00 2001
+From: Stafford Horne <shorne@gmail.com>
+Date: Wed, 3 Apr 2024 06:40:37 +0100
+Subject: [PATCH] misc: Add support for Linux uio.h RWF_NOAPPEND flag
+
+In Linux 6.9 a new flag is added to allow for Per-io operations to
+disable append mode even if a file was opened with the flag O_APPEND.
+This is done with the new RWF_NOAPPEND flag.
+
+This caused two test failures as these tests expected the flag 0x00000020
+to be unused.  Adding the flag definition now fixes these tests on Linux
+6.9 (v6.9-rc1).
+
+  FAIL: misc/tst-preadvwritev2
+  FAIL: misc/tst-preadvwritev64v2
+
+This patch adds the flag, adjusts the test and adds details to
+documentation.
+
+Link: https://lore.kernel.org/all/20200831153207.GO3265@brightrain.aerifal.cx/
+Reviewed-by: Adhemerval Zanella  <adhemerval.zanella@linaro.org>
+(cherry picked from commit 3db9d208dd5f30b12900989c6d2214782b8e2011)
+---
+ manual/llio.texi                       | 4 ++++
+ misc/tst-preadvwritev2-common.c        | 5 ++++-
+ sysdeps/unix/sysv/linux/bits/uio-ext.h | 1 +
+ 3 files changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/manual/llio.texi b/manual/llio.texi
+index 0b61d491f50..fae49d14332 100644
+--- a/manual/llio.texi
++++ b/manual/llio.texi
+@@ -1339,6 +1339,10 @@ will fail and set @code{errno} to @code{EAGAIN} if the operation would block.
+ 
+ @item RWF_APPEND
+ Per-IO synchronization as if the file was opened with @code{O_APPEND} flag.
++
++@item RWF_NOAPPEND
++This flag allows an offset to be honored, even if the file was opened with
++@code{O_APPEND} flag.
+ @end vtable
+ 
+ When the source file is compiled with @code{_FILE_OFFSET_BITS == 64} the
+diff --git a/misc/tst-preadvwritev2-common.c b/misc/tst-preadvwritev2-common.c
+index b5f19f002cd..8e04ff7282e 100644
+--- a/misc/tst-preadvwritev2-common.c
++++ b/misc/tst-preadvwritev2-common.c
+@@ -34,8 +34,11 @@
+ #ifndef RWF_APPEND
+ # define RWF_APPEND 0
+ #endif
++#ifndef RWF_NOAPPEND
++# define RWF_NOAPPEND 0
++#endif
+ #define RWF_SUPPORTED	(RWF_HIPRI | RWF_DSYNC | RWF_SYNC | RWF_NOWAIT \
+-			 | RWF_APPEND)
++			 | RWF_APPEND | RWF_NOAPPEND)
+ 
+ /* Generic uio_lim.h does not define IOV_MAX.  */
+ #ifndef IOV_MAX
+diff --git a/sysdeps/unix/sysv/linux/bits/uio-ext.h b/sysdeps/unix/sysv/linux/bits/uio-ext.h
+index 7854cccef3e..ead7a091566 100644
+--- a/sysdeps/unix/sysv/linux/bits/uio-ext.h
++++ b/sysdeps/unix/sysv/linux/bits/uio-ext.h
+@@ -47,6 +47,7 @@ extern ssize_t process_vm_writev (pid_t __pid, const struct iovec *__lvec,
+ #define RWF_SYNC	0x00000004 /* per-IO O_SYNC.  */
+ #define RWF_NOWAIT	0x00000008 /* per-IO nonblocking mode.  */
+ #define RWF_APPEND	0x00000010 /* per-IO O_APPEND.  */
++#define RWF_NOAPPEND	0x00000020 /* per-IO negation of O_APPEND */
+ 
+ __END_DECLS
+ 
+From 5ffc903216901914dc2ad9715088d3fe9d1ef205 Mon Sep 17 00:00:00 2001
+From: Adhemerval Zanella <adhemerval.zanella@linaro.org>
+Date: Tue, 8 Oct 2024 15:45:29 -0300
+Subject: [PATCH] misc: Add support for Linux uio.h RWF_ATOMIC flag
+
+Linux 6.11 adds the new flag for pwritev2 (commit
+c34fc6f26ab86d03a2d47446f42b6cd492dfdc56).
+
+Checked on x86_64-linux-gnu on 6.11 kernel.
+
+Reviewed-by: H.J. Lu <hjl.tools@gmail.com>
+---
+ manual/llio.texi                       | 13 +++++++++++++
+ misc/tst-preadvwritev2-common.c        |  5 ++++-
+ sysdeps/unix/sysv/linux/bits/uio-ext.h |  2 ++
+ 3 files changed, 19 insertions(+), 1 deletion(-)
+
+diff --git a/manual/llio.texi b/manual/llio.texi
+index 05ab44c6e7..0eb336f70b 100644
+--- a/manual/llio.texi
++++ b/manual/llio.texi
+@@ -1381,6 +1381,19 @@ Per-IO synchronization as if the file was opened with @code{O_APPEND} flag.
+ @item RWF_NOAPPEND
+ This flag allows an offset to be honored, even if the file was opened with
+ @code{O_APPEND} flag.
++
++@item RWF_ATOMIC
++Indicate that the write is to be issued with torn-write prevention.  The
++input buffer should follow some contraints: the total length should be
++power-of-2 in size and also sizes between @code{atomic_write_unit_min}
++and @code{atomic_write_unit_max}, the @code{struct iovec} count should be
++up to @code{atomic_write_segments_max}, and the offset should be
++naturally-aligned with regard to total write length.
++
++The @code{atomic_*} values can be obtained with @code{statx} along with
++@code{STATX_WRITE_ATOMIC} flag.
++
++This is a Linux-specific extension.
+ @end vtable
+ 
+ When the source file is compiled with @code{_FILE_OFFSET_BITS == 64} the
+diff --git a/misc/tst-preadvwritev2-common.c b/misc/tst-preadvwritev2-common.c
+index 8e04ff7282..4556421a43 100644
+--- a/misc/tst-preadvwritev2-common.c
++++ b/misc/tst-preadvwritev2-common.c
+@@ -37,8 +37,11 @@
+ #ifndef RWF_NOAPPEND
+ # define RWF_NOAPPEND 0
+ #endif
++#ifndef RWF_ATOMIC
++# define RWF_ATOMIC 0
++#endif
+ #define RWF_SUPPORTED	(RWF_HIPRI | RWF_DSYNC | RWF_SYNC | RWF_NOWAIT \
+-			 | RWF_APPEND | RWF_NOAPPEND)
++			 | RWF_APPEND | RWF_NOAPPEND | RWF_ATOMIC)
+ 
+ /* Generic uio_lim.h does not define IOV_MAX.  */
+ #ifndef IOV_MAX
+diff --git a/sysdeps/unix/sysv/linux/bits/uio-ext.h b/sysdeps/unix/sysv/linux/bits/uio-ext.h
+index ead7a09156..85ed21bac5 100644
+--- a/sysdeps/unix/sysv/linux/bits/uio-ext.h
++++ b/sysdeps/unix/sysv/linux/bits/uio-ext.h
+@@ -48,6 +48,8 @@ extern ssize_t process_vm_writev (pid_t __pid, const struct iovec *__lvec,
+ #define RWF_NOWAIT	0x00000008 /* per-IO nonblocking mode.  */
+ #define RWF_APPEND	0x00000010 /* per-IO O_APPEND.  */
+ #define RWF_NOAPPEND	0x00000020 /* per-IO negation of O_APPEND */
++#define RWF_ATOMIC	0x00000040 /* Write is to be issued with torn-write
++				      prevention.  */
+ 
+ __END_DECLS
+ 
+From 3b39822a82a2415f92ddbc1503e4a55597034573 Mon Sep 17 00:00:00 2001
+From: Xi Ruoyao <xry111@xry111.site>
+Date: Thu, 28 Aug 2025 13:56:40 +0800
+Subject: [PATCH] misc: Add support for Linux uio.h RWF_DONTCACHE flag
+
+Linux 6.14 adds the new flag for uncached buffered IO on a filesystem
+supporting it.
+
+This caused two test failures as these tests expected the flag
+0x00000080 is unused.  Add the flag definition to fix these tests on
+Linux >= 6.14:
+
+    FAIL: misc/tst-preadvwritev2
+    FAIL: misc/tst-preadvwritev64v2
+
+The test failures were not detected in routine test suite runs because
+normally we create the test file in /tmp, where a tmpfs is usually
+mounted, and tmpfs does not support this flag.  But it can be reproduced
+with TMPDIR set to some directory in an ext4 file system.
+
+Link: https://git.kernel.org/torvalds/c/af6505e5745b
+Signed-off-by: Xi Ruoyao <xry111@xry111.site>
+Reviewed-by: Adhemerval Zanella  <adhemerval.zanella@linaro.org>
+---
+ manual/llio.texi                       | 4 ++++
+ misc/tst-preadvwritev2-common.c        | 6 +++++-
+ sysdeps/unix/sysv/linux/bits/uio-ext.h | 1 +
+ 3 files changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/manual/llio.texi b/manual/llio.texi
+index e7fd6ca0e9..806ff0a27d 100644
+--- a/manual/llio.texi
++++ b/manual/llio.texi
+@@ -1414,6 +1414,10 @@ naturally-aligned with regard to total write length.
+ The @code{atomic_*} values can be obtained with @code{statx} along with
+ @code{STATX_WRITE_ATOMIC} flag.
+ 
++@item RWF_DONTCACHE
++Use uncached buffered IO.  If the file system does not support it, the
++call will fail and set @code{errno} to @code{EOPNOTSUPP}.
++
+ This is a Linux-specific extension.
+ @end vtable
+ 
+diff --git a/misc/tst-preadvwritev2-common.c b/misc/tst-preadvwritev2-common.c
+index ff1007d6d2..8a59ff2f9d 100644
+--- a/misc/tst-preadvwritev2-common.c
++++ b/misc/tst-preadvwritev2-common.c
+@@ -40,8 +40,12 @@
+ #ifndef RWF_ATOMIC
+ # define RWF_ATOMIC 0
+ #endif
++#ifndef RWF_DONTCACHE
++# define RWF_DONTCACHE 0
++#endif
+ #define RWF_SUPPORTED	(RWF_HIPRI | RWF_DSYNC | RWF_SYNC | RWF_NOWAIT \
+-			 | RWF_APPEND | RWF_NOAPPEND | RWF_ATOMIC)
++			 | RWF_APPEND | RWF_NOAPPEND | RWF_ATOMIC \
++			 | RWF_DONTCACHE)
+ 
+ /* Generic uio_lim.h does not define IOV_MAX.  */
+ #ifndef IOV_MAX
+diff --git a/sysdeps/unix/sysv/linux/bits/uio-ext.h b/sysdeps/unix/sysv/linux/bits/uio-ext.h
+index 040cb8dd48..1b7ab4b495 100644
+--- a/sysdeps/unix/sysv/linux/bits/uio-ext.h
++++ b/sysdeps/unix/sysv/linux/bits/uio-ext.h
+@@ -50,6 +50,7 @@ extern ssize_t process_vm_writev (pid_t __pid, const struct iovec *__lvec,
+ #define RWF_NOAPPEND	0x00000020 /* per-IO negation of O_APPEND */
+ #define RWF_ATOMIC	0x00000040 /* Write is to be issued with torn-write
+ 				      prevention.  */
++#define RWF_DONTCACHE	0x00000080 /* Uncached buffered IO.  */
+ 
+ __END_DECLS
+ 

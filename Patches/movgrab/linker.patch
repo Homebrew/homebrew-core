@@ -1,0 +1,28 @@
+diff --git a/Makefile.in b/Makefile.in
+index 04ea67d..5516051 100755
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -11,7 +11,7 @@ OBJ=common.o settings.o containerfiles.o outputfiles.o servicetypes.o extract_te
+
+ all: $(OBJ)
+ 	@cd libUseful-2.8; $(MAKE)
+-	$(CC) $(FLAGS) -o movgrab main.c $(LIBS) $(OBJ) libUseful-2.8/libUseful-2.8.a
++	$(CC) $(FLAGS) -o movgrab main.c $(OBJ) libUseful-2.8/libUseful-2.8.a $(LIBS)
+
+ clean:
+ 	@rm -f movgrab *.o libUseful-2.8/*.o libUseful-2.8/*.a libUseful-2.8/*.so config.log config.status
+diff --git a/libUseful-2.8/DataProcessing.c b/libUseful-2.8/DataProcessing.c
+index 3e188a8..56087a6 100755
+--- a/libUseful-2.8/DataProcessing.c
++++ b/libUseful-2.8/DataProcessing.c
+@@ -420,8 +420,8 @@ switch(val)
+
+ if (Data->Cipher)
+ {
+-Data->enc_ctx=(EVP_CIPHER_CTX *) calloc(1,sizeof(EVP_CIPHER_CTX));
+-Data->dec_ctx=(EVP_CIPHER_CTX *) calloc(1,sizeof(EVP_CIPHER_CTX));
++Data->enc_ctx=EVP_CIPHER_CTX_new();
++Data->dec_ctx=EVP_CIPHER_CTX_new();
+ EVP_CIPHER_CTX_init(Data->enc_ctx);
+ EVP_CIPHER_CTX_init(Data->dec_ctx);
+ Data->BlockSize=EVP_CIPHER_block_size(Data->Cipher);

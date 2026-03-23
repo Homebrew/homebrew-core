@@ -1,0 +1,11 @@
+diff -pur a/include/main.h b/include/main.h
+--- a/include/main.h	2011-07-29 10:37:48.000000000 +0200
++++ b/include/main.h	2017-08-25 12:02:22.000000000 +0200
+@@ -36,6 +36,7 @@
+ #include <pthread_np.h>
+ #endif
+ #include <errno.h>
++#include <unistd.h>
+ 
+ typedef pthread_mutex_t CRITICAL_SECTION;
+ void EnterCriticalSection(CRITICAL_SECTION *cs);
