@@ -3,6 +3,7 @@ class Autoconf < Formula
   homepage "https://www.gnu.org/software/autoconf/"
   url "https://ftpmirror.gnu.org/gnu/autoconf/autoconf-2.73.tar.gz"
   mirror "https://ftp.gnu.org/gnu/autoconf/autoconf-2.73.tar.gz"
+  mirror "http://ftp.gnu.org/gnu/autoconf/autoconf-2.73.tar.gz"
   sha256 "259ddfa3bddc799cfb81489cc0f17dfdf1bd6d1505dda53c0f45ff60d6a4f9a7"
   license all_of: [
     "GPL-3.0-or-later",
