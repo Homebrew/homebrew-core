@@ -60,7 +60,7 @@ class Fbthrift < Formula
     # Work around build failure with Xcode 16
     # Issue ref: https://github.com/facebook/fbthrift/issues/618
     # Issue ref: https://github.com/facebook/fbthrift/issues/607
-    ENV.append "CXXFLAGS", "-fno-assume-unique-vtables" if DevelopmentTools.clang_build_version >= 1600
+    ENV.append "CXXFLAGS", "-fno-assume-unique-vtables" if DevelopmentTools.clang_build_version == 1600
 
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@3"].opt_prefix
 
@@ -73,17 +73,12 @@ class Fbthrift < Formula
       shared_args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs"
     end
 
-    # We build in-source to avoid an error from thrift/lib/cpp2/test:
-    # Output path .../build/shared/thrift/lib/cpp2/test/../../../conformance/if is unusable or not a directory
-    system "cmake", "-S", ".", "-B", ".", *shared_args, *std_cmake_args
-    system "cmake", "--build", "."
-    system "cmake", "--install", "."
+    system "cmake", "-S", ".", "-B", "build_shared", *shared_args, *std_cmake_args
+    system "cmake", "--build", "build_shared"
+    system "cmake", "--install", "build_shared"
 
     elisp.install "thrift/contrib/thrift.el"
     (share/"vim/vimfiles/syntax").install "thrift/contrib/thrift.vim"
-
-    # Save a copy of FindxxHash.cmake to test with as it is used in FBThriftConfig.cmake
-    (libexec/"cmake").install "build/fbcode_builder/CMake/FindXxhash.cmake"
   end
 
   test do
@@ -109,7 +104,6 @@ class Fbthrift < Formula
       project(test LANGUAGES CXX)
 
       list(APPEND CMAKE_MODULE_PATH "#{Formula["fizz"].opt_libexec}/cmake")
-      list(APPEND CMAKE_MODULE_PATH "#{opt_libexec}/cmake")
       find_package(gflags REQUIRED)
       find_package(FBThrift CONFIG REQUIRED)
 
