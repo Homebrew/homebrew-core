@@ -1,8 +1,8 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.20.0.tar.gz"
-  sha256 "a640d1f97be316a09301dfc9347e3d929ad4d9a2336e3ca23c32c93b0ff7e5d0"
+  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.21.0.tar.gz"
+  sha256 "ef3568bb4865d6c1b2564fb5689c19b6b9a5311572cd1f2ff9198636a8520921"
   license "Apache-2.0"
 
   bottle do
@@ -23,15 +23,6 @@ class Libtensorflow < Formula
   end
 
   def install
-    # Workaround to build on Tahoe by using newer apple_support with following commit:
-    # https://github.com/bazelbuild/apple_support/commit/44c43c715aa58d16dc713ec0daa0a4373c39245a
-    # Issue ref: https://github.com/tensorflow/tensorflow/issues/100434
-    inreplace "tensorflow/workspace2.bzl" do |s|
-      s.gsub! "/1.18.1/apple_support.1.18.1.tar.gz", "/1.19.0/apple_support.1.19.0.tar.gz"
-      s.gsub! '"d71b02d6df0500f43279e22400db6680024c1c439115c57a9a82e9effe199d7b"',
-              '"dca96682317cc7112e6fae87332e13a8fefbc232354c2939b11b3e06c09e5949"'
-    end
-
     python3 = "python3.13"
     optflag = ENV["HOMEBREW_OPTFLAGS"].presence
     optflag ||= if Hardware::CPU.arm? && OS.mac?
