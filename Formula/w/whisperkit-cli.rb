@@ -1,8 +1,8 @@
 class WhisperkitCli < Formula
   desc "Swift native on-device speech recognition with Whisper for Apple Silicon"
   homepage "https://github.com/argmaxinc/WhisperKit"
-  url "https://github.com/argmaxinc/WhisperKit/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "01c80f436721ec8a8c3abb6710a96629f5c2a12666e6fdfde33e0bc57a74a8bf"
+  url "https://github.com/argmaxinc/WhisperKit-internal/archive/refs/tags/v0.17.2.tar.gz"
+  sha256 "d3fa54ac438dd25700edf63619d2ecf5a560cec1282c7b1f8783bd1e46a1fa69"
   license "MIT"
 
   no_autobump! because: :bumped_by_upstream
