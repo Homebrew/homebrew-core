@@ -34,8 +34,6 @@ class Liquidsoap < Formula
 
     ENV["LIQUIDSOAP_BUILD_TARGET"] = "posix"
     ENV["IS_SNAPSHOT"] = "false"
-    ENV.deparallelize
-
     ENV["OPAMROOT"] = buildpath/".opam"
     ENV["OPAMYES"] = "1"
     ENV["OPAMNODEPEXTS"] = "1"
