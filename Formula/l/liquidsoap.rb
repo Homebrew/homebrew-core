@@ -74,6 +74,10 @@ class Liquidsoap < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/liquidsoap --version 2>&1")
+    output = shell_output("#{bin}/liquidsoap 'thread.run(delay=2., shutdown) " \
+                          "output.file(%wav, fallible=true, " \
+                          "\"#{testpath}/sine.wav\", sine(duration=1.))' 2>&1")
+    assert_path_exists testpath/"sine.wav"
+    assert_match "audio=pcm(stereo)", output
   end
 end
