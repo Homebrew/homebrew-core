@@ -3,8 +3,8 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/refs/tags/2.34.16.tar.gz"
-  sha256 "4c454a3301aee7bf9755e29b125370b507b306986cb52349d8e489a6c61c4667"
+  url "https://github.com/aws/aws-cli/archive/refs/tags/2.34.17.tar.gz"
+  sha256 "e92c0b892dc6414234c9ca3bf86c2537abfb11087afb7e613b384925b571350e"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/aws/aws-cli.git", branch: "v2"
@@ -98,6 +98,9 @@ class Awscli < Formula
 
   def install
     ENV["AWS_CRT_BUILD_USE_SYSTEM_LIBCRYPTO"] = "1"
+    # Work around setuptools-scm 10 path validation issue in pip build isolation.
+    (buildpath/"build-constraints.txt").write "setuptools-scm<10\n"
+    ENV["PIP_BUILD_CONSTRAINT"] = buildpath/"build-constraints.txt"
 
     # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
     # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
@@ -108,6 +111,7 @@ class Awscli < Formula
     # CPU detection is available in AWS C libraries
     ENV.runtime_cpu_detection
     venv.pip_install resource("awscrt")
+    ENV.delete("PIP_BUILD_CONSTRAINT")
     venv.pip_install_and_link buildpath, build_isolation: false
 
     pkgshare.install "awscli/examples"
