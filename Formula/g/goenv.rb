@@ -28,7 +28,8 @@ class Goenv < Formula
       "test/goenv.bats",
       "test/test_helper.bash",
     ]
-    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
+    replacement = build.bottle? ? "@@HOMEBREW_PREFIX@@" : HOMEBREW_PREFIX.to_s
+    inreplace inreplace_files, "/usr/local", replacement
 
     prefix.install Dir["*"]
     %w[goenv-install goenv-uninstall go-build].each do |cmd|
