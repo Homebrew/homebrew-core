@@ -3,8 +3,8 @@ class Btcli < Formula
 
   desc "Bittensor command-line tool"
   homepage "https://docs.bittensor.com/btcli"
-  url "https://files.pythonhosted.org/packages/d0/c2/c4f2cbe7affe24e94d629622a0b6f2fe6a0f1c08a81d9cb2eb1b030c330c/bittensor_cli-9.19.0.tar.gz"
-  sha256 "ea991587cda04141eca17691cb49ab9fc09096e8b082f4be2776235df28278aa"
+  url "https://files.pythonhosted.org/packages/42/3d/366f5b6316c1ae52d4db683f9c1355b28faf67978f1262cd8ad981ce1e6a/bittensor_cli-9.20.0.tar.gz"
+  sha256 "839910ab32446809b15b0cad6d1a0aef8bf31d96ff70d4d2296224dcd70e27b8"
   license "MIT"
   head "https://github.com/opentensor/btcli.git", branch: "main"
 
@@ -150,8 +150,8 @@ class Btcli < Formula
   end
 
   resource "narwhals" do
-    url "https://files.pythonhosted.org/packages/47/b4/02a8add181b8d2cd5da3b667cd102ae536e8c9572ab1a130816d70a89edb/narwhals-2.18.0.tar.gz"
-    sha256 "1de5cee338bc17c338c6278df2c38c0dd4290499fcf70d75e0a51d5f22a6e960"
+    url "https://files.pythonhosted.org/packages/59/96/45218c2fdec4c9f22178f905086e85ef1a6d63862dcc3cd68eb60f1867f5/narwhals-2.18.1.tar.gz"
+    sha256 "652a1fcc9d432bbf114846688884c215f17eb118aa640b7419295d2f910d2a8b"
   end
 
   resource "netaddr" do
