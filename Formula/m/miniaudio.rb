@@ -19,7 +19,7 @@ class Miniaudio < Formula
 
   test do
     (testpath/"test.c").write <<~C
-      #include <miniaudio.h>
+      #include <miniaudio/miniaudio.h>
       #include <assert.h>
       int main(void) {
         assert(MA_VERSION_MAJOR == 0);
