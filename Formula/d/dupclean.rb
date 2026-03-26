@@ -6,6 +6,15 @@ class Dupclean < Formula
   license "MIT"
 
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libx11" => :build
+  depends_on "libxrandr" => :build
+  depends_on "libxi" => :build
+  depends_on "libxcursor" => :build
+  depends_on "libxinerama" => :build
+  depends_on "libxfixes" => :build
+  depends_on "mesa" => :build
+  depends_on "mesa-glu" => :build
 
   def install
     system "go", "build", *std_go_args
