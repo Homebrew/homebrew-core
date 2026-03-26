@@ -4,6 +4,7 @@ class NodeAT22 < Formula
   url "https://nodejs.org/dist/v22.22.2/node-v22.22.2.tar.xz"
   sha256 "b6bedd3a8cacd5df7df015a5088264b12c74a277ba60684cb9642ae8eb743132"
   license "MIT"
+  revision 1
   compatibility_version 1
 
   livecheck do
