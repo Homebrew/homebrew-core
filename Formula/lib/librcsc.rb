@@ -4,7 +4,7 @@ class Librcsc < Formula
   url "https://github.com/helios-base/librcsc/archive/refs/tags/rc2024.tar.gz"
   sha256 "81a3f86c9727420178dd936deb2994d764c7cd4888a2150627812ab1b813531b"
   license "LGPL-3.0-or-later"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "74ea73f6b0d78ec266f4016283e606eea8c53d895b6232c4bbf1d7d24ed70615"
@@ -39,6 +39,10 @@ class Librcsc < Formula
   def install
     # Remove bundled nlohmann-json and simdjson
     rm_r(["rcsc/rcg/nlohmann", "rcsc/rcg/simdjson"])
+
+    # Fix build failure caused of K&R-style function declarations
+    # (i.e. without declaring types)
+    ENV.append_to_cflags "-std=gnu89"
 
     # Workaround until upstream removes unnecessary Boost.System link
     boost_workaround = ["--without-boost-system"]
