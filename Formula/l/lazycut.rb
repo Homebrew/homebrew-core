@@ -1,8 +1,8 @@
 class Lazycut < Formula
   desc "Terminal-based video trimming TUI"
   homepage "https://github.com/ozemin/lazycut"
-  url "https://github.com/ozemin/lazycut/archive/refs/tags/v0.3.8.tar.gz"
-  sha256 "550e4c469cba1b577ce0e6ed7a58d0e131f9e7cf432786ed90ca14a2bc1b4635"
+  url "https://github.com/ozemin/lazycut/archive/refs/tags/v0.3.9.tar.gz"
+  sha256 "14c18eeef885c90a1660a85d760b0520d1d2256b38e4f5fe5b750f0d34baadd4"
   license "MIT"
 
   bottle do
@@ -13,11 +13,8 @@ class Lazycut < Formula
   end
 
   depends_on "go" => :build
-  depends_on "pkgconf" => :build
   depends_on "chafa"
   depends_on "ffmpeg"
-  depends_on "gettext"
-  depends_on "glib"
   depends_on :macos
 
   def install
