@@ -28,7 +28,7 @@ class Miniaudio < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-I#{include}/miniaudio", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-o", "test"
     system "./test"
   end
 end
