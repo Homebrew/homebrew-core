@@ -23,7 +23,7 @@ class DotnetAT9 < Formula
   keg_only :versioned_formula
 
   # https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core#lifecycle
-  deprecate! date: "2026-11-10", because: :unsupported
+  disable! date: "2026-11-10", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
