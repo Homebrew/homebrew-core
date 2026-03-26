@@ -98,9 +98,6 @@ class Awscli < Formula
 
   def install
     ENV["AWS_CRT_BUILD_USE_SYSTEM_LIBCRYPTO"] = "1"
-    # Work around setuptools-scm 10 path validation issue in pip build isolation.
-    (buildpath/"build-constraints.txt").write "setuptools-scm<10\n"
-    ENV["PIP_BUILD_CONSTRAINT"] = buildpath/"build-constraints.txt"
 
     # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
     # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
