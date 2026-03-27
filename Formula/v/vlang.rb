@@ -2,8 +2,8 @@ class Vlang < Formula
   desc "V programming language"
   homepage "https://vlang.io"
   # NOTE: Keep this in sync with V compiler below when updating
-  url "https://github.com/vlang/v/archive/refs/tags/0.5.tar.gz"
-  sha256 "53474b6920aba3bb13a12f6ca430581b3b9b90d2e1432c7afd90da45f1566aaa"
+  url "https://github.com/vlang/v/archive/refs/tags/0.5.1.tar.gz"
+  sha256 "444f20a77b57fec8a4e8a31fb2d50c318d277fe8377e0c870c2087395c0de810"
   license "MIT"
 
   livecheck do
@@ -92,7 +92,7 @@ diff --git a/vlib/builtin/builtin_d_gcboehm.c.v b/vlib/builtin/builtin_d_gcboehm
 index 444a014..159e5a1 100644
 --- a/vlib/builtin/builtin_d_gcboehm.c.v
 +++ b/vlib/builtin/builtin_d_gcboehm.c.v
-@@ -43,13 +43,13 @@ $if dynamic_boehm ? {
+@@ -45,8 +45,8 @@
  } $else {
  	$if macos || linux {
  		#flag -DGC_BUILTIN_ATOMIC=1
@@ -103,9 +103,54 @@ index 444a014..159e5a1 100644
  			// TODO: replace the architecture check with a `!$exists("@VEXEROOT/thirdparty/tcc/lib/libgc.a")` comptime call
  			#flag @VEXEROOT/thirdparty/libgc/gc.o
  		} $else {
- 			$if !use_bundled_libgc ? {
--				#flag @VEXEROOT/thirdparty/tcc/lib/libgc.a
-+				#flag @PREFIX@/lib/libgc.a
+@@ -61,7 +61,7 @@
+ 						#flag -Xlinker -rpath -Xlinker "@VEXEROOT/thirdparty/tcc/lib"
+ 					}
+ 				} $else {
+-					#flag @VEXEROOT/thirdparty/tcc/lib/libgc.a
++					#flag @PREFIX@/lib/libgc.a
+ 				}
  			}
  		}
- 		$if macos {
+diff --git a/vlib/compress/zstd/zstd.c.v b/vlib/compress/zstd/zstd.c.v
+--- a/vlib/compress/zstd/zstd.c.v
++++ b/vlib/compress/zstd/zstd.c.v
+@@ -28,10 +28,10 @@
+ fn C.ZSTD_minCLevel() i32
+ fn C.ZSTD_maxCLevel() i32
+ fn C.ZSTD_defaultCLevel() i32
+-fn C.ZSTD_createCCtx() &C.ZSTD_CCtx
++fn C.ZSTD_createCCtx() &C.ZSTD_CCtx_s
+ fn C.ZSTD_freeCCtx(voidptr) usize
+ fn C.ZSTD_compressCCtx(voidptr, voidptr, usize, voidptr, usize, i32) usize
+-fn C.ZSTD_createDCtx() &C.ZSTD_DCtx
++fn C.ZSTD_createDCtx() &C.ZSTD_DCtx_s
+ fn C.ZSTD_freeDCtx(voidptr) usize
+ fn C.ZSTD_decompressDCtx(voidptr, voidptr, usize, voidptr, usize) usize
+ 
+@@ -455,7 +455,7 @@
+ 
+ pub struct CCtx {
+ mut:
+-	ctx &C.ZSTD_CCtx
++	ctx &C.ZSTD_CCtx_s
+ }
+ 
+ // new_cctx create a compression context.
+@@ -497,13 +497,13 @@
+ 	return C.ZSTD_freeCCtx(c.ctx)
+ }
+ 
+-struct C.ZSTD_CCtx {}
++struct C.ZSTD_CCtx_s {}
+ 
+-struct C.ZSTD_DCtx {}
++struct C.ZSTD_DCtx_s {}
+ 
+ pub struct DCtx {
+ mut:
+-	ctx &C.ZSTD_DCtx
++	ctx &C.ZSTD_DCtx_s
+ }
+ 
+ // new_dctx creates a decompression context.
