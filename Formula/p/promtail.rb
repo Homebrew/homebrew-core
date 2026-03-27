@@ -7,7 +7,7 @@ class Promtail < Formula
   head "https://github.com/grafana/loki.git", branch: "main"
 
   livecheck do
-    formula "loki"
+    skip "Upstream removed source"
   end
 
   bottle do
@@ -18,6 +18,9 @@ class Promtail < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:   "cb9dcd94e00bb629e7e44a1c7549c578e785fff136c52e32eccf3bdfcd4fc2ba"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4d0320e85e8108f455108d5b108769177e3f277ad7896d73e8765d4a56be555"
   end
+
+  # Promtail is deprecated/eol and upstream removed code: https://github.com/grafana/loki/pull/21245
+  deprecate! date: "2026-03-02", because: :repo_removed
 
   depends_on "go" => :build
 
