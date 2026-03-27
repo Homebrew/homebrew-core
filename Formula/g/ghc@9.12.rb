@@ -1,9 +1,10 @@
 class GhcAT912 < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.12.3/ghc-9.12.3-src.tar.xz"
-  sha256 "209023906ce460e5288c9844b728a7f704868269489dc724ed097da550f6e869"
+  url "https://downloads.haskell.org/~ghc/9.12.4/ghc-9.12.4-src.tar.xz"
+  sha256 "02d1ee5080acf00e135b93b238f09015b06ff27254cde59669cf57c42c2bee43"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   livecheck do
     url "https://www.haskell.org/ghc/"
@@ -96,14 +97,6 @@ class GhcAT912 < Formula
         sha256 "4396b9beb4e77e9a732aea35c3f12fa0993a64ea32d257add4b7b7d5b23c7894"
       end
     end
-  end
-
-  # Apply open MR fix for regression similar to Fedora
-  # https://discourse.haskell.org/t/critical-code-generation-bug-with-ghc-9-12-3/13505
-  # https://gitlab.haskell.org/ghc/ghc/-/merge_requests/15264
-  patch do
-    url "https://gitlab.haskell.org/ghc/ghc/-/commit/65370007e2d9f1976fbcfbb514917fb111117148.diff"
-    sha256 "09e9e9313134959b90c8222213e5ab8af7d6dbd10a5c25454d7b85eced281eb8"
   end
 
   def install
