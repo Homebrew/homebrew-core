@@ -42,7 +42,7 @@
   ["libtorrent-rakshasa", "rtorrent"],
   ["lima", "lima-additional-guestagents"],
   ["llvm", "lld", "flang", "wasi-runtimes"],
-  ["logcli", "loki", "promtail"],
+  ["logcli", "loki"],
   ["qalculate-gtk", "qalculate-qt"],
   ["mame", "rom-tools"],
   ["mecab-unidic", "mecab-unidic-extended"],
