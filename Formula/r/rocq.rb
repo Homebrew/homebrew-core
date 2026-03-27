@@ -2,16 +2,15 @@ class Rocq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://rocq-prover.org/"
   license "LGPL-2.1-only"
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
 
   stable do
-    url "https://github.com/rocq-prover/rocq/releases/download/V9.1.1/rocq-9.1.1.tar.gz"
-    sha256 "35cd03fc4193969b1cce01190340e5c129c1ba8f02242a9e6dff4b83be118759"
+    url "https://github.com/rocq-prover/rocq/releases/download/V9.2.0/rocq-9.2.0.tar.gz"
+    sha256 "a45280ab4fbaac7540b136a6b073b4a6db15739ec1e149bded43fa6f4fc25f20"
 
     resource "stdlib" do
-      url "https://github.com/rocq-prover/stdlib/releases/download/V9.0.0/stdlib-9.0.0.tar.gz"
-      sha256 "1ab6adc42dfc651ddc909604bae1a54ff5623cda837f93677a8b12aab9eec711"
+      url "https://github.com/rocq-prover/stdlib/releases/download/V9.1.0/stdlib-9.1.0.tar.gz"
+      sha256 "2d66421c52ed32719a15cb039c368e063c4d85f670e3d142f5eb7415fb427985"
     end
   end
 
@@ -57,16 +56,16 @@ class Rocq < Formula
     packages = %w[rocq-runtime coq-core rocq-core coqide-server]
 
     system "./configure", "-prefix", prefix,
-                          "-mandir", man,
                           "-libdir", HOMEBREW_PREFIX/"lib/ocaml/coq",
                           "-docdir", pkgshare/"latex"
     system "make", "dunestrap"
     system "dune", "build", "-p", packages.join(",")
     system "dune", "install", "--prefix=#{prefix}",
-                              "--mandir=#{man}",
                               "--libdir=#{lib}/ocaml",
                               "--docdir=#{doc.parent}",
                               *packages
+
+    man.install prefix/"man"
 
     resource("stdlib").stage do
       ENV.prepend_path "PATH", bin
