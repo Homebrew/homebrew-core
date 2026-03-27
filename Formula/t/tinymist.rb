@@ -32,28 +32,10 @@ class Tinymist < Formula
   test do
     system bin/"tinymist", "probe"
 
-    json = <<~JSON
-      {
-        "jsonrpc": "2.0",
-        "id": 1,
-        "method": "initialize",
-        "params": {
-          "rootUri": null,
-          "capabilities": {}
-        }
-      }
-    JSON
+    (testpath/"test.typ").write("= Hello from tinymist\n")
+    system bin/"tinymist", "compile", "test.typ", "test.pdf"
 
-    input = "Content-Length: #{json.size}\r\n\r\n#{json}"
-    output = IO.popen([bin/"tinymist", "lsp"], "w+") do |pipe|
-      pipe.write(input)
-      sleep 1
-      pipe.close_write
-      pipe.read
-    end
-
-    assert_match(/^Content-Length: \d+/i, output)
-    json_dump = output.lines.last.strip
-    assert_equal 1, JSON.parse(json_dump)["id"]
+    assert_path_exists testpath/"test.pdf"
+    assert_equal "%PDF-", (testpath/"test.pdf").binread(5)
   end
 end
