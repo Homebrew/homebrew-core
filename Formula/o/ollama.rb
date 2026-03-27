@@ -70,6 +70,8 @@ class Ollama < Formula
 
     system "go", "generate", *mlx_args, "./x/imagegen/mlx"
     system "go", "build", *mlx_args, *std_go_args(ldflags:)
+
+    generate_completions_from_executable(bin/"ollama", shell_parameter_format: :cobra)
   end
 
   service do
