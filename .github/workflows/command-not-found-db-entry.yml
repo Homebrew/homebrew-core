@@ -1,0 +1,79 @@
+name: Update command-not-found database entry
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - Formula/**/*.rb
+
+concurrency:
+  group: command-not-found-db-entry
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_INSTALL_FROM_API: 1
+  GH_NO_UPDATE_NOTIFIER: 1
+
+jobs:
+  update-db-entry:
+    if: github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-slim
+    permissions:
+      packages: write
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: true
+          cask: false
+
+      - name: Install oras
+        uses: Homebrew/actions/cache-homebrew-prefix@main
+        with:
+          install: oras
+          workflow-key: command-not-found-db-entry
+          uninstall: true
+
+      - name: Detect changed formulae
+        id: formulae-detect
+        run: brew test-bot --only-formulae-detect
+
+      - name: Pull executables.txt
+        if: steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != ''
+        run: oras pull ghcr.io/homebrew/command-not-found/executables:latest
+
+      - name: Update database entries
+        if: steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != ''
+        env:
+          TESTING_FORMULAE: ${{ steps.formulae-detect.outputs.testing_formulae }}
+          DELETED_FORMULAE: ${{ steps.formulae-detect.outputs.deleted_formulae }}
+        run: |
+          for formula in ${TESTING_FORMULAE//,/ } ${DELETED_FORMULAE//,/ }; do
+            [[ -n "$formula" ]] && brew which-entry --output-db=executables.txt "$formula"
+          done
+
+      - name: Log in to GitHub Packages
+        if: github.ref == 'refs/heads/main' && (steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != '')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "$GITHUB_TOKEN" | oras login ghcr.io --username brewtestbot --password-stdin
+
+      - name: Push to GitHub Packages
+        if: github.ref == 'refs/heads/main' && (steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != '')
+        run: oras push --artifact-type application/vnd.homebrew.command-not-found.executables ghcr.io/homebrew/command-not-found/executables:latest executables.txt:text/plain
+
+      - name: Verify upload
+        if: github.ref == 'refs/heads/main' && (steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != '')
+        run: |
+          shasum --algorithm=256 executables.txt > executables.txt.sha256
+          rm -f executables.txt
+          oras pull ghcr.io/homebrew/command-not-found/executables:latest
+          shasum --algorithm=256 --check executables.txt.sha256
