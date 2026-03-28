@@ -1,8 +1,8 @@
 class Mole < Formula
   desc "Deep clean and optimize your Mac"
   homepage "https://github.com/tw93/Mole"
-  url "https://github.com/tw93/Mole/archive/refs/tags/V1.31.0.tar.gz"
-  sha256 "fc7a6b92b602588b5aa256bb6dd382d409bd8fbf57cc09fe041d7c86a7400edd"
+  url "https://github.com/tw93/Mole/archive/refs/tags/V1.32.0.tar.gz"
+  sha256 "54386fe5a977dd49538ed2437659887cc34d63520e9fb3d9dbb45ccdc8188c63"
   license "MIT"
   head "https://github.com/tw93/Mole.git", branch: "main"
 
