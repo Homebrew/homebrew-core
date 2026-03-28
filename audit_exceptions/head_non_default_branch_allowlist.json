@@ -11,6 +11,7 @@
   "msgpack-cxx": "cpp_master",
   "ngspice": "master",
   "r3": "master",
+  "rtk": "develop",
   "sdl2": "SDL2",
   "stlink": "develop",
   "swiftformat": "develop",

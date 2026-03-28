@@ -4,7 +4,7 @@ class Rtk < Formula
   url "https://github.com/rtk-ai/rtk/archive/refs/tags/v0.34.0.tar.gz"
   sha256 "d5ff335f9b124d8ce8b9074ea969d4585c827533bd2c66bd235f6f43092ed175"
   license "Apache-2.0"
-  head "https://github.com/rtk-ai/rtk.git", branch: "master"
+  head "https://github.com/rtk-ai/rtk.git", branch: "develop"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5802dfb121700430725513bfc78bfbaf15e9746a99fe17d0a5050c6fc860f07"
