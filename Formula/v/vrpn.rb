@@ -5,6 +5,7 @@ class Vrpn < Formula
   url "https://github.com/vrpn/vrpn/archive/refs/tags/v07.36.tar.gz"
   sha256 "bed00ae060fc7c0cfdaa2fa01f6f2db4976d431971e8824b710eb63cfbba0df7"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/vrpn/vrpn.git", branch: "master"
 
   bottle do
