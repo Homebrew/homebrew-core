@@ -1,10 +1,10 @@
 class Pelikan < Formula
   desc "Production-ready cache services"
-  homepage "https://twitter.github.io/pelikan"
-  url "https://github.com/twitter/pelikan/archive/refs/tags/0.1.2.tar.gz"
-  sha256 "c105fdab8306f10c1dfa660b4e958ff6f381a5099eabcb15013ba42e4635f824"
+  homepage "https://pelikan.io"
+  url "https://github.com/pelikan-io/pelikan/archive/refs/tags/v0.3.2.tar.gz"
+  sha256 "d96eb68f85cf4e0c4fb3b2e1c54b2a8705ebe4b33c2678bbeca3c24c409ab4c5"
   license "Apache-2.0"
-  head "https://github.com/twitter/pelikan.git", branch: "master"
+  head "https://github.com/pelikan-io/pelikan.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "64704f442e8c9c1bd917a94f37d152513fe8c4691ae6aecf24599bac242975cb"
@@ -22,21 +22,16 @@ class Pelikan < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "313be126d5718e0053ce871bbc09446325c24d3bce02117d940dcb45a922c99a"
   end
 
-  depends_on "cmake" => :build
+  depends_on "rust" => :build
 
   def install
-    # Work around failure from GCC 10+ using default of `-fno-common`
-    # multiple definition of `signals'; ../buffer/cc_buf.c.o:(.bss+0x20): first defined here
-    ENV.append_to_cflags "-fcommon" if OS.linux?
-
-    # Workaround to build with CMake 4
-    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    system "cargo", "install", *std_cargo_args(path: "src/server/segcache")
+    system "cargo", "install", *std_cargo_args(path: "src/server/rds")
+    system "cargo", "install", *std_cargo_args(path: "src/server/pingserver")
+    system "cargo", "install", *std_cargo_args(path: "src/proxy/ping")
   end
 
   test do
-    system bin/"pelikan_twemcache", "-c"
+    system bin/"pelikan-pingserver", "--help"
   end
 end
