@@ -6,8 +6,8 @@ class Rust < Formula
   compatibility_version 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.94.0-src.tar.gz"
-    sha256 "b83f921cd3f321ff614f9c06a8b870d89299fc02888b48a5549683a36823474c"
+    url "https://static.rust-lang.org/dist/rustc-1.94.1-src.tar.gz"
+    sha256 "4c142a625f12e3cdf716c68ae19f4f60d98ad1482627b08579b15838e95ad514"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
