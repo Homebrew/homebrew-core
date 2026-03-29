@@ -1,8 +1,8 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "https://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2026.01.02.tar.gz"
-  sha256 "191e5de64f19b26f5a78a05b70e3216d62f3eaf2d0495f6258a12213a3d691c9"
+  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2026.03.29.tar.gz"
+  sha256 "c244c1910444a0ad886d9bae05cc72b3ef036e340d5e2fc33edf364c0dce344e"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git", branch: "master"
@@ -32,6 +32,7 @@ class DosboxX < Formula
   depends_on "automake" => :build
   depends_on "pkgconf" => :build
 
+  depends_on xcode: :build # For metal
   depends_on "fluid-synth"
   depends_on "freetype"
   depends_on "libpng"
@@ -55,7 +56,10 @@ class DosboxX < Formula
   def install
     ENV.cxx11
 
-    # See flags in `build-macos-sdl2`.
+    # Set `LDFLAGS` to link against the Metal and QuartzCore frameworks on macOS Ventura and later
+    # during ./configure to detect the Metal framework
+    ENV.append "LDFLAGS", "-framework Metal -framework QuartzCore" if OS.mac? && MacOS.version >= :ventura
+
     args = %w[
       --enable-debug=heavy
       --enable-sdl2
