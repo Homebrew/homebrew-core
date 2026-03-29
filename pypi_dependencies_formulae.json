@@ -1,0 +1,11 @@
+[
+  "certifi",
+  "cffi",
+  "cryptography",
+  "numpy",
+  "pillow",
+  "pydantic",
+  "rpds-py",
+  "scipy",
+  "torch"
+]
