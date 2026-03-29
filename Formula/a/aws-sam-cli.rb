@@ -7,8 +7,6 @@ class AwsSamCli < Formula
   sha256 "aa5ad3171010c09dea2c5f440914a32116c9414f182f9cbededd431a6865caa6"
   license "Apache-2.0"
 
-  no_autobump! because: "contains non-PyPI resources"
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "85e8bd9c90cdb729be6c092197eb190229d49de289b37f7c08ccfc9136e4ac26"
     sha256 cellar: :any,                 arm64_sequoia: "64827bca0db3848de6911960e4c1bfb1f0e3e32aa11c164c1ca3d68cd2f403ae"
