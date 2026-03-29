@@ -28,8 +28,11 @@ class MariadbAT118 < Formula
 
   keg_only :versioned_formula
 
-  # End-of-life on 2028-06-04: https://mariadb.org/about/#maintenance-policy
-  deprecate! date: "2028-06-04", because: :unsupported
+  # From https://mariadb.org/about/#maintenance-policy:
+  # > Critical security fixes will be provided as source code releases only and
+  # > on a best effort basis for 2 additional years beyond Community maintenance
+  # > LTS level
+  deprecate! date: "2030-06-04", because: :unsupported
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
