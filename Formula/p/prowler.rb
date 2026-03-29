@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/c6/36/901ed8fa4144368e24334eaaf3df1d5f0e9bc7ae75a8660bbcd83a4838a1/prowler-5.21.1.tar.gz"
-  sha256 "c72dc9a178d13efb1b63ea9fce602aed8984f4994f62677c41f2d9db6052ee36"
+  url "https://files.pythonhosted.org/packages/6f/d4/9eebc6c7c8822fbb8714a2d9386437d7b9b6e6c47229c74c14088dcd03cb/prowler-5.22.0.tar.gz"
+  sha256 "d4897f28d0733d24f57ae46284e8e23a057a79fba3909c30ee5127287cd12882"
   license "Apache-2.0"
   head "https://github.com/prowler-cloud/prowler.git", branch: "master"
 
@@ -229,8 +229,8 @@ class Prowler < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/96/f0/5eb65b2bb0d09ac6776f2eb54adee6abe8228ea05b20a5ad0e4945de8aac/anyio-4.12.1.tar.gz"
-    sha256 "41cfcc3a4c85d3f05c932da7c26d0201ac36f72abd4435ba90d0464a3ffed703"
+    url "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz"
+    sha256 "334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc"
   end
 
   resource "apscheduler" do
@@ -599,8 +599,8 @@ class Prowler < Formula
   end
 
   resource "iamdata" do
-    url "https://files.pythonhosted.org/packages/f0/fc/7b23a539cb7690eb055fb8f7adf3bb5e23dd7462f3cab9ff624419b8d99a/iamdata-0.1.202603201.tar.gz"
-    sha256 "a4aad83d8baec7840b5b0e2dd67fe7b66f7c4caf40aa3666cefbb138a0e8d585"
+    url "https://files.pythonhosted.org/packages/a9/a8/a92fc863fa648abbbc488bc982fb1c47991c1dcf4178d8fad9038da1006a/iamdata-0.1.202603241.tar.gz"
+    sha256 "1d4155b02b000e80e4bc723ed8b96cf8a1fe1916e76aa6ab74e56c095c1b2197"
   end
 
   resource "idna" do
@@ -644,8 +644,8 @@ class Prowler < Formula
   end
 
   resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/6a/0a/eebeb1fa92507ea94016a2a790b93c2ae41a7e18778f85471dc54475ed25/jsonpointer-3.0.0.tar.gz"
-    sha256 "2b2d729f2091522d61c3b31f82e11870f60b68f43fbc705cb76bf4b832af59ef"
+    url "https://files.pythonhosted.org/packages/18/c7/af399a2e7a67fd18d63c40c5e62d3af4e67b836a2107468b6a5ea24c4304/jsonpointer-3.1.1.tar.gz"
+    sha256 "0b801c7db33a904024f6004d526dcc53bbb8a4a0f4e32bfd10beadf60adf1900"
   end
 
   resource "jsonschema" do
@@ -1055,8 +1055,8 @@ class Prowler < Formula
   end
 
   resource "werkzeug" do
-    url "https://files.pythonhosted.org/packages/61/f1/ee81806690a87dab5f5653c1f146c92bc066d7f4cebc603ef88eb9e13957/werkzeug-3.1.6.tar.gz"
-    sha256 "210c6bede5a420a913956b4791a7f4d6843a43b6fcee4dfa08a65e93007d0d25"
+    url "https://files.pythonhosted.org/packages/b5/43/76ded108b296a49f52de6bac5192ca1c4be84e886f9b5c9ba8427d9694fd/werkzeug-3.1.7.tar.gz"
+    sha256 "fb8c01fe6ab13b9b7cdb46892b99b1d66754e1d7ab8e542e865ec13f526b5351"
   end
 
   resource "xlsxwriter" do
