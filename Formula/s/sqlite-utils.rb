@@ -56,6 +56,15 @@ class SqliteUtils < Formula
   def install
     virtualenv_install_with_resources
 
+    # Ensure uniform bottles: upstream hardcodes both /opt/homebrew (ARM)
+    # and /usr/local (Intel) in SPATIALITE_PATHS; normalise to HOMEBREW_PREFIX
+    # so all platforms produce identical output after relocation.
+    site_packages = libexec/Language::Python.site_packages("python3")
+    inreplace site_packages/"sqlite_utils/utils.py" do |s|
+      s.gsub!("/opt/homebrew", HOMEBREW_PREFIX)
+      s.gsub!("/usr/local", HOMEBREW_PREFIX)
+    end
+
     generate_completions_from_executable(bin/"sqlite-utils", shell_parameter_format: :click)
   end
 
