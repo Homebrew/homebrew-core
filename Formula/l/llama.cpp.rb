@@ -3,8 +3,8 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggml-org/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggml-org/llama.cpp.git",
-      tag:      "b8500",
-      revision: "342d6125bcda31f8bbda5df4a74afcf4b2d8c681"
+      tag:      "b8580",
+      revision: "7c203670f8d746382247ed369fea7fbf10df8ae0"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ggml-org/llama.cpp.git", branch: "master"
@@ -31,6 +31,8 @@ class LlamaCpp < Formula
   depends_on "cmake" => [:build, :test]
   depends_on "ggml"
   depends_on "openssl@3"
+
+  patch :DATA
 
   def install
     args = %W[
@@ -70,3 +72,159 @@ class LlamaCpp < Formula
                                    "-n", "400", "-p", "I", "-ngl", "0"
   end
 end
+
+__END__
+diff --git a/src/llama-model-loader.cpp b/src/llama-model-loader.cpp
+index 2457a7e..853c6b3 100644
+--- a/src/llama-model-loader.cpp
++++ b/src/llama-model-loader.cpp
+@@ -7,16 +7,60 @@
+ 
+ #include <algorithm>
+ #include <array>
++#include <cerrno>
+ #include <cinttypes>
+ #include <cstdint>
++#include <cstdio>
+ #include <cstring>
+ #include <future>
++#include <limits.h>
+ #include <regex>
+ 
++#ifdef __has_include
++    #if __has_include(<unistd.h>)
++        #include <unistd.h>
++    #endif
++    #if __has_include(<fcntl.h>)
++        #include <fcntl.h>
++    #endif
++#endif
++
+ static const size_t kiB = 1024;
+ static const size_t MiB = 1024*kiB;
+ static const size_t GiB = 1024*MiB;
+ 
++namespace {
++std::string llama_path_from_file(FILE * file) {
++    GGML_ASSERT(file != nullptr);
++
++#if defined(__APPLE__)
++    std::array<char, PATH_MAX> path_buf{};
++    if (::fcntl(::fileno(file), F_GETPATH, path_buf.data()) == -1) {
++        throw std::runtime_error(std::string("failed to resolve file path: ") + std::strerror(errno));
++    }
++    return path_buf.data();
++#elif defined(__linux__)
++    std::array<char, PATH_MAX> proc_path{};
++    const int fd = ::fileno(file);
++    const int proc_len = std::snprintf(proc_path.data(), proc_path.size(), "/proc/self/fd/%d", fd);
++    if (proc_len < 0 || static_cast<size_t>(proc_len) >= proc_path.size()) {
++        throw std::runtime_error("failed to resolve /proc file path");
++    }
++
++    std::array<char, PATH_MAX> path_buf{};
++    const ssize_t path_len = ::readlink(proc_path.data(), path_buf.data(), path_buf.size() - 1);
++    if (path_len == -1) {
++        throw std::runtime_error(std::string("failed to resolve file path: ") + std::strerror(errno));
++    }
++
++    path_buf[path_len] = '\0';
++    return path_buf.data();
++#else
++    throw std::runtime_error("loading from FILE * requires gguf file pointer support on this platform");
++#endif
++}
++} // namespace
++
+ const char * llama_file_version_name(llama_fver version) {
+     switch (version) {
+         case GGUF_FILE_VERSION_V1: return "GGUF V1 (support until nov 2023)";
+@@ -665,8 +709,9 @@ llama_model_loader::llama_model_loader(
+             /*.no_alloc = */ true,
+             /*.ctx      = */ &ctx,
+         };
++        const auto file_path = llama_path_from_file(file);
+ 
+-        metadata_ptr.reset(gguf_init_from_file_ptr(file, params));
++        metadata_ptr.reset(gguf_init_from_file(file_path.c_str(), params));
+         metadata = metadata_ptr.get();
+         if (metadata == nullptr) {
+             throw std::runtime_error(format("%s: failed to load model from file pointer", __func__));
+@@ -675,7 +720,7 @@ llama_model_loader::llama_model_loader(
+         get_key(llm_kv(LLM_KV_GENERAL_ARCHITECTURE), arch_name, false);
+         llm_kv = LLM_KV(llm_arch_from_string(arch_name));
+ 
+-        files.emplace_back(new llama_file(file));
++        files.emplace_back(new llama_file(file_path.c_str(), "rb", use_direct_io));
+         contexts.emplace_back(ctx);
+ 
+         // Save tensors data offset info of the main file.
+diff --git a/src/llama-model-saver.cpp b/src/llama-model-saver.cpp
+index 26864c1..467e8e0 100644
+--- a/src/llama-model-saver.cpp
++++ b/src/llama-model-saver.cpp
+@@ -9,9 +9,56 @@
+ #include "llama-model.h"
+ #include "llama-vocab.h"
+ 
++#include <array>
++#include <cerrno>
++#include <cstdio>
+ #include <cstdint>
++#include <cstring>
++#include <limits.h>
++#include <stdexcept>
+ #include <string>
+ 
++#ifdef __has_include
++    #if __has_include(<unistd.h>)
++        #include <unistd.h>
++    #endif
++    #if __has_include(<fcntl.h>)
++        #include <fcntl.h>
++    #endif
++#endif
++
++namespace {
++std::string llama_path_from_file(FILE * file) {
++    GGML_ASSERT(file != nullptr);
++
++#if defined(__APPLE__)
++    std::array<char, PATH_MAX> path_buf{};
++    if (::fcntl(::fileno(file), F_GETPATH, path_buf.data()) == -1) {
++        throw std::runtime_error(std::string("failed to resolve file path: ") + std::strerror(errno));
++    }
++    return path_buf.data();
++#elif defined(__linux__)
++    std::array<char, PATH_MAX> proc_path{};
++    const int fd = ::fileno(file);
++    const int proc_len = std::snprintf(proc_path.data(), proc_path.size(), "/proc/self/fd/%d", fd);
++    if (proc_len < 0 || static_cast<size_t>(proc_len) >= proc_path.size()) {
++        throw std::runtime_error("failed to resolve /proc file path");
++    }
++
++    std::array<char, PATH_MAX> path_buf{};
++    const ssize_t path_len = ::readlink(proc_path.data(), path_buf.data(), path_buf.size() - 1);
++    if (path_len == -1) {
++        throw std::runtime_error(std::string("failed to resolve file path: ") + std::strerror(errno));
++    }
++
++    path_buf[path_len] = '\0';
++    return path_buf.data();
++#else
++    throw std::runtime_error("saving to FILE * requires gguf file pointer support on this platform");
++#endif
++}
++} // namespace
++
+ bool llama_model_saver_supports_arch(llm_arch arch) {
+     switch (arch) {
+         case LLM_ARCH_QWEN3NEXT:
+@@ -410,5 +457,6 @@ void llama_model_saver::save(const std::string & path_model) {
+ }
+ 
+ void llama_model_saver::save(FILE * file) {
+-    gguf_write_to_file_ptr(gguf_ctx, file, false);
++    const auto file_path = llama_path_from_file(file);
++    gguf_write_to_file(gguf_ctx, file_path.c_str(), false);
+ }
