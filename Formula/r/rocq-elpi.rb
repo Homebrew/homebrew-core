@@ -5,7 +5,7 @@ class RocqElpi < Formula
   url "https://github.com/LPCIC/coq-elpi/releases/download/v3.3.1/rocq-elpi-3.3.1.tar.gz"
   sha256 "97468eea82299c7276ea5e1047342e8897de5a437a357e595a5728183ea66721"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   compatibility_version 1
 
   livecheck do
