@@ -1,9 +1,9 @@
 class GnuApl < Formula
   desc "GNU implementation of the programming language APL"
   homepage "https://www.gnu.org/software/apl/"
-  url "https://ftpmirror.gnu.org/gnu/apl/apl-1.9.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/apl/apl-1.9.tar.gz"
-  sha256 "291867f1b1937693abb57be7d9a37618b0376e3e2709574854a7bbe52bb28eb8"
+  url "https://ftpmirror.gnu.org/gnu/apl/apl-2.0.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/apl/apl-2.0.tar.gz"
+  sha256 "24bbb744fce47e62837234a053bdeecee51b9ea61c82c79f7cc191bc6a54c0a1"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -39,6 +39,8 @@ class GnuApl < Formula
   depends_on "sqlite"
 
   on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+
     depends_on "at-spi2-core"
     depends_on "gdk-pixbuf"
     depends_on "gettext"
@@ -46,10 +48,23 @@ class GnuApl < Formula
     depends_on "pango"
   end
 
+  fails_with :clang do
+    build 1500
+    cause "Requires C++20 support"
+  end
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
+
+    ENV.append "CXXFLAGS", "-std=c++20"
+
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
+
+    integral_py = bin/"integral.py"
+    integral_contents = integral_py.read
+    integral_py.atomic_write("#!/usr/bin/python3\n#{integral_contents}") unless integral_contents.start_with?("#!")
+    chmod 0555, integral_py
   end
 
   test do
