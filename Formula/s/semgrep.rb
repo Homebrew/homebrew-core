@@ -4,10 +4,6 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   # Pull from git tag to get submodules, https://github.com/semgrep/semgrep/issues/10877
-  # NOTE: When bumping version, make sure to update Python resources. One way to do this is,
-  # 1. comment out `pcre` resource
-  # 2. run `brew update-python-resources semgrep`
-  # 3. uncomment `pcre` resource
   url "https://github.com/semgrep/semgrep.git",
       tag:      "v1.156.0",
       revision: "ab584982f6ecdaaa7954a14e5350a70c060e097f"
@@ -18,8 +14,6 @@ class Semgrep < Formula
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: "contains non-PyPI resources"
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "67db317dc1a8fcd0c8ba92d3fc92516145054ef36f3af46afc548afa38e9455b"
@@ -339,6 +333,10 @@ class Semgrep < Formula
     url "https://downloads.sourceforge.net/project/pcre/pcre/8.45/pcre-8.45.tar.bz2"
     mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.45.tar.bz2"
     sha256 "4dae6fdcd2bb0bb6c37b5f97c33c2be954da743985369cddac3546e3218bffb8"
+
+    livecheck do
+      skip "PCRE was declared end of life in 2021-06"
+    end
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
