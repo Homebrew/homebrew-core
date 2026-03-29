@@ -1,20 +1,24 @@
 class Splint < Formula
   desc "Secure Programming Lint"
-  homepage "https://github.com/splintchecker/splint"
-  url "https://mirrorservice.org/sites/distfiles.macports.org/splint/splint-3.1.2.src.tgz"
-  mirror "https://src.fedoraproject.org/repo/pkgs/splint/splint-3.1.2.src.tgz/25f47d70bd9c8bdddf6b03de5949c4fd/splint-3.1.2.src.tgz"
-  sha256 "c78db643df663313e3fa9d565118391825dd937617819c6efc7966cdf444fb0a"
+  homepage "https://splint.org/"
   license "GPL-2.0-or-later"
 
+  stable do
+    url "https://splint.org/downloads/splint-3.1.2.src.tgz"
+    mirror "https://mirrorservice.org/sites/distfiles.macports.org/splint/splint-3.1.2.src.tgz"
+    sha256 "c78db643df663313e3fa9d565118391825dd937617819c6efc7966cdf444fb0a"
+
+    # fix compiling error of osd.c
+    patch :DATA
+  end
+
   livecheck do
-    url :homepage
+    url :head
     regex(/^(?:splint[._-])?v?(\d+(?:[._]\d+)+)$/i)
     strategy :git do |tags, regex|
       tags.map { |tag| tag[regex, 1]&.tr("_", ".") }
     end
   end
-
-  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 1
@@ -33,24 +37,31 @@ class Splint < Formula
     sha256                               x86_64_linux:   "fded0340d91cfcbd99ddf5a89b505fd59895e980d86366654196192d6358a97c"
   end
 
-  uses_from_macos "flex"
+  head do
+    url "https://github.com/splintchecker/splint.git", branch: "master"
 
-  # fix compiling error of osd.c
-  patch :DATA
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "bison" => :build
+    depends_on "flex"
+  end
+
+  uses_from_macos "flex"
 
   def install
     ENV.deparallelize # build is not parallel-safe
 
-    args = ["--disable-debug",
-            "--prefix=#{prefix}",
-            "--infodir=#{info}",
-            "--mandir=#{man}"]
+    if build.head?
+      ENV.append "CFLAGS", "-std=gnu99"
+      system "./bootstrap"
+    else
+      args = ["--mandir=#{man}"]
+      args << "LEXLIB=#{Formula["flex"].opt_lib}/libfl.so" if OS.linux?
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
+    end
 
-    args << "LEXLIB=#{Formula["flex"].opt_lib}/libfl.so" if OS.linux?
-    # Help old config scripts identify arm64 linux
-    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

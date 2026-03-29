@@ -1,18 +1,18 @@
 class Cyme < Formula
   desc "List system USB buses and devices"
   homepage "https://github.com/tuna-f1sh/cyme"
-  url "https://github.com/tuna-f1sh/cyme/archive/refs/tags/v2.2.11.tar.gz"
-  sha256 "198afba2fc76792db9f08dfda13840aa98dbbfe0ed66238c15305fe0fdf55cf0"
+  url "https://github.com/tuna-f1sh/cyme/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "f4aefd2ac447f6ca6040f9d22376a8fdd96d30f1612fca3cfacf5399aef68db0"
   license "GPL-3.0-or-later"
   head "https://github.com/tuna-f1sh/cyme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4dfc959a50263654b3a555dd406ba225f20b9eccd190abbba9abac236f343e0e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70e292a2d24672bea27ac660119ccba4a618a93108fe1e0e12378b20c62c3733"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c88cd225d7703409dd1706ae5f8e4030659a0e7fbd860e421bce2288fbfe5505"
-    sha256 cellar: :any_skip_relocation, sonoma:        "48bb8e6fdc8e229db6d43827b9ddb4a7c8101edd730f38c956e1f4c291f0ab1e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "219a07273a0ebe6e61a50c190fd07f63a30212684dbb8bcafc0200b448c922d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f7ec820d877989529135e06bbc54c5d5e142f7551ea1ae317ff84112cb47337"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3dd218e60b8dbd014b0a07bab1cae84200e8b1ce98a5851cc07fe81365d7acc8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cca3443bf4cca0e9808a2f1e6de7478e540938c367297f2115b2d46583701586"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0c0ae87adaa7b859ccb7c2aaba7d6c6b85ae45d54a328a851ba5d6d0a486d357"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a48aaae0daddad9008792ae91b2ccac2bb6df1842384074afa872342690fb83a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "61758f7cf306a011e3367aaedd528b17aa0732f70b2477b910002746a4ba436f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7deba41de02fb89fa5f97a2e667a3af6c851971b105ea493bdee7e014f54e217"
   end
 
   depends_on "rust" => :build

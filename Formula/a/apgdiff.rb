@@ -10,8 +10,6 @@ class Apgdiff < Formula
     regex(/^release[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "0ec6832a82b7a0fa10bc3e009c8a85f07439dcc0f94fe9e8e05509c52abe3719"

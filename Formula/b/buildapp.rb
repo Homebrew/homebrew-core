@@ -4,17 +4,16 @@ class Buildapp < Formula
   url "https://github.com/xach/buildapp/archive/refs/tags/release-1.5.6.tar.gz"
   sha256 "d77fb6c151605da660b909af058206f7fe7d9faf972e2c30876d42cb03d6a3ed"
   license "BSD-2-Clause"
-  revision 3
+  revision 4
   head "https://github.com/xach/buildapp.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 arm64_tahoe:   "1b91e415cf7ddeab7dc5585efe5b7e58d4798f336ae19bd8c33ebd4d24b19e58"
-    sha256 arm64_sequoia: "a424c9298996d720b76dd934de8ba4f8fb90f30b05ab3a8f2916ff351bbe8318"
-    sha256 arm64_sonoma:  "3c6c239c61b755cf08e189979db5dfc599111067973befc8fa7155986a2d2e6f"
-    sha256 sonoma:        "e832088898a11ef56ff0b5000b5166df15e600d78da05b7061b1917ff932c90e"
-    sha256 arm64_linux:   "25b50dc88f92ffa69a1ca5f768b1b50338b37f3ff32078a93492e29b3f66b56b"
-    sha256 x86_64_linux:  "7fd612c69baa9387a3790c750c5fc8eb3a7c9787e9107cf7fb200aeb3d184f3b"
+    sha256 arm64_tahoe:   "41ea69cf949b8ef0f20b9b174f782e0ff539ed9f0fd6de9e75b20870a4464396"
+    sha256 arm64_sequoia: "5478cbb2fa632a52202bc864bca54bf1e53dd679a53f89b03745180b2e1d7edc"
+    sha256 arm64_sonoma:  "3106074e9f1ca504946ce090f23fec209d395817a9afdd7627cda2dea601f70b"
+    sha256 sonoma:        "1bcb452e9daa0bf6c79342e5787a27e4d8f4b09d710eb28d67040c08b9fdd4b7"
+    sha256 arm64_linux:   "012afed152e0cee571cac5c5c8ea20670d0827bf45a04db711019a67a9c081b5"
+    sha256 x86_64_linux:  "8dccd3fc72893770eda060bd3bba1f13eef10816c5592842f8d6b172d8fed952"
   end
 
   depends_on "sbcl"

@@ -13,6 +13,10 @@ class Nyx < Formula
     sha256 cellar: :any_skip_relocation, all: "923f5f72eee8bd8f5ed40fb9010489dabe5b954f7bf10edf09634104458e63ad"
   end
 
+  # See https://gitlab.torproject.org/legacy/gitolite/nyx
+  deprecate! date: "2026-03-29", because: :repo_archived
+  disable! date: "2027-03-29", because: :repo_archived
+
   depends_on "python@3.14"
 
   resource "stem" do
@@ -34,44 +38,3 @@ class Nyx < Formula
     assert_match "Connection refused", shell_output("#{bin}/nyx -i 127.0.0.1:#{free_port}", 1)
   end
 end
-
-__END__
-diff --git a/stem/control.py b/stem/control.py
-index e192e29..e6fab6c 100644
---- a/stem/control.py
-+++ b/stem/control.py
-@@ -474,7 +474,7 @@ def with_default(yields = False):
-
-   def decorator(func):
-     def get_default(func, args, kwargs):
--      arg_names = inspect.getargspec(func).args[1:]  # drop 'self'
-+      arg_names = inspect.getfullargspec(func).args[1:]  # drop 'self'
-       default_position = arg_names.index('default') if 'default' in arg_names else None
-
-       if default_position is not None and default_position < len(args):
-diff --git a/stem/prereq.py b/stem/prereq.py
-index 4af6c09..4009c31 100644
---- a/stem/prereq.py
-+++ b/stem/prereq.py
-@@ -241,7 +241,7 @@ def is_mock_available():
-
-     # check for mock's new_callable argument for patch() which was introduced in version 0.8.0
-
--    if 'new_callable' not in inspect.getargspec(mock.patch).args:
-+    if 'new_callable' not in inspect.getfullargspec(mock.patch).args:
-       raise ImportError()
-
-     return True
-diff --git a/stem/util/conf.py b/stem/util/conf.py
-index 8039981..15c4db8 100644
---- a/stem/util/conf.py
-+++ b/stem/util/conf.py
-@@ -285,7 +285,7 @@ def uses_settings(handle, path, lazy_load = True):
-         config.load(path)
-         config._settings_loaded = True
-
--      if 'config' in inspect.getargspec(func).args:
-+      if 'config' in inspect.getfullargspec(func).args:
-         return func(*args, config = config, **kwargs)
-       else:
-         return func(*args, **kwargs)

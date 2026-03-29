@@ -1,8 +1,8 @@
 class Ngspice < Formula
   desc "Spice circuit simulator"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/45.2/ngspice-45.2.tar.gz"
-  sha256 "ba8345f4c3774714c10f33d7da850d361cec7d14b3a295d0dc9fd96f7423812d"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/46/ngspice-46.tar.gz"
+  sha256 "a0d1699af1940b06649276dcd6ff5a566c8c0cad01b2f7b5e99dedbb4d64c19b"
   license :cannot_represent
   head "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
 
@@ -12,19 +12,14 @@ class Ngspice < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "fdf2c82d303c3b5944bdbd049ef15a40c388450879d085479965fd481148ed48"
-    sha256 arm64_sequoia: "4f819c80ddd4483301f7e01871aeb3049f9e219e22d315052423bde23ccb242d"
-    sha256 arm64_sonoma:  "4226d7fb2762659a85353d5d6bebba7f9c3808a5ade8a0ea4fabe2dff6e8e6b3"
-    sha256 arm64_ventura: "bb9832d330e7aa8d6e7642f2b7502af8aa6112b68ea4a2dd6fb0c97154c4492e"
-    sha256 sonoma:        "e589ca50ee6186e1ebe7d078df4cab987786504dce9f8e49f21686ffe775fe69"
-    sha256 ventura:       "525615c53f2f18720430f273b141d5f0da96a1180232f1838cd2e4418c51d1d0"
-    sha256 arm64_linux:   "943fc32abf2e74b11faa47f458a0c39c7789ca041bef2fe1ea5358b95afa67a6"
-    sha256 x86_64_linux:  "4825e30255d2c0fdb9d41e374ddf3984eb38f5eaae5e9e1a0439abd425c35eb7"
+    sha256 arm64_tahoe:   "707746ba4112da19e618bfc475485bf703895fbeecd2819587f27be9e074bba4"
+    sha256 arm64_sequoia: "1800d5805217fe5a7f04ce961b5be89bb413be572acbe0955efcc88747fa8229"
+    sha256 arm64_sonoma:  "1f5af70b57c07daae7439916dc0499152f43bc91ad473c68e6908f1f0c1d9572"
+    sha256 sonoma:        "45be55251673886c652749ac40e255aa0dc2f68b89fce315c498bc1b8f3c48dc"
+    sha256 arm64_linux:   "083957b2e65f6f74958d43b681799ffecc64ec126f0f0b3bb30fd588dce53642"
+    sha256 x86_64_linux:  "c2ea7875c0bf0cc40082aa91dd348fd110b759d292eda53215b741c6882c2c5c"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "fftw"
   depends_on "freetype"
   depends_on "libngspice"
@@ -44,10 +39,6 @@ class Ngspice < Formula
   end
 
   def install
-    odie "check if autoreconf line can be removed" if version > "45.2"
-    # regenerate since the files were generated using automake 1.16
-    system "autoreconf", "--install", "--force", "--verbose"
-
     # Xft #includes <ft2build.h>, not <freetype2/ft2build.h>, hence freetype2
     # must be put into the search path.
     ENV.append "CFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"

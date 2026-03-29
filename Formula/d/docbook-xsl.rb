@@ -13,8 +13,6 @@ class DocbookXsl < Formula
     regex(%r{^(?:release/)?(\d+(?:\.\d+)+)$}i)
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "201ddedf7dcf5ac0d6eb0a2554ff329ee9856ce5f79d95db9c5d6db7703d9b84"

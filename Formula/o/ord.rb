@@ -1,18 +1,18 @@
 class Ord < Formula
   desc "Index, block explorer, and command-line wallet"
   homepage "https://ordinals.com/"
-  url "https://github.com/ordinals/ord/archive/refs/tags/0.27.0.tar.gz"
-  sha256 "53d4e1eed720d307b870e4fd7338727e8e43c15f89c1c137a5c611d9f59df6db"
+  url "https://github.com/ordinals/ord/archive/refs/tags/0.27.1.tar.gz"
+  sha256 "032cc27775e2a6fa0ccb92afb44ea37f35ea38b58a7b413759ed65ab4ad1d5e0"
   license "CC0-1.0"
   head "https://github.com/ordinals/ord.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe72bcb4e11ee6515125258ce12693553c1a4fda7f949359f9aef8437753cc6b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fecefebc4d07f257e2e88a0228ade1126d99887849c32ec5ba741f255857ca8d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b233fa181e59a89fe2b7729afde1a1514b22a327464045d1864ccd5441ddc615"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8e0be5ed13c19816e55dc0de793b6a33fe391c8f22733c11171d39cffaa6d18b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f0fe305ff049803291311b42d24ff999af246ef2d896b02d724917042f62951"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "630a0cf8db8b88dbbbce036bb4e1adfecf6cd31afa78b96755b5a29942cc90f8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "adecb3b51924055c92e8560d77fad316632e3a272a04779f698627db48067621"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9abbf1074988e3db66b6d498000a92e60ca81b2790ea4de9907b3fb01065352f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7688da465f0e1fc76452989c2c907960775ac5ff5d2dc200d4fe69d90872f5a5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aaa2622bd8a3673d9e846f40dd54a74eba9e5b273f7b727c2318ea41f3825fd9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ca0e065daef5811382d11861d5ca6de9535dd3ac0b71152f5cae69f594f979f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac94987211d6d4959d69fabee084a737923586cfd53eaed49566802a78923648"
   end
 
   depends_on "pkgconf" => :build

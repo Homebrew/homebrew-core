@@ -1,8 +1,8 @@
 class JpegTurbo < Formula
   desc "JPEG image codec that aids compression and decompression"
   homepage "https://www.libjpeg-turbo.org/"
-  url "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.1.4/libjpeg-turbo-3.1.4.tar.gz"
-  sha256 "e23d3ebb2c6ee4d0e2a5823dbb55b614845df5ea3435c956fed5cf04041a87ad"
+  url "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.1.4.1/libjpeg-turbo-3.1.4.1.tar.gz"
+  sha256 "ecae8008e2cc9ade2f2c1bb9d5e6d4fb73e7c433866a056bd82980741571a022"
   license all_of: [
     "IJG", # libjpeg API library and programs
     "Zlib", # libjpeg-turbo SIMD source code
@@ -17,12 +17,12 @@ class JpegTurbo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a6a1dcd7e95988af3fcfe43fcd5f42083e2279e2c1662ac4bbd44865160d5760"
-    sha256 cellar: :any,                 arm64_sequoia: "eb4f538c6f3e49a1e4b3ba1602360cc1f146a6f82336139b1ea70d02c0596ed9"
-    sha256 cellar: :any,                 arm64_sonoma:  "0e7cc1e2ea701e9ac3d1dab80ea30a05d403e05313d7bb433ee6cea0585babc8"
-    sha256 cellar: :any,                 sonoma:        "f73db48988deec608217793dd4933206a9bc2122f4216b322f9d5cffa3f75e67"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e35b968f70c267c7f440facdb76251f6728a38c96b8d2190ce0041ce2fec6e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e29a06fc859877205c314eaa77b4ff87e28f3db439248e7530d51f6c74bdd4db"
+    sha256 cellar: :any,                 arm64_tahoe:   "9a0e281d4e1b3047460f4d0d7e291790a136c32677532fd62bea6bb6428acec6"
+    sha256 cellar: :any,                 arm64_sequoia: "ec354654375dbeeba9dd637ecbfafb7c3e1132138bbcbf8a0beb08ec1e4dad4b"
+    sha256 cellar: :any,                 arm64_sonoma:  "42f79e8bea4e55f60ff202617c82527bae17eec9a2575d57833fe510634d360d"
+    sha256 cellar: :any,                 sonoma:        "0412ff07188c22bc04957ae45382873aef059fa3efee3ae52c974c27cbec70fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c20b1d8af8574deef518f29e7711a330aaa34dd2e0c2fbab2ac5ad81c5fb1764"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cdefb3a7bdb35b19658d014d7659e6f47f472edb4e88269bb3db7fe45c0dcff"
   end
 
   depends_on "cmake" => :build
