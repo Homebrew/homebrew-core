@@ -44,6 +44,12 @@ class Powershell < Formula
       --use-current-runtime
       --nologo
     ]
+    # Normalize PowerShellVersion to "v<tag>-0-g<sha>" so the props file regex extracts
+    # PSCoreAdditionalCommits=0, which causes PSVersionInfo to emit GitCommitId = "7.x.x"
+    # (the clean tag) instead of the full git-describe string "7.x.x-0-g<sha>".
+    git_sha = Utils.safe_popen_read("git", "-C", buildpath, "rev-parse", "HEAD").chomp
+    normalized_ps_version = "v#{version}-0-g#{git_sha}"
+
     dotnet_publish_flags = %W[
       --disable-build-servers
       --nologo
@@ -55,6 +61,8 @@ class Powershell < Formula
       --property:GenerateFullPaths=true
       --property:ErrorOnDuplicatePublishOutputFiles=false
       --property:IsWindows=false
+      --property:PowerShellVersion=#{normalized_ps_version}
+      --property:ReleaseTag=#{version}
     ]
     dotnet_run_flags = %W[
       --framework #{target_framework}
