@@ -55,6 +55,7 @@ class Powershell < Formula
       --property:GenerateFullPaths=true
       --property:ErrorOnDuplicatePublishOutputFiles=false
       --property:IsWindows=false
+      --property:ReleaseTag=#{version}
     ]
     dotnet_run_flags = %W[
       --framework #{target_framework}
