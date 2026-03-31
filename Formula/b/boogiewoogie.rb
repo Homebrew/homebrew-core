@@ -1,19 +1,19 @@
 class Boogiewoogie < Formula
   desc "Git profile manager for switching between multiple Git identities"
   homepage "https://github.com/malhotra-rishabh/boogiewoogie"
-  url "https://github.com/malhotra-rishabh/homebrew-boogiewoogie/archive/refs/tags/v1.0.18.tar.gz"
-  sha256 "4764db5950c401d15bf0778311ec6e0a525d35cf69776b37bc187bb526f27ad0"
+  url "https://github.com/malhotra-rishabh/homebrew-boogiewoogie/archive/refs/tags/v1.0.19.tar.gz"
+  sha256 "438398f15fd1e840d289f63d9e036e20c9db99a132cb7283c8dcb1cd059fd2b0"
   license "MIT"
   head "https://github.com/malhotra-rishabh/boogiewoogie.git", branch: "main"
-  version "1.0.18"
+  version "1.0.19"
 
   livecheck do
-    url "https://github.com/malhotra-rishabh/homebrew-boogiewoogie/archive/refs/tags/v1.0.18.tar.gz"
+    url "https://github.com/malhotra-rishabh/homebrew-boogiewoogie/archive/refs/tags/v1.0.19.tar.gz"
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  depends_on "git"
-  depends_on "openssh"
+  uses_from_macos "git"
+  uses_from_macos "openssh"
 
   def install
     bin.install "boogiewoogie"
@@ -30,7 +30,7 @@ class Boogiewoogie < Formula
   end
 
   test do
-    system "#{bin}/boogiewoogie", "--version"
+    system "#{bin}/boogiewoogie", "--version "1.0.19"
     
     # Test profile creation
     ENV["HOME"] = testpath
