@@ -41,6 +41,16 @@ class YubicoPivTool < Formula
     system "cmake", "--install", "build"
   end
 
+  def caveats
+    on_macos do
+      <<~EOS
+        Some software expects libykcs11 in /usr/local/lib. If you need it, create a hardlink:
+          sudo mkdir -p /usr/local/lib
+          sudo ln -f #{HOMEBREW_PREFIX}/lib/libykcs11.dylib /usr/local/lib/libykcs11.dylib
+      EOS
+    end
+  end
+
   test do
     assert_match "yubico-piv-tool #{version}", shell_output("#{bin}/yubico-piv-tool --version")
   end
