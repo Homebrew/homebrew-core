@@ -50,24 +50,11 @@ class Mupdf < Formula
 
   conflicts_with "mupdf-tools", because: "both install the same binaries"
 
-  # Currently, some source of mujs is required for building mupdf, so can't use formula
-  # Issue ref: https://bugs.ghostscript.com/show_bug.cgi?id=708968
-  resource "mujs" do
-    url "https://mujs.com/downloads/mujs-1.3.8.tar.gz"
-    sha256 "506d34882f2620a2fdeb6db63dbb7a8ffd98f417689d8f3c84f2feac275e39a9"
-
-    livecheck do
-      "mujs"
-    end
-  end
-
   def install
     # Remove bundled libraries excluding `extract` and "strongly preferred" `lcms2mt` (lcms2 fork)
-    keep = %w[extract lcms2]
+    # Also keep `mujs`, issue ref: https://bugs.ghostscript.com/show_bug.cgi?id=708968
+    keep = %w[extract lcms2 mujs]
     (buildpath/"thirdparty").each_child { |path| rm_r(path) if keep.exclude? path.basename.to_s }
-
-    # Install mujs from resource
-    (buildpath/"thirdparty/mujs").install resource("mujs")
 
     # For python bindings needed by `pymupdf`: https://pymupdf.readthedocs.io/en/latest/packaging.html
     site_packages = Language::Python.site_packages("python3.14")
