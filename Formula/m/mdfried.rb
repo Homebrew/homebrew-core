@@ -1,8 +1,8 @@
 class Mdfried < Formula
   desc "Terminal markdown viewer"
   homepage "https://github.com/benjajaja/mdfried"
-  url "https://github.com/benjajaja/mdfried/archive/refs/tags/v0.18.2.tar.gz"
-  sha256 "af31a4ca3215a54ea826246cba8b2fbbb957164fd8ee7f8f253f751e98ff4ee9"
+  url "https://github.com/benjajaja/mdfried/archive/refs/tags/v0.18.3.tar.gz"
+  sha256 "c19f3e678b758b565c3931a1d6ab4860694cdc9c9bba36ecb580c16a35ab2a87"
   license "GPL-3.0-or-later"
   head "https://github.com/benjajaja/mdfried.git", branch: "master"
 
@@ -35,15 +35,15 @@ class Mdfried < Formula
       # Hello World
     MARKDOWN
 
-    cmd = "#{bin}/mdfried #{testpath}/test.md 2>&1"
-    output = if OS.mac?
-      shell_output(cmd)
-    else
-      require "pty"
-      r, _w, pid = PTY.spawn({ "FONTCONFIG_FILE" => "#{etc}/fonts/fonts.conf" }, cmd)
-      Process.wait(pid)
-      r.read_nonblock(1024)
-    end
-    assert_match "cursor position could not be read", output
+    output = testpath/"output"
+    pid = spawn bin/"mdfried", testpath/"test.md", "--log", [:out, :err] => output.to_s
+
+    sleep 3
+
+    assert_match "Detecting supported graphics protocols...", output.read
+    assert_path_exists testpath.glob("*.log").first
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end
