@@ -105,6 +105,18 @@ class Itk < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
+    # Replace versioned macOS SDK paths with the unversioned symlink so that
+    # bottles built on one SDK version work on systems with a different SDK.
+    if OS.mac?
+      sdk_path = MacOS.sdk_path.to_s
+      generic_sdk = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+      if sdk_path != generic_sdk
+        Dir.glob(lib/"cmake/ITK-#{version.major_minor}/*.cmake").each do |f|
+          inreplace f, sdk_path, generic_sdk, audit_result: false
+        end
+      end
+    end
+
     # Remove the bundled JRE installed by SCIFIO ImageIO plugin
     rm_r(lib/"jre") if OS.linux? || Hardware::CPU.intel?
   end
