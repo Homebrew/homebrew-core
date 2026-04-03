@@ -14,13 +14,33 @@ class Crip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f168b5098ac9ee43fba009ed7473dc040b97b20ff8339c704dbace009f10f2ca"
   end
 
+  depends_on "graalvm" => :build
   depends_on "maven" => :build
-  depends_on "openjdk"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    system "mvn", "clean", "package", "-Pfat-jar", "-DskipTests=true"
-    libexec.install "target/crip.jar"
-    bin.write_jar_script libexec/"crip.jar", "crip"
+    ENV["JAVA_HOME"] = if OS.mac?
+      Formula["graalvm"].opt_libexec/"graalvm.jdk/Contents/Home"
+    else
+      Formula["graalvm"].opt_libexec
+    end
+
+    required_keys = %w[
+      HOMEBREW_RUBY_PATH
+      HOMEBREW_CC
+      HOMEBREW_CELLAR
+      HOMEBREW_OPT
+      HOMEBREW_LIBRARY_PATHS
+      HOMEBREW_RPATH_PATHS
+    ]
+    native_image_env = required_keys.map { |key| "-E#{key}" }
+    ENV.prepend "NATIVE_IMAGE_OPTIONS", native_image_env.join(" ")
+
+    system "mvn", "clean", "package", "-Pnative-image", "-DskipTests=true"
+    bin.install "target/crip"
   end
 
   test do
