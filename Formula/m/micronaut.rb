@@ -2,7 +2,7 @@ class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
   url "https://github.com/micronaut-projects/micronaut-starter/archive/refs/tags/v4.10.11.tar.gz"
-  sha256 "c5f4187cb9c2407127a3fda64680ff50d073d5f39cacb9d7a6e04689423b7328"
+  sha256 "888d5b23033442f7d57a32c267ad0c7d0d052429a47ece567e6d256cf734f141"
   license "Apache-2.0"
 
   livecheck do
@@ -19,19 +19,31 @@ class Micronaut < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b08eece94522458a6a4e6be11c4c312b7c4d67a799e29a376906e61051f9f720"
   end
 
-  # Issue ref: https://github.com/micronaut-projects/micronaut-starter/issues/2848
-  depends_on "gradle@8" => :build
-  depends_on "openjdk@21"
+  depends_on "graalvm" => :build
+  depends_on "gradle" => :build
+  depends_on "openjdk@21" => :build # If someone reads that, this is a test ... hopefully
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.java_home("21")
-    system "gradle", "micronaut-cli:assemble", "--exclude-task", "test", "--no-daemon"
+    ENV["JAVA_HOME"] = if OS.mac?
+      Formula["graalvm"].opt_libexec/"graalvm.jdk/Contents/Home"
+    else
+      Formula["graalvm"].opt_libexec
+    end
 
-    libexec.install "starter-cli/build/exploded/lib"
-    (libexec/"bin").install "starter-cli/build/exploded/bin/mn"
+    native_image_env = ENV.keys.grep(/^HOMEBREW_/).map { |key| "-E#{key}" }
+    ENV.prepend "NATIVE_IMAGE_OPTIONS", native_image_env.join(" ")
 
-    bash_completion.install "starter-cli/build/exploded/bin/mn_completion" => "mn"
-    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env("21")
+    system "gradle", "micronaut-cli:nativeCompile", "--exclude-task", "test", "--no-daemon"
+
+    bin.install buildpath/"starter-cli/build/native/nativeCompile/mn"
+
+    system "gradle", "micronaut-cli:buildCompletion", "--exclude-task", "test", "--no-daemon"
+
+    bash_completion.install buildpath/"starter-cli/build/bin/mn_completion" => "mn"
   end
 
   test do
