@@ -37,10 +37,6 @@ class Graalvm < Formula
   uses_from_macos "unzip"
   uses_from_macos "zip"
 
-  on_macos do
-    depends_on arch: :arm64
-  end
-
   on_linux do
     depends_on "alsa-lib"
     depends_on "fontconfig"
