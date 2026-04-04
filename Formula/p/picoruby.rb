@@ -2,8 +2,8 @@ class Picoruby < Formula
   desc "Smallest Ruby implementation for microcontrollers"
   homepage "https://picoruby.org"
   url "https://github.com/picoruby/picoruby.git",
-      tag:      "3.4.2",
-      revision: "9b94521d56e6082793db861801546fc5808b5211"
+      tag:      "3.4.3",
+      revision: "04587bbe8edc8f53df97e6e65228973c174982db"
   license "MIT"
   head "https://github.com/picoruby/picoruby.git", branch: "master"
 
