@@ -1,22 +1,21 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://qmmp.ylsoftware.com/files/qmmp/2.3/qmmp-2.3.1.tar.bz2"
-  sha256 "a61d1c1faa9c411c75292a5710999182b918831b8f0f200c87149e3ff353bea9"
+  url "https://qmmp.ylsoftware.com/files/qmmp/2.3/qmmp-2.3.2.tar.bz2"
+  sha256 "4d8bbae619e99cfd665d96c3688d2d306f5ffc30144e07b37ca701a99e326365"
   license "GPL-2.0-or-later"
-  revision 1
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
     regex(/href=.*?qmmp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "325c1290350157b642ffbd3571937e81e8c2baff0a48930a3303c9831f79f857"
-    sha256 cellar: :any,                 arm64_sequoia: "4d5a4086a5587a7eee245b3394da3bef3f0fbc46ae46f927f83e0e4a10297478"
-    sha256 cellar: :any,                 arm64_sonoma:  "09462312d1c684873aed7d297e0681a38c81081f55f37e95205ca08b1f5e783a"
-    sha256 cellar: :any,                 sonoma:        "fb2823cea55e2f56de666f0dc2f636646124cdca8e2ec6c379b5be86754c20f1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ee446b2d6e0bb504d563a00cfdac8bc212bb50c188e92861bb296745da082d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93e249d6775b45f06d7e24053e57f8263ca2389c67a491ccff2ef9b9cce22dc3"
+    sha256 cellar: :any,                 arm64_tahoe:   "d49b214fc2b13be18ddd9a7374c754c8a2e4a6b091e88b75d66c2ca6082a2827"
+    sha256 cellar: :any,                 arm64_sequoia: "7191a25f7ac9e6050a382bc6ebd1d265dc404b6324694e07d0c732918aa4bbe1"
+    sha256 cellar: :any,                 arm64_sonoma:  "a90d723e7ce4def58f6739f2bfb754608f3681469f74ad8cc6006af6868f1cab"
+    sha256 cellar: :any,                 sonoma:        "b3e3c1db669d2fdfec4956afa13097e62f922a45bcd26eae3b3fcfab0aa6d87f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f01f6081988932670099c0a5d6af75d726b89aa9ff396564af76190db2c0b0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d17f1c0d0996c3a60a5259d32be95e8f37bc356efa5d3b69133ae0f30f508ba1"
   end
 
   depends_on "cmake" => :build

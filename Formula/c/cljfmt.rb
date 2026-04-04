@@ -6,24 +6,29 @@ class Cljfmt < Formula
   license "EPL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8abd34902376fc90c868478bea6311345bf74327cd9816313eb1382625e14ae7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec601d9de6e7621489b3141990a3fbd775bb7651d01895e10e6134938170b8d3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e4ab707446d3cd0d21473806a8f99d39da8f0286941a0ef8b98bbd6ce090362"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c55ad099cc4bca60ef9744bfcd7ab3ba61c8dc89f525a0700a0767b718f06a8a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "009dd1dfc3765bb1ba2de3c4e7d31104cfeeb4aec598f69c69a9308722348ead"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37dc11b9b454cc8d8293fc74194dd07c89066b6913237eb8d6bf1fac006448f1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d441d82fcc778ff7aa68e14b694b441ae52e980803bad99f3cf473103581d4dd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5a1707a0c262ea634b8cb9b128b2998af073b16ad973b129067c535c5383c01e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82924449623b3b1a525828d09c35cb04108bd57be253cc9e8fe6826ebb8b9273"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c415c412c4a7efbc239d3a2f41055578ce792e279fdac99b3bbfa7d33d185679"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2187def5891156d64fee59d5497d91b0e6bac236611353ac8d74103cc4deed57"
   end
 
+  depends_on "graalvm" => :build
   depends_on "leiningen" => :build
-  depends_on "openjdk"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    cd "cljfmt" do
-      system "lein", "uberjar"
-      libexec.install "target/cljfmt-#{version}-standalone.jar" => "cljfmt.jar"
-    end
+    native_image_env = ENV.keys.grep(/^HOMEBREW_/).map { |key| "-E#{key}" }
+    ENV.prepend "NATIVE_IMAGE_OPTIONS", native_image_env.join(" ")
 
-    bin.write_jar_script libexec/"cljfmt.jar", "cljfmt"
+    cd "cljfmt" do
+      system "lein", "native-image"
+      bin.install "target/cljfmt"
+    end
   end
 
   test do

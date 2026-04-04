@@ -1,18 +1,18 @@
 class Dagu < Formula
   desc "Lightweight and powerful workflow engine"
   homepage "https://dagu.sh"
-  url "https://github.com/dagu-org/dagu/archive/refs/tags/v2.3.11.tar.gz"
-  sha256 "4c0b922dd2ff9a2f40b1bfc34e6dda007ecb2125c1e6d7d91ed839180542e7dd"
+  url "https://github.com/dagu-org/dagu/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "980da5fdf1f36ca7d7cf255e27e7da16f92d841887a617c6b8e0e6b306479282"
   license "GPL-3.0-only"
   head "https://github.com/dagu-org/dagu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "89d2f8d7a743456013dd2c15374b05969874f352e74a810c861b6fd8a6cb78cf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f344da76110a3111182e498c12ca7591e82c8b68690ac8ed1ae1cd569119329"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84b702d35b8d4b0a28fe2e1fc37162f2137f2c35edcb9fc5be5ffb5cc6110226"
-    sha256 cellar: :any_skip_relocation, sonoma:        "74d27e7b58d97badf0d37bebd9401733c6908505c41639accf106546037e4f0d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d52d562737e43acd74f5f6aed8425772e7cdda9c7ca5ddfa4aa60511bc99ce28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1235b778136ac220c0df760980e48f76c3d86b9c7e2722f3f8747bed2df60f48"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce8305e6f68a5a189446144e0897ab723a12f9bcdef22d3f1bd726fab9a12393"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "85e2a3e9906ace91705108eab0f4becd5474ab73b366550dc76a40c27f639675"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "052ca47c7ae84bb4089d2b1aa72c84cf2de579fed2f78c16d2847f71395a6b21"
+    sha256 cellar: :any_skip_relocation, sonoma:        "69bc027955ded9b8bfbeb557dca77507f595428fa3a17de31b6902b7b5459988"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d51f43c6e5989a62bd19fb876c9f032b363b0c80a67e6f90bbf44acdfa2caa99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e5bd88b258ab22f35506e6a64752900c9a4edcfb803b3cbabf90687c86cc4f5"
   end
 
   depends_on "go" => :build

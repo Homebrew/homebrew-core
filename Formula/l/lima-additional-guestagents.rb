@@ -1,18 +1,18 @@
 class LimaAdditionalGuestagents < Formula
   desc "Additional guest agents for Lima"
   homepage "https://lima-vm.io/"
-  url "https://github.com/lima-vm/lima/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "9358f4629ba01a5998327017be0470fff914b5f1bf902bbd2616ec520074ec78"
+  url "https://github.com/lima-vm/lima/archive/refs/tags/v2.1.1.tar.gz"
+  sha256 "c1cb9f2a5d35715937bbf21566d58f89fc221ab285a42ddcc30fd6fdaab2c15a"
   license "Apache-2.0"
   head "https://github.com/lima-vm/lima.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7bd5a8988e52320f8ec9c66336a89d7df011283438aad59af5f415a14ec2631b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "19c2fd0f33957b3474adba3ba415575033e6ddcb8eb3e44ca160a6646c9fff77"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "898500d07dfca6711f736bb199973f4a50353def583c7294d84393a7c885cbae"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8c0b5454b4b962fa6740c4eb39702c22f8030995f23d33f98af11000760188cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "29fbfdb1c65eeb49c677c82f1a61774af9f3dc9204d1ecb39e80d59f943c7249"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49d2b7de3883106ad62f2ff0dc6f94979ab3988140cf10d53250fee793a25bd0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb5d44773d58b03e384b3b5ad71564370da7e414b8d76fc4051c64652518b211"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "341459917ee087c59a6a1b74852db5fe6969f2badd954d13b7ad43f3b4cc6570"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22544ff56bbb5abb9e7a319b18c26805ce8dfc9522266a5b5fc30a9517ecfc4f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e8ed7e57b1d76ab77c394a3588fc320e431154b95dcbfd575185e99dfd2245f3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "87364da62c17b57731b698270adcbdc297ccd4a49b8a21307be988d47f8cff79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "550ab7c92cca382f5a460194edd365785e454ef6e99c1622fe2ba48fb5576ec2"
   end
 
   depends_on "go" => :build

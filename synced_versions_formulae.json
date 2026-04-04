@@ -19,6 +19,7 @@
   ["boost", "boost-bcp", "boost-build", "boost-mpi", "boost-python3"],
   ["bundler-completion", "gem-completion", "rails-completion", "rake-completion", "ruby-completion"],
   ["cmake", "cmake-docs"],
+  ["dart-sdk", "dartaotruntime"],
   ["dbhash", "lemon", "sqldiff", "sqlite", "sqlite-analyzer", "sqlite-rsync"],
   ["dmd", "dtools"],
   ["docker", "docker-completion"],

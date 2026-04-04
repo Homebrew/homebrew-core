@@ -1,15 +1,15 @@
 class Concurrentqueue < Formula
   desc "Fast multi-producer, multi-consumer lock-free concurrent queue for C++11"
   homepage "https://github.com/cameron314/concurrentqueue"
-  url "https://github.com/cameron314/concurrentqueue/archive/refs/tags/v1.0.4.tar.gz"
-  sha256 "87fbc9884d60d0d4bf3462c18f4c0ee0a9311d0519341cac7cbd361c885e5281"
+  url "https://github.com/cameron314/concurrentqueue/archive/refs/tags/v1.0.5.tar.gz"
+  sha256 "4d6368a27492d86011fde5ca0cf386dce7c49cd425aa3d9b063ca6ec373a6ef3"
   license all_of: [
     { any_of: ["BSD-2-Clause", "BSL-1.0"] },
     "Zlib",
   ]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "64a380746e2547d26f64b5ce8945cc4af4e0169a2dffdc89ebbb534dc5e0061e"
+    sha256 cellar: :any_skip_relocation, all: "627800ae0b728b9f2064ac6ff8ffe1cd7c26d094a0bac6be9459ce48ebf666ca"
   end
 
   depends_on "cmake" => :build

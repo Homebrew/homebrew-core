@@ -5,6 +5,7 @@ class DockerEngine < Formula
       tag:      "docker-v29.3.1",
       revision: "f78c987ad3710cacffe47fce696975ecb337148d"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/moby/moby.git", branch: "master"
 
   livecheck do
@@ -13,8 +14,8 @@ class DockerEngine < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "ae2b8389147e1385aa231ec46b1134abe052cc3c1bc06c40ba3c49ef754c72f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "875ff54967392fec58ba0a78be0ea501cc7ed85751cbf390b94db5fa9c9bd8e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "8b1b9681cc9905de0f5720788e019a60ad5d6061a1e9c16fe0915def74979de6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "110998a509e8f35ac7e8c32f2b74f516826f63ecab5c4f86f1a52bc0b1eb825f"
   end
 
   depends_on "go" => :build
@@ -24,6 +25,7 @@ class DockerEngine < Formula
   depends_on :linux
   depends_on "nftables"
   depends_on "runc"
+  depends_on "tini"
 
   def install
     ldflags = %W[

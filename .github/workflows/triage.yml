@@ -450,7 +450,6 @@ jobs:
                 mesa|\
                 openssl@3|\
                 python@3.14|\
-                wayland-protocols|\
                 zlib-ng-compat\
                 ).rb"
               keep_if_no_match: true

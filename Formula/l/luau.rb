@@ -1,8 +1,8 @@
 class Luau < Formula
   desc "Fast, safe, gradually typed embeddable scripting language derived from Lua"
   homepage "https://luau.org"
-  url "https://github.com/luau-lang/luau/archive/refs/tags/0.714.tar.gz"
-  sha256 "1c616a6631e0faf507bfb5145eced43b9ffd5a2cb86d4cb07479effc54766792"
+  url "https://github.com/luau-lang/luau/archive/refs/tags/0.715.tar.gz"
+  sha256 "e2d376447f125ee96c91e46adfee5bcd5760d59f75a4c70967aca2d5e649e352"
   license "MIT"
   version_scheme 1
   head "https://github.com/luau-lang/luau.git", branch: "master"
@@ -13,12 +13,12 @@ class Luau < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "27edf1b53ac6ea4e4fd1b0c29dfe74cf48f67fe3a4c3bab9aebc46140e19fd3d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c89d5f3b3a0c746661f1322a29d2be6b0b63b4ea4fbaa009dd9c1f3caff5472"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "86fd73c3ab3612e3405b4cfa8843c21eea3fd2c46a094a4dc649b6d0942a8a85"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3a93f627a2267f98f38b5933ab3f08cb38d0c460433f8cf3d44bef8be4c3b8ec"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a1648ee1460211048053a2b6bc06d5bb3a393b7560e837a864a7f116980f2b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa1f32eb25b88f348aa07ca0838dd1aa225d55ad43b07a36adc738be026b4289"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "71a3315eb01b589cefce19da18f034f53488f8e48549644d0d26fb1e16f09f75"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08bc81482eb5984a6ca3015f98c46b097ca980a84f02832a3bb867b13251246d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ac7bf2d0277fe0e9dfcc511d75c8a76d1089d270124ec3633048ca3f8409ef6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4184411c97f82fdc8fa8bce6605a7fd0e26bd8b8966b2202b9fff0eece617d08"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b14a89d873f77d5a0e0e3d95ba53c9eb5db4fd51ffb5b3fe46ae6938cc8c31e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dadd2647aae1622b0849cc744bd9cd0cb852e478d2d0adef9f2df28336d290a5"
   end
 
   depends_on "cmake" => :build
