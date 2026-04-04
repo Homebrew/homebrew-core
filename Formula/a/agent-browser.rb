@@ -36,6 +36,11 @@ class AgentBrowser < Formula
     node_modules.glob("node_modules/*/prebuilds/*").each do |prebuild_dir|
       rm_r(prebuild_dir) if prebuild_dir.basename.to_s != "#{os}-#{arch}"
     end
+
+    # Install shell completions
+    bash_completion.install node_modules/"completions/agent-browser.bash" => "agent-browser"
+    zsh_completion.install node_modules/"completions/agent-browser.zsh" => "_agent-browser"
+    fish_completion.install node_modules/"completions/agent-browser.fish"
   end
 
   def caveats
