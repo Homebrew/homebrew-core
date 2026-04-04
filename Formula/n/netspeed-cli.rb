@@ -10,6 +10,14 @@ class NetspeedCli < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    # Install shell completions
+    bash_completion.install "completions/netspeed-cli.bash" => "netspeed-cli"
+    zsh_completion.install "completions/_netspeed-cli" => "_netspeed-cli"
+    fish_completion.install "completions/netspeed-cli.fish"
+
+    # Install man page
+    man1.install "netspeed-cli.1"
   end
 
   test do
