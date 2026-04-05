@@ -1,8 +1,8 @@
 class NowplayingCli < Formula
   desc "Retrieves currently playing media, and simulates media actions"
   homepage "https://github.com/kirtan-shah/nowplaying-cli"
-  url "https://github.com/kirtan-shah/nowplaying-cli/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "bb49123c66282b6495c245589313afc94875a7b0e82c9ae9f79d6f25e7503db4"
+  url "https://github.com/kirtan-shah/nowplaying-cli/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "a495a4f6dfc75326d4ab8843c82f8b0e42ac83d88c397461ea6b7968973da01d"
   license "GPL-3.0-or-later"
 
   bottle do
