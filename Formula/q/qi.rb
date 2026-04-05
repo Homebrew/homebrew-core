@@ -1,8 +1,8 @@
 class Qi < Formula
   desc "Local-first knowledge search CLI"
   homepage "https://github.com/itsmostafa/qi"
-  url "https://github.com/itsmostafa/qi/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "faacbdbfbca7683363bda0d390b6408fcb46b40e70b0613a7b7be942a44873e3"
+  url "https://github.com/itsmostafa/qi/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "a682c42265cfcdcb9f89bb136f913f2a26112970913e28816d4fd8db4b0fb4ad"
   license "MIT"
 
   depends_on "go" => :build
