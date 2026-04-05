@@ -4,6 +4,7 @@ class Libheif < Formula
   url "https://github.com/strukturag/libheif/releases/download/v1.21.2/libheif-1.21.2.tar.gz"
   sha256 "75f530b7154bc93e7ecf846edfc0416bf5f490612de8c45983c36385aa742b42"
   license "LGPL-3.0-only"
+  revision 1
   compatibility_version 1
 
   bottle do
@@ -23,6 +24,7 @@ class Libheif < Formula
   depends_on "libde265"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "openjpeg"
   depends_on "shared-mime-info"
   depends_on "webp"
   depends_on "x265"
@@ -34,6 +36,8 @@ class Libheif < Formula
       -DWITH_GDK_PIXBUF=OFF
       -DWITH_RAV1E=OFF
       -DWITH_SvtEnc=OFF
+      -DWITH_OpenJPEG_DECODER=ON
+      -DWITH_OpenJPEG_ENCODER=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
