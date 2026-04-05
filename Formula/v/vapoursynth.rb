@@ -1,8 +1,8 @@
 class Vapoursynth < Formula
   desc "Video processing framework with simplicity in mind"
   homepage "https://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R73.tar.gz"
-  sha256 "1bb8ffe31348eaf46d8f541b138f0136d10edaef0c130c1e5a13aa4a4b057280"
+  url "https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R74.tar.gz"
+  sha256 "9ebf49720a48a6b5e4abdfd969f318545dde82d67f3e3c68a0799371333d96be"
   license "LGPL-2.1-or-later"
   compatibility_version 1
   head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
@@ -21,11 +21,10 @@ class Vapoursynth < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a020d5253bc39fbe0f077128478632d24ab5d19e375e94a1d8ed08583558c0df"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "cython" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
   depends_on "nasm" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "python@3.14"
   depends_on "zimg"
@@ -41,15 +40,10 @@ class Vapoursynth < Formula
   def install
     ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++" if OS.mac? && MacOS.version <= :ventura
 
-    system "./autogen.sh"
-    inreplace "Makefile.in", "pkglibdir = $(libdir)", "pkglibdir = $(exec_prefix)"
-    system "./configure", "--disable-silent-rules",
-                          "--with-cython=#{Formula["cython"].bin}/cython",
-                          "--with-plugindir=#{HOMEBREW_PREFIX}/lib/vapoursynth",
-                          "--with-python_prefix=#{prefix}",
-                          "--with-python_exec_prefix=#{prefix}",
-                          *std_configure_args
-    system "make", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+    sleep 1000
   end
 
   def caveats
