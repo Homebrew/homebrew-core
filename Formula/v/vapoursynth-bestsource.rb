@@ -2,8 +2,8 @@ class VapoursynthBestsource < Formula
   desc "Audio/video source and FFmpeg wrapper"
   homepage "https://github.com/vapoursynth/bestsource"
   url "https://github.com/vapoursynth/bestsource.git",
-      tag:      "R16",
-      revision: "cbdfd1e215d9a23323fb830c09e45e47b0864bc8"
+      tag:      "R17",
+      revision: "d85eb913b71d135dee927886703e46f297c58862"
   license "MIT"
   head "https://github.com/vapoursynth/bestsource.git", branch: "master"
 
