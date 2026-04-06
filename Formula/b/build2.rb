@@ -89,7 +89,10 @@ class Build2 < Formula
     ENV["BPKG_FETCH_CACHE"] = "0"
 
     assert_match "build2 #{version}", shell_output("#{bin}/b --version")
+
+    # @@ Change to "bx #{version}" when `bx --version` is fixed.
     assert_match "build2 #{version}", shell_output("#{bin}/bx --version")
+
     assert_match "bpkg #{version}", shell_output("#{bin}/bpkg --version")
     assert_match "bdep #{version}", shell_output("#{bin}/bdep --version")
 
