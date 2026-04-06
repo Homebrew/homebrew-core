@@ -1,8 +1,8 @@
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://docs.balena.io/reference/balena-cli/latest/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-24.0.3.tgz"
-  sha256 "7960fb725c264db12d350e32bfe264162b117d94fefbacf57a2ef50924dbce61"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-24.0.4.tgz"
+  sha256 "3ca140ee304a20e1231f6a22b5ea6d0a49f7c806f7d187e4955139a90264fb3c"
   license "Apache-2.0"
 
   livecheck do
@@ -37,9 +37,18 @@ class BalenaCli < Formula
 
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
+    modules = %w[
+      bare-fs
+      bare-os
+      bare-url
+      bcrypt
+      lzma-native
+      mountutils
+      xxhash-addon
+    ]
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     node_modules = libexec/"lib/node_modules/balena-cli/node_modules"
-    node_modules.glob("{bcrypt,lzma-native,mountutils}/prebuilds/*")
+    node_modules.glob("{#{modules.join(",")}}/prebuilds/*")
                 .each do |dir|
                   if dir.basename.to_s == "#{os}-#{arch}"
                     dir.glob("*.musl.node").each(&:unlink) if OS.linux?
