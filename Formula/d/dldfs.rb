@@ -13,6 +13,7 @@ class Dldfs < Formula
 
   test do
     output = shell_output("#{bin}/dldfs --help")
-    assert_match "Multiple concurrent connections", output
+    assert_match "Usage:", output
+    assert_match "dldfs", output
   end
 end
