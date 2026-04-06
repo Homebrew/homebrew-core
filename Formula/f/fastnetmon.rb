@@ -4,7 +4,7 @@ class Fastnetmon < Formula
   url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.8.tar.gz"
   sha256 "d16901b00963f395241c818d02ad2751f14e33fd32ed3cb3011641ab680e0d01"
   license "GPL-2.0-only"
-  revision 28
+  revision 29
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "9ddf7485701a4fea3c2465ea31394b424fca7e3d01c81e48fd31b4d332517a49"
@@ -68,6 +68,10 @@ class Fastnetmon < Formula
   end
 
   def install
+    # Vendored fmt 8.0.0 trips Apple Clang 21+ stricter consteval evaluation.
+    # Issue ref: https://github.com/fmtlib/fmt/issues/4740
+    inreplace "src/fmt/core.h", "#    define FMT_CONSTEVAL consteval", "#    define FMT_CONSTEVAL"
+
     system "cmake", "-S", "src", "-B", "build",
                     "-DCMAKE_CXX_STANDARD=20",
                     "-DLINK_WITH_ABSL=ON",
