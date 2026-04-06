@@ -1,8 +1,8 @@
 class OpenclawCli < Formula
   desc "Your own personal AI assistant"
   homepage "https://openclaw.ai/"
-  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.4.2.tgz"
-  sha256 "b5b5c86a5cffc0e94d70cff775c79510d905fef0ccaab264fc2b1edbed5e9f70"
+  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.4.5.tgz"
+  sha256 "df1e57a5f95b6968f5ac0bdcafc5f970178c04f4af85779a50ca88487743d0d5"
   license "MIT"
 
   bottle do
@@ -17,7 +17,8 @@ class OpenclawCli < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *std_npm_args
+    # openclaw promotes bundled extension runtime dependencies in postinstall.
+    system "npm", "install", *std_npm_args(ignore_scripts: false)
     bin.install_symlink libexec.glob("bin/*")
 
     node_modules = libexec/"lib/node_modules/openclaw/node_modules/"
