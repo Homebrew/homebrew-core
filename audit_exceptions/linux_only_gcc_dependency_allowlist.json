@@ -1,6 +1,7 @@
 [
   "btop",
   "ladybug",
+  "libpqxx",
   "libunicode",
   "vroom"
 ]
