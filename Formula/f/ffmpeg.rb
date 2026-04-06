@@ -3,10 +3,7 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-8.1.tar.xz"
   sha256 "b072aed6871998cce9b36e7774033105ca29e33632be5b6347f3206898e0756a"
-  # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
-  # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
-  # Passing `--enable-version3` changes the license to GPL v3+.
-  license "GPL-3.0-or-later"
+  license "LGPL-2.1-or-later"
   compatibility_version 2
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
@@ -66,12 +63,10 @@ class Ffmpeg < Formula
       --prefix=#{prefix}
       --enable-shared
       --enable-pthreads
-      --enable-version3
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
       --enable-ffplay
-      --enable-gpl
       --enable-libsvtav1
       --enable-libopus
       --enable-libx264
