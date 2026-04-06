@@ -16,8 +16,8 @@ class Ppsspp < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "nasm" => :build # for bundled ffmpeg
   depends_on "pkgconf" => :build
-  depends_on "yasm" => :build
 
   depends_on "libzip"
   depends_on "miniupnpc"
