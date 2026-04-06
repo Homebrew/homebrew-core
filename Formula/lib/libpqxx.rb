@@ -1,8 +1,8 @@
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
   homepage "https://pqxx.org/development/libpqxx/"
-  url "https://github.com/jtv/libpqxx/archive/refs/tags/7.10.5.tar.gz"
-  sha256 "a827dc8a02f4b6110bce66a56d8d97e4526a5128e2f36fa698fd2b1dfb1b9044"
+  url "https://github.com/jtv/libpqxx/archive/refs/tags/8.0.1.tar.gz"
+  sha256 "24f878a1b4249035e4b6c07d49351506bf99f88df584d36bf198d58ebf293823"
   license "BSD-3-Clause"
   compatibility_version 1
 
@@ -21,8 +21,17 @@ class Libpqxx < Formula
 
   uses_from_macos "python" => :build
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with :gcc do
+    version "12"
+    cause "Requires C++20"
+  end
+
   def install
-    ENV.append "CXXFLAGS", "-std=c++17"
+    ENV.append "CXXFLAGS", "-std=c++20"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
 
     system "./configure", "--disable-silent-rules", "--enable-shared", *std_configure_args
@@ -37,7 +46,7 @@ class Libpqxx < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lpqxx",
+    system ENV.cxx, "-std=c++20", "test.cpp", "-L#{lib}", "-lpqxx",
            "-I#{include}", "-o", "test"
     # Running ./test will fail because there is no running postgresql server
     # system "./test"
