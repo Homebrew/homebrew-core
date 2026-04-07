@@ -3,10 +3,9 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2026.0.0.tar.gz"
-  sha256 "529ce766bcca30991c21d0e065886e175b5210d81d6f6b3d7cdaaa89fe22ea8a"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2026.1.0.tar.gz"
+  sha256 "8810fcf950c891ed4541e3fa1153f58cd8390a459a87e5fee509cd5ffe64e974"
   license "Apache-2.0"
-  revision 2
   compatibility_version 1
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -46,8 +45,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/uxlfoundation/oneDNN/archive/929fe4e5629be2a5e89f1ba13b13458b965ffe57.tar.gz"
-      sha256 "a646e1e702a856e0e99b3925f0ead792194c9d62c1ed25e5cbd18927320617e6"
+      url "https://github.com/uxlfoundation/oneDNN/archive/470e87eb07bdc805937a9f6d45d5c3a0fe4d27e7.tar.gz"
+      sha256 "4181ad0fd5ddfe63084fce39a1cd4e0f3656f75e84f32e688e902b2d3a79b537"
     end
   end
 
@@ -55,8 +54,8 @@ class Openvino < Formula
     depends_on "scons" => :build
 
     resource "arm_compute" do
-      url "https://github.com/ARM-software/ComputeLibrary/archive/007264fa740de5723ebddef16b7bb3657692c088.tar.gz"
-      sha256 "f743953fb0d91f6ef69712ec81bd5921dc1fc08af5e6bbb8645a4595ca9c6fd7"
+      url "https://github.com/ARM-software/ComputeLibrary/archive/cffb5d67ad74e6ed924c708d4981ba15b644bc05.tar.gz"
+      sha256 "f44127ef2cb2ecaa863921d96801c27a59331c3a4617a3acdf453c76d5424a72"
     end
     resource "arm_kleidiai" do
       url "https://github.com/ARM-software/kleidiai/archive/7d82645ca2f3c3d58a5c0b1a96905e53916c8ff8.tar.gz"
@@ -92,18 +91,13 @@ class Openvino < Formula
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/c6b79c1207bd5f20b9395536dab1d71a47cfcb1d.tar.gz"
-    sha256 "c6825a7aad5bc83686da759aeb89cf979bd820ba4795b55241fde0d6b093f4d6"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/6b6492b1ea9ef5ca9ff3c5c59ed71dcca683a446.tar.gz"
+    sha256 "c12ff448213e873b0096d62a103447cf2686402d41a507d8cd4fcdac754ca5d1"
   end
 
   resource "openvino-telemetry" do
     url "https://files.pythonhosted.org/packages/71/8a/89d82f1a9d913fb266c2e6dc2f6030935db24b7152963a8db6c4f039787f/openvino_telemetry-2025.2.0.tar.gz"
     sha256 "8bf8127218e51e99547bf38b8fb85a8b31c9bf96e6f3a82eb0b3b6a34155977c"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
-    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
   def python3
@@ -114,12 +108,6 @@ class Openvino < Formula
     # Work around for Protobuf C++ 6.x until OpenVINO adds support
     inreplace "thirdparty/dependencies.cmake", "find_package(Protobuf 5.26.0 ",
                                                "find_package(Protobuf 7.34.0 "
-
-    # FIXME: workaround for
-    #   CMake Error at cmake/developer_package/version.cmake:102 (message):
-    # OpenVINO_VERSION_MAJOR parsed from CI_BUILD_NUMBER () and from
-    # openvino/core/version.hpp (2025) are different
-    # ENV["CI_BUILD_NUMBER"] = "#{version}-#{revision}-"
 
     # Remove git cloned 3rd party to make sure formula dependencies are used
     dependencies = %w[thirdparty/ocl
@@ -147,21 +135,12 @@ class Openvino < Formula
       resource("xbyak").stage buildpath/"thirdparty/xbyak"
     end
 
-    # Fix pybind11 3.0+ def_property call_guard incompatibility, upstream bug report, https://github.com/openvinotoolkit/openvino/issues/34426
-    inreplace "src/bindings/python/src/pyopenvino/core/core.cpp" do |s|
-      pattern = /\s+py::call_guard<py::gil_scoped_release>\(\),\n/
-      s.gsub!(pattern, "")
-    end
-    inreplace "src/bindings/python/src/pyopenvino/core/infer_request.cpp" do |s|
-      pattern = /\s+py::call_guard<py::gil_scoped_release>\(\),\n/
-      s.gsub!(pattern, "")
-    end
-
     cmake_args = %w[
       -DENABLE_CPPLINT=OFF
       -DENABLE_CLANG_FORMAT=OFF
       -DENABLE_NCC_STYLE=OFF
       -DENABLE_OV_JAX_FRONTEND=OFF
+      -DENABLE_OV_ZERO_LOADER=OFF
       -DENABLE_PROFILING_ITT=OFF
       -DENABLE_JS=OFF
       -DENABLE_TEMPLATE=OFF
@@ -185,13 +164,12 @@ class Openvino < Formula
     # Fix linking failure of certain binaries as Scons disables superenv
     cmake_args << "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib" if OS.linux? && Hardware::CPU.arm?
 
-    openvino_binary_dir = "#{buildpath}/build"
-    system "cmake", "-S", ".", "-B", openvino_binary_dir, *cmake_args, *std_cmake_args
-    system "cmake", "--build", openvino_binary_dir
-    system "cmake", "--install", openvino_binary_dir
+    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # build & install python bindings
-    ENV["OPENVINO_BINARY_DIR"] = openvino_binary_dir
+    ENV["OPENVINO_BINARY_DIR"] = buildpath/"build"
     ENV["PY_PACKAGES_DIR"] = site_packages = Language::Python.site_packages(python3)
     ENV["WHEEL_VERSION"] = version
     ENV["SKIP_RPATH"] = "1"
