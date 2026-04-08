@@ -1,8 +1,8 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.114.0.tgz"
-  sha256 "0b7b14a267db634b7c3611ee7869998370f88cd668ef0877eef58a7e3d66e401"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.115.0.tgz"
+  sha256 "e0cc3178236fd3828bc8f79e5c3189eb557fa7666cc540360c6751c0a2cdb8e3"
   license "MIT"
 
   bottle do
@@ -25,7 +25,18 @@ class CodeServer < Formula
     depends_on "libxkbfile"
   end
 
+  # Last version of vscode with a compatible license for code-server
+  resource "vscode" do
+    url "https://github.com/microsoft/vscode/archive/refs/tags/1.112.0.tar.gz"
+    sha256 "00457e5e79dfaabaa688d1be0d1c116ce0c7a5b2bd49db34c00cb35f5f8ab5a3"
+  end
+
   def install
+    # Replace `@github/copilot` included version of vscode lib for license compliance
+    # Related commit: https://github.com/microsoft/vscode/commit/98f15b55eaa9ec24b60cad2905d53f721ad67357
+    rm_r("lib/vscode")
+    (buildpath/"lib/vscode").install resource("vscode")
+
     # Fix broken node-addon-api: https://github.com/nodejs/node/issues/52229
     ENV.append "CXXFLAGS", "-DNODE_API_EXPERIMENTAL_NOGC_ENV_OPT_OUT"
 
@@ -45,9 +56,6 @@ class CodeServer < Formula
     rm_r(vscode_node_modules.glob("@anthropic-ai/sandbox-runtime/vendor/seccomp/#{arch}"))
     rm_r(anthropic_node_modules.glob("@parcel/watcher-{darwin,linux}*"))
     rm_r(vscode_node_modules.glob("@parcel/watcher-{darwin,linux}*"))
-    rm_r(vscode_node_modules.glob("@github/copilot/prebuilds/{darwin,linux}*"))
-    rm_r(vscode_node_modules.glob("@github/copilot/ripgrep/bin/*/rg"))
-    rm_r(vscode_node_modules.glob("@github/copilot/clipboard/node_modules/@teddyzhu/clipboard-*/clipboard.*"))
 
     # Remove pre-built binaries where source in not available to allow compilation
     # https://www.npmjs.com/package/@azure/msal-node-runtime
