@@ -1,0 +1,73 @@
+From e7a37f96e840c548a50f029c853d7490866faf85 Mon Sep 17 00:00:00 2001
+From: Charles Strahan <charles@cstrahan.com>
+Date: Wed, 8 Apr 2026 16:05:06 -0500
+Subject: [PATCH] Fix real-time scheduling on Apple Silicon
+
+On Apple Silicon, the sysctl key hw.cpufrequency is absent because ARM
+SoCs have heterogeneous core frequencies. PulseAudio's Darwin real-time
+scheduling path used this to compute Mach THREAD_TIME_CONSTRAINT_POLICY
+parameters in CPU cycle units, so it silently fails on all M-series Macs.
+
+Replace the CPU-frequency approach with mach_timebase_info(), which
+converts nanoseconds to Mach absolute time units regardless of
+architecture. The time constraint values are chosen to match the original
+intent (~6.25ms period, ~0.3ms computation, ~0.45ms constraint).
+---
+ src/pulse/util.c | 29 ++++++++++++++++++-----------
+ 1 file changed, 18 insertions(+), 11 deletions(-)
+
+diff --git a/src/pulse/util.c b/src/pulse/util.c
+index c7b828cc2..147f68c7a 100644
+--- a/src/pulse/util.c
++++ b/src/pulse/util.c
+@@ -86,6 +86,7 @@ static int _main() PA_GCC_WEAKREF(main);
+ 
+ #ifdef __APPLE__
+ #include <mach/mach_init.h>
++#include <mach/mach_time.h>
+ #include <mach/thread_act.h>
+ #include <mach/thread_policy.h>
+ #include <sys/sysctl.h>
+@@ -464,22 +465,28 @@ int pa_thread_make_realtime(int rtprio) {
+ 
+ #if defined(OS_IS_DARWIN)
+     struct thread_time_constraint_policy ttcpolicy;
+-    uint64_t freq = 0;
+-    size_t size = sizeof(freq);
++    mach_timebase_info_data_t tbi;
+     int ret;
+ 
+-    ret = sysctlbyname("hw.cpufrequency", &freq, &size, NULL, 0);
+-    if (ret < 0) {
+-        pa_log_info("Unable to read CPU frequency, acquisition of real-time scheduling failed.");
++    ret = mach_timebase_info(&tbi);
++    if (ret != KERN_SUCCESS || tbi.numer == 0) {
++        pa_log_info("mach_timebase_info() failed, acquisition of real-time scheduling failed.");
+         return -1;
+     }
+ 
+-    pa_log_debug("sysctl for hw.cpufrequency: %llu", freq);
+-
+-    /* See http://developer.apple.com/library/mac/#documentation/Darwin/Conceptual/KernelProgramming/scheduler/scheduler.html */
+-    ttcpolicy.period = freq / 160;
+-    ttcpolicy.computation = freq / 3300;
+-    ttcpolicy.constraint = freq / 2200;
++    pa_log_debug("mach_timebase_info: numer=%u denom=%u", tbi.numer, tbi.denom);
++
++    /* Convert desired durations from nanoseconds to Mach absolute time units.
++     * On Apple Silicon hw.cpufrequency is absent (heterogeneous cores), so we
++     * use mach_timebase_info instead, which works on both Intel and ARM.
++     * Values match the original intent: period ~6.25ms, computation ~0.3ms,
++     * constraint ~0.45ms.
++     * See Apple TN2169 and the Mach scheduler documentation. */
++#define NS_TO_ABS(ns) ((uint32_t)((uint64_t)(ns) * tbi.denom / tbi.numer))
++    ttcpolicy.period = NS_TO_ABS(6250000);
++    ttcpolicy.computation = NS_TO_ABS(303030);
++    ttcpolicy.constraint = NS_TO_ABS(454545);
++#undef NS_TO_ABS
+     ttcpolicy.preemptible = 1;
+ 
+     ret = thread_policy_set(mach_thread_self(),
+-- 
+2.50.1 (Apple Git-155)
+
