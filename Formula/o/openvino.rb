@@ -104,6 +104,13 @@ class Openvino < Formula
     "python3.14"
   end
 
+  # Fix to add Level-Zero to compilation only when it's needed
+  # Remove patch when available in 2026.2.0 release.
+  patch do
+    url "https://github.com/openvinotoolkit/openvino/commit/b90c26de0ccab964c55fac8519827ecc1b79f473.patch?full_index=1"
+    sha256 "d9110eb566e7404dfebd6d4eb68f87818b392f8391151c543d7b4d2c85089303"
+  end
+  
   def install
     # Work around for Protobuf C++ 6.x until OpenVINO adds support
     inreplace "thirdparty/dependencies.cmake", "find_package(Protobuf 5.26.0 ",
