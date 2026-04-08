@@ -1,7 +1,15 @@
 class GoenvAT301 < Formula
   desc "Go version management"
   homepage "https://github.com/go-nv/goenv"
+  version "3.0.1"
   license "MIT"
+
+  livecheck do
+    url :homepage
+    regex(/^v?(3\.\d+\.\d+)$/i)
+  end
+
+  keg_only :versioned_formula
 
   on_macos do
     on_arm do
@@ -24,15 +32,6 @@ class GoenvAT301 < Formula
       sha256 "548560754b65aafb0f8ce43c6ef71d1a8e28e0565d631fa06bfdccb31628f6ea"
     end
   end
-
-  version "3.0.1"
-
-  livecheck do
-    url :homepage
-    regex(/^v?(3\.\d+\.\d+)$/i)
-  end
-
-  conflicts_with "goenv", because: "both install `goenv` binaries"
 
   def install
     bin.install "goenv"
