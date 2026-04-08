@@ -14,6 +14,12 @@ class Pulseaudio < Formula
       url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/commit/c1990dd02647405b0c13aab59f75d05cbb202336.diff"
       sha256 "46505b7f915a96a4e5f4c46cd8a2cfb5a74586bfd585d69f31b7b2e27e17a4c8"
     end
+
+    # Fix real-time scheduling on Apple Silicon (hw.cpufrequency absent)
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/5ccecc0040477611cff63d9b0fe2c05260e4616f/Patches/pulseaudio/apple-silicon-realtime.patch"
+      sha256 "d762fbf1a3ca8fcc53bd8e67b0998e051766b676898c8cf7a6a6bd4ef20de5eb"
+    end
   end
 
   # The regex here avoids x.99 releases, as they're pre-release versions.
@@ -23,7 +29,7 @@ class Pulseaudio < Formula
   end
 
   bottle do
-    rebuild 2
+    rebuild 3
     sha256 arm64_tahoe:   "73c349f7d337ebb0bdd1169325685e79f4cb4c253dd920339a7bc52c833ea4c7"
     sha256 arm64_sequoia: "3b0c4054a598015af0838395bfb6b96b40ff9297d4d382b80e06c6df7b76b9ab"
     sha256 arm64_sonoma:  "bf612fdd30e917faf4c6627a1324f1ffaf509f5dfa92748199ff57c6ce1efcfb"
