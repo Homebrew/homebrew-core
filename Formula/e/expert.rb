@@ -17,18 +17,24 @@ class Expert < Formula
   depends_on "elixir" => :build
   depends_on "erlang" => :build
   depends_on "just" => :build
-  depends_on "xz" => :build
-  depends_on "zig@0.15" => :build
+  depends_on "openssl@3"
+
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    os = OS.mac? ? "darwin" : "linux"
-    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-
     system "mix", "local.hex", "--force", "--if-missing"
     system "mix", "local.rebar", "--force", "--if-missing"
-    system "just", "burrito-local"
+    system "just", "release"
 
-    bin.install "apps/expert/burrito_out/expert_#{os}_#{arch}" => "expert"
+    # Remove Windows `.bat` files before install to avoid needlessly copying them
+    rm Dir[buildpath/"apps/expert/_build/prod/rel/plain/{bin,releases/**}/*.bat"]
+    libexec.install Dir[buildpath/"apps/expert/_build/prod/rel/plain/*"]
+    inreplace libexec/"bin/start_expert", '"$(dirname -- "$0")"/plain', "\"#{libexec}/bin/plain\""
+    bin.install_symlink libexec/"bin/start_expert" => "expert"
   end
 
   test do
