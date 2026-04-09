@@ -1,9 +1,10 @@
 class Expert < Formula
   desc "Official Elixir Language Server Protocol implementation"
   homepage "https://expert-lsp.org"
-  url "https://github.com/elixir-lang/expert/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "209eebddf264407f43848f2d9584210e1869b0103885c1cfab89ce48a2421c36"
+  url "https://github.com/expert-lsp/expert/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "e93ac9a2a8576697d327e3bea3005b755111a62986977d66140b9e5df5af6be2"
   license "Apache-2.0"
+  head "https://github.com/expert-lsp/expert.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6f9f4b95e9ca15c8c2b53c7ee9c346d53c24df1509d1be124868c350b9042c45"
@@ -17,18 +18,18 @@ class Expert < Formula
   depends_on "elixir" => :build
   depends_on "erlang" => :build
   depends_on "just" => :build
-  depends_on "xz" => :build
-  depends_on "zig@0.15" => :build
+  depends_on "openssl@3"
+
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    os = OS.mac? ? "darwin" : "linux"
-    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-
     system "mix", "local.hex", "--force", "--if-missing"
     system "mix", "local.rebar", "--force", "--if-missing"
-    system "just", "burrito-local"
-
-    bin.install "apps/expert/burrito_out/expert_#{os}_#{arch}" => "expert"
+    system "just", "install", "--prefix=#{prefix}"
   end
 
   test do
