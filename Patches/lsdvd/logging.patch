@@ -1,0 +1,40 @@
+diff --git a/lsdvd.c b/lsdvd.c
+index 9be5ac2..4e75564 100644
+--- a/lsdvd.c
++++ b/lsdvd.c
+@@ -366,6 +366,17 @@ static char output_option(char *arg)
+ 	}
+ }
+ 
++/* Replacement logger to send output to stderr, ensuring
++   stdout is always understandable as xml, json, perl, python,
++   etc.  Without this, the 'Encrypted DVD support unavailable'
++   message can show up in the generated files.  */
++void dvdlogger(void *, dvd_logger_level_t,
++           const char *fmt, va_list list)
++{
++    fprintf(stderr, "libdvdread: ");
++    vfprintf(stderr, fmt, list);
++    fprintf(stderr, "\n");
++}
+ 
+ int main(int argc, char *argv[])
+ {
+@@ -424,17 +435,6 @@ int main(int argc, char *argv[])
+ 		return 1;
+ 	}
+ 
+-	/* Replacement logger to send output to stderr, ensuring
+-	   stdout is always understandable as xml, json, perl, python,
+-	   etc.  Without this, the 'Encrypted DVD support unavailable'
+-	   message can show up in the generated files.  */
+-	void dvdlogger(void *, dvd_logger_level_t,
+-		       const char *fmt, va_list list)
+-	{
+-		fprintf(stderr, "libdvdread: ");
+-		vfprintf(stderr, fmt, list);
+-		fprintf(stderr, "\n");
+-	}
+ 	dvd_logger_cb logcb = { dvdlogger };
+ 	dvd = DVDOpen2(NULL, &logcb, dvd_device);
+ 	if( !dvd ) {

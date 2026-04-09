@@ -1,0 +1,14 @@
+[
+  "colordiff",
+  "cpanminus",
+  "davmail",
+  "goenv",
+  "luarocks",
+  "meson",
+  "phpmyadmin",
+  "python-setuptools",
+  "rabbitmq",
+  "ruby-install",
+  "sqlite-utils",
+  "zsh-completions"
+]

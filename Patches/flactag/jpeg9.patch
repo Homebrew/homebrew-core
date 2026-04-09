@@ -1,0 +1,13 @@
+diff --git a/CoverArt.cc b/CoverArt.cc
+index e730476..a0bd2a8 100644
+--- a/CoverArt.cc
++++ b/CoverArt.cc
+@@ -195,7 +195,7 @@ boolean CCoverArt::FillInputBuffer(j_decompress_ptr cinfo)
+ 	src->pub.next_input_byte = src->eoi_buffer;
+ 	src->pub.bytes_in_buffer = 2;
+ 
+-	return true;
++	return TRUE;
+ }
+ 
+ void CCoverArt::SkipInputData(j_decompress_ptr cinfo, long num_bytes)

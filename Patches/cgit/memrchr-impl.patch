@@ -1,0 +1,124 @@
+From 1d2a5664c08f84b0d16a9df4854c1ab357b37db2 Mon Sep 17 00:00:00 2001
+From: Markus Mayer <code@mmayer.net>
+To: CGIT Mailing List <cgit@lists.zx2c4.com>
+Date: Mon, 29 Jun 2020 17:17:37 -0700
+Subject: [PATCH] global: provide memrchr implementation for macOS
+
+macOS doesn't come with a memrchr() of its own, so let's provide an
+implementation it can use.
+
+memrchr.c was taken from Apple's own open source site.
+
+https://opensource.apple.com/source/sudo/sudo-87.80.2/sudo/lib/util/memrchr.c
+
+It was minimally modified, so it would work for cgit:
+
+- Removed #include "sudo_compat.h"
+- Renamed function from sudo_memrchr() to memrchr()
+
+Signed-off-by: Markus Mayer <code@mmayer.net>
+---
+
+I sent this a few days ago already, but it looks like it didn't make it
+to the mailig list. Let's give it another shot.
+
+ cgit.h    |  4 ++++
+ cgit.mk   |  9 +++++++++
+ memrchr.c | 49 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 62 insertions(+)
+ create mode 100644 memrchr.c
+
+diff --git a/cgit.h b/cgit.h
+index 7ec46b4..1b2f712 100644
+--- a/cgit.h
++++ b/cgit.h
+@@ -395,4 +395,8 @@ extern char *expand_macros(const char *txt);
+
+ extern char *get_mimetype_for_filename(const char *filename);
+
++#ifdef NEED_MEMRCHR
++extern void *memrchr(const void *s, int c, size_t n);
++#endif
++
+ #endif /* CGIT_H */
+diff --git a/cgit.mk b/cgit.mk
+index 3fcc1ca..f85018c 100644
+--- a/cgit.mk
++++ b/cgit.mk
+@@ -63,10 +63,19 @@ ifeq ($(uname_S),Linux)
+ 	HAVE_LINUX_SENDFILE = YesPlease
+ endif
+
++ifeq ($(uname_S),Darwin)
++	IS_DARWIN = yes
++endif
++
+ ifdef HAVE_LINUX_SENDFILE
+ 	CGIT_CFLAGS += -DHAVE_LINUX_SENDFILE
+ endif
+
++ifdef IS_DARWIN
++	CGIT_CFLAGS += -DNEED_MEMRCHR
++	CGIT_OBJ_NAMES += memrchr.o
++endif
++
+ CGIT_OBJ_NAMES += cgit.o
+ CGIT_OBJ_NAMES += cache.o
+ CGIT_OBJ_NAMES += cmd.o
+diff --git a/memrchr.c b/memrchr.c
+new file mode 100644
+index 0000000..46ec17f
+--- /dev/null
++++ b/memrchr.c
+@@ -0,0 +1,49 @@
++/*
++ * SPDX-License-Identifier: ISC
++ *
++ * Copyright (c) 2007, 2010-2014
++ *	Todd C. Miller <Todd.Miller@sudo.ws>
++ *
++ * Permission to use, copy, modify, and distribute this software for any
++ * purpose with or without fee is hereby granted, provided that the above
++ * copyright notice and this permission notice appear in all copies.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
++ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
++ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
++ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
++ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
++ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
++ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
++ */
++
++/*
++ * This is an open source non-commercial project. Dear PVS-Studio, please check it.
++ * PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
++ */
++
++#include <config.h>
++
++#ifndef HAVE_MEMRCHR
++
++#include <sys/types.h>
++
++/*
++ * Reverse memchr()
++ * Find the last occurrence of 'c' in the buffer 's' of size 'n'.
++ */
++void *
++memrchr(const void *s, int c, size_t n)
++{
++    const unsigned char *cp;
++
++    if (n != 0) {
++	cp = (unsigned char *)s + n;
++	do {
++	    if (*(--cp) == (unsigned char)c)
++		return (void *)cp;
++	} while (--n != 0);
++    }
++    return (void *)0;
++}
++#endif /* HAVE_MEMRCHR */
+--
+2.26.0
