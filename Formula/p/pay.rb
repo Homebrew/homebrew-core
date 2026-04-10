@@ -1,8 +1,8 @@
 class Pay < Formula
   desc "HTTP client that automatically handles 402 Payment Required"
   homepage "https://github.com/solana-foundation/pay"
-  url "https://github.com/solana-foundation/pay/archive/refs/tags/pay-v0.4.0.tar.gz"
-  sha256 "63f0cc9535214a16ab3fa3d546a1d83d01114e46677605d74c4e6a1f04264d96"
+  url "https://github.com/solana-foundation/pay/archive/refs/tags/pay-v0.5.0.tar.gz"
+  sha256 "a5f97c4d8a5c168e5e5ae3368c5a2c0ced74c668f562004cbf849cd16a136fcf"
   license "Apache-2.0"
   head "https://github.com/solana-foundation/pay.git", branch: "main"
 
@@ -29,6 +29,7 @@ class Pay < Formula
   end
 
   test do
-    assert_match "No wallet configured", shell_output("#{bin}/pay fetch https://httpbin.org/get 2>&1", 1)
+    assert_match "No wallet configured",
+                 shell_output("#{bin}/pay fetch https://payment-debugger.vercel.app/mpp/quote/AAPL 2>&1", 1)
   end
 end
