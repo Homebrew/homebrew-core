@@ -4,6 +4,7 @@ class AtSpi2Core < Formula
   url "https://download.gnome.org/sources/at-spi2-core/2.60/at-spi2-core-2.60.0.tar.xz"
   sha256 "80e50c1a97d8fd660a3fadb02ca35876df881c266d3d6108fc5b4c113614cb99"
   license "LGPL-2.1-or-later"
+  revision 1
   compatibility_version 1
 
   bottle do
@@ -20,18 +21,22 @@ class AtSpi2Core < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "xorgproto" => :build
 
   depends_on "dbus"
   depends_on "glib"
-  depends_on "libx11"
-  depends_on "libxi"
-  depends_on "libxtst"
 
   uses_from_macos "libxml2" => :build
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "xorgproto" => :build
+
+    depends_on "libx11"
+    depends_on "libxi"
+    depends_on "libxtst"
   end
 
   def install
@@ -75,6 +80,6 @@ class AtSpi2Core < Formula
 
     pkg_config_cflags = shell_output("pkg-config --cflags --libs atspi-2").chomp.split
     system ENV.cc, "test.c", *pkg_config_cflags, "-lgobject-2.0", "-o", "test"
-    assert_match "AT-SPI", shell_output("#{testpath}/test 2>&1", 133)
+    assert_match "AT-SPI", shell_output("#{testpath}/test 2>&1", OS.mac? ? 133 : 134)
   end
 end
