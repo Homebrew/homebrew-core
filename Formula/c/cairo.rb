@@ -4,6 +4,7 @@ class Cairo < Formula
   url "https://cairographics.org/releases/cairo-1.18.4.tar.xz"
   sha256 "445ed8208a6e4823de1226a74ca319d3600e83f6369f99b14265006599c32ccb"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
+  revision 1
   head "https://gitlab.freedesktop.org/cairo/cairo.git", branch: "master"
 
   livecheck do
@@ -29,10 +30,6 @@ class Cairo < Formula
   depends_on "freetype"
   depends_on "glib"
   depends_on "libpng"
-  depends_on "libx11"
-  depends_on "libxcb"
-  depends_on "libxext"
-  depends_on "libxrender"
   depends_on "lzo"
   depends_on "pixman"
 
@@ -41,6 +38,10 @@ class Cairo < Formula
   end
 
   on_linux do
+    depends_on "libx11"
+    depends_on "libxcb"
+    depends_on "libxext"
+    depends_on "libxrender"
     depends_on "zlib-ng-compat"
   end
 
@@ -51,12 +52,14 @@ class Cairo < Formula
       -Dfreetype=enabled
       -Dpng=enabled
       -Dglib=enabled
-      -Dxcb=enabled
-      -Dxlib=enabled
       -Dzlib=enabled
       -Dglib=enabled
     ]
     args << "-Dquartz=enabled" if OS.mac?
+    if OS.linux?
+      args << "-Dxcb=enabled"
+      args << "-Dxlib=enabled"
+    end
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
