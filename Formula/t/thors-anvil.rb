@@ -2,9 +2,9 @@ class ThorsAnvil < Formula
   desc "Set of modern C++20 libraries for writing interactive Web-Services"
   homepage "https://github.com/Loki-Astari/ThorsAnvil"
   url "https://github.com/Loki-Astari/ThorsAnvil.git",
-      tag:      "9.1.7",
-      revision: "92e7a873bd40355495ad193ff3657e049635768a"
-  license "GPL-3.0-only"
+      tag:      "9.1.13",
+      revision: "0d4607faba1ac784bc1de64fac3eab029f8c32b3"
+  license "MIT"
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "6f6f41afc0efa8552539086da5677e5bc84278e6019f83698a38b375988e21b3"
@@ -41,6 +41,7 @@ class ThorsAnvil < Formula
                           "--disable-Mongo-Service",
                           "--disable-slacktest",
                           *std_configure_args
+    ENV["DISBALE_CONTROL_CODES"] = "TRUE"
     system "make", "-j", "1", "JOBS=" + ENV.make_jobs.to_s
     system "make", "install"
   end
