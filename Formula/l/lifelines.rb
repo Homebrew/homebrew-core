@@ -1,8 +1,8 @@
 class Lifelines < Formula
   desc "Text-based genealogy software"
-  homepage "https://lifelines.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/lifelines/lifelines/3.0.62/lifelines-3.0.62.tar.gz"
-  sha256 "2f00441ac0ed64aab8f76834c055e2b95600ed4c6f5845b9f6e5284ac58a9a52"
+  homepage "https://github.com/lifelines/lifelines"
+  url "https://github.com/lifelines/lifelines/archive/refs/tags/3.1.1.tar.gz"
+  sha256 "b47ef6d76b0b0919edf06c0f5a9d8d54912931dfaa3f978513591dd6f3901036"
   license "MIT"
 
   bottle do
