@@ -46,12 +46,24 @@ jobs:
         id: formulae-detect
         run: brew test-bot --only-formulae-detect
 
+      - name: Check if formulae changed
+        id: has-changes
+        env:
+          TESTING_FORMULAE: ${{ steps.formulae-detect.outputs.testing_formulae }}
+          DELETED_FORMULAE: ${{ steps.formulae-detect.outputs.deleted_formulae }}
+        run: |
+          if [[ -n "$TESTING_FORMULAE" || -n "$DELETED_FORMULAE" ]]; then
+            echo "result=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "result=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Pull executables.txt
-        if: steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != ''
+        if: steps.has-changes.outputs.result == 'true'
         run: oras pull ghcr.io/homebrew/command-not-found/executables:latest
 
       - name: Update database entries
-        if: steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != ''
+        if: steps.has-changes.outputs.result == 'true'
         env:
           TESTING_FORMULAE: ${{ steps.formulae-detect.outputs.testing_formulae }}
           DELETED_FORMULAE: ${{ steps.formulae-detect.outputs.deleted_formulae }}
@@ -61,17 +73,17 @@ jobs:
           done
 
       - name: Log in to GitHub Packages
-        if: github.ref == 'refs/heads/main' && (steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != '')
+        if: github.ref == 'refs/heads/main' && steps.has-changes.outputs.result == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: echo "$GITHUB_TOKEN" | oras login ghcr.io --username brewtestbot --password-stdin
 
       - name: Push to GitHub Packages
-        if: github.ref == 'refs/heads/main' && (steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != '')
+        if: github.ref == 'refs/heads/main' && steps.has-changes.outputs.result == 'true'
         run: oras push --artifact-type application/vnd.homebrew.command-not-found.executables ghcr.io/homebrew/command-not-found/executables:latest executables.txt:text/plain
 
       - name: Verify upload
-        if: github.ref == 'refs/heads/main' && (steps.formulae-detect.outputs.testing_formulae != '' || steps.formulae-detect.outputs.deleted_formulae != '')
+        if: github.ref == 'refs/heads/main' && steps.has-changes.outputs.result == 'true'
         run: |
           shasum --algorithm=256 executables.txt > executables.txt.sha256
           rm -f executables.txt
