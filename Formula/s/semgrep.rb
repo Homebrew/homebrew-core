@@ -350,27 +350,9 @@ class Semgrep < Formula
       ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"pcre/lib/pkgconfig"
     end
 
-    # Ensure dynamic linkage to our libraries
-    inreplace "src/main/flags.sh" do |s|
-      s.gsub!("$(brew --prefix libev)/lib/libev.a", Formula["libev"].opt_lib/shared_library("libev"))
-      s.gsub!("$(brew --prefix zstd)/lib/libzstd.a", Formula["zstd"].opt_lib/shared_library("libzstd"))
-      s.gsub!("$(pkg-config gmp --variable libdir)/libgmp.a", Formula["gmp"].opt_lib/shared_library("libgmp"))
-      s.gsub!(
-        "$(pkg-config tree-sitter --variable libdir)/libtree-sitter.a",
-        Formula["tree-sitter"].opt_lib/shared_library("libtree-sitter"),
-      )
-      s.gsub!(
-        "$(pkg-config libpcre2-8 --variable libdir)/libpcre2-8.a",
-        Formula["pcre2"].opt_lib/shared_library("libpcre2-8"),
-      )
-      s.gsub!(
-        '"$(brew --prefix dwarfutils)/lib/libdwarf.a"',
-        Formula["dwarfutils"].opt_lib/shared_library("libdwarf"),
-      )
-    end
-
     ENV.deparallelize
     Dir.mktmpdir("opamroot") do |opamroot|
+      ENV["FORCE_DYNLINK"] = "true"
       ENV["OPAMROOT"] = opamroot
       # `--no-depexts` prevents opam from attempting to automatically search for
       # and install system dependencies using the os-native package manager.
@@ -387,15 +369,10 @@ class Semgrep < Formula
       ENV["OPAMSOLVERTIMEOUT"] = "1200"
 
       system "opam", "init", "--no-setup", "--disable-sandboxing"
-      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.5.3.0" }
+      ENV.deparallelize { system "opam", "switch", "create", "brew", "--empty" }
 
-      # Manually run steps from `opam exec -- make setup` to link Homebrew's tree-sitter
-      system "opam", "update", "-y"
-      system "opam", "install", "-y", "--deps-only", "./libs/ocaml-tree-sitter-core"
-      system "opam", "install", "-y", "--deps-only", "./"
-      cd "./libs/ocaml-tree-sitter-core" do
-        system "./configure"
-      end
+      # install deps
+      system "opam", "exec", "--", "make", "install-deps"
 
       # Install semgrep-core and spacegrep
       system "opam", "exec", "--", "make", "core"
