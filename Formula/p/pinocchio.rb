@@ -1,10 +1,9 @@
 class Pinocchio < Formula
   desc "Efficient and fast C++ library implementing Rigid Body Dynamics algorithms"
   homepage "https://stack-of-tasks.github.io/pinocchio"
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v3.9.0/pinocchio-3.9.0.tar.gz"
-  sha256 "60553630d83de492bc0cf1126add2acc591c87f1bc8ea7f70693e7563fc103a3"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v4.0.0/pinocchio-4.0.0.tar.gz"
+  sha256 "0cfa23e2874eb9978dd7d952f3d8df855adb14e166b1a31860ac5c28c6348fb4"
   license "BSD-2-Clause"
-  revision 2
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "devel"
 
   livecheck do
@@ -38,20 +37,9 @@ class Pinocchio < Formula
     depends_on "octomap"
   end
 
-  # Apply open PR to fix build with eigen 5.0.0
-  # PR ref: https://github.com/stack-of-tasks/pinocchio/pull/2779
-  patch do
-    url "https://github.com/stack-of-tasks/pinocchio/commit/cd06f874671f44507777663fe36d643035d20300.patch?full_index=1"
-    sha256 "f3bde3a9c1a094aff88ea11d767651f11a245d24857f375f4fed20f0abf58cbf"
-  end
-  patch do
-    url "https://github.com/stack-of-tasks/pinocchio/commit/a25d222611a695a209375a27780cef5579c0e50a.patch?full_index=1"
-    sha256 "1c54ce6f2b0ce1eb4f804794ac3ce812866cdfa784c521beb555d463a332dca2"
-  end
-  patch do
-    url "https://github.com/stack-of-tasks/pinocchio/commit/2dd5857b4fb418de3b37c98d49b5f31fc59c5bb3.patch?full_index=1"
-    sha256 "8a6b1f107af678de080b64f95e4525044e50f31c95a91cf0d892fdd09bdaa2c3"
-  end
+  # Add a no-op `ComputeBlockDiagonalPatternImpl` specialization for
+  # `boost::blank`-derived sentinels (e.g. `BlankConstraintModel`).
+  patch :DATA
 
   def python3
     "python3.14"
@@ -84,3 +72,24 @@ class Pinocchio < Formula
     PYTHON
   end
 end
+
+__END__
+--- a/include/pinocchio/src/constraints/utils.hxx
++++ b/include/pinocchio/src/constraints/utils.hxx
+@@ -952,6 +952,16 @@
+       }
+     };
+
++    template<typename ConstraintModel>
++    struct ComputeBlockDiagonalPatternImpl<
++      ConstraintModel,
++      std::enable_if_t<std::is_base_of_v<boost::blank, ConstraintModel>>>
++    {
++      template<typename BlockInfoVector, BlockDiagonalDispatcherType op>
++      static void run(
++        const ConstraintModel &, BlockInfoVector &, BlockDiagonalDispatcherTag<op>) {}
++    };
++
+     // Specialization of compute block_infos for FrameAnchor.
+     template<typename Scalar, int Options>
+     struct ComputeBlockDiagonalPatternImpl<FrameAnchorConstraintModelTpl<Scalar, Options>>
