@@ -6,15 +6,16 @@ class Gcovr < Formula
   url "https://files.pythonhosted.org/packages/07/37/b4a87dff166dc0a5002e9d03fcb6ca8eeff048247b011b67f047e31122c9/gcovr-8.6.tar.gz"
   sha256 "b2e7042abca9321cadbab8a06eb34d19f801b831557b28cdc30a029313de8b9e"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/gcovr/gcovr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "49fb3d1e586e2f9dc1cd64e58167158f38a8246f3014943327abcff092aa2bdf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a3ed44ba1b42ef26b474a36f17251e2d538d42c98aa8bf5c55ad82a56a932df7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0dee9c6126251e0b9492ab42dce9c630a4b8f1a9ea504abaa7009bcfa2190819"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1ff642a465d7cefa35c1e8708bd3a2699b806105bf835102dfcf521bfe78f1f7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2833433cdbd2cd88bb6fca30ac2152e89fd4b4346f26657cace31524fe055f89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "798eca898b3c7345e82eb9240b05a0b60ca803fb202c9b602f01daa85caefb62"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "038683f938a7f7161176ef216f7401a658bc452b31ef9c6158d1e5326925680f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "309390e59634acc9bde77bdff1966fdfdb523446482f0a8b5f69793359a9b50f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "74f9e73650de5b102656e013c741e2a766910986c848d7f39ff349fac609cfbd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "68d8f406a35a94b0bcd1bcbfe0f6c846670acd16ce3177002b5ef22f787555ea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a14eb024ffea986379a1aeea09abe904f9daa4e9e4e7a52ef0d74afeb15902f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db2fdb613a0b0a0c3aec5efa3e503cc4e822ef16b817a685e5b2d1f4a06f36e3"
   end
 
   depends_on "python@3.14"
@@ -43,8 +44,8 @@ class Gcovr < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   def install

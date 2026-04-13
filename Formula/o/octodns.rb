@@ -3,18 +3,18 @@ class Octodns < Formula
 
   desc "Tools for managing DNS across multiple providers"
   homepage "https://github.com/octodns/octodns"
-  url "https://files.pythonhosted.org/packages/4d/f4/36bfd365e93d16cd1ec537f93d2197b1671d6d68be1547c489045d4497c5/octodns-1.15.0.tar.gz"
-  sha256 "cf8a04bc236f9aca1b72820615db47ad35930e29314ae0a707fc17d8d6cf2659"
+  url "https://files.pythonhosted.org/packages/0b/e4/24ff5f8138e82acff859f50a29fd5a28f7b3cbf0c9c6af44faa062920676/octodns-1.16.0.tar.gz"
+  sha256 "d3b1b24cdccf8d904c5872b7e58a762c939d1411bcfb8e107312e04c0d8e3157"
   license "MIT"
   head "https://github.com/octodns/octodns.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c1061f5e2edc1f510078e849f33229f8982c20b2d7c4d247a202060fdc2b1cfe"
-    sha256 cellar: :any,                 arm64_sequoia: "b6568486aad3927a3846bda48072d1657f97f6ca30b056e96ed974bcf7c7df4a"
-    sha256 cellar: :any,                 arm64_sonoma:  "ff4bcac0dce9b61868919a337c116fdfee0775f5bc64f4f9d1bd60d5c95dfcf6"
-    sha256 cellar: :any,                 sonoma:        "ec06d5d4b8935b79f8cea55dd92b0168f3b0ad1371b012649c30edb4f5e5870d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "903ae2c41cb66dd3f671f4ed6854079dfcf7e227a2a198470afb299966f70648"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c803d32de899f47f7f5208f74e499c1473d92c9314fcd1f0acc3f007691f73d0"
+    sha256 cellar: :any,                 arm64_tahoe:   "1f6ecd9be2e8b60c0c1cf3d99c856879d3e83c608a1643846cf6b14599a72de2"
+    sha256 cellar: :any,                 arm64_sequoia: "eed20a9ba1e10a6aa11edfb38883001f4d8b5b6d3203f6300a37daba3c891c43"
+    sha256 cellar: :any,                 arm64_sonoma:  "c8db157343ed92a4445b190ecf65c62374cdd00f413c02ee24c50d5fc16cf8ee"
+    sha256 cellar: :any,                 sonoma:        "b28c3fd110b65b2f520e0d9232e6811161cf46f39339edef93e3e309a6a97a2d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f8a14f34705b7735edbcdff45c672dce15369f85e60c9bfb62c6efa8592f9cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63a5c4e19b6075bc5f0bb7741edbdea8c7d27ee20fdfb8ba3a270e20193a8eca"
   end
 
   depends_on "libyaml"

@@ -6,8 +6,6 @@ class Chaiscript < Formula
   license "BSD-3-Clause"
   head "https://github.com/ChaiScript/ChaiScript.git", branch: "develop"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5a5e765882d43b75315f316297eca0a972b83c5e5c77c6b00bcc28ec4602bf64"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "23f3944333ce9fa19f2664e512b9e6c98ba1e3dad79a9d409788ad2c70832494"

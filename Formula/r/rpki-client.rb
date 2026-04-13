@@ -11,12 +11,13 @@ class RpkiClient < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f84ace6b47e2b9bb4369c7af04295ca4d3f301d80f7a7c60b73d2d8c6319efb2"
-    sha256 arm64_sequoia: "73da58103c83651c9e027fa4c19fc536fe34bae95c334bc28690a64d90f74d06"
-    sha256 arm64_sonoma:  "62efc050d491006edcee2c58c224ea6f48ffac2cfbf79ae1621500638d9aea63"
-    sha256 sonoma:        "df32ad665c7a04a0beb5ddf5c26d0ae1bb064117ca8b5462b162af68c148a378"
-    sha256 arm64_linux:   "e5676cdc91c73e9cb518eec17d84c356db80e11fee1903ece465e13c9321d9dc"
-    sha256 x86_64_linux:  "0981737e861d734d2a67ac2d61c674eb3e6cf9e0d49cad7fd1c0657e80d77337"
+    rebuild 1
+    sha256 arm64_tahoe:   "170f6d339af9d2f8626780f8857844a000002ac670e20c278f1772233404b283"
+    sha256 arm64_sequoia: "b690b6ac953fb11a5e48342862db54a54cd6380bb7715ac6dae3bd66dd83ce11"
+    sha256 arm64_sonoma:  "87be36de28526c452b70af913afdd9590ab4ad9ad1143192b3cfb6131d0626e1"
+    sha256 sonoma:        "a90db0a3f3d587aafbec958d6ac70c1d2292feb3a29715e4e4efcaceeae5ad3b"
+    sha256 arm64_linux:   "1c2fcfd7c269ea1c72228411476f159e7425700d2616c87321bc8cb6ce8cfe61"
+    sha256 x86_64_linux:  "28b11db7413f349e91313a0297013efe736b5aac296f81b5d72601ce931d33f7"
   end
 
   depends_on "pkgconf" => :build
@@ -25,7 +26,10 @@ class RpkiClient < Formula
   depends_on "rsync"
 
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--with-rsync=#{Formula["rsync"].opt_bin}/rsync",

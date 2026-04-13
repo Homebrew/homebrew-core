@@ -1,23 +1,23 @@
 class ApacheFlinkCdc < Formula
   desc "Flink CDC is a streaming data integration tool"
   homepage "https://nightlies.apache.org/flink/flink-cdc-docs-stable/"
-  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=flink/flink-cdc-3.5.0/flink-cdc-3.5.0-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/flink/flink-cdc-3.5.0/flink-cdc-3.5.0-bin.tar.gz"
-  sha256 "50938f2e0e4eeae46241fa077123d7071d27c91ba4ff44f7594620e6278773a7"
+  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-cdc-3.6.0/flink-cdc-3.6.0-2.2-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/flink/flink-cdc-3.6.0/flink-cdc-3.6.0-2.2-bin.tar.gz"
+  version "3.6.0"
+  sha256 "a361cd61c32be7f5056878ee98439ea8c9b50846bb9bcc08b5b305249dac045b"
   license "Apache-2.0"
   head "https://github.com/apache/flink-cdc.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "68fe50aa347d8bea103b9f25ac983ac7fd078c7b82eeedb9589c888b73e754eb"
+    sha256 cellar: :any_skip_relocation, all: "3b5908aaa8bf46a8d89b07b55f20db383002dde1b98a8ef00e18f6d094928d59"
   end
 
-  depends_on "apache-flink@1" => :test # Compatible version at https://flink.apache.org/downloads/#apache-flink-cdc
+  depends_on "apache-flink" => :test
 
   # See: https://github.com/apache/flink-cdc/blob/master/docs/content/docs/connectors/pipeline-connectors/overview.md#supported-connectors
   resource "mysql-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-mysql/3.5.0/flink-cdc-pipeline-connector-mysql-3.5.0.jar"
-    sha256 "60ace993199e26f3b06c45ff71732d974bbb4c8e35b960fd8d58ea6d37b21a0e"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-mysql/3.6.0-2.2/flink-cdc-pipeline-connector-mysql-3.6.0-2.2.jar"
+    sha256 "6d559f2b05571368b4049c52b37d3509cd34f87e7e0bdb225ed2d4e837241e6c"
 
     livecheck do
       formula :parent
@@ -25,8 +25,8 @@ class ApacheFlinkCdc < Formula
   end
 
   resource "oceanbase-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-oceanbase/3.5.0/flink-cdc-pipeline-connector-oceanbase-3.5.0.jar"
-    sha256 "60ace993199e26f3b06c45ff71732d974bbb4c8e35b960fd8d58ea6d37b21a0e"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-oceanbase/3.6.0-2.2/flink-cdc-pipeline-connector-oceanbase-3.6.0-2.2.jar"
+    sha256 "4034f72961b71951ba1bf59df16a8c837c211ac5e43407853d1a470c23ffb19f"
 
     livecheck do
       formula :parent
@@ -34,8 +34,8 @@ class ApacheFlinkCdc < Formula
   end
 
   resource "paimon-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-paimon/3.5.0/flink-cdc-pipeline-connector-paimon-3.5.0.jar"
-    sha256 "0431fd6d42b9475506842b5409c37c35ac932e4a84d143d5c493c7d46fced74b"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-paimon/3.6.0-2.2/flink-cdc-pipeline-connector-paimon-3.6.0-2.2.jar"
+    sha256 "cd9ac95997b330ec9a166039f715757febb0234f2b558cd215dddf0f898e1d94"
 
     livecheck do
       formula :parent
@@ -43,8 +43,8 @@ class ApacheFlinkCdc < Formula
   end
 
   resource "kafka-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-kafka/3.5.0/flink-cdc-pipeline-connector-kafka-3.5.0.jar"
-    sha256 "8f9ac34b28b72797ec8af0f402f382c75299a78df863c1ddd1a683919c7eac28"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-kafka/3.6.0-2.2/flink-cdc-pipeline-connector-kafka-3.6.0-2.2.jar"
+    sha256 "a32859c1fdd098e4da333cdb739c06ba20fe99204b70196e55f6f8e8cba922da"
 
     livecheck do
       formula :parent
@@ -52,8 +52,8 @@ class ApacheFlinkCdc < Formula
   end
 
   resource "maxcompute-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-maxcompute/3.5.0/flink-cdc-pipeline-connector-maxcompute-3.5.0.jar"
-    sha256 "0b398c78f9431b44113ad32ed90616df49dcbf82b5d5703de2ed08c738dddb21"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-maxcompute/3.6.0-2.2/flink-cdc-pipeline-connector-maxcompute-3.6.0-2.2.jar"
+    sha256 "2c34c0a49dfb55f9519966968300861a2c54e07b4db5521b078d00b89ca0ce3e"
 
     livecheck do
       formula :parent
@@ -61,8 +61,8 @@ class ApacheFlinkCdc < Formula
   end
 
   resource "doris-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-doris/3.5.0/flink-cdc-pipeline-connector-doris-3.5.0.jar"
-    sha256 "1cbbdd5a296420b78e2b748867bbbb12d44384d0d11d8654312beb53eb140899"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-doris/3.6.0-2.2/flink-cdc-pipeline-connector-doris-3.6.0-2.2.jar"
+    sha256 "2c08f26684bcd2dd892488b9662c4f7270034a6c77a573df39f4a92f51cf019a"
 
     livecheck do
       formula :parent
@@ -70,8 +70,8 @@ class ApacheFlinkCdc < Formula
   end
 
   resource "elasticsearch-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-elasticsearch/3.5.0/flink-cdc-pipeline-connector-elasticsearch-3.5.0.jar"
-    sha256 "d973b966bc5123cd378fb841f919312805e615cd6fd54dea3d2b4331ae081a30"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-elasticsearch/3.6.0-2.2/flink-cdc-pipeline-connector-elasticsearch-3.6.0-2.2.jar"
+    sha256 "39c50702180428c6b72835f76acc65e25b4d9947bfd6f63aa51e0b5f47b99bd2"
 
     livecheck do
       formula :parent
@@ -79,8 +79,8 @@ class ApacheFlinkCdc < Formula
   end
 
   resource "starrocks-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-starrocks/3.5.0/flink-cdc-pipeline-connector-starrocks-3.5.0.jar"
-    sha256 "0848c35d0068329f5d90c5729df2814692677946bd42f34b68decebc23cdb3cf"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-starrocks/3.6.0-2.2/flink-cdc-pipeline-connector-starrocks-3.6.0-2.2.jar"
+    sha256 "517e8ea1f4d686c12582b3e4c38e6b937b07812a9ce26d36fb07d4e129e6ac7b"
 
     livecheck do
       formula :parent
@@ -88,8 +88,8 @@ class ApacheFlinkCdc < Formula
   end
 
   resource "values-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-values/3.5.0/flink-cdc-pipeline-connector-values-3.5.0.jar"
-    sha256 "075aa185925ac78b411ccad049ea3f5ecbb647d7054dbde653f4029a05ad7e16"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-values/3.6.0-2.2/flink-cdc-pipeline-connector-values-3.6.0-2.2.jar"
+    sha256 "5fb268901b4935e106a70bb6887f7a471dd86aa724b2f9fca8f0815c68b90130"
 
     livecheck do
       formula :parent
@@ -97,8 +97,8 @@ class ApacheFlinkCdc < Formula
   end
 
   resource "iceberg-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-iceberg/3.5.0/flink-cdc-pipeline-connector-iceberg-3.5.0.jar"
-    sha256 "e11a47e6da8c2879acf1694387599e477180126b212224ab46e5819333667988"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-iceberg/3.6.0-2.2/flink-cdc-pipeline-connector-iceberg-3.6.0-2.2.jar"
+    sha256 "65cbb8c7643ccc7648ced4d9a85bde3edaba2cf65c6b9f75f839c9a25e9620cc"
 
     livecheck do
       formula :parent
@@ -143,7 +143,7 @@ class ApacheFlinkCdc < Formula
     YAML
     (testpath/"log").mkpath
     ENV["FLINK_LOG_DIR"] = testpath/"log"
-    flink_home = Formula["apache-flink@1"].libexec
+    flink_home = Formula["apache-flink"].libexec
     system flink_home/"bin/start-cluster.sh"
     output = shell_output "#{bin}/flink-cdc --flink-home #{flink_home} #{testpath}/test-pipeline.yaml"
     assert_match "Pipeline has been submitted to cluster.", output

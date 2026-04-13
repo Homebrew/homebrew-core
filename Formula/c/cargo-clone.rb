@@ -7,14 +7,13 @@ class CargoClone < Formula
   head "https://github.com/JanLikar/cargo-clone.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "676a220d3866238b221ede7cb1f9c6438843f77bc42e72357100b7524cdc6356"
-    sha256 cellar: :any,                 arm64_sequoia: "2ab584f9881aca397d0e8c2394281c9e372f9b77d8d99a7083b07207481d714a"
-    sha256 cellar: :any,                 arm64_sonoma:  "7c899b4b1b143b9ec6973238b0f5133f6906dd945490751fe99bafa2acd1b496"
-    sha256 cellar: :any,                 arm64_ventura: "59a6cb1abb30e784f1725baae6dec12ab0e70dfe55feb9a5102e6aa771d08e1b"
-    sha256 cellar: :any,                 sonoma:        "63fba34768f4c2a2c0d4ccc9dad2aa04932d6245028fc0fc5c59b0e3f9289c8f"
-    sha256 cellar: :any,                 ventura:       "72052760b11c391fc5ad31c4bd8d3b3e05c2ab29e56802d6972942d909e72f20"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "29cfd15121f91f34191bc8769ccc3dd927f153b6112d529557be54095909db05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9fbc19a7007107a7c769ba8d8bc06dbe960fc7e38d9ac2096b99f8cf8e58489"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "c4b544b37b9b657f7f9e9b5f50c8abea0644c9fd5df85cfb10fef27737b3c9df"
+    sha256 cellar: :any,                 arm64_sequoia: "2dcb5c906b3dd8b3b1d47c1a45c6c9ab40b6629de4990ede4c4b2c449e0f1a4a"
+    sha256 cellar: :any,                 arm64_sonoma:  "7ef9e538a557821c7115fe2c2f086f6100ffad8926e8d5b152f536fba835cfa3"
+    sha256 cellar: :any,                 sonoma:        "ac4cdb2157e0900e10ae7654549ea3e94563bd2fad05e73306044418ba16ee98"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f91abbdb2155fc427a28a51d9fc630fcc3fadb4aa75f3f2ce28f56c802679a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43fe9543e5d0f96866f232b945c9524e4d516c41ef049f1aa39ffb6fe1ae8bfc"
   end
 
   depends_on "pkgconf" => :build
@@ -24,7 +23,10 @@ class CargoClone < Formula
   depends_on "openssl@3"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.

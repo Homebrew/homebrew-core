@@ -1,19 +1,18 @@
 class Granted < Formula
   desc "Easiest way to access your cloud"
   homepage "https://granted.dev/"
-  url "https://github.com/fwdcloudsec/granted/archive/refs/tags/v0.38.0.tar.gz"
-  sha256 "b6e2bc8fda38f55ee4673cc0f3f762e076d2029df1d9a8552681a2aacce88721"
+  url "https://github.com/fwdcloudsec/granted/archive/refs/tags/v0.39.0.tar.gz"
+  sha256 "6f9a4b38ffac2da32d7f6c5d225aca2f799d1f74aadd3783a873ff5d98b94144"
   license "MIT"
   head "https://github.com/fwdcloudsec/granted.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6fc38f0017948caf2a7173ea9d35e43ec724d3a154dddadc424e2709eee535aa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d88b56bc977811d0dd27e64e299c4aed3a0d1b3d2cba61ce732b4670821667ce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ea39d3afc9b5f1b8afea1949836ebf5a2c5239468877e65a3d10355129698ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1e8823f116408d8e9bc3c09f168b8548adc91f08136ab071adf0d621b54d5382"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "992cad69e747ccb37bdb958e0ca36a4b877abe5fdf1c6f2c696be8ab7391ed10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8750823e00d087482eed923faa51bf73ac955269229d1222bd86d0ccbf60d27a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a6d59cf9cc915f91dce024168c97365a26f4d098dab2913551daad1b5b7134e4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1ce52b1836d3f0e1ac21956ee1ea1fff166a029919cf5c67fe44c91e04406d2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7c449b853742d204485d403e84f0c233be8dd162ef317f56cfaee66667c1c61"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d2149578c19e0861bd906d18e021a56b9edcab77b86e4c146e155f8517c5fb8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b7084725cd4bb9b5dc268e329ffe306f0a78aae870534e804338ef85603379f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a953b902ae84eafa539888c363e1389a76cefddb077d80fa76f85ff857e1507e"
   end
 
   depends_on "go" => :build
@@ -21,8 +20,8 @@ class Granted < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/common-fate/granted/internal/build.Version=#{version}
-      -X github.com/common-fate/granted/internal/build.ConfigFolderName=.granted
+      -X github.com/fwdcloudsec/granted/internal/build.Version=#{version}
+      -X github.com/fwdcloudsec/granted/internal/build.ConfigFolderName=.granted
     ]
 
     system "go", "build", *std_go_args(ldflags:), "./cmd/granted"
@@ -35,8 +34,8 @@ class Granted < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/granted --version")
 
-    output = shell_output("#{bin}/granted auth configure 2>&1", 1)
-    assert_match "[✘] please provide a url argument", output
+    output = shell_output("#{bin}/granted registry add 2>&1", 1)
+    assert_match "[✘] Required flags \"name, url\" not set", output
 
     ENV["GRANTED_ALIAS_CONFIGURED"] = "true"
     assert_match version.to_s, shell_output("#{bin}/assume --version")

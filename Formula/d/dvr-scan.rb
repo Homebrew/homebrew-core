@@ -3,20 +3,18 @@ class DvrScan < Formula
 
   desc "Extract scenes with motion from videos"
   homepage "https://www.dvr-scan.com/"
-  url "https://files.pythonhosted.org/packages/8c/9e/b4772f3c942a00a1ea7cce8055958e503292d314bff51feda1429a271f7a/dvr_scan-1.7.tar.gz"
-  version "1.7.0.1"
-  sha256 "f7036f8e679cd14bb61417266b1f8cff4f365a00227bff3d6ed75200f33e5c53"
+  url "https://files.pythonhosted.org/packages/36/a0/ebc12a29cbc069d7b7ac2144372f6f219d659854b2d04e06576597ccbeff/dvr_scan-1.8.2.tar.gz"
+  sha256 "ec571e154ae845eeab9769d5c80e8b1ef007ef512a472a5269a02b6233ac2a72"
   license "BSD-2-Clause"
-  revision 5
   head "https://github.com/Breakthrough/DVR-Scan.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "615f45d4bf1fa68e406b53b8b199c56776b9510a54f901e8c43acea13fa6d4c3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bef76ecef9c331766417448b39593c6fefa12f07ee0dff6cff9d0a0d27798681"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c64e93888cf0690ef600f079f46fd2c9d68a78ae641ffc80fa2c75088cf76ab6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "432a6cb5df4718821b2bb715c8ac724c36ec5d22d262d1b20736ec88f19beba2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "34e7f0780c54472d92672fb9ddb51390feab7a74c2e4f91b25d0ce919b101113"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7268cfd381609bb86410fb190c31a7d1fbff99e19173abc7b0339ad334a3afed"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "464bddf177aeb6c154631675e314162fc3e1462bc9deb38ae99ac8018a103429"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8596755c7279f78f7fc5dd44e91ea2e5e214854ac0de87ccccc001a06d76d96"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0034c3ff1658001475f364ad63d700dee62e60b08b1b5f45b9688cf16307bb71"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a2d5d5db27b73844d6a4e972696e4fd0de5c243ba9777f3a5ecd4f7f50572a59"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "641ec3e00a7615df22dc06d476fab1e8388e35fab29967818f3daff6e1807a26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b02e8587351d6ae7e8b6b15698ec3d20129ba7f2f7c8490cd3fef86225030b8"
   end
 
   depends_on "cmake" => :build
@@ -24,13 +22,19 @@ class DvrScan < Formula
   depends_on "ffmpeg"
   depends_on "numpy"
   depends_on "opencv"
+  depends_on "pillow"
   depends_on "python@3.14"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
   end
 
-  pypi_packages exclude_packages: "numpy",
+  fails_with :clang do
+    build 1699
+    cause "pyobjc-core uses `-fdisable-block-signature-string`"
+  end
+
+  pypi_packages exclude_packages: %w[numpy opencv-contrib-python pillow],
                 extra_packages:   "pyobjc-framework-cocoa"
 
   resource "click" do
@@ -39,13 +43,13 @@ class DvrScan < Formula
   end
 
   resource "cython" do
-    url "https://files.pythonhosted.org/packages/83/36/cce2972e13e83ffe58bc73bfd9d37340b5e5113e8243841a57511c7ae1c2/cython-3.2.1.tar.gz"
-    sha256 "2be1e4d0cbdf7f4cd4d9b8284a034e1989b59fd060f6bd4d24bf3729394d2ed8"
+    url "https://files.pythonhosted.org/packages/91/85/7574c9cd44b69a27210444b6650f6477f56c75fee1b70d7672d3e4166167/cython-3.2.4.tar.gz"
+    sha256 "84226ecd313b233da27dc2eb3601b4f222b8209c3a7216d8733b031da1dc64e6"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/61/33/9611380c2bdb1225fdef633e2a9610622310fed35ab11dac9620972ee088/platformdirs-4.5.0.tar.gz"
-    sha256 "70ddccdd7c99fc5942e9fc25636a8b34d04c24b335100223152c2803e4063312"
+    url "https://files.pythonhosted.org/packages/cf/86/0248f086a84f01b37aaec0fa567b397df1a119f73c16f6c7a9aac73ea309/platformdirs-4.5.1.tar.gz"
+    sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
   end
 
   resource "pyobjc-core" do
@@ -76,8 +80,6 @@ class DvrScan < Formula
   def install
     # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
     ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}" if OS.mac?
-    # pyobjc-core uses "-fdisable-block-signature-string" introduced in clang 17
-    ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1699
 
     without = %w[pyobjc-core pyobjc-framework-cocoa] unless OS.mac?
     virtualenv_install_with_resources without:

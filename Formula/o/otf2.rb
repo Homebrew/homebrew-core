@@ -11,24 +11,18 @@ class Otf2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "0699ada7968a7a8bac23d0a2e120d325e36f8a0aeb5637b91fb71acacfdc05ff"
-    sha256 arm64_sequoia: "a62f6852a4714aee63e80f10cfdd27b008c4ff5984d8a3e859baeacbc08dc42f"
-    sha256 arm64_sonoma:  "3472c030be39bc7430179ae6d1028d4ac3539e9229dee0d86a4f95077ef898f4"
-    sha256 sonoma:        "a1d4ee581094663d2042211869b0ad1009d7213a3df6b51d7152d2a855a4aeef"
-    sha256 arm64_linux:   "a92b2db2f4624d69504d3cc37d88e25553ccd507e2b2b4abc1e248e1147a2523"
-    sha256 x86_64_linux:  "966abf2c53bb4dd7f566b972e2b1c7defb27e37bdd0b5771b6acec6fc8752fe4"
+    rebuild 2
+    sha256 arm64_tahoe:   "76c5a0d7064c8b0d2b4feba19fba8ae8843e3085f37be9c9c6010d944496fa65"
+    sha256 arm64_sequoia: "d170f775b42d56dc661464910a75dc8f2a1eb5cf5af8324b6eee25aeb753129b"
+    sha256 arm64_sonoma:  "187ee8044d67eef1e06e8acc1d13753741f69653cc7c4939fca07df504dfc092"
+    sha256 sonoma:        "1eb5144ac0c5dce41f43eadefccd0f0139da021e427021e0686ed160598d755d"
+    sha256 arm64_linux:   "db40af1b5f5e1d6e05658e4d98cb35bf87af8fd2c6e02ee26b5906034a8bd611"
+    sha256 x86_64_linux:  "68b504e18ca81ea5cf975e01c12db1df9d8e54a049612a478f627672159bd9fc"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "sphinx-doc" => :build
   depends_on "open-mpi"
   depends_on "python@3.14"
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
-    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
-  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -47,11 +41,6 @@ class Otf2 < Formula
   end
 
   def install
-    resource("six").stage do
-      system python3, "-m", "pip", "install", *std_pip_args(prefix: libexec), "."
-    end
-
-    ENV.prepend_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
     ENV["PYTHON"] = which(python3)
     ENV["SPHINX"] = Formula["sphinx-doc"].opt_bin/"sphinx-build"
 
@@ -60,14 +49,6 @@ class Otf2 < Formula
     system "make", "install"
 
     inreplace pkgshare/"otf2.summary", "#{Superenv.shims_path}/", ""
-  end
-
-  def caveats
-    <<~EOS
-      To use the Python bindings, you will need to have the six library.
-      One option is to use the bundled copy through your PYTHONPATH, e.g.
-        export PYTHONPATH=#{opt_libexec/Language::Python.site_packages(python3)}
-    EOS
   end
 
   test do

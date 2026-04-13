@@ -12,8 +12,6 @@ class Cubeb < Formula
     depends_on "libtool" => :build
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "527ff86b71c3491f320043c8143e5c52542fc498577a31dbede4c285bb3ed639"
     sha256 cellar: :any,                 arm64_sequoia:  "82458e11a000c10cb1268c1e9118c0d0e447fc40d49bb6e0426288ea87d05e1b"
@@ -109,7 +107,7 @@ class Cubeb < Formula
         return 0;
       }
     C
-    system ENV.cc, "-o", "test", "#{testpath}/test.c", "-L#{lib}", "-lcubeb"
+    system ENV.cc, "-o", "test", testpath/"test.c", "-L#{lib}", "-lcubeb"
     refute_match(/FAIL:.*/, shell_output("#{testpath}/test"),
                     "Basic sanity test failed.")
   end

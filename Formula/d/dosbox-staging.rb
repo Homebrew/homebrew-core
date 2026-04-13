@@ -14,14 +14,13 @@ class DosboxStaging < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "08e2afb5389649c1da8e0242ed58cb937b6f95231383aa78aee2eddbb478b6d0"
-    sha256 arm64_sequoia: "67bbc49e8ce9292918ec0fe1bd6155ddda3260ef7f840be35a562f2d51fbfdb9"
-    sha256 arm64_sonoma:  "7400c7d85ec825c4aa117fd41a3d0d91f630b4dd6f4eb66df9941a31796f9dd1"
-    sha256 arm64_ventura: "d0907c011b0cb842686fe223cddbb4267279c9b1a6e1d213f29c6ce353c045f4"
-    sha256 sonoma:        "2ad78b97010edb15688741a486ab570cbc21479e745a189aba2647e6e6c25492"
-    sha256 ventura:       "30d04f3c8adc6a210c39ff2d6ee4c6f70b8013f27415c12bac4e76acd0583d39"
-    sha256 arm64_linux:   "f6ef8be8b1eb88195f99f7fc76c24b902f56ea449a6a3aa223675854dde18518"
-    sha256 x86_64_linux:  "5886d49c71e462a00183ed14a7c8aa39b1381c2e199315de86ffae3d137db515"
+    rebuild 1
+    sha256 arm64_tahoe:   "88db4c380c543140ebfbd668033e1a8ca44e528a3acb1d1c9028be36f0373b30"
+    sha256 arm64_sequoia: "c20cfde08ded1db6ade3b0bd762e63008330ef568b4633fcb66a4b6a7e27c7ef"
+    sha256 arm64_sonoma:  "b8111b741e94d0a2aacf030ec1cfecf5e47545bf38177757b1d3942f7093e01e"
+    sha256 sonoma:        "3feabb1aecd2f540708f685c837a4c4c633bf941a783b44115388d1a2fb19531"
+    sha256 arm64_linux:   "e69923a5122d7e81660e996d7222b8a6af8de0f3d3211c47048af92bc4ffa93b"
+    sha256 x86_64_linux:  "86a154ce4e2d98e228d8fae799c47ec6f5c1a19d50bb439759a27bee4e6de011"
   end
 
   depends_on "meson" => :build
@@ -39,12 +38,11 @@ class DosboxStaging < Formula
   depends_on "sdl2_net"
   depends_on "speexdsp"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "alsa-lib"
     depends_on "mesa"
     depends_on "mesa-glu"
+    depends_on "zlib-ng-compat"
   end
 
   def install

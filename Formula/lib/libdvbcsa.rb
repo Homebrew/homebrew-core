@@ -12,8 +12,6 @@ class Libdvbcsa < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "7978cc5fa8ca42fed7145ad8b1a5e445d1028c0bd30199d306466945e517bb41"
     sha256 cellar: :any,                 arm64_sequoia:  "e5119a840b0c4c13677acc889fc03d4c035c47fd74d6e6913a11786d5826192a"

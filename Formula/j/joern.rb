@@ -1,8 +1,8 @@
 class Joern < Formula
   desc "Open-source code analysis platform based on code property graphs"
   homepage "https://joern.io/"
-  url "https://github.com/joernio/joern/archive/refs/tags/v4.0.460.tar.gz"
-  sha256 "7779639c4ae7291f4bffc75381f5aa2185b690dc78e5c84403b43921ae391ba5"
+  url "https://github.com/joernio/joern/archive/refs/tags/v4.0.510.tar.gz"
+  sha256 "5f320423e6359e31a6400633c50cef0d527be74affcacf8897639f5c0f835291"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,12 @@ class Joern < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2e220481db41a6c3cafabd3a1fcdf9256e35c7616faa1753b755fb9adcb6d07c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7e7460619a82f082c3f4e5aed61fe37114d67fcd2bcf93f4692853108e0ab42"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20793b1d8aabad696182ebee3f79bc73603c0aa1f842d0d512f22e44f0b8ca39"
-    sha256 cellar: :any_skip_relocation, sonoma:        "17ecf4d5f0b65838cf4be3bf40f8267e76423861beacc3f780fd7bb231775ddf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "602c3914da170e12c0dbc8ba64a7e3f167f9129f840e8d826b95fe4090087f5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7256e46d9aeabaee3ba7509c480a5cade80577bd434292bd5775215b5e110607"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d7cb52bde56309047c30e0c5097076e28ca436aa2d75fc230890c4072b5957fa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9127cd68da7bbbe51e24a2b0532aabe1daeed1cd99c0a20c8e2c044aef3ce32f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a04e63f65b6c8aebf32135b64980752872978814605dbf60fd7cfba53d3526d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c5ae759d72f5599139ffc33c15804925bec441f9fb7db4a1639db7cb544808bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f394da3bd2daf7544f3360db940349c8481c554747ae6a81ab4e27312039f0ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69997e75d81799badaa14aa1f26b5286f345b83e5cdcabbe73613d4fb6d71999"
   end
 
   depends_on "sbt" => :build
@@ -26,7 +26,9 @@ class Joern < Formula
   depends_on "openjdk"
   depends_on "php"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "sbt", "stage"

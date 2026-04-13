@@ -1,36 +1,32 @@
 class Opencoarrays < Formula
   desc "Open-source coarray Fortran ABI, API, and compiler wrapper"
   homepage "http://www.opencoarrays.org"
-  url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.10.2/OpenCoarrays-2.10.2.tar.gz"
-  sha256 "e13f0dc54b966b0113deed7f407514d131990982ad0fe4dea6b986911d26890c"
+  url "https://github.com/sourceryinstitute/OpenCoarrays/archive/refs/tags/2.10.3.tar.gz"
+  sha256 "f9f2fb6ac1fe92c1ea66976894b5cebe53812827b7d1238fed933e2845e8a022"
   license "BSD-3-Clause"
-  revision 5
   head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "e5eb18fc59c6f475e11f404cfc5f6d05e856bce5e6513e5573001a644f9e2d74"
-    sha256 cellar: :any,                 arm64_sequoia: "4e5f645394d698c3f4b52fd2c57db55a78bf28de6b07c40df999681e96eb7620"
-    sha256 cellar: :any,                 arm64_sonoma:  "e643b4c38c1d09c076eb61ebe972256b0cbc83b59f0386007c00188aea83145d"
-    sha256 cellar: :any,                 sonoma:        "aab8992088d17d826340b910a5710062d3835b5df3c1d2e944245b4695940054"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "06a03424802a7638edee660947add4dbe87e6bce8146047d7d7935f571e450d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a695a2cb428c5a6a651f5752ccfbd95f0fe60871107a4f449380192804874290"
+    sha256 cellar: :any,                 arm64_tahoe:   "d1754a06e742ffd50f899af3cf5a186a43aaff6960e26806587e3613589dbd7b"
+    sha256 cellar: :any,                 arm64_sequoia: "a4946c282cb6a26c68ce00264b72cbe34fc9c11809a9fa2264a8eb4e9654e132"
+    sha256 cellar: :any,                 arm64_sonoma:  "7845bf8f56d7a2053eb7a23484a94bb3800d9fafc9385b6c19f4443be04b84f6"
+    sha256 cellar: :any,                 sonoma:        "15f31976e5b9b76817ce2c9e1967f2a88d5bcaa7ff363bdbb9935e6e903c7eb0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4399e9520d9d42d1df399004733966a82f39cb35b04a9917a088fa3fe8b0e83a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5518987ba0c0912603c3d75480c1cb80285c5608362155d374804f94d0332a06"
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc@14"
+  depends_on "gcc@13"
   depends_on "open-mpi"
 
   def install
     # Version 2.10.2 and older are incompatible with GFortran 15.
-    # Version 2.10.3 is incompatible with Open MPI when using GFortran 15.
+    # Version 2.10.3 blocks building with Open MPI and GFortran 14+.
     # We don't support MPICH dependency as a single MPI is needed across formulae
     #
     # Ref: https://github.com/sourceryinstitute/OpenCoarrays/issues/793
     # Ref: https://github.com/open-mpi/ompi/issues/13385
-    ENV["FC"] = which("gfortran-14")
+    ENV["FC"] = which("gfortran-13")
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"

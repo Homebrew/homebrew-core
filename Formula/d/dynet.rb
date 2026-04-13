@@ -6,8 +6,6 @@ class Dynet < Formula
   license "Apache-2.0"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c9b3ca5eca8723487de3b6a864ade40fd1f9fb041a4c8cd45bd39356da50c576"
     sha256 cellar: :any,                 arm64_sequoia: "5ee2e5895fb8f27869a3f6449e4ab88b63f4b8c9b716e4e4cf5aa3fec9a6e5c1"
@@ -16,6 +14,10 @@ class Dynet < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:   "34f4abdf14637d8a9fdc3b85c37061a38001bfff9ab87714b21cc1c5845dc4fa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e49f33563dedf584dbf05c93b537775ddc36bdd62bb0d9d7c7325e4a2c73a4d6"
   end
+
+  # Last release on 2020-10-21 and does not work with latest Eigen
+  deprecate! date: "2026-02-02", because: :unmaintained
+  disable! date: "2027-02-02", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "eigen@3" # cannot use Eigen >= 5 due to EIGEN_EMPTY_STRUCT_CTOR removal

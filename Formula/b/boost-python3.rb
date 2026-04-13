@@ -4,6 +4,7 @@ class BoostPython3 < Formula
   url "https://github.com/boostorg/boost/releases/download/boost-1.90.0/boost-1.90.0-b2-nodocs.tar.xz"
   sha256 "9e6bee9ab529fb2b0733049692d57d10a72202af085e553539a05b4204211a6f"
   license "BSL-1.0"
+  compatibility_version 1
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do

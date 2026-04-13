@@ -1,8 +1,8 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/refs/tags/v6.25.0.tar.gz"
-  sha256 "55e415792f2a4ef2430cb26829b0b7d96fc52f51c6274831e9fe76b8aef28593"
+  url "https://github.com/xmrig/xmrig/archive/refs/tags/v6.26.0.tar.gz"
+  sha256 "5005144e78571f26586410c2b2ede2b0c72afe22f97f1708ea24cfb253c3939b"
   license "GPL-3.0-or-later"
   head "https://github.com/xmrig/xmrig.git", branch: "dev"
 
@@ -12,12 +12,12 @@ class Xmrig < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9604cc30b8387b696667289ce0d89e11ff57c44d10ffa29a87757285a9654584"
-    sha256 cellar: :any,                 arm64_sequoia: "51755d757250f44b8ff86969b9abedb853c593dbb61449df72534bc32f2bcedb"
-    sha256 cellar: :any,                 arm64_sonoma:  "9292e360ce8f9b8cddf3d22e151924261dd7a79060918d0b5727e7b61d554a42"
-    sha256 cellar: :any,                 sonoma:        "e098c8fa67fc8fa9a2f54b411795c53f2b04e9d71792f0b3c3f6cb6457102396"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa7f0666bed45832e1ac91af84970d5bb809d8b8ebabdf735c5f60d2e12cafef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67943ff1e12e6ec9764fac9635dc284f02fd28fbce671fc896d82992d48272df"
+    sha256 cellar: :any,                 arm64_tahoe:   "692f6ffb157058a5aaa59129c0d89bc74092c983c3b6b3a01af358f6727feb2f"
+    sha256 cellar: :any,                 arm64_sequoia: "42d39fb1d004624f28b37d5b4b8c83346872bbdb6e3b377b4fcead6a1392d5f3"
+    sha256 cellar: :any,                 arm64_sonoma:  "f5cd258c8fb7cba3df39ee774010fc39a6eb3942a6f57e3e42aa19da9929aeb0"
+    sha256 cellar: :any,                 sonoma:        "174150b95684a5c1028b8e357b1ee237bd6a8f05fe0449272ced4890b052661d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "739a3ddf564aa207c96c05746aeed50a8b7dd9497adf9572e044984f2d5d52b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb396eb41ae6942456d4aacef16ae8d0fb7a3e3b348e6406ec36f2cdd3dc8205"
   end
 
   depends_on "cmake" => :build

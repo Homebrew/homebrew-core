@@ -1,18 +1,18 @@
 class Binsider < Formula
   desc "Analyzes ELF binaries"
   homepage "https://binsider.dev/"
-  url "https://github.com/orhun/binsider/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "af3b7ac468a5407324b49bbfb750c7426e7d3f08e598195e6a416f10a89afd57"
+  url "https://github.com/orhun/binsider/archive/refs/tags/v0.3.2.tar.gz"
+  sha256 "78d8ccb0497fd32bdd3c46d1ca6557725154af179021b30a00150e96e4ead8f8"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/orhun/binsider.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6c28eed38febff2f361d0d6870494fb32b828af9ec51433642207d9404b49486"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb32ec3ceff5982cefdc95a64a05d89b5c195aaa7038804fb382a1adac1bc2d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f688b062810c34a518b0cc54d72139f6b70a99af03b6c5cd9fcddb9f7f4bf72c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8c47742b904e6d87223592d2ea5a857d3e8165e7acab512e774cc7f2d26e1a6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf1abc2334e0307006f469d8e66fd09085811c8bb44f4190c1a5041f50d0027e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27c4f8c3d337a688a1b964ff07c8207d4105aae018bd820b0f4de8c44cafc016"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb174c262fef03b7bdb8764bdba5aa421b00f888843296e1c6950e2e96d43c14"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "71939a232ef4e8f7e6791060b0fc12085b33e48ae7e28e78ba9336185d2fb017"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b264bb2603ad5dfc863a45f841dceaf74d8ed018915b6574f30caae0eb8438d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8dd432e82e9de9c566f17eff18f24cd896ee33110a420dc4625d24594f0e389c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d554a2e39ef7d49cbca53cac30b77d156f91eb0e67ffea8c8469464b4fefc05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb237cba89a8c27b6b02cc27839349b37b393c420bcd2f6f1d88589e00751f25"
   end
 
   depends_on "rust" => :build

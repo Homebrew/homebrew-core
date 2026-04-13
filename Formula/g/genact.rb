@@ -1,17 +1,17 @@
 class Genact < Formula
   desc "Nonsense activity generator"
   homepage "https://github.com/svenstaro/genact"
-  url "https://github.com/svenstaro/genact/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "cd8c9a6ba23ca4634a90041454bcd662289470878276d327efb555255e60e597"
+  url "https://github.com/svenstaro/genact/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "07d62d0c7a41e83bf4ab8b76a1c0754556697faf5aa023b4e34906ff52323a7d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa35be5ba8acfd172d00b03084f4a6c722dfc700a2351829bd1dfbbe2313ee2d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b07bd7c1a261206122acc3d6a82be2335b49e82e2a42850f40ac36ecfddd616"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c8f4bbdcc855554b5e26ecd4e8aa65e0c22ae87951d1c4bb7b01d27010b5258"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e4bc049250f48520465874d13b6860cb320160cac63a8b82f937caa4f91b9da4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b18deb4f8a5c030be39ac49d2940870ba820c7b3187740cb508a3537251d5c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd7b9af010187e5d98ae520f153ecb19dda279da581999772782d07a319fa8f1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9c8aa46fe815cb6071fa2d2ef972e90f8cff20cb20d9ac6f1bd7f29c71e58349"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c2e5db24a9ec0cadf2af721abc2dfd27313f99fcda417f6175b0740113d0332"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d7886757a4c9f642ac48430ed90a6fc639796a85c476e984ffe3fe6322de760"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9fae2a7cae987cb1cfad8a48fa42d57b68e6760e767d2beae851ccff0d337201"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e88c678ec203a1dbbb34426823d2a38316e51609756b20808ac4953ffcf69917"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eef6ed32cd4140f969d859c3f3c46fb7e39facafb1b50430dd7a6b73e0e6a208"
   end
 
   depends_on "rust" => :build

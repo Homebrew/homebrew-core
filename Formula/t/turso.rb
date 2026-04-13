@@ -1,8 +1,8 @@
 class Turso < Formula
   desc "Interactive SQL shell for Turso"
   homepage "https://github.com/tursodatabase/turso"
-  url "https://github.com/tursodatabase/turso/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "9bcb9bcd9248ded3e066dd95f2d8a7b138a695bac43a392f719002b108820495"
+  url "https://github.com/tursodatabase/turso/archive/refs/tags/v0.5.3.tar.gz"
+  sha256 "c4d19a5106041499bd541b4306ee025c4719f8b2b937adad2cb49f408bb1343c"
   license "MIT"
   head "https://github.com/tursodatabase/turso.git", branch: "main"
 
@@ -12,30 +12,18 @@ class Turso < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "79a87c7858f161b533070b946b8f849367ace0e6b1518f85d9ee57bafbd22137"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a5c1438c8bc6492c9acac6ff3b741cf9a0966ff2c509bceb893450f9f6cfacf0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3881e2e3e6f944ae8b7468c2018c36d0f40b1547544630ab25774f353fd65adc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f4d27763582b2fc3b1c2a79d064cf8185bcd54e29211449364ba91de78845952"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "335ebeae7e44424fd52de456b87904c96b34ff8d1a081b60b50d8abe5a28fe76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3733f0eedca65b6bb37470ce4450ca6f4a3d6dc78bc6c334f02c8509a9a6416"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e8ffc562725a1bccd73d67669cb643d471ebef197169e7ba720a34e2c09f9006"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aeba638b3d17c916d1cb13ca9c53f06575e076fa2ac8dfe2717590a82e6c2eb5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "059b5d41f1a0c4d412f8718e1cd0912ebb8c7d2a6349cec3f68a70c006985de3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6698a99013c2689f07253a63ebb061e4553cea5dd389bd1a24286ab069527d6b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb50bc3a5ea694c1e1466ef3eda57a47cfddd7bb486634aecd522957d01451b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55752d81cc764a164a92600423d75ef301241aaa598da784c61f61a3ff521545"
   end
 
   depends_on "rust" => :build
   uses_from_macos "sqlite" => :test
 
-  on_arm do
-    on_linux do
-      depends_on "llvm" => :build
-    end
-
-    fails_with :gcc do
-      version "12"
-      cause "error: inlining failed in call to 'always_inline' 'veor3q_u8'"
-    end
-  end
-
   def install
-    ENV.llvm_clang if OS.linux? && Hardware::CPU.arm?
     system "cargo", "install", *std_cargo_args(path: "cli")
   end
 

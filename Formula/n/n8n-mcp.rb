@@ -1,12 +1,12 @@
 class N8nMcp < Formula
   desc "MCP for Claude Desktop, Claude Code, Windsurf, Cursor to build n8n workflows"
   homepage "https://www.n8n-mcp.com/"
-  url "https://registry.npmjs.org/n8n-mcp/-/n8n-mcp-2.33.2.tgz"
-  sha256 "be086546272fe46c082d0fecad521b67cacaeee16c3175174c2eb7936024e4d2"
+  url "https://registry.npmjs.org/n8n-mcp/-/n8n-mcp-2.47.6.tgz"
+  sha256 "953d1825b4a3d8c891fb8ef9df99d298ca859046c8bb1fe6cab4c1c681e99ae5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b4753552d70adb80ad64476e5156215f813aaa7bcd7aee72336d16b12335a9ff"
+    sha256 cellar: :any_skip_relocation, all: "533c0c7e581875526fb7969b82db3f4bc3933e3e4f00720ecfc2932970c372a0"
   end
 
   depends_on "node"
@@ -17,16 +17,14 @@ class N8nMcp < Formula
   end
 
   test do
-    ENV["N8N_API_URL"] = "https://your-n8n-instance.com"
-    ENV["N8N_API_KEY"] = "your-api-key"
+    json = [
+      %Q({"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"homebrew","version":"#{version}"}}}),
+      '{"jsonrpc":"2.0","method":"notifications/initialized","params":{}}',
+      '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}',
+    ].join("\n") + "\n"
 
-    output_log = testpath/"output.log"
-    pid = spawn bin/"n8n-mcp", testpath, [:out, :err] => output_log.to_s
-    sleep 10
-    sleep 15 if OS.mac? && Hardware::CPU.intel?
-    assert_match "n8n Documentation MCP Server running on stdio transport", output_log.read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    output = pipe_output(bin/"n8n-mcp", json, 0)
+    assert_match "\"name\":\"n8n-documentation-mcp\"", output
+    assert_match "\"name\":\"search_nodes\"", output
   end
 end

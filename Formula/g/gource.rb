@@ -1,18 +1,17 @@
 class Gource < Formula
   desc "Version Control Visualization Tool"
   homepage "https://gource.io/"
-  url "https://github.com/acaudwell/Gource/releases/download/gource-0.55/gource-0.55.tar.gz"
-  sha256 "c8239212d28b07508d9e477619976802681628fc25eb3e04f6671177013c0142"
+  url "https://github.com/acaudwell/Gource/releases/download/gource-0.56/gource-0.56.tar.gz"
+  sha256 "332d89b9a979b17417fbce0edd72b19914f1409fd126a13d11787d0e15dc0d79"
   license "GPL-3.0-or-later"
-  revision 6
 
   bottle do
-    sha256 arm64_tahoe:   "a0e923c616b9d7e20dae30ee0a12e270361c1bcad4ffa33acc95cc9106c2b2cd"
-    sha256 arm64_sequoia: "4bd23512c8029667e507045a7b7a1bb9998a33486110e8ebb9bdeab9c7004b0a"
-    sha256 arm64_sonoma:  "b8fb77266e58a126748b63cc5a0406c381721a6c19383b0ee47c79a09c613f6a"
-    sha256 sonoma:        "5fb2eb48d4194146105a1fec6af0240966841729c6602842d805e3e6443065e6"
-    sha256 arm64_linux:   "94ed2c013aed6f73eaa73ddebcf43ce498b3648906b63d83d7310adadd45d19a"
-    sha256 x86_64_linux:  "e8a846b6c4a2f212ac315a701b28c2507741b8f3a6ffec6e89f4660fcac858f3"
+    sha256 arm64_tahoe:   "195d55d440abf1c3e5104a9a672d5bc2e26493ed55b7f8082b491b70f4bd8114"
+    sha256 arm64_sequoia: "bdc1ba6b4089ae9296e1172d7ec5b6e0a1e641ea047d21fe43db0cb6c5836a4c"
+    sha256 arm64_sonoma:  "c1b92f684ac3635b9f0f7a54a5735f42ba3f65a42de81af94c75006e6207a915"
+    sha256 sonoma:        "892e81a39c48e764d9cb54db41544789e29e22578392c6a05ea560aef0b6d2ec"
+    sha256 arm64_linux:   "0d8a1d48795700cc8d69560330eb550bdb6dd68e3bc05b0630e28bf91dcaaf97"
+    sha256 x86_64_linux:  "c042625f61fdcafba8f37a0bfd60181d7ed194101323ab408806c8d5b59a4425"
   end
 
   head do
@@ -40,14 +39,6 @@ class Gource < Formula
   end
 
   def install
-    # Workaround for Boost 1.89.0 as upstream commit requires regenerating configure
-    # https://github.com/acaudwell/Gource/commit/1b4e37d71506e6ad19f15190907852978507fc6a
-    if build.stable?
-      odie "Remove workaround for Boost 1.89.0" if version > "0.55"
-      ENV["with_boost_system"] = "no"
-    end
-
-    ENV.cxx11
     ENV.append "LDFLAGS", "-pthread" if OS.linux?
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?

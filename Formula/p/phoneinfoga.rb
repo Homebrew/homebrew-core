@@ -16,6 +16,10 @@ class Phoneinfoga < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d764f83d254017ec95bf389ffe2e15bdcb7f711eb641bcaf119a6938478d40d"
   end
 
+  # https://github.com/sundowndev/phoneinfoga/commit/041f34aba9bf232150792d4aaa7bfc7881ff69a8
+  deprecate! date: "2026-02-18", because: :unmaintained
+  disable! date: "2027-02-18", because: :unmaintained
+
   depends_on "go" => :build
   depends_on "yarn" => :build
   depends_on "node"

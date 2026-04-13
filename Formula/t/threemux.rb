@@ -6,8 +6,6 @@ class Threemux < Formula
   license "MIT"
   head "https://github.com/aaronjanse/3mux.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "21124333bddcbd848413f1f91b1277a848777555165c7f649518236370c237de"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3d8d3f42362a72fe5ef6390d24223c572b596d234c590d7dcd51129678f6aae5"

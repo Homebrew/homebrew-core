@@ -1,31 +1,28 @@
 class CouchbaseShell < Formula
   desc "Modern and fun shell for Couchbase Server and Capella"
   homepage "https://couchbase.sh"
-  url "https://github.com/couchbaselabs/couchbase-shell/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "2679e5e2655ea0744efe66cce665481d95676ef26d284ea0341311068ccfb972"
+  url "https://github.com/couchbaselabs/couchbase-shell/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "d6799eaa9d3e5130163df52ef49f7f588a78bac63b1e78731eb52fa0bd29eb8f"
   license "Apache-2.0"
   head "https://github.com/couchbaselabs/couchbase-shell.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "decf67dd604aa1e82b3bb6cf51ec528cd6f840efb2887c613c1050daf01daa85"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e4207cdae2d36437ad70fed865a844849ade6670facd075383a78a8152e8726"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "baeb1763d305776f71ac2519a2504f5904c4b166eca40f59dd2f6a5c4df1bb93"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "99354510fd9b1979a7da10ef2c67b282b0b029aca9450e3bbb8e1f2fca08801f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cf75c7a65c8cddad02ca437e145f899dfae38e471df20f709f1119109a74b3c5"
-    sha256 cellar: :any_skip_relocation, ventura:       "a379e347f9b4325c6521cb7e30b24f122b3738324e013ea77d224eaf3df56dcc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1789ab9a9d879369b2f7942f59ff171b8fa197f9c1f95029ff5914895cfc4ddc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfbddc03319d40472bdae18473f650e51a29c68b9e2574a58b36f363f43faca0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f594c38db7ee6a0a853ea4b07df60ff6d11f21550bbd0f3cf7567393789aedb8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22fa2e1e8125d8918e945312c9f71abfab417327f36b75885797d452e02bf3c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "176b49699e3d2dc9abc923cd1262eb6080c8ad71e0c93be32fa406561af9d88d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "10c55838e8d6cbc2c24c167a2b12bd506f76423d2be2dcc81fca15cd3b913de3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b73249abaa65a897832a3533057d118a70c2cf44801d7d3bf974a7b977458ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "134d0876c3c49d7b5263d167f66dd3fcd5dcbd017f611b303e6774bd46ebc646"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "libx11"
     depends_on "libxcb"
     depends_on "openssl@3"
+    depends_on "zlib-ng-compat"
   end
 
   def install

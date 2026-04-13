@@ -4,6 +4,7 @@ class Libxau < Formula
   url "https://www.x.org/archive/individual/lib/libXau-1.0.12.tar.xz"
   sha256 "74d0e4dfa3d39ad8939e99bda37f5967aba528211076828464d2777d477fc0fb"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "503040606c5d29dd415f2c8dcba7e181d259e4cdff02d1d8bde4e9ea5244765a"

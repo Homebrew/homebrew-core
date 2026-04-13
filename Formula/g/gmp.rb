@@ -6,14 +6,13 @@ class Gmp < Formula
   mirror "https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz"
   sha256 "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898"
   license any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"]
+  compatibility_version 1
   head "https://gmplib.org/repo/gmp/", using: :hg
 
   livecheck do
     url "https://gmplib.org/download/gmp/"
     regex(/href=.*?gmp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "db8075f389ca0a9f9aba54762c93760db66ef92ee989f4a32b5e13b4b987339c"

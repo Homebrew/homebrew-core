@@ -7,7 +7,7 @@ class Nanopb < Formula
   url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.9.1.tar.gz"
   sha256 "882cd8473ad932b24787e676a808e4fb29c12e086d20bcbfbacc66c183094b5c"
   license "Zlib"
-  revision 4
+  revision 6
 
   livecheck do
     url "https://jpa.kapsi.fi/nanopb/download/"
@@ -15,29 +15,24 @@ class Nanopb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ff790570b8a943bd1312bd198ef9610c6068a955ca903080150bb0e5190d32a7"
-    sha256 cellar: :any,                 arm64_sequoia: "6f7a7d02d66a6aca5f6feb14e5355575524b404c5506674aeb6878f2fcb2fb9a"
-    sha256 cellar: :any,                 arm64_sonoma:  "6d940c481acb8fe68989c2e5b7ac4a1db675a95f0062de6f4075a2e50405c4ba"
-    sha256 cellar: :any,                 sonoma:        "a0d5666967fef1a0ab57a6ab443f8a65375f49a21eabe19fae3b03a0f0c448bd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27ca104b3c7fccfac6deb7ea38adc50187a87fba2ea34d6c7a4d42d4ed279600"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82b324cd00950380dada756031cb4fe6f48400f563082f2bd4e650f38139d6e8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "51fdb8214773b1431f5f54eb3bb94d583140a2af0aa5d13ba4a7d9a95a175ffe"
+    sha256 cellar: :any,                 arm64_sequoia: "b1a79bde77a10714cd34a651d38323804b6ace9c4882469e8eeff447bd527981"
+    sha256 cellar: :any,                 arm64_sonoma:  "cd834785baaa72e3e9cdff0d38c25eeace2f145df358cea150e379121bffba43"
+    sha256 cellar: :any,                 sonoma:        "24be4b707a3495e707546c5fefb63394c666a8562241c77dcce69942937b2648"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e9954ea9fa95369fd9f1685dff2f75e0a14b8c65a1d7f0519dcbd3651a08f19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3c0b0233455e0d27ab4a16291f6db79aa1f256b28e419cba62cfbf159361319"
   end
 
   depends_on "cmake" => :build
   depends_on "protobuf"
   depends_on "python@3.14"
 
-  pypi_packages package_name:   "nanopb",
-                extra_packages: "setuptools"
+  pypi_packages package_name: "nanopb"
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/34/44/e49ecff446afeec9d1a66d6bbf9adc21e3c7cea7803a920ca3773379d4f6/protobuf-6.33.2.tar.gz"
-    sha256 "56dc370c91fbb8ac85bc13582c9e373569668a290aa2e66a590c2a0d35ddb9e4"
-  end
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/f2/00/04a2ab36b70a52d0356852979e08b44edde0435f2115dc66e25f2100f3ab/protobuf-7.34.0.tar.gz"
+    sha256 "3871a3df67c710aaf7bb8d214cc997342e63ceebd940c8c7fc65c9b3d697591a"
   end
 
   def install
@@ -63,10 +58,7 @@ class Nanopb < Formula
       }
     PROTO
 
-    system Formula["protobuf"].bin/"protoc", "--proto_path=#{testpath}",
-                                             "--plugin=#{bin}/protoc-gen-nanopb",
-                                             "--nanopb_out=#{testpath}",
-                                             testpath/"test.proto"
+    system Formula["protobuf"].bin/"protoc", "--nanopb_out=.", "test.proto"
     assert_match "Test", (testpath/"test.pb.c").read
     assert_match "Test", (testpath/"test.pb.h").read
   end

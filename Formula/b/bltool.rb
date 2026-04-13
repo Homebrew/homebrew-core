@@ -5,8 +5,6 @@ class Bltool < Formula
   sha256 "5bef751aac7140f8a705b29edd35a7bfa9f87c36039d84d4001f16a307b64ef6"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "38e264bd60bf4b148e995892e1b4e9d24d5285123affa688ee364a1bcb16a6b2"

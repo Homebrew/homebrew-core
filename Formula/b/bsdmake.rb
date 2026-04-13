@@ -5,8 +5,6 @@ class Bsdmake < Formula
   sha256 "096f333f94193215931a9fab86b9bca0713fbd22ec465bf55510067b53940e62"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "BSD-4-Clause-UC"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 arm64_tahoe:    "5318ec01ebc418bab6c1977ee2023e10901a0c9527cce2e277a9a66d86379399"

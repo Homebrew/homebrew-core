@@ -2,8 +2,8 @@ class Kubie < Formula
   desc "Much more powerful alternative to kubectx and kubens"
   # Original homepage `https://blog.sbstp.ca/introducing-kubie` is down.
   homepage "https://sbstp.ca"
-  url "https://github.com/sbstp/kubie/archive/refs/tags/v0.26.1.tar.gz"
-  sha256 "60e5677c8c7efdba94cfeebff9cec3df68bd54e3c0e927ab811fa08f4d519300"
+  url "https://github.com/sbstp/kubie/archive/refs/tags/v0.27.0.tar.gz"
+  sha256 "e39dc338df5c446fac1ca0380404bdeaf5049143eb5bfa597f684f42b13a00cd"
   license "Zlib"
   head "https://github.com/sbstp/kubie.git", branch: "master"
 
@@ -13,13 +13,12 @@ class Kubie < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a2cec37696426c7c26d87657e9cc983d027a976306801e7e1e5158e98ae2b2e1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "072f3833414e64edc0b0a1e9d49df0a9d9c9172ee66ac417823b5f0f46577f5a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9277355bbf25f470e57bde946c89f266159da93ed7f686aabc783944b76ba5ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7d821cb910123136095f94994d9ccf8baff163542e18f01f960830bf51a33e43"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b3eaa3da4dcf756b29f51b0a17d640cf894c09ab4a6da59166e6ec1e91f2b9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f22560c73cb18b0b7a19c6af3e1eb69220d33cf259994107d5a3e7651bc8c07"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4bf373f5a257004e1553d0593e27ea6a28d9b4c34a668325a6d30fe31b528c01"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86dd04c9d52d2fdd408e3957ad3a2404815396b701062cd33477544cb44a3a4b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50f21d5468eda77d4b3c5772dbbfcb65665acfa471f1af7585b63cb0b23fc636"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9d72c2fc78a91d92e861ffcf39219da0c2547ca0c07e276dfbdb4b3312cadb30"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "398f89da440d7630e4e588289404e54929c425cb146e72a6eacb5d6e2cd11039"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4960b4f584fa4f77acf08d5e458cc6560692047d629fc689d1d0f8d61d64a5c1"
   end
 
   depends_on "rust" => :build

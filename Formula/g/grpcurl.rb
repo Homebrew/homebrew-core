@@ -6,8 +6,6 @@ class Grpcurl < Formula
   license "MIT"
   head "https://github.com/fullstorydev/grpcurl.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4f0fd06ad531b223c2059d6163ad171e27b62942634eeceadd63f1092cb568bf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b6be18c234287de07dc328bcf18ab337dc9b89a477e20110546d7615bd31815"

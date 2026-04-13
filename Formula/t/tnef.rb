@@ -5,8 +5,6 @@ class Tnef < Formula
   sha256 "fa56dd08649f51b173017911cae277dc4b2c98211721c2a60708bf1d28839922"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "44529baf2a4c808692492827a1e241d50d4664afb347e2c9efbd174459e77dfa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "83bd5a4cd7402252e5b3652cb5660aa5ec15527623608cc08556dbb1c6b14b15"

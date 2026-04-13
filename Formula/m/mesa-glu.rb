@@ -4,9 +4,8 @@ class MesaGlu < Formula
   url "https://archive.mesa3d.org/glu/glu-9.0.3.tar.xz"
   sha256 "bd43fe12f374b1192eb15fe20e45ff456b9bc26ab57f0eee919f96ca0f8a330f"
   license any_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "MIT", "SGI-B-2.0"]
+  compatibility_version 1
   head "https://gitlab.freedesktop.org/mesa/glu.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "04be327648775a1c07ed70dd1fbe931983e013381f3459c10c12132fee8c7283"

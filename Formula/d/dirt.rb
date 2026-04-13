@@ -1,13 +1,11 @@
 class Dirt < Formula
   desc "Experimental sample playback"
-  homepage "https://github.com/tidalcycles/Dirt"
-  url "https://github.com/tidalcycles/Dirt/archive/refs/tags/1.1.tar.gz"
-  sha256 "bb1ae52311813d0ea3089bf3837592b885562518b4b44967ce88a24bc10802b6"
+  homepage "https://codeberg.org/uzu/dirt"
+  url "https://codeberg.org/uzu/dirt/archive/1.1.tar.gz"
+  sha256 "5739be152a527352a8fe4c8b7caf0f56add9eb752bef74ab0d815510f6076a1e"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/tidalcycles/Dirt.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
+  head "https://codeberg.org/uzu/dirt.git", branch: "main"
 
   bottle do
     rebuild 1

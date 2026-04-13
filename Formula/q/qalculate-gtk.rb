@@ -1,17 +1,17 @@
 class QalculateGtk < Formula
   desc "Multi-purpose desktop calculator"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/qalculate-gtk/releases/download/v5.8.2/qalculate-gtk-5.8.2.tar.gz"
-  sha256 "20a3d4c4c63f53236cdaa79234e8d51e4deb5b647aff32bc310b920261ce68a3"
+  url "https://github.com/Qalculate/qalculate-gtk/releases/download/v5.10.0/qalculate-gtk-5.10.0.tar.gz"
+  sha256 "310875ae42d4af3bef46bb5f0405496c26e8e8abe218caeb1270cde176c02691"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "6ab05efe372106b95bc3e8e27ad0708d92b5d603e746aa13fd22a981a1812449"
-    sha256 arm64_sequoia: "b0e528c99ffc2b442ed559072fe198052f774389c1722aee40e9e024ae5c040e"
-    sha256 arm64_sonoma:  "faf25d4cbeeeff005f37734a86144466d6ca3b8fd264aebbaf8b322f8fa26ff6"
-    sha256 sonoma:        "0cd1827043296bf236e3ca4b756cf21b04a721ee68bca166620665aa58637ff9"
-    sha256 arm64_linux:   "6e916f5b2600e06df676deeb8b6d966a4cab698c31c2338c6b81866cb81fdff5"
-    sha256 x86_64_linux:  "7dc09e0d8e5650452db436252aa1c28effe3becf8d0903e7b9da48154ee3a4c2"
+    sha256 arm64_tahoe:   "958727ab7c13a897ede3acf494a62ec24fcdea14c8701f8412a11b3eae7c9706"
+    sha256 arm64_sequoia: "4020a8c0863a66b6672070e7d75383ad26d55be1b5670e9a121ce6b8f3779915"
+    sha256 arm64_sonoma:  "928fb2158b741ed69717b345d0ba556c61fa77ceae2e0c4fb1719f86f1767298"
+    sha256 sonoma:        "4a9ecb61d73152b9f50db61867c0aeca7365c1a85757325829578f7558e26def"
+    sha256 arm64_linux:   "e1d2f26a06f738d15ec465abbe519eb191a300295bb215351d6368cb4733cfa8"
+    sha256 x86_64_linux:  "424e2335a8b2caff244937fef8feb536419cd6bf3df98811de76f76e5c0aa72b"
   end
 
   depends_on "gettext" => :build
@@ -31,6 +31,7 @@ class QalculateGtk < Formula
   on_macos do
     depends_on "at-spi2-core"
     depends_on "gettext"
+    depends_on "gtk-mac-integration"
     depends_on "harfbuzz"
   end
 
@@ -39,6 +40,10 @@ class QalculateGtk < Formula
   end
 
   def install
+    if OS.mac?
+      ENV.append_to_cflags "-I#{Formula["gtk-mac-integration"].opt_include/"gtkmacintegration"}"
+      ENV.append "LDFLAGS", "-L#{Formula["gtk-mac-integration"].opt_lib} -lgtkmacintegration-gtk3"
+    end
     ENV.prepend_path "PERL5LIB", Formula["perl-xml-parser"].libexec/"lib/perl5" unless OS.mac?
 
     system "./configure", *std_configure_args

@@ -3,8 +3,8 @@ class Torchvision < Formula
 
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://pytorch.org/vision/stable/index.html"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.24.1.tar.gz"
-  sha256 "071da2078600bfec4886efab77358c9329abfedcf1488b05879b556cb9b84ba7"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.26.0.tar.gz"
+  sha256 "fb95b6b78b3801c4d4d6332f7a5a0b6c624588e1b39e0d6fa145227b0c749403"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,15 +12,13 @@ class Torchvision < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "528b5d9642692b3cf28fd0684f2d13f3cbf68c74ec9683bd06cf61a565db8ada"
-    sha256 cellar: :any,                 arm64_sequoia: "5cb88385cbd548289031e5622c3c31e33ddd18dc97943b9bdadb08dcc67b573d"
-    sha256 cellar: :any,                 arm64_sonoma:  "c42c2b4e44c4cceec6857017bed0e327644b40fd6f6a8b39c156fc787bbf1f78"
-    sha256 cellar: :any,                 sonoma:        "65a4b115fbea06849e87583b95761f94217815114005a3cdfdde87e81f08d000"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6248bbb0b394f4d53a0544317f48ef68a8d9f9257687c9b7fa62d868a21b755"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e81bed906e91800a46c817f8692fb4748e62207f30adacd703410b70a657790d"
+    sha256 cellar: :any,                 arm64_tahoe:   "75ec3e46949f6a10496aa5655385f1889e600946ebf8bbdee960811e6dc9e5d3"
+    sha256 cellar: :any,                 arm64_sequoia: "f62bdf17203851cbd0f8380031c82096447203020ec1c64438b8f5ee2fd477f7"
+    sha256 cellar: :any,                 arm64_sonoma:  "2d7a4f9523aadb4dd993ea46d59b0714d763a8dfa299d515b360b54eb6dbb910"
+    sha256 cellar: :any,                 sonoma:        "e64457040f2f588f3473dfb58fa6d0cb969c2552c53eaaa41cd16d3f7be43587"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "11db9c082034d1a305ea7a211809211a4b22e53c3a94b5b8b8d116bda8fdb712"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d7db000dd7b790d3be3e4214a7a4af203b65d74c3e483e16697f6618d70f910"
   end
 
   depends_on "cmake" => :build

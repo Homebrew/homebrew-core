@@ -1,8 +1,8 @@
 class Libp11 < Formula
   desc "PKCS#11 wrapper library in C"
   homepage "https://github.com/OpenSC/libp11/wiki"
-  url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.16/libp11-0.4.16.tar.gz"
-  sha256 "97777640492fa9e5831497e5892e291dfbf39a7b119d9cb6abb3ec8c56d17553"
+  url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.18/libp11-0.4.18.tar.gz"
+  sha256 "9292de67ca73aba1deacf577c9086b595765f36ef47712cfeb49fa31f6e772fb"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class Libp11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2c8918cc325210c860270b30d7df03b0fd99a3b1b7c3ee1b3f4e3f564cef22e0"
-    sha256 cellar: :any,                 arm64_sequoia: "b3552045716b3b73091ceca3106ecc3252344c5719d8b79fe72e372bc833c12a"
-    sha256 cellar: :any,                 arm64_sonoma:  "5a34df1ff3e44371a025e099d6619163e9f1bbe1c3401cdf457c9d5892745b00"
-    sha256 cellar: :any,                 arm64_ventura: "2637f42b811baecfbe34b682c63ad9e2d4945e5bc752cfe1954941060542d814"
-    sha256 cellar: :any,                 sonoma:        "616d6d08932fbaa5146558c034ac353078e8c482315f798537ac44a160d11e6e"
-    sha256 cellar: :any,                 ventura:       "5ff7176868b03b686d989cf271878741de182d86d77ebf2313bea1e94f95948a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9db183852e3b414c23ee0d2a4c5cb66994c1eb966af3e199cff703b3a5d5db82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "971063937a7ee5f24b7fffcb6d339cd5b7cb713db777d6165c8a47a14fb3bf78"
+    sha256 cellar: :any,                 arm64_tahoe:   "a94d83844bc1f18b84f86706ebf2c352aca06d25600caf40607abf84a6143754"
+    sha256 cellar: :any,                 arm64_sequoia: "d2bd6f345624a39294440cecbfc059e545a5dc39a7bab8c8e739755721ac5c31"
+    sha256 cellar: :any,                 arm64_sonoma:  "b3cf34f7f345d962fc543d2dba6b9a81a36a8644936dfab1dcc1349b612ebcb8"
+    sha256 cellar: :any,                 sonoma:        "74bc484a52d1b9385a0c63d0adc420f34376286b34a5652c53dc6454ec9f2205"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "230793e71d2b7f3b024ed4ebd9644848c5718fde2002ce92b89635ac5cc1a318"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31470d470591cdffac76a296ace50dbc0df4a6cbf5210afd2dc40b0e4a0e5f19"
   end
 
   head do

@@ -1,11 +1,12 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.2p1.tar.gz"
-  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.2p1.tar.gz"
-  version "10.2p1"
-  sha256 "ccc42c0419937959263fa1dbd16dafc18c56b984c03562d2937ce56a60f798b2"
+  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.3p1.tar.gz"
+  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.3p1.tar.gz"
+  version "10.3p1"
+  sha256 "56682a36bb92dcf4b4f016fd8ec8e74059b79a8de25c15d670d731e7d18e45f4"
   license "SSH-OpenSSH"
+  compatibility_version 1
 
   livecheck do
     url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
@@ -13,13 +14,12 @@ class Openssh < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "8923c4cd80df22606925d0a7931e8ba843eb5068f793409ef62953eb510a0d0e"
-    sha256 arm64_sequoia: "e449c08d28b2ee074f4957eb8bad98103b151e48985d5c409e829f6ad135ceaa"
-    sha256 arm64_sonoma:  "b7904cee97a78679397eba236d9f926b7b5827b5c5b865bd45a8c5e2faffc6f1"
-    sha256 sonoma:        "a6f92059c25c4a1e662b27777576fb9610314807e8f29c787e32b11431e76285"
-    sha256 arm64_linux:   "0744cf9b0786612ad2e619177e6555c82d863d9fd2f76b7c6655c0d5c77a5c9b"
-    sha256 x86_64_linux:  "01e105822a2288b23378fb4c1474d6506a9ecbb74706e64d10368799b28bfdf0"
+    sha256 arm64_tahoe:   "4a735b701fb0c8cb8f23a6e977f48b31fed26a6a7f4a86c686658b1cf768cb84"
+    sha256 arm64_sequoia: "d6230ee440c10fbf3b1dcc748c93384862c63b87ca529abda68f59248204c157"
+    sha256 arm64_sonoma:  "84e026e4820abcbfe4b6dab7ef5f1feb36d78014b1c63258db925d3cba3d1611"
+    sha256 sonoma:        "67b3199c24c5276962e7a9298e58fce3832a72026f1efc5966f8fa509606abbd"
+    sha256 arm64_linux:   "613ce577ca0e33d98c9ffd8d54a1c68b0c16c96aaac71645b646b29b44cfe695"
+    sha256 x86_64_linux:  "f3485a00c3f1d5343b3b7cf5d1ce5f4352fe34ddf7077d136c83df999d3a724f"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -35,27 +35,15 @@ class Openssh < Formula
   uses_from_macos "krb5"
   uses_from_macos "libedit"
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-pam"
+    depends_on "zlib-ng-compat"
   end
 
   resource "com.openssh.sshd.sb" do
     url "https://raw.githubusercontent.com/apple-oss-distributions/OpenSSH/OpenSSH-268.100.4/com.openssh.sshd.sb"
     sha256 "a273f86360ea5da3910cfa4c118be931d10904267605cdd4b2055ced3a829774"
-  end
-
-  # Fixes regression with PKCS#11 smart cards. Remove in the next release.
-  patch do
-    url "https://github.com/openssh/openssh-portable/commit/434ba7684054c0637ce8f2486aaacafe65d9b8aa.patch?full_index=1"
-    sha256 "18d311b5819538c235aa48b2e4da9b518e4a82cc4570bff6dae116af28396fb1"
-  end
-
-  # Fixes regression with PKCS#11 smart cards. Remove in the next release.
-  patch do
-    url "https://github.com/openssh/openssh-portable/commit/607f337637f2077b34a9f6f96fc24237255fe175.patch?full_index=1"
-    sha256 "b13d736aaabe2e427150ae20afb89008c4eb9e04482ab6725651013362fbc7fe"
   end
 
   def install

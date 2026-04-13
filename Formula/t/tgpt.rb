@@ -1,20 +1,18 @@
 class Tgpt < Formula
   desc "AI Chatbots in terminal without needing API keys"
   homepage "https://github.com/aandrew-me/tgpt"
-  url "https://github.com/aandrew-me/tgpt/archive/refs/tags/v2.11.0.tar.gz"
-  sha256 "79cbb20d33d38370cc86a5d28d584a3492631295a95635615052db39e92636a3"
+  url "https://github.com/aandrew-me/tgpt/archive/refs/tags/v2.11.1.tar.gz"
+  sha256 "e7a02a0d40b7a6761e5e4550210db04baca7c6113430c3efc9643b9ebca01e32"
   license "GPL-3.0-only"
   head "https://github.com/aandrew-me/tgpt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ff1814a032b50dc938619a0d3beb42ea04bc71e859c74e1bb0788a7195608d4a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0aaf7491e34e5fac755643beb05c215be1c25600e1a3dd92bf5da8585ce49b9c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa57f2611186a6c6efcc5db8dcfad0d90d398873db067d07db64021160b2f97a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ca27e2b876508123185c8fb67b65af1aa156c0c3dadcbee75068c9e466f6528"
-    sha256 cellar: :any_skip_relocation, sonoma:        "61e4f46de86ffc8116273f270809e7db38fe1567c496f85519f1895d757568e3"
-    sha256 cellar: :any_skip_relocation, ventura:       "652445f4990a5d03d9c8a20339a28502ba45b2b02081058f6fa425ba491b62d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9fb13ae92813f7636af5f1e86da4443ad5dfac176f2380ad637a3e42065555c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d5f05da6f4436deb70610058e858992622bfe504aa815f1b0969529bb6a3fab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9f170adfc7e221f022662f3890ce7c4e65096a54e89f0e299154a17783ee0666"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3447294392f618efd80f2d311c29cf4a886e31809d1444e60ded6ae2ad153a73"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9ed0c74f7448afc363ad31c9c12acc7ac39210d70638b93c025319a55c457f6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e53e5ff3d4f95e69cae009c4d8bbfad4b7bc4962146bddd153fea7f49883010a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b806032f331d56a4f7cdf09d9dff1b84940f5f03537e73270ba6519814a55e5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9f5022eceab6be3bfdd87b0a5784b1df7b52de614ce3f78472631fa0f4ba2e0"
   end
 
   depends_on "go" => :build
@@ -30,7 +28,7 @@ class Tgpt < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/tgpt --version")
 
-    output = shell_output("#{bin}/tgpt --provider pollinations \"What is 1+1\"")
-    assert_match(/(1|one)\s*(\+|\splus\s|\sand\s)\s*(1|one)\s*(\sequals\s|\sis\s|=)\s*(2|two)/i, output)
+    output = shell_output("#{bin}/tgpt --quiet --provider pollinations \"What is 1+1\"")
+    assert_match("1 + 1 = 2", output)
   end
 end

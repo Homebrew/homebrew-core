@@ -6,8 +6,6 @@ class Mspdebug < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/dlbeer/mspdebug.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_tahoe:   "951ce1dd56ff8622c0ea45cdeb334e1e1cf4bcb592684e4c2a571621b91a763c"
     sha256                               arm64_sequoia: "59160aae0981c9f56eba3a0cf4645dfc2cb806f6826d4f9c1dca33bfaf033104"

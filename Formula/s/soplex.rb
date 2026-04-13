@@ -1,8 +1,8 @@
 class Soplex < Formula
   desc "Optimization package for solving linear programming problems (LPs)"
   homepage "https://soplex.zib.de/"
-  url "https://soplex.zib.de/download/release/soplex-8.0.0.tgz"
-  sha256 "7b69b4a3dad3c85bbffb30f1a7862e441b9c2984c063e60468d883df0ca0cf28"
+  url "https://soplex.zib.de/download/release/soplex-8.0.2.tgz"
+  sha256 "d1634c0494d3b5355b611c3ce0f710dd19b9626f1ea65c822b668dc8abf1bf8c"
   license "Apache-2.0"
 
   livecheck do
@@ -11,20 +11,22 @@ class Soplex < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "68059b60d46e80cf6c28d41c65190e6a0198421dcf3c2e7eeecf5c1890fc6e28"
-    sha256 cellar: :any,                 arm64_sequoia: "50ab905ad91e6ceff4c92fc4851705374cf20c928737ff83719681cd9cd1b1d2"
-    sha256 cellar: :any,                 arm64_sonoma:  "3238afa7cad64a68f290efaee60ccc9c2fd2f3ab60a3b1f258c24e091576c069"
-    sha256 cellar: :any,                 sonoma:        "78413d50a860c9da05d5b4504c57d7a8e1aeffba6c6109b3d5a1f37783eb8997"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "32d147f2be34f87c6654cebe431867e661840b5b45675b73ba1e8da41b2d6a9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc647fe802d9c62b04aa8a7a5cc46f67b60b6291a4d511fc016919b3a5193336"
+    sha256 cellar: :any,                 arm64_tahoe:   "2f59a426fa23a792285e7f5613ed122744a2937b6efad6cf06757313fe333941"
+    sha256 cellar: :any,                 arm64_sequoia: "610928b8364ddeab8296216dafaa7b4df539351ffff17e382c1c0eb9f22b4261"
+    sha256 cellar: :any,                 arm64_sonoma:  "71dcb224076a11019269a71b4b1b193259442b8e8b4405c817f8d6db2a9987de"
+    sha256 cellar: :any,                 sonoma:        "4772f36ab163178669030ffc9011dae8d0716a1a51c180e48b216dc4500b5202"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "72da6eb5d410c88e0bac8cb9b87f63d95fbd4d0cf3834baaff93a6bedab49f6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20906c8b190a3affcf702d3aaec37e3022328febab379273dbb1f60956e5855f"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DPAPILO=OFF", *std_cmake_args

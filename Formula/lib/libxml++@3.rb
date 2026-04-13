@@ -1,17 +1,15 @@
 class LibxmlxxAT3 < Formula
   desc "C++ wrapper for libxml"
   homepage "https://libxmlplusplus.github.io/libxmlplusplus/"
-  url "https://download.gnome.org/sources/libxml++/3.2/libxml++-3.2.5.tar.xz"
+  url "https://github.com/libxmlplusplus/libxmlplusplus/releases/download/3.2.5/libxml++-3.2.5.tar.xz"
   sha256 "0c9b381b5a83d6b3ab4b0b865d7256dab27d575981b63be2f859edcb94da59c7"
   license "LGPL-2.1-or-later"
   revision 1
 
   livecheck do
     url :stable
-    regex(/libxml\+\+[._-]v?(3\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
+    regex(/^v?(3\.([0-8]\d*?)?[02468](?:\.\d+)*?)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "54ba6ed6a67f9b5c7d41eff654c3aae571203f7c655df54e40cafffa44b1210d"

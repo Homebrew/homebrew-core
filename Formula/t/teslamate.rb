@@ -1,17 +1,17 @@
 class Teslamate < Formula
   desc "Self-hosted data logger for your Tesla"
   homepage "https://docs.teslamate.org"
-  url "https://github.com/teslamate-org/teslamate/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "9e2b9fca03186ecd2e303d01b4f3810c5e5518d6110ab6f786c60590d4ae1f91"
-  license "MIT"
+  url "https://github.com/teslamate-org/teslamate/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "a4a7267df27982cf5844e453d59ff866c6daf3ae126bcda05c0abe87dee43b45"
+  license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0b01215e824d4a8866a07ea09c5308489e65842d792da53f59b87afcc98e5e1d"
-    sha256 cellar: :any,                 arm64_sequoia: "b94d509d6c488f4c044a2fbd5236537f55e9dc2581a5d3643fc07e5edce4314a"
-    sha256 cellar: :any,                 arm64_sonoma:  "3ffde8c26b73d64523ae3e901bf0eb93c8420cf25be593338e924700dbde55c8"
-    sha256 cellar: :any,                 sonoma:        "d0c89dbeb138c6c2ad08754f0eaa57b038c34421529454a229c1e0e915724933"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "78526f3d68585af73ca35ded354e6149530c3278ec580bdab83bdce36ba10d2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "119b4f77cb931120ebf507f578f75bcd5a3b529df3db7ca9c4cb88425804350d"
+    sha256 cellar: :any,                 arm64_tahoe:   "365e32212184579cd3ad2e8645994e88d5a2d19e5bf46ac32ebcab53ff0f1b99"
+    sha256 cellar: :any,                 arm64_sequoia: "a009b56e79cab4ad8ab6cc93a724009b905fedc6c16b719ab99355105d7be9bd"
+    sha256 cellar: :any,                 arm64_sonoma:  "051fee5157e21481b9365da64058189babfb80efe0f53a15110244734b42913d"
+    sha256 cellar: :any,                 sonoma:        "c761eaccdc2122fb4544aa9521e9b7d5d4e411a34907228fd60c13e8966cf03e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "44b5037040201b926c88283fa5f582fbd638f78744fbd66586aa3b4b477097d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15897cb1032f908f271565db40062499ee6fb30b4793a657600c559470ec242b"
   end
 
   depends_on "node" => :build
@@ -21,7 +21,10 @@ class Teslamate < Formula
   depends_on "openssl@3"
 
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # See https://docs.teslamate.org/docs/installation/debian/

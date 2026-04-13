@@ -3,25 +3,28 @@ class Manim < Formula
 
   desc "Animation engine for explanatory math videos"
   homepage "https://www.manim.community"
-  url "https://files.pythonhosted.org/packages/8c/5f/b69881c389032d7da2666bee0a022b6535eefc7cd634bc3e55c213d6cb8c/manim-0.19.1.tar.gz"
-  sha256 "6be7da7e973b212739d2fbfe6af4501068b8a63fdd9407660a609ae12e57b580"
+  url "https://files.pythonhosted.org/packages/dc/3b/ad54ce02f3e95d17d016cb1254708ae3795b60d5661f3b2085655940a565/manim-0.20.1.tar.gz"
+  sha256 "1e9747fb2fc1bde58ad09bcbd77d141793ce4b61811726a7fce537193d92e16b"
   license "MIT"
   head "https://github.com/manimCommunity/manim.git", branch: "main"
 
+  # FIXME: Fails trying to resolve pycairo as pip tries compiling it but cannot find cairo
+  no_autobump! because: "`update-python-resources` cannot determine dependencies"
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6b931a4e744203bd2f386f5ebd5b186e1d1b07391f5df3914700f592a08d283b"
-    sha256 cellar: :any,                 arm64_sequoia: "e3f30c62f1c9e6462de378f085179fcb80bc7e551592d5e67ba8ee9075a6fa2c"
-    sha256 cellar: :any,                 arm64_sonoma:  "5e943b82f9b04c7bf3ce6a4c4864ad92d48e77a2c5e6be4b15a10bfa80b13e06"
-    sha256 cellar: :any,                 sonoma:        "f95492cdf3ecc22f8c5cc4a6dcddb112a1ea0f55a16d61b3281a4331120a2e8d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d8bb2db174efaad49b3c19a954e804f42879f32ed93a786cbc8d2000ee9227e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91ac5147ec4549eb8249157e7c9179c040ee4430618fbb1342d8ca2c56d3887c"
+    sha256 cellar: :any,                 arm64_tahoe:   "1146698c3f5898d4f39f6e6ccbe86f934d6098d4a38340457bdbf6530dbb99eb"
+    sha256 cellar: :any,                 arm64_sequoia: "6932594897fec81b58a4b4656ffa25670a63007a2f737bec0e83506dd69e4042"
+    sha256 cellar: :any,                 arm64_sonoma:  "97296a0f2ed9a52bc0e568c6c3d1d8d0fb0431ad1b4a350922a17c0a145d8476"
+    sha256 cellar: :any,                 sonoma:        "ca8e1507b9e599a1fe30689f0acc4433297487dcdd81cbf420311bf343b9b16b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40347e0a6f413b4a0b5ddb9c2f4bed311e885e66cbfcb57199fea25ecbd375ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eebc67284d7012862e7d5d896bbcaa2b1edef42092477ae74a3a917afa208638"
   end
 
   depends_on "cmake" => :build # for mapbox_earcut
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "cairo" # for cairo.h
-  depends_on "ffmpeg@7" # FFmpeg 8 needs av>=15.1.0, https://github.com/ManimCommunity/manim/pull/4385
+  depends_on "ffmpeg"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "glib"
@@ -43,7 +46,12 @@ class Manim < Formula
     depends_on "patchelf" => :build
   end
 
-  pypi_packages exclude_packages: ["pillow", "numpy", "scipy"]
+  fails_with :clang do
+    build 1699
+    cause "pyobjc-core uses `-fdisable-block-signature-string`"
+  end
+
+  pypi_packages exclude_packages: %w[numpy pillow pycairo scipy]
 
   resource "audioop-lts" do
     url "https://files.pythonhosted.org/packages/38/53/946db57842a50b2da2e0c1e34bd37f36f5aadba1a929a3971c5d7841dbca/audioop_lts-0.2.2.tar.gz"
@@ -51,8 +59,8 @@ class Manim < Formula
   end
 
   resource "av" do
-    url "https://files.pythonhosted.org/packages/0c/9d/486d31e76784cc0ad943f420c5e05867263b32b37e2f4b0f7f22fdc1ca3a/av-13.1.0.tar.gz"
-    sha256 "d3da736c55847d8596eb8c26c60e036f193001db3bc5c10da8665622d906c17e"
+    url "https://files.pythonhosted.org/packages/78/cd/3a83ffbc3cc25b39721d174487fb0d51a76582f4a1703f98e46170ce83d4/av-16.1.0.tar.gz"
+    sha256 "a094b4fd87a3721dacf02794d3d2c82b8d712c85b9534437e82a8a978c175ffd"
   end
 
   resource "beautifulsoup4" do
@@ -71,8 +79,8 @@ class Manim < Formula
   end
 
   resource "cython" do
-    url "https://files.pythonhosted.org/packages/29/17/55fc687ba986f2210298fa2f60fec265fa3004c3f9a1e958ea1fe2d4e061/cython-3.2.2.tar.gz"
-    sha256 "c3add3d483acc73129a61d105389344d792c17e7c1cee24863f16416bd071634"
+    url "https://files.pythonhosted.org/packages/91/85/7574c9cd44b69a27210444b6650f6477f56c75fee1b70d7672d3e4166167/cython-3.2.4.tar.gz"
+    sha256 "84226ecd313b233da27dc2eb3601b4f222b8209c3a7216d8733b031da1dc64e6"
   end
 
   resource "decorator" do
@@ -121,13 +129,8 @@ class Manim < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/e8/fc/7b6fd4d22c8c4dc5704430140d8b3f520531d4fe7328b8f8d03f5a7950e8/networkx-3.6.tar.gz"
-    sha256 "285276002ad1f7f7da0f7b42f004bcba70d381e936559166363707fdad3d72ad"
-  end
-
-  resource "pycairo" do
-    url "https://files.pythonhosted.org/packages/22/d9/1728840a22a4ef8a8f479b9156aa2943cd98c3907accd3849fb0d5f82bfd/pycairo-1.29.0.tar.gz"
-    sha256 "f3f7fde97325cae80224c09f12564ef58d0d0f655da0e3b040f5807bd5bd3142"
+    url "https://files.pythonhosted.org/packages/6a/51/63fe664f3908c97be9d2e4f1158eb633317598cfa6e1fc14af5383f17512/networkx-3.6.1.tar.gz"
+    sha256 "26b7c357accc0c8cde558ad486283728b65b6a95d85ee1cd66bafab4c8168509"
   end
 
   resource "pydub" do
@@ -136,8 +139,8 @@ class Manim < Formula
   end
 
   resource "pyglet" do
-    url "https://files.pythonhosted.org/packages/e3/6b/84c397a74cd33eb377168c682e9e3d6b90c1c10c661e11ea5b397ac8497c/pyglet-2.1.11.tar.gz"
-    sha256 "8285d0af7d0ab443232a81df4d941e0d5c48c18a23ec770b3e5c59a222f5d56e"
+    url "https://files.pythonhosted.org/packages/77/b4/b78df1ec545a151cb7ee64a1632e8f33ba8bd1a97329e4918e76761a80d9/pyglet-2.1.13.tar.gz"
+    sha256 "37a31c212b51658f7c125613f93818a199e8808f86e9b1abe7bfe5395661eee3"
   end
 
   resource "pyglm" do
@@ -161,8 +164,8 @@ class Manim < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "screeninfo" do
@@ -171,13 +174,13 @@ class Manim < Formula
   end
 
   resource "skia-pathops" do
-    url "https://files.pythonhosted.org/packages/47/26/cf395d3050e0dd7209d54748380782a085f45e29d76b091ebbc046028db9/skia_pathops-0.9.0.tar.gz"
-    sha256 "6e520dcd82b260189c9577233fc26f7c48fa8bf436160731b12db4d34e741479"
+    url "https://files.pythonhosted.org/packages/4a/f6/ab37d6fa21f25965d4ad059745c76f13ddfb92a2c06a842a42ad77961c24/skia_pathops-0.9.2.tar.gz"
+    sha256 "4b6d8459f6f4a69282cb26fca0c2bb0b321cc58a9bf9cc6579a52a391edc0319"
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/6d/e6/21ccce3262dd4889aa3332e5a119a3491a95e8f60939870a3a035aabac0d/soupsieve-2.8.tar.gz"
-    sha256 "e2dd4a40a628cb5f28f6d4b0db8800b8f581b65bb380b97de22ba5ca8d72572f"
+    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
+    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
   end
 
   resource "srt" do
@@ -191,8 +194,8 @@ class Manim < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
   end
 
   resource "typing-extensions" do
@@ -206,16 +209,9 @@ class Manim < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     if OS.mac?
       # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
       ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}"
-
-      # needed for pyobjc-core "-fdisable-block-signature-string"
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1699
     else
       without = resources.filter_map { |r| r.name if r.name.start_with?("pyobjc") }
     end

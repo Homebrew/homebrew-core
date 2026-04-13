@@ -1,19 +1,18 @@
 class Libx11 < Formula
   desc "X.Org: Core X11 protocol client library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libX11-1.8.12.tar.gz"
-  sha256 "220fbcf54b6e4d8dc40076ff4ab87954358019982490b33c7802190b62d89ce1"
+  url "https://www.x.org/archive/individual/lib/libX11-1.8.13.tar.gz"
+  sha256 "acf0e7cd7541110e6330ecb539441a2d53061f386ec7be6906dfde0de2598470"
   license "MIT"
+  compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "c89e0707ee679b4e6a5c5995461ac1e4d469b13b997ca528aed7601c3a4a2cb2"
-    sha256 arm64_sequoia: "57ccd55767fd6ffc7d32940d1c59d59b42c82abff4abf795b4ca0df489da42f1"
-    sha256 arm64_sonoma:  "aa0440afde483eec625c716e22f9d4b883b5993a9b2bcf539f1199387127a46c"
-    sha256 arm64_ventura: "693416ac252f1635f9324ff123620482daa904debeb4297f69bc61b3e72176ff"
-    sha256 sonoma:        "5d916769cf91a23fff62dbd1b9c791beeca44504e72907511b352f8f758dae4b"
-    sha256 ventura:       "f1c6b7e52cfa19f8aa99cfd86dfa56597a719850244e4162905a385970862c54"
-    sha256 arm64_linux:   "b18a0e0f7eff31b9ba6de1352133bf25b7645ca83d0fb937afa29c6031607a37"
-    sha256 x86_64_linux:  "7e74d0c1204bf8bb3d9cc9984a0efce1cba85284505076a0508f29e190b7bb2b"
+    sha256 arm64_tahoe:   "cddc8c50c6140f0f64724e4f7c508fe7d26676b24cf7ae2b2527bf884a07a5ea"
+    sha256 arm64_sequoia: "1151df800309c229d23b41bdf27973d63619c423ce369164296af84b779482ce"
+    sha256 arm64_sonoma:  "5d5325771c9ba385b0dec12f257cdd8baf43491dd79c55e79d1d600a6ae4d7e7"
+    sha256 sonoma:        "32a48ce69d27f65034e12ecdf7053708dc88f6edc6c8c6c3b10ff471fbd056c5"
+    sha256 arm64_linux:   "affc9d4a098b828773661c5dfecb32f3e32c2f07701ce11e6495c64f189f2aa3"
+    sha256 x86_64_linux:  "d7b4f02a9f494cfe80106d3ec885233e06c1c34bbfdfff06a6548869d6844ab6"
   end
 
   depends_on "pkgconf" => :build

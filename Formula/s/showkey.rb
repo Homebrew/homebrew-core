@@ -1,8 +1,8 @@
 class Showkey < Formula
   desc "Simple keystroke visualizer"
   homepage "http://www.catb.org/~esr/showkey/"
-  url "https://gitlab.com/esr/showkey/-/archive/1.9/showkey-1.9.tar.bz2"
-  sha256 "dc4c9e5ccb1054a7135861ff01e1ff4c07ef8b23712686e918e5b0602a87191d"
+  url "https://gitlab.com/esr/showkey/-/archive/1.10/showkey-1.10.tar.bz2"
+  sha256 "f4b4ff9c9655401483c60c1be6f19326560e62e854092477be037a3bb2b7fbde"
   license "MIT"
   head "https://gitlab.com/esr/showkey.git", branch: "master"
 
@@ -17,16 +17,12 @@ class Showkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1c630fa31441f7dd28d2031d45523f39ea47e8fa55c8c9f8b2b35966690b7955"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b6d6a1358818a0884df47d8720be947074ba1e261f22856c546161ed620dafbb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "40f2d4aa914a8823995425bbae6f33e4e8a8a3c2c0bc406e7bf4e0299b52cbca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff8fa9772d85597f5c8caaf9642f3ad0e8f622de71080cb6a29089bb47445b66"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a86590d6ec04487c561c424ea8d870dbda92fc2981ea31627a79193abf76f097"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4af765defe4fb3b6c3dd2a5ef15d3f1a4d5b3521ccd5dbaa35fd0b04e29a7e55"
-    sha256 cellar: :any_skip_relocation, ventura:        "5e49308c5c35d9d773e7a523faec8d355f05f313f0df6daed0175166dca58d3c"
-    sha256 cellar: :any_skip_relocation, monterey:       "1347c7b79e61d9b55735600a10f9bed5ea95a258723c11859f5125fe0ed41dd0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "05a4d7762f25e11ac1138e807470b910b4c7b370c7cb965f207f8f3ace251189"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7921d9e1728c1576d6659fb218eabc169ae70c9fbe9396609b6e862145b0ad47"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d4db0ec95cc9b593dd603119093cc1cfb0d05fec67165b381bc936269aa11519"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b7eb7df2a48d0b831c30a17e94c1c2cbd2559649b697ca1e8214e1c5cca463e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1e19b2b40cda59155d145ce44dba870fa1972a705df17027b2038619857ab58"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f28b228721672ae9f5c4e05e52ca7298e53a989ef9bed4b1720c15e726f9a5c0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef382c4cc6e4d30291318ea81a45d774ee25654bf90ea7759550aa571b4ebf50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad609524ed5343ccfe3a417185d10446aaa70ac0b0ac291a20dfa793d25b4822"
   end
 
   depends_on "asciidoctor" => :build
@@ -53,6 +49,6 @@ class Showkey < Formula
       pipe.write "\cC\cD"
     end
 
-    assert_match "Hello<SP>Homebrew!\r\nBye...\r\n", output
+    assert_match "Hello<SP>Homebrew!", output
   end
 end

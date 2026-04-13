@@ -1,8 +1,8 @@
 class Cdecl < Formula
   desc "Turn English phrases to C or C++ declarations"
   homepage "https://github.com/paul-j-lucas/cdecl"
-  url "https://github.com/paul-j-lucas/cdecl/releases/download/cdecl-18.6/cdecl-18.6.tar.gz"
-  sha256 "c74fe8796aafcfda53d05e11f371d3dbde82d949e5bc92883a8448d00bb69d6a"
+  url "https://github.com/paul-j-lucas/cdecl/releases/download/cdecl-18.7.2/cdecl-18.7.2.tar.gz"
+  sha256 "e91cc201c79456b923b45cfa779da62f5ca91824d11c545167ee7bb33a9fb810"
   license all_of: [
     "GPL-3.0-or-later",
     "LGPL-2.1-or-later", # gnulib
@@ -10,12 +10,12 @@ class Cdecl < Formula
   ]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd38e5bf4c8a8078da970660b7606ff75f23f83dd543d8326ddad49ee0d89b87"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ac0f06d8d558fe59ada729d90ffbf7b45b4dd56f6faabeb407b86554fe32a4a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19109790fb3da8fe96c85b531c408c208b519a28b72babe03142fd5629779983"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8f7aa224f9141bb718a4b2162815eee639b6a76e99473f14e142fa36e01dc947"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "841e04df30320bdd17e141f604a03081b7bd839bcb63f55b9a7771538db13beb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14614c85d787397706896becc11d2148dd435f23163d90f03a199f3e7a2d8b63"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0db165b173c52c419fc2c7f763b42e6834ac534b24fc63203c0242e386d6ef7e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4018c09121a627f883e431db8b6c3af88e674945f7b268a3b489e18cb7f8b8e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ff0d4d29c2a4f1d227d1253600df72b50a322a1913c791d9e17059036fe98dd5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "22a55bd22e6a8c3b3c787e0c0f3cd60d0abbe11ef199b93399d30aa1bea04753"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b56eddf396e6798959e9e6f408704ca917cfa00b0cca83c67063b1a27578b911"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa596153a512c8d1cabffd75ab0f1ac4555dc21efe9a6e11ac4893be66074557"
   end
 
   uses_from_macos "bison" => :build

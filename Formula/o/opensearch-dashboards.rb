@@ -1,9 +1,10 @@
 class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
   homepage "https://docs.opensearch.org/latest/dashboards/"
+  # Build fails if not a git repository
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "3.4.0",
-      revision: "c1d92e84395038f5f99e64e27b00c00fbabcd075"
+      tag:      "3.6.0",
+      revision: "47091b2bb937be28e29cde7c3d2c3c9ee6803c27"
   license "Apache-2.0"
 
   livecheck do
@@ -12,19 +13,17 @@ class OpensearchDashboards < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "92dd911bf3b2cdbf80fad0f6962b5c4e81a4e5d914c2b5c66a50a282818e10ce"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88374c70d2e31bc95fb61eefbe4ed41dea31e9b3100673e5bb9df8a593c00386"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6fe3e0328b09cc8c2aaaebf25a8d537de8215011d4a734d00a8a5aac04c02f71"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4c72e84afece9a7eb093fbedd72ea1c7b67ffd00f5a87532a1ca9853478f45a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e49fb1dcddbf39dad87d408d1196dbac1e88fe5d42bf05c9016092ed684271a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be1827491f85dbe9d072cb1578821be0ded5e5940051afa5ca2380e7c554200d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "61da20fd6b63ac62e4e21e736db18c84738420bdf2259cd6105357e8c1d72056"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "61da20fd6b63ac62e4e21e736db18c84738420bdf2259cd6105357e8c1d72056"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "61da20fd6b63ac62e4e21e736db18c84738420bdf2259cd6105357e8c1d72056"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bacb22ade5cf561905acd08df802ffef50babee3eb5fc7bab7918cb7739abe55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "211ddd6772665c427aae3ee5c9bbc42560b697d2cebc9a86e9d728db4152850d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c0a2e8d2d05897d590088536a31b792c75ecb5919648dd20f15e4025bf49461"
   end
-
-  deprecate! date: "2025-10-28", because: "uses deprecated node@20"
 
   depends_on "yarn" => :build
   depends_on "opensearch" => :test
-  depends_on "node@20"
+  depends_on "node@22"
 
   # - Do not download node and discard all actions related to this node
   patch :DATA
@@ -38,7 +37,7 @@ class OpensearchDashboards < Formula
     cd "build/opensearch-dashboards-#{version}-#{os}-#{arch}" do
       inreplace "bin/use_node",
                 /NODE=".+"/,
-                "NODE=\"#{Formula["node@20"].opt_bin/"node"}\""
+                "NODE=\"#{Formula["node@22"].opt_bin}/node\""
 
       inreplace "config/opensearch_dashboards.yml",
                 /#\s*pid\.file: .+$/,
@@ -49,18 +48,13 @@ class OpensearchDashboards < Formula
 
       prefix.install Dir["*"]
     end
-  end
 
-  def post_install
     (var/"log/opensearch-dashboards").mkpath
-
     (var/"lib/opensearch-dashboards").mkpath
-    ln_s var/"lib/opensearch-dashboards", prefix/"data" unless (prefix/"data").exist?
-
     (var/"opensearch-dashboards/plugins").mkpath
-    ln_s var/"opensearch-dashboards/plugins", prefix/"plugins" unless (prefix/"plugins").exist?
-
-    ln_s etc/"opensearch-dashboards", prefix/"config" unless (prefix/"config").exist?
+    prefix.install_symlink var/"lib/opensearch-dashboards" => "data"
+    prefix.install_symlink var/"opensearch-dashboards/plugins"
+    prefix.install_symlink etc/"opensearch-dashboards" => "config"
   end
 
   def caveats
@@ -139,7 +133,7 @@ diff --git a/src/dev/build/tasks/create_archives_sources_task.ts b/src/dev/build
 index 5ba01ad129..b4ecbb0d3d 100644
 --- a/src/dev/build/tasks/create_archives_sources_task.ts
 +++ b/src/dev/build/tasks/create_archives_sources_task.ts
-@@ -41,38 +41,6 @@ export const CreateArchivesSources: Task = {
+@@ -41,20 +41,6 @@ export const CreateArchivesSources: Task = {
            source: build.resolvePath(),
            destination: build.resolvePathForPlatform(platform),
          });
@@ -155,24 +149,6 @@ index 5ba01ad129..b4ecbb0d3d 100644
 -          source: (await getNodeDownloadInfo(config, platform)).extractDir,
 -          destination: build.resolvePathForPlatform(platform, 'node'),
 -        });
--
--        // ToDo [NODE14]: Remove this Node.js 14 fallback download
--        // Copy the Node.js 14 binaries into node/fallback to be used by `use_node`
--        if (platform.getBuildName() === 'darwin-arm64') {
--          log.warning(`There are no fallback Node.js versions released for darwin-arm64.`);
--        } else {
--          await scanCopy({
--            source: (
--              await getNodeVersionDownloadInfo(
--                NODE14_FALLBACK_VERSION,
--                platform.getNodeArch(),
--                platform.isWindows(),
--                config.resolveFromRepo()
--              )
--            ).extractDir,
--            destination: build.resolvePathForPlatform(platform, 'node', 'fallback'),
--          });
--        }
 -
 -        log.debug('Node.js copied into', platform.getNodeArch(), 'specific build directory');
        })

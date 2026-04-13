@@ -6,26 +6,26 @@ class Mkfontscale < Formula
   license "X11"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "86447a62f6dfa5be3641fcc3153d8b7aa09f9660d330a06f3454d347980b4055"
-    sha256 cellar: :any,                 arm64_sequoia:  "cb7cfc5fe147173c5117c3269dda15cdcacf19be6a992b9a9339ca3a91fc7495"
-    sha256 cellar: :any,                 arm64_sonoma:   "6795c9f6167e00f72f72aa22ebf557a440ba85e9c4242ffba2a774dad5c8b859"
-    sha256 cellar: :any,                 arm64_ventura:  "c88d40044de4b6556a64c1d679cfa377d32f0af07c7d6b344b91046910db8371"
-    sha256 cellar: :any,                 arm64_monterey: "01eacad2f18ee8f35bc292d7c6dece30a4ad5a040fdbb12fd4541f843b8c438f"
-    sha256 cellar: :any,                 sonoma:         "0fde03defbc5ab14a784923257a034eeb58d55e9ddd2094ce5157f84cb255b0a"
-    sha256 cellar: :any,                 ventura:        "369bd2a993bc78b059ec76adc510eb212c9b3c7f0604a99d9374403d6b930202"
-    sha256 cellar: :any,                 monterey:       "bf2d558740739a6f00635279dde933488d381bea05457e8fbfa92495c7820a15"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "98654a0fdb0becc676a739a84e9416bb3119c6e12b8479c8c28ca15778bd8d4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ea938e8ad6c373bad7f07d10cce369fa35345c4ae07629d46e8173357404708"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2029b136126ebb853f7c72befec91cb833b8218d54e04e1707c51a61a51d9ed8"
+    sha256 cellar: :any,                 arm64_sequoia: "3dd14178ed5788bc616fd8b53017ee7b28830e06e51c2ef5fbf4a87b13157424"
+    sha256 cellar: :any,                 arm64_sonoma:  "5750bbac5a5a7e478998daa857ae7794ebdc3195c243255043f5805f3344928e"
+    sha256 cellar: :any,                 sonoma:        "9a091c7ef6f917c5227d1311c66a72bf9981b74aff2fcb3b2592bb2883dfe74f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "84f1ae828213f379ec6558b5206633cbece34cca0d40fe965dd683591e825f0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3112c5e6d39688bdfee2ed411f2c9f9a98416a9751212f3c5bc305694ef2a0f"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "xorgproto"  => :build
+  depends_on "xorgproto" => :build
 
   depends_on "freetype"
   depends_on "libfontenc"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     configure_args = %w[

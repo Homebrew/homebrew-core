@@ -5,8 +5,6 @@ class Alexjs < Formula
   sha256 "0c41d5d72c0101996aecb88ae2f423d6ac7a2fc57f93384d1a193d2ce67c4ffb"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8e7666f1bbca1055363b542c7937cfcfdcf2ce1667f8e01a3013353a0b32ab8"

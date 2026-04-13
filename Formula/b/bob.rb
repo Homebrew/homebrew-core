@@ -6,19 +6,23 @@ class Bob < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8de3f7f7d11e61ecb04e2ee99a314fbee20fab0f77767cf603e14aad61f98c46"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7dca5b4209bbeb4d36f5d593bacc92d6a2c7ab03577ea0afd03ad4ee557abc9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "24caf97d5032cedfb8bc3cd4d18a6d4acbe0d428185b4af653691873e236e77b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "96a427685b9b5ed8ecbfc9fd6c0f8a574a3474ee60c6a5c5858a5088d1cc6149"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d881e5d7ab658baba140e0476e7acc2bcffb3e55bc8775c2fd1b9ecf3297218d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a3d6ea3dd4af3a4e03836e07ffa1b6907fb6115c9e49f7e4e4155638cea7074"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4b7e96e9ff2eebd5a54c95854f5da07ae9dee77305f42981e34b52fbba648460"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b5e788b434e34ecae6605eae401ea54951e1150c7bc5db61474ba8eeb8e0f06"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "054de84ed6a50ae0b352536cbfe121e22325ab9f948846e7e233f9cd83e68615"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e7113e46db37b115bbdc484fde5cd9589968a98e1a8869bc51c091873c0af655"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "069ee6be3dc2a0c03d344796db1d205b1cf083fb43488205e1909eee6f060396"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20cde0e7cf21f19fcee01e31c233c9b0daec7b68465d66654553d448108dd977"
   end
 
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
+
     generate_completions_from_executable(bin/"bob", "complete")
+    # For powershell, `power-shell` is required
+    (pwsh_completion/"_bob.ps1").write Utils.safe_popen_read(bin/"bob", "complete", "power-shell")
   end
 
   test do

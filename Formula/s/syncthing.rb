@@ -1,8 +1,8 @@
 class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
-  url "https://github.com/syncthing/syncthing/archive/refs/tags/v2.0.13.tar.gz"
-  sha256 "cdd9235b418f16c69dae3a21b6c43c7ee8e549e116b649f2bd4611796e101c28"
+  url "https://github.com/syncthing/syncthing/archive/refs/tags/v2.0.16.tar.gz"
+  sha256 "30ab1917025de0d057ae53b3568e721bbea652b4b3d7bd96b04a6ef9bfb28bab"
   license "MPL-2.0"
   head "https://github.com/syncthing/syncthing.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Syncthing < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eb4479b07886ef47a9674451318495bce5ef336a12f43f095171a79b8da3a8a0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ab483eb5024a0202fcef5855a44354d41baaf3020a47913514dd416c6acadf4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1ca295d4923084474d397d8b89e02f19faab1c82f7fc560609ecae6b00e6028"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fa17aa043ebeb1a494ecf7f82bcdc999e533ebd1a32e50e5302317d9bb30666b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b63219c2d36b70e342e9163b577a3abbee155e8c7c469187fb892c074ceb321b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f02a99d95eb47534d18bcc14be9c448e3704996336d04198d7a2008d9e87bd36"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "19b52af39435da2baef7f808e8c912e43aeeb8dfa01a696a5cb994ff88fb942d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e8125d2f023afceaad2fbae1fcfa93ebae017eafffa0ebae1d3759e0a42acd6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0242ae25d363575dec0ed4a56ab10e3f26430b0e01b8fc47c735988c60b6de5f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "295c0f4daf9df32ff46e546a02ea57a4204aee1d94f0a94a78f85acca7f8ebc5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9198d728d2af54ce6f3f81a962fe1a5d071cf8441484a3d80a658f4cd02c9677"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d279a75844682df1a376f5669679fc1544b96ed35d8b189a88b223b53a805d20"
   end
 
   depends_on "go" => :build

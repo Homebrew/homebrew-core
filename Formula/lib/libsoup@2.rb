@@ -6,15 +6,14 @@ class LibsoupAT2 < Formula
   license "LGPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "8d0b9024c71c3dedf27463fb24861679a4c1e462c32dba678eae3b233784e5da"
-    sha256 arm64_sequoia: "ec4bd5e3db72b68f217650bdb80f3640649624fc7e45f2da67113061dffbb570"
-    sha256 arm64_sonoma:  "1563ef4a32d45d51a7b5c5fff98f5c74f4f15f4e2d30bc43754e5865ca422dc1"
-    sha256 sonoma:        "f335f613fdb50f36e0f75aa005d829a3494b523c5d27f70b000b291fe32cfa4d"
-    sha256 arm64_linux:   "b08fb4563a62d3b610014e5a6f4e6f0cea0680075ed0c7bbe1d89644585d004c"
-    sha256 x86_64_linux:  "0b6fec65bf0c66eaac516a655954a9dbbe86f51e4517872732937ded648ccdd5"
+    rebuild 1
+    sha256 arm64_tahoe:   "3843052f79eaa80401b387d1a0c3092c87530d4d3b8990c62a850be37e70c379"
+    sha256 arm64_sequoia: "5daa9270adbc44160747bb08e6c50b61e1421582474480ab35a23cf8d20746fc"
+    sha256 arm64_sonoma:  "a6c52b69c5d790f34cabf7b34ea5c01e80d3a6bdd29b54a2f02fc0f2e1dee285"
+    sha256 sonoma:        "566098c112e98e00992026a2b2677e680a533244359928df662481f81c9005a4"
+    sha256 arm64_linux:   "918e532c5ecdf26f5f4c4c5ceda05389eb372712282b78d8876eafd16511a321"
+    sha256 x86_64_linux:  "e202649ae1fcd94d595ca68f9913e025827be307218eb61b9ca7586fb1495f57"
   end
 
   keg_only :versioned_formula
@@ -39,7 +38,6 @@ class LibsoupAT2 < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -47,6 +45,7 @@ class LibsoupAT2 < Formula
 
   on_linux do
     depends_on "brotli"
+    depends_on "zlib-ng-compat"
   end
 
   def install

@@ -7,16 +7,13 @@ class Fsql < Formula
   head "https://github.com/kashav/fsql.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5bdd84069df7b3ffd2cf42cb36eff7f7c4bf7925494739d0af8b62ff5adbae16"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5ee1ef5c0cb7992fcdab0ab9ea54dd4fe8c5dbef39793a44d7a2d2a74a7bd6a4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01fa06d949f379122e16e504381653f59e3eb6ed941a8a929e276142f30bb64a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "01fa06d949f379122e16e504381653f59e3eb6ed941a8a929e276142f30bb64a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "01fa06d949f379122e16e504381653f59e3eb6ed941a8a929e276142f30bb64a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7e28627b044505df74811b404a61d49864b653834b4dc66be7a9a81abbaae3dd"
-    sha256 cellar: :any_skip_relocation, ventura:        "7e28627b044505df74811b404a61d49864b653834b4dc66be7a9a81abbaae3dd"
-    sha256 cellar: :any_skip_relocation, monterey:       "7e28627b044505df74811b404a61d49864b653834b4dc66be7a9a81abbaae3dd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "bc30d152243d3fc0bc9f7e3bc02c71646dbc6b43c770d5b0d8d6bd4f6a463e36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2eb74fbbc15dd391cebadef0d2b51591dd76b8ff2892b4c93e6754efa1e6526d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5998a7b21ebfca7e45beb100540c2c03e40b2a46fadd68f411f2d23ce94804d1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5998a7b21ebfca7e45beb100540c2c03e40b2a46fadd68f411f2d23ce94804d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5998a7b21ebfca7e45beb100540c2c03e40b2a46fadd68f411f2d23ce94804d1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "362bd94a4a9c87e587ea8bd66e5eb9343c7db121f9c0484fbcfdae8175f992d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fef8a76b6a6e113d05e3d2ffbc507da6aab473f01e95b9cdb95bd1ba5e03c5bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d3ac241c87450ec9515b9e98fd34a35cc5ebc77779af8575637834f6e9eddd8"
   end
 
   depends_on "go" => :build

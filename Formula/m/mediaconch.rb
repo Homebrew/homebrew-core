@@ -12,12 +12,13 @@ class Mediaconch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "844ab2be12e5e698eca1b88045f8daddbd39ac8b01498ea1c5617914d7f28041"
-    sha256 cellar: :any,                 arm64_sequoia: "a25abff496997bda4f16f34850447b72f0339236e563d66f478678457b703aad"
-    sha256 cellar: :any,                 arm64_sonoma:  "360ba609196b870ead90356eba2d6c586b4de5b1049582edc85bbdde89e4066f"
-    sha256 cellar: :any,                 sonoma:        "fbef1a650094552ecc64f13889ac9a25f0f9c5dd40fdd3ad738c953eaec8bf3b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f56ef42b6c53531222833ebe2745d1c04ea8bcd113a853cb2f560806821bf26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0632cb17d9d660d07aa5ccf1d69b9c88801443af6bacb2e5e99b4ef55bde6476"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8364c862db65aa723612eea3215ea4399c074701e4321b4f1a6a705b8cf6c925"
+    sha256 cellar: :any,                 arm64_sequoia: "ed8e4aadeb2a94ca31f5fa04ac4409db8a3cc9f1365b4e89d0dba789e6fbff15"
+    sha256 cellar: :any,                 arm64_sonoma:  "2470bb7d06e3613e3c319a2afeba16ac513e0422f7e2f898fbfbe293859dc016"
+    sha256 cellar: :any,                 sonoma:        "5168de6b8b71887d861dab17f49e835d8467de0f765018b0b7cdc9380f10080e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f14fccda9ccb8ec1d160149e1a2c6ecb8cecdb62d615a7af0c622397a4232520"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75fa4fbd9aaebac202c91e5966d8054cb80ac5da0251e6954dd050649d4ed888"
   end
 
   depends_on "pkgconf" => :build
@@ -30,7 +31,10 @@ class Mediaconch < Formula
   uses_from_macos "curl"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     cd "MediaConch/Project/GNU/CLI" do

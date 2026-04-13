@@ -5,8 +5,6 @@ class Fsw < Formula
   sha256 "9222f76f99ef9841dc937a8f23b529f635ad70b0f004b9dd4afb35c1b0d8f0ff"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "00cd7d239ddaea10afcdb88fa8c03bd40dae89077f35ac47b0ba19289d1477ca"

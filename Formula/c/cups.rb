@@ -6,6 +6,7 @@ class Cups < Formula
   url "https://github.com/OpenPrinting/cups/releases/download/v2.4.16/cups-2.4.16-source.tar.gz"
   sha256 "0339587204b4f9428dd0592eb301dec0bf9ea6ea8dce5d9690d56be585aba92d"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/OpenPrinting/cups.git", branch: "master"
 
   livecheck do
@@ -14,12 +15,12 @@ class Cups < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "8bd91492767ab03c60cb845a39933ca79bf45b689c1a243c8966f0370d5752fe"
-    sha256 arm64_sequoia: "f9584d88da0c0f3ef3e7e679db89fd9e82018436bb209f65896b928b7007b35e"
-    sha256 arm64_sonoma:  "7f36f681ac44f7f8beb74703f61ba5a993072f49f341de010ed29bfa423ec8f0"
-    sha256 sonoma:        "e27cf96facf5af120d44cff0eef8f116d9b301ce177d4d0c4eeb79f1ca6c4f48"
-    sha256 arm64_linux:   "b44dedc12c393e914d12b22dfc2d231f2b62fd6a2769442b02be6db66f1bb6cc"
-    sha256 x86_64_linux:  "791727de4166cd8213a9acd8fe76492660245eb98481c405c6fb55a017e7054f"
+    sha256 arm64_tahoe:   "8424841fac4c8cafb8179f5226928bfb2fcef71860f63dc6fa44d661e351ec63"
+    sha256 arm64_sequoia: "32622111c9f460aa8be40ec7231c93521376f2fe260c505f680dd4cde3481659"
+    sha256 arm64_sonoma:  "831347b2bacc22aa8c4b12a2150d58ee8fd86985ba649845762a62f4a5a4d7ea"
+    sha256 sonoma:        "56eff0f29e06651f360fe67b1879137b50239bbbad6ea67123f5b706b4912070"
+    sha256 arm64_linux:   "573d09a9645a35852d77d7f134a810898ee2ff81333f6ecebe811ee92016100d"
+    sha256 x86_64_linux:  "4f8fd899d1f1801fe74efed50f91e52a16287d2e60d2417a58d66e97bfa3077e"
   end
 
   keg_only :provided_by_macos
@@ -28,7 +29,10 @@ class Cups < Formula
   depends_on "openssl@3"
 
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--with-components=core",

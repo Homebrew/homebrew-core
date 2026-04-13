@@ -1,18 +1,18 @@
 class GoCamo < Formula
   desc "Secure image proxy server"
   homepage "https://github.com/cactus/go-camo"
-  url "https://github.com/cactus/go-camo/archive/refs/tags/v2.7.2.tar.gz"
-  sha256 "3e4bb9e58e5f9f8fb2e6d4c484a67ad2a98fe0fd355db48e6014d6e993eb0dd2"
+  url "https://github.com/cactus/go-camo/archive/refs/tags/v2.7.3.tar.gz"
+  sha256 "72279e0836f4d4ccdd73c1828f2d680b8c1e42f56a67e75233459aa6d1a6027a"
   license "MIT"
   head "https://github.com/cactus/go-camo.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5691e88c434caed6dca8cc4b75c3b8c2943416b82408ea0d73699c0a1247422e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5691e88c434caed6dca8cc4b75c3b8c2943416b82408ea0d73699c0a1247422e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5691e88c434caed6dca8cc4b75c3b8c2943416b82408ea0d73699c0a1247422e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "86818fa04a43692d9ac5308f6d19fe5de6a1d1ac48754019f326f47f98cb7caa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "67544498556661ecc88a6d75104df54dcb34388811fd51a1773660651404c26a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "712e23d1163c434839238f1c7e8709a01345dc9f02b34e9e7428f1e3a30323e4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af0c15a84d50414f7d242c71a733fb18d33b856ded9a21f417cc7ebf64d5a047"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af0c15a84d50414f7d242c71a733fb18d33b856ded9a21f417cc7ebf64d5a047"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af0c15a84d50414f7d242c71a733fb18d33b856ded9a21f417cc7ebf64d5a047"
+    sha256 cellar: :any_skip_relocation, sonoma:        "55febc5b14eaa80b0a937bcd03dedf879855d08f86630cc4152f8aad096658a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1121a0839b27bf1f278b2c8b55abff0d9574390830cda0614040f432c337c83b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8eccf14c9dc9be9c7f5b3488e0937f618af6ef2086ab4c0ba44b5de8216f9d87"
   end
 
   depends_on "go" => :build

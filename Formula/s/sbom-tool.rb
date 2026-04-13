@@ -15,16 +15,19 @@ class SbomTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6c31aad15124b2f83da7a0ed010a2716e9aedf4bc851d59693111bb23b2393bd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d1227a118a8789126adca3b5cf9c8b13e44d7024853929570161d26cd019929"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "976cfb7dd806d4171e91e5940ea94c3f5210e756bb327858446550fcffc4bade"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c682d73f2274bc7f6d54c81d7e47ad00ac384a54d166d5a297a8b209aa6ae2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a1d920bb9f3bdcbc323879069b0e2027ac898c4ccdb2c336ac1f97e99afa1e4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06b6f4918958ec0e7e70ccbb235644379bd18ff47afe57caf7d8c1c8cbedef67"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab14eebe6248adcbb8a0bf171222131c57c0841ead2d19872d67d58e4191aa5a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "083d6b8c50c9c6999d8ccdaf0facf81e25b58287d8a047c372e6a517d8ad1bca"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6613476c7a9046af605b796661736ce125b23ac0a01cf400920d99d095d9796"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ee862f5f6b5c288e44ae1be6f39976b76e7a52a3c5c1cbcae09a076822d4ff5"
   end
 
   depends_on "dotnet@8"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "true"

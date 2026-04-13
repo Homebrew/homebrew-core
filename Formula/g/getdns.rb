@@ -24,8 +24,6 @@ class Getdns < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "a7c28530f90a7b7154bd2c84bcca93ab7615776eda9903282a5d2ac7889d8e72"
     sha256 cellar: :any,                 arm64_sequoia:  "4de6139ffb48649141f2de34aa4525625427e92f6c663a228457e0d66c0bb4d2"

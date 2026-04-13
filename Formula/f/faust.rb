@@ -1,8 +1,8 @@
 class Faust < Formula
   desc "Functional programming language for real time signal processing"
   homepage "https://faust.grame.fr"
-  url "https://github.com/grame-cncm/faust/releases/download/2.83.1/faust-2.83.1.tar.gz"
-  sha256 "6ca3d749296191c41e9fd24ce7e5b37f58022d4320acb1c7343fec2df82d5551"
+  url "https://github.com/grame-cncm/faust/releases/download/2.85.5/faust-2.85.5.tar.gz"
+  sha256 "fc18bc2b1b31044d0bd2c35ee92d80d4428c9008ac6a03acf4163109803941d7"
   license "GPL-2.0-or-later"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -14,12 +14,12 @@ class Faust < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d2a55eacd796dbfb88cb6255a8620e092e77e333fa8404eeb1cd438ed440ecd1"
-    sha256 cellar: :any,                 arm64_sequoia: "219a3d5ec634c88c84ddd71d547ef00408626906165694abf3a82209f6879cd1"
-    sha256 cellar: :any,                 arm64_sonoma:  "44aca203784d43d61fd808f6bd388f7f557846a613aa7d1fcf3354d09e292fdc"
-    sha256                               sonoma:        "12c0f1f3d9cbab7c0ff14adc151b17b10ef4487f225eedd475fa545e98188e15"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e73f78c0325a8b989539959a6a57ab825789b613d701a52c536a2ee2c128fdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e50c6f304965d4b01d466322b1cd907d88038bd961683ecbb04ee7facb0cff23"
+    sha256 cellar: :any,                 arm64_tahoe:   "8b056c2bc65491e5201e807fc1068b20856aed0c1a2288222cd0628ca59f1561"
+    sha256 cellar: :any,                 arm64_sequoia: "1f222ea71a90754b65e294132396043de98c09c3462bbbf1ce739a8cc6bfe73b"
+    sha256 cellar: :any,                 arm64_sonoma:  "acef8556f507ae249fafbac1fb2efc0ff61df80babc7c661cf3320bb49af4bc4"
+    sha256                               sonoma:        "eed422c744529cc75081832c154a680a9d5936aa709c307c174b091207659a77"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b4fafd59d91c273d7fb8fdb58889e29db4074507731c1a531384d6f304c97fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf90179239a5644b25a1720b8adce225393e83b9957498bd398243dfb1bfc3ab"
   end
 
   depends_on "cmake" => :build
@@ -75,10 +75,10 @@ class Faust < Formula
   end
 
   test do
-    (testpath/"noise.dsp").write <<~EOS
+    (testpath/"noise.dsp").write <<~FAUST
       import("stdfaust.lib");
       process = no.noise;
-    EOS
+    FAUST
 
     system bin/"faust", "noise.dsp"
   end

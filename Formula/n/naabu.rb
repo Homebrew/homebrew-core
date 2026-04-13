@@ -1,18 +1,18 @@
 class Naabu < Formula
   desc "Fast port scanner"
   homepage "https://docs.projectdiscovery.io/tools/naabu/overview"
-  url "https://github.com/projectdiscovery/naabu/archive/refs/tags/v2.3.7.tar.gz"
-  sha256 "a6dee678235ee42bb874ef42d9f0c873062c85a35829ecfc9f204c0c654a3b44"
+  url "https://github.com/projectdiscovery/naabu/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "153a26a64f09a7c3d60858b29ba74e191e3bf6ce433965cf72ab140691234826"
   license "MIT"
   head "https://github.com/projectdiscovery/naabu.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e4cd29c1aff268f682da3ae652fff806ccaa433c1740f4f4f949bff404c6c6c5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d59fb207f3d532fe02fedabe790f01d3d46b61bdabcebd21c53a93d7e13ec8ac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f767ad436f3345273795a103b9647fe54d3b4fe79e276c7ff68f17aeeb7c48e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "21ab98b9bb7c747b1d7db756354db7f3a2468509a5c78ed91b3bb366f82ff6e9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "038a957b3ea8af0e777f7c31afb329bacff07be8a7543abf4aae12375aeab0f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3909df2136b4905f915935c59a5d9904742f079a8b3c810161a1095ec998af4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c480a675f0cac9c07781b2876042865839c36d340a173a7e55b9e22109beb3ee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "18f07768fb64c92c2c04eae4982021dcd91f8217b8c08d923abe5739497c69c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "33df7af335dc21ab2306cd24f1c294d513dec714e833f62b40be27834fa1ac63"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ae9309dffdbe26259eaec181eb1a904d195db834c01e10a63e8df45b1969b815"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0e88668db3e8703bbd7574c530ff9ad053e8624818270a7f46c0b93d2030609"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef6b4dc162983f3a0076eb1e83c1204e99561c837e46e5555c67cbbd223be1e2"
   end
 
   depends_on "go" => :build

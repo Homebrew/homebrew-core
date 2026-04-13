@@ -8,6 +8,7 @@
   "cockatrice": "homebrew/cask",
   "codex": "homebrew/cask",
   "consul": "homebrew/cask",
+  "copilot-language-server": "homebrew/cask",
   "corelocationcli": "homebrew/cask",
   "geany": "homebrew/cask",
   "gearboy": "homebrew/cask",

@@ -1,9 +1,10 @@
 class Expat < Formula
   desc "XML 1.0 parser"
   homepage "https://libexpat.github.io/"
-  url "https://github.com/libexpat/libexpat/releases/download/R_2_7_3/expat-2.7.3.tar.lz"
-  sha256 "4cb8ec847a42d97fe4e9ee4fb516aca79cd41667e13a3982124e11c204bf2b9d"
+  url "https://github.com/libexpat/libexpat/releases/download/R_2_7_5/expat-2.7.5.tar.lz"
+  sha256 "975e76ab8a5625190bd04a577fa9efc246798c25b8ec665acb6f7951be8b0646"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -13,15 +14,13 @@ class Expat < Formula
     end
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a8a736373b1ff544a1928a441b8c7bff432eeef79150952a135d4338b80a948d"
-    sha256 cellar: :any,                 arm64_sequoia: "cce13237e11552f73969092db97b88b014e1258299421b1c2e5e7ea876227553"
-    sha256 cellar: :any,                 arm64_sonoma:  "2bf2b3e08565d092b4a927a941055cd4177deea3efecd986ec4d350d6328e40a"
-    sha256 cellar: :any,                 sonoma:        "4615123d8a742503006ca75fca2de8b383e33dd79df636291f1b5671daa4e1f5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fdebb63fcb9996acf86ce21b91c17f9c37d547c48b86e65ea4607394dde6c11"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbcaf94dc832299d32dc5dd5c33e6d6df43349b881e7ca798ffe7ca0e9e06e8b"
+    sha256 cellar: :any,                 arm64_tahoe:   "04fed88fc5ea63211829695ae832be622bba9b224f8c84f4882a6776b3f5cca7"
+    sha256 cellar: :any,                 arm64_sequoia: "266fc399a590e756abd38ce5b2923c397876253704dd4c3fde01816dffb7843e"
+    sha256 cellar: :any,                 arm64_sonoma:  "8b5d48b744487494f5649db6f7a971bff4e48aac5fc48b16c19d6622787b04d1"
+    sha256 cellar: :any,                 sonoma:        "68d8779156448d1396abf021453156bede9a0c119e35b46f64cb901fe7dc5f8c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "24a79da446d9ca71589c8951de336f0b4851828007ee9ee03f3272b4ccc288e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79b6001a08f1a82a9bd2e23d0048f6d7fd812d14f5526f482ccff75b674dcc39"
   end
 
   head do

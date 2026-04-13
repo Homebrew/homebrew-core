@@ -24,19 +24,14 @@ class Xsane < Formula
     regex(/href=.*?xsane[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:    "4dca3c238d407fc9c1a7f0f1b7c270f0cffefc2f7955a4af932193b8313e0164"
-    sha256 arm64_sequoia:  "e1bc40a49753404b609fce74f94ae755ef6ed1c6ca575703ecd167ff2c26d8b2"
-    sha256 arm64_sonoma:   "5532780b9dd6f8768a38d4fa9a845df83367ef96d0514ac41a7f3d337b4a20b5"
-    sha256 arm64_ventura:  "937f1a294ababd5e2c7815c599a185b83e67bb07ef6f86da4773bfcfcead1876"
-    sha256 arm64_monterey: "c7fc7231fcb5d959fc393a50388e7fa2bd152d6dde8dd0b2cb5530e2b9aa29c0"
-    sha256 sonoma:         "13df5fed03ac7d42542000ac00160e78ccb95e79877426719f51c27d38d888e4"
-    sha256 ventura:        "7f62506c8cdd4ed11beaaa735d3d9d49b034fd9b22595b58c1437bca0fb44390"
-    sha256 monterey:       "be01888247a3d7e510e17a484822c170dd3b7159eb97a73c2dd635a017a199be"
-    sha256 arm64_linux:    "7b14c66ec45e121d52e56aa03b84ad17e05537e1b7946f24cd0ea77124b3ef2e"
-    sha256 x86_64_linux:   "38f48e2fb08a821089e4419e0b0a6d6994a9e3d1faa009e3319107a4b393af03"
+    rebuild 1
+    sha256 arm64_tahoe:   "941fa6509e6e252e468c894c6066dbd46c301b2c3046059e6c4f8215d391294f"
+    sha256 arm64_sequoia: "0d66e34d8305f5d856e9f83e7b5aee1dfea383b0ac21071a064f1d15536f259a"
+    sha256 arm64_sonoma:  "dbe17560abb0219f0b2a71c25b7dc6a439cc05e2adb96eb567d48bd05401ad36"
+    sha256 sonoma:        "42c97c01bb304dbcc2ee1ee6648ca11f61aa373cab7ee3105e627b192f87a1f5"
+    sha256 arm64_linux:   "2e6a96863d3108421a4f8907d76ef8e5d05399fe151af51a9864d04afe895493"
+    sha256 x86_64_linux:  "a37202cd6cbc1a49669b25b6131c30c5c0e555ea8a4d06a2ebbe5ee71b8eded8"
   end
 
   head do
@@ -54,8 +49,6 @@ class Xsane < Formula
   depends_on "libtiff"
   depends_on "sane-backends"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "at-spi2-core"
     depends_on "cairo"
@@ -67,6 +60,7 @@ class Xsane < Formula
 
   on_linux do
     depends_on "xorg-server" => :test
+    depends_on "zlib-ng-compat"
   end
 
   def install

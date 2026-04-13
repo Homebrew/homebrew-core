@@ -1,29 +1,28 @@
 class Faac < Formula
   desc "ISO AAC audio encoder"
   homepage "https://sourceforge.net/projects/faac/"
-  url "https://github.com/knik0/faac/archive/refs/tags/faac-1.31.1.tar.gz"
-  sha256 "3191bf1b131f1213221ed86f65c2dfabf22d41f6b3771e7e65b6d29478433527"
+  url "https://github.com/knik0/faac/archive/refs/tags/faac-1.40.tar.gz"
+  sha256 "3ef4cc1fa6a750003602adc6eea892ca3815becd9145797b787f0999e8b2b89c"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
+  head "https://github.com/knik0/faac.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "00c66e8dd158e8c2f606e0707c261f8b5438951e9b38e316949900152058ddca"
-    sha256 cellar: :any,                 arm64_sequoia: "8daa11b4e9cf3a79ee7cd68c63e5f5902a127fe7546d2ce93d7ca2fb345ef2ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "2cdb819aadff92bd69b07f182b9fa709d30694fec7df650f211a341e1fc3128c"
-    sha256 cellar: :any,                 arm64_ventura: "1a0d7a2fc58b61e1d5b01e72377c884975322848de30125eae644c0fb75517f7"
-    sha256 cellar: :any,                 sonoma:        "89a3968e3fcff90660fc6de8c59173f4b0b36769141875971edf0100956a428d"
-    sha256 cellar: :any,                 ventura:       "b4f7efe2d732e7df635323384fd884a319d3bd9852d8f1afc7e2e7b65ced184d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e99c3b48cc15f3987c5d70cae13c4a8b4b3fd9d47543fc7fa77552c2be2c1cd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30940df984b4f44d7c7b4bb0f55de660262490bf0e0288edfe5f5e673c26cea9"
+    sha256 cellar: :any,                 arm64_tahoe:   "328ea5edf8aed0c2924d466aa547ecf361bb4329601eb0b46cdec7cadcc684f7"
+    sha256 cellar: :any,                 arm64_sequoia: "8e645259e46b7f9da1ed54e0ddc3dc8ab059148d2bef398eedb5545942c9b181"
+    sha256 cellar: :any,                 arm64_sonoma:  "e2e624769511e047231361cb3c7b6997b2952c4902b224ffd40b5e0cc6031eb8"
+    sha256 cellar: :any,                 sonoma:        "83dbb04d3aa70aa85260ff1f8a80b35a1b9261d44a300efad76658ba49872bb1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0dc2fd31acbc1b6ab2272283143a64d17a7ef9155a1d83d95ce82a31041c4155"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db68453ac31bbde0615ad36cd30214c019d5a718769f1febe5c8952220ea29c7"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
 
   def install
-    system "./bootstrap"
-    system "./configure", *std_configure_args
-    system "make", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

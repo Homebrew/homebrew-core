@@ -1,18 +1,18 @@
 class CargoGenerate < Formula
   desc "Use pre-existing git repositories as templates"
   homepage "https://github.com/cargo-generate/cargo-generate"
-  url "https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.23.7.tar.gz"
-  sha256 "7f6dceb0ede61122684d4852092331c7179a5ea236247688e5074be68c1d9e4d"
+  url "https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.23.8.tar.gz"
+  sha256 "52455036c3ec98567de0d2529621b93d5811de48e67c2e0a25798578f85ad3f7"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/cargo-generate/cargo-generate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "34791473078f76879f23bfa46b602f9bc861fdd9dd33bb2af4f3672ba5d0ca3f"
-    sha256 cellar: :any,                 arm64_sequoia: "7715d55f9ce8322e500573d731a09560242cc008d79fd9915037271c270bb923"
-    sha256 cellar: :any,                 arm64_sonoma:  "64aad8d85e1a3ef8d26fb88f1325cf1d795efe4a4c6db43009af4af5b289260f"
-    sha256 cellar: :any,                 sonoma:        "96eeba249472831404dd4a494e368ec236301647294a993d02ea5f51aa91e369"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3897578d246b7f1fbff2f9594a6f7f2832086dc0a26575d7dd2ef8ce7b4f5329"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfd95c9ae28e6dd897a42f4dce961cc4589e25d78034b2363b5a21c8422b6531"
+    sha256 cellar: :any,                 arm64_tahoe:   "01f08ea11d7c5127a6b745f2852c2107ae88f9ea122491dea7f9189c1f0c5bb1"
+    sha256 cellar: :any,                 arm64_sequoia: "c9f67573672dae847b4d8e89aee742504320ac3ff8c9c5000f0509b2416964eb"
+    sha256 cellar: :any,                 arm64_sonoma:  "439e4a5d2a705ae907f5d11623b20846c64eda813c8ab66037581203d810131f"
+    sha256 cellar: :any,                 sonoma:        "273a63c51e32bf38bdfb6af61dfb53924fd7e8b55bd1f0f2522c03317a7e76d3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ab3b97088e8e29508ee9bde36efa65ea5195fa9da91b2c0c629309fe049db54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13cfc93d4845b502cfa9c4f87bbe254b602a81ce2ec4c6086dcc897849c1f1f0"
   end
 
   depends_on "pkgconf" => :build

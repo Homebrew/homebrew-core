@@ -4,8 +4,7 @@ class Libapplewm < Formula
   url "https://www.x.org/releases/individual/lib/libAppleWM-1.4.1.tar.bz2"
   sha256 "5e5c85bcd81152b7bd33083135bfe2287636e707bba25f43ea09e1422c121d65"
   license "MIT"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "4b8eba3bb855a350470232642c48f34eb601408e1b7a4650bed5934bf0e6c6bc"

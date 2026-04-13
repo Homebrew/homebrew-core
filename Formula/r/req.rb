@@ -5,8 +5,6 @@ class Req < Formula
   sha256 "4b628556876a5d16e05bdcca8b9a0e9147d48d801e49b0acc624adf6cb4e5350"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "16f15db092a3128344c2731a6294b92c13ac3f1a9a2578333127c40862c24169"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "80b342c2fd081a819943fe63fd72a9c3b2e53ffa78ca8d34b45b841f9120910e"

@@ -1,18 +1,18 @@
 class Hpack < Formula
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
-  url "https://github.com/sol/hpack/archive/refs/tags/0.39.1.tar.gz"
-  sha256 "87f89f175b20ad436aa913d711a1e8eea202c7fc6a534e14ca3b7a2f033c1c30"
+  url "https://hackage.haskell.org/package/hpack-0.39.3/hpack-0.39.3.tar.gz"
+  sha256 "75c51500435219f30ef685ef53c91f56c7addeee1eac01c86e96878188f83ab2"
   license "MIT"
   head "https://github.com/sol/hpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bccf8f0adae2c470ff2ac8b2b98362bd65cbbfb8cc835ee5f0661e44a00a3548"
-    sha256 cellar: :any,                 arm64_sequoia: "82876a19870c2d5538d376f31e194c7d9f6db186179f167b30722741a7acce20"
-    sha256 cellar: :any,                 arm64_sonoma:  "93de19b5e801f7bdb155254d944045a3a7d48485a204bbc39047b3cad714183a"
-    sha256 cellar: :any,                 sonoma:        "171f27403ad5d8f29522b99026b6226fb7af8dd3fbcbd0ac6717a252f03db809"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e95f26e8e08693ceefb0050369b516cf46cc433f40413914ccb7ff3a6b7dcb1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de4b1cb3ecb015a26134b8520dfe06b10898124315d1461750f7447e91b65c3b"
+    sha256 cellar: :any,                 arm64_tahoe:   "f3f5948c10791930b1aed31aba527dff2bb7e086cd33303e372569a08c50526b"
+    sha256 cellar: :any,                 arm64_sequoia: "2973a038dc0b48304f972f7bbeca5e02f73fe19275d64d580e872456c84a6afa"
+    sha256 cellar: :any,                 arm64_sonoma:  "02076f191366ad4ac0f2c608b6b05598f6fdeed51eb7cf6fb884fca665289756"
+    sha256 cellar: :any,                 sonoma:        "27634d3c6a9fe105e13a8fcc97b6bf94d277cd8ff97b7b973ed699a33622efa8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d5886ee0551e5e8ae39476a2e6b81436ef17e39a108950190f56f26a85dbd45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe50bbf64a54ba812c21c4437b0e41be51ba935ffeacc976d932d335009af166"
   end
 
   depends_on "cabal-install" => :build
@@ -20,11 +20,17 @@ class Hpack < Formula
   depends_on "gmp"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
+    # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
+    args = ["--allow-newer=base,containers,template-haskell"]
+
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", *args, *std_cabal_v2_args
   end
 
   # Testing hpack is complicated by the fact that it is not guaranteed

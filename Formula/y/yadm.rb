@@ -27,7 +27,7 @@ class Yadm < Formula
     assert_match "false", shell_output("#{bin}/yadm config yadm.auto-alt")
 
     (testpath/"testfile").write "test"
-    system bin/"yadm", "add", "#{testpath}/testfile"
+    system bin/"yadm", "add", testpath/"testfile"
 
     system bin/"yadm", "gitconfig", "user.email", "test@test.org"
     system bin/"yadm", "gitconfig", "user.name", "Test User"

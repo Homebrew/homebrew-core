@@ -1,27 +1,20 @@
 class Typical < Formula
   desc "Data interchange with algebraic data types"
   homepage "https://github.com/stepchowfun/typical"
-  url "https://github.com/stepchowfun/typical/archive/refs/tags/v0.12.1.tar.gz"
-  sha256 "d7759bc05f011c915b54b359bcd9563d4b371703ccc57ea005142be6cd219e86"
+  url "https://github.com/stepchowfun/typical/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "fe6bf0c7eb5d8f58055cfdfc18559dd953aaf16d78957729f21f9c3854bbb9aa"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3bd77af13df1984838b7531462b75f776ecf4b30a93e5cb33f354e7e9a1ed775"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c01cc1debef78935e3f85f11fd37d36bafe1d01004a2d2e25ea1da1f61389785"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8ccf68539d6d557517d2e21fc4b9f7d7d7f507bb4092b2513dbd84843648a72a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "63b48359d88032a38e54a7a8677046bb3af866d844ed640017e30ae19a9bbdbc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "11ffb6008f6eb95c39678a6aba3d0a7ee483a0859ae9082a8999b2268743fd48"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7c9e1f6d5abe29582f533368446ef64a0041254ee3c381ce6618f597717199b7"
-    sha256 cellar: :any_skip_relocation, ventura:        "290f31aa718a6c45651d3ff7745584ceaded134888422a4bf250739ac7b56de2"
-    sha256 cellar: :any_skip_relocation, monterey:       "412157dc6a44b87200149f28895009843e956ab0b702b119b375db208fdf4005"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "d8023c6ec0ddbe4e92dd80bd2978b581327110e4aca3354e358850b90d7c6a6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54692b2545fc98b49f5bc3a8da38ef8eae24e0176b7b36695f96da39841be433"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "51ebeadacfb99bdc2802538ce88cb1cccc8a4a23994c2be34f0cefd175271927"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4be3b65b42a1b5b89cbe660da7370eb0d195b04132b1388fcb2dea4320730afc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d9394b38a260cec61e051aa7833d16b23e0df7904344f414f2e78d4865428f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f8b76a94bcebc2e3c4e09a07c36ba5917a8ae90eaf52f0789d1fbc6a6c3d9a6f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b48bcc0e3230fb0cb7507621eb4bbd6d2d1ce0f398f60184039a54d2a5b5c80c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0b4b3482de2d967c393ce9c915a6bbce0b623c7622d7b404a7a24d40bc0c4e8"
   end
 
   depends_on "rust" => :build
-
-  # eliminate needless lifetimes, upstream pr ref, https://github.com/stepchowfun/typical/pull/501
-  patch :DATA
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -58,18 +51,3 @@ class Typical < Formula
     assert_match "export type SendEmailResponseOut", generated_typescript_code
   end
 end
-
-__END__
-diff --git a/src/error.rs b/src/error.rs
-index 4563e1e..213faf9 100644
---- a/src/error.rs
-+++ b/src/error.rs
-@@ -34,7 +34,7 @@ impl fmt::Display for Error {
- }
-
- impl error::Error for Error {
--    fn source<'a>(&'a self) -> Option<&(dyn error::Error + 'static)> {
-+    fn source(&self) -> Option<&(dyn error::Error + 'static)> {
-         self.reason.as_deref()
-     }
- }

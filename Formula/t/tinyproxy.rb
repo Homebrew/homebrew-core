@@ -1,18 +1,17 @@
 class Tinyproxy < Formula
   desc "HTTP/HTTPS proxy for POSIX systems"
   homepage "https://tinyproxy.github.io/"
-  url "https://github.com/tinyproxy/tinyproxy/releases/download/1.11.2/tinyproxy-1.11.2.tar.xz"
-  sha256 "6a126880706691c987e2957b1c99b522efb1964a75eb767af4b30aac0b88a26a"
+  url "https://github.com/tinyproxy/tinyproxy/releases/download/1.11.3/tinyproxy-1.11.3.tar.xz"
+  sha256 "f05644fdf1211ba13754a354bebed909b5b39371b12cce8563c46929a75bedf6"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "01f10b26d4d6e3bcf831ca8b921981b9f873d81b6556e2b52b4784ec4805a54d"
-    sha256 arm64_sequoia: "21a3f6222d7da183ec58cd51fd48d1513cae15311374c4e1cc63f564c0105707"
-    sha256 arm64_sonoma:  "7dabc693da904911eae0f046229a16841a0655751c15e57ddb56bd05cbc6ddc0"
-    sha256 sonoma:        "be4b5eec4472a4d922473d1c267397ac88d8114edc0fa761ec243aea70a9d56b"
-    sha256 arm64_linux:   "5d3ed227aff8eb302a9fd053c1939e1bb968fef0e5aeb36204ec59b01749eb0a"
-    sha256 x86_64_linux:  "dd37a722840d2d5e0366cba9377cd3d70abee9480845bb5200c7bb089f0a5e58"
+    sha256 arm64_tahoe:   "ac4cbc5308a528478d5972dbc951c2420abc1049d7061823735b648f9d864fd7"
+    sha256 arm64_sequoia: "e0c3141a074ebc5b4f27ab91d20b6b447133a55fcca98d3cdd95dbcec14e1b58"
+    sha256 arm64_sonoma:  "470a9ac084a05572a106d0d2a439f1e55ee430e4c64d18b733fa602c1e75da2f"
+    sha256 sonoma:        "6173900c0a425c4ed48996d324e1b6ee832e3ef0d5155efc59dd652ffa8907f6"
+    sha256 arm64_linux:   "b1f3a4f99b21d044c93a0101dfbf11cd1a1c6ce86f3a0189c95337b95778a38d"
+    sha256 x86_64_linux:  "cf643817026c5ef4e5a55611b4e097b258c15899ba1bf62d5a58461bdc9ef60d"
   end
 
   depends_on "asciidoc" => :build

@@ -2,7 +2,7 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   license "LGPL-2.1-or-later"
-  revision 13
+  revision 14
   head "https://github.com/csound/csound.git", branch: "develop"
 
   # Remove `stable` block when patches are no longer needed
@@ -36,15 +36,14 @@ class Csound < Formula
     strategy :github_releases
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "1358e7d52d01425eb57d9315f6660ce5c753c4bd6406f1a82fe8b7f3c0645618"
-    sha256 arm64_sequoia: "cd3cceb2b0a1d0556f29d7d71e1aee94a289f61ba25790f9d3f50420502332e1"
-    sha256 arm64_sonoma:  "1c33262915a2133bd0f08611de8aa60326142b12ca81834bd926fa9af2820a77"
-    sha256 sonoma:        "52d703b25a4e5ccd9e83cbd68ee8ba290c7da2d4ba41371c07c287dcb2abdcf3"
-    sha256 arm64_linux:   "38cc39a0d24c0d44b6f0393b29a49409c728a3c3ecfcce8a7f0e2ec3640a06d8"
-    sha256 x86_64_linux:  "edd32b95ddd140f4395155849cd24344489991ee377526b80f8e7a9a3b117204"
+    rebuild 1
+    sha256 arm64_tahoe:   "ab2e032068bcb6eb84a7d800801f07f692e71098c85f07c210f1099a5eb9a2c5"
+    sha256 arm64_sequoia: "a3edba10cdd780018153558ffe5dffbed7263e816893d9da6eb6bb3e89efb703"
+    sha256 arm64_sonoma:  "6671ef9e52fcfd4d56f91d69a59f8976bbda0e7e59747960215662d1e44b6d64"
+    sha256 sonoma:        "efe809093c9c64f6c6138fdb6a9d798f84ab50608375b98b19e1d023e69c3edc"
+    sha256 arm64_linux:   "842704687c6bac3621aa2982b5c12bb0f8f15196648f6e3d12c2d847fae8307d"
+    sha256 x86_64_linux:  "1b214b5db904191d97bed11533e7e1da53528a9ca8f2ac3fb9394da683315cf6"
   end
 
   depends_on "asio" => :build
@@ -75,11 +74,11 @@ class Csound < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
     depends_on "libx11"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "libextractor", because: "both install `extract` binaries"
@@ -97,6 +96,12 @@ class Csound < Formula
     patch do
       url "https://github.com/csound/plugins/commit/13800c4dd58e3c214e5d7207180ad7115b4e2f27.patch?full_index=1"
       sha256 "e088cc300845408f3956f070fa34a900b700c7860678bc6d37f7506d615787a6"
+    end
+
+    # Apply Arch Linux patch to fix build with HDF5 2.0.0
+    patch do
+      url "https://gitlab.archlinux.org/archlinux/packaging/packages/csound-plugins/-/raw/e0a3b3162a4f61445ea993e7e8abba091458a0ba/hdf5-2.0.patch"
+      sha256 "ea1bddc8fe921a7deed49756d91b8e0e7b4dd822617877520a36d0c42730ef27"
     end
 
     # Fix Eigen detection to work with Homebrew's Eigen formula

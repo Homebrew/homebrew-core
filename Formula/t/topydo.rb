@@ -3,17 +3,17 @@ class Topydo < Formula
 
   desc "Todo list application using the todo.txt format"
   homepage "https://github.com/topydo/topydo"
-  url "https://files.pythonhosted.org/packages/ca/88/48f2fcd7a0c7c62676eb1df8ea2ac2fcaa388614beaf63077472005d44ef/topydo-0.15.tar.gz"
-  sha256 "4e466c33934b4ffe48ee3c65347799276adc47b3010fb617bf8b8693473f8799"
+  url "https://files.pythonhosted.org/packages/11/6a/8278ac5a59ec633322dcdff278bf74ce8c9d513370cf41d1ecfa5e0376d0/topydo-0.16.tar.gz"
+  sha256 "64a12a990ee39950f0a6e14a5c18e6b35c9e4e4f11cfa40c613d5feb4f086b75"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3b6969f8adb29ce8988ecebf3643dbf48cc01c4e6e979295f634803604e0613d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "301c37f5084e65866d3db3cf88697aa5d27019b16e2316f4a64f581cc9efb2b4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9c7fff3dbca0f0e713440c448a38513146dd323a441fec8fd53de7061af0917"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e1aa56eb1b5f125dfabda76cf2139dc13d54487ff78bb2d0bff4ab25cbb6f88a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7097c9179591dbbf690d067816c3afcff533c4e5ed72f8bb69254d07710436ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7097c9179591dbbf690d067816c3afcff533c4e5ed72f8bb69254d07710436ec"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0f4329353c1d1fb2e9b6d08296304d03763fe1a3339626fa2aeaaf4d85d09b72"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2ab91f9a1c6d364941ea3917da7176cd447d496cf37776fec1bd0680aef74b2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "98b6180f111937e21f5b7b625cda75146db1fe661af6a8687912e2fbc73430bb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "996cc264fc9ff19db29b8b7355585a79d9451ca4bb2e73ff0076eac88b35eb9d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3285119c254079b0d9e1ea4080664c4bc08e7f819734b34544dc8cdef70f8dda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3285119c254079b0d9e1ea4080664c4bc08e7f819734b34544dc8cdef70f8dda"
   end
 
   depends_on "python@3.14"
@@ -46,8 +46,8 @@ class Topydo < Formula
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/bb/d3/09683323e2290732a39dc92ca5031d5e5ddda56f8d236f885a400535b29a/urwid-3.0.3.tar.gz"
-    sha256 "300804dd568cda5aa1c5b204227bd0cfe7a62cef2d00987c5eb2e4e64294ed9b"
+    url "https://files.pythonhosted.org/packages/b1/59/67cd42db7c549c0c106d2b56d2d2ec1915c459e0a92722029efc5359e871/urwid-3.0.5.tar.gz"
+    sha256 "24be27ffafdb68c09cd95dc21b60ccfd02843320b25ce5feee1708b34fad5a23"
   end
 
   resource "watchdog" do
@@ -56,8 +56,8 @@ class Topydo < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
-    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   def install

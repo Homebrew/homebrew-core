@@ -1,8 +1,8 @@
 class Wimlib < Formula
   desc "Library to create, extract, and modify Windows Imaging files"
   homepage "https://wimlib.net/"
-  url "https://wimlib.net/downloads/wimlib-1.14.4.tar.gz"
-  sha256 "3633db2b6c8b255eb86d3bf3df3059796bd1f08e50b8c9728c7eb66662e51300"
+  url "https://wimlib.net/downloads/wimlib-1.14.5.tar.gz"
+  sha256 "84221a3abd5b91228f15f8e6065c335a336237b5738197b75bf419eea561a194"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Wimlib < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "0e65ded347adda5fda6167017ee666f76dea3257916600281531ba9913fa14fe"
-    sha256 cellar: :any,                 arm64_sequoia: "a5ea3961385c62f66efecd74eb8cb16533a12214b638b2dcc3bc552c3666a072"
-    sha256 cellar: :any,                 arm64_sonoma:  "cd90cbc5afd8825d5693a3a15b6728392eadb8d17620fefec7418521b117a90d"
-    sha256 cellar: :any,                 sonoma:        "9fcea2765f909283a7eecf6386b2f01909ef01bfcc350bc598c7e5a4fd03faf8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c05433a61d83381856df0ca35cc8691136d48d9122a9423235e66acb2faab0f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87a79bfe8b23309c2d5de2cec6e353ff2da0b1010f609c2b0555151d2c531520"
+    sha256 cellar: :any,                 arm64_tahoe:   "951bf9ddae69ebd6442a44d1f1e39679a2c5655c4fcd32510eb6643db62dc3ea"
+    sha256 cellar: :any,                 arm64_sequoia: "f68999bc5e316bdbe49da07b9e19d666d4af22cfb142f5cefa17a6164230f5cc"
+    sha256 cellar: :any,                 arm64_sonoma:  "e1ea0499d1740f2f5068cc4f7a298020559924e9be21c76d30a5dbeb8d93f4ae"
+    sha256 cellar: :any,                 sonoma:        "705581a3fc296d50a26abc3fd4a998e4e09e146366e636c9486ead31855d1372"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6c19ffd2caac844bbee911908b820cd7345455b089e0aa20438ed4aee1f0319"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be666177d8950f104c6bd2e72d7c19a89477e24e5c1873b66539bce538a0415d"
   end
 
   depends_on "pkgconf" => :build

@@ -6,15 +6,16 @@ class Dooit < Formula
   url "https://files.pythonhosted.org/packages/a1/dd/96bfcde11415f846d8e4bf2ec494432aae4e6938c6b3ef1e9db3a854b45e/dooit-3.3.4.tar.gz"
   sha256 "ec9022168c4a4568693590840aba0b859cdbca27872f1bef84e39d64c044acd2"
   license "MIT"
+  revision 1
   head "https://github.com/dooit-org/dooit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "34ab2502a69b06386734abe7ff6bea2a452a8b9ab234a92a4ecfc92bf525af43"
-    sha256 cellar: :any,                 arm64_sequoia: "1982b66414e6edce42ec14a4253f5dc7d8ece143ae3a67fa40a5c8050d23a163"
-    sha256 cellar: :any,                 arm64_sonoma:  "e6a8e2bd8527c6edc47628ccb8341d49a387748b18d7262d6fe8b6771caf98b7"
-    sha256 cellar: :any,                 sonoma:        "da600f1443645ed044793876f29a1b4acde078a1bc9de86e1cb09ac7fe1d9507"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "976d390a89a5614719cc9c1a692585f19d14438e27e3c78bef2324fa1c81abc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8d94e0cb31fa209a117a645ab97275e98bf66ee78f0a2bf84e4b6c6fbb1cb87"
+    sha256 cellar: :any,                 arm64_tahoe:   "db0b83ac3edc7b87bbd0cbf4caf96e9e31771b5030b025bc59c9fc64059a4329"
+    sha256 cellar: :any,                 arm64_sequoia: "f8f54323ed981fdcd0d5654bd4f99217db0bcdbf454752cf60c6a2ac3617b62a"
+    sha256 cellar: :any,                 arm64_sonoma:  "0dfbf076a23ff15936a642544971bc2619daad5c4d692932142eee24b0ba60cc"
+    sha256 cellar: :any,                 sonoma:        "abaa18b170f25d81355e8989fab6a3423a07fb066d6ac92ae3bad98c6f3c5a08"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "58054e7a4c256cfd41d778052a7042899525b3a5bdaf6c747dacefa1021073ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc3e8abfe180cd8304884f5c96f16564aa676e75d5b5bc388d95135936198ee1"
   end
 
   depends_on "cmake" => :build
@@ -26,14 +27,9 @@ class Dooit < Formula
     sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
-  resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/03/b8/704d753a5a45507a7aab61f18db9509302ed3d0a27ac7e0359ec2905b1a6/greenlet-3.2.4.tar.gz"
-    sha256 "0dca0d95ff849f9a364385f36ab49f50065d76964944638be9691e1832e9f86d"
-  end
-
   resource "linkify-it-py" do
-    url "https://files.pythonhosted.org/packages/2a/ae/bb56c6828e4797ba5a4821eec7c43b8bf40f69cda4d4f5f8c8a2810ec96a/linkify-it-py-2.0.3.tar.gz"
-    sha256 "68cda27e162e9215c17d786649d1da0021a451bdc436ef9e0fa0ba5234b9b048"
+    url "https://files.pythonhosted.org/packages/2e/c9/06ea13676ef354f0af6169587ae292d3e2406e212876a413bf9eece4eb23/linkify_it_py-2.1.0.tar.gz"
+    sha256 "43360231720999c10e9328dc3691160e27a718e280673d444c38d7d3aaa3b98b"
   end
 
   resource "markdown-it-py" do
@@ -52,13 +48,13 @@ class Dooit < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/61/33/9611380c2bdb1225fdef633e2a9610622310fed35ab11dac9620972ee088/platformdirs-4.5.0.tar.gz"
-    sha256 "70ddccdd7c99fc5942e9fc25636a8b34d04c24b335100223152c2803e4063312"
+    url "https://files.pythonhosted.org/packages/19/56/8d4c30c8a1d07013911a8fdbd8f89440ef9f08d07a1b50ab8ca8be5a20f9/platformdirs-4.9.4.tar.gz"
+    sha256 "1ec356301b7dc906d83f371c8f487070e99d3ccf9e501686456394622a01a934"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "pyperclip" do
@@ -77,8 +73,8 @@ class Dooit < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "six" do
@@ -87,13 +83,13 @@ class Dooit < Formula
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/f0/f2/840d7b9496825333f532d2e3976b8eadbf52034178aac53630d09fe6e1ef/sqlalchemy-2.0.44.tar.gz"
-    sha256 "0ae7454e1ab1d780aee69fd2aae7d6b8670a581d8847f2d1e0f7ddfbf47e5a22"
+    url "https://files.pythonhosted.org/packages/1f/73/b4a9737255583b5fa858e0bb8e116eb94b88c910164ed2ed719147bde3de/sqlalchemy-2.0.48.tar.gz"
+    sha256 "5ca74f37f3369b45e1f6b7b06afb182af1fd5dde009e4ffd831830d98cbe5fe7"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/f6/2f/f0b408f227edca21d1996c1cd0b65309f0cbff44264aa40aded3ff9ce2e1/textual-6.6.0.tar.gz"
-    sha256 "53345166d6b0f9fd028ed0217d73b8f47c3a26679a18ba3b67616dcacb470eec"
+    url "https://files.pythonhosted.org/packages/4f/07/766ad19cf2b15cae2d79e0db46a1b783b62316e9ff3e058e7424b2a4398b/textual-8.2.1.tar.gz"
+    sha256 "4176890e9cd5c95dcdd206541b2956b0808e74c8c36381c88db53dcb45237451"
   end
 
   resource "typing-extensions" do
@@ -107,15 +103,11 @@ class Dooit < Formula
   end
 
   resource "uc-micro-py" do
-    url "https://files.pythonhosted.org/packages/91/7a/146a99696aee0609e3712f2b44c6274566bc368dfe8375191278045186b8/uc-micro-py-1.0.3.tar.gz"
-    sha256 "d321b92cff673ec58027c04015fcaa8bb1e005478643ff4a500882eaab88c48a"
+    url "https://files.pythonhosted.org/packages/78/67/9a363818028526e2d4579334460df777115bdec1bb77c08f9db88f6389f2/uc_micro_py-2.0.0.tar.gz"
+    sha256 "c53691e495c8db60e16ffc4861a35469b0ba0821fe409a8a7a0a71864d33a811"
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"dooit", shell_parameter_format: :click)

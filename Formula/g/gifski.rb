@@ -6,24 +6,29 @@ class Gifski < Formula
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9e55280965509e5041e2c0efd99a25e9906ba43cbe6fa5200d0027c2dac18aff"
-    sha256 cellar: :any,                 arm64_sequoia: "205522bc5cb89dfa53c681530244d9cae2433329d79b4c3b12bde6c7468d31d4"
-    sha256 cellar: :any,                 arm64_sonoma:  "3109c7c055efa911b5ffe699510578b102f55039002c3a52123745c5ca05f49e"
-    sha256 cellar: :any,                 arm64_ventura: "36f5c199f5588451d45a52bb5f34b1b35aedcf1c0f6c60851b43baeb6334a89b"
-    sha256 cellar: :any,                 sonoma:        "22cfac392e6a29240f4b625d78b74d6419632e2db533f9ecf9734eb8a8a304c0"
-    sha256 cellar: :any,                 ventura:       "3455fccb41835e209d257d88b6cea7343788b8b6495644949f5e04eeca6f9ccb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dac8a71c3bfd0ec989c33504a358645d7c35819b1f6c2718cdd58eefc5f8f987"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "896256805d8414a21e0c2f5fe2e40a543a840d9cbb017b8288304d5f7d8e70a7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e3c7358ae7bcc904cc67d92016abbe8f9861d2cec19f6cbf35110b36880bae7a"
+    sha256 cellar: :any,                 arm64_sequoia: "4f666d7abb9833ab9fcbef4da60f84861e9e12a61eeaffbc2e78c63f601163b7"
+    sha256 cellar: :any,                 arm64_sonoma:  "61d4c40ddadd5df8c3e98c26abd374d83d1a17a5c330072715c6127a290e6068"
+    sha256 cellar: :any,                 sonoma:        "afc5d261245a11a2000c342c158eb948896a557028aa055bb078a46df3c4828f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "584afb5e1a1577e97688b89858c21d80d0e38822b373af5296473a870b58104f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8919e828c957d9b3d7e9c589c0398f49ddb8c84b057df791cb44e6499befcf05"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
 
   uses_from_macos "llvm" => :build
 
+  # Apply Arch Linux patch to support FFmpeg 8. Also used by Alpine Linux.
+  patch do
+    url "https://gitlab.archlinux.org/archlinux/packaging/packages/gifski/-/raw/592ebed61803fb8eb86fa8b5e33caec854e60ddf/ffmpeg-8.patch"
+    sha256 "ce67b34864c276a87b5e8324c06297d3c52bd8fd625fd38236d3473d23513039"
+  end
+
   def install
-    system "cargo", "install", "--features", "video", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "video")
   end
 
   test do

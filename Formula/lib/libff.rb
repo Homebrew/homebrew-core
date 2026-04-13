@@ -7,8 +7,6 @@ class Libff < Formula
       revision: "5835b8c59d4029249645cf551f417608c48f2770"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "db4d97e98593d209602d684828214f50938db098fc7abae7ddc562dd86bf49ec"

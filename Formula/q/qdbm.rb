@@ -10,21 +10,19 @@ class Qdbm < Formula
     regex(/href=.*?qdbm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "5222aa09e8299b7db382992f7630bd0881e928823e961c2033535adb2b4c95a4"
-    sha256 cellar: :any,                 arm64_sequoia: "93ffe465aedaa92b472c387fcee97ce7c8611b32aba5127cde60558746aed441"
-    sha256 cellar: :any,                 arm64_sonoma:  "5f9e5e025feda86f511d850b0af43d251f52637aa1bfeb3428b5cbd0a23df7eb"
-    sha256 cellar: :any,                 arm64_ventura: "2b37f6d105b64d9320f71ea174c959d8d8df01a70805662be04cf5b54eb73ffa"
-    sha256 cellar: :any,                 sonoma:        "e9f9b7bb82d908e6278be6164b85495237decfab1548b3c65e7856e873bf7c1c"
-    sha256 cellar: :any,                 ventura:       "77d8ac2179ec650753482086110e5907bf9535647f9d3b3dbe911aba0327d292"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b52710b49798647bb9921dedcb31765f7245e53b6c9e858bce89604f679ed610"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d63d9159c7ec417881369e52b6d4da71982b91487b03fb5d73280670296fea90"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "8758b4bbc07fe322baf1aeb4815956e31dfe20720429254f6e78a2e6c500acbe"
+    sha256 cellar: :any,                 arm64_sequoia: "9983b409d48f7443900ce5b980b08f95e0f102854608c1615f4ff4f45b961f0a"
+    sha256 cellar: :any,                 arm64_sonoma:  "445dc7761c805ee218c4a5d29b521338a9ba3d0e773fdddd0622b272b970cbf6"
+    sha256 cellar: :any,                 sonoma:        "e972c7da4e44db7be3104ae998c53c23f3834aedba2eaf6a3169933327670571"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8063229ce3fc0aac1e402f27c5f9c9ab27f7e1101006887aedc8047844b69fee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f532caae96d2ab1726eb1fd9196db93dd0b4511f9b407b209c545a801449877"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[
@@ -38,7 +36,7 @@ class Qdbm < Formula
       # Does not want to build on Linux
       args << "--enable-bzip"
     else
-      ENV.append "LDFLAGS", "-L#{Formula["zlib"].opt_lib}"
+      ENV.append "LDFLAGS", "-L#{Formula["zlib-ng-compat"].opt_lib}"
     end
 
     # GCC < 13 with -O2 or higher can cause segmentation faults from loop optimisation bug

@@ -5,6 +5,7 @@ class Theora < Formula
   mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/theora/libtheora-1.2.0.tar.gz"
   sha256 "279327339903b544c28a92aeada7d0dcfd0397b59c2f368cc698ac56f515906e"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/theora/?C=M&O=D"

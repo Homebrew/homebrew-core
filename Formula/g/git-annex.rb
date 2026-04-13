@@ -1,8 +1,8 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-10.20251215/git-annex-10.20251215.tar.gz"
-  sha256 "b8d7c5e1efe0f075c26c5848f9b4173be7bde0f6eabc180ef3051d675c0db69f"
+  url "https://hackage.haskell.org/package/git-annex-10.20260316/git-annex-10.20260316.tar.gz"
+  sha256 "57c36e06aa97ed950bb59a050b85ebdc8748220c2457b4dbb10163d2cb57f009"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/", branch: "master"
@@ -13,12 +13,12 @@ class GitAnnex < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1b7b56e42d6f3fad823971db9efda9da346f8696205e5d8bc4d8e41888c863ee"
-    sha256 cellar: :any,                 arm64_sequoia: "ad5aa73b50f62f4174cf1034a2637a004ca0c697b6212075e73f86ad6c0475c6"
-    sha256 cellar: :any,                 arm64_sonoma:  "76cae6f044e5abf2d99166805d28b1aff7d73bdec33f9ac9ac15db2debfdb46d"
-    sha256 cellar: :any,                 sonoma:        "1082a23bac2286d2f3414b80cf4a752d11adedab747185739e6c5c7cb1a8fd54"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "38b949a2e7ac849b71ceaa970fb3dba324da669dcf8e08dc1a4d6894471a039a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7604c20569aa4e22e0c3f9e694a8c0c198411bd448b6e2648e90d16f4ad8c1ca"
+    sha256 cellar: :any,                 arm64_tahoe:   "4c9f1f4ba2287c46bfa5bf7ea11ebd01037d8c23550126f00002f65545cb8e89"
+    sha256 cellar: :any,                 arm64_sequoia: "d7ec6e7dd2d605294249a6182b6c9fc9af5c56ed76163e4d8182725b7f0c827b"
+    sha256 cellar: :any,                 arm64_sonoma:  "1de9b2491652cbaa4eb7502cbedfa4ebcb9face8901d639c5bc7b2ffa1cceef6"
+    sha256 cellar: :any,                 sonoma:        "23af7c516480886ae64808f05da065916f97a0301f74213a855a013a667ed3eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9656a28504a99b889c810173a4e42d565b5c29bb2ba2e95a155343a3f14da94d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72200aea0a9830d129c422ad80740677169d79ba772bf7399a0d6580024e63c6"
   end
 
   depends_on "cabal-install" => :build
@@ -28,11 +28,17 @@ class GitAnnex < Formula
   depends_on "libmagic"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
+    # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
+    args = ["--allow-newer=base,containers,template-haskell"]
+
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args, "--flags=+S3 +Servant"
+    system "cabal", "v2-install", *args, *std_cabal_v2_args, "--flags=+S3 +Servant"
     bin.install_symlink "git-annex" => "git-annex-shell"
     bin.install_symlink "git-annex" => "git-remote-annex"
     bin.install_symlink "git-annex" => "git-remote-tor-annex"

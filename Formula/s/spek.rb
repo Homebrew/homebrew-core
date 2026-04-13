@@ -4,36 +4,35 @@ class Spek < Formula
   url "https://github.com/alexkay/spek/releases/download/v0.8.5/spek-0.8.5.tar.xz"
   sha256 "1bccf85a14a01af8f2f30476cbad004e8bf6031f500e562bbe5bbd1e5eb16c59"
   license "GPL-3.0-or-later"
-  revision 5
-
-  no_autobump! because: :requires_manual_review
+  revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5a7906a3f0fb330c1e1646fdda11d561f67868b95144e2524e2a5563ba17c310"
-    sha256 cellar: :any,                 arm64_sequoia: "5d4388acbd2adc2e46f4efd39bfc028aa3235d3bc97aed3fb025e7b8387ca036"
-    sha256 cellar: :any,                 arm64_sonoma:  "f41ddbde93ab3cdbce6c949b3607a2d77068a7fff377d6902752636347a9c3f6"
-    sha256 cellar: :any,                 arm64_ventura: "228c5ca814faaef7d3d2182ecb10fda16e8d33bd4ff4194b61d8732f86687e81"
-    sha256 cellar: :any,                 sonoma:        "76e769f535f5e3a4139447ac9ac7348f660ee4bfb016cc2ed9bdc9d356fc2b8b"
-    sha256 cellar: :any,                 ventura:       "cf266c54c4e3b363c902715216e61a4ef90837b5ae36631e0700068d7eb20d4d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "be666699556a55ff1a7e9aea8b6615c7c4c26390d9dba1d54fef65c81afbf919"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "361440ed42bfd45dc6c00d23839b5170e7be9e00231a131a882f645e712b7729"
+    sha256 cellar: :any,                 arm64_tahoe:   "35bf9a140676a8e6205c91c540decde724994782b3159cfae796d354e976e20f"
+    sha256 cellar: :any,                 arm64_sequoia: "ffc78727f112cb7bfabfa57acdf7ea1355a7df9047e989baec54a0afef6d5576"
+    sha256 cellar: :any,                 arm64_sonoma:  "48c21438781605fb9f76fe35029e0beaee74eb9ed07bb99ff742f9fa9abc5dfe"
+    sha256 cellar: :any,                 sonoma:        "b68f5b7d147ba25ff5e4026ab742c8e943f7b03df35cc79531ddced4fb01eeed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a810d0852931abf03233d899d3c3f96378dc103ed9383e9a1069de52cbdd1a42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96c2ca54ed0606804bca9e037600403fb578443640dcd447d6141cb6f5ece99c"
   end
 
+  depends_on "gettext" => :build
   depends_on "pkgconf" => :build
-  depends_on "ffmpeg@7"
+  depends_on "ffmpeg"
   depends_on "wxwidgets"
 
   on_linux do
     depends_on "xorg-server" => :test
   end
 
+  # Apply commit from open PR for FFmpeg 8 support similar to FreeBSD and NixOS.
+  # PR ref: https://github.com/alexkay/spek/pull/338
+  patch do
+    url "https://github.com/alexkay/spek/commit/df8402575f1550d79c751051e9006fd3b7fa0fe0.patch?full_index=1"
+    sha256 "1ec33c6a2c0dd6d445368e233a3c0855c4607af902e2ca5dd48b2472df7df797"
+  end
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make"
-
-    # https://github.com/alexkay/spek/issues/235
-    cp "data/spek.desktop.in", "data/spek.desktop" if OS.linux?
-
     system "make", "install"
   end
 

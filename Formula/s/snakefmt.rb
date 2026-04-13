@@ -3,26 +3,30 @@ class Snakefmt < Formula
 
   desc "Snakemake code formatter"
   homepage "https://github.com/snakemake/snakefmt/"
-  url "https://files.pythonhosted.org/packages/90/93/5cfa69ca18e6a73fe2816dfef52969e770d6e90fe9bf978c9d85232dc755/snakefmt-0.11.2.tar.gz"
-  sha256 "e9ad3758401e0291f7a45360075c5738386b58a1b160d38827b40630d9f735e1"
+  url "https://files.pythonhosted.org/packages/82/d9/4b680f15c240437bae53cd9d1466187aa1440294bf2e88b46bce24a01356/snakefmt-1.0.0.tar.gz"
+  sha256 "4ba7af112692d482776059f78e385c70d8739014c538bf57b77ec3b8b70329e2"
   license "MIT"
   head "https://github.com/snakemake/snakefmt.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "a466b06eda132b18216f3f7daf9e390dac8488fb293d304691c1a0eac099989a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4548bf6a04d4c03d1e464e9ff5d193bba550834c52007a153a78da6cbea6c97f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7743b7e02bc16633227d1a91db6cdb3ed2923df4287bb1e2e53d253fdd67acc3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b27f73b2441735167874131bc2ae774758d3ba8a43a183479e02ec00bf1cce77"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4f63c2bb28d23b31b76aedf9103d6873fcf31735b60fce904ebb083a9aa1f05c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8462c8a02dd4b586a9a5e494cb9e9f338ec9ab103b293103dca8bfd1cc38bc68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d96ea970c7d8e7149272b97794f15cf1c943b9d117e647b68b124a94a4c009d"
   end
 
   depends_on "python@3.14"
 
   resource "black" do
-    url "https://files.pythonhosted.org/packages/d8/0d/cc2fb42b8c50d80143221515dd7e4766995bd07c56c9a3ed30baf080b6dc/black-24.10.0.tar.gz"
-    sha256 "846ea64c97afe3bc677b761787993be4991810ecc7a4a937816dd6bddedc4875"
+    url "https://files.pythonhosted.org/packages/e1/c5/61175d618685d42b005847464b8fb4743a67b1b8fdb75e50e5a96c31a27a/black-26.3.1.tar.gz"
+    sha256 "2c50f5063a9641c7eed7795014ba37b0f5fa227f3d408b968936e24bc0566b07"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
-    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "mypy-extensions" do
@@ -31,25 +35,26 @@ class Snakefmt < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz"
-    sha256 "a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"
+    url "https://files.pythonhosted.org/packages/fa/36/e27608899f9b8d4dff0617b2d9ab17ca5608956ca44461ac14ac48b44015/pathspec-1.0.4.tar.gz"
+    sha256 "0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/61/33/9611380c2bdb1225fdef633e2a9610622310fed35ab11dac9620972ee088/platformdirs-4.5.0.tar.gz"
-    sha256 "70ddccdd7c99fc5942e9fc25636a8b34d04c24b335100223152c2803e4063312"
+    url "https://files.pythonhosted.org/packages/19/56/8d4c30c8a1d07013911a8fdbd8f89440ef9f08d07a1b50ab8ca8be5a20f9/platformdirs-4.9.4.tar.gz"
+    sha256 "1ec356301b7dc906d83f371c8f487070e99d3ccf9e501686456394622a01a934"
+  end
+
+  resource "pytokens" do
+    url "https://files.pythonhosted.org/packages/b6/34/b4e015b99031667a7b960f888889c5bd34ef585c85e1cb56a594b92836ac/pytokens-0.4.1.tar.gz"
+    sha256 "292052fe80923aae2260c073f822ceba21f3872ced9a68bb7953b348e561179a"
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"snakefmt", shell_parameter_format: :click)

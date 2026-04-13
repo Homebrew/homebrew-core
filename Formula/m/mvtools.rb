@@ -1,37 +1,41 @@
 class Mvtools < Formula
   desc "Filters for motion estimation and compensation"
   homepage "https://github.com/dubhater/vapoursynth-mvtools"
-  url "https://github.com/dubhater/vapoursynth-mvtools/archive/refs/tags/v24.tar.gz"
-  sha256 "ccff47f4ea25aa13b13fabd5cf38dd0be1ceda10d9ad6b52bd42ecf9d6eb24ad"
+  url "https://github.com/dubhater/vapoursynth-mvtools/archive/refs/tags/v26.tar.gz"
+  sha256 "c39feedaf44e01c89264fa169a68318897b85bd445fb2a11c0125f9729103e54"
   license "GPL-2.0-or-later"
   head "https://github.com/dubhater/vapoursynth-mvtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "3c0e17fdf774da0b5e0d8ae822a9401523ded7288cd98bcab79c5bb074867d95"
-    sha256 cellar: :any,                 arm64_sequoia:  "f3e493940d6f162c23cb1ffbd90f6592c4d8fb163810ea717a7b57d9a4152bfa"
-    sha256 cellar: :any,                 arm64_sonoma:   "92edb441ffb705b90a8fe0fd12fa1fb27896b5edfb2df3427ebdcd7b496f182c"
-    sha256 cellar: :any,                 arm64_ventura:  "0b437191d2e0b8880f53e2f7650028085c5bc48e0c73eb9cd9c7bd1eddd92e19"
-    sha256 cellar: :any,                 arm64_monterey: "8381da2f99f7ebc1cf687c3eb690375da292e3cece482bf063017b669d920c8c"
-    sha256 cellar: :any,                 sonoma:         "a6e2de4fb621cceec1a74362de32d27f2353ef18152d6401c170cf7f718470a0"
-    sha256 cellar: :any,                 ventura:        "bcd432707884f5ceea9ff50e5280da4c9c6c4dfc1c3c6981ad70d921427dc2dd"
-    sha256 cellar: :any,                 monterey:       "d38fc8a9a06f508949d8643396024d630aac374d8ed3e792a23cdea10bb21c48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "ae5a71a3625699b8ea9751865c61a537dba02dd5cd729bbac006761054112746"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1e2a5e84ec6842466bca0a44a572a45c491e7fd3c30ea5e4125f02d664f04fa"
+    sha256 cellar: :any, arm64_tahoe:   "406369000087292b5decc84727eaca52a88b83c99754744782203221fc522c6b"
+    sha256 cellar: :any, arm64_sequoia: "b5caf19cef34a78c81d56f542d7ec191eea7ca072afdba53ea1c41d7e18eb92a"
+    sha256 cellar: :any, arm64_sonoma:  "877060a2befc9c7ac6787a1591b223629fbd6fba33754933d46130b049f2d5f0"
+    sha256 cellar: :any, sonoma:        "d3ad99631ccc7a67b718a13811cd1c6881888d9ddd3050d8d71e32a5674e098c"
+    sha256               arm64_linux:   "6fca5e19f1687f108142e6988f216c0f066dbda83658707f5d0c45580b229429"
+    sha256               x86_64_linux:  "af62856555e6280aff6df278c801d45545de453d70321829c85893fcc606a912"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
   depends_on "nasm" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
 
   depends_on "fftw"
   depends_on "vapoursynth"
 
   def install
-    system "./autogen.sh"
-    system "./configure", *std_configure_args
-    system "make", "install"
+    # Replace vendored path to homebrew formula path
+    inreplace "meson.build" do |s|
+      s.gsub! "'vapoursynth/include'", "'#{Formula["vapoursynth"].opt_include}/vapoursynth'"
+      s.gsub! "py.get_install_dir() / 'vapoursynth/plugins'", "'#{lib}'"
+    end
+
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+
+    # Create a symlink for the old library name for compatibility
+    ln_sf lib/shared_library("mvtools"), lib/shared_library("libmvtools")
   end
 
   def caveats

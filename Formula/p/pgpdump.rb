@@ -1,30 +1,31 @@
 class Pgpdump < Formula
   desc "PGP packet visualizer"
   homepage "https://www.mew.org/~kazu/proj/pgpdump/en/"
-  url "https://github.com/kazu-yamamoto/pgpdump/archive/refs/tags/v0.36.tar.gz"
-  sha256 "9831fb578175f97f77e269326cb06e5367161e9ddbbfb7f753cef12f0f479c1d"
+  url "https://github.com/kazu-yamamoto/pgpdump/archive/refs/tags/v0.37.tar.gz"
+  sha256 "bc3b6b85f3c95c68010883675283c1c905e6c4070ac5609ced1a87c53b3ee814"
   license "BSD-3-Clause"
-  head "https://github.com/kazu-yamamoto/pgpdump.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/kazu-yamamoto/pgpdump.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "85243a86d8e3ea3d785a64a923646171e20ad9be329360f6b93f74608db023b8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3e1106f448c38f9e3c36c90d622db3e4e0fba0375346446d8b5f8b50acc8fae9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1486016d74d108d52c41c9b09d8d681bc7a08e553a6e65f1753b37df3ce6e18a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a989f9d5f92668d4d84666bb1cc2654a7bbc4eff4514f184d88f24eaedb074fa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "52448666ef81ee5ba314eea314299c6785f507adc28924fdfe4812bd3efeccf3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9d251de5de502b17047090b372b041cfa01f36300da79b7cdb31c1a2742d13e8"
-    sha256 cellar: :any_skip_relocation, ventura:        "182e8c57659d5aa820da72ba424ffe35387f18982fd203ba19c3eedc15636acf"
-    sha256 cellar: :any_skip_relocation, monterey:       "1840aa585133917d6134062341a3f99b6d9f75bae841a5c17f03875f32550860"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "0b513cc3a5634c9f81ac831e5fce2db784e947233439706b34a2dc3b44391714"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee47fa9dcc4ffe236943ebbb493b3c6b95237576d3b69e1c847025632f9b4e91"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7271c0c87d0ab2641ee5ba2b4a56087dc676c94c74114f35864c2b05bfd5d740"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "538a68ce61a4964200f14a933f9ef1153b3c6aeb7912e9652d5175e993bc5f01"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7d16c551bec4f31b919c6c25373d2eb1217e97143c690ed1828be4c5376d186"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5bd623ea842793c2e06a30ec74e377ba98b6cc671c1bd3437f124af2a1b5028c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "37130fe3de7e8189c3ebdc12b5d8f83a7d91aeb6932183266b7c48ea93244b82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc370e7ed6cd6bf5ea931c21086f4c2c1e493f166f663212682b4d4427d50cb0"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

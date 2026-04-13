@@ -6,8 +6,6 @@ class Flavours < Formula
   license "MIT"
   head "https://github.com/Misterio77/flavours.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "efc1a63ebb981bccfce1b2653c2725489034a078dc51c99efe90daece4fcf77f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "391fe5d4aea3816013cb4826e96fbfb8cc5c2d2c9e3cf00c43abbdc733e114aa"

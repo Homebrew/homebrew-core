@@ -6,6 +6,7 @@ class Libedit < Formula
   sha256 "21362b00653bbfc1c71f71a7578da66b5b5203559d43134d2dd7719e313ce041"
   license "BSD-3-Clause"
   revision 1
+  compatibility_version 1
 
   livecheck do
     url :homepage

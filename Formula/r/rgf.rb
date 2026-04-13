@@ -10,8 +10,6 @@ class Rgf < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3cd71826a688d71fb47d733cc05bd43da4f3febe58031901476a7053a5e9e2fd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b562241e4a197e502fe1483c9a613bb9c32c272a94583a6f8ef26a1844ed644e"

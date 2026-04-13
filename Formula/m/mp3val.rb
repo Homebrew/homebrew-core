@@ -5,8 +5,6 @@ class Mp3val < Formula
   sha256 "95a16efe3c352bb31d23d68ee5cb8bb8ebd9868d3dcf0d84c96864f80c31c39f"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b7165855c5d406a93a818986f684dcecde388a8e65cf0b5922e9f0b4a1fafccc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e5c10f2c40b3db42ee31ebdff666e1f56da1b200829945556f269cc1be920c64"

@@ -1,23 +1,25 @@
 class Marksman < Formula
   desc "Language Server Protocol for Markdown"
   homepage "https://github.com/artempyanykh/marksman"
-  url "https://github.com/artempyanykh/marksman/archive/refs/tags/2025-12-13.tar.gz"
-  sha256 "7dcfb73538690d16950aa43a78aa58c1c144548851797e6088d3e76cd8a3f2ba"
+  url "https://github.com/artempyanykh/marksman/archive/refs/tags/2026-02-08.tar.gz"
+  sha256 "a3ba5f8ef5be5d7ede2ec5ae9f303d2d776f476734ff66254be8e6df0e0f090e"
   license "MIT"
-  revision 1
   head "https://github.com/artempyanykh/marksman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6b1b0ec899f0fb55ed6b33d1d7487d45cfc8e6f18a2a2b9048186af27c3f5f0a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a44ba9aa0fc0e392d7254dd0638f206feb5ecf7bceca5687a6179e2e457c7dcf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4836611c44e4e6bcac6b494a95b3b8b948480694c448147b296562f00bc8ebd6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4fd0ef1fefc0e8ee9f13f3b3e6159cad5dbb743a9b473cc97a6660908f3b5d6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c4c838ccd87eacfb2d4a4ff2bafb4e756b0be3bae47db548009c0cc86b4cd1d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da4817971f267aaa10093ffe12e568b6e1ba29021c794d66086d9a6956d958c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "438ee8a52c1fc8556cfe210d9c63366306d9fa5bd517fe22f2926d63c3241fd2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e10962409dc514362c16d9effcb22c38ccd7c2bf481a3652b745097a057305b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e02dd83e9db94a0092a8007187a0cc10202bfce5fa657dcd3c7b5a2db01c394"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d7dc81a783f1866894aaaa40d440034da2230c09389c74a4411697ea9293990"
   end
 
   depends_on "dotnet@9"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "true"

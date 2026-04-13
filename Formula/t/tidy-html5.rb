@@ -11,8 +11,6 @@ class TidyHtml5 < Formula
     regex(/^v?(\d+\.\d*?[02468](?:\.\d+)*)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "613a88aa2c9aac81af122ec9ee6e2278788e1b5c4398f1139b123555390adcdd"
     sha256 cellar: :any,                 arm64_sequoia:  "570d2482168cd8be11bb433f743f934bf7797a952863cd282230111b5de15a73"

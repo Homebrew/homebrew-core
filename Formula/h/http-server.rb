@@ -6,8 +6,6 @@ class HttpServer < Formula
   license "MIT"
   head "https://github.com/http-party/http-server.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "255fa4f7d541f2485fc11af34b8d240785fd6b364d7e98eae44800da7dcf87d1"

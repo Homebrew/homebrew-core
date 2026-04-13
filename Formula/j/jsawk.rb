@@ -6,8 +6,6 @@ class Jsawk < Formula
   license "BSD-3-Clause"
   head "https://github.com/micha/jsawk.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "ad82c5334cd78f71f7faa8835d7c3315e0ea98f26a9a2615d8425a72d77242a5"

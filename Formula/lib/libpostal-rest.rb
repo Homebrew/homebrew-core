@@ -6,8 +6,6 @@ class LibpostalRest < Formula
   license "MIT"
   head "https://github.com/johnlonganecker/libpostal-rest.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "905fe876b881844842cf56c6e4f5098bc59b23d0b9eee15e70ec7d07953f25df"
     sha256 cellar: :any,                 arm64_sequoia: "fd5d9cfcd9ea16dd5b1990b18ec200eef3de42b32dbcfc71e74d60dc1e77d5ec"

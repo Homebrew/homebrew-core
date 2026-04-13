@@ -1,10 +1,9 @@
 class Fastlane < Formula
   desc "Easiest way to build and release mobile apps"
   homepage "https://fastlane.tools"
-  url "https://github.com/fastlane/fastlane/archive/refs/tags/2.230.0.tar.gz"
-  sha256 "e496600b49a3eda2463964eedcfdb4d0c25751cf2a1fa59de9f09719d249ed06"
+  url "https://github.com/fastlane/fastlane/archive/refs/tags/2.232.2.tar.gz"
+  sha256 "dad8f0fe809ef6928e9a8ace55b121a521d5d3b61403c2c0cc380550af704e92"
   license "MIT"
-  revision 1
   head "https://github.com/fastlane/fastlane.git", branch: "master"
 
   livecheck do
@@ -13,12 +12,12 @@ class Fastlane < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7b973a13df552756585875bf515b640f57d7ff70340bc5041942af85f7b8713b"
-    sha256 cellar: :any,                 arm64_sequoia: "dbadf70b610dd92d5b41173f1472378c916389d722c6533fe2e0b2a6343bb42f"
-    sha256 cellar: :any,                 arm64_sonoma:  "7dd6e7485371197435dd40619e916b45117e65a2a40afd38560f975cb4cae32f"
-    sha256 cellar: :any,                 sonoma:        "d87c9a5cec845d8fb76f94aaa1eb2cb697f5e52dd369d90a48eef376f21f808e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc0f6d648c40c39fb4f70479b64aa75cb0470f5aba76fd47483ebbc8893b2dcf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e393a4144f818dea97353b6b04d991f2c4f89bbd021399f7545bf81ff0d916b0"
+    sha256 cellar: :any,                 arm64_tahoe:   "0de8ce5d786a77df41ce6446bed9f1226a84cc36691378bf2376bf0a37ad6494"
+    sha256 cellar: :any,                 arm64_sequoia: "ba1f208d34e7923e6b132bfc483922be884a77224889c41699348e14b4c96fd9"
+    sha256 cellar: :any,                 arm64_sonoma:  "63d39285915d6a3be3f833ffcaf4d2d4c31673159ca7b84a9dc83e705d0b26d4"
+    sha256 cellar: :any,                 sonoma:        "6611b4e05b8df78affbe958b639d35e17ecd0bf817bda17fda50cf531734283b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b9b1d1cba8060463cad6509fc4922565393ba13aed689a59cc2bbed034716dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfadcf36bf451a264aff3bdf18c591a45c08e92f68071bb9580926373e5bbd96"
   end
 
   depends_on "ruby"
@@ -29,13 +28,6 @@ class Fastlane < Formula
 
   def fastlane_gem_home
     "${HOME}/.local/share/fastlane/#{Formula["ruby"].version.major_minor}.0"
-  end
-
-  # Include gems that are no longer part of the standard library in Ruby 4.0+
-  # Upstream PR ref: https://github.com/fastlane/fastlane/pull/29833
-  patch do
-    url "https://github.com/fastlane/fastlane/commit/104113ad1d16ad44cf4a74e60993ba44cef2d787.patch?full_index=1"
-    sha256 "ccf3358fca5e43a20fe89f114a5234efe1e8c897c384d9db7a0d13d9c3c3edfb"
   end
 
   def install

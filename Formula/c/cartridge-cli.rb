@@ -7,8 +7,6 @@ class CartridgeCli < Formula
   license "BSD-2-Clause"
   head "https://github.com/tarantool/cartridge-cli.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "13ac19b7e55935af401fefa00a9fbc09839e7f39074eb1a4703d82fc60599f53"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c347030987d8638b17325dedf3ecd8a8271de8f1333aa086f7cfb0777c0ff8ae"
@@ -21,6 +19,9 @@ class CartridgeCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "3637454fe1c7db9dccdddebca64969bd78e4fff3f3ca69c773a2f409dec60974"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "81f45b6fa23e7590d4aa466946ce87f8b8fa9dec0fb3863f853d3131c8659c61"
   end
+
+  deprecate! date: "2026-01-31", because: :repo_archived, replacement_formula: "tt"
+  disable! date: "2027-01-31", because: :repo_archived, replacement_formula: "tt"
 
   depends_on "go" => :build
   depends_on "mage" => :build

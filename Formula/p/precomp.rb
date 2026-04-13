@@ -6,8 +6,6 @@ class Precomp < Formula
   license "Apache-2.0"
   head "https://github.com/schnaader/precomp-cpp.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "37a2fbc9d8ef7f210168e5c4f2a3ce13944482c26207fb06ed6cec0138464395"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e17e36888fa003ff01ce0af6dd634576f21c2f303cea989f507730c95af6f827"

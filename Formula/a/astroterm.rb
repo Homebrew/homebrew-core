@@ -1,20 +1,18 @@
 class Astroterm < Formula
   desc "Planetarium for your terminal"
   homepage "https://github.com/da-luce/astroterm"
-  url "https://github.com/da-luce/astroterm/archive/refs/tags/v1.0.9.tar.gz"
-  sha256 "d96d70c644b258ed0adc3a700e6af122659ecabf3eed60d7cfb6810b5068f3eb"
+  url "https://github.com/da-luce/astroterm/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "10a98255a46517ee306be73f156eb78163aff8801f46b84a731f7b5913e1d6f5"
   license "MIT"
   head "https://github.com/da-luce/astroterm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0d027e2cc1fd0a23430be34a88382d77c4506bae0b5984fe38294ffb53171cd0"
-    sha256 cellar: :any,                 arm64_sequoia: "59afefcb5518a5ec3f606202f6f1e614ff7a7338afe4390857861b4a58b86a41"
-    sha256 cellar: :any,                 arm64_sonoma:  "b725c146a47cf2516699c6ad7779dd248fdc863b9daf7c4339d415455f06090b"
-    sha256 cellar: :any,                 arm64_ventura: "dd53a52e2c8386f5c6bf1f1cc8722c764b6c17b06c705ea69d3cab4546cd968a"
-    sha256 cellar: :any,                 sonoma:        "fc4d03bd92fede80413930d6ccd1febd685cd21a600f278c07d81daa0f8532a4"
-    sha256 cellar: :any,                 ventura:       "cd7e62dd0ad54dc212302677ebe6d74b5dfa820e1eba0edb545a43087b9c3862"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "115541270f06d3f93203a9b6fe97df62c96ff5656fb13b08157df6dc1cd74718"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "369a156968b1a56a54b48779ebce9f0832e36f8433a876f1cec3a1aae3cdb876"
+    sha256 cellar: :any,                 arm64_tahoe:   "366ef8ecc45c6c188f134156cc8562a4e3ce17934e4406c236969482281cace6"
+    sha256 cellar: :any,                 arm64_sequoia: "e5b2c209d0b5739bad1537dca88864d25d57002942479efe45dea9ea8cd583a0"
+    sha256 cellar: :any,                 arm64_sonoma:  "42d0e0707dd6b913caae181ef0e222aef47ab0611b4fa545bdc6bc0bc54b89bd"
+    sha256 cellar: :any,                 sonoma:        "074aa01bc5d23274961b4888bcc190bb78ca79c832a9878781bda9352c7a79d6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a68071e5791586bac8984694f2420d4661ca5deea2629d2a18d8a40b5f8b0879"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d68d0ddf78f5fa237ff63291c797fddc3b87f5fd1aba16392fc5e52e5a8ff9c"
   end
 
   depends_on "meson" => :build

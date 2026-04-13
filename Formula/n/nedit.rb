@@ -6,8 +6,6 @@ class Nedit < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "63e38eb761dcd2a048f2cb5dcb614fcfb7c5e89b66883316628c95eeec52e35d"
     sha256 cellar: :any,                 arm64_sequoia:  "a4e7775080f68b28a71f10c696a4a57c347d4f6620dde7e033bb3c5083db4250"

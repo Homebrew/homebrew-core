@@ -1,8 +1,8 @@
 class CloudNuke < Formula
   desc "CLI tool to nuke (delete) cloud resources"
   homepage "https://gruntwork.io/"
-  url "https://github.com/gruntwork-io/cloud-nuke/archive/refs/tags/v0.46.0.tar.gz"
-  sha256 "6aa9dc839644fb9fc23e17f7c614a6232f9eb6f5f4accfaad564f729ec2774c6"
+  url "https://github.com/gruntwork-io/cloud-nuke/archive/refs/tags/v0.48.0.tar.gz"
+  sha256 "93d5982c209e76b88233deb610c9a3720a7f0ddd3f3dc66f389338b2f1e0f709"
   license "MIT"
   head "https://github.com/gruntwork-io/cloud-nuke.git", branch: "master"
 
@@ -12,12 +12,12 @@ class CloudNuke < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4b81490fddf65ee581295217a3c976aa81853e1b90351c5617b231876f85cd39"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b81490fddf65ee581295217a3c976aa81853e1b90351c5617b231876f85cd39"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b81490fddf65ee581295217a3c976aa81853e1b90351c5617b231876f85cd39"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e9e99b0e05a43b5e302d4bbccd49fbb33ad7af9e18e82059e10b671040a779e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "17b19c4bd24648c82f95896a557cf9beac21e407b7c1703d8443ff54690e4ad1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ee2b386f1e4aab54d9b71a8a3832a4946162a10fc76f5dcf744bd25ed5261c3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "46d81f2749b43600740f65cc1679ddd0506fe03b5b33bd1dddac47f34f9cf10f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46d81f2749b43600740f65cc1679ddd0506fe03b5b33bd1dddac47f34f9cf10f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46d81f2749b43600740f65cc1679ddd0506fe03b5b33bd1dddac47f34f9cf10f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8ef45ab2f3b6c234726a27fdd86469604f77944acdb76f8caba1e6b473de4e9e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2cb655705a885c1a3662343a4130f04b012f112b9582e9584fd133a24cb3c3fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0765b0790ba49657daa9113b9c8defad2fd2206b7c158728206666a754117ca5"
   end
 
   depends_on "go" => :build

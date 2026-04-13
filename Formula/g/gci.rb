@@ -1,19 +1,18 @@
 class Gci < Formula
   desc "Control Golang package import order and make it always deterministic"
   homepage "https://github.com/daixiang0/gci"
-  url "https://github.com/daixiang0/gci/archive/refs/tags/v0.13.7.tar.gz"
-  sha256 "b5863303eb0899bcbbc87995f1935d3594e3fa1eaea37d3f77de284c6a5a49e3"
+  url "https://github.com/daixiang0/gci/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "433d6dd89ebcb9f928f91729b9243971f6233970f78efc41ae672fe376de4e88"
   license "BSD-3-Clause"
   head "https://github.com/daixiang0/gci.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0707566034467c1c8d58e01a47add8cc7c608595e5427f03e7a0c8f9396a8f6b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0707566034467c1c8d58e01a47add8cc7c608595e5427f03e7a0c8f9396a8f6b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0707566034467c1c8d58e01a47add8cc7c608595e5427f03e7a0c8f9396a8f6b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "165b2c0724ca01b1c99216278ed57cd0d9d5c40b5348fcab0f6f50159eed83b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "67aa6f72141322d1d22cda16fa960bf98c53d2ef0af727f0930a9e2c92a90513"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf072ececd360e53f495d890b676c0407a740dc7669bfe18b90b36bf5c6a6761"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "004995409069782b3c3f8347ddc9cf8895a282abfcd2b6bdd16f53f0fabbc26a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "004995409069782b3c3f8347ddc9cf8895a282abfcd2b6bdd16f53f0fabbc26a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "004995409069782b3c3f8347ddc9cf8895a282abfcd2b6bdd16f53f0fabbc26a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "14cd5ae2da5a5c573cea93d2bb76d20f0a1e0359afd03b21bb2d070d955da57e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "502bc7e32fe6d7524c116a8936111c4d3f2d7cbf8ce59de8aed0cab091a33b70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c2514f7cddb033f9ebdb2be7136861c0bb5b7f80d5dd30b0cc058e32cb465c6"
   end
 
   depends_on "go" => :build

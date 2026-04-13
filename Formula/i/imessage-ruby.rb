@@ -6,8 +6,6 @@ class ImessageRuby < Formula
   license "MIT"
   head "https://github.com/linjunpop/imessage.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e0ddafd03ceedaf46157074627f10b5bc2ae1095803c7da7ff4259f8972c2c7f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "676022be294ea2d4654c968012a952dac36f61e573e44f3fd99b52f071767372"

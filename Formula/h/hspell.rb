@@ -11,28 +11,21 @@ class Hspell < Formula
     strategy :page_match
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "a0c78516325cebda282510f1f2b02169c8f45055fb752055845617ebaac51664"
-    sha256 arm64_sequoia:  "c40456d586f63147c43885dbad8c72e18bafae62f93305d96e29146465f053e8"
-    sha256 arm64_sonoma:   "86f6240fcd352f4fe5579be572c0e50fb679b689b2e37e9c04c46ca485f8e6de"
-    sha256 arm64_ventura:  "2fcc00698fda6279a021ece352de8c8c7597cabec4ae896416db031215e2dcbb"
-    sha256 arm64_monterey: "743ad6762f4452a62702961c030950a6d70d36877140dd8728ce45f8d06411c3"
-    sha256 arm64_big_sur:  "421fdc3ab5d0ebde258ce7bdb235d2b50144966a27a74cbbe5c607dff0984c7f"
-    sha256 sonoma:         "3b4967b8ce06e657e8c28d706c3c30975708453f8459b3171797d28e01be103c"
-    sha256 ventura:        "8409b8e239d65f3109f29b1a5317c30c88fb468e1591d1a056c303afd3a95edd"
-    sha256 monterey:       "21abb651324e2e46eae76ae915efe203f198a7a74f7c9144b3d21060fc5a2dfd"
-    sha256 big_sur:        "426c87d91350f33392c862296b5d1b0081bc953adae5c04a9769ebb2a626213f"
-    sha256 catalina:       "a0406d5a4d5adefa40b5e820510a9b7f461fcea6a61112103c112775fff49ae8"
-    sha256 arm64_linux:    "8ad90f494f3f74249ff959d11f18ca5e5e5375f79630d768ed2d67889f1f1597"
-    sha256 x86_64_linux:   "fd7cae8024a97aadce0f713008dba1f27e7254969f689a21c9501d42be84fcdb"
+    rebuild 2
+    sha256 arm64_tahoe:   "c2f0ea64af6987d36f42b5f53aa51e781ff98cee49ea71b3f19d4137a8c4191b"
+    sha256 arm64_sequoia: "35618c16a7d232caafdbd3727ac9a7a0c4150fe8dd342f5661cec2b11e59a75d"
+    sha256 arm64_sonoma:  "4eb8d8495ab3c2b68c9ff12e6e5db38321ea050b49089162efbd2d9c15400daa"
+    sha256 sonoma:        "d99dbc4d7a19a85cfcd36c2aa7623fe5e01b2172ee8251be627927b067167ea9"
+    sha256 arm64_linux:   "9e22e4326c832b9a1e407c6f72a57a6a359395cff667db921c0d7080ef411cc0"
+    sha256 x86_64_linux:  "52c6c0928b22dd5d7e72e08a48ae96ba44615336e24fe4ec677057a2d07fef36"
   end
 
   depends_on "autoconf" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # hspell was built for linux and compiles a .so shared library, to comply with macOS
   # standards this patch creates a .dylib instead

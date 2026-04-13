@@ -6,8 +6,6 @@ class Gdrive < Formula
   license "MIT"
   head "https://github.com/glotlabs/gdrive.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8532793c6c061b16d47eba60f8def373002a6717c2499d49faa35f7ecb1beec5"

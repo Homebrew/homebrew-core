@@ -1,18 +1,18 @@
 class Tea < Formula
   desc "Command-line tool to interact with Gitea servers"
   homepage "https://gitea.com/gitea/tea"
-  url "https://gitea.com/gitea/tea/archive/v0.11.1.tar.gz"
-  sha256 "1da6b6d2534bd6ffb0931400014bbdef26242cf4d35d4ba44c24928811825805"
+  url "https://gitea.com/gitea/tea/archive/v0.13.0.tar.gz"
+  sha256 "c08f1ffd1318461a80bdee800a35515b07f0d305333af4e06e66b3a518d54f46"
   license "MIT"
   head "https://gitea.com/gitea/tea.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e2bfa35ec5ab4abbebb112d8a0fc9e9345446a8adad4711702b8add6afb6b246"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2bfa35ec5ab4abbebb112d8a0fc9e9345446a8adad4711702b8add6afb6b246"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2bfa35ec5ab4abbebb112d8a0fc9e9345446a8adad4711702b8add6afb6b246"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9d453ba641dd34c5bcebec76d1745fc7d4d98e01e92e412091dbd231b0b9a91e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f69c82c69b48dfc5edba4c6ab98f1eb470a40b6f48451cf7bbd6e9fd9f8c02d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b60cf1abd449ca7d8c0c4dc0591dee476b861dafc5c544618e8e6fbf60f0747c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b63674ef2f7142e729556b558a60f92af60396a4bb1de10287d43cd52e4db288"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b63674ef2f7142e729556b558a60f92af60396a4bb1de10287d43cd52e4db288"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b63674ef2f7142e729556b558a60f92af60396a4bb1de10287d43cd52e4db288"
+    sha256 cellar: :any_skip_relocation, sonoma:        "35ab819488018e4db984575cff64f38089fd42d8f6dad4283294517e194511ff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e48ca1db82bfe7457a6b4c799abfec2de4cef3bbb4b31c8f81b5a4df0626e8ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad16e27854c16811967742d4b0d1baea0aa159dd4d79ee5be21c91c951c32550"
   end
 
   depends_on "go" => :build
@@ -23,10 +23,6 @@ class Tea < Formula
   end
 
   test do
-    assert_equal <<~EOS, shell_output("#{bin}/tea pulls", 1)
-      No gitea login configured. To start using tea, first run
-        tea login add
-      and then run your command again.
-    EOS
+    assert_match "no gitea login configured.", shell_output("#{bin}/tea pulls 2>&1", 1)
   end
 end

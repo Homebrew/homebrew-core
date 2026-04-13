@@ -5,6 +5,7 @@ class Graphicsmagick < Formula
   sha256 "c7c706a505e9c6c3764156bb94a0c9644d79131785df15a89c9f8721d1abd061"
   license "MIT"
   revision 1
+  compatibility_version 1
   head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
 
   livecheck do
@@ -12,12 +13,13 @@ class Graphicsmagick < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "594e6dcbe8a2133923e5a518bff3b2ee014f65c3bca0510419ec6b991009e8ef"
-    sha256 arm64_sequoia: "60263b08be05c26c462bda03c8bd4773b48b70f9bbcb1827e927456d3df1271c"
-    sha256 arm64_sonoma:  "7132c91fb90ac0e7bb034c7577f029f429b6105653364b4755aa94d7589fe065"
-    sha256 sonoma:        "1af4ed6c2e8bf56388ad49f020633cf99ce956d6f2fd017789dfd7a2344901ae"
-    sha256 arm64_linux:   "487dd832dee050507bc08b53d59daca21878e2794dc3a23e84dbc78005f14f66"
-    sha256 x86_64_linux:  "bee74e895164a855d8f46dfa47c74b6d0fc8d2ef2501d970b2740c43506be092"
+    rebuild 1
+    sha256 arm64_tahoe:   "6b65ffb0b494077277b0c9b654d1e2185cd88ed612a3ceac6f3c6ad5fc677cd2"
+    sha256 arm64_sequoia: "194bbe7820974cab77ef83a827efa00af0bc2fad86e1f076dc20cc53861f138f"
+    sha256 arm64_sonoma:  "a784999a5a54fe74fa72c6cc97c421993b3f22b6c54df621384a14269b4697e0"
+    sha256 sonoma:        "2c1d774a217f0dcd8951cff4e1e93f397a1e6f8040cd4c37ce4134443c68c5c6"
+    sha256 arm64_linux:   "c2769339084f247efba341dc9580863597526503ab5fc7ad96445e2531a54554"
+    sha256 x86_64_linux:  "8053553100e6ffbefe17bbf8cf563937ed988da6723ca8522d80bd261a096b63"
   end
 
   depends_on "pkgconf" => :build
@@ -36,7 +38,10 @@ class Graphicsmagick < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   skip_clean :la
 

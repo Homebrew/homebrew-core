@@ -4,6 +4,7 @@ class Pari < Formula
   url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.17.3.tar.gz"
   sha256 "8d9c4fcd584c468d27e0f23c36836587284452094c4b1c404c20c4b810462dcb"
   license "GPL-2.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://pari.math.u-bordeaux.fr/pub/pari/unix/"

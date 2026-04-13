@@ -1,20 +1,18 @@
 class CyclonedxGomod < Formula
   desc "Creates CycloneDX Software Bill of Materials (SBOM) from Go modules"
   homepage "https://cyclonedx.org/"
-  url "https://github.com/CycloneDX/cyclonedx-gomod/archive/refs/tags/v1.9.0.tar.gz"
-  sha256 "4490e44e2478a3f8b62e568a530b604ace14bd12d26c0fb41656a24ffec566c7"
+  url "https://github.com/CycloneDX/cyclonedx-gomod/archive/refs/tags/v1.10.0.tar.gz"
+  sha256 "14d71dcce1164ada13832c6f61b6bb4f804e21966b03ff937b47609752b112f8"
   license "Apache-2.0"
   head "https://github.com/CycloneDX/cyclonedx-gomod.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6f3bdc7fcd931ac2cca24cc768c523fd1aaf378932c7619db84d027b381db9a2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "265722bab2f4df44779e227d2a45ee302a98730f803ff0edbc35b4bd5d20f160"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "265722bab2f4df44779e227d2a45ee302a98730f803ff0edbc35b4bd5d20f160"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "265722bab2f4df44779e227d2a45ee302a98730f803ff0edbc35b4bd5d20f160"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f4aa6ed9b23eb79645acb210d928c754478c4b35c1883658e4db783eefaf61b6"
-    sha256 cellar: :any_skip_relocation, ventura:       "f4aa6ed9b23eb79645acb210d928c754478c4b35c1883658e4db783eefaf61b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5bfff00a31c04f53d5ec3cc06a9a86ae5313fb340a8728b4cebca137ef73a177"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5fd68398150bd54eb229bffe89f2a83af73ab907b17df5f328fbeffd40753c9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd7b3ce89ec8361b5c32558c62582a62f21f3574fcfd4d7f39ddfeffaa89ceef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd7b3ce89ec8361b5c32558c62582a62f21f3574fcfd4d7f39ddfeffaa89ceef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd7b3ce89ec8361b5c32558c62582a62f21f3574fcfd4d7f39ddfeffaa89ceef"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8c59b92233c8beba9f3a9ac8f3ee90d86239eef28e3db002f0c30566d57787c0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d20cbef64f5f8167a18d0edd98d5f9780df07032683c1ddf0c6882791f1c367b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0264d8f7838c67048cfebe524bad1caf684ccde316a8140300d15c01d41d696d"
   end
 
   depends_on "go" => [:build, :test]

@@ -1,8 +1,8 @@
 class Gsoap < Formula
   desc "SOAP stub and skeleton compiler for C and C++"
   homepage "https://www.genivia.com/products.html"
-  url "https://downloads.sourceforge.net/project/gsoap2/gsoap_2.8.139.zip"
-  sha256 "74d1d7854c8ff500729a3003fd07536e417f3e900aee2eeb2d9300d70e4c047b"
+  url "https://downloads.sourceforge.net/project/gsoap2/gsoap_2.8.141.zip"
+  sha256 "bc8210e97a81a659a18c748e998958ae369d35fc5f6ba3a097b42780fedd5a59"
   # Parts of the software are alternatively licensed under gSOAP-1.3b, but this
   # license is considered non-free by Debian and Fedora due to section 3.2:
   #
@@ -19,14 +19,12 @@ class Gsoap < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "72229c99d5d7dbf013a811ec2c9fe683518a1b3272eb10c76a7ad1ca4551f738"
-    sha256 arm64_sequoia: "958e8c5f5456b2e239a6588f20f0556b65b34ab9eb0a71bcb14d0ab256a13cd4"
-    sha256 arm64_sonoma:  "c07f6a68b10e0b23460eabc0e8218184580d51803bcce11e3ea74f0f798a89a3"
-    sha256 arm64_ventura: "7442597995fd7bc974354f4b380ff2cadbed08e1310805af93d11abdcb292cc0"
-    sha256 sonoma:        "31a88d301a49265882f616da77291e262c73af2867e1769c2829307295c0a01c"
-    sha256 ventura:       "54c940a55fa1dbaa56df1dd028faf0648043adf95005f3a5f7d62e76fd3a1744"
-    sha256 arm64_linux:   "553af9c6cfedc702985ec82cf5807dd175c1a97678484231ab10748a0af781c8"
-    sha256 x86_64_linux:  "1a7db005a648b50e584704b2b53783ce0718b74ca06e60b6d9996a9546cbba9e"
+    sha256 arm64_tahoe:   "a0967a0c4cc80867fc181d277679a8107a67b6fef18835888022d27f0b6d1c8b"
+    sha256 arm64_sequoia: "930562555fd62f6df5f052852a19862ebd69145e343b874a504aad30a6ea532f"
+    sha256 arm64_sonoma:  "936268674361346c3a1b3f10e05a0defedb76a4480fa4b576c319e30e72fb4de"
+    sha256 sonoma:        "a61e8e82f481d9be8ffbc84346d068683ba32aa83e704393d43560446224b9af"
+    sha256 arm64_linux:   "276d44019e1b2b5e8d19e7c6db7191627d9ece9b72b2069677fe83a7c5fafdfc"
+    sha256 x86_64_linux:  "dfd0ce24749e59232d2d636750e4686636326ced713316276e2b8d405ea47c41"
   end
 
   depends_on "autoconf" => :build
@@ -34,10 +32,13 @@ class Gsoap < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
   end

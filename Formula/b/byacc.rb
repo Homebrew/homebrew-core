@@ -1,8 +1,8 @@
 class Byacc < Formula
   desc "(Arguably) the best yacc variant"
   homepage "https://invisible-island.net/byacc/"
-  url "https://invisible-mirror.net/archives/byacc/byacc-20241231.tgz"
-  sha256 "192c2fae048d4e7f514ba451627f9c4e612765099f819c19191f9fde3e609673"
+  url "https://invisible-mirror.net/archives/byacc/byacc-20260126.tgz"
+  sha256 "b618c5fb44c2f5f048843db90f7d1b24f78f47b07913c8c7ba8c942d3eb24b00"
   license :public_domain
 
   livecheck do
@@ -11,14 +11,12 @@ class Byacc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a74b0dd5007d01217c1131bcf0208a952dafa4fead62d9503d63318c76d4264c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b612e162124adb2c0a376645ec5a6fd73a32a048f93ff3f0a9cf822755ec9c3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0efb664c82544393a02605e60e18599b8aeffcdf2cfae244a7f7336de1164e9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8ea708b5af936039ee437745f89d0db999464ab1dd68d7369e114b09315724c8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "652bcab4132cf85526b03cdbfa52294d455500e566febe2891e118ca43351146"
-    sha256 cellar: :any_skip_relocation, ventura:       "50253d20fdb4a50ffd1066fa33baddcbd912128cfc7474622bfea06114c1a5d6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4b9d40c105ff1ecc790ff99cc922270696f004172343b37112b81dfc5524a7f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bb26e744e5e9602d7c1ff3766f2578fb34c1a8a497d3cd02932650d2b6c2023"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7b744045116e9ce0829c9c99ed2df820a8b35a56e92be4e8f714446e3bd5301d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7e605969cf2f5dde984d0087c2b8929125ae22b1191f8d6f5b5c9e53334c153"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5afd9bd2cb0d3f317178fb231f14e40e3a6c3d080b69cfc74b3e195eb53862f5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9e73885e9af6a04b10c8c0690bb278798114afa308e16edf73f4cc4a6df2070"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1fdddc149a80df3d04ce5b80603a8845621e68bcac3dd6282c864944660f9af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "135f6821d7a1c90f3d5ca46dec5d53baa5ed57435c83ec545480c7e0d318d1f0"
   end
 
   def install

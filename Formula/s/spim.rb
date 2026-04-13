@@ -7,7 +7,7 @@ class Spim < Formula
   license "BSD-3-Clause"
   head "https://svn.code.sf.net/p/spimsimulator/code/"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 1

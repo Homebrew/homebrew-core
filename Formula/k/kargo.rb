@@ -1,19 +1,18 @@
 class Kargo < Formula
   desc "Multi-Stage GitOps Continuous Promotion"
   homepage "https://kargo.io/"
-  url "https://github.com/akuity/kargo/archive/refs/tags/v1.8.4.tar.gz"
-  sha256 "7162cdf57815d7cb84bdd14fee07436dffbdc8cfaf527969ff9473cc7a144d6c"
+  url "https://github.com/akuity/kargo/archive/refs/tags/v1.9.5.tar.gz"
+  sha256 "5c20b78f69e3b0888360224c668a77d5b22308b373593659935326d261eb25e8"
   license "Apache-2.0"
   head "https://github.com/akuity/kargo.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f9a408015acf698436fa442fc04c398cf0ac697043c51a37d13bfcb93703ae3a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4fee72e0a137cd10e380c84035054cbaeeb29f9f1aab3c0c91852e1048188f0c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5538c33c00cc105cc4761c14d327b29c4706458c9201a178a93a0c66c370c857"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1a17ffdfc4f504a82758c7853004c42f323fea5d6f58d70f0f68862d2b18276f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f66051dc4a98fd29d1624c123eb8ad7508c0d18b63e2237c534e63cbf7e0d1d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3eb236145a452eefe5db30f605b21b36e9d3e58d50f167b0e7b7f808c110e31e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "634e2ee428f118a68fa134e02c494f55b6e5b3379beb718aefaf281191536803"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6a9f542d3e70c3fad197ea9874677f75e9b052d3af047c10d388cb5f2652bc0e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fbb6b62d9fff62e6dc568bc9bbc9d3ded703074867a925bfe9a70223f74dd51"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ec82caa5f4bc007ed2ff2b828c67926ca179c87c95e341565c2866cb60b94f11"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4702b02897ec13b941972494829be61454324b5af8a521fe6b0344d9f70c2bea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ee37705bab0a9953c522315743530957746faf4cfaa74adf0455214230becd2"
   end
 
   depends_on "go" => :build

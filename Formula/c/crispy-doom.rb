@@ -7,12 +7,13 @@ class CrispyDoom < Formula
   head "https://github.com/fabiangreffrath/crispy-doom.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "eea3fa7dc16aaa3a18807238c95263dcd290e04d8d9e893959d75f7fcc708059"
-    sha256 cellar: :any,                 arm64_sequoia: "c12f350743f1a9d205256cf1ee7ecd86e0f80a9f67d5815ad09ca85c6aaa3a96"
-    sha256 cellar: :any,                 arm64_sonoma:  "af9be4cadc170f38e4268496261f83f4ebe1c28d713168c7c926ddcaa0417fce"
-    sha256 cellar: :any,                 sonoma:        "d0cace8c3b2d61918d02efbf75187e3257791d96926d63a8cfb308b83f24d999"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "371753cc38f1f6d57feafe1a9c0fb10ed1d7b90120dbc873426d80b62876528f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "460172d447f43fa89378fc732207f52c113c8588960c67b0df061c9b059c47fd"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "cd4cfaa085f5e29518b82d35f277a6ee28b4829692a835858c40bc8a73ac6d8a"
+    sha256 cellar: :any,                 arm64_sequoia: "557d17191cf33fe6facd8bad60d6f30db272a73c19d5d17059c65e2a4cf84c98"
+    sha256 cellar: :any,                 arm64_sonoma:  "7c7bb72c1a9f054e2bf0a96b1e154f5f035c899c377fdd8fb417739e04cc5e90"
+    sha256 cellar: :any,                 sonoma:        "1b6a55ca5f724065f392001873196c777625872d33572ccf5c6ea8bf2663639b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff2d4ad766f28347b84cf6917c3f64d5dabf225efb324c6ec741ec48d4abf718"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a961d18f9165cc0e96cc09db90784312fec9e482afe2d091c3ed1051ad33b09e"
   end
 
   depends_on "autoconf" => :build
@@ -25,7 +26,9 @@ class CrispyDoom < Formula
   depends_on "sdl2_mixer"
   depends_on "sdl2_net"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"

@@ -14,7 +14,7 @@ class Launch4j < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any_skip_relocation, sonoma:   "bc152d6a1c145f2f6242ebcd9e772809e739e23b13b241f2a995d118a7199251"

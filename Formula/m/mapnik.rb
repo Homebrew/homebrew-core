@@ -1,8 +1,8 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v4.2.0/mapnik-v4.2.0.tar.bz2"
-  sha256 "22299a06e466b1a32e6b1bfe5aaa5194289f94d5cdea7e18e631c1de4de785fb"
+  url "https://github.com/mapnik/mapnik/releases/download/v4.2.2/mapnik-v4.2.2.tar.bz2"
+  sha256 "a530f03c2bcf1ea8f9e500a0dab7f8387f1a1eae3040a886c1547b3af86f5911"
   license "LGPL-2.1-or-later"
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Mapnik < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "f43169902fc168e5f4f39880f3cd7b706a07c83920b0fa14d02feefb0343c184"
-    sha256                               arm64_sequoia: "117830d1281cf7a9fdf5f48c784bc9f1165126b16ae864d09aaa0e0d51003865"
-    sha256                               arm64_sonoma:  "44f3bf5870bdfbf872557008b130a33924c27af343e0b49460b673945c7e1df0"
-    sha256 cellar: :any,                 sonoma:        "62cb63357c8b633a16900ace42b5bb0d708726bccf40267db53b74621aa413d1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d83840bcb15ea2b37c40a2a43c8fdec7b31b0f20fa51150aab79bb5c405bc92b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01032bc0c51c3b879932dee92dddd998d073d2cdb33bf62eb1cfffa0ba175fed"
+    sha256                               arm64_tahoe:   "17461daa16a83cc1b68d83bddec019fe70f5ae3b2025dc96e6c452b609150856"
+    sha256                               arm64_sequoia: "7eab01ac99e1e4d5033fe6b0820c765f4116abfcbf8dcf60629eaa83020533cf"
+    sha256                               arm64_sonoma:  "d43b7a22d394246775470e7f7e1c04595950b398aa888733cc466bc578554b57"
+    sha256 cellar: :any,                 sonoma:        "2d758a5fbfa96cab450ad2f598a7911c9ffd5d675f9a1021545e4c8d89ddd7a8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "578349d989d343e7334d1d816620cadf19364e359143034064444b4a50410c73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "773d9545c7adf7b00cddba30fc78af1ff692debb8e4388fb22f0742cc8e107b0"
   end
 
   depends_on "cmake" => :build
@@ -41,7 +40,9 @@ class Mapnik < Formula
   depends_on "sqlite"
   depends_on "webp"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "svg2png", because: "both install `svg2png` binaries"
 

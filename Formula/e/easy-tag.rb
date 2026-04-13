@@ -6,17 +6,14 @@ class EasyTag < Formula
   license "GPL-2.0-or-later"
   revision 12
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "3f95f44be0c6742028c5395152f2c93c14c83a6ffaeff8ed1105271fce8d5051"
-    sha256 arm64_sequoia: "d04b63e28faa7da6ebab02e67dbf9b815cb4da4e382d98cac430184426a73f9b"
-    sha256 arm64_sonoma:  "6f77c6d7fe588b1bf054cb77d0a9f3fc1a3021b8197ed2e2f30f08441ebb7749"
-    sha256 arm64_ventura: "7aab98173864bbc6c9be2abd2e1ffaaa0629820740ac7299e3ee31bd858da934"
-    sha256 sonoma:        "01e68eed3d45841e47f3dc5d881a96edcbb687795cb79c94adcf51f83bd291a4"
-    sha256 ventura:       "e66e57435c818f0c4fd5e9a926e4716fee394f91c2391be98f0a5c31514eb897"
-    sha256 arm64_linux:   "8ea78b5349b575c0af14b9b98462173493f74b418330fd4b3408bf307d4139b4"
-    sha256 x86_64_linux:  "7732a032b2ed7d6aafbe639d15ecd7d2583b286b1ba7e6433e6b58d9d9f0935f"
+    rebuild 1
+    sha256 arm64_tahoe:   "8251a64714fcb33ae2d6952b837cc4441424c68d85194fe85fa1ffb840d8f1af"
+    sha256 arm64_sequoia: "dd969dbf8e9fc12844800194aa455dff8a3196e556167b54b78125e82ff0dfd6"
+    sha256 arm64_sonoma:  "1bb2f7a658bb7ef3cd2d58436cec8bcf915848e13a56537c1085a6153fa02403"
+    sha256 sonoma:        "bb4e3ef00876303f85ddd0013fb353e26317f4ac7d52e3c204a9ff583c4b3be5"
+    sha256 arm64_linux:   "a0e221b36fad5782d5a9a63e55a636ffef07f8780f33263a63752ff9fa11935d"
+    sha256 x86_64_linux:  "9d32bfcd076b17f4e7f4fe1572e456d9a5539d6e7c95b2ecfd14fd960204e5f3"
   end
 
   depends_on "appstream-glib" => :build
@@ -48,7 +45,6 @@ class EasyTag < Formula
   depends_on "wavpack"
 
   uses_from_macos "perl" => :build
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -57,6 +53,7 @@ class EasyTag < Formula
   on_linux do
     depends_on "perl-xml-parser" => :build
     depends_on "xorg-server" => :test
+    depends_on "zlib-ng-compat"
   end
 
   # easy-tag doesn't support taglib 2.x

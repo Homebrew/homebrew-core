@@ -4,6 +4,7 @@ class Cjson < Formula
   url "https://github.com/DaveGamble/cJSON/archive/refs/tags/v1.7.19.tar.gz"
   sha256 "7fa616e3046edfa7a28a32d5f9eacfd23f92900fe1f8ccd988c1662f30454562"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "3949c4efc1e2bb3de33dff83f7bb3322465f4e459b05b9c8ecafb50f9589453a"

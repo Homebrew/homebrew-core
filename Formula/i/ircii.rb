@@ -1,9 +1,9 @@
 class Ircii < Formula
   desc "IRC and ICB client"
   homepage "http://www.eterna23.net/ircii/"
-  url "https://ircii.warped.com/ircii-20240918.tar.bz2"
-  mirror "https://deb.debian.org/debian/pool/main/i/ircii/ircii_20240918.orig.tar.bz2"
-  sha256 "f4b9b380ba5143261a3ef219abfdef749c44ce4f669908da60bc3997af649ca9"
+  url "https://ircii.warped.com/ircii-20260115.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/i/ircii/ircii_20260115.orig.tar.bz2"
+  sha256 "a42749250a5eee0a57db3b72fe709bd6b8b81ec76c04c4f89f0878ef899168eb"
   license all_of: [
     "BSD-3-Clause",
     "BSD-2-Clause",
@@ -18,14 +18,12 @@ class Ircii < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "da95ef083293ba807ee3c65c7d3c8539da6cef6f8a6b4c5596c7268ff7caf794"
-    sha256 arm64_sequoia: "8e8fe508af0773e346c196d3ded29a2529e736ae175942b407321556e7ee3d85"
-    sha256 arm64_sonoma:  "250efa55d481e553454206dd459b55e825a16f93003e4e96ccb26c9b132c3568"
-    sha256 arm64_ventura: "9bba80a660397068c42e2f12d7940ced34bdb253451435ee8f51b6993230bda5"
-    sha256 sonoma:        "e9db1fd59f8b31c281a121f1821628780a85e990042cfb8c4ac674ee1b50433b"
-    sha256 ventura:       "b3cfde024333fbc46af44fcf09500d7a27369a12eac24f604ba404aca862ca18"
-    sha256 arm64_linux:   "c2c74e2ba79a6f4ef96605a4868673c34afb722f71118f6a489bf4c6041df158"
-    sha256 x86_64_linux:  "7680b15d1879970be38ec1c55f3e2c99a0381c0cddddf43fd4c66e567340427a"
+    sha256 arm64_tahoe:   "f27001eb7472423ac807513f3620dfc50a7abe587b60cae376fcfe1f73bf9d62"
+    sha256 arm64_sequoia: "a7dd4d97eaef44799d4d2432bc2929eed4f9466766629e377a84518a4d5b35fe"
+    sha256 arm64_sonoma:  "69ea0e7fa6d00012902506b4a8c5169eff23475d842239f2c98652ffb38bbe54"
+    sha256 sonoma:        "d7faa252ac267d329da31e1016bfc06f5774e6e628c89b7e9e5050bd3132ba5b"
+    sha256 arm64_linux:   "634fd789ba9b7e1c538c0e0c3458f9fa8272ca812047976d10c5b56739a1b8d1"
+    sha256 x86_64_linux:  "541eedf1463ed4337afcb37c39f32be57642e9a7cc99777283431be2bdcf0ab3"
   end
 
   depends_on "openssl@3"

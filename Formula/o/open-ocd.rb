@@ -11,8 +11,6 @@ class OpenOcd < Formula
     regex(%r{url=.*?/openocd[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "2f69ce7044f8af47279213325e0e46feae77ec451c1d0277a2619f62f4f3c370"
     sha256 arm64_sequoia:  "68476caa858a611c3026458d2d00620c5b9eddcdcf63f6d36e06ca89b6734d15"

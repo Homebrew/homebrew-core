@@ -19,6 +19,10 @@ class Omnara < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdf9f2cc5ba393c05624b31e083c21a327e59b9b65a8341e156476b31a898e7d"
   end
 
+  # https://github.com/omnara-ai/omnara
+  deprecate! date: "2026-02-05", because: :repo_archived
+  disable! date: "2027-02-05", because: :repo_archived
+
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage

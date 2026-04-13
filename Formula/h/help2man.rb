@@ -7,29 +7,36 @@ class Help2man < Formula
   license "GPL-3.0-or-later"
   revision 4
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d2e8018036792d9b999b50c7230443eececc319f3e51b780f6f10f2228c4641e"
-    sha256 cellar: :any,                 arm64_sequoia: "b4559a8766dc2105a09add4cdc05f1c2d80258adca8bdbbacddd48ae53366ffd"
-    sha256 cellar: :any,                 arm64_sonoma:  "3e375af068ec798596cd7b215930de6265a6bcc00a233236676ea9717c4a9567"
-    sha256 cellar: :any,                 sonoma:        "dd72eaf7288b91985248e14172f3f6e3e466a0f0491e6d5fb9ab16f5d1f0f3f2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcb5c874f13e9a6731574491c5b8dcad637a9117d13272dad0db52164b0c9c0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23f914c836ce3eb3984f9c9688dc48ce7f0024d45454c9114400420b70090091"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e3d3923d95ff50d31167bb31b79bfb5b5ff04ed958662d6097b87a8e7af80145"
+    sha256 cellar: :any,                 arm64_sequoia: "c32c8674bc6c07b61531fcb0e077a4a3566ef57628257bd258992708ec4c0a61"
+    sha256 cellar: :any,                 arm64_sonoma:  "1c1953fb1180f4ed0bca07f6befadec13ee94d6a3a7e86607e649457de47dc04"
+    sha256 cellar: :any,                 sonoma:        "59d2b48fe6b83c4e94ffda8e2ca12c99825dc11d14042aa4c59033be929f84c9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f2a8a07d29e873804a3b89e0f1549813359a0aab0bd5716b66454a1987ded35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9b95c2631c19512416b4e912e95517a81c1d9fddffd53e662e90c76511b6412"
   end
 
   depends_on "gettext"
-  depends_on "perl"
+  uses_from_macos "perl"
 
   resource "Locale::gettext" do
     url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"
     sha256 "909d47954697e7c04218f972915b787bd1244d75e3bd01620bc167d5bbc49c15"
+
+    livecheck do
+      url :url
+    end
   end
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     resource("Locale::gettext").stage do
+      # Workaround for macOS perl as MakeMaker can only search libraries in perl compile-time paths
+      # Issue ref: https://github.com/Perl-Toolchain-Gang/ExtUtils-MakeMaker/issues/277
+      inreplace "Makefile.PL", '$libs = "-lintl"', "$libs = \"-L#{Formula["gettext"].opt_lib} -lintl\"" if OS.mac?
+
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "NO_MYMETA=1"
       system "make", "install"
     end

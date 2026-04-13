@@ -4,6 +4,7 @@ class Gum < Formula
   url "https://github.com/charmbracelet/gum/archive/refs/tags/v0.17.0.tar.gz"
   sha256 "763a7f89dfebf8e77f86e680bace48a09423cfb9e4b4f4ba22d2c9836d311f95"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/charmbracelet/gum.git", branch: "main"
 
   bottle do

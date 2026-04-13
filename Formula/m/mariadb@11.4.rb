@@ -1,8 +1,8 @@
 class MariadbAT114 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-11.4.9/source/mariadb-11.4.9.tar.gz"
-  sha256 "8e481ca29b5a740444d45451c8ea2d93711cf525d6fa5d27bc9512cf8973b075"
+  url "https://archive.mariadb.org/mariadb-11.4.10/source/mariadb-11.4.10.tar.gz"
+  sha256 "14783ddc5edd966ff05aa0efd5ed6d3d369ed5b9e4080a448f00f87a9f0a4a6b"
   license "GPL-2.0-only"
 
   livecheck do
@@ -18,12 +18,12 @@ class MariadbAT114 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "a72cec169e294206cbd109d9ab8b068587cb315f2a00cd11f75b425cd47eb2df"
-    sha256 arm64_sequoia: "8c0bfb5b34d315d421abd2283f7748410a8224710f9a158a91980729bb4ac144"
-    sha256 arm64_sonoma:  "0cafa27d9f1be73deecb98345e0e48ce9b95cd54241c3e97d7ef238f4c12d656"
-    sha256 sonoma:        "5f1f5dd67e6dc48af303e768e0fb72a0c8d4b2086b3aee2f02d95bf0c9257937"
-    sha256 arm64_linux:   "ed10a49402d0e8301f651ed2af5d36af949607311357a49c6626ac116e110579"
-    sha256 x86_64_linux:  "8155a265be32e07d55efa95b9673f07bc62b397694c66d089ee241d951a245cb"
+    sha256 arm64_tahoe:   "58129b221ec81433ac1c296fb8bfeb2c50aa475c2ce8e657e95407b1a8ca4f06"
+    sha256 arm64_sequoia: "439febdb2f016b852efe4b330160464a2e3a557fff8b32eed9453e53eba16be6"
+    sha256 arm64_sonoma:  "aed067eb3c76e3ed80382dd4027beca7da54723083b7d2145b406d3767f016fc"
+    sha256 sonoma:        "71d85367ad1bd4d44f3e84a6690793d80ddc47000a624e87d1e5d55d01c81b85"
+    sha256 arm64_linux:   "ca81cc0c995a9ee3e6319fc0984ac298064d768e78e306d264b5fc049b3cba28"
+    sha256 x86_64_linux:  "5465421afc4c33bd990583191e16c5eac231a77f393186e39ec818704ddc5adb"
   end
 
   keg_only :versioned_formula
@@ -50,7 +50,6 @@ class MariadbAT114 < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "openjdk" => :build
@@ -58,6 +57,7 @@ class MariadbAT114 < Formula
 
   on_linux do
     depends_on "linux-pam"
+    depends_on "zlib-ng-compat"
   end
 
   def install

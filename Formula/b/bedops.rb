@@ -6,20 +6,22 @@ class Bedops < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4ff22f322da3637f4386dc02c4ab65a66792ec39e12c5cef947318b9192d8f7d"
-    sha256 cellar: :any,                 arm64_sequoia: "a4233322968c5020044fae4eebb8454b89f21f0a5d8e148a354d6e6ce34c29a1"
-    sha256 cellar: :any,                 arm64_sonoma:  "20bb111818a6579c66d41e8f1197db5e2bfec0a552683c613a502f6c948bb545"
-    sha256 cellar: :any,                 arm64_ventura: "d76e57a5614cc8aa3ca1f80c578a3f1927afdd38b0c6781f661decbed04d9b9b"
-    sha256 cellar: :any,                 sonoma:        "8f697e9debc25f693bc1ae11b4cda7ca24c9daa5473337185d498b25de092232"
-    sha256 cellar: :any,                 ventura:       "28016580353e6377af02c3238032cad2eb0053a09ee84fcc98ed3f6a161def52"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "75447ca25f0cc6f2c06a93085e0ca3724ed9fa26ebe46a3191f0a3af91c3d1bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afc3de7b8daff4e67a1dcf796e5ae9ddb12954d88eaeaac332ac30c0c22159ba"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "02db95f7031e865972ba9811475cebf53b0bcd748ae61b0fb067187a5940de88"
+    sha256 cellar: :any,                 arm64_sequoia: "163148476ed1d1b00d3a4b281bfb32db9830928844d81d25e7d6a6d5f6b1ecb8"
+    sha256 cellar: :any,                 arm64_sonoma:  "ccac5a7e4985f27095efd08464c9c51b158dee343f2d5a017d3d69e6065076a7"
+    sha256 cellar: :any,                 sonoma:        "6f996efefbe566889602342fb2d270816c30121dfa1798125010bd59c70c7071"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e60fd9252b86986cef3dd7adb62756695775f3747f120e44813607532881468"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ffc6cb770da1fc79d627c28daa4cf7a6444f3203e1c17f9c78860f70521738f"
   end
 
   depends_on "jansson"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Apply Debian patch to allow using system/brew libraries
   patch do

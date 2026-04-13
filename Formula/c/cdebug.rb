@@ -1,19 +1,18 @@
 class Cdebug < Formula
   desc "Swiss army knife of container debugging"
   homepage "https://github.com/iximiuz/cdebug"
-  url "https://github.com/iximiuz/cdebug/archive/refs/tags/v0.0.18.tar.gz"
-  sha256 "c28d6c079177aa8de850e2edcbd284ac08cd3f9d77aac851928e1cc85a77fbcb"
+  url "https://github.com/iximiuz/cdebug/archive/refs/tags/v0.0.19.tar.gz"
+  sha256 "9bc1779fb342029e2e7b53ac4708ac939d2d55914974752cd64b040617c3b496"
   license "Apache-2.0"
   head "https://github.com/iximiuz/cdebug.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "88d9b43ad44eef49ab960108d8f8398cc861d6784b05ee6149eefab7ecadcad4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88d9b43ad44eef49ab960108d8f8398cc861d6784b05ee6149eefab7ecadcad4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88d9b43ad44eef49ab960108d8f8398cc861d6784b05ee6149eefab7ecadcad4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1244c280b1df7cc717d7c0563e46e1957adbc8bab5dadb780291beb49621a37a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "288614fb059ed83c3a001434c918121bedb62bede3b6ddd3f717bbae02e11c9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da3c0eb9e6d8df7b8a0e3c22806078e59970c20157f2d1b0bc2e8ab5fd81c983"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3158b41fb2723b2e09dd4884a9e1e0f280605186931172698a79a46f50cfda55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3158b41fb2723b2e09dd4884a9e1e0f280605186931172698a79a46f50cfda55"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3158b41fb2723b2e09dd4884a9e1e0f280605186931172698a79a46f50cfda55"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eee4f9edd17c35e45fea36dcf2edf4d474735f7559c0672c9bc1d14dfd4899d9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "532e056ac9f22ea053a51933090499cd8a7f44cf932b4afc64586a1b00187e4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b639915beeb487a44676e86342557a21649566247b01c4d294b24cefdf9671a0"
   end
 
   depends_on "go" => :build

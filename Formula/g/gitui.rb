@@ -1,20 +1,20 @@
 class Gitui < Formula
   desc "Blazing fast terminal-ui for git written in rust"
   homepage "https://github.com/gitui-org/gitui"
-  url "https://github.com/gitui-org/gitui/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "3d7d1deef84b8cb3f59882b57b9a70d39ddd6491bd4539504d69b2b3924c044f"
+  url "https://github.com/gitui-org/gitui/archive/refs/tags/v0.28.1.tar.gz"
+  sha256 "0400cbf59605490b5fb8779f9af41fa4d7a1bb748093ca0e13156a5dff31c7aa"
   license "MIT"
   head "https://github.com/gitui-org/gitui.git", branch: "master"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d8bc1cc8b7f6e1be0d218a19325f24ff4a15335c962fb93d37961b357a830ac8"
-    sha256 cellar: :any,                 arm64_sequoia: "273adf03fc2aa1ee541d35b69c298767b510443e2812ce4b3d9c13a3b8cabdbc"
-    sha256 cellar: :any,                 arm64_sonoma:  "4c5d3a04099ab24147b5124576dc41c7457e2bb37b4836e2563a9c1a6cde9981"
-    sha256 cellar: :any,                 sonoma:        "ff77e89525eb25480940d3ea1aa6e09b52e28078ec7c3790ba138a82da63debd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc3daaff36fa113c13e951f4355534ca1fa28018177c337062fe53dec32c9cde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53b88c6afc765f0870e184e93921a0a52019d876b579111c97fd6f4d5e3f5a67"
+    sha256 cellar: :any,                 arm64_tahoe:   "8d680002eec562dc3e551b65df13870ed7c76f12137a47bd797b50bdcd2487d1"
+    sha256 cellar: :any,                 arm64_sequoia: "7cecc7faf77b0a9eb8263cf9bcbc9ac6c9066eafb065b4c6e43188572b9c3061"
+    sha256 cellar: :any,                 arm64_sonoma:  "e4370bb36e12fd616f29ccd1159abe412e3196b3e8d758fdd1b6c04069d63cdd"
+    sha256 cellar: :any,                 sonoma:        "a257d6363277574277a79ac33ec5ce1c9d97531b5137d4ef00d3fac4dd7793f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b81e6514a38501028d2e54c7d245ac376f2f5f6039e0f1b96ca1bafd5cc9fc01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3776e0418c6233796021596efb33de72343bfd36f67c562c347642598d52253"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys
@@ -22,7 +22,9 @@ class Gitui < Formula
   depends_on "rust" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.

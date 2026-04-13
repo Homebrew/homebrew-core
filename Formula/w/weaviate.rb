@@ -1,17 +1,17 @@
 class Weaviate < Formula
   desc "Open-source vector database that stores both objects and vectors"
   homepage "https://weaviate.io/developers/weaviate/"
-  url "https://github.com/weaviate/weaviate/archive/refs/tags/v1.35.3.tar.gz"
-  sha256 "d10c4abf5bc58eadb72add1629faf5c884f7880bd18b9225249bb6112fd8d286"
+  url "https://github.com/weaviate/weaviate/archive/refs/tags/v1.36.10.tar.gz"
+  sha256 "418ed13ccc0a014ba2c3e46c91924129e189f37797629afa2c6014064ac63ec9"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "79c78cfd8abdff9a38e6d3bc9ab657b9566c8d2a570234e9e83944b5cc04960b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "79c78cfd8abdff9a38e6d3bc9ab657b9566c8d2a570234e9e83944b5cc04960b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79c78cfd8abdff9a38e6d3bc9ab657b9566c8d2a570234e9e83944b5cc04960b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e533273a3c6e5e9e94f44cadba7286888195357336b0f5b8b8b33a4130fd3e9f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "786f1169e0b0d43d511ed01f7fd94c0057959bc938d61cfe197ecc4adc527f2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2de3a6f23e8e879446e2d9bf9ad4e2d6b9c68f239c76311d59bcb00fb876ae58"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "57b37e15b97ca31d353ad85f6da90f2cb79fc1ce2c4e2d0cfcfa504552d95674"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "57b37e15b97ca31d353ad85f6da90f2cb79fc1ce2c4e2d0cfcfa504552d95674"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "57b37e15b97ca31d353ad85f6da90f2cb79fc1ce2c4e2d0cfcfa504552d95674"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1e0c8d425fc33ec6519927cd9e7b9e5711dccff110c45eca5acbf899056f00ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "45d96100c01aecbaf109aea281a8600beab13a6cf5ad5be6b1a52ca67d64d5ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f5aecdece54435cdff10b245558a41bd8a98e67d6b775fd11cf5097a1d1042d"
   end
 
   depends_on "go" => :build

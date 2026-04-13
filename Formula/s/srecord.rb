@@ -5,8 +5,6 @@ class Srecord < Formula
   sha256 "81c3d07cf15ce50441f43a82cefd0ac32767c535b5291bcc41bd2311d1337644"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "054d26597b7a4c444cf94c279055aeac127939f40ca58928ccc5a0295c6312d5"
     sha256 cellar: :any,                 arm64_sequoia: "fe9526b920ca097bcc3662d2647c08cfc54a4625a87b2f3a453a4e5f8ad7d23e"

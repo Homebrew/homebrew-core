@@ -11,8 +11,6 @@ class Sylpheed < Formula
     regex(%r{stable.*?href=.*?/sylpheed[._-]v?(\d+(?:\.\d+)+)\.t}im)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "904952d738df66659a845da6b43e2489e4b8c65ac8c6680e999855c5f4460670"
     sha256 arm64_sequoia: "486a0c588d0241a2cdbd2bdf9ffba966f207243abfde699f8353ff0c0fadd128"

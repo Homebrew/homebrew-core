@@ -7,25 +7,19 @@ class LlvmAT17 < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   livecheck do
-    url :stable
-    regex(/^llvmorg[._-]v?(17(?:\.\d+)+)$/i)
+    skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "9ba308319c3f4200eeaf9d30cd2bc5f40f3b2cdeeffbd08024c4e0fe346d9022"
-    sha256 cellar: :any,                 arm64_sequoia:  "4cf50ede64cdc9cf05227501e8b0893a4feb0b86843fcd77b12a5cff1e539522"
-    sha256 cellar: :any,                 arm64_sonoma:   "a86a41bd356df1fdbd8eef983fff672937a39cad37b00ef37ca94365fc636e1d"
-    sha256 cellar: :any,                 arm64_ventura:  "d39b580c5e17bb4f103937122a64f81f7961bbd5b25f9467226c04ff557a45c6"
-    sha256 cellar: :any,                 arm64_monterey: "0915b164989e297186d51766ba11451d6066a2a85a52629acc296d75cbb25159"
-    sha256 cellar: :any,                 tahoe:          "89f1155284f657d26de9149d9ca3df1bea170d977ec72f8eee3a0fa84cb99280"
-    sha256 cellar: :any,                 sequoia:        "baf5cd93bcb8db112c6742d520660d61c206693e1597cbdf4fc11204d6746809"
-    sha256 cellar: :any,                 sonoma:         "d98f672996f75861190b139397b1623af1f41b624d2a9515a22505592aeed2fa"
-    sha256 cellar: :any,                 ventura:        "e46fd200b88e080bf18cdddbb140b1052a168b8c91debc895f0ce66d1db7c4aa"
-    sha256 cellar: :any,                 monterey:       "77fa86ddbbdaa8abd9afa9e3e1b3471ebf3817ce6a8f018901d5d2889a2d8e0d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "962b81c61096772a725e4990a3ee995f17c954f0bc029ef24dce7c4d93da016c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "087832db6b7abee3997e2b13501e98025273ebfc64368ba97917a37739d65392"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f2de15b5a454478b08b3e67e08bd9568a84b4468120194ec0856e2408123f9e9"
+    sha256 cellar: :any,                 arm64_sequoia: "87797d1de6483245791f42e1de022599d4b18f342cbcdaa6cd24ab76c8a6ad1b"
+    sha256 cellar: :any,                 arm64_sonoma:  "608b1dc67fe4d80baf65077c69a7c4d58350c800a9e25fce4438f11c90340d9c"
+    sha256 cellar: :any,                 tahoe:         "072e278dc552e73e2e1d6d29615960ad8245401ceb3fa0ff2902f47ddb1dc006"
+    sha256 cellar: :any,                 sequoia:       "f246f179e1c2c3d4d3a1efa036294650dc3846e99bf1fcd93a45d0b0008f95ec"
+    sha256 cellar: :any,                 sonoma:        "e4d616c75790b856608d82b9880391ccdc50f2673f4d5dae41d0aa02f67835b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f6210ba3e1a24e90c0ea03737922a05be4b9ffb3d4c20baf5e7b95f1573b365"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57f164368ffe36bec042d02163a267b43710e41a1b7273caa9953fba02fd0ec1"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -36,18 +30,17 @@ class LlvmAT17 < Formula
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "zstd"
 
   uses_from_macos "libedit"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_linux do
+    depends_on "binutils" => :build # needed for LLVMgold plugin
     depends_on "pkgconf" => :build
-    depends_on "binutils" # needed for gold
-    depends_on "elfutils" # openmp requires <gelf.h>
+    depends_on "zlib-ng-compat"
   end
 
   # Fix arm64 misoptimisation in some cases.
@@ -58,7 +51,7 @@ class LlvmAT17 < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.14"
   end
 
   def install
@@ -85,9 +78,6 @@ class LlvmAT17 < Formula
                              .select { |name| name.start_with? "python@" }
                              .map { |py| py.delete_prefix("python@") }
 
-    # Apple's libstdc++ is too old to build LLVM
-    ENV.libcxx if ENV.compiler == :clang
-
     # compiler-rt has some iOS simulator features that require i386 symbols
     # I'm assuming the rest of clang needs support too for 32-bit compilation
     # to work correctly, but if not, perhaps universal binaries could be
@@ -95,9 +85,6 @@ class LlvmAT17 < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
-    # we install the lldb Python module into libexec to prevent users from
-    # accidentally importing it with a non-Homebrew Python or a Homebrew Python
-    # in a non-default prefix. See https://lldb.llvm.org/resources/caveats.html
     args = %W[
       -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
       -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
@@ -113,7 +100,6 @@ class LlvmAT17 < Formula
       -DLLVM_ENABLE_Z3_SOLVER=OFF
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
-      -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{python_versions.join(";")}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=OFF
       -DCLANG_FORCE_MATCHING_LIBCLANG_SOVERSION=OFF
@@ -206,8 +192,6 @@ class LlvmAT17 < Formula
       # Get the version from `llvm-config` to get the correct HEAD or RC version too.
       llvm_version = Utils.safe_popen_read(bin/"llvm-config", "--version").strip
       soversion = Version.new(llvm_version).major.to_s
-      soversion << "git" if llvm_version.end_with?("git")
-      soversion << "rc" if llvm_version.end_with?("rc")
 
       # Install versioned symlink, or else `llvm-config` doesn't work properly
       lib.install_symlink "libLLVM.dylib" => "libLLVM-#{soversion}.dylib"
@@ -247,14 +231,7 @@ class LlvmAT17 < Formula
     llvm_version = Utils.safe_popen_read(bin/"llvm-config", "--version").strip
     llvm_version_major = Version.new(llvm_version).major.to_s
     soversion = llvm_version_major.dup
-
-    if llvm_version.end_with?("git")
-      soversion << "git"
-    elsif llvm_version.end_with?("rc")
-      soversion << "rc"
-    else
-      assert_equal version, llvm_version
-    end
+    assert_equal version, llvm_version
 
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
     assert_equal "-lLLVM-#{soversion}", shell_output("#{bin}/llvm-config --libs").chomp

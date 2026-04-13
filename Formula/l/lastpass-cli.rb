@@ -4,26 +4,26 @@ class LastpassCli < Formula
   url "https://github.com/lastpass/lastpass-cli/releases/download/v1.6.1/lastpass-cli-1.6.1.tar.gz"
   sha256 "5e4ff5c9fef8aa924547c565c44e5b4aa31e63d642873847b8e40ce34558a5e1"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
-  revision 2
+  revision 3
   head "https://github.com/lastpass/lastpass-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c2a5f02a4ca98532c55385ebacc3539000fa5c6b5a4682f3e5cd5124ff1d6cff"
-    sha256 cellar: :any,                 arm64_sequoia: "569c58eb35aeb7992dc6fe294bc12ffb9080a583bc84d135ddd93bab2d3995ec"
-    sha256 cellar: :any,                 arm64_sonoma:  "e13a16eda126d0829f53904319b45663deb23d226af8ec7906e82a66bfc7d5ca"
-    sha256 cellar: :any,                 sonoma:        "e23cb4d80dee3fa976237e1df4305538652531ab1a9d1b13d22d583c330b7898"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce94668af616a6b2f3ef80f465e1da9e4537998e2ff886e1a0f1b4b06dd6502d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e72da4920d9db53e2c8cc5b4fd99c2ba72c55dce8721e90fac8657c777ebb58"
+    sha256 cellar: :any,                 arm64_tahoe:   "e547490a82141e4d65e5a86beb319e69e0969a00613ea77562d4d1db33c878a0"
+    sha256 cellar: :any,                 arm64_sequoia: "482c55695d8aa4c7c50306e02025282e2946ad725743fe3edae073bcf8268fc4"
+    sha256 cellar: :any,                 arm64_sonoma:  "47b6ce505c464f48dfa1f9fb46aeb6cf1545c6d784a0aeb8894414fcebbac780"
+    sha256 cellar: :any,                 sonoma:        "0008f85381696f35fd6260696c2b622e588cd6f43e13512156963c3c69b51e6a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "935451a0d264d9bb0a412f7769ad0c72c2d595ab553e17cfe9d081f1b48f8d0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82b5d5939c16538205466a3ebf07fd6c9d349825a190699ab9f5954859899dd3"
   end
 
   depends_on "asciidoc" => :build
   depends_on "cmake" => :build
   depends_on "docbook-xsl" => :build
   depends_on "pkgconf" => :build
+  depends_on "curl"
   depends_on "openssl@3"
   depends_on "pinentry"
 
-  uses_from_macos "curl"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 

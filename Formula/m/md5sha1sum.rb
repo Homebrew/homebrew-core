@@ -12,8 +12,6 @@ class Md5sha1sum < Formula
     regex(/href=.*?md5sha1sum[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "5d30a62c330be15f2314718cebf8e2c4ff270ee97398e0e9c94c99ea32b3e146"

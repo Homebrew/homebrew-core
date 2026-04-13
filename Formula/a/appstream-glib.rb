@@ -5,7 +5,13 @@ class AppstreamGlib < Formula
   sha256 "15ad7690b0132d883bd066699a7b55f6cef4c0f266d18d781ce5d8112fb4ee63"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :stable
+    regex(/^appstream_glib[._-]v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "2587f394775fa2f8b69be4db40c9bbe66d5b4d961803ac90e8f7b0e67c171259"

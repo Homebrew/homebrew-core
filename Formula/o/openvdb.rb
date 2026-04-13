@@ -8,12 +8,13 @@ class Openvdb < Formula
   head "https://github.com/AcademySoftwareFoundation/openvdb.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9034c0d9bc8ecbcd7afe7fa279dcdec883e9f52a24f292483bf6a11114c5516c"
-    sha256 cellar: :any,                 arm64_sequoia: "1fd0ec25afe4eda5e17f9e514f4e6d6044ee8b99b61018c7f8e0172cb682b20c"
-    sha256 cellar: :any,                 arm64_sonoma:  "bc65aebe2ed2107366d94834c39b7225c34f17f0d04b645b77078e339e56c534"
-    sha256 cellar: :any,                 sonoma:        "e5f8963ee61f47880c836435595711ff1b8c6c4c0883dd3abb2ab11e2dfbd2b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "41f66073e71b96789679ad2fb43f8fd4300d61590714489a3160fe3dc4735e1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39e3fc98d0da60fd9fe88a84be8f36f31f97c54f9ac638c6b9d8c024f97def8b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "1293e06e4fc2e23da53c13d0ff875e61484d85c6d734a8df1817ac7522b368e9"
+    sha256 cellar: :any,                 arm64_sequoia: "d92c0b472575bdd80490eeb159c01abc9bffcb0c282173067622a13b25cf1273"
+    sha256 cellar: :any,                 arm64_sonoma:  "40b91eee6ca47d33a5d0568ef6f98ae1984cbe312abbbffa6acdec3fc9641afa"
+    sha256 cellar: :any,                 sonoma:        "a7edb4bef446e3b92421e3a66a282b6c0c0fa0440e79e8c8567c00b59f84bbd8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "12ab28558982809431b5d9eb176a8f8e133b59698e40db52bb0fb8682a66b20b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "595a235b9cbabb8f5dd8797681e9bde7d00662a91835b21ad7a961f1ee9fa09b"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,9 @@ class Openvdb < Formula
   depends_on "openexr"
   depends_on "tbb"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = [

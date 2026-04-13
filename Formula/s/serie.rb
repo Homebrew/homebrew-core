@@ -1,18 +1,18 @@
 class Serie < Formula
   desc "Rich git commit graph in your terminal"
   homepage "https://github.com/lusingander/serie"
-  url "https://github.com/lusingander/serie/archive/refs/tags/v0.5.7.tar.gz"
-  sha256 "c6e56699e6185a73fd4652f247844cecaad971e1956674b1339b3eff8aaaf422"
+  url "https://github.com/lusingander/serie/archive/refs/tags/v0.7.2.tar.gz"
+  sha256 "7efb46acf02b13f2a0c39518ba740f120ff281b9dd20291e7f7bd5b6c274d0d1"
   license "MIT"
   head "https://github.com/lusingander/serie.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fbe044482e983db29fab1e3e4dbfe412c9e42be73abeac3e5069e20c924f921f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "276b821f7faaa60ac8f6c7dd259eb04ae2e909aeedb2f1ba9983ac879b4a97e3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "edf64c854142144c58814e45d8ca63db0e6d444476584bb903906dca337cef9f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1b08f0d1dbb7daa929221ca5b399e0a2a6a4e7037ac67041f8fe4daae3ed16e3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b469e52f19aadc5ac7ba674105d024c71357bc9c7e75a4d883345b643ce1cb44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f458c2a6ccc43afa94848e13e700734b555739e2263d67a6061eb6df0286cc5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a5aaa002ebc4fe2e582d90c1731d0ddf7b1349dbbfa76e959899d57bfcffbcc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4f26ff88657f5eace0901f32805b9487f9807c88f9a54d75989534eb476c49b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f1f703c5ea2d9adb3a1458fe5fe73439a6c5c8296bc9f45ca8ff12b952746df"
+    sha256 cellar: :any_skip_relocation, sonoma:        "71eb82f2441e23fdf83d3921c632d7c19f1ed38aa2c78de5dacc28ab9a0c867c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec8e90eaedbd0e490431240283667b0c6f0b9516b873e9e6e2a8dafaa9175450"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3fbd5d067ca54919cacc954355da772a252288e300dba3e5eebf07dcfb69db0"
   end
 
   depends_on "rust" => :build

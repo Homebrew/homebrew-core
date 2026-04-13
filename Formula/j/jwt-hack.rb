@@ -1,20 +1,18 @@
 class JwtHack < Formula
   desc "JSON Web Token Hack Toolkit"
   homepage "https://github.com/hahwul/jwt-hack"
-  url "https://github.com/hahwul/jwt-hack/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "c167f595e5552dfbf5bd3fd79e2f061b1ad9d99790ffd036351172997a6de678"
+  url "https://github.com/hahwul/jwt-hack/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "85c6d8ade6f60ccafd12283c82ee1368874bc00af90f11fcad8f252baa197374"
   license "MIT"
   head "https://github.com/hahwul/jwt-hack.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "72eecc220faac63e56979a32d8d3df3cfded9aac523544b7635883cbc78a6521"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ac32fc1ebd660d5b804b4b3ae99f665b80b0ec8b875f59f9db79440e654b0d7b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07347f80da49f98a99b662cdbb1db730462c2a3ea52ac6bf7c0187a485711c75"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a6548493fef34eacab72613f6cb5a3b0ad457608c62fa6a3dbae05a3f6e48256"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e845b69463ad7556ffbf99293fcdc8c95f87966ff052a57566ee92562c01f9c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d66d4a020117bff143cb00a8cda7339a7a2e508b8c85dc0a503afa21108abda1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c774db25ff55344e74cc44cdcd769585185762a3acca17d019df869a31a22608"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31a48a4304a7337ca72b58b72b1b2b0cb33ee41e3b541644891bc53f085fd020"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "de06a8f2fd7f055d5b4d3eb815d2d75276a5c4967abd8b74670e739e1961eed2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eac5190ed5651ff1b4c9912ab71bbc28048d5b47b6f4d517462f3c7468cd722f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf4553cbc30e92a05ccff655210d1bf78d0b489d89d039480f673fd2c6245693"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c1e09b4e3dfd12d38c0f9e09a3ae9b48418a04b20be9f0c25a74704bd9f12e5"
   end
 
   depends_on "pkgconf" => :build
@@ -36,6 +34,6 @@ class JwtHack < Formula
             "G4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTc0OTI4NzU5Nn0.6Z458qcvAJFTH9XCBgfmwgmqupsrefK8ItGYfyH0Ipc"
     assert_match "John", shell_output("#{bin}/jwt-hack decode #{token}")
     secret = "a-string-secret-at-least-256-bits-long"
-    assert_match "valid", shell_output("#{bin}/jwt-hack verify #{token} --secret #{secret}")
+    assert_match "valid", shell_output("#{bin}/jwt-hack verify #{token} --secret #{secret} 2>&1")
   end
 end

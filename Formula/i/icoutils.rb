@@ -1,7 +1,7 @@
 class Icoutils < Formula
   desc "Create and extract MS Windows icons and cursors"
   homepage "https://www.nongnu.org/icoutils/"
-  url "https://savannah.nongnu.org/download/icoutils/icoutils-0.32.3.tar.bz2"
+  url "https://download.savannah.gnu.org/releases/icoutils/icoutils-0.32.3.tar.bz2"
   sha256 "17abe02d043a253b68b47e3af69c9fc755b895db68fdc8811786125df564c6e0"
   license "GPL-3.0-or-later"
 
@@ -9,8 +9,6 @@ class Icoutils < Formula
     url "https://download.savannah.gnu.org/releases/icoutils/"
     regex(/href=.*?icoutils[._-](\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

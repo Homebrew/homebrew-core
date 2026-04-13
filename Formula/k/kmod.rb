@@ -11,8 +11,9 @@ class Kmod < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "53e61505bc84ed9434888a1e295f538a63e2aa6edcf0ea0130dd89ae54809f70"
-    sha256 x86_64_linux: "f9dc4575dbb5fff814a124bcdea9f0d01788ebbdf00c64e63ca14af901e761a7"
+    rebuild 1
+    sha256 arm64_linux:  "61677724c3f5a7390c6fb6b7ea9bb8a63d579be87223b4d1bc4a958c5a2413dd"
+    sha256 x86_64_linux: "bf100adc797109c78f5a9811d224673e36f7670f90677cbf4d6ce1b5fbe49d3e"
   end
 
   depends_on "meson" => :build
@@ -22,7 +23,7 @@ class Kmod < Formula
   depends_on :linux
   depends_on "openssl@3"
   depends_on "xz"
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
   depends_on "zstd"
 
   def install

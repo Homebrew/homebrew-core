@@ -3,18 +3,17 @@ class B4 < Formula
 
   desc "Tool to work with public-inbox and patch archives"
   homepage "https://b4.docs.kernel.org/en/latest/"
-  url "https://files.pythonhosted.org/packages/70/99/2b34c8451ad6599090f7d9045adb9f19270c2ed8cef4d52c179b297f8e37/b4-0.14.3.tar.gz"
-  sha256 "31a4927b8dfbb5c97edfc9569cda3b6737bbfd8430881e8cc48a0b088ced6147"
+  url "https://files.pythonhosted.org/packages/c3/34/7f17fce52acb992d7b70aaa956e6dec4dc432ce8d195a176f232fcd6315c/b4-0.15.2.tar.gz"
+  sha256 "b815f2aed2288718cfe2a14c76421a00bc4f0918ea32b45dd1645c999fdda69d"
   license "GPL-2.0-or-later"
-  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "226178f28760b3e75b93ad075d7cba47415807704747091f0f9936bae9cebb77"
-    sha256 cellar: :any,                 arm64_sequoia: "3a1458c9fecd965d519219cc0bf2b2118f0197ace563f85b6e111ca353da081d"
-    sha256 cellar: :any,                 arm64_sonoma:  "bbc146f6f134b8bf3b4b35f10bd3bcd90a71e7bb6440ec62ca20379a38b563c2"
-    sha256 cellar: :any,                 sonoma:        "7cabca1836d799761cb89839cb54f9f610c99f3477647c62b9ed065a3bf8238f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cfccc9296b18d132f87b4fd52cdb677fcc629396cbd817195d1b81d88f580ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d856f2ab7a98f6eb09662cae0a4a52fc638a5250bea634dda33d0e8f7e809854"
+    sha256 cellar: :any,                 arm64_tahoe:   "b610c19404ca0994ab1be3e72ab9000bb2869de053c14d2d088eed4c0be2338a"
+    sha256 cellar: :any,                 arm64_sequoia: "017f7d91e7fe9ec2c66e5e372798995427db73d62b64a4ac0944c99769548c9d"
+    sha256 cellar: :any,                 arm64_sonoma:  "e238e797e0048b3d03904926b650b814656fa5d1889656b2a9fa494c7b1f4529"
+    sha256 cellar: :any,                 sonoma:        "4aeb3d3cb753fb6778e767eaedad8077ef4ca9ea9f3d85c0c3eba788e63445b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "73c7cf518dbe6dd659b0f5e5e2d7e532b367191edb14a2bd2d76e542b8475730"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47a2fa4fc144c67ef0a50fbd7d440895afd29ec7c4d9c19a2992a374c77fe454"
   end
 
   depends_on "certifi" => :no_linkage
@@ -25,8 +24,8 @@ class B4 < Formula
   pypi_packages exclude_packages: ["certifi", "cffi"]
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "dkimpy" do
@@ -60,8 +59,8 @@ class B4 < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
+    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
   end
 
   resource "urllib3" do

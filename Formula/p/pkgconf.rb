@@ -6,6 +6,7 @@ class Pkgconf < Formula
   mirror "http://fresh-center.net/linux/misc/pkgconf-2.5.1.tar.xz"
   sha256 "cd05c9589b9f86ecf044c10a2269822bc9eb001eced2582cfffd658b0a50c243"
   license "ISC"
+  compatibility_version 1
 
   livecheck do
     url "https://distfiles.ariadne.space/pkgconf/"

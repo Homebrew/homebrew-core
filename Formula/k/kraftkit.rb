@@ -1,8 +1,8 @@
 class Kraftkit < Formula
   desc "Build and use highly customized and ultra-lightweight unikernel VMs"
   homepage "https://unikraft.org/docs/cli"
-  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.12.5.tar.gz"
-  sha256 "72ae21a2b20e4d3d85e22977c5025a6c7349acc96ad596fe6b66a3d5d94b547c"
+  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.12.7.tar.gz"
+  sha256 "5088ae9faf64b655cae441943089f5248e0f072fbeca14f9db65d3c0d6280dc2"
   license "BSD-3-Clause"
   head "https://github.com/unikraft/kraftkit.git", branch: "staging"
 
@@ -12,13 +12,12 @@ class Kraftkit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4460e2412f7ea04f7c54620fc216d2003e52ec18105c7d6bc5f31fde127f308f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "288353d2c31c6790592b148ddf832e5938cc493357573f728e3dc295731afa2e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b2cc8d32fd996e0f334f914bb9251f57573d8ec4255218740f736ce089d4c614"
-    sha256 cellar: :any_skip_relocation, sonoma:        "780657ed9827075fb1c6e8ce48505e82c5ff042d348d864579f80b80eb585102"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b38b10881e0648a3a369a5f5c15d46ee5d8016ab695aa319fa44c4d13a6e8d00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cce0e5b120ca6b93221ee7f940f72fc080ff4c5034bb5268b56f08aeecf6368a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea02698e443b881d59789ebf38cef3271de8c75e9784217259cec4e26b4bda5f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5373c9df613c82dd4cd2a1811330a9e66e826f1ae327c909ded6d38e284b348b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c10a568db91927be2411cd9eff6c5b288cc89ad2c5f303c21c4291b34810e0e6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb3b5c8f5e07f1a1e164b8fc225c9c24421275ca3e74905667a5cad676447927"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8a117db143d2211c35468cb78374d224021274675639b43bc0298167b371da4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7193330cf4477d6ffa8770a5a3b8e0019fa1580e9397ee997ffe591ac8e939e"
   end
 
   depends_on "go" => :build

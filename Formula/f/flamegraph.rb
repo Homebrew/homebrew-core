@@ -7,8 +7,6 @@ class Flamegraph < Formula
   revision 1
   head "https://github.com/brendangregg/FlameGraph.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "97511f43f573d3f64674b4ca16d9e9f2175366d769741f8c49407c8aefdaa4ec"
@@ -70,6 +68,6 @@ class Flamegraph < Formula
     output = shell_output "#{bin}/stackcollapse-perf.pl #{testpath}/perf-mirageos-stacks-01.txt"
     assert_match (testpath/"perf-mirageos-stacks-01-collapsed-all.txt").read, output
 
-    system bin/"flamegraph.pl", "#{testpath}/perf-mirageos-stacks-01-collapsed-all.txt"
+    system bin/"flamegraph.pl", testpath/"perf-mirageos-stacks-01-collapsed-all.txt"
   end
 end

@@ -15,21 +15,19 @@ class Mold < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8b40b6a652877ed7299df4e1c32b201a515a4764c96689a4609c895185d2d71e"
-    sha256 cellar: :any,                 arm64_sequoia: "1ed3cd743c1033ecb3b070817e4e5ca54815d8d3c1bad920f3224aafa5267a41"
-    sha256 cellar: :any,                 arm64_sonoma:  "c0622583fa23153d640b8e720f5a4d14dd5e969be7d610626a0ad55460bfbdc7"
-    sha256 cellar: :any,                 arm64_ventura: "f4df41bb25c00b851e508249a377fdf394f441850c325fa67089b9e036af2b8f"
-    sha256 cellar: :any,                 sonoma:        "2a0189bf5a1b37efd61a2a2233e99d2e216ec83dc616d7811bd35ce84a09a400"
-    sha256 cellar: :any,                 ventura:       "96ad94c18f4f7eb591f9f560a40b8db685634b024190d255e5b91a41d61f7a4f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "03951e11bace13df037bc73fed74c04773da11c2ca74d3f3285a250f749c5ce4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a456faee04d75649d33d7cea036b12bab85d35fa1fc079e687c895d1945966d2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5733b66bbcb80581733ce9c5b890d920ece84dd8fbf19416ca3565f6ea6de0be"
+    sha256 cellar: :any,                 arm64_sequoia: "2ebfecf9ccf2c38f4f4ef592f0c3e7c0a2823732c0832f9b52916e3a57453005"
+    sha256 cellar: :any,                 arm64_sonoma:  "cb22350cbe464777f397ee4ea99aa05c52b506b11ae6271ebbb11b72d22ed0c3"
+    sha256 cellar: :any,                 sonoma:        "d68d8c192b9d685abb2260d42ad117cc2aa0aa35ede04b6a33435e5c18af899a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a0e5fe128a94e3665ae2423743f9fc0cdcf775cb21b021c1ca4379910a645eed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0a3edd10d03ae3340bcb0e13cff3a55e2a59e0d0f4c2c6ecf7eeec41ce2e3c3"
   end
 
   depends_on "cmake" => :build
   depends_on "blake3"
   depends_on "tbb"
   depends_on "zstd"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
@@ -37,6 +35,7 @@ class Mold < Formula
 
   on_linux do
     depends_on "mimalloc"
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do
@@ -50,8 +49,6 @@ class Mold < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1500)
-
     # Avoid embedding libdir in the binary.
     # This helps make the bottle relocatable.
     inreplace "lib/config.h.in", "@CMAKE_INSTALL_FULL_LIBDIR@", ""
@@ -73,9 +70,7 @@ class Mold < Formula
   end
 
   def caveats
-    <<~EOS
-      Support for Mach-O targets has been removed.
-    EOS
+    "Support for Mach-O targets has been removed."
   end
 
   test do

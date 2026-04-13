@@ -1,21 +1,21 @@
 class GuileFibers < Formula
   desc "Concurrent ML-like concurrency for Guile"
-  homepage "https://github.com/wingo/fibers"
-  url "https://github.com/wingo/fibers/releases/download/v1.3.1/fibers-1.3.1.tar.gz"
-  sha256 "a5e1a9c49c0efe7ac6f355662041430d4b64e59baa538d2b8fb5ef7528d81dbf"
+  homepage "https://codeberg.org/guile/fibers"
+  url "https://codeberg.org/guile/fibers/archive/v1.4.2.tar.gz"
+  sha256 "bf61f58fdea48b4b28a9683d4493fcbced2ce2d7d98a7c1b1234353161de1ece"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "cc7bd001428bf0240b533ae88c465ebaa7ed4eeaf48ef2862d1540462e830912"
-    sha256 arm64_sequoia: "b0ffb1a8e973c4c824afef59cc42b36f02f402ac562157be5eeefe4fd5f35552"
-    sha256 arm64_sonoma:  "aecafccfe6ae02c9d8aa3cec97cc91017995e5af3b6844f92f6a895289385828"
-    sha256 arm64_ventura: "c4efa5f223403ee3bb438ef926dca0775564e5756e6ce9c0e754698542c7b90a"
-    sha256 sonoma:        "e314596a82b167bcd6548de44fd5d415987b257d8b46e2640a5924cc3c741530"
-    sha256 ventura:       "b1fc7b219a7f68cded6c9786daedae1450870fcf5feccdd04cb38ce3ad4bc5b2"
-    sha256 arm64_linux:   "d65a242acbf399e5666386ab6cf904c76389046dad4781aec73567acc72c4d26"
-    sha256 x86_64_linux:  "d94c75d9e2acfbf27ba8387935d757398f54287c38654ae9a51169934f54c096"
+    sha256 arm64_tahoe:   "1bee6c686302cf6e3a14b3b95d69abd6ecf3eba1c6e874cd7e45b6ac1750382d"
+    sha256 arm64_sequoia: "f7c3157cf53a382ab389b6ff17efec684da6336db120267d10008fb910629c73"
+    sha256 arm64_sonoma:  "a52d3e21900ea493acf2a685bd7483d284b5fd49ab2fcc27afebc703e22a077c"
+    sha256 sonoma:        "dd0553292a041b1bde78aaa47e1b349fc0641905599ccc76ba062d1af581dce2"
+    sha256 arm64_linux:   "84965397128aa9d36b064f36a293e5fbed0990ea647a9f9a1ff8339bbbc3eaa5"
+    sha256 x86_64_linux:  "92cbd38c301b82939872a754a7e44d0b03ed7873b0731f131ec8c3ab634a7cd4"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "guile"
   depends_on "libevent"
 
@@ -28,6 +28,7 @@ class GuileFibers < Formula
   end
 
   def install
+    system "./autogen.sh"
     system "./configure", *std_configure_args
     system "make", "install"
   end

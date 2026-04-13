@@ -12,12 +12,13 @@ class Gdcm < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0d44c545f9856a7d3a7f7c429519b7f2c69256adebe5b7ebfe825fa1a5664464"
-    sha256 arm64_sequoia: "b23e7c111b6193d7c869673e1ec47fc2206c18b38ab23877b681c6b4b53bc170"
-    sha256 arm64_sonoma:  "916c6dd70313845e8f15e1da7d9639228f9dec169f3026dbcbc927b13537e87d"
-    sha256 sonoma:        "fc6d88995fff90ebeb9d7b1732cba84994f90cfa7aff655d6e23100c581a5403"
-    sha256 arm64_linux:   "645ead455a8cbc207407d8fd3c94e2c2fcc46872ea1b483f6d4ddac8c57bf60b"
-    sha256 x86_64_linux:  "85ad6080d6eff0f377068cf01d53e64d14fe395a6ac9ce4271a2bb7748ed503b"
+    rebuild 1
+    sha256 arm64_tahoe:   "fbfbde99e1a4e66f63e4860a75e651483537551b7e361ea0748c3cb5dd216868"
+    sha256 arm64_sequoia: "3a12b63f85f0d745adf767d02560af6df94fc76fb350121de2acc17a2d3f15f1"
+    sha256 arm64_sonoma:  "3ecc27d0db8e9f6795c33ba5504828aed956c4b641146d47878fed6cce27b2f2"
+    sha256 sonoma:        "48af31c53b96008feb0f20f035d59b68e13e38535870efb086d6d447729e39ba"
+    sha256 arm64_linux:   "babc4e4d7802ce9f0c1feabad433376040eec5b28ceee29fa17422bfbccc2666"
+    sha256 x86_64_linux:  "8b3a83d368a69b1a84473dfd14ea69986f991bca7206b8082b1553ae2ca58d4d"
   end
 
   depends_on "cmake" => :build
@@ -32,11 +33,11 @@ class Gdcm < Formula
 
   uses_from_macos "expat"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "python@3.14"
     depends_on "util-linux" # for libuuid
+    depends_on "zlib-ng-compat"
   end
 
   def python3

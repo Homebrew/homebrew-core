@@ -1,18 +1,18 @@
 class Xdotool < Formula
   desc "Fake keyboard/mouse input and window management for X"
   homepage "https://www.semicomplete.com/projects/xdotool/"
-  url "https://github.com/jordansissel/xdotool/releases/download/v4.20251130.1/xdotool-4.20251130.1.tar.gz"
-  sha256 "eee789b00d6a13d47b31bbc139727e6408c21b5f6ba5e804fdf6ecfb8c781356"
+  url "https://github.com/jordansissel/xdotool/archive/refs/tags/v4.20260303.1.tar.gz"
+  sha256 "c1f971a384da588eb99ca0755fc4300316d49c1e612537e3f1de52215e104fa3"
   license "BSD-3-Clause"
   head "https://github.com/jordansissel/xdotool.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1e95a032ac6f60bf3c49d31c55fea5abf84ec2ac065a75922e2a0892be8468e7"
-    sha256 cellar: :any,                 arm64_sequoia: "9e53f46e83125162422c96392380c9557b8a019e10bd51f742aaec18a61693c4"
-    sha256 cellar: :any,                 arm64_sonoma:  "88878051080650c9faa9b0ab47c90ffc717c201eb106ad4b94ddc53341e3d45b"
-    sha256 cellar: :any,                 sonoma:        "be7e226a05961c248eb48efbee734d0d3a8dedf952ac632d67fbbdee87a8a035"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e684b55a31331fcb19f43d7e3bac5a3185b2c374b421c8b5f196339def571a7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "966f00d612ea8eac9d5e29b7842484dc70ebbba404a4557d02f4472a343974f3"
+    sha256 cellar: :any,                 arm64_tahoe:   "4dc22c5d97fd9b01c11953a9a784f41f4849c4e52e54fa9c816661cf9cb16ae5"
+    sha256 cellar: :any,                 arm64_sequoia: "4b72c6fa194946413cfac5a743f148ba85c0be73709e9d41be584c682f27a9dd"
+    sha256 cellar: :any,                 arm64_sonoma:  "0b27cc0c712adf4358f349aa4c0a5bca63e0bc11a967858cf7270d62bbf1c9b1"
+    sha256 cellar: :any,                 sonoma:        "8526ca0cc8cf13ac5bfe8123e67b1123a4501d7f0c934a636aa1abfd8acd9a4c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb904245e32922033e2c12cb49aed5b602e373ba684f5dfb44bc2b70f9f66814"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3748e18cd55cf9d22483f03567a37b37b1ae94c7c98d326fe4fbfb738c274f2"
   end
 
   depends_on "pkgconf" => :build
@@ -23,12 +23,6 @@ class Xdotool < Formula
   depends_on "libxtst"
 
   def install
-    # Work-around for build issue with Xcode 15.3
-    ENV.append_to_cflags "-Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1500
-
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
-
     system "make", "PREFIX=#{prefix}", "INSTALLMAN=#{man}", "install"
   end
 

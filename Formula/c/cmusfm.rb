@@ -5,8 +5,6 @@ class Cmusfm < Formula
   sha256 "17aae8fc805e79b367053ad170854edceee5f4c51a9880200d193db9862d8363"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "844a2f8e9ddbf09e79945a32979812f92c35e5db032bcf204bd50c1af307ee81"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f9de4e6485544f8cbe0c2fb56acde11a3f0e689ee244f6ae40048739c36c12f4"

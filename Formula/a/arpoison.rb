@@ -13,8 +13,6 @@ class Arpoison < Formula
     regex(/href=.*?arpoison[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "befc347407af6f1c5581b82628c49605b87c84b2ce0b2d75f4641496c9ad8789"
     sha256 cellar: :any,                 arm64_sequoia:  "5290454e5c88457099cf20619c7bbb8368c13c8a33365791781c7ef693fa6a1e"

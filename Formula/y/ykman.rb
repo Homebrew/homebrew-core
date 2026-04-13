@@ -3,19 +3,18 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/b3/09/ba3ca95ed3c8adfb7f8288a33048a963dcc5741eb3e819a8451b65e36a59/yubikey_manager-5.8.0.tar.gz"
-  sha256 "3af0da65e1fdd46763c94ee74e2da55a4b6e7771da776c197f5f4b4581738560"
+  url "https://files.pythonhosted.org/packages/2c/c8/ad0d6752d71d547fd72cbcdd62b33f20dcbfc867dc95128d8c95133b4d86/yubikey_manager-5.9.0.tar.gz"
+  sha256 "fb97e8013d426d5107602152b151e32a099204617b34e8673497346c902e96f7"
   license "BSD-2-Clause"
   head "https://github.com/Yubico/yubikey-manager.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d93f6407c3dae82d92052a1e0760697c2b38d10fa0b73c09bffecf50f829abcb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4222550be02dc68325842f0e17c2c966cb1b8eb461c688059c8017bc5b728539"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20b13eca2812f39cd08bb1e1bce2db68b075cb61a3daadba2ddf74025ff27859"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f33032bc682ff08e443e9b0d40ee8969f6e6568c3de9a627e8f69082cbe56c25"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "11aa2264ec26273507721ada76824e0457d036151dfe551e289a4932e92632e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3af26ac4ca2a0ce6535d0d5ef6b93d35544af3ac3072073b7141bd8331c25f3b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "56d1d5faeb5f67bcaf9c2e8de20a032609463da3610c32a5a5d46195a3245670"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8160fe8dc1a33b9f66b6a278351054ae0a0937c89a4d5159bd3cd6dec4e642cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a978090925253d3308292b641eb6602523af64d4f3b8c4517690a1cb233a7374"
+    sha256 cellar: :any_skip_relocation, sonoma:        "199a8be22cc93a7e56cb26bd63251242296bb2d346da55dee97d260200ca03fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f9c82bb2e60a94bc93f5b2d064d7ad883e47490c1b1a703b0ed6e0c7757cdb4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "527f0ba581874af9a0c043c5d4b0b8d7f736c7caed136de90ff0b681afffae6c"
   end
 
   depends_on "cmake" => :build # for more-itertools
@@ -34,8 +33,8 @@ class Ykman < Formula
   end
 
   resource "fido2" do
-    url "https://files.pythonhosted.org/packages/8d/b9/6ec8d8ec5715efc6ae39e8694bd48d57c189906f0628558f56688d0447b2/fido2-2.0.0.tar.gz"
-    sha256 "3061cd05e73b3a0ef6afc3b803d57c826aa2d6a9732d16abd7277361f58e7964"
+    url "https://files.pythonhosted.org/packages/e7/3c/c65377e48c144afca6b02c69f10c0fe936db556096a4e2c9798e2aa72db6/fido2-2.1.1.tar.gz"
+    sha256 "f1379f845870cc7fc64c7f07323c3ce41e8c96c37054e79e0acd5630b3fec5ac"
   end
 
   resource "jaraco-classes" do
@@ -44,13 +43,13 @@ class Ykman < Formula
   end
 
   resource "jaraco-context" do
-    url "https://files.pythonhosted.org/packages/df/ad/f3777b81bf0b6e7bc7514a1656d3e637b2e8e15fab2ce3235730b3e7a4e6/jaraco_context-6.0.1.tar.gz"
-    sha256 "9bae4ea555cf0b14938dc0aee7c9f32ed303aa20a3b73e7dc80111628792d1b3"
+    url "https://files.pythonhosted.org/packages/cb/9c/a788f5bb29c61e456b8ee52ce76dbdd32fd72cd73dd67bc95f42c7a8d13c/jaraco_context-6.1.0.tar.gz"
+    sha256 "129a341b0a85a7db7879e22acd66902fda67882db771754574338898b2d5d86f"
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/f7/ed/1aa2d585304ec07262e1a83a9889880701079dde796ac7b1d1826f40c63d/jaraco_functools-4.3.0.tar.gz"
-    sha256 "cfd13ad0dd2c47a3600b439ef72d8615d482cedcff1632930d6f28924d92f294"
+    url "https://files.pythonhosted.org/packages/0f/27/056e0638a86749374d6f57d0b0db39f29509cce9313cf91bdc0ac4d91084/jaraco_functools-4.4.0.tar.gz"
+    sha256 "da21933b0417b89515562656547a77b4931f98176eb173644c0d35032a33d6bb"
   end
 
   resource "jeepney" do
@@ -73,9 +72,24 @@ class Ykman < Formula
     sha256 "a24356f57a0a950740b6e54f51f819edd5296ee8892a6625b0da04724e9e6c13"
   end
 
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
+  end
+
+  resource "python-pskc" do
+    url "https://files.pythonhosted.org/packages/bb/96/877a597fc0bd9a3ed33ada8b30a93f9705805dc43a330e048a8bb1078365/python_pskc-1.4.tar.gz"
+    sha256 "4a36381446ca067be728b30e01b4d18dbd9d1ad553bf07c3710abcd87653eefe"
+  end
+
   resource "secretstorage" do
     url "https://files.pythonhosted.org/packages/1c/03/e834bcd866f2f8a49a85eaff47340affa3bfa391ee9912a952a1faa68c7b/secretstorage-3.5.0.tar.gz"
     sha256 "f04b8e4689cbce351744d5537bf6b1329c6fc68f91fa666f60a380edddcd11be"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   def install

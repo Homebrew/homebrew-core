@@ -9,6 +9,9 @@ class StructurizrCli < Formula
     sha256 cellar: :any_skip_relocation, all: "0825af5401fa205d327c343adbbae0868cf9c0c91ec83182110a99f62239a8aa"
   end
 
+  deprecate! date: "2026-02-17", because: :repo_archived
+  disable! date: "2027-02-17", because: :repo_archived, replacement_formula: "structurizr"
+
   depends_on "openjdk"
 
   def install

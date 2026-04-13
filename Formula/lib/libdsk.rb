@@ -10,25 +10,19 @@ class Libdsk < Formula
     regex(/Stable version.*?href=.*?libdsk[._-]v?(\d+(?:\.\d+)+)\.t/im)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "8e1308155a5cedd2bf350ad304a06f6036e2ed71ee688c3500931610b5c37864"
-    sha256 cellar: :any,                 arm64_sequoia:  "9dd9b752081e886227ddc89dd8b9aa574124f29ab76bca622bdd235294744c8a"
-    sha256 cellar: :any,                 arm64_sonoma:   "62fd1abb55819c5aa90237ab176a63bd793bb3e9dccfa0fa3330f54af7143936"
-    sha256 cellar: :any,                 arm64_ventura:  "0d6d4b1f77fe027a7053571ac8b9f8bfa73cee2b52a7a570bb32946cd8aa9378"
-    sha256 cellar: :any,                 arm64_monterey: "dfa9c65fe5cf50e095ed995a55c6145b3eb6702ce4a76a7e54369fff2da6ab97"
-    sha256                               arm64_big_sur:  "2804cbad27cb5d942cac8be6682bc7da39f7a4c122b6f79d1e3ee58aaaea0a0b"
-    sha256 cellar: :any,                 sonoma:         "f7c4ba9cdda25aad01ed0fc3831154673f3200cc2120613b3cc51ae313e4fa8f"
-    sha256 cellar: :any,                 ventura:        "b78356c6b3bd08315fc58341697e69b71f2954c05155af065e39661be175482d"
-    sha256 cellar: :any,                 monterey:       "3b7bf97955aa16d16ba35554bc7a171785ad16ab692c977f2ed690298866d686"
-    sha256                               big_sur:        "19a28a828ba163c5bbb988cfc22e5c0a4d7a7c1f6e9cd479323c345e2175c017"
-    sha256                               catalina:       "f444a8f81a4767668f4cbffa2ef09268279d23780e92b7d4bc2d6ed44c9cd675"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "dd9848abd2782502fe79e8883abba6777d83f663d895b347e9c5e8faf5d98019"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ca3fd61e03994cc50d7f47ebf27c2ca54b24be84292baee91664ea6d864ab33"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "feb56e14f0d05e880c42e25c4780cba7eb930b9e1aa4a313045accd8abdf4e49"
+    sha256 cellar: :any,                 arm64_sequoia: "1d621ecbf36e2c65f1c29143004543db6864aa372b487fad25587e36ce42bbf9"
+    sha256 cellar: :any,                 arm64_sonoma:  "4cb16e1f82fdffbf20ecd541d2bfb9cccc58a47c8b1342293aace84fe2a19ec5"
+    sha256 cellar: :any,                 sonoma:        "c747e86cb14f14a46f3cc70433d08d9825d5b5c13b179457a53c136960b3cbf0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff17529b023259b9a186572ad5a7ebef05b0b69854816925bd050a3dbb95818d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73e738d8f00362818ad45c1f155f52b99c97d72a2b56dae78390ff01f702bf99"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do

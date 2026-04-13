@@ -28,15 +28,14 @@ class Povray < Formula
     regex(/^v?(\d+(?:\.\d+)+\.\d{1,4})$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "7eddc8686330dcd024455c669830b426dc2fc273447f77bfb161fa8866be47eb"
-    sha256 arm64_sequoia: "6fc88cf463b3fad428b00da5a83b9e6bff75c21ef6d9da48249255fd83e5d6b8"
-    sha256 arm64_sonoma:  "17c6a1dbf5e46607dc547a16eb1a9c57f10cdb1a9a1866327910717aaddcf9b4"
-    sha256 sonoma:        "3562715f0aa05c1788ea9ab7e0b819b86d77ce55849713c7e8cd78e32f3ebaa3"
-    sha256 arm64_linux:   "fada88d5446c7e3916d4435de35bfb1bd762abeab719681766ee0454879a5a2c"
-    sha256 x86_64_linux:  "4d8db3b9ef255514ddcc7d28cb11276a4c30a248a9e3f2479ebc69310bedde8a"
+    rebuild 1
+    sha256 arm64_tahoe:   "55cd4d67cca78d36e98a6997489de220f80403bac07a1747732cdf5c5649ad56"
+    sha256 arm64_sequoia: "033dfeea0176978972432eebf5abd073c33e651586850659a991191363b49a74"
+    sha256 arm64_sonoma:  "40b763e62c00a88dbd0bd01812fe056ebbde2bf93fe346aaa21a0e4db7ebba0f"
+    sha256 sonoma:        "30f0919619a000450453ce8c07f58e421f2e12f8754d6ebc7c34768d61ac24db"
+    sha256 arm64_linux:   "77375757a81bcdd67b267983256491b369a57803df9cd79438a1c48dfee3c204"
+    sha256 x86_64_linux:  "00fdfd84a3e3258f024cd77a80696966cb4b5d57f74bdbe029f913831c92a2de"
   end
 
   head do
@@ -53,7 +52,9 @@ class Povray < Formula
   depends_on "libtiff"
   depends_on "openexr"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV.cxx11

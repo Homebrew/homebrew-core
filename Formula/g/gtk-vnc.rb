@@ -13,17 +13,14 @@ class GtkVnc < Formula
     regex(/gtk-vnc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "dcf9fa16440c56204a952f4b7220d9de9df68ad1144e1b9bde077b395360b1b2"
-    sha256 arm64_sequoia: "fcad7b12178c5357a8f917117a61c27b626a5adb7808a01eb87c2c68706734c5"
-    sha256 arm64_sonoma:  "25240b02f2fb63bd13b44cc1e368a5fd67fc9e5cd607648de5382e3e6ddb531a"
-    sha256 arm64_ventura: "69e94775e32d33f8163d56fd7c07e82dc420a20243a9a43ae1789e6fc85060b1"
-    sha256 sonoma:        "0d033e153eda743deb33774cce0ee4c7bc62adac58d207791938c5137b296bb5"
-    sha256 ventura:       "fcc58bb4a4cf61e92eae7caece5eb1b6e0cba0810a88e27e9c8a3acdbd38d11b"
-    sha256 arm64_linux:   "f028be663ad772594ce686693d21b3a9db365b9e794ddcb51ef13c8c760d2f99"
-    sha256 x86_64_linux:  "24f2a0271895b80c2afacd6b00030879f0d04869b506c773e7688a5c16a12d32"
+    rebuild 1
+    sha256 arm64_tahoe:   "83712dce18d0595c9f12c0a24ee58c518d944b7ac1d6fa1211dc1c73504cb351"
+    sha256 arm64_sequoia: "f7679b80723a22bbd7b1a376f248aac379ec54563fe81834170d18560cf344af"
+    sha256 arm64_sonoma:  "2745cda31a2d5808bff9a7a9b4b33396e035a4188d247249bf431e556291dfe9"
+    sha256 sonoma:        "812a78cc1831522196e0c032173f0ce36878b10270ac165bd7d9bfad1e00c110"
+    sha256 arm64_linux:   "83ecf718551bcb1caab684ab463cb3a3a2db17babf574aa3238fa3fd175d9124"
+    sha256 x86_64_linux:  "2eb555c0acfd1a52c26080031a4938a3107a16a5aea2b531b2e034ece167940d"
   end
 
   depends_on "gettext" => :build
@@ -40,14 +37,13 @@ class GtkVnc < Formula
   depends_on "gtk+3"
   depends_on "libgcrypt"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
   end
 
   on_linux do
     depends_on "libx11"
+    depends_on "zlib-ng-compat"
   end
 
   def install

@@ -5,8 +5,7 @@ class Libxaw < Formula
   sha256 "731d572b54c708f81e197a6afa8016918e2e06dfd3025e066ca642a5b8c39c8f"
   license "MIT"
   revision 1
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     sha256 arm64_tahoe:    "4ecd7079a01f9f836d228420134c77a0c4948760ddc1dad19f816fe5ef6ae6f0"

@@ -1,20 +1,18 @@
 class S6Rc < Formula
   desc "Process supervision suite"
   homepage "https://skarnet.org/software/s6-rc/"
-  url "https://skarnet.org/software/s6-rc/s6-rc-0.5.6.0.tar.gz"
-  sha256 "81277f6805e8d999ad295bf9140a909943b687ffcfb5aa3c4efd84b1a574586e"
+  url "https://skarnet.org/software/s6-rc/s6-rc-0.6.0.0.tar.gz"
+  sha256 "46d4a62959ef16097b84dcfb0c3b31a6ff49aa476d4aeec9c5b7bde1ce684901"
   license "ISC"
   head "git://git.skarnet.org/s6-rc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "352840f345c351dc4bc9e2d29f18bd95dfe5b7669b71afe2f16cf1f85975ca0f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ffb8c25c6c698f13c255d694dfc6218116857cf633b6764a6ee4c026de314e20"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "120ab3b0a9ca7cf2db5f0b27ee6dffcebb3560e718956f5cab8693655d9aac14"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "06402eee4fafa9c0bcdbcce7dcd88054b9f142263a8ce6019ee1ec54b534beb3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "66888c1bab3552b773e18e694b52ce22bc525d343cdaf3622fded2921832c642"
-    sha256 cellar: :any_skip_relocation, ventura:       "486096d10e4ce41f00e27aa5d62d30c9acab44c539542db7ac34afc36ac25571"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e84a61c37b4988f98170ca737ea6b2fc95720619bb07253ea1e1a4d45233e36a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26be7908d0ae2d584614d6aefe7b4bc4ffc1b45dce5743b801f416fdf5310282"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe87f78bdf90ce4b333fd938fefe7ddb83610d5ff56c8702379423aabb9e2aeb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39fa8c4fd1944a64087eacc799ea396508625794c30eb57967254aedf64438d7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cfe09771cd716edaf7cf5f4823e5f6445aacfc4e44702daed550c0069007c3b8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cb335b14006884fa6f1767bde6055e9d8999fcd9be783c766482828b197daf53"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "89222f77047fe7d4830bf67744275a0d3b068e7cadf713e21fb84f791d535ee6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86e2c5dd3090eb3b36a5c0d40b22f677337f4256a97c5118d0c34d5b7f2882fb"
   end
 
   depends_on "pkgconf" => :build

@@ -1,17 +1,17 @@
 class Nmrpflash < Formula
   desc "Netgear Unbrick Utility"
   homepage "https://github.com/jclehner/nmrpflash"
-  url "https://github.com/jclehner/nmrpflash/archive/refs/tags/v0.9.26.tar.gz"
-  sha256 "51cc37b85b04ff59dda1a5b83ba443d7f577677305aab653855d7c1f78c6d704"
+  url "https://github.com/jclehner/nmrpflash/archive/refs/tags/v0.9.27.tar.gz"
+  sha256 "a9de4296ec3db91e044f6ce5412342616920c6afda1df312bbeefc9013251f00"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "969c0f20ce2ee2fa3db03f62bc840c992311213e4c90993bf4e5e37c6e57fb59"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "607aebe8626467ea165ccbf446d2d85f478bd2ae69b42c48ae761f55cd80d7a2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81d2e99b2b0658aff0212a075bda180876e0d989e652c80b37a40ef24756186b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "34d3bc774d1dff1c65c8ba34a6805e3b0e162f47218fa360b9e8924016772eeb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0cf58744d597c556785ba1d57339c9512e0d8fb350f8daaf3bd97cdbbd9bbeda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10a48b3841decf47dc994609dff710a5cedbc8d1a54b924935f674344e74265b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ccb3537298818c0381f10a7de1081423b84912b24aa1df5e363abade3a6f41b5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9112a3e24563e48a37806c61be242cee74492b1eeae4b2c8a4deee3ac0adc689"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dbc3adbdc13f0f05fb4a135c422f15fd5d457b997856695bcb9184bb25596864"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f5c4571e22c359f94d2eba33ac0629bc279a50b4bf0b410d34f125d0b36c64a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b203614d3b7b379c5aac9ce88f264e2a384adfaca166d02889964a7490d09100"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3546dc33507645b0d36167b06fde16ca804139fc7fa3d90a62a542e7cc3a893"
   end
 
   depends_on "pkgconf" => :build

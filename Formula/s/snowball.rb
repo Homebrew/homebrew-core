@@ -5,8 +5,6 @@ class Snowball < Formula
   sha256 "80ac10ce40dc4fcfbfed8d085c457b5613da0e86a73611a3d5527d044a142d60"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ab44ad284224fc7948a61026b26c2909ca0c95132c0476a82d86b3d7d0a64ab2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "00c79db6c8ba404a5ad086c5e50a7102d0df266ee3fb3b5deafe4ed8e7184c71"

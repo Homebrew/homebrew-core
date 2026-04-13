@@ -1,26 +1,21 @@
 class Nagios < Formula
   desc "Network monitoring and management system"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.5.9/nagios-4.5.9.tar.gz"
-  sha256 "b0add4cb7637b46bca8d5b1645ffa2537747649bdc881f228f916539677951ec"
+  url "https://github.com/NagiosEnterprises/nagioscore/releases/download/nagios-4.5.12/nagios-4.5.12.tar.gz"
+  sha256 "9a9fd281ea6ab3d55611efda036ffb9fe76c98423083440900e28012248d5961"
   license "GPL-2.0-only"
-
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/nagios[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
+  head "https://github.com/NagiosEnterprises/nagioscore.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "85acb132e68bd3e6ce2ee9b136dc771c6f5e22799d6b0122c3456671e7a64c33"
-    sha256 arm64_sequoia: "9646c0ff39a620deeddb386028b140930d4204e62dd67e68d158774c4825c542"
-    sha256 arm64_sonoma:  "c9d84510322c0b776b886faf0fe4fb2b1d238a8203751aeb47d18f4875370473"
-    sha256 arm64_ventura: "a2fbf4c911c2de1b1d135ef9a29882e21a1f6d7e5ccad4f5dde1d5138a72926b"
-    sha256 sonoma:        "d96bd15c74973f9f45dc4b29f0eab5c22ff9dae05206786be854ab9db228759a"
-    sha256 ventura:       "2be2887f399a467087b82119aadbb0e392b58736def5696daf328c9284a5ed9d"
-    sha256 arm64_linux:   "e4eb8032f20aae59ce984934d3e4d97dace685cbc8b92f30fa7a9dc97fc56839"
-    sha256 x86_64_linux:  "17ea83b36c6ff5f2cc372297b7398649f4032afdb56bf5c86ae59d4dd20ba100"
+    sha256 arm64_tahoe:   "fd9b0465056e5aa9a2f5d27f6183d56899411c6b4c05266f633df22830cbc16e"
+    sha256 arm64_sequoia: "5b3cbec5507c3a164b615e839871fa67ecd617964aaad979b1ce4dfc60f8f728"
+    sha256 arm64_sonoma:  "e07a409b21a2a28beb5991075c90b90f4572d9c0c8a86936480b75d6bba146a7"
+    sha256 sonoma:        "d12a87c4482a47df4559d3a4315bbe38fb6c6cebac5e4d475b085448dcca80f1"
+    sha256 arm64_linux:   "95c81b3bc5f53b11bc87b85c60ef7a096f4595df6a893367047175df3e1ebb89"
+    sha256 x86_64_linux:  "cf7fce8e9eed42768e9e2157fb8ce7f06ddd0408836ba11f276646dfc6616222"
   end
 
+  depends_on xcode: :build
   depends_on "gd"
   depends_on "libpng"
   depends_on "openssl@3"

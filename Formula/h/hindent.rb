@@ -1,25 +1,26 @@
 class Hindent < Formula
   desc "Haskell pretty printer"
   homepage "https://github.com/mihaimaruseac/hindent"
-  url "https://github.com/mihaimaruseac/hindent/archive/refs/tags/v6.2.1.tar.gz"
-  sha256 "9f3dcd310b5ef773600551af9eda8db40f69ffd570d8ed474f7b8c2e93cd55ec"
+  url "https://github.com/mihaimaruseac/hindent/archive/refs/tags/v6.3.0.tar.gz"
+  sha256 "2726bdbf137691624997f181c29392f22f8566ebc87c5f82e420adfb0068ef07"
   license "BSD-3-Clause"
   head "https://github.com/mihaimaruseac/hindent.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f18ed01446a282c5a45a1dc27587c1f23de3fd5bf79c2e16894f3bee21012a19"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2df0e64d7e7f95bb8db73c8fd210caef819e13b833a5e5916b0e9268c5648c4e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af07d6596d2ed1c545188526c22d66ad15a49f25044e2581592312d81e6797f8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4d66526b97f7fb1f4e99de9024f51a080099281a5c5900590bc469f166a2a4bc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "42766c8e3e09c699c48d2e27b5814e709975f6c1a16df0c576e72253ef18a7f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4bf3e51687afa14afc64e1aec02272666e4bb95c197e34b5b6592eb220ecd079"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "a9064e9f051f701b3838a050166eb32ff0d3b63658931e8d2e29ed6805b4a2e2"
+    sha256 cellar: :any,                 arm64_sequoia: "7e8875034d3dd3f855cce38ce39f5b0e08b4f9cd712f2af63134372b0ee17261"
+    sha256 cellar: :any,                 arm64_sonoma:  "4f100aab2d28aa161eadcd116b80f475ab2fff06f4285a58f5a6a170c7a0b7fc"
+    sha256 cellar: :any,                 sonoma:        "abaaaad9675273a1b29ecac2a408e184828dcdcfa51a15c2fb1c5ef3faa28892"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6c786888802e34042a222067dde33ae147d1d44ce79ec04be7547dc442068ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fc168486315c2d03459ab2025810d2c88c6e8268c0f1b3d938cfd7ea29d390e"
   end
 
   depends_on "cabal-install" => :build
-  # TODO: switch to ghc@9.12 in the next release
-  # https://github.com/mihaimaruseac/hindent/pull/1000
-  # See GHC 9.14 issue: https://github.com/mihaimaruseac/hindent/issues/1155
-  depends_on "ghc@9.10" => :build
+  depends_on "ghc@9.12" => :build # GHC 9.14 issue: https://github.com/mihaimaruseac/hindent/issues/1155
+  depends_on "gmp"
+
+  uses_from_macos "libffi"
 
   def install
     system "cabal", "v2-update"
@@ -29,16 +30,15 @@ class Hindent < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/hindent --version")
 
-    (testpath/"Input.hs").write <<~HASKELL
+    input = <<~HASKELL
       example = case x of Just _ -> "Foo"
     HASKELL
-    (testpath/"Expected.hs").write <<~HASKELL
+    expected = <<~HASKELL
       example =
         case x of
           Just _ -> "Foo"
     HASKELL
 
-    assert_equal (testpath/"Expected.hs").read,
-      pipe_output("#{bin}/hindent --indent-size 2", (testpath/"Input.hs").read, 0)
+    assert_equal expected, pipe_output("#{bin}/hindent --indent-size 2", input, 0)
   end
 end

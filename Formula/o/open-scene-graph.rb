@@ -16,22 +16,14 @@ class OpenSceneGraph < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:    "21caca227210b058d46d4817c12baef568b934d7ef6d8db034c3945af8986ae1"
-    sha256 arm64_sequoia:  "6f82524b6c4bc107bc9d1acf481a2743670d2688130fa4ec16b568626773e39e"
-    sha256 arm64_sonoma:   "971d66667cdd6f8a063a541b21d4b0f13318ada4223187ecf77c4c074db944a9"
-    sha256 arm64_ventura:  "a061b2925b3d50c71102706eb8ccb68669df838cd4a716da8a1534003a55bc33"
-    sha256 arm64_monterey: "cea275ac6fd59178f3d55ef6bf2ffedd5d8aab1431877007cba73d7844dc6091"
-    sha256 arm64_big_sur:  "637623babd3324b945b39a4af706874c3f48420854e7b591e0df2ef0d1c77dc1"
-    sha256 sonoma:         "3264ae2e7b588d9f48ee557fc00d95165f3a2c7c1262630d3fe4c74837e757ca"
-    sha256 ventura:        "3fb06fe37e263b10478e97504eacbd3588dd50a845b3a4f8b280c43798ff67fb"
-    sha256 monterey:       "2f2617969f263e4aa08b51fb64d9a7023c42e2d14e2c075a7a4602ba95a726f3"
-    sha256 big_sur:        "95a78e9f79bdb83a94b9d9be412e4b4520f2467a2f55ea8479b494144175b2cf"
-    sha256 catalina:       "1d38f6730fda72b85bdd25600cd415e747f5ade8645a6f4270d9e87dd275103e"
-    sha256 arm64_linux:    "8dede4a58f246379ccea1fed1d9eb2392b99c3e837f216e8cda9fe25968eccfa"
-    sha256 x86_64_linux:   "43c4367454e8de65443937a3509f96d4d273b50431b0a4fde16607c88183b247"
+    rebuild 1
+    sha256                               arm64_tahoe:   "e3174f80b6cec2585f35be266d182172c198b4ae8e0d10adf55e023d5d670b6c"
+    sha256                               arm64_sequoia: "9b882e330c5007ae1ee55bbbd357aa19d48f3a6315aaf1e393e3100ab77cdba4"
+    sha256                               arm64_sonoma:  "3403ff3e8a5135a92d60f30207ca12120b9463a92cb461e0f05e9f5a8192c0d2"
+    sha256                               sonoma:        "40f22b2e52822a8497bd217b8e6f4911a85a5a687741aae2c1d4c7c9d7732861"
+    sha256                               arm64_linux:   "b5ac9df2c542db731f565e9d13b4082c54976160e98ca3db80b23b57fb33dbe1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ff70fc25d3113a46721cccb3498b4e21e90b81246d08bbb6f725c19b8a35c3d"
   end
 
   depends_on "cmake" => :build
@@ -45,7 +37,6 @@ class OpenSceneGraph < Formula
   depends_on "sdl2"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "cairo"
@@ -57,6 +48,7 @@ class OpenSceneGraph < Formula
     depends_on "libxinerama"
     depends_on "libxrandr"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   def install

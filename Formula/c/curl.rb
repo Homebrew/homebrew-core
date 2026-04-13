@@ -2,12 +2,13 @@ class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
-  url "https://curl.se/download/curl-8.18.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_18_0/curl-8.18.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.18.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.18.0.tar.bz2"
-  sha256 "ffd671a3dad424fb68e113a5b9894c5d1b5e13a88c6bdf0d4af6645123b31faf"
+  url "https://curl.se/download/curl-8.19.0.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_19_0/curl-8.19.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.19.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.19.0.tar.bz2"
+  sha256 "eba3230c1b659211a7afa0fbf475978cbf99c412e4d72d9aa92d020c460742d4"
   license "curl"
+  compatibility_version 1
 
   livecheck do
     url "https://curl.se/download/"
@@ -15,12 +16,12 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9dbc8f63a6f2b3072b581e82af81e4584f0660054c159a04f394bb323d877c85"
-    sha256 cellar: :any,                 arm64_sequoia: "25b88ee069901c2e6e1f18fdbeb1560484121485f9c5498627bbeb7af6870f93"
-    sha256 cellar: :any,                 arm64_sonoma:  "06de4b7375fdbf85bff231ad3dec139009ae09f424915509457286e84e08c549"
-    sha256 cellar: :any,                 sonoma:        "50c8f7444348af7fe33657f6d800c82bd7667fd45f2d0d12be863de130a56a98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "199866d8520d22048f9a0786a21f5587dc8f763ed6c676c7df970a8cca1f9c6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35ef31a606d6dc10cfc1b5b062cd18048e68d8c4b77b95638429b2d98e554460"
+    sha256 cellar: :any,                 arm64_tahoe:   "22a5da2b96dba56d222c6003d7b3add442b7da85b5fd6c4fe95299d3a4568b3f"
+    sha256 cellar: :any,                 arm64_sequoia: "b41905deb0ce0cd0e164af725e747d2e968cc67bcc0dfa61dbd67e69bc5f8959"
+    sha256 cellar: :any,                 arm64_sonoma:  "e51e0fef9c8c8ff821f9af07c5a055801836ead9bc6de1c88d3c9a01e0cb4117"
+    sha256 cellar: :any,                 sonoma:        "e93bbb5c8a803427c63f9842d42e4d6cda82b51c4d3af345574c15f77541250e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "13b26e6b4e2a6df75c7d427fb4149683514772e37064fcdbede143372ab24852"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29ef3f57ed1a8cba8c2689cc8a8ca097908c40d17d4c899e16acfa95ab899b93"
   end
 
   head do
@@ -40,15 +41,17 @@ class Curl < Formula
   depends_on "libngtcp2"
   depends_on "libssh2"
   depends_on "openssl@3"
-  depends_on "rtmpdump"
   depends_on "zstd"
 
   uses_from_macos "krb5"
   uses_from_macos "openldap"
-  uses_from_macos "zlib"
 
   on_system :linux, macos: :monterey_or_older do
     depends_on "libidn2"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -70,7 +73,6 @@ class Curl < Formula
       --without-ca-path
       --with-ca-fallback
       --with-default-ssl-backend=openssl
-      --with-librtmp
       --with-libssh2
       --with-nghttp3
       --with-ngtcp2
@@ -122,7 +124,7 @@ class Curl < Formula
       assert_includes curl_features, feature
     end
     curl_protocols = shell_output("#{bin}/curl-config --protocols").split("\n")
-    %w[LDAPS RTMP SCP SFTP].each do |protocol|
+    %w[LDAPS SCP SFTP].each do |protocol|
       assert_includes curl_protocols, protocol
     end
 
@@ -130,8 +132,8 @@ class Curl < Formula
     assert_path_exists testpath/"test.pem"
     assert_path_exists testpath/"certdata.txt"
 
-    with_env(PKG_CONFIG_PATH: lib/"pkgconfig") do
-      system "pkgconf", "--cflags", "libcurl"
-    end
+    ENV["PKG_CONFIG_PATH"] = lib/"pkgconfig"
+    ENV.append_path "PKG_CONFIG_PATH", Formula["zlib-ng-compat"].lib/"pkgconfig" unless OS.mac?
+    system "pkgconf", "--cflags", "libcurl"
   end
 end

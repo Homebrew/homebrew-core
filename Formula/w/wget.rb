@@ -4,18 +4,16 @@ class Wget < Formula
   url "https://ftpmirror.gnu.org/gnu/wget/wget-1.25.0.tar.gz"
   sha256 "766e48423e79359ea31e41db9e5c289675947a7fcf2efdcedb726ac9d0da3784"
   license "GPL-3.0-or-later"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "8cbb5d277cd207e543c9b2e75953e89c7cc89105b2322f3ce652616c5d0f62fe"
-    sha256 arm64_sequoia: "a93dd95c5d63036e026b526e000d33fae7fb44d9a8fda5afc89bff112438c6b3"
-    sha256 arm64_sonoma:  "4d180cd4ead91a34e2c2672189fc366b87ae86e6caa3acbf4845b272f57c859a"
-    sha256 arm64_ventura: "7fce09705a52a2aff61c4bdd81b9d2a1a110539718ded2ad45562254ef0f5c22"
-    sha256 sonoma:        "5650778a8e7a60c2dea9412dd21d2f5e8ff4f224dbefbdf54924b99012062edc"
-    sha256 ventura:       "78cee523a9b58a7b824b51767935f68c9838e9f673e70d001982858001e766ff"
-    sha256 arm64_linux:   "2f06529fc47fa99e9d4a5ebd19f25c046dda236278c7c5979e080ad7e5387236"
-    sha256 x86_64_linux:  "ab5f3c1c60bef4e2a4781e9b29af8afb48ead837136c419edd7febdf44b59058"
+    rebuild 1
+    sha256 arm64_tahoe:   "03be72d23a113a3273245b3e071667b611ea5d81dab6f52e995a84420d0ed734"
+    sha256 arm64_sequoia: "d620e085be7df7e93c7a8e6dc98e71b7a2faedbb40e83daae9b823374ee9b09e"
+    sha256 arm64_sonoma:  "0611b16c2d24332fbb48cf1d75717b3ac3fc579a6ddac33ee1acaa791ff12e8e"
+    sha256 sonoma:        "91995d4d44951e981c36879505e8e294d15e46bbd3ef3965caf94d55424e165b"
+    sha256 arm64_linux:   "6c291dba1e71dcfada741192dbf78790c60488d927fa15c82f4bd0901edfa014"
+    sha256 x86_64_linux:  "09603bb2a51e4bdc94a9f4f3e66442ef6e401a2a2d244213066c58cceb686f95"
   end
 
   head do
@@ -30,8 +28,6 @@ class Wget < Formula
   depends_on "libidn2"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
     depends_on "libunistring"
@@ -39,6 +35,7 @@ class Wget < Formula
 
   on_linux do
     depends_on "util-linux"
+    depends_on "zlib-ng-compat"
   end
 
   def install

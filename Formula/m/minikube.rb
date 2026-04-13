@@ -2,19 +2,18 @@ class Minikube < Formula
   desc "Run a Kubernetes cluster locally"
   homepage "https://minikube.sigs.k8s.io/"
   url "https://github.com/kubernetes/minikube.git",
-      tag:      "v1.37.0",
-      revision: "65318f4cfff9c12cc87ec9eb8f4cdd57b25047f3"
+      tag:      "v1.38.1",
+      revision: "c93a4cb9311efc66b90d33ea03f75f2c4120e9b0"
   license "Apache-2.0"
   head "https://github.com/kubernetes/minikube.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4c7f61cf89a2611e905ce874048d6e3665e11deb82e30bbe77e54b69557a53df"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "826069a6eada24bfba97b439ee3b87fdd82484ac2fccc5f7f26a78d25970f473"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5621ba751584daaf95dc7b2bc5983a0395f6e3388bae024294c1ff6cc33e82ab"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4319be247a103902e2cc5846988e4afe3cff1025e34707d650d2f417cc8dee0c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab3499606f55b82fd8b5c107949d5c32936ec9d8bad49474bcf97b16ed2e359d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c0927c54e6b417bf98d9e52013dd6e634b0189e13e1d741dc8bce690990c2ab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5c31e8d9b87939095f0417654c408364fee92953905447c1128ee6c5d70c72a9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "80690c46408b61a2073e533325cf16cdaf4777c66eec5c2e3a87b983615d1e1b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "430e398f58a5cd08a7f65143fb05a847a8d53304cea571818ed25b0d5ce716df"
+    sha256 cellar: :any_skip_relocation, sonoma:        "97505b2bc08deed55885c7ca457f3f3b1150663818bd607a0927968eee778729"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ad4573edd8932cd1f1cdd9f82b360f97124ff63fdf161ac9a145b0444285def"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f82f02f15af2c9b7931dd0c240bb5ac63d40276325ed53c1bcfe5c4aff72efe"
   end
 
   depends_on "go" => :build
@@ -22,7 +21,15 @@ class Minikube < Formula
   depends_on "kubernetes-cli"
 
   def install
-    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
+    # Workaround to avoid patchelf corruption when cgo is required
+    if OS.linux? && Hardware::CPU.arm64?
+      ENV["CGO_ENABLED"] = "1"
+      ENV["GO_EXTLINK_ENABLED"] = "1"
+      ENV.append "GOFLAGS", "-buildmode=pie"
+    end
+
     system "make"
     bin.install "out/minikube"
 

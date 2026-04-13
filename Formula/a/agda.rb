@@ -4,6 +4,7 @@ class Agda < Formula
   # agda2hs.cabal specifies BSD-3-Clause but it installs an MIT LICENSE file.
   # Everything else specifies MIT license and installs corresponding file.
   license all_of: ["MIT", "BSD-3-Clause"]
+  revision 1
 
   stable do
     url "https://github.com/agda/agda/archive/refs/tags/v2.8.0.tar.gz"
@@ -54,12 +55,13 @@ class Agda < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "67c4869f12105c37ce7d68aafc8ef8c6f86d1024ad8c82701515eee2f5271d70"
-    sha256 arm64_sequoia: "d9b340ab2150f6e9becd13e074ad823263f724d2ac26ce62ff90730f18ec3216"
-    sha256 arm64_sonoma:  "3ac61a6a0e70f1ff409d14feb6f9b393d7d8265397b20055b467a6664c858081"
-    sha256 sonoma:        "4f0b8ad5cc891d516865477f8a2cd9968ed6d9eaf706a37885ad23774b1ad26f"
-    sha256 arm64_linux:   "47ed5d37c034a4554932e439e03188cc20294b4158cefe140ac42ccb3e9534db"
-    sha256 x86_64_linux:  "28ee793e66ef9bb78c80055e7f69f978ef2b5f5eae67d56d8f2ff2a47db5ac8f"
+    rebuild 1
+    sha256 arm64_tahoe:   "3f7b090a2ddef6b21d12b360562225550b5052f70a9f16839afc553f0bcdad0e"
+    sha256 arm64_sequoia: "cbc178c91fa436738cd71303af4edb3105d95e5041843de8f0a3ec5cbbac3993"
+    sha256 arm64_sonoma:  "ea4c080db237debe22c8889bcbcf1ad67faf7a66be0495e52628ff226389a36d"
+    sha256 sonoma:        "0df08c8a58ba9454afddbd9e6d311f4eb63869b04e486895c2abebf8c6f4ce9a"
+    sha256 arm64_linux:   "5048669180928b424510c70ba74d9a2db0852213ac8b9a31a7a7d4f20e26d3bb"
+    sha256 x86_64_linux:  "90c3445afa1850ba4eae9fae4646938d42f3a06da728bb6b2a64bce4bd4a281b"
   end
 
   head do
@@ -84,12 +86,17 @@ class Agda < Formula
 
   depends_on "cabal-install" => :build
   depends_on "emacs" => :build
-  depends_on "ghc"
+  # TODO: switch to the latest GHC in the next release
+  # https://github.com/agda/agda/pull/8303
+  depends_on "ghc@9.12"
   depends_on "gmp"
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     agda2hs_build = buildpath/"agda2hs"
@@ -209,6 +216,8 @@ class Agda < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["ghc@9.12"].opt_bin
+
     Pathname("#{Dir.home}/.config/agda").install_symlink opt_pkgshare/"example-libraries" => "libraries"
     Pathname("#{Dir.home}/.config/agda").install_symlink opt_pkgshare/"example-defaults" => "defaults"
 

@@ -35,8 +35,10 @@ class CargoFuzz < Formula
     system "rustup", "set", "profile", "minimal"
     system "rustup", "default", "beta"
 
-    system "cargo", "init"
-    system bin/"cargo-fuzz", "init"
-    assert_path_exists testpath/"fuzz/Cargo.toml"
+    system "cargo", "init", "homebrew"
+    cd "homebrew" do
+      system bin/"cargo-fuzz", "init"
+      assert_path_exists testpath/"homebrew/fuzz/Cargo.toml"
+    end
   end
 end

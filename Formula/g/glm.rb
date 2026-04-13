@@ -5,6 +5,7 @@ class Glm < Formula
   sha256 "6775e47231a446fd086d660ecc18bcd076531cfedd912fbd66e576b118607001"
   # GLM is licensed under The Happy Bunny License or MIT License
   license "MIT"
+  compatibility_version 1
   head "https://github.com/g-truc/glm.git", branch: "master"
 
   livecheck do

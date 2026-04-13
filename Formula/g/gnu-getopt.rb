@@ -1,9 +1,10 @@
 class GnuGetopt < Formula
   desc "Command-line option parsing utility"
   homepage "https://github.com/util-linux/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.3.tar.xz"
-  sha256 "3330d873f0fceb5560b89a7dc14e4f3288bbd880e96903ed9b50ec2b5799e58b"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.42/util-linux-2.42.tar.xz"
+  sha256 "3452b260bbaa775d6e749ac3bb22111785003fc1f444970025c8da26dfa758e9"
   license "GPL-2.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/"
@@ -38,18 +39,25 @@ class GnuGetopt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1cd2aff2f76e90b315337b38824b6a346dd8531d55f5b9bbb8a69e26e7a61e30"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "292d9b482660f78f286ac137ad4c79f9247561da587d9cb577a08c2abc7c53d3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f4b12ea4c02121d6574b4c011f0aa636cefa3816ea75d0686081b5e566d7506"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e405ec71a589cdacdd6f009e1e46c814f60d026aec8863c17401bbce3aca70cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8caad3359d900c8b40fa47bdc00b6def1b09fa0bff2c4b177991abd59a01b244"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2992e719592a0d909c88893f8628e0f00ae76b94ea4a9d9f79a490fe27cf034"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c3cc8fd191a5a86f3a4513da7802a88d6ad099e356eda8638d3be820d7b88966"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e6d10dbbad97abd5182b002696df07c3c922d622057c0e3fc3df92dc7d011030"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b0653f00fcd1bd3877418161cfc82e66b2dce6ab93befccaa4778e80610ecfc9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "73a1eecae19dc3d2974367d98b70a481e96955c9f440a913d78ecc62a6f3546c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f335139ba28c77ff23c03188414769cac5b880b6a4431961afec0f3380c02bcd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2532f0fe367ea8450cfd00a5a2482d6ec3bd3662fa84ef36fa121153d4c57e7"
   end
 
   keg_only :shadowed_by_macos, "macOS provides BSD getopt"
 
   on_linux do
     keg_only "it conflicts with util-linux"
+  end
+
+  # Fix macOS builds
+  # https://github.com/util-linux/util-linux/pull/4173
+  patch do
+    url "https://github.com/util-linux/util-linux/commit/d22edc2f100eb8dd83d3515758565cb73b0d2eed.patch?full_index=1"
+    sha256 "2fb01154faa3fd8b0fce27eb88049ed9c8f839e706e412399c19c087f7f3b5e1"
   end
 
   def install

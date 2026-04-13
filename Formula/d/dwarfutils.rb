@@ -1,10 +1,11 @@
 class Dwarfutils < Formula
   desc "Dump and produce DWARF debug information in ELF objects"
   homepage "https://www.prevanders.net/dwarf.html"
-  url "https://www.prevanders.net/libdwarf-2.2.0.tar.xz"
-  sha256 "54c0abbbeb4190bd1babb5d28574d2b20c2309343ec764cc7ca611e527ee4a42"
+  url "https://www.prevanders.net/libdwarf-2.3.1.tar.xz"
+  sha256 "28cf9a5d27aceff5c1f906244a4fe7ae208e41d20a6d8fc7e091c633a40b6e97"
   license all_of: ["BSD-2-Clause", "LGPL-2.1-or-later", "GPL-2.0-or-later"]
   version_scheme 1
+  compatibility_version 1
 
   livecheck do
     url :homepage
@@ -12,12 +13,12 @@ class Dwarfutils < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "9f5c9bf451c55f21dbe328a470f479c91ef0c192e1df94be596ddcf03fde44e7"
-    sha256 arm64_sequoia: "36b5f04f0a13b2a4acb4c81dca32d61e19463890fb724077dcde89d5f3b7c07e"
-    sha256 arm64_sonoma:  "541f6c97138661d7a0d372b156be97395e9e3671e86917fb1632cee830259cc2"
-    sha256 sonoma:        "2dd552d1906eeea1907b052b5d536c3017757dcd3e5ca24acb217101047f11fe"
-    sha256 arm64_linux:   "b65972ad5560dfc19ed0e4666eae9fb942d4fc63df0744132e108da88173a29a"
-    sha256 x86_64_linux:  "1d9676d26d59880c80fbe7d7c3983d40bc74a0a882205743942f46eba7a6eea3"
+    sha256 arm64_tahoe:   "752d45b11e29fc78e90a43bfecf382d5f768da1a8569db2371f525ecdaff17d7"
+    sha256 arm64_sequoia: "420bde41ae0491828e285f83bcbf188e9549b7894644676ecb2d6cba4f682ab4"
+    sha256 arm64_sonoma:  "dba2f5985ebaf17b9354d2cee8a953c1c92cc2e6f73b3b0fcd28039905204e9d"
+    sha256 sonoma:        "2c1ab11b0d78fd578ce781274973360f73438a07e9d9ed2dbd58e4415f9a677e"
+    sha256 arm64_linux:   "e65661754f9b85f1de0ca278b5069e542b9f69ae2faeba7a2185a84c9077263f"
+    sha256 x86_64_linux:  "248698403849ffe50c05d9144e79db13c71a66b4e6d5c54589e3e749c42a1fc5"
   end
 
   head do
@@ -30,7 +31,9 @@ class Dwarfutils < Formula
 
   depends_on "pkgconf" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "sh", "autogen.sh" if build.head?

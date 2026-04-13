@@ -5,8 +5,6 @@ class XcbUtil < Formula
   sha256 "5abe3bbbd8e54f0fa3ec945291b7e8fa8cfd3cccc43718f8758430f94126e512"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "325a22ce66ff9fd565932b080bdb02e5bdbafd6240e5664fb8a22c1ee87b29ff"
     sha256 cellar: :any,                 arm64_sequoia:  "f23b606bbe08c4b9fc5ce87f19db91cec6fc152298157af1632cb109f669a83b"

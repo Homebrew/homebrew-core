@@ -13,8 +13,6 @@ class ChipmunkPhysics < Formula
     regex(/>\s*Chipmunk2D\s+v?(\d+(?:\.\d+)+)\s*</i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "812f69a9a0065f99dd7c215c6de16629def031aff0bdb8e315e91113c9f45a7e"
     sha256 cellar: :any,                 arm64_sequoia: "be1319def436cdfea53765897ce02cb7a223df465dbac30190d605c0d8c20738"

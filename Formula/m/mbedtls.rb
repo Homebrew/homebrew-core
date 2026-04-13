@@ -1,8 +1,8 @@
 class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.0.0/mbedtls-4.0.0.tar.bz2"
-  sha256 "2f3a47f7b3a541ddef450e4867eeecb7ce2ef7776093f3a11d6d43ead6bf2827"
+  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.1.0/mbedtls-4.1.0.tar.bz2"
+  sha256 "377a09cf8eb81b5fb2707045e5522d5489d3309fed5006c9874e60558fc81d10"
   license "Apache-2.0"
   head "https://github.com/Mbed-TLS/mbedtls.git", branch: "development"
 
@@ -13,12 +13,12 @@ class Mbedtls < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "27ea10c369948aae4c0569064e1b8628ca5fd5dcab0bbb02214f494b2bf3f2bb"
-    sha256 cellar: :any,                 arm64_sequoia: "0c694fd452f2098a5d0e6987e387e38c15ec98911a4a5ef708d22813cedc5a4e"
-    sha256 cellar: :any,                 arm64_sonoma:  "2e575f2b42bec807a9b044ab00b07f28dbddf4630e5235d053584113d3779abf"
-    sha256 cellar: :any,                 sonoma:        "c96bd36a7136fcf036acff89c6e71fc91bbed9d4b20905d7dceeb0b5ba3c26f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fba7c9b4c5b1562ec7161c3406b4a87b5b7fcce2b372fab323261482c96ea253"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df82e43cbff336f226c4ee56c7db63190cb3915af6287fad76b99c458f1fb4bc"
+    sha256 cellar: :any,                 arm64_tahoe:   "afb5b23bad6eb87cd8674539459d29bbdf9faa8d73af0e2ded7b668f240f510e"
+    sha256 cellar: :any,                 arm64_sequoia: "258007b03b55a6921a80ea8866ec93cb7b339c60a39d66c114098e87fe94a69e"
+    sha256 cellar: :any,                 arm64_sonoma:  "d07a25b71b81662643550226f26d111cdde1b3edd270ff2d1e274ac0903309c9"
+    sha256 cellar: :any,                 sonoma:        "835b7a62734a707f1429660356219758f0b0106cfbd48f844050d4456fd7e507"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d406f785dbdad88c23ada7d185006570c83ca60d6cf6aa48adf196603e1ac6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15cac95836fbe3f6cd9ed6252f9651960d8e0d59842e0ac790ee0a87e282533a"
   end
 
   depends_on "cmake" => :build

@@ -19,8 +19,6 @@ class Ucg < Formula
     patch :DATA
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 sonoma:       "1cfae5edabc50ba8598a2212217b22f8d7b1d81c118f86e52ce94b1b889a98a4"

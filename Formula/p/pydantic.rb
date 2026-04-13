@@ -7,6 +7,7 @@ class Pydantic < Formula
   sha256 "4d351024c75c0f085a9febbb665ce8c0c6ec5d30e903bdb6394b7ede26aebb49"
   license "MIT"
   version_scheme 1
+  compatibility_version 1
 
   bottle do
     rebuild 1

@@ -1,19 +1,17 @@
 class Lout < Formula
   desc "Text formatting like TeX, but simpler"
   homepage "https://savannah.nongnu.org/projects/lout"
-  url "https://github.com/william8000/lout/archive/refs/tags/3.43.2.tar.gz"
-  sha256 "11a3185ec7a5c454ee2e3b907bbb6045657b6ff09a6a4a41f6adb5abca66cf99"
+  url "https://github.com/william8000/lout/archive/refs/tags/3.43.3.tar.gz"
+  sha256 "e46c086277c421953bb4a63f7d5f4b2b892db1e31d59bde9ce2a14d082abfab0"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "3eb773b1adf3a54b55d673180c0f5738c9287f7180ce686f5bcf2d1847203752"
-    sha256 arm64_sequoia: "86e217e1e33434d7a135a9c8802ef9880865e34599e1a0c0896b6a8c464e43c0"
-    sha256 arm64_sonoma:  "465073cddb4d8234da894a169f4460c4e8ab15f63b06c3cd721ed4f44fd2191c"
-    sha256 arm64_ventura: "29ce8e8fa28334dff18b7d739f556dcfc32bdc3fd88938eff874bc0b9a8759d7"
-    sha256 sonoma:        "75db1424724cd0fd9c3ed19ade2fdc3ab4958c23649bd8dc7f7af27f79cde4fb"
-    sha256 ventura:       "9e34eb97e834865686d15773aa2419fd53dd4cbb95c64cdd05ab95c561b70a7e"
-    sha256 arm64_linux:   "b8cf9969487d8a01a1849de861bfa63c8a931f0394fbcf09ceb283a43999556b"
-    sha256 x86_64_linux:  "f30fc0a33cdbabab590e4f44f95046ebf7be63db9db77db97a4641ae20277c72"
+    sha256 arm64_tahoe:   "a1afa5a52f5b999a4faedd548c53df1ee3d17e47f6f32031e2b056334e738a82"
+    sha256 arm64_sequoia: "3c17b8b0e86ff28cb12003b6bfbb99d446b28ae0bc4aec34d1fe6a4e34b53d22"
+    sha256 arm64_sonoma:  "52bfa6645aeb972c156d84e136ff9fc6087afb403ac2cf5a50d886e7821409ed"
+    sha256 sonoma:        "4962fe83929db8cfa8e540db1895aa4af1fc15332aace87eb4349446d872fd3d"
+    sha256 arm64_linux:   "47228ee2a75ab6708d6223724920b60c530d321e5cd7da70d237aea3bf909730"
+    sha256 x86_64_linux:  "d1e920405f03ab021f8b7f4a00cb04891e7d60791255349a3e91921ad89ac35c"
   end
 
   def install

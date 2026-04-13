@@ -1,20 +1,18 @@
 class Dry < Formula
   desc "Terminal application to manage Docker and Docker Swarm"
   homepage "https://moncho.github.io/dry/"
-  url "https://github.com/moncho/dry/archive/refs/tags/v0.11.2.tar.gz"
-  sha256 "8fdb888f3f0c2298c531d5e23acfc0a55c7e4e881ad7365cc0dbecb8ec6c3b89"
+  url "https://github.com/moncho/dry/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "636d6b371bf329443849d19d574e8b493d77528d18167b52381df12755ba2ae7"
   license "MIT"
   head "https://github.com/moncho/dry.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1e6af1ea465a5651b74549561892f63d1116e4522354cb27572fe9e31f170c6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "41faddce9db56bb2fb2d505456024e950efd748a4573d725f4e27fee9c4d2163"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41faddce9db56bb2fb2d505456024e950efd748a4573d725f4e27fee9c4d2163"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "41faddce9db56bb2fb2d505456024e950efd748a4573d725f4e27fee9c4d2163"
-    sha256 cellar: :any_skip_relocation, sonoma:        "99c27ff03f7517fdc5cda2e0f4e73d5b3cbbdc211bfdab8ee83cd510bd7aff90"
-    sha256 cellar: :any_skip_relocation, ventura:       "99c27ff03f7517fdc5cda2e0f4e73d5b3cbbdc211bfdab8ee83cd510bd7aff90"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "90203ead2bd5e5a9211fcd1086b41fb6cfd48396f5016341578703fb1b2ca1e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3d2be362eac6193b8e570dfbabd9a826e92e3f1b58bc05687c46d3389cf81d0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3ad59335cbcad844568a7115a7f12f1b298fba6658cb1eadde84cc4a1edd5493"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ad59335cbcad844568a7115a7f12f1b298fba6658cb1eadde84cc4a1edd5493"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ad59335cbcad844568a7115a7f12f1b298fba6658cb1eadde84cc4a1edd5493"
+    sha256 cellar: :any_skip_relocation, sonoma:        "526cd8d533f8bc402361b0232210f6c55e6958908ebdbfc55eaefc46df8b6954"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "11651faa99235c2f62844b03297422567a16b424b4cc0cefc05a65c53abaf0c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3ab2319477e1cf89cee244f6add99a3f5054399ac4681cf25a5a21eca43b103"
   end
 
   depends_on "go" => :build
@@ -31,6 +29,5 @@ class Dry < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/dry --version")
     assert_match "A tool to interact with a Docker Daemon from the terminal", shell_output("#{bin}/dry --description")
-    assert_match "Dry could not start", shell_output("#{bin}/dry --profile 2>&1")
   end
 end

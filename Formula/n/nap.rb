@@ -6,8 +6,6 @@ class Nap < Formula
   license "MIT"
   head "https://github.com/maaslalani/nap.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "13961de8d0dcd0c3ced9aa8ebd2ef3f9df61c4fa1bb67a7c1b1b368947f2277a"

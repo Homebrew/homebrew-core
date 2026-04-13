@@ -5,13 +5,12 @@ class Raptor < Formula
   sha256 "089db78d7ac982354bdbf39d973baf09581e6904ac4c92a98c5caadb3de44680"
   license any_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later", "Apache-2.0"]
   revision 1
+  compatibility_version 1
 
   livecheck do
     url :homepage
     regex(/href=.*?raptor2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "1bfb13b805a48dff3dabd1424ffdccda68a6862eb2b245f544e8cf9b1a02c0d8"
@@ -38,6 +37,9 @@ class Raptor < Formula
   end
 
   test do
-    system bin/"rapper", "--output", "ntriples", "https://planetrdf.com/guide/rss.rdf"
+    test_url = "https://raw.githubusercontent.com/dajobe/raptor/" \
+               "b5e91dfdf7e1ea5ca5a5f7b48c428dd3da1219e0/tests/feeds/test01.rdf"
+    output = shell_output("#{bin}/rapper --output ntriples #{test_url}")
+    assert_match '_:genid2 <http://purl.org/dc/elements/1.1/title> "Example"', output
   end
 end

@@ -1,29 +1,36 @@
 class Zsv < Formula
   desc "Tabular data swiss-army knife CLI"
   homepage "https://github.com/liquidaty/zsv"
-  url "https://github.com/liquidaty/zsv/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "251b1f61e8c2371382e9b612f1877c9f1f7ff71d47029ee04f45db89c5f0caab"
+  url "https://github.com/liquidaty/zsv/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "939fb66d4885260ebe52cc280d131a3973886a37b9ac5db0fe8be18e27c4c31c"
   license "MIT"
   head "https://github.com/liquidaty/zsv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b2fdae13abc1b1e22b1dcac9a2da1eb55f010dca80f7cf311dd69fe4cd7196e1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2c2b5647f504f93e9b93bd3bf95b8109cff5ade016f94cd9d88fc84cde1ffba"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d91d65dc761c247db36d9ce086133ee63c987a38b2ce53f60b7b1305598bcff2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ef2b52a21d84f9b3549a108234e471b7573e995716066c60b38bd4bb9c13f090"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1caede721d04f19432a2b4566772c5ee37c2081a72fca2e7c8ffb78ae8c133ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f12396502a16441e4b71b78c1c261b23e4ed0ea426f8e013be71eff2c3740d0"
+    sha256 cellar: :any,                 arm64_tahoe:   "9cf74a76ac5f958a5abb51420f152b54494c18024406f3ac1dc67806c6f2e6ba"
+    sha256 cellar: :any,                 arm64_sequoia: "8dac7e816ec70957c6ed14f404e95172ecdb28437cccfc26d5cb0f179a0459d9"
+    sha256 cellar: :any,                 arm64_sonoma:  "ad4d4068e736dad481ed4da93223fac5e86d1cbb1d8631bb7ace73ae7e749cf0"
+    sha256 cellar: :any,                 sonoma:        "af0128af6d66a726aed4e3fc0cdabc599eb9646b768e78bf75de9153f5430ba8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e9e57c23352087eca53556b2fee0d9643faeaaa523680054e5659124783c669"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8a977ce589211e1c35e826cec28aabb021ff58b930313087bc0a5afceefe564"
   end
 
   depends_on "jq"
+  depends_on "pcre2"
 
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", *std_configure_args
+    rm(Dir["app/external/{jq,pcre}*"])
 
-    ENV.deparallelize
-    system "make", "install", "VERSION=#{version}"
+    args = %W[
+      --jq-prefix=#{Formula["jq"].opt_prefix}
+      --pcre2-8-prefix=#{Formula["pcre2"].opt_prefix}
+      --ncurses-dynamic
+    ]
+
+    system "./configure", *args, *std_configure_args
+    system "make", "install", "VERSION=#{version}", "PCRE2_STATIC="
   end
 
   test do

@@ -7,12 +7,13 @@ class MariadbAT105 < Formula
   revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "bc104c240968345cb39f6f28716a9606704026b37e81f4d92a54d7f69b693f36"
-    sha256 arm64_sequoia: "a8c6bb26de1fa94be3319d9e32b63205f9078434ec2145badb5cdc6451f58f27"
-    sha256 arm64_sonoma:  "99dbfbbfc02759cf586a05e520b678474e435051d386a2e7108788fe07c5b14f"
-    sha256 sonoma:        "2cac55d9ca509a3890b79c0e62da52e8bf3e58f6c1c36ae004cb26d2d7868255"
-    sha256 arm64_linux:   "0204f343319fad14bce41fd8dd9f5b3cd0cee41a3a621739688505cf51b09acf"
-    sha256 x86_64_linux:  "30f00c3ccee22cabe5493f6db392178d09a0b6e17e10f3d010bd40dc14f242a8"
+    rebuild 1
+    sha256 arm64_tahoe:   "fe4dac40b0ef256e6b3d3b48e58b0c36d2ff75811d225fe8673918ee04c67f08"
+    sha256 arm64_sequoia: "e28cf1d51ca7872ec49817ad4967b1ef24805a6bb2035d02c7ab305be49ef337"
+    sha256 arm64_sonoma:  "79903cc215b1fb2c68623442d9ae69b5c9364cb6a1f1625d9c2fef4a9f43165e"
+    sha256 sonoma:        "dd6f0e3477b424a3502a3a6f285da3bc707952193eb8249c3a7e6edc9476094f"
+    sha256 arm64_linux:   "49d373ef0630a82d961b46621a5af8507567bec808573063895a204ae32fac0f"
+    sha256 x86_64_linux:  "33a68407a176c5fe8d5f345bcf24e53fcdf1e68309d973612c6f6261b35aab2b"
   end
 
   keg_only :versioned_formula
@@ -41,10 +42,10 @@ class MariadbAT105 < Formula
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "xz"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-pam"
+    depends_on "zlib-ng-compat"
   end
 
   def install

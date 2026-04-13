@@ -11,12 +11,13 @@ class Pianod < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b623727180aca736393b728354e2ac5f3b265141c93b9a726dd6d7d440038172"
-    sha256 arm64_sequoia: "f7d2ba1c1152ea177cf01d2238a332addc20a9d19092d4bb5ac1fb34a00fcc1a"
-    sha256 arm64_sonoma:  "2d937b02a8431acc858ed326662072ff33c84274921aa2749facdf8124b2ebc6"
-    sha256 sonoma:        "c3e1a56ec0fb9d96950cc4b9ef61973a8d0f20c486e84ccb77f35ac86a57e4a7"
-    sha256 arm64_linux:   "119a870280b5f91d8c0f9571db0bd6c09441a75cc3df34357f1eddff7817e916"
-    sha256 x86_64_linux:  "aab5825968b3667c5403f80fe2fb0e1ad1f4a5c5ea6f8e6b02dafa477284594e"
+    rebuild 1
+    sha256 arm64_tahoe:   "96b6f94cbac97ca8cc30bcd74c8a258f3462e233d36a0719212f0b9306d2a7ed"
+    sha256 arm64_sequoia: "32984610d0f720d52e8ae7877c6188b42c7f28bea9cb6a85bcd28361e3671598"
+    sha256 arm64_sonoma:  "1e827e43ee4113c58864be40d072ad77634da3ddd23efd105f8f88065db7b342"
+    sha256 sonoma:        "d9624ad29a3278961d986127e7ea31f5c922245ffe94ac3bd8d830889d40a5d7"
+    sha256 arm64_linux:   "c889fe50b5079a029381e2a9f988979319dae868b83cce4ecfa1ab970f8a344c"
+    sha256 x86_64_linux:  "4a6695250063db235d71d0881b644a52a650e378ec3d26ae6c75bab60e664279"
   end
 
   depends_on "pkgconf" => :build
@@ -27,7 +28,6 @@ class Pianod < Formula
 
   uses_from_macos "curl"
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -35,6 +35,7 @@ class Pianod < Formula
 
   on_linux do
     depends_on "libbsd"
+    depends_on "zlib-ng-compat"
   end
 
   def install

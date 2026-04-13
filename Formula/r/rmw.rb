@@ -1,8 +1,8 @@
 class Rmw < Formula
   desc "Trashcan/recycle bin utility for the command-line"
   homepage "https://theimpossibleastronaut.github.io/rmw-website/"
-  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.9.4/rmw-0.9.4.tar.xz"
-  sha256 "81c6b7f1868695f4662be45a5e645fd149fda362e8ec1a822d74d735735ba808"
+  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.9.5/rmw-0.9.5.tar.xz"
+  sha256 "5fa336da39228d4ef6d1314fd86b5dfb0622e80485ebf7b78152198278090050"
   license "GPL-3.0-or-later"
   head "https://github.com/theimpossibleastronaut/rmw.git", branch: "master"
 
@@ -12,22 +12,26 @@ class Rmw < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "84a5f3d95667b0b73a17a49d4649fda233e9abb44097225efa537f99399fed86"
-    sha256 arm64_sequoia: "1446355fe36c6c169635c74e0a40b478877f690b7f201aa0b23921d2ad225a15"
-    sha256 arm64_sonoma:  "7bd3f9d80d766ab2cf306ff6840a99858bc9e93b6a710100f0cca9c2558508b0"
-    sha256 sonoma:        "07ecdebd01dfd87db1e36cc87fa5255f70c8d8c7d4fc730b7bb3cffe269a7613"
-    sha256 arm64_linux:   "ab15e030b9ed1c6883dcc6c3e574d3d5741dcfdfb6dc3e0e23a0e422f81bd8e5"
-    sha256 x86_64_linux:  "3a5eab29ba4ed0ef73d00edf9e33fb2bd424d775973cfaed388360dca1938686"
+    sha256 arm64_tahoe:   "b57378a8a4d9f75baa34ee883b097ff89520a72c080acc369e83aa9158d3e8fa"
+    sha256 arm64_sequoia: "55c6ae6efe3afc942a5740fadccaf7eb40826cede8ba926b958d0c401daed786"
+    sha256 arm64_sonoma:  "64142a822629df1a6e933259c75f64cde96ad2166366b9bafa34d6f597beba39"
+    sha256 sonoma:        "a957b72407bd6253273d0d853903d73db999022ab388e474c6e0eeea460b019e"
+    sha256 arm64_linux:   "d1ac5afdcf0c542b5c86959f917303932321aeffa124f92b41b7c9336c026a82"
+    sha256 x86_64_linux:  "391320c552df905d3fbd84a4d278b8564beb452e277f01387b89e90eefa31f65"
   end
 
+  depends_on "gettext" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "canfigger"
-  depends_on "gettext"
   # Slightly buggy with system ncurses
   # https://github.com/theimpossibleastronaut/rmw/issues/205
   depends_on "ncurses"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     system "meson", "setup", "build", "-Db_sanitize=none", *std_meson_args

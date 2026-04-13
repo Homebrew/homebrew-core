@@ -4,6 +4,7 @@ class Flint < Formula
   url "https://github.com/flintlib/flint/releases/download/v3.4.0/flint-3.4.0.tar.gz"
   sha256 "9497679804dead926e3affeb8d4c58739d1c7684d60c2c12827550d28e454a33"
   license "LGPL-3.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url :stable

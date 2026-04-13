@@ -1,30 +1,21 @@
 class LibcapNg < Formula
   desc "Library for Linux that makes using posix capabilities easy"
   homepage "https://people.redhat.com/sgrubb/libcap-ng/"
-  url "https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.8.5.tar.gz"
-  sha256 "3ba5294d1cbdfa98afaacfbc00b6af9ed2b83e8a21817185dfd844cc8c7ac6ff"
+  url "https://github.com/stevegrubb/libcap-ng/archive/refs/tags/v0.9.3.tar.gz"
+  sha256 "fe11ebbb55904763b3532f19069f13ec319042634620180a03bd4653d301563e"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?libcap-ng[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  head "https://github.com/stevegrubb/libcap-ng.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "d83b347391dd5f031ef8fe8d5762f5aeb678b27e4d18da173c8705813e068c12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a17a6bf3d9aa3735db67bde8d609883a0d945ae3fb296d4e4f990e957e0eceb6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "6dd678906bd60a3abd618109a3bf6e0968c2ba1983251a5345192f88336603ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "50b33e8da4ed5daf4ed149254786fe602c5f33cdb8700148ad64c5421633eada"
   end
 
-  head do
-    url "https://github.com/stevegrubb/libcap-ng.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "m4" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "m4" => :build
+  depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
   depends_on "python@3.14" => [:build, :test]
   depends_on "swig" => :build
@@ -35,10 +26,10 @@ class LibcapNg < Formula
   end
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--with-python3"
+    system "./autogen.sh"
+    system "./configure", "--disable-silent-rules",
+                          "--with-python3",
+                          *std_configure_args
     system "make", "install", "py3execdir=#{prefix/Language::Python.site_packages(python3)}"
   end
 

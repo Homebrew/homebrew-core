@@ -5,8 +5,6 @@ class Fastmod < Formula
   sha256 "b438cc7564ef34d01f27cdd3cd50ee66a9915b9c50939ca021c6bee2e9c1f069"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "fdb434fc84a2106f151689cc285556c36626ee9b49b3aca012feaca4d97ca957"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "447a3f903eef438d6e40031f2ddcb9fb4c498a8095ce12f21a429aa61233d71f"

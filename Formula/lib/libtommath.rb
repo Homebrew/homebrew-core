@@ -4,6 +4,7 @@ class Libtommath < Formula
   url "https://github.com/libtom/libtommath/releases/download/v1.3.0/ltm-1.3.0.tar.xz"
   sha256 "296272d93435991308eb73607600c034b558807a07e829e751142e65ccfa9d08"
   license "Unlicense"
+  compatibility_version 1
   head "https://github.com/libtom/libtommath.git", branch: "develop"
 
   bottle do

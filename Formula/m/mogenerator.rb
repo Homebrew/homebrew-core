@@ -6,8 +6,6 @@ class Mogenerator < Formula
   license "MIT"
   head "https://github.com/rentzsch/mogenerator.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8efb94ec378cb588e5abe0cb6a1e586a9120fac207896a8b34e64c69992bc24e"

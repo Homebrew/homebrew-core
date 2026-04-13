@@ -10,8 +10,6 @@ class Hyperestraier < Formula
     regex(/href=.*?hyperestraier[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "fddfdaa28011b5308a0195b816212d061a3b707dce5275ff26bb47ab09e22841"
     sha256 cellar: :any,                 arm64_sequoia:  "18f652254c3b115ffe6fad67be39dee791ef6b8f456122618762417eef74f4cb"

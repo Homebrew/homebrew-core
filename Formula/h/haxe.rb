@@ -15,12 +15,13 @@ class Haxe < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c4f56c37d8b1f2508636ab8d35d53ded1377ac689e2661d047da81513df63cd8"
-    sha256 cellar: :any, arm64_sequoia: "a35d7d94ebaefc02520f426635808c894685a501cc62f45623f9c19d580a4d3d"
-    sha256 cellar: :any, arm64_sonoma:  "8a968b4ceb5172135d8e308eaa422afd3d3f0b883a30fe92e016f47cc3792781"
-    sha256 cellar: :any, sonoma:        "a2c7966de13c1763ac18df3094062346b7e2c683311f997d6b6f7ca5156fcb5e"
-    sha256               arm64_linux:   "e30e40f489afe3ae9ae3472a2061123e82833cf045001602481e5a8c148f6886"
-    sha256               x86_64_linux:  "5d17640c42c56a2dde34932163f643b0f574152bc97b9f36b074308d99bbae3d"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "780794ad8ebbd6e46a8b065fea1395f8e36e880abfdee6cbb9c1a75f80dbf69e"
+    sha256 cellar: :any, arm64_sequoia: "4acb949891d907440bdf1b90d47f5ccaf2530ca1b7c9256e53fe5392e7809629"
+    sha256 cellar: :any, arm64_sonoma:  "16769f4a037fa4ca5c1ac5218041150e61275f79ec21bc783c790765c8548edd"
+    sha256 cellar: :any, sonoma:        "236ee018bfc0f0628852bcb490ea2dab1c0acfa9f54537f4089245a4e39b5988"
+    sha256               arm64_linux:   "fa61c88d7c07b125cb86d444e226ed74b827c4e3f0786043f73d48936e9a23cd"
+    sha256               x86_64_linux:  "fd290d4961bf7e566b8d04881ccf8b8fdebab317f64bb1ecb6eafff60bdb9ce4"
   end
 
   depends_on "ocaml" => :build
@@ -30,10 +31,9 @@ class Haxe < Formula
   depends_on "neko"
   depends_on "pcre2"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "node" => :test
+    depends_on "zlib-ng-compat"
   end
 
   def install

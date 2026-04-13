@@ -7,6 +7,7 @@ class Dbus < Formula
   sha256 "0ba2a1a4b16afe7bceb2c07e9ce99a8c2c3508e5dec290dbb643384bd6beb7e2"
   license any_of: ["AFL-2.1", "GPL-2.0-or-later"]
   revision 1
+  compatibility_version 1
   head "https://gitlab.freedesktop.org/dbus/dbus.git", branch: "main"
 
   livecheck do

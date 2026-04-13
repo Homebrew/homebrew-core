@@ -6,8 +6,6 @@ class FuseZip < Formula
   license "GPL-3.0-or-later"
   head "https://bitbucket.org/agalanin/fuse-zip.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_linux:  "b9ea1815940249c680e5f6524a9da80d600f3dc8a1d40d89dec4b49de64b4d66"

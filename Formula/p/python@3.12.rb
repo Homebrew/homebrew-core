@@ -1,9 +1,10 @@
 class PythonAT312 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.12/Python-3.12.12.tgz"
-  sha256 "487c908ddf4097a1b9ba859f25fe46d22ccaabfb335880faac305ac62bffb79b"
+  url "https://www.python.org/ftp/python/3.12.13/Python-3.12.13.tgz"
+  sha256 "0816c4761c97ecdb3f50a3924de0a93fd78cb63ee8e6c04201ddfaedca500b0b"
   license "Python-2.0"
+  compatibility_version 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,15 +12,14 @@ class PythonAT312 < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 arm64_tahoe:   "d6f4a115a2acdea5d9bf0f968637af9e8d4a68d30254e37bcd72d39c0a51873d"
-    sha256 arm64_sequoia: "8574096eedc2dd46fc02afad5b60a8fd07cac566537e1533b9fc89145c4f2447"
-    sha256 arm64_sonoma:  "e189a66703407e19a2d7142e58e8d804190824563e65b8251a7a21d51cf2956e"
-    sha256 tahoe:         "75ec4ec2442cd0927e83e888f87a9347aa0773170c5d8af0192e10d46df6d72b"
-    sha256 sequoia:       "9071895c31ab3e093ec44b204a09d74e5307d3020b0845f005ac232c9426bcb6"
-    sha256 sonoma:        "230e687bd23cde9586ea6ab1dc49a5de85335d498d1a9b377d6b893e51144526"
-    sha256 arm64_linux:   "775d68fdcfd87f49ec5c6c222b12ffd408ceaff35a52d7ec4640356bd4d18134"
-    sha256 x86_64_linux:  "10e1295a1e4f42e7f7387c49ee733285b755bedd73ba14e2367728f96a4fb734"
+    sha256 arm64_tahoe:   "eefd96ed3d09bcd4e68738a5f9371fc556898213666c5b409076fffff3d30e80"
+    sha256 arm64_sequoia: "2bcb6421ac5fd3ab14afb3efd4dbe4c96a9d3871bcdd26111ee2720314a3146d"
+    sha256 arm64_sonoma:  "37d87494379061f60e5c66034a3ec10081be450e2686af5906be495923a74737"
+    sha256 tahoe:         "4caa81999441c5614c1e078f64168c7219beec50bda62258959f53a2256c2b6b"
+    sha256 sequoia:       "8fc3ef5abb89e6f4e362d6c851f1a0881595d3ed7474250a0a189bdd55eb5d67"
+    sha256 sonoma:        "784bd05a485dee17d962b8119160f0266f7f30500d2b3c7a7c6e1cde0b9c9e78"
+    sha256 arm64_linux:   "e7abc557c2250e41230de7ca532da5c225dcf81003007eb22f767c76eeb95a11"
+    sha256 x86_64_linux:  "358961dc503e414a99acd2593ea2a82f839bcf84c3af66bea7f07a23b37cfa9a"
   end
 
   depends_on "pkgconf" => :build
@@ -29,18 +29,18 @@ class PythonAT312 < Formula
   depends_on "xz"
 
   uses_from_macos "bzip2"
-  uses_from_macos "expat"
+  uses_from_macos "expat", since: :sequoia
   uses_from_macos "libedit"
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "berkeley-db@5"
     depends_on "libnsl"
     depends_on "libtirpc"
+    depends_on "zlib-ng-compat"
   end
 
   link_overwrite "lib/python3.12/site-packages/pip*"
@@ -54,14 +54,19 @@ class PythonAT312 < Formula
     sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+  end
+
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/fe/6e/74a3f0179a4a73a53d66ce57fdb4de0080a8baa1de0063de206d6167acc2/pip-25.3.tar.gz"
-    sha256 "8d0538dbbd7babbd207f261ed969c65de439f6bc9e5dbd3b3b9a77f25d95f343"
+    url "https://files.pythonhosted.org/packages/44/c2/65686a7783a7c27a329706207147e82f23c41221ee9ae33128fc331670a0/pip-26.0.tar.gz"
+    sha256 "3ce220a0a17915972fbf1ab451baae1521c4539e778b28127efa79b974aff0fa"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/8a/98/2d9906746cdc6a6ef809ae6338005b3f21bb568bea3165cfc6a243fdc25c/wheel-0.45.1.tar.gz"
-    sha256 "661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729"
+    url "https://files.pythonhosted.org/packages/89/24/a2eb353a6edac9a0303977c4cb048134959dd2a51b48a269dfc9dde00c8a/wheel-0.46.3.tar.gz"
+    sha256 "e3e79874b07d776c40bd6033f8ddf76a7dad46a7b8aa1b2787a83083519a1803"
   end
 
   # Modify default sysconfig to match the brew install layout.

@@ -5,8 +5,6 @@ class Symlinks < Formula
   sha256 "27105b2898f28fd53d52cb6fa77da1c1f3b38e6a0fc2a66bf8a25cd546cb30b2"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f8dc7f7f7a34aca2effa06e21560ea6828e1cb4cfba15d877010545735a9ce9b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a4f0d8f94815e056e274db19ee924739711eb18bc11909a6ea5faecf74826fd7"

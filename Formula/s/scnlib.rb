@@ -4,17 +4,16 @@ class Scnlib < Formula
   url "https://github.com/eliaskosunen/scnlib/archive/refs/tags/v4.0.1.tar.gz"
   sha256 "ece17b26840894cc57a7127138fe4540929adcb297524dec02c490c233ff46a7"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/eliaskosunen/scnlib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "92037af6bae9aaf495afce7b464fa50a116720c847f0790d6fa51f619faf7131"
-    sha256 cellar: :any,                 arm64_sequoia: "c3531b7c92229eddcac3eff07698a8206621fda6af597998a6baea043373879f"
-    sha256 cellar: :any,                 arm64_sonoma:  "f55a2dc6aceffc4955d9bdde6d9a85cc6d9fd4062f94760b4fae036a5ba0d812"
-    sha256 cellar: :any,                 arm64_ventura: "1ce46536fa0d02263892e00a103d4302d2aad33beb1d9396e3956c7a894e34a8"
-    sha256 cellar: :any,                 sonoma:        "466d7641baa693ed0a7d395a7b9742049f4fa62f978f8614c28806b7116a5a4c"
-    sha256 cellar: :any,                 ventura:       "a98aae0486d5e6e67bc9a9245fe8ad6366ecbba04ccc0b600458de630bc8fb02"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f8713c8d5b0ccc2d5403b82f3db637b62161d0c17381d7d09aaf3311751da65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99e865cc3d9de153eb4a1cfd708d22dfd60ebcb584369f782e01646d0abce372"
+    sha256 cellar: :any,                 arm64_tahoe:   "21cd67cc5c419b781ebb8e1bcfed7f17c78dc0cb3db21be38aa862af5e1e4467"
+    sha256 cellar: :any,                 arm64_sequoia: "134792df5a038f104e822bbe90a3df1e4a4c745c1c914f52375615910a26c5a7"
+    sha256 cellar: :any,                 arm64_sonoma:  "a69e734225cbaf3294f549698798d4e9feab4c3d3e80afa4b90bba060fee12f3"
+    sha256 cellar: :any,                 sonoma:        "3f0fc35c02be751f470426a42e2ff7f0b2ed80d2da7585dc62eb07a5905a6fa2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b262e8c4395d69a9ce1c9e0dd08394614a0feeb865217f195c71e42ade0440c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24fbc7d2c410792aa8499dea07e901694b4dfe712f73fa40e6f09351c75fd6df"
   end
 
   depends_on "cmake" => :build

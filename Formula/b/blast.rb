@@ -13,13 +13,13 @@ class Blast < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "2256a8f9c1ad1d1d30b130f3fac419318960808a6f8eeb5006dacaa02c244f45"
-    sha256 arm64_sequoia: "d50a891f6c0ae6fe37df0f6481f5a78f812763aa4fd6f39197f3084891c895a5"
-    sha256 arm64_sonoma:  "9f648acc80960502a9e501814236ec24b8954d926449273a9d393bf8c59c5975"
-    sha256 sonoma:        "5c735e79ad0138e48d87459f2cb52be1f54684a3f03bb4b225a6ffc9c4e4beec"
-    sha256 arm64_linux:   "6f913987e18636b0fe5bd74e964eeb50c113f07c89df72681d449f2a8449adf1"
-    sha256 x86_64_linux:  "7bbf1d59756daaf6a6dc1c07d01a2238b73760fad9cadcd4181f292a69b1c940"
+    rebuild 2
+    sha256 arm64_tahoe:   "c899b804e8fe6495c89198d57cc47c37a3a75bd20bd671e224244ef956be8459"
+    sha256 arm64_sequoia: "d94cb26d4736310ed0268b857ab3aa00879ab725e266a66eb6c325d4d620f222"
+    sha256 arm64_sonoma:  "763dfe79ed5e4ad591893199cb2369622408869b3693731e08fdaa1b830ec607"
+    sha256 sonoma:        "eb6553ea5219eb2369852aa9da77bc0afc683172707b0b2e49cdca45a0d25dbe"
+    sha256 arm64_linux:   "5f1789a3a285888887723a7a606c0a74c072f99557ae5590a30b7ccfc088c2a0"
+    sha256 x86_64_linux:  "08990287f4f3ae8cc07763209bfe7a5a52f04d79b9baca6207cdf50c25172ca9"
   end
 
   depends_on "lmdb"
@@ -29,10 +29,13 @@ class Blast < Formula
   uses_from_macos "cpio" => :build
   uses_from_macos "bzip2"
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "proj", because: "both install a `libproj.a` library"

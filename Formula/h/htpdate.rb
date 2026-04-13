@@ -1,26 +1,17 @@
 class Htpdate < Formula
   desc "Synchronize time with remote web servers"
   homepage "https://www.vervest.org/htp/"
-  url "https://www.vervest.org/htp/archive/c/htpdate-2.0.0.tar.gz"
-  sha256 "52f25811f00dfe714e0bcf122358ee0ad74e25db3ad230d5a4196e7a62633f27"
+  url "https://github.com/twekkel/htpdate/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "4c771fe3fc5c4ab5f9393dd501bdc51e4c067297cf304ad1e74e1965ac1c066f"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url "https://www.vervest.org/htp/?download"
-    regex(/href=.*?htpdate[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f6e0c03fb82e6410178392e273f6e652c46fe05c05c6b5db8f9bc668ae91ad65"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fe928ac1ad4a1d522e627c3f4d5ff49fbb6854618915ef2e637e11b86cd48be1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a5c342e659f6ecae78ec9b538f84da8240bde60848f6fbd3166773c44401c83"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecdc7014e50912857698372140ac946170a739c23b41614895872586daba71c0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef4adc85d46ad9b58f71f397295288eceaa19f98e808e50059dfe0f0a01602e7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c4893b5b8412f014565d366bdb4d95feae8572a9328aa341e41e27056d26cb75"
-    sha256 cellar: :any_skip_relocation, ventura:        "687a2c378cb61476b28d932c3b4de170337bdaf22003b55d82c7a50b58ef762a"
-    sha256 cellar: :any_skip_relocation, monterey:       "c09f96724bae5ae13b7b84c7e76b1f0a2c8f362e6e007fd4187ad18c0afb9364"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "be4c2fa2c9b1e31a45e406d8a888a1f77200fa2355e1fbf09b27ae77ebdae007"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c769ab62c46610dd1986c757bb70a42cd446e9e0292e0fca80cd60a33e752b1e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "252973c63d0ffe671e5fd12a3d36e93d425d826a5f2cdc2ecb1fe61c8e93fa58"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4b7cdf70ede339e75d8d7850c466b805da963caec24bbe618b38cece0ca7ddb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6181009ddb2265370b8b08909177e75cdfa7a07cc1a6f177028303c48af0c24c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "62e3483ab73cc15f974dd59dbf279c2731260735e3480c65cea451747c1bcca2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a05e01faebc3b5662fcbd7063fc46c90832b32f345b36c639293b0b8f28dde1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c005ab298294a4e5ffa2c0d9cad5f0b30e08f60bcb4e61e0e808e32e91d2af1a"
   end
 
   def install
@@ -32,6 +23,6 @@ class Htpdate < Formula
   end
 
   test do
-    system "#{sbin}/htpdate", "-q", "-d", "-u", ENV["USER"], "example.org"
+    system sbin/"htpdate", "-q", "-d", "-u", ENV["USER"], "example.org"
   end
 end

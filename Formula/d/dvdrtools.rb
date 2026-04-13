@@ -1,7 +1,7 @@
 class Dvdrtools < Formula
   desc "Fork of cdrtools DVD writer support"
   homepage "https://savannah.nongnu.org/projects/dvdrtools/"
-  url "https://savannah.nongnu.org/download/dvdrtools/dvdrtools-0.2.1.tar.gz"
+  url "https://download.savannah.gnu.org/releases/dvdrtools/dvdrtools-0.2.1.tar.gz"
   sha256 "053d0f277f69b183f9c8e8c8b09b94d5bb4a1de6d9b122c0e6c00cc6593dfb46"
   license "GPL-2.0-or-later"
 
@@ -9,8 +9,6 @@ class Dvdrtools < Formula
     url "https://download.savannah.gnu.org/releases/dvdrtools/"
     regex(/href=.*?dvdrtools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d9ce7dd044c0b813f15a0a53332e50bd2f4b85fca18f7bb9951796f061abdb24"

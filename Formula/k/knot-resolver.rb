@@ -3,9 +3,10 @@ class KnotResolver < Formula
 
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-6.1.0.tar.xz"
-  sha256 "7921df7507286d90574bbf5ae664a8a537805ce40b5fa8b15f5d0d33e2c438d0"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-6.2.0.tar.xz"
+  sha256 "b44633bc843180c0bc7c77cf7b15fe571243ae992b4ddb74afdee4cfa803701b"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
+  revision 1
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git", branch: "master"
 
   livecheck do
@@ -14,13 +15,12 @@ class KnotResolver < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "97d5240f290badc160df58eaeaeef31e8de31be51be2b343bc34106b9e3f67d5"
-    sha256 arm64_sequoia: "c46c527e67100d77fa83eb2c9d7698034a134371bcfb670d715344357531e8ed"
-    sha256 arm64_sonoma:  "7198cdae43ca26f1198a8b5b97beda3aaa2fdbd1f969288356f3141f43acdc58"
-    sha256 sonoma:        "8a9399ce3c7b5084ef8165bdebfc85a8a8e7452b69bd8f51d8f509dfe9a83dd3"
-    sha256 arm64_linux:   "b213e8c6953abb084a2818a2b9a9daacce913655fc25c76d28461304fa522819"
-    sha256 x86_64_linux:  "93cca41ec25e28a21c1aaec43c3c6aee34821a8548d80008d01bde812637c683"
+    sha256 arm64_tahoe:   "82d6728ce113b2c1920da5f911265dc4ea3342f49562f2f0063da484795befb1"
+    sha256 arm64_sequoia: "7b424dfc4867b8585383cb14bf20daf1d72b0747c4e8e4dd25cdf25e6a0162de"
+    sha256 arm64_sonoma:  "b434cd54a4882be950d39998dbc3fe711b969d97144874faae5b0723be5ed5ba"
+    sha256 sonoma:        "5998f4f6acca4d50f4904abe4f40606245c089fb8184bbcc4b18bcb3b32560f9"
+    sha256 arm64_linux:   "c25848209811b8ea5a07d9d88fbef96a4b61354ae4b76fc4a3907f5061e39653"
+    sha256 x86_64_linux:  "3674f154eca1f62135b1487fe875c9ad409c9d85b984ecaeafb9aa41c62541c1"
   end
 
   depends_on "meson" => :build
@@ -54,8 +54,8 @@ class KnotResolver < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/50/42/32cf8e7704ceb4481406eb87161349abb46a57fee3f008ba9cb610968646/aiohttp-3.13.3.tar.gz"
-    sha256 "a949eee43d3782f2daae4f4a2819b2cb9b0c5d3b7f7a927067cc84dafdbb9f88"
+    url "https://files.pythonhosted.org/packages/77/9a/152096d4808df8e4268befa55fba462f440f14beab85e8ad9bf990516918/aiohttp-3.13.5.tar.gz"
+    sha256 "9d98cc980ecc96be6eb4c1994ce35d28d8b1f5e5208a23b421187d1209dbb7d1"
   end
 
   resource "aiosignal" do
@@ -64,8 +64,8 @@ class KnotResolver < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
-    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "frozenlist" do
@@ -89,13 +89,13 @@ class KnotResolver < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/80/1e/5492c365f222f907de1039b91f922b93fa4f764c713ee858d235495d8f50/multidict-6.7.0.tar.gz"
-    sha256 "c6e99d9a65ca282e578dfea819cfa9c0a62b2499d8677392e09feaf305e9e6f5"
+    url "https://files.pythonhosted.org/packages/1a/c2/c2d94cbe6ac1753f3fc980da97b3d930efe1da3af3c9f5125354436c073d/multidict-6.7.1.tar.gz"
+    sha256 "ec6652a1bee61c53a3e5776b6049172c53b6aaba34f18c9ad04f82712bac623d"
   end
 
   resource "prometheus-client" do
-    url "https://files.pythonhosted.org/packages/23/53/3edb5d68ecf6b38fcbcc1ad28391117d2a322d9a1a3eff04bfdb184d8c3b/prometheus_client-0.23.1.tar.gz"
-    sha256 "6ae8f9081eaaaf153a2e959d2e6c4f4fb57b12ef76c8c7980202f1e57b48b2ce"
+    url "https://files.pythonhosted.org/packages/f0/58/a794d23feb6b00fc0c72787d7e87d872a6730dd9ed7c7b3e954637d8f280/prometheus_client-0.24.1.tar.gz"
+    sha256 "7e0ced7fbbd40f7b84962d5d2ab6f17ef88a72504dcf7c0b40737b43b2a461f9"
   end
 
   resource "propcache" do
@@ -124,8 +124,8 @@ class KnotResolver < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/57/63/0c6ebca57330cd313f6102b16dd57ffaf3ec4c83403dcb45dbd15c6f3ea1/yarl-1.22.0.tar.gz"
-    sha256 "bebf8557577d4401ba8bd9ff33906f1376c877aa78d1fe216ad01b4d6745af71"
+    url "https://files.pythonhosted.org/packages/23/6e/beb1beec874a72f23815c1434518bfc4ed2175065173fb138c3705f658d4/yarl-1.23.0.tar.gz"
+    sha256 "53b1ea6ca88ebd4420379c330aea57e258408dd0df9af0992e5de2078dc9f5d5"
   end
 
   def install

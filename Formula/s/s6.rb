@@ -1,18 +1,18 @@
 class S6 < Formula
   desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
-  url "https://skarnet.org/software/s6/s6-2.14.0.0.tar.gz"
-  sha256 "586bf8474d852655b89f1144c3d95461a1cee77f016dae6e75a3328b8a2f5df6"
+  url "https://skarnet.org/software/s6/s6-2.14.0.1.tar.gz"
+  sha256 "c25afe817cbc3f594efc5050351f8b9101ba78616d0ce915658f370e7ee2e258"
   license "ISC"
   head "git://git.skarnet.org/s6.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1f01e573fba1d56838e827b5455224a5299dbdd85e6cdb81931c4a265a473db6"
-    sha256 cellar: :any,                 arm64_sequoia: "d4488f63b96ff55559e825d9367eb6a174ef6d12d79496f050dd4da767ca9b95"
-    sha256 cellar: :any,                 arm64_sonoma:  "a8f691cfaf659a1d72d93d1c582b56d012bdc5636b92796154a2d3877094bd30"
-    sha256 cellar: :any,                 sonoma:        "869a6c7000da29a7937bec581fd30a498d4a3a0846112f574221f025094941e4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc8d3fbd546539676b8da20c4ae7132d84e4ba82e3ee3aa34abdfd517a752c0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0dd5dad76f3ee1558fc06357a606134321b76030ecf9c126d3742b5062c91a25"
+    sha256 cellar: :any,                 arm64_tahoe:   "e95cfad8adbf092855ba5944124b102614af34d54a2e230705079e5ff40fc24c"
+    sha256 cellar: :any,                 arm64_sequoia: "7e72f87cb7e627ea5daffcb99e58033ed7f3d5f7f497c846c771a08534686fa5"
+    sha256 cellar: :any,                 arm64_sonoma:  "d5c73ceed74c1069faa28fb477e82156187fbb0eefacf90bb0cac9dfdc15c5f5"
+    sha256 cellar: :any,                 sonoma:        "864fbc30f870d4a8558093e66f1dc61cb80bfd824bcc532a288cb0b64c7a085b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0982099a11389c9d3f4d38985de2c070f8c88b1ddc6b7b38e218a0791b7e55e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1fd2a0f981c7fac694786821beedb20d65b697c486fe6b3d2f575a53ef1334d"
   end
 
   depends_on "pkgconf" => :build

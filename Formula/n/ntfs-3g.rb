@@ -11,8 +11,6 @@ class Ntfs3g < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_linux:  "13c0f887f2cef53978d28dfcb8c1a3f69f8c70407bf2267ad6033eef0b5cfc2c"
@@ -51,7 +49,7 @@ class Ntfs3g < Formula
     system "make", "install"
 
     # Install a script that can be used to enable automount
-    File.open("#{sbin}/mount_ntfs", File::CREAT|File::TRUNC|File::RDWR, 0755) do |f|
+    File.open(sbin/"mount_ntfs", File::CREAT|File::TRUNC|File::RDWR, 0755) do |f|
       f.puts <<~EOS
         #!/bin/bash
 

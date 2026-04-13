@@ -1,9 +1,11 @@
 class Pocl < Formula
   desc "Portable Computing Language"
   homepage "https://portablecl.org/"
+  # TODO: Use LLVM 22 on next release
   url "https://github.com/pocl/pocl/archive/refs/tags/v7.1.tar.gz"
   sha256 "1110057cb0736c74819ad65238655a03f7b93403a0ca60cdd8849082f515ca25"
   license "MIT"
+  revision 1
   head "https://github.com/pocl/pocl.git", branch: "main"
 
   livecheck do
@@ -12,20 +14,19 @@ class Pocl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "cc45a16ddaf37efac69ad995690efe2979143b304c20c30179581b04161cf6b4"
-    sha256 arm64_sequoia: "03a539344b6f557b050cbda86913e9936cf7dfa3d157ee90e438b40eab16610d"
-    sha256 arm64_sonoma:  "c1492bebca73399ccdbe9db343f5c9999f58ec2dab464cf9249b4b8f07b287d6"
-    sha256 sonoma:        "ac55a8d49c48770e574446ff3ab95e023370059c0e954fe674103a7751fa9b27"
-    sha256 arm64_linux:   "4c88564ba6f258b924e62ea47306847a1a2ed9356f6723de2273d4235dc959a2"
-    sha256 x86_64_linux:  "b3fb64a5cd37f39d1e70240495f41a1d3e3b267911e50ed4a912b1da4edf162d"
+    sha256 arm64_tahoe:   "bb711ac8b9f001246637a341af5aa351a3a05cb54e189537e851946c723acb9a"
+    sha256 arm64_sequoia: "4986925f9eb442e6cbab412da2d48f6362baa9c194df0d46ab51a49c702e75f3"
+    sha256 arm64_sonoma:  "f97dd2a38b4527337ccdcf7c7f6935775ff05d777bab6af37e0417680ac1f53f"
+    sha256 sonoma:        "700d6876251438d70c9f3202ab104cb02dca09e510ca66f92ae8f704f4dcc448"
+    sha256 arm64_linux:   "edc29649f782e47466b12f5195be6eb6baace8b041c87676b256c88d442f7ce7"
+    sha256 x86_64_linux:  "5f0004f051b01482186efaeb3d7cc9323aa6bb67c29c113be3c3d4b5da2cf0ea"
   end
 
   depends_on "cmake" => :build
   depends_on "opencl-headers" => :build
   depends_on "pkgconf" => :build
   depends_on "hwloc"
-  depends_on "llvm"
+  depends_on "llvm@21"
   depends_on "opencl-icd-loader"
   uses_from_macos "python" => :build
 

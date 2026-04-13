@@ -5,12 +5,14 @@ class Gdbm < Formula
   mirror "https://ftp.gnu.org/gnu/gdbm/gdbm-1.26.tar.gz"
   sha256 "6a24504a14de4a744103dcb936be976df6fbe88ccff26065e54c1c47946f4a5e"
   license "GPL-3.0-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "665930fdbccbaf710705195a7ee89f3b3e04122e11d585f6a50cac2ff2595296"
     sha256 cellar: :any, arm64_sequoia: "1843430b18014e91e8ad64b5ff33bef23e44350d75c6cdfa2d640f32511cc5a4"
     sha256 cellar: :any, arm64_sonoma:  "9308eb5eec8ac7b9186357ea3bc654be370735614b03c79ef4ffb8c55a5ea3a4"
     sha256 cellar: :any, arm64_ventura: "cc827cc1644fa67d7b5d56de24707e45844dce0764a911265c82982674b32ba0"
+    sha256 cellar: :any, sequoia:       "cd2206fce6d0ecaaa40620b3aa6e73d5b227f444c10a2e9032813a50b6f89a52"
     sha256 cellar: :any, sonoma:        "bc3db54835cc359259f83e3d0b3063a9f961e6c318708fdf98c9f159789266af"
     sha256 cellar: :any, ventura:       "5b33d9eac93ab4587f19882e1e29c8534818d104984aeb6a661edc1f3afc2066"
     sha256               arm64_linux:   "bc56203964d55e8ed24b6ce88e6753301d72df6bb66ff8e92923a5e8fe128a63"

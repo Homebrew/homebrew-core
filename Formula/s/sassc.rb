@@ -7,8 +7,6 @@ class Sassc < Formula
   license "MIT"
   head "https://github.com/sass/sassc.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "331445fe56f4536be8c84306ed15216102d9653ad84c90b3ea2dd93d54cfb4e8"
     sha256 cellar: :any,                 arm64_sequoia:  "76372bcf1accae3510d1f2cd03f6a10f9a9016221e541e3b356021eaa5af18be"
@@ -24,6 +22,9 @@ class Sassc < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "074f6ea2972c1b7d50f9e3bbbfde7d8ca06d1c2e96474115bc33aca3b64a4cda"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4575b459543c822d40a074f73591b1865790aa8977e7dc12148c10c858d55203"
   end
+
+  deprecate! date: "2026-04-02", because: :repo_archived
+  disable! date: "2027-04-02", because: :repo_archived
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

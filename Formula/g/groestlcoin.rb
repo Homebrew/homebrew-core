@@ -7,22 +7,21 @@ class Groestlcoin < Formula
   head "https://github.com/groestlcoin/groestlcoin.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "64eb4cab5c90777cf160c7abcf67a643672c46518e859adcc8829fd43439a963"
-    sha256 cellar: :any,                 arm64_sequoia: "4e9ac50eab5edc51a670ef1d3a72dff43f25ffa233be992093b188b81e7b69af"
-    sha256 cellar: :any,                 arm64_sonoma:  "bdf90a22213215a8eca15c51e427e103963df73fbe41e0e2f6df87e00fe41459"
-    sha256 cellar: :any,                 sonoma:        "9e517a9d0bf166f213ae9f16eaa4f6556580a875450490b783c6685fea9e643a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8337bb0bf0fd3b01d654ac45c034a9b94f778bf7ad9ce3ea8485d7bb36aa1fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a7ce38034127aa2762ed818eb60a1a3257f722bb855188bc232180338044933"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6aa0bd53c58c831218844d0fce81d6b60897016cfe45bf3429615ea28348e6a2"
+    sha256 cellar: :any,                 arm64_sequoia: "7734a222a560c2aee711a526aca17a29d2104732ddaf21c8707fba4434f6c5f0"
+    sha256 cellar: :any,                 arm64_sonoma:  "7de24e5a98825313bb396be429b6bb58ad27ff8bf2996e61b116b097ccdb9857"
+    sha256 cellar: :any,                 sonoma:        "799c9dd04f84871cf1c2777706d2be2858879903e92cb2f63b2d305035717fce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1ec350575f6ad960a018cebb12b13dca0a2218dcf3ffe024e5ed5682ddb535b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5b69b073e54f7d505985f1a3d6946410d6db15496a4a6e4ebd7c2dd59cf3e28"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "berkeley-db@5"
   depends_on "capnp"
   depends_on "libevent"
   depends_on macos: :big_sur
-  depends_on "miniupnpc"
   depends_on "zeromq"
 
   uses_from_macos "sqlite"
@@ -37,7 +36,7 @@ class Groestlcoin < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DWITH_ZMQ=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "share/rpcauth"

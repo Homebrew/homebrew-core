@@ -5,6 +5,7 @@ class Automake < Formula
   mirror "https://ftp.gnu.org/gnu/automake/automake-1.18.1.tar.xz"
   sha256 "168aa363278351b89af56684448f525a5bce5079d0b6842bd910fdd3f1646887"
   license "GPL-2.0-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7298e979d484b938f42b96dfd4b270353e64f61ab0f31e0718799b29dc1570fc"

@@ -1,8 +1,8 @@
 class Rabbitmq < Formula
   desc "Messaging and streaming broker"
   homepage "https://www.rabbitmq.com"
-  url "https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.2.2/rabbitmq-server-generic-unix-4.2.2.tar.xz"
-  sha256 "441e35f9c5204407e332a4dc94170751bacd9eb73f37c83425a99a28ea49a02f"
+  url "https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.2.5/rabbitmq-server-generic-unix-4.2.5.tar.xz"
+  sha256 "1cfce9374e37c56e4efd3831e90c5508a511bae87dbaa95f7bdddd36f71e27aa"
   license "MPL-2.0"
 
   livecheck do
@@ -12,7 +12,7 @@ class Rabbitmq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "050adad3dc2609fdebe1ff3b3e010b86d86809c4cc8bd8483d01870c0930f313"
+    sha256 cellar: :any_skip_relocation, all: "c01ab05fa12c5f9e90356076a46a334265ab520a002f7b03a159d108589b4253"
   end
 
   depends_on "erlang"
@@ -91,9 +91,19 @@ class Rabbitmq < Formula
 
   test do
     ENV["RABBITMQ_MNESIA_BASE"] = testpath/"var/lib/rabbitmq/mnesia"
+    ENV["RABBITMQ_CONFIG_FILE"] = testpath/"rabbitmq.conf"
+
+    mqtt_port = free_port
+    (testpath/"rabbitmq.conf").write <<~CONF
+      mqtt.listeners.tcp.default=#{mqtt_port}
+    CONF
+
     pid = spawn sbin/"rabbitmq-server"
     system sbin/"rabbitmq-diagnostics", "wait", "--pid", pid
     system sbin/"rabbitmqctl", "status"
     system sbin/"rabbitmqctl", "stop"
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end

@@ -1,8 +1,8 @@
 class ProbeRsTools < Formula
   desc "Collection of on chip debugging tools to communicate with microchips"
   homepage "https://probe.rs"
-  url "https://github.com/probe-rs/probe-rs/archive/refs/tags/v0.30.0.tar.gz"
-  sha256 "73cd494f6864d4a74709a9c8adc251105c27d039f91a8b05a01c1ac10a07aab9"
+  url "https://github.com/probe-rs/probe-rs/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "7a5022d6956daaa8dba96bb3aedf2ace0b5a76a60729d93971c9dab439ac045e"
   license "Apache-2.0"
   head "https://github.com/probe-rs/probe-rs.git", branch: "master"
 
@@ -12,12 +12,13 @@ class ProbeRsTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ed154405d1f3cc91ac0862ece1042adf2ff9ec2843e4eb1986a43d9eb8cbdda5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "92e6587c44bb9b278ec45baaabff1457240a57459224965650116bf77e120b4d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "616034c2f4580a2b58122eb91a434593954e183e9ac2e28e0a985d6979884a84"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ce830609bc40f7a91855727da68d99950ae387af8d41d1444d9f65b6009111ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e859833bbef36d7d80a7fba1578f07fa4c56cfdc05cc5b197bb6a8d5ee636807"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bd9ef243131eebce3701347fb267d5506bcc03e2cbcd8482f9fd2a9e405ff3a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8504d65b58632718d04633f2fa4e7a8071911a51c1a3d35e01d5c658c0add46"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5db28b08012d601203218b1a98f02826b7a237fcedc02e8221cac8936b526d73"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3487bdba126c8a24fe522f77492f41a1c7c338db02b0a5d674f41ba506cca8c4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "069e5194da136493154b590703e424390984c67f0704479576e2a584789f7334"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "016c7c2ea0f71f6079af477f649c989d3dc1a9a5bdb9cf76a2b781281efe9de6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff012f42ad627145f6b19023b0f6dd75c82efcca65509911f285b3c68715b7c9"
   end
 
   depends_on "cmake" => :build
@@ -32,6 +33,17 @@ class ProbeRsTools < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "probe-rs-tools")
+
+    # probe-rs completion forces the use of the --shell parameter in the middle of the command line,
+    # so we cannot use the generate_completions_from_executable function
+    (zsh_completion/"_probe-rs").write Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"probe-rs", "complete",
+    "--shell=zsh", "install", "--manual")
+    (bash_completion/"probe-rs").write Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"probe-rs", "complete",
+    "--shell=bash", "install", "--manual")
+    (fish_completion/"probe-rs.fish").write Utils.safe_popen_read({ "SHELL" => "fish" }, bin/"probe-rs", "complete",
+    "--shell=fish", "install", "--manual")
+    (pwsh_completion/"_probe-rs.ps1").write Utils.safe_popen_read({ "SHELL" => "pwsh" }, bin/"probe-rs", "complete",
+    "--shell=powershell", "install", "--manual")
   end
 
   test do

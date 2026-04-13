@@ -70,7 +70,7 @@ class Nrpe < Formula
     cp etc/"nrpe.cfg", testpath
     inreplace "nrpe.cfg", /^server_port=5666$/, "server_port=#{port}"
 
-    pid = spawn bin/"nrpe", "-n", "-c", "#{testpath}/nrpe.cfg", "-d"
+    pid = spawn bin/"nrpe", "-n", "-c", testpath/"nrpe.cfg", "-d"
     sleep 2
     sleep 10 if Hardware::CPU.intel?
 

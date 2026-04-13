@@ -6,8 +6,6 @@ class Oak < Formula
   license "MIT"
   head "https://github.com/thesephist/oak.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "815a55a839e22f2903fa5dcd1b0b0c7add13323dba55b9b6cf25e3bf6b89644d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b4add3db56fe8171421dc3fd528ee7d39b54936c03d75b89a42a24c8d8a3a151"

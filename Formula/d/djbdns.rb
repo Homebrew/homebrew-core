@@ -10,8 +10,6 @@ class Djbdns < Formula
     regex(/href=.*?djbdns[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 arm64_tahoe:    "0be5754ae44ee59873e53f476c3da544b31aabf8107d97817cebb77c75ae14e9"

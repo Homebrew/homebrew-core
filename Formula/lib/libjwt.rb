@@ -1,8 +1,8 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://libjwt.io/"
-  url "https://github.com/benmcollins/libjwt/releases/download/v3.2.3/libjwt-3.2.3.tar.xz"
-  sha256 "c6d8a4ead0321317937cc29d8ebc5be48d114d02e007711bb2d4cca5d2a6d713"
+  url "https://github.com/benmcollins/libjwt/archive/refs/tags/v3.3.2.tar.gz"
+  sha256 "d1b16df8e7484d1856c21f770c6317cee3881c435a563160be76cf29d3142c8c"
   license "MPL-2.0"
   head "https://github.com/benmcollins/libjwt.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Libjwt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e2e50cc16694fb18716b0d2c2252690684f34e9407448beddb77c3718940f026"
-    sha256 cellar: :any,                 arm64_sequoia: "4f884d59b53c182433bccdccae89453a3263ff2960adb684515bfa8cca6cac1f"
-    sha256 cellar: :any,                 arm64_sonoma:  "7be05fb863675b92132528d6ec3b56877f40ecacdd19bda09528efb3dec56446"
-    sha256 cellar: :any,                 sonoma:        "2d022ed797aa77a6249858492353805eb38f80b9d6b67c40e2c76a4d31af2eca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b766edf05dd96d12a0ae8bca1b05ecb9dd04d42219a61a4792344a48e6411a2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc17d3bf1028fa82a710ae0d68e2cdbecf9fb078dd880421886525735a0dfe73"
+    sha256 cellar: :any,                 arm64_tahoe:   "7b3c0e59441fd61310838be3bf56431278f62a40088bb2aa08e34aa367af07c2"
+    sha256 cellar: :any,                 arm64_sequoia: "9d425b9d346a749652903b4200a72540177c973bc9e6464effc62444035d38d0"
+    sha256 cellar: :any,                 arm64_sonoma:  "577c707c5d4555e57c08122a3ac9a06ef224263fd14260361d56c0a1943ea0e4"
+    sha256 cellar: :any,                 sonoma:        "339ea2208717503a08ad98e08f65208bf9fb87f9be98a1413a9a490511a64d32"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c914225e05eadba04a87bce03a0b47de2bf17164a868c82a13718838d2b2a3b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25e5ac26862c2ef56da81d43d666485124126a9164aa5188e449058709e5768b"
   end
 
   depends_on "cmake" => :build

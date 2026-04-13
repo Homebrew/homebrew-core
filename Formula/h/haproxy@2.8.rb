@@ -1,8 +1,8 @@
 class HaproxyAT28 < Formula
   desc "Reliable, high performance TCP/HTTP load balancer"
   homepage "https://www.haproxy.org/"
-  url "https://www.haproxy.org/download/2.8/src/haproxy-2.8.18.tar.gz"
-  sha256 "5664a435f3e5f8c22bd97adc219de6a6e73aa6be68b8d17d7324286112cf88cf"
+  url "https://www.haproxy.org/download/2.8/src/haproxy-2.8.20.tar.gz"
+  sha256 "f38461bce4d9a12c8ef0999fd21e33821b9146ef5fe73de37fae985a63d5f311"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -11,12 +11,12 @@ class HaproxyAT28 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5fcfdc6473a2ef25de2570d6d390bb35643e3c2f72993a40af7548bd10d3cc24"
-    sha256 cellar: :any,                 arm64_sequoia: "82ef110e2095a35eb6260f12e1df7cb314cf3d689b8978cf8b3e716f1ac7d368"
-    sha256 cellar: :any,                 arm64_sonoma:  "24d52a0296309be0265f6d430eeedc39c88d4a61beffed5db672abd085af5dee"
-    sha256 cellar: :any,                 sonoma:        "4636477992035514173641fa9411c64e6f0ab5abbea3ffd2e9e9e4233af3451e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8507a40a3a8f9f6dc5f277bf5ed834c5eacf291ac3aafbefb6f2e18899c0b393"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78e225ca543575868f20d0a00f15b8fdc21c211448a4bb6f761fc3e990facc20"
+    sha256 cellar: :any,                 arm64_tahoe:   "a8632ea82d689591a8ce597053ecdb3930af4411439fc184daa2e13d7b4cbf46"
+    sha256 cellar: :any,                 arm64_sequoia: "edc0e53d6ed4173e32f5bf7b5bb606b147dafadbf7bbb16c40e7f4fb16feb414"
+    sha256 cellar: :any,                 arm64_sonoma:  "810959d028f4047cdad50462e5d891482af2b98032d9e88162a9d2b068feb219"
+    sha256 cellar: :any,                 sonoma:        "3e4f6f0b44a3d0fe40e1513ce94bbc40c75135cd7e3c6f783af40733e039a474"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e78d0aa53a10a7ace1c92a90a014a926db8963467d503cb1420066414938d31c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "434de4f342a8a5ef931795c40322044705b56e8ae2591ea10b31ce92d3eabfb6"
   end
 
   keg_only :versioned_formula
@@ -29,7 +29,10 @@ class HaproxyAT28 < Formula
   depends_on "pcre2"
 
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %w[

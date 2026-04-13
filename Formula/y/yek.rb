@@ -12,19 +12,23 @@ class Yek < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2f18a291f2f817cd2b491816e5d78d439c4863d087e32d65b2f6c7e0961dc260"
-    sha256 cellar: :any,                 arm64_sequoia: "114a34eac48dca76d7bbd602a5a3eb6b97cffe842a49f1488f2254c52b0c0dbf"
-    sha256 cellar: :any,                 arm64_sonoma:  "04fab96a3c6afe1f0d5f78b1f9a70648a6c26baa8188d283ada3d81d23389d39"
-    sha256 cellar: :any,                 sonoma:        "614d241de14ddcd459f7ea2187703e32130fb16a3c750eb43c7184923f2928f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0cdf1724f2e48856a18ccc3a9b283b86b88c207ccf58ecb2be247239e0624004"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f89105852e52e309523b70250268f70207536eaeec1db62445cbe113f16b5e64"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7c708d2466411a06f586155d5fcd3b2a2a8047280d82eb2f8b8475370b47dce9"
+    sha256 cellar: :any,                 arm64_sequoia: "ea895a535de86d4aa18601d5334e7f26e525448f5945ffc7d2eda186caa1a2e9"
+    sha256 cellar: :any,                 arm64_sonoma:  "75686e073310efef5eed37caf9b515ea48e290f8f7273ce73e3c36ec060ed823"
+    sha256 cellar: :any,                 sonoma:        "50f16ea3b12bda86ae072fd28bac2bc6294868bafc92184e5639729d41b24ca5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "70c00518e83711b7ba8b1a9c3f6fab4fa87f4aeb6200620bc647832715b2bb1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "482dd8f60fe32a2a7c8f3611757d343b3e7ab0e6c503683b52446a9c94c14324"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   depends_on "openssl@3"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix

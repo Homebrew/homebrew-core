@@ -10,8 +10,6 @@ class Vorbisgain < Formula
     regex(/href=.*?vorbisgain[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "2184e1fd2ac1887c416d3aef7c8596ff7b4b5bb34e5f1d2e47f9b4ef54e69094"
     sha256 cellar: :any,                 arm64_sequoia:  "1e173fbe7ad9eff215301e6c55c6b8e30a8299c5f946a4102ef15cbbc5080b1f"

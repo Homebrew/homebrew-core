@@ -3,18 +3,18 @@ class Aerleon < Formula
 
   desc "Generate firewall configs for multiple firewall platforms"
   homepage "https://aerleon.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/a4/22/079a6c48d1056f467497b10b74e0220c5d0a2179d40b3f834d7b958f2df7/aerleon-1.13.0.tar.gz"
-  sha256 "808cad55fd89847d2554897aaee16d03366d5c5aba8a0ed0af6e66c2db55f0de"
+  url "https://files.pythonhosted.org/packages/91/27/aeaf0098e517f9eeda65e71f5764f3913d465d2c7557281f69b43a66d83c/aerleon-1.16.0.tar.gz"
+  sha256 "3678e15a1faf00fc63263bbbc413e746261893c59d3383358d23a7f1a04ab61c"
   license "Apache-2.0"
   head "https://github.com/aerleon/aerleon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d63e8d51cd50715a3d7a5bdd7cd1d09ccca607dbc706ae4a5681a42de58a1764"
-    sha256 cellar: :any,                 arm64_sequoia: "adc88c699a238f1477df65ef0910bbd531bac0f6e93517aeee1d454d35a3512e"
-    sha256 cellar: :any,                 arm64_sonoma:  "c95ed01d689093777ace7814147cb7808ef308074beadb9952750ed3638e3472"
-    sha256 cellar: :any,                 sonoma:        "f887530122100e8490ba2e32c6a666a45c62e0118fc6c16baaac608bd4a1acbc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e662c448375d0ca403572d13e3a301f47aa3a738631913a3c85801620bdb97a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c469a07c7e07a1e77001e5974e83345053453dfa3196b361d07493324151d59"
+    sha256 cellar: :any,                 arm64_tahoe:   "3a26808bb88e041a8681a42639932c0791c5600d6d671cc529afee3b73882b34"
+    sha256 cellar: :any,                 arm64_sequoia: "0d5a369ce5f61009c393f94dea67f520e79e6228458cbabb9864c56f6ac96317"
+    sha256 cellar: :any,                 arm64_sonoma:  "59f04ba3720520a3b573037e60c656bd6385bcf43633ed8cdb48dcaf1c754bc4"
+    sha256 cellar: :any,                 sonoma:        "13327dffd80008987d3d62077fd5b19244df2aac25cb3c4d7e7524f26c05aa86"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1c14613ced8a37ec2302f2b0e11786d15c457cb33dfb0cc0a53d140bbd490dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa49ed0e1471da0aef020b20852871e99ada06d4e01c3030a9885330b3152bb9"
   end
 
   depends_on "libyaml"
@@ -23,13 +23,8 @@ class Aerleon < Formula
   conflicts_with "cgrep", because: "both install `cgrep` binaries"
 
   resource "absl-py" do
-    url "https://files.pythonhosted.org/packages/10/2a/c93173ffa1b39c1d0395b7e842bbdc62e556ca9d8d3b5572926f3e4ca752/absl_py-2.3.1.tar.gz"
-    sha256 "a97820526f7fbfd2ec1bce83f3f25e3a14840dac0d8e02a0b71cd75db3f77fc9"
-  end
-
-  resource "ply" do
-    url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
-    sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
+    url "https://files.pythonhosted.org/packages/64/c7/8de93764ad66968d19329a7e0c147a2bb3c7054c554d4a119111b8f9440f/absl_py-2.4.0.tar.gz"
+    sha256 "8c6af82722b35cf71e0f4d1d47dcaebfff286e27110a99fc359349b247dfb5d4"
   end
 
   resource "pyyaml" do
@@ -43,10 +38,6 @@ class Aerleon < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
   end
 

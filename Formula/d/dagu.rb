@@ -1,18 +1,18 @@
 class Dagu < Formula
   desc "Lightweight and powerful workflow engine"
-  homepage "https://dagu.cloud"
-  url "https://github.com/dagu-org/dagu/archive/refs/tags/v1.30.3.tar.gz"
-  sha256 "9c04138b957b5f940aa92d7f99495645e7d5b27ea72d0a3de1e8e4063156c4a1"
+  homepage "https://dagu.sh"
+  url "https://github.com/dagu-org/dagu/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "0f5a35ac86dd5214040bf572648be9db8a44b1f20afcea6853fd34a08523786c"
   license "GPL-3.0-only"
   head "https://github.com/dagu-org/dagu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8316ac5b0c504a24d44bcc4c530de811de50b229e7a806b6172d3041a0e1b619"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf145c797f99b674a5bee6545527b82b7e01907b2506cec9e10b41fbcd0b8d84"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "11b3ed403b403857a31b3e2304b946d4a3fed758228e8c023f53127716186bb0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0bce3c02bcb50b0d3c93f012af0dac537e142d087471ea872ff2fe88ac613141"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bd34be5c3227343473f296f063309ef65fe9de64fd4dceb347dc6016de9db07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3fcab29057cf9362799b7b956c6a3297aed3e8549648c70259cb4e84f1e4678"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "92b5ddb63b29a813a3953b8eada744f02740f036bac374b955aec3b9762cf85a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dce30bf9f14c462a5904ea640c9937f0fce62f36d2ea817cfc54cd6010b0bf30"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b21bbebe13040ad33933bd795180ffaba16d8b289acd7a5dea84f1dc2436ef9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a77c982803c637c17d3a497a8ddad80a95566a8ea8b63bcd54b4df04fb6b3f7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3cc46a8355328b8387ff3f94617f1ac1660ef1f5d142fcabdb07db6bf8989926"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c934ad02e36dad27b87d5da00460fe388571438ff589a95874cf2b62e06c5b4"
   end
 
   depends_on "go" => :build
@@ -23,7 +23,6 @@ class Dagu < Formula
     system "pnpm", "--dir=ui", "install", "--frozen-lockfile"
     system "pnpm", "--dir=ui", "run", "build"
     (buildpath/"internal/service/frontend/assets").install (buildpath/"ui/dist").children
-    (buildpath/"internal/service/frontend/assets").install buildpath/"schemas/dag.schema.json"
 
     ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd"

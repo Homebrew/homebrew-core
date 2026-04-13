@@ -3,18 +3,18 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/ca/14/5069661b9035b8936ad8322759afd50250f6a5697e8c1d833609d6b839d0/oci_cli-3.72.0.tar.gz"
-  sha256 "c5890c5c8c2b20e3e67499554c2a0cf291c110dcbc2098858c3810276e6ff8d8"
+  url "https://files.pythonhosted.org/packages/e6/b9/900e2a9321f78afbe6ddc969252be23567b3d4860dd669495ea5146b45b8/oci_cli-3.78.0.tar.gz"
+  sha256 "b8fb0015f12eb79e8b910870bc80569a98ba24a631b3d6d1b37f833d60d21273"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4bc00959563c434d4210e02a18032c155404cf4d023aa05593c553e8ea380eb3"
-    sha256 cellar: :any,                 arm64_sequoia: "ab7ca1d66e01984bae4266a32244af40775682046bbb49ad5d1fb269e7caf7f6"
-    sha256 cellar: :any,                 arm64_sonoma:  "73fe2b7f38a4e9fba6e66ce12ebbd911d69222f0f30c1f1d0e512be962e8f2bc"
-    sha256 cellar: :any,                 sonoma:        "0f391affa87a771cf0766e6f8887c0f886e69453c15d0eb8e2384014bc2e624a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9ca151ae8f09abdd5bce25f63673b7f7720436b2fa22864c64f2f9ea0acc674"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85e5b13d0463933f734e96661475824709133d6e07416cb7a31b63b0d710b9c5"
+    sha256 cellar: :any,                 arm64_tahoe:   "6db903fca59fbeb711133fdd6f6866252c116e3989883a71238be1b084edaf08"
+    sha256 cellar: :any,                 arm64_sequoia: "1543788094156e1e57ee09533a4eecd9f9dcb8fc3ee54b1e75b886d013eba5dd"
+    sha256 cellar: :any,                 arm64_sonoma:  "64e02d7219131adcdd62f19b82e723fed65a7fe59a743f8e569ee233c4f94a54"
+    sha256 cellar: :any,                 sonoma:        "a50584f893235de562f51b74d90a069a21577b4a0bf605e9da03dc5deb7bcaaa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "650a3326f735d43a0cacf1e182587c20cd1e6f8b1f534bfdd4edfabb48c88a7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1883a56f8c8d36c86ad30ab0c2938e2a59bcd9dc10e6fffce925b2e0bad2483e"
   end
 
   depends_on "certifi"
@@ -40,13 +40,13 @@ class OciCli < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/3c/56/3f325b1eef9791759784aa5046a8f6a1aff8f7c898a2e34506771d3b99d8/jmespath-0.10.0.tar.gz"
-    sha256 "b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"
+    url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
+    sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/7a/20/7cab8a81f81fa1c185e5fa659fc12066a894393bd05920c2523142ba58a3/oci-2.165.0.tar.gz"
-    sha256 "c04586994bad57b3d929ba3f0e640dcd80c7122a074e4fe54f2b4886e2b27529"
+    url "https://files.pythonhosted.org/packages/39/9a/6cc66cf3012e8f7e699d88f09ce9b2364afce8bcbc9fb7473a8aa9225e15/oci-2.170.0.tar.gz"
+    sha256 "1e205a395e856b6514501d34595dd1e8e261415aaaab2c97f77fd2fc9618dcc3"
   end
 
   resource "prompt-toolkit" do
@@ -55,8 +55,8 @@ class OciCli < Formula
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/04/8c/cd89ad05804f8e3c17dea8f178c3f40eeab5694c30e0c9f5bcd49f576fc3/pyopenssl-25.1.0.tar.gz"
-    sha256 "8d031884482e0c67ee92bf9a4d8cceb08d92aba7136432ffb0703c5280fc205b"
+    url "https://files.pythonhosted.org/packages/80/be/97b83a464498a79103036bc74d1038df4a7ef0e402cfaf4d5e113fb14759/pyopenssl-25.3.0.tar.gz"
+    sha256 "c981cb0a3fd84e8602d7afc209522773b94c1c2446a3c710a75b06fe1beae329"
   end
 
   resource "python-dateutil" do
@@ -65,8 +65,8 @@ class OciCli < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f8/bf/abbd3cdfb8fbc7fb3d4d38d320f2441b1e7cbe29be4f23797b4a2b5d8aac/pytz-2025.2.tar.gz"
-    sha256 "360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3"
+    url "https://files.pythonhosted.org/packages/3a/31/3c70bf7603cc2dca0f19bdc53b4537a797747a58875b552c8c413d963a3f/pytz-2024.2.tar.gz"
+    sha256 "2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"
   end
 
   resource "pyyaml" do
@@ -75,8 +75,8 @@ class OciCli < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/76/95/faf61eb8363f26aa7e1d762267a8d602a1b26d4f3a1e758e92cb3cb8b054/setuptools-80.10.2.tar.gz"
+    sha256 "8b0e9d10c784bf7d262c4e5ec5d4ec94127ce206e8738f29a437945fbc219b70"
   end
 
   resource "six" do
@@ -90,13 +90,18 @@ class OciCli < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/5e/a7/c202b344c5ca7daf398f3b8a477eeb205cf3b6f32e7ec3a6bac0629ca975/tzdata-2025.3.tar.gz"
-    sha256 "de39c2ca5dc7b0344f2eba86f49d614019d29f060fc4ebc8a417896a620b56a7"
+    url "https://files.pythonhosted.org/packages/19/f5/cd531b2d15a671a40c0f66cf06bc3570a12cd56eef98960068ebbad1bf5a/tzdata-2026.1.tar.gz"
+    sha256 "67658a1903c75917309e753fdc349ac0efd8c27db7a0cb406a25be4840f87f98"
+  end
+
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
+    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
-    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   def install

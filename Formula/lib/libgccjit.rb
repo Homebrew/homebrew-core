@@ -23,17 +23,16 @@ class Libgccjit < Formula
     formula "gcc"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "9a2eb834f4885acedb40b7c9ef660c7c9c932aa4c335dc12155f80c29371635e"
-    sha256 arm64_sequoia: "0aafc07d8a913f7161b61705f168ec1d5d35d0be8b4126c905266cb7d839d1ee"
-    sha256 arm64_sonoma:  "37d89ed9d4236bbea95f4fa9824dcb153adf2da5019dd55f5238717e8ba9be8b"
-    sha256 tahoe:         "a1fce140e0dd96da91f1f690d6f250d412b54557d1d89aca63b95293a12a6165"
-    sha256 sequoia:       "95a98d3a92bd70dfe0bdc67c99a68ceb104cf7aa9bdfea9aac7bbdf550be6d7b"
-    sha256 sonoma:        "fc177d4e3aa264a2d85267cd9516579c478163a66cf24a15bbe84fa2d9103e2c"
-    sha256 arm64_linux:   "8058879c0993dc7ed4069ab07b00fa9ab04fcfb5480842388d64884d357b74b7"
-    sha256 x86_64_linux:  "64aab337b687921c8624352dcfdd0133c5f52d3752f067155b995a29afb6ab9a"
+    rebuild 1
+    sha256 arm64_tahoe:   "e25a101a9c694e6414fd821fb92081c9eee03f23de41cc1ad691ac06369f6e70"
+    sha256 arm64_sequoia: "52c78f1896d08bb5b30a2d63e73ce1d43046ba0844a56b1b8af75816571f4aea"
+    sha256 arm64_sonoma:  "e89c26e4a61f1def2a7febc62298949938fc1859f195f0c882f76ca82bc1c0ea"
+    sha256 tahoe:         "4ad10d772c3ff17360cd4e0800c804acc6ed3bd0ccff03da05805e5673256117"
+    sha256 sequoia:       "c7acde534e2ce4975bd5f56ff80a27e1deb12f97a7d260bb0ee5734aa914a616"
+    sha256 sonoma:        "19bb523cfdd273b2564c67fd3ecf617c2526a67b8393260e653bb18819fdc1ef"
+    sha256 arm64_linux:   "ff1091b71f82a9f6c670ca7c2ea711f7f69c20a01805ba282e688db81a195b06"
+    sha256 x86_64_linux:  "d6545f11da7e51ee8b9b798dc116855a40b7ca9ab46b5a0c80765c19209a3db4"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -47,12 +46,14 @@ class Libgccjit < Formula
   depends_on "mpfr"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
-
   on_macos do
     on_intel do
       depends_on "gcc"
     end
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -106,8 +107,8 @@ class Libgccjit < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      ENV.append_path "CPATH", Formula["zlib"].opt_include
-      ENV.append_path "LIBRARY_PATH", Formula["zlib"].opt_lib
+      ENV.append_path "CPATH", Formula["zlib-ng-compat"].opt_include
+      ENV.append_path "LIBRARY_PATH", Formula["zlib-ng-compat"].opt_lib
     end
 
     # Building jit needs --enable-host-shared, which slows down the compiler.

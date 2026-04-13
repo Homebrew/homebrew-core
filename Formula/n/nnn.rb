@@ -1,20 +1,18 @@
 class Nnn < Formula
   desc "Tiny, lightning fast, feature-packed file manager"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/refs/tags/v5.1.tar.gz"
-  sha256 "9faaff1e3f5a2fd3ed570a83f6fb3baf0bfc6ebd6a9abac16203d057ac3fffe3"
+  url "https://github.com/jarun/nnn/archive/refs/tags/v5.2.tar.gz"
+  sha256 "f166eda5093ac8dcf8cbbc6224123a32c53cf37b82c5c1cb48e2e23352754030"
   license "BSD-2-Clause"
   head "https://github.com/jarun/nnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "653b91dd649f3369be9478ea686a274930f0cf5e17f7c4f67dc6d36ecc2cb06c"
-    sha256 cellar: :any,                 arm64_sequoia: "b510e2a0689e2c484874e97b1cf4d3b60cd8a340c40a73b5af35f55a6423c236"
-    sha256 cellar: :any,                 arm64_sonoma:  "2a771fbab048f10ec2a1a37d44ff0bf130bd3841a1980b6d2e7d4a5e169f95b2"
-    sha256 cellar: :any,                 arm64_ventura: "bb1e86d9a75d29a942d51f17b8022e6441758e8e13da0db2e39bb39a1fd8e18d"
-    sha256 cellar: :any,                 sonoma:        "3e411821ea831bb1ba3b184f70a5944505f2d39f0ee888032f8de1ea5c7ba609"
-    sha256 cellar: :any,                 ventura:       "56036339638bfde09cdb34ee43fd6d61bcb6142de19e1ce87be7a45144f35a6d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4cb0f12eb1a3d90865bb9b279feb8788bf7f07c53d992fed8c366ed7972f332f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b947a0ee29bb60bd197e0c8ffd0b8ce7d7c9e6528bfa20e0de08aa2477c03014"
+    sha256 cellar: :any,                 arm64_tahoe:   "9661f5ce4e96704568084671343c92755a1de8b542137f0c56e6deb0a6e41387"
+    sha256 cellar: :any,                 arm64_sequoia: "68ba1617d44b25cd6bf5e2ae7bb27ce1152a26668b6dd6d4e080d251f7d204db"
+    sha256 cellar: :any,                 arm64_sonoma:  "61fbe8b70fbc363a96f266367f6a2daca32f8d2e2ed29df83b633c344369caa1"
+    sha256 cellar: :any,                 sonoma:        "24e92f0826f362840d1424012ebf78bd855d46fb827fb253c80e8313c7db137f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "10959b02a38dd226bfdf72ee603fab91d6906694584f6d16e25d4ca4450d8a41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fc7fd26418ce4ac9a9406ef3fd745cdbdb333828c6e0e0fbbfad0dde5b59d10"
   end
 
   depends_on "gnu-sed"

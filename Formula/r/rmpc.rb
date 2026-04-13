@@ -1,17 +1,17 @@
 class Rmpc < Formula
   desc "Terminal based Media Player Client with album art support"
   homepage "https://mierak.github.io/rmpc/"
-  url "https://github.com/mierak/rmpc/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "86e6b465707cdca82f53aed2a3bef600430edbf4e626124d194ac346ee989cbd"
+  url "https://github.com/mierak/rmpc/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "930019066228d18e9530a8c0d77f10e231ab5efbbbca73b331efcd6fbb47557d"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8ac81f0ee228e0acfef6aed122bce3a4023d8ace5f3ef66c3510e27b6daa4f93"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65170c1de50cdf688114b04d71a52aae3a9eb3948695456d8655b601f4bbbce2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e74c3d9c24cacda3e5dbe004da099f7c8be18c6af91146e40e574b194694d3f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ba6f7ffc146738447a8625e925a2ad9e76af9e262b76e576336c78b4a657d30a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "31cca7cc0e3791389bc4a1867a8d357b42cbe1d8eac3c02e2f6036c66bf63514"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb1671395a83312a54e5c1ad1bdb5d0dd5f4e495eb0fdf536d91e6b8df2e4d49"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eae3f3a66d109441455c7d5a9ba1715b9acc66e3f9895a5cf78a68a723ff46eb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68c43267335e51ed5661c97ac724fe0e596d4fa9b0b78eca3f9545e2dbd658b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3416e2dc5f8227d8cd758c78b92d7c6eb24e4a9e0f3cff2de1375912447f1f88"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3eb5dc539954b54a5893ef01575b147e9b6a214dd94930d96a83b2c92b834996"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2246972890356c390f9c500cbb6686528a8072bbb84a2b3a3ae242e7f8cbe269"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfb467d5b4fd4950b62fc7023e5e4d852755325e6d9d79c6fabedc171e0f4030"
   end
 
   depends_on "rust" => :build

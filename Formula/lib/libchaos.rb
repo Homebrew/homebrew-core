@@ -5,8 +5,6 @@ class Libchaos < Formula
   sha256 "29940ff014359c965d62f15bc34e5c182a6d8a505dc496c636207675843abd15"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "7e6429fc1638909e532b661ade2c4de6747e9ab3210f4b1d887d666af7517179"

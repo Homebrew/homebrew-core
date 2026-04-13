@@ -1,8 +1,8 @@
 class Kubetrim < Formula
   desc "Trim your KUBECONFIG automatically"
   homepage "https://github.com/alexellis/kubetrim"
-  url "https://github.com/alexellis/kubetrim/archive/refs/tags/v0.0.1.tar.gz"
-  sha256 "fb1c127efa8c927e74627bae9a043e2cf505183d607cbfacf6eea8c8449a3383"
+  url "https://github.com/alexellis/kubetrim/archive/refs/tags/v0.0.2.tar.gz"
+  sha256 "24455f11699c61760613f630ded0d395cdf5b2d3925a08a730878819f353e00f"
   license "MIT"
   head "https://github.com/alexellis/kubetrim.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Kubetrim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6deadec532cc2aa53922e706aed6f60d1ae72a75b34db8a8a658026f4178d7f6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "acbcdd0bef57b7bebf823e4a8188e92008bd28ff5bddad717c6d730e4931a30e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acbcdd0bef57b7bebf823e4a8188e92008bd28ff5bddad717c6d730e4931a30e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "acbcdd0bef57b7bebf823e4a8188e92008bd28ff5bddad717c6d730e4931a30e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c713518860291419d0aeaad5f01749956988e7ad1f633f99f5fc016048cd8bd5"
-    sha256 cellar: :any_skip_relocation, ventura:       "c713518860291419d0aeaad5f01749956988e7ad1f633f99f5fc016048cd8bd5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "28e5239111d8a8f3731fed5f0a05a8f0499563e272e2e166d3a7f4362f421feb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6e37b854d49f12f623eaa6ab5f2415d096b9fe0c6e319e7b62212d34e627332"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a0e95614b8dcd84e2adfcca2d7798ba72c0aa45654e3acc19dbbb4f064164ae0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a0e95614b8dcd84e2adfcca2d7798ba72c0aa45654e3acc19dbbb4f064164ae0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a0e95614b8dcd84e2adfcca2d7798ba72c0aa45654e3acc19dbbb4f064164ae0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "33acd64292aff0e9ccb905d1442ae48275ef8ea314e8d2999340fbbb65f66553"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c156a2f72625bbd022c028f32d93bda8b61eeb91c50b43924e93ab683a264dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e68c9d12f445dfeacb5b7da067f20d7965ae7278b65717eee33d151d45cffdb"
   end
 
   depends_on "go" => :build

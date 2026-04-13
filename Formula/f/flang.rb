@@ -1,8 +1,8 @@
 class Flang < Formula
   desc "LLVM Fortran Frontend"
   homepage "https://flang.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/llvm-project-21.1.8.src.tar.xz"
-  sha256 "4633a23617fa31a3ea51242586ea7fb1da7140e426bd62fc164261fe036aa142"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.3/llvm-project-22.1.3.src.tar.xz"
+  sha256 "2488c33a959eafba1c44f253e5bbe7ac958eb53fa626298a3a5f4b87373767cd"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
@@ -12,12 +12,12 @@ class Flang < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1257a15dd91280992c350fb2f27bfde0c7d6dfe923055dfc5555dc98a9853c5a"
-    sha256 cellar: :any,                 arm64_sequoia: "81ef3da9226fdfcb8234f392c708fab42b75d0b22a1d5a195eb26d3336590196"
-    sha256 cellar: :any,                 arm64_sonoma:  "3be4de9db7779e1aeac48f5d1d7162602ffba1b28ce84394b3160a4265434fb7"
-    sha256 cellar: :any,                 sonoma:        "2418058569d2c56608f37d8a5e035e0ec2193354abece741404a1a23fe482a83"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fcf0deb706c3c79007451b5419407e6983632dcf3827fdc0933a8b5abd84e49d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a0f28b417f2eb772f859826f6cccf11e5c1426df0d0d34cf3373b476a1586dd"
+    sha256 cellar: :any,                 arm64_tahoe:   "a0ea73fce6b82971eba60e3dff2d8300e90e55e1a3c784dc52f703a8d1657377"
+    sha256 cellar: :any,                 arm64_sequoia: "c37870ab25a158176df50e443c9c9aa2210c0a2afbdada1591446e2ea1e8388a"
+    sha256 cellar: :any,                 arm64_sonoma:  "71503136a8c46454f1d93ea96101270bcf300ffd468f526e7d176fb3b693feda"
+    sha256 cellar: :any,                 sonoma:        "dc44d04ce98518efdca642fb684a54bac17d1e9915c185176bf66988a30c4d32"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d3b9f39e96b08b0d540dd01b61860a443f6e979ed061e7c229da6be26f922225"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34f8c821decf8555545badba24d213db08b013112d0606f6a3b9ed7efddec812"
   end
 
   depends_on "cmake" => :build
@@ -71,6 +71,7 @@ class Flang < Formula
 
     # Generate omp_lib.h and omp_lib.F90 to be used by flang build
     system "cmake", "-S", "openmp", "-B", "build/projects/openmp", *std_cmake_args
+    mv "build/projects/openmp/module/omp_lib.F90", "build/projects/openmp/runtime/src/omp_lib.F90"
 
     system "cmake", "-S", "flang", "-B", "build", *flang_args, *common_args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -98,6 +99,8 @@ class Flang < Formula
     configs = ["-resource-dir=#{llvm.opt_prefix/relative_resource_dir}"]
     configs << "-Wl,-lto_library,#{llvm.opt_lib}/libLTO.dylib" if OS.mac?
     (libexec/"flang.cfg").atomic_write "#{configs.join("\n")}\n"
+
+    (prefix/"etc").install_symlink etc/"clang"
   end
 
   test do
@@ -165,7 +168,7 @@ class Flang < Formula
     return if OS.linux?
     return unless (etc/"clang").exist? # https://github.com/Homebrew/homebrew-test-bot/issues/805
 
-    assert_match %r{^Configuration file: #{Regexp.escape(etc)}/clang/.*\.cfg$}i,
+    assert_match %r{^Configuration file: .*/etc/clang/.*\.cfg$}i,
                  shell_output("#{bin}/flang --version")
   end
 end

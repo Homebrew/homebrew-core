@@ -2,10 +2,9 @@ class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://www.synfig.org/"
   # TODO: Update livecheck to track only stable releases when 1.6.x is available.
-  url "https://github.com/synfig/synfig/releases/download/v1.5.3/synfig-1.5.3.tar.gz"
-  sha256 "913c9cee6e5ad8fd6db3b3607c5b5ae0312f9ee6720c60619e3a97da98501ea8"
+  url "https://github.com/synfig/synfig/releases/download/v1.5.5/synfig-1.5.5.tar.gz"
+  sha256 "95783c92925bd8ae494e00fdab0340caba9b19d2a0aac989fd8c200434b26f06"
   license "GPL-3.0-or-later"
-  revision 4
   head "https://github.com/synfig/synfig.git", branch: "master"
 
   livecheck do
@@ -13,17 +12,13 @@ class Synfig < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256                               arm64_tahoe:   "2949d65a521165cb25962acc9d6e3090d6c07e2b64ab9406857a180646d8503c"
-    sha256                               arm64_sequoia: "4469396d620f5628369b249c7c1061acf8c3440efc9ed983524ef5984d8af706"
-    sha256                               arm64_sonoma:  "ef3a37a8ab7358f2ab0f9f57a8175e1a769d33c6828545f8ebf38e5dedb427b8"
-    sha256                               arm64_ventura: "68483a37438ba702052fa92732b2728b9be185f2568a1e67a32a8a19f407f63f"
-    sha256                               sonoma:        "c6fc59da6e3a82ea0b1ba17e8122d84b24ec9eab7fade3663925c557e40b6ac8"
-    sha256                               ventura:       "92e95f7a48ffe21f00ca3df61e3bbe048e7687420f173c6e0e52b82f5aefe66b"
-    sha256                               arm64_linux:   "7f81f123950068165ecf54cede5508aa8c5489001bac5c8676556b0acd027d15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0538580f2f6c5deb7a0b6cc1225db0403eb24df11182224ed8ab584a743263f"
+    sha256                               arm64_tahoe:   "0075ee7f2b25f9de48de93254a812e88fa322d69aa957f7ea5b6e476568a2fe2"
+    sha256                               arm64_sequoia: "5152754bac39e931dc349b505fcf372efb685c2cce060f4b55f699209ad1461a"
+    sha256                               arm64_sonoma:  "a42fa1cdaf0f9e9747cdc428856f7aae6a2d956ff2a02aa0b9813c0629711931"
+    sha256                               sonoma:        "5de592eda1f7ea792af3d7e997a57389caa25a865c68f0153c2a38287f8b12d4"
+    sha256                               arm64_linux:   "32554a263478194272fddda52532ee6a7cb8092cc470776c65cef8249bb72c39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea2ec08203b96158a0a24897ce37ff1a2f40d94ae01691df1f8df89f88f7cc33"
   end
 
   depends_on "autoconf" => :build
@@ -50,12 +45,12 @@ class Synfig < Formula
   depends_on "libsigc++@2"
   depends_on "libtool"
   depends_on "libxml++"
+  depends_on "libzip"
   depends_on "mlt"
   depends_on "openexr"
   depends_on "pango"
 
   uses_from_macos "perl" => :build
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "liblqr"
@@ -65,6 +60,7 @@ class Synfig < Formula
 
   on_linux do
     depends_on "perl-xml-parser" => :build
+    depends_on "zlib-ng-compat"
   end
 
   def install

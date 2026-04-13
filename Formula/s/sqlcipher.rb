@@ -1,18 +1,18 @@
 class Sqlcipher < Formula
   desc "SQLite extension providing 256-bit AES encryption"
   homepage "https://www.zetetic.net/sqlcipher/"
-  url "https://github.com/sqlcipher/sqlcipher/archive/refs/tags/v4.12.0.tar.gz"
-  sha256 "151a1c618c7ae175dfd0f862a8d52e8abd4c5808d548072290e8656032bb0f12"
+  url "https://github.com/sqlcipher/sqlcipher/archive/refs/tags/v4.14.0.tar.gz"
+  sha256 "67fb27e967a4a6968c0905691c89c908e7250dddc581b887c19ef981c737e473"
   license all_of: ["BSD-3-Clause", "blessing"]
   head "https://github.com/sqlcipher/sqlcipher.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2ad3dc1b2491204ec9531a3a20dd97134583304854b0ed444b54e9471825296a"
-    sha256 cellar: :any,                 arm64_sequoia: "0fb3416129b895d27745b15ae8ce8b0b0cec057e3559b76a4115b3201d13af02"
-    sha256 cellar: :any,                 arm64_sonoma:  "6621dbcbd60279560fd3ce7d294d4fe6763c26aaeca486194c09a00c9b2ba0c1"
-    sha256 cellar: :any,                 sonoma:        "2573725a149d2cda4c7f098f623de4077b1ed711d4b3a17a39631836ebbe7139"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ffe3f61a2045343dcd2e048ef9f5037300760b157870a795ee56d25f9c72296"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6bae5917d672b9020150547a6b18d6db64de12b9443970ee06d0d55cd451dd7"
+    sha256 cellar: :any,                 arm64_tahoe:   "bac5dae45687c1febf9bee4a71aa7607ef4fd41ab28454591cb2023f0a6d2eac"
+    sha256 cellar: :any,                 arm64_sequoia: "cebc1660f1cb2fafd00fa8f085ed99bf716f9ff2279375dcf4312fcb019ae74b"
+    sha256 cellar: :any,                 arm64_sonoma:  "3c2f8346fd3c76e6417ff122cb8457a16cf215c05b934cd88383c6fb16edba3a"
+    sha256 cellar: :any,                 sonoma:        "95bedc9128368ad0125e41d7eb2f4ef2d7b29d2dd700e0317f65442a31f8d45d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6fe18269d80fc03021ad3fc67d563200ea1b3cf18c6dab6b7c08153d9644a3f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02c58fd88765f08711351013792636ac385c0e6dac7ba229cf6ee0aba6b9b50a"
   end
 
   depends_on "openssl@3"
@@ -20,7 +20,10 @@ class Sqlcipher < Formula
   # Build scripts require tclsh. `--disable-tcl` only skips building extension
   uses_from_macos "tcl-tk" => :build
   uses_from_macos "sqlite" => :test # check for conflicts on Linux
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Build with full-text search enabled
@@ -48,7 +51,8 @@ class Sqlcipher < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "install"
+    # Work around "install: mkdir .../lib: File exists"
+    ENV.deparallelize { system "make", "install" }
 
     # Modify file names to avoid conflicting with sqlite. Similar to
     # * Debian  - https://salsa.debian.org/debian/sqlcipher/-/blob/master/debian/rules

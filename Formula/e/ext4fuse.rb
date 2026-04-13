@@ -6,8 +6,6 @@ class Ext4fuse < Formula
   license "GPL-2.0-only"
   head "https://github.com/gerard/ext4fuse.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_linux:  "6c27df650bdd49ec2018751fae33ac6829329986f726c8c991dac341bad5e092"

@@ -11,8 +11,6 @@ class Spandsp < Formula
     regex(/href=.*?spandsp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "7eb7c7c0692b996402f9debbb20b3d87f5a0e9c17c2c3c73c5ce0589175c104a"
     sha256 cellar: :any,                 arm64_sequoia:  "fb9acce46b687e18c6e016cf9db9be77645778722eccc71589bc06b7fa7c6344"
@@ -30,6 +28,10 @@ class Spandsp < Formula
 
   depends_on "libtiff"
 
+  on_macos do
+    depends_on "jpeg-turbo"
+  end
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
@@ -40,7 +42,7 @@ class Spandsp < Formula
     ENV.deparallelize
     args = ["--disable-silent-rules"]
     # Help old config scripts identify arm64 linux
-    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
 
     system "./configure", *args, *std_configure_args
     system "make"

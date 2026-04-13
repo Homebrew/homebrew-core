@@ -11,12 +11,13 @@ class Wget2 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f3a9adec245bbd9635183135de06592de77d3adcc2399fc183223158cb87ee09"
-    sha256 arm64_sequoia: "ad8b8ac220a86f7fdaf8e4ad4489cded0339c37d3ae28b10fa5ecf03719a0d33"
-    sha256 arm64_sonoma:  "60b93781fbdb1aa2fe674b9367dfb744dee46574e86e570ca7b7af1cc0a28a00"
-    sha256 sonoma:        "9dbb77158a907ea8a23e6f787ac84bfd5d7ef4f6ee820b3cc5f7a72c3dbbb02e"
-    sha256 arm64_linux:   "f8bcd1f6bf5c56bb03b743083a814f77cf7d6bd4959311b5e9f8fcd71cd01f23"
-    sha256 x86_64_linux:  "2f92b4c85c3a7e3676cff954aefd305b31fe259331c07085daa3cb486e4ee7e5"
+    rebuild 1
+    sha256 arm64_tahoe:   "d907ed01032e6655193fa18c47e45b5e1b202cdd1f328ebefbff065c180cd9e8"
+    sha256 arm64_sequoia: "209e40513c2136920a4eb82e1358efb5ea494bcaf1c460145a9ec74d98e1705b"
+    sha256 arm64_sonoma:  "1ab70482bf8fa6f88ea2091003126bc866dd531ae59b2c71c5bc370a858317cd"
+    sha256 sonoma:        "a65fde8f14db9841aa9e30890f13693c3a5381d21bf7724fc4f284fa64db91a4"
+    sha256 arm64_linux:   "5dfee2ad6e5c7a7ecf5efb3f9afe902df0b8f986e1207775dafc855b2d241cea"
+    sha256 x86_64_linux:  "ea2c0e17b1e5d8e0dac92529034ca89b7651f7ba9d065e66a7a0ebc19683133a"
   end
 
   depends_on "doxygen" => :build
@@ -37,11 +38,14 @@ class Wget2 < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gnu-sed" => :build
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

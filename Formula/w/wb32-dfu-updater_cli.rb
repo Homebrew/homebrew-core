@@ -6,8 +6,6 @@ class Wb32DfuUpdaterCli < Formula
   license "Apache-2.0"
   head "https://github.com/WestberryTech/wb32-dfu-updater.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "934c190218de4e881ed04b18bf537a15710600e07055dec9a0adbca436afab65"
     sha256 cellar: :any,                 arm64_sequoia:  "ac239ddaa16c7c73763bb0e7fccf0e832ba3dde536d90115ac65fb1ac58da4eb"

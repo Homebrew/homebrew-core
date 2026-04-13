@@ -11,8 +11,6 @@ class Dps8m < Formula
     regex(/href=.*?dps8m[._-]r?(\d+(?:\.\d+)+)[._-]src\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "5d60fd88809f95e134a996e6f9d03f9b8b5f4d82d2da4ea0ea6861e44883a5f4"
     sha256 cellar: :any, arm64_sequoia: "2299a62a4694d96a06590dda48aec1b5bc7d4223a16027fc8d7e2815b89ef96b"

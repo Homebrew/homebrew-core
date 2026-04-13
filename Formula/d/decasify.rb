@@ -1,17 +1,18 @@
 class Decasify < Formula
   desc "Utility for casting strings to title-case according to locale-aware style guides"
   homepage "https://github.com/alerque/decasify"
-  url "https://github.com/alerque/decasify/releases/download/v0.11.2/decasify-0.11.2.tar.zst"
-  sha256 "f43794dd8e6f4e1a75132a9892d69f8b4f5272d96dc0909c04915be09eda2e1e"
+  url "https://github.com/alerque/decasify/releases/download/v0.11.3/decasify-0.11.3.tar.zst"
+  sha256 "2404c9f1c163b4290aeb93694d3ad49181c0a389c3aea7ed6abab22489d14e93"
   license "LGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b5043f42fb3fdb1bd8cfd1646ba1129a67547bc8a08f040ca4fc5a982e3d6153"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "54d7f8aaa91adee89553bb3c59e516cfc36d80de88ea7edc8b72767cbee492c0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba4878b8607b322cabd2b5342c690cb0bee6fd2cfe5c06adfe101723f440b7a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6da897c0a968aabc626316efa5bd65e5ef55c4c808cd30cdef102d29f8088798"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c31f0cbe3a4ed976df5cbf30249b123ed8cd183c3fde311d8423a0d31f1087c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd4f4a746c2870aab142b470608369780b064ccadd4ccfd5c0e7d62cf0cb95d5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e4ff19c29a173914d458494a071d57926dae0d7144f8fdc02d4896da4937a523"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "310a18371e2755a252635f86b206b2316ae0a9d126c57a2e9bc01835c1a95575"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96c10a27579028fcadedf827d1b5f73225f807a3ddbb8d7b99f94282f847c452"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b78974c9dd3ccfb401c2ebb9c9a44ab44cf75e9cd81f27c7fc118822f4c70b6c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "39912a574e08da91ded66573bb340a5a5cbacafcea47a0030d44abfe496df055"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eaebb4b35dc5f6bdfd169b106bcc2b73c2b71d15943100aafda52beb2e1dc09f"
   end
 
   head do
@@ -22,11 +23,14 @@ class Decasify < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "jq" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
-  uses_from_macos "zlib"
+  uses_from_macos "jq" => :build, since: :sequoia
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./bootstrap.sh" if build.head?

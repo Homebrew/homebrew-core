@@ -6,8 +6,6 @@ class Jvmtop < Formula
   license "GPL-2.0-only"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "b9fabbeac0618290d38994f556f5de9288b33c2e23c7dd00e1892d111c23c4ce"

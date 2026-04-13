@@ -3,17 +3,17 @@ class Plutoprint < Formula
 
   desc "Generate PDFs and Images from HTML"
   homepage "https://github.com/plutoprint/plutoprint"
-  url "https://files.pythonhosted.org/packages/cd/45/fa851fbb1ccc0ccd60cec0decbd184c0264f96ac43c7b656986ed0474bb8/plutoprint-0.16.0.tar.gz"
-  sha256 "098e5c244bd7a59697afc09d372707f2f98a89c6f23b76beb579a78648c9c354"
+  url "https://files.pythonhosted.org/packages/cf/53/156600a9b55da259e419025fa8d08e7253b64e6af5923d53bf3bb6f41ca4/plutoprint-0.19.0.tar.gz"
+  sha256 "55f3c6724f0dc217d28218ced1aacc23f7f87bf2b7e6682152eb9f80eb4e3d3c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b18344be2134a76e5ef5d867693913b218da576681cfbbfab203b552633038c6"
-    sha256 cellar: :any,                 arm64_sequoia: "8f0fcdc55db2428bd7359d6358b8d682fbbc881df6f0f57ed82897b77064baea"
-    sha256 cellar: :any,                 arm64_sonoma:  "376306f1af47d5f7525d412a7260d96cdcec6b95dbf4c4289523d5d9d9b7f3f1"
-    sha256 cellar: :any,                 sonoma:        "fccaae572319122325d9f092209191b04cb03b7c148b9d3d9dc3e85e3114750b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e6fa1df6ac3828ae8516cae0336c5632f719e5adb59d676886ed6766a28db3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5aa1e3d44d60de78cd075cc286a05cecbe94f18282a04819ff2a2e5bf16bc846"
+    sha256 cellar: :any,                 arm64_tahoe:   "5644b09767a77c99368716526731fb9b4587493673e79e18573702db2a213265"
+    sha256 cellar: :any,                 arm64_sequoia: "b62f892310c5301a7259f2af4545b7adfd97073e45ace8941f69bcf8aa4bd759"
+    sha256 cellar: :any,                 arm64_sonoma:  "674441d36e2d4a753897e2eaa1abda85a9dde6304d25171e68d3cfb92b4bc4b1"
+    sha256 cellar: :any,                 sonoma:        "3c66c86c66a82405bde22f2863daf0ff9d7555cd99f7e559c027519993724ebe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fe7b6bc2cd169d34d2069a6c24e79e56772ba943a55d55920be61e912b14285"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27b9bfe994d3212b86cce0c92888087e7329703f40432aaa49fb809f44c47f43"
   end
 
   depends_on "meson" => :build

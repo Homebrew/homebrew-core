@@ -1,26 +1,27 @@
 class Xclogparser < Formula
   desc "Tool to parse the SLF serialization format used by Xcode"
   homepage "https://github.com/MobileNativeFoundation/XCLogParser"
-  url "https://github.com/MobileNativeFoundation/XCLogParser/archive/refs/tags/v0.2.45.tar.gz"
-  sha256 "a38ae0da11e5f05e1f8421ab07a3a273fab00d67ed0851f4c84a90a1e66f8145"
+  url "https://github.com/MobileNativeFoundation/XCLogParser/archive/refs/tags/v0.2.46.tar.gz"
+  sha256 "13119132b893c3cbdcbf179bc523879e0421be94b8992b4fe5425550f7479c4e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5c369f6bc2bffa4a66a793e7ce9609a1fdea804fba7eea51e2e959743eccec0f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7cc7dc9532752cdc2a3ea5f2dec7cdcdea75ad71656fc0fa09f5e8fc6de27777"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b84bf6bf87fdbfe3e5c03fc00c5b24d1dda99dda3a34e40aa7bf9220c401a5af"
-    sha256 cellar: :any_skip_relocation, sonoma:        "389577dab701fcd286689a9a620cfa95dd4b260a224a5148c090d6ed43035a38"
-    sha256                               arm64_linux:   "c43c50af64c80d79384b06bed37c4391544ed7e64f70e797d0a0a4bc0a15de26"
-    sha256                               x86_64_linux:  "1b5e38340c6d82e33bc733cf5ed02a113bbcdad2879dcafc56c9d7833caddf13"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "734a5ac0e214131613b07abcb191a548dc316cb34585fdb20eab065199c36465"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b60ac8de3ad8a9811172beeefb9b023c523041a14bcc6d5a4dcf7b9b760f2f9d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ed1914cc2296daacbc4414b59df77d13df558a0ca106ffefb79d731963d0e5f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f531b6cdafaaba425294f6c56590985f4c4f76991b6e27b34edba305a0373a2f"
+    sha256                               arm64_linux:   "843981be8f1fb64098336f8847ddfaaad831d4996264e936c88f34ab8de9a3fd"
+    sha256                               x86_64_linux:  "42b174ce16315eb5c3da7dcd6da844ebd6371dae0fe5116a7d85236b7827e453"
   end
 
   depends_on xcode: "13.0"
 
   uses_from_macos "swift"
-  uses_from_macos "zlib"
 
-  # patch to use linuxbrew zlib, upstream pr ref, https://github.com/1024jp/GzipSwift/pull/71
   on_linux do
+    depends_on "zlib-ng-compat"
+
+    # patch to use linuxbrew zlib, upstream pr ref, https://github.com/1024jp/GzipSwift/pull/71
     patch :DATA
   end
 

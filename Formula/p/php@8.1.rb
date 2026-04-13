@@ -7,18 +7,14 @@ class PhpAT81 < Formula
   sha256 "ffa9e0982e82eeaea848f57687b425ed173aa278fe563001310ae2638db5c251"
   license "PHP-3.01"
 
-  livecheck do
-    url "https://www.php.net/downloads?source=Y"
-    regex(/href=.*?php[._-]v?(#{Regexp.escape(version.major_minor)}(?:\.\d+)*)\.t/i)
-  end
-
   bottle do
-    sha256 arm64_tahoe:   "ba73e82a300bbba4eadc596cf5e5ffab5f674307a123d4a4f680ebeb86f6fd71"
-    sha256 arm64_sequoia: "b63fb394d3ef5e664a51fb7435b66e3eea1b5611f71d751fa66d429714f72893"
-    sha256 arm64_sonoma:  "1419167c5ba09f419ae760eedbfc1cbb59c24ebb6b5f23f1279bfc07934b4ebb"
-    sha256 sonoma:        "6543e6829b790f7c55188cf5edff6155d6bc24d0413b27b7141dc0c194291163"
-    sha256 arm64_linux:   "9dd388e02cf227a35575df69669d72bb76301928e47eed220be2c19e7cc35433"
-    sha256 x86_64_linux:  "7037a4c4a47656717424d47f2cea146c604f0a3c0c346d04065f6c10fef372ce"
+    rebuild 1
+    sha256 arm64_tahoe:   "5ff7fd9f131a31f4687f4c94326d8b1a32a8fb2e9fe105347210318d75c54574"
+    sha256 arm64_sequoia: "8a6c91d23b7c081a89cdfb5de7f406e6602ab62df17b3c6c18175e1d761e4e62"
+    sha256 arm64_sonoma:  "f30bb2362d2624871040e87fe626a6b9403266e953195aed6f99cffb333eee1a"
+    sha256 sonoma:        "b67e28c6ecd1cdfacd93e38800b6932d5c26bce44944131a80e88e554d3db8e7"
+    sha256 arm64_linux:   "3303fd88f104755b8ed7afd47f64fd480697e53709b042e2e187fc178cd0e686"
+    sha256 x86_64_linux:  "90b8ea1e11381a9d967460cf44f9d15b5e1461af005aaf5e4c6334d4a96abd76"
   end
 
   keg_only :versioned_formula
@@ -26,6 +22,7 @@ class PhpAT81 < Formula
   # Security Support Until 31 Dec 2025
   # https://www.php.net/supported-versions.php
   deprecate! date: "2025-12-31", because: :unsupported
+  disable! date: "2026-12-31", because: :unsupported
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkgconf" => :build
@@ -57,13 +54,16 @@ class PhpAT81 < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
     # PHP build system incorrectly links system libraries
     # see https://github.com/php/php-src/issues/10680
     patch :DATA
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -412,7 +412,7 @@ class PhpAT81 < Formula
     EOS
 
     begin
-      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
+      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", testpath/"httpd.conf"
       sleep 10
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
 
@@ -420,7 +420,7 @@ class PhpAT81 < Formula
       Process.wait(pid)
 
       fpm_pid = spawn sbin/"php-fpm", "-y", "fpm.conf"
-      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
+      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", testpath/"httpd-fpm.conf"
       sleep 10
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
     ensure

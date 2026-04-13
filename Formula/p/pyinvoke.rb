@@ -3,14 +3,13 @@ class Pyinvoke < Formula
 
   desc "Pythonic task management & command execution"
   homepage "https://www.pyinvoke.org/"
-  url "https://files.pythonhosted.org/packages/de/bd/b461d3424a24c80490313fd77feeb666ca4f6a28c7e72713e3d9095719b4/invoke-2.2.1.tar.gz"
-  sha256 "515bf49b4a48932b79b024590348da22f39c4942dff991ad1fb8b8baea1be707"
+  url "https://files.pythonhosted.org/packages/33/f6/227c48c5fe47fa178ccf1fda8f047d16c97ba926567b661e9ce2045c600c/invoke-3.0.3.tar.gz"
+  sha256 "437b6a622223824380bfb4e64f612711a6b648c795f565efc8625af66fb57f0c"
   license "BSD-2-Clause"
   head "https://github.com/pyinvoke/invoke.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "e0fd28c483546b397e1c2f3c95091200b89d1eb0ddd4970178c8e944f91095ab"
+    sha256 cellar: :any_skip_relocation, all: "f46e5217b0e3117c9baea206c276c7b87fb6b1f02ce17940cd3c4789b0f3d54b"
   end
 
   depends_on "python@3.14" # Do not remove runtime dependency https://github.com/Homebrew/homebrew-core/issues/151248

@@ -2,8 +2,8 @@ class Vcluster < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
   url "https://github.com/loft-sh/vcluster.git",
-      tag:      "v0.30.4",
-      revision: "8770824aad31e41e69253f68f01f1ba01ea91d31"
+      tag:      "v0.33.1",
+      revision: "ac04311a85bce383aacdda0721408e98f8ef453c"
   license "Apache-2.0"
   head "https://github.com/loft-sh/vcluster.git", branch: "main"
 
@@ -16,13 +16,12 @@ class Vcluster < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2bf3479cec0436e85b7ab5bdf9afa4a8a4664ce37ee2120e0aff01abed70c3a9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a0a7fb3fd85bef2bee868b01af4b54e819aa39bf82c2556fb577bf89467e8fd0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "126a1772ab4e5071c3eb0c97266c35008fd4f59290ecd0712dcd6b0954c921c5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aef7da6ea3a7af882e75c061d69bbc4905533d4fd418ba743d999a44a2bf37fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d957cc21c4b242e0ea68e53037c4b3e0bd3318ae5184691e54c864428f3d284b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf7b499da33f762ff1e4780f18ff967f2d1ef15123d139cf15a672fee3e7f89b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0fd529461e1335c809a44763158e2d14ef06ecb58863b3174bc16bc308f20bd2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "45d988b4ea093f783af67e609f9d2c7d03cc3a3a22d4009e9e82e9e2da4bb4a4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a83338360751eda28c1e4a959e3bfda594f113e59851b52109853705515c316d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6d8298f83793bf886123eb1bf02576961dd79627999a10cd03eb688d92783c91"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "499ad54b991b497ecdf5088b2c782843ffdea83181e0349fc6c3560bae70dab2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41103b25d357435fd16b885f77266dcfdc660703cf29aaf077c2e2532d7ce724"
   end
 
   depends_on "go" => :build

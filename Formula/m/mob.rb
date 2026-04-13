@@ -1,18 +1,18 @@
 class Mob < Formula
   desc "Tool for smooth Git handover in mob programming sessions"
   homepage "https://mob.sh"
-  url "https://github.com/remotemobprogramming/mob/archive/refs/tags/5.4.1.tar.gz"
-  sha256 "6f5b534887cac436f696e38e488b481b38c6cb1c3ad3860e56faf8e87f858344"
+  url "https://github.com/remotemobprogramming/mob/archive/refs/tags/5.4.2.tar.gz"
+  sha256 "be6adc58ffd92cc21fd3fa96bb8eba48f9d3669ed3c1de1df568c37f3625664c"
   license "MIT"
   head "https://github.com/remotemobprogramming/mob.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "086f5ffec348d1ac11b75fe9521a5581466d54069d6be0734d44ed378c5d89f7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "086f5ffec348d1ac11b75fe9521a5581466d54069d6be0734d44ed378c5d89f7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "086f5ffec348d1ac11b75fe9521a5581466d54069d6be0734d44ed378c5d89f7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0974903ce2af25f109e4f8889e905f27dde5a201c2dfeb03fa8e914fdc415c63"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fd8edcfc7f0b9837ab6bd96ee67c79171d89664e4e6b83416761f08b65e4a85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "277ccddb45fc4ff59bcf5dbfd4ae88c0e354d37dbcc1ce5a208cf12f7bce47d0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "13418fa5a5e3bfb0c8ee837ec2a28d16698a4f4200f59b1eae2afa28afa179f6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13418fa5a5e3bfb0c8ee837ec2a28d16698a4f4200f59b1eae2afa28afa179f6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13418fa5a5e3bfb0c8ee837ec2a28d16698a4f4200f59b1eae2afa28afa179f6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "82a302a1e15a6a482acb992660a7888fb28fdfac9076df9ded8d6521a4782d51"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3ad0c4d3a2f9c14b3b85b2f34376f236ec22d0688fff512dbe19e8d1d673ae3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e54e98de09b0cd50bdbb28d93f8dc1fd1e74d69270b218caa7d2a8acde48a0fb"
   end
 
   depends_on "go" => :build

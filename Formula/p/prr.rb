@@ -3,16 +3,17 @@ class Prr < Formula
   homepage "https://github.com/danobi/prr"
   url "https://github.com/danobi/prr/archive/refs/tags/v0.21.0.tar.gz"
   sha256 "891d8b2bc0397027e909750ac7891ca3d6e215acab59a48d5b2da35e60b45b8c"
-  license "GPL-2.0-only"
+  license "GPL-2.0-or-later"
   head "https://github.com/danobi/prr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4104e21453d0b34b7ab2b183c0d5206fd2a3a8be8e3d053988ac27028f95eae4"
-    sha256 cellar: :any,                 arm64_sequoia: "c17217ab2cf5ad6349ded14664733f58db5273cab612e577dbd7aef6ef56eb49"
-    sha256 cellar: :any,                 arm64_sonoma:  "a3ef5940ceafe8a6dd74d317a77d6714a69ccff78d1d77f198275acba96ba0f4"
-    sha256 cellar: :any,                 sonoma:        "834ea3bb39f1f520a14afd064408a0fc4cdaa672a35e3fec3db33a6643016585"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d415636ffbe9e8e3d16707775f318c6ac944b9419d6e643f3aed7107267f43ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6e45b8471f685c0070c1f9f5197f5eec6174adcd2a0687bfc0defc66a063225"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9c3bcf26ee3499cc61c3f13ab5f4c72d35bf9780eef19fab281886d2b9e183c5"
+    sha256 cellar: :any,                 arm64_sequoia: "ebe1a8d1c0424beef41dfd5ffea04da5448a2485a5264cf1cbb6e0220b369b64"
+    sha256 cellar: :any,                 arm64_sonoma:  "89471d55c03628ae324dc40a042b8641e8212a2fd5b4480ca1f7a16c9259a2da"
+    sha256 cellar: :any,                 sonoma:        "8349897e19839be43735a7f95e7437d2892f655aa35b7aec58bf29d80127fc49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "721d5359cc5e2b68b5951ad89e783c96bd300111c2eaa1a71d89b15147e98b42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b427337f5afde43310564971d2e70f3f683f0f7347de5e9f3f59edf8dd0f2fd"
   end
 
   depends_on "pkgconf" => :build
@@ -21,7 +22,9 @@ class Prr < Formula
   depends_on "libssh2"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"

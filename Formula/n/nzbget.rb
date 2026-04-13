@@ -1,19 +1,18 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "https://nzbget.com"
-  url "https://github.com/nzbgetcom/nzbget/archive/refs/tags/v25.4.tar.gz"
-  sha256 "2603116ffaef4992621cf7a82ce300f41a676a312de784f2bac5058abc1a2385"
+  url "https://github.com/nzbgetcom/nzbget/archive/refs/tags/v26.1.tar.gz"
+  sha256 "7ed0940f18635986f096d666e5e0b737ef8ae362e4a538b46a507bacb61b09ed"
   license "GPL-2.0-or-later"
-  revision 2
   head "https://github.com/nzbgetcom/nzbget.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d46e9483a24866f1151e2420c1f0c7ef1af0e172cac28cdf8f3ecdaef4b9f79f"
-    sha256 cellar: :any,                 arm64_sequoia: "7f744a0302c49d41da4bd5e69cac30471e7233adb54b6013048c2cbd7cbbf7e3"
-    sha256 cellar: :any,                 arm64_sonoma:  "d4442f6da16a0e188b5df2f8e726022f59c10aac5707c5ca88ff1a12b106d7b8"
-    sha256                               sonoma:        "f043eef25e1295845c1ac8d7103c9b96865d5a66afac5d4696aec1184a22f4db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d067e667d5954731951e2de941643d2441387e6ed5389d8f6feaa6f69558ac3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f019219d401602546d6c537d888e73887ccd1fb55c220f0dc89401344de7163b"
+    sha256 cellar: :any,                 arm64_tahoe:   "f55c4fc0ae84b75887ac649fefbc3ef0fd910a3c60d1428e0901e0d3e47542a5"
+    sha256 cellar: :any,                 arm64_sequoia: "4e8cfb089112e0cbf712090eb6346a47c180b513682a39633466265bd41d6a64"
+    sha256 cellar: :any,                 arm64_sonoma:  "e022f6fb8a2b280050137a6f7d49e449671a9b0fa1dd33eb1bce9d504b10c083"
+    sha256                               sonoma:        "d715117f346123e181d078e78e0441ccf239f23da3a46b38f7d12ad812de72db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ced80fbc1a1dbf7e63cbeb98eaa036f39a239b542c35ab47136e69e8e2623865"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "777066fbced98655c14a0c63194d5dd386a0d4acca3be4b8e2c5bc8a5ec997b3"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +22,10 @@ class Nzbget < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

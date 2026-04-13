@@ -14,22 +14,14 @@ class Wv2 < Formula
     regex(%r{url=.*?/wv2[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "ab51a5126a4df61b38dd41445e5d456b7878326d9c4f9fec306abf45f3989730"
-    sha256 cellar: :any,                 arm64_sequoia:  "0b9e9d8d06ee14ba09ec9f467e24aba00ecc63966bb877fc88a3868a2fb2041c"
-    sha256 cellar: :any,                 arm64_sonoma:   "ab4eca06cc176e58df0a6d57de60929427e68ce2d8dc1fc9f71b2a15a88c59d3"
-    sha256 cellar: :any,                 arm64_ventura:  "590dea1f89ca9fe964215ad6b338aa92ca782157d77bb867a568c380cf9259f0"
-    sha256 cellar: :any,                 arm64_monterey: "dda217f7db1f6f78199bb54741c836013f9bc563641925be66e76fee4f001738"
-    sha256 cellar: :any,                 arm64_big_sur:  "e757d5cf4bd8db93cd2b4383b38c748ea78f0f301d1740aa661ec35ee9e9ea1d"
-    sha256 cellar: :any,                 sonoma:         "4e7812b4c35074f80f86a7357e6b2d065fe69c6a7fc45395d8c54748d742171e"
-    sha256 cellar: :any,                 ventura:        "f9dec0774e036ac09259037d18e036fa27098f72e5ce2f4ce0386e484e3a19eb"
-    sha256 cellar: :any,                 monterey:       "2ad3a28d44f4fbdfc073a3de3cb1067497d718478eb33d678dbe12cad6c905ef"
-    sha256 cellar: :any,                 big_sur:        "097b7d4e10b4ef00d8298ef897acb9baa3c9b84aa0b7416e4e561700e8ab408b"
-    sha256 cellar: :any,                 catalina:       "944451190aa61c6ea3dd74fffbc9e92e999b8eeb559a46f4c4708d5f9b4f154f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "518a054d34f8325f987b1ff4fbc61ad9d2966c61f880f9ead78d461927dec15d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bd22b4bd66ddf417a1ee0882ca0dfc3b4bcb218d50e890a28a1752d5e4c546b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d264df90b7b45b15d1aafa19c346cad1fa08f825411fcb219bd42250be96930b"
+    sha256 cellar: :any,                 arm64_sequoia: "af5f8163837dec3fe37596271172275a69a09029bccaf811776ecf8140b705dc"
+    sha256 cellar: :any,                 arm64_sonoma:  "b39554aadf87fc57071d72c9f41836ff4a923cf6a9b2b0f0808f4585643a2ec0"
+    sha256 cellar: :any,                 sonoma:        "88912743304f2a42ecc6d32a1a893596105f379c7c7bb29693c5c1d1beffe368"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9dff4c442ccddd4106cf37b90df3919361f2e452bc0e1092187bd10c8f1de42f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f0ec2558210fb1e81614db1a25319a8bdc6ff2dd3d91dc775bfc1636b462cfe"
   end
 
   depends_on "cmake" => :build
@@ -38,7 +30,9 @@ class Wv2 < Formula
   depends_on "glib"
   depends_on "libgsf"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Temporary test resource for bottles built before testole.doc was added.
   resource "testole.doc" do

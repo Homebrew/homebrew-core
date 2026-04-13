@@ -12,15 +12,13 @@ class Mednafen < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "2e8e7a500b841dcafc2bfcd58f95fbbf514ffcfb14646bf70d261934e1916c18"
-    sha256 arm64_sequoia: "3ebf9988b2e260b9a1f755f8fcbcc0c9fa3411aae100594a99c03cded175f65c"
-    sha256 arm64_sonoma:  "e52bfc223726a04f7d2b656a57ea9f24b5922e281c7cc3eb63260897dc4e11a7"
-    sha256 arm64_ventura: "687f37db2e0fb19df00cca7bede658f0c368e5f603f09426bdac47a84e21868d"
-    sha256 sonoma:        "a02749da55b8a46eda51ff89764d32975c0394ef28f9536958c33242f9b13e1d"
-    sha256 ventura:       "6773d3660de92be32485d0330f751f38711356b0891bcdc1eaad88d1538e8a77"
-    sha256 arm64_linux:   "35d7424987d439d2836e2d36c6c619285a9c97a854de09503502fa04d8294d4f"
-    sha256 x86_64_linux:  "1c664519605f10515de616e8d8559b33c46764c1d259f66e21ef5c2fa3131d9a"
+    rebuild 2
+    sha256 arm64_tahoe:   "2145cf181313a45d6c144a8050fd7c81a53346b15aa5283772b2b3ed4ab7e831"
+    sha256 arm64_sequoia: "212f9102b71ec08e7ecc343d9a71dfae00d614b686d6ba493e0fb8634566c5fd"
+    sha256 arm64_sonoma:  "61361a259b71446de15e5b2a5d76e018dcd466356ee40ffdc93a5069f1af4eb5"
+    sha256 sonoma:        "3606d9e9e61a51287d17f1d7d6816d78755a8501ec1cf9569bec3c7ad80d4afd"
+    sha256 arm64_linux:   "0025b636b515e34cd89e39b43b14f2886d8d5cb7257b9a994027fefbbf5d34d7"
+    sha256 x86_64_linux:  "6f13f9eb2ea6d1a62eae0c6f9cfcb5e37d2b13db516568d0a7a38a823aeef010"
   end
 
   depends_on "gettext" => :build
@@ -33,8 +31,6 @@ class Mednafen < Formula
   depends_on "sdl2"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
   end
@@ -42,6 +38,7 @@ class Mednafen < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   def install

@@ -6,8 +6,6 @@ class Bmon < Formula
   license "BSD-2-Clause"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "93cdadcf5fec7072cb986a15fb5f6f3e405d09da4dbeb2048eff7b561b0b8af8"

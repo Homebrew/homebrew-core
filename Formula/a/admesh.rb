@@ -5,8 +5,6 @@ class Admesh < Formula
   sha256 "0d7994bfa587c4e958b2ac7c7d2fb90dfb6c5463d32513ada169cf710a438535"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "446f3774fd018994f5f040279c0198a80c6f7144023f465e6a5cbb7183225b66"
     sha256 cellar: :any,                 arm64_sequoia:  "c88ef051413ca638240add2cd10c366fc81c3b8d1cd29387cb137d7d3ef411c8"

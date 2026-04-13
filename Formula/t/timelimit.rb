@@ -10,8 +10,6 @@ class Timelimit < Formula
     regex(/latest release is .*?timelimit[._-]v?(\d+(?:\.\d+)+)</i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3460c48c7197860f37a145659bcfa8fbf9d6f9ace62a7b2ff3f1399e9cb2ed7d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5f8033f0df32271642c914a67144517e214a83bdbf2367db584cb94ec04061bb"

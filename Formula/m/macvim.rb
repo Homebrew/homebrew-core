@@ -2,11 +2,10 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-182.tar.gz"
-  version "9.1.1887"
-  sha256 "82148b9f7fa4c83e18ba7fea3f65289b1eb3e2775a4d17a4c3e0fe16087e0e53"
+  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-183.tar.gz"
+  version "9.2.0321"
+  sha256 "72de6be82087cd4db8d7b5b27ee079fe80d504f12b53065d68d29366fc7025f1"
   license "Vim"
-  revision 1
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
   # The stable Git tags use a `release-123` format and it's necessary to check
@@ -26,17 +25,17 @@ class Macvim < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "fc4ba6cff08eda192921bb41feee3baa71f17bc6b2ee11ad81a3e70b030079b3"
-    sha256 cellar: :any, arm64_sequoia: "0af5ce60294e63121a673999d2fa49a36b5e2de883a52cbc1d65cfc291e9c803"
-    sha256 cellar: :any, arm64_sonoma:  "b6b4a634fb4689ad32273ab2c8bdfc7c814347e0aa1e3a372a116f2696705207"
-    sha256 cellar: :any, sonoma:        "3e72d1935825d8767aedb5e03d034ad6e7333ae36a58e0b7d168bb33f025c96b"
+    sha256 cellar: :any, arm64_tahoe:   "a24c9c958d1549ea630fb4b95d84e1afec46b271c075178bf378633ad36e60cd"
+    sha256 cellar: :any, arm64_sequoia: "2938d6ef858cb5c1da056df3bd40b4b9baed98c8132bbb3a78069a4628a4b7ff"
+    sha256 cellar: :any, arm64_sonoma:  "0275b6aa54cedf4bae7a749be2c67447d302a18c729796634b4b1a9c0102bd24"
+    sha256 cellar: :any, sonoma:        "4021bac7a55c4de66c04ef3f7d20e6c8e16c33a50d2cd27f0a68b2cf7fa11bd3"
   end
 
   depends_on "gettext" => :build
   depends_on "libsodium" => :build
   depends_on xcode: :build # for xcodebuild
   depends_on "cscope"
-  depends_on "lua"
+  depends_on "lua@5.4" # Lua 5.5 doesn't work for now, see https://github.com/vim/vim/issues/19639
   depends_on :macos
   depends_on "python@3.14"
   depends_on "ruby"
@@ -70,7 +69,7 @@ class Macvim < Formula
                           "--with-local-dir=#{HOMEBREW_PREFIX}",
                           "--enable-cscope",
                           "--enable-luainterp",
-                          "--with-lua-prefix=#{Formula["lua"].opt_prefix}",
+                          "--with-lua-prefix=#{Formula["lua@5.4"].opt_prefix}",
                           "--enable-luainterp",
                           "--enable-python3interp",
                           "--disable-sparkle",

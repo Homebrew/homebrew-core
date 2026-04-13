@@ -5,8 +5,6 @@ class Jellyfish < Formula
   sha256 "ee032b57257948ca0f0610883099267572c91a635eecbd88ae5d8974c2430fcd"
   license any_of: ["BSD-3-Clause", "GPL-3.0-or-later"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "7fcaa4101e6f6b41b3223d25c59adb132e856ea2f3068fa18acfcf1ea837092e"
     sha256 cellar: :any,                 arm64_sequoia:  "5e944e1abeae0a321ff68872f400954fb3ba458043a0a2234e993168ecca40c7"

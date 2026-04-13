@@ -3,25 +3,23 @@ class MysqlAT84 < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/8.4/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.7.tar.gz"
-  sha256 "c0bf33a94cdb908f149aea0797affb1b139262ccf0e0b9787a17246207542e69"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.8.tar.gz"
+  sha256 "be9d96cdf87f276952a2cdd960f106b960a8860e46c115ed39c1b5f2e0387a20"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 4
+  revision 2
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.4.html?tpl=files&os=src&version=8.4"
     regex(/href=.*?mysql[._-](?:boost[._-])?v?(8\.4(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256 arm64_tahoe:   "2a8d0e3b8c4afb299b53053baa9d6bc31178ce8468cb566c3ae34656d05ae0da"
-    sha256 arm64_sequoia: "8bb8c09f91ee5faace7f20de61e11b7ddaa57b36598971c5779960c8eb40b2aa"
-    sha256 arm64_sonoma:  "afb0e1ab178ecff72f106083193e29e784a838e2877c4c8bb2374ce5f0645e82"
-    sha256 sonoma:        "9d81124cd9d090b66554050c692e0d7be05d774de10ddad7ad87758ca32969a0"
-    sha256 arm64_linux:   "9f5a1088b95e7789a2d2b3f69be5ea7e053742b5566a2bb796782d761b121587"
-    sha256 x86_64_linux:  "4bf942407f2864dc801d16b75382f8d57f9dc24529c7d3168f1124d984b226a5"
+    sha256 arm64_tahoe:   "bb5e4fa8a30aafa14c6a9f2b65dc1c3780b631dd91e76964c348db3a37c1bae9"
+    sha256 arm64_sequoia: "a915e2759a9710bb6bc5b34d50cd2d80659450448cb02a9edce27ee62b26defc"
+    sha256 arm64_sonoma:  "e7cadfa32f59b6b5d21f478513301a629930c56ce1946da7227632f4e1b0f84d"
+    sha256 sonoma:        "fcac93db706652f7e6aa5906660c4daebd5ec4db800666107a839babad99e2b6"
+    sha256 arm64_linux:   "bb71d15535b73257313ecab1ec2d25b3c35ffbf2cf259ee8a522facba280be1a"
+    sha256 x86_64_linux:  "a7400c420859f0b458124f836c4f07093b818330fb96be1fa8ca880800a51746"
   end
 
   keg_only :versioned_formula
@@ -37,7 +35,7 @@ class MysqlAT84 < Formula
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "protobuf"
-  depends_on "zlib" # Zlib 1.2.13+
+  depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
   uses_from_macos "curl"
@@ -79,17 +77,8 @@ class MysqlAT84 < Formula
     keep = %w[boost libbacktrace libcno lz4 rapidjson unordered_dense xxhash]
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
 
-    if OS.linux?
-      # Disable ABI checking
-      inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
-    elsif DevelopmentTools.clang_build_version <= 1400
-      ENV.llvm_clang
-      # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
-      # Undefined symbols for architecture arm64:
-      #   "std::exception_ptr::__from_native_exception_pointer(void*)", referenced from:
-      #       std::exception_ptr std::make_exception_ptr[abi:ne180100]<std::runtime_error>(std::runtime_error) ...
-      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
-    end
+    # Disable ABI checking
+    inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0" if OS.linux?
 
     icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
                 .to_formula

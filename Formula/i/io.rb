@@ -55,8 +55,6 @@ class Io < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "f52b3f34e2163977455f08819a17df42ebec1148781c3df76411e3743e251d5c"

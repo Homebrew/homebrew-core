@@ -7,8 +7,6 @@ class Libmowgli < Formula
   revision 1
   head "https://github.com/atheme/libmowgli-2.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "d71137de5a2fe97748ca2d1b90c4a2de5c401e327dfca7201d3b28391063a36e"

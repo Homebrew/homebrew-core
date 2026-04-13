@@ -5,8 +5,6 @@ class ConsoleBridge < Formula
   sha256 "303a619c01a9e14a3c82eb9762b8a428ef5311a6d46353872ab9a904358be4a4"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "3a7225a144262d03cbc7d58b1eb2494c190060d9c1b4d3dbc36507c3911dbc37"
     sha256 cellar: :any,                 arm64_sequoia:  "4e7abd68f93d725996578fc7af640e0403cb35142fabc9654177802ea92f7903"

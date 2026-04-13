@@ -5,8 +5,7 @@ class GnuTar < Formula
   mirror "https://ftp.gnu.org/gnu/tar/tar-1.35.tar.gz"
   sha256 "14d55e32063ea9526e057fbf35fcabd53378e769787eff7919c3755b02d2b57e"
   license "GPL-3.0-or-later"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     rebuild 1

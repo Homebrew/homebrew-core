@@ -9,20 +9,22 @@ class Minipro < Formula
   head "https://gitlab.com/DavidGriffith/minipro.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "13bf4c41ff4d6891b353ade71ac5e25c879392ea605a29bc9354cff9acc28702"
-    sha256 arm64_sequoia: "4becb73379ef89e434edcf54f3e268649586ccbdee7dd9f85436eaa757aad47c"
-    sha256 arm64_sonoma:  "06cc2da2326ef31264e060e8168e8b3920355a36cd53bb6769b234d1cb1110d7"
-    sha256 sonoma:        "82ce14e63986e7851eafbfc4c24594275432b1546bee2ecc1f4b08a07d12b717"
-    sha256 arm64_linux:   "9f93a79729a8b337f24fc62ea86bbfb0788f32efd553a69025da0598914a5654"
-    sha256 x86_64_linux:  "46837cebd883c96a26d4d3b89aaa4790e737e3b75cd9c82d9bbdea0a11cb0259"
+    rebuild 2
+    sha256 arm64_tahoe:   "0f1f6aceeab9c9545b8adcf8f16300f09b0b5355195e2a3a83bfadf18da57557"
+    sha256 arm64_sequoia: "be96b6beb97aa8686d476989a0eb5ed0f9bb92341c08a251029e94fdcd2f99eb"
+    sha256 arm64_sonoma:  "3475e8463cbb1e36918e222efbfc66f4f8c1574f2ccd82387b6c05eb40d83367"
+    sha256 sonoma:        "9af071ccc5f99e1f20b3a970977161a3c09055a7dc57cf62213d407556264067"
+    sha256 arm64_linux:   "6f22ef830d29487e4f88afaf95a912b10686b7ae963a52df49259f3c485bf2a9"
+    sha256 x86_64_linux:  "47b9ae94014806770ad1b838d8a340f119c5101bfa1e125c2c32daf899edcf70"
   end
 
   depends_on "pkgconf" => :build
   depends_on "libusb"
   depends_on "srecord"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"

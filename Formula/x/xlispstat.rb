@@ -15,8 +15,6 @@ class Xlispstat < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "cf23b57eb4e3246a8456d4243f04d704a3a2128d763021876a9b5777010888e5"
     sha256 cellar: :any,                 arm64_sequoia:  "455b2e247dd57ef595e2576a56d707ec8ced866ec15d808fc2cf93089aff07b6"

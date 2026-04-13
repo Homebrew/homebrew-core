@@ -5,8 +5,6 @@ class Tssh < Formula
   sha256 "bbe8938b96c04aad5a843405a4414dde925f8827f29ac9c7d855d1bc84348b75"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "44fa3c9ba54472a28312f3411920b57cd1279eb607bca1a71f1aeec3e45fd84b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "44fa3c9ba54472a28312f3411920b57cd1279eb607bca1a71f1aeec3e45fd84b"

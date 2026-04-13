@@ -9,8 +9,6 @@ class BashUnit < Formula
     sha256 cellar: :any_skip_relocation, all: "8c7b39455fab02fd97f73960e4c41b3d65f7695d5442d3950385c4d5fe874f09"
   end
 
-  uses_from_macos "bc" => :test
-
   def install
     bin.install "bash_unit"
     man1.install "docs/man/man1/bash_unit.1"
@@ -19,7 +17,7 @@ class BashUnit < Formula
   test do
     (testpath/"test.sh").write <<~SHELL
       test_addition() {
-        RES="$(echo 2+2 | bc)"
+        RES="$((2+2))"
         assert_equals "${RES}" "4"
       }
     SHELL

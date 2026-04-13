@@ -3,20 +3,19 @@ class Drogon < Formula
   homepage "https://drogon.org"
   # pull from git tag to get submodules
   url "https://github.com/drogonframework/drogon.git",
-      tag:      "v1.9.11",
-      revision: "a22956b82b6b221ceeff83913c3014ce0d048555"
+      tag:      "v1.9.12",
+      revision: "89aca8c7993c8194f2c109c1d06a3b45bf363d5d"
   license "MIT"
   head "https://github.com/drogonframework/drogon.git", branch: "master"
 
   bottle do
-    sha256                               arm64_tahoe:   "92797d62be765b5222be947c118e84a3910a18fb6e3c73cf00df717dc8ebbd18"
-    sha256                               arm64_sequoia: "59b637806180b7e5a9443091cbd70e98254b2372aa144ac1264c7e699a502919"
-    sha256                               arm64_sonoma:  "fe6f23a4a2c68e263204b89729118dc41799fb8aaed7dd75c6a53913b7eea207"
-    sha256                               arm64_ventura: "3145d83dfb9f8d3be0a3d93bdcac5df5184c19eb448e5a26ab724d50cd24f9cf"
-    sha256                               sonoma:        "5fa607c6e5df73eb556b1e7598aa931039ce8eee4fd911cfc81a0d536798f9db"
-    sha256                               ventura:       "35da5590e6144993de4570c01c52caa88f3da941b82376582273fd23c706586b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "164824b7a40e178b8f1db45d9c0ab20b6d616fb3a0e412ad837a4175561368ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3cd681f4cdde59fce58c8a194c2a55ebac32205178673bc6d2ffe4ea3da3ccc"
+    rebuild 1
+    sha256                               arm64_tahoe:   "e54d554cd89483fea3b1033aa7a8c0142b8dd0a7f6e96fe99851c0250f9a103c"
+    sha256                               arm64_sequoia: "a7d97d0b74b7b8bc3740fd0eaafcf93f1fe0ab72f683a28da9e3256111cb0df2"
+    sha256                               arm64_sonoma:  "f02d33b2b8f47537762cd61f8ddacdb8503a4e898cd4086e6869068a5817ef79"
+    sha256                               sonoma:        "a2dddfaf010e2f0040161dc6e7d6365f269fc7ef16f6b2b30cb28c972c2343ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "19365063e0137d2933f96c033ed5b064b14784e84ac5d65c7b2eff84c84fa3e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4608264dbac7b1e42f24b1d12c16cf9f67a8d62a6165bae4534acebf4941e274"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -26,10 +25,10 @@ class Drogon < Formula
   depends_on "openssl@3"
 
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "util-linux"
+    depends_on "zlib-ng-compat"
   end
 
   def install

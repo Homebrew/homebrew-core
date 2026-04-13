@@ -1,19 +1,20 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "https://xrootd.slac.stanford.edu/"
-  url "https://github.com/xrootd/xrootd/releases/download/v5.9.1/xrootd-5.9.1.tar.gz"
-  mirror "https://xrootd.slac.stanford.edu/download/v5.9.1/xrootd-5.9.1.tar.gz"
-  sha256 "39946509a50e790ab3fcc77ba0f4c9b66abef221262756aa8bb2494f00a0e321"
+  url "https://github.com/xrootd/xrootd/releases/download/v6.0.0/xrootd-6.0.0.tar.gz"
+  mirror "https://xrootd.slac.stanford.edu/download/v6.0.0/xrootd-6.0.0.tar.gz"
+  sha256 "bc8d00b6c0b48f9186e3ad09e8e4e6eedf1067fad68f6d6a4f4e939bcf87007c"
   license "LGPL-3.0-or-later"
+  compatibility_version 1
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e17e1a006be3149a52d22d04b63778ccfb9ac702b391c22d40149ed8e0741610"
-    sha256 cellar: :any,                 arm64_sequoia: "2bcaa3a0e5f21d166a513bd4512fdb3428d93020b983e989330bbdfb719196c1"
-    sha256 cellar: :any,                 arm64_sonoma:  "20372f4511f80bc1c3e6d9c3b65776756290179f6bd56bd5237a2009b28d98b3"
-    sha256 cellar: :any,                 sonoma:        "ba884b887699f4dc3767b1bc976cb602c56a777c8e2702078f44a067f59f970b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bee9840dfb63fdd91812e336caa3c9f71a6dc5c4d556827b2b0ff99f2572257"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e3fd497674e6051cb16c26ac7f9b34200d817bdc382a2332b8d4f75975eab77"
+    sha256 cellar: :any,                 arm64_tahoe:   "bea56759270c77ebc33d0e108a570d274a153cad2d593fbc6c06f2cc48de4c8b"
+    sha256 cellar: :any,                 arm64_sequoia: "7c82206f58a10dd6a45db0c374551ace5576fd78373f0e451110267ab9a6aba6"
+    sha256 cellar: :any,                 arm64_sonoma:  "56e36426032e8d3c1b654a629124c3d48cb2b9fc4ea2410d1750959b2016ccd9"
+    sha256 cellar: :any,                 sonoma:        "500ede15a4bbc8aaebf23b7bedc73e1c18e3f06f4c5a5250b2bc606f8259f4aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97c0b41a34676d902b0135a0cea811c12cbb5ae369aa227d7d3a4beb4904917f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2aa893509ccb40dc14c9ace235c61e615e1ce0c9c85a8bcc0f2cf49fcf778bc6"
   end
 
   depends_on "cmake" => :build
@@ -21,16 +22,17 @@ class Xrootd < Formula
   depends_on "python@3.14" => [:build, :test]
   depends_on "davix"
   depends_on "krb5"
+  depends_on "libzip"
   depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "curl"
   uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "util-linux" # for libuuid
+    depends_on "zlib-ng-compat"
   end
 
   def python3

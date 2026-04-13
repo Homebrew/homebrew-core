@@ -10,8 +10,6 @@ class Ares < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ef78e48f63a1af964da3502cf71ecd41039eeefa3fabfef3c4e831382b26f07f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f1ebc203591b997591cf3f7fef4fb145eaf1c7bdda7c1b92a4a5f7c73afc3a1"

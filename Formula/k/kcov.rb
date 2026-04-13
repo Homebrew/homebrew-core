@@ -15,14 +15,13 @@ class Kcov < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "004325cd43501f846fe5f5ffb535bc09101f5905e2e8927f573aee70d9f942ad"
-    sha256 arm64_sequoia: "27ca5bd266a2abb7d98cc23a1a15eac0484e46efe80d39227089b8b1ff013e48"
-    sha256 arm64_sonoma:  "8155c77528de98a10e48bf62182e200fa95a00c740bdba34d16cdc0867c183c2"
-    sha256 arm64_ventura: "9411f9d590330287c00cd1ddb6d73611d788b602d777456f66b830e16af20ecf"
-    sha256 sonoma:        "836ef66f3ef803b9e1739ca8c763481f94cfff677fe6d8df5757c2c641000d4e"
-    sha256 ventura:       "59a2e4f33e2ceaadb3ab0f3493ba9d5ac2963548db22925947a87df7b666b69a"
-    sha256 arm64_linux:   "d1f587bb30ed242db9d735b8c704661649f8a33c7eed1b83f899288333ecf9a2"
-    sha256 x86_64_linux:  "ae7dce32c566b2a2f5af67764737d4513973c2facb9070794aa6d58b423b6918"
+    rebuild 1
+    sha256 arm64_tahoe:   "66b47f9d61f53b74499405515b06143e082dbbb6dc2c7b5c1a5899f70a5e6627"
+    sha256 arm64_sequoia: "011a405bdcae2f4b98225fd2acaa344dc8f4e1146d11a1278b57d90fc549c8c1"
+    sha256 arm64_sonoma:  "d1f7d21d5295a410fe7f7f1eee6af7893fe25100470079e899129081cd680220"
+    sha256 sonoma:        "01edb51341252ffc753b17bdbdb63cf6c352cc2535742aa2f13c2915f07dda07"
+    sha256 arm64_linux:   "7038d1494b3b56a5fc8f4d3f0b3bf3960597cd0516bf28bc90a2adf4068689b4"
+    sha256 x86_64_linux:  "ad1cff7d8d0f3b6d044604c0ea0c6635048f01a9f2494724a91eac68646135a4"
   end
 
   depends_on "cmake" => :build
@@ -33,10 +32,10 @@ class Kcov < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "elfutils"
+    depends_on "zlib-ng-compat"
   end
 
   def install

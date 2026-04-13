@@ -7,8 +7,6 @@ class Iblinter < Formula
   revision 1
   head "https://github.com/IBDecodable/IBLinter.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3ccc5cf7c9e37c007329b85160d1973f853444d151f027469f87501be2ce1dfd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d81bd417d74fbf2809e041c78801e8d83ea8b5e658519e459023197f1e1c3ffb"

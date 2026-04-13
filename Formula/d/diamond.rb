@@ -1,29 +1,25 @@
 class Diamond < Formula
   desc "Accelerated BLAST compatible local sequence aligner"
   homepage "https://github.com/bbuchfink/diamond"
-  url "https://github.com/bbuchfink/diamond/archive/refs/tags/v2.1.18.tar.gz"
-  sha256 "aeae3a5f20bc8770b08ae14e563c8e86f26886b238492b43cd91218ebe891f46"
+  url "https://github.com/bbuchfink/diamond/archive/refs/tags/v2.1.24.tar.gz"
+  sha256 "4879c27a8fc96d84793c3239a314cc3ff78f3b26ee6a3f228cddab6338bc0990"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f359132ef2c414a56d6ea6683da82da8121837289cac5132c9354297653b6b56"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e6d7dbbae843a1ee9cf876c009e0c14b0ecfd8c17c4f738760ae432880166c3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32d39c0c3ec840eeff1e328cbc043870c09a41ac2b8fd77d67e64cd4bc9fe8ee"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b5a02a6440ac029fd6f09b8990cec6048472cbd96a103367744a4611ce4d5740"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d021d3ee4e6050bc3b28cc895515dbba9928b934b9ab3e26916990f80b2c05cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed725a54c57fee429d4900b019331796d1cd62406be07fafaa1a55036bbb0274"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4592cfe55942164d7064b7ba936a4fcdff041f1ac1bc8faf0b745567dd8bcfcf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2629563e999ac799e9c87b37fe110b64ddc83f88ccf65f0169f3943b05dd0934"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c210f45835f48b3ff30915813aee90974461879fe69c8d56b0c4da4e63dac986"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7db2b9a562701e72523da9ef41b7b915d208fafba6b1bae92648429d365db1a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "095fa5e6244146140a6a4f8db2189dfbbe064227c1ffb0159b4b8bc3e24a94f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d542bc6abfc347c2f0b2d3dab8baf6b3bcc288c9a8e0a058a237504fd948b73a"
   end
 
   depends_on "cmake" => :build
 
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
-  # Fixes building with Clang 17+
-  # Upstream PR ref: https://github.com/bbuchfink/diamond/pull/921
-  patch do
-    url "https://github.com/bbuchfink/diamond/commit/72b78f6b994984602f650fe664d5f83ea15b24b6.patch?full_index=1"
-    sha256 "606ffcfc8f68d6a043a0b2a48e3e93a68463017490da9e7be0c9782f825e3ee1"
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

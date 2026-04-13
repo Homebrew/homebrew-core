@@ -7,6 +7,7 @@ class PerlDbdMysql < Formula
   sha256 "aeb0a6e1c26fc28a5cf6de1161e0f056ddcbb739f87954dba7cb1c5acb4e1c33"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   revision 1
+  compatibility_version 1
   head "https://github.com/perl5-dbi/DBD-mysql.git", branch: "master"
 
   bottle do

@@ -4,28 +4,34 @@ class Vis < Formula
   url "https://github.com/martanne/vis/archive/refs/tags/v0.9.tar.gz"
   sha256 "bd37ffba5535e665c1e883c25ba5f4e3307569b6d392c60f3c7d5dedd2efcfca"
   license "ISC"
+  revision 1
   head "https://github.com/martanne/vis.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "9d3f2a7bde3bb933488eb286842e9eecfe7a65443189c12a3b1e351a3d2738e4"
-    sha256 arm64_sequoia: "f1c209db49526dc713fdf8663255d7aef96ce0faf1cca2b2d037fa88888f975b"
-    sha256 arm64_sonoma:  "4de1ac73095911d0aaebca111f7dd326b96c6eec57f5488e76be4ca56ab345e0"
-    sha256 sonoma:        "30727e3f7d1ef664832a4f26127fefc72378b27ea57099b9a10c299494c2e6c3"
-    sha256 arm64_linux:   "ca1b523f0ad09b716cee018694c0cea5a2fd54d2b5357e473fb4b94502eafa8e"
-    sha256 x86_64_linux:  "8c183d876deb3dc5fbcd043e61bb3292eadeb90650e08fbe820d0e40eeebc3bd"
+    sha256 arm64_tahoe:   "48f1f7959be85ddf700d6a18f71e5f1597a490e2679f81038aac4506c3f33472"
+    sha256 arm64_sequoia: "c4cff2af4d8434d9c01314c8020c3831b3047fe2868c33c31210fbe13ed74ce6"
+    sha256 arm64_sonoma:  "bd83067d95abd29e175739d0ccb942008d3a77e8af0fd005073c1bff33a1516c"
+    sha256 sonoma:        "a7460f4c478624d321fcbf3c5eb60d323481d485e5448b295893ece018c17fef"
+    sha256 arm64_linux:   "21494a89af0e59a06cdd78d618c4de6dbe67b2d38421efc88f7500320dfe7b8f"
+    sha256 x86_64_linux:  "9e56addec38aa4ab41947607ed671c38dfa96e4eb0323890579d87ee4aeae839"
   end
 
   depends_on "pkgconf" => :build
   depends_on "libtermkey"
   depends_on "lpeg"
-  depends_on "lua"
+  depends_on "lua@5.4" # https://github.com/martanne/vis/commit/b8fea9bcb14ea10e618c539c400139dd43d90e02
   depends_on "tre"
 
   uses_from_macos "unzip" => :build
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "acl"
+  end
+
   def install
+    odie 'Switch to `depends_on "lua"`!' if build.stable? && version > "0.9"
+
     system "./configure", "--enable-lua", "--enable-lpeg-static=no", *std_configure_args
     system "make", "install"
 

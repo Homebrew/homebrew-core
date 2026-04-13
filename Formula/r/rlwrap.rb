@@ -4,6 +4,7 @@ class Rlwrap < Formula
   url "https://github.com/hanslub42/rlwrap/archive/refs/tags/v0.48.tar.gz"
   sha256 "b2721b1c0147aaafc98e6a31d875316ba032ad336bec7f2a8bc538f9e3c6db60"
   license "GPL-2.0-or-later"
+  compatibility_version 1
   head "https://github.com/hanslub42/rlwrap.git", branch: "master"
 
   livecheck do

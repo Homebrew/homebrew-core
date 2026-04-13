@@ -1,17 +1,17 @@
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-12.0.0.tgz"
-  sha256 "9e9aa47d26cd7a0f44c9741186ccd8d6d755bc89c76c3df0dca06fa8d688a6dd"
+  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-12.1.5.tgz"
+  sha256 "55b338114d2e844713a5ffb52b0443fcc1a82795faff752e6061f35559c0a576"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "36811a347d3c40b216f50d30a1334c5ec6568c2097a0486552cf609862f513fb"
-    sha256 cellar: :any,                 arm64_sequoia: "911ada4d8598436cbd72b0b4d32483af6a0f1b65bd2c390614bd9bbf56665a42"
-    sha256 cellar: :any,                 arm64_sonoma:  "5282d20746caec231c9993bfbcefc113e4519bfbff139e75fe3f156fe3424864"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eaa701a4e6335f0ea902fe309645304543b792c9b1e3ae70b8852de6d1dfa86d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "396a6de5b3fee4099490ef33d5c7cc6a0427cc13d19160da87a697127d86f384"
+    sha256 cellar: :any,                 arm64_tahoe:   "55e7888928c4e5418484ca26338d630b79376c5ca19fb7923f9673004c6fe3b9"
+    sha256 cellar: :any,                 arm64_sequoia: "69eaab71d4cacb25e5bb9d34dc4785d1fba8aa0aca7116f1676e7f5372e070df"
+    sha256 cellar: :any,                 arm64_sonoma:  "cf5b2eb250b58545b9975a6e1c7456a5f5577288322c62ed38eb6dcce359d83e"
+    sha256 cellar: :any,                 sonoma:        "1b792981d70496f453c63af4ab442626d5f1a968225ee039adda59a9edb5a461"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06cfa0bb6778a25e292f9da5f4ff7eda0144540f3e8f9a5893c80b7ceb54f8b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a92212eda132e3c691eb187298407c0433836bda3c1943514cd96e8aaa2a5bb"
   end
 
   depends_on "dotnet" # for dosai
@@ -22,8 +22,8 @@ class Cdxgen < Formula
   depends_on "trivy"
 
   resource "dosai" do
-    url "https://github.com/owasp-dep-scan/dosai/archive/refs/tags/v2.0.3.tar.gz"
-    sha256 "c66f96ab143e5e62262b963142b55f9ca7ae6708d175f62c0130b805dac226a5"
+    url "https://github.com/owasp-dep-scan/dosai/archive/refs/tags/v2.1.1.tar.gz"
+    sha256 "b17b6abdf651e50aea6de4b7652ac5b902ef268a8d33e9b5c47fc687bcd6c5a7"
   end
 
   def install
@@ -42,13 +42,13 @@ class Cdxgen < Formula
     # Remove/replace pre-built binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    node_arch = Hardware::CPU.intel? ? "x64" : "arm64"
     node_modules = libexec/"lib/node_modules/@cyclonedx/cdxgen/node_modules"
-    cdxgen_plugins = node_modules/"@cyclonedx/cdxgen-plugins-bin-#{os}-#{arch}/plugins"
-    rm_r(cdxgen_plugins/"dosai")
-    rm_r(cdxgen_plugins/"sourcekitten")
-    rm_r(cdxgen_plugins/"trivy")
+    cdxgen_plugins = node_modules/"@cdxgen/cdxgen-plugins-bin-#{os}-#{arch}/plugins"
+    sqlite3_prebuilds = node_modules/"@appthreat/sqlite3/prebuilds"
+    paths_to_remove = %w[dosai sourcekitten trivy].map { |plugin| cdxgen_plugins/plugin }
     # Remove pre-built osquery plugins for macOS arm builds
-    rm_r(cdxgen_plugins/"osquery") if OS.mac? && Hardware::CPU.arm?
+    paths_to_remove << (cdxgen_plugins/"osquery") if OS.mac? && Hardware::CPU.arm?
 
     resource("dosai").stage do
       ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
@@ -67,6 +67,12 @@ class Cdxgen < Formula
       ]
       system "dotnet", "publish", "Dosai", *args
     end
+
+    sqlite3_prebuilds.each_child do |dir|
+      paths_to_remove << dir if dir.basename.to_s != "#{os}-#{node_arch}"
+    end
+    paths_to_remove << (sqlite3_prebuilds/"#{os}-#{node_arch}/@appthreat+sqlite3.musl.node") if OS.linux?
+    rm_r(paths_to_remove)
 
     # Reinstall for native dependencies
     cd node_modules/"@appthreat/atom-parsetools/plugins/rubyastgen" do

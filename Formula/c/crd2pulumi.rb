@@ -1,19 +1,18 @@
 class Crd2pulumi < Formula
   desc "Generate typed CustomResources from a Kubernetes CustomResourceDefinition"
   homepage "https://github.com/pulumi/crd2pulumi"
-  url "https://github.com/pulumi/crd2pulumi/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "65ba960325bfbd288b1cbe4675e1c24fd2fe6422b2cffc46a74fa801063beba6"
+  url "https://github.com/pulumi/crd2pulumi/archive/refs/tags/v1.6.1.tar.gz"
+  sha256 "14dff554dc6b26b43d80c36f85bd8768f9361e234aa5dcb48d8579df59c58c80"
   license "Apache-2.0"
   head "https://github.com/pulumi/crd2pulumi.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f2f6276697e0fbf5813f2a51405a7c7aa355a7caa276b0be0fdff66d4e29f1a3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2619f34633c4173d9c0d4c330ebed063e01d61208708558070ff1dce8fbc7d2d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b4f546f02b3a08ab8c15ac26fec587ae4b4188171d1f40cb4155581caf6eca5a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "01d177361c7d4af04228d7de997b6806f6eae68779995b352a08cc0349052910"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5424e8ef62ad55dd7f5815ef0b2ac873270d2ea66d8ef338298529a940ef9393"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63fe361c8a7ab7825a49df171ad3c907207f1f69fce95e703bf008c35b323fcd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "390736f4a83c23f407845ce7ce35757716472b769bee83dcde62f069ff00a46e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1ed183c72738984c22e661317d46e0ecab3d42778cb7717e2416702c8cb4033"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbe06b9b4521bcaf695da2fb7be72a3fdbecb10c67cd1c51cd50bc3f4f0e40f9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b3e9a575ef13202f6cc87a9c294e97a6ed7a0f83ef44c23d10434930a8718b0b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0fa027064356ef61b917229eda5aad7f5de51d51057ca576f47fc2332d5e4530"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e818166ab902b8bd93fde2953476d23b153ccbb38211a5de2590287116e49cc2"
   end
 
   depends_on "go" => :build

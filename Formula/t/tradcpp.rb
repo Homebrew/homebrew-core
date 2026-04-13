@@ -10,8 +10,6 @@ class Tradcpp < Formula
     regex(/href=.*?tradcpp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "68bb9f87e1ac6100139f901a1b2f1de048f4bc3a7c09604ed35c4e46791a886a"

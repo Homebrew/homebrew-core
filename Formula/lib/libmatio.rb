@@ -4,19 +4,25 @@ class Libmatio < Formula
   url "https://downloads.sourceforge.net/project/matio/matio/1.5.30/matio-1.5.30.tar.gz"
   sha256 "8bd3b9477042ecc00dd71c04762fa58468e14cccc32fd8c6826c2da1e8bc3107"
   license "BSD-2-Clause"
+  revision 1
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9cf3f42ae53c32d65f5f42c9f414ae591e32c5e5336051186a14f1224eba731f"
-    sha256 cellar: :any,                 arm64_sequoia: "34be5a2a123f9813a1d8375f6ba12b30c78e00b3a8b2758c67f6701ba2ec2a0b"
-    sha256 cellar: :any,                 arm64_sonoma:  "7497cccbaa11a3b22ca9ec8cbef9d7afd55c72ecb70daee028da83129f582b8f"
-    sha256 cellar: :any,                 sonoma:        "6647928c46028638fd0f9690cc223b74291502c9c4da876e35ea2b58d31d7693"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "300f11933e09721c2019b30963c62fdef25193131f5092d943a4b8a66668fd38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7e6014044b6464f0dc6b16dc9628bc44dc3e094dd42bbac118c8bd0bc2df378"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9ca72d65bf5da29bddfbe606984e69151d6e26744783b2893a34e9318e7ae22c"
+    sha256 cellar: :any,                 arm64_sequoia: "7f5745b00f477b3aa6544162e3bb0ae280898c04041f3b1350bfc507638f040e"
+    sha256 cellar: :any,                 arm64_sonoma:  "047c7d990b169c3ba1215246b4db54cd8ff33b7a194c67e8060aa7ce62c66486"
+    sha256 cellar: :any,                 sonoma:        "83734b9696e4075b6bb93b5759a39f61195f01fa915879912d2622489813d2af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "96ccac4352f0a05a8b17132ffd0ea5f0d6fa9fc26f0f7512c0e3b85616eaf8d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75875bd017f8e01b60e5bf97fc8140440e0dcaa018c4e2d7809f20b31cfd3071"
   end
 
   depends_on "pkgconf" => :test
   depends_on "hdf5"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # fix pkg-config linkage for hdf5 and zlib
   patch :DATA
@@ -27,7 +33,7 @@ class Libmatio < Formula
       --enable-mat73=yes
       --with-hdf5=#{Formula["hdf5"].opt_prefix}
     ]
-    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" unless OS.mac?
+    args << "--with-zlib=#{Formula["zlib-ng-compat"].opt_prefix}" unless OS.mac?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

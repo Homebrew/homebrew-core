@@ -4,8 +4,7 @@ class Libnfc < Formula
   url "https://github.com/nfc-tools/libnfc/releases/download/libnfc-1.8.0/libnfc-1.8.0.tar.bz2"
   sha256 "6d9ad31c86408711f0a60f05b1933101c7497683c2e0d8917d1611a3feba3dd5"
   license "LGPL-3.0-or-later"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     sha256 arm64_tahoe:    "433f60511a9266fb1693203fbf2c91222603118e9057fb8cac76eb897edffa61"

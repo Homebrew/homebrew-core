@@ -11,8 +11,6 @@ class John < Formula
     regex(/href=.*?john[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "de355d8210ec0ecde0806a9934c6f14600943b18ae9e98b67571e7b1f7f215f1"

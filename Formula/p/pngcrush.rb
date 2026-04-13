@@ -12,25 +12,21 @@ class Pngcrush < Formula
     regex(%r{url=.*?/pngcrush[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "50d8436ee484470b88c0cdf9a26a3ad4944eeaa2361b367ec4fd8a2672a09dec"
-    sha256 cellar: :any,                 arm64_sequoia:  "75989b83be1fbc178d98f4f95701ad605c5374b1f46bde052c9b00da7cd30451"
-    sha256 cellar: :any,                 arm64_sonoma:   "dc9ce31ceb46f11395e278373105809e820a7f5c7f5f5ccb5f13ea524d11778a"
-    sha256 cellar: :any,                 arm64_ventura:  "dd2cab183f751d9587c1a6d7fbb9413354efbb4c608439969a301cc1d156f7ba"
-    sha256 cellar: :any,                 arm64_monterey: "748b50c94bac90c737a32e6292b60c2d122cac6bd41152dedb0250f96b577520"
-    sha256 cellar: :any,                 sonoma:         "1b0c5196ebfe0b7a78313a4ab95345d0309fcf0904322e7a4efa57f85ebe8270"
-    sha256 cellar: :any,                 ventura:        "5db90e14f1775d85c6dbb33ab0d0c6d96232f4da05489b845f0f6d3c4ffa579c"
-    sha256 cellar: :any,                 monterey:       "6d59cef2837c1e448fd0501291b94c363229b6af303f2bf2534e17d5e46cfa21"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b85fdd4432e188ce43213bcb8f023303cb8b3e196424c793af66f15ffe1457d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a27f56827740191ffc0b61fc71746628d09270bf82d42bbbe009ebeae299f8a2"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "d480e8fcafb2cce34d273a2142d1db3513fb094e2e1c6b638b67d2114b75a91f"
+    sha256 cellar: :any,                 arm64_sequoia: "86ee7fe3bb318dd870dfa82ed5e765ef2852723c2dc0a2406cbaf131779bc0fe"
+    sha256 cellar: :any,                 arm64_sonoma:  "e98af00364a8cae0050e46f60c6b7ae0213d43fff7ae59616aacee39e33931b0"
+    sha256 cellar: :any,                 sonoma:        "9e118f22662c43c9d1520be4b73645146939660c600e428aa540df8261ea1843"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2c169a69b99d3ca7c13d4b8779adfd09568b8b9059c0d510e66008905513f8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68503c123cc4886ca3b1e759a7b29e9c9e7abed51d31f78f37f197c4bf66affd"
   end
 
   depends_on "libpng"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Use Debian's patch to fix build with `libpng`.
   # Issue ref: https://sourceforge.net/p/pmt/bugs/82/
@@ -40,7 +36,7 @@ class Pngcrush < Formula
   end
 
   def install
-    zlib = OS.mac? ? "#{MacOS.sdk_path_if_needed}/usr" : Formula["zlib"].opt_prefix
+    zlib = OS.mac? ? "#{MacOS.sdk_path_if_needed}/usr" : Formula["zlib-ng-compat"].opt_prefix
     args = %W[
       CC=#{ENV.cc}
       LD=#{ENV.cc}

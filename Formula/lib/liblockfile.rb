@@ -10,8 +10,6 @@ class Liblockfile < Formula
     regex(/href=.*?liblockfile[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_tahoe:    "c382cf8fcf1c7952704c86d38b8fe15ee916870f977df1a92200a8fdaeb77648"
     sha256                               arm64_sequoia:  "22df0fabe8a8f4a92ab8f9d8f7c3add9dc1ca2f6233f0336d6059064dd8cc539"

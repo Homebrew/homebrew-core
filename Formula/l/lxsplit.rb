@@ -5,8 +5,6 @@ class Lxsplit < Formula
   sha256 "858fa939803b2eba97ccc5ec57011c4f4b613ff299abbdc51e2f921016845056"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e8aad7fc027ed1c5b9e42964483b596d5c1cfd98853f5d1cfb64a8f3155b98e3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "af8c07cc79161f9f81048ef1dadeff7098887526cf5e178ae9d80383d2a2fa53"

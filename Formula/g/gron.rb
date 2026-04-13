@@ -6,8 +6,6 @@ class Gron < Formula
   license "MIT"
   head "https://github.com/tomnomnom/gron.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c889681fcb82d04bc59b80fb2beffb61f61794bff3dbe0145454559639a0d7d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8b0537d08cd5b8c60d561cdf84c3f9a2c51006506c36b4a5f54f28b686dd33a6"

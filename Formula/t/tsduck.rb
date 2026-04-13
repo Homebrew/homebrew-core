@@ -16,18 +16,17 @@ class Tsduck < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6df3bda97beca0157e253de2048841ef6d0164bcd624f50e8444e552766b2cc1"
-    sha256 cellar: :any,                 arm64_sequoia: "5b7140f45aed01d2b25bb577b21600b64057c41326a604e4f3e816e9d0c9b031"
-    sha256 cellar: :any,                 arm64_sonoma:  "b21748e23ee625c44d7fa743c03eb7c61b556d4104191dae75662ad1f22de88e"
-    sha256 cellar: :any,                 sonoma:        "2bfd6c803f74c29ae919f147980ae9fa44a830070cb9319ae5f7d5d615db0109"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e422088c607c170a5dcb7d7e1dda9eeacd8507dca9b7f37b33f97d0bff7b437"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68e7d58bf0f93d4600bc093b729163245b709edb9bb83282017c718cfb744e3d"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "9689e7dc782eb2d4ba6a37c4892785031972c51a06f299221ad7a354b1273c77"
+    sha256 cellar: :any,                 arm64_sequoia: "5a5302c71734043a23f3b908f36c39ce83bfd8c5606775af2ea90e5ec7c2e73a"
+    sha256 cellar: :any,                 arm64_sonoma:  "ddc3a7443f8580ab045ac0a938b236bbe5dc76cf818a19c0491c2e0d7f2e0f22"
+    sha256 cellar: :any,                 sonoma:        "d91a66cdad84c2a14af8e36c40d63544e965fb37869684b8c9745cf00589b732"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af4c880922c1767a187fda85b0f620aa98fb64d7652183df5ad52ab93cc7fe3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0c3336e614147bf079ce1c5feb71c03a3757488d0b43dd3e675f9f23ee972a5"
   end
 
   depends_on "asciidoctor" => :build
   depends_on "dos2unix" => :build
-  depends_on "gnu-sed" => :build
-  depends_on "grep" => :build
   depends_on "openjdk" => :build
   depends_on "qpdf" => :build
   depends_on "librist"
@@ -39,12 +38,15 @@ class Tsduck < Formula
   uses_from_macos "curl"
   uses_from_macos "libedit"
   uses_from_macos "pcsc-lite"
-  uses_from_macos "zlib"
 
   on_macos do
-    depends_on "bash" => :build
+    depends_on "gnu-sed" => :build
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1599
-    depends_on "make" => :build
+    depends_on "make" => :build # needs make 4+
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   # Needs clang 16
@@ -64,6 +66,8 @@ class Tsduck < Formula
     if OS.linux?
       ENV["LINUXBREW"] = "true"
       ENV["VATEK_CFLAGS"] = "-I#{Formula["libvatek"].opt_include}/vatek"
+    else
+      ENV["LDFLAGS_EXTRA"] = "-Wl,-rpath,#{rpath(source: lib/"tsduck")}"
     end
     system "gmake", "NOGITHUB=1", "NOTEST=1"
     ENV.deparallelize

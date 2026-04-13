@@ -6,6 +6,8 @@ class Libssh2 < Formula
   mirror "http://download.openpkg.org/components/cache/libssh2/libssh2-1.11.1.tar.gz"
   sha256 "d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658f7"
   license "BSD-3-Clause"
+  revision 1
+  compatibility_version 1
 
   livecheck do
     url "https://libssh2.org/download/"
@@ -13,14 +15,14 @@ class Libssh2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ec865686b712ca3eeee298124d08aacce8d6b67e37ba6e1bd8499fbce13a5ad3"
-    sha256 cellar: :any,                 arm64_sequoia: "4fd55e8973a9454001ac289972767ca8927f3639aa44715aa1e9ba81c3712245"
-    sha256 cellar: :any,                 arm64_sonoma:  "2e6ffae575cf6e8335026f209f24c8a12250afa093e7a49577ee95c3bb781554"
-    sha256 cellar: :any,                 arm64_ventura: "f1a9194b318669ded3d72a045c1cc30b4ce53dcb23a0b5953910f6dcd341522b"
-    sha256 cellar: :any,                 sonoma:        "092a33680301532d2ba966e85b3316198d65891a0aa6211d616575cc82bbd09f"
-    sha256 cellar: :any,                 ventura:       "b34913dfb88d186400ec06e9beff6d81824c082c5920c88737df980ca9b602b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "583976433ceba6667dec4452c6533fe4c10d0343b082ac683cd1b8407cbf76fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a307208b03d0761f7ea8c53a322ea09b0a60db96e3ef8688df6adec92b45ca5b"
+    sha256 cellar: :any,                 arm64_tahoe:   "b435df4f6ec7e67cff3f37ebac8cad358d3ca42711a818530530470cc65595fc"
+    sha256 cellar: :any,                 arm64_sequoia: "77fcd30972333f681544cb8fee68818fc6652029ec4e3efa0724ca60447e9881"
+    sha256 cellar: :any,                 arm64_sonoma:  "34927ad08cd265d32f1390a92d84451f85ab5b2f28101ca951da3d3e9df12047"
+    sha256 cellar: :any,                 tahoe:         "e78effa726d2b874656684a29acf0991dabc1a0c7833df43918883a90a06c5e5"
+    sha256 cellar: :any,                 sequoia:       "004683da08b3ee0b01d9b64732e8ccc5158a3d6d68963028177a1a97e47de77a"
+    sha256 cellar: :any,                 sonoma:        "1f270e8ce9bd56c4d7b894d385e04912c64b53be1402d25dfc8b6d7e01521176"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c46480fecd2fe0291afd9957316d6485179b050624dcb6b21753eacab3b28c96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69d8d069827f2d1b395fd2edf20d5df3dd88e8c45d9db330d293004d70a7413f"
   end
 
   head do
@@ -33,7 +35,9 @@ class Libssh2 < Formula
 
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

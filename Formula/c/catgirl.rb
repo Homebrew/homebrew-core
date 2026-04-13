@@ -10,8 +10,6 @@ class Catgirl < Formula
     regex(/href=.*?catgirl[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "351867ae899c5212701dff3cbc5aaf3e64ae7f250343de7d10b411365e1ab87e"
     sha256 arm64_sequoia: "10113098841cbf331b3b7ecd70b8fcadc65ee0d863f9fd46671d28325e9e1066"
@@ -23,8 +21,8 @@ class Catgirl < Formula
     sha256 x86_64_linux:  "b6849416058a2849403173bf34aba0a45d8c27f3a3ff2e43973f0480f6552c00"
   end
 
-  depends_on "ctags" => :build
   depends_on "pkgconf" => :build
+  depends_on "universal-ctags" => :build
 
   depends_on "libretls"
   uses_from_macos "ncurses"
@@ -37,7 +35,7 @@ class Catgirl < Formula
 
     args << "--enable-sandman" if OS.mac?
 
-    system "./configure", *std_configure_args, *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

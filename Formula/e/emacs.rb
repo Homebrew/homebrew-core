@@ -7,14 +7,16 @@ class Emacs < Formula
   sha256 "b3f36f18a6dd2715713370166257de2fae01f9d38cfe878ced9b1e6ded5befd9"
   license "GPL-3.0-or-later"
   revision 2
+  compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "1e9d72a5821b09957ad3cfc98b91239bd68b905d74edc129537ae97819a49c04"
-    sha256 arm64_sequoia: "d9b7aaf2b753d0e741549390f1996e3283edd8ffea377ee9450ad324b66a239e"
-    sha256 arm64_sonoma:  "d9d52a9f142dbfc902e9b9edbc36d0175f999d0ccfdf8c4c55596b6f43cb2183"
-    sha256 sonoma:        "c0c85e628128ff1d50d811d486a57d67aa28148730304bdbbd3a91f685935104"
-    sha256 arm64_linux:   "a9091dc165ed17e69952976e3990b9027122ab1bde2d54b6aac42d1bacd3717f"
-    sha256 x86_64_linux:  "558b2a64792d33ea76537a2dca64927d15b91ebd0f13e07e776b01ac8acb8495"
+    rebuild 1
+    sha256 arm64_tahoe:   "b543c7f67a1b82570fad2420b29915a1a52ce9ec8fcc48671bdbce77fe9d21c3"
+    sha256 arm64_sequoia: "04cac5742a25b61d4a8bcff66708109f455ec4c758520f542faf41ee55f7cdf1"
+    sha256 arm64_sonoma:  "655ed2f5dc5bd33d1855a302dfee5156608576a5b26b56913256bf9f4cfaa680"
+    sha256 sonoma:        "19cd1d2285e96a773535d7f4f31e39e8405fcc0531d54c143a64bb9e686a7d6f"
+    sha256 arm64_linux:   "56d1d96343d318623ed86f2f785b4bd9a33b36fe1b19cc9f60aa981d86994da5"
+    sha256 x86_64_linux:  "32507fbd3da18c3e6285b2747f2f514273de1a47e2e5a9ae3f5d08521b40a931"
   end
 
   head do
@@ -32,10 +34,10 @@ class Emacs < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "jpeg-turbo"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with cask: "emacs-app"

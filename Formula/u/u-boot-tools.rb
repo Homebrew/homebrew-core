@@ -1,8 +1,8 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "https://ftp.denx.de/pub/u-boot/u-boot-2026.01.tar.bz2"
-  sha256 "b60d5865cefdbc75da8da4156c56c458e00de75a49b80c1a2e58a96e30ad0d54"
+  url "https://ftp.denx.de/pub/u-boot/u-boot-2026.04.tar.bz2"
+  sha256 "ac7c04b8b7004923b00a4e5d6699c5df4d21233bac9fda690d8cfbc209fff2fd"
   license all_of: ["GPL-2.0-only", "GPL-2.0-or-later", "BSD-3-Clause"]
 
   livecheck do
@@ -11,12 +11,12 @@ class UBootTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "88479294771ca0eb46089a2d4c8f587ab4aae4c6d9bb3d36873862148beb6837"
-    sha256 cellar: :any,                 arm64_sequoia: "278278c783544f5edca4bff2862499af8a0ec500f7a6ffc495b5c6765cedec5e"
-    sha256 cellar: :any,                 arm64_sonoma:  "85267b211db10cdb89d2afd4b098f43501beb921da8fcbf0755b28aaf2cbad38"
-    sha256 cellar: :any,                 sonoma:        "f38775bf05bd5991b1d1bf5c0b105cf276ea782037e11b1e091badacc1777842"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "06daa7f7fa4fd38bd3f7d4f587e49ad3539c769d7b00586be1cd0f4086fa451c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "999e0af3ac7448b1c8d8eb2c36afb58985e27b9f4057b4aab2151c7e952a7bdc"
+    sha256 cellar: :any,                 arm64_tahoe:   "a9ca64f16581d0f3c90d1b39b20f3d94e07bca1c8a65a40cdaca63171e73c431"
+    sha256 cellar: :any,                 arm64_sequoia: "a5886b8319d63b74bff1fe8786cace9aafd69f83d610acaafb14eba93ee89bc2"
+    sha256 cellar: :any,                 arm64_sonoma:  "db49877c14f39a27e753b3851204ddd6b5b58ef1b47ec88355f002b3f30133fb"
+    sha256 cellar: :any,                 sonoma:        "85656af6c548d88e472b97dcfeec8f36d83c19b4e634da9246309c1054ee12ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f74ae017b09cfb0be45813a77e93d5d56bfcc23004f49e6c2df2c225dcb3d48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "212eba5d4045ea47b8522a0a0c5aae4fabab8c2d8e94cfdf20b211290b4151d5"
   end
 
   depends_on "coreutils" => :build # Makefile needs $(gdate)
@@ -36,11 +36,13 @@ class UBootTools < Formula
     system "make", "tools-only", "NO_SDL=1"
     bin.install "tools/mkimage"
     bin.install "tools/dumpimage"
+    bin.install "tools/mkenvimage"
     man1.install "doc/mkimage.1"
   end
 
   test do
     system bin/"mkimage", "-V"
     system bin/"dumpimage", "-V"
+    system bin/"mkenvimage", "-V"
   end
 end

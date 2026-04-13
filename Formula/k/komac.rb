@@ -1,18 +1,18 @@
 class Komac < Formula
   desc "Community Manifest Creator for Windows Package Manager (WinGet)"
   homepage "https://github.com/russellbanks/Komac"
-  url "https://github.com/russellbanks/Komac/archive/refs/tags/v2.14.0.tar.gz"
-  sha256 "00e2dbc44bbc25bdfa9c8b425b641736b6677bc8b388d288e2c9bc37531d4ddd"
+  url "https://github.com/russellbanks/Komac/archive/refs/tags/v2.16.0.tar.gz"
+  sha256 "a88eb12956091e2e5bd9b15184a4efc953c037346fe66f81d2553c08b9e81da4"
   license "GPL-3.0-or-later"
   head "https://github.com/russellbanks/Komac.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "84dbdb915c8a60ef427b244d1358abd5f04f9e02cdb8f60bb65a69ea1cddbeea"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "62412ca1ce2fccf139a4b85b308cad62c58dbb58b3c8649dfa854674e07b43c4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c2694b4f7a1acd52f057efe6c5f541e550c21b1d884481880cdc3b1075ff5a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0c39adf41541f063b64a935841fc190024cad997ee9165f3e14272525babfdf5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "85d86fdc309d27b48f7703d45fb771390978be13647158e1e70443151d98cb2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e12421bdc9dfffc4875c41b7a118673c67cec6bb4437225731d8f77288a9fe68"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "73b35bb2d85e740a8601845dfa23958bd12d6d6d0b85831665e11e2ae8b63b9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "35e910178255d87137e43f4f7d71396982e9b8c930b40a777ec2f382b66caf23"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "92eb2c50aad8a8a812245f5118f71ed5a8e8f28b04ead558f60439ca755f2575"
+    sha256 cellar: :any_skip_relocation, sonoma:        "70d1b06a7ecbda682281841b977f16c1b9d81d838f4280c4734374a902dc0825"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "295c4d298fedffa4ff7f6becf30607c6b5651ee5b892309e9e13f033144653f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "362ef26a8e39f78324a3020a0bf4e446c52a60c70d22e7eb6b1191f10e83d618"
   end
 
   depends_on "pkgconf" => :build
@@ -20,6 +20,7 @@ class Komac < Formula
 
   on_linux do
     depends_on "openssl@3"
+    depends_on "zlib-ng-compat"
   end
 
   def install

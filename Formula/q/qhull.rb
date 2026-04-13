@@ -5,6 +5,7 @@ class Qhull < Formula
   mirror "http://www.qhull.org/download/qhull-2020-src-8.0.2.tgz"
   sha256 "b5c2d7eb833278881b952c8a52d20179eab87766b00b865000469a45c1838b7e"
   license "Qhull"
+  compatibility_version 1
   head "https://github.com/qhull/qhull.git", branch: "master"
 
   # It's necessary to match the version from the link text, as the filename
@@ -14,7 +15,7 @@ class Qhull < Formula
     regex(/href=.*?qhull[._-][^"' >]+?[._-]src[^>]*?\.t[^>]+?>[^<]*Qhull v?(\d+(?:\.\d+)*)/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 1

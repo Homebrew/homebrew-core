@@ -1,11 +1,12 @@
 class FfmpegFull < Formula
-  desc "Play, record, convert, and stream audio and video"
+  desc "Play, record, convert, and stream many audio and video codecs"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-8.0.1.tar.xz"
-  sha256 "05ee0b03119b45c0bdb4df654b96802e909e0a752f72e4fe3794f487229e5a41"
+  url "https://ffmpeg.org/releases/ffmpeg-8.1.tar.xz"
+  sha256 "b072aed6871998cce9b36e7774033105ca29e33632be5b6347f3206898e0756a"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
-  license "GPL-2.0-or-later"
+  # Passing `--enable-version3` changes the license to GPL v3+.
+  license "GPL-3.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -13,12 +14,13 @@ class FfmpegFull < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "35f83f7e54a03bfd0e703457877748eaf26830c8a0e5549005e493287ac3aefe"
-    sha256 arm64_sequoia: "3f93e78d820ce0abdbf2d7ca85abef2114f4158ab8a42279717000f730a0b73f"
-    sha256 arm64_sonoma:  "71ab6bdc0a0dc9e2e125e2101f9ba1cd8bbfd8da0753a45ac8b3ae11ce09805f"
-    sha256 sonoma:        "051d412ce667496d5f917e717ae317c5df25fd78ddff019c27e16f857aa5e7a4"
-    sha256 arm64_linux:   "e991199149ba3be42d3a6e3250b87a4692488ae2ab6957866d5bdf419fab38c5"
-    sha256 x86_64_linux:  "118476947da3654a3db8c37e83f5d20247a515cc554cc400463d30fd69df0646"
+    rebuild 1
+    sha256 arm64_tahoe:   "a682623c2212746be339ecba18fd6f889de4ae9ed9b198d4a165fba7fc975dbc"
+    sha256 arm64_sequoia: "87c11a185968cf36f74231461c89c99e5190ea8f0e545a63c8d58e9e2b48aef5"
+    sha256 arm64_sonoma:  "ac21c7686e4d4b0f1f4bd838140b04eabd972106337d57210c57957b5943ed07"
+    sha256 sonoma:        "d06b9e91cd44842c21d4dafa2e2695c208052c9ab4ede50baf7d2a95848c3bb0"
+    sha256 arm64_linux:   "67f69ca1409acc4fa707205bbdb5220ab6d9c56d2dc6b91bc54b11b44e446be0"
+    sha256 x86_64_linux:  "a97e9104ceb0a4fdb81fb817816d63642431b0ff450741eb8ba1c5879b106ffa"
   end
 
   keg_only :versioned_formula
@@ -29,13 +31,15 @@ class FfmpegFull < Formula
   depends_on "dav1d"
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "frei0r"
+  depends_on "frei0r" => :no_linkage
+  depends_on "ggml"
   depends_on "gnutls"
   depends_on "harfbuzz"
   depends_on "jpeg-xl"
   depends_on "lame"
   depends_on "libass"
   depends_on "libbluray"
+  depends_on "libplacebo"
   depends_on "librist"
   depends_on "libsoxr"
   depends_on "libssh"
@@ -45,7 +49,6 @@ class FfmpegFull < Formula
   depends_on "libvpx"
   depends_on "libx11"
   depends_on "libxcb"
-  depends_on "llama.cpp"
   depends_on "opencore-amr"
   depends_on "openjpeg"
   depends_on "opus"
@@ -69,7 +72,6 @@ class FfmpegFull < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libarchive"
@@ -81,17 +83,11 @@ class FfmpegFull < Formula
     depends_on "alsa-lib"
     depends_on "libxext"
     depends_on "libxv"
+    depends_on "zlib-ng-compat"
   end
 
   on_intel do
     depends_on "nasm" => :build
-  end
-
-  # Fix for QtWebEngine, do not remove
-  # https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=270209
-  patch do
-    url "https://gitlab.archlinux.org/archlinux/packaging/packages/ffmpeg/-/raw/5670ccd86d3b816f49ebc18cab878125eca2f81f/add-av_stream_get_first_dts-for-chromium.patch"
-    sha256 "57e26caced5a1382cb639235f9555fc50e45e7bf8333f7c9ae3d49b3241d3f77"
   end
 
   def install
@@ -117,6 +113,7 @@ class FfmpegFull < Formula
       --enable-libjxl
       --enable-libmp3lame
       --enable-libopus
+      --enable-libplacebo
       --enable-librav1e
       --enable-librist
       --enable-librubberband

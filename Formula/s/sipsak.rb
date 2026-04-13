@@ -5,8 +5,6 @@ class Sipsak < Formula
   sha256 "c6faa022cd8c002165875d4aac83b7a2b59194f0491802924117fc6ac980c778"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "37a5656c10f93d897736172dcbd077d323c3c6924f28cf88c8cfd70adbe4443f"

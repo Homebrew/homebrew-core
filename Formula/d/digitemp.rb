@@ -6,8 +6,6 @@ class Digitemp < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/bcl/digitemp.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "4814840607f10a9305f0840e3d93bf5a5ef4c050c4f3d11dc624a9c66df7ac58"
     sha256 cellar: :any,                 arm64_sequoia:  "e807829f6b24e85e3cb39c442aff3b400d886b16b6a17b7122df5b3ec9a92bc1"

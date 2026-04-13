@@ -1,17 +1,17 @@
 class BeadsViewer < Formula
   desc "Terminal-based UI for the Beads issue tracker"
   homepage "https://github.com/Dicklesworthstone/beads_viewer"
-  url "https://github.com/Dicklesworthstone/beads_viewer/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "6e21ee6ec7c14044b3a78a0ee4819bfa42ee2b60c52216bd71e64f3822164fb3"
+  url "https://github.com/Dicklesworthstone/beads_viewer/archive/refs/tags/v0.15.2.tar.gz"
+  sha256 "0a21d90888f5c932a9ccb6711dcd163e4e301a1bcfc97c00e4c7d7f0418a01f7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83dce2d32cedc5a302aaeaeaf84b0c85410dd23b963591147ebbc5055c86048c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "83dce2d32cedc5a302aaeaeaf84b0c85410dd23b963591147ebbc5055c86048c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83dce2d32cedc5a302aaeaeaf84b0c85410dd23b963591147ebbc5055c86048c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1524c3ddfaca02305641197f7fddd5b38ad556be3425466a09156e53ce0bf669"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6581db366ae6efe514092c939fd1755879d5b4ed635bd11ef46cbdfdc9f64116"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b9fec8ba6fbbfc66ed585785ff856d6638ef50b7de975d4efbfb70d3f10e569"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc0b3b175a5e5771e9dd74ffc7d949febe8525cf472e63fd56945489e9b315ae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc0b3b175a5e5771e9dd74ffc7d949febe8525cf472e63fd56945489e9b315ae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc0b3b175a5e5771e9dd74ffc7d949febe8525cf472e63fd56945489e9b315ae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "50a3902f29d8c663c02802f09bb933bd8a8458fa522b40d11ab1d953c9fa3701"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cba9367387eb80fcf05859c0da9fdcee2e0b3ba4d028d2e8f47e3c5c20a8c1bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "972d338c1f041a5154f173ebc811e0d704e801b5017fcebcf2bbc1e33568ce10"
   end
 
   depends_on "go" => :build

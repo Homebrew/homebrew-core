@@ -5,8 +5,6 @@ class Spin < Formula
   sha256 "e46a3bd308c4cd213cc466a8aaecfd5cedc02241190f3cb9a1d1b87e5f37080a"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "64d6db348e89f72bd9104ea58648f9de630ebbe1f97dbbba7bde5f72d127639b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8eae14c8c6dce13b7a40a21f94b481c5f0a589aacc993e21433ed498c6e44165"

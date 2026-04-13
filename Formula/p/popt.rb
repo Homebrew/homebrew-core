@@ -5,6 +5,7 @@ class Popt < Formula
   mirror "http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.19.tar.gz"
   sha256 "c25a4838fc8e4c1c8aacb8bd620edb3084a3d63bf8987fdad3ca2758c63240f9"
   license "MIT"
+  compatibility_version 1
 
   # The stable archive is found at https://ftp.osuosl.org/pub/rpm/popt/releases/popt-1.x/
   # but it's unclear whether this would be a reliable check in the long term.
@@ -14,8 +15,6 @@ class Popt < Formula
     url :homepage
     regex(/^(?:popt[._-])?v?(\d+(?:[._]\d+)+)(?:[._-]release)?$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "365d143d0d38003c60c1d6fb6d399ab4361690a64467d46a8f27c2f50d2dcfb6"

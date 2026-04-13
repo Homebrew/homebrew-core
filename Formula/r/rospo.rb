@@ -1,18 +1,17 @@
 class Rospo < Formula
   desc "Simple, reliable, persistent ssh tunnels with embedded ssh server"
   homepage "https://github.com/ferama/rospo"
-  url "https://github.com/ferama/rospo/archive/refs/tags/v0.15.1.tar.gz"
-  sha256 "338157a7a34abf35f7fdb84a1667c49e07d95cd3ef33e8e5f9ce2cb0e55d4647"
+  url "https://github.com/ferama/rospo/archive/refs/tags/v0.15.3.tar.gz"
+  sha256 "4c36291969c84159baff261841e6ccd9520e17f8bc9142bf815b9097322a8857"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a5a76d59249cfd0a2b3a13e240de2743859cd2efcae738be4a2b868df84f16ca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a5a76d59249cfd0a2b3a13e240de2743859cd2efcae738be4a2b868df84f16ca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5a76d59249cfd0a2b3a13e240de2743859cd2efcae738be4a2b868df84f16ca"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8e4104cebc3b70dc7386c81dcca0100ae2db2faeecaaaa5081411cc25813c082"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9fc85fdc3962251bff000fa1fbac21a1d4735b9427ff3d6c919ce12652057218"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "593d8629d1bb8d3439b00aabcf405fa61f73c3f83e4705445a79c9835f89d683"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "43494ada262f259f82c05219386a821a57d24053dc7d17f5bf0466509c2a529a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43494ada262f259f82c05219386a821a57d24053dc7d17f5bf0466509c2a529a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43494ada262f259f82c05219386a821a57d24053dc7d17f5bf0466509c2a529a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "19405ba3bdc6ee02655fa1ab3eb9b89aedeb4459792b08d313731e5bab9edd69"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3772e1d03c5b37d9a00700c5628c8680fa3ab3d7801145f60a3270d2e2aba275"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2180b3eabb574fdf196c1ec808c62d602637982a7eca1a01dc9d2b0afeea7873"
   end
 
   depends_on "go" => :build

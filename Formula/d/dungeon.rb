@@ -6,8 +6,6 @@ class Dungeon < Formula
   license "HPND"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_tahoe:    "f2275404ff5d7dc7bb33a0b5f90d2828faad83a4172b4678521fa6b248a99cee"
     sha256                               arm64_sequoia:  "d50cc1299d0c1d287a9528d49f0f93e2e208eb7cc6e766cab75a892063e2264f"

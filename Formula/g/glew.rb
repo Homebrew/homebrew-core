@@ -1,19 +1,19 @@
 class Glew < Formula
   desc "OpenGL Extension Wrangler Library"
   homepage "https://glew.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/glew/glew/2.3.0/glew-2.3.0.tgz"
-  sha256 "b261a06dfc8b970e0a1974488530e58dd2390acf68acb05b45235cd6fb17a086"
+  url "https://downloads.sourceforge.net/project/glew/glew/2.3.1/glew-2.3.1.tgz"
+  sha256 "b64790f94b926acd7e8f84c5d6000a86cb43967bd1e688b03089079799c9e889"
   license "BSD-3-Clause"
-  revision 1
+  compatibility_version 1
   head "https://github.com/nigels-com/glew.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "20ceac578d8d66661d5c65047ffddb4148ab236cb9e07f67462a46362aeafa95"
-    sha256 cellar: :any,                 arm64_sequoia: "19159872e52e5f03c4c83c772d8a388955bcf1cb3745cde6a07ea4395acf8bda"
-    sha256 cellar: :any,                 arm64_sonoma:  "33565abbfae16cbf1662f006df2254930506d09f23782b14f39b4704809d6938"
-    sha256 cellar: :any,                 sonoma:        "a20e82f3d6e66aeb6c178ed2aa2f331e915d6fff73e3e54df83f46629954fd1c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f1a4a8e64c51a9941d374dff39d952da8b93e0ce1ef2e4c2dd0df1ad00d9f39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "920af8d79b6b8c1db8c05084b92e9eff12d177254edff62fd235b29f71c9f0de"
+    sha256 cellar: :any,                 arm64_tahoe:   "1ec85f5ae1b523fe8b30ccd462b1f7988693f0f7b87660b12d08ecf575a1cf01"
+    sha256 cellar: :any,                 arm64_sequoia: "7cec448d9e7413bea9130a398f7ebdec896c0148f37dc69302b95f5079c0f2f1"
+    sha256 cellar: :any,                 arm64_sonoma:  "7f3110639abd423d4fe61c34b6f33bb8b859141e22ad3c32337f36508f9865c7"
+    sha256 cellar: :any,                 sonoma:        "a6ae467e7998dfc0f8b237f01118194c9aed50bc5f769cc2c10d116d14accdde"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "72762b76d9023594c8e7c35404458a7ab43b169116d73545d46b892a83314552"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8f24c5184a070eb8500a8def5fa6b5bf4bb8b531fc305f0aa4cd71cc3fb5af6"
   end
 
   depends_on "cmake" => [:build, :test]

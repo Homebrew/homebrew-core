@@ -6,8 +6,6 @@ class Mkcert < Formula
   license "BSD-3-Clause"
   head "https://github.com/FiloSottile/mkcert.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9863f54426db9df99173be319b283ec3a08d5dbd320987259676d2ddbb05b9f0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f8988b4b5f85474931db021d3b5968576f2be4b151c00d943441196f4186324f"

@@ -1,9 +1,9 @@
 class Snap < Formula
   desc "Tool to work with .snap files"
   homepage "https://snapcraft.io/"
-  url "https://github.com/canonical/snapd/releases/download/2.73/snapd_2.73.vendor.tar.xz"
-  version "2.73"
-  sha256 "c47fe0c00df5e153b312b5f6dabec49158c8c872ed1eae5e342229bb229a5d85"
+  url "https://github.com/canonical/snapd/releases/download/2.74.1/snapd_2.74.1.vendor.tar.xz"
+  version "2.74.1"
+  sha256 "126f41aba651ec36c1d946b389687d937d3e96489b683cffdc4f37bd9deb1d46"
   license "GPL-3.0-only"
 
   livecheck do
@@ -12,12 +12,12 @@ class Snap < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c8706a57b65a6403d4c0cb1e080a113b466fa51c223fb39b6c34cd0a6fe37a80"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8706a57b65a6403d4c0cb1e080a113b466fa51c223fb39b6c34cd0a6fe37a80"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8706a57b65a6403d4c0cb1e080a113b466fa51c223fb39b6c34cd0a6fe37a80"
-    sha256 cellar: :any_skip_relocation, sonoma:        "542f877dd4c60f00c51e3d1487b60c60de89894584bacbf59ff9c5542276a20f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b42bd7a19d6bbb44eabc056aaaf4954e65c29dd3b7c54058781646b58aebde98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfcf7d50e5348a8737bdfaf4a7189e2a3bef3926b7c0e6396b9abdc0c7971d4d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d4fdde9c0dd434c50ec1f145aa608224e071a9d19feb63f9b73eb3db997cf77b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d4fdde9c0dd434c50ec1f145aa608224e071a9d19feb63f9b73eb3db997cf77b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d4fdde9c0dd434c50ec1f145aa608224e071a9d19feb63f9b73eb3db997cf77b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8426769329f282d1fe9e3967ea8a18c499baa5e53c72fe4dbcb5bf73696d1b77"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2aa78782d3dfebeb3a5544f2e9199e411f906bb573f6c5cca24d563110cb50a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40ce7582b477a6b33f53dd1734a4182456ddcfe9469cf555dd647331c80106e4"
   end
 
   depends_on "go" => :build

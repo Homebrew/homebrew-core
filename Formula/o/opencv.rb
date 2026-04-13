@@ -2,7 +2,8 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 1
+  revision 7
+  compatibility_version 1
 
   stable do
     url "https://github.com/opencv/opencv/archive/refs/tags/4.13.0.tar.gz"
@@ -24,12 +25,12 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "1070a3c860708ba088b5c8559400a5a90ac6ddaa068301c008453e2909625622"
-    sha256 arm64_sequoia: "60a82c8ac479e04cabf9d8a42fa9920d41ec32297952ec6e0badcd51de59eb0b"
-    sha256 arm64_sonoma:  "d0a49da579bf6c56622c2811f77f223f8256cd552f281dcdc01680c6ab97145c"
-    sha256 sonoma:        "5cd7fca5532d1d2390bcda723752705e59a6bee22ba308b2908450bfa276b1fa"
-    sha256 arm64_linux:   "52771b7bece6cedd179ff02c554de453daa78bea2b5f4e53dd4afc5b3f5a3334"
-    sha256 x86_64_linux:  "7e4890be22fce93370e5cf3cd26efb36c85c04d6b03a3a07483e2d99abc6515d"
+    sha256 arm64_tahoe:   "6da47b1eace0e3a0ab815a21d582cc3e4dadde2db9618407c514bc02365971ea"
+    sha256 arm64_sequoia: "8805c2677f819a3305dc3ac529a20c4de09d9c5c14ec64cde51ddde94b88274d"
+    sha256 arm64_sonoma:  "51675bfb8aeb55fe1caab6876ee2f5ae1c7ef9621be0af88e72c6cb6d2e8c09d"
+    sha256 sonoma:        "cb0d11e34c7cb0c908fe3fb97bf4426f983122fff2637f4c65f86b54629ac6c3"
+    sha256 arm64_linux:   "1314d585a6b435c53d9d1aa42c85841be78cc00059b836bbfa9eb2e40a4bf6bf"
+    sha256 x86_64_linux:  "2fe148225dc42a0512c7f451357adc906e04d7661d3504404c222ea2395a583f"
   end
 
   head do
@@ -67,8 +68,6 @@ class Opencv < Formula
   depends_on "vtk"
   depends_on "webp"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "glew"
     depends_on "imath"
@@ -80,6 +79,7 @@ class Opencv < Formula
     depends_on "gdk-pixbuf"
     depends_on "glib"
     depends_on "gtk+3"
+    depends_on "zlib-ng-compat"
   end
 
   def python3
@@ -95,6 +95,11 @@ class Opencv < Formula
     # Remove bundled libraries to make sure formula dependencies are used
     libdirs = %w[ffmpeg libjasper libjpeg libjpeg-turbo libpng libtiff libwebp openexr openjpeg protobuf tbb zlib]
     libdirs.each { |l| rm_r(buildpath/"3rdparty"/l) }
+
+    # Fix OpenVINO 2026 Tensor::data() constness mismatch, upstream bug report, https://github.com/opencv/opencv/issues/28586
+    inreplace "modules/dnn/src/op_inf_engine.cpp",
+              "return Mat(size, type, blob.data());",
+              "return Mat(size, type, const_cast<void*>(blob.data()));"
 
     args = %W[
       -DCMAKE_CXX_STANDARD=17
@@ -153,7 +158,7 @@ class Opencv < Formula
         -DPROTOBUF_PROTOC_EXECUTABLE=#{Formula["protobuf"].bin}/protoc
         -DTIFF_LIBRARY=#{Formula["libtiff"].opt_lib}/libtiff.so
         -DWITH_V4L=OFF
-        -DZLIB_LIBRARY=#{Formula["zlib"].opt_lib}/libz.so
+        -DZLIB_LIBRARY=#{Formula["zlib-ng-compat"].opt_lib}/libz.so
       ]
     end
 

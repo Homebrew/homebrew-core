@@ -15,14 +15,13 @@ class Gismo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cf57d6021c5640658228e7e4730e8fc4db43487a1f41b41f82762a70a4ab85ed"
-    sha256 cellar: :any,                 arm64_sequoia: "f7b5ef891bbf14959a34beb2a22c25e6356af65846721437145ee3a91fdc9f07"
-    sha256 cellar: :any,                 arm64_sonoma:  "1e8087112ce74db21a93335c87785dc48cb4ea4892cc82f01a54e2a0a66b286a"
-    sha256 cellar: :any,                 arm64_ventura: "639c3f0f2779a419545c3e0d1fdbc56d792fb7f38be5bbc03bbf2032b5b658f1"
-    sha256 cellar: :any,                 sonoma:        "e6cddae3701154c7eb9d849f6f040ca92051b60a42043012ed2a7b9d56016780"
-    sha256 cellar: :any,                 ventura:       "9dd6d7d97c1abca6312a496c0a877f6257dfaf66d25c2f3e3f118043779c071b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6179384418da84074db83949a3def84a71f7a6ffa52003a792cbbdbf6fd5b9fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "820d285b212f7e9e7c758ce74f59b378331c7a5dc139e620c66cb69501e72b3e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "fd7006fc0945d60cb2d347a09f019f801c1527730b40730165c06ae76a88c842"
+    sha256 cellar: :any,                 arm64_sequoia: "300458041bc09d87f28ef16f0071c0cc1b0024b87cda3da9c9ef65640c92019d"
+    sha256 cellar: :any,                 arm64_sonoma:  "12eea2c988fcbdf05ca9dfeefbe47febab751e7c0fc6d7c90d79149f60bf90eb"
+    sha256 cellar: :any,                 sonoma:        "ba784d2ae9dcca467f6d9e861669791ff1ec1fe366e5427da632c9af96ba5bdd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71a85158fdc809bceb5bee05754ffa396d4b25c6d4899138121b29447f559656"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a427d0bff623017d3cd0d7572ef898df0a0bef277788019c08a0a7c89a1a294"
   end
 
   depends_on "cmake" => :build
@@ -30,10 +29,12 @@ class Gismo < Formula
   depends_on "suite-sparse"
   depends_on "superlu"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

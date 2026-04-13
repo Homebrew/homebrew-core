@@ -6,14 +6,13 @@ class Libzzip < Formula
   license any_of: ["LGPL-2.0-or-later", "MPL-1.1"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a28095574cbba9c6d2edc7d5fccc78c9791a6f01f29a9292be6e19efe3a3f06f"
-    sha256 cellar: :any,                 arm64_sequoia: "905b79b5f4c5e3af637334bf139c99ecbbc435b22cf4639be857c6357b86b32b"
-    sha256 cellar: :any,                 arm64_sonoma:  "c29b7219f2335726ba15136a17a7d9936cdb94c0433e1d6d04f3c51ac2beaac4"
-    sha256 cellar: :any,                 arm64_ventura: "21bac7dfa6d21512e6241c99669f3a18725ff0f6b1b5090a9986716a9194de7f"
-    sha256 cellar: :any,                 sonoma:        "16ee772a074713966a5aa332d24b1a5461bcc53647c871be76d7c7bac5fde58f"
-    sha256 cellar: :any,                 ventura:       "a358550b0270d3f538103da70c91a6f212d68904e4d9b0b4580788056ffd5d4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "54238581bf4ae3a836c5b99d277a9df77396e1b417a3948d661bda8a91bd1731"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81fc37d72b6f4c3cee94257491ce72ef3c63d6f4302428b5f08ffd1a1bb0a23e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "69735dbc14d4c13a8f0c66f8dd6012e2f9618a79033d87a899cac0c84e31cf22"
+    sha256 cellar: :any,                 arm64_sequoia: "41c0248393555b1c550213bb84e033a57182585de9f305a2834b371911842261"
+    sha256 cellar: :any,                 arm64_sonoma:  "284eb1a2fba26c513f28eb79f8a2126f4ef419393d0f6a5ad7acbe791502277c"
+    sha256 cellar: :any,                 sonoma:        "ea36297cb31148dec501489f673b73bd6975582c6ceab0cef2c1958c02a0bfad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e9eb837697a4f0bbaf369811bf8a58f0598c333886438a3ed5934b163f0cb99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "893de6dc5addc31b890f9815d24a1f4f1fa4dfc4a497132ecc12f224c205e4de"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +20,10 @@ class Libzzip < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "zip" => :test
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

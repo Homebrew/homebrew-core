@@ -11,8 +11,6 @@ class Bchunk < Formula
     regex(/href=.*?bchunk[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3277369df1cbf1eee5bff5521a3c471311ac476f7bbc9deb3aebebe0d2f1ed06"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "22c3f5e3b6a740a91ac5ddd9b384efc9fd9d399a9356f2bb5e0eabad6df25b97"

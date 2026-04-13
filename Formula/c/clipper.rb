@@ -6,8 +6,6 @@ class Clipper < Formula
   license "BSD-2-Clause"
   head "https://github.com/wincent/clipper.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3c0df619d149a439aa768fe0ad2f378c814df645516f1b97e7208af8570e9bc4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5ba6f81698c0137f48012644d531c866531753698d1401afbf4812ac6afac002"

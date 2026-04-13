@@ -15,24 +15,23 @@ class Ouch < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1763a70081770f67d8246c019594ca196c8829585178b93d486ac9f92865e1c7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cfb7387471264b6089243b31d22b40ba75ac370c64c1835d06585df5c2dbfafe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "326375a6f882717b1026228a031e840133b9944115be3251edd7897c6ec00378"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "66f692a605fdbfb28109a8a83e3c51539910783fc33310802c79d5b97f7ce57c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "89a565161184ecfedd0860b555615c0d01b6dc8495e1ddb99d90c2c274d96602"
-    sha256 cellar: :any_skip_relocation, ventura:       "54dc9ec1164b7058dceabeb8db74993f87110a967fe3fa969b98f37339608837"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b114aa892caae3291d102fd04c811b4b60091a3a1ede4cc36fddcf16bc421866"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d0d0e3fe53abf7a1a280cf73786d1125de2800927f8a01d90d5658f02b581a6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3e798b86b095e7f88bdf7ca263999a574fd8167f42964d9d57e4d490ebc6cbc7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f738cabc9e3b008bc72416fbe7b594e0c204726b232d4688e33e38d26c30640"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a0ba83e6c42c8c5137b2c8dc106372017bf8641541225154deca97a8fd2d2b8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "92caf7fc595680d7811e69ae09014aeaee688247180ae1cff6da1708dfbbb14b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce47dcc579ea3287f006936e98b11757410eb31405b980b2e0b24796193c1ce3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8714aac8dea1ebb10eca5cec43b397c6fa52e771f3c2ce69c206148598268f88"
   end
 
   depends_on "rust" => :build
 
+  uses_from_macos "llvm" => :build
   uses_from_macos "bzip2"
   uses_from_macos "xz"
-  uses_from_macos "zlib"
 
   on_linux do
-    depends_on "llvm" => :build
+    depends_on "zlib-ng-compat"
   end
 
   def install

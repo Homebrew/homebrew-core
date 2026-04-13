@@ -11,8 +11,6 @@ class Embulk < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "fc718acf04dd0ffd6e04dc816490ba13bc8af9b0de9d45b169cc6b55a9e936f7"

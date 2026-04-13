@@ -1,19 +1,18 @@
 class Libxxf86vm < Formula
   desc "X.Org: XFree86-VidMode X extension"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXxf86vm-1.1.6.tar.gz"
-  sha256 "d2b4b1ec4eb833efca9981f19ed1078a8a73eed0bb3ca5563b64527ae8021e52"
+  url "https://www.x.org/archive/individual/lib/libXxf86vm-1.1.7.tar.gz"
+  sha256 "9a983e3cbb7a57905262291a17da962293c0645f99efd475e3c85264bfddc337"
   license "MIT"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "863d7125572a3e433f65ee58693b3abb6f7a850524f8d659f7cb903b850f621e"
-    sha256 cellar: :any,                 arm64_sequoia: "13c02476485b075f3b74ed0b7e1222f2f9e2abf5b40bfb13aeafde83d3b6a3b9"
-    sha256 cellar: :any,                 arm64_sonoma:  "30952396b1e9b0936a4f5e143122bec37cd0b835e26168e4fa87ea0bbc458ab1"
-    sha256 cellar: :any,                 arm64_ventura: "363d3b25237b106818012a000ebed92fc21a145c5253c97685801128da9a510b"
-    sha256 cellar: :any,                 sonoma:        "0f40e51b6211395733b458f27cb329543cc0c1458217d4bca2bcf2c8b12d1401"
-    sha256 cellar: :any,                 ventura:       "75add9e909d354f98af9dc286327692f470fdfd4b32dcd96ea4455adac6e35a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9432dbcf9ae56adcb8735725c1388cc35bcaccef431ac2a78308c1c866f0be24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d916bedfca3e0ba33a43ebc5524d0178fcfd3a6eb95f9b793ca66d8b76d60fb"
+    sha256 cellar: :any,                 arm64_tahoe:   "eecafb9b9780c7af7c07b4f50393d44a2b0f068bbdf7dfa1cfb1a8ada5362729"
+    sha256 cellar: :any,                 arm64_sequoia: "bfb2f2dd1b5ee926cfb5912987e32050f4859e63b25643c5143c4a77fca3425f"
+    sha256 cellar: :any,                 arm64_sonoma:  "605aac8e796069b46a0e60e963764ed4822da08fd3ef024ed6a8edca139139ba"
+    sha256 cellar: :any,                 sonoma:        "cdde3acf54e35e37cd9db3fd9dfb8068803d9fc447ffc0b51de8cadd29f45a9f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b0fa1889b9360a9b0cb8f7a5bac5a5842366d34701d1ae217b29a2794c4d7dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad19e4a6ab9d92b97a090b9a5f725d23dca70095cc79e62d6134d7afec7407e3"
   end
 
   depends_on "pkgconf" => :build

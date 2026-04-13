@@ -4,13 +4,12 @@ class Libyaml < Formula
   url "https://github.com/yaml/libyaml/archive/refs/tags/0.2.5.tar.gz"
   sha256 "fa240dbf262be053f3898006d502d514936c818e422afdcf33921c63bed9bf2e"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url :stable
     strategy :github_latest
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "5cd5a1875da18599e25283465b2fb8735eb8717ee7158ef17f8f4260205404f2"

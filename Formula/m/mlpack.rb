@@ -1,21 +1,18 @@
 class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "https://www.mlpack.org"
-  url "https://mlpack.org/files/mlpack-4.6.2.tar.gz"
-  sha256 "2fe772da383a935645ced07a07b51942ca178d38129df3bf685890bc3c1752cf"
+  url "https://mlpack.org/files/mlpack-4.7.0.tar.gz"
+  sha256 "a3f0fb530e51d51f8d7eceb7998b4699906d628000b158ada80541465595324e"
   license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
-  revision 1
   head "https://github.com/mlpack/mlpack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fafb84f8935480c1acd9292b35c7f9182630c3470b57208affd1ce91183e5c66"
-    sha256 cellar: :any,                 arm64_sequoia: "0f231088b602989d6095850417438746516ef210652387a9f0f61c3e313dbcdb"
-    sha256 cellar: :any,                 arm64_sonoma:  "6e454187ba47af0f60ee2b2078019609334a7150bf1e32cf275806578e0209aa"
-    sha256 cellar: :any,                 arm64_ventura: "fbea7810d131e9dbc46934e12b099668d489245ff4ff0e713ad389fc6e0c7446"
-    sha256 cellar: :any,                 sonoma:        "eec48db4276a78796a6575217149699695f1293eb72a59b102392eeb758539f9"
-    sha256 cellar: :any,                 ventura:       "fb3c6e65de5aa0185b6804b63a7c402c076d14fff7fd80aa4ab3f0dcb97c6861"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "50f3a0812976d56eace19a2c43651aaf3e13c13e65d891ea136b4c2318954c56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbb65951d9d4b3daac979132bc1401290adf03b4c001d4bd5bf0700695db6cde"
+    sha256 cellar: :any,                 arm64_tahoe:   "9b331d69b57ed9d4d0019c88e06df3279b143bfcee03f081675d6224e611e83d"
+    sha256 cellar: :any,                 arm64_sequoia: "0a562de79e6c8e22c4434b626af424ba666bc04ed83ae904a5c397a7899da4aa"
+    sha256 cellar: :any,                 arm64_sonoma:  "45cac3d79a3e818acec4701d478e3e6b868f6d5590ba347f24a1fa192a76674d"
+    sha256 cellar: :any,                 sonoma:        "85365a6ce18c3e3d22cf43e84867e82dfd804176c1bf83ebeb714e51e6eb3bfc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "22de66681bdcf9d2e8345a9211add0e8baa16f0fb26afdb8f888040bc3c52887"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e85b017257022ffc33619d39237a1b612453b594c0aa04179cae05c241c36fcf"
   end
 
   depends_on "cmake" => :build

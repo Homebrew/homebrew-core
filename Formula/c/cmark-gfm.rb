@@ -6,7 +6,7 @@ class CmarkGfm < Formula
   sha256 "5abc61798ebd9de5660bc076443c07abad2b8d15dbc11094a3a79644b8ad243a"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "77d33326d768ca3fba2c4a8be10c3515997fc81c948f9df681d56eb92671fbcc"

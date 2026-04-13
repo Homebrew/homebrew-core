@@ -1,18 +1,17 @@
 class Xmq < Formula
   desc "Tool and language to work with xml/html/json"
   homepage "https://libxmq.org"
-  url "https://github.com/libxmq/xmq/archive/refs/tags/4.0.1.tar.gz"
-  sha256 "846cdd078209ee15189420c1ec47e6ffcf97fc5b196cd78b9952dc5de6c3e50e"
+  url "https://github.com/libxmq/xmq/archive/refs/tags/4.1.0.tar.gz"
+  sha256 "a8637d1e95d0015e14b9f51a76798324ebd00a0135d44f686b9f5a446cd14af0"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "abef4eb1ecee27916d91f329d384a3c1a17ca5125153e8fd3ddb254d107d7593"
-    sha256 cellar: :any,                 arm64_sequoia: "b571e14d2e29ff17a03e8473e35d9edca038c709e0d79205749330b1aa1e7a6f"
-    sha256 cellar: :any,                 arm64_sonoma:  "562c8cb50dfdc9ff71598b87fa9d6efaadf2b25f706630f29ddb44e5b445f395"
-    sha256 cellar: :any,                 sonoma:        "970ac3cf05557867cf60c48cc5426cd0703695fa946bcab872291cca1957efc1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e49777a1bc398cf8d44f69ad880f12482b632186dbb7482e66d79cc0347dd985"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f35af178ae26bb39d1dbd4ce4178c4e5e16a980ef2831aa5670b7c4adbb522be"
+    sha256 cellar: :any,                 arm64_tahoe:   "83aacb3ab6931c777f82fce09adcde72ad04446970fa0eac93f488b074a2a326"
+    sha256 cellar: :any,                 arm64_sequoia: "2bcb7c3d49912a598504b1215f3a7d0a998649ab747de64161d5f64081df00f4"
+    sha256 cellar: :any,                 arm64_sonoma:  "18aa2ebc522fcf2078cbc228bfae9dac262e9e97f7e871e29cd73863c9c988d6"
+    sha256 cellar: :any,                 sonoma:        "631bffb5aee8fbd0c2de142080aae3724a033c30ae0af03b1bd3e20eeebf6e37"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "386b859219e1af64955da7f123b1680fee7a4e2567c53093141e18a378400e47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb5936a16ccc4b624a786c1336e66598b9bba1bf5cacac8927d9cb8844eeafbe"
   end
 
   head do
@@ -27,7 +26,10 @@ class Xmq < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?

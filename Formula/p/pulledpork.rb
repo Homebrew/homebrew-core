@@ -6,8 +6,6 @@ class Pulledpork < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/shirkdog/pulledpork.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6cc19983e6d8418de919dfefbd48de58655b16751cbf82a0a37814d819072d62"

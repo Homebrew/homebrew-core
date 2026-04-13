@@ -7,19 +7,14 @@ class Allureofthestars < Formula
   revision 6
   head "https://github.com/AllureOfTheStars/Allure.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "bc1152802bbc0c177b8da999c6221a7c229fb2c6fc104fe8135dcfe0691062f4"
-    sha256 cellar: :any,                 arm64_sequoia:  "bdcf533595e5ae4f13cde425c0e06c515257045288acddad4b9530ce3c949394"
-    sha256 cellar: :any,                 arm64_sonoma:   "f2798a7e39c570fb3f16f223658233ed9d4f273bfb079851d5b23ad7ee3279c4"
-    sha256 cellar: :any,                 arm64_ventura:  "6892fd7487390e10f9a9353e0ed478bbaae9492f458cc26ce6e28bb152d9ba23"
-    sha256 cellar: :any,                 arm64_monterey: "9d7499f1d328a6a4b91e22b90ded73a9ba3f4147cddff1d27e6a38a0f009378b"
-    sha256 cellar: :any,                 sonoma:         "04408ea5d216f20bf717bff54479860587047d3ba6f461dffb2ad44abdad6ca3"
-    sha256 cellar: :any,                 ventura:        "3283e3c2fc6119cdb90fea04630036f3e2db8e614aacb4190910d23afb722d1c"
-    sha256 cellar: :any,                 monterey:       "03c79e5c09db8d0a39e66e8f79ed7ef2fb39c5d1a7760ac3b5979a74a309a61c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "3073343041a2759f07e44132a6ac86238e34660549a7b8df8e7b05aa28fa52f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d9642c0028543fc3452e204831c3d675c121fb756fd7376f9c6f879adbaea5a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "786bcd9f1837c4e3c9c5f4663251c4b10ea6e60cfb31adb8b0532e6e575edbf8"
+    sha256 cellar: :any,                 arm64_sequoia: "541d886f3d5a909201ccf527cdecb88cab24cded8a70ef8270db759ae6d1dff0"
+    sha256 cellar: :any,                 arm64_sonoma:  "b9f555b1d4975c7557363b1d60ebdd0881824986a2e8cd374ab30bcb669241bf"
+    sha256 cellar: :any,                 sonoma:        "44c9d439e03e805411e9ae5226bb09de0ea12a1d5995d2bafa8ecc172318b355"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "962870edbfbb1f10a5dcf07ffd5e92cbdcf23e60435e780962c923979619e785"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3fc6ce4dca4b6c6a4274bc6c5249228f50616098ca990b9b0d055c2cb725852"
   end
 
   depends_on "cabal-install" => :build
@@ -30,7 +25,10 @@ class Allureofthestars < Formula
   depends_on "sdl2_ttf"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # TODO: Remove resource once new release is available or hackage revision (r2+) with
   # equivalent changes (https://hackage.haskell.org/package/sdl2-2.5.5.0/revisions/).
@@ -55,8 +53,8 @@ class Allureofthestars < Formula
     (buildpath/"cabal.project.local").write "packages: . sdl2/"
     (buildpath/"sdl2").install resource("sdl2")
 
-    # Workaround for GHC 9.12 until https://github.com/tfausak/witch/issues/117 is fixed
-    args = ["--allow-newer=witch:base,witch:template-haskell"]
+    # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
+    args = ["--allow-newer=base,containers,template-haskell", "--constraint=enummapset>=0.7"]
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", *args, *std_cabal_v2_args

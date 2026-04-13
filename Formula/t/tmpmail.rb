@@ -10,9 +10,10 @@ class Tmpmail < Formula
     sha256 cellar: :any_skip_relocation, all: "81e6aa8ea9a04b09f48bde663f58eb155061f1f83f8647727371a72cafaf9c0d"
   end
 
-  depends_on "jq"
   depends_on "w3m"
   depends_on "xclip"
+
+  uses_from_macos "jq", since: :sequoia
 
   def install
     bin.install "tmpmail"

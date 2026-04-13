@@ -7,12 +7,13 @@ class Libsail < Formula
   revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "c9a4dcaa46627b37f96ae961f8f95cf0d514c8b9f17995b8874d2f379599dbca"
-    sha256 arm64_sequoia: "57d6c75884cc6282503cfe65936fae18737629bb30075a7a221c396de11d2abb"
-    sha256 arm64_sonoma:  "6738e43c69a947c727210ea7bff0cb8062f19928c4e6df5c559b6f4764b7f3d3"
-    sha256 sonoma:        "324bd9bef7096e3b947135f7a32d28d6d704a1ee535ccadafbaa1e4e15ce8068"
-    sha256 arm64_linux:   "1799f08f82fa95ad2a952af049242709b02ce0a6a86a16955d8c09a6ef459090"
-    sha256 x86_64_linux:  "85531cc035d66de09aa924c0579e47c589fd971bda60af0b7113daf1d6362a3b"
+    rebuild 1
+    sha256 arm64_tahoe:   "f9430ef88d447e7f1d33199e1669076af4a092de4122b1dbcfa07addf3c5ecfb"
+    sha256 arm64_sequoia: "ae62b694076e458585bc69386bcc005eafd5ef51fdfea4ee12976c85da3f5624"
+    sha256 arm64_sonoma:  "333235f4a7f21d3297d807b11053f2185b02959508ea4e7d80bdf2f2ad3d95b8"
+    sha256 sonoma:        "e09065341ed58f92a8f7ca3b9877fa173e6d27680484573c2ee88fbbd507d6ff"
+    sha256 arm64_linux:   "0147ee45b7482d1b0b8dbbda068878427ac491781ad89917ddb5f76d257b2726"
+    sha256 x86_64_linux:  "2c02036e2ff8515835ee3a530f26681c22edcc2e55d377bd8168ac4d9d62e65f"
   end
 
   depends_on "cmake" => :build
@@ -38,7 +39,7 @@ class Libsail < Formula
 
   def install
     args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: lib/"sail/codecs")}
       -DSAIL_BUILD_EXAMPLES=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

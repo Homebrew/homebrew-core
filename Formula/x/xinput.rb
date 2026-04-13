@@ -5,8 +5,6 @@ class Xinput < Formula
   sha256 "ad04d00d656884d133110eeddc34e9c69e626ebebbbab04dc95791c2907057c8"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c8e2d341b5603fdbf07d9ec892b235a61f69ab54e0b6911969064766a6b1976a"
     sha256 cellar: :any,                 arm64_sequoia:  "c70d8603d13e94505f514890678cef419551a0ac6688356fdd28e6ecaad1fffd"

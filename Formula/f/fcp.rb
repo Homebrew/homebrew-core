@@ -5,13 +5,6 @@ class Fcp < Formula
   sha256 "e835d014849f5a3431a0798bcac02332915084bf4f4070fb1c6914b1865295f2"
   license "BSD-3-Clause"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3ecde8d0f0c52f74dd8b0b7eb77f87d9e17a3da375da6a5c0849de5c7e68fc92"
@@ -25,6 +18,10 @@ class Fcp < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "b91b77aba18ae0a1806de04a8543dd7c6234f73936bd9a6653ed8052c31d1d3f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c4dc5c096786f4581a3799e890ac3c98c86d32a9ef59f57ca525a4a717f4eab"
   end
+
+  # Failed to build against latest Rust, and no commits since 08/22/2022
+  deprecate! date: "2026-01-23", because: :unmaintained
+  disable! date: "2027-01-23", because: :unmaintained
 
   depends_on "rust" => :build
 

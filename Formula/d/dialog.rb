@@ -4,6 +4,7 @@ class Dialog < Formula
   url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20260107.tgz"
   sha256 "78b3dd18d95e50f0be8f9b9c1e7cffe28c9bf1cdf20d5b3ef17279c4da35c5b5"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://invisible-mirror.net/archives/dialog/"

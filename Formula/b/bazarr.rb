@@ -3,18 +3,18 @@ class Bazarr < Formula
 
   desc "Companion to Sonarr and Radarr for managing and downloading subtitles"
   homepage "https://www.bazarr.media"
-  url "https://github.com/morpheus65535/bazarr/releases/download/v1.5.4/bazarr.zip"
-  sha256 "cad2afdf10e3f654cd4e95013193edb91bdc31885a3405348253f3339ebd1dd6"
+  url "https://github.com/morpheus65535/bazarr/releases/download/v1.5.6/bazarr.zip"
+  sha256 "3f9623c27ca3a597313310b7cbf98f39cb5e4aab907ca6690c21bb25f6a6ebb4"
   license "GPL-3.0-or-later"
   head "https://github.com/morpheus65535/bazarr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c789c89b17af743fc6a4e5d296a6ecbe75e4ca3f89ab439a4f8938590afbc0cc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b6a1b460cae6179b38a653acac1817900397f8b7655622386289e0099e8249d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a77e435c77ce6265ab627ecc6ff14aa393d83221ab682891c1f62b1e13d5f1c1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d1bb10a522bbef19b559ced092317dcbab0089f9d332f80ac4c6455b9cbcab4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee2b071e5dbc9efbe5a502ffaf9fa1754002a7cff4bb05f2316e5278bd28c19b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66b10d7ccee455482b4e7e4cc4dfab74e8500f9044389dfb8e13b14c922ace0e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "32517782716a2fd4aba922414143b82d62b1d42fd858f8df13fbb2ac7ba7e86e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "85e25bf688abf3a6e2288a9222fef4b07fc271fdcc93212fd7bf89ea9b780277"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9221b270a75c7ce7ab3d69e0aaf68b03630d942578467cb09bc96773ac042379"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2d6ab6523eb2ea23d569cadd82f4320d6a2ba242a42db2745d5000b5474bd559"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "108a8887b729fa30be916d4c6d32520b80b31802a2a1e9c0660455947f975885"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b59866e003aadf13af65ea4a6f656ff22e1fb04589e211f26950e9180ffd7331"
   end
 
   depends_on "node" => :build
@@ -26,7 +26,10 @@ class Bazarr < Formula
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   pypi_packages package_name:   "",
                 extra_packages: ["lxml", "setuptools", "webrtcvad-wheels"]
@@ -37,8 +40,8 @@ class Bazarr < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/82/f3/748f4d6f65d1756b9ae577f329c951cda23fb900e4de9f70900ced962085/setuptools-82.0.0.tar.gz"
+    sha256 "22e0a2d69474c6ae4feb01951cb69d515ed23728cf96d05513d36e42b62b37cb"
   end
 
   resource "webrtcvad-wheels" do
@@ -123,7 +126,7 @@ class Bazarr < Formula
     end
 
     assert_path_exists (testpath/"config/config.ini.old")
-    assert_includes (testpath/"config/config.yaml").read, "#{testpath}/custom_backup"
+    assert_includes (testpath/"config/config.yaml").read, testpath/"custom_backup"
     assert_match "BAZARR is started and waiting for request", (testpath/"log/bazarr.log").read
   end
 end

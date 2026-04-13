@@ -20,12 +20,12 @@ class Libosinfo < Formula
     sha256 x86_64_linux:  "c543a59fcf39583b1f55839d2ec00ea5575aa88b8956ed86e0a284131411dacd"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "vala" => :build
-  depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"
   depends_on "osinfo-db"
@@ -35,6 +35,10 @@ class Libosinfo < Formula
   uses_from_macos "python" => :build
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   resource "pci.ids" do
     url "https://raw.githubusercontent.com/pciutils/pciids/fd7d37fcca8edc95f174382a9a5a29c368f26acf/pci.ids"

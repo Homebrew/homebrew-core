@@ -14,7 +14,6 @@ class Slirp4netns < Formula
   depends_on "automake" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "bash" => :test
   depends_on "jq" => :test
 
   depends_on "glib"

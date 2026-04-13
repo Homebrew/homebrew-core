@@ -1,10 +1,10 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "https://pgrouting.org/"
-  url "https://github.com/pgRouting/pgrouting/releases/download/v4.0.0/pgrouting-4.0.0.tar.gz"
-  sha256 "ae87d30652b4a7824509e2652e02bde19e1a42c37906cdf1824b5df40af0bfd0"
+  url "https://github.com/pgRouting/pgrouting/releases/download/v4.0.1/pgrouting-4.0.1.tar.gz"
+  sha256 "21c071983a682e048da28f0f211205a20f27ef3708c0b637b4e6e29994d7d699"
   license "GPL-2.0-or-later"
-  head "https://github.com/pgRouting/pgrouting.git", branch: "main"
+  head "https://github.com/pgRouting/pgrouting.git", branch: "develop"
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class Pgrouting < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "54666eef457b30d344fc22df0ba5805a858c437461b4e2792e61a721da9ade87"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb93e2d574ab28ea6b89694292636c55c2e977cf18f8f11c2be0c299d0519164"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef6245564c6014e84263a954eff9f905bec78ce732a204b07f224317efa73998"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5b0a15f53bfea899254a307b5385a566f32c766c9b9c5b7ba275f0af1bc5d02e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f9e8c29472cb6cc1cb9f2a845cfb20504e00ed8bb0239dbb2fc8486ff73c4e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a400606bace6b3281c68c641b8d675cca6913e6cca426a161194e2577a4144b7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2cd0feb635504f27684e307855317ac3be2c53badac8eaec7dbd2bf8cb1ff294"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7adb1f542f6264de8c91fbf3913b8b30949c8023327bbe692d5ff5d80428a1f6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4f0084fb3873cbec60d8fe308ca2b23f6445918f99bdf827e6d0e85abe93482c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5e097af595e04bfe9980cc34697d9fd4a2dd8a3c32e2f5859aeeae4718891200"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "88c76b021a919cc69df0bf7a4e5f94d81a97a04c630fc1053e653a623f6dbde4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7fb9d05ddb3b5d08373be7b1fcff16b1c7c00cb36b699b6b25a813a85564c6e"
   end
 
   depends_on "boost" => :build

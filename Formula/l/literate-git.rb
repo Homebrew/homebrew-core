@@ -3,19 +3,17 @@ class LiterateGit < Formula
 
   desc "Render hierarchical git repositories into HTML"
   homepage "https://github.com/bennorth/literate-git"
-  url "https://files.pythonhosted.org/packages/67/0e/e37f96177ca5227416bbf06e96d23077214fbb3968b02fe2a36c835bf49e/literategit-0.5.1.tar.gz"
-  sha256 "3db9099c9618afd398444562738ef3142ef3295d1f6ce56251ba8d22385afe44"
+  url "https://files.pythonhosted.org/packages/61/ef/443d7a7db6d72b4f905fe43ea34b3f7f6ca5b2edc0ad241290671ef6c454/literategit-0.5.3.tar.gz"
+  sha256 "bd634cb4305d1e99f9f994c07aac2d68492f939598f776e9abb7376488378b47"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "baa5c3c33cfc0dfd36ec6cbfaf9ea54ce40a08e438cb18825d5183c491fb1f1a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c0fd4975bbe0eea015488cfd2cd6aa3d63d758056dcc5a51eb877873ff54733"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2fe5d950d691b41e375ce2b80fdb53968f0c4b7bc27c729266e09fc2086a8226"
-    sha256 cellar: :any_skip_relocation, sonoma:        "692ecccfe5818fbf0f4faf1947530b8ff6f2022c4793798e991ecc2cc528a6a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "06d08aec5338c04b67f400c002b8b8727df6caa12b209e9893ae997d3471e09f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51040f0a845e2ee1681f70d9a0f4e938256f140989954aa9107144879802c5ab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7b6925bcc4d2cd98ca66c9718c64bba3e9ce9e33ac52dcab9071393f29048e07"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "89c8e458d420f64da110eb59f24849b9f516a79252b81fe1e0c76ff611c71031"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a2fa92954da47c45de82d1c1cb98b5c131ba8ad46c317fc0f2ee3948406f9f8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "24ed1b94875f33458ec2e45542878931124892c57ae25a92a62647a719c07ce1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e790764cf320e398f5ed43ccdfb58281ef18c75dde3e9a4f48fe988cf054613"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c1c7daf0837e9b7b13cda7e128e01a950a073c55093e94a6dbf31ce286493b4"
   end
 
   depends_on "pkgconf" => :build
@@ -27,8 +25,8 @@ class LiterateGit < Formula
   pypi_packages exclude_packages: "pygit2"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
-    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "jinja2" do
@@ -37,8 +35,8 @@ class LiterateGit < Formula
   end
 
   resource "markdown2" do
-    url "https://files.pythonhosted.org/packages/42/f8/b2ae8bf5f28f9b510ae097415e6e4cb63226bb28d7ee01aec03a755ba03b/markdown2-2.5.4.tar.gz"
-    sha256 "a09873f0b3c23dbfae589b0080587df52ad75bb09a5fa6559147554736676889"
+    url "https://files.pythonhosted.org/packages/e4/ae/07d4a5fcaa5509221287d289323d75ac8eda5a5a4ac9de2accf7bbcc2b88/markdown2-2.5.5.tar.gz"
+    sha256 "001547e68f6e7fcf0f1cb83f7e82f48aa7d48b2c6a321f0cd20a853a8a2d1664"
   end
 
   resource "markupsafe" do
@@ -47,15 +45,11 @@ class LiterateGit < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
   end
 

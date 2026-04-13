@@ -1,15 +1,16 @@
 class Qt3d < Formula
   desc "Provides functionality for near-realtime simulation systems"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.10/6.10.1/submodules/qt3d-everywhere-src-6.10.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.1/submodules/qt3d-everywhere-src-6.10.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.1/submodules/qt3d-everywhere-src-6.10.1.tar.xz"
-  sha256 "60593fd54f7b1e48dc67ddce0f1113e4593878872539677104c92926ef039c9a"
+  url "https://download.qt.io/official_releases/qt/6.11/6.11.0/submodules/qt3d-everywhere-src-6.11.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.0/submodules/qt3d-everywhere-src-6.11.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.0/submodules/qt3d-everywhere-src-6.11.0.tar.xz"
+  sha256 "40cf234d39e6a799ba0807489fc7bd63df79196d03519f43a171c1a875bcdd20"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
     "MIT", # bundled imgui
   ]
+  compatibility_version 1
   head "https://code.qt.io/qt/qt3d.git", branch: "dev"
 
   livecheck do
@@ -17,12 +18,12 @@ class Qt3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f1f1c51075373a02ec0cb9d015a527047e360000eb1be57d0a5d8b8077d4d7b2"
-    sha256 cellar: :any,                 arm64_sequoia: "bdf5c110a11e30930e26a2b6f3dc53c5a7de62d1e59fb7f4e6cdec460d006f07"
-    sha256 cellar: :any,                 arm64_sonoma:  "9c82a8f39a39f667ccd8a3683d6090e7a013643debfcae10c0e225f7fe5abd8b"
-    sha256 cellar: :any,                 sonoma:        "51544dd74295b218c1e72af162c0dfca784f89de1db53c367771ef22e07d3169"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "577138cc105bbbab8050ecc67c6d3331490589f916fa0a977290e2950f0c2250"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa889750305bb027d7ebdb2a9844d9922bb6085b8862ac3c824ccb81510b6451"
+    sha256 cellar: :any,                 arm64_tahoe:   "4839b58048b383db84b619eef4715a18801f19904979ffca07fe72b0ff47064a"
+    sha256 cellar: :any,                 arm64_sequoia: "e6b02b57cd1fb0d45b779ad6646065fa880d2b76112a64fae22679014e486609"
+    sha256 cellar: :any,                 arm64_sonoma:  "9eb9afbe995cafd86f64ac4cc13381cad4e58cd1054e4335c4e3be19fd1f7524"
+    sha256 cellar: :any,                 sonoma:        "829ca7928c24638754008816248cd2c576c3fe83be80ecff3ee4b0ab3fc82f19"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e22ed027e384e0be60201f9af18dfed02f5340cb43953a62e6aec5b1f4f12478"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d865bec7028bad29c5feba6fe16f6b28336e2f134d6016327081c05f9b30f1f"
   end
 
   depends_on "cmake" => [:build, :test]

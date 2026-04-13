@@ -5,7 +5,10 @@ class GlbindingAT2 < Formula
   sha256 "cb5971b086c0d217b2304d31368803fd2b8c12ee0d41c280d40d7c23588f8be2"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :stable
+    regex(/^v?(2(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "6dddc516878a360ff4c3204f6dbff543c7480ca9a636206f1db433de4af442a5"

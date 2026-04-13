@@ -5,8 +5,6 @@ class Snzip < Formula
   sha256 "fbb6b816619628f385b62f44a00a1603be157fba6ed2d30de490b0c5e645bff8"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "20fc236af1233f21612b61f558645aee313eecd552817ac67866852ce8cf7a87"
     sha256 cellar: :any,                 arm64_sequoia:  "2a7ea25f4be20815a6390501b5988ed110cde832197ec37c45287ea4420b43cf"

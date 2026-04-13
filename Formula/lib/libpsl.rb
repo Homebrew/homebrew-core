@@ -5,8 +5,7 @@ class Libpsl < Formula
   sha256 "1dcc9ceae8b128f3c0b3f654decd0e1e891afc6ff81098f227ef260449dae208"
   license "MIT"
   revision 2
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "f604c524a1fec0cdec0ff57613bdf371771e520eff91ef51783606e3d61f7922"

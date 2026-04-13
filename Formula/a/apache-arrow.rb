@@ -1,29 +1,21 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-23.0.1/apache-arrow-23.0.1.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-23.0.1/apache-arrow-23.0.1.tar.gz"
+  sha256 "bd09adb4feac11fe49d1604f296618866702be610c86e2d513b561d877de6b18"
   license "Apache-2.0"
-  revision 2
+  revision 5
+  compatibility_version 1
   head "https://github.com/apache/arrow.git", branch: "main"
 
-  stable do
-    url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-22.0.0/apache-arrow-22.0.0.tar.gz"
-    mirror "https://archive.apache.org/dist/arrow/arrow-22.0.0/apache-arrow-22.0.0.tar.gz"
-    sha256 "131250cd24dec0cddde04e2ad8c9e2bc43edc5e84203a81cf71cf1a33a6e7e0f"
-
-    # Backport fix for `ARROW_SIMD_LEVEL=NONE`
-    patch do
-      url "https://github.com/apache/arrow/commit/00245cc802bc3be9a9cd169017f285586483fbb5.patch?full_index=1"
-      sha256 "fb692196f928401bb8aca93f9a7af7e028f65705c170f31a300728b041a07a71"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "a68f5ee4b7265d1c7978b172532a005b4528ffc67bae4ae748519d1a05802ff6"
-    sha256 cellar: :any, arm64_sequoia: "e824bf18eed5cf80ef0deb2f66e7512a197ae4ed01d694402b30902dbeb22db6"
-    sha256 cellar: :any, arm64_sonoma:  "3e308251a62e13105bab3d7103542a4cee5d45c1acf82a4d18882faf3f77b0d4"
-    sha256 cellar: :any, sonoma:        "19d06392f73aa47677586131cbf6bd8b7f561187bd717cda351b0ba5109629c7"
-    sha256               arm64_linux:   "ba3bba16392063c0fa6399152b5e4b07b333b67028063ea1489be6266f76fd12"
-    sha256               x86_64_linux:  "dddd8453a2a14708f2d5f9762dc5f17b403d634e7ae60886ee6e974a149f22cf"
+    sha256 cellar: :any, arm64_tahoe:   "e43fc39f51623585ea9c7d7de4dccdafa37152bdbea0a413f6cd5cc6446616e5"
+    sha256 cellar: :any, arm64_sequoia: "7caf6d02ca97bf04746481cff2c158d5f910ff21dcf8bbe00c19f0e90177ea1b"
+    sha256 cellar: :any, arm64_sonoma:  "c8ad69531de221c415fa8b3aabae2a18dad47637490b41d78df0f4d78e973c96"
+    sha256 cellar: :any, sonoma:        "29389a8e980f9ab9ad5a8722a567771b7fdfbce650a43b56f01b3b6e24c1dd2e"
+    sha256               arm64_linux:   "89d97ab20a68a988c6585d4977003d14345c41aabb8e3b4cadfbd78644d00976"
+    sha256               x86_64_linux:  "fef8442e49da985c3568aafe3e23ed8d4851cbf02fd7b18fef3e517a7cc20490"
   end
 
   depends_on "boost" => :build
@@ -48,7 +40,26 @@ class ApacheArrow < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
+
+  fails_with :gcc do
+    version "12"
+    cause "fails handling PROTOBUF_FUTURE_ADD_EARLY_WARN_UNUSED"
+  end
+
+  # Apply open PR to support LLVM 22
+  # PR ref: https://github.com/apache/arrow/pull/49429
+  patch do
+    url "https://github.com/apache/arrow/commit/03d40603d9f29a107a5cede0f94e6c0241cd6099.patch?full_index=1"
+    sha256 "22fdd4a15a80a7bf41b899ba1ef5fdcf8c761cbd3bbd1470cd5db2c5a543e8af"
+  end
+  patch do
+    url "https://github.com/apache/arrow/commit/7b9135aab4ce6b8a79e0037ead8093d10174e7d8.patch?full_index=1"
+    sha256 "bb08d0ddf5b3fcb8cee1c354ea0be25a2a246bbef8fd311cc89637b52090bd8e"
+  end
 
   def install
     # We set `ARROW_ORC=OFF` because it fails to build with Protobuf 27.0
@@ -84,7 +95,10 @@ class ApacheArrow < Formula
     args << if OS.mac?
       "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" # Reduce overlinking
     else
-      "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON" # Avoid versioned LLVM RPATH getting dropped
+      # TODO: Remove after moving CI to Ubuntu 24.04. Cannot use newer GCC as it
+      # will increase minimum GLIBCXX in bottle resulting in a runtime dependency.
+      ENV.llvm_clang
+      "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,--as-needed"
     end
     # ARROW_SIMD_LEVEL sets the minimum required SIMD. Since this defaults to
     # SSE4.2 on x86_64, we need to reduce level to match oldest supported CPU.

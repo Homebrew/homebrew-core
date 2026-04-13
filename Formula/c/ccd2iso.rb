@@ -5,8 +5,6 @@ class Ccd2iso < Formula
   sha256 "f874b8fe26112db2cdb016d54a9f69cf286387fbd0c8a55882225f78e20700fc"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b0fdfe74cdd573d4b411974eb51ff6d8dd0be85e2ca817a42517d7651f21f638"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e7196c00e29751b4d90307dcc66d0d0f329dcce6bc4c9ce9ae88aceef81e55ee"

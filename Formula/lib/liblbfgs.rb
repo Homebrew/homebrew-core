@@ -5,8 +5,6 @@ class Liblbfgs < Formula
   sha256 "95c1997e6c215c58738f5f723ca225d64c8070056081a23d636160ff2169bd2f"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "d88172caad8ef6e5a35ca17ed81ee20ecb8bfe0a245f9ea1b7b16e0c88bc3cb7"
     sha256 cellar: :any,                 arm64_sequoia:  "9d20979a75f869868f997ad0c9596646bb3ccc5683b54c192a923f5818096444"

@@ -1,10 +1,11 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.18.0/vips-8.18.0.tar.xz"
-  sha256 "b85ab92280c30d22f5c8fe2f68b809cddb7eaac437d8c33474475dac84ddc574"
+  url "https://github.com/libvips/libvips/releases/download/v8.18.2/vips-8.18.2.tar.xz"
+  sha256 "a30d4aede16f1c2899c1a2241870f8a7409feafa38484bcdcdac113d6d6f8ff5"
   license "LGPL-2.1-or-later"
   revision 1
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -12,12 +13,12 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "721d7d494bc54c92b622d4b28acd648d5736ed7211f48653c563974bfedc9331"
-    sha256 arm64_sequoia: "4fa8776ab7dd244b9506cba094b4cd7f335bbc1abfff1f2ade54694ef365eb39"
-    sha256 arm64_sonoma:  "a75d4e3c1f674c8a6e5bbf9a4d08845e4f0450bc0175ce513ba149b6a4a25f8c"
-    sha256 sonoma:        "b42a7bf0cdaeb59e672d9eba8d63d2ac801d5f1d6064812dd91ca7070da5990f"
-    sha256 arm64_linux:   "ffc6d3ec7ee70eeeb89d53779beb8dcf53f5f4d640f1612f53eacc35983451c3"
-    sha256 x86_64_linux:  "9a0f52d894c75aa1b7902cb5a46cc2d7cc525fbb0ea315f6630dd83093d08b7d"
+    sha256 arm64_tahoe:   "e009b71e1fcc9309ba0346a9b1f2dcb6b06b50a0486a61f44d67c2aeef9a806f"
+    sha256 arm64_sequoia: "7016e9d5a9a274b198898375de1075449f71a424f57dcddd985e111c8cdbc3c4"
+    sha256 arm64_sonoma:  "36c641f678f1224e0aab11c427565b7a420d5ff1307146e4afdd607c887194ee"
+    sha256 sonoma:        "4f97f1cf8737230dc933aff2217ac9f29a77ced703735d778fe84e608cded4ce"
+    sha256 arm64_linux:   "7b4a29d60a0c343e352a54829a7fc4ab1cb0d02bd2f5fbea7334ff3b876774a5"
+    sha256 x86_64_linux:  "75dfe5c6c9191ddeb732f47b6f8f15eb9d38cdf0aaa2b2e1f772e94c70270fee"
   end
 
   depends_on "gobject-introspection" => :build
@@ -55,7 +56,10 @@ class Vips < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # mozjpeg needs to appear before libjpeg, otherwise it's not used

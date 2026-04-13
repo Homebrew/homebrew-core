@@ -1,19 +1,18 @@
 class Falcoctl < Formula
   desc "CLI tool for working with Falco and its ecosystem components"
   homepage "https://github.com/falcosecurity/falcoctl"
-  url "https://github.com/falcosecurity/falcoctl/archive/refs/tags/v0.11.4.tar.gz"
-  sha256 "387588e6eb8927920e45acd4121c90756ad69c6d16f5b7f94f2ceaaac45d3a73"
+  url "https://github.com/falcosecurity/falcoctl/archive/refs/tags/v0.12.2.tar.gz"
+  sha256 "05290a97ac6ac886fc4b34d157d533de37d5a1031f81cf4e6eb1f056c4015f49"
   license "Apache-2.0"
   head "https://github.com/falcosecurity/falcoctl.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b7ed7960d0d3d8dd9a783992c72819879849d14f7963d358ab92031c2b5408f7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b39d47afd0dc7fdbfce9f558a171cac85a220a09a1c51c515a1e05666a6812a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "442689f9dbdcc2f0a04e1992bff5b73bbf9580e1ba4572c3f12c916635e798d6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0fc4f61150122d189a1f7527b696d8e869c3fbba7d3ffcd17a29ef2623d881d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6283e6c1230425687d0190010e2e1d884895f551e53dd63ad7ee2a8482bcbf7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a81dac9befc95952641f2018ac92eee92a4e53da0b79fba90e6c2cfef8b51141"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "580f5b4448b45dbce6b0c81469ab2aa5fff60527bfba560e32aba21c4398065c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "975a8845bcb5401fe6b9b8084512ce4ec1f800ca8ea4eb56fce4c1c9cde5c962"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fd72eb17b4b6f5d6839d42f7c4dedc96d3fc0b525a56fda6e8de0169d27757d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9ffd3c24f261628ce5cd34e8e3ed7eb5f1400bfb6c6ef403ee20346b27e94d97"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "166745727c43a2c13dc11acbda8317b4eef4d2603a944dfe5aeee949bcc0792d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a77803385d65096c0b0cad6fbf99aa6b78f47b00c501378e506921893cd7cbe1"
   end
 
   depends_on "go" => :build

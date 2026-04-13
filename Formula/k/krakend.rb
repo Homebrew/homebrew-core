@@ -1,18 +1,18 @@
 class Krakend < Formula
   desc "Ultra-High performance API Gateway built in Go"
   homepage "https://www.krakend.io/"
-  url "https://github.com/krakend/krakend-ce/archive/refs/tags/v2.12.0.tar.gz"
-  sha256 "9d9dcbd6e14cf474b0971f20fe76a0f37b0283e07e2a7b7a1beaaa9ab340a84b"
+  url "https://github.com/krakend/krakend-ce/archive/refs/tags/v2.13.4.tar.gz"
+  sha256 "c919ab2be3aa72c8204b7658e5e7f29e4978a21763c9e287dc2af0329ddea07f"
   license "Apache-2.0"
   head "https://github.com/krakend/krakend-ce.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "93c2549b779919fd3b928cfac1213adbeca0c20ee6ea25a49257203ffecbcbec"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34b813647679d06f06e597e7d017efc4e84c184cd1b2c809e7f49b14654bb6ab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4888f468461c540fc60c9a23655e01d2d1edb1cc0fa955d6bd049de0339457bb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c79467bcb0cdc6e26a1226adb34fcd3325cb1c4740e7da03c3207f865bfca705"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "707379bda7798aa472e2a640d3726b42b87b4522dfe49347bd289ceb4c2c42b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8d544f18f1a2274369037d90b2ebdeff6c1eb56e5fc936ed0b4a71830c431f1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "076d2dbccf924c778c6a5fa32f5758425f74214c8111c5866ef3343708f9e022"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6044f43774932bfc72d763773607e05c7247782a001b5fee72bbc7fabadfae6d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cccccb0db39e781a0a024e51ea6457c068a80e7e0b4fb0e8807e454a0e4bdd00"
+    sha256 cellar: :any_skip_relocation, sonoma:        "850e75b78353a767e45d1c609c46f943bd502585536be44a63b10471ef75af6c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f49749947cc78caa0af3ea1aaf0cc0ef9c3089ca6e6b817c81d64a160f6f661b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54a348989ebef58e13b2b319d2d35c02a1ac4bd4564a4b6f1418048411cabce3"
   end
 
   depends_on "go" => :build

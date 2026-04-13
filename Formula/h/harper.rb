@@ -1,8 +1,8 @@
 class Harper < Formula
   desc "Grammar Checker for Developers"
   homepage "https://github.com/Automattic/harper"
-  url "https://github.com/Automattic/harper/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "8ee8c8e1da56d227d70e4cb4bcb78699e74ebb33030d4d8985c4312c28a7e6a1"
+  url "https://github.com/Automattic/harper/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "c9ebde7b159c7491ca3350f7e1706eb7e5c105d0b790e3d2119c31e589c16f20"
   license "Apache-2.0"
   head "https://github.com/Automattic/harper.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Harper < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd512f68b2dd0403553fc36c694825342250c504cd98927f36e2682ac59c16b6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "050cc27d0f648be6fe4a177bbdf5c3ba9d877bb160b10bccf766a3c94b143a29"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fc34c37b8ecfe9c873444f820a7335c655764edd4e5a43b9aa93d3a2aa44d51"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ed1206d21481dbdb08ed5ed9a36750bfb9eeb8256918b563535ea99d658ff63d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c3d396ed030976ca3c29206b51721d675cee707430836ad0948b4d2ed8510a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cb177cd81b90bbc0c9a49d8dfaae48cfab63577fd1b7075ad2df6ba993d1503"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "24ae7049933694cca917911e53610d3e703f046115ef1679d360155fd0c2bfcd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07047ac573bb925e98c1af6ab12b6f3ab8113818ce206b77710ccce5ca19b93f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c48dac8b47f135f549c6f0d91299685b1899ca2c31f5727c59addf27a0e240d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e45beeabbc80a5351f1c7e047bebaf4edcaf03c2a4735dc8f3a4dea6a3fba606"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6bb2842c9d07d440c7861040ef6b6082dc6480f46f56b2adcecf7305fc597814"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91d709fa82e293daa025ec315eb147cd002f27a5ff9f19c422ed028135bcbe51"
   end
 
   depends_on "rust" => :build
@@ -36,7 +36,7 @@ class Harper < Formula
     MARKDOWN
 
     # Dialect in https://github.com/Automattic/harper/blob/833b212e8665567fa2912e6c07d7c83d394dd449/harper-core/src/word_metadata.rs#L357-L362
-    lint_output = shell_output("#{bin}/harper-cli lint --dialect American test.md 2>&1", 1)
+    lint_output = shell_output("#{bin}/harper-cli lint --dialect American test.md 2>&1")
     assert_match "test.md: No lints found", lint_output
 
     output = shell_output("#{bin}/harper-cli parse test.md")

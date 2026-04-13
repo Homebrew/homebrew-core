@@ -1,26 +1,19 @@
 class P11Kit < Formula
   desc "Library to load and enumerate PKCS#11 modules"
-  homepage "https://p11-glue.freedesktop.org"
-  url "https://github.com/p11-glue/p11-kit/releases/download/0.25.10/p11-kit-0.25.10.tar.xz"
-  sha256 "a62a137a966fb3a9bbfa670b4422161e369ddea216be51425e3be0ab2096e408"
+  homepage "https://p11-glue.github.io/p11-glue/p11-kit.html"
+  url "https://github.com/p11-glue/p11-kit/releases/download/0.26.2/p11-kit-0.26.2.tar.xz"
+  sha256 "09fd9f44da4813a3141e73d5e7cf7008e5660d0405f13d56c15e1da9dcecf828"
   license "BSD-3-Clause"
+  compatibility_version 1
+  head "https://github.com/p11-glue/p11-kit.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "799bb74bf003c38fc6e43d1bfaffa68f2ccca2757b4b5fc297980a640e7369ed"
-    sha256 arm64_sequoia: "5c946df0d427b82823e679f14f4462e2f646785b4de0d167ff05e9b368a35a8c"
-    sha256 arm64_sonoma:  "94a15ec13c63e887a23b9467525c31906ab7444b81a3088e023d31d248443e4e"
-    sha256 sonoma:        "ae3f66252d3f096e99c38031d24ce1241ca306d1fa17f7f921e1d35bec1ef182"
-    sha256 arm64_linux:   "16803768e52ac4c5842bc8ac83ddf8da47093997188e9ec2a3ae51b926203878"
-    sha256 x86_64_linux:  "17e36f268b12a807d8db88ea301719b927e023b6326e2f15a9a73e1e5ac342b5"
-  end
-
-  head do
-    url "https://github.com/p11-glue/p11-kit.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "libtool" => :build
+    sha256 arm64_tahoe:   "c814d01363bc8e35892432f19074e507d16b1bce3f88635478969050250079ba"
+    sha256 arm64_sequoia: "62a02e67a42d05aceb5653bd5d4be971172484fa9def96f066963a6fb4ca3f11"
+    sha256 arm64_sonoma:  "bee65fbab57c03c46620379593e7bc4865cce0bf2db794cf22bdfcc1eb564979"
+    sha256 sonoma:        "e1e808da48ab0eb63ff145b55a3407d0265501e09b4e627f8ba02ecc654c3663"
+    sha256 arm64_linux:   "1924836b8e56a59363d2e294f1c2ee40b62e1b4ffd6600e7c0de78d11b90fbbb"
+    sha256 x86_64_linux:  "52d46084406325d13f58712ee3afbec2f78eb7cab0b57acda36597b607800d85"
   end
 
   depends_on "meson" => :build

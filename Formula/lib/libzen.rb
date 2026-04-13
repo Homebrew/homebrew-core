@@ -3,6 +3,7 @@ class Libzen < Formula
   homepage "https://github.com/MediaArea/ZenLib"
   license "Zlib"
   revision 1
+  compatibility_version 1
   head "https://github.com/MediaArea/ZenLib.git", branch: "master"
 
   stable do
@@ -15,8 +16,6 @@ class Libzen < Formula
       sha256 "fea2e76c5017ab98f2501dfdc24bedf4682b7336544529a08d9e1827c4de6bae"
     end
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "ac591a473fcc4560644040121ea380ff05b3c9d376cae1e9126c40a62e2daf03"

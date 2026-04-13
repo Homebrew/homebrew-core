@@ -24,6 +24,7 @@ class Tunnel < Formula
 
   # `https://tunnel.labstack.com/docs` is no longer accessible
   deprecate! date: "2025-02-23", because: :unmaintained
+  disable! date: "2026-02-23", because: :unmaintained
 
   depends_on "go" => :build
 

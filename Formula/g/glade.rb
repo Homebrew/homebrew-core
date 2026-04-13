@@ -6,8 +6,6 @@ class Glade < Formula
   license "LGPL-2.1-or-later"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "6e30fc8505be745532d54c6ca937ed9112bad06b28a779e635b2a7bd39eec811"
     sha256 arm64_sequoia: "5873f72c18a9e4ec5fb39e7463dec97632e1e529d676a36720f21cf9cb8ce890"
@@ -17,29 +15,33 @@ class Glade < Formula
     sha256 x86_64_linux:  "d74c163da2a0558dbbb9d167f3ecea4bbc9c653b4a1f6f3539dc99a92452e624"
   end
 
+  # https://gitlab.gnome.org/GNOME/glade (archived)
+  # https://glade.gnome.org/news.html
+  # > Glade is not being actively developed or maintained anymore
+  deprecate! date: "2026-01-30", because: :repo_archived
+  disable! date: "2027-01-30", because: :repo_archived
+
   depends_on "docbook-xsl" => :build
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
 
-  depends_on "adwaita-icon-theme"
+  depends_on "adwaita-icon-theme" => :no_linkage
   depends_on "cairo"
   depends_on "gdk-pixbuf"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+3"
-  depends_on "hicolor-icon-theme"
+  depends_on "hicolor-icon-theme" => :no_linkage
   depends_on "libxml2"
   depends_on "pango"
 
   uses_from_macos "libxslt" => :build
 
   on_macos do
-    depends_on "at-spi2-core"
-    depends_on "gtk-mac-integration"
-    depends_on "harfbuzz"
+    depends_on "gettext"
   end
 
   def install

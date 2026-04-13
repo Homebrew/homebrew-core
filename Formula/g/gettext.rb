@@ -1,23 +1,23 @@
 class Gettext < Formula
   desc "GNU internationalization (i18n) and localization (l10n) library"
   homepage "https://www.gnu.org/software/gettext/"
-  url "https://ftpmirror.gnu.org/gnu/gettext/gettext-0.26.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/gettext/gettext-0.26.tar.gz"
-  mirror "http://ftp.gnu.org/gnu/gettext/gettext-0.26.tar.gz"
-  sha256 "39acf4b0371e9b110b60005562aace5b3631fed9b1bb9ecccfc7f56e58bb1d7f"
+  url "https://ftpmirror.gnu.org/gnu/gettext/gettext-1.0.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/gettext/gettext-1.0.tar.gz"
+  mirror "http://ftp.gnu.org/gnu/gettext/gettext-1.0.tar.gz"
+  sha256 "85d99b79c981a404874c02e0342176cf75c7698e2b51fe41031cf6526d974f1a"
   license all_of: [
     "GPL-3.0-or-later",
     "LGPL-2.1-or-later", # libintl, libasprintf
   ]
-  revision 1
+  compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "ba9215fd5110a60cf544cbdf76536d5b7d198c73cad97c9552ebd54216312862"
-    sha256 arm64_sequoia: "f1aa739f3f4b720b7abf4512af6d1c470feafe57b15ebca25c45f8b22afe7ab5"
-    sha256 arm64_sonoma:  "cf146240f332843bd4eb21286f678e4625d46b49a635153f1f1eba926793ee55"
-    sha256 sonoma:        "55a702b28d00815fb7dbd01f5d77059c84fcd65763e417a3b0a021a13481259e"
-    sha256 arm64_linux:   "1bd1fd569c6caca916593563d720b3e10bc01144bc5920611c54b23f462f36b0"
-    sha256 x86_64_linux:  "4107f2ed57956975c0af99807991d62372df69abcd9e8990757b8b22c3d7d766"
+    sha256 arm64_tahoe:   "1f98400343132c8e469ed475157f8f4d0f516ea86bd4600552e8b75ab638fcf9"
+    sha256 arm64_sequoia: "982f3a3cc24df4f552efc1b6ed6303d2920b2d5b1c1975fe3d9bd7418b8fa532"
+    sha256 arm64_sonoma:  "f9ea4eed738746ea4150a4f83e8dd11ca21ca3de5bb113995c25eec409bb5749"
+    sha256 sonoma:        "2cc112cce103be3beb13cc8ba67f521d4e972c4082fd69868d34920d63120c09"
+    sha256 arm64_linux:   "0d24ef468ab6683610fb866973cbdf899165be653b42c68689b70743be5ce695"
+    sha256 x86_64_linux:  "ed30be09f5f328a974e51e34966a502496e0623c7ecde0faf7559143cbd02255"
   end
 
   depends_on "libunistring"

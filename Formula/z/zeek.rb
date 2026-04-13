@@ -1,23 +1,24 @@
 class Zeek < Formula
   desc "Network security monitor"
   homepage "https://zeek.org/"
-  url "https://github.com/zeek/zeek/releases/download/v8.1.0/zeek-8.1.0.tar.gz"
-  sha256 "bcd631ae0ad338772e27268f075c08758c5e9281123469a7396a73281cbd47b9"
+  url "https://github.com/zeek/zeek/releases/download/v8.1.1/zeek-8.1.1.tar.gz"
+  sha256 "b5f9edd4a10412426e6414d2f851ba42ce1fa94b59ccbad4238519adae6fc065"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git", branch: "master"
 
   livecheck do
     url :stable
-    strategy :github_latest
+    strategy :github_releases
   end
 
   bottle do
-    sha256 arm64_tahoe:   "20f581fd7f49814c044ced685e9e186610f7f1747ab04b3426b3381208afa49f"
-    sha256 arm64_sequoia: "0d388b8a49ab99a788c59b24f57bed025fa52d0469c0b46a7f3f5d0d1fe26817"
-    sha256 arm64_sonoma:  "ba38b8b2f698d4a0f60eabbae349959369c6f6f4e4478dfbc3d1c2c5389b91a2"
-    sha256 sonoma:        "faa4cbd1ed9b5879004dd3ccfc65a007bb98f7b5546ca4ded646d41e91574c5e"
-    sha256 arm64_linux:   "5c185321b3e4761420765b8fa772f28bdf6e12ee9093446f96c5a8007df60ac7"
-    sha256 x86_64_linux:  "0333ffdded19c29e238c057eb9932a3d029fb9d08297f335c7e04c93e22fee14"
+    rebuild 1
+    sha256 arm64_tahoe:   "444fa891df006c4513561272d00eb7c7a07e98c6504637e8fe265be18c5a9a22"
+    sha256 arm64_sequoia: "33189a6424cad59aa69fc9f15327d8c742761015ee15e34bbb475a404933e449"
+    sha256 arm64_sonoma:  "834f4180afcbbd36d0b5bc60e77f0dab14c10a5bc66cc514a4e463238733a5e1"
+    sha256 sonoma:        "6b331685a5819570105c8c5d37c68cfe4840ccf6b8b70d4d2f7a005e11035950"
+    sha256 arm64_linux:   "0b99912e2ce0c49354f6af8010d29cf35238304c70bebb81b6a0db296af4011c"
+    sha256 x86_64_linux:  "20566003c46777f2c2b6c1eaef8630bd6034f20e3350e99625c6ac82a90defde"
   end
 
   depends_on "bison" => :build
@@ -26,14 +27,18 @@ class Zeek < Formula
   depends_on "swig" => :build
   depends_on "c-ares"
   depends_on "libmaxminddb"
+  depends_on "libuv"
+  depends_on "node@24"
   depends_on "openssl@3"
   depends_on "python@3.14"
   depends_on "zeromq"
 
   uses_from_macos "krb5"
   uses_from_macos "libpcap"
-  uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Remove SDK paths from zeek-config. This breaks usage with other SDKs.
@@ -58,6 +63,8 @@ class Zeek < Formula
                     "-DPYTHON_EXECUTABLE=#{which("python3.14")}",
                     "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                     "-DZEEK_LOCAL_STATE_DIR=#{var}",
+                    "-DDISABLE_JAVASCRIPT=off",
+                    "-DNODEJS_ROOT_DIR=#{Formula["node@24"].opt_prefix}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

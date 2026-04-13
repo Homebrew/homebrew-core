@@ -11,8 +11,6 @@ class Streamripper < Formula
     regex(%r{url=.*?/streamripper[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "f0f900d7d9b50f242d815eb6826684b2e6d2c76f7a3bc58f08ce6f06cd1302aa"

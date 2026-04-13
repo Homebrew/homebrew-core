@@ -3,25 +3,24 @@ class Pytorch < Formula
 
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
-  url "https://github.com/pytorch/pytorch/releases/download/v2.9.1/pytorch-v2.9.1.tar.gz"
-  sha256 "e17504700ebc4c87f9b57059df1c4d790b769458c04db144c7a92aea90f2c92b"
+  # TODO: Restore pybind11 dependency after https://github.com/pytorch/pytorch/pull/175115
+  url "https://github.com/pytorch/pytorch/releases/download/v2.11.0/pytorch-v2.11.0.tar.gz"
+  sha256 "ab3fde9e7e382f45ac942be6ea2c2ef362c5ccd6f55ed6d5f35e6ea81d3ab88e"
   license "BSD-3-Clause"
-  revision 3
+  compatibility_version 1
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "df02d9b645fe6228b60c02cbaf3ca659e5b64e478ba6b3f674a707b839d1d79c"
-    sha256 cellar: :any, arm64_sequoia: "c7c9f8f81cfcf42e3356a117f7185a06d824e9eddb300bc339c0814a21587638"
-    sha256 cellar: :any, arm64_sonoma:  "a0bff8ffd5fd4205ef34ad2263a574735e686e181716fcc64a9d9dccd542dc5c"
-    sha256 cellar: :any, sonoma:        "6f2131e161fb41629f3805a6495b7b74f3df84000dfcfff65e8188c2dbc97608"
-    sha256               arm64_linux:   "2062874bdde8b786c8f37e287890f1ffe62672e4cd9d1f94f9944d18a1b4e820"
-    sha256               x86_64_linux:  "569e009ce4d06a80ac5cc71ca050146e48efabced5d1668a4889b4db45316f16"
+    sha256 cellar: :any,                 arm64_tahoe:   "b0ead97b9270dc567c5d4aef3a1493d0897631fffad804c319ef880faefb1311"
+    sha256 cellar: :any,                 arm64_sequoia: "5743750f216c27a55a8032fd3cfa773790b08c713c99bf54f090609e556a1460"
+    sha256 cellar: :any,                 arm64_sonoma:  "d68dfbdf750be02e24fd5c2df3b98a82908f3b6c8dfe72f37bbc822ee56da9a7"
+    sha256 cellar: :any,                 sonoma:        "515e13b08da9e3dd39091446fae2d2b00393dc13cd4ddcaf273d3e83f3900367"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfbbcb7b690a0b55c2a5e871cd9d1b31c8a838b8c4d8a41a0c9d5f1936abef6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66632f38d6e1092c2a1f893e0dd4187cab4e79024beb5275cf89288091551ac8"
   end
 
   depends_on "cmake" => :build
@@ -34,9 +33,10 @@ class Pytorch < Formula
   depends_on "libyaml"
   depends_on macos: :monterey # MPS backend only supports 12.3 and above
   depends_on "numpy"
+  depends_on "onnx"
   depends_on "openblas"
   depends_on "protobuf"
-  depends_on "pybind11"
+  # TODO: depends_on "pybind11"
   depends_on "sleef"
 
   on_macos do
@@ -44,17 +44,17 @@ class Pytorch < Formula
   end
 
   pypi_packages package_name:     "torch[opt-einsum]",
-                extra_packages:   "pyyaml",
+                extra_packages:   %w[pyyaml packaging],
                 exclude_packages: "numpy"
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/58/46/0028a82567109b5ef6e4d2a1f04a583fb513e6cf9527fcdd09afd817deeb/filelock-3.20.0.tar.gz"
-    sha256 "711e943b4ec6be42e1d4e6690b48dc175c822967466bb31c0c293f34334c13f4"
+    url "https://files.pythonhosted.org/packages/94/b8/00651a0f559862f3bb7d6f7477b192afe3f583cc5e26403b44e59a55ab34/filelock-3.25.2.tar.gz"
+    sha256 "b64ece2b38f4ca29dd3e810287aa8c48182bbecd1ae6e9ae126c9b35f1382694"
   end
 
   resource "fsspec" do
-    url "https://files.pythonhosted.org/packages/24/7f/2747c0d332b9acfa75dc84447a066fdf812b5a6b8d30472b74d309bfe8cb/fsspec-2025.10.0.tar.gz"
-    sha256 "b6789427626f068f9a83ca4e8a3cc050850b6c0f71f99ddb4f542b8266a26a59"
+    url "https://files.pythonhosted.org/packages/51/7c/f60c259dcbf4f0c47cc4ddb8f7720d2dcdc8888c8e5ad84c73ea4531cc5b/fsspec-2026.2.0.tar.gz"
+    sha256 "6544e34b16869f5aacd5b90bdf1a71acb37792ea3ddf6125ee69a22a53fb8bff"
   end
 
   resource "jinja2" do
@@ -73,13 +73,18 @@ class Pytorch < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/6c/4f/ccdb8ad3a38e583f214547fd2f7ff1fc160c43a75af88e6aec213404b96a/networkx-3.5.tar.gz"
-    sha256 "d4c6f9cf81f52d69230866796b82afbccdec3db7ae4fbd1b65ea750feed50037"
+    url "https://files.pythonhosted.org/packages/6a/51/63fe664f3908c97be9d2e4f1158eb633317598cfa6e1fc14af5383f17512/networkx-3.6.1.tar.gz"
+    sha256 "26b7c357accc0c8cde558ad486283728b65b6a95d85ee1cd66bafab4c8168509"
   end
 
   resource "opt-einsum" do
     url "https://files.pythonhosted.org/packages/8c/b9/2ac072041e899a52f20cf9510850ff58295003aa75525e58343591b0cbfb/opt_einsum-3.4.0.tar.gz"
     sha256 "96ca72f1b886d148241348783498194c577fa30a8faac108586b14f1ba4473ac"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
   resource "pyyaml" do
@@ -88,8 +93,8 @@ class Pytorch < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/0d/1c/73e719955c59b8e424d015ab450f51c0af856ae46ea2da83eba51cc88de1/setuptools-81.0.0.tar.gz"
+    sha256 "487b53915f52501f0a79ccfd0c02c165ffe06631443a886740b91af4b7a5845a"
   end
 
   resource "sympy" do
@@ -132,7 +137,8 @@ class Pytorch < Formula
     ENV["USE_NNPACK"] = "OFF"
     ENV["USE_OPENMP"] = "ON"
     ENV["USE_SYSTEM_EIGEN_INSTALL"] = "ON"
-    ENV["USE_SYSTEM_PYBIND11"] = "ON"
+    ENV["USE_SYSTEM_ONNX"] = "ON"
+    ENV["USE_SYSTEM_PYBIND11"] = "OFF"
     ENV["USE_SYSTEM_SLEEF"] = "ON"
     ENV["USE_MPS"] = "ON" if OS.mac?
     ENV["USE_KLEIDIAI"] = "OFF"
@@ -154,7 +160,7 @@ class Pytorch < Formula
 
     # Expose C++ API
     torch = venv.site_packages/"torch"
-    include.install_symlink ((torch/"include").children - [torch/"include/fmt"])
+    include.install_symlink ((torch/"include").children - [torch/"include/fmt", torch/"include/pybind11"])
     lib.install_symlink (torch/"lib").children
     (share/"cmake").install_symlink (torch/"share/cmake").children
   end

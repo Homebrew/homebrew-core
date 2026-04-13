@@ -1,8 +1,8 @@
 class Objfw < Formula
   desc "Portable, lightweight framework for the Objective-C language"
   homepage "https://objfw.nil.im/"
-  url "https://objfw.nil.im/downloads/objfw-1.4.3.tar.gz"
-  sha256 "0e987c82bd482a957360a1cd7e8d14716442f9bfba68f58fef9b81750db301d9"
+  url "https://objfw.nil.im/downloads/objfw-1.5.1.tar.gz"
+  sha256 "fde83565ad1c6aaea2713770ede8f47f1b1e464c9251dde4801e1c614930cdf6"
   license "LGPL-3.0-only"
   head "https://git.nil.im/ObjFW/ObjFW.git", branch: "main"
 
@@ -12,21 +12,21 @@ class Objfw < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6099b2b9e1aff62ec0057f299526962da4f23a34bc97d595000e88c78ca18533"
-    sha256 arm64_sequoia: "411e5b68c097560a34664b72b3cd3dc953019a8ab380580213bdd5050dbbd358"
-    sha256 arm64_sonoma:  "99710a499b27253dddb817226f91132fb1ea1ce8ddac9e7a86e5a68ad51ba80b"
-    sha256 sonoma:        "99e1c866289d7bf8647b1ca4c756025dd13a498997818f88838e8e43d15008a8"
-    sha256 arm64_linux:   "4ca7c40f85b9d1769d10d73bad6baaae58128100afff66660161c550f3802ffc"
-    sha256 x86_64_linux:  "87802f9fa389c765f53745fe07307291d2e0c34412a228ea1136f30c3a8f071a"
+    sha256 arm64_tahoe:   "4aca22fe35b66db1f2c0b8808520780e46b6a17cf9238262f4c7d8c2aba55396"
+    sha256 arm64_sequoia: "8d6a02fb7c647068536cdcc7ac56ee53b945e9e0ae1ac1f01002ec75edfcb7d7"
+    sha256 arm64_sonoma:  "10bbac85b100f0fe4f24ff5ec41cb7c339418a131269a3ce7896f5c3dc3a6b04"
+    sha256 sonoma:        "38797298bcdd01e52e7926cdf6523c49ab24ff36eefc72f3523be211ac32ae2a"
+    sha256 arm64_linux:   "132fde952366c5234483410e288bcc77b99c2d1fdf0e35e679372f4fe1e39004"
+    sha256 x86_64_linux:  "a68440b6b1f6e5b9aea52a4beb2a5a732e6e9c33c4a7035d4a2d4f26d7b9ad6e"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "llvm"
-    depends_on "openssl@3"
-    depends_on "zlib"
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :gcc
@@ -66,4 +66,3 @@ index 3ec1cc5c..c0c31cac 100644
  		])
  
  		AC_SUBST(FRAMEWORK_LDFLAGS)
-

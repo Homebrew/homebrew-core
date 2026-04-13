@@ -16,6 +16,9 @@ class ErlangLs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c68b4f50a62cb9956ba11796d8c0f38ba88cdefc1977af46f8a7871c60f402a"
   end
 
+  deprecate! date: "2026-02-17", because: :repo_archived
+  disable! date: "2027-02-17", because: :repo_archived, replacement_formula: "erlang-language-platform"
+
   depends_on "erlang"
   depends_on "rebar3"
 

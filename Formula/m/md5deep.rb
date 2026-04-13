@@ -7,8 +7,6 @@ class Md5deep < Formula
   revision 1
   head "https://github.com/jessek/hashdeep.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c59d131c78aa6ee76fdfe35f4dd4488f5edfbdad5eb48eaa549396168adc31c5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6d92356eb626035ee2f2e8b412b0a5ca36fa31a8d6d16fe583f9dfcd6ed57a19"

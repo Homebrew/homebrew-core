@@ -1,17 +1,17 @@
 class Openapv < Formula
   desc "Open Advanced Professional Video Codec"
   homepage "https://github.com/AcademySoftwareFoundation/openapv"
-  url "https://github.com/AcademySoftwareFoundation/openapv/archive/refs/tags/v0.2.0.4.tar.gz"
-  sha256 "1d8d31b0758d4b968d9b2ab483b3edb6de3440edcb27f14801ef42d6f2368e55"
+  url "https://github.com/AcademySoftwareFoundation/openapv/archive/refs/tags/v0.2.1.2.tar.gz"
+  sha256 "164106e8c4f096f5e8df24eef14fa0cebb0c3d65aa32db4616672aaee029ff18"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "56c6e41825fec4f798910260cefa1b449eefcc11abf0d261a46b74d991d800f1"
-    sha256 cellar: :any,                 arm64_sequoia: "2e887283159afe070ce1e246a3dd27dd699284fa33127b0baca6d4fe92d456cd"
-    sha256 cellar: :any,                 arm64_sonoma:  "9ae8b4bf546d07efac15c7d06dc4bb036ec93cdb727324cdbb6d2bab609f8a05"
-    sha256 cellar: :any,                 sonoma:        "d3cff51a1604c8afa0e75b19daf7f095abb886facb3e99a4adc857c379c437b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "edc20d196b0b6be866e6995749693c9acbe0b5b5539b3ac4a120608e8420cb56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29d951fa78b8a04e559cbf94c91ade64bec0d4d24234d9357eacdc224f5de162"
+    sha256 cellar: :any,                 arm64_tahoe:   "933d57861d3f7340895b4d01b1b0d549db7dac5f5ec5b8593a5305b7777e6e88"
+    sha256 cellar: :any,                 arm64_sequoia: "d91aa9b30ecb443599c67842bea2978a877a7dcf300a3642bc8104eccf86b352"
+    sha256 cellar: :any,                 arm64_sonoma:  "f1b704f065e7cb2a8cd023c1591d43b5145e8d266ce39989efbad8387c21f7e6"
+    sha256 cellar: :any,                 sonoma:        "7680708f60dcd1f8e068d641b29ee86194be725038e830ddfdd91cf9750565e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb82504ec64e47445d784258a285d01225ab32092873d8af6a6cf7a34de2ac31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68a010d64a5d9a4af3950ee99548d61ba5d12703793729ef55fcebf625aaa763"
   end
 
   depends_on "cmake" => :build

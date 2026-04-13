@@ -16,8 +16,6 @@ class Musepack < Formula
     regex(/href=.*?musepack(?:[._-]src)?[._-](r\d+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "545fb3f5f74e2fc5acbbbfbad61b0dfb6c261cd7dbd26f998c1931c939086bd0"

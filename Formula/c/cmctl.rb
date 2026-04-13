@@ -1,19 +1,18 @@
 class Cmctl < Formula
   desc "Command-line tool to manage cert-manager"
   homepage "https://cert-manager.io"
-  url "https://github.com/cert-manager/cmctl/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "3de4456c6f36a143992661f7357a2bd111b224a72ce7b61d83bfdb3679f36a96"
+  url "https://github.com/cert-manager/cmctl/archive/refs/tags/v2.4.1.tar.gz"
+  sha256 "70c9f5e1fbcf526c87c5a862afca663b816e3ec1eda2d55c7edf70e33fb00fe5"
   license "Apache-2.0"
   head "https://github.com/cert-manager/cmctl.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d261e97e575479d5b88fc0d138a497be6aa7815e5b7d566e0e2a11fc48deba1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0a72773524df6677d6bdc0531ca49d8a1a8774811bc243fcf68a0cfa165a29d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96f6032892618ddaa22a270e58a6dfdb8577547c45b00831990cb5d98f0b2913"
-    sha256 cellar: :any_skip_relocation, sonoma:        "736e1fcbaefcfc1e055ee72f6ac1dec0ed2e971c644f0a10c4172ea79061bfba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6a14005f4a18617f2dc2f631eeedae85b11a9b3a9cb48962940c895919b3fed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d65c0f7dcc02e285e82c0bb3bbe2e327dc4303cde2d9c656bc7f4f5e9924e1f1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "291b511a8c5fa486f5cf94358527770d4f0307563b221425a64c0a9a2c06a63d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5fc1d5ac986e39da4fa61785b9ce49db17292a37b61957d94e0fa25ce80bb174"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b27b55bc9fdc8f36c7e7dd57412dd18959bfafb4e1910b793145129cce0a6646"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f61491c8f73e2de22532677e52eb0987cf27a3a2b95ba5298c2a2984d29a8fc6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd0970ba25aa60ad39e6546b58f92e7a90e15def9ac788c700f6fa19eb074a87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2648686a59c1ddaebd2b738b36e4ded146c5ff7e1393ec3f84c20b8acdb4f379"
   end
 
   depends_on "go" => :build

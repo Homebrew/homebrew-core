@@ -5,8 +5,6 @@ class Mask < Formula
   sha256 "25df4aa1d67d4d9fb7032619951b753be51bb1ec21349316be678b3156ff1874"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5f78c495b941f512448b2416170f4707e9b9d61129cc1d0f518a82215ee7e321"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4da1978c3ba6b2575b2b4018f9bb15d792a5af84675a6d4050201d72a9d665e3"

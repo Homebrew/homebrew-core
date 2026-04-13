@@ -1,21 +1,22 @@
 class Localai < Formula
   desc "OpenAI alternative"
   homepage "https://localai.io"
-  url "https://github.com/mudler/LocalAI/archive/refs/tags/v3.9.0.tar.gz"
-  sha256 "f08cfa6804d15f4ed73ada71fab881d7195b8a8810c7003a0bfd73692b63a70e"
+  url "https://github.com/mudler/LocalAI/archive/refs/tags/v4.1.3.tar.gz"
+  sha256 "349765fa3f01539fc98e0d14bea90a05f2dffbc96afde4ec3afc979ea48d5dd2"
   license "MIT"
   head "https://github.com/mudler/LocalAI.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6bde69ea46cdef55e4012c6dad23f6fe7b0ee78712cc39a64ee292bf4e9de0ad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fca861e0bf6394b94e1f04695930de87eebc2d1af0b499d87e921c993493c40f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32f8d2450dc2db2f6740c626ba049ca3c0c8c84e0cb9fe190e508d7ae3c370b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7d096e7ee8e244abdf96bca5eb9b6fb1ad97e754663bac7fd70b6a02358a6a5d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a466e434e8808c0170bc7c13221143036506c6cac6ed3a75599656e004ba710"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52e924a5b9b5dbb3695d6f2f5d68806be706b73499948f1f6f844adead5357e0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "33ceb9b23f4d13a8ee39c9357d30fe71c20346cb4b84bea559a984fb6b2c0108"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a8217bdaec7797161987a0679e75ea5c53eae820e648f3f089cdb533a6d9a23"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a95c5e6c084064dc2388b3fc3cee0956fa53a93023217a631a38a38c0c633cb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c7c32765fe73114537f5873eb6451616b97b58f2a81c24f2f43fa524317f294f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32f65bb86a88d72cf4530ac5962b0883e1c0fa9d0c42bab05a6f975949f57b95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c0e8bdd091afedee86ed0032d4cf703075338c96883f9b751e0d56f15a5dc4e"
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
   depends_on "protobuf" => :build
   depends_on "protoc-gen-go" => :build
   depends_on "protoc-gen-go-grpc" => :build

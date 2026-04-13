@@ -6,15 +6,19 @@ class Energy < Formula
   license "Apache-2.0"
   head "https://github.com/energye/energy.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f1c4d8d7329b810db0084e6fc69404fabc13ceda82d4b309406d15af639a9ca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7694c978d9ff392a86dad2767ab0b69516522c03797e04b995268b51b1d772a6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7694c978d9ff392a86dad2767ab0b69516522c03797e04b995268b51b1d772a6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7694c978d9ff392a86dad2767ab0b69516522c03797e04b995268b51b1d772a6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2cd61a31ad9a8ad40952fc005535b2e1ae2604d80cce285a85cc1b48a1dd713f"
-    sha256 cellar: :any_skip_relocation, ventura:       "2cd61a31ad9a8ad40952fc005535b2e1ae2604d80cce285a85cc1b48a1dd713f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "47e341406fc77ae2d1ceae579e4680a24fff61c313b1621e0654cfbbb2bfa919"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6e0b7ad8af0188f7d672afa31ad19d9fade20037fec8acc4137bf7001c0de9b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a27c25d9ad14623bd9965a490f8fa9b8c8f1752ae317f2555b3512bdb9322432"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a27c25d9ad14623bd9965a490f8fa9b8c8f1752ae317f2555b3512bdb9322432"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a27c25d9ad14623bd9965a490f8fa9b8c8f1752ae317f2555b3512bdb9322432"
+    sha256 cellar: :any_skip_relocation, sonoma:        "015ff3808a131a703cc0a7e492a77a9111cbbc2b30e524d80ef5a59fb27beac4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f5d3cd5d47b2d5968e96a2446412cd22430b344f455db80e7918230720e8bc25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5dede6e5a0d45f8785b7b0d3fecdd443f7d5bab5195e74e81608edd7c7fa690"
   end
 
   depends_on "go" => :build

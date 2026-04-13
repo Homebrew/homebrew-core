@@ -4,6 +4,7 @@ class Pixman < Formula
   url "https://cairographics.org/releases/pixman-0.46.4.tar.gz"
   sha256 "d09c44ebc3bd5bee7021c79f922fe8fb2fb57f7320f55e97ff9914d2346a591c"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url "https://cairographics.org/releases/?C=M&O=D"

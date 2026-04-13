@@ -1,10 +1,10 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf/"
-  url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.9.3.tar.gz"
-  sha256 "990f46d49525d6ab5dc4249f8684c6deeaf54de6fec63a187e9fb382cc0ffdff"
+  url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.10.0.tar.gz"
+  sha256 "ce160f9c1483b32d1ba8b7633d7984510259e4e439c48a218b95a023dc02fd4c"
   license "BSD-3-Clause"
-  revision 1
+  compatibility_version 1
   head "https://github.com/Unidata/netcdf-c.git", branch: "main"
 
   livecheck do
@@ -13,12 +13,12 @@ class Netcdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f14f6311dc30ae573a8d91eb5ec97130592a7b1d2af4603d978b20edd8c7d8bf"
-    sha256 cellar: :any,                 arm64_sequoia: "4b6f34e68991fa000dc7e2bddbbae277dc1296a3ca82c3f5224881bf366d6b90"
-    sha256 cellar: :any,                 arm64_sonoma:  "9c2ab132fbf10ae39e32f18b061ecd198c8d56bf7d9871d030b4a05cdcd38c91"
-    sha256 cellar: :any,                 sonoma:        "bc6addc3d076172b764b2e8e2b071d5b686c4319864ab8c4c9aca35318a2658f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8fff8f6a39aa352bea00445dc38d5ca17daf43f3721910e577d34cb6a3031eaf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01ce3ff1026ce15003b24232edc7e334a12b5eab6252fee87c3fe933b84a4ee2"
+    sha256 cellar: :any,                 arm64_tahoe:   "c9ddcf980457c6068593640c746b5ed0e7d9b252b251172f6417f8ec2053ea66"
+    sha256 cellar: :any,                 arm64_sequoia: "163fed6be2e0d4aa70b327be4ca3cc702562764d8138ec2fa5a64c6da5c62e96"
+    sha256 cellar: :any,                 arm64_sonoma:  "951763c3895c6634ed1de5f58a33f5b6df4f42b13fb7863d39eddcd3d88e2c70"
+    sha256 cellar: :any,                 sonoma:        "cdb43a113fbd0ffeb4451c3152c8c1c07fcbabbc90cc8575edf4681ebf0093b2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "451da8be1f36b126818e0f0ddb8bde360fd49c7b2af26ed7b920915d4e4caab8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33334198a494db895097576ac2a797497979a47617ae8cd19c13abe2d8052c41"
   end
 
   depends_on "cmake" => :build
@@ -35,7 +35,7 @@ class Netcdf < Formula
   end
 
   def install
-    args = %w[-DNETCDF_ENABLE_TESTS=OFF -DNETCDF_ENABLE_NETCDF_4=ON -DNETCDF_ENABLE_DOXYGEN=OFF]
+    args = %w[-DNETCDF_ENABLE_TESTS=OFF -DNETCDF_ENABLE_HDF5=ON -DNETCDF_ENABLE_DOXYGEN=OFF]
     # Fixes "relocation R_X86_64_PC32 against symbol `stderr@@GLIBC_2.2.5' can not be used" on Linux
     args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON" if OS.linux?
 

@@ -20,20 +20,14 @@ class Harbour < Formula
     regex(%r{url=.*?/harbour[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "935cc21388de6b60757cfc22f1e3692bf9dc0fdd22fab8caf5090325e420aaac"
-    sha256 cellar: :any,                 arm64_sequoia:  "c391f2098164917feb69d3e4820c3c7495dbb84689c5fe2b5dcf5f0d5940d82c"
-    sha256 cellar: :any,                 arm64_sonoma:   "7e80473b90f18a1d0825801e625bb117f69551e6d04f11fd65b113b2ab8e53cb"
-    sha256 cellar: :any,                 arm64_ventura:  "ad3d5b72015a0fb027952c207b4637adb47a3535e8492cb3553e687720b20b59"
-    sha256 cellar: :any,                 arm64_monterey: "b767ebd7a0e600631d6d61ce3a8bbd907f3f8fd305270ac85053684ecce5ebea"
-    sha256 cellar: :any,                 sonoma:         "cc37a07184ba91033dc4b4e824a302f9ef54abbee7026fbd0cda30f2d2cbeb57"
-    sha256 cellar: :any,                 ventura:        "3f888b135d92845905b0926aef1623e5c4bcc72b4c71cc4d6f45554c5200f78b"
-    sha256 cellar: :any,                 monterey:       "407f06fad0eac6ca57c858185ebe6e77bb4dcd7740c5b91a6c0e7524d72642c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "798cc4aee29d60fb9fe930c7b22f691de6e5f0b90ac997f42d41d1c1d589baf5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2087353cafad551175524915a162da8520c6401686c1d4d70414553fbc2d1f1b"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "06c136368fdf19cd9b6a627930406bd96d06c82a60beef63d4f702000eda8e6c"
+    sha256 cellar: :any,                 arm64_sequoia: "161bee9030b1f4d9170c831ba10fb682f89d54be2d206f895d78b73ec08aa7b9"
+    sha256 cellar: :any,                 arm64_sonoma:  "d23b54efd3605e0e59fbb7ddbec4d17d990a99772af413f6643679064e346dde"
+    sha256 cellar: :any,                 sonoma:        "d9581caceab52be6bdd840f98a0f6fcc30349ce80dd3a1dca3fc88d580b8b9c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6964cc72ed89391d86c565cdcef99c45c753aa6b3196826da4ebe859280a9a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b07b5a9ec6f887b51a0c212a363e1943a4cb1c0059b23261ae9ea2649f274ab"
   end
 
   deprecate! date: "2026-01-05", because: "uses deprecated libxdiff"
@@ -50,7 +44,10 @@ class Harbour < Formula
   uses_from_macos "expat"
   uses_from_macos "ncurses"
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Delete files that cause vendored libraries for minizip and expat to be built.
@@ -102,7 +99,7 @@ class Harbour < Formula
       ENV["HB_WITH_CURSES"] = Formula["ncurses"].opt_include
       ENV["HB_WITH_EXPAT"] = Formula["expat"].opt_include
       ENV["HB_WITH_SQLITE3"] = Formula["sqlite"].opt_include
-      ENV["HB_WITH_ZLIB"] = Formula["zlib"].opt_include
+      ENV["HB_WITH_ZLIB"] = Formula["zlib-ng-compat"].opt_include
     end
 
     ENV.deparallelize

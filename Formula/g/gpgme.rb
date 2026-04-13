@@ -4,6 +4,7 @@ class Gpgme < Formula
   url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-2.0.1.tar.bz2"
   sha256 "821ab0695c842eab51752a81980c92b0410c7eadd04103f791d5d2a526784966"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpgme/"

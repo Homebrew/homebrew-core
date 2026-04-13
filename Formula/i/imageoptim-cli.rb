@@ -11,8 +11,6 @@ class ImageoptimCli < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "a773e296348e3eefcf67f3b5101d88df39de5a2cf3746ddc67bb14542620c105"

@@ -31,6 +31,9 @@ class ElmFormat < Formula
     (buildpath/"cabal.project.freeze").truncate(0)
     inreplace "cabal.project", /^with-compiler: .*$/, ""
 
+    # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
+    (buildpath/"cabal.project.local").write "allow-newer: base, containers, template-haskell\n"
+
     system "cabal", "v2-update"
 
     # Directly running `cabal v2-install` fails: Invalid file name in tar archive: "avh4-lib-0.0.0.1/../"

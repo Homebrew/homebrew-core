@@ -27,7 +27,6 @@ class Six < Formula
 
   def caveats
     python_versions = pythons.map { |p| p.version.major_minor }
-                             .map(&:to_s)
                              .join(", ")
 
     <<~EOS

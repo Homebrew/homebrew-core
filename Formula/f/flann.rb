@@ -4,17 +4,16 @@ class Flann < Formula
   url "https://github.com/flann-lib/flann/archive/refs/tags/1.9.2.tar.gz"
   sha256 "e26829bb0017f317d9cc45ab83ddcb8b16d75ada1ae07157006c1e7d601c8824"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f72b2d340b2fc8b30e677ad96ea304d300d5237080ecda763bf8c4599ab815e8"
-    sha256 cellar: :any,                 arm64_sequoia: "47250c09074574e097f6a58846c183e51d0e36df9409b2d11ed5aee36691b78d"
-    sha256 cellar: :any,                 arm64_sonoma:  "a90114e86c64bd05b7804ee9cdd0aa1b7032c4e7604b37bf760b1e2a7ac7b85a"
-    sha256 cellar: :any,                 arm64_ventura: "fb161bd13f745de377d0c7da4959a538859a05f1327a4cd1dcc715f753e166e9"
-    sha256 cellar: :any,                 sonoma:        "e6173b7028321f243b95cf5fff7335393820585f5563f37cf2b799ad25d19947"
-    sha256 cellar: :any,                 ventura:       "f4c22835031da0fe8aec8f176e2b70c086fd34e055a0b662487a810bb282fedd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a940e8933e0cc273b1bb5d8fb6cdb289b9b15128457e0485ee1372ebacee8dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5e0831e7f18820cbb873c5853660e272b7b5d2d4c34d753683bc1ea604707e0"
+    sha256 cellar: :any,                 arm64_tahoe:   "6635599071926575a5e3eef3bd48521d93b5fb74da6e21fbf60d99c4b6823ff1"
+    sha256 cellar: :any,                 arm64_sequoia: "ae73ea70a53e2f253d8c189d830b5607a6ec395cda17e418fcc5cca06d2ee4e4"
+    sha256 cellar: :any,                 arm64_sonoma:  "e711080a6b6135afbc04dd206b201b9fb8ac1627b760d080eed9403ac361d6dc"
+    sha256 cellar: :any,                 sonoma:        "9ac7f30cfe97912e5ea39b164fc24d1031af8db3cae79c357bcd6c3149325af4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "998d5a26830677da31aea0f6131483c3ac3922c1f2b4e7ba71641bd2902a641c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9d5d3a9637124dff3e43fd033f0887a2520b63fe57a0605951cf888e87b7fb2"
   end
 
   depends_on "cmake" => :build

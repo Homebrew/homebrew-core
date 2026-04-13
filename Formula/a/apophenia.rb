@@ -6,8 +6,6 @@ class Apophenia < Formula
   license "GPL-2.0-only"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "44c30149c9a30ba1c3eabfde55df2aa654127cd2788bddef59c67dc61b79531d"
     sha256 cellar: :any,                 arm64_sequoia:  "45407a002d3d36f5c0e0e1b286a7097074d389691e119c42b17681e086b48473"

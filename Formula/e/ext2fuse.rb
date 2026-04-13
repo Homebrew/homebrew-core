@@ -13,6 +13,7 @@ class Ext2fuse < Formula
 
   # Last release on 2008-06-26. Needs `libfuse@2` and patches to build
   deprecate! date: "2025-03-06", because: :unmaintained
+  disable! date: "2026-03-06", because: :unmaintained
 
   depends_on arch: :x86_64
   depends_on "e2fsprogs"

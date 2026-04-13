@@ -1,8 +1,8 @@
 class SpirvCross < Formula
   desc "Performing reflection and disassembling SPIR-V"
   homepage "https://github.com/KhronosGroup/SPIRV-Cross"
-  url "https://github.com/KhronosGroup/SPIRV-Cross/archive/refs/tags/vulkan-sdk-1.4.335.0.tar.gz"
-  sha256 "c3e935cb19e2dda8e2e03fcfcbe451131595fec2cfbc73ab79a6f4c4cd43eb16"
+  url "https://github.com/KhronosGroup/SPIRV-Cross/archive/refs/tags/vulkan-sdk-1.4.341.0.tar.gz"
+  sha256 "b2665ac9ddb65ff75a7ca2f6d410e73da443692742a1e3a5b7728ca6069a400c"
   license all_of: [
     "Apache-2.0",
     "MIT",
@@ -18,12 +18,12 @@ class SpirvCross < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eef4680c4336d0537b1199587f31607715a34bc2f325c7301e4a071ec60ff716"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "db422efce1ff115ea33ed85c7859b06f5519485ff2fc59c5ba408ebd999d1914"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ff489b53b4183905f212ab430fc439c451a030896fa4194a93a4680c5897d0b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "29832daefd03c35e2107b023262747790b483b393fe19b19125ba55d73abe01e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b735499c50b3de38ae7b3bf05d4db1edc563a956257c816c8c2beb9806879a53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "484acc91be3ab3a1f8d6e33a96d42903ab4647b372b553180f2ce0610c742336"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1977a16037658806a6d931d7949d5f06596cb7d6ccccca7416bef5c8813617e2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e01b56657536588654f598ad53b1a71c6ef71a066579d42a0937690f59cf31f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ca057eed8da37851b2a40b57b15e2ccc4063af9e7c5d2e1ae5cca48a95c1194"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e1bf1109ba614d7d6f511e703868c80a5ce44443bf75ed4ce131be730e3885d0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6c7fd48dabbefd574382784f2b66f679d36293dd50af3def498b4008c83a0370"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c103084c571b223da6aa75f97471553926afc2bc4d9cab205f8084791ac6f858"
   end
 
   depends_on "cmake" => :build
@@ -49,19 +49,19 @@ class SpirvCross < Formula
 
     # fix technically invalid shader code (#version should be first)
     # allows test to pass with newer glslangValidator
-    before = <<~EOS
+    before = <<~GLSL
       // Copyright 2016-2021 The Khronos Group Inc.
       // SPDX-License-Identifier: Apache-2.0
 
       #version 310 es
-    EOS
+    GLSL
 
-    after = <<~EOS
+    after = <<~GLSL
       #version 310 es
       // Copyright 2016-2021 The Khronos Group Inc.
       // SPDX-License-Identifier: Apache-2.0
 
-    EOS
+    GLSL
 
     Dir["*.comp"].each do |shader_file|
       inreplace shader_file, before, after

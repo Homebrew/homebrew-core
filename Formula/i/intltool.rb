@@ -6,8 +6,6 @@ class Intltool < Formula
   license "GPL-2.0-or-later"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a3b02903a82a77d89d14776957ba50c442e5bdf8948079c65ed927d80765f04a"

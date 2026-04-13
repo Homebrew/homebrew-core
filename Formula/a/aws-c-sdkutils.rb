@@ -4,6 +4,7 @@ class AwsCSdkutils < Formula
   url "https://github.com/awslabs/aws-c-sdkutils/archive/refs/tags/v0.2.4.tar.gz"
   sha256 "493cbed4fa57e0d4622fcff044e11305eb4fc12445f32c8861025597939175fc"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "d0f34c54b3e8be0bbff43be46378156e8b5177f90091499dbd51c27969e1de2a"

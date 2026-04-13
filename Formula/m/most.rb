@@ -11,8 +11,6 @@ class Most < Formula
     regex(/href=.*?most[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "31f896dfc693f1cd1014b870faad91a036405d61a943941ea61f5010fc2c9525"
     sha256 cellar: :any,                 arm64_sequoia:  "2d8b015bce1f30f98a2a60a907ac22a7a38d01d4aa86bd8332c243870a0b184a"

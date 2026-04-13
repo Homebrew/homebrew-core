@@ -1,8 +1,8 @@
 class Libfixbuf < Formula
   desc "Implements the IPFIX Protocol as a C library"
   homepage "https://tools.netsa.cert.org/fixbuf/"
-  url "https://tools.netsa.cert.org/releases/libfixbuf-2.5.3.tar.gz"
-  sha256 "a87a7527634571cbe5fcf092b5dec9f6d6f93be6b776f16bca2d2412d42e6ac2"
+  url "https://tools.netsa.cert.org/releases/libfixbuf-2.5.4.tar.gz"
+  sha256 "106b8e1e560928a4dc91d8264326bd2463767570d77417535964f450de1f972e"
   license "LGPL-3.0-only"
 
   # NOTE: This should be updated to check the main `/fixbuf/download.html`
@@ -13,12 +13,12 @@ class Libfixbuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c2efd2fc55aaf6c1fa9f549bbc766bd882001e24ecc1fd49c67898e0b5f08299"
-    sha256 cellar: :any,                 arm64_sequoia: "38d9ee575ec8e7fd9be0c845d50ef7356eaf6e2a6e52f8767dfd8ba316dadf24"
-    sha256 cellar: :any,                 arm64_sonoma:  "90ad12f18cdf5917337d390fc2f1c827630c3a176faa41db46180d43eb99986c"
-    sha256 cellar: :any,                 sonoma:        "2cf5c4aebe2039cde223b64d20448d9d6342e34986e3134b7b2337d4afcefb85"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "513ccaf4b9d4e98fd1dbc9126634dd32d14ca1733d8299dbc83f9c75857aca0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a602fe11207dfa0d9bccf12fadd8db0430fbbff1c0a9e29e43f8a49ef3ab276c"
+    sha256 cellar: :any,                 arm64_tahoe:   "e2b8afeb4d9ce3d8d2b55f488e3f4df93c85791bb64b32c33fcc1d662eba7e11"
+    sha256 cellar: :any,                 arm64_sequoia: "3bfaea10816dbd5dd6c4e51a9755e07bea1929768023f0eec78bb69ca2c24cbf"
+    sha256 cellar: :any,                 arm64_sonoma:  "3fa7c6d28c84ffc5300bd79dbb67ddeeecdd572caab22529bdebfb9eb735163c"
+    sha256 cellar: :any,                 sonoma:        "64d4455a477ea65a1cc54c6f0633286d42c35da7328e04708a56b45cac3a095c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d339e5ada6c9d514e5d5dd4e757f52673aeb189cc151d29bdce63c48be1e0f82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ce88f5bcefb33debbe42fb4c64f5d72488988d59a110ad95c6598a3abfbddb3"
   end
 
   depends_on "pkgconf" => [:build, :test]

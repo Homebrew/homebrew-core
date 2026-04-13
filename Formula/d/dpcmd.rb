@@ -10,7 +10,7 @@ class Dpcmd < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "4f5102a2acb2ba277359e059eb1bfc1c18b9608625c56b67b8a37c3bcc0208d7"

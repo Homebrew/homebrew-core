@@ -1,9 +1,9 @@
 class Riscv64ElfBinutils < Formula
   desc "GNU Binutils for riscv64-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.45.1.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.45.1.tar.bz2"
-  sha256 "860daddec9085cb4011279136fc8ad29eb533e9446d7524af7f517dd18f00224"
+  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.46.0.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.46.0.tar.bz2"
+  sha256 "0f3152632a2a9ce066f20963e9bb40af7cf85b9b6c409ed892fd0676e84ecd12"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,21 +11,23 @@ class Riscv64ElfBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "c6adf33de2958f438b2cd72db098d3d23afe29624c36e9806237c1c372fdd036"
-    sha256 arm64_sequoia: "3f5a53e2037e52b9ef073c685fcf836cc7bbc5e0f18f21ee228b28881159f04c"
-    sha256 arm64_sonoma:  "acb79220d02eabe7b29898151028fd703cbfeb3154ed374b3cce65b8a19ca2ec"
-    sha256 sonoma:        "bebfc63f94890c5f80e457a9de5e6f3be952b2a5c3b0aa053c1cfd18b4387a01"
-    sha256 arm64_linux:   "f48066697bbd57dba137971fac1fdb2163449a98efd7ce14a90452257aec66f1"
-    sha256 x86_64_linux:  "ccf92985679f8f3d450396baa7c1b2553704f06619201e8207571351e8161e96"
+    sha256 arm64_tahoe:   "d37df2f1817b189621420013525be45c9b1a9186b0bc17beb35595ceeda44a07"
+    sha256 arm64_sequoia: "f899cf838014e5644b80e7878792305b7cc707c806ee9fd973d4dcdeddba9d67"
+    sha256 arm64_sonoma:  "320d51e1e896e66f428893c90badbc072e624b02498fbf700d47cb0404403a7b"
+    sha256 sonoma:        "26d02e863630ff329c19f8d39564304bad95d7ca51c341d7af04dae0f86e080e"
+    sha256 arm64_linux:   "47489b6cccf3482cc9b883688e71b72962864725bbda63970b9abb2ea441db3e"
+    sha256 x86_64_linux:  "bfbdc564238f10a6d02c7c7d40a9a2369291b248134d479914bf57b630ad9029"
   end
 
   depends_on "pkgconf" => :build
   depends_on "zstd"
 
-  uses_from_macos "zlib"
-
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

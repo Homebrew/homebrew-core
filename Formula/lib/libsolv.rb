@@ -1,8 +1,8 @@
 class Libsolv < Formula
   desc "Library for solving packages and reading repositories"
   homepage "https://github.com/openSUSE/libsolv"
-  url "https://github.com/openSUSE/libsolv/archive/refs/tags/0.7.35.tar.gz"
-  sha256 "e6ef552846f908beb3bbf6ca718b6dd431bd8a281086d82af9a6d2a3ba919be5"
+  url "https://github.com/openSUSE/libsolv/archive/refs/tags/0.7.36.tar.gz"
+  sha256 "32b8a565b70b6ba81d9ad68070de4561dfc8462be12288725a267a90423c0fa6"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,12 @@ class Libsolv < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "b1d4aadeb9b8572bf351d0c07806f964666efa0cd12c3573ff6c96e8540a4ba1"
-    sha256 cellar: :any,                 arm64_sequoia: "ae33d25d26ff710352a06a38a421fd0216c30eb55827e0ce5681912aa91459a0"
-    sha256 cellar: :any,                 arm64_sonoma:  "3a55a375e654f3ddfb7e6f4f5cfa981a69de84fc08ab44a3e0baf5f39e4580bc"
-    sha256 cellar: :any,                 sonoma:        "fdb5677bef312a9dd7a2209dfed282cf68cbdaa3274ec023a2f5c28aecf02000"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbb660601132e01fb609156195711da39e07a7a825aaec07b0e5791c8a9163b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1561ca87a5a76167c49b46f6682c99cf46ea90bfd20262ad7aa78067790636aa"
+    sha256 cellar: :any,                 arm64_tahoe:   "87086273dce26bc433877f410f39ca4d3cf250fa8b257c4b36fc47243b3ecf78"
+    sha256 cellar: :any,                 arm64_sequoia: "e82122f9978d6b918f9188d0b4acd3e8aa31cd403863614ba63561e58db2de9a"
+    sha256 cellar: :any,                 arm64_sonoma:  "f44a274210d5f2e0f6d125d51d4e102e1a2b044e2aaba4df2f1b06195bc83a9f"
+    sha256 cellar: :any,                 sonoma:        "f35a7b2bfb6ee65e76ce62c6a2d2b6f06f0bcd97835275b15dd3140e0a893b6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6881cb23d0096ba56eaf6a7f9d1e8721a8196dff7a79ba61c6ab33700ea683d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65acf2b26ea4359dfbf41daae79a079119be8926cdeffa304754db3bfa68c5f4"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +26,10 @@ class Libsolv < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

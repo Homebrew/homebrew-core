@@ -1,8 +1,8 @@
 class Dolt < Formula
   desc "Git for Data"
   homepage "https://github.com/dolthub/dolt"
-  url "https://github.com/dolthub/dolt/archive/refs/tags/v1.80.2.tar.gz"
-  sha256 "11a77c1c154ea6e801eb3024885b644719e81858a216bbd9700500f193843e51"
+  url "https://github.com/dolthub/dolt/archive/refs/tags/v1.86.1.tar.gz"
+  sha256 "760d0b4004abb299b325665ee280537184dc31a897ce201931ca16c6cb2790b5"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/dolthub/dolt.git", branch: "main"
@@ -13,12 +13,12 @@ class Dolt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "57c06fc75ab095a838e26dfcc58250a73b021f29d6d587f2ae8d4c5d3bd6306c"
-    sha256 cellar: :any,                 arm64_sequoia: "2a0901ec3f424531228fba8f618fa90e3acf776f72ac6b469409722806996213"
-    sha256 cellar: :any,                 arm64_sonoma:  "e632862d6f2361459dc3d2c2be04fa605d6fc1b43e969a7e9c55de2c35e5dd67"
-    sha256 cellar: :any,                 sonoma:        "f2cded5745766fd58855b304b2e2d1bfd1c3f4cd17af5da33ece4b226b633e12"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "41cb02f0ee4a6bb8b05c0fa39ef4f1fc3fba5aea0b72136941fdc1733e1a0709"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8b141472077f7edd1c6b38ae0378e6b4b5f1b30ba112941c4c0ede7ff122c11"
+    sha256 cellar: :any,                 arm64_tahoe:   "a350011aefee06d04ce46c3a483c7319a460b474ff213f754f1f0de00eafd2d5"
+    sha256 cellar: :any,                 arm64_sequoia: "316cf3a0c749ac93533658a0b67192a003141f3135dc5ca37fa1e9a157a6ef5d"
+    sha256 cellar: :any,                 arm64_sonoma:  "74c8841c431747a313fb392326e6ab9443b661c6dcc5219095dcf3bb246512b4"
+    sha256 cellar: :any,                 sonoma:        "5938d11bbeeb54644934bc818fac72301270c2b6b076ae6a0341ad1ac68cb741"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "93ddbe59768bc15e1773d52dbdda448793d088bc6d0e97eb862a8ad4a94d45d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82c2631142ad11394485dc3bf91108abfd1bac70e35131b1c03064f89d2ec50e"
   end
 
   depends_on "go" => :build
@@ -31,10 +31,12 @@ class Dolt < Formula
 
     (var/"log").mkpath
     (var/"dolt").mkpath
+    (etc/"dolt").mkpath
+    touch etc/"dolt/config.yaml"
   end
 
   service do
-    run [opt_bin/"dolt", "sql-server"]
+    run [opt_bin/"dolt", "sql-server", "--config", etc/"dolt/config.yaml"]
     keep_alive true
     log_path var/"log/dolt.log"
     error_log_path var/"log/dolt.error.log"

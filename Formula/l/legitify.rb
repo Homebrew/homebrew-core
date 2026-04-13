@@ -21,7 +21,9 @@ class Legitify < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "467b678a47f512a636ab25c2d14106c7371b2917670c0fa01fb7f51d6796b006"
   end
 
-  # Use "go" when https://github.com/Legit-Labs/legitify/pull/350 is merged and released:
+  # no release since 2024-07-09, fails with go 1.25+ https://github.com/Legit-Labs/legitify/pull/350
+  deprecate! date: "2026-01-15", because: :unmaintained
+
   depends_on "go@1.24" => :build
 
   def install

@@ -4,6 +4,7 @@ class Xorgproto < Formula
   url "https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2025.1.tar.gz"
   sha256 "d6f89f65bafb8c9b735e0515882b8a1511e8e864dde5e9513e191629369f2256"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url :stable

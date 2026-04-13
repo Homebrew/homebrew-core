@@ -7,15 +7,14 @@ class Apngasm < Formula
   revision 20
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256                               arm64_tahoe:   "06ad2cd58116c3c62a72870f7f1ef0a1b4116285eab42c085648dfac4926ffd4"
-    sha256                               arm64_sequoia: "7b80dcefcd186511ed93a327f44a794b779acb9ec5b7da9fe8100658dec1c2e3"
-    sha256                               arm64_sonoma:  "7d1cf69a6e05eedccc87ef7f878bce2d8d4f531607efa9565fc8fe27412d549a"
-    sha256                               sonoma:        "d0901f24ae3b9ea5d17ca77a012c05b2d2aa2ef546a63eb5fe6d42e5985ea596"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "19251d12f2388fde4d495dbfcbe72b3883ee24fabbf38dc0f077981636897ad1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11ae3807509bd5b7522d7fa850b52eff4b00b60ada10940fe16c5ab995d3ecec"
+    rebuild 1
+    sha256                               arm64_tahoe:   "f648a9450c38c86f0a2790b194a3f44534dbf8eb4cdca060ed4ba011aaf106dd"
+    sha256                               arm64_sequoia: "48cff36bc137fc8a4369555a5fe2741830c12cf7d7ab4cb6719e5235806d352d"
+    sha256                               arm64_sonoma:  "0e34041c1528674faf22b6dbf0270cae0ec788391b2ca39d5e68eeaac80a8130"
+    sha256                               sonoma:        "d0cab8f5fe072f029bde277f83e27f77ff135e261eb37f7af74d9cd3dc531b9c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7020b0940d9cf23dbd77afd912001b9d759d4b26722fecc4e1d482d54a8df890"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fd1796b7defa25851257aa4245f02d0b3e31f23c9bf88440c1a3ee910e1ef66"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +23,9 @@ class Apngasm < Formula
   depends_on "libpng"
   depends_on "lzlib"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   fails_with :gcc do
     version "7"

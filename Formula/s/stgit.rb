@@ -4,15 +4,16 @@ class Stgit < Formula
   url "https://github.com/stacked-git/stgit/releases/download/v2.5.5/stgit-2.5.5.tar.gz"
   sha256 "9d84329c84bbb3e84b97b57aa29a79aa69f13c896f05842cd3a0f46fff3afe57"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/stacked-git/stgit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cfa705de0e5b9cf7922189296afc03f16fef2811f5c24cedbe5c135d5cb95429"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "865742c4070ee13e3c4748ac2bcae3922f672ab08ddaa79ca8464460e35d4cf3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0cff8da4697cfc9c7194d8ea374f17a1a91294034f4100cfb4f2f4b8a8e66c4b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "af4ca09482dab011146d4a1a2f70b9ec064ccd206746dcfa2239d64ef49235aa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c269dbb61d372efc698fe438f201358a25799455964580b5759d7af287a21394"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f763cbd3a555abae3450c8d3bd755f1cc6def5ecec49d20764653a38f9875fcc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e9a2472fb50048b0b022f20a5a1043c986cccbb42e26ec119c6d854b6071ee0f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "920ab2c4eb232fca926817eea3d50284eee59a6ca78009321ecae95c2b0a9225"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b0a3793db5006b763851e80d888b830e13c3fd17cfaf0eef744a261894a0123b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "08987529eab4d62f17063aa78837bdc9ad80486820289a3a24670b497394c92d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a2149594fbddbd6b1a5edd5885301e5a231c2296a09039ce5bf36921be8db37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d416973811f15765d0354ec0c3e22eb468c987bb0dddcd38e10de0a0cd789e61"
   end
 
   depends_on "asciidoc" => :build
@@ -22,7 +23,10 @@ class Stgit < Formula
   depends_on "git"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"

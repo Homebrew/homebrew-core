@@ -7,20 +7,17 @@ class LlvmAT18 < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   livecheck do
-    url :stable
-    regex(/^llvmorg[._-]v?(18(?:\.\d+)+)$/i)
+    skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "e9f1cec1208e004ddbe39ea96897e5a1f784eb0d98731d2b074bf9f9e916d3ab"
-    sha256 cellar: :any,                 arm64_sequoia: "d01dd6db427356e9c325e531d54e210b66520dce9690d6e653ef28eefb650493"
-    sha256 cellar: :any,                 arm64_sonoma:  "5d45dc3ff0759f88b9fb81d33650c009a82a8f572fb7973485d0066e1f1f7d5f"
-    sha256 cellar: :any,                 sonoma:        "cbc4b1dbc1b840b6d9bb02e60b5f3af5e0c6ed8e04d2cfc239eba270690cbb7f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "44a08bf3f5cce809548e39f0e1cda1084a82e050a9ef8cf9beaa96123effa359"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "127546cbca116469f33c0976940d5ec6bc2385ac7caf18e6ca7b10fc66d3b32e"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "1e9a19bff9679522f731a5b45d9667a544f505a10f25bb2ec85a3743976e3a27"
+    sha256 cellar: :any,                 arm64_sequoia: "7444fd9adfdec6b4f388f2a321d802115f839aa4c45f565aee25284504e9e225"
+    sha256 cellar: :any,                 arm64_sonoma:  "84f895cfadaeba96a43db53c1bea77b6ab731326719fe6021ef9d30d55695620"
+    sha256 cellar: :any,                 sonoma:        "56bb12c01aa3f619f88d4f06220fa2ddd6e7d4dcc87860e3f3087ec211e1bf41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ec22755167c15a099347cfa71da87ed7855c1a086a59d3524162749045499ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4a95ef131b99b1ceb7fd5b6a16626efee62722f53ebc74fbcfddf50a785f8b4"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -37,12 +34,11 @@ class LlvmAT18 < Formula
   uses_from_macos "libedit"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_linux do
+    depends_on "binutils" => :build # needed for LLVMgold plugin
     depends_on "pkgconf" => :build
-    depends_on "binutils" # needed for gold
-    depends_on "elfutils" # openmp requires <gelf.h>
+    depends_on "zlib-ng-compat"
   end
 
   def python3
@@ -73,9 +69,6 @@ class LlvmAT18 < Formula
                              .select { |name| name.start_with? "python@" }
                              .map { |py| py.delete_prefix("python@") }
 
-    # Apple's libstdc++ is too old to build LLVM
-    ENV.libcxx if ENV.compiler == :clang
-
     # compiler-rt has some iOS simulator features that require i386 symbols
     # I'm assuming the rest of clang needs support too for 32-bit compilation
     # to work correctly, but if not, perhaps universal binaries could be
@@ -83,9 +76,6 @@ class LlvmAT18 < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
-    # we install the lldb Python module into libexec to prevent users from
-    # accidentally importing it with a non-Homebrew Python or a Homebrew Python
-    # in a non-default prefix. See https://lldb.llvm.org/resources/caveats.html
     args = %W[
       -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
       -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
@@ -101,7 +91,6 @@ class LlvmAT18 < Formula
       -DLLVM_ENABLE_Z3_SOLVER=OFF
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
-      -DLIBOMP_INSTALL_ALIASES=OFF
       -DLIBCXX_INSTALL_MODULES=ON
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{python_versions.join(";")}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=OFF
@@ -189,8 +178,6 @@ class LlvmAT18 < Formula
     args << "-DBUILTINS_CMAKE_ARGS=#{builtins_cmake_args.join(";")}" if builtins_cmake_args.present?
 
     llvmpath = buildpath/"llvm"
-
-    # Now, we can build.
     mkdir llvmpath/"build" do
       system "cmake", "-G", "Ninja", "..", *(std_cmake_args + args)
       system "cmake", "--build", "."
@@ -201,8 +188,6 @@ class LlvmAT18 < Formula
       # Get the version from `llvm-config` to get the correct HEAD or RC version too.
       llvm_version = Utils.safe_popen_read(bin/"llvm-config", "--version").strip
       soversion = Version.new(llvm_version).major.to_s
-      soversion << "git" if llvm_version.end_with?("git")
-      soversion << "rc" if llvm_version.end_with?("rc")
 
       # Install versioned symlink, or else `llvm-config` doesn't work properly
       lib.install_symlink "libLLVM.dylib" => "libLLVM-#{soversion}.dylib"
@@ -242,14 +227,7 @@ class LlvmAT18 < Formula
     llvm_version = Utils.safe_popen_read(bin/"llvm-config", "--version").strip
     llvm_version_major = Version.new(llvm_version).major.to_s
     soversion = llvm_version_major.dup
-
-    if llvm_version.end_with?("git")
-      soversion << "git"
-    elsif llvm_version.end_with?("rc")
-      soversion << "rc"
-    else
-      assert_equal version, llvm_version
-    end
+    assert_equal version, llvm_version
 
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
     assert_equal "-lLLVM-#{soversion}", shell_output("#{bin}/llvm-config --libs").chomp

@@ -10,8 +10,6 @@ class Mkcue < Formula
     regex(/href=.*?mkcue[._-]v?(\d+(?:\.\d+)*)\.orig\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d749706af2c32c59bc8bc5faa3c64d98ea35cf5e2f758d2080201b6feda10930"

@@ -29,8 +29,6 @@ class GccAT10 < Formula
   depends_on "libmpc"
   depends_on "mpfr"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on arch: :x86_64
     # Align dates to remove Intel macOS support with brew
@@ -41,10 +39,8 @@ class GccAT10 < Formula
 
   on_linux do
     depends_on "binutils"
-
-    on_arm do
-      depends_on "zstd"
-    end
+    depends_on "zlib-ng-compat"
+    depends_on "zstd"
   end
 
   def version_suffix

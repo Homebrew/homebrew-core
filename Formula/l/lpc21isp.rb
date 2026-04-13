@@ -6,7 +6,7 @@ class Lpc21isp < Formula
   sha256 "9f7d80382e4b70bfa4200233466f29f73a36fea7dc604e32f05b9aa69ef591dc"
   license "LGPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e9869885d3e10505fb16dd89ef1b5047a77e0b8a4231b9acb7f94c0da9099ea0"

@@ -5,8 +5,6 @@ class Fruit < Formula
   sha256 "ed4c6b7ebfbf75e14a74e21eb74ce2703b8485bfc9e660b1c36fb7fe363172d0"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "4bda90128aa536a15d5e5cff13df7542d5070289c6c16674915b3470ab6046b9"
     sha256 cellar: :any,                 arm64_sequoia:  "ecf666939daa1621d37416639a69c85c8b75c73ee09cfdfdad8613296097c2cd"

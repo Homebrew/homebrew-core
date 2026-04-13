@@ -1,22 +1,17 @@
 class DiffPdf < Formula
   desc "Visually compare two PDF files"
   homepage "https://vslavik.github.io/diff-pdf/"
-  url "https://github.com/vslavik/diff-pdf/releases/download/v0.5.2/diff-pdf-0.5.2.tar.gz"
-  sha256 "7d018f05e30050a2b49dee137f084584b43aec87c7f5ee9c3bbd14c333cbfd54"
+  url "https://github.com/vslavik/diff-pdf/releases/download/v0.5.3/diff-pdf-0.5.3.tar.gz"
+  sha256 "dc4004fe1199eebf381b5e0f2a60b6b59ff73434730e4f0aae1e0d02fa171b98"
   license "GPL-2.0-only"
-  revision 2
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "39d3ffa2ca4a7c23b19d569d3ad80308cb2a427ee9386024770f27ee48bfe1ef"
-    sha256 cellar: :any,                 arm64_sequoia: "a6fdb5286aa134dcdc600dbabf9c84c5f8f9c1efc83ea73311bb7bb2a0840739"
-    sha256 cellar: :any,                 arm64_sonoma:  "8170798a716f04ea3a50de00147750f2b04464ef614fb465a9cbcd337ebd60a1"
-    sha256 cellar: :any,                 arm64_ventura: "b5c66a318b2c7b71dcbe2366b8ebda2950d0652568af574d859c758f29e72ba1"
-    sha256 cellar: :any,                 sonoma:        "5edf62102c1b6662823fc3a6c897b9c94c837251d3d969e69f573daf3129b864"
-    sha256 cellar: :any,                 ventura:       "2eaf870131f8fabc96a894893d02f23302ee681dfa1f482ab30c0e129b181ffd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ed5d51b2b1950bacc69831b82141f87a1d34ff9cf7344b1dba6c7f2f472de8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ce93415222a7df01057095309882ee6b32a02f5fc5d175bc8779567ebd76b7b"
+    sha256 cellar: :any,                 arm64_tahoe:   "6a01e632da3e4503ad6263b32945640091e38519b0755fd7366ccebe6bad0c68"
+    sha256 cellar: :any,                 arm64_sequoia: "47cfb2dd2bb8d255eeaf4e34f6837a072162fd62a9ff87efdde52a36c200a8a8"
+    sha256 cellar: :any,                 arm64_sonoma:  "af4b9eb8bd59d7f5bfa80a4b19a58e55d172ecad11ba7f1f7b7cf294197d4cc0"
+    sha256 cellar: :any,                 sonoma:        "7eb6849fe6ba6470939f031049d3e69bfb1b10e96157c5e281bad811af019ef0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6e83d1b6d78a2b87cc79c1e8dcec4f031d9fa8ecce2a7983312806fde32801d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed2a793df250161d395018d397133ee0c6608e4aaa88400079b5037648ba5c84"
   end
 
   depends_on "autoconf" => :build

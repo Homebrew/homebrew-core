@@ -1,17 +1,17 @@
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-15.3.1.tgz"
-  sha256 "055454edf0e3927aee5b702616ca27cb1bedae281320cb267d3cf428c32a6d89"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-15.14.0.tgz"
+  sha256 "1fa857c493585545e146c66a2daca73781cfe090dac316c2f64f406810726508"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0b8af0e0bc364a21100855d0f120fbe488b46e8003645e8389553de810d9b7cd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15f012a10744cda428a6cccf0eb2cd56f5099f8a164afb094b1fc3a47e9883fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15f012a10744cda428a6cccf0eb2cd56f5099f8a164afb094b1fc3a47e9883fe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee4bc3ba9c694d47e4cf579844c5702725bbfbc579a404e252c306e97219fdd5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8344fb0960ea5d947bdc0db47fe041243bafb3ee68b41670017ba2b84f2914d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8344fb0960ea5d947bdc0db47fe041243bafb3ee68b41670017ba2b84f2914d"
+    sha256 cellar: :any,                 arm64_tahoe:   "7ace84e806f875d8c2250a1939a1736cbdb81d59362d3f28b126d98792ae3f00"
+    sha256 cellar: :any,                 arm64_sequoia: "a4792351779cb4f5d3e06fe12f4c5531dc916ee86f9fd17299df2ee01434bb64"
+    sha256 cellar: :any,                 arm64_sonoma:  "a4792351779cb4f5d3e06fe12f4c5531dc916ee86f9fd17299df2ee01434bb64"
+    sha256 cellar: :any,                 sonoma:        "776771be2fafb2d8bf0a6bb0e6774a4131d64c3064656f76e165b3518a46b07f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd72d0ce82588d99d23894b0d6ed7966d181a0ab28ac3dc28ab16fa1029de837"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7544d361608525afb0455274fc50696aa0b6a9a663c22d0ab64b0e7a837c01a"
   end
 
   depends_on "node"
@@ -22,6 +22,12 @@ class FirebaseCli < Formula
 
     node_modules = libexec/"lib/node_modules/firebase-tools/node_modules"
     deuniversalize_machos node_modules/"fsevents/fsevents.node" if OS.mac?
+
+    # Remove incompatible pre-built `bare-fs`/`bare-os`/`bare-url` binaries
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    node_modules.glob("{bare-fs,bare-os,bare-url}/prebuilds/*")
+                .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
   test do

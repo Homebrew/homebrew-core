@@ -1,18 +1,18 @@
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/refs/tags/5.8.14.tar.gz"
-  sha256 "9ff44945fdf08b99468808ff67c903f62205583743b6b45921dc6b366aa5e243"
+  url "https://github.com/okbob/pspg/archive/refs/tags/5.8.16.tar.gz"
+  sha256 "3dcfb810cc6675cac6e3ea53775a6f819e0e12e0d2bde8122e3136b740f38ae5"
   license "BSD-2-Clause"
   head "https://github.com/okbob/pspg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3bd320dc103c7cc54f32a50a8d358c5dbaf71202b79f8e8ae3bd91fdeb3731bd"
-    sha256 cellar: :any,                 arm64_sequoia: "6d3cd071149d70c9196df3b9f25eeb5c200d41085d2392d4f772ec7a7999221c"
-    sha256 cellar: :any,                 arm64_sonoma:  "b56421cf9701222a3c0a2d88652366aab074560a4e39321ba0cf82f01343a4a7"
-    sha256 cellar: :any,                 sonoma:        "327205344bdb1b698cd384b78e36117937ed9cc4933e354d2de12dce025390a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f587c97a65ace4875682b9e448f447bc137998abc30437e78c20d3cc914d6628"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ceeb51c20f981031a75291774e8956c408dace40055ef216a289edc8518606b3"
+    sha256 cellar: :any,                 arm64_tahoe:   "8dd9ef474eaf5c99b2119f4a49fbdefd42fc8cfed43d87d37cf6913fdc3707e0"
+    sha256 cellar: :any,                 arm64_sequoia: "ddfc22db81961ba59d8bd6e4a3e930694f513f0e9d82822633b620df1677afe5"
+    sha256 cellar: :any,                 arm64_sonoma:  "d4bc31a1f509fcf4d95d237ab38ca0ddf41135336d3b4712c686df9204001fce"
+    sha256 cellar: :any,                 sonoma:        "ae834e0bd0ef320b448797dc3f5ef5c8106c08ba1834cbcc2eb5ec0af75a3a80"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6afc64962efc19340ebc106abcf81994edfed6c1dd84d9e631e7c020222178ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f18b85a40c801269b01cfcef69ccac84a09e910585e67a1040b48d4191904ca5"
   end
 
   depends_on "pkgconf" => :build

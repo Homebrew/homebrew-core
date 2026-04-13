@@ -6,8 +6,6 @@ class Pgsync < Formula
   license "MIT"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "fe769a833d393d4a1a2d14e5ec710ce30ba26100f26c7de7afe3070772f92406"
     sha256 cellar: :any,                 arm64_sequoia: "5799a23728b227d10d0b8502f3e16d911d77da00466cc5e70acfc53b51822cd8"

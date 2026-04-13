@@ -6,8 +6,6 @@ class Libgosu < Formula
   license "MIT"
   head "https://github.com/gosu/gosu.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "e0ecd1c01723e86606cf28780642bfe3992d3e8cf342715a13ec72ce563f30f9"
     sha256 cellar: :any,                 arm64_sequoia:  "3a5fa70c9c6f1dcdb60fbeb50e8ec544b341c25f0c9d426d5f3982948a10a427"

@@ -4,6 +4,7 @@ class Halide < Formula
   url "https://github.com/halide/Halide/archive/refs/tags/v21.0.0.tar.gz"
   sha256 "aa6b6f5e89709ca6bc754ce72b8b13b2abce0d6b001cb2516b1c6f518f910141"
   license "MIT"
+  revision 1
   head "https://github.com/halide/Halide.git", branch: "main"
 
   livecheck do
@@ -12,13 +13,12 @@ class Halide < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "530feb171d27ce1e4ee4a388dddc4109cbea2b7a8949754c87be3834dd825e1e"
-    sha256 cellar: :any,                 arm64_sequoia: "513484cc94e98264a6a8882aace19c70c507819e4bc9dd224501949374e23abc"
-    sha256 cellar: :any,                 arm64_sonoma:  "06ddd4f412b445c65dee2209477fec0fbc8951c14d35f4198c2cf81ef7ff9496"
-    sha256 cellar: :any,                 sonoma:        "f7e23e2dc174cf2746b91ea41c05ae816a4267bd6ec35f7a420f439707ad3e2e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "649331aedc479125eeb13f911db36017c1e17af2f7ee4d75d707c5a4e43f4f79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63df6d5bc9cdf9da2359017aabda30d4ce68d95b2aeb2b79fe099ffe5adbbcdd"
+    sha256 cellar: :any,                 arm64_tahoe:   "2971971113569192c7c113fc28e6e403037b5678aa1e18a4fdadbf198da94cd1"
+    sha256 cellar: :any,                 arm64_sequoia: "40779827ae67ed29c0cf27f0837e6a6d158d1352d3eee19f81d80cc24f2c6256"
+    sha256 cellar: :any,                 arm64_sonoma:  "cbc3e5f59f48c7360f53a841c14f9c90b364760be44eada0da13851053f0946f"
+    sha256 cellar: :any,                 sonoma:        "3d797396c4285b0123b7498d8fa794984c135b9e1b7985e7706ed927ec1fd4a3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c69185c4c47845f19b7abc2be16eda2dfeba014a8ffcc357afce2ba44960339"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6731e04b241447c0e900d54b50d3d69429250d46b2384fd3a9601a520555a33e"
   end
 
   depends_on "cmake" => :build
@@ -26,8 +26,8 @@ class Halide < Formula
   depends_on "flatbuffers"
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "lld"
-  depends_on "llvm"
+  depends_on "lld@21"
+  depends_on "llvm@21"
   depends_on "python@3.14"
   depends_on "wabt"
 
@@ -37,6 +37,12 @@ class Halide < Formula
 
   def python3
     "python3.14"
+  end
+
+  # Backport support for wabt 1.0.39
+  patch do
+    url "https://github.com/halide/Halide/commit/7d7f0b4422594296fed1d561a43dc262d163d2b8.patch?full_index=1"
+    sha256 "6b861e585ce4d71aec53b225562e078086ee310e8c6e7a052bf3fd53f03322ab"
   end
 
   def install

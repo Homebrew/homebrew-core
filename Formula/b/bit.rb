@@ -7,8 +7,6 @@ class Bit < Formula
   revision 1
   head "https://github.com/teambit/bit.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256                               arm64_tahoe:    "82201904fa2ec0416232bc8e3fa85b60945f07b58dbfa69566c800c96947fb7f"

@@ -7,14 +7,13 @@ class Libstrophe < Formula
   head "https://github.com/strophe/libstrophe.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d03a5cd85ad0c216e28135147a74744847eb32c4e6f4ec52f7de8700098c71b0"
-    sha256 cellar: :any,                 arm64_sequoia: "9b73c7be79de4da6cdf71493be1d7cfebeb793118cc3e8c81f38e1e300c7655a"
-    sha256 cellar: :any,                 arm64_sonoma:  "26a68ff8af0c493458d249c831bc9951d9167f67524a61a815aefe3735c90b05"
-    sha256 cellar: :any,                 arm64_ventura: "871b9da7491c846d8577fbd1497bf835abc2c529148d94f9124953fe602568da"
-    sha256 cellar: :any,                 sonoma:        "91bae15485f397f9eb581cd9611f636320aa76e2671981bd702893f2095b360b"
-    sha256 cellar: :any,                 ventura:       "f56d42d26c8a1540ef92878b9a89262a1769c39904604bd878139570f977bbb5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fdf712f1639e7fb2d4e57aa5708f017059839265d95e1884b45721d6f19f3d68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82556dd0b8ebd7541b35c3ea0e4c4079f802a4588c0424043a64b277416394fc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "452f93fb9065a6120f12edd141f2c587e1d825714ff33e15408aae7e5ced9474"
+    sha256 cellar: :any,                 arm64_sequoia: "5aaeb0aaa4d7af57d2dcf868e79ab429267a48220806a0623db471ef726d3846"
+    sha256 cellar: :any,                 arm64_sonoma:  "1ef2a0bcec6bcb9f5fc25646e3a209afd36b26a4c41429b295915d5cf21837ff"
+    sha256 cellar: :any,                 sonoma:        "1979d7003784e3fb42e13fa456e19bd917f53326336c098f4ab9749ab4ead761"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e53cffafb102848cc089db78fbd6d9d2d7e7bd6fe178722565e7088de5efa679"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23e1b9e04065508e411e4590f98e1c0a5b23c51fc183bb1f48a2bf138603c913"
   end
 
   depends_on "autoconf" => :build
@@ -24,7 +23,10 @@ class Libstrophe < Formula
   depends_on "openssl@3"
 
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./bootstrap.sh"

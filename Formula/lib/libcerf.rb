@@ -5,6 +5,7 @@ class Libcerf < Formula
   sha256 "ea2910085448e269b5f0f0fabe51ffd846ac68881904be99669d94dc0cc09765"
   license "MIT"
   version_scheme 1
+  compatibility_version 1
   head "https://jugit.fz-juelich.de/mlz/libcerf.git", branch: "main"
 
   livecheck do

@@ -18,9 +18,10 @@ class PythonYq < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ece36385f46a4d31df2fd58129088085b20ca6a964dfb8b8b02b6ec90361e14c"
   end
 
-  depends_on "jq"
   depends_on "libyaml"
   depends_on "python@3.14"
+
+  uses_from_macos "jq", since: :sequoia
 
   conflicts_with "yq", because: "both install `yq` executables"
   conflicts_with "xq", because: "both install `xq` binaries"

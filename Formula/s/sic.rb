@@ -11,8 +11,6 @@ class Sic < Formula
     regex(/href=.*?sic[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7d152ce0d8b3a19197f66e697c611d405ce241c2bc5a05cd48dafbc9e358e381"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f028ab4b890ec81ff5bf82098d31f3f805d3a9efed26328bc83fc3929980af92"

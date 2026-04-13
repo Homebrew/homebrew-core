@@ -5,8 +5,6 @@ class Dtach < Formula
   sha256 "32e9fd6923c553c443fab4ec9c1f95d83fa47b771e6e1dafb018c567291492f3"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a3296ea100c480737f279e984c3e0cf25d0d5844aac527c09cf9cc1ff3bb4ada"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "df21c7a193afc665bc0d8e35b51990fa1c86a7d586acefc9248641e2fc93ac07"

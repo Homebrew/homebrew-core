@@ -4,6 +4,7 @@ class Py3cairo < Formula
   url "https://github.com/pygobject/pycairo/releases/download/v1.29.0/pycairo-1.29.0.tar.gz"
   sha256 "f3f7fde97325cae80224c09f12564ef58d0d0f655da0e3b040f5807bd5bd3142"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "5262a6f83c776ac9a3325488dd92216a9865f271d6de30de4b465ec771ee8968"

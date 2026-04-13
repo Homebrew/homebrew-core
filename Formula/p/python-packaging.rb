@@ -3,13 +3,12 @@
 class PythonPackaging < Formula
   desc "Core utilities for Python packages"
   homepage "https://packaging.pypa.io/"
-  url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-  sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+  url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+  sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   license any_of: ["Apache-2.0", "BSD-2-Clause"]
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "13de227e0e4d6219e076c15a8b240ba79d873abe90bc7e3fdd7537065bef3340"
+    sha256 cellar: :any_skip_relocation, all: "a0adf64eed14d453a8cdb8e9557d604892d3d547c403b5e1e6870de6a43b5c1e"
   end
 
   depends_on "python@3.13" => [:build, :test]

@@ -1,17 +1,12 @@
 class RedoclyCli < Formula
   desc "Your all-in-one OpenAPI utility"
   homepage "https://redocly.com/docs/cli"
-  url "https://registry.npmjs.org/@redocly/cli/-/cli-2.14.5.tgz"
-  sha256 "718bebeaca68c0bb083cdf2abc577acf2bf8b82f197189c59b2cb48c6e0e9966"
+  url "https://registry.npmjs.org/@redocly/cli/-/cli-2.26.0.tgz"
+  sha256 "20ef94ff3b8ed4f02860843c43bcf735b6104e2ebf35432c419dcbe1e304bc24"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "623f31f75ea9828248b237816af1a8cfa62d24545c7953af49d8ce258ff6fdd5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c10be601b0c07379f5bbf60ed18fae8df4d1b4240920232bd9ffa86b1533cb42"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c10be601b0c07379f5bbf60ed18fae8df4d1b4240920232bd9ffa86b1533cb42"
-    sha256 cellar: :any_skip_relocation, sonoma:        "69886fdf9b40a34c6b9b01ec2130ecbc6ffd59d140fbcd0a5180b6fb979cf1a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "11abd1b0f64340d1a121f70cf897e9f898192056b5bacb7f35425c29b1104466"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11abd1b0f64340d1a121f70cf897e9f898192056b5bacb7f35425c29b1104466"
+    sha256 cellar: :any_skip_relocation, all: "1b54a82759ca8bd4649b20c198c8be5b5f080f6af1a58216f15e628b11891f93"
   end
 
   depends_on "node"
@@ -19,9 +14,6 @@ class RedoclyCli < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
-
-    node_modules = libexec/"lib/node_modules/@redocly/cli/node_modules"
-    deuniversalize_machos node_modules/"fsevents/fsevents.node" if OS.mac?
   end
 
   test do

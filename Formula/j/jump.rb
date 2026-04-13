@@ -28,7 +28,7 @@ class Jump < Formula
   test do
     (testpath/"test_dir").mkpath
     ENV["JUMP_HOME"] = testpath.to_s
-    system bin/"jump", "chdir", "#{testpath}/test_dir"
+    system bin/"jump", "chdir", testpath/"test_dir"
 
     assert_equal (testpath/"test_dir").to_s, shell_output("#{bin}/jump cd tdir").chomp
   end

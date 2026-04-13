@@ -4,6 +4,7 @@ class OrTools < Formula
   url "https://github.com/google/or-tools/archive/refs/tags/v9.15.tar.gz"
   sha256 "6395a00a97ff30af878ee8d7fd5ad0ab1c7844f7219182c6d71acbee1b5f3026"
   license "Apache-2.0"
+  revision 6
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -12,12 +13,12 @@ class OrTools < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "89eda4a79e87f5cc8dd8501f2af48362471225d1691a82af42f00a5de71c67ce"
-    sha256               arm64_sequoia: "c5e68d93103c4202eba7a91a469cfb09b0a33f3cdf96ef3c7c62137f969ce5b6"
-    sha256               arm64_sonoma:  "a96dfc046393b4ee9005beb9780d205c20a38c37785c67f81e0936b814269100"
-    sha256 cellar: :any, sonoma:        "3555e91be9613f8a44ff990209b21b0603851e9e102c8acff69691dc3cdd6951"
-    sha256               arm64_linux:   "47ab96be8955eabc14e4d33842bc3abfca48b09baef6d876f83827c761d10f21"
-    sha256               x86_64_linux:  "212790f0079825949ee9a315005b6101537315d96bfad659b6f768a6f418dd41"
+    sha256               arm64_tahoe:   "dc4178f64f64df446e4ba2cc9dba8369d3dd33852c7b53c4d8d73ab7ba97abaa"
+    sha256               arm64_sequoia: "52b551f0f7e74423ade1744e17cff6102338e49be0afb83d7e207b97fa6a27aa"
+    sha256               arm64_sonoma:  "6bed3aae7b6052850dddb606fcc2c808253914f822f20665bfd7b7a3f9baadba"
+    sha256 cellar: :any, sonoma:        "9ee900400ea29427100ee197198ef34f377c2ac1fcf74bde3b4161ff830aaf72"
+    sha256               arm64_linux:   "979b3b1df3b1f3bc94c957f2f6b316988a72fa1f0fd32557981a376898357b5a"
+    sha256               x86_64_linux:  "9d6065f782de6a4cfb5ff8e629372b0f2e193222e3b1a17d227e3bd6196aa310"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -33,7 +34,6 @@ class OrTools < Formula
   depends_on "scip"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "cgl"
@@ -41,6 +41,10 @@ class OrTools < Formula
     depends_on "mpfr"
     depends_on "openblas"
     depends_on "osi"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

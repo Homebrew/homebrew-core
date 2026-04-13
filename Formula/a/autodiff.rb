@@ -16,6 +16,10 @@ class Autodiff < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ed20441a603fa36b2ca44607e1511a644aa5e6255f51cf7e07630da0ef86518"
   end
 
+  # Last release on 2024-04-08 and does not work with latest Eigen
+  deprecate! date: "2026-02-02", because: :unmaintained
+  disable! date: "2027-02-02", because: :unmaintained
+
   depends_on "cmake" => :build
   depends_on "python-setuptools" => :build
   depends_on "python@3.14" => [:build, :test]

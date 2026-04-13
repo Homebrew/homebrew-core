@@ -5,6 +5,7 @@ class Mpfr < Formula
   mirror "https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.2.tar.xz"
   sha256 "b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01"
   license "LGPL-3.0-or-later"
+  compatibility_version 1
   head "https://gitlab.inria.fr/mpfr/mpfr.git", branch: "master"
 
   livecheck do
@@ -23,8 +24,6 @@ class Mpfr < Formula
       "#{version}-p#{patch.to_i}"
     end
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "495b04c82ef8638368a5cc62141e7ac195377d292503f5b30e5915b1ff478dda"

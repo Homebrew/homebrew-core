@@ -6,17 +6,18 @@ class Miniprot < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe77911afdb839f4f700c98bfda9570e0ff9002bb8e43700d9545f32e05f9d81"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "35ae697dab027ac299dc74dfc7ed0109df346cf602109c44b1f352a3aa893a8b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d2f623ee332800fbfd668d5963794b04fc3928f52d06619010fa55bf3202dc4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5bd7639bb06c91ed42b6497544a1efadf1c1d8d16bbe3b07d818e35bed4d355e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d7b50b18273f1f1e1325e84459f438088aebb0db0e8e97affd8058bfb7c515e9"
-    sha256 cellar: :any_skip_relocation, ventura:       "e8b3a3abea6ef7abdb8597bdc54f916a8f4000b743ca34b46a68dcf4deb74355"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c95a98c7fda96b04f0a62b24b8c55b75742851044ef81d088d126f9cb36bcab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea05612a87b1d5a4dbd1763e2d2fb190e24cc9203d36449a292e4da1bd2d048e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e2df4ada405138f554ac6e7bf27bad4b7eaf1c5a7d4fbc9a54d6eb1434778fb8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ddaab716a69014a0aefec396d7fd02f2d21e8b44bdb43c9dbac8cb570e4fea6f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "029ca5d5ddfa03fa93b1b9a91977908a0206ae58a21b151f2010c61193de6cc6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8992d1199cfdd4651e55658118c5025c031f35c774e383e2520720ccf90c4e64"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "61e3d4664c87b3cdf856c24bdf9d82cdf7ffcef6c057818ba96fc803faab4e58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dbb2fde218797475adc93a169cd0e7b8b6388a6af963ddc43cb165ed15bb43d"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make"

@@ -26,6 +26,10 @@ class Bupstash < Formula
   resource "man" do
     url "https://github.com/andrewchambers/bupstash/releases/download/v0.12.0/bupstash-v0.12.0-man.tar.gz"
     sha256 "bffe4a9e7c79f03af0255638acfa13fb9f74ed5d6f8987954db1d3164f431629"
+
+    livecheck do
+      formula :parent
+    end
   end
 
   def install

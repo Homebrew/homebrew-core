@@ -4,14 +4,16 @@ class Imlib2 < Formula
   url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.12.6/imlib2-1.12.6.tar.gz"
   sha256 "59743ce82aefa9c1ec9476af608d541b74164714d2928fbd84ff5db6c4399079"
   license "Imlib2"
+  compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "e40db3a3b80f92ccdd0876eba2a05ae32080e95b955be72b84c8c6e6bcfd9f40"
-    sha256 arm64_sequoia: "b49f99584b618e861037a083d758a21ccaefe19bb4c3f6b05244c43565025377"
-    sha256 arm64_sonoma:  "e8abba966d2b714214c4e49cc9bcccc8551777575399399997af5b1d94355f82"
-    sha256 sonoma:        "01c2d3f2744a1b4dcce172c3b8a4dd20d3a5f95ddf021ca700120500a1956b17"
-    sha256 arm64_linux:   "e3aaeef9594fa1e0d4457ed0b23b43475cda697c302c87e4fc94cb618f2570a2"
-    sha256 x86_64_linux:  "eca35ac2d3dce812ba7383117249ae7edfe17455f16388b045a0e96d6f7fde39"
+    rebuild 1
+    sha256 arm64_tahoe:   "2b91eb5c5e4b335cb4ce21ac5f9379e37c1d798a99605db3edb384a9b92f2e6a"
+    sha256 arm64_sequoia: "622ef7a95f9b20ea7521c35c7e6608ca8c69cda18f838c2bbbc35c5899c03c84"
+    sha256 arm64_sonoma:  "c12ac5662371d80fc850fa03086044ea09dec1812afee6a4febc6f52fe20a082"
+    sha256 sonoma:        "a5894661719aa0e61993021bcf5683adb5c101098872bc6e4ddcae528752425a"
+    sha256 arm64_linux:   "3f6ba4191ffc83dafc78761ac21ff667f455caf1a8a88c718510f0ba51332e53"
+    sha256 x86_64_linux:  "d86ce123067142a835df423eea2c8a2d4cb1d095ab44688c315a00297d7d6c2d"
   end
 
   depends_on "pkgconf" => :build
@@ -26,7 +28,10 @@ class Imlib2 < Formula
   depends_on "xz"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--disable-silent-rules",

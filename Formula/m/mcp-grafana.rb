@@ -1,18 +1,18 @@
 class McpGrafana < Formula
   desc "MCP server for Grafana"
   homepage "https://github.com/grafana/mcp-grafana"
-  url "https://github.com/grafana/mcp-grafana/archive/refs/tags/v0.8.2.tar.gz"
-  sha256 "d00317fedff1f0ac3076e427dc090a9b4b1a6efb62f80742ff774447020d4743"
+  url "https://github.com/grafana/mcp-grafana/archive/refs/tags/v0.11.6.tar.gz"
+  sha256 "5c3b9812d4201b5c27acd2feba310fbb23701d3d0c79db8aa0b4f802c9dad43e"
   license "Apache-2.0"
   head "https://github.com/grafana/mcp-grafana.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96c8215218ae8647d3ebdcab17a355ebb8bad24e38a5592f2aa25cd512d5da54"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba926fc01c2afaa2a82eef3fff2bb82f33d2a16fd0495ad3dd46be50b912150e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3afdcf4dda0995700560679ee9fb6de60d756ccacb8b7bb7fc0ab02ca1a5ead3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6e2e889c60adf195f21be65624a99e6af34c94987e0c3def041d7ea5b8ff9ee6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bc814152c03eb9db8c5e329f693af029c046d82f69551cd0359c76a5996133e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e0dc1fcb98193744be3be3aae8ae742928d9baacbdc8d2fef2f6fe5ea6c2e2c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2e0e1c63464312ec1f9fcff47359b306ef96a9a6f4bf9da6b25cfea1f1aadc32"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fad24900212a593f25275fa9c9d1a09f3389203bac0aba1af1bfcf31e1e8637b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "04af6b9ea1a5c2caea7becab1510152bc57e1f6903210a1c7c59994091738191"
+    sha256 cellar: :any_skip_relocation, sonoma:        "28c8028c018f72c856bfca47ff37911932c4535106e0bc66a717b7008d7bb543"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c66fd56810309f3241bbff94fe9ebda14a82864710b49706fc99e076159d8d7d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab5dfdc9b3ed8761aab83b83e299de0931f8fdcc6c029377759095980e88c3de"
   end
 
   depends_on "go" => :build

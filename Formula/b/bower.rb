@@ -5,8 +5,6 @@ class Bower < Formula
   sha256 "00df3dcc6e8b3a4dd7668934a20e60e6fc0c4269790192179388c928553a3f7e"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "18bbc17742b8e6765f4aa0b104dcbea6d21c5fd28b072d10d838febef745bff0"

@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/refs/tags/v12.3.1.tar.gz"
-  sha256 "3f000f122c5d0be20f10b83166a48a26af396e1aa540390185751a584e029f2d"
+  url "https://github.com/grafana/grafana/archive/refs/tags/v12.4.2.tar.gz"
+  sha256 "f3b5dbc39da14ba072dea00c2b2ec40743f753851e4ad8bd133a7a1441adeb76"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
@@ -12,20 +12,19 @@ class Grafana < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7b0f50f80dbd9651542ddc8c6a16e08a1b96e2482ed86714bed597cf92edbab0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b34adb66105e0c0fc0395adc4c4473f37f4ee690263e2dfbba797d6705c3c524"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "56bc53423852ddc2355c15333f11fc06595b7022015e530705afbaf4aea5bcdd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7649ccbf0075809ae7a16ac96c06bf46e0bc990dd15c70f7f9f53bff90ffe2c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e38955aea93170c612ad30c932d2aac290eba9e7d261bae3561a685cff1cee66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7dc3a0e8943779ce2e45c73ef03d15d8be72b13a31c170b3d5098c0d26b7f9b7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f05020704fcaff9e3bfc95eee37486c59c454f81eae17d5df0fa1b2b8abd5441"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eddb62b529b9fd0f345a0af0fb4c31216f5c92b1f27b6ba5c094facfb7bac2ec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b4e4900cfb920b8317a83e8933d133423e15a4dcf741ecc8b266c3a9aabb450c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ff3f577f1fb4493ab662de17bedbda2ac3215359d2d6c04fab57aa0f9192df04"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a3096ceb6d2b1f01425c1d227222b7db86afc85b7a0954b818734a5ed1fb759"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03a67a093c65b714e01fd5268cb088f2a9253e545d1a3b7f10c7caa5fefb361c"
   end
 
   depends_on "go" => :build
-  depends_on "node@22" => :build
+  depends_on "node" => :build
   depends_on "yarn" => :build
 
   uses_from_macos "python" => :build
-  uses_from_macos "zlib"
 
   on_linux do
     # Workaround for old `node-gyp` that needs distutils.
@@ -33,6 +32,7 @@ class Grafana < Formula
     depends_on "python-setuptools" => :build
     depends_on "fontconfig"
     depends_on "freetype"
+    depends_on "zlib-ng-compat"
   end
 
   def install

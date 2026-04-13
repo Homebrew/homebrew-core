@@ -1,20 +1,18 @@
 class Bnfc < Formula
   desc "BNF Converter"
   homepage "https://github.com/BNFC/bnfc"
-  url "https://github.com/BNFC/bnfc/archive/refs/tags/v2.9.6.1.tar.gz"
-  sha256 "da787f1a4cdb2476b7fbeb91e13ae831850c47261a14eaba0051aadbe75b1cc5"
+  url "https://github.com/BNFC/bnfc/archive/refs/tags/v2.9.6.3.tar.gz"
+  sha256 "f8d7356adcf8f068e6ae253402623cec0f19f1554c341f7346687a9654f5e109"
   license "BSD-3-Clause"
   head "https://github.com/BNFC/bnfc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f4527a1670a78475c265fc33d67b1c94ea25a589c476d1ac460dcfcfe42a20d3"
-    sha256 cellar: :any,                 arm64_sequoia: "c31434982bdab1d316d2d79f1d8099b3ac6f3594b5cb7f1c4e44dc8647915d24"
-    sha256 cellar: :any,                 arm64_sonoma:  "1ba668bdd79f0631df24fc241d90a491886e4126123d070570609e6e4d4b0af8"
-    sha256 cellar: :any,                 arm64_ventura: "16570619aab4070fa4d4517dc650d53fa619d95f3e14fe1f0b46914d9079c8cc"
-    sha256 cellar: :any,                 sonoma:        "f24d3c0ff480f926217d9fe826760c6ab59b8ec6100f6c3e9d329da3100b8386"
-    sha256 cellar: :any,                 ventura:       "7ac68aa426aaca6251a69e6ad730ec582d2d6ae127b2d80f68c1c3aedba6df71"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f79f089fe534748760af745ceebf7510828153f6f7e1bc898387480fed6aded1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b36466a041cf9cbbd8aadd038903c7f02a1a98873c61990ce4dd16615a9ebab"
+    sha256 cellar: :any,                 arm64_tahoe:   "f7b90ec3d33b10d90034d85689577e54bcc5e3db9bb8dcf41362e1db32dc1189"
+    sha256 cellar: :any,                 arm64_sequoia: "a568100d6ca5ce75083ca8bcacaf4a760da3a37eae4eefdb37b35060aa8e56ce"
+    sha256 cellar: :any,                 arm64_sonoma:  "5cffb67a370c5d6f721c18547c6143e8b045f507142c4ee09a77834bd05302b7"
+    sha256 cellar: :any,                 sonoma:        "eed6cb1992d5de939a39615237832798890693ae694708decf151d979cb9ac73"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d31cddc0a99c2922f41d1aa90c78692b94a0ecb2a3af63785544cb8fbd261f8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e14bac7434cc480ce0e47aeedd0cec60ea8288669acb1335975004e8c319167"
   end
 
   depends_on "cabal-install" => [:build, :test]
@@ -30,8 +28,11 @@ class Bnfc < Formula
   uses_from_macos "libffi"
 
   def install
-    system "cabal", "v2-update"
-    system "cabal", "v2-install", buildpath/"source", *std_cabal_v2_args
+    rm "cabal.project" # avoid resolving test dependencies
+    cd "source" do
+      system "cabal", "v2-update"
+      system "cabal", "v2-install", *std_cabal_v2_args
+    end
     system "make", "-C", "docs", "text", "man", "SPHINXBUILD=#{Formula["sphinx-doc"].bin}/sphinx-build"
 
     man1.install "docs/_build/man/bnfc.1"

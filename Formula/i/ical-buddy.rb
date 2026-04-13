@@ -7,8 +7,6 @@ class IcalBuddy < Formula
   revision 1
   head "https://github.com/dkaluta/icalBuddy64.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "681a0fc1f19e99c61a954df34f2a9b834afa0984587fe43fe3bfc0cc71ca0355"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "be7bf233e7a634c48779b5567de34e3f2a5af0e3b7b85fe1036cd899d665d1e6"

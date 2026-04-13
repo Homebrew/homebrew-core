@@ -1,21 +1,19 @@
 class Swiftformat < Formula
   desc "Formatting tool for reformatting Swift code"
   homepage "https://github.com/nicklockwood/SwiftFormat"
-  url "https://github.com/nicklockwood/SwiftFormat/archive/refs/tags/0.58.7.tar.gz"
-  sha256 "5b89d0bb827c8207ee5de77d20f9faa63b7514417ec31eabf4949929967f06f6"
+  url "https://github.com/nicklockwood/SwiftFormat/archive/refs/tags/0.61.0.tar.gz"
+  sha256 "53523ffec0029bb9767a7fd899932ded99fa9c83ce46565d06a4a1f671460669"
   license "MIT"
   head "https://github.com/nicklockwood/SwiftFormat.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fcc8cc0c5f6bda7935993aa05083d6ebe573ac6197da51152f0197c2b853b946"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9e861bd8f6b0c217877b8348122cdcf9a4f0f5e40ffd54e4dfc6e15baa0e08b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "497cb6a71f6cb16893fadc3f8b27435bb8ee8aa44e3e26045d8cf28ccfe2e9db"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6a99de82c2b83c2fd69f77904cb740439dc3c16bd8117e3199acf04c412fdf87"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c1bf3918f2a61e81e2475d9aeb5014ca62960a6e1aa25a3ec4fee1063c0738b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05dda1a4f47c0d709a7b45bebbb1c3398c2e9f7a72174eb63900cb814d582600"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f7dd39c982e4a98505c446cb8b8ed26a2d7c292c969f699ba5fc0c800f1263d7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f181882b440eb6f4a162a328f1c5cb010ce0437a6e48c48f5be7b67311446346"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad4a7e36507d62b4503b6ff7a9817939a5f08b1a954bf39a4cd4e06fcf77476c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "76bfeff6654a5fc683a874900f7a7a2bcabd275f808de8faf254d018dc7c6db7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e7a012938202f118145598b15d12599b45e4da00c560950460a97807a707680"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8d1b4c0f4c811f028a5e703911eecc8b4cbe06cbd9650693d773ace3706265c"
   end
-
-  depends_on xcode: ["10.1", :build]
 
   uses_from_macos "swift" => :build
 
@@ -35,6 +33,6 @@ class Swiftformat < Formula
         let baked: Bool
       }
     SWIFT
-    system bin/"swiftformat", "#{testpath}/potato.swift"
+    system bin/"swiftformat", testpath/"potato.swift"
   end
 end

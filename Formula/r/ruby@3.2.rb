@@ -1,8 +1,8 @@
 class RubyAT32 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.10.tar.gz"
-  sha256 "880acb05e08da8c559c56a13e512bae1b472da67c72ebb750c765f9c2134e689"
+  url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.11.tar.gz"
+  sha256 "b3eeabd6636f334531db3ffdc3229eb05e524740e6c84fdc043720573cf2f8b2"
   license "Ruby"
 
   livecheck do
@@ -11,12 +11,12 @@ class RubyAT32 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5e10b6ebb0c5937dbbdba4b16cb3ca4b8c69ac3c82bb557c8b1cb173ab45f5b5"
-    sha256 arm64_sequoia: "dc35d419cc01036779be8ec03904cbd0d8313443551108f956545ca65a302347"
-    sha256 arm64_sonoma:  "a6618142ce02899ee1d75ffa158098248e6b2fbb8673c47ecfabcb4c17e7e34c"
-    sha256 sonoma:        "fc7da0025fd5b0a3b1473b47fb8754ef2611983ff809ff8253e7a4a953eaa933"
-    sha256 arm64_linux:   "70261493f424d2877c7fac9f9ad623cbebe1f3ac86df581f1194cb8b1798cd65"
-    sha256 x86_64_linux:  "0d4f0b6f2814ae368970780593a46e363fae7dfdc623252089434b1180feded9"
+    sha256 arm64_tahoe:   "0bc621bf324437da905f23b37e733cfae3ac30850acb48a686bbccbce80d6397"
+    sha256 arm64_sequoia: "24b804e45abe9e2cfb5613c865beaf5400b71196aa223e66d6b5187169a64e02"
+    sha256 arm64_sonoma:  "e47043673f7dc1ff296ab4365634ebdbf986e124081f640ebf78bd452ce01ca9"
+    sha256 sonoma:        "1449eb77d22ecd69f3b9c413febb4810fbdcc194b81907b192e12069feb88327"
+    sha256 arm64_linux:   "4ef4f1cded7bec72ae2adde477272a22f7e226f568af3d691989a7dc6392afbf"
+    sha256 x86_64_linux:  "18b1316026bdb309ace0ab989c349afe01692f466cdb03dd01422da636575eed"
   end
 
   keg_only :versioned_formula
@@ -33,14 +33,17 @@ class RubyAT32 < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Should be updated only when Ruby is updated (if an update is available).
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.7.1.tgz"
-    sha256 "750c8c771180d41ed2358344e5461edee83158c0a81b779969a1339961bc1163"
+    url "https://rubygems.org/rubygems/rubygems-4.0.9.tgz"
+    sha256 "39b1e2c878946e420116c3c26e4e708c0ddbdf7cd4a13c48dd0fc0774c7add8d"
 
     livecheck do
       url "https://rubygems.org/pages/download"

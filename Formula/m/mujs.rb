@@ -1,9 +1,10 @@
 class Mujs < Formula
   desc "Embeddable Javascript interpreter"
   homepage "https://www.mujs.com/"
-  url "https://mujs.com/downloads/mujs-1.3.8.tar.gz"
-  sha256 "506d34882f2620a2fdeb6db63dbb7a8ffd98f417689d8f3c84f2feac275e39a9"
+  url "https://mujs.com/downloads/mujs-1.3.9.tar.gz"
+  sha256 "956d5a20dd4efe5aa58673558787b9e2539255f9bf62585e90e1921fa040d89d"
   license "ISC"
+  compatibility_version 1
   head "https://codeberg.org/ccxvii/mujs.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Mujs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "483f0c294f3e9ba954dbb610e69109cc594dafe50b6737a8e6e2417f649771f2"
-    sha256 cellar: :any,                 arm64_sequoia: "19d0fb4208c23b02a92f38bdc7b6c645fc292ac71740abe19c525a6d26bdde8f"
-    sha256 cellar: :any,                 arm64_sonoma:  "7640010c83e19665d80f35908dd7a5ecd1778a5d9e9e9de4ea2a8c1fe7364ef4"
-    sha256 cellar: :any,                 sonoma:        "e909e607b4e27f8328a1e2e589afda4d6b95b9b0e359f8d1734485e0e561c203"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3b5ec6930bb76ffa5f0471c3bc5df3c3a090c1c0cdc442bd8add8f8b02df7c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5c42b004f13aaccfd81ad264a9f80401e2f39f454f0f01080c936bf1d7e89af"
+    sha256 cellar: :any,                 arm64_tahoe:   "2814b3eab41c69484ac739e66bfeaf6bb2f61b7df974c5866e3934844d8acc0b"
+    sha256 cellar: :any,                 arm64_sequoia: "0b8f0ef456a43755bc65a729760c2033f581db40b9843ac3247ef6aa79a2ddf5"
+    sha256 cellar: :any,                 arm64_sonoma:  "710aff8637dab71ffa1b013c9fe7108d7a14e644a252728674b82fe4d5dc62fb"
+    sha256 cellar: :any,                 sonoma:        "d3658e31032b05342d35990a7a4829922ddf5e40bfecd8c39669003bc50b154f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "62a937838c05b66d72f159d3bbd0a5f16a9b4132de069cbb07a2f75a610ce202"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d65afabe2832997c8b0bac97b58f05a429b4404f726c089476fef68130df1da"
   end
 
   depends_on "pkgconf" => :test

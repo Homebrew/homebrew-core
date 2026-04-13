@@ -6,8 +6,6 @@ class IosSim < Formula
   license "Apache-2.0"
   head "https://github.com/ios-control/ios-sim.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "7659fa28568951c5036b1d0b02becfb30d4d2f8242545367930e964ab16f49d9"

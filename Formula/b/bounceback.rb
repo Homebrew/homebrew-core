@@ -1,20 +1,18 @@
 class Bounceback < Formula
   desc "Stealth redirector for red team operation security"
   homepage "https://github.com/D00Movenok/BounceBack"
-  url "https://github.com/D00Movenok/BounceBack/archive/refs/tags/v1.5.2.tar.gz"
-  sha256 "3d3f263f8bb7349c25ffa389b98a59858ad4f289cfc03840cb504775fb062f2b"
+  url "https://github.com/D00Movenok/BounceBack/archive/refs/tags/v1.5.3.tar.gz"
+  sha256 "47673a62ab5fdef6d1d34e5ce84b0f9faa0e481a50a0580276a2b89544d067f3"
   license "MIT"
   head "https://github.com/D00Movenok/BounceBack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "056b9bb95bc573c704efb0b1d7a88494adf17812a835afd4f03ce2ca6f14620a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8604b183fd34db0dec18fdf3738f5d10accfe83358355a2ac243d8e484ca99e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8604b183fd34db0dec18fdf3738f5d10accfe83358355a2ac243d8e484ca99e1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8604b183fd34db0dec18fdf3738f5d10accfe83358355a2ac243d8e484ca99e1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "151b7cc05ca88b9ad080c6be1424ea7418e2e9c39ce024d11c220240555b19a6"
-    sha256 cellar: :any_skip_relocation, ventura:       "151b7cc05ca88b9ad080c6be1424ea7418e2e9c39ce024d11c220240555b19a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6030767cf90445f94a88162d2bdd0994af06608b3b52481e36717a164a6c9991"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddebb59897bab43a8e2b7fcc60b1f2c15b4528fc522e5bb493f391f8659854bd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7096c878b874f7954b658549c2498418a7bf5ca840ee6f8d0e28438269925c9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7096c878b874f7954b658549c2498418a7bf5ca840ee6f8d0e28438269925c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7096c878b874f7954b658549c2498418a7bf5ca840ee6f8d0e28438269925c9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "461ef1bbbee371072559282a90e6c41009f20b5f2c2411edf5cc77ec72100a19"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "73bc1080c0f6c4b689e82e5bf20ba1188d9eae00100dac6814d9f781e3652685"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80740283f2ee9072d209356cf0d831b2ad37a4aa785a14cd93dda9891bf6e184"
   end
 
   depends_on "go" => :build

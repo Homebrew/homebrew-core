@@ -11,14 +11,13 @@ class Cracklib < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "eb24373673fd2e119b1b5523ba59a6287127610d553be024c05cdfa1bfdb029b"
-    sha256 arm64_sequoia: "9d98bf420b98834ad967baf58c7282e2e8e280c967dd1dc8b5e7ae878fe81666"
-    sha256 arm64_sonoma:  "9496d3be435158f297c9428e967289ec4fe41d442c02bf0ade3a432c91c05a36"
-    sha256 arm64_ventura: "5798b58bebd1cd635c356812c0aa23c606b78395c193669efcb0bc8691b9d5b6"
-    sha256 sonoma:        "106cf73076dbca2480f870e24c63057044b6c1bcebb4423ef74aae8c65dc154f"
-    sha256 ventura:       "766a21b910e679477f796177b5241589b2abb2fd834bc6b32144ba7d731a8dc0"
-    sha256 arm64_linux:   "447895f60058339604a3bfb9956e48b4494e4c2be57cf102e3cbbf0aa5717516"
-    sha256 x86_64_linux:  "3032a4afab1d0877faa7b2e27740d11632a394b3478d5e7aeb690b6badef3cc6"
+    rebuild 1
+    sha256 arm64_tahoe:   "bfe6f4fcc9715b80c772bc82847977a8514960010c677c3f497cef0ffe571338"
+    sha256 arm64_sequoia: "05e23a17250844d8ce26720dbda596db1c5957b0886e44648ba957c85af67a21"
+    sha256 arm64_sonoma:  "4160ab423c5ae473533dccee9580626706f964231cfb8f1693ebaae91ce23a7b"
+    sha256 sonoma:        "35c49fa815da588e05b06289ef462503741f92ade3897d01fcf1f5cb1726d14c"
+    sha256 arm64_linux:   "707b67a337adda7425720a25ba33911c531845c3db75097e48151e6189117685"
+    sha256 x86_64_linux:  "92844634f5c499f9b31242fa1f05dd4657ac68fb2d335e3cbe5bd6002970e2c2"
   end
 
   head do
@@ -29,15 +28,21 @@ class Cracklib < Formula
     depends_on "libtool" => :build
   end
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   resource "cracklib-words" do
     url "https://github.com/cracklib/cracklib/releases/download/v2.10.3/cracklib-words-2.10.3.bz2"
     sha256 "ec25ac4a474588c58d901715512d8902b276542b27b8dd197e9c2ad373739ec4"
+
+    livecheck do
+      formula :parent
+    end
   end
 
   def install

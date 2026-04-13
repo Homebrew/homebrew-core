@@ -11,8 +11,6 @@ class Etsh < Formula
     regex(/href=.*?etsh[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_tahoe:    "563a005afcf2e27e22f7be999febc8c5f2cb26659f6e12a8ef2081531f6ded4f"
     sha256                               arm64_sequoia:  "d67ffc1ce7bd60251ea6a60da6f2c4676d2ee3c32cdf22743398de0c2eb7cb05"
@@ -29,7 +27,7 @@ class Etsh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b63d3ead94501c6b8a1f2fd2e6cf5465e7d0f36dc1d2e1303b0ed23254141d2"
   end
 
-  conflicts_with "oil", "oils-for-unix", "omake", because: "both install `osh` binaries"
+  conflicts_with "oils-for-unix", "omake", because: "both install `osh` binaries"
   conflicts_with "teleport", because: "both install `tsh` binaries"
 
   def install

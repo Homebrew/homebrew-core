@@ -11,8 +11,6 @@ class Rarian < Formula
     regex(/href=.*?rarian[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "9902862041d1a77fada33e8ebaabedf67f77b3bc8050ea988f78f8650c2c4ce3"
     sha256 arm64_sequoia: "0c5d1dc2a38bdba34aee85a1704dd7fe8c4a5d8165888fd96d6844bbd9b6dfc9"

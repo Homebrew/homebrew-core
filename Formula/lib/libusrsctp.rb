@@ -3,6 +3,7 @@ class Libusrsctp < Formula
   homepage "https://github.com/sctplab/usrsctp"
   license "BSD-3-Clause"
   revision 1
+  compatibility_version 1
   head "https://github.com/sctplab/usrsctp.git", branch: "master"
 
   stable do
@@ -16,8 +17,6 @@ class Libusrsctp < Formula
       sha256 "6d37314f524ff301546f1e53b605dd276837a984545c6dc1cb21ad87cbd49f6b"
     end
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "6103700921dd7e4269e9cd22540acc5d28e30e3ca10a3aa57aa75bf5f05c9378"

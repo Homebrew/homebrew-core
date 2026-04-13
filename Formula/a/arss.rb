@@ -5,8 +5,6 @@ class Arss < Formula
   sha256 "e2faca8b8a3902226353c4053cd9ab71595eec6ead657b5b44c14b4bef52b2b2"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "bfe57aa3bd356a8a7d3b616e96f854b484a92be45620cbf9ce3729a7ded493bb"
     sha256 cellar: :any,                 arm64_sequoia:  "02051c251dcf51557823a6ae6effb432c9c892a42a3ab19e80c9b8f0e61327ad"

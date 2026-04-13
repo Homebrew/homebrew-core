@@ -1,8 +1,8 @@
 class RekorCli < Formula
   desc "CLI for interacting with Rekor"
   homepage "https://docs.sigstore.dev/logging/overview/"
-  url "https://github.com/sigstore/rekor/archive/refs/tags/v1.4.3.tar.gz"
-  sha256 "bc459b43c3da644c827ae15e3675bbf3ed7cb1135f07eff0d98fc8cd6495f2e3"
+  url "https://github.com/sigstore/rekor/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "3b6e0c202ed4e387a095852e680b6503d46d7a26ce8060daf223fe6657450983"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class RekorCli < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "532d82354b7794e52f7354fcfde7fd2b8cb549f75d0a627889c7a2c61e531263"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "532d82354b7794e52f7354fcfde7fd2b8cb549f75d0a627889c7a2c61e531263"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "532d82354b7794e52f7354fcfde7fd2b8cb549f75d0a627889c7a2c61e531263"
-    sha256 cellar: :any_skip_relocation, sonoma:        "667adc6d79d5d83c5ffb9932cb9265cec106221ed4f8049c1f8197f7d3cbe244"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "424a916b8f1d7563bb5c95ea586eec52ef3ab7f72b6cdff97f38b65c9392c30f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cac58ab9734c2f9f4ed127681ab5651c4dc114696ece2e9fb662ec4ff36ef2d5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c3015d97b694bd2a14db852c57c9d53a029e77f29b45125d906d3d9fb3715c58"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3015d97b694bd2a14db852c57c9d53a029e77f29b45125d906d3d9fb3715c58"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3015d97b694bd2a14db852c57c9d53a029e77f29b45125d906d3d9fb3715c58"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8f356be3d43bf51680eaa4aeb76b6ecffd90b0c3db969dd1260c1a7420c9a0b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "69b766112dae48f1c329b5550617a7192e2e0514aa752c8818d14c69e981fb29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3767a5534fe576d29b472e5b59053b3d833e3dd400fc6bf72bffe5b5a0a0941"
   end
 
   depends_on "go" => :build

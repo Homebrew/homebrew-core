@@ -8,17 +8,14 @@ class VapoursynthImwri < Formula
   version_scheme 1
   head "https://github.com/vapoursynth/vs-imwri.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "cc90cc4f2d65c9f885c7fe4557766fdfb19a868f1a6ef9166803851a3fb8d798"
-    sha256 cellar: :any, arm64_sequoia: "05e577ee12e4337fb9af5870c39c485e5e7a5ac4b56365361e9c2e7e35eca388"
-    sha256 cellar: :any, arm64_sonoma:  "2bbe0c55617799e49cfd693a838565894dc7ecb5fbcaef0b72e9103da674999d"
-    sha256 cellar: :any, arm64_ventura: "8795d8f3142e89ca1785f5d83312ab82ae4c24dc0e92b54aae294dbca1d14d0c"
-    sha256 cellar: :any, sonoma:        "6ffe0859ceae64e20741fb000a0319b456dd51d437e35e79f354eabcdface889"
-    sha256 cellar: :any, ventura:       "92866496e81b76604e8f4fbd5cab2d6d94d2f83cb4521e731802445ebcbd86e6"
-    sha256               arm64_linux:   "f90a76a7b71b8d829a4f90c0969b2f7321f849f1ab9616f136cf943ffe198d10"
-    sha256               x86_64_linux:  "099e77da73bbc6d8333e6067705d531ba193d3a496d8c99fc5287f7bec4f5ac2"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "7a8829c333c4d82d927f3cfc9c88a5d162b230924f17003b44b86f8b61966ff8"
+    sha256 cellar: :any, arm64_sequoia: "04dc93bb5a1c4a49b90f29800901f4c6cc00f6a024512e3a94f06864724524df"
+    sha256 cellar: :any, arm64_sonoma:  "90d9c3dbeceab3b486f1a73273079fff14e4b70ee85e70a766b672ffa25df7f2"
+    sha256 cellar: :any, sonoma:        "11435523067bbf5c1cfd7c9597b1340afe4f34c94c64f8d0667e3d580c84ebe5"
+    sha256               arm64_linux:   "b72bf4ebcdaade6cb9e1ac993c2334fda6aa69b54dab5c5deb58b804fd193d5d"
+    sha256               x86_64_linux:  "21b4c595a5528b6d61eaba2d223e2f51bdf2b69ff50d623a915fc55a98263513"
   end
 
   depends_on "meson" => :build
@@ -26,11 +23,11 @@ class VapoursynthImwri < Formula
   depends_on "pkgconf" => :build
 
   depends_on "imagemagick"
+  depends_on "libheif"
   depends_on "vapoursynth"
 
   on_macos do
     depends_on "jpeg-xl"
-    depends_on "libheif"
     depends_on "libtiff"
   end
 

@@ -1,23 +1,25 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2026.01.12.00.tar.gz"
-  sha256 "6601fd362b96160ac9c37c3184153f605e4b09fbc54f3d474cf5cc926a3d62de"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2026.03.30.00.tar.gz"
+  sha256 "6c936c224e249720ebf87629b9aab4c2386bc5ef3acd7d01fdb350645abf2128"
   license "Apache-2.0"
+  compatibility_version 1
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "90f4887ac2beb525b34846967253a56d83b3dc29871d3f7166755c574406fdd3"
-    sha256 cellar: :any,                 arm64_sequoia: "1d169dc8af9eeaf19f861c4835eecdbe080a93dc383463a7d7ab05494b05fc9b"
-    sha256 cellar: :any,                 arm64_sonoma:  "f3b308495a90a7042455d2b56be2ac4b559cdd93ff1845caa4b3b672bc9e0afc"
-    sha256 cellar: :any,                 sonoma:        "c236ac1faf20dbc71b08e3a73d00913a6faa21aa721db9977b95c16bdc0541ad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "20b1fc9f9963683a3d7b7bdcb22695c1c9d58d2313f8c5b0086cc6a6ce2d0b2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38caa671486640032dcbda26a116272467602ea3cba3a69c6beb68f91fab1248"
+    sha256 cellar: :any,                 arm64_tahoe:   "1ee1ffc00fd67c7e25e4d978f2f67a36e8ad350c0ee0588181d0db08c3594ff9"
+    sha256 cellar: :any,                 arm64_sequoia: "0bc7a1a496e5449d9e116813754a17f4e46f9a0bf4f169f09b8934dd0dde330f"
+    sha256 cellar: :any,                 arm64_sonoma:  "de4f7fe7344653983daa6f074be1779c5c620c9373a6ae889741225bea34292b"
+    sha256 cellar: :any,                 sonoma:        "f5e6492fb62e53662029a3b96558971ce6db47ca6b7e260742fbc8b1ada8e927"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c299646c7f66babb2fca8902a44cf2be90ed112d332d552819b9bb51c58ed277"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ab861de07071a2d3d9c28346678911586e1542a2a564938906a7d79aff1970f"
   end
 
   depends_on "bison" => :build # Needs Bison 3.1+
   depends_on "cmake" => [:build, :test]
   depends_on "mvfst" => [:build, :test]
+  depends_on "zstd" => :build
   depends_on "double-conversion"
   depends_on "fizz"
   depends_on "fmt"
@@ -27,11 +29,9 @@ class Fbthrift < Formula
   depends_on "openssl@3"
   depends_on "wangle"
   depends_on "xxhash"
-  depends_on "zstd"
 
   uses_from_macos "flex" => :build
   uses_from_macos "python" => :build
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
@@ -39,6 +39,7 @@ class Fbthrift < Formula
 
   on_linux do
     depends_on "boost"
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do
@@ -52,7 +53,6 @@ class Fbthrift < Formula
     # Issue ref: https://github.com/facebook/fbthrift/issues/607
     ENV.append "CXXFLAGS", "-fno-assume-unique-vtables" if DevelopmentTools.clang_build_version >= 1600
 
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@3"].opt_prefix
 
     # The static libraries are a bit annoying to build. If modifying this formula
@@ -96,7 +96,7 @@ class Fbthrift < Formula
     # Test CMake package to make sure required dependencies without linkage are kept,
     # Link to `FBThrift::transport` as it uses path to `zstd` shared library
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.5)
+      cmake_minimum_required(VERSION 4.0)
       project(test LANGUAGES CXX)
 
       list(APPEND CMAKE_MODULE_PATH "#{Formula["fizz"].opt_libexec}/cmake")

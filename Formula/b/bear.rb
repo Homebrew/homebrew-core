@@ -1,40 +1,39 @@
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/refs/tags/4.0.1.tar.gz"
-  sha256 "64bcd65a333c6060d929c62b461edbd172a7256e42aae6d327982a0ce643a20c"
+  url "https://github.com/rizsotto/Bear/archive/refs/tags/4.1.1.tar.gz"
+  sha256 "58665614e59f3b7f7127e6a6fe4c94ddc64b81e80a4c160ecbd7e44b9171308f"
   license "GPL-3.0-or-later"
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "985451c0b4bdd660ec49e84adfdfbee8b2c289ad19526c3dc9670b8f8710ad11"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff909dc7b0a3b7759ea28768b6cea860067fa5dc8673cdc3f79c7aab074e0df5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0345cb43d79ea9abf60c3b17fe8a21211a45774fc2b338c4d6e8d6dbb3af3608"
-    sha256 cellar: :any_skip_relocation, sonoma:        "97383007dd5e5b74c2565fdddd97ce6a44250e047bf6c7431a864e97c408745c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "130e714bb5840ab7319c31dbc8ec353f60a4a5260d390f8d0e662fc5530f3f3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b2bad346cb4099a16569c0641ef5fc67df9ad5d089205cfb39264c0a04abbc6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "303b147afe71ec87067b48a1ac5f4e34add746abe5f60061c6c3f5066a13414e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c64e2d1bc0fe311705b1f2edc96500eec2dda1d8f4518e0fb475200ed1764517"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6104e5b2d2afb61371e607b70466fc3f3e2d72035b63449676bf072e1cacb7bd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "43fd5a936bba402659fb5a021d3ad9907a76e31d160a2034b47508a46755bba3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "246c58d533db6b18c339211ffdb8bdfff029b1777ca8db73ba012429d6e83894"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5512f8683b3348cc16d17c235b47b860ea29eb3e6df09c6e3dcede312045a5d2"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
+    depends_on "lld" => :build
     depends_on "llvm" => :test
   end
 
   def install
-    # Patch build.rs to use Homebrew's libexec path instead of /usr/local/libexec
-    inreplace "bear/build.rs" do |s|
-      s.gsub! "/usr/local/libexec/bear/$LIB", "#{libexec}/$LIB"
-      s.gsub! "/usr/local/libexec/bear", libexec/"bin"
-    end
-
-    system "cargo", "install", *std_cargo_args(path: "intercept-wrapper", root: libexec)
     system "cargo", "install", *std_cargo_args(path: "bear")
 
     if OS.linux?
+      ENV.append_to_rustflags "-C link-arg=-fuse-ld=lld"
       system "cargo", "build", "--release", "--lib", "--manifest-path=intercept-preload/Cargo.toml"
       (libexec/"lib").install "target/release/libexec.so"
+    end
+
+    with_env(PREFIX: prefix) do
+      system "scripts/install.sh"
     end
   end
 

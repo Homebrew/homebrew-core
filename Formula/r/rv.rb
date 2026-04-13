@@ -1,8 +1,8 @@
 class Rv < Formula
   desc "Ruby version manager"
   homepage "https://github.com/spinel-coop/rv"
-  url "https://github.com/spinel-coop/rv/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "f28ebc279b530ef39b69e9a534011b90496160ee2839be10e33d2b676545105a"
+  url "https://github.com/spinel-coop/rv/archive/refs/tags/v0.5.3.tar.gz"
+  sha256 "0c323fc834a8dcbc71759dc7121a14e36c86664475dcc3d1a7e8848c56a1371f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/spinel-coop/rv.git", branch: "main"
 
@@ -12,16 +12,18 @@ class Rv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "66b6561d1635a048ced64694b4e97f63a030216f3516e455bade398c3dd4b422"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "877e1d24bd63880c5246ebd23e49557b0523c5f5cafe81fcb4cc6b7200b835e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3036c83dd2ca31cd02f0fd298b7fc16a7389c71426a74aaa2f724ae4cd53e322"
-    sha256 cellar: :any_skip_relocation, sonoma:        "164d79085b6d258b859cfd6accb5903f135e138005547b5d71238166e3f17714"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d94952735dfee052ea82927a74d30b3133ba69d6b5ee207678d48afe21f3a98c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65fb0a111139f7b59794904d7b552996a83839c31b4f13defe274fa67ad9f363"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fdd6f3262596f5c3215661ae6815917e042bc9cbf45b3a356242fc33176e87d4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d786deeb0d6d610f42ca07a5b1146907a6e0f5f6b2b05c63ad3cac2a674e958"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "579efc1a868ae6903fef3825bc5396288781217a4bfdf0fd48840b7311b09210"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cac1a53b7e1f5cd643654a64edf103d43d689f95734ea738819917537c3c179c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "78d04477826ae8a617dbc865044664fce68299308b418162b61a4cd61dc8dd2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d99e0354807d853e7aef8a07a4550453807857281387f1a3e7c23aa41b58650"
   end
 
   depends_on "rust" => :build
   depends_on macos: :sonoma
+
+  conflicts_with "rv-r", because: "both install `rv` binary"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/rv")

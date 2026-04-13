@@ -1,13 +1,14 @@
 class MCli < Formula
   desc "Swiss Army Knife for macOS"
   homepage "https://github.com/rgcr/m-cli"
-  url "https://github.com/rgcr/m-cli/archive/refs/tags/v2.0.6.tar.gz"
-  sha256 "cb6b4c73d45f5d7b99b9663b1addcb7fefd3098f4033f4c88d1a94f6f43c61da"
+  url "https://github.com/rgcr/m-cli/archive/refs/tags/v2.0.7.tar.gz"
+  sha256 "38c55e845ecea36a4b8fad02232014823bd38099c67d2f40b6dbbc4e63a64806"
   license "MIT"
   head "https://github.com/rgcr/m-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6f350177ea92c8d9adc99a8cb9777bbd69d6ff55a823c9d961a4e9447e13bc1a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "be6e119c88c80d133735f628de0bf47be59ff170e9b2f20888df8ea0ea419b98"
   end
 
   depends_on :macos
@@ -24,7 +25,7 @@ class MCli < Formula
       s.sub!(/^\s*uninstall_mcli\s*&&.*/,
              'printf "\'m-cli\' was installed by brew, try: brew uninstall m-cli\n" && exit 0')
       s.sub!(/^\s*get_version\s*&&.*/,
-             "printf \"m-cli version: v2.0.4\\n\" && exit 0")
+             "printf \"m-cli version: v#{version}\\n\" && exit 0")
     end
 
     inreplace prefix/"completions/bash/m" do |s|

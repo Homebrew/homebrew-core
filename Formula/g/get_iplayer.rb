@@ -7,8 +7,6 @@ class GetIplayer < Formula
   revision 2
   head "https://github.com/get-iplayer/get_iplayer.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6649b501cf57ce9a491ddca1d29121b5dc788c992c76923bc3646fde1c72064d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6649b501cf57ce9a491ddca1d29121b5dc788c992c76923bc3646fde1c72064d"

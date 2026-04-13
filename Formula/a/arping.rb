@@ -27,6 +27,6 @@ class Arping < Formula
   end
 
   test do
-    system "#{sbin}/arping", "--help"
+    system sbin/"arping", "--help"
   end
 end

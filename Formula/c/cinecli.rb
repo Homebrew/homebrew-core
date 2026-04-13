@@ -6,11 +6,11 @@ class Cinecli < Formula
   url "https://files.pythonhosted.org/packages/df/c6/bc46bf8f30ce881a8822ce7b4ead93f9cfaee466852c78cab3f8931f5639/cinecli-0.1.2.tar.gz"
   sha256 "5e2e053a6b0f71070b8e7028dab69be47b8def42639b90f805f28da5a040a141"
   license "MIT"
-  revision 1
+  revision 4
   head "https://github.com/eyeblech/cinecli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "19505474657e7e7403dc03a0a718c6a4f0d300484cf8f841eb7b5a726bbda3f8"
+    sha256 cellar: :any_skip_relocation, all: "e58a69302e7245035a636c5934e4f6a6f229c0828288bf7801b3a1a14e1d2e02"
   end
 
   depends_on "certifi" => :no_linkage
@@ -18,9 +18,14 @@ class Cinecli < Formula
 
   pypi_packages exclude_packages: ["certifi"]
 
+  resource "annotated-doc" do
+    url "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz"
+    sha256 "fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"
+  end
+
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "click" do
@@ -44,18 +49,18 @@ class Cinecli < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "shellingham" do
@@ -64,19 +69,17 @@ class Cinecli < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/36/bf/8825b5929afd84d0dabd606c67cd57b8388cb3ec385f7ef19c5cc2202069/typer-0.21.1.tar.gz"
-    sha256 "ea835607cd752343b6b2b7ce676893e5a0324082268b48f27aa058bdb7d2145d"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f5/24/cb09efec5cc954f7f9b930bf8279447d24618bb6758d4f6adf2574c41780/typer-0.24.1.tar.gz"
+    sha256 "e39b4732d65fbdcde189ae76cf7cd48aeae72919dea1fdfc16593be016256b45"
   end
 
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
     sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
   end
+
+  # Fix breaking change in yts.bz API: https://github.com/eyeblech/cinecli/pull/7
+  patch :DATA
 
   def install
     virtualenv_install_with_resources
@@ -89,3 +92,45 @@ class Cinecli < Formula
     assert_match "The Matrix", output
   end
 end
+
+__END__
+diff --git a/cinecli/cli.py b/cinecli/cli.py
+index 6245772..a7ffbdf 100644
+--- a/cinecli/cli.py
++++ b/cinecli/cli.py
+@@ -127,7 +127,6 @@ def interactive():
+         console.print(
+             f"[cyan][{idx}][/cyan] "
+             f"{movie['title']} ({movie['year']}) "
+-            f"⭐ {movie['rating']}"
+         )
+
+     movie_index = Prompt.ask(
+diff --git a/cinecli/ui.py b/cinecli/ui.py
+index 3439d3b..207b095 100644
+--- a/cinecli/ui.py
++++ b/cinecli/ui.py
+@@ -11,14 +11,12 @@ def show_movies(movies):
+     table.add_column("ID", style="cyan", justify="right")
+     table.add_column("Title", style="bold")
+     table.add_column("Year", justify="center")
+-    table.add_column("Rating", justify="center")
+
+     for movie in movies:
+         table.add_row(
+             str(movie["id"]),
+             movie["title"],
+             str(movie["year"]),
+-            str(movie["rating"]),
+         )
+
+     console.print(table)
+@@ -34,8 +32,6 @@ def show_movie_details(movie):
+
+     text = (
+         f"[bold]{movie['title']} ({movie['year']})[/bold]\n\n"
+-        f"⭐ Rating: {movie['rating']}\n"
+-        f"⏱ Runtime: {movie['runtime']} min\n"
+         f"🎭 Genres: {', '.join(movie.get('genres', []))}\n\n"
+         f"{description}"
+     )

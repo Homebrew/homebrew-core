@@ -5,8 +5,7 @@ class Libccd < Formula
   sha256 "542b6c47f522d581fbf39e51df32c7d1256ac0c626e7c2b41f1040d4b9d50d1e"
   license "BSD-3-Clause"
   revision 1
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "5706b5ddc123fae6306e45daf32a9485c8fa2186bb2966c5d4842c060db7f760"

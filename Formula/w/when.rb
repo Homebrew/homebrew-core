@@ -6,8 +6,6 @@ class When < Formula
   license "GPL-2.0-only"
   head "https://bitbucket.org/ben-crowell/when.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "fb5fab0bd5a3c23aaac7bc49bed557d69c6e71e9691d9f855c6a30386dbe7002"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f0731698fde0d9766deb700635985822f9a76e1fe3f2a18ba74f4d8badafc785"

@@ -1,8 +1,8 @@
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://docs.balena.io/reference/balena-cli/latest/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-23.2.26.tgz"
-  sha256 "467ddd9798e8d22df1cb2140fc567c60f8e837c6961086f064d2bbcf0fb10a6a"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-24.1.3.tgz"
+  sha256 "9de922932d8c05ed91bd25978a6f39a13831e1419bea7d086fb1542912870678"
   license "Apache-2.0"
 
   livecheck do
@@ -13,12 +13,12 @@ class BalenaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3255dbc20b231809332f77b2bf1e08985f98661f9b3fd889c04e7303dcfbc9b1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "797e019bfabc883904dfc210b15edc0ad6e6a3e565d724ba30b44f4313fcea56"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "797e019bfabc883904dfc210b15edc0ad6e6a3e565d724ba30b44f4313fcea56"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4925b7c1817befe20d92e4dab6fa601bb749428c5eaf126a31196e23b1edc8c9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "62664852f0c022c86e7ab61ec0bd41b7eaa3a81374b9735b797f4ee659b075e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "807fb60a36fe77ffc47dd8483ca3ac2440d74eb21ce95e7ece4ea41db1397f43"
+    sha256 cellar: :any,                 arm64_tahoe:   "9c4ac1ca2911d9a9146d9a74a8a2111a591ea611f0a7a579c1d88917ace10d75"
+    sha256 cellar: :any,                 arm64_sequoia: "86ac05d92fd8ef9bc9676b518951e01b4f744336f1fbc5994ddd163f3290757a"
+    sha256 cellar: :any,                 arm64_sonoma:  "86ac05d92fd8ef9bc9676b518951e01b4f744336f1fbc5994ddd163f3290757a"
+    sha256 cellar: :any,                 sonoma:        "d686f5809f2a76a3876100ae72701d397cc968c878b50a2c191f18a5412cd4d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d00f40e91c8ad049cf62e032b1803ec872fa6f55497755e180470c38394e5305"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae6927ccf00b6daf4ca5b1c82bac595b394d2d4e9b721708a3371e7dea6a26f8"
   end
 
   depends_on "node"
@@ -37,9 +37,18 @@ class BalenaCli < Formula
 
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
+    modules = %w[
+      bare-fs
+      bare-os
+      bare-url
+      bcrypt
+      lzma-native
+      mountutils
+      xxhash-addon
+    ]
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     node_modules = libexec/"lib/node_modules/balena-cli/node_modules"
-    node_modules.glob("{bcrypt,lzma-native,mountutils}/prebuilds/*")
+    node_modules.glob("{#{modules.join(",")}}/prebuilds/*")
                 .each do |dir|
                   if dir.basename.to_s == "#{os}-#{arch}"
                     dir.glob("*.musl.node").each(&:unlink) if OS.linux?

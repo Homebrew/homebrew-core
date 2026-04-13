@@ -4,6 +4,8 @@ class Elfutils < Formula
   url "https://sourceware.org/elfutils/ftp/0.194/elfutils-0.194.tar.bz2"
   sha256 "09e2ff033d39baa8b388a2d7fbc5390bfde99ae3b7c67c7daaf7433fbcf0f01e"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-only"]
+  revision 1
+  compatibility_version 1
 
   livecheck do
     url "https://sourceware.org/elfutils/ftp/"
@@ -11,8 +13,8 @@ class Elfutils < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "394b00038ecf94f5c437c0ef1b19d6caa85ff75a3210d5871179e4105f05195d"
-    sha256 x86_64_linux: "09e305d7db3a75aa81ad2bf7b35485ab58ccaa64c7f02fb584764b28b8915089"
+    sha256 arm64_linux:  "1ca43cc8af9766635f9484f007cd79152c35ddaf434e44eb8eaf79b7ca8682a3"
+    sha256 x86_64_linux: "4f5ee54efe423d3ac486aa5372af4ca8debf2e2626ef16d480e4c79f1681b2de"
   end
 
   depends_on "m4" => :build
@@ -20,20 +22,21 @@ class Elfutils < Formula
   depends_on "bzip2"
   depends_on :linux
   depends_on "xz"
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
   depends_on "zstd"
 
   def install
-    system "./configure",
-           *std_configure_args,
-           "--disable-silent-rules",
-           "--disable-libdebuginfod",
-           "--disable-debuginfod",
-           "--program-prefix=elfutils-",
-           "--with-bzlib",
-           "--with-lzma",
-           "--with-zlib",
-           "--with-zstd"
+    args = %w[
+      --disable-silent-rules
+      --disable-libdebuginfod
+      --disable-debuginfod
+      --program-prefix=elfutils-
+      --with-bzlib
+      --with-lzma
+      --with-zlib
+      --with-zstd
+    ]
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

@@ -3,18 +3,18 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/d1/28/8ff988952b3c322baf79297e2d38544b90b8e053883d69bf7db51685607b/commitizen-4.11.6.tar.gz"
-  sha256 "ed8aec7eba95eaa9c6c83958396e4c8ec831926cab26f80840f70afaf539c5f2"
+  url "https://files.pythonhosted.org/packages/37/95/da2c71ed6a1c06836cdd4eb60a8b9e1bf05f4ce7029ab508081745171be9/commitizen-4.13.10.tar.gz"
+  sha256 "402b5bcd466be69ba79a3f380be6ba5b55ac658c7d2a93e82fc99668a6eb2673"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "313652f7a46ec8b7794c2013c9b81af2fa8258f174638813b86308923047fe19"
-    sha256 cellar: :any,                 arm64_sequoia: "25420ad2436f2cc0bb71155cfef569129045886de2b0fd8000ca1087dd07d8d6"
-    sha256 cellar: :any,                 arm64_sonoma:  "22b7a13bc35f514bb7db88ed5d82ce55b80659395ab79a5f6965923101c06e89"
-    sha256 cellar: :any,                 sonoma:        "b787524142f4be9c3cf0520dd8696ddc60f0c088d63960239505dc029efabb63"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "40bd7d474ca8136ec3b731ca0c6461e9fb2071415b7ed6edfb959da64e65cb27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3ff3800cd2fb440ce3505934cb2ea7d4489c43c33ead163a9ff989a32494143"
+    sha256 cellar: :any,                 arm64_tahoe:   "203ac9e107e231dd71c39d0682883dd5c069d6cb701bdb2af8631b2566d9d979"
+    sha256 cellar: :any,                 arm64_sequoia: "b8d4ec3b823c07e2a644672398cc0719b576d3fa16cdd9f16c1288ab50158bc1"
+    sha256 cellar: :any,                 arm64_sonoma:  "4b8369bcfed4ecb341b1da78dd369ae9d1e28a09bc6f49db3aaae801d7793650"
+    sha256 cellar: :any,                 sonoma:        "dd3e931b574390eeef5ebe8e404e4933890a352febca03910c150215024cd467"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5869e5c607574f92612c0a4b0ae7d504de0ff99c5621c3cd84d45470a149ba0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb5debb5892de0c26d1c1e2d1de8865887523726c4b8f4ba021fbaeb73eb0c39"
   end
 
   depends_on "maturin" => :build
@@ -28,8 +28,8 @@ class Commitizen < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "colorama" do
@@ -58,8 +58,8 @@ class Commitizen < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
   resource "prompt-toolkit" do
@@ -88,20 +88,16 @@ class Commitizen < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
-    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/49/2a/6de8a50cb435b7f42c46126cf1a54b2aab81784e74c8595c8e025e8f36d3/wrapt-2.0.1.tar.gz"
-    sha256 "9c9c635e78497cacb81e84f8b11b23e0aacac7a136e73b8e5b2109a1d9fc468f"
+    url "https://files.pythonhosted.org/packages/2e/64/925f213fdcbb9baeb1530449ac71a4d57fc361c053d06bf78d0c5c7cd80c/wrapt-2.1.2.tar.gz"
+    sha256 "3996a67eecc2c68fd47b4e3c564405a5777367adfd9b8abb58387b63ee83b21e"
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
 
     generate_completions_from_executable(

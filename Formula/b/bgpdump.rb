@@ -10,35 +10,27 @@ class Bgpdump < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "e7f3f18e49653d1dff36e3ff2c608c0e20a387687655fa22c84b57fe015a431a"
-    sha256 cellar: :any,                 arm64_sequoia:  "58a05ac326e701a6417482c33a5660c4cac2ad9a3995e64dd064bc088e9e8a8f"
-    sha256 cellar: :any,                 arm64_sonoma:   "9845446b9c11faac51f1180ad9493fcc523ce44bc5f8179fd2ab4a985323e360"
-    sha256 cellar: :any,                 arm64_ventura:  "7d108fc2cd142cecb17da960a4ec7db84bd63178879596c9f9811ce7caf6f015"
-    sha256 cellar: :any,                 arm64_monterey: "d4fe975c315b68318f0c63ff6b0d4ab3d9c6477fde81f6a4feed97ebe0fc39e4"
-    sha256 cellar: :any,                 arm64_big_sur:  "547aa3e0a48f992ab4475b4f4b9203d46700fbde8588528382a7fc730157235c"
-    sha256 cellar: :any,                 sonoma:         "73a39e564b78ad124866c1c94468620723ff94abf20a314dcb8ac98d55a56367"
-    sha256 cellar: :any,                 ventura:        "ae7e665b60cb17e22cd9a145c59f8e5fb1e847892376fe8a621249b67e5786b9"
-    sha256 cellar: :any,                 monterey:       "946678f11f01a3b35808d48e2ee9dc92a54f400364c7ae20989cf64263d9ae0a"
-    sha256 cellar: :any,                 big_sur:        "30a4765bc4c7decdb628df132d66bc675da867c5ed9631beac87dd99bce53713"
-    sha256 cellar: :any,                 catalina:       "f7c93574ccb3a6eaa05910009e26068f99f14082df78d3b2b0b84166488657e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b47b8e9e6bf6cf650441e4ccf7127b058ce743716a6b83e06803e18f37d9c6ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab69320eab97e440488a15664f3defe5f2dd921bedfd30c23b80deefc5c954e0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "b7466c828dd9c4dc63b62c670ad9bf9270ae4b7b4a512ad7ea6d4f3852100879"
+    sha256 cellar: :any,                 arm64_sequoia: "d19e671a817e8cca5f105ff661bd83aac226068487e581761b712f7b02b966d2"
+    sha256 cellar: :any,                 arm64_sonoma:  "226e863cc55bca02b1a990adc902f28f53c619ab14e4c6e35b198795637f31ea"
+    sha256 cellar: :any,                 sonoma:        "ec5587f68240ae4c67304b2d3a95d3b4956436c2cacebf2d8e40c3f7a4947efe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9301becc1293c918c53f5699ff9ed9f6973d685e9c5fc91550199031d0aae91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e87438d5bebcb4e594b7af638eb0f5b81b89838a5deca962c319d1027a25d7f"
   end
 
   depends_on "autoconf" => :build
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./bootstrap.sh"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
   end

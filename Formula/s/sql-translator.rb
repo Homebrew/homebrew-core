@@ -6,8 +6,6 @@ class SqlTranslator < Formula
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   revision 4
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6619655ae2fdbbcc5c2213ab55e2ffd0f45d964cf1f9eb1bef7db81e87e76b4e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6619655ae2fdbbcc5c2213ab55e2ffd0f45d964cf1f9eb1bef7db81e87e76b4e"

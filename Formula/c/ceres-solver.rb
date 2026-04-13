@@ -2,13 +2,16 @@ class CeresSolver < Formula
   desc "C++ library for large-scale optimization"
   homepage "http://ceres-solver.org/"
   license "BSD-3-Clause"
-  revision 5
-  head "https://ceres-solver.googlesource.com/ceres-solver.git", branch: "master"
+  revision 6
+  compatibility_version 1
 
   stable do
     url "https://distfiles.macports.org/ceres-solver/ceres-solver-2.2.0.tar.gz"
     mirror "http://ceres-solver.org/ceres-solver-2.2.0.tar.gz"
     sha256 "48b2302a7986ece172898477c3bcd6deb8fb5cf19b3327bc49969aad4cede82d"
+
+    depends_on "gflags"
+    depends_on "glog"
 
     # Backport support for eigen 5.0.0
     patch :DATA # https://github.com/ceres-solver/ceres-solver/commit/f0720aeb84ec7bb479fe3618b30fa54981baf8fd
@@ -23,27 +26,31 @@ class CeresSolver < Formula
     regex(/href=.*?ceres-solver[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "53db40f44352513457201e3b1f39f75bdf6370efd63d296d6fb41c000a91ae6f"
-    sha256 cellar: :any,                 arm64_sequoia: "1887108ba7e5c6d4fa7ba55a6831f13a0a1ab84dd9250867645510c2ef30b2aa"
-    sha256 cellar: :any,                 arm64_sonoma:  "357c59a8eb32e9655e7cf42be0efdb4d69452b315d9d822c9033e80d8c278a0b"
-    sha256 cellar: :any,                 sonoma:        "99a382dc87fc7364c7b329d261110f2816ba31a19f9d9ff84c5221aa400eb6c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1dc12f8c9a8fe43f8621fa6c8c8959746fb8b9eea1be58383ff59c3fa3d1decd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66a1a131463a22f2ed31bbb5b4d698a73c23719ba5c07c9ebb69efb1863e779b"
+    sha256 cellar: :any,                 arm64_tahoe:   "8bca5dac2f24d423391151bf8fb69c53b119eb94e5ba899f95fe961cac036ee7"
+    sha256 cellar: :any,                 arm64_sequoia: "05cf5a6bb6673ae173ed0832fdd1fa8fcfe5a7fd4db1947510f0f61501d94984"
+    sha256 cellar: :any,                 arm64_sonoma:  "bd3d4182288ca1689514d81fccb367151585e4a12acb015a59c2726831230cc7"
+    sha256 cellar: :any,                 sonoma:        "0f8775984f506622a7760a114108ea0623708e4657f4b0763f5fa2fd85d73aed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7cff4740905f47653e817429811c68ed7d7f8615c988bac94778eefd49896c5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9827d7d0b9acc123b2d2841d8755be3ff1e4761917740fcd35f4836006360101"
+  end
+
+  head do
+    url "https://ceres-solver.googlesource.com/ceres-solver.git", branch: "master"
+
+    depends_on "abseil"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "eigen"
-  depends_on "gflags"
-  depends_on "glog"
   depends_on "metis"
   depends_on "openblas"
   depends_on "suite-sparse"
   depends_on "tbb"
 
   def install
+    rm_r "third_party" if build.head?
+
     system "cmake", "-S", ".", "-B", "homebrew-build",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DBUILD_EXAMPLES=OFF",

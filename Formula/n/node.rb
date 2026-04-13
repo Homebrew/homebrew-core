@@ -1,9 +1,11 @@
 class Node < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v25.3.0/node-v25.3.0.tar.xz"
-  sha256 "97939099edd035a0c1a2d1fc849cac018ec2a38c0c28dd8e8246fd883cdb9e9e"
+  url "https://nodejs.org/dist/v25.9.0/node-v25.9.0.tar.xz"
+  sha256 "8f78af3ee55fb278668b5f801db58bd1a38ea161318eb5ce2128ddbc9cd813aa"
   license "MIT"
+  revision 2
+  compatibility_version 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -12,23 +14,28 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5352d3d6e53ce10049015cc43d955bdfcab073810176f61764505abe948dd5f0"
-    sha256 cellar: :any,                 arm64_sequoia: "3d6eec633a0b1cbbae2a55d2b3950f0e3e27b24e1cb53cb8a2ab5338947f913e"
-    sha256 cellar: :any,                 arm64_sonoma:  "25ae27e94cd552926e97fef3520821505bdba748a882eacabfddb4d6da0af8ab"
-    sha256 cellar: :any,                 sonoma:        "fa9027180e2ed287ba6564319cedce9610517943831ff5770615fb7a99542399"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b5d456b08e1bf3a2e8e0b8b7c99788fb77a76540ec9279ca51413db5a7dc3b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c54a7ca42f9fa45e3e71827c8edc90d11a0d38ae53808d91d05c6f1ffc0bf4a3"
+    sha256 cellar: :any,                 arm64_tahoe:   "3432dd22a4f6bb6b6a2decdaa6e39f980518120106b25e8f9032c92e97380938"
+    sha256 cellar: :any,                 arm64_sequoia: "8c3fb7faffdab909f18ecd255cd7ec63d0fd874d48285f40b4e09ef472140f71"
+    sha256 cellar: :any,                 arm64_sonoma:  "c384fef61921d8e3af26fc67231bbf581ffe176de2e5ecef42c4ea66ba2bf1a5"
+    sha256 cellar: :any,                 sonoma:        "492d9823b1e958a334d664b9694a02d2e2087280d248c398284d75787cdf8733"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "21c9e2e7f8fb82c2764cddf862baf49e5c86e7483b30902186e63f1f8aa77bbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "863422cefaae72ab333d662a64a39e81b97a00065c9bc0e7a460b1b16e010a1b"
   end
 
   depends_on "pkgconf" => :build
   depends_on "python@3.14" => :build
+  depends_on "ada-url"
   depends_on "brotli"
   depends_on "c-ares"
+  depends_on "hdrhistogram_c"
   depends_on "icu4c@78"
   depends_on "libnghttp2"
   depends_on "libnghttp3"
   depends_on "libngtcp2"
   depends_on "libuv"
+  depends_on "llhttp"
+  depends_on "merve"
+  depends_on "nbytes"
   depends_on "openssl@3"
   depends_on "simdjson"
   depends_on "sqlite" # Fails with macOS sqlite.
@@ -36,10 +43,13 @@ class Node < Formula
   depends_on "zstd"
 
   uses_from_macos "python"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   link_overwrite "bin/npm", "bin/npx"
@@ -60,18 +70,30 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.7.0.tgz"
-    sha256 "292f142dc1a8c01199ba34a07e57cf016c260ea2c59b64f3eee8aaae7a2e7504"
+    url "https://registry.npmjs.org/npm/-/npm-11.12.1.tgz"
+    sha256 "e679850e663b16f5f146ee425d0eb0e3442c1d2bda3d513bbfd7c81f5ee5db38"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/nodejs/node/refs/tags/v#{LATEST_VERSION}/deps/npm/package.json"
+      strategy :json do |json|
+        json["version"]
+      end
+    end
   end
 
   def install
+    # Backport fix for bundled LIEF's bundled spdlog's bundled fmt.
+    # Should be fixed when new LIEF version with following commit is released and used by node:
+    # https://github.com/lief-project/LIEF/commit/710637216b1f6f19569002d62e43fca201b9d91c
+    inreplace "deps/LIEF/third-party/spdlog/include/spdlog/fmt/bundled/format.h",
+              "#ifndef FMT_MODULE\n#  include <cmath>",
+              "#ifndef FMT_MODULE\n#  include <stdlib.h>\n#  include <cmath>"
+
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.14")
 
     # Ensure Homebrew deps are used
-    %w[brotli icu-small nghttp2 ngtcp2 npm simdjson sqlite uvwasi zstd].each do |dep|
-      rm_r buildpath/"deps"/dep
-    end
+    rm_r(["deps/icu-small", "deps/npm"])
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
@@ -80,52 +102,51 @@ class Node < Formula
       --without-npm
       --with-intl=system-icu
       --shared
-      --shared-brotli
-      --shared-cares
-      --shared-libuv
-      --shared-nghttp2
-      --shared-nghttp3
-      --shared-ngtcp2
-      --shared-openssl
-      --shared-simdjson
-      --shared-sqlite
-      --shared-uvwasi
-      --shared-zlib
-      --shared-zstd
-      --shared-brotli-includes=#{Formula["brotli"].include}
-      --shared-brotli-libpath=#{Formula["brotli"].lib}
-      --shared-cares-includes=#{Formula["c-ares"].include}
-      --shared-cares-libpath=#{Formula["c-ares"].lib}
-      --shared-libuv-includes=#{Formula["libuv"].include}
-      --shared-libuv-libpath=#{Formula["libuv"].lib}
-      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
-      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
-      --shared-nghttp3-includes=#{Formula["libnghttp3"].include}
-      --shared-nghttp3-libpath=#{Formula["libnghttp3"].lib}
-      --shared-ngtcp2-includes=#{Formula["libngtcp2"].include}
-      --shared-ngtcp2-libpath=#{Formula["libngtcp2"].lib}
-      --shared-openssl-includes=#{Formula["openssl@3"].include}
-      --shared-openssl-libpath=#{Formula["openssl@3"].lib}
-      --shared-simdjson-includes=#{Formula["simdjson"].include}
-      --shared-simdjson-libpath=#{Formula["simdjson"].lib}
-      --shared-sqlite-includes=#{Formula["sqlite"].include}
-      --shared-sqlite-libpath=#{Formula["sqlite"].lib}
-      --shared-uvwasi-includes=#{Formula["uvwasi"].include}/uvwasi
-      --shared-uvwasi-libpath=#{Formula["uvwasi"].lib}
-      --shared-zstd-includes=#{Formula["zstd"].include}
-      --shared-zstd-libpath=#{Formula["zstd"].lib}
       --openssl-use-def-ca-store
     ]
     args << "--tag=head" if build.head?
 
+    # Devendor libraries available as formulae. The following maps the name
+    # used in configure (e.g. `--shared-<flag>`) to the bundled subdirectory
+    # and corresponding formula name as these can all differ.
+    {
+      # flag name         sub-directory      formula name
+      "ada"           => ["ada",             "ada-url"],
+      "brotli"        => ["brotli",          "brotli"],
+      "cares"         => ["cares",           "c-ares"],
+      "hdr-histogram" => ["histogram",       "hdrhistogram_c"],
+      "http-parser"   => ["llhttp",          "llhttp"],
+      "libuv"         => ["uv",              "libuv"],
+      "merve"         => ["merve",           "merve"],
+      "nbytes"        => ["nbytes",          "nbytes"],
+      "nghttp2"       => ["nghttp2",         "libnghttp2"],
+      "nghttp3"       => ["ngtcp2/nghttp3",  "libnghttp3"],
+      "ngtcp2"        => ["ngtcp2",          "libngtcp2"],
+      "openssl"       => ["openssl/openssl", "openssl@3"],
+      "simdjson"      => ["simdjson",        "simdjson"],
+      "sqlite"        => ["sqlite",          "sqlite"],
+      "uvwasi"        => ["uvwasi",          "uvwasi"],
+      "zlib"          => ["zlib",            ("zlib-ng-compat" unless OS.mac?)],
+      "zstd"          => ["zstd",            "zstd"],
+    }.each do |flag, (subdir, formula)|
+      rm_r(buildpath/"deps"/subdir)
+      args << "--shared-#{flag}"
+      if formula
+        args << "--shared-#{flag}-includes=#{Formula[formula].include}"
+        args << "--shared-#{flag}-libpath=#{Formula[formula].lib}"
+      end
+    end
+
     # TODO: Try to devendor these libraries.
-    # - `--shared-ada` needs the `ada-url` formula, but requires C++20
+    # - `--shared-gtest` is only used for building the test suite, which we don't run here.
     # - `--shared-simdutf` seems to result in build failures.
-    # - `--shared-http-parser` and `--shared-uvwasi` are not available as dependencies in Homebrew.
+    # - `--shared-temporal_capi` is only used when building with `--v8-enable-temporal-support`
+    # - `--shared-lief` is not available as dependency in Homebrew.
     ignored_shared_flags = %w[
-      ada
-      http-parser
+      gtest
       simdutf
+      temporal_capi
+      lief
     ].map { |library| "--shared-#{library}" }
 
     configure_help = Utils.safe_popen_read("./configure", "--help")
@@ -175,9 +196,8 @@ class Node < Formula
     ln_s libexec/"lib/node_modules/npm/bin/npm-cli.js", bin/"npm"
     ln_s libexec/"lib/node_modules/npm/bin/npx-cli.js", bin/"npx"
 
-    generate_completions_from_executable(bin/"npm", "completion",
-                                         shells:                 [:bash, :zsh],
-                                         shell_parameter_format: :none)
+    # Use the _npm completion included in Zsh rather than generating broken completion
+    generate_completions_from_executable(bin/"npm", "completion", shells: [:bash], shell_parameter_format: :none)
   end
 
   def post_install

@@ -1,20 +1,18 @@
 class Libmodbus < Formula
   desc "Portable modbus library"
   homepage "https://libmodbus.org/"
-  url "https://github.com/stephane/libmodbus/archive/refs/tags/v3.1.11.tar.gz"
-  sha256 "8a750452ef86a53de6cec6fbca67bd5be08d0a1e87278a422fbce3003fd42d99"
+  url "https://github.com/stephane/libmodbus/archive/refs/tags/v3.1.12.tar.gz"
+  sha256 "4151177f5223625c6be94230affb096aa8b1cdb0df00fe1f74ce53878a25d15d"
   license "LGPL-2.1-or-later"
   head "https://github.com/stephane/libmodbus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "971554850e99ed7c81ad315013025f55d1eccc3c9ea7912d1f62372b72725435"
-    sha256 cellar: :any,                 arm64_sequoia: "2bb927ed4609da5405a486b49ef592e66c34d3a4af2c676149a77a0c2a0e05fe"
-    sha256 cellar: :any,                 arm64_sonoma:  "6609f407786750265664ef7c244df8e4ba004c7dea7c9d101c72d35815072a1c"
-    sha256 cellar: :any,                 arm64_ventura: "37c9a7ede2185ce78de56d89fb0f18ff44cd3f7c3d172081045d7df5b3ba5de3"
-    sha256 cellar: :any,                 sonoma:        "465170cd461f3cc3b33f1840a3a0d95a0897557d2b266c706f899853adca4be0"
-    sha256 cellar: :any,                 ventura:       "8a3de10bb6cd6380eed6477580643b957f9a75bd9e6dd8da40380eebd80f94e3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc6f0b3c9bf53b24831a826ba42869840425900a01c5f62fff0fb3be2246a0ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d420d004141628626487faaf267f93d2cfb99b1971dbaa20b9848db23ce798e"
+    sha256 cellar: :any,                 arm64_tahoe:   "a19a1e7794e92ff2457f53854efe9f25af59eb226c3e9894434f0bba430af5c5"
+    sha256 cellar: :any,                 arm64_sequoia: "2e81e96a86fc637f9beb11bbc671d2f8ce779232959c21425f4d809532566200"
+    sha256 cellar: :any,                 arm64_sonoma:  "ee16ccee86da68d0902e0d539b4ec259851c5c06751d627a3df3c62e57b97644"
+    sha256 cellar: :any,                 sonoma:        "f95283005a391bc212c9492d0177d7a9532c09c05e9d7c8d17056ab61d456593"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8bbf29d0d6b2a53ddc10fae268b78d191aafce3788209174754fd037e100bc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca28017a4ab526343a25a5f36a5f441fc7512ff6daf7089a7a0e611a6813c095"
   end
 
   depends_on "autoconf" => :build

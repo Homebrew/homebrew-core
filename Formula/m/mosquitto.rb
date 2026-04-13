@@ -1,13 +1,12 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-2.0.22.tar.gz"
-  sha256 "2f752589ef7db40260b633fbdb536e9a04b446a315138d64a7ff3c14e2de6b68"
+  url "https://mosquitto.org/files/source/mosquitto-2.1.2.tar.gz"
+  sha256 "fd905380691ac65ea5a93779e8214941829e3d6e038d5edff9eac5fd74cbed02"
   # # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is pretty the same as BSD-3-Clause,
   # see discussions in https://github.com/spdx/license-list-XML/issues/1149
   license any_of: ["EPL-1.0", "BSD-3-Clause"]
-  revision 2
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -15,12 +14,12 @@ class Mosquitto < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0b023abe1f25dd18b5e857732e11e2b12afb2353befcc3c7153e58f5db96cfaa"
-    sha256 cellar: :any,                 arm64_sequoia: "40f09c55001864b2ca2b15c06f5308a8a37d09890f6734f2dd42a36acad148cf"
-    sha256 cellar: :any,                 arm64_sonoma:  "e704eb1b55caf9ffab7c068f010720fc7e0d9d58f1f8cd1197f4686c526ddf82"
-    sha256 cellar: :any,                 sonoma:        "8c33134f6ca7f83fc79f8cf9603a0ac8ff0d2d70a49e839c74e260c97cbc1a5d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f71995da1487a33b1d2748d34bb89644f650abf23a7caa3c7c279c4a4f551a26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fa96cd2a2940b2a0d33470927a513a40bbb04603e5a87648505b966b604b96f"
+    sha256 cellar: :any,                 arm64_tahoe:   "dd40843dd4c3abf5f5d2ad89f221fc02439a354857e808d7f9b243f8f39f4671"
+    sha256 cellar: :any,                 arm64_sequoia: "b74d967ddee4b766879377d5105dc7a6d696439a71e7dbb2d81034ce70601336"
+    sha256 cellar: :any,                 arm64_sonoma:  "175bc6e9e6dbfa0b16beeb2c17332db6393fb46c483e4de9d77e54365ceed255"
+    sha256 cellar: :any,                 sonoma:        "ae293e339a16b9f4fe4088a560fc7eda47078030948be656c913d2a19e3270f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cfac26df2cee898d81613a7dc486b15d5e00a95470a628b7482b76ffa0a8bec9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "160ad334e165168957eb3adf047fa8fe6e040157920f9c457afbcd44d3b73e82"
   end
 
   depends_on "cmake" => :build
@@ -30,6 +29,8 @@ class Mosquitto < Formula
   depends_on "openssl@3"
 
   uses_from_macos "libxslt" => :build
+  uses_from_macos "libedit"
+  uses_from_macos "sqlite"
 
   on_linux do
     depends_on "util-linux"
@@ -38,8 +39,9 @@ class Mosquitto < Formula
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DWITH_PLUGINS=OFF
+      -DWITH_PLUGINS=ON
       -DWITH_WEBSOCKETS=ON
+      -DWITH_TESTS=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

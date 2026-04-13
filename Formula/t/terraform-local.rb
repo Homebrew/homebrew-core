@@ -17,7 +17,6 @@ class TerraformLocal < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "05032bd60ac470f02aea4d768c57d94ceb890db6e6d5960f326aaadbc9c6d123"
   end
 
-  depends_on "localstack"
   depends_on "python@3.14"
 
   resource "boto3" do

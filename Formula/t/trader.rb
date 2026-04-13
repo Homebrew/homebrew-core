@@ -24,15 +24,14 @@ class Trader < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "gettext"
   depends_on "ncurses" # The system version does not work correctly
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
-    args = %W[
-      --disable-silent-rules
-      --with-libintl-prefix=#{Formula["gettext"].opt_prefix}
-    ]
-    system "./configure", *args, *std_configure_args
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

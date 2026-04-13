@@ -6,8 +6,6 @@ class Gtkspell3 < Formula
   license "GPL-2.0-or-later"
   revision 4
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "b64eeabbec9be14150c26d9213d525edb028af2546a0a1d85ea26e55d26d3b9d"
     sha256 arm64_sequoia:  "f182f8a623b04c25479cfedab38fcc1bc4c6df7f548b7c3b1ceab211fbe16115"

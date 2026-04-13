@@ -4,6 +4,7 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/refs/tags/v2.11.0.tar.gz"
   sha256 "0a2bd745e3f39745f07587e4a5f92d72f12fa0e2be305e7957bdceda03735dbf"
   license "Apache-2.0"
+  revision 3
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,13 @@ class Adios2 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "1f09c2723dbb8dd848f7c14ec303777e32f20634e5eb5c16beef29d02daf26ba"
-    sha256 arm64_sequoia: "388eefd9c2c92b7929c562320b5b9790f4a9938bb732751e9c0d07291a63998e"
-    sha256 arm64_sonoma:  "815d59802952e5c70ce9c85a531d368cf56d4d7c426c510a617c125989156142"
-    sha256 sonoma:        "d11673ca6bfc727fc107e4f385d9889afdbfa0dfb0ba51ee1e62ca1d8277177d"
-    sha256 arm64_linux:   "d36a8e68f8ccfde9efe31650cbd1f76b01fde5aae588934223e0880203029d38"
-    sha256 x86_64_linux:  "eeed3678dc44eac49191e95d9a0de3782c140df67309a35dd4ca1c7471bfedda"
+    rebuild 1
+    sha256 arm64_tahoe:   "0fc0bba06d97e22d5c1869d158bc966d4edae99020e4ca7c8c4c13004f3b52c4"
+    sha256 arm64_sequoia: "92c091315f8dbadb845f200cace50fc6e18b55a78d8cdd6ef45872e8c8ee6486"
+    sha256 arm64_sonoma:  "45d3e08530811c78a0aa15aa60d41b44a70698a4c44b741d16be03365f103dc1"
+    sha256 sonoma:        "d9fef9268fa1e89e72598057dac3eb94651f795bda0db338ddd995c76c62fb0e"
+    sha256 arm64_linux:   "534704afd26df44507961778f55a3792962cfe487fd94efe4b9148330e976b12"
+    sha256 x86_64_linux:  "b52a6393a46cb6e8c64b502f88b2d032f029d15148347038cc709870f156cfb4"
   end
 
   depends_on "cmake" => :build
@@ -39,12 +41,15 @@ class Adios2 < Formula
   depends_on "zeromq"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1400
     depends_on "lz4"
     depends_on "zstd"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   # clang: error: unable to execute command: Segmentation fault: 11
@@ -63,8 +68,6 @@ class Adios2 < Formula
   end
 
   def install
-    ENV.llvm_clang if DevelopmentTools.clang_build_version == 1400
-
     # CMake FortranCInterface_VERIFY fails with LTO on Linux due to different GCC and GFortran versions
     ENV.append "FFLAGS", "-fno-lto" if OS.linux?
 

@@ -1,18 +1,18 @@
 class Chawan < Formula
   desc "TUI web browser with CSS, inline image and JavaScript support"
   homepage "https://sr.ht/~bptato/chawan/"
-  url "https://git.sr.ht/~bptato/chawan/archive/v0.3.2.tar.gz"
-  sha256 "08f98ddf0040d0bf25dce62eac86d3ec5d2f11b2bc471213eb9c4c861a8d321a"
+  url "https://git.sr.ht/~bptato/chawan/archive/v0.3.3.tar.gz"
+  sha256 "3ebcd653e90684ba2e871968b19af77ced082f224cd084e70998db7e1512d1c5"
   license "Unlicense"
   head "https://git.sr.ht/~bptato/chawan", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "db9f8bd2ce7b8b69d8e88bdf33fa3192b756d64e96dc9e8c9dcafaaab31d6c0e"
-    sha256 cellar: :any,                 arm64_sequoia: "3b94dd2fe4c7f4728c1aca6840ade71392fc2e111a65557efaea7183fc209e5c"
-    sha256 cellar: :any,                 arm64_sonoma:  "84454a6d35fab701b0164106ac3f986154247dec3847da4ec2f943a5ba970127"
-    sha256 cellar: :any,                 sonoma:        "640c06003a621dbd1eb0392484cb84b863a40376f31c37899f56fd287061df48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ca1c358adbd75dffaa42e264b765682da060209ca77731fb9085697f3d03ec2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "218b8a05150c5aae3239d57dfb610bf1543be63ca3ee9c32da93e7da23a15c7b"
+    sha256 cellar: :any,                 arm64_tahoe:   "90360e8b7da49b4271a5b0e6cfc783fa0c74828cc9f13192642f2814b173e187"
+    sha256 cellar: :any,                 arm64_sequoia: "badfd78d8b446524beafd88668ff9fd5cdfffdd378f693a49635505c76f878d0"
+    sha256 cellar: :any,                 arm64_sonoma:  "42718595d114ce89567fcafd5460fa929fe432bbab899ce33fcbd9fab8917719"
+    sha256 cellar: :any,                 sonoma:        "d74463206c96e4fed9e95878d3cde9a748a181c40b526a608a747218cbb0e129"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0034327f3c9aa289cb2bcb96df0aea048f5b32ffc3e4c87ce5cbffdda2dffd89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f746919e0b1b5957d148061e859fc8267fd700b0c989b8d719ac23f20ca7b26f"
   end
 
   depends_on "nim" => :build

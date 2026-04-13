@@ -7,8 +7,6 @@ class Zopfli < Formula
   revision 1
   head "https://github.com/google/zopfli.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "60d92c2dba51adbc2b158013f76e713caf79039176b8fce561d71e64eeb1ab1f"
@@ -42,7 +40,7 @@ class Zopfli < Formula
 
   test do
     system bin/"zopfli"
-    system bin/"zopflipng", test_fixtures("test.png"), "#{testpath}/out.png"
+    system bin/"zopflipng", test_fixtures("test.png"), testpath/"out.png"
     assert_path_exists testpath/"out.png"
   end
 end

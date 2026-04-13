@@ -5,8 +5,6 @@ class Modsurfer < Formula
   sha256 "2f5defcfe8668d7323a83dab0b323282e2855a4171c1d0d4eacf5963aa3729b1"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "771be4aaa710c9ab747d8c99f16be41f132e0f0662cc59c5e5ef1b4827fcbbe2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4de08833308339b9707922798aeede8757c81d4e025667d2290b183aa2c161e6"

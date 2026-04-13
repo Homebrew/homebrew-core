@@ -7,8 +7,6 @@ class Dfc < Formula
   revision 1
   head "https://github.com/Rolinh/dfc.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "7a89f0d391fc36d847a8385ade4caee48ac0ee3edac6fd460dfd05f89bd5996f"

@@ -24,6 +24,7 @@ class Dumb < Formula
   end
 
   deprecate! date: "2025-07-03", because: :repo_archived
+  disable! date: "2026-07-03", because: :repo_archived, replacement_formula: "libopenmpt"
 
   depends_on "cmake" => :build
   depends_on "argtable"

@@ -7,16 +7,16 @@ class Sherlock < Formula
   url "https://files.pythonhosted.org/packages/76/17/d29f35df6ec6424ec15f273a31ad54ad314d1f9056321fb824bed4eda128/sherlock_project-0.16.0.tar.gz"
   sha256 "fcc8f05fb6f55de30938cce5727249f70917b226918a71f6ed3f50d8a6467610"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/sherlock-project/sherlock.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "172bfac00b591668aaadb6823c7f85246383069d6ef31db3a05f9ec17ae14144"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "262c372c24bc602b590a0fcece35b00dfefecf3c6a315e1f3a368f34628031b1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce87d7bfed9e3311f89f150b1024d44ae06fe18e7fc8e970636cef21009d13e8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c8216dc7eaf85a508cc893f85bb68d6f72dc3dc6b4181bbe47287260631af63e"
-    sha256                               arm64_linux:   "efc7f912dfd3f1152ef8404ff9b1899ff330f81e75e8e5da600dc575787b1d70"
-    sha256                               x86_64_linux:  "4f6e377caf203851c7a283a02a8dfdc6dbd5fc9ee67c53eda37f6983ebca5d4b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "12423f0d1ec6e6db1a2d02f86d7d0edaa1a1ec7a91b7f934e1f58d6d4ea78066"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "de6cd2e49a2bfc9192c8437cb55693d848b64107a44505fb1e8b60cf788c98c7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "127bcca2081c8c9aafd573bcbfb3ad4bb24fe9281a722c67151719dfb005e232"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d42970c735c14c0c7b7d38389de99789c02ca0d8dade26372cf8c34e71a85799"
+    sha256                               arm64_linux:   "4acc88598326baad0f8587696095c920e87a982e48170ddba719fae98e46185e"
+    sha256                               x86_64_linux:  "b47be59443aa7a6f22b8d056652c69cc0b89676a6ac9eccff413fb398f9aaca1"
   end
 
   depends_on "cmake" => :build
@@ -31,8 +31,8 @@ class Sherlock < Formula
   pypi_packages exclude_packages: %w[certifi numpy]
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "colorama" do
@@ -71,13 +71,13 @@ class Sherlock < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f8/bf/abbd3cdfb8fbc7fb3d4d38d320f2441b1e7cbe29be4f23797b4a2b5d8aac/pytz-2025.2.tar.gz"
-    sha256 "360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3"
+    url "https://files.pythonhosted.org/packages/56/db/b8721d71d945e6a8ac63c0fc900b2067181dbb50805958d4d4661cf7d277/pytz-2026.1.post1.tar.gz"
+    sha256 "3378dde6a0c3d26719182142c56e60c7f9af7e968076f31aae569d72a0358ee1"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "requests-futures" do
@@ -106,10 +106,6 @@ class Sherlock < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
   end
 

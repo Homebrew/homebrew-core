@@ -8,8 +8,6 @@ class Ent < Formula
   # Ref: https://github.com/Fourmilab/ent_random_sequence_tester/blob/master/LICENSE.md
   license :public_domain
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ff6411a4c5575cb11e6a3e1177df3a8e09ea6f361f5ae870ba21745aa33f1a9c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b575b8008e74224742c5e78c22a496ee80c8a7efa3c62ba1856472f786d86d73"

@@ -1,49 +1,47 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.13.22.tar.gz"
-  sha256 "b4c41e98fb7089709a035c963ce96da96428269d334d82c0789b9160a193cc4a"
+  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.14.2.tar.gz"
+  sha256 "b9df4f8be106e7ee69902fc4eb944b87c5c3117fe5bcd2306246130d86749dbf"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2f885c54c7b4d559d6bf5c1f269686abf99d426c54473c8ffd89cef3c8234936"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d3019b6553dd25d30806c4666e71d005902c0dda1288ba67828f204602f0f25"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "98f1766e9d7874ba5df338ae42613d38aadef4afe2059c1ce7f8fca2225b1583"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9054ec90fc5e2958ab161c7296ea0ed65338578bee5540cd156972c23b678532"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e9174416f57157012dde966f9618dd4f54e37818827f18f9721331b70d9fb4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "430dba2d671f91ef7b99a39a8171e4bba6ce73fe136cc1f9163a56384da3b796"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aef763bb544d91b45134fe2fbc1258dcfd075f1409fd2a64c3b4c09e4d2eebc0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b709e96104926a00734aaafaf7dc592377ad27efe7e6f9158770b10fb0f71403"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6dbbb70bb72b3f34c054b4d9ee3cd80c0cdfb16060118d95d999f73ff80b6c84"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5d9863ba9280fe24494104e691f6990bc2ca3a8ce9ffc5fb1f19e2f3257c6a33"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3b8c4c06b0bab71b4e12c1592257954c1daba72de8eedc990deb05a85d7161e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "342627b3280d85fadd085a33f11316adecafeae5921c91ff59a230d9e67c69ca"
   end
 
   depends_on "cmake" => :build # For `boring-sys` crate in `libsignal-client`
-  depends_on "gradle@8" => :build # older version needed for `libsignal-client`
+  depends_on "gradle" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
 
-  depends_on "openjdk@21"
+  depends_on "openjdk"
 
   uses_from_macos "llvm" => :build # For `libclang`, used by `boring-sys` crate
   uses_from_macos "zip" => :build
 
-  # https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#determine-the-required-libsignal-client-version
-  # To check the version of `libsignal-client`, run:
-  # url=https://github.com/AsamK/signal-cli/releases/download/v$version/signal-cli-$version.tar.gz
-  # curl -fsSL $url | tar -tz | grep libsignal-client
   resource "libsignal-client" do
-    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.86.1.tar.gz"
-    sha256 "6d73c0f9ae69adca57169f6e47cfa147d06f150dbee6e610cd8165873244cfaf"
+    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.90.0.tar.gz"
+    sha256 "8b09956cbd6a58a1aafe96e5681b4d49c59c1c2ee03839d9b5ad25d5f347f520"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/AsamK/signal-cli/refs/tags/v#{LATEST_VERSION}/libsignal-version"
+      regex(/^v?(\d+(?:\.\d+)+)$/i)
+    end
   end
 
   def install
-    java_version = "21"
+    java_version = "25"
     ENV["JAVA_HOME"] = Language::Java.java_home(java_version)
 
-    # FIXME: find a better way to handle resource version check as this can easily break
-    regexp = /^## \[#{Regexp.escape(version.to_s)}\].*\s+Requires libsignal-client version (\d+(?:\.\d+)+)/i
-    libsignal_client_version = File.read("CHANGELOG.md")[regexp, 1]
-    odie "Could not find libsignal-client version in CHANGELOG.md" if libsignal_client_version.blank?
-
+    # https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal
     resource("libsignal-client").stage do |r|
-      odie "#{r.name} needs to be updated to #{libsignal_client_version}!" if libsignal_client_version != r.version
+      libsignal_version = (buildpath/"libsignal-version").read.strip
+      odie "libsignal-client needs to be updated to #{libsignal_version}!" if r.version != libsignal_version
       system "gradle", "--no-daemon", "--project-dir=java", "-PskipAndroid", ":client:jar"
       buildpath.install Pathname.glob("java/client/build/libs/libsignal-client-*.jar")
     end

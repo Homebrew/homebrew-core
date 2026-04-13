@@ -12,13 +12,13 @@ class Pike < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "189339328f08b4736331e28f84a222c9bd77ee5f3d0742ddf4f5a8a4b153682f"
-    sha256 arm64_sequoia: "75e3d156d755d9f21686a6a97f7abe5bab99543aed10c0bc9b1924b522a76be3"
-    sha256 arm64_sonoma:  "aa0db19f0c8c530b0a2987a8e9109f59e912bed0e03230d648a6d5626b60f6f5"
-    sha256 sonoma:        "23f03f540634e32d1d2daecd6b396753b133aeb78a6bddc1c8e8a01907068835"
-    sha256 arm64_linux:   "4fff05c1bf9d0b62313086b0a50fdf8fad2cf794d27db659c3f87d3d22a8aff6"
-    sha256 x86_64_linux:  "b657334fefce83ee4ce0a359c8eea9a8b2d5a07638bba4972a33f4fe6c9bf89b"
+    rebuild 2
+    sha256 arm64_tahoe:   "fcdd576e2d1f6a9e6e5950e606961b3e2a3342470498789089e279a5d3674be4"
+    sha256 arm64_sequoia: "6555f68623b88de4cbd0b3f79fc8cbe809fc7752f866c74a5daf9df5bbdfffc1"
+    sha256 arm64_sonoma:  "40d3f38c11347d04b10d29c5a9494a8b95d2b99fb666e18c436b36c995a77661"
+    sha256 sonoma:        "a85dee58bfc10160afc4d814cc7665837c404861a2f8ba64df76923835868e16"
+    sha256 arm64_linux:   "9ca8feac2ad91ed44254a1acba6316c24459cc5f0f750727d33e814cd2ee07ab"
+    sha256 x86_64_linux:  "d4c545ecc893e81fbde64c012b73d405749254ff6a5f9feab5ac608cce09390b"
   end
 
   depends_on "gmp"
@@ -31,11 +31,14 @@ class Pike < Formula
   uses_from_macos "krb5"
   uses_from_macos "libxcrypt"
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gnu-sed" => :build
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

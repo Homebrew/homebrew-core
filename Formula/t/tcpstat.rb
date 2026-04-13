@@ -7,7 +7,7 @@ class Tcpstat < Formula
   license "BSD-2-Clause"
   head "https://github.com/jtt/tcpstat.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "819e87c8105c753f181730fced67949dbc440e4a6e790c089f030134e6903ec3"

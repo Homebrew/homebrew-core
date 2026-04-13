@@ -3,20 +3,18 @@ class Serialosc < Formula
   homepage "https://github.com/monome/docs/blob/gh-pages/serialosc/osc.md"
   # pull from git tag to get submodules
   url "https://github.com/monome/serialosc.git",
-      tag:      "v1.4.6",
-      revision: "82982437ba197b93793e89eee1cbb12c1f73e928"
+      tag:      "v1.4.7",
+      revision: "94d457f80fe3721d21df5190c99bd522c711185a"
   license "ISC"
   head "https://github.com/monome/serialosc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "88048b5ee792c6b2b31ad617c6e5289ae2238b6ae9370b9b7a4774291c4cd015"
-    sha256 cellar: :any,                 arm64_sequoia: "6bf7e4ce2c236c488e3d5f5779f97d888f19c471aaf0d08e9fdefea7afea20c2"
-    sha256 cellar: :any,                 arm64_sonoma:  "498514d0881e192dd36837716da1df5a7256179f515dc8b1dace4f480348b724"
-    sha256 cellar: :any,                 arm64_ventura: "9e549647a50621a2bafce9aad05daef120e36767af5e57a3df117d6afc5c580e"
-    sha256 cellar: :any,                 sonoma:        "4bda1903d28760b7b340db427ebf78566a93171f494ea082cd63d6eef79b0e23"
-    sha256 cellar: :any,                 ventura:       "d2cf788f4bf6dd3805af4f729e9dc7ed7a1ecde36a93468014a20052dddb87fd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd3d5d496535917f6e503b7b4041e23ea50b33a99c695f0ab68abcdbe576ace2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4eee0e4d13807fb31e5ccb13536357177f2285f546af6ee9bc167a778797323"
+    sha256 cellar: :any,                 arm64_tahoe:   "9f99630d252d5bf043ab3cd20bbfe7f523f8a5947c24116884805d3f7ce4966e"
+    sha256 cellar: :any,                 arm64_sequoia: "df8f10238c9b1db61937d5e6c08c05b4c1e90e452397f375ad789b8ee40b93eb"
+    sha256 cellar: :any,                 arm64_sonoma:  "3b130c9e39d1cdcdc8fe79d7672bc19250eea7a77f9a88469c1568f5ef2dba90"
+    sha256 cellar: :any,                 sonoma:        "6adb9865250752540188fad3bbd293935f7f82d431530bcdfeec4b372f27ed7a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9bfe2f52193d07890dc1b74904c9b32dd9fb616d9e56deb031768dafedea448"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be67991d5ec342af372b09090ecdc048e178960b31795f438eac84f3090b3c54"
   end
 
   depends_on "confuse"

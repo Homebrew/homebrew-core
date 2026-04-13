@@ -13,16 +13,16 @@ class CKermit < Formula
     regex(/The current C-Kermit release is v?(\d+(?:\.\d+)+) /i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f03cdb09826ffb13c05935041e5eace02ccaa28ceb1414476dd13ca58a8412bb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ff30edc6320921e86421083b31edfca494af2769ceb2d7401adaa4240ebdfc4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32b86b1e8e3d2f5ec5c7b36b3c4681fbac18da12184fd3abb9868f200f2c0cda"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0d37a2d0fcd584f8d5255dd975dd6bba66381b7a78e8c499626655efe9ccf32c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "35510dc1aa49e7b5d34b546a293ad6ae2de3012aa79476a7faa8f87c53a262da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48c31890a6637bc31380b57ea68a0a7ae608ae969fd3ac4a80abc56735a9d20f"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8c0e72e5bb4d72caed49b3f6d972c288574cf259071e49b9f2d7cecb996dbce8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc6dba17341e3f98196d564a5fffc6302338e58371b4eca3ebeedb82e274606e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab2fa4f2c5baad32ef5a049ac5a386f2b8900e2a0083cd666476b66287a03e03"
+    sha256 cellar: :any_skip_relocation, sonoma:        "39dea4932cd8e64dc2f836f6614bf7e1a27547f5256c18bd96b6a52ffcc42147"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4e5b61305d55c1c90bb0a83b2a3d60684e5e8e9104b6dbc8c84637132114054"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "694f5ef3996f1e14a0ef1c1117902226f1eaba0488a27dbc248a52af354121b1"
   end
 
   uses_from_macos "libxcrypt"
@@ -31,6 +31,14 @@ class CKermit < Formula
   # Apply patch to fix build failure with glibc 2.28+
   # Apply patch to fix build failure on Sonoma (missing headers)
   # Will be fixed in next release: https://www.kermitproject.org/ckupdates.html
+  # Apply patch to fix memory corruption on macos where -DNOUUCP is used where an unintended codepath was taken.
+  # Patch for this soruced from beta 10.0:
+  # Notes on the bugfixes can be found in C-Kermit 10.0 NOTES.TXT lines 2533-2538 and 3356-3370
+  # Or in the code:
+  # ckucmd.c#L1694-L1696
+  # ckufio.c#L2746-L2748
+  # ckufio.c#L2827
+
   patch :DATA
 
   def install
@@ -186,3 +194,36 @@ index 2f3bb75..71b9080 100644
  #ifdef MAINTYPE
  /*
    If you get complaints about "main: return type is not blah",
+diff --git a/ckucmd.c b/ckucmd.c
+index 274dc2d..5364bfd 100644
+--- a/ckucmd.c
++++ b/ckucmd.c
+@@ -1577,7 +1577,7 @@ o_again:
+     }
+ #endif /* CK_TMPDIR */
+ 
+-    if (strcmp(s,CTTNAM) && (zchko(s) < 0)) { /* OK to write to console */
++    if ((strcmp(s,CTTNAM) == 0) && (zchko(s) < 0)) { /* write to console OK */
+ #ifdef COMMENT
+ #ifdef OS2
+ /*
+diff --git a/ckufio.c b/ckufio.c
+index b5bfaae..b1fb374 100644
+--- a/ckufio.c
++++ b/ckufio.c
+@@ -2596,6 +2596,7 @@ zchko(name) char *name; {
+ 	} else {
+ 	    debug(F101,"zchko open errno","",errno); 
+ 	    x = -1;
++        goto xzchko;
+ 	}
+     }
+ #endif	/* NOUUCP */
+@@ -2667,6 +2668,7 @@ zchko(name) char *name; {
+     debug(F100,"zchko swapped ids restored","",0);
+ #endif /* SW_ACC_ID */
+ 
++xzchko:                               /* Exit point */
+     if (x < 0)
+       debug(F111,"zchko access failed:",s,errno);
+     else

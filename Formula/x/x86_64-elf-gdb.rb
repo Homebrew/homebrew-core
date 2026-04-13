@@ -11,15 +11,14 @@ class X8664ElfGdb < Formula
     formula "gdb"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "2d92d3c7708d8cf17556c3748831eaea21894c809f39d24e6c1a855a96391f9a"
-    sha256 arm64_sequoia: "3c3cd7c5547c24c5477a5bfdf20070f20eb0c44719473104ab09cd7075aea216"
-    sha256 arm64_sonoma:  "8761611d1fb5160c0e64811c0b819730d3e4f5e406397cf1e6eea856521aafb8"
-    sha256 sonoma:        "46f0b82e3c175bfae670bd3f43832e90f5a965ed6b6cadc2840c67ab39931492"
-    sha256 arm64_linux:   "3e8484345406407e11b19520c89d9c6b487c7e5a66d0ceeda8d6461085e85228"
-    sha256 x86_64_linux:  "e574137ef92334df9b4a1b727ae414599c02c4d4969cf45a9fd3d3e6eee4d261"
+    rebuild 1
+    sha256 arm64_tahoe:   "ffc4d91060bee0a77349a4197c4693478b6633b423dfa0541ca0ff5667c1a0ee"
+    sha256 arm64_sequoia: "df1f80eeb99a9d22809f68670468532a4b80671817cc5673c30b1b269533d981"
+    sha256 arm64_sonoma:  "955b0c8f0b10163206ad3a889440f2f855b96357d875fca9779ec07d77508fd6"
+    sha256 sonoma:        "40968878872648a819ced969094383478b7dbfee0ce34a01420a2f616cda5f60"
+    sha256 arm64_linux:   "dfb0bc11911d42e039f52cd1014d59c612ce4a4427f2c58add1efd709c5d857f"
+    sha256 x86_64_linux:  "37d0aeaaf689eb0a90eb915f02cb99eea4c89d0009a932b12323f948449b86c7"
   end
 
   depends_on "pkgconf" => :build
@@ -33,7 +32,6 @@ class X8664ElfGdb < Formula
   depends_on "zstd"
 
   uses_from_macos "expat", since: :sequoia # minimum macOS due to python
-  uses_from_macos "zlib"
 
   # Workaround for https://github.com/Homebrew/brew/issues/19315
   on_sequoia :or_newer do
@@ -44,6 +42,10 @@ class X8664ElfGdb < Formula
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

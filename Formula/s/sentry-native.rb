@@ -1,22 +1,26 @@
 class SentryNative < Formula
   desc "Sentry SDK for C, C++ and native applications"
   homepage "https://docs.sentry.io/platforms/native/"
-  url "https://github.com/getsentry/sentry-native/archive/refs/tags/0.12.3.tar.gz"
-  sha256 "f4a4b419b50bb2d7f85cf5b563c18745e599ddd024129496d2a4bd7f04a92d78"
+  url "https://github.com/getsentry/sentry-native/archive/refs/tags/0.13.6.tar.gz"
+  sha256 "7719edaa3af9029583e0a7326aa4699eee45d9fbfd7b0441db27262c3d24e915"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b5cd020339b03b945ed548335d44ec3a6af206c1d5a42d68247ca1829e5ec7a8"
-    sha256 cellar: :any,                 arm64_sequoia: "c891cb56c1777974c3e102014f4db2ead1295caaf6040d0c45d69ce2016b9f4f"
-    sha256 cellar: :any,                 arm64_sonoma:  "8922dc345c642fa72d40e420d6e1af1c2b9b7ac5b8f5ef3a815d7029417d9943"
-    sha256 cellar: :any,                 sonoma:        "0362a95b31d889aff4fc4b9d4a3603ab6b0bda9311fa7738f4d9c8d7b30f010f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "58fef3aa9b490e6f92a61e6864bf5c675d64b647eb3c3db5e0ed3fbff6f8844c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0142186f81b826e4a41cba17487a3a8c950ffd2b8220e7d41757586c5b27e8bf"
+    sha256 cellar: :any,                 arm64_tahoe:   "287edf3b934024d73b105d77c159932be38a2860532a5e18f775c2f3d6a36419"
+    sha256 cellar: :any,                 arm64_sequoia: "8712aab4ec14eed97b689c276fa9dab82cddd7cd85508812d3ef140b28062c77"
+    sha256 cellar: :any,                 arm64_sonoma:  "8d13d4894522eae9d36b7df6d4c9e5106a39f925bef96f322296d5f95b798629"
+    sha256 cellar: :any,                 sonoma:        "2075e01155e716dcb2b6581b73c0ac92d272872daa37e4136b944c974b3c9524"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7f1f83e3b077e001173411390f09c024735d4f85b9b87346279223f98a6fc40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b214beafab8786bcf044f3e1a6e547843a2ff1e0ad24683165a86f782a182027"
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # No recent tagged releases, use the latest commit
   resource "breakpad" do
@@ -26,8 +30,18 @@ class SentryNative < Formula
 
   # No recent tagged releases, use the latest commit
   resource "crashpad" do
-    url "https://github.com/getsentry/crashpad.git",
-        revision: "63ef3357657ca856d5ff1dae9fee8dc16a425811"
+    url "https://github.com/getsentry/crashpad/archive/e5040b878718f5c004d0ecfe1747642c72ddcd39.tar.gz"
+    sha256 "42dbdb932d76df42e48a970f6554744d36e479fe4675bf3b828557f06275a4af"
+  end
+
+  resource "crashpad/third_party/mini_chromium/mini_chromium" do
+    url "https://github.com/getsentry/mini_chromium/archive/5d060033dbe1595f612a2f506b7988c8d513d32e.tar.gz"
+    sha256 "72d7264f6e3b4ef89d16ef8d32bfc0b3b99b19a539a9bedd514191efeed658b4"
+  end
+
+  resource "crashpad/third_party/lss/lss" do
+    url "https://chromium.googlesource.com/linux-syscall-support.git",
+        revision: "9719c1e1e676814c456b55f5f070eabad6709d31"
   end
 
   # No recent tagged releases, use the latest commit

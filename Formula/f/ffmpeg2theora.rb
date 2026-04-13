@@ -7,8 +7,6 @@ class Ffmpeg2theora < Formula
   revision 12
   head "https://gitlab.xiph.org/xiph/ffmpeg2theora.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "42c00e60ebc22a03002de781c194a5bb837e0528fa92c32f89dd65a60c375757"
     sha256 cellar: :any,                 arm64_sequoia: "f80e6c1cf50dee0a7bc77cd75c58c10814972804cad86dc8c9167e03d6f1fa0b"
@@ -19,6 +17,12 @@ class Ffmpeg2theora < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:   "f691b49ee844e7e946caf574c177c1e9389f9714aa18b3289d1b02337bace8b5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "af084dab0150730e9197bd8c8d3ba09eb0aef171742918f257aabead5b5a664e"
   end
+
+  # Last release on 2016-01-09. We use patches from Debian but Bullseye will
+  # be the last release with ffmpeg2theora and Bullseye is EOL on 2026-08-31.
+  # Also removed from Arch and Gentoo: https://repology.org/project/ffmpeg2theora/history
+  deprecate! date: "2026-04-06", because: :unmaintained
+  disable! date: "2027-04-06", because: :unmaintained
 
   depends_on "pkgconf" => :build
   depends_on "scons" => :build

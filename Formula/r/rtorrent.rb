@@ -1,17 +1,17 @@
 class Rtorrent < Formula
   desc "Ncurses BitTorrent client based on libtorrent-rakshasa"
   homepage "https://github.com/rakshasa/rtorrent"
-  url "https://github.com/rakshasa/rtorrent/releases/download/v0.16.6/rtorrent-0.16.6.tar.gz"
-  sha256 "94e8408a20332cedea45a4b5f09c69f0f0c54581e1b02e1d7f61f46fee3c41f2"
+  url "https://github.com/rakshasa/rtorrent/releases/download/v0.16.9/rtorrent-0.16.9.tar.gz"
+  sha256 "8eaadbc65ee80f195be170b0d12e5f3cce6e62bcfd69b80dc27a05898ff31237"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "256aabe0a7018e1fb00a457c8a3195e6912180eaff2737b760b7a6b3d2b3a1b7"
-    sha256 cellar: :any,                 arm64_sequoia: "77c8efaff4d31c57dee58509caa408cc48dd3b848a13bb0ccc07d99ad502e7f6"
-    sha256 cellar: :any,                 arm64_sonoma:  "dfdf509747ff9e5608382ab6cf87e0e7b7119ca191c7df6c758fa46c143e749d"
-    sha256 cellar: :any,                 sonoma:        "c30a5fd3e04cc54c1413f4718234dae0e4a967cbda0f048c419ace70ed6da8ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d48dc3cfa9dd09b00a0c3fd48a578e9272513db3108e5bd0ead9932e50260fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f2022e6c4e8d22139a019b7007dce07d6b9105e5f6f81862ddd959e8196df3e"
+    sha256 cellar: :any,                 arm64_tahoe:   "02fc5052cc589c3c3debb398f1c436032b1507ca0de5e807dd37633f28e97bf8"
+    sha256 cellar: :any,                 arm64_sequoia: "da45f11ca9747a467a2d1ffc46a55f6ca883efe5d5c158b5ab01356498a15c34"
+    sha256 cellar: :any,                 arm64_sonoma:  "4ff5865b001b5bcec4f4aabe9bd1326464a6b5d735dfa678432218b1196d0ef0"
+    sha256 cellar: :any,                 sonoma:        "5055ab64b693b48cded0474e35a4d9a0f38a464883efc0b7d021778fa2809e6f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a61e3bacb90330ea5e589ba3e2b0fd66d34ae1101426c5044c4869e75f7ce21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8546ccd7ecc87a6f0981c215edc0b269bdb4cb96b2f05615906f4e58d9e51502"
   end
 
   depends_on "autoconf" => :build

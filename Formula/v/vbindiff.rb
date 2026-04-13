@@ -10,8 +10,6 @@ class Vbindiff < Formula
     regex(/href=.*?vbindiff[._-]v?(\d+(?:\.\d+)+(?:.?beta\d+)?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e2e6e0b5616b035911aed46c5ab5fe7649886d86dbc880ea42e8c64cb70816c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4a3b8297335705d8d6c97b391d707bd8c19d30b84d36e8f045065490230a1298"

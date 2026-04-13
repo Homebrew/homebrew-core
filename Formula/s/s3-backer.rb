@@ -7,8 +7,9 @@ class S3Backer < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "c51051aaf9df0f18656f3a18e18be9fcd8b52387df778040b4c68d5802c33bc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7949743c2405f21633a2c533b27a1cf3561c652f4714e147b9965a086b0f5861"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "0f3a5bfb9e813f0a54c775a8f7b0b533a17d9d193646e78f27e999f366d63f31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1387d7e202fc1f4dce4b895dae49a9073f9020155ed87f65d5f7fb907117ab15"
   end
 
   depends_on "pkgconf" => :build
@@ -17,7 +18,7 @@ class S3Backer < Formula
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@3"
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
   depends_on "zstd"
 
   def install

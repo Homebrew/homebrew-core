@@ -11,8 +11,6 @@ class Qtads < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "d6549a2b3f706a45c5e6e73bfc1ead1f3cd80eed681a3c713731cf6b9681ea88"
     sha256 cellar: :any,                 arm64_sequoia:  "6e3606d6b81aace60e22a195af69bdc1a487903f6199f66f625b5cd80063b468"

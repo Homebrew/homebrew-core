@@ -1,8 +1,8 @@
 class F3d < Formula
   desc "Fast and minimalist 3D viewer"
   homepage "https://f3d.app"
-  url "https://github.com/f3d-app/f3d/archive/refs/tags/v3.4.1.tar.gz"
-  sha256 "a0e17eb352c32aa2f8e7123cf75ec5633d25e230112d4dc2ba2b7024011e2615"
+  url "https://github.com/f3d-app/f3d/archive/refs/tags/v3.5.0.tar.gz"
+  sha256 "033845b5d49af3ae60fcc3fe85d82c841d990d3534638a4472123f84b3e82795"
   license "BSD-3-Clause"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -14,12 +14,12 @@ class F3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ab1fcf7c6135f914d18f5b36269f9d09193969b09fd949f28dbb1b67760654d2"
-    sha256 cellar: :any,                 arm64_sequoia: "485a737141803e91f7d3894cd514f90831e11f193ba6f456a6751b0072d1b2ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "672f276647e50eda3088e58da72f3b9dd55a8fd60af99ae67546da13ca27d1b3"
-    sha256 cellar: :any,                 sonoma:        "b007b528d5d8cd713d3bc818903e19328ed0aedf30e153346754d0a1ff3248d7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b79c1356fb40dc43004426851b57013fdbd5ec5401cfad6294745b03c2968a15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1064ef60e9e1ce648f4e1fb9c21c9328fc2fd97588d21a44131e4e2ba9877632"
+    sha256 cellar: :any,                 arm64_tahoe:   "e0b479b9c99b5b35fff79d947303be2e4a869271676daaea1597f02b9ad9db0f"
+    sha256 cellar: :any,                 arm64_sequoia: "84940bd5f8b7a62d23971ebd7e7d219afe2ec956ed346fef43f703ac8162ad9c"
+    sha256 cellar: :any,                 arm64_sonoma:  "e1f620233e01e71273e71693d6fd0314c71c46f78e0429de836959a74b5d0c21"
+    sha256 cellar: :any,                 sonoma:        "47c59b7ee8d6eacf217bbd23efbeb42344779c3a5feae1f32d3cb964f5e5ce75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c70b3263d8032a13c5c5fd19d7935d336b7d6f7f0c59772d8bcdf2fe3b3ae272"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d3cd5930190c1a6f2848ba21e9220978a5e6679c73e93f3f9cb1ff6d6a3e8d3"
   end
 
   depends_on "cmake" => :build
@@ -29,8 +29,6 @@ class F3d < Formula
   depends_on "jsoncpp"
   depends_on "opencascade"
   depends_on "vtk"
-
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "freetype"
@@ -47,6 +45,7 @@ class F3d < Formula
   on_linux do
     depends_on "libx11"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   def install

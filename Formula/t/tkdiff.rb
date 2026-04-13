@@ -11,8 +11,6 @@ class Tkdiff < Formula
     regex(%r{url=.*?/tkdiff/v?(\d+(?:\.\d+)+)/[^"]+?\.zip}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "0d252a16273fc3118cb657242250606329c9076ea30a20ba5ecbffd2b7d304d5"

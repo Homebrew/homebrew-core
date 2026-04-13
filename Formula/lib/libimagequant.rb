@@ -4,6 +4,7 @@ class Libimagequant < Formula
   url "https://github.com/ImageOptim/libimagequant/archive/refs/tags/4.4.1.tar.gz"
   sha256 "2464a3e922b5a220b633d674062b82f0670114f8f3dd30d1935a621c95965f1b"
   license all_of: ["GPL-3.0-or-later", "HPND"]
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "9fe68c59c0500f834deced30fcd58c965148988f238d51791d39c6c284d71684"

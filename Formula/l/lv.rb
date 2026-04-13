@@ -2,22 +2,19 @@ class Lv < Formula
   desc "Powerful multi-lingual file viewer/grep"
   # The upstream homepage was "https://web.archive.org/web/20160310122517/www.ff.iij4u.or.jp/~nrt/lv/"
   homepage "https://salsa.debian.org/debian/lv"
-  url "https://salsa.debian.org/debian/lv/-/archive/debian/4.51-10/lv-debian-4.51-10.tar.gz"
-  sha256 "c935150583df6f2cea596fdd116d82ec634d96e99f2f7e4dc5b7b1a6f638aba1"
+  url "https://salsa.debian.org/debian/lv/-/archive/debian/4.51-10.1/lv-debian-4.51-10.1.tar.gz"
+  version "4.51-10.1"
+  sha256 "64c1efb7d66301625d3a46dd4b3abed45942b2686de335860bf24a37b01ea858"
   license "GPL-2.0-or-later"
   head "https://salsa.debian.org/debian/lv.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256                               arm64_tahoe:   "104d96df6f6d0a2d7dea6682973d5b13e7c676e3e919f745dd1f7215b80980a0"
-    sha256                               arm64_sequoia: "d8fff4f49ad72ed22fe3b335d3a780a6ecc7e97d14e49d9a0cfdb459ab40fc77"
-    sha256                               arm64_sonoma:  "103c91e238509bcb1862409cb3483b12311309b98dc0bccd3cdb485866ca6d73"
-    sha256                               arm64_ventura: "aa3867a4900aedf77e796f681676e22fc595dcaa8fb6fb9d20cdecd25f688c0c"
-    sha256                               sonoma:        "1d572a28261e7bb59a07d707ce3f28299d297442c09c90735196a08525db2c01"
-    sha256                               ventura:       "f737ea5ead2f1e11e7e2830e5acb65c2e2228775298dc855d30c4072cdafe83c"
-    sha256                               arm64_linux:   "192fa6eb2d9d0076d20e695110731f03e55633592e090db713ec81a81f2296e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46f6669252eb821a07cd2648d0356449e22906673c9abbbbd8c604c98a827b27"
+    sha256                               arm64_tahoe:   "ecb4b2ddef16ba003c1bed5ba898b4d7938b86d06b8d47a1a2f10bd1b9e1b34e"
+    sha256                               arm64_sequoia: "efaec6f504463810396e09314511c35269bf24a9e032190aff1be242605d3245"
+    sha256                               arm64_sonoma:  "3ca1bf0482f72301256a514a9b707981422d9c2307e2561eef693bab87c02697"
+    sha256                               sonoma:        "e0400df58db2d0cffa3be9f627cdd7439be8388f4cf15d7d557747fe2b5c6e1a"
+    sha256                               arm64_linux:   "f540993311d9f5564f0b2d6b9781927fe862e475ff901748d37eb989f55fb04a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51062f445c5a3c2bbdb8573e5a5a58affe8a0629fe10773ec2f1b204dda4873c"
   end
 
   uses_from_macos "ncurses"

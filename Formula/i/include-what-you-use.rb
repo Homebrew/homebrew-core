@@ -1,10 +1,9 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.25.src.tar.gz"
-  sha256 "be81f9d5498881462465060ddc28b587c01254255c706d397d1a494d69eb5efd"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.26.src.tar.gz"
+  sha256 "5247c0c9a59df9d14e8aa7408ffec4134c6a4aef12f590929111fbfeac930a08"
   license "NCSA"
-  revision 1
   head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
@@ -17,19 +16,21 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "febb29971c3e8ec198cc46aab490b9d5a1b1f9897618ab0c08d571fc7e405e24"
-    sha256 cellar: :any,                 arm64_sequoia: "213bdf2e2a8094c3f9e80f9453529e459075b00667aa3869488ca330633c8d7e"
-    sha256 cellar: :any,                 arm64_sonoma:  "ce1afe4cf2eda64076bcecc7ac53578564fded555d6786ab46b5b26fd8022679"
-    sha256 cellar: :any,                 sonoma:        "5525b7f43377fd15a36821b00c8fcda1cffa466315fc189881cd843e6a14ec54"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c63e00abc6b27ee41877b9dab66a79f961be696bd0899649dc48c4e7ba02a9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33758f6714ab8c29596918913cd70a1f162406e4ea2c161ba5a55f932bf4d90c"
+    sha256 cellar: :any,                 arm64_tahoe:   "e9305ba6904fb9eaf0667bf1ecb997ac246f9324a8a7ab8dda143cea9fe68d7f"
+    sha256 cellar: :any,                 arm64_sequoia: "682e8c9a6382511726473c66db09aa6d1ff49dcb9de8cadf5fb076c58640d692"
+    sha256 cellar: :any,                 arm64_sonoma:  "c22754d7c061f04621025f151d0aeee90da20bd9dfab05e92fe7e18d05e8050e"
+    sha256 cellar: :any,                 sonoma:        "fac4b6b56a0f3dd03be07545c89b3be4ac623398ccc8a6b8ea1e46117ba8a585"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "49d35bcdc687d3501d9c9e7c89f4d44d0650beb24f7f2f2562c2d0cd1075cfba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2d2879a2aa78ab98386305bf0f4b53b998ba4554f6bcf9cbd0422734c316974"
   end
 
   depends_on "cmake" => :build
   depends_on "llvm"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }

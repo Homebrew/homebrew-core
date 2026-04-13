@@ -1,21 +1,17 @@
 class Libxvmc < Formula
   desc "X.Org: X-Video Motion Compensation API"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXvMC-1.0.14.tar.xz"
-  sha256 "e4be9eb6b6bafdbbf81f47f7163047215376e45e2dc786d0ea6181c930725ed9"
+  url "https://www.x.org/archive/individual/lib/libXvMC-1.0.15.tar.xz"
+  sha256 "4f518afde3d7fd435346af7b368d2f73517f3d5f82647c962caf3f7bb8ff7078"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "8e9d6026378f11041d48dbaa055ecbff3b2dd2f21607b1576ccba926ca531448"
-    sha256 cellar: :any,                 arm64_sequoia:  "b98800f4d24c2f04f9ac826ed9365195847f7bd3c5aa758abf5ae6c2748256b0"
-    sha256 cellar: :any,                 arm64_sonoma:   "ec6119429cbf4d4812c6b9aca9cfd33f1b63802d7536b886f5b4454a55241ecd"
-    sha256 cellar: :any,                 arm64_ventura:  "e2990ee70324b5caa16cfb356d2066da14e66c7a9b4ed5c9e5da7867b779d618"
-    sha256 cellar: :any,                 arm64_monterey: "7ee479ebc065e0587284e698515087d1f9187ae4b88640d01a333f5d38638d18"
-    sha256 cellar: :any,                 sonoma:         "f014a42faf3225b6d7b56c397e7f87a704386e514c86802f04f1351b6d7133e1"
-    sha256 cellar: :any,                 ventura:        "06b0927fac5c241e00f13de5a609de3580550e7cfd2088937de8ef3c50fad465"
-    sha256 cellar: :any,                 monterey:       "a0bc605754551292b8d475d0dc8dbe35fcb7753385576651601df0a4af9ef690"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "f6a849f057352628d93b8b5682b40bf90b196ae1746911f746046f3e79ad665a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bb9249003ad6c7905548d56c1863abf21b9a0f07407139d8060e6a553eff45e"
+    sha256 cellar: :any,                 arm64_tahoe:   "267771872f4f7a19028eb02f3feb518481be7959de54eae92e41bd755537c039"
+    sha256 cellar: :any,                 arm64_sequoia: "7a30942d073d11202a0f74fd445689aea720b70dc87edac83f401f38d48e6048"
+    sha256 cellar: :any,                 arm64_sonoma:  "62e52f8a2d29e4bf06aad9f310204eae310c2ae3c8aed442f9ba37b2e627ca65"
+    sha256 cellar: :any,                 sonoma:        "f0b4c4ae0c87bb7d3aa4b1056d494077677b405a08fc4084762f8e21fc76a929"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "03ffa01a63ab72806a91a7008895493bcde262573772680d87797b54a2a28907"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49257f4df10257414f75749016d97d2f2fa7e9a7c124265c041458c9c567b10a"
   end
 
   depends_on "pkgconf" => :build

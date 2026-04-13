@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Fast and Lightweight Logs and Metrics processor"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/refs/tags/v4.2.2.tar.gz"
-  sha256 "5d8e642be576985ad8123609c32d5ac44a9d3dad9eafcdc14208622444b5a4f0"
+  url "https://github.com/fluent/fluent-bit/archive/refs/tags/v5.0.2.tar.gz"
+  sha256 "3eaa0c1b0f12c37af78b8155fe3e3b3cfe5e88ee447ebf06ba3d39d3ee11fb4b"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git", branch: "master"
 
@@ -12,12 +12,12 @@ class FluentBit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "11c892cb9f9cba5d77c940d4211263c2f18f8b4f84b9b6207459b5aa8af30338"
-    sha256 cellar: :any,                 arm64_sequoia: "775c3ac613a54ff3e3d014c0635b200013e2ac5925d700a5b14c03dc472fddc1"
-    sha256 cellar: :any,                 arm64_sonoma:  "617be2cc4af319fc54aff605d4b1bddd085efd1ff53599b9f228f9fd048194bc"
-    sha256 cellar: :any,                 sonoma:        "08215415572dbf9177d91759901d2965f13ccfa545c4ee7745be3321a6f6b599"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "42b58a87a520afc4744e5a062973f71d8de73561a7e278748ee31eacd4027aa7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1613a6bab7ff0ca28942b66da551fa62dc265c6d9fed907d169dd61e74e45754"
+    sha256 cellar: :any,                 arm64_tahoe:   "88925c2ab0df6ff5883ba58ae564527c8caae0a47be741d3126d53c474d18d29"
+    sha256 cellar: :any,                 arm64_sequoia: "a80031a31f6e1b6491f4a517569105416b0cbe6a3ce970ea25931d9bf1d910c9"
+    sha256 cellar: :any,                 arm64_sonoma:  "1d688442faf64aff38db5f202b210858dddbcb42792eab97efb2e7e57d53dae3"
+    sha256 cellar: :any,                 sonoma:        "7fad3875958096d22080797a0d0dfa9efd95612194932404bb93063b50d1eb3a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91fd7d499eaf092f19dba5429c2102bf96226a1709fcd1a0dc5cd041aaa31753"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "efdbbd9d9e782a5cc283dabc180bfe41740f51a8b3c0bd8fc4aff1e8c7abe237"
   end
 
   depends_on "bison" => :build
@@ -28,7 +28,10 @@ class FluentBit < Formula
   depends_on "libyaml"
   depends_on "luajit"
   depends_on "openssl@3"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Prevent fluent-bit to install files into global init system

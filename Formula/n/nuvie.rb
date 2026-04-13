@@ -10,8 +10,6 @@ class Nuvie < Formula
     depends_on "sdl12-compat"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "fa2594d6ea248c288f64937010118a7b84c70264c24dae72c5e6059930c9a35d"
@@ -28,6 +26,10 @@ class Nuvie < Formula
     depends_on "automake" => :build
     depends_on "sdl2"
   end
+
+  # https://github.com/nuvie/nuvie/commit/759cc0c33bb1a555d6935976c467e52007c3aea1
+  deprecate! date: "2026-01-23", because: "has moved to the ScummVM project", replacement_formula: "scummvm"
+  disable! date: "2026-01-23", because: "has moved to the ScummVM project", replacement_formula: "scummvm"
 
   def install
     # Work around GCC 11 / Clang 17 failure due to higher default C++ standard.

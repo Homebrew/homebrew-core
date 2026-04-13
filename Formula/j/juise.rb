@@ -5,8 +5,6 @@ class Juise < Formula
   sha256 "54d641789bf9a531bc262876914e76888382522ad193eace132d16203546d51e"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "7d7c0ee1120c72a4615a7c3eb947db45c9daf1c841e7e0a6dcadacfbd12e562b"
     sha256 arm64_sequoia: "2013383bad9ecb913d1888a0cb957fa78044bf13aa30ba2a3bf52275d0009c49"

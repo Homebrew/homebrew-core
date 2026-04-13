@@ -6,8 +6,6 @@ class Guetzli < Formula
   license "Apache-2.0"
   head "https://github.com/google/guetzli.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "848e59c5a4a60bce70dc21cfc9501bbe56f15d7d76475b7043e21cb2740f4f41"
     sha256 cellar: :any,                 arm64_sequoia:  "a9d736ee968abfde99d6ccc42c9ca5793ea9d7b1e52b7127314a1f8fcfcf32fc"
@@ -27,17 +25,12 @@ class Guetzli < Formula
   depends_on "pkgconf" => :build
   depends_on "libpng"
 
-  resource "test_image" do
-    url "https://github.com/google/guetzli/releases/download/v1.0/bees.png"
-    sha256 "2c1784bf4efb90c57f00a3ab4898ac8ec4784c60d7a0f70d2ba2c00af910520b"
-  end
-
   def install
     system "make"
     bin.install "bin/Release/guetzli"
   end
 
   test do
-    resource("test_image").stage { system bin/"guetzli", "bees.png", "bees.jpg" }
+    system bin/"guetzli", test_fixtures("test.png"), "test.jpg"
   end
 end

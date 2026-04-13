@@ -13,8 +13,6 @@ class Tivodecode < Formula
     regex(%r{url=.*?/tivodecode[._-]v?(\d+(?:\.\d+)+(?:pre\d+)?)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6aef5d85f98c48a4aa08864d14228ae5770baf31272041e54624ef837c977000"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "43393a250746ba85b622a828143a3a24a89d89ffb72b2c38d05161432fd73875"

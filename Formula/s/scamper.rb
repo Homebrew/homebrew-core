@@ -1,8 +1,8 @@
 class Scamper < Formula
   desc "Advanced traceroute and network measurement utility"
   homepage "https://www.caida.org/catalog/software/scamper/"
-  url "https://www.caida.org/catalog/software/scamper/code/scamper-cvs-20260105.tar.gz"
-  sha256 "31aeb84f82019052d12d85ebbf275ff1a1d465c0a80d1283e973445cbbbb75d7"
+  url "https://www.caida.org/catalog/software/scamper/code/scamper-cvs-20260331.tar.gz"
+  sha256 "1bd3a025dc8ded231df2fd72c92c5b85fc1e389af6e9cb020c02067b811a9917"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,19 +11,21 @@ class Scamper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cc1dab292233658922f8aa36ace6b77838684052e90d620914cb59172f558d11"
-    sha256 cellar: :any,                 arm64_sequoia: "349acebd63d3bd7e3e4672fb3da3944ca12ef12145ab11584d01e48f73edebe5"
-    sha256 cellar: :any,                 arm64_sonoma:  "2aa2fef8c312a1deb13bd60fbec3dd2ab5aa77cae50654fba5431357a671fa3e"
-    sha256 cellar: :any,                 sonoma:        "40900ad2efabd493b4fc3bad503fff05df43e89b1ee4bcb93f41d9514a4ca79b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "be064651416cb723e0a9eb516f04f486ef2dd09e66e0893bd81153ec53848862"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce0a8d08e6840e368dbcc8780de5aa16ed64f3f3f7ee09d7ade199fb54889126"
+    sha256 cellar: :any,                 arm64_tahoe:   "4b66da6bf575a09129525df875a5801041b8500056ea48628b3de8a019046256"
+    sha256 cellar: :any,                 arm64_sequoia: "e4c0ef726aacbd18fba706a5331f0e2728c5ee2fb8b2ce296ea90b9a3fbffde1"
+    sha256 cellar: :any,                 arm64_sonoma:  "551631baac9ed847c91ba7f60a048bd21489740186425bf6045f932433375880"
+    sha256 cellar: :any,                 sonoma:        "a92048aac44d9b09629e3de6bc5e86ce01af75111a6907477ea87ee65f9711e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4238531e2587815a576c810e08c3e6d0eba9586052a13c1176e80a01cb42fd49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fa766a6c944e5291c4d3b9b5d908463f0b6db0339b38fb9ab1e0590731ae08e"
   end
 
   depends_on "pkgconf" => :build
   depends_on "openssl@3"
   depends_on "xz" # for LZMA
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", *std_configure_args

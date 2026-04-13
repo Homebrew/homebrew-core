@@ -10,8 +10,6 @@ class Xpipe < Formula
     regex(/href=.*?xpipe[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0e886c34608112f333f208e802b5e9fd4f40b336db9cb14629a7e0c6142891e4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d889986ca2f5379e8f1d22e5add2ce9a3295b5625a93e4416bc737625ded5ea4"

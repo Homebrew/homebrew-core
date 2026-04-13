@@ -6,22 +6,47 @@ class Arturo < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bec0bf611d5b163f27570f515cf75ee10fba14495abe8968de89f14341b330ad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "491a45db95d74a0ffa6eb7c14a331a0a143184c0ede7b009932b6a82bf9023b6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96b375631ac5736b75de2936ddc339403a9d43316a6f235befc2645bfcc20e5a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0516e45a8542660710b27f57be323b2d6ef9195659d3a58148fa2a9fb3a74325"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae4e0d88082826a38c7370c47bc7d99ce8ae6ce30e5e23af8859ea92a794c6eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f93afae9df508cadacbe60f96b2c73f8fd2f276181cc3da9d8b5ef81d804c24"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ebba8e3fbb4a744beaac399da9b1ffb8307a0804d7c05b7076fb785613b5d552"
+    sha256 cellar: :any,                 arm64_sequoia: "9341ba90985816c15c47bdcac2920389879773a50ef363041dc6f4ecee689fd0"
+    sha256 cellar: :any,                 arm64_sonoma:  "17408c0bbc0e822b990ecff5b09984217bbb759533c9583fa4cbe522126a370d"
+    sha256 cellar: :any,                 sonoma:        "1d3f1fda2e54e2a47a255e4da81b268e00cb004990957cc920bc83b5fb867c7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d022b862b9319ffddd133b8701fbc1d57c012288d0edb3a4d5481b53a3ec4f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0ca9d6b0315a3d4cd6ad14ab1b385a0cbc42d5eaa0cce0ec69241931bd2b864"
   end
 
   depends_on "nim" => :build
   depends_on "gmp"
   depends_on "mpfr"
+  depends_on "openssl@3"
+  depends_on "pcre2" => :no_linkage # accessed via dlsym
+
+  on_linux do
+    depends_on "pkgconf" => :build
+    depends_on "glib"
+    depends_on "gtk+3"
+    depends_on "libxcb"
+    depends_on "webkitgtk"
+  end
 
   def install
+    # Remove bundled libraries
+    rm_r("src/deps")
+
+    # FIXME: Unbundle OpenSSL. Should find a way to do this upstream
+    inreplace "src/library/Net.nim",
+              /\{\.passL: "[^"]*(-lcrypto|libcrypto\.a)[^"]*"\.\}/,
+              "{.passL: \"-Wl,-rpath,#{Formula["openssl@3"].opt_lib} -lssl -lcrypto\".}"
+
+    # Workaround to use pcre2 after patching `nimble`
+    inreplace "src/vm/values/custom/vregex.nim",
+              /\{\.passL: "[^"]*(-lpcre|libpcre\.a)[^"]*"\.\}/,
+              "{.passL: \"-Wl,-rpath,#{Formula["pcre2"].opt_lib}\"}"
+
+    # Adjust installation path to homebrew one
     inreplace "build.nims", 'targetDir = getHomeDir()/".arturo"', "targetDir=\"#{prefix}\""
 
-    system "./build.nims", "--install", "--mode", "mini"
+    system "./build.nims", "--install", "--log"
   end
 
   test do

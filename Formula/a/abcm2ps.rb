@@ -1,8 +1,8 @@
 class Abcm2ps < Formula
   desc "ABC music notation software"
   homepage "http://moinejf.free.fr"
-  url "https://chiselapp.com/user/moinejf/repository/abcm2ps/tarball/v8.14.17/download.tar.gz"
-  sha256 "61df2c53f932b9dbce57e1c6c4ff5be6e69ca2162317a7c3e61297befa40aeaa"
+  url "https://chiselapp.com/user/moinejf/repository/abcm2ps/tarball/v8.14.18/download.tar.gz"
+  sha256 "d1f1100b525f0f0ae00d706d0b4ebc01df279312b3b32cf20f355f1430f36c0a"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -10,22 +10,28 @@ class Abcm2ps < Formula
     regex(%r{"tagDsp">v?(\d+(?:\.\d+)+)</span>}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "009998c0673285fe186b142ba9dfdf7e6da03baa621fed30626e0c208526e9a5"
-    sha256 arm64_sequoia: "3d17a30a50dec0a222b5affc869944133110d26183456da63dd0e53ed05dced0"
-    sha256 arm64_sonoma:  "1285f979079ab7e11a7b9695ca1a50e558bd1e98ea77fc7b0eade685bd339e78"
-    sha256 arm64_ventura: "b1904fe9f5fb66c73cba6bf1988afdc0a86ba846972738e649a2c9b1c1e6268d"
-    sha256 sonoma:        "e89ffe353ec57c1e6203ea927ad2234bac3cd90b49daba91bec849cc29acbb24"
-    sha256 ventura:       "c7d963e4b54d64a7277ea51e0f9c52b6d522b24affbdd70b4820a7e2dba88eda"
-    sha256 arm64_linux:   "1d02bfb62f29fc77d202476f9848e39520045d0b495b215859c3bfe294388fc8"
-    sha256 x86_64_linux:  "f68c9955212b1f0ece80488663bb67ba04dfca697c6c417f339caa2a625c2413"
+    sha256 arm64_tahoe:   "ad72e488f58816b605a868a4b62886e7da304c35c0147cc5d56d0903a8d950fd"
+    sha256 arm64_sequoia: "218e1a99f51365c6127247efd11381714550ffbd3f28c142f59fc8aa52c76177"
+    sha256 arm64_sonoma:  "9fd6fa884bb60b2ba984fff532d76ab6781b67bf85146a1800303a3cfdaf46fb"
+    sha256 sonoma:        "616ecb66446b00f4eb9f0141663041a192f3c99c802f794a5b73751926d358c4"
+    sha256 arm64_linux:   "2c295fe0316d1f77957df93a0f99c70ba2da1a1176f51b9e1901be03947d1063"
+    sha256 x86_64_linux:  "cf383769496265b65b8cbf4f4f574f9db53f43b5946f246b6d6c2500dfc0fa78"
   end
 
   depends_on "pkgconf" => :build
 
+  on_macos do
+    depends_on "coreutils" => :build
+    depends_on "gnu-sed" => :build
+  end
+
   def install
+    if OS.mac?
+      ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin"
+      ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin"
+    end
+
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

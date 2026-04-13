@@ -5,13 +5,12 @@ class Libevent < Formula
   sha256 "7180a979aaa7000e1264da484f712d403fcf7679b1e9212c4e3d09f5c93efc24"
   license "BSD-3-Clause"
   revision 1
+  compatibility_version 1
 
   livecheck do
     url :homepage
     regex(/libevent[._-]v?(\d+(?:\.\d+)+)-stable/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "c442ba9d640780f91257a853002b25840439b9c6b1c568864111901b760d328e"

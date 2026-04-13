@@ -1,18 +1,18 @@
 class Mq < Formula
   desc "Jq-like command-line tool for markdown processing"
   homepage "https://mqlang.org/"
-  url "https://github.com/harehare/mq/archive/refs/tags/v0.5.10.tar.gz"
-  sha256 "1ce55f8ad0c2ae7f9de58a2a09357b111bc3dcbcccd47a9f7d45fe80219d14f9"
+  url "https://github.com/harehare/mq/archive/refs/tags/v0.5.25.tar.gz"
+  sha256 "e851a5d4289179cc7d74670e7a4dcb70682accebb3c2d35d6779c89a160fe94c"
   license "MIT"
   head "https://github.com/harehare/mq.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eeefb06e6764d1d3122cc53e95fde3c0adb9f7a2f96502e607ef26f5ea77191a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "deda553adf632c4b290132ac0443045203d56bec320160ecefb0c44c5147e01f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f977253fdd3e5e7850ee568213d7ea8639a78cf6fe45949185a235c5660d417"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f47ce0a39e391d9e692c16419190b37d26cdb6ca74605439b2640a21ecaa97e4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b94142a4157acd3eb2c48167a0f9247fbfc311ead0a3bb3fe6373feeb6972df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0453a2108414ecb45b96ea34b1401b246ec1aa29b38127832d3f9b9985071ae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f0d5c2c35e1aef534fc33f8d5e8ee86ee9e4ce425dff51931a288510e9705c68"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eeb2fced56c8f2758554b8222cbd7fb057cd306f695677cc0cd84a5c4530e2cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d527bae44becfa3b74f218bcefd7803caba6f90ad3d4f43f846d1c3d5073ca4d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ae7322f040c909bbf48d3606ae94e08cc206a7685af29e0a473cf6e3d3dee75d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d37a59a7f55436669e23bddc08c0d25f9a0ebdb570f1cba926cdad6952ce964f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0355754c0580779769cd55102b326fe08f2a5c33f182a04ce036d4170b6ca3c9"
   end
 
   depends_on "rust" => :build

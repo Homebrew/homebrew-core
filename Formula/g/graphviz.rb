@@ -1,10 +1,11 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://graphviz.org/"
-  url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/14.1.1/graphviz-14.1.1.tar.xz"
-  sha256 "a786db0c32a5b96e1b7c06b0bcfffe901cba601a6de2d5f365e9132ac88d36b1"
+  url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/14.1.5/graphviz-14.1.5.tar.xz"
+  sha256 "b017378835f7ca12f1a3f1db5c338d7e7af16b284b7007ad73ccec960c1b45b3"
   license "EPL-1.0"
   version_scheme 1
+  compatibility_version 1
 
   livecheck do
     url "https://graphviz.org/download/source/"
@@ -12,12 +13,12 @@ class Graphviz < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "3bf56d5aebfdd3aa87ef9a8a3ba07bdc9543e25248f9fa7445137e6eb009aac6"
-    sha256 arm64_sequoia: "d971c776efe727c6b0062a82f6d53c1285a4895415d3a3e44c15aaf63f4123e7"
-    sha256 arm64_sonoma:  "664a9525447c8f2e4a46c93f3601b84ec0ef7b6bde3f9c3ecd86ec59955138c0"
-    sha256 sonoma:        "11bd813376679b5fbe99d6afa75998f552fe5c6d870f83b20aebe2286fdfe4b1"
-    sha256 arm64_linux:   "32b6d83e35da118997251b057e13712a06bd71c0d507a377f6448f555f790f86"
-    sha256 x86_64_linux:  "2affeeb9ac5abec9effb3a0c29dfe5e61c9dcd0de8e4d3d6d0170fc3f8d0cd3d"
+    sha256 arm64_tahoe:   "40068b6586535cf4cb83b859ba34bebbe86eaf9adf73704c0986411c6bc1144f"
+    sha256 arm64_sequoia: "32244b7da39e7c2889e8479ef54a2fe92940d2d0cf8ba75aded5b01f4420cf90"
+    sha256 arm64_sonoma:  "1c4742bb2b0967b53c3ad611a0276961d0e14985f8a238ea6572bbd50ff2331b"
+    sha256 sonoma:        "a1cf1e88c5c1f32b135776e3b17d9e9720ab85a43d27b209f6557be07ad6f35e"
+    sha256 arm64_linux:   "2671201ccac5ede38e9780697dacab56080ce6f9e87d52c4626a55a745401ecd"
+    sha256 x86_64_linux:  "c37039d11f3d05417a0d6e4c901df487d29c5db45a1621f454736d5ab7df0377"
   end
 
   head do
@@ -42,7 +43,6 @@ class Graphviz < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "python" => :build
   uses_from_macos "expat"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "fontconfig"
@@ -50,6 +50,10 @@ class Graphviz < Formula
     depends_on "gdk-pixbuf"
     depends_on "gettext"
     depends_on "harfbuzz"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

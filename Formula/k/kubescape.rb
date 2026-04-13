@@ -1,8 +1,10 @@
 class Kubescape < Formula
   desc "Kubernetes testing according to Hardening Guidance by NSA and CISA"
   homepage "https://kubescape.io"
-  url "https://github.com/kubescape/kubescape/archive/refs/tags/v3.0.47.tar.gz"
-  sha256 "1d8c4820f341823dc1fc50d575044099dbf5cbfe2a05fc9e12976715efb41ae9"
+  # Use GitHub repo URL because the version for the build will be automatically fetched from git.
+  url "https://github.com/kubescape/kubescape.git",
+      tag:      "v4.0.3",
+      revision: "b79488dca6a1e1dc3a1c602de082b0de47a32d91"
   license "Apache-2.0"
   head "https://github.com/kubescape/kubescape.git", branch: "master"
 
@@ -12,26 +14,21 @@ class Kubescape < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "02a65f49275461aadf9838f091fe565d9e6223fdae4c8de6bc6f0484b533b4f0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8052bfa6ca69ce5a2fa5b6e825021bcb0b16cfd067dd258d73ca5977a4f5205d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fdccdde42d095f15666cc5f322f6bc902aae05fcecd949fb251b3dfda546a747"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6af3cdb6659629e89d767c2af6d2bd5d993291e02e73943cfda881b7e7fa55dd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8d70ef9c71d07c6a43a27d57f72c8e5d7979f899d1d41a25cbe262ecacbd688"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eaf33bb0738dbbae9ecbe8aee6ceb2da00533548f89b62266eaddf1c12294b44"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0b20cebcef6c12d0f1c3f4b439ecf2e37f4a643c0589de5be028dc4bfc8e49f8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "63c2214b8591ad76caa8abb8b0c7f4a826642d749273c5dafbf7c8b8e3deeeec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "589e645088dd02c5114f6ff47eef8d1a35a96b8be4318371f57d5e5eb98bcabc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d7406ac6cdc6841d592d6bfae50eab4d07de30285fc30f3df54d4fb751a25320"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1431c33bc95339b8727931baa5909574f274e8ca1923b618b231883d3fdf157"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b007920e6c4e3459c945e8ecd3de543578cffdf02c36586f6dcf944f65d7a04f"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/kubescape/kubescape/v#{version.major}/core/cautils.BuildNumber=v#{version}
-    ]
-
+    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:)
 
-    generate_completions_from_executable(bin/"kubescape", "completion", shells: [:bash, :zsh, :fish])
+    generate_completions_from_executable(bin/"kubescape", shell_parameter_format: :cobra)
   end
 
   test do

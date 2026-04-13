@@ -3,14 +3,12 @@ class Virtualpg < Formula
   homepage "https://www.gaia-gis.it/fossil/virtualpg/index"
   url "https://www.gaia-gis.it/gaia-sins/virtualpg-2.0.1.tar.gz"
   sha256 "be2aebeb8c9ff274382085f51d422e823858bca4f6bc2fa909816464c6a1e08b"
-  license "MPL-1.1"
+  license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
     url :homepage
     regex(/href=.*?virtualpg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

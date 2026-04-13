@@ -4,7 +4,7 @@ class OcamlFindlib < Formula
   url "https://github.com/ocaml/ocamlfind/archive/refs/tags/findlib-1.9.8.tar.gz"
   sha256 "d6899935ccabf67f067a9af3f3f88d94e310075d13c648fa03ff498769ce039d"
   license "MIT"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://opam.ocaml.org/packages/ocamlfind/"
@@ -12,13 +12,12 @@ class OcamlFindlib < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256               arm64_tahoe:   "6f6f7669b4187e082f14cb9c9f617bec4490a32d719caecad5b7f4d01dff2d91"
-    sha256               arm64_sequoia: "fca7c5a0a0cf78d4339970cee1d0a80605e4adce120ba9e75eaaaed96cd0055d"
-    sha256               arm64_sonoma:  "4cf42f610e5248913f7cf5b494ccb84384063c3a13470547fc573dc1a532e746"
-    sha256 cellar: :any, sonoma:        "4addf3b776fbe1b639f4c3f7412a04ba799125dbdc567b79879310401481bd54"
-    sha256               arm64_linux:   "06f20185aef240f8b740a0347c04e4ba2f912c912b8c36b3464cc54fafaa1f56"
-    sha256               x86_64_linux:  "26996e1d983d47ca18e8fef158d9254b94a2ea7e0399386f518e9935aaf032c4"
+    sha256               arm64_tahoe:   "b690ccd47c921760a3fd174d89de314aa63a417db08f3762af5931450b993703"
+    sha256               arm64_sequoia: "f8eab8fc29b9a4ad8c18baddaaa04b79af5baa4a8286d116fc575548045c045b"
+    sha256               arm64_sonoma:  "83c91809db7f64c9fecc52ba362bf77d204200a5465f8c1f8855e484fe4e9549"
+    sha256 cellar: :any, sonoma:        "0edf302c1fe0a1eb98dc206e8ecd200ba8427d7911de83fa07c75bca1ebc05f1"
+    sha256               arm64_linux:   "05a6b6652cbdaf56349e566a394c4b8d12af6e90fd9a0be3f8752026f385179f"
+    sha256               x86_64_linux:  "9749365e2bddc7e75a52a64f1405c56a78f7cbde07b630e93b89e640bbcabdb5"
   end
 
   depends_on "ocaml"
@@ -52,5 +51,13 @@ class OcamlFindlib < Formula
   test do
     output = shell_output("#{bin}/ocamlfind query findlib")
     assert_equal "#{HOMEBREW_PREFIX}/lib/ocaml/findlib", output.chomp
+
+    # Check if we need to rebuild ocaml-findlib to be used as a library
+    (testpath/"test.ml").write <<~OCAML
+      open Findlib;;
+      Findlib.init();
+    OCAML
+    system Formula["ocaml"].opt_bin/"ocamlopt", "-I", lib/"ocaml/findlib", "-o", "test", "findlib.cmxa", "test.ml"
+    system "./test"
   end
 end

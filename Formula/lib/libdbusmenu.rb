@@ -6,51 +6,37 @@ class Libdbusmenu < Formula
   license any_of: ["GPL-3.0-only", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256                               arm64_tahoe:   "c92c9254f0d9756a4383dd5fec928deb73760c083d07d4f2b77b753970be214e"
-    sha256                               arm64_sequoia: "4be53eedb4aa1203f4b6d3e4df0504481f8346db6fc0f6e9e8a27bfbe6f52108"
-    sha256                               arm64_sonoma:  "8846a649af9c8584a60204c64f1f83f0590dfdc6739626e77bf6300cec3849c5"
-    sha256                               arm64_ventura: "39825e9c8c327dd481f21068e93082328e01d188d61fe87108178c259b6a0354"
-    sha256                               sonoma:        "5ad05ed20555b243ad099282e0ac5c910abbc93bb300a30b935cca2f0a26cb03"
-    sha256                               ventura:       "febe49bc4a5cc4c94b9b39ecb5acac91d5d8f3f4123a3c3e62c76bc0ffdf8f8c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8dd3c91dd313ea60916f30dd136e3ab5a77dcf97978cf841d8c817b822c031a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca161cab45f55b72eeaff556883bf7c38338f3eb120a9a1ab1806caa54aa3801"
+    rebuild 1
+    sha256                               arm64_tahoe:   "39c6193c2a776a1184274c4132d659b3922929f355416846cc1e09f858fb763e"
+    sha256                               arm64_sequoia: "35dd5ba680220be9552195596fc39fc285cb4badc56ecc86174bdc959a5d3a34"
+    sha256                               arm64_sonoma:  "95ac2e098777206c685379fe6b57d4a6727f59a69f949df60b3a825cc8a90031"
+    sha256                               sonoma:        "e0527bd20da98e4b479e6e9bfa60f786382b01ad98670eadf37ce4b665db248c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "11a30a7008ce1dec8063c73449094da31626de9ce44e35ad1ca4b06d690f0874"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "972661b3c937df6ef53985b8d3c986af8478834680126dc7f8557751b01d065c"
   end
 
-  depends_on "fontconfig" => :build
-  depends_on "freetype" => :build
-  depends_on "fribidi" => :build
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "graphite2" => :build
   depends_on "intltool" => :build
-  depends_on "jpeg" => :build
-  depends_on "libepoxy" => :build
-  depends_on "libpng" => :build
-  depends_on "libtiff" => :build
-  depends_on "libx11" => :build
-  depends_on "libxau" => :build
-  depends_on "libxcb" => :build
-  depends_on "libxdamage" => :build
-  depends_on "libxdmcp" => :build
-  depends_on "libxext" => :build
-  depends_on "libxkbcommon" => :build
-  depends_on "libxrender" => :build
-  depends_on "perl" => :build
-  depends_on "perl-xml-parser" => :build
-  depends_on "pixman" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "vala" => :build
-  depends_on "xorgproto" => :build
-  depends_on "xz" => :build
-  depends_on "zstd" => :build
   depends_on "at-spi2-core"
-  depends_on "cairo"
   depends_on "gdk-pixbuf"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+3"
-  depends_on "harfbuzz"
   depends_on "json-glib"
   depends_on "pango"
+
+  uses_from_macos "perl" => :build
+
+  on_macos do
+    depends_on "cairo"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
+
+  on_linux do
+    depends_on "perl-xml-parser" => :build
+  end
 
   def install
     # add --disable-tests after https://bugs.launchpad.net/ubuntu/+source/libdbusmenu/+bug/1708938

@@ -2,8 +2,8 @@ class AliyunCli < Formula
   desc "Universal Command-Line Interface for Alibaba Cloud"
   homepage "https://github.com/aliyun/aliyun-cli"
   url "https://github.com/aliyun/aliyun-cli.git",
-      tag:      "v3.2.6",
-      revision: "1c05fda061a527a4f097297e913ab39aaa0990da"
+      tag:      "v3.3.4",
+      revision: "7971aeffcf810d79742f7911334a7fb1a11473fb"
   license "Apache-2.0"
   head "https://github.com/aliyun/aliyun-cli.git", branch: "master"
 
@@ -13,12 +13,12 @@ class AliyunCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "02bb6df7ac856558e1c69fcc1103bc0ab7eb8ea339bfaf132f75b3468e119d5f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "02bb6df7ac856558e1c69fcc1103bc0ab7eb8ea339bfaf132f75b3468e119d5f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02bb6df7ac856558e1c69fcc1103bc0ab7eb8ea339bfaf132f75b3468e119d5f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "69ae0222992bbfa401653ad8745f50a3e59860fa4bee400ba22e5faa7d9b89ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "85c69c2b44009bf3357d56e2a054a1bbd8effddb1bb0595f64cb1aff1065d45b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "211e26a6a4952b2c7b9f1c93716174b111a50e18ba1d1ac38c674179cca95c68"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3ec3c02ecfdd1017e232236a3083628ca5eb4868e2193b1a6d29a734e7ace3dc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ec3c02ecfdd1017e232236a3083628ca5eb4868e2193b1a6d29a734e7ace3dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ec3c02ecfdd1017e232236a3083628ca5eb4868e2193b1a6d29a734e7ace3dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6a1f577728113334b5c8ee1721d02b0803b9d434fdda071cb3dcba4307f17c7a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91a7cd1d34f8ca224fd16b7a722142a5f9189c67fa7c0d45702b0700a3b1135b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffed4602cc97cef865793c913a58bc8573fe1c291fe25352c88cccecae4061fa"
   end
 
   depends_on "go" => :build

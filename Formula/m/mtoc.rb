@@ -54,7 +54,7 @@ class Mtoc < Formula
       #{testpath}/test.c
     ]
     system ENV.cc, *args
-    system bin/"mtoc", "#{testpath}/test", "#{testpath}/test.pe"
+    system bin/"mtoc", testpath/"test", testpath/"test.pe"
   end
 end
 

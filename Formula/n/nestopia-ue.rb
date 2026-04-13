@@ -7,14 +7,13 @@ class NestopiaUe < Formula
   head "https://github.com/0ldsk00l/nestopia.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "3006e7d0399aed4f1240cd2b3f982b528f8ebf5d4a225ced121503f0211bc8ec"
-    sha256 arm64_sequoia: "3eb9a030dd95e791e62ba88821665bf6f9f4a5a566baf954bfca299202dc26e3"
-    sha256 arm64_sonoma:  "6c424cd6960a94b300fc867ea6490fd56bca30274a0a614f6f3ecef874cd55f3"
-    sha256 arm64_ventura: "293e857687f8539c030b4cc0a9360eba6fc4e030d4d9bb0c50d80e6b1123ef61"
-    sha256 sonoma:        "c9cb711c694e7c6d998662d6cd88cc2dcc50e892a73d21af312c6e3661ffd88b"
-    sha256 ventura:       "fcf1edcf0d0471f721f03c5754ba29be767dea197a22460569b4e74f976bca9f"
-    sha256 arm64_linux:   "d1fd2f20bb4390ad1ebd77c62f194e83d3f7920e2905e087addb2220a39c8fa1"
-    sha256 x86_64_linux:  "b1a010553c6587a8c76f35a5b155fb08a7d710b4534ebe72e333fdd6acef388c"
+    rebuild 1
+    sha256 arm64_tahoe:   "d433e13be22c6651a8a1ad25e011a5b3f5340fbd29f3f58a88f168d0bc3ac76c"
+    sha256 arm64_sequoia: "d9155957178136cfe1e8494ff9ba1ffe7841aa452540d3677491a714a45043d2"
+    sha256 arm64_sonoma:  "289266bf2f32e6dca98e612a1896f385bd7a44cd6706fc3a0e50ace17af3e148"
+    sha256 sonoma:        "d2118e22924e3c4f428a954f8230df35d049726daa7b501af2f75ee3f7c4dfbc"
+    sha256 arm64_linux:   "eab980f6188ad357386a163665909f24049db02e743bdf3ccffbfaf98bbed5fa"
+    sha256 x86_64_linux:  "4c258b217dc499e3f126049d71a9e6e1aa8e5863154563ae692d011997347508"
   end
 
   depends_on "autoconf" => :build
@@ -28,10 +27,9 @@ class NestopiaUe < Formula
   depends_on "libsamplerate"
   depends_on "sdl2"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   def install

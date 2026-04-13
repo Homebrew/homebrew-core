@@ -1,10 +1,11 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://octave.org/index.html"
-  url "https://ftpmirror.gnu.org/gnu/octave/octave-10.3.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/octave/octave-10.3.0.tar.xz"
-  sha256 "92ae9bf2edcd288bd2df9fd0b4f7aa719b49d3940fceb154c5fdcd846f254da1"
+  url "https://ftpmirror.gnu.org/gnu/octave/octave-11.1.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/octave/octave-11.1.0.tar.xz"
+  sha256 "8b3e2d0ec1809e8a2bed11de779014b6eb6a469c0caad1b339d29a6126e3cb6a"
   license "GPL-3.0-or-later"
+  compatibility_version 1
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
   # announced, so we check the octave.org download page instead.
@@ -14,13 +15,12 @@ class Octave < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "b83eb0676410572173c4befc49beba4c53e92ff6545cfb4f657f883afe01878c"
-    sha256 arm64_sequoia: "ed8eda61e1ee0492801d0a225cbf40ade65ac3b5c68ab8a2389e2c2eb0cf0579"
-    sha256 arm64_sonoma:  "a89a037602534ba7adc2fb70b77e349f060937b7c4d712c3eee36efc3183933a"
-    sha256 sonoma:        "35659321f8828b5d1230cfef3c2749d410f9ddbbbaab930bdc1c8828c5764af9"
-    sha256 arm64_linux:   "b94f07bd3afea2a67f7de94e08559a136aa5099e7f23b16f7ab31327da5ef57a"
-    sha256 x86_64_linux:  "23344131734979e1bafde92e0442a0b4ad74dd0b126c9e8644acd06aea65ad3d"
+    sha256 arm64_tahoe:   "eb9e33aae3eda5c4c6f317c870051bf760af6e8baffcabf495ec096a1ac552db"
+    sha256 arm64_sequoia: "60710c4bccda4b8d3758a9901ee362325a88f302ef037526a7ae765bcef931df"
+    sha256 arm64_sonoma:  "3718cbdecc5fd7e80b4cdb02fc132dc38a0ed985e49a0916d184bdeb6eae3f8b"
+    sha256 sonoma:        "b6da3844e5b5a94578bdca36291c38d84e0e163da6fd9ac118b737ea08615749"
+    sha256 arm64_linux:   "9c891f169b5a0bd821550baa5f63c7007e46b404acf526d912fdbf49e83422ca"
+    sha256 x86_64_linux:  "ae513c984d980c0ced1b4d3be890f5183b59cae6712b49162fdd65d57f412d2a"
   end
 
   head do
@@ -70,10 +70,13 @@ class Octave < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "little-cms2"
+  end
+
+  on_sequoia :or_older do
+    depends_on "fast_float" => :build
   end
 
   on_linux do
@@ -81,12 +84,11 @@ class Octave < Formula
     depends_on "automake"
     depends_on "mesa"
     depends_on "mesa-glu"
+    depends_on "wayland"
+    depends_on "zlib-ng-compat"
   end
 
   def install
-    # Workaround until release with https://hg.octave.org/octave/rev/8cf9d5e68c96
-    inreplace "configure", " --cflags-only-I $QT_", " --cflags $QT_" if build.stable?
-
     system "./bootstrap" if build.head?
     args = [
       "--disable-silent-rules",
@@ -137,9 +139,12 @@ class Octave < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
+    ENV.delete "CXX" # make sure Octave's default works without manual -std=...
+
     system bin/"octave", "--eval", "(22/7 - pi)/pi"
     # This is supposed to crash octave if there is a problem with BLAS
     system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
+
     # Test basic compilation
     (testpath/"oct_demo.cc").write <<~CPP
       #include <octave/oct.h>
@@ -147,17 +152,26 @@ class Octave < Formula
       { return ovl (42); }
     CPP
     system bin/"octave", "--eval", <<~MATLAB
-      mkoctfile ('-v', '-std=c++17', '-L#{lib}/octave/#{version}', 'oct_demo.cc');
+      mkoctfile ('-v', '-L#{lib}/octave/#{version}', 'oct_demo.cc');
       assert(oct_demo, 42)
     MATLAB
+
     # Test FLIBS environment variable
     system bin/"octave", "--eval", <<~MATLAB
       args = strsplit (mkoctfile ('-p', 'FLIBS'));
       args = args(~cellfun('isempty', args));
-      mkoctfile ('-v', '-std=c++17', '-L#{lib}/octave/#{version}', args{:}, 'oct_demo.cc');
+      mkoctfile ('-v', '-L#{lib}/octave/#{version}', args{:}, 'oct_demo.cc');
       assert(oct_demo, 42)
     MATLAB
-    ENV["QT_QPA_PLATFORM"] = "minimal"
-    system bin/"octave", "--gui"
+
+    if OS.linux?
+      ENV["QT_QPA_PLATFORM"] = "minimal"
+      system bin/"octave", "--gui"
+    else
+      pid = spawn(bin/"octave", "--gui")
+      sleep 5
+      system "pkill", "-KILL", "octave-gui"
+      Process.wait(pid)
+    end
   end
 end

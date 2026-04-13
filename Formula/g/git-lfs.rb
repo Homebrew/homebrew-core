@@ -4,6 +4,7 @@ class GitLfs < Formula
   url "https://github.com/git-lfs/git-lfs/releases/download/v3.7.1/git-lfs-v3.7.1.tar.gz"
   sha256 "8f56058622edfea1d111e50e9844ef2f5ce670b2dbe4d55d48e765c943af4351"
   license "MIT"
+  compatibility_version 1
 
   # Upstream creates releases that are sometimes not the latest stable version,
   # so we use the `github_latest` strategy to fetch the release tagged as "latest".

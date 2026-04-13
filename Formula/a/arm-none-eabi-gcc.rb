@@ -11,14 +11,13 @@ class ArmNoneEabiGcc < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "92a7103601dc0c37db13ed93343b4671665c46e8ddd9f254ba697ad744eb9c8c"
-    sha256 arm64_sequoia: "47c0d0ced3dd45b08d524e79c6bbb260aaaefa9f1b3c7b9125aca936ca7d8b6c"
-    sha256 arm64_sonoma:  "70af1c1ff0e2fe89bd5a48fcd474b7e20f5b8beaba7c0cab685abfd575abbdb9"
-    sha256 arm64_ventura: "ea891b743bfa1d20750b0bf3a6d42d26a75735e2915db2274aeeba005741af7c"
-    sha256 sonoma:        "ffaedf2d455c5355e38e12bb6e7cb6e48461207645b645de0d63c4a7cd21eaa1"
-    sha256 ventura:       "f2afbcf4b04dd28df9aa429637246aba842181c85a7e926c1ece700695a41d3a"
-    sha256 arm64_linux:   "68de611434d96d73eeb8428e02b7c9d66b4bae87ce814a6d49a2a171d6c517b4"
-    sha256 x86_64_linux:  "7fe586dbc32997229e4454d233077b94563d2a36802a5c2b608bd7edcd9e00c0"
+    rebuild 1
+    sha256 arm64_tahoe:   "4e862be029fd2e27e1d2614a54581846fdf3cf1f55e4d3e75eb1d097ffaafc39"
+    sha256 arm64_sequoia: "8b0034c3bc3e3ec1d1e7b3d4da1fc9208f9ddcaf182bf95a85dc921ad394b2ab"
+    sha256 arm64_sonoma:  "7586b52ffdc271857080b690184c269975c0d885c8688653c01c063e321fa02d"
+    sha256 sonoma:        "4a64941cdc4bc7110a72969d07e89e17944392073a1dce1a90ab31fe052303ad"
+    sha256 arm64_linux:   "a52b2e1db4a395276e704677d2dd7f164ab9fd277ad2353b8f117d45ca917a6e"
+    sha256 x86_64_linux:  "ef7aec12914835857f8ade168373e744061017468638dab8275ab7a28a3764b8"
   end
 
   depends_on "arm-none-eabi-binutils"
@@ -28,7 +27,9 @@ class ArmNoneEabiGcc < Formula
   depends_on "mpfr"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     target = "arm-none-eabi"

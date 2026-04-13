@@ -1,10 +1,12 @@
 class Luarocks < Formula
   desc "Package manager for the Lua programming language"
   homepage "https://luarocks.org/"
-  url "https://luarocks.org/releases/luarocks-3.12.2.tar.gz"
-  sha256 "b0e0c85205841ddd7be485f53d6125766d18a81d226588d2366931e9a1484492"
+  url "https://luarocks.org/releases/luarocks-3.13.0.tar.gz"
+  sha256 "245bf6ec560c042cb8948e3d661189292587c5949104677f1eecddc54dbe7e37"
   license "MIT"
-  head "https://github.com/luarocks/luarocks.git", branch: "master"
+  revision 1
+  compatibility_version 1
+  head "https://github.com/luarocks/luarocks.git", branch: "main"
 
   livecheck do
     url :homepage
@@ -12,7 +14,7 @@ class Luarocks < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7bc6365426b00c812417e7449477dd2ac13fd5fae072dfe7be78d5449225b195"
+    sha256 cellar: :any_skip_relocation, all: "abbbde9415cb2d4597c28d88f0f1f3a391be714f6f8e546ba5f01259c11ae040"
   end
 
   depends_on "luajit" => :test
@@ -56,11 +58,7 @@ class Luarocks < Formula
       ENV["LUA_PATH"] = "#{testpath}/share/lua/#{luaversion}/?.lua"
       ENV["LUA_CPATH"] = "#{testpath}/lib/lua/#{luaversion}/?.so"
 
-      system bin/"luarocks", "install",
-                                "luafilesystem",
-                                "--tree=#{testpath}",
-                                "--lua-dir=#{lua.opt_prefix}"
-
+      system bin/"luarocks", "install", "luafilesystem", "--tree=#{testpath}", "--lua-dir=#{lua.opt_prefix}"
       system luaexec, "-e", "require('lfs')"
 
       case luaversion

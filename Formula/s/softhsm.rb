@@ -1,43 +1,28 @@
 class Softhsm < Formula
   desc "Cryptographic store accessible through a PKCS#11 interface"
-  homepage "https://www.opendnssec.org/en/latest/softhsm/"
-  url "https://github.com/opendnssec/opendnssec/releases/download/2.1.14/softhsm-2.6.1.tar.gz"
-  sha256 "61249473054bcd1811519ef9a989a880a7bdcc36d317c9c25457fc614df475f2"
+  homepage "https://www.softhsm.org/"
+  url "https://github.com/softhsm/SoftHSMv2/archive/refs/tags/2.7.0.tar.gz"
+  sha256 "be14a5820ec457eac5154462ffae51ba5d8a643f6760514d4b4b83a77be91573"
   license "BSD-2-Clause"
-
-  # We check the GitHub repo tags instead of https://dist.opendnssec.org/source/
-  # since the aforementioned first-party URL has a tendency to lead to an
-  # `execution expired` error.
-  livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/opendnssec/SoftHSMv2.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 arm64_tahoe:   "b2bd259c0e4982412af4f69451373a1d2cc03e43889adb5262f8d8873c3ede4f"
-    sha256 arm64_sequoia: "34109f42f84fc58c9d6d9c9d668dab3ca9f71fce3d5f2962f679d730edcae3c4"
-    sha256 arm64_sonoma:  "2f329600e4d3ba0bc070d32692cf4805c43f0a25298d4d37b64a7445c0847fa6"
-    sha256 sonoma:        "210b718fbb84080b2a3b56fe0399047a7133423f4e7929e4d7ecd40e8a3357ea"
-    sha256 arm64_linux:   "a15ebcb5cb99c673cfa7aadcda2e0b1f2e8e6ba693d3d9fd91ed922c8de26ae3"
-    sha256 x86_64_linux:  "264fceddb0f4bce4bee697b2868f2d352768f4384088574b2f711b7af6894dd6"
+    sha256 arm64_tahoe:   "0cdbf21ef15f1c4cc7098755e89b03acb4fb0b45e9890dc38d5ad67f7069429b"
+    sha256 arm64_sequoia: "f6eb3e1465e04207141332c8733b63bde9b1597958839dccddab34207d1c1fcf"
+    sha256 arm64_sonoma:  "30f2b38120d68d5cd515f5a4e48a999424689e43a61929e443d9886b4d0bcc69"
+    sha256 sonoma:        "3ad3252a2e79d9cfcdcf9b43874a19fa666900f5f6dc2fd314f3d986cd395279"
+    sha256 arm64_linux:   "17a0a35b3e2e99a8ad74b559de10634b4f5385f1c881fd581b5c6bb4b1cf1196"
+    sha256 x86_64_linux:  "0a919b81ca6e41a6110d02eb537ae41754ad9d4af09167a4fcb71c52bc788ccc"
   end
 
-  head do
-    url "https://github.com/opendnssec/SoftHSMv2.git", branch: "develop"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "pkgconf" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkgconf" => :build
   depends_on "openssl@3"
 
   def install
-    system "sh", "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--disable-silent-rules",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{pkgetc}",
@@ -52,7 +37,7 @@ class Softhsm < Formula
 
   test do
     (testpath/"softhsm2.conf").write("directories.tokendir = #{testpath}")
-    ENV["SOFTHSM2_CONF"] = "#{testpath}/softhsm2.conf"
+    ENV["SOFTHSM2_CONF"] = testpath/"softhsm2.conf"
     system bin/"softhsm2-util", "--init-token", "--slot", "0",
                                 "--label", "testing", "--so-pin", "1234",
                                 "--pin", "1234"

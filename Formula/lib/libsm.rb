@@ -4,6 +4,7 @@ class Libsm < Formula
   url "https://www.x.org/archive/individual/lib/libSM-1.2.6.tar.xz"
   sha256 "be7c0abdb15cbfd29ac62573c1c82e877f9d4047ad15321e7ea97d1e43d835be"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "9ddab9c6da4ddc8c83f79079c63d16f220701ad058c8c8a07b077ceaed3eb7d3"

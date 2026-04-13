@@ -5,8 +5,6 @@ class Tre < Formula
   sha256 "f57f5698cafdfe516d11fb0b71705916fe1162f14b08cf69d7cf86923b5a2477"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "0046ebce7ba173f666176e93abbb6d2079677d02e584f097d97f923d0c0ff0a3"
     sha256 cellar: :any, arm64_sequoia: "85fd4370b99c94723511074c06989cb4f9d4dadaac1678caac21d6796f931ee7"

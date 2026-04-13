@@ -13,8 +13,6 @@ class Zigup < Formula
     end
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50aaa33ea1e56a31d29c250dca2e9b0996a6d6ac61b80371dc29206764291574"

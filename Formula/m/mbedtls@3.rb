@@ -1,9 +1,10 @@
 class MbedtlsAT3 < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.5/mbedtls-3.6.5.tar.bz2"
-  sha256 "4a11f1777bb95bf4ad96721cac945a26e04bf19f57d905f241fe77ebeddf46d8"
+  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.6/mbedtls-3.6.6.tar.bz2"
+  sha256 "8fb65fae8dcae5840f793c0a334860a411f884cc537ea290ce1c52bb64ca007a"
   license "Apache-2.0"
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -11,12 +12,12 @@ class MbedtlsAT3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d3a58038145d2683f3b6700a281487a437ece4e73c6cc6fcd8efbd07e2e2c045"
-    sha256 cellar: :any,                 arm64_sequoia: "024755c986d3514f84e462ea08a94bf677ede572dc03340fab817ddeb6787836"
-    sha256 cellar: :any,                 arm64_sonoma:  "8133322a7fe33d6181da0bec7657506e5bd2b196da726e56ea1872628f27ce5a"
-    sha256 cellar: :any,                 sonoma:        "713afec227329cb142f271b24ac471a6e1322368ac4e2f2bacf33aeaddc055dc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "395307a648d0d72f75a35c84c79b2398618ed7b74d76a0978e64d67857ff4344"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b3e45329e73450bb838d8d223798e0d2f23847093dc5ae3a97a66963dbd86e5"
+    sha256 cellar: :any,                 arm64_tahoe:   "a363a40850d5eb49bd11028879d2b312eafb9b7b38fefb5cf089014ae3e428f7"
+    sha256 cellar: :any,                 arm64_sequoia: "b3485e10f62304b4b61af65f7b4e0fa9331687b0c74642e50019adf2e7c7ffd2"
+    sha256 cellar: :any,                 arm64_sonoma:  "14ce5476ba9ec9c22b163ef50ae17b89500716d1084a1c6d893ccd9935713011"
+    sha256 cellar: :any,                 sonoma:        "6dad4026c51512381cab9ac7a82e041a2a1cee120c23b869c97822b45e20daa7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3a416c0fe1570337994e7ad7c5bbb6e1110c81abac768fc0a8837e60f9ae9426"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78735c99e399005253f01a93ed4beab4e30600a749f96c4641309b4a1c5d89d2"
   end
 
   keg_only :versioned_formula

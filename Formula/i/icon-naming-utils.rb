@@ -13,8 +13,6 @@ class IconNamingUtils < Formula
     regex(/Version\s+v?(\d+(?:\.\d+)+)/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0297c134b4aed0221b17224be3da86f54004e5d1ce7d12e4e9138b3335f65190"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3caca3e4bf1e45408fdd966f46f860a0fd9002f471a1fa258e9c3c66ab28b204"

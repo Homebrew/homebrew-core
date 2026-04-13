@@ -11,14 +11,12 @@ class Opencascade < Formula
   # information is posted at https://dev.opencascade.org/forums/occt-releases
   # but the text varies enough that we can't reliably match versions from it.
   livecheck do
-    url "https://git.dev.opencascade.org/repos/occt.git"
+    url :stable
     regex(/^v?(\d+(?:[._]\d+)+(?:p\d+)?)$/i)
     strategy :git do |tags, regex|
       tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
     end
   end
-
-  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "ee074a5e0dac9f36e41231af3741dddc93501417b014443eadf212f680e9e91c"

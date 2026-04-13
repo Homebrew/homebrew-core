@@ -30,9 +30,11 @@ class Bfs < Formula
     depends_on "liburing"
   end
 
-  def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1300
+  fails_with :clang do
+    build 1300
+  end
 
+  def install
     system "./configure", "--enable-release"
     system "make"
     system "make", "install", "DEST_PREFIX=#{prefix}", "DEST_MANDIR=#{man}"

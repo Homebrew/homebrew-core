@@ -44,6 +44,7 @@ class Chakra < Formula
 
   # Can be considered for un-deprecation if upstream does a new release
   deprecate! date: "2025-03-28", because: "fails to run on Linux after rebuild and last release was 2020-12-08"
+  disable! date: "2026-03-28", because: "fails to run on Linux after rebuild and last release was 2020-12-08"
 
   depends_on "cmake" => :build
   depends_on "icu4c@76"

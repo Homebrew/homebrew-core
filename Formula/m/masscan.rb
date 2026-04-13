@@ -11,8 +11,6 @@ class Masscan < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9216a454fdb2cbfb9ac9b33ee69a1de877dab70ee3f6500bc32e2c5fde504c78"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ba24e0d2c22cbe2291a6e872a1f5d79df7c69922b0cebdbe0864c1caaa664b72"

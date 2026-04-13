@@ -11,8 +11,6 @@ class BpmTools < Formula
     regex(/href=.*?bpm-tools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "634c02b83f4eed1869654538098c52c10571bde389661e7624c7a3a4ba14ebc2"

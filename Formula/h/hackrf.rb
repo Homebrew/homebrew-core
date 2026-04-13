@@ -1,8 +1,8 @@
 class Hackrf < Formula
   desc "Low cost software radio platform"
   homepage "https://github.com/greatscottgadgets/hackrf"
-  url "https://github.com/greatscottgadgets/hackrf/releases/download/v2026.01.1/hackrf-2026.01.1.tar.xz"
-  sha256 "283387d7a1aad965b07287adea7361a2a86176e854e2f2b808f58b5626015de4"
+  url "https://github.com/greatscottgadgets/hackrf/releases/download/v2026.01.3/hackrf-2026.01.3.tar.xz"
+  sha256 "d2b76a1115d9b4df648c29efb2f3c8e80009b7cf9a8adf37abbfdba72101b086"
   license "GPL-2.0-or-later"
   head "https://github.com/greatscottgadgets/hackrf.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Hackrf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "535ef287b71310d2773d1fc638fe75a9d476baf6051a7588259c4795d1cb16ea"
-    sha256 cellar: :any,                 arm64_sequoia: "7e20b7715f2c0e31d69919dd7bd3659b9a2c43dece9bd2ff821a31bf3f1201f3"
-    sha256 cellar: :any,                 arm64_sonoma:  "3070fdbed1e1c14913df1373f673c9bd7d5b0ebf4745aabe2e6f42b7228a7064"
-    sha256 cellar: :any,                 sonoma:        "2e5bda6987b14a31a6fd5c157ca12946c3fe7644ff6c50b1b5fccf3586de8924"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "759a2d918401f4ec3ef9f82460ed52cf8f2b8253b86e54002ae47cd102d0ff2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9a9b5a32b7fa0891d58482bbdfe6d95872f204c348fa69c2d07aa722a0c90f6"
+    sha256 cellar: :any,                 arm64_tahoe:   "d76b5c4bfbd77bee1f5e1f48481773c5128ffccb9188bd218801e6f9b3d6d30c"
+    sha256 cellar: :any,                 arm64_sequoia: "c3d36821448dcbf52035462d67fcf6ad31049039cb1e6e5a9c4852b887f46382"
+    sha256 cellar: :any,                 arm64_sonoma:  "5fc5f1972720b14717a98c0b7212656e47060b984e210c070a50eb2680cf63af"
+    sha256 cellar: :any,                 sonoma:        "4b65b90b39360e44ae20f9f143c1f0fe9bc6e74b27dde87c4b4b756695c4737a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "713262f12d04f9c9e42392c6082c74f6599c29de3a1e91a548fdf6fcccdc6e92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a9e96a3ec6c4042cabd4823c6b40d1bf1d37ad7e69573eb67733188188f55ed"
   end
 
   depends_on "cmake" => :build

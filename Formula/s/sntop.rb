@@ -10,8 +10,6 @@ class Sntop < Formula
     regex(%r{url=.*?/sntop[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "e40298eeb9619591443c8ba0e977cc63a5d61a2508e4d3695dd0dc8292eb9f34"

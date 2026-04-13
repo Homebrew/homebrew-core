@@ -1,28 +1,24 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://mongoose.ws/"
-  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.20.tar.gz"
-  sha256 "e971804cd22fbbaef03600fb6100023446e29386dedfd6cb2b3f06652544b7ba"
+  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.21.tar.gz"
+  sha256 "d4ddbd12c12f223abefcc0a74417a638ae5c118d7cf10ba546553c6b0e0b5ada"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "811150b16e4dd4a6747e92e83f63340ca31c4e6d042fb307cb145820a64c9bf5"
-    sha256 cellar: :any,                 arm64_sequoia: "6720fbe30dd982529ea75bd51dcf74ac79803027762693a6b7f78324e6942c29"
-    sha256 cellar: :any,                 arm64_sonoma:  "5cdd7fface33823823328e34a7a4dd53d03c1511b7eae935f4e3d15833dbc8b5"
-    sha256 cellar: :any,                 sonoma:        "4bd98a3a8c27be0e5c86ee34eb0d65f7aac3621f3b08e3dd9d95d7f5d633481c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f6296e92ee63ca83a980a0f4b122703a0dac0bc9638ce2c7ca8aaa86d0a548c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e02ac4d9a40bd8cdda354dcc2939dceee56eb604efb65cc5510d0df9c359cf1"
+    sha256 cellar: :any,                 arm64_tahoe:   "d9e73fd7170840d627053d5e92474219e36168faed700471b6e2514e1a35a74f"
+    sha256 cellar: :any,                 arm64_sequoia: "5081c1f0b966c15abc612a788bf718eb253a5a4eb643652a966c37db7e2e3f0f"
+    sha256 cellar: :any,                 arm64_sonoma:  "ce5776cff5b9ee6423dfc88d3171341a7635d13814bcd1ad64734852fb0b7150"
+    sha256 cellar: :any,                 sonoma:        "214013de2533be9ad3a210551617d328d8086198b666597f0d2219f0afa13655"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8378b416431c43d5486fc6ccfaa85168a8c7ddf0a541603bf0ed01dbea5281b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f33c503bd19499b37d942517704bdb19d05b1a5ad1628bc2e7502f217f22066d"
   end
-
-  depends_on "openssl@3"
 
   def install
     # No Makefile but is an expectation upstream of binary creation
     # https://github.com/cesanta/mongoose/issues/326
-    cd "tutorials/http/http-server" do
-      system "make", "mongoose_mac", "PROG=mongoose_mac"
-      bin.install "mongoose_mac" => "mongoose"
-    end
+    system "make", "-C", "tutorials/http/http-server", "example"
+    bin.install "tutorials/http/http-server/example" => "mongoose"
 
     system ENV.cc, "-dynamiclib", "mongoose.c", "-o", "libmongoose.dylib" if OS.mac?
     if OS.linux?

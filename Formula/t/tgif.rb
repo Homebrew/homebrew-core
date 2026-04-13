@@ -6,22 +6,14 @@ class Tgif < Formula
   license "QPL-1.0"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:    "a906f3f2e65cdea619db1d9e4fde93545c46979cd45eabb7bab645e8ad8e9bd2"
-    sha256 arm64_sequoia:  "d25b56e8a0c3f77e501a9a9bb0e1214a0c50b28885be6971ad522d6d18bf54fb"
-    sha256 arm64_sonoma:   "c50b1a8d587e78480c0b90da2aac56ff3439668b3d59fa44e2ba1ee1cc2a2674"
-    sha256 arm64_ventura:  "27cafeb5046eb26fd967d69564c384d1a8e3ae9aabe890d3337f791d3fbc1f48"
-    sha256 arm64_monterey: "82ff8e9a80be770347e07f11fc83c8fdc06856200cc5507b020ada88368f258c"
-    sha256 arm64_big_sur:  "29699e47040d83ff53dbe9800a053ba9a41fe1ae1834e08ede2844ec59803662"
-    sha256 sonoma:         "b3f55a3692aec31ac03d2316f72305fdc736a1935ed69e98dcf1ab8183e316cc"
-    sha256 ventura:        "c06f7f0460e80628f7e8071322ea3813cd3bc12d21f9843ee58f4e397626de19"
-    sha256 monterey:       "3b5ab882fc7b33701cbb6c8340c1c423afe3b088f5c34b6bee69a9bc9cf27d39"
-    sha256 big_sur:        "0488ea1c1291ea86653e1f5e3b0a9d7499ee101ccec3a5cb8f1e855aa445181d"
-    sha256 catalina:       "ce5a689942aed9986f74150bddebb09a129aba97810658fc67a6060519eacd86"
-    sha256 arm64_linux:    "071bd8c29e292d980e4bc1cc1898406b6fb7b4133ac91d8b892bfac23c905d65"
-    sha256 x86_64_linux:   "e399c02348529aca39dfe252f2ee3e31fecb290d79599609abf4097c0b06afb8"
+    rebuild 1
+    sha256 arm64_tahoe:   "ba92789379368bb14652f941fc7381ef677fc5bd0b6dea2232d9b85dd4df22b4"
+    sha256 arm64_sequoia: "e16a6b3637b10969037815ca5ef81f56259eeca43f92c033f089c52a72caa8c8"
+    sha256 arm64_sonoma:  "93858fbcefcdcd39a3ed95339305109d26694d195948cfa04ac148e23deddcaa"
+    sha256 sonoma:        "c79d27017a0486db3a1692e69327ef73776236a97d2bf60d4538f9e8499ef969"
+    sha256 arm64_linux:   "1ee763ee877d11815044afc3074b8fc732034e1cfd21f0df361463099cc485a9"
+    sha256 x86_64_linux:  "212c0490a0803881d8206c697ec41e7b11b9da6cf564c97d5915df75f2430e2e"
   end
 
   depends_on "libice"
@@ -32,7 +24,9 @@ class Tgif < Formula
   depends_on "libxmu"
   depends_on "libxt"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # patch sent upstream to the author email (bill.cheng@usc.edu)
   # fixes the -Wimplicit-function-declaration error on Sonoma

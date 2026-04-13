@@ -3,21 +3,28 @@ class Toxcore < Formula
   homepage "https://tox.chat/"
   # This repo is a fork, but it is the source used by Debian, Fedora, and Arch,
   # and is the repo linked in the homepage.
-  url "https://github.com/TokTok/c-toxcore/releases/download/v0.2.20/c-toxcore-0.2.20.tar.gz"
-  sha256 "a9c89a8daea745d53e5d78e7aacb99c7b4792c4400a5a69c71238f45d6164f4c"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 1
   head "https://github.com/TokTok/c-toxcore.git", branch: "master"
 
+  stable do
+    url "https://github.com/TokTok/c-toxcore/releases/download/v0.2.22/c-toxcore-v0.2.22.tar.xz"
+    sha256 "b2599d62181d8c0d5f5f86012ed7bc4be9eb540f2d7a399ec96308eb9870f58e"
+
+    # Backport fix for size_t usage
+    patch do
+      url "https://github.com/TokTok/c-toxcore/commit/40ce0bce665e5589838db8444437957f8e3b83a3.patch?full_index=1"
+      sha256 "65200822334addcbcca431910e5c5076cd0d01622a019044f9399f95be67edeb"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "01071297d658e6e0851e482c7cb6d2d9ba8461e79fac25c41aaa0c585c7b9469"
-    sha256 cellar: :any,                 arm64_sequoia: "3379c4a841b711aa33e822e3b99fedb344ef6cca8c23ac87ca636f16516bb7ff"
-    sha256 cellar: :any,                 arm64_sonoma:  "61ed64fe45f6ce3191e5c53c04d2d49aa4c5cbfe739971e1f45cb42a7b400754"
-    sha256 cellar: :any,                 arm64_ventura: "6bd944dabdce173a8d838e61b511bbdf0076a69ca244f06b8a4abe057b6df206"
-    sha256 cellar: :any,                 sonoma:        "fbb6f976d3eb729b4a4cb934dbe11abb47ec1f90905c114a35636f3e9c1c3165"
-    sha256 cellar: :any,                 ventura:       "2e8cb55ca687bde4925ae3d4b79bfcff988c7dce31c7a5b12e337392609fe1bf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff21beb0e5b1a7f90489cd6b5d0130713a6b5c59cdfcc3565b706f3299342112"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1118526ac90564b275c1b5d2373fb942448fe6d2edc513c728eea469d3f8f5d9"
+    sha256 cellar: :any,                 arm64_tahoe:   "cbbb31e412bfd8ce19e4bed4468c763c4a30553df87af6daaca7890b60863fc8"
+    sha256 cellar: :any,                 arm64_sequoia: "22e925fce4d035689ba871e1f04ea5254f2239b7ba660e23a21decb7d172c575"
+    sha256 cellar: :any,                 arm64_sonoma:  "590fe74f3e30221b3eef2f02e322da73d547531635ee9749a5c69dac41fd8b08"
+    sha256 cellar: :any,                 sonoma:        "02d2a7718ed5dc375c0b69c5a4406ab3bb48465f3f1e447dfa821af05d72c044"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "310a1c7117ef774e06419060a7e836f80927052bbf1022831dccaf264ace5e9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffb493b9bb0c9aeea6a33d9450f6497d4e27c9d4e06b3b2621a033269c09e78c"
   end
 
   depends_on "cmake" => :build
@@ -45,8 +52,7 @@ class Toxcore < Formula
         return 0;
       }
     C
-    system ENV.cc, "-I#{include}/toxcore", testpath/"test.c",
-                   "-L#{lib}", "-ltoxcore", "-o", "test"
+    system ENV.cc, "test.c", "-o", "test", "-I#{include}/toxcore", "-L#{lib}", "-ltoxcore"
     system "./test"
   end
 end

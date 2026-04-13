@@ -1,26 +1,28 @@
 class Libssh < Formula
   desc "C library SSHv1/SSHv2 client and server protocols"
   homepage "https://www.libssh.org/"
-  url "https://www.libssh.org/files/0.11/libssh-0.11.3.tar.xz"
-  sha256 "7d8a1361bb094ec3f511964e78a5a4dba689b5986e112afabe4f4d0d6c6125c3"
+  url "https://www.libssh.org/files/0.12/libssh-0.12.0.tar.xz"
+  sha256 "1a6af424d8327e5eedef4e5fe7f5b924226dd617ac9f3de80f217d82a36a7121"
   license "LGPL-2.1-or-later"
+  revision 1
+  compatibility_version 1
   head "https://git.libssh.org/projects/libssh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e91e604beda45807e4e95bcc49aa19370e7060d27589e03ef76b4669965bcf79"
-    sha256 cellar: :any,                 arm64_sequoia: "ed8b3a5fc472d34a7dcc545125ad1b46018cb6a285f0493c983ed0057137dc1c"
-    sha256 cellar: :any,                 arm64_sonoma:  "e138277845774eced73507b57d2e88ce083563e5c4422547ca3ee40828f4fbcd"
-    sha256 cellar: :any,                 arm64_ventura: "d964e62f422c90ce3993d41adc3f101196c24e3330c6e03e5c5a06bb42dfbd85"
-    sha256 cellar: :any,                 sonoma:        "ab10e4e2fcd6ce97b7d7c7dfbaea0067fdd104d2a48fca3c879bfcf3cf43a60f"
-    sha256 cellar: :any,                 ventura:       "4fec93f5cc2f344a18f91ec3ac76a9db6243acc3a4188772a9d7c2df579e5e95"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a1d91932020c21898b7bd78cf3175e86af36f83bac9bb7ca936a41a7cac0285"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ea38523d0d8393df13be75c57f251ef7af84777edb9a643d302fedad89d39df"
+    sha256 cellar: :any,                 arm64_tahoe:   "cfbd08103692e8ffbb2cf33596a8b1f40dea83dba35621732994c921dc50e338"
+    sha256 cellar: :any,                 arm64_sequoia: "90d7d2f53f98da8a7f02c13a661575370941603f1409f7e4a3667d7360c4c58a"
+    sha256 cellar: :any,                 arm64_sonoma:  "28078e9854ab58dbedd7f8d9391cb28869932c73907c54a9c00612af2bc689eb"
+    sha256 cellar: :any,                 sonoma:        "95737ba81393b810ef51b6e88e1422067987edc9843dc4263442d3e93b05104d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "488dbc9708070ad0586823f1a17e4a53605205be5a39948aba60af8dacbc6285"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c7bd3b80655c34b25165fef797c3e1bb9b223423d58ba04353d2b6239ea1189"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %w[

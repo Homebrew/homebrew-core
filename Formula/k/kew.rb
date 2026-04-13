@@ -29,6 +29,7 @@ class Kew < Formula
   uses_from_macos "curl"
 
   on_macos do
+    depends_on "gdk-pixbuf"
     depends_on "gettext"
   end
 

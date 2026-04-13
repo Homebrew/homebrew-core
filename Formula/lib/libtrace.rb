@@ -1,9 +1,9 @@
 class Libtrace < Formula
   desc "Library for trace processing supporting multiple inputs"
   homepage "https://github.com/LibtraceTeam/libtrace"
-  url "https://github.com/LibtraceTeam/libtrace/archive/refs/tags/4.0.29-1.tar.gz"
-  version "4.0.29"
-  sha256 "daec03300ac611eeb89ec21b0232494ee0cef6159b8ca94447ff7bc1655af698"
+  url "https://github.com/LibtraceTeam/libtrace/archive/refs/tags/4.0.30-1.tar.gz"
+  version "4.0.30"
+  sha256 "2e83c5cfb3cf6eb98ee9d928f3b04f4aa8c0b9ec8060e74c27f0e213b83818d9"
   license all_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
@@ -15,12 +15,12 @@ class Libtrace < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5369c4c9df746a6fff7af2a8b80d28f93bfcd01f48f2e06d924beb5bf256c5c1"
-    sha256 cellar: :any,                 arm64_sequoia: "13dd6a8d1468e809f0bd1f1727ac6ba3854fc0d5c3ad3b913f0e3ad4fc5a511a"
-    sha256 cellar: :any,                 arm64_sonoma:  "a04e4170a575a034f962e4ec0bd55abc6dc13d76fb0599dfb5133d285db21b94"
-    sha256 cellar: :any,                 sonoma:        "7871954d8beb70c062b419441090d1564cf64d5917d7d237f0fc397e2d65e092"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fae33e10e3ac2d5d6257114aea95c2f3ec050d5e33aa584e9c565cbd8b9c1d04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a768935645512609150e7b1164b92a70f229256136a54480480c6ad21960e36e"
+    sha256 cellar: :any,                 arm64_tahoe:   "cfe9ddfb74e19626fec9725c20436cef6515f7875e72190f55e78acb8db587f4"
+    sha256 cellar: :any,                 arm64_sequoia: "7126db48963d12a654960b4e870d35628708e38d08a4e0b81c175f74ae27bcd7"
+    sha256 cellar: :any,                 arm64_sonoma:  "1437384c71d2c28d9f0659dc0ed343129031466e3d7f420ee19a618d6ead4ce6"
+    sha256 cellar: :any,                 sonoma:        "9da327786a615a8428364e987422206d23422904cf4e1a6aca211e6525b2e9da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eadb255c3c9fd7996493baa19fcf4ac182de1f672f882e68d37b607773ea61a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "386ff1e7ccd8bd1f3327842a56bc059c5fcb31ad45751a938e076af18c279316"
   end
 
   depends_on "autoconf" => :build
@@ -34,13 +34,6 @@ class Libtrace < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "libpcap"
   uses_from_macos "ncurses"
-
-  # Fix build with missing input variable for `format_bpf.c`
-  # PR ref: https://github.com/LibtraceTeam/libtrace/pull/218
-  patch do
-    url "https://github.com/LibtraceTeam/libtrace/commit/593a045f314b87ab6dfb6c5ba9e1883fb17ddc9c.patch?full_index=1"
-    sha256 "a8658c93ecdc3dbffe232d4a3a78feb8da54e32256e5721eb7f7bbc2ed88cf30"
-  end
 
   def install
     system "./bootstrap.sh"

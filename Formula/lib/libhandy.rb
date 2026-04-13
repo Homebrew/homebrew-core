@@ -4,6 +4,7 @@ class Libhandy < Formula
   url "https://gitlab.gnome.org/GNOME/libhandy/-/archive/1.8.3/libhandy-1.8.3.tar.gz"
   sha256 "7e7670f5d0a6d0adc24b888da44dab938a6f52472b8944d6dd4e31b6d3569a5f"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 arm64_tahoe:    "620cf34883ae285873425a4f3ffa156b78e8b696872bd20b425008488ad0d232"

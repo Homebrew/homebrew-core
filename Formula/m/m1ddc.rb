@@ -6,8 +6,6 @@ class M1ddc < Formula
   license "MIT"
   head "https://github.com/waydabber/m1ddc.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "27dcf5e58af8b5e29fd6b2799e9d28798e945af2805bff47ed0be2ab3469d1f4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6c98df1f1bf1c0eda16a07f70a9c2dc539762b08bd0fc1801b38dead4dc96373"

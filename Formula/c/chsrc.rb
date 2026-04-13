@@ -1,18 +1,18 @@
 class Chsrc < Formula
   desc "Change Source for every software on every platform from the command-line"
   homepage "https://github.com/RubyMetric/chsrc"
-  url "https://github.com/RubyMetric/chsrc/archive/refs/tags/v0.2.4.tar.gz"
-  sha256 "da4f5bb6b1a60e4b1dc31c72f24ede3f5b5c3072193c3fe419b713dc047a5b38"
+  url "https://github.com/RubyMetric/chsrc/archive/refs/tags/v0.2.5.tar.gz"
+  sha256 "4fc7ccbdea9c18aaa06b1efc80cc8a1941e38060b8495c67c947a09d2a0dfeac"
   license "GPL-3.0-or-later"
   head "https://github.com/RubyMetric/chsrc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6538d980b8056e0ae50bbbaa3f3fc7926e93303e97f530fbc99d5cf7db267130"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8c2dcdb83db2589a276de026d0fa060df9835aac691ff30dd15a1a05f80987f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "56302b8e229544e1718d0a162f46dd7cd551afba959210e1a8a2838dc38930d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "da991fd5b4180d68fad018f34fad40c341402cc87eaf309d75193ac723177cbe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "363779f379bf4a3f951c687bd29b00c93b1f41e5b45e9e3659b8bec62e709257"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ff3ec3759c3784202584f4fb1c7d778eb201a918dd09480068fb0debfe5aab3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c0319a43c6289df4d83667e517fe54dd39c58c4d6486f379a3092461a36550f3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bf31b588fd5675b656b5c55c33124325508dd4412f4e6f161f3bb8c1a5776d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f7d072ffd55e02f99c26e5e24a340f6d5ad12ff8192be0d5a3c87486bc51b54"
+    sha256 cellar: :any_skip_relocation, sonoma:        "83241be9635b64cf7217cbfb7d99185e7b0e58caa2a595ef5bf6200fcc2952bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ee3a48a02b5f98db6ef8b78f90cf5490fe6a5f07169b57d9df250eaf6a196fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "affc34ed5945c691524868219ef73d1a912fb20e65564efbaca58859fb81f727"
   end
 
   def install

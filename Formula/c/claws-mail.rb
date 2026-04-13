@@ -1,8 +1,8 @@
 class ClawsMail < Formula
   desc "User-friendly, lightweight, and fast email client"
   homepage "https://www.claws-mail.org/"
-  url "https://www.claws-mail.org/releases/claws-mail-4.3.1.tar.gz"
-  sha256 "8fc4f0e0f274297063e5e7682089a32b65ac1b2d21cfa13c54b980520952def2"
+  url "https://www.claws-mail.org/releases/claws-mail-4.4.0.tar.gz"
+  sha256 "642d78309b7b153699c417bcfdf505a735b19c57fd731a0bbb5752ad6adbdb52"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class ClawsMail < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "9a5ba88479f83d1f077cdb054acbaf51cc275172b3e0886bf8918a4d7cd73c88"
-    sha256 arm64_sequoia: "f08e86cad864b6ab6f0693ce3cc7de801eabd3adff964961a06a3fab48a144ab"
-    sha256 arm64_sonoma:  "d1de6f91523ebe6eaec2e2742aa8d0db011603e93b1e48a892a7e6c7f3e2d7a2"
-    sha256 arm64_ventura: "bd11011eb704199e5d74c02ec1bc6ba4b33df94fe3d1998c121cd3e6b00b5ac2"
-    sha256 sonoma:        "49dee2906de335de26346eed694ef5087d07bee8b4f143f0ceb9e5ba4c314a61"
-    sha256 ventura:       "c1477bdb2ea050ab85f3b2dbf71eef8dcd75ce3b5a16856f94fb078e359608f2"
-    sha256 arm64_linux:   "154f375276dabb568e96a0e9a1c83946a48b66908743375a7c1e2326b77f440b"
-    sha256 x86_64_linux:  "d9eaeeda84f67ba660d9f70f6011a3e21883ee632b8918cc400f2e806afb28e2"
+    sha256 arm64_tahoe:   "ee1ac3be93f73c8b809260179278f32cc6f63b00fca95f6ca09ca18e4677d767"
+    sha256 arm64_sequoia: "5beef6e43f8e3f4885bc1d4077f3f9c9db320de47d0a3b61e4d1ab521718f614"
+    sha256 arm64_sonoma:  "92def14333cf5bde9b257e81f0ac9b57624ce741f5497c3e6eed46db15dc5aff"
+    sha256 sonoma:        "b22559fa49882eab1369c6207ce4324befb9ef44bcd9e351f99460914687b523"
+    sha256 arm64_linux:   "94e0b5594e366b508cc5df0cd9870a213b0b7638666177e745bb721c3c762b96"
+    sha256 x86_64_linux:  "84a791186ecf813562c124919d45dae96fdf0ea0f5b372a9f1b861854a544577"
   end
 
   depends_on "pkgconf" => :build
@@ -31,8 +29,6 @@ class ClawsMail < Formula
   depends_on "nettle"
   depends_on "pango"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "at-spi2-core"
     depends_on "gettext"
@@ -42,6 +38,7 @@ class ClawsMail < Formula
   on_linux do
     depends_on "libice"
     depends_on "libsm"
+    depends_on "zlib-ng-compat"
   end
 
   def install

@@ -10,8 +10,6 @@ class EmsFlasher < Formula
     regex(/href=.*?ems-flasher[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "a7f24072022ccf384517e60b21fe3d5c4f32290601710f0149362eb6bf9b9723"
     sha256 cellar: :any,                 arm64_sequoia:  "3234b5a7a065c25076109874fb9f7f4c4a43b87f758320145eed22b186be84d3"
@@ -28,24 +26,12 @@ class EmsFlasher < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8081dea4fbc1c501388ffb3a38751d47a09ef38b0dacd3e09ad7995f66c9249a"
   end
 
-  head do
-    url "https://github.com/mikeryan/ems-flasher.git", branch: "master"
-    depends_on "coreutils" => :build
-    depends_on "gawk" => :build
-  end
-
   depends_on "pkgconf" => :build
   depends_on "libusb"
 
   def install
-    if build.head?
-      system "./config.sh", "--prefix", prefix
-      man1.mkpath
-      system "make", "install"
-    else
-      system "make"
-      bin.install "ems-flasher"
-    end
+    system "make"
+    bin.install "ems-flasher"
   end
 
   test do

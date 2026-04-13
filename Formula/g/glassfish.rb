@@ -1,23 +1,21 @@
 class Glassfish < Formula
   desc "Java EE application server"
   homepage "https://glassfish.org/"
-  url "https://download.eclipse.org/ee4j/glassfish/glassfish-7.0.24.zip"
-  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/7.0.24/glassfish-7.0.24.zip"
-  sha256 "03609a3cdef90946a617adccf66e1fb5777e8ac4ba11dd8f4085036ba35c5ba4"
+  url "https://download.eclipse.org/ee4j/glassfish/glassfish-8.0.1.zip"
+  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/8.0.1/glassfish-8.0.1.zip"
+  sha256 "d308659da401ebd59b6b5e43ce760b0cb37622655a765a66bcb9d2ed0c213a75"
   license "EPL-2.0"
 
   livecheck do
-    url "https://projects.eclipse.org/projects/ee4j.glassfish/downloads"
+    url "https://download.eclipse.org/ee4j/glassfish/"
     regex(/href=.*?glassfish[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "779bc9dceabcdf02f586a963f4fb7c5f89965ed1087a32c562288def13e11fa3"
+    sha256 cellar: :any_skip_relocation, all: "5b43ae892b1fa5ccd3ac98276a7c5788e9b1dfdade6cd918af24526811c4b643"
   end
 
-  # no java 22 support for glassfish 7.x
-  # https://github.com/eclipse-ee4j/glassfish/blob/master/docs/website/src/main/resources/download.md
-  depends_on "openjdk@21"
+  depends_on "openjdk"
 
   conflicts_with "payara", because: "both install the same scripts"
 
@@ -28,7 +26,7 @@ class Glassfish < Formula
     libexec.install Dir["*"]
     bin.install libexec.glob("bin/*")
 
-    env = Language::Java.overridable_java_home_env("21")
+    env = Language::Java.overridable_java_home_env
     env["GLASSFISH_HOME"] = libexec
     bin.env_script_all_files libexec/"bin", env
 

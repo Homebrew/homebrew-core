@@ -4,6 +4,8 @@ class Zig < Formula
   url "https://ziglang.org/download/0.15.2/zig-0.15.2.tar.xz"
   sha256 "d9b30c7aa983fcff5eed2084d54ae83eaafe7ff3a84d8fb754d854165a6e521c"
   license "MIT"
+  revision 1
+  compatibility_version 1
 
   livecheck do
     url "https://ziglang.org/download/"
@@ -11,12 +13,12 @@ class Zig < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "dd70b8ff8c60139a550cf147c62385db650f0a78f6a0886d64e5d3a23300fedf"
-    sha256 cellar: :any,                 arm64_sequoia: "57cef8bf8e91f4883be988370fbe8e48c301ded0e578907d73ace9c325f17448"
-    sha256 cellar: :any,                 arm64_sonoma:  "1f4b7e532d85d0b552fbc7c6434e2dc3da4322630823989ee07665b11f1a3fa9"
-    sha256 cellar: :any,                 sonoma:        "a6214bdefd13c3f08072d2104480c977925ecb4160b3528b097761d8a2f0fe10"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd03697749a4dbeec55258d7fd5170b2dd73ca29b1510a001a021d5469287197"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87d7f340a2db08d1274e7d7915252db7880705426fc0b592147cde1f0009935e"
+    sha256 cellar: :any,                 arm64_tahoe:   "e0119519d861dfaf85536ac222e22b92b3bcbbc8f9c2225c3dc484b1aea42292"
+    sha256 cellar: :any,                 arm64_sequoia: "7990f1e0cf9f960beb0211717d174e3e78dffdb6b85bdce0e1c8dd5e1c223f0d"
+    sha256 cellar: :any,                 arm64_sonoma:  "e789bcc9a1f3c1ea7e2b9393fc43574c43ff8772ab721adfa77f5dfd85e47e30"
+    sha256 cellar: :any,                 sonoma:        "eab67e48ec351ac9749386366f9f4e79c0371ba804c8373f59ccebc813740c29"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "36a8af04a9896b574d61bca4f8258fdc46f6ece0c64b92463620cc6b2d72b8fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e8a34b67e7fb82e0dd73a2899b1926b1881b74eef829cf531af0b88ca320f9a"
   end
 
   depends_on "cmake" => :build
@@ -176,3 +178,92 @@ index 9e672a4ca7..77959757f7 100644
          .root_module = addCompilerMod(b, options),
      });
      exe.stack_size = stack_size;
+
+--------------------------------------------------------------------------------
+--- a/src/link/MachO/Dylib.zig	2025-10-10 20:53:18
++++ b/src/link/MachO/Dylib.zig	2026-03-25 21:28:19
+@@ -730,29 +730,35 @@ pub const TargetMatcher = struct {
+             .cpu_arch = cpu_arch,
+             .platform = platform,
+         };
+-        const apple_string = try targetToAppleString(allocator, cpu_arch, platform);
+-        try self.target_strings.append(allocator, apple_string);
++        try self.addTargetStrings(cpuArchToAppleString(cpu_arch));
++        // In Xcode 26.4, Apple unified their TBD files from having separate `arm64-macos` and `arm64e-macos`
++        // entries to having just the latter, presumably because the symbol lists are identical anyway. It
++        // sure would have been nice if they settled on the former as the unified name so as not to break the
++        // world, but evidently we can't have nice things.
++        if (cpu_arch == .aarch64) try self.addTargetStrings("arm64e");
+ 
+-        switch (platform) {
+-            .IOSSIMULATOR, .TVOSSIMULATOR, .WATCHOSSIMULATOR, .VISIONOSSIMULATOR => {
+-                // For Apple simulator targets, linking gets tricky as we need to link against the simulator
+-                // hosts dylibs too.
+-                const host_target = try targetToAppleString(allocator, cpu_arch, .MACOS);
+-                try self.target_strings.append(allocator, host_target);
+-            },
+-            .MACOS => {
+-                // Turns out that around 10.13/10.14 macOS release version, Apple changed the target tags in
+-                // tbd files from `macosx` to `macos`. In order to be compliant and therefore actually support
+-                // linking on older platforms against `libSystem.tbd`, we add `<cpu_arch>-macosx` to target_strings.
+-                const fallback_target = try std.fmt.allocPrint(allocator, "{s}-macosx", .{
+-                    cpuArchToAppleString(cpu_arch),
+-                });
+-                try self.target_strings.append(allocator, fallback_target);
+-            },
++        return self;
++    }
++
++    fn addTargetStrings(self: *TargetMatcher, arch: []const u8) !void {
++        try self.target_strings.append(self.allocator, try std.fmt.allocPrint(
++            self.allocator,
++            "{s}-{s}",
++            .{ arch, platformToAppleString(self.platform) },
++        ));
++
++        switch (self.platform) {
++            .MACCATALYST => {
++                // Mac Catalyst is allowed to link macOS libraries in a TBD because Apple were apparently too lazy
++                // to add the proper target strings despite doing so in other places in the format???
++                try self.target_strings.append(self.allocator, try std.fmt.allocPrint(self.allocator, "{s}-macos", .{arch}));
++            },
++            .IOSSIMULATOR, .TVOSSIMULATOR, .WATCHOSSIMULATOR, .VISIONOSSIMULATOR => {
++                // For Apple simulator targets, we need to link against the simulator host's libraries too.
++                try self.target_strings.append(self.allocator, try std.fmt.allocPrint(self.allocator, "{s}-macos", .{arch}));
++            },
+             else => {},
+         }
+-
+-        return self;
+     }
+ 
+     pub fn deinit(self: *TargetMatcher) void {
+@@ -762,7 +767,7 @@ pub const TargetMatcher = struct {
+         self.target_strings.deinit(self.allocator);
+     }
+ 
+-    inline fn cpuArchToAppleString(cpu_arch: std.Target.Cpu.Arch) []const u8 {
++    fn cpuArchToAppleString(cpu_arch: std.Target.Cpu.Arch) []const u8 {
+         return switch (cpu_arch) {
+             .aarch64 => "arm64",
+             .x86_64 => "x86_64",
+@@ -770,9 +775,8 @@ pub const TargetMatcher = struct {
+         };
+     }
+ 
+-    pub fn targetToAppleString(allocator: Allocator, cpu_arch: std.Target.Cpu.Arch, platform: macho.PLATFORM) ![]const u8 {
+-        const arch = cpuArchToAppleString(cpu_arch);
+-        const plat = switch (platform) {
++    fn platformToAppleString(platform: macho.PLATFORM) []const u8 {
++        return switch (platform) {
+             .MACOS => "macos",
+             .IOS => "ios",
+             .TVOS => "tvos",
+@@ -787,7 +791,6 @@ pub const TargetMatcher = struct {
+             .DRIVERKIT => "driverkit",
+             else => unreachable,
+         };
+-        return std.fmt.allocPrint(allocator, "{s}-{s}", .{ arch, plat });
+     }
+ 
+     fn hasValue(stack: []const []const u8, needle: []const u8) bool {

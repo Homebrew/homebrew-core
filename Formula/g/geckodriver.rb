@@ -34,8 +34,6 @@ class Geckodriver < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ef35a96f86a562d2e4ce13a0bc898e5ae48512877091f31a1dc54b3c3da3d9e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "83fdf6d88e97169dbd88d75a957b29e8cddcc943b0f414fe67317dec60cdcbb1"

@@ -1,9 +1,10 @@
 class UserspaceRcu < Formula
   desc "Library for userspace RCU (read-copy-update)"
   homepage "https://liburcu.org"
-  url "https://lttng.org/files/urcu/userspace-rcu-0.15.5.tar.bz2"
-  sha256 "b2f787a8a83512c32599e71cdabcc5131464947b82014896bd11413b2d782de1"
+  url "https://lttng.org/files/urcu/userspace-rcu-0.15.6.tar.bz2"
+  sha256 "850b192096eb11ebf2c70e8f97bc7da7479ee41da1bebeb44e3986908bac414f"
   license all_of: ["LGPL-2.1-or-later", "MIT"]
+  compatibility_version 1
 
   livecheck do
     url "https://lttng.org/files/urcu/"
@@ -11,12 +12,12 @@ class UserspaceRcu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8db2d4886358e3b6d13a2ba3559e765a164e70544e3245040b0b5e59763a16e7"
-    sha256 cellar: :any,                 arm64_sequoia: "6a4555a5e2cb25997c1f624160e80940856f16fe7d57534a32dd1958f55cd5e1"
-    sha256 cellar: :any,                 arm64_sonoma:  "3c1b50e1358fc358d10d51d33dc71d52b083bbb0ebaf189d1d2406e3db38a5b6"
-    sha256 cellar: :any,                 sonoma:        "1629a8ef56adaa2d00facd77aa8dcb1de29e571f4f45c6ac205b5ee71e52f83c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c98e30094e5b04f4e067608e376d7526aa257022db3f416cb37d7bace09569cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2974edc53aab9507c51d3a32341d78d4600cc15509aa0a63b50698cac647aaac"
+    sha256 cellar: :any,                 arm64_tahoe:   "97c106090ca81cb3e86be9ea95d52cb8a91b6652e5c4e4049a4ec06d66f05d07"
+    sha256 cellar: :any,                 arm64_sequoia: "665d47e0ef64f5c3b29bc9788501ff9fbdae84d489bb3cbde5965140759a1b3e"
+    sha256 cellar: :any,                 arm64_sonoma:  "0cf9cd46e22eb9b4002522f4dda0bfc92f6290901b13d97d033654d7151fa1b7"
+    sha256 cellar: :any,                 sonoma:        "7a6692c07a9ab4ec2d9061def09dc3ddb0170702be741b4e563c00e9285df6c6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7ba41748b5ed3ee19e34487067d2708cb80aa5050daacd24259c2f38fa31448"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0ed3d7bc023151f2d4d73c30d3e3b1dc0a49ebd853c752233d8b1032e49e696"
   end
 
   def install

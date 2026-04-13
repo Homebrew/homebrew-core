@@ -1,8 +1,8 @@
 class PythonTkAT313 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.13.11/Python-3.13.11.tgz"
-  sha256 "03cfedbe06ce21bc44ce09245e091a77f2fee9ec9be5c52069048a181300b202"
+  url "https://www.python.org/ftp/python/3.13.13/Python-3.13.13.tgz"
+  sha256 "f9cde7b0e2ec8165d7326e2a0f59ea2686ce9d0c617dbbb3d66a7e54d31b74b9"
   license "Python-2.0"
 
   livecheck do
@@ -10,12 +10,12 @@ class PythonTkAT313 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "976d4333f000832603ee0a74d37380b1a9c61983ca8f108b2cdbc6cabf5dd370"
-    sha256 cellar: :any, arm64_sequoia: "85619a46c15d51f141443547482e1f105b1926339adcd2cec5c0a014af0760e8"
-    sha256 cellar: :any, arm64_sonoma:  "ba0841fe90977c11f95ef0ecb544a1f9d4df4c66b96d480db3defdb1735b93a0"
-    sha256 cellar: :any, sonoma:        "52b33e9516d0099691ab63f64a5d8b6944635537588fc2b3c344b303a66dc493"
-    sha256               arm64_linux:   "d9196555906e6315024c977ff5bf00ff9dd6c17972cce5071491023769b04a6f"
-    sha256               x86_64_linux:  "b49bbd3cfbe01fe55fd09d648b7ffc41947ac8285e044c22b13882bf6e79734a"
+    sha256 cellar: :any, arm64_tahoe:   "96857892a51ed1a06c5f81f75c7740cab9eeb939f31370ed051acc9dee8e3a14"
+    sha256 cellar: :any, arm64_sequoia: "d952102d55049676c8b5d54cce2c9f90b42d2b23066c9e0c1db3a42cb71e1b25"
+    sha256 cellar: :any, arm64_sonoma:  "9bc0434b5406d37e501173e913e96098898a241934b3b9192cb67181d2b543de"
+    sha256 cellar: :any, sonoma:        "901b0e132a44580b6926d58dede1495c917ec682e753704b7ef19146f66971af"
+    sha256               arm64_linux:   "edf17c1a1c8eb8b059c65a1ba21616afeec30da695d2aecaa11b38da0b21329d"
+    sha256               x86_64_linux:  "89de80dd7b0a55fc1f225580dcf661e31f1e09b3c3cd03320c5dca8f58269f6e"
   end
 
   depends_on "python@3.13"
@@ -37,27 +37,27 @@ class PythonTkAT313 < Formula
       Formula["python@#{xy}"].opt_include/"python#{xy}"
     end
 
-    cd "Modules" do
-      tcltk_version = Formula["tcl-tk"].any_installed_version.major_minor
-      Pathname("setup.py").write <<~PYTHON
-        from setuptools import setup, Extension
+    tcltk_version = Formula["tcl-tk"].any_installed_version.major_minor
+    (buildpath/"Modules/pyproject.toml").write <<~TOML
+      [project]
+      name = "tkinter"
+      version = "#{version}"
+      description = "#{desc}"
 
-        setup(name="tkinter",
-              description="#{desc}",
-              version="#{version}",
-              ext_modules = [
-                Extension("_tkinter", ["_tkinter.c", "tkappinit.c"],
-                          define_macros=[("WITH_APPINIT", 1), ("TCL_WITH_EXTERNAL_TOMMATH", 1)],
-                          include_dirs=["#{python_include}/internal", "#{Formula["tcl-tk"].opt_include/"tcl-tk"}"],
-                          libraries=["tcl#{tcltk_version}", "tcl#{tcltk_version.major}tk#{tcltk_version}"],
-                          library_dirs=["#{Formula["tcl-tk"].opt_lib}"])
-              ]
-        )
-      PYTHON
-      system python3, "-m", "pip", "install", *std_pip_args(prefix: false, build_isolation: true),
-                                              "--target=#{libexec}", "."
-      rm_r libexec.glob("*.dist-info")
-    end
+      [tool.setuptools]
+      packages = []
+
+      [[tool.setuptools.ext-modules]]
+      name = "_tkinter"
+      sources = ["_tkinter.c", "tkappinit.c"]
+      define-macros = [["WITH_APPINIT", "1"], ["TCL_WITH_EXTERNAL_TOMMATH", "1"]]
+      include-dirs = ["#{python_include}/internal", "#{Formula["tcl-tk"].opt_include/"tcl-tk"}"]
+      libraries = ["tcl#{tcltk_version}", "tcl#{tcltk_version.major}tk#{tcltk_version}"]
+      library-dirs = ["#{Formula["tcl-tk"].opt_lib}"]
+    TOML
+    system python3, "-m", "pip", "install", *std_pip_args(prefix: false, build_isolation: true),
+                                            "--target=#{libexec}", "./Modules"
+    rm_r libexec.glob("*.dist-info")
   end
 
   test do

@@ -7,18 +7,20 @@ class Sttr < Formula
   head "https://github.com/abhimanyu003/sttr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1fabf7a53aab3e69a2b42a474f524143bf15bf5f2a448fd6bb5aaceff8eff52"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1fabf7a53aab3e69a2b42a474f524143bf15bf5f2a448fd6bb5aaceff8eff52"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a1fabf7a53aab3e69a2b42a474f524143bf15bf5f2a448fd6bb5aaceff8eff52"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eff47c0cfbea20e7735f4187b0034c20ae1e833f4f3fff832b9409a57412d7a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "66489b5018db928761078bcfaf11c87ad3ea74e981943fbb53af7c06e684f296"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a3c432bf1cb5babeb063aafc6a8f468f02b9c801724369058e675105dc22a09"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "41b39d24d4c8cc8e75d384bbd42bd9bd22a7da7ac5954b3ee6d1652cbbd9c9d3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "41b39d24d4c8cc8e75d384bbd42bd9bd22a7da7ac5954b3ee6d1652cbbd9c9d3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41b39d24d4c8cc8e75d384bbd42bd9bd22a7da7ac5954b3ee6d1652cbbd9c9d3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20b9c91d03c9c512dd4f00d557e514f06cc17c44f3341153c2b61e3f4c933b91"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f4a64e268d9c4e296016ad939191a88a07e5fa852ba4e22e887d90f015047c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "253fef747f7bd342a2253655912062395c5bac02ed98435f38c25ad86b1c5b3c"
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    generate_completions_from_executable(bin/"sttr", shell_parameter_format: :cobra)
   end
 
   test do

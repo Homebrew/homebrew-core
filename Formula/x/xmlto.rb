@@ -10,8 +10,6 @@ class Xmlto < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "91da6f2fe6817daf5c455fe6c5c63b01188c71d017d16b37dbb49ee5bf4355d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a131d56e2e03b70f96c405262bf31ab9944de622d799b7341c1fe9b07ea0e34a"

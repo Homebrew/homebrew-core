@@ -1,19 +1,19 @@
 class Rizin < Formula
   desc "UNIX-like reverse engineering framework and command-line toolset"
   homepage "https://rizin.re"
-  url "https://github.com/rizinorg/rizin/releases/download/v0.8.1/rizin-src-v0.8.1.tar.xz"
-  sha256 "ef2b1e6525d7dc36ac43525b956749c1cca07bf17c1fed8b66402d82010a4ec2"
+  url "https://github.com/rizinorg/rizin/releases/download/v0.8.2/rizin-src-v0.8.2.tar.xz"
+  sha256 "1630ca52bae86f2ff37eb220699fc82f951b5b18080edfa3f50dd36a526c2d95"
   license "LGPL-3.0-only"
-  revision 1
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
   bottle do
-    sha256 arm64_tahoe:   "101d1036bc513f3128584e941fa96676dca94137a8eaf4d19bbedefbb1847f74"
-    sha256 arm64_sequoia: "5b3987dcb58da0885885b5f75eb944ffefc194664e463634a8e4e0427716b506"
-    sha256 arm64_sonoma:  "46aaf8f6599a4621af937babcefb869cfbd1d3847e305353515e366925acab57"
-    sha256 sonoma:        "07820069e40601231fd3896d8a69b30cd32447f3ce5e703c6a911395dba9064f"
-    sha256 arm64_linux:   "c1a6878ef9c94560dfc95f97de001d24475248359790ababd0a1f75140deedcb"
-    sha256 x86_64_linux:  "e5d3b6a8f48675fb8fd24290c2d5e9837bc1a13a9bd9a9dd9f20f5da9a4e51f8"
+    rebuild 1
+    sha256 arm64_tahoe:   "b46c736276c060f36dccbb6bafc5216d7010b8ec4d5864b5f4ec8536d611bfde"
+    sha256 arm64_sequoia: "72fb388c5879904773c4e4da645ede12114e1c0e678fd20019477256d6b58f1c"
+    sha256 arm64_sonoma:  "9fe0bec7ad14cf2256eb8161792dc4e7c7652e7356d404726c19b2eea0c645d1"
+    sha256 sonoma:        "4af3b7d816afea6cd2c8410faed4ba8b4239820b1927eb599f4633a7d3f6318c"
+    sha256 arm64_linux:   "c7546ce2d1464e6f8650a589e503466e789aacf59c368ba076ea9d66021fd12e"
+    sha256 x86_64_linux:  "07d86a1c8573f66cc6b7f0f76a7cc04dc98a1d46d4788986ad8a644458ee6be0"
   end
 
   depends_on "cmake" => :build
@@ -31,7 +31,9 @@ class Rizin < Formula
   depends_on "xz" # for lzma
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

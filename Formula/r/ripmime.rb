@@ -5,8 +5,6 @@ class Ripmime < Formula
   sha256 "6d551d6b65b4da6c6b8dfd05be8141026cc760ca1fb8a707b7bf96c199c9f52d"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5736f080200de4ac8a01866619a98584ddb207bc38d62c41654c620bb4a8528e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d5c2db89d1a44f0e239ce29344d3c0fd8cf1bcb87323604a35637c216f74a2f"

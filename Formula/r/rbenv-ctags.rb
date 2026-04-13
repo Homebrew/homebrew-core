@@ -7,15 +7,13 @@ class RbenvCtags < Formula
   revision 1
   head "https://github.com/tpope/rbenv-ctags.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "93ff69e4515aae2a296578472b395c3bc8721fc711327c6f2a9126111910700e"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "b002adad54827245a53792a5da722075e8662e65cde9ce26a628510a6b1b3ee6"
   end
 
-  depends_on "ctags"
   depends_on "rbenv"
+  depends_on "universal-ctags"
 
   def install
     prefix.install Dir["*"]

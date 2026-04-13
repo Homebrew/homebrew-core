@@ -5,8 +5,6 @@ class Myman < Formula
   sha256 "bf69607eabe4c373862c81bf56756f2a96eecb8eaa8c911bb2abda78b40c6d73"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 arm64_tahoe:    "ad0b203a8eb32295e620487891e41c177d0b4fb923060421f7b12dfab97b5c03"

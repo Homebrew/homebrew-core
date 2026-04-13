@@ -11,25 +11,15 @@ class Cgit < Formula
     regex(/href=.*?cgit[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:    "28b1bf891e59492271011fffcc6d9796cce12af986e68d6fe5eca10caaaeea83"
-    sha256 arm64_sequoia:  "451caf4e50e0fb28a7bcdc287bfef5c75770e81b82fd21157868131ee0a5bff3"
-    sha256 arm64_sonoma:   "6405d9f29445c303d1a5c89d9f15a512940414aba9194a5e421eca6d5ef60e8d"
-    sha256 arm64_ventura:  "8435a3e97f7d97b0a81af4d65387edba8da214f8d348cac06a0200dfd861ca83"
-    sha256 arm64_monterey: "3e517a8b04d86f340eeba6bdd52d3a187db3e604137b5d0cc3f5a0a5547d65b3"
-    sha256 arm64_big_sur:  "27b3ceaddc63451dd3b57c153dc9f4810326884929e4839ef430d43d2b39d197"
-    sha256 sonoma:         "498e122cc325bc2df8e2950640523ee0305ddd99eaf06ba85ada870727157740"
-    sha256 ventura:        "2f2b6641da929056912b8999d35801a707380714abc20dc56d5c38445f017066"
-    sha256 monterey:       "3e955c47ed5c722d9124b1a2efc90b7ac46e5cc89c0bf8772b2dd9061bb54a56"
-    sha256 big_sur:        "9e0084dfe5c75d91bf5b6494f6e15534cff838ac52a866e4c8667062dcdd2eb2"
-    sha256 catalina:       "787b27262a5998a5dba017d0f75bfa3dadef68b7e3730d87719b1ab48536814d"
-    sha256 arm64_linux:    "24b850675c1e7ea4ac15cf76ba4666649e9d6ae82e43e84136185247e50929a7"
-    sha256 x86_64_linux:   "472e74b2dec4db2de6714623b092f441e17d9806e5316c3597895329fde2abc3"
+    rebuild 1
+    sha256 arm64_tahoe:   "be548ed68df6c0f5be5a264f52cd1a5625e34b562ff27086b95b222339179b18"
+    sha256 arm64_sequoia: "ed3616461e84443db121307ec689ead2f13259075e5b78d5ba9c57e492a8c1e0"
+    sha256 arm64_sonoma:  "2c45ae870e93c74f7c46d9ae43ff238d113c134357c1dadb7f16f272a099f902"
+    sha256 sonoma:        "26d6321985ace42f306ee4bb887332e3cdf405dc59b47d1b0309e5620e1b2821"
+    sha256 arm64_linux:   "23411d564170f93eb3dfd7023c2927ea145ec740c5f1a5e02ea2c32f06676f4c"
+    sha256 x86_64_linux:  "45eee7a055629b3121032d6df36ba9ec244bb0143411f63ea2b7cd2fc6966325"
   end
-
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -37,6 +27,7 @@ class Cgit < Formula
 
   on_linux do
     depends_on "openssl@3" => :build # Uses CommonCrypto on macOS
+    depends_on "zlib-ng-compat"
   end
 
   # git version is mandated by cgit: see GIT_VER variable in Makefile

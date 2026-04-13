@@ -6,8 +6,6 @@ class Snownews < Formula
   license "GPL-3.0-only"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "fc57fbf60e598146c28686c404f621a386c955ae63a8a5ed0d7376d73ce62076"
     sha256 arm64_sequoia: "64dca2fb95dc41e989ce85e01ff04562a72d47e1d9ea8836efb8086775fa0fd5"

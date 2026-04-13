@@ -10,26 +10,19 @@ class Sword < Formula
     regex(%r{href=.*?sword[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "b6f7db99646d56fa897070a7823dc5088fb5ee13be82b3399cb490314291d2e8"
-    sha256 arm64_sequoia:  "0bbd46a628e21ec4c2cc033e16a03dca1a2ac3fb5e0ce282a5e60abf4c0b8f97"
-    sha256 arm64_sonoma:   "12b0bef882eb3ccc8e41d2199726435ed32286fde77a8b9b6ba6792a6210acaf"
-    sha256 arm64_ventura:  "2439903e03cee94fe9b519c1597d9bebda08eebb38f353f775202b637748403a"
-    sha256 arm64_monterey: "639a1f62fdf085c51a76a685ece4432a26dddc2fe7d4ba65fce337d6adbfc500"
-    sha256 arm64_big_sur:  "aa8af3684bf4475f2c4f193ce2eee82751525f99dfc718b49495ba58f1866662"
-    sha256 sonoma:         "412aea75608674d511f80719b48928266515fc6968b6e72fa6c8c57827ec4baa"
-    sha256 ventura:        "53e88cb788185e075f3d8bc1622098a2ca9f7dc506546ede4f3c29d5a3fd7105"
-    sha256 monterey:       "47de7e7639fddd186eb0c2c806149ff7c2bbf90837d78bf3f912958f4a4afeb4"
-    sha256 big_sur:        "85fd915531e0d5afa3ca380be523b09dd6c7ef4085ac4c7e26fc09e81c945228"
-    sha256 catalina:       "65d2da4bfbc5517b4fba2d4da6a4b57ff2429126041c59ee83ad29886df71d70"
-    sha256 arm64_linux:    "6edae24de2963c263914a334c7c7fee5c10b96f39af75a937df2bf8fff578a8f"
-    sha256 x86_64_linux:   "d24c458654c45c7746615daf3627cd11c1a805ab2eac215f3d9c935575510a0b"
+    rebuild 2
+    sha256 arm64_tahoe:   "152cbcfdc848a2a2b963b31b8dfb29c11c93178dbb234aa5e7d6469ec802e12e"
+    sha256 arm64_sequoia: "ae84e96561ad0d9a0a773cf2c453f49e300f49b645f096100dcc422ae6b23628"
+    sha256 arm64_sonoma:  "d284e7b1d3c842338b6a8e3e2ef148ddc380fbbb9012f43433d7fb4b7b5ed9a2"
+    sha256 sonoma:        "44fb9a8b06c4b81a975091db3a26ca102674f05e1e8c832ae9466269ac66c988"
+    sha256 arm64_linux:   "4ff7bdd89ef62a9863acd1657e7bec7876682719e38b6586b5433a01a1b39ba0"
+    sha256 x86_64_linux:  "fd4cfbf6785e0639306e71e8caaa0c7b9c04f97d4aee32bd855ab06eca13aa7b"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do

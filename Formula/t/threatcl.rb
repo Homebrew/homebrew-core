@@ -1,18 +1,18 @@
 class Threatcl < Formula
   desc "Documenting your Threat Models with HCL"
   homepage "https://github.com/threatcl/threatcl"
-  url "https://github.com/threatcl/threatcl/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "e700fcc1fecaaec3f90e8b2df7d2fc3ee25bc6b6cef06f8532e07774d6363e7e"
+  url "https://github.com/threatcl/threatcl/archive/refs/tags/v0.4.7.tar.gz"
+  sha256 "24a6900433772c927265ce3aa78968ce9fe653748efb760fa5fb9178f20ee2ca"
   license "MIT"
   head "https://github.com/threatcl/threatcl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd42d8b972b1f2d166b664a6c13c79b2ba730107f4c7a3f453b5c1f1f9c7bd9f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec850f6d7b1bf267536bd6417c49bc114272ab13906dc9005c47debf90bb65e3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bd3fdf45c917519f00fc8c8da601434f6d2cababe891582c7cb5a7d5b9b1a2d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "03e9091bb945a1d76e012c1e3bceb2f22e9e33f1476a699491b04a0b5c2c2bc2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1af7f387e07b91841b02b4367f9788666fe8c168470742228f7b42d3255111c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0955fe1c1a5f07d8c0959de2e32f11fdd32d7edf3f2124c6bc117fc9f57ff71e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c7bdf7f369782f188f64490a70d460b5f3b65e6223580b0b2664c6ed0abd904f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a024ea9737ffe6ec80e6cc8005b2161a8ff97fa949c86df8df8b29a1980e619"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f78a48e3dee4f528f5b9002698ece79b4b377a16b7ac757000bc1d362becd9b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "01afe27a2092e31ebb3791f3d3239c581994f7579eeccad30819f5b788a98fbb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "13ea2d56e539d5ff89150bb450e8dec8031cff92037b64649ce01b2599c33e5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91491ebcb79c2d01d397e71b93a97a3cb56004bde25647cd5c5648044f4d39ac"
   end
 
   depends_on "go" => :build

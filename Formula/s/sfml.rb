@@ -5,6 +5,7 @@ class Sfml < Formula
   url "https://github.com/SFML/SFML/archive/refs/tags/3.0.2.tar.gz"
   sha256 "0034e05f95509e5d3fb81b1625713e06da7b068f210288ce3fd67106f8f46995"
   license "Zlib"
+  compatibility_version 1
   head "https://github.com/SFML/SFML.git", branch: "master"
 
   # Exclude release candidates

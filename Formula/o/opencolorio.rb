@@ -4,28 +4,31 @@ class Opencolorio < Formula
   url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v2.5.1.tar.gz"
   sha256 "08cb6213ea4edee550ab050509d38204004bee6742c658166b1cf825d0a9381b"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/AcademySoftwareFoundation/OpenColorIO.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7e69e12dc26b361573d614b2a83f38e091d3657bad1ac5b53037de07c316d77a"
-    sha256 cellar: :any,                 arm64_sequoia: "2e38c440463b246b9be3ebc46d0cd27a8ec8fd0f491f1d8eeb809bd2094bc842"
-    sha256 cellar: :any,                 arm64_sonoma:  "0fd7e060adb97cdccf45a563ae8315c1f0405da7c9659b737e8cadfc6a3f36aa"
-    sha256 cellar: :any,                 sonoma:        "103b47a4b03ec353922f847f56515b71a8c51e43a8c41cd46e2a0ff27c5d5eb5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad1aa95322f6aa2afce1d2fc7e19fc6b15c3f8a2ecbba27e6948a2eeba4d5b29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a30b9ad1b9eeac37eefa73e6260cb9408957f4e232c8d9e66544eced468ca591"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "0ca624f3788e11cefd2b246e8154b85a819c2a40ed83e618abdb93c00dbedc16"
+    sha256 cellar: :any,                 arm64_sequoia: "a253b7d210772a5f07acdae83b8707e2c27da64f5dd883f5428e6b5e72afd456"
+    sha256 cellar: :any,                 arm64_sonoma:  "24f7868c7417b93233c10265dc9f594e07331d9a00c515a63d27c3baffb339ab"
+    sha256 cellar: :any,                 sonoma:        "c1b9c2d7eda1ec4613cd573a4c16414f286155f91f25715f7e0c204053e85fa3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9169481ded19f10e1b7c82e7c694d34c30dd78e0ab44107149b303208d869fd1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d91f280ab35dd2bfb6c30bf2480f9370fb33fd44aec3b542d2fd28ccd4680f2"
   end
 
   depends_on "cmake" => :build
   depends_on "pybind11" => :build
-  depends_on "python@3.14" => [:build, :test] # for bindings, avoid runtime dependency due to `expat`
-  depends_on "expat"
+  depends_on "python@3.14" => [:build, :test]
   depends_on "imath"
   depends_on "little-cms2"
   depends_on "minizip-ng"
   depends_on "openexr"
   depends_on "pystring"
   depends_on "yaml-cpp"
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
+
+  uses_from_macos "expat", since: :sequoia # expat 2.6.0+ (Apple expat-37)
 
   on_arm do
     depends_on "sse2neon" => :build

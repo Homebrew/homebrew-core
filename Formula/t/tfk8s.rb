@@ -6,8 +6,6 @@ class Tfk8s < Formula
   license "MIT"
   head "https://github.com/jrhouston/tfk8s.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f9b07f68aa49e570daa4a68138d7f16893d524b2e2715df5de719be05da6a61e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e499b7011e3ce354ecbcc659a9dfbd792a4c27a434bc433b591878417c0e1d2a"

@@ -5,8 +5,6 @@ class Dc3dd < Formula
   sha256 "bd1b66d20a4020ab94b512e56d76cb5f86470d0216081586d596366927cb8d8b"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "1319a1907495f80e22c8e4047ff2a3764821774313b674853ac89f0f95159c1d"
     sha256 arm64_sequoia:  "1cdfecc59688663ad056a3dc3db19a87d5e7c6356f9f88c33695126b0270639c"
@@ -22,25 +20,11 @@ class Dc3dd < Formula
     sha256 x86_64_linux:   "bdaae1ff1efcea3319dbf1e84f68c1d51a1b12e8a8eae4c13f2e2069084051c7"
   end
 
-  depends_on "gettext"
-
-  uses_from_macos "perl" => :build
-
-  resource "gettext-pm" do
-    url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"
-    sha256 "909d47954697e7c04218f972915b787bd1244d75e3bd01620bc167d5bbc49c15"
+  on_macos do
+    depends_on "gettext"
   end
 
   def install
-    ENV.prepend_create_path "PERL5LIB", buildpath/"gettext-pm/lib/perl5"
-    resource("gettext-pm").stage do
-      inreplace "Makefile.PL", "$libs = \"-lintl\"",
-                               "$libs = \"-L#{Formula["gettext"].opt_lib} -lintl\""
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/gettext-pm"
-      system "make"
-      system "make", "install"
-    end
-
     # Fix to error: call to undeclared function 'strtod_l';
     if OS.mac? && DevelopmentTools.clang_build_version >= 1700
       inreplace "lib/c-strtod.c",
@@ -58,16 +42,13 @@ class Dc3dd < Formula
     chmod 0555, ["build-aux/install-sh", "configure"]
 
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
       --infodir=#{info}
       gl_cv_func_stpncpy=yes
     ]
     # Help old config scripts identify arm64 linux
-    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
     prefix.install %w[Options_Reference.txt Sample_Commands.txt]

@@ -1,23 +1,26 @@
 class Teamtype < Formula
   desc "Peer-to-peer, editor-agnostic collaborative editing of local text files"
   homepage "https://github.com/teamtype/teamtype"
-  url "https://github.com/teamtype/teamtype/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "eabc7a197a6d5f1a06855d168796f5db95e1d61cfe1cb9cb05ce6f4e3cec7cb9"
+  url "https://github.com/teamtype/teamtype/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "8503411b340f00456ac6c1d586637de35a35886b7addbf2cec06816e05bc9873"
   license "AGPL-3.0-or-later"
   head "https://github.com/teamtype/teamtype.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4167d805a9ca673742f74926d93fee28f70b38f369e70ce4c1bca73a4550485c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f9e1566b9d76dc2e9fb6bb82c952fbb73bfff45128b20657023f74148741c27"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b10337c3b94b61247e909e7092bacc678ae59b2a3f57f10355b62015be54c510"
-    sha256 cellar: :any_skip_relocation, sonoma:        "783ea10276bca6114f78ca1a0fae428dce806cca03d8d1bf54953878b996d43d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e2f429aafb4b93539d399194e25a098361019264535b20a3300c30d7271dbe7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbfbc77a57e1995bb4874da5f4976bfc4cd429e8ecd168e67c8c8872d746a7c9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f305fb49649d180299c2cd52a2e24c92088389058c9069cd07e272d237656019"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3d701160add6b5f51cbd6b8dd79cee38b26ae3bd1dfeba6dd6d5f526e9d309e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1caebb81e31e88e9d3de8fd439293bf5078c903b021cb79d35806eb87662575"
+    sha256 cellar: :any_skip_relocation, sonoma:        "894b2d5c75a01fce4f124476df1cc0438b160a12688749bb355148162c4e20ad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48431d07b888a42dcac294713e26a88f72e68dc1427f9795db5ae31c9728d348"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f13a452a13a112335fece8cb2a97e23414c7164ae7d22eec8a180525ec4553b7"
   end
 
   depends_on "rust" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     cd "daemon" do

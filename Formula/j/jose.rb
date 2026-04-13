@@ -6,16 +6,13 @@ class Jose < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:    "7535c3d81eff311b23cf1884439712bb31db60bddd029c750517c64e95e5a75d"
-    sha256 cellar: :any, arm64_sequoia:  "2bc631abff8a3ef0688dad54e842ea31860feb6c6b4b4ea01fcc3a22044dd16d"
-    sha256 cellar: :any, arm64_sonoma:   "1af1eb0f697cd897bbedac36674670646b82cae369c752f4718500f5f1f324ef"
-    sha256 cellar: :any, arm64_ventura:  "77b2d20d1a63a7f669930cdb9d8804722ed939a10efa9634c1f7635e61643634"
-    sha256 cellar: :any, arm64_monterey: "4e01f021271f496483c1ce088c3c717eca63cee78498a2ecc778ca75e65f76bd"
-    sha256 cellar: :any, sonoma:         "8bf8223dfd601b5631333198719e64e9c7b529e4a5d9e86192d181d6c8926f99"
-    sha256 cellar: :any, ventura:        "1a670df4a652c8ffd615947a16be8a8867135d4b34e2081744a075c898d6cd79"
-    sha256 cellar: :any, monterey:       "4301c9a1347a66f4b8065e0e78725bab058a264f1031c35cf4c92881af350492"
-    sha256               arm64_linux:    "8a7e9b9bcc8ad20d55fb7fd4e393d83ecd51962cadcebd467d357ceade17ddf6"
-    sha256               x86_64_linux:   "ebb309c88f0a9cf0d4a2ab3c13015ebecf876991941b9ed6a2de2dbc9f6a7adb"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "67229f3071c21858f07f5a5f43072531c49e2397d161f8bf505f25ce0c9f2184"
+    sha256 cellar: :any, arm64_sequoia: "55060e0f494136495d66e48db57e1fc04aa2822e5b3777c7fcd44bc34be2302a"
+    sha256 cellar: :any, arm64_sonoma:  "03f0277a4eb033772af00607572e613da16fabaee01c6b7ff9e60dae8581b4da"
+    sha256 cellar: :any, sonoma:        "e381e6924862e4d6184176e9945f51465c25fbb5ec580e0e7d29cfbfab1087df"
+    sha256               arm64_linux:   "859ce789ed3684e96d57e5bf3c3146b63e5ae70fce3fc7d798a3f0af2e084286"
+    sha256               x86_64_linux:  "7cc9ebb45c81fced9dbfece96ad5007a334bff37817cdd93605dcecfe9d67c0f"
   end
 
   depends_on "meson" => :build
@@ -24,7 +21,9 @@ class Jose < Formula
   depends_on "jansson"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Apply upstream PR to fix build on macOS to use `-exported_symbol`
   # PR ref: https://github.com/latchset/jose/pull/163

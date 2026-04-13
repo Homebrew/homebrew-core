@@ -16,8 +16,6 @@ class Aspectj < Formula
     end
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9c09914feef8da7857dfb8c9be43e7f50c46ca782d7bdb590a1126e95243b91c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "23cd98455d550e53b70e559b2ca3e43bed5d7bff0d9567155e56576d148ef549"

@@ -1,12 +1,12 @@
 class VueLanguageServer < Formula
   desc "Vue.js language server"
   homepage "https://github.com/vuejs/language-tools"
-  url "https://registry.npmjs.org/@vue/language-server/-/language-server-3.2.2.tgz"
-  sha256 "f73d115539d4eabf7b466f2183cc69a18f381b7f4b76564b0695c825e2182808"
+  url "https://registry.npmjs.org/@vue/language-server/-/language-server-3.2.6.tgz"
+  sha256 "4c8c7767712efa682f9d2de55c092d2fff3efcfedc343fbd4c609bc62dff147d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d1fbead5884a58ccd0d555f8530a27ed5f2c7ce18c5f3c3d1478fc0083e7831f"
+    sha256 cellar: :any_skip_relocation, all: "951f7e42de7be9666eb79bebeb86d0e79b11176676cf2107acd2e575b9bff982"
   end
 
   depends_on "node"

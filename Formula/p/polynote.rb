@@ -4,8 +4,8 @@ class Polynote < Formula
   desc "Polyglot notebook with first-class Scala support"
   homepage "https://polynote.org/"
   # TODO: consider switching back to dist when available: https://github.com/polynote/polynote/issues/1486
-  url "https://github.com/polynote/polynote/archive/refs/tags/0.7.1.tar.gz"
-  sha256 "00ec0b905f28b170b503ff6977cab7267bf2dd6aa28e5be21b947909fa964ee1"
+  url "https://github.com/polynote/polynote/archive/refs/tags/0.7.2.tar.gz"
+  sha256 "6802606b38c34b7e0e3717675f6d92cae5419d5927314c51b238bbd15f1d73e4"
   license "Apache-2.0"
 
   # Upstream marks all releases as "pre-release", so we have to use
@@ -27,12 +27,12 @@ class Polynote < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "636648fae058e34b1cffa00390fa593cafac97dd8fce2f04027ac414ca689931"
-    sha256 cellar: :any, arm64_sequoia: "b92dd9392d2464b4f47c04cd4949962fb2c8b0c7e0583ce6e945f09ca6d7a3f0"
-    sha256 cellar: :any, arm64_sonoma:  "a41d74539228e264fcc881cd92efb34df5480ffbc12ec1718e675e4bd537b078"
-    sha256 cellar: :any, sonoma:        "3cb02416bef3a72f1ebf4a5457c6dafe5bab77dde8b6b13c20182e1d38cc98a5"
-    sha256               arm64_linux:   "8a34a94e02df60a7ba9603fa1fbab473ca5cb855e57d38ed024940ec1dbc1a2e"
-    sha256               x86_64_linux:  "ab2b732d4b3f2480a58bfee82768ed0143295a27d7a639b6b50e6cf8c01297cd"
+    sha256 cellar: :any, arm64_tahoe:   "9e426d1ec0e516570fd0c40d836821823e100f7a5a9d80652ec27c4627d335b9"
+    sha256 cellar: :any, arm64_sequoia: "01156fa43ee0aa7ded51b47a59e25b6b2aaebdec065a2e6ae63b29aa13247766"
+    sha256 cellar: :any, arm64_sonoma:  "0f588261fb28e7388c9d59fe16378620daf5cfe958b7f02bafee2aff444a16b9"
+    sha256 cellar: :any, sonoma:        "ef680a88951b4c4c06d5bc61dbbbf4d755840bc82598758010b034389d9e0da8"
+    sha256               arm64_linux:   "1dbf3c452f49fa6153801b8800f2d2a5df304785a8a5d7bf7904ccdb42ac703c"
+    sha256               x86_64_linux:  "27764487ba7979d2f67f53d6828aef8d2d5a56a9aea1972c0e9c4a5e6b1fe542"
   end
 
   depends_on "node" => :build
@@ -105,7 +105,7 @@ class Polynote < Formula
         dir: #{testpath}/notebooks
     YAML
 
-    pid = spawn bin/"polynote", "--config", "#{testpath}/config.yml"
+    pid = spawn bin/"polynote", "--config", testpath/"config.yml"
     begin
       sleep 5
       assert_match "<title>Polynote</title>", shell_output("curl -s 127.0.0.1:#{port}")

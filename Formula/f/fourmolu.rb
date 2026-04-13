@@ -1,8 +1,8 @@
 class Fourmolu < Formula
   desc "Formatter for Haskell source code"
   homepage "https://github.com/fourmolu/fourmolu"
-  url "https://github.com/fourmolu/fourmolu/archive/refs/tags/v0.19.0.1.tar.gz"
-  sha256 "815bdcd38ee87823d421be42cb5add06d7ee6507e746a40b0df720fdd6c8a8dd"
+  url "https://hackage.haskell.org/package/fourmolu-0.19.0.1/fourmolu-0.19.0.1.tar.gz"
+  sha256 "957b7ff7681411bf4872120fcfef6a9182fe15a6d655a6db6c5a06f726935cf5"
   license "BSD-3-Clause"
   head "https://github.com/fourmolu/fourmolu.git", branch: "main"
 
@@ -16,7 +16,7 @@ class Fourmolu < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.12" => :build
   depends_on "gmp"
 
   uses_from_macos "libffi"

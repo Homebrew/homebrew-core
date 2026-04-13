@@ -1,25 +1,27 @@
 class CodebergCli < Formula
   desc "CLI for Codeberg"
   homepage "https://codeberg.org/Aviac/codeberg-cli"
-  url "https://codeberg.org/Aviac/codeberg-cli/archive/v0.5.1.tar.gz"
-  sha256 "6f91dd631ec630d7b558abcc783757ea189e934aee5ea645691268f859d0c197"
+  url "https://codeberg.org/Aviac/codeberg-cli/archive/v0.5.5.tar.gz"
+  sha256 "09902e3511c24316e9aab4cbd51492d00eb978ee81429e873de80bc9a485c549"
   license "AGPL-3.0-or-later"
   head "https://codeberg.org/Aviac/codeberg-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "91efe8b40f25e6644cc11fd3be27808838492721f99a5ed795f609dc1c3cf7a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "323ef96918f9740c6e431bfbc748326684ed9d4f421b982da6da272dbc8f1dc2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fc01fcd334144beb505210380e83dd7514146db1d31fce07887b6d57d894280"
-    sha256 cellar: :any_skip_relocation, sonoma:        "222220b93d6966eeec23533a3854e5f75fb75c8a95e460a32434a57ff20f8809"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6c32a32a1d231c45e72cde7ee83d0204a36e7d8296473370a5ee09a4793767f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b0183090aff316d6d089bba04b428e0f96a3838de815fca3308ec1be70f2430"
+    sha256 cellar: :any,                 arm64_tahoe:   "8bd5f830c3221b1ac74d72d87d2fc73e56600dc2136089223f4e1b254d12f49f"
+    sha256 cellar: :any,                 arm64_sequoia: "83a74d50b902d8ae120a460c8536f66a8a16f4f38a494148d0fc0339d8ce3be8"
+    sha256 cellar: :any,                 arm64_sonoma:  "7c253e2793055098984dbda0ce9298934d269df26a6f12833d0390895e65d1bf"
+    sha256 cellar: :any,                 sonoma:        "6d5995f7e35e1db9126b3777c035b0848915e4cb1b738d2e57230583dee34b58"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c92e3099bddbb7a90d72b69e6d829d203202361e123072fc11838b77b48ecd72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12d605e557b17e8a81d430e8d5a8bae6aec6b6206b015506a4ed8adfc497a5d2"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -32,7 +34,7 @@ class CodebergCli < Formula
 
     assert_match "Successfully created berg config", shell_output("#{bin}/berg config generate")
 
-    output = shell_output("#{bin}/berg repo info Aviac/codeberg-cli 2>&1", 1)
+    output = shell_output("#{bin}/berg repo info --owner-repo Aviac/codeberg-cli 2>&1", 1)
     assert_match "Couldn't find login data", output
   end
 end

@@ -6,8 +6,6 @@ class Dcp < Formula
   license "MIT"
   head "https://github.com/exdx/dcp.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "08061eec2befb7c29aed3087ba5e6ac7a6459410d80c5630d0b47efd3ba65ba0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cb44281e662eb5bae136d9e3d6d6e0b84b230fa0622d0b3abab0a60bae216fa9"

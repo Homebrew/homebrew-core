@@ -1,8 +1,8 @@
 class Netatalk < Formula
   desc "File server for Macs, compliant with Apple Filing Protocol (AFP)"
   homepage "https://netatalk.io"
-  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-4-0/netatalk-4.4.0.tar.xz"
-  sha256 "18ca32dc6c25e7ba3528594b784379f013888fa9840ffc478cd1fef55513825c"
+  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-4-1/netatalk-4.4.1.tar.xz"
+  sha256 "8fcab0bf3b39cd8a94fe3ee7a8264c6000515a3af377da3416696609ab13316d"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -17,12 +17,12 @@ class Netatalk < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "66bb3e06001fb9756d0998b11d3f043a03d143ea8c8a5f6d5329e1cbf4f71b6e"
-    sha256 arm64_sequoia: "dada53b09048c2a0bc950145a7f66f8e70f7781fc9486a92c2c9cde5bf93a168"
-    sha256 arm64_sonoma:  "8b356204aa369d432f0961cc532980b9fcd64a2f5af9991f4270ee064a073098"
-    sha256 sonoma:        "3610308403d4332e1972708c48552a0afe54d468869503d8283828e82ddd9031"
-    sha256 arm64_linux:   "3e093f4b147438555799fb03f77ada0bbd69b39e1bc838b5b6d43124bf4ceb8e"
-    sha256 x86_64_linux:  "612d363969c1c3672698e7faa250a588443e7de213dcd72fb2139449aca43fa7"
+    sha256 arm64_tahoe:   "a035b13e47aa4e8c0b69b8c8d1349fdbd1770498742d4355c34fdfa8438ea6dd"
+    sha256 arm64_sequoia: "9d836b99af5ab42bba289f88704e773fbf7b943a88460d3b356cb3598fac4f46"
+    sha256 arm64_sonoma:  "00c9b000cfc0f11c3818ed4f569f23e43c2b248a954cc63ebfbaf38910d848be"
+    sha256 sonoma:        "c60acf3487cac5ef372d67eeab9f23083ff8c6812e8a039d8abfec4d72176606"
+    sha256 arm64_linux:   "ebbf5e06fe8b5d04eafee507c8be83d68ea8fc18e8c2822e1dddd3826fc37f96"
+    sha256 x86_64_linux:  "b0b70664aa88aaf213ba4d943c5f5fc0034fd5d67143ba638c4cbb7139c51046"
   end
 
   depends_on "cmark-gfm" => :build
@@ -115,7 +115,7 @@ class Netatalk < Formula
       signature = 1234567890ABCDEF
     EOS
     fork do
-      system sbin/"netatalk", "-d", "-F", "#{testpath}/afp.conf"
+      system sbin/"netatalk", "-d", "-F", testpath/"afp.conf"
     end
     system sbin/"afpd", "-V"
     system sbin/"netatalk", "-V"

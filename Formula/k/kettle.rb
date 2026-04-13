@@ -5,8 +5,6 @@ class Kettle < Formula
   sha256 "e6804fae1a9aa66b92e781e9b2e835d72d56a6adc53dc03e429a847991a334e8"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "2e06b9a8ce68da482615fb8566137223350e711a6d7a48e8e19f27bb3307b0f7"

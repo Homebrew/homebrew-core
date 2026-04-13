@@ -10,8 +10,6 @@ class MecabJumandic < Formula
     skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1916fed29c7a65bba61d492798c38869d624ea1496b03e77f2aca5ffd3cbfe9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "874bddec7db567b9cfc77eae8df900cf54264d6b047aa72ad5de27f10c257f0a"

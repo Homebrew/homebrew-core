@@ -5,6 +5,7 @@ class Guile < Formula
   mirror "https://ftp.gnu.org/gnu/guile/guile-3.0.11.tar.xz"
   sha256 "818c79d236657a7fa96fb364137cc7b41b3bdee0d65c6174ca03769559579460"
   license "LGPL-3.0-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 arm64_tahoe:   "badcd01f64dd30d067e31fa2658b3d12760c13b897616200c6e6154e946b3515"

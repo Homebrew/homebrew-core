@@ -6,8 +6,6 @@ class Gitbatch < Formula
   license "MIT"
   head "https://github.com/isacikgoz/gitbatch.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4f0dfe4d2f87530d4b6efa9896233606294804a6ec6ae6acd783e7a0fb81bc0f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0a46587ffb66c2c071a4052ee70f81ddd41b93151e09b19404f789b5fe9f1b1e"

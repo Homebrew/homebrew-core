@@ -7,8 +7,6 @@ class ColladaDom < Formula
   revision 15
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "571dd57bc1c55e2136dcca7348eb4ff31aee95a3d20178ea87a36061fe655a6a"
     sha256 cellar: :any,                 arm64_sequoia: "506e14ad369e4dbb9014a15b29f50ffe2b1d453877939de55a8112b3cb279d0d"

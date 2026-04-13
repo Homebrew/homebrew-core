@@ -2,6 +2,7 @@ class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
+  compatibility_version 1
   head "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git", branch: "master"
 
   stable do
@@ -20,8 +21,6 @@ class Pulseaudio < Formula
     url :stable
     regex(/href=["']?pulseaudio[._-]v?((?!\d+\.9\d+)\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 2

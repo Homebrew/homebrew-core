@@ -1,8 +1,8 @@
 class VulkanVolk < Formula
   desc "Meta loader for Vulkan API"
   homepage "https://github.com/zeux/volk"
-  url "https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-1.4.335.0.tar.gz"
-  sha256 "ca2beb1ab9bf272895bc0152ef29b437d178d837bae4a76d0022b7bbafb3c483"
+  url "https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-1.4.341.0.tar.gz"
+  sha256 "42df539c70ffdaea259e317aef73524512f4093f6f4dafb36fa6cf2680c823b9"
   license "MIT"
   head "https://github.com/zeux/volk.git", branch: "master"
 
@@ -12,12 +12,12 @@ class VulkanVolk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "74133825cad138708511c5da76dd859303347043232ccfd34f66054e01250039"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59158387ce00cdafd0f3e84c72b338c2dc4089238ad498a7d2dbb9edd11296d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1bb8bd945463edae839990a0c06dfd6081547caaa85043281af21cff12141383"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b2e3b8014d920b01b40c7602f0ecbb8f8b992f2be99e2bf83cc508e72aa8c289"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f49b63c10e2890244f446194e1eeecb6c73ef463d436135fedcc990ea8bcd51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "234b2fc8135b4f38d38c43c61b126d0214ff845fe71d7390b1429d378d10286e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2de1b4a4bd37459f8eac627af471e3026d88f516a5e428a84faa3f50557f06c7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34e1fc70424d67d5bf5a23000889fc2835b352f223aa3bcb4aca7b38ee4c1c90"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe5cfce5fbbf657db74e60f839596f8dbbcd77b2b633fe533133ec722877daca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c14f7d005be4ffed9d7737c4557b15a1d659f160f8a06a292e825a2a3a107e03"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4a847bb24e391265d104037e86aac0fffb06a76e8d544012deede7e0a91684d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0934296bdcdafe16ebbccf85177c538b6239058d9b5c11d235ab74654225d558"
   end
 
   depends_on "cmake" => :build

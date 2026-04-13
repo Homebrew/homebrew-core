@@ -4,17 +4,16 @@ class Libfido2 < Formula
   url "https://github.com/Yubico/libfido2/archive/refs/tags/1.16.0.tar.gz"
   sha256 "7d86088ef4a48f9faad4ff6f41343328157849153a8dc94d88f4b5461cb29474"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "338e0b3e52dd0096e00fc9fdad75248b943b6ba8746542050f2a70533e7e1f5b"
-    sha256 cellar: :any,                 arm64_sequoia: "70ab4f30999b5a903cdf5d12d86ce198d68b9c2c6d663750136d559c34414fdb"
-    sha256 cellar: :any,                 arm64_sonoma:  "74bea8577d47d68c8e14624cec351af4f20df35e5f609f7ecbc6874e6ba3d514"
-    sha256 cellar: :any,                 arm64_ventura: "536aedd6c35b1222529bce53a343118892964a240016858c63406950a93825b2"
-    sha256 cellar: :any,                 sonoma:        "6fee97e4c3918f85f16e1a250149a7854b67adea48f9fe1d63a0b3cf48770d87"
-    sha256 cellar: :any,                 ventura:       "583f92599513718c97c33608a8bd170c024fa86db95635a1b9f9589b90beed94"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6efd180717461d2385957a1a1611cf4dde0d0a1909c97785b85c2bf9f4ca2f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0a1f8eafd6fede2bc1a1cab400f7d55f3fb807af1d261edee7de9ea60c40304"
+    sha256 cellar: :any,                 arm64_tahoe:   "de7760db5c26f7f27d1e63c18160253e2be10b9c91420fa898b36c4f6c3f92c5"
+    sha256 cellar: :any,                 arm64_sequoia: "8a0b4ea43277a6f1f10bb8eef33d7e781808813e31a5c9eb93fd3e5b0a0c370a"
+    sha256 cellar: :any,                 arm64_sonoma:  "630853eec76c71352580531a7b2afff3db34ae94250e70575fb3bbcd41b6ac54"
+    sha256 cellar: :any,                 sonoma:        "e6611f41c5e77ca4f0f813a37262c334d7a2b0087cbbb120ce1bb274eb6848aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3175cb4697597912eca08346a70ffbb6b4674dfb7a1ebd0059036c783edacca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c41af87d2533861806381d3ba6c36fd7fc713133f87422b45981597324a204f3"
   end
 
   depends_on "cmake" => :build
@@ -23,10 +22,9 @@ class Libfido2 < Formula
   depends_on "libcbor"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "systemd" # for libudev
+    depends_on "zlib-ng-compat"
   end
 
   def install

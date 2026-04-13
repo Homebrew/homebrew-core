@@ -15,19 +15,26 @@ class BatsCore < Formula
     sha256 cellar: :any_skip_relocation, all: "b1d947f6f436990be319ec03d9b147c58dd385d1c77c1f541410c1f0aa776fad"
   end
 
-  uses_from_macos "bc" => :test
-
   def install
     system "./install.sh", prefix
   end
 
   test do
     (testpath/"test.sh").write <<~SHELL
-      @test "addition using bc" {
-        result="$(echo 2+2 | bc)"
-        [ "$result" -eq 4 ]
+      @test "no arguments prints message and usage instructions" {
+        run bats
+        [ $status -eq 1 ]
+        [ "${lines[0]}" == 'Error: Must specify at least one <test>' ]
+        [ "${lines[1]%% *}" == 'Usage:' ]
+      }
+      @test "skipped test" {
+        skip
       }
     SHELL
-    assert_match "addition", shell_output("#{bin}/bats test.sh")
+    assert_equal <<~EOS, shell_output("#{bin}/bats test.sh")
+      1..2
+      ok 1 no arguments prints message and usage instructions
+      ok 2 skipped test # skip
+    EOS
   end
 end

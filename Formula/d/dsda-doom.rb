@@ -13,12 +13,13 @@ class DsdaDoom < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5cc7555e4275b5668e1fce806478390614ee9b2807089df3e3b66481af31c9b0"
-    sha256 arm64_sequoia: "6f82f0faa9f35c0db0b6bcee40f4c9d4c179ec9b28f82fda45fe0a086e49db25"
-    sha256 arm64_sonoma:  "171541adf4020cc98ef206dbaa7ff051e9015e46cdc3f8666281f5dd4424f487"
-    sha256 sonoma:        "aec8309a2bfccdc7e16304978440401dae23a0e2f0f9776af27f7f3e9d3a2a50"
-    sha256 arm64_linux:   "ba6d641574ae6e730884386e56ad258f1d708b43a2e5cf416feca7f1056aadbc"
-    sha256 x86_64_linux:  "b359ea353f4a2585139d7528ba4b822267d68f1b26cbc4209278ab3579527f08"
+    rebuild 1
+    sha256 arm64_tahoe:   "8701e733a61839e8a4dd604f981070c7767340ee1d631e59b359cf6e1956c008"
+    sha256 arm64_sequoia: "3aac3390bc253c004d90862f0d3f255f7b8040a006580fb537e6073bc61e9896"
+    sha256 arm64_sonoma:  "034195036cc006dcbd1f2421411e96e9d25e37550c726f06043ac3572e03f932"
+    sha256 sonoma:        "4ff911beb7b369f23aaeaff11085d13c82415489a7b602f8049ee7608bf97c82"
+    sha256 arm64_linux:   "abaabc928dea3ce2cdd7a7ee142f20d7abf49d1abb0ea2b86cf0ca86afe6acec"
+    sha256 x86_64_linux:  "d5c2769b080becbee945530cb009a8f67557ed78447bd39b26d32c1f698e90b8"
   end
 
   depends_on "cmake" => :build
@@ -35,11 +36,10 @@ class DsdaDoom < Formula
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "mesa"
     depends_on "mesa-glu"
+    depends_on "zlib-ng-compat"
   end
 
   def doomwaddir(root)

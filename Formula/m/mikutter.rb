@@ -7,15 +7,14 @@ class Mikutter < Formula
   revision 1
   head "git://mikutter.hachune.net/mikutter.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "11ddc87f285b209259432e9300ec37b00fd2c279ab26f99f21f9c30077cada8b"
-    sha256 cellar: :any,                 arm64_sequoia: "bff0efb2672daf2e67cb87d6b1588f188ce9764ccce7ead1f5feebda38a3bb93"
-    sha256 cellar: :any,                 arm64_sonoma:  "259ec1de6508d3d7233e51f80ddb16a3bcf4f18431b5d4fe1a7d892452eb6a0f"
-    sha256 cellar: :any,                 sonoma:        "16f048790f2e72a56a0101a3c504dc3f62f145afe40683ef315a10a8b92df2aa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "33f0985f02df6c48f1292d1be0c7546505d8494b4d2a996b47acb8aaa0cb392d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "718a0a718deb541c1bd4991bc24e73127a9edb7c97ba01cfc5a217ce58ce63c2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e322500fe59264b6d359eb84689553329d2bd6eb256fe2a50299bf820a8a6e5b"
+    sha256 cellar: :any,                 arm64_sequoia: "531a0e55be090c3f16209bf6d9dd5c699d24f624e979f470606d97bd530e07de"
+    sha256 cellar: :any,                 arm64_sonoma:  "906ecd678693e181a4117c962ce0f9bb36bd00cdbab3b59041a463e7dacb789d"
+    sha256 cellar: :any,                 sonoma:        "3e85adaf09e0ee1c33ebdf2865b96a0f1763ebfcdca90cc3138e5596c0c404d7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2707a48772a913e137c39e9e4927b718685bcaec5e13033f26caad85901d7c83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b74497a2473777e1c3ad642e346afe6117e41cb1a3695987b48051085968f17"
   end
 
   depends_on "at-spi2-core"
@@ -33,11 +32,14 @@ class Mikutter < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxml2" # for nokogiri
   uses_from_macos "libxslt" # for nokogiri
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
     depends_on "terminal-notifier"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   # check `plugin/gtk3/Gemfile` for `gtk3` gem version

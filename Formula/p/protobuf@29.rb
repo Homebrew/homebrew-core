@@ -1,10 +1,10 @@
 class ProtobufAT29 < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://protobuf.dev/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v29.5/protobuf-29.5.tar.gz"
-  sha256 "a191d2afdd75997ba59f62019425016703daed356a9d92f7425f4741439ae544"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v29.6/protobuf-29.6.tar.gz"
+  sha256 "877bf9f880631aa31daf2c09896276985696728137fcd43cc534a28c5566d9ba"
   license "BSD-3-Clause"
-  revision 2
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -12,12 +12,13 @@ class ProtobufAT29 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "616d65a04b02074367573c0bea0ffb133b89ad470804841778d4758feec41aa1"
-    sha256 cellar: :any, arm64_sequoia: "fef5a90244ab3e532e4f43518617add48a4dc61d4eb99edf9ea47d369ad77ca8"
-    sha256 cellar: :any, arm64_sonoma:  "ee897a1b5aff607996794af0dbe8aa40e8ae16504c198080dcba293d3d3ca026"
-    sha256 cellar: :any, sonoma:        "c11113e1ac68bad958f74eb8b872d9661b4871d98f68cfb8b14554762b64a71f"
-    sha256               arm64_linux:   "50f54d1a9abff5aca57a14de936178fd79dac5e614f6e9f4ce70d534eb9f0797"
-    sha256               x86_64_linux:  "220ac17be42d835cb5742b9e890b48414917150d2c30f1f1d23b0c1d24cfca2b"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "529447bb3f3cc0a131ee1a171eef643cf78257d0acc9ab2f83c29751981f60d2"
+    sha256 cellar: :any, arm64_sequoia: "67f2fdacf96b6bfe81ea3049b8a5295d62fa8b3f6dee4d32da6df963c20a1495"
+    sha256 cellar: :any, arm64_sonoma:  "44e99b689da10554f1b40f3141b7db369475c1ddef85ecc9ba9b8c7b011007e8"
+    sha256 cellar: :any, sonoma:        "6543a4d360f528ef50d620460019436745aa4a0c21a56258197492894eba15a9"
+    sha256               arm64_linux:   "838ffb210791c6591c7552126560a2d75df09a01166f34c47f702e03d52a8a08"
+    sha256               x86_64_linux:  "763ca704e1f0a497bfd7fd508b5ae440478d65531e78c22dd595785015e6cdf6"
   end
 
   keg_only :versioned_formula
@@ -29,7 +30,10 @@ class ProtobufAT29 < Formula
   depends_on "cmake" => :build
   depends_on "googletest" => :build
   depends_on "abseil"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Backport to expose java-related symbols
   patch do

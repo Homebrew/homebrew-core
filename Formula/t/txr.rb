@@ -11,13 +11,13 @@ class Txr < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8641468e2c261437ffcc3f0c9625a8f1f839f995c7ed7b452684db37bd3a24d6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5011b7cb0fcfeae6fd9ad108ff54d0662a55db8478002b0ab333a74ea36e7222"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8c9a0c0475cda5d4c108ff27f40e87150656795008ea14ad7657076421fdaf4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5dc1e4925fd0d626bdf266f85a3fd44c30845db68915acefb6d16ccb55926723"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "43cd336b765f13dea501739ea53c0c6354301433645fb8da16c8d51217d8170d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f836edb00ae58379e6ff4153e6a84ab60fa1fdb97f0c6ae9121ddacde2b526be"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5a3e2696544766b198f2d6be38cee732e7757bc465a85951d3cc69c589a74490"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "080e9b53e0bf6f5fdf978e4498dce5138f32750ceaeeda57a4343a9fc3d9ca79"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7c6793df7533f54d70fb81522f014fa532c20ddb4386557d40554146b0aa53b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0db191f5177f88c2347a3374bd99847bc65034f200bd83ed891de7cb69d56823"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef7c5786a174ca30e31d3d87afa2aeb796cab3c72a837f01397af9011cfe9885"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28c0d4e14ed8bf41888293d49df188ed82b731ef0dd5fe30fe279c69f4a17b1f"
   end
 
   depends_on "pkgconf" => :build
@@ -26,12 +26,15 @@ class Txr < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # FIXME: We need to bypass the compiler shim to work around `-mbranch-protection=standard`
     # (specifically pac-ret) causing tests/012/compile.tl to fail with an illegal instruction
-    if OS.linux? && Hardware::CPU.arch == :arm64
+    if OS.linux? && Hardware::CPU.arm64?
       ENV["CC"] = DevelopmentTools.locate(ENV.cc)
       ENV.append_to_cflags ENV["HOMEBREW_OPTFLAGS"] if ENV["HOMEBREW_OPTFLAGS"]
       ENV.append "CPPFLAGS", "-mbranch-protection=bti"

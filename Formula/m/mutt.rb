@@ -10,25 +10,23 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/mutt-2.2.16.tar.gz"
-  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.2.16.tar.gz"
-  sha256 "1d3109a743ad8b25eef97109b2bdb465db7837d0a8d211cd388be1b6faac3f32"
+  url "https://ftp.osuosl.org/pub/mutt/mutt-2.3.1.tar.gz"
+  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.3.1.tar.gz"
+  sha256 "470d7b0e3d134a05fb8064dedd74771b06bcd639c80fccd7773dc322aafbb7b6"
   license "GPL-2.0-or-later"
 
-  # Livecheck uses GitLab tags to determine current version.
-  # They all have `-rel` suffix which needs to be omitted.
   livecheck do
-    url "https://gitlab.com/muttmua/mutt.git"
-    regex(/^mutt[._-]v?(\d+(?:-\d+)+)-rel$/i)
+    url "http://www.mutt.org/download.html"
+    regex(/href=.*?mutt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_tahoe:   "06ea8391b928c80af89ebd9a2a2a7453c68a96f2354caf3339897ea53675c0f1"
-    sha256 arm64_sequoia: "de913ddba41e3f6a1d0819a62bf65945dc3025869565e42358de41a0ce5d61df"
-    sha256 arm64_sonoma:  "10ef4e94a3371d85349b09d1131bc3bf995f0bb72a32c2c1b2da129aa6935991"
-    sha256 sonoma:        "3e41590dfed3a0e80fbd5edbb741912a6f9d9da22d78378a727af2108da52cb1"
-    sha256 arm64_linux:   "44ae949e70e0fd867ac5a36d26dedeaee7e0c867feaff1cd2978d82d348853dd"
-    sha256 x86_64_linux:  "363d6627599998ada6b02599e4e8587fa35e66c8c9fc3df9a40885b19ce4939d"
+    sha256 arm64_tahoe:   "b492a0d6b74fb1dbb1477a327c55b26cc8eaa8451c867b837d6e49b5181acd6d"
+    sha256 arm64_sequoia: "f09b1a41cc515b3d29eb77ff21e8e0ca7ae512420812f9a55836ad8d6d69fe13"
+    sha256 arm64_sonoma:  "2e173621795ea192e4160e2a14b10e40379331e8e71f62b6066a5ed0e141b602"
+    sha256 sonoma:        "f7456438cf78303733ab16e7ebbf8f99a216963e6a7fd14a1ecd64061dd126f5"
+    sha256 arm64_linux:   "8c2aeb33074a52410e91c6937b9cffcc0d3a4ed104df826834131e8af0d0e371"
+    sha256 x86_64_linux:  "1b4c6b177722724195f77220714a5c8aed80ae28cc5e5fa0bab09fc5bf5e05cc"
   end
 
   head do
@@ -52,11 +50,14 @@ class Mutt < Formula
   uses_from_macos "bzip2"
   uses_from_macos "cyrus-sasl"
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
     depends_on "libunistring"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "tin", because: "both install mmdf.5 and mbox.5 man pages"

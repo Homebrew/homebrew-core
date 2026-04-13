@@ -7,12 +7,13 @@ class CargoOutdated < Formula
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7aa16f918979213758af38c2f285cd5805574bbce7bbf2f05652137bd1975ca2"
-    sha256 cellar: :any,                 arm64_sequoia: "ab7387ccf1d8ebcd8e4c59c41dea28364316b5d03f99d47f8c4ef812879a2b36"
-    sha256 cellar: :any,                 arm64_sonoma:  "e1ca3f3386b589beb3af60ffd8ffe53aa975a273d575066c97281479e1182f59"
-    sha256 cellar: :any,                 sonoma:        "d701232c35a2768f0a1a8ac96c68bb16d4aa6353c96725d0339ba467b62fa057"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8cf595c0dd40841f29b17e81855161d5f03c5998ad482bb5f4ab054d112cdae8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dedf4524e646d5747c1061b9c84eac2378dde63de3b3f01c3d618c04496094cf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f8504bf9f925b96d25650f9e54b66ab2b4bdad03152e32852925f91d8ace013f"
+    sha256 cellar: :any,                 arm64_sequoia: "1a816f6084a20539490d740967f2904540c7dd3944b6004c0ea03cf4a7fd8792"
+    sha256 cellar: :any,                 arm64_sonoma:  "265d75b98895a464a49eb0f48bf3468d871633eb9a82f531109a37e0459305fa"
+    sha256 cellar: :any,                 sonoma:        "d2e13f92d39844c992b1027ca25eb291f6d423ba4b99ba2817326057af1df28e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f957cffbd6b076b0b845866372797d8d47af68ae1edb9a7e9bfd899cd07351d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2964bf4703ecdcf66ed3a80c955db9dada8663c959fa28b89057449649ba9cf2"
   end
 
   depends_on "pkgconf" => :build
@@ -21,7 +22,9 @@ class CargoOutdated < Formula
   depends_on "libgit2"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"

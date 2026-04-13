@@ -63,6 +63,6 @@ class FdkAacEncoder < Formula
     end
 
     system bin/"fdkaac", "-R", "--raw-channels", "1", "-m",
-           "1", "#{testpath}/tone.pcm", "--title", "Test Tone"
+           "1", testpath/"tone.pcm", "--title", "Test Tone"
   end
 end

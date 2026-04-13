@@ -4,6 +4,7 @@ class Libexif < Formula
   url "https://github.com/libexif/libexif/releases/download/v0.6.25/libexif-0.6.25.tar.bz2"
   sha256 "7c9eba99aed3e6594d8c3e85861f1c6aaf450c218621528bc989d3b3e7a26307"
   license all_of: ["LGPL-2.1-or-later", "LGPL-2.0-or-later"]
+  compatibility_version 1
 
   livecheck do
     url :stable

@@ -4,6 +4,7 @@ class Libxv < Formula
   url "https://www.x.org/archive/individual/lib/libXv-1.0.13.tar.xz"
   sha256 "7d34910958e1c1f8d193d828fea1b7da192297280a35437af0692f003ba03755"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "f7666bec93f718a4de65c627ec6dd4994d6e0e983f97128665d44f28af23fc76"

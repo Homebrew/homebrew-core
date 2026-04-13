@@ -1,15 +1,12 @@
 class Postgraphile < Formula
   desc "GraphQL schema created by reflection over a PostgreSQL schema"
   homepage "https://www.graphile.org/postgraphile/"
-  url "https://registry.npmjs.org/postgraphile/-/postgraphile-4.14.1.tgz"
-  sha256 "131cb5c572c68a42a6c612b65041a4fa656a5364a75f7384f1446f62a684c9fc"
+  url "https://registry.npmjs.org/postgraphile/-/postgraphile-5.0.0.tgz"
+  sha256 "21f26646a7055c1e39a9d8b676eef7631993293df098fd8faea5f2c60f31c75f"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "50536d0d0000e441a09373ba89a497efda82318192103e59f212814dcc3ee20b"
+    sha256 cellar: :any_skip_relocation, all: "a179a7f2d16addee5aa313179a0b823d3844b9e32162d82e98a1cb63f03dfbab"
   end
 
   depends_on "postgresql@18" => :test
@@ -22,6 +19,7 @@ class Postgraphile < Formula
 
   test do
     ENV["LC_ALL"] = "C"
+    ENV["GRAPHILE_ENV"] = "development"
     assert_match "postgraphile", shell_output("#{bin}/postgraphile --help")
 
     pg_bin = Formula["postgresql@18"].opt_bin
@@ -31,10 +29,16 @@ class Postgraphile < Formula
     begin
       sleep 2
       system pg_bin/"createdb", "test"
-      system bin/"postgraphile", "-c", "postgres:///test", "-X"
+
+      preset = libexec/"lib/node_modules/postgraphile/dist/presets/amber.js"
+      graphite_pid = spawn bin/"postgraphile", "-c", "postgres:///test", "--preset", preset
+      sleep 3
     ensure
-      Process.kill 9, pid
-      Process.wait pid
+      Process.kill("TERM", graphite_pid)
+      Process.wait(graphite_pid)
     end
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end

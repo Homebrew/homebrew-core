@@ -134,8 +134,7 @@ class Gdbgui < Formula
     port = free_port
 
     spawn bin/"gdbgui", "-n", "-p", port.to_s
-    sleep 3
-
-    assert_match "gdbgui - gdb in a browser", shell_output("curl -s 127.0.0.1:#{port}")
+    output = shell_output("curl --silent --retry 5 --retry-connrefused 127.0.0.1:#{port}")
+    assert_match "gdbgui - gdb in a browser", output
   end
 end

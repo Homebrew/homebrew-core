@@ -37,7 +37,7 @@ class DuoUnix < Formula
   end
 
   test do
-    system "#{sbin}/login_duo", "-d", "-c", "#{etc}/login_duo.conf",
-                                "-f", "foobar", "echo", "SUCCESS"
+    system sbin/"login_duo", "-d", "-c", "#{etc}/login_duo.conf",
+                             "-f", "foobar", "echo", "SUCCESS"
   end
 end

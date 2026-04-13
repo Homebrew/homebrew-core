@@ -24,6 +24,7 @@ class Flvmeta < Formula
 
   # adobe flash player EOL 12/31/2020, https://www.adobe.com/products/flashplayer/end-of-life-alternative.html
   deprecate! date: "2025-03-21", because: :unmaintained
+  disable! date: "2026-03-21", because: :unmaintained
 
   depends_on "cmake" => :build
 

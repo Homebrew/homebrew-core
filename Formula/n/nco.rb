@@ -1,17 +1,17 @@
 class Nco < Formula
   desc "Command-line operators for netCDF and HDF files"
   homepage "https://nco.sourceforge.net/"
-  url "https://github.com/nco/nco/archive/refs/tags/5.3.6.tar.gz"
-  sha256 "70d64f461a0d5262274495ee1a9d85735aa3115281fdf01df4f946a919f9f6ae"
+  url "https://github.com/nco/nco/archive/refs/tags/5.3.8.tar.gz"
+  sha256 "f23b0b95525473d305ab15b96266d1458e3dfa193b9ee701af826913602d473d"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d15e2ce209eb6281782c41ac706b63aafc4a3cc29cdbf22516b59799967a277b"
-    sha256 cellar: :any,                 arm64_sequoia: "352b8fd32b785da50571c2a9af7b338c2d8d6691957281cb5909d15ba04653e8"
-    sha256 cellar: :any,                 arm64_sonoma:  "88de1d76a3a9060b161d24c80bc0f561a0697414fe8bb1d075364cc7de2fd6b0"
-    sha256 cellar: :any,                 sonoma:        "2930c77c0a5e129368d949d13a9796f3a29e4136aa1c159ba3a2703b5b4a8cef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7275ad31456ed3930361f0340f7e06e5962e22ff405ce6393864662bd0194431"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f12cd6d5663148d7083697471a466796329af3a63ed32d678d712aa27bcfe33"
+    sha256 cellar: :any,                 arm64_tahoe:   "5f931eb2c2b1c8424eb2de2d351362c0a584c6f0f51aaab096e9d7b728e246a7"
+    sha256 cellar: :any,                 arm64_sequoia: "d1b624fad55ef9105c8b319db0de7a5d41f55f7f4e9e4ca3083bbdb5aaee74d6"
+    sha256 cellar: :any,                 arm64_sonoma:  "8d40607d2cb10cc865a002a56eb5809df208f9ac7bcb55b81d97918040adb978"
+    sha256 cellar: :any,                 sonoma:        "c67207f04b64b221910406a9f13d49a1f8d188a7978d01358b5cab9c269679c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9567e20c46204ead76312ebc90fb76aa57c407e777216e277e20b23b587fd1c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40486180c893ba1ba30f6d241db769b350aeb736b7600c531b99409f27d882f9"
   end
 
   head do
@@ -20,14 +20,18 @@ class Nco < Formula
     depends_on "automake" => :build
   end
 
+  depends_on "gettext" => :build
   depends_on "openjdk" => :build # needed for antlr2
-  depends_on "gettext"
   depends_on "gsl"
   depends_on "netcdf"
   depends_on "texinfo"
   depends_on "udunits"
 
   uses_from_macos "flex" => :build
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   resource "antlr2" do
     url "https://github.com/nco/antlr2/archive/refs/tags/antlr2-2.7.7-1.tar.gz"

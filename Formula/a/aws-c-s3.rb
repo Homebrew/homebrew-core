@@ -1,17 +1,18 @@
 class AwsCS3 < Formula
   desc "C99 library implementation for communicating with the S3 service"
   homepage "https://github.com/awslabs/aws-c-s3"
-  url "https://github.com/awslabs/aws-c-s3/archive/refs/tags/v0.11.5.tar.gz"
-  sha256 "bc76ad6e4ef40703477cd2e411553b85216def71a0073cfe8b7fad8d3728b37c"
+  url "https://github.com/awslabs/aws-c-s3/archive/refs/tags/v0.12.2.tar.gz"
+  sha256 "76348249b4bc305c1a40d089270a5a419f58c03c231b757de0a49a7a234eec76"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1c1b7003cccc39db9eec9802784837d31194e1f3f29b7f69f84b15df0f50f335"
-    sha256 cellar: :any,                 arm64_sequoia: "adecb66f7d0613fb061bc1af46c23edfed1b6f4d44847304b797f498a2900c78"
-    sha256 cellar: :any,                 arm64_sonoma:  "08734ea7f4097b477f9a99185216d689146cafc81af2d7bb1a07ec55934ec7c4"
-    sha256 cellar: :any,                 sonoma:        "0815079e10a92a01f70cf5b974db09522aac23362dd9fbfcb1cc2f3c1283c0e7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0587ce07cecafb03e19c5e0dd444ec6c0c0e4b022a048fe05fb319b8920d914"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c84713e792fc28442e2896a00a7e8b467e9cb0cbc46d35761fb3619a12c15f28"
+    sha256 cellar: :any,                 arm64_tahoe:   "e64abfa881d71db89b146d62633cca0ee705308f950c7662d64ff7c66b0b3ac8"
+    sha256 cellar: :any,                 arm64_sequoia: "b274d3eacefcdc4170a429d2da9c3ecb9715467e493d455005f90424785d92bc"
+    sha256 cellar: :any,                 arm64_sonoma:  "ee5be2d3ea278f07e41731db31de38c202e6632ede097e1b2ffecbedaada2a0c"
+    sha256 cellar: :any,                 sonoma:        "b0056f362cd4f9b767b7528b04863e20435645f25b7126e55a6d1029f653baeb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb4cc97802efa54915da36309a1dce6e89b0b74f270e564a9d8cbb375ea73af1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "943bc50f01182373473c94e97af0f00323185346ce0e13ea217aba509302115e"
   end
 
   depends_on "cmake" => :build

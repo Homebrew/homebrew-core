@@ -10,8 +10,6 @@ class Rdate < Formula
     regex(/href=.*?rdate[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a83472ff648a0aab17ffdf054be07f4d486506c3b17391d656527b492a6d26d6"

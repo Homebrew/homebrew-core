@@ -19,6 +19,13 @@ class Cmix < Formula
       url "https://github.com/byronknoll/cmix/commit/51c8f57570e4c1eb08056f929a96b3101c0156bb.patch?full_index=1"
       sha256 "c199390a27bce681e42ac23c8adfaa7261d4ec11fd76f14f9aab00dc629c2d33"
     end
+
+    # Fix to error: unknown type name '__m128i' on intel architectures
+    # PR ref: https://github.com/byronknoll/cmix/pull/74
+    patch do
+      url "https://github.com/byronknoll/cmix/commit/b5b77acd112985cf8577ec01910c74fb70c98f36.patch?full_index=1"
+      sha256 "e9ea39d1d343bd5bc59de497e899d6e124e4d2aa8768e8d0a7fe47ff7a80dc38"
+    end
   end
 
   bottle do
@@ -28,13 +35,6 @@ class Cmix < Formula
     sha256 cellar: :any_skip_relocation, sonoma:        "020968e1af5885da7049c369f4afd706a31c77d780fbf74e8daaf00ab3132058"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "4dd768510439ff99e1e5c47dbe7f9559005bbd26999d706276daba9b18073c9d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9cf2a6c621b035fe17a770bc368b684240e193bc294f92e9d415bd88f1618d1"
-  end
-
-  # Fix to error: unknown type name '__m128i' on intel architectures
-  # PR ref: https://github.com/byronknoll/cmix/pull/74
-  patch do
-    url "https://github.com/byronknoll/cmix/commit/b5b77acd112985cf8577ec01910c74fb70c98f36.patch?full_index=1"
-    sha256 "e9ea39d1d343bd5bc59de497e899d6e124e4d2aa8768e8d0a7fe47ff7a80dc38"
   end
 
   def install

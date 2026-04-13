@@ -6,7 +6,11 @@ class WaitOn < Formula
   sha256 "d7f40655f5c11e882890340826d1163050e2748de66b292c15b10d32feb6490f"
   license "BSD-4-Clause"
 
-  no_autobump! because: :requires_manual_review
+  # Original CVS isn't accessible, so check the GitHub repo managed by FreeBSD maintainer instead.
+  livecheck do
+    url "https://github.com/jcpierri/wait_on.git"
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e548523ed71f1fd1796069ae4182d5ae191eb7a76fc4ad83e39353c648b85e23"

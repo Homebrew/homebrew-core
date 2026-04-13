@@ -4,9 +4,10 @@ class Dpkg < Formula
   # Please use a mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.23.3.tar.xz"
-  sha256 "57f759b573dfe25602be8f4f0df24d5264367bbd6489741dd767c30dde65ae36"
+  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.23.7.tar.xz"
+  sha256 "60fe2be72e5f0a4bb0ac7baff3b1697ebc5cfaac1885f66649521571a97440ad"
   license "GPL-2.0-only"
+  compatibility_version 1
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/d/dpkg/"
@@ -14,12 +15,12 @@ class Dpkg < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "271926be9e7c176ae21e3de9d05009c09fccb4c11ddf7bc414a60d2b2ee41f0e"
-    sha256 arm64_sequoia: "9d00860deafec1c3c6cbeb3e566ca8c1bccffdadc82cc312c624be06777988d6"
-    sha256 arm64_sonoma:  "45a56ec816764c318934c6baff0ac2f4efbb42ffe8c7f88cdf28842de231a147"
-    sha256 sonoma:        "5288b2b57d0012dfc2da74927b1faf3b2b90d8cf39069292c69a3a192d0c5f58"
-    sha256 arm64_linux:   "de83449b02fdd572d133f61f4e701dec62d11d7a4402834c66b3ad9d95970755"
-    sha256 x86_64_linux:  "8f6f71f6c82b2dd57a91fc075cc312507360842248bffa0a81b8001f08a8f71f"
+    sha256 arm64_tahoe:   "119444a13bf9104f7c894e711634e74c1350b998ecd97e74d3d7b57d74bf3bb4"
+    sha256 arm64_sequoia: "6bb9bc20f0df7d28acd926afebb3c2c2993b5b33777c23a0bc05f3aee91adc20"
+    sha256 arm64_sonoma:  "2ac0841e52075bfb1ef8b08fe3ded6a733df307afec11f079e55fb31f86f7c38"
+    sha256 sonoma:        "895d9265c24b7011e3ed1f31ba8450b01a2310b41e3257d02bd871f7e290e151"
+    sha256 arm64_linux:   "ba5ae6349e29398b69e90746b5efd8ce4c2beeea84a6e44ecd7f5db07be2771f"
+    sha256 x86_64_linux:  "e20026502a0053e8e3284745c5d3263d6ab157fd16fdb5104bc78e7f5f02139e"
   end
 
   depends_on "pkgconf" => :build
@@ -28,14 +29,15 @@ class Dpkg < Formula
   depends_on "gnu-tar"
   depends_on "gpatch"
   depends_on "libmd" # for md5.h
-  depends_on "perl"
+  depends_on "perl" # perl >= 5.36.0
   depends_on "xz" # For LZMA
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_linux do
     keg_only "it conflicts with system dpkg"
+
+    depends_on "zlib-ng-compat"
   end
 
   patch :DATA
@@ -65,13 +67,12 @@ class Dpkg < Formula
     ENV["PERL_LIBDIR"] = libexec/"lib/perl5"
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", "--disable-dselect",
                           "--disable-silent-rules",
-                          "--prefix=#{libexec}",
+                          "--disable-start-stop-daemon",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
-                          "--disable-dselect",
-                          "--disable-start-stop-daemon"
+                          *std_configure_args(prefix: libexec)
     system "make"
     system "make", "install"
 

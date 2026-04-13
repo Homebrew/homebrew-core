@@ -6,16 +6,16 @@ class PassImport < Formula
   url "https://files.pythonhosted.org/packages/f1/69/1d763287f49eb2d43f14280a1af9f6c2aa54a306071a4723a9723a6fb613/pass-import-3.5.tar.gz"
   sha256 "e3e5ec38f58511904a82214f8a80780729dfe84628d7c5d6b1cedee20ff3fb23"
   license "GPL-3.0-or-later"
-  revision 7
+  revision 8
   head "https://github.com/roddhjav/pass-import.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "27bd7cd3e6fec863f922b1148d2f9ab87056f5f9508a37d15055f23e3934bf7a"
-    sha256 cellar: :any,                 arm64_sequoia: "432d5082644edc2630bdf4094ab0bdf6984b29ba404119989f70abd79c5174a6"
-    sha256 cellar: :any,                 arm64_sonoma:  "98dba1334b3b10ddb5b8566889fd3dfeeed1d9a310077b9bb02a71dd500efc25"
-    sha256 cellar: :any,                 sonoma:        "6eaf95e64f75a96138db851dce93e796e26225a4a35b17984d8c5252f92927cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39c068df8ae97fe0cd9be17d72252e8f05df5bdf797f8394ea7d6fdb40215453"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58511f4c1c484f7a81eb7a3c4994f0313c4539404ca44e3242231f2483dd34cc"
+    sha256 cellar: :any,                 arm64_tahoe:   "e4e0d99609fc5c82ee38a69be32d0b9e494168878e1dbbda4b114f042b4f1cbd"
+    sha256 cellar: :any,                 arm64_sequoia: "b1703b8981fa706cf927fe08958341ba7d02ebc6d219c7de989a8e440ceba70a"
+    sha256 cellar: :any,                 arm64_sonoma:  "e2186191f0a6799e4eb5b2293d7e2f464423bf9595db6d566fd2ae237546e442"
+    sha256 cellar: :any,                 sonoma:        "15f35c20d21df5a22fc52298a99ba10dc1219a5c5cac7e6b5649c03c1b3f2fc9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7c1682028c7f5a42a919443f13e113677c68be78c9c3a3ba557c4d505e759d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c58dfcc3f6cdb255f74378335712b24a3212a690333f519125c9d35d254bf1e3"
   end
 
   depends_on "certifi"
@@ -25,8 +25,8 @@ class PassImport < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "idna" do
@@ -35,8 +35,8 @@ class PassImport < Formula
   end
 
   resource "pyaml" do
-    url "https://files.pythonhosted.org/packages/c4/01/41f63d66a801a561c9e335523516bd5f761bc43cc61f8b75918306bf2da8/pyaml-25.7.0.tar.gz"
-    sha256 "e113a64ec16881bf2b092e2beb84b7dcf1bd98096ad17f5f14e8fb782a75d99b"
+    url "https://files.pythonhosted.org/packages/38/fb/2b9590512a9d7763620d87171c7531d5295678ce96e57393614b91da8998/pyaml-26.2.1.tar.gz"
+    sha256 "489dd82997235d4cfcf76a6287fce2f075487d77a6567c271e8d790583690c68"
   end
 
   resource "pyyaml" do
@@ -45,8 +45,8 @@ class PassImport < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "urllib3" do

@@ -5,8 +5,6 @@ class H2c < Formula
   sha256 "1c5e4d76131abb5151c89cc54945256509dad9d12cab36205aa5bcd7f8a311af"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "1380fd71175ca3911be9411e849ff6a739dca5b676771a42a6437c629216983e"

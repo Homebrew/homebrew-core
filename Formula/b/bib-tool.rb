@@ -13,8 +13,6 @@ class BibTool < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_tahoe:    "21dc870e5436946a79ee212b44a1d867c872f5c2374a3693563097dd89212849"
     sha256                               arm64_sequoia:  "ce609aa4354f5b345611a48f17823affc614c23600940ec1c90b9945b7199512"

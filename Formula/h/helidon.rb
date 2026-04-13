@@ -14,8 +14,6 @@ class Helidon < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "cc786871d00edd3eb256fb4c537dff764982508420932d996786c0f17c6d417b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7c9501af89a38771d60a2615d6b5f14e689a193f4b6661493e2710c6ee916ba7"

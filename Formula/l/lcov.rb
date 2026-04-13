@@ -8,20 +8,22 @@ class Lcov < Formula
   head "https://github.com/linux-test-project/lcov.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ba97302e9bc7ae4040eb26b4f1bd312994112095a991767c9ffb886e1b8899a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5acd0b337c8979199820bc08f911da7194fc71fa2d9656255ea3c4f06770f9e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c873628b33b6d3cb01593878e81765e8dbe50fb1dc39a907f12f91133480f266"
-    sha256 cellar: :any_skip_relocation, tahoe:         "d6e26a98a57df44254b9c383adfd68234c9593a5ac97aee64ce078ef57e17f18"
-    sha256 cellar: :any_skip_relocation, sequoia:       "c1b6b7d25054854e7a663266676a260a12b825b693ab6f1d0a1374b02302d2da"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e455ba653689cbff8530add0fba06beafdf309ee1c67aef280172fe5b03357c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9bb5a9da69d30a805c43a568eb2dcd5924473748e1ee019584fdfbafde34ca22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9edefe92a32aac5332c465cff9fa7f6d2c386df16d939675cc724803a16a3a3b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "31751d5ba63f010f5ba85d996f2a487d8f66210650a95c2bd125af69cb949fc3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2f081ff0b4cf0a8e8a41476760f10518a66790a623fb8dc627beff0758eca06"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d1de024109c448c5537e2c33d6a30a63b80a77ae195e2cbabc50f94f36152bf"
+    sha256 cellar: :any_skip_relocation, tahoe:         "bdcbbe5a978af3066860282aa095d8a2b983f965cb9a86600d29080ffdd18ea3"
+    sha256 cellar: :any_skip_relocation, sequoia:       "e502c2fdbc44d07e6873634afb31a5c76d499b7a1c39020906a82669ce2b2040"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0dc40bdeba6332fb11f88a4230ca213c9dba83f397fe0da67ca7aba08cf3f0ec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d79b0f67be549e9cc3bcff583fc5502c4384f5b3bb071035049cbb328ad20e23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07128bf10fbe19a6fd27aab9739d6a5e55eccfaaa4c2d2c842961944fc70750f"
   end
 
   uses_from_macos "perl"
-  uses_from_macos "zlib"
 
   on_linux do
+    depends_on "zlib-ng-compat"
+
     resource "Capture::Tiny" do
       url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.50.tar.gz"
       sha256 "ca6e8d7ce7471c2be54e1009f64c367d7ee233a2894cacf52ebe6f53b04e81e5"

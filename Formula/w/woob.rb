@@ -6,15 +6,15 @@ class Woob < Formula
   url "https://files.pythonhosted.org/packages/85/f3/a2dc1bb679de004aa1e48c8b77b5d5b9bca3007b2f25e0c39f850a009186/woob-3.7.tar.gz"
   sha256 "b1d7113ba87a9b947c13a1e3b4bb4fa616ba3037092b54912fc3fee2647d1b2f"
   license "LGPL-3.0-or-later"
-  revision 5
+  revision 7
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "246026fe485d8c15400f06d41b629a1949d580325cdf23f21422f166b32f7c0e"
-    sha256 cellar: :any,                 arm64_sequoia: "0bfcd8c4c3b4b954727126bb52710e2eb45b71bcc7d0ea01da0d7ad3d89962ad"
-    sha256 cellar: :any,                 arm64_sonoma:  "411e3872de7e4c3eded0bde3c29b3b612f8598ea7e69c84589ab04c8754d00fc"
-    sha256 cellar: :any,                 sonoma:        "fbc8b76383263cc1082607b408bfa4a03a95fa73de01fb486768b003aef6a603"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3004629a94ba9a763a524f41b19361e853e81ce16878c522e5ccc93720b80c78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f34fc3bc6e06d546013bbc6a0500e14b56f3b396b9185b3367a2d66986b9f9ee"
+    sha256 cellar: :any,                 arm64_tahoe:   "73e430245011190facc4b3b505a36d5f0af552e7564e78cae5171ee4b316b7bc"
+    sha256 cellar: :any,                 arm64_sequoia: "fdeba8d3f6c6a0bd420c189aa35a6d1443fc6f531468d61a457f65c23ebbe26f"
+    sha256 cellar: :any,                 arm64_sonoma:  "021c7d650e7c9afbdba77162975a5515b9b07f06d7ea01af0a91a03cccc78797"
+    sha256 cellar: :any,                 sonoma:        "2ec3e8edab02aa25d52a6e8e052217cac8597d15d3d47513bb85460c62d68016"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7538d795bda9861660365fd22ab7831116057f01475d17614b1508de6a87853"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eac51e2201df9e5003cae11aee9f4e085b33fc585146fe4f5df178f17a4ea495"
   end
 
   depends_on "certifi"
@@ -29,13 +29,13 @@ class Woob < Formula
   pypi_packages exclude_packages: %w[certifi pillow]
 
   resource "babel" do
-    url "https://files.pythonhosted.org/packages/7d/6b/d52e42361e1aa00709585ecc30b3f9684b3ab62530771402248b1b1d6240/babel-2.17.0.tar.gz"
-    sha256 "0c54cffb19f690cdcc52a3b50bcbf71e07a808d1c80d549f2459b9d2cf0afb9d"
+    url "https://files.pythonhosted.org/packages/7d/b2/51899539b6ceeeb420d40ed3cd4b7a40519404f9baf3d4ac99dc413a834b/babel-2.18.0.tar.gz"
+    sha256 "b80b99a14bd085fcacfa15c9165f651fbb3406e66cc603abf11c5750937c992d"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "html2text" do
@@ -69,13 +69,13 @@ class Woob < Formula
   end
 
   resource "pycountry" do
-    url "https://files.pythonhosted.org/packages/76/57/c389fa68c50590881a75b7883eeb3dc15e9e73a0fdc001cdd45c13290c92/pycountry-24.6.1.tar.gz"
-    sha256 "b61b3faccea67f87d10c1f2b0fc0be714409e8fcdcc1315613174f6466c10221"
+    url "https://files.pythonhosted.org/packages/de/1d/061b9e7a48b85cfd69f33c33d2ef784a531c359399ad764243399673c8f5/pycountry-26.2.16.tar.gz"
+    sha256 "5b6027d453fcd6060112b951dd010f01f168b51b4bf8a1f1fc8c95c8d94a0801"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "python-dateutil" do
@@ -89,8 +89,8 @@ class Woob < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
+    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
   end
 
   resource "rich" do

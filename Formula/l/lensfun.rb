@@ -21,8 +21,6 @@ class Lensfun < Formula
     regex(/^v?(\d+\.\d+(?:\.(?:\d|[1-8]\d+)(?:\.\d+)*)?)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 5
     sha256 arm64_tahoe:   "c04d1179c9ddb6a6c56495d942509d502478de5654631709c5d1cba41fb1d1df"

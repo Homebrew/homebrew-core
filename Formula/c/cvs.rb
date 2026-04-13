@@ -13,25 +13,17 @@ class Cvs < Formula
 
   livecheck do
     url "https://ftpmirror.gnu.org/non-gnu/cvs/source/feature/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/}i)
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "9db42bbcbdc91ec57b9c1039d1e44c4497322339705b60c38573d07beb644b3d"
-    sha256 cellar: :any,                 arm64_sequoia:  "395bcc270613244fc0be159a5cc843cff6696397961958634363d4b1a2241454"
-    sha256 cellar: :any,                 arm64_sonoma:   "e561f130192a57e7fe98eab345f97fd548bdabb62e78a9131a91c3c87f0a4429"
-    sha256 cellar: :any,                 arm64_ventura:  "b04bc5783e3ce63a89075a9f824c2f3257ddb6974f22827315bd2848a0d96a05"
-    sha256 cellar: :any,                 arm64_monterey: "facb582f400a539914188f2c526148db296f6a9c626b298b6749a528a6955b6e"
-    sha256 cellar: :any,                 arm64_big_sur:  "69072386044a5fb88c0855933f336ada641c7d4f0b5a26859b83609de094d975"
-    sha256 cellar: :any,                 sonoma:         "242d715445ff0ce9c2a1968f51b2c15c5aef9069a7f0c957d79cd9dd01069f75"
-    sha256 cellar: :any,                 ventura:        "12844f5aacd63941b0751fcda0524b48b3846caf9f5c348b132408d320e22bcb"
-    sha256 cellar: :any,                 monterey:       "90e39df5b90cb3ae770fb19ec618350b02e7c16ca1bf5748cddbb2302c7f764f"
-    sha256 cellar: :any,                 big_sur:        "f82f03a64e86b956f63f2a9b420bb6db7f792bcc65e829278def0939fca4b947"
-    sha256 cellar: :any,                 catalina:       "0d792dc4be608c3abdadc97ba8fabca3d72a94e8903c9516ca529d51eb6fe2e9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "8a0ae39e62086e0c6ee0bbb9843d6fbdaf09164b07a288c6dcccf2995acb9dee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9ec7ba1c5450d7df8c3c5f623579a78ba970b29eb1dcbb991cfcfc5ae2630d2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "12f7b6ba364b0131ac464c51dac10844da7be696fa3ec85b2aaa5ab0ee10fbce"
+    sha256 cellar: :any,                 arm64_sequoia: "0495f3e13e3d8eb8a04fcf144bae83551341c35d8f4cfe2d9b11427dc49f34fe"
+    sha256 cellar: :any,                 arm64_sonoma:  "f8dade380a6cf039b4a15971a46dc9201dcf5c9d9acedd694f4adfa04368495b"
+    sha256 cellar: :any,                 sonoma:        "d23f89d868c88f29bd4447915da42d8e5eb4e9efeb05d83e41adbf031f967bce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3f13423ddb87b2c109ef4a83bc27adb7cfb2fed004e76d1b8902f7b5c8ee856"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7eb7d12ce9a3935d6c1caad26fd473cfad09f4e22dcba970fab57ab5f8dca9c6"
   end
 
   depends_on "autoconf" => :build
@@ -40,7 +32,6 @@ class Cvs < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -49,6 +40,7 @@ class Cvs < Formula
   on_linux do
     depends_on "vim" => :build # a text editor must be detected by the configure script
     depends_on "linux-pam"
+    depends_on "zlib-ng-compat"
   end
 
   patch :p0 do

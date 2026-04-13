@@ -5,14 +5,13 @@ class Libogg < Formula
   mirror "https://github.com/xiph/ogg/releases/download/v1.3.6/libogg-1.3.6.tar.gz"
   sha256 "83e6704730683d004d20e21b8f7f55dcb3383cdf84c0daedf30bde175f774638"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://gitlab.xiph.org/xiph/ogg.git", branch: "main"
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/ogg/?C=M&O=D"
     regex(%r{href=(?:["']?|.*?/)libogg[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "4d9d14f8e36ed913c02201bfc01682ba3f550de412e9a24e3ef9aed4f1b8a23d"

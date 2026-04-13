@@ -4,6 +4,7 @@ class Pkcs11Helper < Formula
   url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.31.0/pkcs11-helper-1.31.0.tar.bz2"
   sha256 "46f0067bccd7be2c28f88b8bca775172b9e52fb6fc1280b44ca8bb831433fef9"
   license any_of: ["BSD-3-Clause", "GPL-2.0-or-later"]
+  compatibility_version 1
   head "https://github.com/OpenSC/pkcs11-helper.git", branch: "master"
 
   livecheck do

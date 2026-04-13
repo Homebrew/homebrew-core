@@ -275,7 +275,7 @@ jobs:
       !fromJson(needs.check.outputs.replace)
     runs-on: ${{inputs.large_runner && 'homebrew-large-bottle-upload' || 'ubuntu-latest'}}
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
       volumes:
         - /mnt:/mnt
     permissions:
@@ -370,7 +370,7 @@ jobs:
             "$PR"
 
       - name: Generate build provenance
-        uses: actions/attest-build-provenance@00014ed6ed5efc5b1ab7f7f34a39eb55d41aa4f8 # v3.1.0
+        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4.1.0
         with:
           subject-path: '${{steps.pr-pull.outputs.bottle_path}}/*.tar.gz'
 

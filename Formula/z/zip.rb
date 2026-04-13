@@ -12,8 +12,6 @@ class Zip < Formula
     regex(%r{url=.*?/v?(\d+(?:\.\d+)+)/zip\d+\.(?:t|zip)}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83ba2b2ec5dae0c7d6b804ee92e433ed035b1350d679592280c7421d15bd5a8a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7cdb35f0192184dbe0c83432f61cb35d2f640925b750bd8d07ea3de8ae1c2a71"

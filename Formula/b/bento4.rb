@@ -12,8 +12,6 @@ class Bento4 < Formula
     regex(/href=.*?Bento4-SRC[._-]v?(\d+(?:[.-]\d+)+)\.zip/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5367dba6956a756d81d778166578f003e29d2509b16e84a8fb0118b8bc387560"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3be0b7e4aa10081340266b8c4ecd5ff536ea75489fc739cfd3948195d94508af"

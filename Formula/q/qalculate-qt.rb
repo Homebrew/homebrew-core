@@ -1,18 +1,18 @@
 class QalculateQt < Formula
   desc "Multi-purpose desktop calculator"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/qalculate-qt/releases/download/v5.8.2/qalculate-qt-5.8.2.tar.gz"
-  sha256 "ebf547910ce5c5624b8d158873ff88c4379288cc687993e50655f9f7ead171ae"
+  url "https://github.com/Qalculate/qalculate-qt/releases/download/v5.10.0/qalculate-qt-5.10.0.tar.gz"
+  sha256 "961d3e6e1718485d2ed23b7f3d065462eac977a087fd12082edc6627b00f8c50"
   license "GPL-2.0-or-later"
   head "https://github.com/Qalculate/qalculate-qt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b56c88a0f7ce91274cff9184de1c602710122ca79d9f6c0d8169f96cf1dc5a74"
-    sha256 cellar: :any,                 arm64_sequoia: "2d785c0960737200d9ddad9c5c47a091fbafc859cb01a2352216b1a769f421f1"
-    sha256 cellar: :any,                 arm64_sonoma:  "45277ba986814980a6a1e0788d2b0b3174121fd8ce1172eae7e7c69c21250e9c"
-    sha256 cellar: :any,                 sonoma:        "d672d5c1b0f064245f07fa0a9a2671d9c7a7f24f8f1d7fe1f983bbc067314f44"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "33ac3485b2ab79a014f4671a08d575fc86d2528444686f5a7045b46753e84ce7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d63973b163ebe486bf4d1a4ac4da371f24af5d8e084f4ece33049b4cb9201b7"
+    sha256 cellar: :any,                 arm64_tahoe:   "905a016e7290b91393e8ca908ea6f530d95e821225e6074e5600549e1c99a29a"
+    sha256 cellar: :any,                 arm64_sequoia: "14b4117a9a26bc2e8be58e10662cab2f74821bbcfcd8a7803147b9e21818ce70"
+    sha256 cellar: :any,                 arm64_sonoma:  "3acfb701a3c529a3e77227a745c95efc7d3441126cef72ea31de3855c1473920"
+    sha256 cellar: :any,                 sonoma:        "a3ad2048cd6dff0defd061ce38b4eda1b08e9a2e6fb29b930dcc4cbe77df2ac3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "22a695008554c07791020ee845c654ba6700d77ffe0f826b8de56b1598d2f09c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a8315bf03a7c2b8825646eb35bc946039eb3296a8a64c393e3dfac25a746561"
   end
 
   depends_on "pkgconf" => :build

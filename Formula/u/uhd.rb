@@ -34,6 +34,9 @@ class Uhd < Formula
     depends_on "ncurses"
   end
 
+  pypi_packages package_name:   "",
+                extra_packages: "mako"
+
   resource "mako" do
     url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
     sha256 "99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28"

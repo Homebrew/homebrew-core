@@ -3,25 +3,29 @@ class Volk < Formula
 
   desc "Vector Optimized Library of Kernels"
   homepage "https://www.libvolk.org/"
-  url "https://github.com/gnuradio/volk/releases/download/v3.2.0/volk-3.2.0.tar.gz"
-  sha256 "9c6c11ec8e08aa37ce8ef7c5bcbdee60bac2428faeffb07d072e572ed05eb8cd"
+  url "https://github.com/gnuradio/volk/releases/download/v3.3.0/volk-3.3.0.tar.gz"
+  sha256 "89d11c8c8d4213b1b780354cfdbda1fed0c0b65c82847e710638eb3e21418628"
   license "LGPL-3.0-or-later"
+  compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "0101fc34bd0194f1b696b1a18febd7e4e53784c9fac00bbd238839cebd818c80"
-    sha256 cellar: :any,                 arm64_sequoia: "e11bbb09bdccdc73383832a358473a026e4e47df07403047173e0bc2a951ef19"
-    sha256 cellar: :any,                 arm64_sonoma:  "c8a7cb1121c51fa06ac8c1549c1f3e51cc16f1eda40ef1234a4e83f24d0bd27d"
-    sha256 cellar: :any,                 sonoma:        "71a9d3ea9e5aea62969977a769049643b60e8fcf60784dbb2baa7819072f8f8a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e7a7b3d137b539988f0393dd47a6a4f118066252d1f2b06da93edb7a0eb9014"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f02bd47c23ba777669675e79e099e91047a23924cdb4a4f850a0fca6c19250c9"
+    sha256 cellar: :any,                 arm64_tahoe:   "cd42ce70e4c94cb454ab5c6995c2416a96df076fef77da55048cdf885b219cf0"
+    sha256 cellar: :any,                 arm64_sequoia: "06c77739276577e0861100b50473fb56bb841e1a0add89c7b577bc49e956282b"
+    sha256 cellar: :any,                 arm64_sonoma:  "13489b9f19bda76938862073b0d0f5c2393b59dc68d09cb2872430aaeb2a16ab"
+    sha256 cellar: :any,                 sonoma:        "9ca0dab8d3ed4bdf05dcc156699e4915228373aac1341e77ffe7e0a338e331a6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07a0efa05eaa738bf120a65525ddda81790f5f7cf775aaf597fedcff7d4f914a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4522eba14d4066335b54c627d62cd100b2bd5162dd1b4e86bb562a17ffcaba59"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "cpu_features"
+  depends_on "fmt"
   depends_on "orc"
   depends_on "python@3.14"
+
+  pypi_packages package_name:   "",
+                extra_packages: "mako"
 
   resource "mako" do
     url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
@@ -29,8 +33,8 @@ class Volk < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   def python3

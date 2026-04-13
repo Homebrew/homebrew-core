@@ -11,8 +11,6 @@ class Libbdplus < Formula
     regex(/href=.*?libbdplus[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "7b8a3164167b5bc2e357f954ae319df5c9d6d7f0fb7b63f4ef71b65cbec9e3a4"
     sha256 cellar: :any,                 arm64_sequoia:  "9cc87d2f97a8450b3757c16b409e1c13a562e2d0e52492ab9d9cb032c908d600"
@@ -38,10 +36,7 @@ class Libbdplus < Formula
   end
 
   depends_on "libgcrypt"
-
-  on_macos do
-    depends_on "libgpg-error"
-  end
+  depends_on "libgpg-error"
 
   def install
     system "./bootstrap" if build.head?

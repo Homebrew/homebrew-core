@@ -5,8 +5,6 @@ class Redir < Formula
   sha256 "7ce53ac52a24c1b3279b994bfffbd429c44df2db10a4b1a0f54e108604fdae6e"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "adeb67ec9908e136f48f9ef8cadf98ea0cb8a54d8250c4b444821dc156e1918e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e85d33d0d3a7fb6b68dbb5d94ad15d7aa150931c9d0761b1dfa9e2e1ab39bf24"

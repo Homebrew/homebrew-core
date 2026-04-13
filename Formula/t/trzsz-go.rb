@@ -1,23 +1,17 @@
 class TrzszGo < Formula
   desc "Simple file transfer tools, similar to lrzsz (rz/sz), and compatible with tmux"
   homepage "https://trzsz.github.io"
-  url "https://github.com/trzsz/trzsz-go/archive/refs/tags/v1.1.8.tar.gz"
-  sha256 "9ff477c98081ffccecdd61b1bb51d573a0b67c7d205ecfc9d50b20dd4b54f3f1"
+  url "https://github.com/trzsz/trzsz-go/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "6577fbab008264ff4678f60f56a0dea1e68763064a638eaf54e560198a5e6fd3"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c0816e19ac0d99b467e03dc79ec6216c2bb640f6f9b30357446a026683632ac7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "534ff81d4dff7072e4786d57e64c69fa938e72f50757133d5553c7e29edbaf61"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c1116b86864ee5874affa1d2c0d099323187af43f213dfeb74aab41cadc10934"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1116b86864ee5874affa1d2c0d099323187af43f213dfeb74aab41cadc10934"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c1116b86864ee5874affa1d2c0d099323187af43f213dfeb74aab41cadc10934"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fd7d30223b48aadf61451c156036936de0a5492f0f0bf2598d316ec5f822d1dd"
-    sha256 cellar: :any_skip_relocation, ventura:        "fd7d30223b48aadf61451c156036936de0a5492f0f0bf2598d316ec5f822d1dd"
-    sha256 cellar: :any_skip_relocation, monterey:       "fd7d30223b48aadf61451c156036936de0a5492f0f0bf2598d316ec5f822d1dd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "77d3ae4a2ea4512fd8645c93dc2dba19c3e9fb9962d874a06bcf06be2723d9e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "867de3126f27ad11567dced2ecdac5c3f18f754345dae498c14dda8e0da8c1fa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0a5410c23c2797a9ef8e138d8b14c20692f6bfb57c49ad1bc90695b3a82c7be1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a5410c23c2797a9ef8e138d8b14c20692f6bfb57c49ad1bc90695b3a82c7be1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a5410c23c2797a9ef8e138d8b14c20692f6bfb57c49ad1bc90695b3a82c7be1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "543ceb3a77cbe35f909e9f7ad3a8693d33fba9182cc1acc982e81847d3e11783"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6236f50a93b7c1505c207ddfe9d1d31bba7d98c9dcacf32fe8e0a1fedb806d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59fac615831aa88294932a9819feb45342ac643d109eac084a1ee5f042e1f6c3"
   end
 
   depends_on "go" => :build

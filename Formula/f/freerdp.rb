@@ -1,17 +1,17 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
-  url "https://github.com/FreeRDP/FreeRDP/releases/download/3.20.2/freerdp-3.20.2.tar.gz"
-  sha256 "9fd28a5fc4167575d0fa91edbdab58cf7dd96a445a57d77fdb2df965b40eeb6d"
+  url "https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.24.2.tar.gz"
+  sha256 "dcb46af2a4296c796c83de610613002ac5a89a3f4ed18122f889d65611cf473e"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_tahoe:   "bab191cc7ea4a80d018be152418d3875d650a8ab1b74374f471b475732dc8f8c"
-    sha256 arm64_sequoia: "a3bf5cf78a4765689a9a518b958407108615f51abc765f8afcab55c6953a8578"
-    sha256 arm64_sonoma:  "a13fb20cf0cc795a32e9d24c90305345d8c8a9f16bdc5ff6f0a28ab4d40c053f"
-    sha256 sonoma:        "cbab7582af01e0ee5fd6c2fe2e37b4a26e476f0e52c4705e459e4d30d22f904d"
-    sha256 arm64_linux:   "db1545621a1ca70cd9d4308d3682cf934dfb8e4704208d1f81ea2157d5636bb1"
-    sha256 x86_64_linux:  "86d8e916fe1875271aed8e3e03315266cb498e05acf4004687a8ae354970108a"
+    sha256 arm64_tahoe:   "8988afd6e8828a4ff1454fde1173021c72af4d88324f95565c65703f66656175"
+    sha256 arm64_sequoia: "f59417b1763936b3e7c379485014f9e03bfad054fd074848238c5b6e88f8bb02"
+    sha256 arm64_sonoma:  "cc6d9fae72f71b53b178090eb853dfad0a95b20e342f602108cf44ce15f44052"
+    sha256 sonoma:        "68da11845defe13f6045888f773921bb49be3a29fc2ab05f98c9ddecc3298b28"
+    sha256 arm64_linux:   "65c24a6b100d92017dbb72ba5b1fedb5117a21790e57631ed270a9de5367eaeb"
+    sha256 x86_64_linux:  "eac5e3e505caa38107c8d0874853d513bdd2fd13673644c0b53f8c16e2c80dfe"
   end
 
   head do
@@ -23,6 +23,7 @@ class Freerdp < Formula
   depends_on "pkgconf" => :build
   depends_on "cjson"
   depends_on "ffmpeg"
+  depends_on "jansson"
   depends_on "jpeg-turbo"
   depends_on "libusb"
   depends_on "libx11"
@@ -38,9 +39,9 @@ class Freerdp < Formula
   depends_on "pkcs11-helper"
   depends_on "sdl3"
   depends_on "sdl3_ttf"
+  depends_on "uriparser"
 
   uses_from_macos "cups"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
@@ -50,6 +51,7 @@ class Freerdp < Formula
     depends_on "libfuse"
     depends_on "systemd"
     depends_on "wayland"
+    depends_on "zlib-ng-compat"
   end
 
   def install

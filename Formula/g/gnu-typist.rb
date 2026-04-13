@@ -18,9 +18,11 @@ class GnuTypist < Formula
     sha256 x86_64_linux:  "15b3985018e2cb520b709f0cf8c0b41307c49caf6756255638a1ddc9f37f3ac6"
   end
 
-  depends_on "gettext"
-
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   # Use Apple's ncurses instead of ncursesw.
   # TODO: use an IFDEF for apple and submit upstream

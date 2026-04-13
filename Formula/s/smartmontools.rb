@@ -4,8 +4,7 @@ class Smartmontools < Formula
   url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/7.5/smartmontools-7.5.tar.gz"
   sha256 "690b83ca331378da9ea0d9d61008c4b22dde391387b9bbad7f29387f2595f76e"
   license "GPL-2.0-or-later"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     sha256 arm64_tahoe:   "1059107fe65fbaa54f25cba7f2d9160cba2ca90cb0b9ba3d3635f78639c46a29"

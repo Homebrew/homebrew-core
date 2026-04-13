@@ -4,15 +4,16 @@ class Ncnn < Formula
   url "https://github.com/Tencent/ncnn/archive/refs/tags/20260113.tar.gz"
   sha256 "2fdc5c6e37f8552921a9daad498a1be54a6fa6edd32c1a9e3030b27fab253b47"
   license "BSD-3-Clause"
+  revision 4
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "d04babc64fd453d4c261d6a4e65f99fbd2cba8dd25d02e60aa765d5bfb6b8fe9"
-    sha256 cellar: :any, arm64_sequoia: "275af08b07ec2995b722d6232aeb7c710c8e291b3bcfd3dab0f08e7f2ee5c754"
-    sha256 cellar: :any, arm64_sonoma:  "cd44012b840a872f3a751a578a931ca09e14daf7140f62120835c0d95dedf842"
-    sha256 cellar: :any, sonoma:        "828288a40cbe2238af290208b3140e09cb7bc5747769c720f8b13741b3fd2ad5"
-    sha256               arm64_linux:   "c15ee12cb657c5d1db2c37bf3ec733833356c91238fd1c5b96426f4640d8ffa2"
-    sha256               x86_64_linux:  "5867b51f88c0c3939a59adda517c3c40c2f06ab948ebe9ec40776cc1b20165ec"
+    sha256 cellar: :any, arm64_tahoe:   "32a3ae7eca14922823925b1c28d705510320366701f9ae0bf8c41adc408188b9"
+    sha256 cellar: :any, arm64_sequoia: "699a86a1bdeb0c9ee5f96ca2456c2724ecf332e95a82dea148c23af773e9ace5"
+    sha256 cellar: :any, arm64_sonoma:  "3d16f91290dec7ecf6cac1371a3502cd7897c4de8f4d5e411707f8f315712c0b"
+    sha256 cellar: :any, sonoma:        "1df71d2f7c96bb19c3d6c72e1677035b8f7d5b40815bf865a589c8f460b606b0"
+    sha256               arm64_linux:   "4e00671612b1b942aa589e0ff38b6a1ebd7151c1f9d2ad30a9f647d69fd843ba"
+    sha256               x86_64_linux:  "941bd38539d20bb2adcccd1af07157e0c37ef04f50da1c4db5bf44551ccec351"
   end
 
   depends_on "cmake" => :build
@@ -68,6 +69,9 @@ class Ncnn < Formula
     elsif ENV["HOMEBREW_GITHUB_ACTIONS"] && Hardware::CPU.intel?
       # Don't test Vulkan on GitHub Intel macOS runners as they fail with: "vkCreateInstance failed -9"
       vulkan = 0
+    elsif Hardware::CPU.arm? && MacOS.version == :sonoma
+      # Disable Metal argument buffers for macOS Sonoma on arm
+      ENV["MVK_CONFIG_USE_METAL_ARGUMENT_BUFFERS"] = "0"
     end
 
     (testpath/"test.cpp").write <<~CPP

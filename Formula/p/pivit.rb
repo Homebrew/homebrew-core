@@ -1,20 +1,17 @@
 class Pivit < Formula
   desc "Sign and verify data using hardware (Yubikey) backed x509 certificates (PIV)"
   homepage "https://github.com/cashapp/pivit"
-  url "https://github.com/cashapp/pivit/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "dadaee7a84634c55087fbf6bf0d2de1838aa89ce31125eafbb0b5779757583f9"
+  url "https://github.com/cashapp/pivit/archive/refs/tags/v0.9.3.tar.gz"
+  sha256 "ad52207e4962969a28aa298098b0a360ab6ffc61e4e075d9e0842adccbac4a29"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3dac5137cfcd0bcce589cb545b773578ffc80a463f3e3583b2067176e4709a06"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "10b9bdad1f60c409382076623452598cdd78a74aca0c8730a73017e615ce2889"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76b90fcb5fdd851b6343daaccf3e70bfc5d17e0a6286c73bb0a9ebf46ee96871"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fff9b3eb6c37d38e7dac30a5845b4dbe31ebfecec201a8136e82b364c21c8505"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6340b6f017c995c72b72924dc0744e4ea787c517b4f944c80883c26d1ce3f76c"
-    sha256 cellar: :any_skip_relocation, ventura:       "dc2dbaf0b6e87774aa069b10fe6714a7f5f8a2d54c11248c585afa8c8dbfd450"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8cfbf2adeb50c1950bc699a38810b5d6f7cc9e6c4dc76dbf65eb9fbd7da249a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df76cbe5172a33ea40688700ffc719af53244bb94043cb83f62bfd05fcfb5405"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c7f5d747e5dfa387783b29019ed02f78ef8622d71abcb851ecf519e010a2bea0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "89f12db02ef6895b23cd60f5a6e401601c04484cca4d6be2d4a79e7541d9bd22"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9d40cae5fe5369218a74a74f5abb473a11a867d2013333de2db720aacc735ef5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "acc9b73454be913f494d087148ca8d72837da35ebf8b49d6a54d689de5eb6492"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "77ed67ed542f89456ab252694a290eaf2e9da1f8833300f048ad31a82258584d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64fab27f7aeb2ca8f09732a8e48eb090591a0840cf51106953e9774717230f17"
   end
 
   depends_on "go" => :build

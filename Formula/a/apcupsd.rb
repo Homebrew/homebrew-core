@@ -10,8 +10,6 @@ class Apcupsd < Formula
     regex(%r{url=.*?/apcupsd%20-%20Stable/[^/]+/apcupsd[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 4
     sha256 arm64_tahoe:    "b3ee569355dc3304f2efdf334b2b130088427c6cb9001213c73837ec7ef26160"

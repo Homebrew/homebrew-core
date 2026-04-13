@@ -1,13 +1,14 @@
 class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://sysdig.com/"
-  url "https://github.com/draios/sysdig/archive/refs/tags/0.41.3.tar.gz"
-  sha256 "ec5a4a485655ccf14395ac5b8fc71344c6fd46c8336c686aabe22f89f138da20"
+  url "https://github.com/draios/sysdig/archive/refs/tags/0.41.4.tar.gz"
+  sha256 "36daa6a06705569fcc9b0579992e2457494003aea0065eabf54b3e16d67511f7"
   license all_of: [
     "Apache-2.0",
     { any_of: ["GPL-2.0-only", "MIT"] },                  # `falcosecurity-libs`, driver/
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # `falcosecurity-libs`, userspace/libscap/compat/
   ]
+  revision 3
   head "https://github.com/draios/sysdig.git", branch: "dev"
 
   livecheck do
@@ -16,12 +17,12 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "4864cf82b58c869a934c3b080529550bde3cb8517f74d17481b41044eb9993f6"
-    sha256                               arm64_sequoia: "4a14d84ec1a651caaa1dc1feca0967aa02382584fdbae3dbeaa0a67a2bf59297"
-    sha256                               arm64_sonoma:  "0706da11716ecb6e9b53079c510cd708e626a82753364794f4f3f20fd88344ec"
-    sha256                               sonoma:        "4184dc03f3cc50ee4fcaede5c7f8d44e8d62cc8b06561c25e51ffb40ed31c659"
-    sha256                               arm64_linux:   "212837259a524f0ed319cf6cd971618393f2a8b7f5232cc1ea349070cb540296"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc435715d41202b5f9f3ea27cd7d73b93136ed89ddadafe286fc8e23fcbefbc4"
+    sha256                               arm64_tahoe:   "0df639333fcb8267f4b3aabc636628b81a86b3f6a7cfd6a212dff1431c96c01e"
+    sha256                               arm64_sequoia: "f99c3a2bad7e30fd826eed8334fdd6dd99bc6dd2216484130d06478902554668"
+    sha256                               arm64_sonoma:  "64b07554879b8518142aa760be752743e0cf6281d923d34e58a27734db17aa7e"
+    sha256                               sonoma:        "c77d4eec59ed75ac419c498bcfa4073762ecafd94b05ea53bb281a59c94b3530"
+    sha256                               arm64_linux:   "c63e9595260f137127823df077646dd767eedea322d614545d04a0d69d0d15d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40f2bbe5313b0d1729873662d54224cee2637437d0b12bb8db458b8f4ee33a21"
   end
 
   # FIXME: switch to brewed `falcosecurity-libs`
@@ -38,8 +39,6 @@ class Sysdig < Formula
   depends_on "uthash" # for `falcosecurity-libs`
   depends_on "yaml-cpp"
 
-  uses_from_macos "zlib" # for `falcosecurity-libs`
-
   # for `falcosecurity-libs`
   on_linux do
     depends_on "abseil"
@@ -47,6 +46,7 @@ class Sysdig < Formula
     depends_on "elfutils"
     depends_on "grpc"
     depends_on "protobuf"
+    depends_on "zlib-ng-compat" # for `falcosecurity-libs`
   end
 
   link_overwrite "etc/bash_completion.d/sysdig"

@@ -6,8 +6,6 @@ class Libdazzle < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "c85ea978999366c90f0a82d06f658d48a09ed3e021cd7edaedc8d18140145b77"
     sha256 arm64_sequoia:  "87f5700425b73e8a64c2b6af4f2f1ee74028b1921d147ba239a298c10ea12b05"

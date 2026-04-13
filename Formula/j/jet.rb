@@ -1,18 +1,18 @@
 class Jet < Formula
   desc "Type safe SQL builder with code generation and auto query result data mapping"
   homepage "https://github.com/go-jet/jet"
-  url "https://github.com/go-jet/jet/archive/refs/tags/v2.14.0.tar.gz"
-  sha256 "20de09dae640f99e690b71da448f713ba330f78c73b9b5357d7c65ede5ce6afe"
+  url "https://github.com/go-jet/jet/archive/refs/tags/v2.14.1.tar.gz"
+  sha256 "d08ad03aac750cccb82d5decc57e0f7040aa866f3b1028079a052726875632cc"
   license "Apache-2.0"
   head "https://github.com/go-jet/jet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5f550b84f4f7107313347e623354f332f65e5a89173d112a2ad526b05d7c88e0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7822a4b5e036a3125785f27b1bf2c4c46984bbe30be7f045e64e9a4d93e6d2c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d7eee5e0ce240b74a540c3104504ce3cb7f798a3e3448ae7ee59e86c6d0ba2f0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "95a8032e3644c70a6550eca499c8fe214b275f1ef89cf96368d39c8e4e6e7547"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "07c89a4a0d477870b349e6466104fde4ba1e2cff74c1ca0caa095c2fde3694d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5852829a71cb69e89860753a2107257b396beb2f932dae1fe35a1de39f0b8f36"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e9e5b2da17f204428bd9e47d751750a47bedbb73e4934991cf6ce37a9d448ef0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e137024ad8955f0364c4e738b53bbf49835fb20cd9ee0de764661461bc140a2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1599211d902478a5bffc4b89d2cd564fb55fc77b052cba0d08d64e5e99856a7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "22deb92d0d620fe7075681c0e4b1582e07778679199b066b94a883796a3a6e2a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b568589a19ca662efa63dfb64bca31b92b22442b2aff7009d88bf073e56b38f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "629d53e3b9234713aba15fd7e572cc1298aee75a4fc0545fbcf255349e15190e"
   end
 
   depends_on "go" => :build

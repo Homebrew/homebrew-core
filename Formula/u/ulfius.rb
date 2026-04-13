@@ -5,19 +5,14 @@ class Ulfius < Formula
   sha256 "19cf789b2af1919b69f77c7701237bfc318a9781ec657b68fd4b6ffa9d53f111"
   license "LGPL-2.1-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "a535c2a3e95d6f0a6d9426b4bebb34b17337aa1d2eb3352464c00c01062f8bad"
-    sha256 cellar: :any,                 arm64_sequoia:  "6020a868ce69b336b8ef6dd3b37bd70cd21eb8a246ddae1ae45a9b713b672e42"
-    sha256 cellar: :any,                 arm64_sonoma:   "453e5f09539969edae37b6aeafbe2165a455a91b12df2d0c4920d7db20b20ced"
-    sha256 cellar: :any,                 arm64_ventura:  "4ba9e5737a26c0feece3bfe0ab61c5e48668352323c32d6be741ee7e210b23ff"
-    sha256 cellar: :any,                 arm64_monterey: "7729359e1306b5f7a7d1a7624cbe743002f67b4e59d61f681e48c9e1f226b599"
-    sha256 cellar: :any,                 sonoma:         "4b5da848abed1816659dd597ccc41309b3c1203b2995cad5cf2db0300f9dd2b2"
-    sha256 cellar: :any,                 ventura:        "4441a18184afaf2dd7455d10c927106aff533171586db43327aebe25ae58b6e9"
-    sha256 cellar: :any,                 monterey:       "668f26af0904892c71317dee876e011e9caa179dda3b1f242db74d1387de74e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "c35e214b85f1734b4d5fe4fcaf6ff18d6ab1f0b9253ec7801c9518a2c44f48d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aaf71e924637028cb1e0510ac9e58eeff98e0958fd0662bc593e60855dba652d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "bb83f403a0e3afaaa29a55a287d41397502b098108788889be264e68fa406f93"
+    sha256 cellar: :any,                 arm64_sequoia: "caf3377e92811c768853a8751e55284e0f5ff6e490cfc43a1943255d41018e57"
+    sha256 cellar: :any,                 arm64_sonoma:  "98e664b0cee9d34cdfd0830c01a3694fb59a0156d5e98ac280c54f29a4cd86e6"
+    sha256 cellar: :any,                 sonoma:        "4707acefa7e44fd8b0be6be3640a4a04653f408b47012eb1876d8406dac60a7e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa30b970d73f41cc23d168a1da27b10d119051f4c20723a14729f6abfb59c8d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa9e86ea46c664fe30c62b97cab094df477efab25d300e1c5e6cf9bfecc1afad"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +24,10 @@ class Ulfius < Formula
   depends_on "yder"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

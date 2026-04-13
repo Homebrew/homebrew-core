@@ -4,6 +4,7 @@ class Leptonica < Formula
   url "https://github.com/DanBloomberg/leptonica/releases/download/1.87.0/leptonica-1.87.0.tar.gz"
   sha256 "c73363397f96eb1295602bf44d708a994ad42046c791bf03ea0505d829bdb6a7"
   license "BSD-2-Clause"
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -11,12 +12,13 @@ class Leptonica < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ab32f1b8d1615316af71452ecb542668b6dc53b423389d87b15379f3a1640e27"
-    sha256 cellar: :any,                 arm64_sequoia: "ea09ebafbd5411252013d28e0814c832a707858791d8cc71b6cb0acaf6cd5b55"
-    sha256 cellar: :any,                 arm64_sonoma:  "4a62d0d40a8e5c0c38e814e39074371b56f19904d81c77800963d4da4f33f0e8"
-    sha256 cellar: :any,                 sonoma:        "95455f7ef798c9bf0f11eb0fde88da376784bab6bcd2e184cd2f09bb8201bb71"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "95b1abbce20ad2492f2d26c50140da14d15d06c42af9857a6fdb69e6b9cd25e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc17c54a9ba3ff16d5bf508ff236ca5a87c70b227af0e1fe7873581b40591edb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6932bf1645434e6c93d7bd4ca86623c55bdbd6d386833ebbdae969c581d4d303"
+    sha256 cellar: :any,                 arm64_sequoia: "305a35821bb0d618e614c791e7fcd9e58e92b08d5763b4b4e1dbdcf69619d034"
+    sha256 cellar: :any,                 arm64_sonoma:  "bc58db017510f010f5feccc1e88aaaf3ca118dc6750ad9ecef6cbb47e0358539"
+    sha256 cellar: :any,                 sonoma:        "81d9615212f99786dbd3bee606c2963c4119defd7f782177e3096d750ad1ac41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbf296913a82a15ba49f6ca5e11e4705bf783d278917772d5999c3a39b51601e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46b90af8964b6c265f258a8a7ec159a4881e9ec5c2d3d0e37cd91054b5e87999"
   end
 
   depends_on "pkgconf" => :build
@@ -27,7 +29,9 @@ class Leptonica < Formula
   depends_on "openjpeg"
   depends_on "webp"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--with-libwebp", "--with-libopenjpeg", *std_configure_args

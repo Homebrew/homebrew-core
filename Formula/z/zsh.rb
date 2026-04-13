@@ -19,6 +19,10 @@ class Zsh < Formula
       url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.9/zsh-5.9-doc.tar.xz"
       mirror "https://www.zsh.org/pub/zsh-5.9-doc.tar.xz"
       sha256 "6f7c091249575e68c177c5e8d5c3e9705660d0d3ca1647aea365fd00a0bd3e8a"
+
+      livecheck do
+        formula :parent
+      end
     end
 
     # Use Debian patches to backport `pcre2` support:
@@ -37,8 +41,6 @@ class Zsh < Formula
   livecheck do
     url "https://sourceforge.net/projects/zsh/rss?path=/zsh"
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 3

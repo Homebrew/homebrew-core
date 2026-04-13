@@ -6,8 +6,6 @@ class CoreosCt < Formula
   license "Apache-2.0"
   head "https://github.com/flatcar/container-linux-config-transpiler.git", branch: "flatcar-master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bbe2be9e5b17ddf5d2be97069bc9552adbe793b6739c6b6dfd07028af3aa1cc3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d7d99702fcc4911d60fec259d493be5b357097f417690bf799329dc35ac5415c"

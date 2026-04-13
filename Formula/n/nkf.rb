@@ -10,8 +10,6 @@ class Nkf < Formula
     regex(/href=.*?nkf[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "157d2e7be20ab0ff292a84336421a6c0afdb541abcc04d7b05fe4aff25d3bbe1"

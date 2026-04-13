@@ -2,6 +2,7 @@ class Srt < Formula
   desc "Secure Reliable Transport"
   homepage "https://www.srtalliance.org/"
   license "MPL-2.0"
+  compatibility_version 1
   head "https://github.com/Haivision/srt.git", branch: "master"
 
   stable do
@@ -14,6 +15,11 @@ class Srt < Formula
       url "https://github.com/Haivision/srt/commit/7962936829e016295e5c570539eb2520b326da4c.patch?full_index=1"
       sha256 "e4489630886bf8b26f63a23c8b1aec549f7280f07713ded07fce281e542725f7"
     end
+  end
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do

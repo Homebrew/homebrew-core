@@ -6,14 +6,13 @@ class Dillo < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "fd56c3ac780ea1c1d420546b8691773d85b8259308dafa3c3227921f423a29da"
-    sha256 arm64_sequoia: "0207d59785da8978150221c348a04269db1e6af49b16cea243aeaeb2d874592d"
-    sha256 arm64_sonoma:  "28b93f6b93b643299e98f8f9b543b55784ce83e16e624d460453b2741b4faa61"
-    sha256 arm64_ventura: "91e47bdc6957706b451ad79446f0807b46f7ad3bd52ed9e4b3e7fbf7f68e7656"
-    sha256 sonoma:        "eb64b7f51d5fd459bf3dc5ceffebc8f44a8cccf2e5288fd8bd2bc00e076c7d7a"
-    sha256 ventura:       "d67a1834f6bdb695b18602e11411bf5e6e723df7a2fe4cb513c392da4ec52561"
-    sha256 arm64_linux:   "c7726b387e90495e472ba084ea9c20fa14414b9f5a13f0ad2547d76dfdf94ef4"
-    sha256 x86_64_linux:  "b38cf02dc15d8362d04a62438d62eb0f6b7be342d83fd349f414b0c24f5f4989"
+    rebuild 1
+    sha256 arm64_tahoe:   "133ccf2cba4d0bd952f33b732c18d55cf734e4cc52cdfe1eec378e77c9a4db24"
+    sha256 arm64_sequoia: "7dc7ce269edd8f4f14fceaeb32e4778124b9598c7012ff352ade23c8efa0438a"
+    sha256 arm64_sonoma:  "a79d60c5478603e8a82cfa50bbce87946c26b671a4d2bc118e1005c5e9ee4329"
+    sha256 sonoma:        "8e4b78d3b2f1909881dfcf2fbee7924222a055cf6b863d6d77a6346a127cbf50"
+    sha256 arm64_linux:   "affc8edd131cb4d01285085bb413c678ee6ebc0dbf55aebbee6f1abdab7dbae5"
+    sha256 x86_64_linux:  "633afe5f018db26138ac0d62cd5d0d55b11fefa78a68bedfc1992718e3ede88b"
   end
 
   head do
@@ -30,10 +29,9 @@ class Dillo < Formula
   depends_on "libpng"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "libx11"
+    depends_on "zlib-ng-compat"
   end
 
   def install

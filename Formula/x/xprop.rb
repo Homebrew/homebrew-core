@@ -5,8 +5,6 @@ class Xprop < Formula
   sha256 "d689e2adb7ef7b439f6469b51cda8a7daefc83243854c2a3b8f84d0f029d67ee"
   license "MIT-open-group"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "16498c5be35fa49d3fb077e47270d30e791d045f9ad1a6ec52b5e375168b56aa"
     sha256 cellar: :any,                 arm64_sequoia: "cdec0acd7bb65c8b5c8817d838fdfa701a0320d87eeb34297641c87c91724bf7"

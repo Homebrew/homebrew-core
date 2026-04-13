@@ -6,7 +6,7 @@ class MonitoringPlugins < Formula
   license "GPL-3.0-or-later"
 
   livecheck do
-    url "https://www.monitoring-plugins.org/download.html"
+    url "https://www.monitoring-plugins.org/download/"
     regex(/href=.*?monitoring-plugins[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

@@ -29,7 +29,7 @@ class Cppinsights < Formula
   def install
     llvm = Formula["llvm@20"]
 
-    # TODO: Restore ENV.llvm_clang when using unversioned `llvm`
+    # TODO: Remove following when using unversioned `llvm`
     if OS.mac? && DevelopmentTools.clang_build_version <= 1500
       ENV["CC"] = llvm.opt_bin/"clang"
       ENV["CXX"] = llvm.opt_bin/"clang++"

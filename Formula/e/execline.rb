@@ -1,18 +1,18 @@
 class Execline < Formula
   desc "Interpreter-less scripting language"
   homepage "https://skarnet.org/software/execline/"
-  url "https://skarnet.org/software/execline/execline-2.9.8.0.tar.gz"
-  sha256 "d05e0b75cc21841692119c7a7838163acd7f05318bd69e779068266daa7ce91f"
+  url "https://skarnet.org/software/execline/execline-2.9.8.1.tar.gz"
+  sha256 "23350d10797909636060522607591cb4a2118328cb58c5e65fb19a2c0d47264e"
   license "ISC"
   head "git://git.skarnet.org/execline", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f7e344ad336bf5e8d6e1b015bf31b713369d864ceaa47c9e5488ed779ffa67a3"
-    sha256 cellar: :any,                 arm64_sequoia: "80d7976ecd545eff02d35fee0f3b78e872829eefc995a5a02e59d4ea619b7e5f"
-    sha256 cellar: :any,                 arm64_sonoma:  "b8e788fab61d14394ac407f73196055c30416fad63b0da28887b25ef66f94d75"
-    sha256 cellar: :any,                 sonoma:        "7de25147b344591d623c57ba3f918bc7fe41d8ea37390a4964dea38b2bc69b0e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e03b42ed07a004b26b80a6c4f04d105f55cfa9a0e87cc7fa42efb54f3b3eebe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "590fdb671f78fa114dd979020ea677f040dd5b66b78de44eb3e5ffb035357769"
+    sha256 cellar: :any,                 arm64_tahoe:   "1821cb1a1f4cb4563107a96a6e4226fbb19f71e2b4f4958ba3072e2320d3cde8"
+    sha256 cellar: :any,                 arm64_sequoia: "7e85921f90d391666a22e1daf7b572164be83fc0bccf6d716afa70eb590ae347"
+    sha256 cellar: :any,                 arm64_sonoma:  "b87efb740ad77909dbcd391cf64b3f258e8de85d88e9222c54a6199e8ec870bb"
+    sha256 cellar: :any,                 sonoma:        "02723eef03476c8dcd5448899b4717e06d9c4c3b94e2d39b4421dc730e27da4e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "49daa9344067f4534f19592352185b0b5a573f2e8420929d65238294770723ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ecaef5ce93cc303329fc01de0290f3b4bd4c7c3b2ef7510eefa5d60b1869ca1"
   end
 
   depends_on "pkgconf" => :build

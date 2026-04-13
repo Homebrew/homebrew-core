@@ -4,7 +4,6 @@ class BotanAT2 < Formula
   url "https://botan.randombit.net/releases/Botan-2.19.5.tar.xz"
   sha256 "dfeea0e0a6f26d6724c4af01da9a7b88487adb2d81ba7c72fcaf52db522c9ad4"
   license "BSD-2-Clause"
-  head "https://github.com/randombit/botan.git", branch: "release-2"
 
   bottle do
     rebuild 2

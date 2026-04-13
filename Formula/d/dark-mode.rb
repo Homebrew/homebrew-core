@@ -6,8 +6,6 @@ class DarkMode < Formula
   license "MIT"
   head "https://github.com/sindresorhus/dark-mode.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f6217678dfa4b8d1be25c7db9e62e604458cf16219b6cc5a4630f5c5d4bdb9f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e1ba7fd046acc377adb6e03543dfa8a5c4376e930ecce45b2ba464b23c808192"

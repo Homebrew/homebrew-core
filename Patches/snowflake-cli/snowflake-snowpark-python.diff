@@ -1,0 +1,12 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 6b87735..34b6f7d 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,7 +1,6 @@
+ [build-system]
+ requires = [
+     "setuptools",
+-    "protoc-wheel-0==21.1", # Protocol buffer compiler for Snowpark IR
+     "mypy-protobuf", # used in generating typed Python code from protobuf for Snowpark IR
+ ]
+ build-backend = "setuptools.build_meta"

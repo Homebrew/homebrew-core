@@ -5,15 +5,17 @@ class Fontforge < Formula
   sha256 "69046500185a5581b58139dfad30c0b3d8128f00ebbfddc31f2fcf877e329e52"
   license "GPL-3.0-or-later"
   revision 1
+  compatibility_version 1
   head "https://github.com/fontforge/fontforge.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "9842a2fb9af32ffb0b9f42eee17632315a97851b78c7f8200d174604470137e7"
-    sha256 arm64_sequoia: "84ec0be09f626a8742659e590293b827e59dce3b17db7df66f7edcfebd04af36"
-    sha256 arm64_sonoma:  "c3709d57ce02996b5a78de23cbdcb3d23bcd1c905d51b36ffa8df0c5c89cd545"
-    sha256 sonoma:        "d69b2a27564efd612d118c3d21af11ed90884a0b6ab39d4a1f4aaad0ec2c2aef"
-    sha256 arm64_linux:   "4f5dda211c788f14f2e496718afc1e4a76652a3f09a7542b5c5970ac9b8e90b5"
-    sha256 x86_64_linux:  "c7670ee26c9d7fc053de2c9b0c17d84e801abf7c06e7d1f354cf4eb2204a0a09"
+    rebuild 1
+    sha256 arm64_tahoe:   "fe4e8adc42c7763ed1e006c2966beea83baf6c012820391715a41cb8cd5af442"
+    sha256 arm64_sequoia: "ea285c6bf59a9bcffdd24fbe0ae422c863b1eb0156015942ca1b76437291a424"
+    sha256 arm64_sonoma:  "33997a1a5250790fd7e9df618d66ae2ba515b7739908423dbffa55141b984c7f"
+    sha256 sonoma:        "b4603144bfe427dd67a0aa3a6d28d0bd77f4f7d074d95f538330b783027f7aec"
+    sha256 arm64_linux:   "423e7dc51a951f9a5fff4693b96e8ee4bf542d3d7645e099244774f76b9fa015"
+    sha256 x86_64_linux:  "8ce74cd480cd362e588066468c776c16ecbf48a967fe51fb769caa4db8837832"
   end
 
   depends_on "cmake" => :build
@@ -38,11 +40,14 @@ class Fontforge < Formula
   depends_on "woff2"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "brotli"
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def python3

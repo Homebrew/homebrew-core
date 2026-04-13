@@ -14,6 +14,7 @@ class Wdfs < Formula
 
   # Also needs `libfuse@2` and had 0 installs in 90 days on deprecation date
   deprecate! date: "2025-03-06", because: :unmaintained
+  disable! date: "2026-03-06", because: :unmaintained
 
   depends_on "pkgconf" => :build
   depends_on "glib"

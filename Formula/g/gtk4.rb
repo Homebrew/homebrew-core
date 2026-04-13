@@ -1,9 +1,10 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.20/gtk-4.20.3.tar.xz"
-  sha256 "2873f2903088a66c71173ea2ed85ffae266a66b972c3a4842bbb2f6f187ec153"
+  url "https://download.gnome.org/sources/gtk/4.22/gtk-4.22.2.tar.xz"
+  sha256 "b1c987370a0c30780cde351bdbee02eef816728f1c1c2ec7c8093281c0709ee8"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
   head "https://gitlab.gnome.org/GNOME/gtk.git", branch: "main"
 
   livecheck do
@@ -12,12 +13,13 @@ class Gtk4 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b148c5fa5231680513700b3c6bbcebd78889be3dea019c90d5fe87dcc98a4e69"
-    sha256 arm64_sequoia: "8bc0c060d122e27fe86aa2efae734fa6fea6771fb6b89dfc30319434f4255aa0"
-    sha256 arm64_sonoma:  "0f8d64257e4aa6387bb44952275332e37fa07e8af5a5aa85c4dad16b664736d4"
-    sha256 sonoma:        "6bd4d64cce03590ea7b8b94029eae0d648c487efec2163f051b4fab3bced33b6"
-    sha256 arm64_linux:   "9592d89401f4cc24139c73f695bf2d989f42e24b5d856bc9dacdb9a0495ff4b6"
-    sha256 x86_64_linux:  "1ac6c9d5ecbcfcd2e809c35860f49a46e92b4f5b30adb53457b71b8819cf2f1c"
+    rebuild 1
+    sha256 arm64_tahoe:   "df9fccdfab031083ad3665e2611c20b8dd7ae9197cc3f27117b8d78fcdad6b9b"
+    sha256 arm64_sequoia: "46d06f694632df98a45eeea8f11683941e6a2e81e63e88a49dae6b8c19057b91"
+    sha256 arm64_sonoma:  "1822fa25451d8fc9b38118d0af2691882c41715c833adf83328a82cd95c23f4a"
+    sha256 sonoma:        "ff5108a4cc81b600710f5cf01fb3bb97b798f782a0f85fd02e847e145e747daa"
+    sha256 arm64_linux:   "85b73eb5727ad76f794ed01225587c2792a6338a60dccb61c75627a6143854c4"
+    sha256 x86_64_linux:  "446dc5d917d848b6398529a78bb602f375e8c5cbd7fc2d571b70afd04aa7ba04"
   end
 
   depends_on "docbook" => :build
@@ -28,7 +30,6 @@ class Gtk4 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "sassc" => :build
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "fribidi"

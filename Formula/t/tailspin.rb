@@ -1,20 +1,18 @@
 class Tailspin < Formula
   desc "Log file highlighter"
   homepage "https://github.com/bensadeh/tailspin"
-  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.5.0.tar.gz"
-  sha256 "e9d7cefb865585bb048a2ccbfcc1f900ae344134d71132a7c48ee0d5af09cdaf"
+  url "https://github.com/bensadeh/tailspin/archive/refs/tags/6.0.0.tar.gz"
+  sha256 "fb8ed60a4a0e863304034d6f73e115183a9a27811f4a0d2afd76151a547c40d9"
   license "MIT"
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "95494039cb74f12c62c4d37a73dda0cdeffd7289e8d943e3e2886edf0b9202fb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44586a6dcad6fb8267c8740d76404ad12bf7e089c429247e2ace1c8619277110"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b72108e7744f6539b7478ef15df4b3e8ca8c3ba20809b4ecdb0cf4ace12d608"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a5a88936ed1623af9aa4560bdce4a641275bf630c06ac380b382fe84e38a2abd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b12c37ddda9f095c000238c85caa5f97045f782fd9f573a859a1268257e1bb3b"
-    sha256 cellar: :any_skip_relocation, ventura:       "38be0ff04c8a3539a1e5f93339f2e3627fa989afc813062e20d1f660669620a4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c9b8c4d226fe1c26a0ceab3934e20a74a252dd839c426dc26dde346336b044b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5aca6beeb105f23fa5564d72ed192d7994351a7faa1c0e89e167472c9dadfe6c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "546dc29561a947ac2e367bd339121d47e0bf1a97d48d43b30889226141132091"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5a97178d12c7b9346634550514aff9afbe097abe894640cf919f34b533f88d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "173d8bcf4e683adc95902ed9ff8b9a309db9360148e6ced916ae6538816a055e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f3d916063441067bd750c5cf6fd5f328d128639a76bec5dbbdc5ddad5a4e5919"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe541e32db49822f3b3fffe94f1f8865cfbd9f3540b7528373a4b5c1049d07f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "280800b5943da17e4ccbd7bb0ca6d0e284c71276663c83ba1b419add06133b29"
   end
 
   depends_on "rust" => :build

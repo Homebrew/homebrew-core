@@ -1,9 +1,13 @@
 class Pipewire < Formula
   desc "Server and user space API to deal with multimedia pipelines"
   homepage "https://pipewire.org"
-  url "https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.4.9/pipewire-1.4.9.tar.gz"
-  sha256 "8066a7b220069e4c6e3b02bd2b6ea303bba66df255023c07c99323449ba8fe3c"
-  license all_of: ["GPL-2.0-only", "LGPL-2.1-or-later", "MIT"]
+  url "https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.3/pipewire-1.6.3.tar.gz"
+  sha256 "93db72dc06768db548d48ae2b8e96e7c299c89a47f5c4426f152221aa90b0f2d"
+  license all_of: [
+    "MIT",
+    "GPL-2.0-only",      # libjackserver.so
+    "LGPL-2.1-or-later", # libspa-alsa.so
+  ]
   head "https://gitlab.freedesktop.org/pipewire/pipewire.git", branch: "master"
 
   # We restrict matching to versions with an even-numbered minor version number,
@@ -15,8 +19,8 @@ class Pipewire < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "6d572cd52c0c3329c53e77a3d6c1d4a6bdd001fb78ddb641248a5e93486892e4"
-    sha256 x86_64_linux: "0c0e172381438d5b4abc7b2b478bcee91342ae768a9b11b5e584157a6c1f1304"
+    sha256 arm64_linux:  "71907c7c052245cfdb5dd590b72e8b22891b50ebaad0548967f3e951747d8a88"
+    sha256 x86_64_linux: "d37a86501e8bea7ee5c7ed7114959b1f09f2f8087b97f7fbc2157c02b8935da8"
   end
 
   depends_on "meson" => :build
@@ -26,7 +30,6 @@ class Pipewire < Formula
   depends_on "dbus"
   depends_on "fftw"
   depends_on "glib"
-  depends_on "gstreamer"
   depends_on "libsndfile"
   depends_on :linux
   depends_on "ncurses"
@@ -37,8 +40,12 @@ class Pipewire < Formula
   depends_on "systemd"
 
   def install
-    args = %w[
+    args = %W[
       -Dexamples=disabled
+      -Dgstreamer=disabled
+      -Dgstreamer-device-provider=disabled
+      -Dsession-managers=[]
+      -Dsysconfdir=#{etc}
       -Dtests=disabled
       -Dudevrulesdir=#{lib}/udev/rules.d
     ]

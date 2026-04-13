@@ -5,8 +5,6 @@ class Avanor < Formula
   sha256 "8f55be83d985470b9a5220263fc87d0a0a6e2b60dbbc977c1c49347321379ef3"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "f4e7392f6932b4478f15b384de5435734302d9758907fac70bb02d70e8307ea6"
     sha256 arm64_sequoia:  "88abecffbb226843739fc147a93b4ba8d7feeb105f4ae7f3580ceb719c16ce8f"

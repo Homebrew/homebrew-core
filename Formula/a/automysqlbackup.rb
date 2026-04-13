@@ -11,7 +11,7 @@ class Automysqlbackup < Formula
     regex(%r{url=.*?/automysqlbackup[._-]v?(\d+(?:\.\d+)+(?:[._-]?rc\d+)?)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 2
@@ -57,6 +57,6 @@ class Automysqlbackup < Formula
   end
 
   test do
-    system "#{sbin}/automysqlbackup", "--help"
+    system sbin/"automysqlbackup", "--help"
   end
 end

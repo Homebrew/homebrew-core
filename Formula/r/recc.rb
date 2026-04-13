@@ -1,19 +1,18 @@
 class Recc < Formula
   desc "Remote Execution Caching Compiler"
   homepage "https://buildgrid.gitlab.io/recc"
-  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.3.50/buildbox-1.3.50.tar.gz"
-  sha256 "69cd2d9f8ad2b45d94871df12552e3b0f6ab96dd3e6c331544a531deefdc3962"
+  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.4.3/buildbox-1.4.3.tar.gz"
+  sha256 "87ebed00ad061bbc3c4faa1fb3e764222ab9b8b0397c610aebb071eace3aedf4"
   license "Apache-2.0"
-  revision 1
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "58a1b54962f1ef7affe3de4cff5e307eab684311e75f90235fd2937eb075be35"
-    sha256 arm64_sequoia: "e7c024fa9a9d1373c182f6d9b49394ebdc6659691140999927c1505027a0cf2a"
-    sha256 arm64_sonoma:  "778b4cfc55d8966384a683fb74254ccab048099fd7843d7e06dc3069e9978190"
-    sha256 sonoma:        "dcab1107a5be441668a8f33541f460863f57c6157cf128b9d9b26f2f6fc508f9"
-    sha256 arm64_linux:   "e184e2f6bc2d95cd2b665e7ff799a05d43d424072a07f6ddd6105eaf5aa4942c"
-    sha256 x86_64_linux:  "a968cfa12721b3ea1379d2f05da4b7653b2b08d71e91aeb0d7a5eaf27b7560f8"
+    sha256 arm64_tahoe:   "ecc455fcd43cda17016ccc1080fdd74da82f2975eeba17cb2d19d3437bdb933e"
+    sha256 arm64_sequoia: "2d8019b114e086189be9f909a34ee6169a4f2bf8bf99e0ca35e046fd320d1c90"
+    sha256 arm64_sonoma:  "1d7d7a5b747a311e7ad3be1aa3a1b974eb67bcc66865fec9353f6aa8480a7973"
+    sha256 sonoma:        "c0c90f3c5ffbf6d8f71ad049b1311729752581332f6e409f29848c916971eb21"
+    sha256 arm64_linux:   "b85f69cd7d58b3f5497133b3a9b8196052b3cc4f5f9899b703ce04a61e26779e"
+    sha256 x86_64_linux:  "f8e97a70de6bd28f9e0bdbbc75417a5a63b23d6111a0c762df695a1f4099cecb"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +22,6 @@ class Recc < Formula
   depends_on "tomlplusplus" => :build
   depends_on "abseil"
   depends_on "c-ares"
-  depends_on "glog"
   depends_on "grpc"
   depends_on macos: :sonoma # Needs C++20 features not in Ventura
   depends_on "openssl@3"
@@ -31,15 +29,11 @@ class Recc < Formula
   depends_on "re2"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
-
-  on_macos do
-    depends_on "gflags"
-  end
 
   on_linux do
     depends_on "pkgconf" => :build
     depends_on "util-linux"
+    depends_on "zlib-ng-compat"
   end
 
   def install

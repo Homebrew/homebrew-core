@@ -18,20 +18,20 @@ class Taplo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d2f39a73bc659d10bcc88514690a0830b9585e2411e5f3341e10a27e96ca7f0f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc34b4585bd26c0731a98223e7353e3c37e84693bbb828aae0c165eec4f6bd05"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e89c3dd297d444b0dd22566341b14c8a1cafb92a5e3065401e5d6ba04481dba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec6957561bfe3ef9bc51acb50b47e5dd47798504521e1eb3f69028ead7f6fe42"
-    sha256 cellar: :any_skip_relocation, sonoma:        "38160e4bd1c2389f0790068445938f0c223ca45c8e7ee91f0dcbe3bd82e6fd1b"
-    sha256 cellar: :any_skip_relocation, ventura:       "e56649fe5573e848113e04f1addb70bc0862fd80d5e13a0f76ebccb1374b26d8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f0c83c7dbb6db7edb0d040085531e82fc78f9f44c675a4a53078c3b265ec183"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d598a281ccf6b7749d8e15dc2a506e471c06c6baa982969e712120704dc3899b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "45ab756df1ba17d564eb5b5132320bd54ed6ce1c87ecd6cc4f060b7c9f464bfb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7f802f8658952140d83d60e0c62d3b09532db224f749bd46d4969e094661aea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "468cd6fc7d2fd6604bf1b77b860ab1e0317807aaf799d39810d9ca346029d82f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e8e895325722a9a4e7b1c9902f7dea8f9b72091a80433d60090adabc1acae3c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a293f793e6cec6d14e69208ccd45c6190ba4c7e5bf5e38ea9c53d1724d7d1d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28b439cd3525654a6c40bcd74bf47a6f611450daa36f51172991beacb505104e"
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--features", "lsp", *std_cargo_args(path: "crates/taplo-cli")
+    system "cargo", "install", *std_cargo_args(path: "crates/taplo-cli", features: "lsp")
+    generate_completions_from_executable(bin/"taplo", "completions", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do

@@ -6,14 +6,13 @@ class Mtbl < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d99aa92632fd6ead895d811adaae316e95c7db7c3fc9125dc39010f4193435c2"
-    sha256 cellar: :any,                 arm64_sequoia: "2b6fa4c8ee0748b475c8de603bc8ad4445e0a611f559efcabb8f32d01570cd95"
-    sha256 cellar: :any,                 arm64_sonoma:  "2ac95c6c0d71f51e76820c71fe4a154a8a817cbe7481724845385334a29d0488"
-    sha256 cellar: :any,                 arm64_ventura: "4e8b43423cd8c82ef0f2d586b53c9e4ee38e9977e4a4b0b0bbbb5efc869b4119"
-    sha256 cellar: :any,                 sonoma:        "32ecbed59f4c384f6b83fa4747e57676915aef4046dca8e71e3ed8ea45acfb20"
-    sha256 cellar: :any,                 ventura:       "751ce48fd18ed2f366e62f792819fd4807f90582ba99f4f844585c1d30782710"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "964ac6e3d6a03c6a037a797a66fabea64638a2c073c412c75cf5cb2afe189cf7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e22aa2d09aa22c71d7646d7d15fd1e8bba3344967f0ebb0c53bbc8dd05c503ea"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7546780a577d53570daaea86bd9306fad67197ab4fb869090c43d17bbff88474"
+    sha256 cellar: :any,                 arm64_sequoia: "481216ae78025ad4b0e03fe33108dd9a21a82dee2ecb47e301144588bda284fe"
+    sha256 cellar: :any,                 arm64_sonoma:  "3983fe83804275dbc3ec23807027c88a1971c7d7eb39b917679985be51213250"
+    sha256 cellar: :any,                 sonoma:        "313e1023e84adcb21d608ecc2869e277b52b93a2bc5160a9ce3f9c711d291956"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b47a8e9c5014ccbcc1cba631fc6b6f6a41bb881b53d6345123dcff7730731100"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6088b5d34bc9970ae90f0ca4885e17e4556a678ca44f540cd1ed34b24ed0279"
   end
 
   head do
@@ -29,7 +28,9 @@ class Mtbl < Formula
   depends_on "snappy"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?

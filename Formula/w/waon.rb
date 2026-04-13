@@ -5,8 +5,6 @@ class Waon < Formula
   sha256 "75d5c1721632afee55a54bcbba1a444e53b03f4224b03da29317e98aa223c30b"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "ba4c8874a6eeda9339d900073289cd829ab0bb0ca156509b141e3ff20fa9d432"
     sha256 cellar: :any,                 arm64_sequoia:  "10296a60dfeda8e84d9d66f0bbce71ca7072f3a108936537aedabb4108f1e9bd"
@@ -24,7 +22,7 @@ class Waon < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "sox" => :test
+  depends_on "sox_ng" => :test
   depends_on "fftw"
   depends_on "libsndfile"
 

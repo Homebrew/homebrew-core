@@ -1,23 +1,18 @@
 class Libxrandr < Formula
   desc "X.Org: X Resize, Rotate and Reflection extension library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXrandr-1.5.4.tar.xz"
-  sha256 "1ad5b065375f4a85915aa60611cc6407c060492a214d7f9daf214be752c3b4d3"
+  url "https://www.x.org/archive/individual/lib/libXrandr-1.5.5.tar.xz"
+  sha256 "72b922c2e765434e9e9f0960148070bd4504b288263e2868a4ccce1b7cf2767a"
   license "MIT"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "5786e3a7fe8620155141375bded4c2f6c7ec24149a7bdcca18db40fa3607c34c"
-    sha256 cellar: :any,                 arm64_sequoia:  "e29fec5331c2d36188093a2331d0f2f426c9cb18d21e5335931ee0d0e22e5ec9"
-    sha256 cellar: :any,                 arm64_sonoma:   "7775fef1d482d55d108a57bd2cc32c3177eea7270956a2fb648b3683acd54049"
-    sha256 cellar: :any,                 arm64_ventura:  "dbc964894d888cc4147af5ca01528a8bfaacff3c9219981267c405bd37e591de"
-    sha256 cellar: :any,                 arm64_monterey: "e19d7b1164d1aacee9a9a9f2811f5071fdb649913f3b6a388b11ab56ba65c153"
-    sha256 cellar: :any,                 sonoma:         "c400393add3a4dab2a9be13192af2cafdf443234c527a57bb9e22ecfa28cb019"
-    sha256 cellar: :any,                 ventura:        "1cd8ea19e0bdef49383720d3d4aa1c639981a36c9c0a2763c1e9b73afe6a9f06"
-    sha256 cellar: :any,                 monterey:       "52f7889369a183269ec67a15b65bc4bdc41fb5209bc4d291fb7c91abb5455319"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "5d5d28081dd9152f7866682e673bf2cc425a0d0bdcfc8917ad54edcad5d1bbed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c48b622aed3d5e99e225601dca2d129fda08585571d948f8737f3e6a4bcb2a56"
+    sha256 cellar: :any,                 arm64_tahoe:   "36b7a9f0da5208be5b9b39138d0e0eba832e843d40c0f2e69f6d09b495741ddf"
+    sha256 cellar: :any,                 arm64_sequoia: "c332c9afd47eff9b36b52ab2f318e020d140179bff663d8a224897b9782ace43"
+    sha256 cellar: :any,                 arm64_sonoma:  "d687cfb76f86ee2577db8c75fb558fd615d55445bf003d18b0e1a9fe164baa78"
+    sha256 cellar: :any,                 sonoma:        "03452b3eb7237aca7975992b9178b3c3dfeffd73693775ebf674cb95a3703392"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2a61886e6c65894d681629c4117d61f4566fcc1955315008bc53f21a1b667b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bed6ab672a51a09e7b6da5d5d824dba33704ce745889d4eebf4917aa009a3b02"
   end
 
   depends_on "pkgconf" => :build

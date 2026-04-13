@@ -1,14 +1,15 @@
 class Qtsvg < Formula
   desc "Classes for displaying the contents of SVG files"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.10/6.10.1/submodules/qtsvg-everywhere-src-6.10.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.1/submodules/qtsvg-everywhere-src-6.10.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.1/submodules/qtsvg-everywhere-src-6.10.1.tar.xz"
-  sha256 "c02f355a58f3bbcf404a628bf488b6aeb2d84a94c269afdb86f6e529343ab01f"
+  url "https://download.qt.io/official_releases/qt/6.11/6.11.0/submodules/qtsvg-everywhere-src-6.11.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.0/submodules/qtsvg-everywhere-src-6.11.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.0/submodules/qtsvg-everywhere-src-6.11.0.tar.xz"
+  sha256 "dfa8d653be07087d9407ed4a4ebae847f8953e0b7abd829f089803ab652a30e6"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
   ]
+  compatibility_version 1
   head "https://code.qt.io/qt/qtsvg.git", branch: "dev"
 
   livecheck do
@@ -16,12 +17,12 @@ class Qtsvg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "13a747e3883c26267748583ce2aba208015179aa77198ef0df594aaaa232bdab"
-    sha256 cellar: :any,                 arm64_sequoia: "dcb56cd4db79e2a8bc4ff1c462ba15c9a3c1eca93d59952cd8d51c73911b6bd5"
-    sha256 cellar: :any,                 arm64_sonoma:  "7b8d826256dd4f26f24c72c07bc3b7b2b88897975a72b23a666d7721804ae208"
-    sha256 cellar: :any,                 sonoma:        "9e8da7b6f1c65dad56e7cd9b83d9c15937ba24ff719a336a20259d465f3ed77c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdcff344cd4663b5fa21024fcd34cbe0fbfddbbb88706adb2e4d981c757aa9b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e2df52acbc77adf10e819dba1b563c2594bf211fa34640c78615758f3dba466"
+    sha256 cellar: :any,                 arm64_tahoe:   "a07c32093a638cc0ee1f4f6538df123cc8977e374adf8f20e5cb0fbf2b5ca4fb"
+    sha256 cellar: :any,                 arm64_sequoia: "5805ab7c2775f9349cefb8b32fe4023c09c4acc607199815e8c61aaa078408e0"
+    sha256 cellar: :any,                 arm64_sonoma:  "b53e10a8388d8d456782ee0ac05e24aa29b4dd9cd9bb7aa8eb5bda529f6df72a"
+    sha256 cellar: :any,                 sonoma:        "e6c49b309e43e37a63a3c5e4beaf6fe64e499910a8924b8645ed36c8c82e771c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b01f5db14107ebe7701cf5298609ae52c729997fbbc6ddb62f36a1f0fce72a88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1e7e03389e09f9a49a3dd8f3aef2e36bed51c0cac5f974278dedd7689d59b28"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -30,7 +31,9 @@ class Qtsvg < Formula
 
   depends_on "qtbase"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = ["-DCMAKE_STAGING_PREFIX=#{prefix}"]

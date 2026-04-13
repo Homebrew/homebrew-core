@@ -5,8 +5,6 @@ class Libcue < Formula
   sha256 "cc1b3a65c60bd88b77a1ddd1574042d83cf7cc32b85fe9481c99613359eb7cfe"
   license "GPL-2.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "f874bb169fb510eac8614949b467eec60f3eb77a9f82e9d80b2356298265fc26"
     sha256 cellar: :any,                 arm64_sequoia:  "a981b4ff3dfc99ea87cd08ec0caef79fc30b4bed4255841555fcbc3a02454b86"

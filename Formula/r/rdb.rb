@@ -4,6 +4,7 @@ class Rdb < Formula
   url "https://github.com/HDT3213/rdb/archive/refs/tags/v1.3.1.tar.gz"
   sha256 "3e495081d7ec5ad3cd35c7edcc6d2f0841601ca976eb281628c8a51ef9e1dbbe"
   license "Apache-2.0"
+  head "https://github.com/HDT3213/rdb.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4f5ffd5e87034dc38de93619379833c4485b483d9893deea5c61e89ab7eaa146"
@@ -15,6 +16,12 @@ class Rdb < Formula
   end
 
   depends_on "go" => :build
+
+  # Support Go 1.26: https://github.com/HDT3213/rdb/pull/63
+  patch do
+    url "https://github.com/HDT3213/rdb/commit/d78c0fab284c3fd9633f8eb9966cc3bdf3af7100.patch?full_index=1"
+    sha256 "ef2cbc68c285b82a1e11d344df4f4450ab77abbd71e028d867360e3226f66aba"
+  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

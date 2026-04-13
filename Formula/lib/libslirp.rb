@@ -4,6 +4,7 @@ class Libslirp < Formula
   url "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.9.1/libslirp-v4.9.1.tar.gz"
   sha256 "3970542143b7c11e6a09a4d2b50f30a133473c41f15ed0bdcc3b7a1c450d9a5c"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "18d81f7392c77441d299e5ea36b08c85553919f407fb5433fb009c032a099b39"

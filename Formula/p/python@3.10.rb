@@ -1,10 +1,10 @@
 class PythonAT310 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.19/Python-3.10.19.tgz"
-  sha256 "a078fb2d7a216071ebbe2e34b5f5355dd6b6e9b0cd1bacc4a41c63990c5a0eec"
+  url "https://www.python.org/ftp/python/3.10.20/Python-3.10.20.tgz"
+  sha256 "4ff5fd4c5bab803b935019f3e31d7219cebd6f870d00389cea53b88bbe935d1a"
   license "Python-2.0"
-  revision 1
+  compatibility_version 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,12 +12,13 @@ class PythonAT310 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f147213c973175c225164fca912a33fb455342c0c93e0f70c53da7217f11137e"
-    sha256 arm64_sequoia: "ff18e23ca5efc90534a9234b1365ff180290e82a74f2aa6e8bd82220504737a2"
-    sha256 arm64_sonoma:  "32bda2aa0fa7c62e409e31e170d028f9b4834f5e414be9cd9c8fcf2920c24122"
-    sha256 sonoma:        "41d2532e5b733bfeb604e68013faeb925706d371acf5104e63493c9ec808ef35"
-    sha256 arm64_linux:   "423100f9ecf8fb21a9e79e9acfd9464aa3fe54034371592390eae90697674313"
-    sha256 x86_64_linux:  "31db8c1c6a4a7a3e16ca822f324cb078244aa57c139d4c2b5ea5cb9fc2ee01ce"
+    sha256 arm64_tahoe:   "50fd986a8c3039dd09a0f987f7d28e020952263fd4cb3c1abdf28df3d52b817b"
+    sha256 arm64_sequoia: "db2fccb2919d299b94a1ca3307ceeee2c29a0630d9103ddbd4cc0320c7d295a7"
+    sha256 arm64_sonoma:  "4f802be0c17636580abb56250bb66e4b6c15e06d1634c1ce2a339863fdaf512d"
+    sha256 sequoia:       "04977a913682f060c57bc088a7100a685eeb8605edae1b4d13d95f95d7af2fa1"
+    sha256 sonoma:        "d3985eed5b19300c1d8c5c252965d82c267081a632e40bfeafc355499ad3ae31"
+    sha256 arm64_linux:   "61e079d6c1475b6dab902111cdadb5f41c4f4c25f5db1ad702242b20ae74bdb9"
+    sha256 x86_64_linux:  "2fea15efb797cdb50fdb4927af71df1f9110fce9d5d1139e186ea397ac4097e8"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -37,16 +38,16 @@ class PythonAT310 < Formula
   depends_on "xz"
 
   uses_from_macos "bzip2"
-  uses_from_macos "expat"
+  uses_from_macos "expat", since: :sequoia
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libnsl"
     depends_on "libtirpc"
+    depends_on "zlib-ng-compat"
   end
 
   pypi_packages package_name:   "",
@@ -58,19 +59,24 @@ class PythonAT310 < Formula
     sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+  end
+
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/fe/6e/74a3f0179a4a73a53d66ce57fdb4de0080a8baa1de0063de206d6167acc2/pip-25.3.tar.gz"
-    sha256 "8d0538dbbd7babbd207f261ed969c65de439f6bc9e5dbd3b3b9a77f25d95f343"
+    url "https://files.pythonhosted.org/packages/48/83/0d7d4e9efe3344b8e2fe25d93be44f64b65364d3c8d7bc6dc90198d5422e/pip-26.0.1.tar.gz"
+    sha256 "c4037d8a277c89b320abe636d59f91e6d0922d08a05b60e85e53b296613346d8"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/82/f3/748f4d6f65d1756b9ae577f329c951cda23fb900e4de9f70900ced962085/setuptools-82.0.0.tar.gz"
+    sha256 "22e0a2d69474c6ae4feb01951cb69d515ed23728cf96d05513d36e42b62b37cb"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/8a/98/2d9906746cdc6a6ef809ae6338005b3f21bb568bea3165cfc6a243fdc25c/wheel-0.45.1.tar.gz"
-    sha256 "661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729"
+    url "https://files.pythonhosted.org/packages/89/24/a2eb353a6edac9a0303977c4cb048134959dd2a51b48a269dfc9dde00c8a/wheel-0.46.3.tar.gz"
+    sha256 "e3e79874b07d776c40bd6033f8ddf76a7dad46a7b8aa1b2787a83083519a1803"
   end
 
   # Modify default sysconfig to match the brew install layout.

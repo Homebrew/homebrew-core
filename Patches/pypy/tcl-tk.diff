@@ -11,8 +11,8 @@
      incdirs = ['/usr/local/opt/tcl-tk/include']
 @@ -26,7 +26,7 @@ elif sys.platform == 'darwin':
      if homebrew:
-         incdirs.append(homebrew + '/include')
-         libdirs.append(homebrew + '/opt/tcl-tk/lib')
+         incdirs.append(homebrew + '/opt/tcl-tk@8/include/tcl-tk')
+         libdirs.append(homebrew + '/opt/tcl-tk@8/lib')
 -else:
 +if False: # disable Linux system tcl-tk detection
      # On some Linux distributions, the tcl and tk libraries are

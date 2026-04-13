@@ -1,17 +1,17 @@
 class Qcoro6 < Formula
   desc "C++ Coroutines for Qt"
   homepage "https://qcoro.dev"
-  url "https://github.com/qcoro/qcoro/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "809afafab61593f994c005ca6e242300e1e3e7f4db8b5d41f8c642aab9450fbc"
+  url "https://github.com/qcoro/qcoro/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "4bff7513c5c8e301b66308df05795043b1792ed16381a484e5c990171b8ff19e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "29e63a82cea7891ef2e9844a57e7836d9c4ebf91db2991432038fa9ce4b971a6"
-    sha256 cellar: :any,                 arm64_sequoia: "c77df01948a62ed7857b568b86ea585018632050d2ba57872205a3ae54eadb76"
-    sha256 cellar: :any,                 arm64_sonoma:  "f0d57a2e74521709c59b8c8c13727dcc91127378507b5c43e9757e5aaa4ddc44"
-    sha256 cellar: :any,                 sonoma:        "4dcbd1c72b2d23a8a7c870611ac6de0f47d6c473c49da1fd111908b253914a9c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72c9a6c92632c060f34b85158517ecd7d204da2ebab40b7994e8c9228b613755"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28ffddc636d502cc3d763fab6deef4348c4f77c7b8e6d14594cfd30d5cdad1d2"
+    sha256 cellar: :any,                 arm64_tahoe:   "e9ed424fd8ae02a63a497b56cc2572a003ce650d53431b0860581c77c223322b"
+    sha256 cellar: :any,                 arm64_sequoia: "7bddcf4fa5cb6f63f5135dbb6a0da3c71d864fe4875dcbf307c932d62cc1a027"
+    sha256 cellar: :any,                 arm64_sonoma:  "ae33df4621078549adf4b96608d5c0ec2688254fce0726bee3022ccd5915337f"
+    sha256 cellar: :any,                 sonoma:        "54f735fe156db62ac5b1d8520bda73007e41c87987f872be613f29422339e7a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ff965a3235d3c787027d3efb251f8c0ec492ecaa24f8533321ef1c5851dc727"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce84877e4962f78f2beead7ca678a0fe4a5f0a0e0ab99de5328c9099a8445585"
   end
 
   depends_on "cmake" => [:build, :test]

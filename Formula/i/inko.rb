@@ -2,8 +2,9 @@ class Inko < Formula
   desc "Safe and concurrent object-oriented programming language"
   homepage "https://inko-lang.org/"
   url "https://releases.inko-lang.org/0.19.1.tar.gz"
-  sha256 "af39f9e9fd662523359a36011a74d24c727a8c44daaeb5b073ed4fb30ef69390"
+  sha256 "2261118c98d520f61624257c6fc2b0c65782d7de2b5cd6f17245f071b1d25015"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/inko-lang/inko.git", branch: "main"
 
   # The upstream website doesn't provide easily accessible version information
@@ -15,12 +16,12 @@ class Inko < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bddaed79422f3a2fb9105da1cd96c58c717de0fefb973ec2999ca2d398a3d72d"
-    sha256 cellar: :any,                 arm64_sequoia: "bd6b91afa47d549e6d38fc0cac071db2afbd45f6959199c412ea7a2c6e27fd36"
-    sha256 cellar: :any,                 arm64_sonoma:  "55c06dd1342079a5822b1d03fcbae4e2f1ca79114cc14087b9e35357d36ffedb"
-    sha256 cellar: :any,                 sonoma:        "8008e252687334b2475f2a925990d19a32053b6e3346fb9bba79f2887eb990e1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4073f68d1769c856d26625e23955bf6c98f7633bb1a115418b05ace33c7bceb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "729da31aad19a58cad802277d887e317595508da5c55e3893e56680cabd96449"
+    sha256 cellar: :any,                 arm64_tahoe:   "c9d6cce4fd8ddc942c18921f753e2a044c199f127b368ba8430e9b2386d4e9b2"
+    sha256 cellar: :any,                 arm64_sequoia: "3bafd599e8e57b9433bb2f8254297880d7cfd4496594ac6fe21d6fe237b11694"
+    sha256 cellar: :any,                 arm64_sonoma:  "338bcdb09b2d4940eb1dfd4f2742b6585db63615b85064047743d50ce0414e87"
+    sha256 cellar: :any,                 sonoma:        "b0f312f237328f7e847f52a5e153d1c9e323786e3794e1413127d1efd73fe519"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ec14147195e7d84ea9a995cf7329b24ae6275a9cd4169fb680fa58ed4d9f39f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8eba3d51bac7359f601fdbd010525f559ce0386fcfd85cee0ae5a1d90849544"
   end
 
   depends_on "rust" => :build

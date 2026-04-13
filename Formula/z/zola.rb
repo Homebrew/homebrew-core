@@ -1,17 +1,17 @@
 class Zola < Formula
   desc "Fast static site generator in a single binary with everything built-in"
   homepage "https://www.getzola.org/"
-  url "https://github.com/getzola/zola/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "75274ca54c97da2f24645568e2c7024f6661ce002e8f7e09d6cd30bae7b73b0a"
+  url "https://github.com/getzola/zola/archive/refs/tags/v0.22.1.tar.gz"
+  sha256 "0f59479e05bce79e8d5860dc7e807ea818986094469ed8bf0bb46588ade95982"
   license "EUPL-1.2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "833c402617f8d87a703d570bb2271cf2866eb7dfae9b61d1fe69aa2f759b161c"
-    sha256 cellar: :any,                 arm64_sequoia: "cf76ab9e59615c7452d10ea7da85d5415d5dceaa17860d4d18a4ba3b3857350d"
-    sha256 cellar: :any,                 arm64_sonoma:  "34f385ef819cd92681906ae55636274daceda8b6a29d0173e14c763f23bcd4cb"
-    sha256 cellar: :any,                 sonoma:        "596e81b4e324a33477bcb502198db8a6b3779c85357270953b2cd1f3f92fdfb0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "064cbbb81fce30143a03e6a62a6f83f78a5d9f093c3edd302c1b44ac74616882"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2877a9b0999089d82b58ef88f9f60f72439b08d89963dd86004b190bbac8f338"
+    sha256 cellar: :any,                 arm64_tahoe:   "d0b4f6dcd6f93092e5d6b7c5523d4708542371a56983805abd7c63331ed1eac5"
+    sha256 cellar: :any,                 arm64_sequoia: "5ef5e79cc049d96c6ed8e203a104e66471aad1e61303d595ab3b2c5907033d2e"
+    sha256 cellar: :any,                 arm64_sonoma:  "ad449dec819db4ee40826148692be8392eaa8694cbba236646ccd9f292885070"
+    sha256 cellar: :any,                 sonoma:        "acdcc9fec950ac9c5a109cbedaf4dd57bd6a5aaaf1ace613f84a35db23740c2c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "85106de0bbb3f42628d011213df85a1ca705d785fe2dfa50bc0d7ad72d23ae23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd1481a6f76baf68adfac5b59d3df2db3027ec32cb0bd526dcd7583e41fe007e"
   end
 
   depends_on "pkgconf" => :build
@@ -24,7 +24,7 @@ class Zola < Formula
 
   def install
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
-    system "cargo", "install", "--features", "native-tls", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "native-tls")
 
     generate_completions_from_executable(bin/"zola", "completion")
   end

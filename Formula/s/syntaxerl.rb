@@ -5,8 +5,6 @@ class Syntaxerl < Formula
   sha256 "61d2d58e87a7a5eab1f58c5857b1a9c84a091d18cd683385258c3c0d7256eb64"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2b89005e55db2bd8c5e4f17cb921180b4795622abf46dfc4b1dd11997ceac389"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "33837e94cbdb2721705f5fe69069caabf858455790d9bc7d47c2d73d8f035120"

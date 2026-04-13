@@ -1,21 +1,10 @@
 class Gif2png < Formula
   desc "Convert GIFs to PNGs"
   homepage "http://www.catb.org/~esr/gif2png/"
-
-  # Use canonical URL http://www.catb.org/~esr/gif2png/gif2png-<version>.tar.gz instead
-  # once it starts to include go.mod/go.sum
-  # See https://gitlab.com/esr/gif2png/-/issues/14#note_1373069233.
   url "https://gitlab.com/esr/gif2png/-/archive/3.0.3/gif2png-3.0.3.tar.bz2"
   sha256 "5d2770dce994e08ef54871ea4b0774e0ec0476aad5b3e47e21b4af59fdc8158b"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/gif2png.git", branch: "master"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?gif2png[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9ffa76192c9c581c3fd4aa8d8f56da708f1799dc9122379b34d1ad9240d937ba"

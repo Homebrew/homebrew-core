@@ -1,27 +1,27 @@
 class AddDeterminism < Formula
   desc "Build postprocessor to reset metadata fields for build reproducibility"
   homepage "https://github.com/keszybz/add-determinism"
-  url "https://github.com/keszybz/add-determinism/archive/refs/tags/v0.7.2.tar.gz"
-  sha256 "232c4f9fdc482dee5e6d38ef45a2c983b88283fe23d6ff4bcb26164b4c9a2dcb"
+  url "https://github.com/keszybz/add-determinism/archive/refs/tags/v0.7.3.tar.gz"
+  sha256 "d1f5eac303807fa31e25b4f8ccb08fed23d15f4ffdbe3bb4ee35a29504c766b2"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eeb3e62ac092a45d7c80ad6028866c21e53dd67deca07cd858c60ca08b605115"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c1fcd780d6cd60bb5b5a87a9034396d1fc7e389fbfb162b0bc0133398fcb5e7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32e47defa47bb9c60faa4590ff747249d0a7a137df8a28f25385ace015f6e407"
-    sha256 cellar: :any_skip_relocation, sonoma:        "535ba04c2c5a2252676dcfd043ede6509ed2ed8d982ff3fea3d944d1d51c3aea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8320195d668c1822ed3c0d9a9be244f7e022be0812d318339cbcba1009125cc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcd9b16144899992dbafb28d162ad3796002fe605749650292c46057c7952ced"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a4acaeccbe7f1e8390d00e81f85104468a061865aa885de7bd2c5980583d47ca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca533c86ffccf0438b6498f38fc7ec05fd10bb74bb8afeaef4a22f378ca6eb42"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "913e2ae4671e6be498e000325049cbe2637b2f6ebb480e8ff12a174132e61325"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4a6e9027ec99269def2d6823502b933e3290ab59fd64003cb68ce3836d0d65a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f81478dd7b06b5f7d120447e2552aad28a48edb0ac53c77d402137d27ecbc6f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e38dcf219d4522e98b3b313c830f480c0bc318fa8243b0586e7053cde7691aac"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   uses_from_macos "llvm" => :build
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libselinux"
+    depends_on "zlib-ng-compat"
   end
 
   def install

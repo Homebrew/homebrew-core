@@ -3,9 +3,10 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggml-org/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggml-org/llama.cpp.git",
-      tag:      "b7730",
-      revision: "d34aa07193d27aa04da9a77c63ee125ec614714a"
+      tag:      "b8680",
+      revision: "15f786e6581598638840276948a7e6183fc96a83"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/ggml-org/llama.cpp.git", branch: "master"
 
   # llama.cpp publishes new tags too often
@@ -19,52 +20,48 @@ class LlamaCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e4c8dbdaa50c993a872cfff0ef07fcc5b197fc108a2247129153d8d1f99334d3"
-    sha256 cellar: :any,                 arm64_sequoia: "0b606c7dbc4cb54aa33fff274f181e317f1733c5bfe39f57ccabe7043f32f55c"
-    sha256 cellar: :any,                 arm64_sonoma:  "7215065a80550f8726c303a32006be0c7d3553988df52aeef7cddc0ae4582b94"
-    sha256 cellar: :any,                 sonoma:        "b929d076d1957f15721139c95041cbf08e9a776836c040f89511c6a25a58f68d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "88538a7ed0cf0fb0ff60656a24ff74972e027ea6338174a4f4c9059379f8fd53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "efe5bbd2dc439c5f195901aa1361cea0ccf87681613d3fa1c57e010bdca2dcff"
+    sha256 cellar: :any,                 arm64_tahoe:   "83a2271a26c468f033a4178929fe5282877140e7c5914ed8899a1eb2a628c143"
+    sha256 cellar: :any,                 arm64_sequoia: "360ece5cac1078d53182a3d044ac4ca919bf71bb61031416e6239f3f41e0655c"
+    sha256 cellar: :any,                 arm64_sonoma:  "02b4b6573a17891254fb4620f334110945c589c553eb2401f7348af3a4d81d89"
+    sha256 cellar: :any,                 sonoma:        "ac0df3d5e11ce1e59cc920389852a144c1a9d9c60933293dee936edcd422d77d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e65ae03574f4d28968172608e24186bc3be14ce661893fafa9dde2bfe4473a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a45f26b34bf3d8892d74a92a207ccee1fa28342a88d793cbdea041e378a65f4d"
   end
 
-  depends_on "cmake" => :build
-  depends_on "pkgconf" => :build
-  uses_from_macos "curl"
-
-  on_linux do
-    depends_on "openblas"
-  end
+  depends_on "cmake" => [:build, :test]
+  depends_on "ggml"
+  depends_on "openssl@3"
 
   def install
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DGGML_ACCELERATE=#{OS.mac? ? "ON" : "OFF"}
-      -DGGML_ALL_WARNINGS=OFF
-      -DGGML_BLAS=ON
-      -DGGML_BLAS_VENDOR=#{OS.mac? ? "Apple" : "OpenBLAS"}
-      -DGGML_CCACHE=OFF
-      -DGGML_LTO=ON
-      -DGGML_METAL=#{(OS.mac? && !Hardware::CPU.intel?) ? "ON" : "OFF"}
-      -DGGML_METAL_EMBED_LIBRARY=#{OS.mac? ? "ON" : "OFF"}
-      -DGGML_NATIVE=#{build.bottle? ? "OFF" : "ON"}
       -DLLAMA_ALL_WARNINGS=OFF
-      -DLLAMA_CURL=ON
+      -DLLAMA_BUILD_TESTS=OFF
+      -DLLAMA_OPENSSL=ON
+      -DLLAMA_USE_SYSTEM_GGML=ON
     ]
-    args << "-DLLAMA_METAL_MACOSX_VERSION_MIN=#{MacOS.version}" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    libexec.install bin.children
-    bin.install_symlink libexec.children.select { |file|
-                          file.executable? && !file.basename.to_s.start_with?("test-")
-                        }
+    pkgshare.install "tests/test-sampling.cpp"
   end
 
   test do
-    system libexec/"test-sampling"
+    (testpath/"CMakeLists.txt").write <<~CMAKE
+      cmake_minimum_required(VERSION 4.0)
+      project(test LANGUAGES CXX)
+      set(CMAKE_CXX_STANDARD 17)
+      find_package(llama REQUIRED)
+      add_executable(test-sampling #{pkgshare}/test-sampling.cpp)
+      target_link_libraries(test-sampling PRIVATE llama)
+    CMAKE
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "./build/test-sampling"
+
     # The test below is flaky on slower hardware.
     return if OS.mac? && Hardware::CPU.intel? && MacOS.version <= :monterey
 

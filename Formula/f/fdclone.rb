@@ -3,6 +3,7 @@ class Fdclone < Formula
   homepage "https://hp.vector.co.jp/authors/VA012337/soft/fd/"
   url "https://deb.debian.org/debian/pool/main/f/fdclone/fdclone_3.01j.orig.tar.gz"
   mirror "http://www.unixusers.net/src/fdclone/FD-3.01j.tar.gz"
+  version "3.01j"
   sha256 "fe5bb67eb670dcdb1f7368698641c928523e2269b9bee3d13b3b77565d22a121"
   license :cannot_represent
 

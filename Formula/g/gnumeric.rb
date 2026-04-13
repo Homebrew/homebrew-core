@@ -1,18 +1,17 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.59.tar.xz"
-  sha256 "cb3750b176d641f9423df721b831658c829557552f8887fedf8a53d907eceb51"
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.60.tar.xz"
+  sha256 "bb02feb286062805564438534e1fea459f97cebac8a090b1a7e47ca251e07467"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
-  revision 2
 
   bottle do
-    sha256                               arm64_tahoe:   "9da9cbad74c76bd39d93f36974cdcf4bdbd186dc2af72349cfe1362fec977c49"
-    sha256                               arm64_sequoia: "116d894c3ee141e76c24774a0767b8b68d8d003c017954ab39b0bda30f0c6637"
-    sha256                               arm64_sonoma:  "af4d0e69a15e935de205cf2926fec9741bcdb116fa1d22dbd9d89eb02d53e8b9"
-    sha256                               sonoma:        "5670639d8ec74bb1bb6c654eed3a87aac60663f10a3690fe0a21ae1fbc696355"
-    sha256                               arm64_linux:   "769d103e022682ec11f401a0cab91c2569fb12c32fddd68a275cb5463f4ac3a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72004151f4322b6360234f29e0ab659c27ed28c69971cdf6f71c5f7f76e873a0"
+    sha256                               arm64_tahoe:   "02e980a333f1147f76517adf6aef59f34d85d8e0ad5139e4d00bc726cc7bc27f"
+    sha256                               arm64_sequoia: "f56d25431c4d976c9aabb4e630a6a4f5cd3e2bce3c91a17595ca6d96b65c2a21"
+    sha256                               arm64_sonoma:  "546789bb7b3a30a6a791060bbd852eabcdc12b5a5c0dd1b6380feb6ddf251b94"
+    sha256                               sonoma:        "fbe5478953b752c3777bb6f782f69fe0d7905b7eae318aa6c97ec156ed3033b5"
+    sha256                               arm64_linux:   "8bbb3ef361de7939d9e205eee5d13e361e529ee88cf0b1ce36eaa472fa420b6f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "758c3360118c9db83b015d1ff4713664ba68c50b48abcb122c906f5c80ad5fc5"
   end
 
   depends_on "gettext" => :build
@@ -34,7 +33,6 @@ class Gnumeric < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "python" => :build
   uses_from_macos "perl"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -43,6 +41,14 @@ class Gnumeric < Formula
 
   on_linux do
     depends_on "perl-xml-parser" => :build
+    depends_on "zlib-ng-compat"
+  end
+
+  # Replace `bool` type (which requires stdbool.h) with `gboolean`
+  # https://gitlab.gnome.org/GNOME/gnumeric/-/merge_requests/39/commits
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gnumeric/-/commit/0de4c0a45f078ec211fd372da4103b09cb718b1b.diff"
+    sha256 "ac4f245417fcf2d627503ec86aa78fc73becca43c39c7c6ab7c137db55ff48b1"
   end
 
   def install

@@ -12,8 +12,6 @@ class OpusTools < Formula
     regex(%r{href=(?:["']?|.*?/)opus-tools[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "ec7af6774ddcc95aca50060460f3fd6fd3dcc97b78ee2c64e9230b2d7e0e958f"
     sha256 cellar: :any,                 arm64_sequoia: "2e17161e605515377130ebeb2edecf02a4518a8c27373e3eca594cfd48ed6de5"

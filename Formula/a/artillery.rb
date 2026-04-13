@@ -1,8 +1,8 @@
 class Artillery < Formula
   desc "Cloud-native performance & reliability testing for developers and SREs"
   homepage "https://www.artillery.io/"
-  url "https://registry.npmjs.org/artillery/-/artillery-2.0.27.tgz"
-  sha256 "f71f5222435159073ea016fa8a6fb72d85ffa119f0d71058db641e2613aa976f"
+  url "https://registry.npmjs.org/artillery/-/artillery-2.0.30.tgz"
+  sha256 "b8b31e668aa0c2def8d68fee2fa84d614bcd317dd723aa9d17f34aace90fba83"
   license "MPL-2.0"
 
   livecheck do
@@ -11,18 +11,18 @@ class Artillery < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "ce1f89c96ef63d57bd4c45e40604bbb4c2d46240d02118444645525a6ea85034"
-    sha256                               arm64_sequoia: "3c490dc4628fdb080403c57a7ae3f503097b792e0a913a27c17b07a38e9a2398"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c4625e0ac3a4e4efd402fbe55248a6b497fcc6fc884de2f329416cb1fdd822c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9c4625e0ac3a4e4efd402fbe55248a6b497fcc6fc884de2f329416cb1fdd822c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e40a6c18693d71709a4b50ebc46d8a9768b2f0c0ffa67ec24eb681b88136158"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87d4cd783bb859303d1b52f30c3406a1b44424cf97d6b6b8b59a76cec593bec0"
+    sha256                               arm64_tahoe:   "2d67e55ae0cb1e756ccea64cb6fe41106a035ffe4985aa4e90d4557c173c5f8c"
+    sha256                               arm64_sequoia: "aa1435921b1508911cf1d10b0edc0ba12e5a88321741b98d83e274799a09264f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5aa683624d6b88cdab5c28a35928f7011322da1df19166f2e0873691fd551fd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e5aa683624d6b88cdab5c28a35928f7011322da1df19166f2e0873691fd551fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e48d519aae715fc76c92c164c24bc13919822974993be9e71d1c27b82ed50cc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "efdda745ed5a0a430718bb00c347306879676ce516afea92e010bf0b9ad440db"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *std_npm_args
+    system "npm", "install", *std_npm_args(ignore_scripts: false)
     bin.install_symlink libexec.glob("bin/*")
   end
 

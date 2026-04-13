@@ -10,8 +10,6 @@ class Nuxeo < Formula
     regex(%r{href=.*?/nuxeo-server-tomcat[._-]v?(\d+(?:\.\d+)+)\.zip}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "f770ff60d304faa14d16aa72548f2601afbdd6f622a5ae481aa1a460cfc19b9f"
@@ -59,7 +57,7 @@ class Nuxeo < Formula
 
   test do
     # Copy configuration file to test path, due to some automatic writes on it.
-    cp "#{etc}/nuxeo.conf", "#{testpath}/nuxeo.conf"
+    cp "#{etc}/nuxeo.conf", testpath/"nuxeo.conf"
     inreplace "#{testpath}/nuxeo.conf" do |s|
       s.gsub! var.to_s, testpath
       s.gsub!(/#nuxeo\.tmp\.dir.*/, "nuxeo.tmp.dir=#{testpath}/tmp")

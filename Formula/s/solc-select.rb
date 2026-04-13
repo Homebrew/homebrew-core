@@ -6,18 +6,16 @@ class SolcSelect < Formula
   url "https://files.pythonhosted.org/packages/62/89/51e614fdbf26f47268c18f8a3b6cf1cb67c9a8b48b7b7231c948cae97814/solc_select-1.2.0.tar.gz"
   sha256 "ad0a7afcae05061ce5e7632950b1fa0193ba9eaf05e4956f86effee024c6fb07"
   license "AGPL-3.0-only"
-  revision 2
+  revision 3
   head "https://github.com/crytic/solc-select.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fad784f517f25560079fab570297d97420e85c31be47b21446f5c6bf3623494f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "99b2972e69f47d5d216c916090a0584e543389e80d2e8520ec894fb1dc0b6a30"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c77a374d6ac0bc29041979b11b31f6f4622ace9bb51beffc2c40bfa7f923828"
-    sha256 cellar: :any_skip_relocation, tahoe:         "ca6c1da8fbf96201cdcd31f93696f2f775a18ac210e80d9b8cb57599ddaf985f"
-    sha256 cellar: :any_skip_relocation, sequoia:       "471c53b820c0372635b8199c5ed395488644edd40526dcbbae1d149ceda1f05b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e37a09d2e64296b744e12be0feae56ab5f2fa1a2009a93d5855ffa83bef3eb6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d4c92940ff09255409d65c0f4655474d3cbec26e84e1ec0a730f25a122e495d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d93f3a1db63e47bf89cf93bad487060ef2ad929b34d687e16e1cd322c8d01502"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b9ab36fdaca2ba04fc8053d828e9418e49b49f9ddc4a041305b2fc69a140e05e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ddda8b294afc08d15c844f14be32986f62b049cebe9739cc40ea2eeaca787b6d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "014e08dc0899b496c984bc001e9660dcba54c49603ce627ead0674372cbf9278"
+    sha256 cellar: :any_skip_relocation, sonoma:        "775c9cce4b4685951b0d63de078b2b602a13ca39ec30a2112e3dc2b3c767918e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d90042fbaae048ac031dbb5a85e76ba3ee8157f605224113348259fc51c6441"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffc3d31b961e32baf3ab3d6409b33d273772a4f5650cf28ba7ce9206869f021c"
   end
 
   depends_on "certifi" => :no_linkage
@@ -28,8 +26,8 @@ class SolcSelect < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "idna" do
@@ -38,8 +36,8 @@ class SolcSelect < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
   resource "pycryptodome" do
@@ -48,8 +46,8 @@ class SolcSelect < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "urllib3" do

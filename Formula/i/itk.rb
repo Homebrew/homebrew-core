@@ -4,6 +4,7 @@ class Itk < Formula
   url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.5/InsightToolkit-5.4.5.tar.gz"
   sha256 "ecab9119664e2571b90740ba9ab3ca11cb46942dbd7bb87c0de5bb15309a36c9"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/InsightSoftwareConsortium/ITK.git", branch: "main"
 
   livecheck do
@@ -12,12 +13,13 @@ class Itk < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ad0fea9594908679180652dc80101a525091c60bf162a5048728ea75c8b372fb"
-    sha256 arm64_sequoia: "eb59726ec0e2ebb1794f2d72d248a0ee389669b6298e813d0b92aa0b121f3e96"
-    sha256 arm64_sonoma:  "2a359438cb059e0da5f04aa43776cc19afd8384f60da4e9fc22f6f13455e2e55"
-    sha256 sonoma:        "0e3805bfaa77d3fc149171ed8ebc9a4b0549935e79bff2f9295ee8c1d952998e"
-    sha256 arm64_linux:   "569096193617b1f675b9a8d30b456817e93165a2b204747c769cf2b6d3d22e8f"
-    sha256 x86_64_linux:  "09230cc27bff9a6eab3598f8a6fe3f0126fc39ce3003d3c66f50b75af610cd2d"
+    rebuild 1
+    sha256 arm64_tahoe:   "b2a8f96cd226af1a815933d1daee93c710ceaafaac326c8820a9104427df3917"
+    sha256 arm64_sequoia: "23133969310686e96f33a55f517f0fb41e20d13211cae77bcfaf9a9072385faa"
+    sha256 arm64_sonoma:  "4f9be429fe1e5c8f5e86a3aaf829223407acf93f9fa6f88fdc7fafc691acd8ee"
+    sha256 sonoma:        "b1a1409ea3e92ab6adcb31ae2d234ae0eddd7b835a267ea026f578f876377c3e"
+    sha256 arm64_linux:   "da238b4ffceb9c53fd94bba8ba720d714173fd072c31729008bec80314c81b4f"
+    sha256 x86_64_linux:  "94c87addcf68107b478da8dde5df4ae2c5d82f98c104765dc8cfed670adbb6ec"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +34,6 @@ class Itk < Formula
   depends_on "vtk"
 
   uses_from_macos "expat"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "freetype"
@@ -42,6 +43,7 @@ class Itk < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "unixodbc"
+    depends_on "zlib-ng-compat"
   end
 
   # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.

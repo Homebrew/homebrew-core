@@ -1,8 +1,8 @@
 class Prips < Formula
   desc "Print the IP addresses in a given range"
   homepage "https://devel.ringlet.net/sysutils/prips/"
-  url "https://devel.ringlet.net/files/sys/prips/prips-1.2.2.tar.xz"
-  sha256 "f9d710ba19ea0d9f68b633b7093092c84f519313ca28ec0632b37c4e5a85a0b2"
+  url "https://devel.ringlet.net/files/sys/prips/prips-1.3.1.tar.xz"
+  sha256 "5369056ec32216ec4aabf93bc410a1b8a40f04003ec923fc0250a4427bfe009d"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -10,22 +10,19 @@ class Prips < Formula
     regex(/href=.*?prips[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c6ebfff5e1dc46e910a96a6c503115aa7b8774cdb74593bfa0b06fe3aa3ecb12"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "119d431a378f96585d6d92857c3dbf524cca2bad9e993d81763015f2e876ebf5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4824dd5010e37dd1c8dd3689fd00b7a7bc861aa229ce86bb67d14e814832f3a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "154be43d4c20994c4d9dccf42241280a8303ec678d8bc7cd75d8c13eec590809"
-    sha256 cellar: :any_skip_relocation, sonoma:        "128083e5ded105075f9158cf78e8b516aaf6cc909b09bd1e9212d7f2df30f1bc"
-    sha256 cellar: :any_skip_relocation, ventura:       "9503baebbb4bb27ba78205df85c92b120830707544988328f25fc97983cdf2f4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a1ce4c011174062fa45e6cad1c9535e7cf321e2eb1d5f2a6b40d9f9a322fd99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9e565bae503a491ee0e2ecc37889989bfab8cfe96571877a3163cbf28544d61"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1940f6def034b5898045e7ec3e509288f95c675aae968e80df0949c09f6f782"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1ef5b6bfb220fc96d2cb9e90ffe4acae95989348931bad45da37de64fedf1b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f7fc72cc4a2664dec92aea8401e2d4134bfdb0c571d1ee25518940486d7987f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a5d3dc1178925de340d309f61959b05f01389683bbcb81b470bd2d9ce637199"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a36e6ffe5f5a30a2a16aec993d5f033a85dc1326ec249faf2c72de072862ac1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8735d366c15e87986895455bdba3e87ed3969495fed4c4e2de31a04bad90b072"
   end
 
+  depends_on "rust" => :build
+
   def install
-    system "make"
-    bin.install "prips"
+    system "cargo", "install", *std_cargo_args(path: "rust")
     man1.install "prips.1"
   end
 

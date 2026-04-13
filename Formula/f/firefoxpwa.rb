@@ -1,18 +1,18 @@
 class Firefoxpwa < Formula
   desc "Tool to install, manage and use Progressive Web Apps in Mozilla Firefox"
   homepage "https://pwasforfirefox.filips.si/"
-  url "https://github.com/filips123/PWAsForFirefox/archive/refs/tags/v2.18.0.tar.gz"
-  sha256 "befe6568ae09d266a0ef1f6f526f0e903f84e04ce9606bc2bc57a75f97bce208"
+  url "https://github.com/filips123/PWAsForFirefox/archive/refs/tags/v2.18.2.tar.gz"
+  sha256 "a6956631ba62442d108cddfd8139d69d39f47004e8d36390a042ab8580d08021"
   license "MPL-2.0"
   head "https://github.com/filips123/PWAsForFirefox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "744c68f9ec2fa9273159c711dee849c7256c16ceaf180b60735becbaa97371d5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88db2dfcf74daa35a4c653d78620f3a41280bcdb1257e7b1ae2951d5736ccc6a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5be9864b2d68e763cc59a5940cec83a0651f8962837cc0c2747c2ff7124bf0fc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1cdfd35e1a646506a0dce7c326a8d15a602b682b1fceefce9472a0431e22fe66"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5473e3582fcedc5542f14c16a8a1c76cfe1ad602147ea003c921a4a4f303f9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba3a14e84e2c1823745c8bba97e8d4ba28d444d61bc438010b1bff23df30a9a1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0b6b9242665adc6a44a2da0dbe17f926b7ce8226fadf71fe0b1dc51af4ce4349"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5dacc0bfd9f6abe22991e60443dfc60cf6dc16d06dda1dcc9499ca14eecd7266"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "423a273b3a6790cfdc9c0e871f9c931a492ec679824263e659cd8b26358a9a8c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c3aee9faf6712ebfa4be77443228e2b428749bc854fedd2fb380fca4452b95e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a03b4f7d82c1c97eac6cb742419c6ecb8d0efb82b44b4d8f23c635d96660159f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5ae69012de7e629ff5e8413ba71525ff56615d7bfb05715eb493753db2ad466"
   end
 
   depends_on "pkgconf" => :build

@@ -20,8 +20,9 @@ class Libobjc2 < Formula
   # macOS provides an equivalent Objective-C runtime.
   depends_on :linux
 
-  # Clang must be used on Linux because GCC Objective-C support is insufficient.
-  fails_with :gcc
+  fails_with :gcc do
+    cause "GCC Objective-C support is insufficient"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
@@ -34,9 +35,6 @@ class Libobjc2 < Formula
   end
 
   test do
-    # ENV.cc returns llvm_clang, which does not work in a test block.
-    ENV["CC"] = Formula["llvm"].opt_bin/"clang"
-
     # Copy over test library and header and runtime test.
     cp pkgshare/"Test/Test.h", testpath
     cp pkgshare/"Test/Test.m", testpath

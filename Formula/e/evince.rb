@@ -7,15 +7,17 @@ class Evince < Formula
   revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "7368c3bba0d45b928b0899a929bbe2fab0c7cdf6a34cd83ef6cca5f45b8bf998"
-    sha256 arm64_sequoia: "06518d30ac2a79a327ee013a5d966279b6749c6fa4bb41a85e0bb2cf9037563c"
-    sha256 arm64_sonoma:  "9fdc7ef485f94104cd7e4339273a1be61f178861550d30f837f0882da0eaa344"
-    sha256 sonoma:        "fba32bdcd8bc5948457dc8f3d493930baee6a8667eb03bc6eb81fb53943cc025"
-    sha256 arm64_linux:   "c3b7ff3ce4eaa1abc6c75b1bbdfbd580e5ff9a293c9c9f970e4213ad97ff3e45"
-    sha256 x86_64_linux:  "71fe8192226f74e9df97e95eca1292d0328729b530bff5ef1e61ec7cf66300d4"
+    rebuild 1
+    sha256 arm64_tahoe:   "3b7e9c903699d610e7e118ac6268b5f2b0dcbbadd553257be807aaca0b2ff4d9"
+    sha256 arm64_sequoia: "c79bd492a970f0a2faaa173dd9129a9ddee30f3cb67f6700cce4564bdafe0b2a"
+    sha256 arm64_sonoma:  "4146849007042d512b61feeb08fa4db530eeb43a55d4b7718b77ba477a2cd3c0"
+    sha256 sonoma:        "3a2e85b4add1137e10a843ef53563a53ef6bbaf2d92b05223edfee1009880767"
+    sha256 arm64_linux:   "9d5b11ec7436eec5ece2dfd76ddc9b912135f1b5f5c0493fb5aca1fad97a9e33"
+    sha256 x86_64_linux:  "696a73056be75f55f4ebeb0ad5976bf7366cfebc128a13436a1a1d606354cd6d"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
+  depends_on "gettext" => :build # for msgfmt
   depends_on "gobject-introspection" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
@@ -41,14 +43,13 @@ class Evince < Formula
   depends_on "poppler"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
   end
 
   on_linux do
-    depends_on "gettext" => :build # for msgfmt
+    depends_on "zlib-ng-compat"
   end
 
   def install

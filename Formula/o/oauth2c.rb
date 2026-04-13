@@ -1,19 +1,18 @@
 class Oauth2c < Formula
   desc "User-friendly CLI for OAuth2"
   homepage "https://github.com/cloudentity/oauth2c"
-  url "https://github.com/cloudentity/oauth2c/archive/refs/tags/v1.18.0.tar.gz"
-  sha256 "87458914b1aa1ef813f76b8a043a1d8878209042ac0285d8c27d15d304d4a37f"
+  url "https://github.com/cloudentity/oauth2c/archive/refs/tags/v1.19.0.tar.gz"
+  sha256 "ff2b46b344b3444e344bba336fefe6e7706b3196b69c4e38c9e95dd527110745"
   license "Apache-2.0"
   head "https://github.com/cloudentity/oauth2c.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b42d16b77ae34b80666d17176086268421fd62e8645232322677513157f0ef11"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b42d16b77ae34b80666d17176086268421fd62e8645232322677513157f0ef11"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b42d16b77ae34b80666d17176086268421fd62e8645232322677513157f0ef11"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9ce6def395827ba177fc850f643b10582290ac763452dc0205870b0a14d84909"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "58705cd5857fc33badea91dc4bd5f20ff3b9ab9d88cbef6665d3bf800c6efecc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7b5b11a23e1a66f8b4e4840b8a85ec2e57eb581030f52e3c4307d0c94fdfab1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e75715a36d6ef6248ca5d9ea3c3640a84f56ea674cd473dead06e2c5ca30160a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e75715a36d6ef6248ca5d9ea3c3640a84f56ea674cd473dead06e2c5ca30160a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e75715a36d6ef6248ca5d9ea3c3640a84f56ea674cd473dead06e2c5ca30160a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "212dedc74ce1045c7d9ddfd7c6f7b5bbafe868598b33e29a6b998d74b9a6f825"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "451c6e4bfef376b6484a2af2e95a75fa2075670ce4a521e41a46709c356955e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bff01427c8c97ff748c92541c90d2a1274bca0853011afd944ab6acae4ec619c"
   end
 
   depends_on "go" => :build

@@ -1,18 +1,18 @@
 class LeafProxy < Formula
   desc "Lightweight and fast proxy utility"
   homepage "https://github.com/eycorsican/leaf"
-  url "https://github.com/eycorsican/leaf/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "1754b3c1e38b1cf763919bda20894d3153d7835649b31f667715b5b8b4de512f"
+  url "https://github.com/eycorsican/leaf/archive/refs/tags/v0.14.2.tar.gz"
+  sha256 "605bfb0a12b187824a3958066e7e9651a6bfb2f0a889041e73e1d58bb706ed43"
   license "Apache-2.0"
   head "https://github.com/eycorsican/leaf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "677a2da07190a4785329d5a5e55c490acaa0d27424dcc17db820a0cc94a7360b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "60fbb58d1b20b0d93888eb142b59f5ace3eac671f13d4e9e505ab34f3b7ed30a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62b9454fe7c516c217f884c22ead935a04329cc9f2017e5aef5916a0e91d64a8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5151af193b013aaa173c8c6bbee433b616f5deaa3a9d7e9225e5a884c162292f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "203f39457cf1ff8e6e6ead68cdf17843d33404a052d0eb33331f227ea4201aa8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a00fc0156b68f201cdd79e1d079f4fa6f93302b78d4785ec691852aa2d86d9c5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce4ddbc5258b07aa7d6fc9b17843eb49d3cb45df5d0a5d341d0d30a5557161e0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea5824292f3c9cd445bdbb5d510aa17f781116cdd00b50bd2aafb0df10846ad9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d45757c8417275f5a65eb781991564d9a737d39cab6c17675b01f6245113629c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "143381004f03317bd67bc74f5e8457218e6d6ea42d99ee7053994eb26f48b02b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1d489c122431f770ff38e13b235af6403a14a826808da7c113ee1f87013dc5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "441cf4911893e34463aef2e632ad6255d48128c750f0b6f7c66ed3d94b86383e"
   end
 
   depends_on "rust" => :build

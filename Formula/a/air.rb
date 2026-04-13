@@ -1,23 +1,28 @@
 class Air < Formula
   desc "Fast and opinionated formatter for R code"
   homepage "https://github.com/posit-dev/air"
-  url "https://github.com/posit-dev/air/archive/refs/tags/0.8.0.tar.gz"
-  sha256 "fbce4a9698c756dc4d65eb6cb845fcdd8bca952f25b988711037b6ff9b82a99c"
+  url "https://github.com/posit-dev/air/archive/refs/tags/0.9.0.tar.gz"
+  sha256 "55cae527153badeb348b7b04ffb3c9f1d9f20e27e388edeae694a05a5e32f289"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "22bfc11080f588ebe147ee1eff7e54c62f2c5fb0aa9334aa29041a1211ca2fea"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6237dee64f4f22f034686e091ccdf7adca3452ff59118d6b9167eaef4ca06c62"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41aafa386238de558ba5c1050c5931ebaae5372548ed6632340ebecc9c0e5324"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4bfb9ac82a1d126386b1bb3dccb55cea3d4385d030f0c443eb7b578d30bef4dc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "28d2350eb72cf1f61922bf5a32340fcd821a88d32995d2052e1d3513ed9fbb96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5b74bd49dfb4b972e2624a666f97c20611634bfe0990d516b1621ee1fab84c3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3cdb70245f6c433f14ccf5c6a3e473211d841d68e866c075482a5aac84924220"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d3f08bac31302ae24da92a96b36c52ee646308bd22fb1e43af535d2961f937d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "21354f33670a2f68b622df816b7f5aa63e39ba59a87ef770834f1e621023c10a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "006fb173fa272b8659f87e98a7ac5bbba08025ab25bdd95e71db012721563d05"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "09795b0dd31cc71c4f8a352c9632fce9a0011cfbf1406ec6705c6d5f6bfc06db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "038cdad4a0b237a93301ec63bf275466cd43e3fc354c79aae2898aa6f0fb34f3"
   end
 
   depends_on "rust" => :build
 
+  conflicts_with "go-air", because: "both install binaries with the same name"
+
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/air")
+
+    generate_completions_from_executable(bin/"air", "generate-shell-completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do

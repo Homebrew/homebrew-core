@@ -11,8 +11,6 @@ class Udis86 < Formula
     regex(%r{url=.*?/udis86[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "64411bb2fb41c08729313426c8753ca7d79932086111c970803ecf5a87b6d06b"

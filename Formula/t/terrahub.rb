@@ -20,6 +20,7 @@ class Terrahub < Formula
   end
 
   deprecate! date: "2025-02-13", because: :unmaintained
+  disable! date: "2026-02-13", because: :unmaintained
 
   depends_on "node"
 

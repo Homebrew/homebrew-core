@@ -1,8 +1,8 @@
 class Fio < Formula
   desc "I/O benchmark and stress test"
   homepage "https://github.com/axboe/fio"
-  url "https://github.com/axboe/fio/archive/refs/tags/fio-3.41.tar.gz"
-  sha256 "38f2c723eda1d94fd25c91dbad30da7a551a58840b7a6368eaee3daa700fb088"
+  url "https://github.com/axboe/fio/archive/refs/tags/fio-3.42.tar.gz"
+  sha256 "56b03497a918d07692257890fd759bf73168ad79df5be78a2bcbbdc8ce67895b"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,17 +11,17 @@ class Fio < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b9478d8c99b007a7ce662a90c6cf07f2e047406bc29b64a3eeb840325f918ecd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "328d27e82b942ff7e50a13d2492c5bdfe0522a9e0001cfa7b765410a427fcc0e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a38a0c4bb6decf2952e8ad1ba59c8e64dc86d484019c598c6dbd072d8b98c8b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8868622bae51c1d4cda01b9d5ff70989dbde636f677902adc8d7a8e94bc336cd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "78e1d57c429fef2c6aaa5e74a742b58419c5d930cb6a369e0c4eb7db02c827ac"
-    sha256 cellar: :any_skip_relocation, ventura:       "5d5f62218f93f767d67f2e3ce252cf242d62169204adc2245805b27e686f3a8d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e21d0ff146a17aae8ce2fbc1193b068ee7829329d4d8672221f5ab3a36311e96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7e56e62de3864f477e8926fbcaef5ebe534ec4191e184f1b20e1f853bfd0f63"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "611c21aa09abf75e1df6e31658b1bf04182e7b7c678a0b29bb978cf15e2cbb9a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7a4f2a8dab06afd2289586c52856e49777630e387161a3cc791ffe1ecb54dbf7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb7a4ffae3b6efc4de0cd489f458448eeacf4a1226711a2443ab48dd0b6accff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "960759c937bf7dc1e54d4605ef912a443ced521e4531062e29c856af476add9f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dc1623f397fd345e7bcec43a36a9e679a20d108281c1f3581f67b03cfb599a6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8539bfd65ae2df6839534e907f291e50943eab0df04bb9513b868a45ce6e5247"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "fiona", because: "both install `fio` binaries"
 

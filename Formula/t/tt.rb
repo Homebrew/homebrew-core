@@ -1,8 +1,8 @@
 class Tt < Formula
   desc "Command-line utility to manage Tarantool applications"
   homepage "https://github.com/tarantool/tt"
-  url "https://github.com/tarantool/tt/releases/download/v2.11.0/tt-2.11.0-complete.tar.gz"
-  sha256 "a9c1b05d547f622d329e791f710157ba8b889337a26ed2215ff862156bea9c4d"
+  url "https://github.com/tarantool/tt/releases/download/v2.12.0/tt-2.12.0-complete.tar.gz"
+  sha256 "6f1faff3b915dfa218da3604e9fb64bcefd0458f4bd481e185466c9fd2fffd29"
   license "BSD-2-Clause"
 
   # There can be a notable gap between when a version is tagged and a
@@ -14,14 +14,12 @@ class Tt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4c0e7f414a73d8a1f47ba8393f14ebb98b1ba7dafbd595c1913dca056b97bd3c"
-    sha256 cellar: :any,                 arm64_sequoia: "6ab63d8e56f2df245cbe854bb9eb3206196edd57f2c4682be19787939b70c5eb"
-    sha256 cellar: :any,                 arm64_sonoma:  "56a68cea046497844c9764d60fb95c9a853b94b221f0a1081519d3fb9e465ae1"
-    sha256 cellar: :any,                 arm64_ventura: "cc0823f89f35c41d56f9bbf9201be2393b09672de59f813f81105efdacdbc48b"
-    sha256 cellar: :any,                 sonoma:        "a203c9faf7c44b99380f428598f44aa9a57c8b5d87bec2d8736d4937b4ddcedb"
-    sha256 cellar: :any,                 ventura:       "47eeb659c3ae04d58acef7618b1144c8abd7958c7d8b5a955782224969320e90"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "448c01c6d3bf5a331c99e1b50a870b33abfb695295bb6567384543d5557d47df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "582f189afc1e1a27feeb14875f53b9732ed5a2edf5218513431d1b098f5bd34d"
+    sha256 cellar: :any,                 arm64_tahoe:   "d53aa207f7ca4a6e51f9f820693f38fe9b2c4b8d69dedb74aff1d5cf02f05ebe"
+    sha256 cellar: :any,                 arm64_sequoia: "c09ddafbc0b5a59a8f4b05c194d1a5d2f84ff105aff379ead80025aaa76fcde1"
+    sha256 cellar: :any,                 arm64_sonoma:  "9b81d4af15274939f3b3b7a7a2c4f13222d6c824f28149817ced0e87b6ec3dea"
+    sha256 cellar: :any,                 sonoma:        "fdc2c8401579792eaa291bd25fb650053c3af2ebf5f402b361e2e7aad06049b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2746cbecabd336b05302fb3d97b583cc96d874b4c0891818dbd293107df3025"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "159de42264f042cbffb7032e01c7427c5d6f81361d929b811e9fd139404cfbc8"
   end
 
   depends_on "go" => :build

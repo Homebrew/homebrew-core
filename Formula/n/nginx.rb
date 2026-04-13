@@ -3,9 +3,10 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.29.4.tar.gz"
-  sha256 "5a7d37eee505866fbab5810fa9f78247d6d5d9157a595c4e7a72043141ddab25"
+  url "https://nginx.org/download/nginx-1.29.8.tar.gz"
+  sha256 "7f1b985dace8fe706dfc288b83927c928f0ae60bcb7507c2d4e0025eca7280c3"
   license "BSD-2-Clause"
+  compatibility_version 4
   head "https://github.com/nginx/nginx.git", branch: "master"
 
   livecheck do
@@ -14,12 +15,12 @@ class Nginx < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "4f8f479a3a736b9bc5b096afafde3acd14b50d56b85817d7a832f1f24861788a"
-    sha256 arm64_sequoia: "a12a682399e5572a2d0c69ca2e32cc51bd0028d74c91eb69fb92af872630b0dd"
-    sha256 arm64_sonoma:  "dba38cffcb683e912357e5ee68177e89330d04cd2e6a702a63bd373b3fc9c861"
-    sha256 sonoma:        "fec92e8e58f3d027a84b0f57d2647857ee9c7ce4a40dd3a1ed29a2c47c171f12"
-    sha256 arm64_linux:   "5a7f9488cf6f530fb1d2991c7a5f1fc67ae0debbd525046696665ce99c910230"
-    sha256 x86_64_linux:  "28c926405aeaf9b9c00123f2453632170208178be147f2ada618bda3bf40f68e"
+    sha256 arm64_tahoe:   "966f5226a8d48a5bc7345cd77c5cb8d560d4537738df286ee67183ae9c668355"
+    sha256 arm64_sequoia: "10bc89159b901f4300f546d66126915580025c9623effafc888e81c6893bcd46"
+    sha256 arm64_sonoma:  "308ddf32529a8294fd1292497bc3f7aa32437451245c59bf033047e0fe257b56"
+    sha256 sonoma:        "40e2bdf86bdfaa9d587ee3b9d92f454257e797512936e0a63ecc334fe97131bb"
+    sha256 arm64_linux:   "6e8e039f1de227ddffb83112db744960e197d48824e0e6246d633dbcab69b381"
+    sha256 x86_64_linux:  "036ca082d5404721641bb6d1f41687fafcf58e18f568abc42e8902d0659ee674"
   end
 
   depends_on "openssl@3"
@@ -27,7 +28,10 @@ class Nginx < Formula
 
   uses_from_macos "xz" => :build
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # keep clean copy of source for compiling dynamic modules e.g. passenger

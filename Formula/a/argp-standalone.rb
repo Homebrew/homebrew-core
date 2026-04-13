@@ -9,8 +9,6 @@ class ArgpStandalone < Formula
     :public_domain,      # mempcpy.c, strchrnul.c
   ]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4e16dcc9c857334ef0c9edee97b5063ead0f3f8dddc428ccb9cbeec6881a104c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b71de47f10a604629ded46675494d28ec5189153afe353425a4f6f52ab879f29"

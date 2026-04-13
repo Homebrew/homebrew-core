@@ -4,17 +4,16 @@ class Blisp < Formula
   url "https://github.com/pine64/blisp/archive/refs/tags/v0.0.5.tar.gz"
   sha256 "79f87fbbb66f1d9ddf250cdc15dc16638d95e0905665003b08920a4b1fda9f96"
   license "MIT"
+  revision 1
   head "https://github.com/pine64/blisp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6848a685d16c4a25a770a11a1059474540579f47a0af7b87bd0a907c3fc70275"
-    sha256 cellar: :any,                 arm64_sequoia: "ff28997c11bce2736f54cdb6e31fae1ef5ba7637443203d29ce8b7b5d947cfce"
-    sha256 cellar: :any,                 arm64_sonoma:  "b034d4d4510b4d817547caf94730a1a6262608759849ea5782c957b4e8bc157a"
-    sha256 cellar: :any,                 arm64_ventura: "8429a988fc4858c21db8bbb87150e1aad7d1d11a306d4a90566c831f3b9b3dcc"
-    sha256 cellar: :any,                 sonoma:        "67b1c5420ba76d82760abab0fafa97b343aeba0331a086ab755262f5165c3b1f"
-    sha256 cellar: :any,                 ventura:       "185fa7b68d7301e70936fb7b0740a9e672ba89ff9fe51780febd8ebffd33247b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "473ecf51999b00ebacaaa0950602ccd9fa544fbabc13c2a912e4a9b5475b6a52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec80b8a1aa1b9271d6600f34e3d1e7de3ce029d7a87e232787d3e5f7e9405496"
+    sha256 cellar: :any,                 arm64_tahoe:   "6b3ac4526e3d5b4976bfa347dbf8fb4c2050c1cafda73cecf53d13becec5ad3b"
+    sha256 cellar: :any,                 arm64_sequoia: "2c907746d0ed584ef5b384fe5807e6a5b630a12a9e76730b937c936de354bec6"
+    sha256 cellar: :any,                 arm64_sonoma:  "09eb4602269062dfbd6fe95eb6a5e3af59f68c855a8f8b9348843f3cf4c78ade"
+    sha256 cellar: :any,                 sonoma:        "c3cfa32d909c0388870fc62c0cb15694134762f6cbd1009b5883de7c1213408b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b53d6fcac18f5378f08e26e822ca3bf6522eced20476180cb426ffb4ce94690"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d705101f8ca10303654bd4ae6e59e34763debb3e66736699a1c7885ae0100804"
   end
 
   depends_on "cmake" => :build

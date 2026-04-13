@@ -4,6 +4,7 @@ class Ipopt < Formula
   url "https://github.com/coin-or/Ipopt/archive/refs/tags/releases/3.14.19.tar.gz"
   sha256 "b3eb84a23812b53a3325bcd2c599de2b0f5df45a18ed251f9e3c1cd893136287"
   license "EPL-2.0"
+  compatibility_version 1
   head "https://github.com/coin-or/Ipopt.git", branch: "stable/3.14"
 
   bottle do

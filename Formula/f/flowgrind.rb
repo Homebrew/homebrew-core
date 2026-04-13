@@ -12,8 +12,6 @@ class Flowgrind < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "dcd288a71292d550079710e54de9a1b51f45749548873121c5b93c876e60509e"
     sha256 cellar: :any,                 arm64_sequoia: "be6f606a92e205f42558c6af8de0f5ced370aa3dc4b3b1a872bea87135a683f8"

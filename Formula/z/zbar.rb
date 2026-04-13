@@ -11,8 +11,6 @@ class Zbar < Formula
     regex(/href=.*?zbar[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "cc7a5ed357e5cbfed0707cbaf736d9519473252cffa52dff1a449640be47a9af"
     sha256 arm64_sequoia: "fe42da9d30318b93a75645b76806c1ffe684db56c7f6c0e608c718f9cc7f8f37"

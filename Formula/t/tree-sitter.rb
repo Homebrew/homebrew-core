@@ -1,9 +1,10 @@
 class TreeSitter < Formula
   desc "Incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.26.3.tar.gz"
-  sha256 "7f4a7cf0a2cd217444063fe2a4d800bc9d21ed609badc2ac20c0841d67166550"
+  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.26.8.tar.gz"
+  sha256 "e6826b7533ec3a885aba598377a6d20b5a6321ff3db76968e960c2352d3a5077"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class TreeSitter < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a9814378eff0b42340bbff075c6e52b68dfb29edc6f0b264334809b02eedffbc"
-    sha256 cellar: :any,                 arm64_sequoia: "40213cc22c7b17e0d7265b72af2bf1c650203ea5379b3e91f5debb46c1104058"
-    sha256 cellar: :any,                 arm64_sonoma:  "e7ddb00fbb96876e17b73e7765f54bdf63104821d5656ae6cd4913f40540e25d"
-    sha256 cellar: :any,                 sonoma:        "426074ecd8fee3c336468daf48958a638274eecd0b305ff13d4bb11ef4ae82d2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "01ae81da74c8f8f3b3cbcf3641e2a25a813987500ec42eaba0a44ca001320b63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9c21b563ee81bbe684db5743a5b6f4245ba7cf81c5102fb40d3c2dde3ea8add"
+    sha256 cellar: :any,                 arm64_tahoe:   "1b84a34a7503d55b4a6c9a41d9ee014cd46c1683482d1529a4ba39ca005455f8"
+    sha256 cellar: :any,                 arm64_sequoia: "67064145858e934d849ed6ff66fea03d542ea1138d836de57614e012c6670938"
+    sha256 cellar: :any,                 arm64_sonoma:  "8d5e9c4a7761ed99f1282abb821b3203d8140f2b11befac93ce6741f7dbd7b2b"
+    sha256 cellar: :any,                 sonoma:        "41767f3b5b96222571b9bcb2b8bbb8036a9e00f2f609c2f38993f2e1af6a27a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ac13abe298720b57758408a01085ceaa69314dc01d574e5b55dcb041f6a4853"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d491ffcccdcad3004b01226f7a2ea8348f598bbd6a55aebdf83e76272644086e"
   end
 
   def install

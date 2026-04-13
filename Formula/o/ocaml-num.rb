@@ -4,16 +4,15 @@ class OcamlNum < Formula
   url "https://github.com/ocaml/num/archive/refs/tags/v1.6.tar.gz"
   sha256 "b5cce325449aac746d5ca963d84688a627cca5b38d41e636cf71c68b60495b3e"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
-
-  no_autobump! because: :requires_manual_review
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8ee79694c29aed327203abaa275dee7f5e041f318cd137c3a3eceaf487317cf6"
-    sha256 cellar: :any,                 arm64_sequoia: "6ee1ee0d2051f4c239c9237132fa360040acd888fc3f1e22c7d09c8d848dfa23"
-    sha256 cellar: :any,                 arm64_sonoma:  "459cea86755ea336dfb81795e7b1bc2109129c4db64190bc1c06e2b90e644418"
-    sha256 cellar: :any,                 sonoma:        "10857c605731b1a3f944b1a3c6fcc03a2cca2857faa0ba46e0970413bb4a8b62"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "713ed3e565058a66c023563a55c0f53fd44d479b5cf0df611fd734913711837f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1558cfe67cec4a8ce6f51be96437ddcad3a4c0ebc017e8dac395b9aacb2afa70"
+    sha256 cellar: :any,                 arm64_tahoe:   "76c722dd8ad6f12ccdda09f952f5f6b0ac5d240c4bbb4ded7d78915cea582c3f"
+    sha256 cellar: :any,                 arm64_sequoia: "6e7f4d21c10922367590c1edce13ed4864b6aa7b75ed33d5533f0b08f9b3c101"
+    sha256 cellar: :any,                 arm64_sonoma:  "93da978a25ffe78f43852b07dd2dee9c06de67534ffaf389e96e8b5d3d152a2b"
+    sha256 cellar: :any,                 sonoma:        "b7eb0c9fbb0d0c9fc3234011c0954abea2c44774aeda331094897ed1363f37d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1582f04ba6900e23021d99ef4450ae945935fde491e4fae1a24f05c22a690417"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "594ea85e889f5063ea86712ffc6930e71597c8b438b5d82663e925fdfdebd47b"
   end
 
   depends_on "ocaml-findlib" => :build

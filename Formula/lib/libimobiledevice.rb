@@ -4,6 +4,7 @@ class Libimobiledevice < Formula
   url "https://github.com/libimobiledevice/libimobiledevice/releases/download/1.4.0/libimobiledevice-1.4.0.tar.bz2"
   sha256 "23cc0077e221c7d991bd0eb02150a0d49199bcca1ddf059edccee9ffd914939d"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
   head "https://github.com/libimobiledevice/libimobiledevice.git", branch: "master"
 
   bottle do
@@ -25,6 +26,10 @@ class Libimobiledevice < Formula
   depends_on "libtatsu"
   depends_on "libusbmuxd"
   depends_on "openssl@3"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     # As long as libplist builds without Cython bindings,

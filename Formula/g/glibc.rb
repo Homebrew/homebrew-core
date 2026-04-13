@@ -22,7 +22,7 @@ end
 class LinuxKernelRequirement < Requirement
   fatal true
 
-  MINIMUM_LINUX_KERNEL_VERSION = "2.6.32".freeze
+  MINIMUM_LINUX_KERNEL_VERSION = "3.2".freeze
 
   satisfy(build_env: false) do
     OS.kernel_version >= MINIMUM_LINUX_KERNEL_VERSION
@@ -43,26 +43,26 @@ end
 class Glibc < Formula
   desc "GNU C Library"
   homepage "https://www.gnu.org/software/libc/"
-  url "https://ftpmirror.gnu.org/gnu/glibc/glibc-2.35.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/glibc/glibc-2.35.tar.gz"
-  sha256 "3e8e0c6195da8dfbd31d77c56fb8d99576fb855fafd47a9e0a895e51fd5942d4"
+  url "https://ftpmirror.gnu.org/gnu/glibc/glibc-2.39.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/glibc/glibc-2.39.tar.gz"
+  sha256 "97f84f3b7588cd54093a6f6389b0c1a81e70d99708d74963a2e3eab7c7dc942d"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 2
 
   livecheck do
     skip "glibc is pinned to the version present in Homebrew CI"
   end
 
   bottle do
-    sha256 arm64_linux:  "d62fe7730aa45aaaa6e0f3d61c12265c3f064c19acf0cee125caf505169b9c6d"
-    sha256 x86_64_linux: "e462d46c498dd1ba590b11eab0f21901bc6ae2a3fac3a9fd2c730e2da7a62c8e"
+    rebuild 1
+    sha256 arm64_linux:  "3afe478fb0d3f60b4817e3bc6a4055c6c18c986c9a6f6610be255bafcaa74afe"
+    sha256 x86_64_linux: "6a959a32fcfdcadcb1e27720f567c4921a289a2ccf0223abea7c271834780124"
   end
 
   keg_only "it can shadow system glibc if linked"
 
   depends_on BrewedGlibcNotOlderRequirement
   depends_on :linux
-  depends_on "linux-headers@5.15"
+  depends_on "linux-headers@6.8"
   depends_on LinuxKernelRequirement
 
   resource "bootstrap-binutils" do
@@ -100,8 +100,8 @@ class Glibc < Formula
 
   resource "bootstrap-gcc" do
     on_arm do
-      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.1.1/bootstrap-aarch64-gcc-9.5.0.tar.gz"
-      sha256 "79d7e4a257a2fcdad62e400764810f375bfc3e7b9c46a9a981cbab7f2f1daf9f"
+      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.2.0/bootstrap-aarch64-gcc-10.5.0.tar.gz"
+      sha256 "5fd88bb507f91930d04230094a8ac0611519cbc49b19084c0577eb92722862d4"
     end
     on_intel do
       url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.1.1/bootstrap-x86_64-gcc-9.5.0.tar.gz"
@@ -142,23 +142,28 @@ class Glibc < Formula
     end
   end
 
-  # CVE rollup patch covering:
-  # - CVE-2023-4806
-  # - CVE-2023-4813
-  # - CVE-2023-4911
-  # - CVE-2023-5156
-  # - CVE-2024-2961
-  # - CVE-2024-33599
-  # - CVE-2024-33600
-  # - CVE-2024-33601
-  # - CVE-2024-33602
-  # - CVE-2025-0395
-  # - CVE-2025-4802
-  # - CVE-2025-8058
-  # Plus various test suite fixes
+  # Apply CVE patches from Ubuntu
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/glibc/2.35-cve-rollup-sep2025.patch"
-    sha256 "ee42ca65793f8ea9f1cb3aeb5c9101ef412498a2635af11d576368cda8909f50"
+    url "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/glibc_2.39-0ubuntu8.7.debian.tar.xz"
+    mirror "https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/glibc/2.39-0ubuntu8.7/glibc_2.39-0ubuntu8.7.debian.tar.xz"
+    sha256 "9642284fbb90ca3b56af777e3e5d6989bf3f80ba5d0c37c4ec0c94fb37912b70"
+    apply "patches/any/CVE-2024-2961.patch",
+          "patches/any/CVE-2024-33599.patch",
+          "patches/any/CVE-2024-33600_1.patch",
+          "patches/any/CVE-2024-33600_2.patch",
+          "patches/any/CVE-2024-33601_33602.patch",
+          "patches/any/CVE-2025-0395.patch",
+          "patches/any/CVE-2025-5702.patch",
+          "patches/any/CVE-2025-8058.patch",
+          "patches/CVE-2025-15281.patch",
+          "patches/CVE-2026-0861.patch",
+          "patches/CVE-2026-0915.patch"
+  end
+
+  # Backport of various test suite fixes
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/431b170696708f36aa0bd51139406e26ade0a7eb/Patches/glibc/2.39-test-fixes.patch"
+    sha256 "1a7a6481d03ce23bdc2385413ac1784684e3e1f72f68ce7f720755abfae2f4e9"
   end
 
   def install
@@ -207,13 +212,13 @@ class Glibc < Formula
         "--without-gd",
         "--without-selinux",
         "--with-binutils=#{bootstrap_dir}/bin",
-        "--with-headers=#{Formula["linux-headers@5.15"].include}",
+        "--with-headers=#{Formula["linux-headers@6.8"].include}",
         "--with-bugurl=#{tap.issues_url}",
         "--with-pkgversion=Homebrew glibc (#{pkg_version})",
       ]
 
       cflags = "-O2 #{ENV["HOMEBREW_OPTFLAGS"]}"
-      cflags += " -mbranch-protection=standard" if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      cflags += " -mbranch-protection=standard" if Hardware::CPU.arm64?
 
       if build.bottle?
         # Some tests need some gcc libraries to be present.
@@ -230,7 +235,7 @@ class Glibc < Formula
 
         # We do break the ABI in one unavoidable way.
         # This is because `_nl_default_dirname` ABI varies based on the length of the install prefix.
-        sysv_dir = if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+        sysv_dir = if Hardware::CPU.arm64?
           "aarch64"
         elsif Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
           "x86_64/64"
@@ -240,6 +245,9 @@ class Glibc < Formula
                     /(_nl_default_dirname.*?)0x12/,
                     "\\10x#{(localedir.to_s.length + 1).to_s(16)}"
         end
+
+        # Avoid Intel CI runner timeout on tst-malloc-too-large-malloc-hugetlb2
+        ENV["TIMEOUTFACTOR"] = "4" if Hardware::CPU.intel?
       end
 
       system "../configure", *args, "CFLAGS=#{cflags}"
@@ -304,7 +312,7 @@ class Glibc < Formula
 
     # Get all extra installed locales from the system, except C locales
     locales = ENV.filter_map do |k, v|
-      v if k[/^LANG$|^LC_/] && v != "C" && !v.start_with?("C.")
+      v if k[/^HOMEBREW_LANG$|^LANG$|^LC_/] && v != "C" && !v.start_with?("C.")
     end
 
     # en_US.UTF-8 is required by gawk make check

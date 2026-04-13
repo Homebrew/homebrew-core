@@ -1,8 +1,8 @@
 class HaskellLanguageServer < Formula
   desc "Integration point for ghcide and haskell-ide-engine. One IDE to rule them all"
   homepage "https://github.com/haskell/haskell-language-server"
-  url "https://github.com/haskell/haskell-language-server/releases/download/2.12.0.0/haskell-language-server-2.12.0.0-src.tar.gz"
-  sha256 "eeb1f8edac25602fbd63db6bac399d4aabecf47db25a2e30596aa646630b87b9"
+  url "https://github.com/haskell/haskell-language-server/releases/download/2.13.0.0/haskell-language-server-2.13.0.0-src.tar.gz"
+  sha256 "c53f0da9aa9d9924265487ba1e03aabc7dbd54075e2785f931c15b0090829a1e"
   license "Apache-2.0"
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
 
@@ -14,22 +14,26 @@ class HaskellLanguageServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4f5372d1604fb4a36469622f83afb860ef3170639f33ead8b738db33b2a0a86e"
-    sha256 cellar: :any,                 arm64_sequoia: "a66c962e8f66d5e707a0430a1ac80403deca2e7fb2cf769fe6112fa74ee72165"
-    sha256 cellar: :any,                 arm64_sonoma:  "7650fb6090588589927995b39169e417c87f10d1ca10fdd9d39ed09d4ac3b8a1"
-    sha256 cellar: :any,                 sonoma:        "52248990c849acc1bf787d47068784b461a45036e14cc04f34ad41b74fbb8d3a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "62335ec347656d78af70e5b4c8134848042b0ec7d50a5075073bb6755c0c5683"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d88d4e2527b2acbfea5c0bd79888e4634cbe425c62981d3c09b63f6b342c87e1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f6de8b8fa5d1f31b2ff6ef634396c9100cab345a8185824ad1c86b6787dda02c"
+    sha256 cellar: :any,                 arm64_sequoia: "aced147259a317e32d3f16bfb61f0f82233bed806b4cec722c253f52496b764d"
+    sha256 cellar: :any,                 arm64_sonoma:  "d4221d8508168e7387229d9c9d8882842f7f5e0fec4255a1472e9d9a38b2cb1f"
+    sha256 cellar: :any,                 sonoma:        "72ea8a68e64d2c5884c5088fb41615c3a0099cbf9aa8e0588d8bffe4c31c3b8d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e1bd524e3263e877838a83420c514c109c704a7a1ac13a8818aae2d7995579b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42f44eef799fd9a7ed15d33b531bcc8c0242fac8424d053d39bc776af3837b55"
   end
 
   depends_on "cabal-install" => [:build, :test]
   depends_on "ghc" => [:build, :test]
-  depends_on "ghc@9.10" => [:build, :test]
+  depends_on "ghc@9.12" => [:build, :test]
   depends_on "gmp"
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def ghcs
     deps.filter_map { |dep| dep.to_formula if dep.name.match? "ghc" }

@@ -8,8 +8,6 @@ class Liboauth < Formula
   license "MIT"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "a510309b244c20d084bcac6d01a80b888c0bb2e89ee67e8c7be5fdd4cdf28f84"
     sha256 cellar: :any,                 arm64_sequoia:  "4eff11a4e53ab448c41469596fadeac63b03386c90c1f091372fc003f497562a"

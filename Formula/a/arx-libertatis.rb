@@ -11,15 +11,14 @@ class ArxLibertatis < Formula
     regex(%r{href=["']?arx-libertatis[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "5325804c370afdd20735e1f3545ed751228d016336b0d8bc09dea5738aff3382"
-    sha256 arm64_sequoia: "a0fb68a8fd8a4edb0fb94e166822b1a8e6784ac8c8fb351a11d315bfeecd962b"
-    sha256 arm64_sonoma:  "f68e8dded909bccda04287d05d270f48195f4f076d2f5b63a1c3697dff92f8ad"
-    sha256 sonoma:        "eb40806b957db79e99ab61669e727f9f3bdf01b6cd7691875c0552690c5e1ee1"
-    sha256 arm64_linux:   "644ef946e42f76855bda8c30582856a4f92b11f4c71d11e280a7e908e6dbb0f2"
-    sha256 x86_64_linux:  "4d28da523e6f47582e5a9c9862f8e9acc9caf70edb15f74b082c882ffcbeb259"
+    rebuild 1
+    sha256 arm64_tahoe:   "d56d81aaee01fa139752c15b0fbc8332ed44443c94a9826771be22cc2544a77f"
+    sha256 arm64_sequoia: "14a65b2ec634da2454970e12de3b588f0826e121c04da2569857dd753cb0a797"
+    sha256 arm64_sonoma:  "96be79e0ee8f79cfa402f327be3ee1faa6f509e609d6d8c48c368b5b83112e9b"
+    sha256 sonoma:        "38f33f4125e39dc04470caab71dac5869f57044d4ed829433cb038ef1b4d531f"
+    sha256 arm64_linux:   "9c882ed838c94379ea0f0425dde3f5c144ab4024582524e44442924daa06d5e9"
+    sha256 x86_64_linux:  "819d7a57ea0a2f2bf4a0d1b8af9c62c07db85f75ad23166be635140235f0f70f"
   end
 
   head do
@@ -38,11 +37,10 @@ class ArxLibertatis < Formula
   depends_on "innoextract"
   depends_on "sdl2"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "mesa"
     depends_on "openal-soft"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "rnv", because: "both install `arx` binaries"

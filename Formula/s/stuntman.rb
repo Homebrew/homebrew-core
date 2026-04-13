@@ -11,8 +11,6 @@ class Stuntman < Formula
     regex(/href=.*?stunserver[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "edaf5c91bca97b2753c2c91faf0c174e2310e48c98ede3b6aa28f5d679ff4369"

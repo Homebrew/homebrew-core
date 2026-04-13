@@ -1,18 +1,17 @@
 class Pymupdf < Formula
   desc "Python bindings for the PDF toolkit and renderer MuPDF"
   homepage "https://pymupdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/48/d6/09b28f027b510838559f7748807192149c419b30cb90e6d5f0cf916dc9dc/pymupdf-1.26.7.tar.gz"
-  sha256 "71add8bdc8eb1aaa207c69a13400693f06ad9b927bea976f5d5ab9df0bb489c3"
+  url "https://files.pythonhosted.org/packages/f1/32/f6b645c51d79a188a4844140c5dabca7b487ad56c4be69c4bc782d0d11a9/pymupdf-1.27.2.2.tar.gz"
+  sha256 "ea8fdc3ab6671ca98f629d5ec3032d662c8cf1796b146996b7ad306ac7ed3335"
   license "AGPL-3.0-only"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ef42b609802efca6b500706222da4181b149071548ad35f912b07e191475d29c"
-    sha256 cellar: :any,                 arm64_sequoia: "1aefe2ab221fb0c81bb65c911fe8705638a29e961cc460317c8042e9ef42551f"
-    sha256 cellar: :any,                 arm64_sonoma:  "3624e11f3406d716b6b55f219606c600b74cfdd05a0a4dbf308438237a959725"
-    sha256 cellar: :any,                 sonoma:        "14e453ef57ff19d4f672b1462a12b6cd2055fba527f6d3732de3671c13dd8659"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7fef809b76c383b9b1cc782496516ce23246f4f2527f4da629a85127b47bfcb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e90333800e74be7879216166979b70ffe15219c09dfc7b45262e63109dcad0b"
+    sha256 cellar: :any,                 arm64_tahoe:   "124e64afbc02bf5889b6d9188cb75873e304dec10b51f8dd842ce3f6fd25eaa3"
+    sha256 cellar: :any,                 arm64_sequoia: "a74500cd3038757634029e6c9ee16d65c5dbfb714088f345093e25a2ab37fbcc"
+    sha256 cellar: :any,                 arm64_sonoma:  "c82f493fa1bef8021b24b3585a075fd85a9c1e955cd91e1415404f334e86da36"
+    sha256 cellar: :any,                 sonoma:        "9d10e5d2d4fd40cc2c6205fceed2b32e051adbae2d186426177e68dcbc557702"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "03781d1ec2924c780e7be9a6a7670cae16091ccfaca120dae574483ec1976c96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07647c4cbbf233516d4f5edb60a29006a4e5691ffe36dc0a6482eaf51aa33608"
   end
 
   depends_on "freetype" => :build

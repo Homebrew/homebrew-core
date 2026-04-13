@@ -6,15 +6,15 @@ class Enex2notion < Formula
   url "https://files.pythonhosted.org/packages/de/5c/c0ce22d810226345411b03177f9b43c35b82c3a671d5d73f56fc43b0858e/enex2notion-0.3.1.tar.gz"
   sha256 "f11d8a7b6c135b4d08c63e1256279d56b3798cdd48ad3b6e39c0770dc3bd82e6"
   license "MIT"
-  revision 17
+  revision 18
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e13e820f1bf41f33543fe1f3a38864985e7ccd73899b993a3ac857db30f1e714"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3331396477cfe59373c64efb73aae765bec87dcdadb2f8e4a7da5a7f8aadee84"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7619e0da8d00b1456b1512994f5ba96842a8d0d975566d461be10a42debc8375"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0b797877705534bab754ed3f8127df32f7835d134ecdd9a026287d274d24ea83"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4c2b655ed4b327dcedaf79547d0499143ca0783fe851bf2ebf22a02eacd0f62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ad72decb59d5e77ecc0b9387394a17601ee1baac3c403fcede14a0a2fc4a848"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "443c29d5d110b3a8b2a579833e5b6d9037ad25d7990e8e3824d795768d5dde12"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc29902297c00d108638042a6f07815593464d392dfc489766f92023226bac9f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "164ae7172686904d905028499716fb4a40f2dcba5bd2c29f72d0f0e2cdb1d470"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c066b6ac9b4a8ba7f5793783f73811cf7b449ca82af4f0dafa6e139c65754001"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "54eff76e5f08bae3ef399ea2916cee51a194f7dd20c8b28670aad2b47dd71de1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ce8e67f7e4d11f7b668ccec8f8cb707e139bcda14f047c359dfff3452c4f50d"
   end
 
   depends_on "certifi" => :no_linkage
@@ -45,8 +45,8 @@ class Enex2notion < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "commonmark" do
@@ -100,8 +100,8 @@ class Enex2notion < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "six" do
@@ -110,8 +110,8 @@ class Enex2notion < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/89/23/adf3796d740536d63a6fbda113d07e60c734b6ed5d3058d1e47fc0495e47/soupsieve-2.8.1.tar.gz"
-    sha256 "4cf733bc50fa805f5df4b8ef4740fc0e0fa6218cf3006269afd3f9d6d80fd350"
+    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
+    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
   end
 
   resource "text-unidecode" do
@@ -125,8 +125,8 @@ class Enex2notion < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
   end
 
   resource "typing-extensions" do
@@ -150,8 +150,8 @@ class Enex2notion < Formula
   end
 
   resource "w3lib" do
-    url "https://files.pythonhosted.org/packages/bf/7d/1172cfaa1e29beb9bf938e484c122b3bdc82e8e37b17a4f753ba6d6e009f/w3lib-2.3.1.tar.gz"
-    sha256 "5c8ac02a3027576174c2b61eb9a2170ba1b197cae767080771b6f1febda249a4"
+    url "https://files.pythonhosted.org/packages/c0/91/b2eb59c2cf243de5de1e91c963655df78c015509f51297685a8c86a27b8c/w3lib-2.4.1.tar.gz"
+    sha256 "8dd69ee39ff6398d708c793abc779c334a69bac7cee1cdf71736c669ed6be864"
   end
 
   resource "webencodings" do

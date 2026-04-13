@@ -1,18 +1,18 @@
 class CargoFlamegraph < Formula
   desc "Easy flamegraphs for Rust projects and everything else"
   homepage "https://github.com/flamegraph-rs/flamegraph"
-  url "https://github.com/flamegraph-rs/flamegraph/archive/refs/tags/v0.6.10.tar.gz"
-  sha256 "36dcd88cf872b6d0206dd2b684b3d4b99158d2960f5aa4f84d97677ea5ef0ae9"
+  url "https://github.com/flamegraph-rs/flamegraph/archive/refs/tags/v0.6.12.tar.gz"
+  sha256 "3b1158d30a5dd3496b271d5f55da47558cd84dd5ff7e11dbd67c2f6c51a3499e"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/flamegraph-rs/flamegraph.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cac3686b3a7c6581fc1f7c1b5b522065bd345c5fdc1e6657d8015e6275d9d005"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3690c71d19172d86c61343829038ec44ebb5c7e3aff0445d5c8ce9e4a8619830"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a7a8600dfc61330fbbe7dd2fcb16a4d8e7653a986c26f50daae65ec837ca7ee"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d5b726a149bfd28d8c0a9063fb4ae63f7469c768d5c5c7bdfca8970670c53a09"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "60854739ec68360b210a4bbda391bfb020ef240765c56b7b2df9aa295fa1928e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27f408e44261ce0cea8f8a65464bea6dccf76629c91028ffcce06328c274a4a2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2ce0f024a87509a438fee079d93d70f63cd9068b01c81984b6850c1a6162328d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84f859a356ad61ccdd3e1e1e889a16b8036582380fdafec3abb219d6f30be9d2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71e75c663896193798511f3270c83af638f20a487358ecebac01424a096fc4f8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2d581620bb5f1d40d7442a17b9a215452f14f2000dd7b8253669b03a1f469fdf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b99100ce01efccd05a2903c2c47585e72fa1a93f413b8a35dcb773ded059efe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33a8014a49487033a3693fdd8fdb8563e3d0cf669b16148a39bac6194f73e61e"
   end
 
   depends_on "rust" => :build

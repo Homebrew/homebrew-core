@@ -1,8 +1,8 @@
 class Karchive < Formula
   desc "Reading, creating, and manipulating file archives"
   homepage "https://api.kde.org/karchive-index.html"
-  url "https://download.kde.org/stable/frameworks/6.22/karchive-6.22.0.tar.xz"
-  sha256 "84254bd0a51ff3d5e2fa22bb946309cec508f1fae726a7aea15149260c4db59d"
+  url "https://download.kde.org/stable/frameworks/6.25/karchive-6.25.0.tar.xz"
+  sha256 "123a268352ab63d548ba5e3c3e8fbf1d737025e4c5189821cf10e3328ab4de15"
   license all_of: [
     "BSD-2-Clause",
     "LGPL-2.0-only",
@@ -17,12 +17,12 @@ class Karchive < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ee3e9c78507d928cc1eb5ea839ddcea3de2fefffbd7aa7fefb3e25cc7a771f77"
-    sha256 cellar: :any,                 arm64_sequoia: "d5ab425c82a046c3934c2b9aeca5465a98043ea4354d97e3c6fbead0ba80922a"
-    sha256 cellar: :any,                 arm64_sonoma:  "3cb41476baa0959b0626939ee2f081a55e87f51c0abcdeee96c9cd8ea7308366"
-    sha256 cellar: :any,                 sonoma:        "7ee279b10eee9d8ffa22d09eccdfcea3251f2a46090c3771b4e787a419cbfc59"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "335e24c9c13826e14fc91fca58c8a0432b72c5064e294263fc878e3a1c760d2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e17d609369b736aabf074a7c154c4669dd2b39b0186da23f89414460f5cfc5a"
+    sha256 cellar: :any,                 arm64_tahoe:   "19e6ce959e6f93dda1de68d2b47b7f2f6f934130b3b6fc6d22e2f3364406c6a3"
+    sha256 cellar: :any,                 arm64_sequoia: "77cf0ddf1904c4431e89cd4844aca070ac5b9ddd9000dc15eacd1089124b2b36"
+    sha256 cellar: :any,                 arm64_sonoma:  "11e59d12ac3d07eca6e87b9ce54417060609ece7049f93012188fb1ecd02406f"
+    sha256 cellar: :any,                 sonoma:        "0fd6458709bbe9d18fb2657ab74b093cac214e67f504a7022febd96dc9cd5d80"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "69551f4098a2ec0d599092ed38dc5ab3af1e6251e25f4028d16433cd0320eccb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ec60c2e776246fd36fb587c7162fd365c30e4f299a839e60938ee546e17c263"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -36,7 +36,10 @@ class Karchive < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_QCH=ON", *std_cmake_args

@@ -10,8 +10,6 @@ class Exiftags < Formula
     regex(/href=.*?exiftags[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b4c31682830f7f18a47fcaa2c2c61d28e1e36cca0ab480d41ffffde7731f7b06"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "43f7d6a7bd08e653cfde12d0f3cdcdb371b27bb4912a8f2bcda42120da960cb7"

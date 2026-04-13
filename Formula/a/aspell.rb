@@ -1,23 +1,19 @@
 class Aspell < Formula
   desc "Spell checker with better logic than ispell"
   homepage "http://aspell.net/"
-  url "https://ftpmirror.gnu.org/gnu/aspell/aspell-0.60.8.1.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.1.tar.gz"
-  sha256 "d6da12b34d42d457fa604e435ad484a74b2effcd120ff40acd6bb3fb2887d21b"
+  url "https://ftpmirror.gnu.org/gnu/aspell/aspell-0.60.8.2.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.2.tar.gz"
+  sha256 "57fe4863eae6048f72245a8575b44b718fb85ca14b9f8c0afc41b254dfd76919"
   license "LGPL-2.1-only"
-  revision 1
+  compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:    "383f92d2e0a58c88f3d8022f0bbf068d8111fd754fc320d389a866c4b9bc5ca2"
-    sha256 arm64_sequoia:  "2dead356b82d0553b5a4efe4ed8a061649c8e2d04fbc7f96293cfc2956813de7"
-    sha256 arm64_sonoma:   "8d5594cd0235f14ef183062e5e1ff997470f0c5cf9a522cd488997f206df28ae"
-    sha256 arm64_ventura:  "c36b4d14b5b78a2b61a21878bec4a060376fc72a2bdd975c0a32c0f88fc0865b"
-    sha256 arm64_monterey: "bfc9df1c3eef5bf05029c819592d6073437707fa60e3523ea4a98fd2929fc8ee"
-    sha256 sonoma:         "960e34fc76f8dfeeb3115236cfdaea24b2339791070411a5ea19e38d6e60f5de"
-    sha256 ventura:        "0a07e16a5486cae75a1c146e0a5001709e77172385c0887234d1119eb691bb94"
-    sha256 monterey:       "6ceca17185c9b563d91f81c8665fd2a31ddf37248fce447ded97c9ac9e82f7b9"
-    sha256 arm64_linux:    "22099f2f381de2e95ea9ec72370f29fd0da0baad59bb18664513f25081da78a5"
-    sha256 x86_64_linux:   "d0a434bcc48c8bebdf070e31e07a14cd7ae3bc3988abb0b111baeb809e5be448"
+    sha256 arm64_tahoe:   "1039dbbb1d5abd5d4f78a211fdcaa5657456a153b2282bda45ebffe6c0ab1b70"
+    sha256 arm64_sequoia: "f071da3a05bb8d84d2df84df586f0e1a940934e630010f77673339ef69ee867d"
+    sha256 arm64_sonoma:  "59b57e67fc77ef33808fe1f09068374e26bedf89d6ac1401c6c3d4ebf944b617"
+    sha256 sonoma:        "d67764dd08b363fcb93aaf020abb592a42f7c21756f657d041107e5f2c103ad5"
+    sha256 arm64_linux:   "d1fa3353d7b6b6bd701d26c1bf3aeaf08c5651d1627d8752b5c875c16d4722d6"
+    sha256 x86_64_linux:  "e45cb5f81053dc9584b97659e14aa7c5e4698aa807fa9739b97008a1a62d8792"
   end
 
   uses_from_macos "ncurses"
@@ -554,12 +550,6 @@ class Aspell < Formula
     url "https://ftpmirror.gnu.org/gnu/aspell/dict/zu/aspell-zu-0.50-0.tar.bz2"
     mirror "https://ftp.gnu.org/gnu/aspell/dict/zu/aspell-zu-0.50-0.tar.bz2"
     sha256 "3fa255cd0b20e6229a53df972fd3c5ed8481db11cfd0347dd3da629bbb7a6796"
-  end
-
-  # Backport fix for newer Apple Clang and GCC 15
-  patch do
-    url "https://github.com/GNUAspell/aspell/commit/ee6cbb12ff36a1e6618d7388a78dd4e0a2b44041.patch?full_index=1"
-    sha256 "96e6b23947744e5d1374640a38cf20ec541b64c00a063cbed6d1fcc3e3fc19ee"
   end
 
   # const problems with llvm: https://www.freebsd.org/cgi/query-pr.cgi?pr=180565&cat=

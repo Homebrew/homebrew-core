@@ -6,8 +6,6 @@ class Mp3gain < Formula
   sha256 "5cc04732ef32850d5878b28fbd8b85798d979a025990654aceeaa379bcc9596d"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "29068cf92340a0434d5cb8bb98479ab79de6831d80f21916dbfc806ffabd71e2"
     sha256 cellar: :any,                 arm64_sequoia:  "2a9cae1ecdebe6daa0509f9841ecddb0c6a820919224caa5a1fcc2c62ec0d258"

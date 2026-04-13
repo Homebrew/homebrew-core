@@ -7,22 +7,14 @@ class Wordgrinder < Formula
   revision 1
   head "https://github.com/davidgiven/wordgrinder.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "c547d9112c5e07a735c6adb27d6df7c5f82005f5cfd095d0d4beeafd48ced0fd"
-    sha256 cellar: :any,                 arm64_sequoia:  "281cb8b0ac7c49861af74607ffa9ff36aed7f7899a46bbd18d686cf958c90c1f"
-    sha256 cellar: :any,                 arm64_sonoma:   "01e1ab04fb507afd5e62ddfee96e629ae7405671a3a6ad107eca9f30771b76b8"
-    sha256 cellar: :any,                 arm64_ventura:  "b89498bd5c54678e5460ccf146084abdde90853f465f17775657298fe1ba5c91"
-    sha256 cellar: :any,                 arm64_monterey: "3eb4bf8cff526d9a6e6c9e285ba2a63879eb157a6ba091dff6be7ad49da749b3"
-    sha256 cellar: :any,                 arm64_big_sur:  "370093b3705f72a5d6b87bacd2e64e229f3d6ac82e52e92fe147c037d65f210b"
-    sha256 cellar: :any,                 sonoma:         "47819e0bc05f370758760d534a0f3e5012ad02abad4ec78427f4191439888211"
-    sha256 cellar: :any,                 ventura:        "1a575a0eff9cd74e4a48a4ede1694349892f5a07c089d9e5bd1be74560eaf5ac"
-    sha256 cellar: :any,                 monterey:       "2ab17d2541132790b1b134a5d33e5e9178ce96b7afeadf28819a9694f87712da"
-    sha256 cellar: :any,                 big_sur:        "d2cb8d569e0a7a02abae8deb32adf8a564042cfd6cddaeef4bc1dc16ab05e53b"
-    sha256 cellar: :any,                 catalina:       "e084da6193fd984ac541e7c21044f80927b60b85ab69512d3824255be1c54d17"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "761d5901adbb5d8c732f4b1cadf91c9902fe0d30db0188a93b1648efe1a0b886"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07fdfa2bd3da72697fbd54cc93a8bc59b2c3afc3ddbfd55a46cde0e557011ca4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3246a1cccfec9059f9801b89d70312543e99eb7d9c7804af04f6bf4b97221eff"
+    sha256 cellar: :any,                 arm64_sequoia: "8e499389ffc85f7b3d5ebe39ae10b8a428b2543fbf436e6ead264c23a7f5301d"
+    sha256 cellar: :any,                 arm64_sonoma:  "059c99807a2495f2b97d1af8f60aa0f131f3060d5728f5fae70e91459c05886f"
+    sha256 cellar: :any,                 sonoma:        "851c8e31fdb6606c135df322bf0e9672dda0b85656130e7ebbc119dc41b4fa47"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7868fa15eaf6fdedda40d72a29e627f67a06b065af8ea40462dbdb72cf74b522"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "caeb624a4ef708bddb96c3e0bc646994e6b285c7df7f4382cce2a38a1a8f8579"
   end
 
   depends_on "lua" => :build
@@ -30,7 +22,9 @@ class Wordgrinder < Formula
   depends_on "pkgconf" => :build
   depends_on "ncurses"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["CURSES_PACKAGE"] = "ncursesw"
@@ -41,7 +35,7 @@ class Wordgrinder < Formula
   end
 
   test do
-    system bin/"wordgrinder", "--convert", "#{doc}/README.wg", "#{testpath}/converted.txt"
+    system bin/"wordgrinder", "--convert", "#{doc}/README.wg", testpath/"converted.txt"
     assert_path_exists testpath/"converted.txt"
   end
 end

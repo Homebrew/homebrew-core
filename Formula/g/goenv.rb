@@ -1,8 +1,8 @@
 class Goenv < Formula
   desc "Go version management"
   homepage "https://github.com/go-nv/goenv"
-  url "https://github.com/go-nv/goenv/archive/refs/tags/2.2.34.tar.gz"
-  sha256 "99f94ec500df813cd937665e21b0aab8c58809b944ee9f729b49cdaa3a400224"
+  url "https://github.com/go-nv/goenv/archive/refs/tags/2.2.39.tar.gz"
+  sha256 "9c5571e731c1bbf4f6cc1d3606da1960ba56cf0ce1206c58a74e52e6df430e35"
   license "MIT"
   version_scheme 1
   head "https://github.com/go-nv/goenv.git", branch: "master"
@@ -13,12 +13,7 @@ class Goenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af2cfe84fc5951e9b01f6cf7c2b356302b756a27b61cb12acd35907183adfd23"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af2cfe84fc5951e9b01f6cf7c2b356302b756a27b61cb12acd35907183adfd23"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af2cfe84fc5951e9b01f6cf7c2b356302b756a27b61cb12acd35907183adfd23"
-    sha256 cellar: :any_skip_relocation, sonoma:        "db47dffcbe1c3258d14a1a2ef9e99d7cc14fbf2a2c28b06764b4d8c6c45c47f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "af2cfe84fc5951e9b01f6cf7c2b356302b756a27b61cb12acd35907183adfd23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af2cfe84fc5951e9b01f6cf7c2b356302b756a27b61cb12acd35907183adfd23"
+    sha256 cellar: :any_skip_relocation, all: "3cd517fd086597a2c1439187f5126ee613038ed5b84b291a100f10c1bcada012"
   end
 
   def install
@@ -27,6 +22,7 @@ class Goenv < Formula
       "plugins/go-build/install.sh",
       "test/goenv.bats",
       "test/test_helper.bash",
+      "plugins/go-build/test/test_helper.bash",
     ]
     inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
 

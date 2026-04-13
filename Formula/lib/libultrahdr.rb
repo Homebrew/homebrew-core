@@ -4,6 +4,7 @@ class Libultrahdr < Formula
   url "https://github.com/google/libultrahdr/archive/refs/tags/v1.4.0.tar.gz"
   sha256 "e7e1252e2c44d8ed6b99ee0f67a3caf2d8a61c43834b13b1c3cd485574c03ab9"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "4fb20ac81780814aa810c0009477f2a2c5a72a3a4be8a085cd62745c1fe87fad"

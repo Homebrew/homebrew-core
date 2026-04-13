@@ -11,14 +11,13 @@ class Veryfasttree < Formula
   head "https://github.com/citiususc/veryfasttree.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8cbf9aa1a695d9430f2277fe1d40da68c4aaa1eae6e5b7b1c6f0cae29577192c"
-    sha256 cellar: :any,                 arm64_sequoia: "e377c3426836e11514282dfcd1fc2699fc6c25f721eaae8cf4f2bdf9ea41d0b1"
-    sha256 cellar: :any,                 arm64_sonoma:  "bbbb02a03c029e97e52372649ba3ed63176cfd17567eb6a58ae05307bc63db3c"
-    sha256 cellar: :any,                 arm64_ventura: "d78b15098c68bd0567765551e2cd6139df15b5e17426768b716ff8a8b9183a80"
-    sha256 cellar: :any,                 sonoma:        "b52e607f554c788ee123c30fdd3fe87a0be0cdd175374eee9e9e380866a0ce74"
-    sha256 cellar: :any,                 ventura:       "914f6187005dc9c904f502bc865f53beb0b041cd5c93f233c6b84b8688cf3483"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b220e9b734bfd7db831ba87a603065222e23d7b72d485c3bfabb309e6117faf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7a8c21c3829da9c21800b2107f95fccc5758bdf2a5c9cbe1546be455bb82b76"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "614e6b99cd1f19ab66d559dd984fbc057bb7dc9db8611529d297e3e7ef2104ca"
+    sha256 cellar: :any,                 arm64_sequoia: "4f01aa7d1c95b9588f6b72b9e351cc25cf643d9cb5b1e27fda88d7ccf6282986"
+    sha256 cellar: :any,                 arm64_sonoma:  "2c0d038450d846a1bb142baac032a3faa10ea81d059487b4ed3e89c419de4998"
+    sha256 cellar: :any,                 sonoma:        "15976d53506ce1ae580ca361618aad7f5899dadb47140e063e43a9b796678299"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eeedf67e0395b1b17e2db2f873ff8237e046ff71170a68bd8cafc30c10358416"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a43dbe45af62348f2332c78fc858942e51c0a102a5e024e9d9e432f95326f82"
   end
 
   depends_on "boost" => :build
@@ -27,10 +26,13 @@ class Veryfasttree < Formula
   depends_on "xxhash" => :build
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

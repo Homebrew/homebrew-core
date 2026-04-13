@@ -1,18 +1,18 @@
 class Osmcoastline < Formula
   desc "Extracts coastline data from OpenStreetMap planet file"
   homepage "https://osmcode.org/osmcoastline/"
-  url "https://github.com/osmcode/osmcoastline/archive/refs/tags/v2.4.1.tar.gz"
-  sha256 "3a76ed8c8481e5499c8fedbba3b6af4f33f73bbbfc4e6154ea50fe48ae7054a9"
+  url "https://github.com/osmcode/osmcoastline/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "7980c77acbbf460d6de7df1d30b2f2d9da550db1512d0e828623851c687b238a"
   license "GPL-3.0-or-later"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9316f8b18ae49b45f2e5af2561922516d160ad1b06d92588efb49fbd33371eaa"
-    sha256 cellar: :any,                 arm64_sequoia: "b76a693725d795739c43ba199281f5c8fc9447c5595c4e2096a7326b6b138327"
-    sha256 cellar: :any,                 arm64_sonoma:  "061f730fc1a9bfdfeb38918fb8d41da61aec6a9b93099284c52e864751703639"
-    sha256 cellar: :any,                 sonoma:        "b585b813845a34476b2fb889f43371528f7f7dfa30f092715376045f8251eb58"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea304eef56c7f286511b75eb636ebfffe112ab2c0f7f250c9d1906b392dc08e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e38194ee23ba42898fb7940536af52acfd5393bc79598402652af074a925c59a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "c594f9f9ef9f7dd27e3decdc3e17f52b040836ba8574901414134d1c94666ac0"
+    sha256 cellar: :any,                 arm64_sequoia: "be34804e33a4dc5106e58b9e97eecefb2cd162842c8106bf19d51b36976fceb1"
+    sha256 cellar: :any,                 arm64_sonoma:  "711e33588946976ca7e2e68e9f1f42f6ac5975e9c814f62ab126a224610776da"
+    sha256 cellar: :any,                 sonoma:        "d3d8c1f5652b522195c764a951abf041b962308757953c45caac2ec79195f15f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c251ca8a96cb5020fa83e406ed3aaccf1ff5c93d43284a86876ef62475cfc1af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc4f8e794f3b8619d5dd0c24c61b75077cb775849cbc1442b9bd9fb07d36f744"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +26,10 @@ class Osmcoastline < Formula
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
   # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.

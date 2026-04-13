@@ -1,18 +1,18 @@
 class Stu < Formula
   desc "TUI explorer application for Amazon S3 (AWS S3)"
   homepage "https://github.com/lusingander/stu"
-  url "https://github.com/lusingander/stu/archive/refs/tags/v0.7.5.tar.gz"
-  sha256 "b37e3f241f224f76a35934649ea466bde9c069fbcb7c11dfcd67f42214c070ee"
+  url "https://github.com/lusingander/stu/archive/refs/tags/v0.7.6.tar.gz"
+  sha256 "b8d87203dcaf1ce55193afc28a3c436db98a460348a58a89e14b87449a76c1af"
   license "MIT"
   head "https://github.com/lusingander/stu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "37059ab0970c815b6e054bbd60fedabc0bf2195201e4370f792d20e36ba52439"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c919d79d03b34ea3fc6c9ab6bf4a9f34cafbfeb15004a650bd1b56ed4dbfd35b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f2ced87e55ac63fe2a6d170a1971573f2e2e153b4ecd188c3f2a8ff74c68c2d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "14fa6797e6e10dc8976102b567734abb35495a069cdce7a3291e30a79bd255e9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ead74b7aa236fc2a96c9aa085ca9957743f5c10600d040c289f267e3c79e3181"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d35c96dcf427fedd0e171273dc5654f0abc41628e38f14320e93e07d9cd1a1b0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d065022392c7e2d23fb3077bb0f333dd6c3e8ab26bb9c752d8feb491e0ea8581"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5409f487177a6e42b1759571eb091ee416a91f5800413dc4b8f1799b116e01a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34fbfa7497c3f3d900ad72ab42ab7011a6238da60d92e2409ad3fcdf5ff81f3e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d3b3ec43700cd54dd558f539fe1ccd73bc73bb5d567c12f56367bbc442137a3c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "77e3cce2235ded9200c581494f98c6e339c9bf3ebf04e8ac3a3b948786d9a714"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ec9ab241de817515a51fe4f92d51b0c36fd92c1f3b67e1db08970a45973c9c3"
   end
 
   depends_on "rust" => :build

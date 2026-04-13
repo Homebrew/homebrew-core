@@ -1,13 +1,13 @@
 class Dqlite < Formula
   desc "Embeddable, replicated and fault-tolerant SQLite-powered engine"
   homepage "https://dqlite.io"
-  url "https://github.com/canonical/dqlite/archive/refs/tags/v1.18.4.tar.gz"
-  sha256 "b554f8bd54db2c653a6671fb82698f5697d97f6d01063a65b8af00bb54fe08ce"
+  url "https://github.com/canonical/dqlite/archive/refs/tags/v1.18.5.tar.gz"
+  sha256 "491a460ba61282447faeba75238c9d0e461cbd743a84f122417ae6507c455868"
   license "LGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "fc828d6ba0fd2d4d2bc68d20ba9a7fe63900c83e803f97949582dbf7e0b7090b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "bfbabe6540a7db6e974169d843585a657f727f28bf11711261e0615d45db872a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "e9364da2df2f613b1fb2fbfca0c78faab1578b9085b8128ebc32bc7c22934fe1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5c5961a37d4bb0127ac28d0d94445deb15737164321f5f2bc5621a37f1a029ae"
   end
 
   depends_on "autoconf" => :build

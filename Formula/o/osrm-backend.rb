@@ -1,10 +1,9 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "https://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/refs/tags/v6.0.0.tar.gz"
-  sha256 "369192672c0041600740c623ce961ef856e618878b7d28ae5e80c9f6c2643031"
+  url "https://github.com/Project-OSRM/osrm-backend/archive/refs/tags/v26.4.0.tar.gz"
+  sha256 "e50863f1d73ca31dffd91fa8d3c2425ef69b985c41528a2962726c0001520e78"
   license "BSD-2-Clause"
-  revision 2
   head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
 
   livecheck do
@@ -12,15 +11,13 @@ class OsrmBackend < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bafbf8e9eeeb7fd967b9af6248ea3da9c9b13624c67eb8ff2cbdf4972c57d501"
-    sha256 cellar: :any,                 arm64_sequoia: "786d42ac7d079d97505d526a642082294c8a2efc846de8315306373c85091606"
-    sha256 cellar: :any,                 arm64_sonoma:  "686afbf247935ef86b3ff3414e22a33a57bd1d9f28d4ba0e1cc6f45ec3d38f89"
-    sha256 cellar: :any,                 sonoma:        "05bc24eecd136bab1f072af2de909bc43b4a6e620459ec064721aaca61075142"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "189865032379b3123c27e762ea15b06aa9011fb44590f50bf623608a11e1ffc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72788187b68a1d6066bf407a81260c24d10f46b501844d7844fab9fd0a880d4f"
+    sha256 cellar: :any,                 arm64_tahoe:   "24f2e27bdc483aec1ecd2d091b078d617f59751b832b834c2a9bd86e001b8499"
+    sha256 cellar: :any,                 arm64_sequoia: "402c3b051cef735d798fd9aa7eca1f38d7066ff7e71706b73701b488a30992e3"
+    sha256 cellar: :any,                 arm64_sonoma:  "be49cfb5d7293dd0d1e1cc75f8d0ae575160c8be8313844fc30653adc003148b"
+    sha256 cellar: :any,                 sonoma:        "e1f39cb14359a120c1d900a46ffd8345ea7ec8454a7c73a3de4b4d90d08df1f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b27ad5881eb7fe9f6cec9bcc2fd736c5af5918dc939ba37c54bb5c8f435baaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7e48ed50ede3c4faf57137872817d4d269bbfa56cc6aa5bbbd11d5f146176da"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +29,10 @@ class OsrmBackend < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "flatbuffers", because: "both install flatbuffers headers"
 
@@ -42,12 +42,6 @@ class OsrmBackend < Formula
       /usr/include/c++/11/type_traits:987:52: error: static assertion failed: template argument must be a complete class or an unbounded array
         static_assert(std::__is_complete_or_unbounded(__type_identity<_Tp>{}),
     CAUSE
-  end
-
-  # Fix build with Boost 1.89.0, pr ref: https://github.com/Project-OSRM/osrm-backend/pull/7220
-  patch do
-    url "https://github.com/Project-OSRM/osrm-backend/commit/5cea5057eb766a19fbecb68e7392e42589ce1d46.patch?full_index=1"
-    sha256 "51f4f089e6e29264e905661e8cf78e4707af6e004de4a2fba22c914d1c399ff5"
   end
 
   def install

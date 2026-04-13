@@ -10,8 +10,6 @@ class UcspiTcp < Formula
     regex(/href=.*?ucspi-tcp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d1e6c8483d5cc332f7a227ecfe6dcab0392f2d4cbbe33e144dd1c2650d89a86b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "08361b13bd495c563f6340c7cf4aecabf43475f00a3e47116295de56a014c8cf"

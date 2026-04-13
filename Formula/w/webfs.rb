@@ -11,8 +11,6 @@ class Webfs < Formula
     regex(/href=.*?webfs[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 arm64_tahoe:    "f24eb50960a9e004fa3c769dcf977fc0582134669c439405884ceaad2b7ec18f"

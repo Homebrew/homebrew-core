@@ -1,17 +1,17 @@
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.120.14.tgz"
-  sha256 "74a29cd27ec9345b99a24544c5f73978a9dfcc74c039f4bb7cd7310e99504402"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.121.4.tgz"
+  sha256 "cbac9508feb538fc253133f3a9198f175b1b9cbe04333b470cfb276a14bdc4fa"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f1212f87b08c660cdfb11902104cf12d099d11cb6eb8b0a8edeb4167634f1110"
-    sha256 cellar: :any,                 arm64_sequoia: "319d856466ea68175d6ff81d32014e15d4c60d49138df0d6b7a7e7b042caba66"
-    sha256 cellar: :any,                 arm64_sonoma:  "1d39c0da2f4baf522aa17a25fa9f3c12438bede035105a64ceb4b7e6fe699bf5"
-    sha256 cellar: :any,                 sonoma:        "fdbebf411abcfa655a7c3f575baa0e45163afd5cd13f8926920c780af5a67eaa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3380e5e94db3474686aad086d82049f9c8065e018d041b3672589864d4a69d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9dfe06e030bde87b549968d55dca8e4f3d9a95c5d7bb529dfdfda966dd848bc8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "54b158aec30bd4bd1e83d1b887b63cc4e3f888c759904802094c6504fbd5d70e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "10551f2ded5fa09d237d90b022da7cd6f347ca253d57f5e038ff1e841d449a15"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0f720a8a93631548bd335fe0a9ac0a6777c8ad31c358a573f1042d3e7f62790"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d9b16cbb7aa2c5ddf348fbebad33351fd3dc29ac4d533de04890d12148ea86b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "129f2c81cbfbd851bcd1990a3ab0fa7eee0a42519c0c811bda545974e7628da1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c87e48b1a5fbe63b43b68504cc745f2ff9fc9869433587291317a4ad9ad2674"
   end
 
   depends_on "node"
@@ -20,20 +20,25 @@ class Promptfoo < Formula
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1700
   end
 
+  fails_with :clang do
+    build 1699
+    cause "better-sqlite3 fails to build"
+  end
+
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version < 1700)
+    # NOTE: We need to disable optional dependencies to avoid proprietary @anthropic-ai/claude-agent-sdk;
+    # however, npm global install seems to ignore `--omit` flags. To work around this, we perform a local
+    # install and then symlink it using `brew link`.
+    (libexec/"promptfoo").install buildpath.children
+    cd libexec/"promptfoo" do
+      system "npm", "install", "--omit=dev", "--omit=optional", *std_npm_args(prefix: false)
+      system "npm", "run", "--prefix=node_modules/better-sqlite3", "build-release"
+      with_env(npm_config_prefix: libexec) do
+        system "npm", "link"
+      end
+    end
 
-    system "npm", "install", *std_npm_args(ignore_scripts: false)
     bin.install_symlink libexec.glob("bin/*")
-
-    os = OS.mac? ? "apple-darwin" : "unknown-linux-musl"
-    arch = Hardware::CPU.arm? ? "aarch64" : "x86_64"
-
-    # Remove incompatible pre-built binaries
-    node_modules = libexec/"lib/node_modules/promptfoo/node_modules"
-    rm_r(node_modules/"@anthropic-ai/claude-agent-sdk/vendor/ripgrep")
-    codex_vendor = node_modules/"@openai/codex-sdk/vendor"
-    codex_vendor.children.each { |dir| rm_r dir if dir.basename.to_s != "#{arch}-#{os}" }
   end
 
   test do

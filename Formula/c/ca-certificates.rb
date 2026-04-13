@@ -1,9 +1,10 @@
 class CaCertificates < Formula
   desc "Mozilla CA certificate store"
   homepage "https://curl.se/docs/caextract.html"
-  url "https://curl.se/ca/cacert-2025-12-02.pem"
-  sha256 "f1407d974c5ed87d544bd931a278232e13925177e239fca370619aba63c757b4"
+  url "https://curl.se/ca/cacert-2026-03-19.pem"
+  sha256 "b6e66569cc3d438dd5abe514d0df50005d570bfc96c14dca8f768d020cb96171"
   license "MPL-2.0"
+  compatibility_version 1
 
   livecheck do
     url :homepage
@@ -11,7 +12,7 @@ class CaCertificates < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dd8e78402d2feff017ecf5dd9b8a7f3edea2310631323f24b093ebc85727dd21"
+    sha256 cellar: :any_skip_relocation, all: "4df487bca3b0ad9a1b311e59d2da8925b42ad870c74a7426713b0a9291a53bb3"
   end
 
   def install
@@ -46,8 +47,8 @@ class CaCertificates < Formula
       certificates.select! do |certificate|
         begin
           Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
-                                                            "-checkend", "0",
-                                                            "-noout") do |openssl_io|
+                                                             "-checkend", "0",
+                                                             "-noout") do |openssl_io|
             openssl_io.write(certificate)
           end
         rescue ErrorDuringExecution
@@ -56,12 +57,12 @@ class CaCertificates < Formula
         end
 
         # Only include certificates that are designed to act as a SSL root.
-        purpose = Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
-                                                                    "-purpose",
-                                                                    "-noout") do |openssl_io|
+        openssl_purpose = Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
+                                                                     "-purpose",
+                                                                     "-noout") do |openssl_io|
           openssl_io.write(certificate)
         end
-        purpose.include?("SSL server CA : Yes")
+        openssl_purpose.include?("SSL server CA : Yes")
       end
 
       # Check that the certificate is trusted in keychain

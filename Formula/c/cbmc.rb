@@ -6,8 +6,6 @@ class Cbmc < Formula
       revision: "cdee49cb1a32c6d6703cebf6ae67161977264ad4"
   license "BSD-4-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ab18612102175e15adcc972b4dffe29aba91ef743c9a0921179d351f93289fdd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b3a6ab8492da8f724b04326adaac8d2b48310cd616ebb4cab2d416f2d767a1d"

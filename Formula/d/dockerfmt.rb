@@ -1,25 +1,24 @@
 class Dockerfmt < Formula
   desc "Dockerfile format and parser. a modern dockfmt"
   homepage "https://github.com/reteps/dockerfmt"
-  url "https://github.com/reteps/dockerfmt/archive/refs/tags/v0.3.9.tar.gz"
-  sha256 "a156f43b62168531f999f4ee1fb39b6d0057e55e4f703c96181be32950b3c461"
+  url "https://github.com/reteps/dockerfmt/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "cbe837f1168a6903c3903b17d8e2f6f167530ff8ecd227becd5144720ee9a049"
   license "MIT"
   head "https://github.com/reteps/dockerfmt.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "101a5934baacdd9c0eab3b1e9b335818dc1e5938b2cb264183cfa1a8f6dc455a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "101a5934baacdd9c0eab3b1e9b335818dc1e5938b2cb264183cfa1a8f6dc455a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "101a5934baacdd9c0eab3b1e9b335818dc1e5938b2cb264183cfa1a8f6dc455a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "08923cd6b556ad3c8d58ca04e7eda92aae0f5a6d167b275427e09d71c881fd30"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c551d692a59672c995321da96c3209cc3265c9cac3bb69b9e394483201d3a0de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfc5c09a56b3ab87c3a096c66965cedbd1ac51e6322334ec271454b52b9d0931"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a6256c6a349f10ac14d5189117d5dca072a7dd1f38a1797bf136505a1f35f52e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6256c6a349f10ac14d5189117d5dca072a7dd1f38a1797bf136505a1f35f52e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a6256c6a349f10ac14d5189117d5dca072a7dd1f38a1797bf136505a1f35f52e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5648db5d4792b66a0a04b46391fb503e7ed63120f26044f28a7f648473a0c36f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "11b3e8e8171de1a90d75a5062705316ac07f61c7d0ecd9b51b923072cbc6d633"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8feb7283aa677e51f56a30db541a217e2e72aed473c9930a37140db55781bb93"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/reteps/dockerfmt/cmd.Version=#{version}")
     generate_completions_from_executable(bin/"dockerfmt", shell_parameter_format: :cobra)
   end
 

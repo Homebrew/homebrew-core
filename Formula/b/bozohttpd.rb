@@ -10,8 +10,6 @@ class Bozohttpd < Formula
     regex(/href=.*?bozohttpd[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "f071d5d2e28bc3a4ccef5b81d780fbd3995a5cca9d508356ffa860ede9737bf6"
     sha256 cellar: :any,                 arm64_sequoia: "f91adb497f96847759c3427e7b14b81889547273bc078266abdcc0087e6f1c8f"
@@ -23,22 +21,9 @@ class Bozohttpd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8f662a5761fcd610221da12ac4476496fe39bb5254c0192a05e6170b495c988"
   end
 
-  depends_on "pkgconf" => :build
-  depends_on "lua"
   depends_on "openssl@3"
 
   def install
-    # Both `cflags` are explained at http://www.eterna.com.au/bozohttpd/bozohttpd.8.html
-    cflags = [
-      # Disable NetBSD blocklistd support, which is enabled by default (see section "BLOCKLIST SUPPORT")
-      "-DNO_BLOCKLIST_SUPPORT",
-      # Enable basic authentication, which is disabled by default (see section "HTTP BASIC AUTHORIZATION")
-      "-DDO_HTPASSWD",
-    ]
-    cflags << Utils.safe_popen_read("pkg-config", "--libs", "--cflags", "lua").chomp
-    cflags << Utils.safe_popen_read("pkg-config", "--libs", "--cflags", "libcrypto").chomp
-
-    ENV.append "CFLAGS", cflags.join(" ")
     system "make", "-f", "Makefile.boot", "CC=#{ENV.cc}"
     bin.install "bozohttpd"
   end
@@ -50,8 +35,6 @@ class Bozohttpd < Formula
     (testpath/"index.html").write expected_output
 
     spawn bin/"bozohttpd", "-b", "-f", "-I", port.to_s, testpath
-    sleep 3
-
-    assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
+    assert_match expected_output, shell_output("curl --silent --retry 5 --retry-connrefused 127.0.0.1:#{port}")
   end
 end

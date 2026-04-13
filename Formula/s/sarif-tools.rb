@@ -10,12 +10,13 @@ class SarifTools < Formula
   head "https://github.com/microsoft/sarif-tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "550644070de6931b18d2ab82c9ac5cfd44fca3a1df13c9abf530e2c4a155b8e1"
-    sha256 cellar: :any,                 arm64_sequoia: "bc0635459d0ce7aa8ff56c94e79de38fdf2d315d60647b349540d6383b31e390"
-    sha256 cellar: :any,                 arm64_sonoma:  "682c452c073f418a4644b29a49a7d43ddd788e8779347b4e2f9688815ab7f46a"
-    sha256 cellar: :any,                 sonoma:        "d4f532efd411bee51b1f4a112acf5cf1d47839919e19003f4804687a4996f58a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "961c48827b16bcdb7463bb8acd0ff7c64b61aa2419fa550ecdb2c6c12a8aa0e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db17e58b02d613b2030d9c4f5e60f646ac10fb6de997dbb1caf1e5a955b9980c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "4522d807b4baa1223fb68ccc14ef1dee380fc0b069c4d9f3f1d2f162cd0a1478"
+    sha256 cellar: :any,                 arm64_sequoia: "6592d2deb356982345a6e3dcdc87558bd2eaf9b88a0251215228a8eee4de3ee6"
+    sha256 cellar: :any,                 arm64_sonoma:  "e95913d61693073e8843142c8a4612c7d644d4623ace6fb99b5fd001ca38933d"
+    sha256 cellar: :any,                 sonoma:        "ac4c2b51cbe8a7087e706aa3f611aafc3855a84ac6207faf38381e974b86cbe9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "957623debd6182477f91f351e01b6562c816050a3e4ff3693bbeda789957a5fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f49083c2c06b3cfe2557f1a3486e1cca193c6158957f8b65f44a424e808a11d2"
   end
 
   depends_on "cmake" => :build
@@ -36,10 +37,10 @@ class SarifTools < Formula
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "patchelf" => :build
+    depends_on "zlib-ng-compat"
   end
 
   pypi_packages exclude_packages: %w[numpy pillow]
@@ -130,10 +131,6 @@ class SarifTools < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
   end
 

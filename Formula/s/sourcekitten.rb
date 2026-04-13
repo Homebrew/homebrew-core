@@ -2,19 +2,19 @@ class Sourcekitten < Formula
   desc "Framework and command-line tool for interacting with SourceKit"
   homepage "https://github.com/jpsim/SourceKitten"
   url "https://github.com/jpsim/SourceKitten.git",
-      tag:      "0.37.2",
-      revision: "731ffe6a35344a19bab00cdca1c952d5b4fee4d8"
+      tag:      "0.37.3",
+      revision: "6529c17fe80dd94843a3df7ed3e6a239790d5c91"
   license "MIT"
-  revision 1
+  compatibility_version 1
   head "https://github.com/jpsim/SourceKitten.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a7b279f3603cae2b43cfc554cfe772cc6a1abda9e6c58bedf624e44981ff789"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2796fe674c035f08a61ff4794a3d5aa2c2572384f31afe4360e24cc6c8c606fb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02deae6e801c0334b8b7e919a22b53887dfa52c4a2c46fc1b5c5488d3c537a4f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d96d22c0dd1561f4739a4ae689d0e6f17144901986525ae2aa047900db9cee26"
-    sha256                               arm64_linux:   "67774c0efaa24dbbf3167ff1b2c44e5d08169e67aee37b85c7034528d55d68c0"
-    sha256                               x86_64_linux:  "55c8b56cd5c2ca875f3d2cc4498fed128fae7b0ee0e5305ae02e390b2ed89814"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "71dca54d095d7003f38fe2080dc3d8e8d314da72781efaf03cdd59102c9ebac9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d72ada65c485a6a1d2d82eed64d5de56155db0e3dca8239fe5438815caa34ece"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3d3b6c3cfd3255bfb1582329d4e9eb4087c706c87d31e293a1a323150b154e1b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8ad122b1a44d7336032fa6ef2336b278cc84ce58affc6ffffb56e6db80ced889"
+    sha256                               arm64_linux:   "084e6b26f19c3418216080ab0f2acce96b062432bc5bf9029922b7b41c7ff00c"
+    sha256                               x86_64_linux:  "674dce3aee8329342d41dcf0b513f74390979eb62b97315a4ac27843c8a46091"
   end
 
   depends_on xcode: ["14.0", :build]

@@ -1,31 +1,22 @@
 class Pax < Formula
   desc "Portable Archive Interchange archive tool"
   homepage "https://mbsd.evolvis.org/pax.htm"
-  url "https://mbsd.evolvis.org/MirOS/dist/mir/cpio/paxmirabilis-20201030.tgz"
-  sha256 "1cc892c9c8ce265d28457bab4225eda71490d93def0a1d2271430c2863b728dc"
+  url "https://mbsd.evolvis.org/MirOS/dist/mir/cpio/paxmirabilis-20240817.tgz"
+  sha256 "e955d5d3af97aede0a3f463a9a59b83e8d1083aaf142eb6f388c549a7d182e6b"
   license "MirOS"
 
   livecheck do
-    url :homepage
+    url "https://mbsd.evolvis.org/MirOS/dist/mir/cpio"
     regex(/href=.*?paxmirabilis[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5a4bce394325826fc9d441a44954a78fa2e4548da8a3c1ce21f2683676fe5cf2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a439a16ce1f3c165a8f909e2fdcca2c0947e117365465d25517eec4f7760a060"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47f4f096d2004842fb3da233b6ce4aaebd7689b3a78e652454859f32cab7f428"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d53b2b5ce68a30ac206d6692afd3340abbb4b017922fee78db2f9fb1455c55a3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4439e9d997f1e26eb76c01c5bded88103475e8867855e2b0928eae5175e974b5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e540a64c9273304c80db0069305aa90efd4151a1dfd0f9eca0afdb640636a01b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6f739558f46a72a7b5c486e9ee8e8511e5d1635fabbab8f3c18c2f60404877ce"
-    sha256 cellar: :any_skip_relocation, ventura:        "1d63a2f030b177f7b13a4150dadde6c3a2c843a8a15535f7a66375029feda72e"
-    sha256 cellar: :any_skip_relocation, monterey:       "d38daea0b26ae854ac1b08b4e3df4689b9ebbc7658604ea0d61fae0a3d263933"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3bee37a3e3c998d25eb643ba3b5883d423b2209caf40f8f950f0ea72d0413f4c"
-    sha256 cellar: :any_skip_relocation, catalina:       "7445d8ab0193bfc4e2bb4c8a7497e8010cb47b63bb9fa49c887b2f3a3e133d6e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "7311b4bf4cdf82d37661f21a7fa3feeb8e6d00107d89557d6326a9b6074b2dee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ebf0c050c23153d61d4bd703a0f9a4194018a54ad873a5594a70182058280ec"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d22fadfbcbb47721a7e9730f8ce344c3c2cfc235f6387dfaf12be14b24039829"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ac5cccaffe97f01cef5e2615cc7e7b5832226d1773610ca19df65f54d35326a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be97ffea4bf07def65a7c6182a24dd61a15361350b4f5ca1454042cb41d5eeac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "83b945fe0ebf5f46d96c800b7f14ca9b14b73354a6657fbc72f0859a784f150b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "22f8528e91508715e5ee7836a7de29eae46fc443ecd1d3380b4e88e066ee73f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d5d9e3bf21a76cea2fa56e009f1750c8252ac9d8356879efa3428484c477329"
   end
 
   keg_only :provided_by_macos
@@ -39,7 +30,7 @@ class Pax < Formula
 
   test do
     (testpath/"foo").write "test"
-    system bin/"pax", "-f", "#{testpath}/foo.pax", "-w", "#{testpath}/foo"
+    system bin/"pax", "-f", testpath/"foo.pax", "-w", testpath/"foo"
     rm testpath/"foo"
     system bin/"pax", "-f", testpath/"foo.pax", "-r"
     assert_path_exists testpath/"foo"

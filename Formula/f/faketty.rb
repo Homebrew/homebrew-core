@@ -1,18 +1,18 @@
 class Faketty < Formula
   desc "Wrapper to exec a command in a pty, even if redirecting the output"
   homepage "https://github.com/dtolnay/faketty"
-  url "https://github.com/dtolnay/faketty/archive/refs/tags/1.0.19.tar.gz"
-  sha256 "9813623a26996153d586fc110752226a7d619242660a61f01b45f964597f5efe"
+  url "https://github.com/dtolnay/faketty/archive/refs/tags/1.0.20.tar.gz"
+  sha256 "40a4d1cfa3f265f94895cb1430e9100df43ba0b04c551349cac2973e033a7775"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/dtolnay/faketty.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dbc4f144ba6295f0726fdf57a8b6650441045782f3069b6a67bed179af2baa7a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3cfbf44d38dd2e7fa816cf039bff744f534114f362f7443ecad8300464678324"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39d171c3c068cfb10dd001b2149f8e1b0977f9e22c30055344741b6b5ab5e90e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aaf3e17f37f612ed07eb0533d8d206baa2c6b02dd37283ab76a940ecb442b10d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4945595be939159a39a634ce49c1cba2b219ae687bafdf762a7c8fea611f5f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d038ef5f6223e64b01d1d423223158c2b4488a717358ba70806db66fb7c54532"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a86caecd28c8fad74d1454ea7843974a03fc16341564bef4320aad1d865693c0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52f36ccefed5e98d700837c7d72add3b35ebd96118730875c5e919441758eb9c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2bbb88d91f41f836daf40ab26ae264fb4fec30371c40a0a094be0748af26185c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "65f0f924b5db899f619d126b38ee38cd47aa1e04b425fdac44b5a3b41caf535a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c1416b7cdfb26821b8602c1a71cc5cd0e2ca31966d2cb4255832b578fb3d598"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7ad352b95eb94a89baf8441410dcecbad6c33fbe4b77e8d55253f3c662e0307"
   end
 
   depends_on "rust" => :build

@@ -12,7 +12,8 @@ class XdgNinja < Formula
   end
 
   depends_on "glow"
-  depends_on "jq"
+
+  uses_from_macos "jq", since: :sequoia
 
   def install
     pkgshare.install "programs/"

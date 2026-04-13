@@ -26,6 +26,6 @@ class Addlicense < Formula
   test do
     (testpath/"test.go").write("package main\\n")
     system bin/"addlicense", "-c", "Random LLC", testpath/"test.go"
-    assert_match "// Copyright 2025 Random LLC", (testpath/"test.go").read
+    assert_match "// Copyright #{Time.now.year} Random LLC", (testpath/"test.go").read
   end
 end

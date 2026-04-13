@@ -6,8 +6,6 @@ class Progress < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/Xfennec/progress.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8c2f2b8662edb63080b92379916d9a3baf7e79147bdcaac1e5ce734d883eb20a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f661615f320a4ac93f492d247054c8e244b2a234f37b3a7d7852f2b4541ab927"

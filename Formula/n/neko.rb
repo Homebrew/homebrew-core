@@ -8,15 +8,16 @@ class Neko < Formula
   revision 1
   head "https://github.com/HaxeFoundation/neko.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "db9c53fdb4451846f55a6f6ea2e55e63a7c0082e53f76f3b8f5de867941c13a2"
-    sha256 arm64_sequoia: "afa51940db454f45a94290ba51504b6474dff0e8092c146515467b22b872ca84"
-    sha256 arm64_sonoma:  "2129d1b4dd39b1324c8ef30dacad869d9f3ae99713cf93cb69b80fd2133ba4ba"
-    sha256 sonoma:        "b8237d39231cd951d8a3fe202e9deab64b488afa90e8efcf652c4b8004aeefdb"
-    sha256 arm64_linux:   "34f29f334c16a1991d9b85bf4e1133b0fdc40668252b6a61670c55a1796d296b"
-    sha256 x86_64_linux:  "d07d44819e109acb2959ae8bc38dd77102da555a846795a27b064b3fbe6c90bc"
+    rebuild 1
+    sha256 arm64_tahoe:   "89c971ad4c60726ebc84ce4a6b5ebb675cd65a5dc400d4cc152cba7b40e52f07"
+    sha256 arm64_sequoia: "45b778978d5a73833248131a9a9bb7019347237547e679aa529622b50054843d"
+    sha256 arm64_sonoma:  "38ef0f1be7bf24efca084864babb69f3ef19ceaf97e473a686a61fda7f06e32a"
+    sha256 sonoma:        "37b217ca868281d49936bb213ac8e27838254a04931b7f9f93493a6f40bc2f0a"
+    sha256 arm64_linux:   "5c036ca3b850ae905d89e474af893486017fdbfc9aa7a8e696c62c4bfd59fddb"
+    sha256 x86_64_linux:  "452562632f23c92792771f4df762168e34f51f1143ff7dc467e755c34594982c"
   end
 
   depends_on "cmake" => :build
@@ -28,12 +29,12 @@ class Neko < Formula
 
   uses_from_macos "apr"
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "apr-util"
     depends_on "gtk+3" # On mac, neko uses carbon. On Linux it uses gtk3
     depends_on "httpd"
+    depends_on "zlib-ng-compat"
   end
 
   def install

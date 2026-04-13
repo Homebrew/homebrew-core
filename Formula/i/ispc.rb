@@ -1,8 +1,8 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/refs/tags/v1.28.2.tar.gz"
-  sha256 "0b7d1d73afa93c015814b99c97b88fa45bce822d7904e8fc4a95666ba8e3fb92"
+  url "https://github.com/ispc/ispc/archive/refs/tags/v1.30.0.tar.gz"
+  sha256 "73b30c74fdfc56c3097015476df14d0a4bcb6705d9e286c6d51c1ed578d49e22"
   license "BSD-3-Clause"
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
@@ -14,18 +14,19 @@ class Ispc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "164ff92791b6ab740c202f03bc6129c20c4d1d13bf7cf335dbc8d67e91f800b3"
-    sha256 cellar: :any,                 arm64_sequoia: "6118ddb2e5341b9c283de7876e97d0851cd49e5319a944dc2d36eadee99bf70b"
-    sha256 cellar: :any,                 arm64_sonoma:  "f88ac836dd198d3abeb223aff56a881d8102ced36d910c3c7a368d80d9cee5c3"
-    sha256 cellar: :any,                 sonoma:        "bc4becc60a621b4eb89b18232589807af5169b72abdbc25124c17dca9fa54a26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "86634a63df81deed335f9e9c2ca55ba63e5367fa6d644059a149b36248f37434"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17780220ddd874142c336338dd48df9fa6398f601233bc1c960dbdc3a86ced64"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "066c6cbceb92fa5498064ad6cded8c771ee479c7ca4c745f69499435823ca1f2"
+    sha256 cellar: :any,                 arm64_sequoia: "abb0dc3dbeea2724625b3c46a31e009357ade922b026b9bc652ee03b9a842e77"
+    sha256 cellar: :any,                 arm64_sonoma:  "0502f0c6d3be0a8ae5cfb9ebee46c1abe780294eaf3066c242011203c4b60287"
+    sha256 cellar: :any,                 sonoma:        "f25e5c473bc951a15de6fc0b9f00a881cbfffb2d059c5fd3a194064ca50bfcad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6cf3dae91df21f4e97b9232bb017ef63b3f6e3829f2a4f2ad06101b6e63f07f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4bc30e194268208bc23db431ed09e368124a4ae72e77bd7dca7592306a97783"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
-  depends_on "llvm@20"
+  depends_on "llvm"
 
   uses_from_macos "python" => :build
 
@@ -38,6 +39,31 @@ class Ispc < Formula
   end
 
   def install
+    # Disable 32-bit Linux x86 target to avoid needing 32-bit glibc headers which
+    # are not available in our build environment. Also fix the dispatch target triple
+    # so clang can find the architecture-specific glibc headers.
+    if OS.linux? && Hardware::CPU.intel?
+      inreplace "cmake/GenerateBuiltins.cmake" do |s|
+        s.gsub! "builtin_to_cpp(32 linux x86)", "# builtin_to_cpp(32 linux x86)"
+        s.gsub! "--target=x86_64-unknown-unknown", "--target=x86_64-unknown-linux-gnu"
+      end
+      inreplace "cmake/GenericTargets.cmake",
+                "\"x86,32\"",
+                "# \"x86,32\""
+
+      # Patch the skip function to ignore 32-bit Unix/Linux targets during stdlib generation.
+      # This prevents the build from running the new 'ispc' binary for 32-bit targets it doesn't support.
+      inreplace "cmake/CommonStdlibBuiltins.cmake",
+                "set(skip FALSE)",
+                <<~EOS
+                  if ("${bit}" STREQUAL "32" AND "${os}" STREQUAL "unix")
+                    set(${out_skip} TRUE PARENT_SCOPE)
+                    return()
+                  endif()
+                  set(skip FALSE)
+                EOS
+    end
+
     args = %W[
       -DISPC_INCLUDE_EXAMPLES=OFF
       -DISPC_INCLUDE_TESTS=OFF

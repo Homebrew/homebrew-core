@@ -1,8 +1,8 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/8.17/racket-minimal-8.17-src.tgz"
-  sha256 "4acb365869290881fa07c69588cfa8b2dc1000bdc69955d70964b0b1e76b71ba"
+  url "https://mirror.racket-lang.org/installers/9.1/racket-minimal-9.1-src.tgz"
+  sha256 "d68e7f392cc842cf29daee2a8a9297a52881ba280c6a4c6108c02ae8c77357d5"
   license any_of: ["MIT", "Apache-2.0"]
 
   # File links on the download page are created using JavaScript, so we parse
@@ -15,20 +15,21 @@ class MinimalRacket < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f2a14fcc40b562cfd9317850e72661b188508e48b85589a34ffdc271e6d05241"
-    sha256 arm64_sequoia: "94233ccf4855529eb037fbb967af7f8c86744c5f29c28295608777e4638ac64f"
-    sha256 arm64_sonoma:  "a3d27bb96382f5d0d8bec7d81f7b19748fa33c3619a33b73afe1090d88bc6cea"
-    sha256 arm64_ventura: "9cefe4eeec12b2336be7ac7da5e6f2c2c840e9a41678c32caf88e92db2d73089"
-    sha256 sonoma:        "50070f5a19ea226744524551a8a2c0946d23e261ab06a968993f0e75c78d10cb"
-    sha256 ventura:       "9b14e9c9c57cc4f73303ee360ef582689cf7139b447c87490c5521b82a42daec"
-    sha256 arm64_linux:   "bbda2f3defd23d8983ef8be7634df86c4b2e25d8aeca609490927a91aa781d5c"
-    sha256 x86_64_linux:  "3ede573d7078a9acbf249fa05fc5221fa667ea13a4334a1e13bed8705bb7cdd0"
+    sha256 arm64_tahoe:   "f8e3cfee531b50c4bb5dd5b92566061d9bdf7fabd5d2848e7578d7d416194d63"
+    sha256 arm64_sequoia: "9dcc416b1c09fbafc4f5d6f6e8e516a02ee4885031aff19bb039cb7251c964d5"
+    sha256 arm64_sonoma:  "876c55172ce1fdab9d892b490c74e240dcf4d52c1c61fea6305031a4548ca473"
+    sha256 sonoma:        "49360583f8d75102cd8d3ccf3e810f5bccf81c867939f373f76f10c058284ee8"
+    sha256 arm64_linux:   "6bc1bbf57d83f01e4e77ae53476225c4f1b2b7df61ca0bdb56d17daff6193d7b"
+    sha256 x86_64_linux:  "9f5b9e82168584e00339df5624df392ea5005a1d2f5e87faa69d035e22cd661e"
   end
 
   depends_on "openssl@3"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # these two files are amended when (un)installing packages
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"
@@ -64,6 +65,20 @@ class MinimalRacket < Formula
       system "./configure", *args
       system "make"
       system "make", "install"
+
+      # Link to the Homebrew ssl libraries, overwriting the bundled libraries
+      if OS.mac?
+        openssl = Formula["openssl@3"]
+        racket_libdir = lib/"racket"
+
+        %w[libssl.3.dylib libcrypto.3.dylib].each do |dylib|
+          path = racket_libdir/dylib
+          path.unlink if path.exist?
+        end
+
+        ln_s openssl.opt_lib/"libssl.3.dylib",    racket_libdir/"libssl.3.dylib"
+        ln_s openssl.opt_lib/"libcrypto.3.dylib", racket_libdir/"libcrypto.3.dylib"
+      end
     end
 
     inreplace racket_config, prefix, opt_prefix

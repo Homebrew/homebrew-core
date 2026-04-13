@@ -1,24 +1,24 @@
 class Sq < Formula
   desc "Data wrangler with jq-like query language"
   homepage "https://sq.io"
-  url "https://github.com/neilotoole/sq/archive/refs/tags/v0.48.10.tar.gz"
-  sha256 "df2c8082727f95787416375663578a0be31041bcbfca71af606a84935bf2b94d"
+  url "https://github.com/neilotoole/sq/archive/refs/tags/v0.50.0.tar.gz"
+  sha256 "36e20553b05aa10069ea3a422bbd98df936f5ca505eae9d61b98ff7ee0b7a279"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "11971a3016995526f742ba87cc83dfeb63bf38c7079a0d54fde30ee5cbd3d8f5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1100e0de0e666e5beeb3a8fc1b7a32e2baa1130345baa5fc87ecdccc9601c14d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ad02e466eee21dbb57ed160f71faf735e3399efc662ee5a017b53bb90acdfe6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eaaebac9842033601be08fed1a13d5c081a39d3a0425beb0f475a177005ba0cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f021ce8e84ffa53c3ebf8ee5e2db15fcff087dcb831c9af14b49340fdb6dbb6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09e98e47658696d2c3f8ff5bd3456bbcac8f3351f73b273fe65d7e21e3d0ffac"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bcffc70c1e0315e1999e72b9258ae407f14114d42c889a8296ceaa939d713790"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4057cfa30bcb15b76b8c6a47e43bcc292dc9bfd3cbf06b744b38d64ebad75652"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f89d005539fde2deaf27288be32d4219ea0e18636e4a82a8346915c6da16b14"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0c2b647d37e86459440eda9fcc06eb1cd859d0f51e73809a42c4eb568a20f050"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dddf64c8ad704a8d410c384489d8e5b24940e095c6f8db6b3693fdf41150bca5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18535bbeebdd4f659dd4e9074f351f046fe105f4849a0b03b3650337bb3acfd8"
   end
 
   depends_on "go" => :build
 
   uses_from_macos "sqlite" => :test
 
-  conflicts_with "squirrel-lang", because: "both install `sq` binaries"
+  conflicts_with "sequoia-sq", "squirrel-lang", because: "both install `sq` binaries"
 
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?

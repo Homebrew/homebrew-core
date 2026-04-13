@@ -1,10 +1,9 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "https://tar.goaccess.io/goaccess-1.9.4.tar.gz"
-  sha256 "107d5a3cb186e6e7a8ac684a88d21a17884f128cb0bc4a4a53696145bb39373d"
+  url "https://tar.goaccess.io/goaccess-1.10.2.tar.gz"
+  sha256 "b9b7484a413279863c7d92dc7dd4c19dcb55c0a2d138735efc18570bcc4eaa0e"
   license "MIT"
-  head "https://github.com/allinurl/goaccess.git", branch: "master"
 
   livecheck do
     url "https://goaccess.io/download"
@@ -12,35 +11,37 @@ class Goaccess < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e1edb0653e8e2b512774ef933f568313d63e6beb481e5337e0a1661acd4aef45"
-    sha256 arm64_sequoia: "1200da514dcbbd2b67d05ed0a8a8484d436ab58d7b7a28fcfabdcfe1fa326023"
-    sha256 arm64_sonoma:  "236c28e7d1bdf5b29f780c2397fcee03e8f4673b33a8c30df4ac384d94bd62de"
-    sha256 arm64_ventura: "2bbda818439ff95642ad87925871ebba8f6e62b26d31d6ea1d3a791245f720bd"
-    sha256 sonoma:        "ab7c21de0f83fb6d09ca2ffedd49b996d8c7e3d80c122e9e1271e8cc5c06bf6e"
-    sha256 ventura:       "b730ca1b7fc30ec8c73af8ec2f6f9a60cc409b068f1aacac22d64cb4b7f38e7d"
-    sha256 arm64_linux:   "70900505dd30cd579e7d4d4703251142ccc7ab664d54760a88da9e7026cc09d2"
-    sha256 x86_64_linux:  "3b8b7b44e55f4f4e5a138ae1bf601478753a15eb0f173baab2271c68723c73c7"
+    sha256 arm64_tahoe:   "7a698068fe2b1207233ff61c3b3881a27819d74cdb87e0df2b650703410e089d"
+    sha256 arm64_sequoia: "37dc6946eeb5bd7fb4b165bdbb2a6ac3ae0145b866298036c72aa6ac50e66c8e"
+    sha256 arm64_sonoma:  "26415e8602250913083cef1155f548207eb22cbda7a1a6712036127218d9a0b3"
+    sha256 sonoma:        "4cbf3d537d8c9e062191257c54d5a93859045cd4d9cba190151a6cda454e10d1"
+    sha256 arm64_linux:   "e4767498d50629470699c9f3fc3cfc78726f1307bdd61e4005301f394fdab5aa"
+    sha256 x86_64_linux:  "790bf490001601ad4681ce502577897ca00bfbfedccc7aec1800562c41c75a53"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "gettext"
+  head do
+    url "https://github.com/allinurl/goaccess.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+  end
+
   depends_on "libmaxminddb"
-  depends_on "tokyo-cabinet"
 
   uses_from_macos "ncurses"
 
-  def install
-    ENV.append_path "PATH", Formula["gettext"].bin
-    system "autoreconf", "--force", "--install", "--verbose"
+  on_macos do
+    depends_on "gettext"
+  end
 
-    args = %W[
+  def install
+    args = %w[
       --enable-utf8
-      --enable-tcb=btree
       --enable-geoip=mmdb
-      --with-libintl-prefix=#{Formula["gettext"].opt_prefix}
     ]
 
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *args, *std_configure_args
     system "make", "install"
   end

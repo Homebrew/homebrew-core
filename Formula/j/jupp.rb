@@ -12,8 +12,6 @@ class Jupp < Formula
     regex(/href=.*?joe[._-]v?(\d+(?:\.\d+)+jupp\d+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "851ad092f5d0183d4c1d09bba60a6f8a00cc4056ecc37bd44b70a8c29e27d7ae"
     sha256 arm64_sequoia:  "69af220c327528966dd893daab6d625a5b5241b9273f7b53decb37c5f1e33efe"

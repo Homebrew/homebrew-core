@@ -1,9 +1,10 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.17.2/gperftools-2.17.2.tar.gz"
-  sha256 "bb172a54312f623b53d8b94cab040248c559decdb87574ed873e80b516e6e8eb"
+  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.18.1/gperftools-2.18.1.tar.gz"
+  sha256 "d18d919175f9e4d740ace6b52f0f4f91284160c454e91b36ffd6456282a02206"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -12,14 +13,12 @@ class Gperftools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "dbafb6fc46196fd8f13dbd6b5fb6bd1b210d2ec9c28822a3ccf4d4d9f2039535"
-    sha256 cellar: :any,                 arm64_sequoia: "ea34ae85c303bc4bd38232a7e93acd11389cb30c226ce3a911327af5e2149ded"
-    sha256 cellar: :any,                 arm64_sonoma:  "c4f54ccf201211a79644147a84ab0814fc663fcedc1b57063db050669ddebb31"
-    sha256 cellar: :any,                 arm64_ventura: "5689a65cbb0c98429fe13d949bd36ab1b9d9ad7f2479b435ed6aa798f2b5141e"
-    sha256 cellar: :any,                 sonoma:        "bb84872e1e25b83e86d5a500f4bdce56b37ec695f954d7e236d8678da1f08f77"
-    sha256 cellar: :any,                 ventura:       "9d95e1494ecc17ce5a48221a96fe3a44f94d9d80274299721756f2b04b645b16"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b6226ec9a1b380f27e00c0ff377b7b2bab468f0ce70856d988730f3aa803957"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b90e19dd7b237b02aff6d7ddd13fcabdb68ce97e9b27a0d43df8746eeea33c3"
+    sha256 cellar: :any,                 arm64_tahoe:   "441be19e92f18df04aacfbe09dffe235c9bf8b070c5d5e3f8db6611c9890c23d"
+    sha256 cellar: :any,                 arm64_sequoia: "8cc759dba8cf08fe71fd36cf585b6a626bd22bd41718c26616eefa665443b383"
+    sha256 cellar: :any,                 arm64_sonoma:  "5dc611bd687d0b5b3ddadf2f200edcedad5d95b6f07d45324bb782e62d57d750"
+    sha256 cellar: :any,                 sonoma:        "96980b401d0332ec875685001597fee2a37006f40bd1e92d55bf53fa315c62bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6cf2911544eb57a83f4baeaf71e7b5e9b905af8c31d73461306cdf3bf5a728f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2dafaf048a2e362d06592fa527fba49a22eefa29f66c60edb14a10e9edbf0876"
   end
 
   head do

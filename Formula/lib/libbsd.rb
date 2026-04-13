@@ -3,7 +3,15 @@ class Libbsd < Formula
   homepage "https://libbsd.freedesktop.org/"
   url "https://libbsd.freedesktop.org/releases/libbsd-0.12.2.tar.xz"
   sha256 "b88cc9163d0c652aaf39a99991d974ddba1c3a9711db8f1b5838af2a14731014"
-  license "BSD-3-Clause"
+  license all_of: [
+    "BSD-3-Clause",
+    "BSD-2-Clause",
+    "Beerware",
+    "ISC",
+    "libutil-David-Nugent",
+    "MIT",
+    :public_domain,
+  ]
 
   livecheck do
     url "https://libbsd.freedesktop.org/releases/"
@@ -11,29 +19,49 @@ class Libbsd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "5dfeeefe2e5f10d343c990d68b31c3c77c39df8151bd2279da69f7004a5302da"
-    sha256 cellar: :any,                 arm64_sequoia: "e9bd43f6679707dbe86536dd3d9daefd9988db71b911d9b1fd7bbb04658b446c"
-    sha256 cellar: :any,                 arm64_sonoma:  "aa3c342efa7b87672ed780f3ac53680a5493f0e267eab9d71cd4d4380146342c"
-    sha256 cellar: :any,                 arm64_ventura: "3f8b9f7545d170c69e15ba9e24edb7cf7cb98ccda39dd3c8a4ed0d28c75b7bb5"
-    sha256 cellar: :any,                 sonoma:        "4fc8e8c21ed393023cae19ff35ec7b5faf7df85c9bc843dafcb7f96b5b1f8537"
-    sha256 cellar: :any,                 ventura:       "110fd177f3769fc485f1deff7a88c1f268d588fffcc9c58c0919ce4a3a30b6d4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6c6c7d6349ce9b9aab5c6a6db366e4538d0911e4619e14ce51838a683ad3d92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31fb2290fe313559d9de741089809ea8d5bc8cffdaf8237f350c6d2f836bba95"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "c7f96d1094ff2cc9da0513b16d0b0367baf7181648c7b95c18e038283cd76e0d"
+    sha256 cellar: :any,                 arm64_sequoia: "efbaa69a0a35faffb4aea0d753dfb2b9c0d69d2b75e082da79ff3c1217f71220"
+    sha256 cellar: :any,                 arm64_sonoma:  "f83011f7c421cbb84332def855f6ec9ed8e7983f33ca6094086f3e014620ff29"
+    sha256 cellar: :any,                 sonoma:        "75da4f4a420c5f2bf1d05a57bd1709768b135c2a9d7b464e788ee07360e58546"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9fc7e073b4e59abb66635d251ee2b38613647c439adaae8ab3e3a414cfc55107"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d82953bbd9f2e841648eb4a768da6d598d2b023d1976056e67245295dc84adf9"
   end
 
-  depends_on "libmd"
+  head do
+    url "https://gitlab.freedesktop.org/libbsd/libbsd.git", branch: "main"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
+  on_linux do
+    depends_on "libmd"
+  end
 
   def install
-    system "./configure",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}"
+    system "./autogen" if build.head?
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
   test do
-    libbsd = lib/shared_library("libbsd", version.major.to_s)
-    assert_match "strtonum", shell_output("nm #{libbsd}")
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <bsd/stdlib.h>
+
+      int main(void) {
+        const char *q;
+        long long val = strtonum("1", 0, 10, &q);
+        if (q != NULL) {
+          printf("%s", q);
+          return 1;
+        }
+        return 0;
+      }
+    C
+    system ENV.cc, "test.c", "-o", "test", lib/shared_library("libbsd", version.major.to_s)
+    system "./test"
   end
 end

@@ -3,10 +3,11 @@ class LittleCms2 < Formula
   homepage "https://www.littlecms.com/"
   # Ensure release is announced at https://www.littlecms.com/categories/releases/
   # (or https://www.littlecms.com/blog/)
-  url "https://downloads.sourceforge.net/project/lcms/lcms/2.17/lcms2-2.17.tar.gz"
-  sha256 "d11af569e42a1baa1650d20ad61d12e41af4fead4aa7964a01f93b08b53ab074"
+  url "https://downloads.sourceforge.net/project/lcms/lcms/2.18/lcms2-2.18.tar.gz"
+  sha256 "ee67be3566f459362c1ee094fde2c159d33fa0390aa4ed5f5af676f9e5004347"
   license "MIT"
   version_scheme 1
+  compatibility_version 1
 
   # The Little CMS website has been redesigned and there's no longer a
   # "Download" page we can check for releases. As of writing this, checking the
@@ -18,14 +19,12 @@ class LittleCms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ce5a0c917ab8273866eb04f88af435f8590fe461fe0b2c4b48c2859a4b668e7a"
-    sha256 cellar: :any,                 arm64_sequoia: "3827b5a8583f0e92987bd0e7c721bda834157ad366d2cb66596559dd8654c9ac"
-    sha256 cellar: :any,                 arm64_sonoma:  "aeb24e3f0d025808da8a3c0d9c4e42b0aa58a3dbc51813baf90940fcddf20be9"
-    sha256 cellar: :any,                 arm64_ventura: "a4edffc61a638164f92c20dbb084eb00a82ce81cb2e58aa18ad5f1d73c843c5e"
-    sha256 cellar: :any,                 sonoma:        "6f3a75284dcdd815c90822ac2d7ca5da326f9b1caa429b57bc95bc1f49d76881"
-    sha256 cellar: :any,                 ventura:       "0d73b47c0c2bc4974127934587472e9a6a7dc1c54ef6eaa409f64c99568c2edc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ec5e7088ce3f220f3607200e7e9fb111359569de78eaf4c2ac2b7f5dbb9d9bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "667006576a5da32e7984c0c310cba11d63970e9f4f501200ef949ab9b0559709"
+    sha256 cellar: :any,                 arm64_tahoe:   "ea51fe72839acbeb85a14cbc5f758fcfd6c10704bf301511b67b80d1eb437e25"
+    sha256 cellar: :any,                 arm64_sequoia: "ef0bc9dde8d758c481c8ef9f7ac032776f0c67de87b2bc453e0bdbb037914cba"
+    sha256 cellar: :any,                 arm64_sonoma:  "a3b6b7e04b11587086a64a17b6c8880cf20bab9d92d00cad8f6d71cc0d347289"
+    sha256 cellar: :any,                 sonoma:        "b4c863e6eb564449490359a59c6fbfa8b72e305f6f81bb81c17eb24c21388a19"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "58e39623413e57b7ae9a3a34aad0aebce5564264f3af4b3388570860d04b54be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f004716c38223986c27a7f6b545f169616d6ee060d3b652b5f936a28d9725ae6"
   end
 
   depends_on "jpeg-turbo"

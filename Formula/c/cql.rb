@@ -6,8 +6,6 @@ class Cql < Formula
   license "Apache-2.0"
   head "https://github.com/CovenantSQL/CovenantSQL.git", branch: "develop"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b2ed7ce113b81fa92f86a376923fd42bd294320b892005b8996f8950fe40e19a"

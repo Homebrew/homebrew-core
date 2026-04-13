@@ -5,6 +5,7 @@ class Gsl < Formula
   mirror "https://ftp.gnu.org/gnu/gsl/gsl-2.8.tar.gz"
   sha256 "6a99eeed15632c6354895b1dd542ed5a855c0f15d9ad1326c6fe2b2c9e423190"
   license "GPL-3.0-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "6568c445eea85c3fb013ecaefe945edbc528d265c811dc6decc8341f3c0fcffc"

@@ -29,10 +29,12 @@ class Rmrfrs < Formula
     system "rustup", "set", "profile", "minimal"
     system "rustup", "default", "beta"
 
-    system "cargo", "init"
-    system "cargo", "build"
-    assert_path_exists testpath/"target"
-    system bin/"rmrfrs", "--all", testpath
-    refute_path_exists testpath/"target"
+    system "cargo", "init", "homebrew"
+    cd "homebrew" do
+      system "cargo", "build"
+      assert_path_exists testpath/"homebrew/target"
+      system bin/"rmrfrs", "--all", testpath/"homebrew"
+      refute_path_exists testpath/"homebrew/target"
+    end
   end
 end

@@ -1,18 +1,18 @@
 class BeancountLanguageServer < Formula
   desc "Language server for beancount files"
   homepage "https://github.com/polarmutex/beancount-language-server"
-  url "https://github.com/polarmutex/beancount-language-server/archive/refs/tags/1.7.0.tar.gz"
-  sha256 "fc1badabc64cb534cdb644c2b9a220fa8ae4261fff47d7f5a173bda1923a39e9"
+  url "https://github.com/polarmutex/beancount-language-server/archive/refs/tags/1.9.2.tar.gz"
+  sha256 "f2673b169e4d9fbb1cba4f47d8d90452023fb19921fda5565375ec9020317498"
   license "MIT"
   head "https://github.com/polarmutex/beancount-language-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2ac6433de4107ee46bd43c3457a3b24b921a76e551693dccefc4a4515757c6dd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b7409a2473ba1b9341260e37f02ba4a051ef23286ed102fc5ec1babd09b7a26"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47e724bfa4a8bb12dcae0ef358e9d1bd2bafc74e6df4665cb0b929a6d6e142ed"
-    sha256 cellar: :any_skip_relocation, sonoma:        "88697d03a4b59ddbd0b81cad601f073788418bc8a476fa6b3bd95c7ae9fed16d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f386a1fa6c9514c459b85d22a8b70f7840f6a730ce78fb24083750a99df2456c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc9c5c26c1934111ed5ec809f455d5887b3e832c5b7ed78c901564a54fda67ec"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3706c546f4094adf3e5bdf53fabdcd425bd623835e8b4cafe1802bf220abdcc3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "837a0c5b62df48ce8d1469c4dae7607423cf16566171ded5932ca9b0a3c392bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8213539154346f591d39e4e1594b75013f898c227b4e92e4dff6c67412a9db4a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "786b3c6ef59350110b0c7fc8ba0785787fd9b33004611a3b723f515e9a9c04e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9235ff896d1955d442758b350b19dbe03496ac7aed9af26f214d6cacc25c345e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f34b4c9f7b7e4ceaf9cb3c4d9c891b8f3f751af79e88db163d2538ff3846e0e"
   end
 
   depends_on "rust" => :build

@@ -4,6 +4,7 @@ class Libpcap < Formula
   url "https://www.tcpdump.org/release/libpcap-1.10.6.tar.gz"
   sha256 "872dd11337fe1ab02ad9d4fee047c9da244d695c6ddf34e2ebb733efd4ed8aa9"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://github.com/the-tcpdump-group/libpcap.git", branch: "master"
 
   livecheck do

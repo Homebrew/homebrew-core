@@ -1,18 +1,18 @@
 class UmkaLang < Formula
   desc "Statically typed embeddable scripting language"
   homepage "https://github.com/vtereshkov/umka-lang"
-  url "https://github.com/vtereshkov/umka-lang/archive/refs/tags/v1.5.5.tar.gz"
-  sha256 "b7673a445ee2ffbd161c89cb076452d8e04c4d842babf6c5bca963e52b75adfd"
+  url "https://github.com/vtereshkov/umka-lang/archive/refs/tags/v1.5.6.tar.gz"
+  sha256 "cf82ad85745339371172a0785fb44aeb60b7a78142ff55d6b3518d77abaa46ba"
   license "BSD-2-Clause"
   head "https://github.com/vtereshkov/umka-lang.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "71a5436d053b21e283fbb06d9af7e7759aa48e97595e75ee2a9988b057562bd4"
-    sha256 cellar: :any,                 arm64_sequoia: "d817c9cbc87a0b2b11e9d4f99a191cb5b79e501a1c5f143deaf92e639d279f5d"
-    sha256 cellar: :any,                 arm64_sonoma:  "410794c594fc46bbd6e6d462d778a72c0078670ac0783a7b2b6ffb719fff710a"
-    sha256 cellar: :any,                 sonoma:        "67a296c502cdd51cde57976e7bb79096d6de79ca7ced79a938e07867925b4838"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "166e489ab4ebceca8e323def456813df04abcc2ebb9d2e5954399baa66884a5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c75995cc4b4357d4df58387e9c25e310b599dfb7d9e4fa2ca38acc5a64213eee"
+    sha256 cellar: :any,                 arm64_tahoe:   "ce9d7f8c1a9b3870eea9dda06784818398d87cb133578c3820ec6658effe167e"
+    sha256 cellar: :any,                 arm64_sequoia: "5f0efe27433aed887a90e1845511bc3fa07034a1969afa4e2d33efffbb652cf1"
+    sha256 cellar: :any,                 arm64_sonoma:  "4315a71b17be81a4c35247621cff8defe46dc9e52db97e31fa1e0e5b03f46437"
+    sha256 cellar: :any,                 sonoma:        "c59889962ffef397dc393568a6faea797c6c3395169a33eef2261ba439aa784e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad9040267c97b992687c236fad2b5ec18cc10709302cca51abd1c0fca6c23695"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd463f7849dcb9b7e59e59d2d81ea80e8dbdc272d3045f9e7b5c70dd84f61cd1"
   end
 
   def install

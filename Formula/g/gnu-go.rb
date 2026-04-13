@@ -10,8 +10,6 @@ class GnuGo < Formula
   revision 1
   head "https://git.savannah.gnu.org/git/gnugo.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "65707404eb0034b25296dc8c9dfc0dd3ec1016b4ef97744500b702317c50b89c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b638af6216ed0bd736823bab2fe42ca902dd9768a69fee4009726808aeeea448"

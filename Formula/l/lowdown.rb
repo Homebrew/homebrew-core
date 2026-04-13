@@ -1,19 +1,24 @@
 class Lowdown < Formula
   desc "Simple markdown translator"
   homepage "https://kristaps.bsd.lv/lowdown"
-  url "https://github.com/kristapsdz/lowdown/archive/refs/tags/VERSION_2_0_4.tar.gz"
-  sha256 "d366866f34de35a64a366efcf15dd787960ca25d986bb8780fb04a4306999eec"
+  url "https://kristaps.bsd.lv/lowdown/snapshots/lowdown-3.0.1.tar.gz"
+  sha256 "ac9ea2b51c8bd59350c7bf8db5e2067e9d961b1f48d362cd8a56b022850e965c"
   license "ISC"
+  compatibility_version 1
+  head "https://github.com/kristapsdz/lowdown.git", branch: "master"
 
-  no_autobump! because: :incompatible_version_format
+  livecheck do
+    url "https://kristaps.bsd.lv/lowdown/snapshots/"
+    regex(/href=.*?lowdown[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5c10c8fa1e5eb3dbb8faaf67e7fc6d14f75746251949b9da220c246f0a97ef0a"
-    sha256 cellar: :any,                 arm64_sequoia: "25da16e680e999d5056143dbbdfe0c8bb33c69fb8336976138e86448f18fe95f"
-    sha256 cellar: :any,                 arm64_sonoma:  "f295e5c08db61418c19191b835c44f1211184f8051fd4c532759493bc57c3d84"
-    sha256 cellar: :any,                 sonoma:        "ebb97e53cd7cb113b2e726ffecacc726bd4b9a463c1539806b1fc797891134b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1cdb239f485481d566a7a91586d168812c5dbda702cc23ff207b1f01fe19c8e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d85c28e32bdb68fe885de165de08ef6f3c085f5da1e6c9c91844fea8dcc1997e"
+    sha256 cellar: :any,                 arm64_tahoe:   "fe8e1e3344dbc3cd2c0aa1b74815d81e1eb6ab4593379d3c2634d05402a06966"
+    sha256 cellar: :any,                 arm64_sequoia: "7ab2eecbe8f5ffe11c3e31d77be3183b18a60ca2e06aee1fe582c8b85675e9c8"
+    sha256 cellar: :any,                 arm64_sonoma:  "464efd261b8b65e91ceca6e140bce86caeed72df2f6ed2d8b0db8b97a93828a5"
+    sha256 cellar: :any,                 sonoma:        "6ea5d37031313bb5bec5b0623486d0e5c290dcea3adf1855cb7d7268c051d705"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f81db6a9741bde23c65a3875f85da875eb2a169be84fd0f884410569477b74de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b99741588edcdd41f5da276b2e8abcd821aa9587bde5a04edd653495677f1ccd"
   end
 
   depends_on "bmake" => :build

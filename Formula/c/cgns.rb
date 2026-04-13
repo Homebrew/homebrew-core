@@ -2,8 +2,10 @@ class Cgns < Formula
   desc "CFD General Notation System"
   homepage "https://cgns.github.io/"
   url "https://github.com/CGNS/CGNS/archive/refs/tags/v4.5.1.tar.gz"
-  sha256 "5da0e19907c1649a2f4b5d2abdb733674ae1a58d7436916a5fba1eb2f33f395f"
+  sha256 "ae63b0098764803dd42b7b2a6487cbfb3c0ae7b22eb01a2570dbce49316ad279"
   license "BSD-3-Clause"
+  revision 1
+  compatibility_version 1
   head "https://github.com/CGNS/CGNS.git", branch: "develop"
 
   livecheck do
@@ -12,12 +14,12 @@ class Cgns < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "c7f96718f36eb18d9a05381c313665a062617a603a5f716c53d93747e75a25d8"
-    sha256                               arm64_sequoia: "9cc8f9ae5b023e4ec4e3f8dac4f82d0255ca6c7d767a718fc8e651e6bfaab07f"
-    sha256                               arm64_sonoma:  "23ee5135084e419ee9faf9740f395a920a5016097ab79bcfe34bd27ee46786f1"
-    sha256                               sonoma:        "7a0d3fbf1574d2351cb0a974084d9b84b6d675cb986bbeeb147583856c4721af"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee020f9fef1fe98cddb5a3d01a5a3df51733b2623931cccb363c6e0f7723bcc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fad29163df664e319377262322630cced218cae72c5cecc9e72a2e831ca6dce"
+    sha256                               arm64_tahoe:   "274b220aacb028fec11a4f272d7b24461431a7b7b00b19b4446a3cb097044b6a"
+    sha256                               arm64_sequoia: "655fca22fe9c033af766b7d849e760aa9ff7b38bfa73234ed286fb553a021b4d"
+    sha256                               arm64_sonoma:  "c807458cd9027b7151c53a27bae5c57b3bfe3cd8555e0001fec20fa1be82c995"
+    sha256                               sonoma:        "b5608db10d3e167bbecb376532a8ce96d1a5e5d3dcff72f0dab2a74ac1b1e01f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d6f73711962658578e623e3eb4351027eee086086aebec4e2232875d12f04af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5447f14d57dcd51381c2db73025529bb7eab9ac74c210b5ee6e45bf9a44f18a"
   end
 
   depends_on "cmake" => :build
@@ -25,8 +27,8 @@ class Cgns < Formula
   depends_on "hdf5"
 
   def install
-    # Use GCC matching gfortran to avoid ABI issues with Fortran interface on Linux
-    ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].version.major}" if OS.linux?
+    # CMake FortranCInterface_VERIFY fails with LTO on Linux due to different GCC and GFortran versions
+    ENV.append "FFLAGS", "-fno-lto" if OS.linux?
 
     args = %w[
       -DCGNS_ENABLE_64BIT=YES

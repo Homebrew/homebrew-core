@@ -2,9 +2,9 @@ class PhpAT83 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.3.29.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.3.29.tar.xz"
-  sha256 "f7950ca034b15a78f5de9f1b22f4d9bad1dd497114d175cb1672a4ca78077af5"
+  url "https://www.php.net/distributions/php-8.3.30.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.3.30.tar.xz"
+  sha256 "67f084d36852daab6809561a7c8023d130ca07fc6af8fb040684dd1414934d48"
   license all_of: [
     "PHP-3.01",
 
@@ -35,12 +35,13 @@ class PhpAT83 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "139d8acb4703504e0c43988e66bc689ab5c8d93f4ddfd3fc38cf2a1458613619"
-    sha256 arm64_sequoia: "17d5245ea3a5d62a61ae73ad74c8771a2ae05127f043ed93f9c57b1b5f040178"
-    sha256 arm64_sonoma:  "b7645706cae017322b0d70b038955e3d2216a6e2ac1aa273c0724e5cf41c63c2"
-    sha256 sonoma:        "3a6be01a7776729dcb6468fcb5f107f373b77fdf105b05777490471210733129"
-    sha256 arm64_linux:   "8efc2d4a6d06f0143caa117ea9f4fab67560d0170d2406276ea1670415d56c37"
-    sha256 x86_64_linux:  "4727089d612e4dc084bbb83bfb6443b4aa55f0c21f64e087449f0676f404953e"
+    rebuild 1
+    sha256 arm64_tahoe:   "428cc87a873d0d72f715bab9737db2abb2bb14a1984120d7222391b9673c96fa"
+    sha256 arm64_sequoia: "014108ee27c54d5fb73ba2938cdc7d97d877b79cf9f73950e977efe75727ffd1"
+    sha256 arm64_sonoma:  "f231e36a6eefe4a03c4cf7d2ef216f03a9302218f84ffa268420721bf7ecb990"
+    sha256 sonoma:        "dfb3dfd6cf4d89c6294c4bb62394671e501e82890a360f86ebf70424faf4d101"
+    sha256 arm64_linux:   "cd2cc686e494e44ab3b001e64c601d64df344107e4d7a64125569a22d16278c8"
+    sha256 x86_64_linux:  "d78900332282c2a54ba363fa794e9edf3b4686de39115a9126157389b4dd76b9"
   end
 
   keg_only :versioned_formula
@@ -79,13 +80,16 @@ class PhpAT83 < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
     # PHP build system incorrectly links system libraries
     # see https://github.com/php/php-src/issues/10680
     patch :DATA
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -424,7 +428,7 @@ class PhpAT83 < Formula
     EOS
 
     begin
-      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
+      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", testpath/"httpd.conf"
       sleep 10
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
 
@@ -432,7 +436,7 @@ class PhpAT83 < Formula
       Process.wait(pid)
 
       fpm_pid = spawn sbin/"php-fpm", "-y", "fpm.conf"
-      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
+      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", testpath/"httpd-fpm.conf"
       sleep 10
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
     ensure

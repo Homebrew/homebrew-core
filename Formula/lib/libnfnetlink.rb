@@ -4,13 +4,12 @@ class Libnfnetlink < Formula
   url "https://www.netfilter.org/projects/libnfnetlink/files/libnfnetlink-1.0.2.tar.bz2"
   sha256 "b064c7c3d426efb4786e60a8e6859b82ee2f2c5e49ffeea640cfe4fe33cbc376"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://www.netfilter.org/projects/libnfnetlink/downloads.html"
     regex(/href=.*?libnfnetlink[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

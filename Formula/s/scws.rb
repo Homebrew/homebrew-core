@@ -5,8 +5,6 @@ class Scws < Formula
   sha256 "60d50ac3dc42cff3c0b16cb1cfee47d8cb8c8baa142a58bc62854477b81f1af5"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "bb7b68fb9fcbf51ad8170b10e1e25c4674c99bc1e99870446659c5dcc2f0b5ba"
     sha256 cellar: :any,                 arm64_sequoia:  "294a02ffae27e71589019a49e8031b89e2af74a54603e3caa1a60ffd5fa91e17"

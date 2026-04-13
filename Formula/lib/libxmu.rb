@@ -1,21 +1,18 @@
 class Libxmu < Formula
   desc "X.Org: X miscellaneous utility routines library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXmu-1.2.1.tar.xz"
-  sha256 "fcb27793248a39e5fcc5b9c4aec40cc0734b3ca76aac3d7d1c264e7f7e14e8b2"
+  url "https://www.x.org/archive/individual/lib/libXmu-1.3.1.tar.xz"
+  sha256 "81a99e94c4501e81c427cbaa4a11748b584933e94b7a156830c3621256857bc4"
   license "MIT"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "0ee8170d775811319b3d3b43f657f9fab22e514c37800375ad0d52a051f3ed8e"
-    sha256 cellar: :any,                 arm64_sequoia:  "b44c421e544a4a88eacaec0155108a9ce86a7d6aebf39e735d7d8656b2c7d768"
-    sha256 cellar: :any,                 arm64_sonoma:   "cf78ddb72afdc7e39ad0aa9421ef8c6ef215a588311fff8d7924fb7dfe33d644"
-    sha256 cellar: :any,                 arm64_ventura:  "06a9985ef9c93b62954e604491eda08c17ff0121c4db57e816ecdd0a89fc0b9a"
-    sha256 cellar: :any,                 arm64_monterey: "e95b65aa281742d32783fe3e81a791f83740724c6a67b47196ef8c0c3ead9bc9"
-    sha256 cellar: :any,                 sonoma:         "da9a3c49863a7674bd512cebf16c226be2b23fb576d7d40bee6912df3af5ebcf"
-    sha256 cellar: :any,                 ventura:        "759a61777107ae7f9893f1a3f443be2f5605335cb63f64885b16ade1c1b9a22e"
-    sha256 cellar: :any,                 monterey:       "1cf9194a1441427380e06054903045d3f247a93dc00943b7126db6badd715e93"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "002c127dd8dc9650c27a53829ad56073d729ea1487c6f0f1ac1e92b095010be7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1da14c69af817c5faa1fc53dcf66a32a9319c75769562941f7e0ac20dbe2347b"
+    sha256 cellar: :any,                 arm64_tahoe:   "f3119cf62a6b19cb301339f6611ad94df20c57f1d1f7cf508284f38baf9688bc"
+    sha256 cellar: :any,                 arm64_sequoia: "bf7fa457cb2dc12f1ecf9adfb0e96187fc41f1d9654750c89c121e840df67d02"
+    sha256 cellar: :any,                 arm64_sonoma:  "209c3e6cd9b134c9ccc2a59c27ead872c83a334c8d426fc3e845b363ab47f431"
+    sha256 cellar: :any,                 sonoma:        "ae23ca0f5401937f9d17c94c13b0b34b1f4e514da51333974fd1da20dcd59cb5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "89de2ef3c3cd5817dff3f0967e7a737fe5a1d3fc26a2bc5b77c52da24f1a4ac9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9563085140d7172e3e0365803b529a62a211a55611907b58e6fdb3ce726ae19b"
   end
 
   depends_on "pkgconf" => :build

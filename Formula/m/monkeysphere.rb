@@ -11,8 +11,6 @@ class Monkeysphere < Formula
     regex(/href=.*?monkeysphere.?v?(\d+(?:\.\d+)+)(?:\.orig)?\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "270aaca29d4132b3fe6334cfdb4fb76c3fc1719af706ebbc2efdab1ecfaf2bb2"
     sha256 cellar: :any,                 arm64_sequoia: "a2a32750ec3795bc95626c88255eff29170a8aa91d4f39cf6bb24dce87f8dd99"

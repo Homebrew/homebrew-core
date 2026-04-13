@@ -109,7 +109,7 @@ class IrcdIrc2 < Formula
   end
 
   test do
-    system "#{sbin}/ircd", "-version"
+    system sbin/"ircd", "-version"
   end
 end
 

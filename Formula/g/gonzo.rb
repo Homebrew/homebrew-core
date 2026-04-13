@@ -1,19 +1,18 @@
 class Gonzo < Formula
   desc "Log analysis TUI"
   homepage "https://gonzo.controltheory.com/"
-  url "https://github.com/control-theory/gonzo/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "f06376ec4574a44fe5609ba65faf28c54602768aaa77cefb4d7bcfe681b73719"
+  url "https://github.com/control-theory/gonzo/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "6b574c5068e39794062663e7b897d656b59928d2b3fa282b6705a73501e5e367"
   license "MIT"
   head "https://github.com/control-theory/gonzo.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2ecd334e61490b6a734c477bdbe78e7548868bc9bf05d8a78622f25812db057f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2ecd334e61490b6a734c477bdbe78e7548868bc9bf05d8a78622f25812db057f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ecd334e61490b6a734c477bdbe78e7548868bc9bf05d8a78622f25812db057f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0a065352d7d9669cce6607643f13a0ece207ddf529cc0d024850dd03fb905dd5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "300cd6d81176bd15bea9d5ce24611506fb29a1655c4394255012e6bbb55a0886"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2c1e79002ac9ac510b57a2b50b6d1cda96e6862ad0589dd67058828dfab1ad6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "51e1ab31984d2108a7eed0f5d212861f5bfa5d5bdfada87da9faaf9f1204e1bc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51e1ab31984d2108a7eed0f5d212861f5bfa5d5bdfada87da9faaf9f1204e1bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51e1ab31984d2108a7eed0f5d212861f5bfa5d5bdfada87da9faaf9f1204e1bc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6a43744dc21a25fc830eeb4293cb90db76cfa6ac678c0218d00a4433446b9e83"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "69c94e255d5b4fb2cbd03bd1882e951a8ad6abd17b834e4aa7e5215111bc96d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2684dc14f81b4e7f9ebc75aa60867787530f55281bc0c017550b4d3a6d2bbe3"
   end
 
   depends_on "go" => :build

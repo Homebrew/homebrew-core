@@ -4,6 +4,7 @@ class Libtirpc < Formula
   url "https://downloads.sourceforge.net/project/libtirpc/libtirpc/1.3.7/libtirpc-1.3.7.tar.bz2"
   sha256 "b47d3ac19d3549e54a05d0019a6c400674da716123858cfdb6d3bdd70a66c702"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "2cf5d4f383c13b44931d5d608d807a0f3c7f2d00e93021267b40326ebc4669c7"

@@ -5,21 +5,21 @@ class Mplayer < Formula
   sha256 "650cd55bb3cb44c9b39ce36dac488428559799c5f18d16d98edb2b7256cbbf85"
   license all_of: ["GPL-2.0-only", "GPL-2.0-or-later"]
   revision 2
+  compatibility_version 1
 
   livecheck do
     url "https://mplayerhq.hu/MPlayer/releases/"
     regex(/href=.*?MPlayer[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "65274400f1b0e7ead48b8ea7c5b17b1e7f14d7f826e6e9f0db18f177b199c9a7"
-    sha256 cellar: :any,                 arm64_sequoia: "b5b83382af26c00721f3c592f665632510acb2b8e2e392da2960bf888c3a5d7d"
-    sha256 cellar: :any,                 arm64_sonoma:  "0ce6193aca1ab3fd60830eab3056077798a914bb5d1e091b25a9a6e6ffa860b8"
-    sha256 cellar: :any,                 sonoma:        "c3de6bdfb89c6ddaae79383c1599bd1da35a637c3c9f53e450429f33a5b5ef51"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd6b437e842eaab0196c05823d0a3d662ccc521db89c90c131b826b1cf4d9a1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2069ea96f8e706d6feba320f19ed419b02007caf4080e8f8edbfd7826e4fe938"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "1d27bc5e20a020dfc9cbda188a2d8af4cb54203b3a29bf97205ec5ba5c15038c"
+    sha256 cellar: :any,                 arm64_sequoia: "5acd5d7ebed8bc44b0aff0360bf20ec76cfb1a732349f8ece45bf84517db0b47"
+    sha256 cellar: :any,                 arm64_sonoma:  "c6dee8142133e094cff65c33b6b3aa7ca538e977dedd89e903d6a323460715d7"
+    sha256 cellar: :any,                 sonoma:        "5f089d84929885e170a96efba53a2f48adca16fcba31fccabf7efc9ed29f14f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4a9bf7aa318aebb060bf0ef17d93ed5f335d79f7e2a56f2d3181755216c9ff4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6fe472a2eaa853dea397a8cf67c22788a961d4edd3723f96bf3d439003ee1bc3"
   end
 
   head do
@@ -31,7 +31,6 @@ class Mplayer < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "yasm" => :build
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "jpeg-turbo"
@@ -41,7 +40,14 @@ class Mplayer < Formula
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
+
+  on_intel do
+    depends_on "nasm" => :build
+  end
 
   def install
     # Work around build failure with newer Clang
@@ -68,6 +74,8 @@ class Mplayer < Formula
       --enable-freetype
       --disable-libbs2b
     ]
+    args << "--yasm=nasm" if Hardware::CPU.intel?
+
     system "./configure", *args
     system "make"
     system "make", "install"

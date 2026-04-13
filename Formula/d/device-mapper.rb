@@ -1,22 +1,20 @@
 class DeviceMapper < Formula
   desc "Userspace library and tools for logical volume management"
   homepage "https://sourceware.org/dm"
-  url "https://sourceware.org/git/lvm2.git",
-      tag:      "v2_03_38",
-      revision: "657e10bd75fcb3dffbd40bb1ffc6f1bfd768a10e"
+  url "https://sourceware.org/pub/lvm2/releases/LVM2.2.03.39.tgz"
+  version "2.03.39"
+  sha256 "54753b7d82a8ffdcc29d9f2c7ff523048a30cc0094048db129496ead1804f482"
   license "LGPL-2.1-only"
+  head "https://gitlab.com/lvmteam/lvm2.git", branch: "main"
 
   livecheck do
-    url :stable
-    regex(/href=.*?;a=tag;.*?>Release (\d+(?:\.\d+)+)</i)
-    strategy :page_match
+    url "https://sourceware.org/pub/lvm2/releases/"
+    regex(/href=.*?LVM2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "c45e5431a10e40be3f485b58b39253f002b5f6e9585d5bdbf83a98a92e437981"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "521f27696d917df2d0f19399092b2536cba464aa783e9a4c14631a848d9bebc9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "9e1ff31f933f73da3d5b1a2ff37764f7b4ac98d7a5425638f936798c64be7102"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4f287937a1d39b248e7977b1b89bd1a134d8a88426ca1243f081705a7d8273b8"
   end
 
   depends_on "pkgconf" => :build

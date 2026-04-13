@@ -6,28 +6,28 @@ class Restview < Formula
   url "https://files.pythonhosted.org/packages/3d/d4/36ed06051e9702d3dae5f7bb0296b79b18621ff5a1bf43247509cbfeff8d/restview-3.0.2.tar.gz"
   sha256 "8b4d75a0bed76b67b456ef7011f4eb6c98a556c9f837642df2202c7312fccc1a"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/mgedmin/restview.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "f2254c6aeaa7538ce7a7885a2054fbeee886748c1b28aa98af5d73217281389a"
+    sha256 cellar: :any_skip_relocation, all: "973609bbf38eb5733fed3c1d7a1051e10d519b1b0514a9197a52530f32bbf6a1"
   end
 
   depends_on "python@3.14"
 
   resource "bleach" do
-    url "https://files.pythonhosted.org/packages/76/9a/0e33f5054c54d349ea62c277191c020c2d6ef1d65ab2cb1993f91ec846d1/bleach-6.2.0.tar.gz"
-    sha256 "123e894118b8a599fd80d3ec1a6d4cc7ce4e5882b1317a7e1ba69b56e95f991f"
+    url "https://files.pythonhosted.org/packages/07/18/3c8523962314be6bf4c8989c79ad9531c825210dd13a8669f6b84336e8bd/bleach-6.3.0.tar.gz"
+    sha256 "6f3b91b1c0a02bb9a78b5a454c92506aa0fdf197e1d5e114d2e00c6f64306d22"
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/4a/c0/89fe6215b443b919cb98a5002e107cb5026854ed1ccb6b5833e0768419d1/docutils-0.22.2.tar.gz"
-    sha256 "9fdb771707c8784c8f2728b67cb2c691305933d68137ef95a75db5f4dfbc213d"
+    url "https://files.pythonhosted.org/packages/ae/b6/03bb70946330e88ffec97aefd3ea75ba575cb2e762061e0e62a213befee8/docutils-0.22.4.tar.gz"
+    sha256 "4db53b1fde9abecbb74d91230d32ab626d94f6badfc575d6db9194a49df29968"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "readme-renderer" do
@@ -45,7 +45,7 @@ class Restview < Formula
   end
 
   test do
-    (testpath/"sample.rst").write <<~EOS
+    (testpath/"sample.rst").write <<~RST
       Lists
       -----
 
@@ -54,17 +54,17 @@ class Restview < Formula
       1. Four
       2. Five
       3. Six
-    EOS
+    RST
 
     port = free_port
+    pid = spawn bin/"restview", "--listen=#{port}", "--no-browser", "sample.rst"
     begin
-      pid = spawn bin/"restview", "--listen=#{port}", "--no-browser", "sample.rst"
-      sleep 15
-      output = shell_output("curl -s 127.0.0.1:#{port}")
+      output = shell_output("curl --silent --retry 5 --retry-connrefused 127.0.0.1:#{port}")
       assert_match "<p>Here we have a numbered list</p>", output
       assert_match "<li>Four</li>", output
     ensure
       Process.kill("TERM", pid)
+      Process.wait(pid)
     end
   end
 end

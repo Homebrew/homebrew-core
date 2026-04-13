@@ -5,8 +5,6 @@ class Rsc2fa < Formula
   sha256 "d8db6b9a714c9146a4b82fd65b54f9bdda3e58380bce393f45e1ef49e4e9bee5"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c32203c0d299aacfd3587e37f7bced92c8e19361b6f8665ccc47518f49949ecd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "075220c900e04b25fb10ce49bfe0b762de933b9b235084c7bf1457460f9f0a10"

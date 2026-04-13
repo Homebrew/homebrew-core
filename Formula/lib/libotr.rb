@@ -4,13 +4,12 @@ class Libotr < Formula
   url "https://otr.cypherpunks.ca/libotr-4.1.1.tar.gz"
   sha256 "8b3b182424251067a952fb4e6c7b95a21e644fbb27fbd5f8af2b2ed87ca419f5"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only"]
+  compatibility_version 1
 
   livecheck do
     url :homepage
     regex(/href=.*?libotr[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

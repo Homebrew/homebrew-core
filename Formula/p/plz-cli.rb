@@ -6,8 +6,6 @@ class PlzCli < Formula
   license "MIT"
   head "https://github.com/m1guelpf/plz-cli.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6d9b537e8c4b84783ca6dd75eb6135a87aa7bf3acc6a0add1ae66468f0aefe85"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "50e07537995ee92719ff5fa052d27a9e7207f5038ffbafb27550be81524e6921"

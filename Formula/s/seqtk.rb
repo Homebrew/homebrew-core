@@ -5,20 +5,19 @@ class Seqtk < Formula
   sha256 "384aa1e3cecf4f70403839d586cbb29d469b7c6f773a64bc5af48a6e4b8220a6"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cef0b305702d591dba9d4cdf9d56354a0a0899adcef89a6ce21f58cb04d8c586"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "792b2f9c97b31099358e00f85d5f087d56c6d7b10dcd1d1a6de5c3c28fa90576"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1cc03676c5257015029aaa5d4db31a473574c14e9c6dc1d451a27a91d6700bd0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "edf244951a989be8cd04da63e9d3a4089b933cdd826ab15c903749ddea2b23ba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9ae2d0b91c70d30f81651c6572c867e109ba6b628b58932377b99f9c3c46b062"
-    sha256 cellar: :any_skip_relocation, ventura:       "4d79bd6387346078f950c2a849f5857c0e3cc43cd1ff01fc278ea1a16a8474d4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "30fb0030644e299f3f71ea7ec61be7c9cf72a7dcd70331efe7299dfae6296a02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4eea62b0b0acfeb50dd08cd385e8b486f223b255430ff57d1c3242a7fd564e5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1c3982f3b57602403755867dd064d61c6f02f091100b46eb415b1899ad133a95"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2eca65fdd2de251a51446543a85d9525a2b37e5d97a4971403526c7559fef3c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "adcff964ff3a23159f6ff353bc41be823f695532d8f198da8a51375509106522"
+    sha256 cellar: :any_skip_relocation, sonoma:        "10001de19a08b1f96495e316d8654e245ce6ed56cd6a4c4dacc3b0cacb486fc4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ae523d2e84ab2cd7d9bbdfc0ffa5244b53ff80776575b11d675e9025b76ee96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8996464a2266a07bb97db6a6a69b5376c40dfb4476c4d2413aed6f840a59705"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make"

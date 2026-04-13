@@ -1,19 +1,18 @@
 class Mmdbctl < Formula
   desc "MMDB file management CLI supporting various operations on MMDB database files"
   homepage "https://github.com/ipinfo/mmdbctl"
-  url "https://github.com/ipinfo/mmdbctl/archive/refs/tags/mmdbctl-1.4.8.tar.gz"
-  sha256 "373154b545a9f940738868f7e2259c89803dc966646e7b8c599d26b703424d80"
+  url "https://github.com/ipinfo/mmdbctl/archive/refs/tags/mmdbctl-1.4.9.tar.gz"
+  sha256 "845f758c4be7508224093f4522d3b8932e23c1fa455b58266404c59c2e746772"
   license "Apache-2.0"
   head "https://github.com/ipinfo/mmdbctl.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bb1d20f3c8c716938b346034fb20381b864ed7d6ac63ae6fc156b9eb38ad7fc6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb1d20f3c8c716938b346034fb20381b864ed7d6ac63ae6fc156b9eb38ad7fc6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb1d20f3c8c716938b346034fb20381b864ed7d6ac63ae6fc156b9eb38ad7fc6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "980000b0e67d53d0a6b6aedf2d665ee25a24400ea07ca4b5e0544dcd9dff81f7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "01fec8071fa10233cc0465a6ce62a6f0870719502e89b517cf178073ca643016"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3af00b80cd2a68401e3df838b6d40bfbcdcf58b59f9f2c04eccb9144b61e17fd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6f123304964fb7e0074e1da3e336386015519f4e6adb28a99fcc42e4a1871507"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f123304964fb7e0074e1da3e336386015519f4e6adb28a99fcc42e4a1871507"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6f123304964fb7e0074e1da3e336386015519f4e6adb28a99fcc42e4a1871507"
+    sha256 cellar: :any_skip_relocation, sonoma:        "94af123d96f44ede7b93c166b0e699120481c78c1c078bbcc6d9dd21f892dc97"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aafb02ec3b697ca40e60a5570cfc0da2d5a2524b8a7e3d370683ac3393c9bf73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "adcfcae53e37bc3eb641386e18116cdc367c5b00a735d01ac603459491e41963"
   end
 
   depends_on "go" => :build

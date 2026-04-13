@@ -1,13 +1,14 @@
 class JpegTurbo < Formula
   desc "JPEG image codec that aids compression and decompression"
   homepage "https://www.libjpeg-turbo.org/"
-  url "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.1.3/libjpeg-turbo-3.1.3.tar.gz"
-  sha256 "075920b826834ac4ddf97661cc73491047855859affd671d52079c6867c1c6c0"
+  url "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.1.4.1/libjpeg-turbo-3.1.4.1.tar.gz"
+  sha256 "ecae8008e2cc9ade2f2c1bb9d5e6d4fb73e7c433866a056bd82980741571a022"
   license all_of: [
     "IJG", # libjpeg API library and programs
     "Zlib", # libjpeg-turbo SIMD source code
     "BSD-3-Clause", # TurboJPEG API library and programs
   ]
+  compatibility_version 1
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git", branch: "main"
 
   livecheck do
@@ -16,12 +17,12 @@ class JpegTurbo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9fe20e744abc20f8b032df797d921daa8ec012ebb36d65f7b1c86673a3d34aef"
-    sha256 cellar: :any,                 arm64_sequoia: "b33d21a69c9d9617f0ea4197a9a5f428078f7f0f6e6388151ca1d15210542c07"
-    sha256 cellar: :any,                 arm64_sonoma:  "70cb19d30a2b5434e1b00fe63e3a13e61ca093b9558214e2c48009eb3ebfb308"
-    sha256 cellar: :any,                 sonoma:        "076c049defe215bdaaedaa5e306c9ca197e735b47a67cf8fec189100e9e4adfc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e725ff65dc9cafcfc224bb963e042fa3c1f513419b77715a9a490831e7ab4709"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "223b5d3113a1674992de4b8f0666c2e54c29386bb153fec01f1060772810921c"
+    sha256 cellar: :any,                 arm64_tahoe:   "9a0e281d4e1b3047460f4d0d7e291790a136c32677532fd62bea6bb6428acec6"
+    sha256 cellar: :any,                 arm64_sequoia: "ec354654375dbeeba9dd637ecbfafb7c3e1132138bbcbf8a0beb08ec1e4dad4b"
+    sha256 cellar: :any,                 arm64_sonoma:  "42f79e8bea4e55f60ff202617c82527bae17eec9a2575d57833fe510634d360d"
+    sha256 cellar: :any,                 sonoma:        "0412ff07188c22bc04957ae45382873aef059fa3efee3ae52c974c27cbec70fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c20b1d8af8574deef518f29e7711a330aaa34dd2e0c2fbab2ac5ad81c5fb1764"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cdefb3a7bdb35b19658d014d7659e6f47f472edb4e88269bb3db7fe45c0dcff"
   end
 
   depends_on "cmake" => :build

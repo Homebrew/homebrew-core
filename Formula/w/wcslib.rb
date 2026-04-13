@@ -1,9 +1,10 @@
 class Wcslib < Formula
   desc "Library and utilities for the FITS World Coordinate System"
   homepage "https://www.atnf.csiro.au/computing/software/wcs/"
-  url "https://www.atnf.csiro.au/computing/software/wcs/wcslib-releases/wcslib-8.5.tar.bz2"
-  sha256 "f1fd1b78fbfdbabda363f8045e0c59e32735eca45482a5302191e56fe062eace"
+  url "https://www.atnf.csiro.au/computing/software/wcs/wcslib-releases/wcslib-8.6.tar.bz2"
+  sha256 "e030423605a199ef090fe742bc901a82d9e6b3a77e010e211cdd6d2cd067cd5a"
   license "LGPL-3.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url :homepage
@@ -11,12 +12,12 @@ class Wcslib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7b176690e05aff3882cecc3e5c6ef64d800c2cb5ce5ebf8629c5b7908f8cca5f"
-    sha256 cellar: :any,                 arm64_sequoia: "b254677bd8b4b7a06702079840332bb63ffc26a7858d50c8161192bbf618e9aa"
-    sha256 cellar: :any,                 arm64_sonoma:  "eb929201b5228f879e57b117fc31b4d408dbe9d90c777bec07d899d8833803df"
-    sha256 cellar: :any,                 sonoma:        "0a5a6f824d5bb42d811358b69df421eb1a50a45140241318103753ff2efb5cfc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e754f29a4470f5a89690a2147596d89df0bccaf0e3e4910567cf7f29123d96b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10cd6cb0fdd6857a41558bbb526d12d0666ac11c6e07262c41ce350d46393318"
+    sha256 cellar: :any,                 arm64_tahoe:   "b943bc6a0229936ed5aa83cb6775b7ca7d8dac1b3472f749bf223be821b80c2b"
+    sha256 cellar: :any,                 arm64_sequoia: "ee32abe3a83329fef3bb0c87ad03aa3da39c74a5191607da28bd82bef8f3094a"
+    sha256 cellar: :any,                 arm64_sonoma:  "c622f56463100e34008836ebc5bb31136f925663754c55bd8f247abcb38826c6"
+    sha256 cellar: :any,                 sonoma:        "bcf3fe6b366e895248cd5873f5ea5345a6cc112e7f06773816badf96de3147ec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb4be28b827d90f66d50d02f4a31c96468b3571a6ae890daa1eeff8fd8fd5833"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ef214cebb093d3b4165e7a9fd27a2938839379ab4d30fb74d56a1272852da0d"
   end
 
   depends_on "cfitsio"

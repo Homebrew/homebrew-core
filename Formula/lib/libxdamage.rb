@@ -1,25 +1,17 @@
 class Libxdamage < Formula
   desc "X.Org: X Damage Extension library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXdamage-1.1.6.tar.xz"
-  sha256 "52733c1f5262fca35f64e7d5060c6fcd81a880ba8e1e65c9621cf0727afb5d11"
+  url "https://www.x.org/archive/individual/lib/libXdamage-1.1.7.tar.xz"
+  sha256 "127067f521d3ee467b97bcb145aeba1078e2454d448e8748eb984d5b397bde24"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "db698e2d52193a57afcd2b9886a4db3d6c513e7ef127c6bb96a566a126b9d0d1"
-    sha256 cellar: :any,                 arm64_sequoia:  "4378ada6b14fdbf06d82825d2d81465fb0be5d80684c0c46b73ec6bf8b1009e9"
-    sha256 cellar: :any,                 arm64_sonoma:   "3c19b70d6cd2fd2720b9b52be6c21ba5032da5e94fd3584126a5b73c725e18ba"
-    sha256 cellar: :any,                 arm64_ventura:  "f7ba5d6474c6d7be855f270e843c42d1e3b819d43e7d96c3b62789265f264a3b"
-    sha256 cellar: :any,                 arm64_monterey: "1b820498fc3f7216bcf074f0c8165875a0250390e837d9db05a62bb9ada85d5b"
-    sha256 cellar: :any,                 arm64_big_sur:  "e80bbc3be1914e6a890f446dca34b789b0c0746bb0bf78426bd8d3137b771f13"
-    sha256 cellar: :any,                 sonoma:         "4264c852ce781f7afdaa935f7e56994f0d1f90412c37acaa654b3c1b1f9bbafd"
-    sha256 cellar: :any,                 ventura:        "0a57b493cab139a05dfd0d497b01a98525161094a456568fe35175043bd5f792"
-    sha256 cellar: :any,                 monterey:       "f4a6249de91d6f556fe83f4d092233a7b45dff9fe2a3dcf7c23f43e8cb502b9a"
-    sha256 cellar: :any,                 big_sur:        "682e7654ca8a9c91c37b156e173f2280fef06e51ba6604062a8fc3966ef01028"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "ff8793c23cc1bcc97ab649cfae7bdc9b4756d8635bc1bf1ff554d3b14e31854b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d888f5feb3f6cbaf35ca9d4f6af015555e30be8295bb378594290081e74c29f"
+    sha256 cellar: :any,                 arm64_tahoe:   "bd8c72e12bc4390bc1cf580b95a249ed14796f2cebe20d561d8990a25f1704a8"
+    sha256 cellar: :any,                 arm64_sequoia: "fb9556f58e05054043c4e7850318a3e830d9eb18c765aba87c8c1fdbc5839f39"
+    sha256 cellar: :any,                 arm64_sonoma:  "8eb76beb4891b0373f89273b539c22d5a1ad61c0a1c9870a50bfd5e38801d01e"
+    sha256 cellar: :any,                 sonoma:        "aab270b6adedc70c4bee9306ee3f4fd14fd75c84a16f4a48c555a929e125f79e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4d714e5c7143dc61b08d35be29c81703ce118e845d9a659d0dfa19018a56441"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e516c9736d4b32e5d4130a9221119e543dbff845b82b421621b9b89ed698fb0d"
   end
 
   depends_on "pkgconf" => :build

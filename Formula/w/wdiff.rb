@@ -7,8 +7,6 @@ class Wdiff < Formula
   license "GPL-3.0-or-later"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "4f7f90aa9ea87d7e897ac17039054345a41bd830322a44ffae5b53dbac412037"
     sha256 arm64_sequoia:  "3080690e641baa84f2f9e6099d27827911ae38604baf1eec25d49f22bf8f0cd8"
@@ -25,9 +23,11 @@ class Wdiff < Formula
     sha256 x86_64_linux:   "f627f458d7e201ad95a07bfc91fbd1aa0e676e695d8002415a02f4b74734e1a4"
   end
 
-  depends_on "gettext"
-
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
@@ -36,9 +36,7 @@ class Wdiff < Formula
   conflicts_with "montage", because: "both install an `mdiff` executable"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-experimental"
+    system "./configure", "--enable-experimental", *std_configure_args
     system "make", "install"
   end
 

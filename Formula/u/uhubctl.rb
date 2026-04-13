@@ -6,8 +6,6 @@ class Uhubctl < Formula
   license "GPL-2.0-only"
   head "https://github.com/mvp/uhubctl.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "3d264b405111b616523248b1de4a0998b9c73f0c670a00e20358dcaeeed033cc"
     sha256 cellar: :any,                 arm64_sequoia: "45506e121cd1c2bdf1077b0086f6dae8adcf1b24c48c32882d2c06eee848b87a"

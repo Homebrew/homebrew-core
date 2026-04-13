@@ -7,8 +7,6 @@ class Viennacl < Formula
   revision 1
   head "https://github.com/viennacl/viennacl-dev.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ef65ab6738404defb457637aa1d644b54db8bd55b9c0ddcc99dfb005e2653441"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dd97554d6b9c07ca2fcf625dec5198ef86dffba1b1723e9e83796ccba63c2d7a"

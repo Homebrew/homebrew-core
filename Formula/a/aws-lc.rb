@@ -1,8 +1,8 @@
 class AwsLc < Formula
   desc "General-purpose cryptographic library"
   homepage "https://github.com/aws/aws-lc"
-  url "https://github.com/aws/aws-lc/archive/refs/tags/v1.66.2.tar.gz"
-  sha256 "d64a46b4f75fa5362da412f1e96ff5b77eed76b3a95685651f81a558c5c9e126"
+  url "https://github.com/aws/aws-lc/archive/refs/tags/v1.71.0.tar.gz"
+  sha256 "31b1eed775294825f084c0d4e09df53e1cf036fb98a202a8c2c342543828a985"
   license all_of: ["Apache-2.0", "ISC", "OpenSSL", "MIT", "BSD-3-Clause"]
 
   livecheck do
@@ -11,12 +11,12 @@ class AwsLc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c6cfa4b90d699c03c5cd8ab52bde419abf97da795fb393568f1fa21db4cdbba9"
-    sha256 cellar: :any,                 arm64_sequoia: "e638c1554bb87cd794f99bf816603c6fbdc9e54bea508f41b125d06e278fd2e4"
-    sha256 cellar: :any,                 arm64_sonoma:  "0c06cfa7db2aaaa492a818dbc24ea2559a7048d73df7dde952f308164f6df51c"
-    sha256 cellar: :any,                 sonoma:        "11d80ecd07eb40d405b4a8455efd28351fd255a00d26d523bc5f7548a3cce0e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c54c7bcfb0dfc468ba85528414d979a7f42aab888d60f854918f801d363dc096"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5947bfd7308322c5b4817af7a0731713c8e0ea305ea9cc506b0316a06b38cf40"
+    sha256 cellar: :any,                 arm64_tahoe:   "4c71f387ccf9fa62b27218be856a4a5a1504d23645722d94eb7d6f94a627edee"
+    sha256 cellar: :any,                 arm64_sequoia: "9c3aedf2de1f31eb2d9fbea1d723f5df76108ec6166cd0a79e2f8ec218dd245c"
+    sha256 cellar: :any,                 arm64_sonoma:  "a90b0339eab5886683898dd5556996aef036e7c93997b5ad86a1895f49f72aef"
+    sha256 cellar: :any,                 sonoma:        "549e00e4577ba9a218cfc3bc3bf94473c31f094287decd80af419148b3481eaa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a31c143d266e031e2a58f123f6df538275ece368e13bd39fb12f1f6cde77cbcf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e12989368160dd9bb810c47258dd5666bf9c745c27c59f32dc2d66aa11c056a"
   end
 
   keg_only "it conflicts with OpenSSL"

@@ -1,20 +1,20 @@
 class Nessie < Formula
   desc "Transactional Catalog for Data Lakes with Git-like semantics"
   homepage "https://projectnessie.org"
-  url "https://github.com/projectnessie/nessie/archive/refs/tags/nessie-0.106.0.tar.gz"
-  sha256 "b198fde77f7ce4d00d42cd2f5eacc16469162b859367a4c9338bd65fc4be8e2a"
+  url "https://github.com/projectnessie/nessie/archive/refs/tags/nessie-0.107.4.tar.gz"
+  sha256 "856cd4478d809316a29b7e008f14b3429f04d54f5920c3d0766a919469c91f76"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e50f8848a3060338f0598177d32d5253696503e4da1d08a3b4765ecc19c27265"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "02685f788c2fb1c810fe4003fb2175090775ca117215c96622278e5ea1dee40c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82e7b7d0d343dea8df530ddf2467992fb07adb5b6d78e65f9f1f408ec4175ddc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c9d4f7669c578bfb2e9a3550096568d26a6cb9c3ffd16e1c404f6b27abbdfe1f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5888f9e830f2d1c9a7802646abef32250e8eaa0f95d6cecfc861dde941501a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf5a35e4c27cbc55ceca2bd60d818085a2a9ba0545b890127570db3778cb0a7c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe8d32366a6698d3cc8f4813c5b79ee5e57d86ea7427695c4c85face26bdaf48"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "803521fab7cbce3d63bc9aaf4587ef37e40acc6367a04a7cb4433154c79058e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c12605e79174eb836b396f52928bee13ee99f878112d07879401b505a2306991"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c15aff12ce1c23b26255f255f5816abbf611c9093150e3bb24c8176680cac6aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f548cb080dbf4e86aef9ad45b373b483ef01f47e2ee7e323a656ab77ea690aaf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfe21d4e1bfebfbdc6c19ad6b54e4cafc75f8490c2784cb52f6bcb1cc030ebf8"
   end
 
-  depends_on "gradle@8" => :build
+  depends_on "gradle" => :build
   # The build fails with more recent JDKs
   # See: https://github.com/projectnessie/nessie/issues/11145
   depends_on "openjdk@21"

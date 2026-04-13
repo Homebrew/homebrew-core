@@ -1,9 +1,10 @@
 class Wxwidgets < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.3.1/wxWidgets-3.3.1.tar.bz2"
-  sha256 "f936c8d694f9c49a367a376f99c751467150a4ed7cbf8f4723ef19b2d2d9998d"
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.3.2/wxWidgets-3.3.2.tar.bz2"
+  sha256 "50a28cb668de47b0e006cd6ebed8cf4f76c1cac6116fb3c978c44478219103f2"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
+  compatibility_version 1
   head "https://github.com/wxWidgets/wxWidgets.git", branch: "master"
 
   livecheck do
@@ -12,15 +13,12 @@ class Wxwidgets < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "2e0e49d77a50fae093ba05fbb33dd7e7f85904e41d19d183a0d1d0536259a781"
-    sha256 cellar: :any,                 arm64_sequoia: "68e7b48517034aee17f6dd2a01e0bc187eb8bb3134eef1a8e21d1aa1588dccc7"
-    sha256 cellar: :any,                 arm64_sonoma:  "5c0ef73e591ab78fd499d70c1c3d2c9c7075235e1d0b58cbdebdce1d9d9e07a3"
-    sha256 cellar: :any,                 arm64_ventura: "cbe903ce43449aab311c9bf986bcffb088ce140b92e9d48aaa27029e25710089"
-    sha256 cellar: :any,                 sonoma:        "2ccc3efe4545d4427d9d05babebec32412b373922b32a4449c7ac1016ea8fbd2"
-    sha256 cellar: :any,                 ventura:       "a75c5640475ea3d3de76bd1a6c94f500bd563424db049572b77b46923a01d14c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbbcc4091bd5549e44971ccd98d3c7b9c331e2b902fb3f4ed63d8045f62a1b73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21d22b573549d66b83d46cc784fcdc3bb092098c0ce12b6c5a5a32700c1beb01"
+    sha256 cellar: :any,                 arm64_tahoe:   "57fc5a8e36c0f9879f9b6608634e05f0f77ef55c603c68d6903ee12cd21c0e94"
+    sha256 cellar: :any,                 arm64_sequoia: "f0b376c029fd8adc673a4a5f12d4f1f1b5e9ac4bf5b5407de28e8c1747da3b50"
+    sha256 cellar: :any,                 arm64_sonoma:  "1ec0180edded719bc653245ba3d6194bc23ad9abe19027b63e26b501d218f8dc"
+    sha256 cellar: :any,                 sonoma:        "4d0a457ec48b7a690b6f17b6a2801e057f0bd2bd8972aa72cab5f2086f947dd6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18e76da797b260a9609c6a9198e7ba0738f8f56cc355b07f747ecbd9b4fea483"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3185f508424b321f99d8c003c9f9971d4a8519e4617267f537a3316c85bf80e"
   end
 
   depends_on "pkgconf" => :build
@@ -31,7 +29,6 @@ class Wxwidgets < Formula
   depends_on "webp"
 
   uses_from_macos "expat"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "cairo"
@@ -48,15 +45,13 @@ class Wxwidgets < Formula
     depends_on "mesa-glu"
     depends_on "pango"
     depends_on "wayland"
+    depends_on "zlib-ng-compat"
   end
 
   def install
     # Remove all bundled libraries excluding `nanosvg` which isn't available as formula
     %w[catch pcre libwebp].each { |l| rm_r(buildpath/"3rdparty"/l) }
     %w[expat jpeg png tiff zlib].each { |l| rm_r(buildpath/"src"/l) }
-
-    # Work around removal of AGL in Tahoe
-    inreplace "configure", "-framework AGL", ""
 
     args = [
       "--enable-clipboard",

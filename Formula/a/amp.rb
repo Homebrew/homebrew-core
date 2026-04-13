@@ -7,24 +7,23 @@ class Amp < Formula
   head "https://github.com/jmacdonald/amp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ea7ee62194a805d8aac77d647b293612a22e742adc7ac3679a80ae138b9592a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4a30d84cac91e6123f3e57142c390e206d50a81c85bb249918ed9d25722d85bd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "99da73190b5be3bab9813061219aaf060d73bc996a03b9fc194a77c93cc15159"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d0f0821829385e973dae0f4112bb3378d5e358b69f6e51064874e1355ab37151"
-    sha256 cellar: :any_skip_relocation, sonoma:        "552866e5376aa068d399a05e7aa92f0a8e39d8e1fe6418cd1614352902dc4959"
-    sha256 cellar: :any_skip_relocation, ventura:       "b6a91b42ec2904a23ce679264886e2cbfdba31f97a5dc0b4dd66164a6d4178a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dc1b33c3caff52184f6760a2adcd2f49048ded51708d4416988d5e26a2328d99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7df552cbc8bfb5ae1f956eaaf1f32af1daf7e32000d4012897459f5885bb2bf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e68d39d4763586359bea02f2ac21612dd8c0a0fb6030bd02981c5d5f57ce8a24"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "434286f4bc1df2e76c8396ab3e72e63d78482aabe5e7fd6bcfb1b5c2ea750873"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb8df298bd237bb41f7aa836be081fcfd3e772179c207773628b77737854b3a0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e80a76fa14710e2778d4ffade1dacaec64957c00196b41f578839ea570d1df75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "401144f0dfe99ea1f3e498417b000aedfcb165f5cd75346cee3e287263f0c709"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12cefdab22a6ef3ada34249fcda4837d5fccfe7c20f2816945f2298b1e68c2e4"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
   uses_from_macos "python" => :build
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libxcb"
+    depends_on "zlib-ng-compat"
   end
 
   def install

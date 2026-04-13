@@ -5,8 +5,6 @@ class Coordgen < Formula
   sha256 "f67697434f7fec03bca150a6d84ea0e8409f6ec49d5aab43badc5833098ff4e3"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "b6016edb22f9c1467d088684311a5de1a03f156031c99884f5a04bd55b4b368f"
     sha256 cellar: :any,                 arm64_sequoia: "f3291f603f1f55c41163e4acab534a3fc8fb192582deff462ec8894764ba5bb9"

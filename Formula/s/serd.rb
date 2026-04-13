@@ -1,9 +1,10 @@
 class Serd < Formula
   desc "C library for RDF syntax"
   homepage "https://drobilla.net/software/serd.html"
-  url "https://download.drobilla.net/serd-0.32.6.tar.xz"
-  sha256 "0fbe094952fe176ba4da4f2f767ddfb5f60e67e64d1761b4383a0b872cfd071a"
+  url "https://download.drobilla.net/serd-0.32.8.tar.xz"
+  sha256 "f47259bc38ba553b0deb8b6dab6b5b73d3630469a7c9439ccdca80e06d7c1ece"
   license "ISC"
+  compatibility_version 1
 
   livecheck do
     url "https://download.drobilla.net/"
@@ -11,12 +12,12 @@ class Serd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "09d164a879d314a61d5a50ede56dadd89b800dee33ea85af51794e3f12748a69"
-    sha256 cellar: :any,                 arm64_sequoia: "98c1d121322f398d69e50894c77e4907720e8c31527432b58821f9825d764eb7"
-    sha256 cellar: :any,                 arm64_sonoma:  "b36df8e5f6a223e7171541db24420046f824e9edda482275bdd58da92b9becbe"
-    sha256 cellar: :any,                 sonoma:        "607e512acafff9dedd17cf60cd32f7a89bf5f357cd2f4e2a8ed5485b3fee0267"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2635aeba254c70bc7ab10b1d1cfedcc38dc054667589187d8cb144dd7dee8b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e28b69e6551bf7a832445b6ccb6735db127790e6ad3e28aee5b5f1e2a0e7c067"
+    sha256 cellar: :any,                 arm64_tahoe:   "f371b9f3301f85f75822da77e75eea6524db3c0305bf943720050cffd1b5ee30"
+    sha256 cellar: :any,                 arm64_sequoia: "7008c0d17aac090e639f7367a85d900f9830fe3dcb88dc7e84065c0ee1e13abd"
+    sha256 cellar: :any,                 arm64_sonoma:  "e1ccb5898f2e0a5810d248f628c7e314aaab82f5f0b1f1f1c97cb58ecef04eba"
+    sha256 cellar: :any,                 sonoma:        "fd4e6896bf64f85e2242168edabb9c31de0c96bd5d3c12183365cbd0a4e056ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b47e7496192f30328f66c33d63e45bf640ad381cda5eb19a413ee5569db15bf9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc7fc642d67f803be7a658dfecc7fa23b1c067b0e2ccec339de9933348bd5580"
   end
 
   depends_on "meson" => :build

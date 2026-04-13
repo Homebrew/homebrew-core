@@ -4,8 +4,7 @@ class Libxft < Formula
   url "https://www.x.org/archive/individual/lib/libXft-2.3.9.tar.xz"
   sha256 "60a25b78945ed6932635b3bb1899a517d31df7456e69867ffba27f89ff3976f5"
   license "MIT"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "029403b085a933f82ecb960f9d263b5afa7ca397de39c09b4dbd0b60a6918ca7"

@@ -1,23 +1,25 @@
 class Pkl < Formula
   desc "CLI for the Pkl programming language"
   homepage "https://pkl-lang.org"
-  url "https://github.com/apple/pkl/archive/refs/tags/0.30.2.tar.gz"
-  sha256 "0b18b123286f4ccf8a063e3fa5129135c1289e5c5d0241afa03d0caa1e367a3a"
+  url "https://github.com/apple/pkl/archive/refs/tags/0.31.1.tar.gz"
+  sha256 "5dd231807a167283bb9fd67b2c6b8878ad4008efb7780ce89dd3f5bbbbca80d7"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af246842685cab337e10b7afea41173572a72d1781600d631a22e5c452cb05f7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7cb3bb5ea5719324b9ca79d66e9dc01e44987903b57d7758a2e72c499d7ba9ae"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9594370d739c0f619cc61e4b4eed44bf2d3b516d74c7213801836e72da37c94a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "acbfe35c05d623e0afe70785c64b6a0338d44e88c5cb43535efad4a19259504e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "25cb1950d7573395bebbe04df35dfa6c5c26bb5b257a7c838dc42a65d3a2cef8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "981c15e7cf826e119d999507b35b854a50447a6c6e55369f27841fdb9575a087"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "11d69fa664d4ea10a7f4b40f46032e2d9b98f8b2c6a08f40fe7a3e942a5b6c04"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29307567af7d3ddf99359fa4f17c691f6b35abda0052a7f279f9b89ca8221b7c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40f39c58c118ef753b2b4c9c08f5983908d0181db17fbd961d6d20451cbf1fec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e7f908e002a3d7a8f50ac50b22e154ed719232a383aa29784d45c12860b94b6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7291481b8a628034c0cbb1dc1c51a088c640de6c488ac3a01b74f86e07b6d161"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "330d96f95c517ada0a146fd7ba722b75d8bc4b3e6ddf54404544c763c04896de"
   end
 
   depends_on "gradle" => :build
   depends_on "openjdk@21" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix

@@ -1,18 +1,18 @@
 class Flecs < Formula
   desc "Fast entity component system for C & C++"
   homepage "https://www.flecs.dev"
-  url "https://github.com/SanderMertens/flecs/archive/refs/tags/v4.1.4.tar.gz"
-  sha256 "1ecd4b2b463388d1243c15a900dd62096b28cebba48ad76c204b562304945f0d"
+  url "https://github.com/SanderMertens/flecs/archive/refs/tags/v4.1.5.tar.gz"
+  sha256 "8b94f56dfdda0b3c86110f651a4e0ec1c59030db43bb4810ae296a0630682ab9"
   license "MIT"
   head "https://github.com/SanderMertens/flecs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1948ed7316bb35b72c97963a91e5b63283b3ab29d15d6142eec5a58aaa584b64"
-    sha256 cellar: :any,                 arm64_sequoia: "23ffa4826670bbc60027eb73317ab5cbc9d67d63a35da3b6feee0f05fb1b80bd"
-    sha256 cellar: :any,                 arm64_sonoma:  "70a192afc7f284346d313a2bc4d345fa6cb3e3fc1ccf0a796cbe854623b729e2"
-    sha256 cellar: :any,                 sonoma:        "6575962e5371627197bccaeea24a6ee2ee43222068dac476b1bf2d69e354a187"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9a05018d389b69b91b4d5cdc506e99a77ada22faa368c987ce4038eadccc4ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61397dd0b15abb4d5656cc819bf676d39e8d2043156baca646ffb5e8e11b8599"
+    sha256 cellar: :any,                 arm64_tahoe:   "322987e6f93be696986ec646a8ee045269e761ba024337ba0bbc19dde55f41e1"
+    sha256 cellar: :any,                 arm64_sequoia: "2bfadf9de51d17b7415e8ee5f33f6a6219346783ce580829977b0cd5174cc65b"
+    sha256 cellar: :any,                 arm64_sonoma:  "c9150de85591ea2b235a7ab7946f3e70699dab3c47c8b8cd33183f7605185b07"
+    sha256 cellar: :any,                 sonoma:        "c3ba051542dd8e78b9baaba0fcf8bb00923c0fa48980e527990053775cca644c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "94245debe43b8ebd697c465405ba1a3c98ad20c0cad0e97024af4cf1834c002c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1975d8f3cc46c3030bc9c0b9e754da541e66433c069f06bcceaedd47a6382129"
   end
 
   depends_on "cmake" => [:build, :test]

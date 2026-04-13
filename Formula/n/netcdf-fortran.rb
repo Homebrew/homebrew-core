@@ -17,17 +17,12 @@ class NetcdfFortran < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "hdf5" => :build
   depends_on "gcc" # for gfortran
-  depends_on "hdf5"
   depends_on "netcdf"
 
   def install
     args = std_cmake_args + %w[-DENABLE_TESTS=OFF -DENABLE_DOXYGEN=OFF]
-
-    # Help netcdf-fortran find netcf
-    # https://github.com/Unidata/netcdf-fortran/issues/301#issuecomment-1183204019
-    args << "-DnetCDF_LIBRARIES=#{Formula["netcdf"].opt_lib}/#{shared_library("libnetcdf")}"
-    args << "-DnetCDF_INCLUDE_DIR=#{Formula["netcdf"].opt_include}"
 
     system "cmake", "-S", ".", "-B", "build_shared", *args, "-DBUILD_SHARED_LIBS=ON"
     system "cmake", "--build", "build_shared"
@@ -61,8 +56,7 @@ class NetcdfFortran < Formula
         end subroutine check
       end program test
     FORTRAN
-    system "gfortran", "test.f90", "-L#{lib}", "-I#{include}", "-lnetcdff",
-                       "-o", "testf"
+    system "gfortran", "test.f90", "-L#{lib}", "-I#{include}", "-lnetcdff", "-o", "testf"
     system "./testf"
   end
 end

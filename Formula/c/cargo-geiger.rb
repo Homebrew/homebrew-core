@@ -7,14 +7,13 @@ class CargoGeiger < Formula
   head "https://github.com/geiger-rs/cargo-geiger.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8997588d004ef7ef62ef41e3d153ce25a4c93feef26bb02f3c04decd9919b091"
-    sha256 cellar: :any,                 arm64_sequoia: "cac5e30bb6fb7f9ddfa71d2e37cdc8797cd4d9a23fb58efe9124640f90e758d1"
-    sha256 cellar: :any,                 arm64_sonoma:  "1c9f1b649a75fd9ed039649aa5e6036579aa20cab80f897733d8039721336233"
-    sha256 cellar: :any,                 arm64_ventura: "7890875c7fac5293f1539c395f1c351baee3f36c0ed4bbfce8b8b978147f2657"
-    sha256 cellar: :any,                 sonoma:        "e6a929160640559d7a5672c62f39f75f7758b58c42a9133cd34c1ca6d67b4404"
-    sha256 cellar: :any,                 ventura:       "3a3eea35f5874bb431f9d15bc7e0482ba51eb875cf882b73712e54a3880bf8f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce942bfd54c6ee4970534db6283104d6359aa21a7900a2b52b87d85ab95ea688"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbc058716b342a7642895eb32a45da08a6aadaf12df134c2fddfaebcd8ad3556"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "88ec2b410e24b605256007ac5638b8a5a49d5ffb1a62e60393961e11971a1d42"
+    sha256 cellar: :any,                 arm64_sequoia: "51b91185a2d416c65ad628f9b84a5e1612c8e44a5f0418099bb4407d6cf77fcd"
+    sha256 cellar: :any,                 arm64_sonoma:  "6a5a514bbee93789316736a19e716ea74bfaa877a8627aa45fe28fc9c9033228"
+    sha256 cellar: :any,                 sonoma:        "777ba436a9bb9416bcf1bdd7988a8da9ac1a4b50943990b7dd78f974b070889a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "043847d1967ef34c4e55f3825c3498fa3f919ce919232316323bdcb3e3ed1e18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "991088f8555c7dabbe84f4519d8d4b527d14bc035f6db978da4a605efb9f1145"
   end
 
   depends_on "pkgconf" => :build
@@ -22,7 +21,9 @@ class CargoGeiger < Formula
   depends_on "rustup" => :test
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.

@@ -1,10 +1,11 @@
 class Opus < Formula
   desc "Audio codec"
   homepage "https://www.opus-codec.org/"
-  url "https://ftp.osuosl.org/pub/xiph/releases/opus/opus-1.6.tar.gz"
-  mirror "https://github.com/xiph/opus/releases/download/v1.6/opus-1.6.tar.gz"
-  sha256 "b7637334527201fdfd6dd6a02e67aceffb0e5e60155bbd89175647a80301c92c"
+  url "https://ftp.osuosl.org/pub/xiph/releases/opus/opus-1.6.1.tar.gz"
+  mirror "https://github.com/xiph/opus/releases/download/v1.6.1/opus-1.6.1.tar.gz"
+  sha256 "6ffcb593207be92584df15b32466ed64bbec99109f007c82205f0194572411a1"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/opus/"
@@ -12,12 +13,12 @@ class Opus < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c6ba1de564ef18bd741057c1f07f0144f8fbd5ffef09c82d05345e3c5fb78d27"
-    sha256 cellar: :any,                 arm64_sequoia: "d136015b02a7a7af2801d0bb3036a9d900794661daeecfb9560f34c81aaf0794"
-    sha256 cellar: :any,                 arm64_sonoma:  "85a6708d203ee37557bf6e83697756d5516b683ccca6be1d6a05ec4a0e8d626c"
-    sha256 cellar: :any,                 sonoma:        "97dca40f1a99f9d1c1fbae9fb7ba5c0f7e421502d6feb3cbd7367bb7336abbde"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e55c43c9e2cb93e5d2b000bb20eec25c0c6770ab429f2f58f4a7f0b62121a69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9792b747ebe79b6075773b1d449a39c87a3ef23d66dfa15b65cc83d28ebefe80"
+    sha256 cellar: :any,                 arm64_tahoe:   "5e8146a64fab2683ea447aaa7d0de0b1d717539b4cdabd1fedd4a510e4be0d1e"
+    sha256 cellar: :any,                 arm64_sequoia: "85d6f1e885117016478e468f92033f648d9bab05210708fe195cacefe5be8266"
+    sha256 cellar: :any,                 arm64_sonoma:  "9b159efdfe3b5a31e5f4db9bac8cf40054ac301c508215f7db13cfc6ca661a66"
+    sha256 cellar: :any,                 sonoma:        "0849d017c155c55ea1fb01b6156ff5dc77f2a2d7fec84592a099c32f6db9eef1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "74f9c65c0f98b50f2e74f6fcd48a4f8ae7511d6c2da5d4ae9ed5fbeb4eb69c6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "739c259ce69a8af064bb73412700615a4e76405344c186f056710201f6ffda7b"
   end
 
   head do

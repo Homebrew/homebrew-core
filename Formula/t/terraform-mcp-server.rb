@@ -1,18 +1,19 @@
 class TerraformMcpServer < Formula
   desc "MCP server for Terraform"
   homepage "https://github.com/hashicorp/terraform-mcp-server"
-  url "https://github.com/hashicorp/terraform-mcp-server/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "b5082ff04d1f174b099bc099029c43c25ac2f6156bba0e930ecaf4f6d8549eaf"
+  url "https://github.com/hashicorp/terraform-mcp-server/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "2c47012663357a46ab5702999b25f17efe8d0cc2214231944202aa87bceb8139"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform-mcp-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f2cfe60f4d28898a1f82ce51b7689d663f28882e5f02aed961f2cb02a01cc4e0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f2cfe60f4d28898a1f82ce51b7689d663f28882e5f02aed961f2cb02a01cc4e0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2cfe60f4d28898a1f82ce51b7689d663f28882e5f02aed961f2cb02a01cc4e0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c84b428b6d35768cdf0981418fb9534c16c00dd8240f0ebe7bd260b62783880e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7592718a89964b10c289d1f6f1df5edd64fd2b8914a2a20ee5a6e910dc1edaa1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60215deaf0082dc956ef96ea323653d5d07ecd3670b172c3614f467a67a7165a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5afc8dc0c0522f6b6b2ae35380e4bfd2a2608164c1fcede51bec03bc1ede3397"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5afc8dc0c0522f6b6b2ae35380e4bfd2a2608164c1fcede51bec03bc1ede3397"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5afc8dc0c0522f6b6b2ae35380e4bfd2a2608164c1fcede51bec03bc1ede3397"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ad434ccaeda98d318260f96603344922f01bd2e49836ca2e5c2ca449dd3bf731"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98929ed661a966663c3d49f8afe49dda31bafbe5c643e1ad29beec2bb7576a99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c8aecb8b94fe339bf0d58be472a436082a28daa0e42c70eb351a78a8d2f4ed2"
   end
 
   depends_on "go" => :build
@@ -25,6 +26,7 @@ class TerraformMcpServer < Formula
       -X github.com/hashicorp/terraform-mcp-server/version.Version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/terraform-mcp-server"
+    generate_completions_from_executable(bin/"terraform-mcp-server", shell_parameter_format: :cobra)
   end
 
   test do

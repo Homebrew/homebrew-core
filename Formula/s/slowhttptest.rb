@@ -6,8 +6,6 @@ class Slowhttptest < Formula
   license "Apache-2.0"
   head "https://github.com/shekyan/slowhttptest.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "a3f7cc9030661fa31e4cf6db7862dcd47a586303bd71df203b6be39c3fbebb19"

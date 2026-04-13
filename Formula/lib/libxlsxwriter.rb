@@ -7,15 +7,18 @@ class Libxlsxwriter < Formula
   head "https://github.com/jmcnamara/libxlsxwriter.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0f03b11c3707bd8f026103c26689aedba1899193a4e0d913fe1d9053742ebca3"
-    sha256 cellar: :any,                 arm64_sequoia: "1f88c6e5f8ed5093b94425ec4302999dd62326a9e7ac089e11a320193beaeb92"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9a4881f4b1ef10c6c0dfa0c94289fc57c90a92a4307ccd6ce71a14b02c2b4bc"
-    sha256 cellar: :any,                 sonoma:        "c69b967e9b46e3cd04938667bed6f6db5c6cc69ebb72de63f093596db2ce0015"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9fe77a9d57639fc2d4011ce10bb7feecdaaefd412fb9d3fb977c3ba0cf6089b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9027a97c4824def33c88d47e7460a60104bca5e9c27e12c5fa2c06ca93bc86b6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "c5270d39abf4b98ae78add1ceb9251066b8fcb804cdc3f379ade7689e37521a8"
+    sha256 cellar: :any,                 arm64_sequoia: "6761b53a60a8b03860510381371b0c6841e4ca4b77ba5705c81172b2a0b6cefb"
+    sha256 cellar: :any,                 arm64_sonoma:  "3e9ecb49f206268f647c4c48f01008d5ba7ab9dbfd5695dba05f35993b90e318"
+    sha256 cellar: :any,                 sonoma:        "d925e1ecb73f059f5ad8d53ed6f2e9f90b4ad32d9c34042b6500fea6368c4e49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af3be196f27cb7c63a3755ff38f1f20a51cdf88b02d83503381c38eecbde32e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0178462a88fe85971f75fee9a92b90939594ee9c839e0dfab6e2b4e7c02edf7a"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "V=1"

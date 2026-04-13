@@ -1,8 +1,8 @@
 class Sord < Formula
   desc "C library for storing RDF data in memory"
   homepage "https://drobilla.net/software/sord.html"
-  url "https://download.drobilla.net/sord-0.16.20.tar.xz"
-  sha256 "508b41d6b4f9d5902c9f5b9cf25170d9d0636f68f11bd257c1150497f754a2a4"
+  url "https://download.drobilla.net/sord-0.16.22.tar.xz"
+  sha256 "bb23b34b216579136795d518cffa73d91cf205594ce9accebfd408afb839173f"
   license "ISC"
 
   livecheck do
@@ -11,12 +11,12 @@ class Sord < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "ab006a59a89f0b0db4ce87eff3fc0911baaf491f44b6b6463e78a4fea514d2be"
-    sha256 cellar: :any, arm64_sequoia: "d56c550ae6beb8b69c3f20f5224c4cb16fa7429116d3dcb3c8cb673ee1c419f8"
-    sha256 cellar: :any, arm64_sonoma:  "10bce645b80a0faa83611e46db06ab1163b6ba6316f138d76c1d1089e79aabbb"
-    sha256 cellar: :any, sonoma:        "d7818695f1a1b4ccadac0c3d72422980c033975769f5a8d86373a732dc1baf81"
-    sha256               arm64_linux:   "21fc77d71407c56f348990841149c60e98eff9972af4526a10ed2e54e5a21ae2"
-    sha256               x86_64_linux:  "8fc56998b0a134ef0026e8936dd5b27b979a4b62594441969266647f054956b4"
+    sha256 cellar: :any, arm64_tahoe:   "7d601b06900746e2c9cd81dc91701ceb1bae9400e04b24bc1ba0d7006970eaad"
+    sha256 cellar: :any, arm64_sequoia: "b5d34d39cee51b1ea2da94aa693aebc8b5413f109f20dd31469bc8f3d9da96ae"
+    sha256 cellar: :any, arm64_sonoma:  "5a6e268d98524a5a65f754ed4382931114224c6e36d2454381cb15025a7f77c3"
+    sha256 cellar: :any, sonoma:        "ff7a7bc3b353a1dfe56144056aba13239bfda5a1158797cd90648db36a8a4e52"
+    sha256               arm64_linux:   "f806b8548ac19ca37c21be5c746ba5619cb02b5369eefa5cbe5b4c5f0a034581"
+    sha256               x86_64_linux:  "97a9b803c95513489075f33ec9575553ad37960e74db859606fcef1f48a0662a"
   end
 
   depends_on "meson" => :build

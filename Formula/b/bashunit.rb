@@ -1,12 +1,12 @@
 class Bashunit < Formula
   desc "Simple testing library for bash scripts"
   homepage "https://bashunit.typeddevs.com"
-  url "https://github.com/TypedDevs/bashunit/releases/download/0.32.0/bashunit"
-  sha256 "c0609ee93bc60c60e171cd7a95479f1e900df974f559e874acbbc3e7b925d6a9"
+  url "https://github.com/TypedDevs/bashunit/releases/download/0.34.1/bashunit"
+  sha256 "b620423b0fb201ff1c8d2c04735061cdea4237be84007348218a7e8d8522d8d0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b6d83e0f3827f7358c54b47f2db5715ecec9873a7f621725cd3a978d1510aaaa"
+    sha256 cellar: :any_skip_relocation, all: "ac4f447f2850e0eed881e66528853f923164233d71b435ae7acf5bdde8f7f54f"
   end
 
   def install

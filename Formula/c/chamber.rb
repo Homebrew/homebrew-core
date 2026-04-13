@@ -1,8 +1,8 @@
 class Chamber < Formula
   desc "CLI for managing secrets through AWS SSM Parameter Store"
   homepage "https://github.com/segmentio/chamber"
-  url "https://github.com/segmentio/chamber/archive/refs/tags/v3.1.4.tar.gz"
-  sha256 "89226bd14752fc36a2032ba1b102b3dd223d9372cee01fdd7c6d7df1518b025a"
+  url "https://github.com/segmentio/chamber/archive/refs/tags/v3.1.5.tar.gz"
+  sha256 "8658307013875044ddb023b5cf221085b4ecdfb3d093929443e636b8d1817e88"
   license "MIT"
   head "https://github.com/segmentio/chamber.git", branch: "master"
 
@@ -13,13 +13,12 @@ class Chamber < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b5337bd1bd08714a29659e6d96e9e5c7fe8fb1588699673f9bcb3bbe92093f2d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5337bd1bd08714a29659e6d96e9e5c7fe8fb1588699673f9bcb3bbe92093f2d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b5337bd1bd08714a29659e6d96e9e5c7fe8fb1588699673f9bcb3bbe92093f2d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1272a1b240390595c0334614deb8896d1398889673f061c83b52549ced6ef3b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7cbb3e3a701c9f6b4ace172f74d865255d7e1b6aa6f8e274275a877f6d754f8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69d7da496e18074c011af273f90fc95ccdc4aba35c14132f175090a01cfefd70"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0bb60479434b47f196bd4713bfc4920c9440a159db3292d7f49b13f16925061e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0bb60479434b47f196bd4713bfc4920c9440a159db3292d7f49b13f16925061e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0bb60479434b47f196bd4713bfc4920c9440a159db3292d7f49b13f16925061e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "86496b736075f601b3b8fdc1da19a5b7e6475e1ff5403f306b444e073c6ccacc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "27b4a63228c2a4d1cd0a3e7a685c262e0522a9d4e332fee5dfb9ba4bb4bc6b1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f489b3882af86fd29b39b39e4f3d44d3780c1ec20dad9bff964964c7bc91fa3"
   end
 
   depends_on "go" => :build

@@ -18,6 +18,7 @@ class Levant < Formula
   end
 
   deprecate! date: "2025-06-27", because: :repo_archived
+  disable! date: "2026-06-27", because: :repo_archived, replacement_formula: "nomad-pack"
 
   depends_on "go" => :build
 

@@ -5,8 +5,6 @@ class G3log < Formula
   sha256 "afd3d3d8de29825de408e1227be72f3bef8a01c2c0180c46271b4da9bb4fa509"
   license "Unlicense"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "d709b89aa430846366121b385f710239c46c2f4ca6bd3dbbed07158a633b9bca"
     sha256 cellar: :any,                 arm64_sequoia: "53d72c30b9c9d193b8130c2801645c67504d5a2c12532984cbf478dd143f81ca"

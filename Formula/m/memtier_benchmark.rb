@@ -1,20 +1,21 @@
 class MemtierBenchmark < Formula
   desc "Redis and Memcache traffic generation and benchmarking tool"
   homepage "https://github.com/RedisLabs/memtier_benchmark"
-  url "https://github.com/RedisLabs/memtier_benchmark/archive/refs/tags/2.2.1.tar.gz"
-  sha256 "e417382826ea1b93f93441bfa52d7556fb41a85b29e20d5f87c4b1a972ee3a6b"
+  url "https://github.com/RedisLabs/memtier_benchmark/archive/refs/tags/2.3.0.tar.gz"
+  sha256 "4c3238e28e63b524e6adf31e3c306af911597c5a73da4957b1dd2498d6ae7c74"
+  # https://github.com/redis/memtier_benchmark/blob/master/debian/copyright
   license all_of: [
-    "GPL-2.0-only",
-    any_of: ["CC0-1.0", "BSD-2-Clause"], # deps/hdr_histogram
+    "GPL-2.0-or-later" => { with: "cryptsetup-OpenSSL-exception" },
+    any_of: ["CC0-1.0", "BSD-2-Clause"], # deps/hdr_histogram/LICENSE.txt
   ]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3e15c6fea91dc997dc546c8a29ae42a0be0934d2ad90c05a5702ac35144df9d6"
-    sha256 cellar: :any,                 arm64_sequoia: "c455afad00fa3c262967a688113cae7fb99a3a57dd8598f1d4e56343590b5416"
-    sha256 cellar: :any,                 arm64_sonoma:  "a47cce15057b9c87c01b2d4937822a91e3855e94594b1c25e36f1ca5837b2b6b"
-    sha256 cellar: :any,                 sonoma:        "b66a8ea448dda20fa590224b20d55ba357601c38ead37726a86fc1d53a7045b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8917d60ffd266846cfb82fbc1b9ded44d8c12b9f8266237aab88109f39e0df0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c877599a2e60a755c2751518988ee1906d30a27bfa4d21f9ac91075311c49d23"
+    sha256 cellar: :any,                 arm64_tahoe:   "03525566fd7229ce01fd67ff0f8e5f44686563f9d065e05c212010decc6f2fb9"
+    sha256 cellar: :any,                 arm64_sequoia: "270f791eb49387c8c24917606965e4023eea61c0fc9a7442ea22453f6cbcbdc2"
+    sha256 cellar: :any,                 arm64_sonoma:  "ad69ba4c724efdcdc3e9d2af571550ea7d387a61077e846e72007c68550110d1"
+    sha256 cellar: :any,                 sonoma:        "fd75571a0a7dd119f69ca7db02c881511337fe810ff8243a94910158c47a9390"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4aba9d3e7070b0c3199a54c31fad19a81ea81b882e3af20c97e82dc98a682537"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f24d6e70b892c9be1fbdf314fb1489228e0be3a2e9091ff713892f599ff988cf"
   end
 
   depends_on "autoconf" => :build
@@ -24,7 +25,9 @@ class MemtierBenchmark < Formula
   depends_on "libevent"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"

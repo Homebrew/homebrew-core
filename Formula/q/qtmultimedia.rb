@@ -1,10 +1,10 @@
 class Qtmultimedia < Formula
   desc "Provides APIs for playing back and recording audiovisual content"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.10/6.10.1/submodules/qtmultimedia-everywhere-src-6.10.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.1/submodules/qtmultimedia-everywhere-src-6.10.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.1/submodules/qtmultimedia-everywhere-src-6.10.1.tar.xz"
-  sha256 "f7a4f9bc2840d4f0f9f7329f0dcb3d3500c54177b8e368091a3727c7320e67b8"
+  url "https://download.qt.io/official_releases/qt/6.11/6.11.0/submodules/qtmultimedia-everywhere-src-6.11.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.0/submodules/qtmultimedia-everywhere-src-6.11.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.0/submodules/qtmultimedia-everywhere-src-6.11.0.tar.xz"
+  sha256 "90c4cac0a7a983b68d1b0873d0714e7873b9a493403fa8593e8a4eea3ea26040"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { all_of: ["MPL-2.0", "BSD-3-Clause"] }, # bundled eigen
@@ -13,6 +13,7 @@ class Qtmultimedia < Formula
     "GPL-3.0-only", # Qt6MultimediaTestLib
     "MIT",          # bundled signalsmith-stretch (Linux)
   ]
+  compatibility_version 1
   head "https://code.qt.io/qt/qtmultimedia.git", branch: "dev"
 
   livecheck do
@@ -20,12 +21,12 @@ class Qtmultimedia < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4f0bc9a87479f84db661dfff03a932530e92d31c7f2a0dbe54aad2f22109d7be"
-    sha256 cellar: :any,                 arm64_sequoia: "21dd8a4d444f9f316435cae7b35afb978a4a93445b434ce80fd86a9b1abc5744"
-    sha256 cellar: :any,                 arm64_sonoma:  "4b91e5dc3c4775cb6510c3e1059b12acb27bc17dc7e1ca5f7e696612d6ddeabd"
-    sha256 cellar: :any,                 sonoma:        "c8fb40f6dc91c85a8338626f4ce20b74dff67febc8b36bcd8bea5c1d61acb3cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d73c2daee22810b71d1225ef53e720163b86ef16c7018b9b0799b35a7ae2359"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b190596af18f265b63442ac90400e3d79ba4e4a38e31efa5dccb141ee3c7e8a"
+    sha256 cellar: :any,                 arm64_tahoe:   "4c40c2fb0499a8bd9621895ab405927566bfeea240e0c13793c82ffa28da9d0a"
+    sha256 cellar: :any,                 arm64_sequoia: "2cba32c8ea75972df60f58c894a7bf3c28b17d9ad6205d1a693b73691d0e1a9b"
+    sha256 cellar: :any,                 arm64_sonoma:  "aa0e63af3f93f62daf1b0ad1ce4abc9f98314655d6a2d520152dcc5a8b8db66d"
+    sha256 cellar: :any,                 sonoma:        "c40ec66fa9e10164085ce23d528ab8a3fba5fd36d4f248b679080071825aa80c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "268b006e6705001e41a4012f6b51bc2da7955704577d9ee2812d36497bd2ea35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8883140f1efb21a3cb29a705af51d8550f91fa961649168f308badebf0221278"
   end
 
   depends_on "cmake" => [:build, :test]

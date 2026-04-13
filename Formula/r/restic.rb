@@ -45,7 +45,7 @@ class Restic < Formula
     system bin/"restic", "init"
     system bin/"restic", "backup", "testfile"
 
-    system bin/"restic", "restore", "latest", "-t", "#{testpath}/restore"
-    assert compare_file "testfile", "#{testpath}/restore/testfile"
+    system bin/"restic", "restore", "latest", "-t", testpath/"restore"
+    assert compare_file "testfile", testpath/"restore/testfile"
   end
 end

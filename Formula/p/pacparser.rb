@@ -1,18 +1,18 @@
 class Pacparser < Formula
   desc "Library to parse proxy auto-config (PAC) files"
   homepage "https://github.com/manugarg/pacparser"
-  url "https://github.com/manugarg/pacparser/archive/refs/tags/v1.4.6.tar.gz"
-  sha256 "7c5f4317f59c74a969acf700a6cc8ca838fa437f1ae58bce06422e880cbc9253"
+  url "https://github.com/manugarg/pacparser/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "2601a0e58e87caba6f4866aebefde2f5a44a277c05f01f17541ba8857c7a566e"
   license "LGPL-3.0-or-later"
   head "https://github.com/manugarg/pacparser.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c6688419225a78bf7acc656ef81d32061fce24878a307aa5c6bc0480925e78ce"
-    sha256 cellar: :any,                 arm64_sequoia: "948d76de5ebe7475ea560f44a3235ea945b2e9f89ba83b9bd92439a8811e23f7"
-    sha256 cellar: :any,                 arm64_sonoma:  "bb2c49a302896015e70cf1256014965854b2d3b85637a536c515ec08d100c63e"
-    sha256 cellar: :any,                 sonoma:        "7a243e5b8fa79036b76d28e917f2a5328900bd3e750d9e27e022f57a3ed0be95"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1a331f84be7b5bb4a3c65640e62d27b1b3a5c1ba06c4f18bb7df6ef1a086d42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a26b8849f3eba4554d1e87a5546709a9582ca965a946074c2859819cea56ea6"
+    sha256 cellar: :any,                 arm64_tahoe:   "39a44126df3d44f59c8715dc936e8ced528626c06b115990e3ec13e8ac56f8ca"
+    sha256 cellar: :any,                 arm64_sequoia: "6a21090df23934b60f62ae3201e2dce07a3d474e475d0b4501e96b473acd3f8c"
+    sha256 cellar: :any,                 arm64_sonoma:  "3f4b9365bf22505f77fd1e15fbf5f3679c6cda66e5bb0d1f36939857a798c2ce"
+    sha256 cellar: :any,                 sonoma:        "063baea8c6d415189ab1f448afb5ec5cbf67d5edf17fb0cd488617ced915ca66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f7df8ad84a4fcf3f60884dee60d65897b724b82f6a6c347abbb1bd0997dba1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52fe3751f79b2bfcbd8019ddfd9d9b2050854bd779e9ebbcb2b367c83e1b31a7"
   end
 
   def install

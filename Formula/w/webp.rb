@@ -4,6 +4,7 @@ class Webp < Formula
   url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz"
   sha256 "e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://chromium.googlesource.com/webm/libwebp.git", branch: "main"
 
   livecheck do

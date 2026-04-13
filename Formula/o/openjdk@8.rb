@@ -1,10 +1,10 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u472-ga.tar.gz"
-  version "1.8.0-472"
-  BUILD_NUMBER = "b08".freeze # Please update when a new GA release is available: https://wiki.openjdk.org/display/jdk8u.
-  sha256 "5456de1d58bd95ecd0df04f5bddb29fd4405e50b2e48efb3bf0494e9d76e1cf0"
+  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u482-ga.tar.gz"
+  version "1.8.0-482"
+  BUILD_NUMBER = "b08".freeze # Please update when a new GA release is available: https://wiki.openjdk.org/spaces/jdk8u/overview.
+  sha256 "5f39085895a59d77dbe256427289558ae100013a547bcc7417492eea8b22b224"
   license "GPL-2.0-only"
 
   livecheck do
@@ -16,9 +16,9 @@ class OpenjdkAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "39928ffb72364e89bc42915b1bbb57e4a36e73c03e393ae2e658df5430727f29"
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "0357fab4a3a2e80aebc13c6ecde1fed0c01de7c27a7bcdc9225cfca505d8160a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "338b6129353a920862869fb32a114ada3080542d7ae92ccb1d0595aa49158259"
+    sha256 cellar: :any,                 sonoma:       "00a07d38b70286d9aa1fd41bf437b5fac36ef59d47d0717dc8270dfe226739b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "6fbda949244ca72f7be006dc37f27ea7cab2dac0310a297c7cab697db9149486"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9322d6b0d39dc54126928b937573645d0444b2f2d0ccd20b1087261d8d1fe650"
   end
 
   keg_only :versioned_formula
@@ -110,7 +110,7 @@ class OpenjdkAT8 < Formula
       # but this Makefile was written in the era of 4 digit numbers.
       inreplace "hotspot/make/bsd/makefiles/gcc.make" do |s|
         s.gsub! "$(subst .,,$(MACOSX_VERSION_MIN))", ENV["HOMEBREW_MACOS_VERSION_NUMERIC"]
-        s.gsub! "MACOSX_VERSION_MIN=10.7.0", "MACOSX_VERSION_MIN=#{MacOS.version}"
+        s.gsub! "MACOSX_VERSION_MIN=11.00.00", "MACOSX_VERSION_MIN=#{MacOS.version}"
       end
     else
       # Fix linker errors on brewed GCC.

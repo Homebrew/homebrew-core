@@ -3,18 +3,19 @@ class Pdfalyzer < Formula
 
   desc "PDF analysis toolkit"
   homepage "https://github.com/michelcrypt4d4mus/pdfalyzer"
-  url "https://files.pythonhosted.org/packages/28/57/483587e75ba122f99c84bdb253b3c609a6f1834714882851c5244a1592b7/pdfalyzer-1.17.12.tar.gz"
-  sha256 "ddfcc9a222d8ce00518911c04d8d41152dcf68276792dbbcaf6e55fbf96a372d"
+  url "https://files.pythonhosted.org/packages/69/e4/39183a9674a5eb292143d9a3dd1c4fa9541fffcf567f5295efefd5be86db/pdfalyzer-1.19.6.tar.gz"
+  sha256 "888df3252f73fe28132a017824bc60f7a686c6a05800f3b026f76f48ee655dd3"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/michelcrypt4d4mus/pdfalyzer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "32e5bbe8f702b53fe95e9d4468a7ccc4cb2419b567861609d30fade78299ff26"
-    sha256 cellar: :any,                 arm64_sequoia: "5b2144dfce260aad6fe58aca048a15d7aea04505c85d5470c05727c130aba8b7"
-    sha256 cellar: :any,                 arm64_sonoma:  "fbf71f3cf22ced9a7eabfed452bd951f826f9a0c996a296624abaa1c9b05a9b0"
-    sha256 cellar: :any,                 sonoma:        "372ae47ab2365afc6243862a6cda39c379e2f1fd765df7f1f15d5b54d5ad4a67"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "edc611bde3f24d07ae7945fd46d702ce38016b2775ba375abf68fae7e320aa34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "120d089b3458c0537fc94aa87e2b6d79b8194862cc0d3ed9b1f9aa609472a3ca"
+    sha256 cellar: :any,                 arm64_tahoe:   "8eb35101ed39c0b5f9fd56e09882cd1a2685a3520073f32911fe8d07233f9c18"
+    sha256 cellar: :any,                 arm64_sequoia: "3a2743fc7951058147b836fc172807e369766317a2ecd6da7c05ad2fcb2a831d"
+    sha256 cellar: :any,                 arm64_sonoma:  "02997c16281a47a3bdb0c40ad2ce6edf65b958b837497f9331174a2efa013f9f"
+    sha256 cellar: :any,                 sonoma:        "f28ad6d1d67341dd25fbf5bff8c31c3fbe7aff21a59e7335eb76b6519751d2d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "342f81661d0cbef39cee0b850805036a5c92f3e6e8a05042a237d0680bd7a91c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d72d18027947419e896ab1e7e0947d06a314d499acb3652acbef83680528254b"
   end
 
   depends_on "openssl@3"
@@ -42,18 +43,18 @@ class Pdfalyzer < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "pypdf" do
-    url "https://files.pythonhosted.org/packages/4d/9b/db1056a54eda8cd44f9e5128e87e1142cb328295dad92bbec0d39f251641/pypdf-6.5.0.tar.gz"
-    sha256 "9e78950906380ae4f2ce1d9039e9008098ba6366a4d9c7423c4bdbd6e6683404"
+    url "https://files.pythonhosted.org/packages/d8/f4/801632a8b62a805378b6af2b5a3fcbfd8923abf647e0ed1af846a83433b2/pypdf-6.6.0.tar.gz"
+    sha256 "4c887ef2ea38d86faded61141995a3c7d068c9d6ae8477be7ae5de8a8e16592f"
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/f0/26/19cadc79a718c5edbec86fd4919a6b6d3f681039a2f6d66d14be94e75fb9/python_dotenv-1.2.1.tar.gz"
-    sha256 "42667e897e16ab0d66954af0e60a9caa94f0fd4ecf3aaf6d2d260eec1aa36ad6"
+    url "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz"
+    sha256 "2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3"
   end
 
   resource "rich" do
@@ -72,8 +73,8 @@ class Pdfalyzer < Formula
   end
 
   resource "yaralyzer" do
-    url "https://files.pythonhosted.org/packages/f0/0c/37c23b6071370b8fce6776b8dd440badb7a95d248cd40441d1c382033fe9/yaralyzer-1.0.9.tar.gz"
-    sha256 "8f37e0ad243d3db47afaefbe30093ee8ea9b168f58e771e7c765dc48614d49ad"
+    url "https://files.pythonhosted.org/packages/be/9a/2751156fa98de5ea0aeff92006273d384110e5696030e04080862412f3b8/yaralyzer-1.3.17.tar.gz"
+    sha256 "d33fc7a6361ca780bd019602bfee5f0834dd3b1a65f169981e4ffbbaf4664442"
   end
 
   def install
@@ -91,6 +92,7 @@ class Pdfalyzer < Formula
     resource("homebrew-test-pdf").stage testpath
 
     output = shell_output("#{bin}/pdfalyze dummy.pdf")
-    assert_match "'/Producer': 'OpenOffice.org 2.1'", output
+    assert_match "Producer", output
+    assert_match "OpenOffice.org 2.1", output
   end
 end

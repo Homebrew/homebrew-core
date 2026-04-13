@@ -6,8 +6,6 @@ class Homeshick < Formula
   license "MIT"
   head "https://github.com/andsens/homeshick.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "9a93b6514577c36a3de2d9c6a8c3cf9474a6534cc9547407f49ebc0325b20a8d"

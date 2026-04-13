@@ -1,23 +1,29 @@
 class Frps < Formula
   desc "Server app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
-  url "https://github.com/fatedier/frp/archive/refs/tags/v0.66.0.tar.gz"
-  sha256 "afe1aca9f6e7680a95652e8acf84aef4a74bcefe558b5b91270876066fff3019"
+  url "https://github.com/fatedier/frp/archive/refs/tags/v0.68.0.tar.gz"
+  sha256 "f7678f5c9d3934687976e493a8c5ce9e0d6da39fdea4c7a2fa03a2c289866ac3"
   license "Apache-2.0"
   head "https://github.com/fatedier/frp.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96477b5cb46b774891a667e4536e391ac2fa8f60ac99fe120662829f46510fda"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96477b5cb46b774891a667e4536e391ac2fa8f60ac99fe120662829f46510fda"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96477b5cb46b774891a667e4536e391ac2fa8f60ac99fe120662829f46510fda"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1551e9b1712b6d9d66ba3371b6063a4987a259f0ab218d36db3497fe4b101fb5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c96c63808ed662754e721edea9728bbae327d61585092922af70949c77b6555"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94b31be97430571550fa2062de1cd6759d487ff92953c40624c51925b1873067"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3efa936a68d0ee41bac5392a93fc7ea0f4e74f652ae3a22385e4fcfa5fa01ed9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3efa936a68d0ee41bac5392a93fc7ea0f4e74f652ae3a22385e4fcfa5fa01ed9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3efa936a68d0ee41bac5392a93fc7ea0f4e74f652ae3a22385e4fcfa5fa01ed9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a0851354c0929bc0569ebbf61cc5c4855f78a43c63ecca3b3d9eb416ac9a09f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "95740a5084b2b832522fd0da8eb18e88b18ff633d5cbe733ea6419062cc8b366"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "687575224b03e7e20ed30086b6ed78b5b3aad4fc571ec5b7cc16a67ef51d7f4b"
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
 
   def install
+    cd "web/frps" do
+      system "npm", "install", *std_npm_args(prefix: false)
+      system "npm", "run", "build"
+    end
+
     ENV["CGO_ENABLED"] = "0"
     system "go", "build", *std_go_args(ldflags: "-s -w", tags: "frps"), "./cmd/frps"
 

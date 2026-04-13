@@ -1,17 +1,18 @@
 class Pgstream < Formula
   desc "PostgreSQL replication with DDL changes"
   homepage "https://github.com/xataio/pgstream"
-  url "https://github.com/xataio/pgstream/archive/refs/tags/v0.9.5.tar.gz"
-  sha256 "09cbfaaa477c9c5d73df4ab3ebbb8d9e31497e0bbcf1ff51f3347c68be20fdab"
+  url "https://github.com/xataio/pgstream/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "330a1601722c11bc5851df097ab901c4c72d8f3350be2c0272edf5fbd8e05e87"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9f6ca5ee8c99d688f91f3dd398caf1f9bbe050e7056d81f7887a5d70669a53c0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f6ca5ee8c99d688f91f3dd398caf1f9bbe050e7056d81f7887a5d70669a53c0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f6ca5ee8c99d688f91f3dd398caf1f9bbe050e7056d81f7887a5d70669a53c0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d3a06cfbb546158fdfb86d3b445629e81d84d89269b262fd74b9b60952826e8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b9fbe7fc41df2b6579d35624a58a0b61c1eabc2269367532a5c708df08496c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4adb8553d83de3401509d70f228eb50a9da2cc3e98eba43602a15cd57381ca49"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f3e4f5b593556edbb40dfcc90ecde3df1495c0e74cb85f561c0114d239c746d3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3e4f5b593556edbb40dfcc90ecde3df1495c0e74cb85f561c0114d239c746d3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f3e4f5b593556edbb40dfcc90ecde3df1495c0e74cb85f561c0114d239c746d3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8574a2194f1914bb1a05f0b12a70c2c967a249387c5e1d4b409c9c828aa1c5bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ba3e4464b803af28dd02061ddc1cbacf75222dab31c348838a9a02dc4ca9cd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b374394b5710faffeef8f70e46e8cc0bbd8b23566bf3715a9814ac1eea8962f"
   end
 
   depends_on "go" => :build
@@ -21,6 +22,8 @@ class Pgstream < Formula
   def install
     ldflags = "-s -w -X github.com/xataio/pgstream/cmd.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
+
+    generate_completions_from_executable(bin/"pgstream", shell_parameter_format: :cobra)
   end
 
   test do

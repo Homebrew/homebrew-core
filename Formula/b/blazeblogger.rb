@@ -5,8 +5,6 @@ class Blazeblogger < Formula
   sha256 "39024b70708be6073e8aeb3943eb3b73d441fbb7b8113e145c0cf7540c4921aa"
   license "GPL-3.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "4f76e3eb4cb3ab302fdf746ec68a54f42422913c10916429788affadad93209c"

@@ -1,8 +1,8 @@
 class Flashrom < Formula
   desc "Identify, read, write, verify, and erase flash chips"
   homepage "https://flashrom.org/"
-  url "https://download.flashrom.org/releases/flashrom-v1.6.0.tar.xz"
-  sha256 "8b9db3987df9b5fc81e70189d017905dd5f6be1e1410347f22687ab6d4c94423"
+  url "https://download.flashrom.org/releases/flashrom-v1.7.0.tar.xz"
+  sha256 "4328ace9833f7efe7c334bdd73482cde8286819826cc00149e83fba96bf3ab4f"
   license "GPL-2.0-or-later"
   head "https://review.coreboot.org/flashrom.git", branch: "main"
 
@@ -12,14 +12,12 @@ class Flashrom < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "ba6fa0e79ba319eb07cbddf2b49ae6028abdf148a354e0d1bd4d94579cb35246"
-    sha256 cellar: :any, arm64_sequoia: "a3bedd4508ffed55ff21196ab2ccabdd22b284d48110b06f5d47b96eaee389c8"
-    sha256 cellar: :any, arm64_sonoma:  "5526490700374c47a8af1b4be7e4ed94f51caf920cf9ea3b797924078c40abbe"
-    sha256 cellar: :any, arm64_ventura: "d4d991c436d1802da0e353d4eebfd682409b9a45c89a71ee82dde1c73bb04933"
-    sha256 cellar: :any, sonoma:        "34252dd54bc96c0ce719d0b17a291c51503a66afd3b31637b86a4d385efe504a"
-    sha256 cellar: :any, ventura:       "e67286ae8d5dcada59554842a06aca7ec77494baaa5aaa1f4efd323cc6ec8eb9"
-    sha256               arm64_linux:   "7be69e32a990a59fa7c76ff7aa22412dc03ed834e0b16395632d167482a50a46"
-    sha256               x86_64_linux:  "aa9029390983c5f366e65614c3f7ac99602d4ff2e4db0b301e53440687db8cc7"
+    sha256 cellar: :any, arm64_tahoe:   "bddf59497d339e94335a78dcd020f39c2abeb6ab6743d2879425af065cc09cf1"
+    sha256 cellar: :any, arm64_sequoia: "7f44705e5537d6294a8b740c64f5f4ca9ea348d67ebb39e1da7f9bb1ac311568"
+    sha256 cellar: :any, arm64_sonoma:  "a675503867c985d6ff3599597a692283c47009ba672d1b0267e8ea58c7101c84"
+    sha256 cellar: :any, sonoma:        "7fff618fcbcc53469b5ccb96826f2db688098ef222a0afc55ecf2970dc5f6e8f"
+    sha256               arm64_linux:   "fa19b35b685c9ce8e2ba999ee52869440da81e6abe9271c843503548e9cfc85d"
+    sha256               x86_64_linux:  "8746313816786192056a06b6f94cb8aa0111984edca71343560e72af081669c0"
   end
 
   depends_on "meson" => :build

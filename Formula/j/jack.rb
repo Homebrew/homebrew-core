@@ -11,8 +11,6 @@ class Jack < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "70eae572ab2834459171f64ab8e715aa90496a16b58dd312affe30ed26d0380d"
     sha256 arm64_sequoia:  "e3cd7f8ab3b70baa1766b3a131b16ffe7a62a398f20a3ce7b6d6935c222b5925"

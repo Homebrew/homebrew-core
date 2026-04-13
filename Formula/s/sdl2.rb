@@ -4,6 +4,7 @@ class Sdl2 < Formula
   url "https://github.com/libsdl-org/SDL/releases/download/release-2.32.10/SDL2-2.32.10.tar.gz"
   sha256 "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165"
   license "Zlib"
+  compatibility_version 1
 
   livecheck do
     url :stable

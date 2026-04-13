@@ -1,10 +1,9 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://lldpd.github.io/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.20.tar.gz"
-  sha256 "61b8cb22d4879e68f7825a2fb8e1e92abb4aba4773977cf0258bc32ed9f55450"
+  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.21.tar.gz"
+  sha256 "5b1b0106079a0785b55e1be45cec40b66b41779f3ee6f1a8d2dbd75d389df091"
   license "ISC"
-  revision 1
 
   livecheck do
     url :homepage
@@ -12,13 +11,12 @@ class Lldpd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "b06cc31ce05ecfd045b635377710710ec5fe085ed266004f8f7a37a8c5068326"
-    sha256 arm64_sequoia: "ccc0e90f6d0d67978a0e374c5044e6fef2839f266c54e772d145c4bd5dc8c600"
-    sha256 arm64_sonoma:  "b9ac85ce2d7637f6815b2909696b3ad42c3d0824b1152299810963b51b4f422d"
-    sha256 sonoma:        "e9f70ec215c94aeb86b18d98358a11733b349a765aa0fe3af97da03ce66f16e2"
-    sha256 arm64_linux:   "3381d8f39cc2ebbec18bd8feb89faccb7ca9db59569a7f5e7916b275ca223091"
-    sha256 x86_64_linux:  "a439e92e0747bcce38853c64504e732088c53507fbe1f1a8346d868b957d7bc0"
+    sha256 arm64_tahoe:   "32667ecb07946f013f028a50c58fb79c5fa3d50064cf855b06413049c6b4b5cc"
+    sha256 arm64_sequoia: "45e89fcdccc4da7922243c2d8720f7ed9f814bc675e2b1ec06176a1c987e15a7"
+    sha256 arm64_sonoma:  "dd1fb5f76d760abd34f15922a5f248401f2ecbd536cae651e1cae14b84a8d457"
+    sha256 sonoma:        "68d8cf0453620eb9f8822c44e326a5ddfa2e96656e0208271a3b1d86cc6ffe50"
+    sha256 arm64_linux:   "cb61c0fe87c9adb22e961d4c70bdfa102733b7752cc0fcb924a41fd62280528f"
+    sha256 x86_64_linux:  "286581069fe7b41e790c6a3f79b732fd388a91e2d93d381ad5ade7b6d53fc43b"
   end
 
   depends_on "pkgconf" => :build

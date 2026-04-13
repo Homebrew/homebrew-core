@@ -1,23 +1,22 @@
 class Cmark < Formula
   desc "Strongly specified, highly compatible implementation of Markdown"
   homepage "https://commonmark.org/"
-  url "https://github.com/commonmark/cmark/archive/refs/tags/0.31.1.tar.gz"
-  sha256 "3da93db5469c30588cfeb283d9d62edfc6ded9eb0edc10a4f5bbfb7d722ea802"
+  url "https://github.com/commonmark/cmark/archive/refs/tags/0.31.2.tar.gz"
+  sha256 "f9bc5ca38bcb0b727f0056100fac4d743e768872e3bacec7746de28f5700d697"
   license "BSD-2-Clause"
-  revision 1
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8af79b78d1aa446d6c5532ec3553358c627f8a0b7cdfc2ea8663748e860cbe72"
-    sha256 cellar: :any,                 arm64_sequoia: "93bab92b2ba9b451da62ad4a762d078cafc8d4e400c23a7322f2f9dd9fcc8ea3"
-    sha256 cellar: :any,                 arm64_sonoma:  "06bf4e3da615bfa454360952b105d18bdc02ad6191220845bd3a6a776769da87"
-    sha256 cellar: :any,                 arm64_ventura: "4381cbbe681dbf83352e58b8b0fdfafed4610e8017f8fb62c1e1769d90916431"
-    sha256 cellar: :any,                 sonoma:        "42a5bb96e297ac635bea30d77ee9a80f7b7c5ae4c810ba3a1c34aca53e87d4aa"
-    sha256 cellar: :any,                 ventura:       "b00c642cf2f806489f91071dfcf1bc20fcf342154a8bf21a60563639694232c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e16d3511204042385b697dfd4df300f5dd6114dbe86316ca93b03d1260375d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59a6fd552de7099141ad135382c032bed8efa0714e91ec20490c1e05342ec5fa"
+    sha256 cellar: :any,                 arm64_tahoe:   "23df2262fb8ef016f8f60bdfcd875a08de7f184f60c2263991c79af9cd772ae6"
+    sha256 cellar: :any,                 arm64_sequoia: "91068cdaa2e4a69d056cf074c5e4b74737b749c40a4c3ee9fba0db317cdc4761"
+    sha256 cellar: :any,                 arm64_sonoma:  "42f38683fb7789c186d4ffff629a423421fdb332d1265e5d738d6d104ca14e22"
+    sha256 cellar: :any,                 sonoma:        "768afbf8cba6067e2c4935dfaf79c3fab51bd0561c0daebb126b6501d63054a6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d653712866e26d9a1ccc17543cb7d88e6419ed94c5cc7617e25692482ec9b99e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d4c24cef6d576e564ddcb2660e6796d73d76a656966d75075e2113088e4efac"
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "python" => :build
 
   def install

@@ -1,13 +1,13 @@
 class CppLazy < Formula
   desc "C++11 (and onwards) library for lazy evaluation"
   homepage "https://github.com/Kaaserne/cpp-lazy"
-  url "https://github.com/Kaaserne/cpp-lazy/archive/refs/tags/v9.0.0.tar.gz"
-  sha256 "4189f85068073339d9f2dfe3e7b8f928cabe6208df73f4d2c7d62acd81977261"
+  url "https://github.com/Kaaserne/cpp-lazy/archive/refs/tags/v9.0.1.tar.gz"
+  sha256 "16cbaf58002ed46d369e8b87df4ac4b1fc47265fdffed0c5009b3ff8c7f013db"
   license "MIT"
   head "https://github.com/Kaaserne/cpp-lazy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1808987f40f8c3232932e375f40ddbc065a3de94fcf0238d791d6d21df05ce52"
+    sha256 cellar: :any_skip_relocation, all: "a6189f64f50809a62082509f85a970ade5984a5b7c4ef229aece0cf8e3f9b23b"
   end
 
   depends_on "cmake" => :build

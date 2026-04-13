@@ -4,6 +4,7 @@ class Geos < Formula
   url "https://download.osgeo.org/geos/geos-3.14.1.tar.bz2"
   sha256 "3c20919cda9a505db07b5216baa980bacdaa0702da715b43f176fb07eff7e716"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://download.osgeo.org/geos/"

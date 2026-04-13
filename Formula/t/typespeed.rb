@@ -5,8 +5,6 @@ class Typespeed < Formula
   sha256 "5c860385ceed8a60f13217cc0192c4c2b4705c3e80f9866f7d72ff306eb72961"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "0180b1eba9c871f2ae91394a54bc99f92e5c48db780f1ad601bbfd2691bf4e5a"
     sha256 arm64_sequoia:  "ab447d0e1c0d2482ef500191eb296b9da4a5d49735d9326e5c738cb496aaaa43"

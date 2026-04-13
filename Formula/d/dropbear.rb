@@ -11,12 +11,13 @@ class Dropbear < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e3ca916274435c87b7e975fc93c3c6bc52079f56612a5df70cdc72bd1cccf4e8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b2933a1daf1753acf72ddaf86e57e85e0f1061335e91115e580dcb9e1d34cea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "331c2e00bedc347194efb0317603608c28b0a89195fe72d73a18991498384853"
-    sha256 cellar: :any_skip_relocation, sonoma:        "58a0f8b1cde590b8eb3997ea37c13502b93d3733e27de46cafa83e8ee477b0f9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cb4bb13d27e88e4e00ae147a2ad72e1bb84ed7226c471c176e7b91195cd39b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e88e50f72e63c90819735867d3c27aeff1658fc0418fd81e27facbb3cfff38a9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d84b94d96972aef2cae86efbd60cba209324849b8130885f047988323742d98b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0dca7fb55a145414f317ed95f4b3f9d4c2fe6831c9218f5630e4461ca4272554"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02fb8242ae08d7273b317cc13536cf9b044cb79ab9fda1d2e98e678df432b402"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ab1c015d6d4dc3772539b65ac6dc80a0cb36fc9cea44ab30f7befe35c2bae637"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "939dd6c49ffb11771864b2f7dea73b00b23b154e298e019ca1a248be3b2a63f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0f6f864ac0ba514aed819c711b34957e5d765bdca7644738720a98a62b8eee4"
   end
 
   head do
@@ -27,10 +28,10 @@ class Dropbear < Formula
   end
 
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-pam"
+    depends_on "zlib-ng-compat"
   end
 
   def install

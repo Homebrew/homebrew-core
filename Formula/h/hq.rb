@@ -10,8 +10,6 @@ class Hq < Formula
     regex(/^html-query[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "cc649ddcba40f11b96eb1ad1589f4aa507f4df907c67a249cceb9837f068dfe3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "98303f1643d1cae4cd2c7c12b89eca81e9861cb85a3ff9259b7e91e21cdc81e1"

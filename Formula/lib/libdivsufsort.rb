@@ -6,8 +6,6 @@ class Libdivsufsort < Formula
   license "MIT"
   head "https://github.com/y-256/libdivsufsort.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "bbf20ce9184a5f8406898278ef84cc7b98fc891cbace4b6cc5a00254d7e7637b"
     sha256 cellar: :any,                 arm64_sequoia:  "e8710aed1b1bedf305651973aefa5b7b1323fb3e4fd636865974d06661c83977"

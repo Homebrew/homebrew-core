@@ -10,8 +10,6 @@ class Libfastjson < Formula
     regex(/href=.*?libfastjson[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "dbb23a3103fbad3b4ae1a7b4a25630af8b2ce307ddabdf7b158eb8f1cc7e0ecc"
     sha256 cellar: :any,                 arm64_sequoia:  "e9a8424dc257099992210434ed1b30517d31ea60793715f5b2878421144ffa9e"

@@ -1,24 +1,18 @@
 class Kondo < Formula
   desc "Save disk space by cleaning non-essential files from software projects"
   homepage "https://github.com/tbillington/kondo"
-  url "https://github.com/tbillington/kondo/archive/refs/tags/v0.8.tar.gz"
-  sha256 "4054c90e679a379a735b3166df4633fb86a33725175ebe23d7b659dcb7155b26"
+  url "https://github.com/tbillington/kondo/archive/refs/tags/v0.9.tar.gz"
+  sha256 "188c577f1d21d783cd2b4b43a5cbae5ffe8b085e5773e10846af55968ddd50c4"
   license "MIT"
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/tbillington/kondo.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "20437a4779ae4204c41b3a47aea8330b4935b19045459dfc6287db2d56918389"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7f7ed792db60c8e6dab1cd65a717e23443a509f37fc9a5c3fc2c5b2be86fdf65"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef1a8de9ec5ee7d8099bee48808e2472f8f7c328771b356961d1e3d901e247ad"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6bbcb5abe74d2fb632d317a608adde42f9bbf59bec13eb3895f19811d6169ff3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b919fa810c7d632db59ab6b58757794eefae749feb39707fe7051d6bd95922ae"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b0410e25e8402df9f2eb72277ac60caa2c9ae253b78f24cfb2a4e95ef977c259"
-    sha256 cellar: :any_skip_relocation, ventura:        "805778bce56c10cd81b39677875a74313f518f88afe139a809113ec63f761f58"
-    sha256 cellar: :any_skip_relocation, monterey:       "d62701b1f0dc9b3fcf5c7b54fedf7d2a42fab755c26370ebc3be1426e7abb616"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "84b9186af58150de46e72013a47b54df1d190a2ffcaa3e37be7bce9bc038ec2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4127563df7eadb5c588ca4a1d32795acf107ebc693fe225cd5d7f201caba636"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "527d27a29a5f7b9bb39be35e8054c34c0c4f617a1502feea1afa4943cd815bd2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69cb21681a558ebb79ae06bddba9548d0104060a7425711f6eda260170f0c412"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9dab17a98c8e5da226da1d7e4a94e69d23fc4d9013b5a198d260e035ef60daa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0b154e3bbf7f2da0097a366443e41797203d706a05fb5db257ddab1481d8fccf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4521a5aaaa9683347a699c7a85bb89d42e448431d45b99645a9f0116fe19c40e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d282eae511caf3bc620fbe9bd92abcf629febe09ba711fca0e0e63e8169eb9e"
   end
 
   depends_on "rust" => :build

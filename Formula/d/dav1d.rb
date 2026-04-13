@@ -4,6 +4,7 @@ class Dav1d < Formula
   url "https://code.videolan.org/videolan/dav1d/-/archive/1.5.3/dav1d-1.5.3.tar.bz2"
   sha256 "e099f53253f6c247580c554d53a13f1040638f2066edc3c740e4c2f15174ce22"
   license "BSD-2-Clause"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "cda8a6b7d3184cb2a083b8629ae5f9b00f8e04b36da71d8f56f149cbdeebfdbf"

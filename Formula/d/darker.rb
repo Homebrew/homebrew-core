@@ -6,27 +6,34 @@ class Darker < Formula
   url "https://files.pythonhosted.org/packages/df/78/ad6af1661c2eca0ec69b7ff7c99d95dcae29c5e0071c7ebc98e6670f4663/darker-3.0.0.tar.gz"
   sha256 "eb53776f037fcf42b1f5a56f62fb841cd871d95a78a388536dc91dc4355ce8bb"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "2c171dadbb8488ede92f3763ecf9fd9e3a06e706363c1f4661d5394280035a4e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2c892185978be30469bd0869f46c9682343e2e993238932fbb5e58431b57a527"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "374b3a3442372a649f98cb35507910f6410186f47c77caa87f1111bfd5c30862"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b38b2b2816e15771b7e01b345c2a56fc46f8a35cf5321a069a80734a191658dd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "36d0cbc934db0844321c6e57bcf7cb065f84937368ea481fd0d44607929d4af3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "67dd1c58f8618e3540ba09a5e4bb918c82ffb1a198de2b2357ce451fae802b96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a90863d314ae33c6952fdaa2a6f81ee6370163afcba24b9d7a56e01cd0bf236"
   end
 
   depends_on "python@3.14"
 
+  pypi_packages package_name: "darker[black]"
+
   resource "black" do
-    url "https://files.pythonhosted.org/packages/4b/43/20b5c90612d7bdb2bdbcceeb53d588acca3bb8f0e4c5d5c751a2c8fdd55a/black-25.9.0.tar.gz"
-    sha256 "0474bca9a0dd1b51791fcc507a4e02078a1c63f6d4e4ae5544b9848c7adfb619"
+    url "https://files.pythonhosted.org/packages/e1/c5/61175d618685d42b005847464b8fb4743a67b1b8fdb75e50e5a96c31a27a/black-26.3.1.tar.gz"
+    sha256 "2c50f5063a9641c7eed7795014ba37b0f5fa227f3d408b968936e24bc0566b07"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
-    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "darkgraylib" do
-    url "https://files.pythonhosted.org/packages/ed/f8/098b981e982f5bd4616e42409debde17783757405781c01e3fc9ead5012d/darkgraylib-2.4.0.tar.gz"
-    sha256 "d270b2c5a50be3575f50d26ec22adcd934f9a7a9edcd3c5400fddf8fb1e89af7"
+    url "https://files.pythonhosted.org/packages/33/3f/e07f4a048a3d73b97311274c307d13d26a59c0c5cb6ac3388e343a03543c/darkgraylib-2.4.1.tar.gz"
+    sha256 "032df9cf2a545573f4492a9c03cd70ea6264ebddaabf973ea02a02fdb6aed6f8"
   end
 
   resource "mypy-extensions" do
@@ -35,23 +42,23 @@ class Darker < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz"
-    sha256 "a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"
+    url "https://files.pythonhosted.org/packages/fa/36/e27608899f9b8d4dff0617b2d9ab17ca5608956ca44461ac14ac48b44015/pathspec-1.0.4.tar.gz"
+    sha256 "0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/61/33/9611380c2bdb1225fdef633e2a9610622310fed35ab11dac9620972ee088/platformdirs-4.5.0.tar.gz"
-    sha256 "70ddccdd7c99fc5942e9fc25636a8b34d04c24b335100223152c2803e4063312"
+    url "https://files.pythonhosted.org/packages/19/56/8d4c30c8a1d07013911a8fdbd8f89440ef9f08d07a1b50ab8ca8be5a20f9/platformdirs-4.9.4.tar.gz"
+    sha256 "1ec356301b7dc906d83f371c8f487070e99d3ccf9e501686456394622a01a934"
   end
 
   resource "pytokens" do
-    url "https://files.pythonhosted.org/packages/30/5f/e959a442435e24f6fb5a01aec6c657079ceaca1b3baf18561c3728d681da/pytokens-0.1.10.tar.gz"
-    sha256 "c9a4bfa0be1d26aebce03e6884ba454e842f186a59ea43a6d3b25af58223c044"
+    url "https://files.pythonhosted.org/packages/b6/34/b4e015b99031667a7b960f888889c5bd34ef585c85e1cb56a594b92836ac/pytokens-0.4.1.tar.gz"
+    sha256 "292052fe80923aae2260c073f822ceba21f3872ced9a68bb7953b348e561179a"
   end
 
   resource "toml" do

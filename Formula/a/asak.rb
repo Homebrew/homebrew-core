@@ -1,21 +1,18 @@
 class Asak < Formula
   desc "Cross-platform audio recording/playback CLI tool with TUI"
   homepage "https://github.com/chaosprint/asak"
-  url "https://github.com/chaosprint/asak/archive/refs/tags/v0.3.5.tar.gz"
-  sha256 "da90a31924a6ac7ed06fa54d5060290535afdfe1a6fc3e69ad1ed5bc82757e92"
+  url "https://github.com/chaosprint/asak/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "d4df734e87b63cf20f7fa34e15853afa640620043871497d54f78a6818680dd6"
   license "MIT"
   head "https://github.com/chaosprint/asak.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0eacdb4a479c653f777726c669eec0fc89c2a922c13b15bbfd8370c3b24417fc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc34ad17c5c94e3a205d72d5cd89d632e9e77478b863c704711d57813174458c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22662e9e6284f51656b1e9b2ff845d1020891ad01f8ff39085f23f2b94063710"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0ecbcbea3ea060f02617de9c3d5a80477e014b2b789c7330bf95e31ce70d5365"
-    sha256 cellar: :any_skip_relocation, sonoma:        "971aa9cc9f4caad9bea64347102ffa2ac2ebc89de06aa6e1b1fc7c486fd21ac4"
-    sha256 cellar: :any_skip_relocation, ventura:       "ac44eeb109efb1b9ce9e787e24e1c9ee917c8a0b889f2dff2576717644f6531f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "df0d9919f8e49aea1800986f43644c84e3b0000b04de81ba7e2aeae1072320b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47670f65f8c158c2a27772c5ad9de162b9f11234c5b5bf110a87f3434d14bb78"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ece34a9219e864c87ba8cb21d120dc79100df2bde873715f5fa45401b7af0548"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1aeb82e44bd338080df9218164db8ce26330b5f4c89269d45a8f16147757602f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12c898a0f70d04045e16592e024ecfecaf95cdccab6955dbfcef95682db3402f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "07a5c1fe0e9ffa353f3240484eabf614f041b8bd53884b9f7e6df15dd535d451"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "46d875061b821be6723665dd5774716325b901e54853b27c77683236581f456b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "366d64c0c14529791b97ae92dc89b3c5a2343c167874586aecb69054eadf184d"
   end
 
   depends_on "pkgconf" => :build
@@ -36,8 +33,8 @@ class Asak < Formula
   end
 
   test do
-    output = shell_output("#{bin}/asak play")
-    assert_match "No wav files found in current directory", output
+    output = shell_output("#{bin}/asak play 2>&1", 2)
+    assert_match "unexpected argument 'play' found", output
 
     assert_match version.to_s, shell_output("#{bin}/asak --version")
   end

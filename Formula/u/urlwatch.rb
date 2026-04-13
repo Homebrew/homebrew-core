@@ -6,15 +6,15 @@ class Urlwatch < Formula
   url "https://files.pythonhosted.org/packages/76/a3/e3bc54a669fa3ec440ea9d8db64590e761343b02b6ae9fcfcdc05c28d9ea/urlwatch-2.29.tar.gz"
   sha256 "f317ca8b123b15af510ec9e08bf885d8a8b574f502253e5ded200d757366da98"
   license "BSD-3-Clause"
-  revision 5
+  revision 7
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "26c33e4fb7ea6df2be5cd8ee0a45e479af8f04f26820a1412073927c8b73212e"
-    sha256 cellar: :any,                 arm64_sequoia: "270944fd3c767c4e4eaf0dc2cfe39c7bb03a0ba4da8b6c83b8d5239e8a3ec696"
-    sha256 cellar: :any,                 arm64_sonoma:  "729d074849ee4042fd36e7eba1de04c57865d3f8e63ff766f53f2bf28e038426"
-    sha256 cellar: :any,                 sonoma:        "1a52ee8216911dedce0a15fe8b5a9147944c6fadf4d740009e41789dae251456"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ca5381cc4855b061acc821aa651680dbe676e61a678392e319aa8a99de047d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d65272fbac5d86d86dbe8b2aa10f3d9fe05574892950ea113f08e2091730392"
+    sha256 cellar: :any,                 arm64_tahoe:   "22ece9a5afa5b7149eb9276bbc04ee54433f4c460c1af226bcbe743345cc9813"
+    sha256 cellar: :any,                 arm64_sequoia: "5bdf5c3dbbd56ce7f929e226be65c9ed48a3b90d3bb84a4a2bbb7b3501857349"
+    sha256 cellar: :any,                 arm64_sonoma:  "0ee3a871a898ffc61896e09340ebf0af95267c92f5f1606f9443be33bcc21934"
+    sha256 cellar: :any,                 sonoma:        "57d8ba8ddcd31290943d9bf7a32edf807afdda3a07217a0740d72f71309d14c0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce3d2250e300a01b4b65c3c8b32f089384a269258b9b3c72b51c7f7e8f5325a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3ea56504acc6bbb537e7ececf6ed35e311e8a964cd4d066630a8715ae7166b0"
   end
 
   depends_on "certifi"
@@ -32,13 +32,13 @@ class Urlwatch < Formula
                 extra_packages:   %w[jeepney secretstorage]
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "cssselect" do
-    url "https://files.pythonhosted.org/packages/72/0a/c3ea9573b1dc2e151abfe88c7fe0c26d1892fe6ed02d0cdb30f0d57029d5/cssselect-1.3.0.tar.gz"
-    sha256 "57f8a99424cfab289a1b6a816a43075a4b00948c86b4dcf3ef4ee7e15f7ab0c7"
+    url "https://files.pythonhosted.org/packages/ec/2e/cdfd8b01c37cbf4f9482eefd455853a3cf9c995029a46acd31dfaa9c1dd6/cssselect-1.4.0.tar.gz"
+    sha256 "fdaf0a1425e17dfe8c5cf66191d211b357cf7872ae8afc4c6762ddd8ac47fc92"
   end
 
   resource "idna" do
@@ -52,8 +52,8 @@ class Urlwatch < Formula
   end
 
   resource "jaraco-context" do
-    url "https://files.pythonhosted.org/packages/8d/7d/41acf8e22d791bde812cb6c2c36128bb932ed8ae066bcb5e39cb198e8253/jaraco_context-6.0.2.tar.gz"
-    sha256 "953ae8dddb57b1d791bf72ea1009b32088840a7dd19b9ba16443f62be919ee57"
+    url "https://files.pythonhosted.org/packages/af/50/4763cd07e722bb6285316d390a164bc7e479db9d90daa769f22578f698b4/jaraco_context-6.1.2.tar.gz"
+    sha256 "f1a6c9d391e661cc5b8d39861ff077a7dc24dc23833ccee564b234b81c82dfe3"
   end
 
   resource "jaraco-functools" do
@@ -87,8 +87,8 @@ class Urlwatch < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cf/86/0248f086a84f01b37aaec0fa567b397df1a119f73c16f6c7a9aac73ea309/platformdirs-4.5.1.tar.gz"
-    sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
+    url "https://files.pythonhosted.org/packages/19/56/8d4c30c8a1d07013911a8fdbd8f89440ef9f08d07a1b50ab8ca8be5a20f9/platformdirs-4.9.4.tar.gz"
+    sha256 "1ec356301b7dc906d83f371c8f487070e99d3ccf9e501686456394622a01a934"
   end
 
   resource "pyyaml" do
@@ -97,8 +97,8 @@ class Urlwatch < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "secretstorage" do

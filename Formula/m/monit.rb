@@ -11,23 +11,22 @@ class Monit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "23d94b8e82a4021c0cb4a192ddc4b47f7a1dd8c96551334086ec69d90b56a1f0"
-    sha256 cellar: :any,                 arm64_sequoia: "5f8ae5d9b7905575c6a521cd10ec05c2b8c44c83ca7525a045404196a1b6d0b6"
-    sha256 cellar: :any,                 arm64_sonoma:  "fc482b423f6a54a5fd3d654ec2047d6f57390fc54778317021ab1ec319a72f5c"
-    sha256 cellar: :any,                 arm64_ventura: "725215581b9ee73ed26819ae29282310bbc1d737285325c54af1bd3523af6837"
-    sha256 cellar: :any,                 sonoma:        "0330014e721c9cbff3b5f610bf9b328fe23c5788ccab3a728d89ac9dad79eb52"
-    sha256 cellar: :any,                 ventura:       "c18bf4f5bf096b868c6b5016c50e065870305a9477bab6bd3c7635790de7c61a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "785a1c67205c69e345698ba258e55247e3b5c147a0910d02ab27fe3638c00630"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24a6151e67eca2312abdba53b643dd791ef72ad31e9c376190e96aef37f1e8c6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "cf0064df4cbcd02a33f27f4e65336e8d704670dd5756bf286f212fae29c02b12"
+    sha256 cellar: :any,                 arm64_sequoia: "8119dbda3ef01eb2ce8f0ef31ce29da9babefd7376f54d0f12850878440f1d8b"
+    sha256 cellar: :any,                 arm64_sonoma:  "cac2f2b68ed2d7fdbcaeca6e3bf48b645f721db5e641dc47a2c9c7251f1fa6e5"
+    sha256 cellar: :any,                 sonoma:        "5d264f8b1394bf88cac7403a15efe5c7fdfad6960fc95f712cc302f87a5ee849"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "825886321e6fd519a3ace69a1f9bdf518ae0e6800ba310055dc4752e9d908a90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c0ee9fe8d295f5d1b82e750a7c2594361c59842341dbdd1a2acfe86c7714c32"
   end
 
   depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-pam"
+    depends_on "zlib-ng-compat"
   end
 
   def install

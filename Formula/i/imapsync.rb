@@ -14,21 +14,22 @@ class Imapsync < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "315c28d274ad31fa73e5a31fb36915a066523919b9aa0eed48be54299db75354"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "40c6c7e28edd206bcfab258b4ab1758ac68cd48bc0b469329e3856a6078fb82a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "61e3da329b36f9a5ddd87691194cf3ce116ea72b5a21f06e2c54efcf65b01017"
-    sha256 cellar: :any_skip_relocation, sonoma:        "afd145e9ad346962e091e1a05a73450b582d7fb241053a49d91458a733113c86"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f70c8f3a73e97d0041427886a0dc4a9a58c66e47021aa5a9cefe3b508ff2e03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd40f2dab2a203b1e3931a2093ae474d8a80b48521e1381d0a64811627a45f26"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "965e00bdc9ebeb638179d508afbf1b40c53762fa86dcc9c41f46bd84413afeec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c3226f22365a2a589c0f256ab5626028e4efe7b79dfac78668197a41dc06c21"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5065fd3ae71fd7c7fdbe71de82198b95fc091652b87d9a5b13dfbb3210d6c70c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4d8ec5703a89b1486a13c11b2c2efa15273c4c9d5e7747dade01b579eaf88e61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eca8142d92a9cac7d7ade73bb2673a35f3d52f4ec0257bb1f67331fa6d0db09b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6ace18f9b7a36d71151ac94d4b61477b60c6043e1f0820f4702a349090a1b8c"
   end
 
   depends_on "pod2man" => :build
 
   uses_from_macos "perl"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@3"
+    depends_on "zlib-ng-compat"
 
     resource "Digest::HMAC_SHA1" do
       url "https://cpan.metacpan.org/authors/id/A/AR/ARODLAND/Digest-HMAC-1.05.tar.gz"

@@ -5,8 +5,6 @@ class Hostdb < Formula
   sha256 "beea7cfcdc384eb40d0bc8b3ad2eb094ee81ca75e8eef7c07ea4a47e9f0da350"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "7f0c8bfe7fe1652daa4aa926d6287ae94e851bd979ca6b53b3c0bc54e85dc208"

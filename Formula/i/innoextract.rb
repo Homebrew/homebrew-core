@@ -14,14 +14,19 @@ class Innoextract < Formula
       url "https://github.com/dscharrer/innoextract/commit/83d0bf4365b09ddd17dddb400ba5d262ddf16fb8.patch?full_index=1"
       sha256 "fe5299d1fdea5c66287aef2f70fee41d86aedc460c5b165da621d699353db07d"
     end
+
+    # Fix build with `boost` 1.85.0 using merged, unreleased PR
+    # PR ref: https://github.com/dscharrer/innoextract/pull/169
+    patch do
+      url "https://github.com/dscharrer/innoextract/commit/264c2fe6b84f90f6290c670e5f676660ec7b2387.patch?full_index=1"
+      sha256 "f968a9c0521083dd4076ce5eed56127099a9c9888113fc50f476b914396045cc"
+    end
   end
 
   livecheck do
     url :homepage
     regex(/href=.*?innoextract[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "1150222eb02fdb776418d3253e62ba75592481225b162026bf45ad687784d730"
@@ -35,13 +40,6 @@ class Innoextract < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "xz"
-
-  # Fix build with `boost` 1.85.0 using open PR
-  # PR ref: https://github.com/dscharrer/innoextract/pull/169
-  patch do
-    url "https://github.com/dscharrer/innoextract/commit/264c2fe6b84f90f6290c670e5f676660ec7b2387.patch?full_index=1"
-    sha256 "f968a9c0521083dd4076ce5eed56127099a9c9888113fc50f476b914396045cc"
-  end
 
   # Fix build with `boost` 1.89.0 using open PR
   # PR ref: https://github.com/dscharrer/innoextract/pull/199

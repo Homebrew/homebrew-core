@@ -25,7 +25,7 @@ class Csvlens < Formula
     require "pty"
     require "io/console"
     (testpath/"test.csv").write("A,B,C\n100,42,300")
-    PTY.spawn(bin/"csvlens", "#{testpath}/test.csv", "--echo-column", "B") do |r, w, _pid|
+    PTY.spawn(bin/"csvlens", testpath/"test.csv", "--echo-column", "B") do |r, w, _pid|
       r.winsize = [10, 10]
       sleep 5
       # Select the column B by pressing enter. The answer 42 should be printed out.

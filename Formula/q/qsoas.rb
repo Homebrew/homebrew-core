@@ -16,7 +16,7 @@ class Qsoas < Formula
     regex(/href=.*?qsoas[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "7b91bd04e345e0cc279acb813e24a5b55cae526ca6df690095b800407e09e1cb"

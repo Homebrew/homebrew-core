@@ -4,6 +4,7 @@ class Fltk < Formula
   url "https://github.com/fltk/fltk/releases/download/release-1.4.4/fltk-1.4.4-source.tar.bz2"
   sha256 "2b302c80b7ea937a8bdc01ed6718fd995035bf63e9a2895491c1001821725f1f"
   license "LGPL-2.0-only" => { with: "FLTK-exception" }
+  compatibility_version 1
 
   livecheck do
     url "https://www.fltk.org/software.php"
@@ -11,14 +12,13 @@ class Fltk < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "78834ef0a76764d4f0a97ee134b3b735411ab65114e32ca424af71c32f3e2fd3"
-    sha256 arm64_sequoia: "67c740f8dd7bd9aca43770e9d31c7533c1d24119dde12a4581c11b2ee90dcb28"
-    sha256 arm64_sonoma:  "9beba383d00e8b203de0265b1199ff7a6bc2ffb143d0af6e9cecf51f871a4140"
-    sha256 arm64_ventura: "2509089cec05f527863a03b70bdfafeba0d656fc544199d2e73d07b372e95a46"
-    sha256 sonoma:        "064e2bcd5bf2bce621e47fac88d54a52707b903ffcbf7bb85cbc0fd55638f741"
-    sha256 ventura:       "ca9f056cb372e3db16744210806cc65c791119461f24559502d6be3023cda27a"
-    sha256 arm64_linux:   "d1c8f9e9a746cdfca434c02228b459c68258243b1f8b592d7f478b63f0bfdc05"
-    sha256 x86_64_linux:  "a7ea283b0880571415192ad1e7a75aa77f62a8e981d6d4f3713091b65a034c64"
+    rebuild 1
+    sha256 arm64_tahoe:   "a336acc1290d177f51ff0ebeb70d0eacd45bf5b473489d2bb5af6df720fde6f4"
+    sha256 arm64_sequoia: "0dd518fec8c5774ca8b2d886befbc3a984b229ebcbe476adad4d695214b58425"
+    sha256 arm64_sonoma:  "822945c549971421e1aac934c817240d42c2b0edcf5e4113faa6901158ece222"
+    sha256 sonoma:        "870d5060045c0116ae47372a0229db2864d61ee1f765126c93650bc739963b39"
+    sha256 arm64_linux:   "1f960238c43d81c044200cb4a00950b1f764c4d150c4754e43c312243540334d"
+    sha256 x86_64_linux:  "a90426f91678df9321e01dc8dcaea265da0725dd05975aa7cf6be6da7bc7cf14"
   end
 
   head do
@@ -29,7 +29,6 @@ class Fltk < Formula
   depends_on "pkgconf" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "fontconfig"
@@ -41,6 +40,7 @@ class Fltk < Formula
     depends_on "libxt"
     depends_on "mesa"
     depends_on "mesa-glu"
+    depends_on "zlib-ng-compat"
   end
 
   def install

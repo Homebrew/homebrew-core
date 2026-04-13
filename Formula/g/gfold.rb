@@ -1,8 +1,8 @@
 class Gfold < Formula
   desc "Help keep track of your Git repositories, written in Rust"
   homepage "https://github.com/nickgerace/gfold"
-  url "https://github.com/nickgerace/gfold/archive/refs/tags/2025.12.0.tar.gz"
-  sha256 "cead84f83c6bd333f5c11a714db2f187150c5d7b5d1b29cd6441172195728f45"
+  url "https://github.com/nickgerace/gfold/archive/refs/tags/2026.3.0.tar.gz"
+  sha256 "e8e0667c324658c0c816c909e880879f606ca7d874b7cbf4820ef47ba517d558"
   license "Apache-2.0"
   head "https://github.com/nickgerace/gfold.git", branch: "main"
 
@@ -12,19 +12,21 @@ class Gfold < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2160495230c8aaaab86c0824b90b25fd2a3a0136379574d6342094ab74faf8eb"
-    sha256 cellar: :any,                 arm64_sequoia: "bbe23637981edcb00b103bb7579b4ef704a3e8c69b735a5b36e1f05b7051c2a8"
-    sha256 cellar: :any,                 arm64_sonoma:  "ca6d77140523b015770a808845909dabc4a3e7d2a762d00fb71451ab348861a3"
-    sha256 cellar: :any,                 sonoma:        "bd97b1bc30d59f8dfe4f4748d6c5e486316efa79c0548ec67b3e605f0e089308"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3da66c27309f1d9fa52f603e39365e0eaafd9a3c07e01aae3ee409b7b96f3792"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2a285553c05349ac0c0324569098dc9750240955669464421c4fe875c9e7683"
+    sha256 cellar: :any,                 arm64_tahoe:   "db41a670045dc8a7876c729a952d1fba166f287eea7024b8719588f1da51e871"
+    sha256 cellar: :any,                 arm64_sequoia: "6ef51773366e7661f85473c36fce2dfea09653ae56caa817e0d5c83aaa25dc45"
+    sha256 cellar: :any,                 arm64_sonoma:  "4ede65914fa3dd5b43f7e247f74bcd091962e101e9f72b8d9af12b4dd13cc5d0"
+    sha256 cellar: :any,                 sonoma:        "528334f580d8869521b1b1d0ee3b8cd282c191f350596d77c49acef16a31d7f4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5907c31d6a83a8ec8f14c3aae1d282bd2bcb1d279532f7503562e9e232f90276"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fd6dcad1f035d6dd3652a9a9ced56e2212a155a4428008e7cc09b4953fde63f"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "coreutils", because: "both install `gfold` binaries"
 

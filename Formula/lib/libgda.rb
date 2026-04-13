@@ -8,8 +8,6 @@ class Libgda < Formula
   license "LGPL-2.0-or-later"
   revision 5
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "3b88a622a31068287a6ffb6cbc65f564087bf4075f9b7d12e1558a271dfa4098"
     sha256 arm64_sequoia: "8f4076b1d7e3f9d4638d740248e2b2e2533e078c559701115c5a75fcea611a91"

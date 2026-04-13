@@ -10,26 +10,21 @@ class Testdisk < Formula
     regex(/href=.*?testdisk[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4ef939fc1be6e7d281fbc1340258bf82710eec158535d76ea6ca5290ff1fd9a8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1726a772720eff30c93476660a6ce2ee68c89b400e5247086ebf6b77b27c1b84"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "76fe31d9656985c415243cdb7ab5a1f65696f8bcebebd2f2a1308517e870f205"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "843c14d99607b293dcbe021687205437023bc8a5a57813bac8214d2abe578179"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b599705f681955d6fcd094b44777dc29fa6b45886b3d47bef910579dbfd837de"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8db633d609f8cd60846d7f0f580a752f2c4959a89c2cf5c2150fbec8c1db1500"
-    sha256 cellar: :any_skip_relocation, ventura:        "3acf40e8f1a8649610455147ad0c1e3d9400882b9df1e5ba247b4ac19fdd87ec"
-    sha256 cellar: :any_skip_relocation, monterey:       "e0c1d8dc41bac15b27c7dddaa1cc375e0205cba23e002a5dde0db8bd4251f291"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9e80b679b3c59a860ea10e68c79ab7de1acc58c4e2218956cd99f6bab22fa58e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0624bb8d366a5835a037928e92fcbdd998e0df181a7a1b41458f10d5c0f84231"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e329a6e62f3a3a45d211f502f2d9286e1f33740bae6b63777166f18b2051138c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eab017ff1b655d0013b12559928b9fd7ed92605a448c8a460e5432ebc3cef380"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a3bc8238eebd4b4937d900bb715224978923a54918f2dc04346ba90acc71895"
+    sha256 cellar: :any_skip_relocation, sonoma:        "381c8a908f2ed4becfa397a6115690108a5e830a331c2def84b7e2f774bf25f1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "46e93192d84e0d2321b54d436b1cae92a578b30a062a117ee19184ca1fdf8942"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89f05af94ead3d6dacecac6bab3ecbf64fcb3b3147504a1018a620134d211e53"
   end
 
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "util-linux"
+    depends_on "zlib-ng-compat"
   end
 
   def install

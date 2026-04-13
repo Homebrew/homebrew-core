@@ -4,9 +4,8 @@ class Qrencode < Formula
   url "https://github.com/fukuchi/libqrencode/archive/refs/tags/v4.1.1.tar.gz"
   sha256 "5385bc1b8c2f20f3b91d258bf8ccc8cf62023935df2d2676b5b67049f31a049c"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
   head "https://github.com/fukuchi/libqrencode.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

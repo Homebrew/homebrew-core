@@ -6,14 +6,13 @@ class Matplotplusplus < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2b9397c694c7707a80feb995232954d614d4d8a8372b58d99ddb4d82dcca511e"
-    sha256 cellar: :any,                 arm64_sequoia: "e2ba675ac81348b5f335837aff0f31d76e9786cb863f1e7e78310dc866b0fd8a"
-    sha256 cellar: :any,                 arm64_sonoma:  "19c28227de5d694cef734a453ae5a5fa9235100178c330a89e0bf69b1152c9c3"
-    sha256 cellar: :any,                 arm64_ventura: "a6ea197fbc598aea232a2a2ee3f34a49d901fe7bcb5ef1669fad420bc9761df9"
-    sha256 cellar: :any,                 sonoma:        "fd6ad4314564c49faa1c3a579059e691bd42ad7bc806bfdd9b6da50de1493136"
-    sha256 cellar: :any,                 ventura:       "1629d3f81ffeea448e2a23ce724c64108e4b98d28fff1c94c9caf42aad066fd8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "16d52a3f9fe266742220680c9634012ae28f593c6c59379a707cce29fc90ea94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b326b9d0868c29fc1ca8749f38f40b7941baddf059b9342a15f64c8dab70ad1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "12afe3a93bd74cc8c1039cfe96eec69e9ad490de007b89dd2dee691848fc4a94"
+    sha256 cellar: :any,                 arm64_sequoia: "b5c2fff54b01a15975ab60daf1b38908c0bd5772be34b07417e4e3e55c8d500e"
+    sha256 cellar: :any,                 arm64_sonoma:  "7c5bbc02ddef5de8311d9635b53c8abb40fea9619beffe32b656a9e3aff9b06e"
+    sha256 cellar: :any,                 sonoma:        "ef278a8c8acbad0e5cb1984fc4eae897beb79d698552ef7f1d051679305448e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b53553604ff956b056570d08fa562c43cd7f5d54160ad02bf654dbb03807dcec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4221d3f2856320db0988a6661bdf045fd82b62145fc51b46e87e822752249eb3"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +24,9 @@ class Matplotplusplus < Formula
   depends_on "libtiff"
   depends_on "openexr"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   fails_with :clang do
     build 1100

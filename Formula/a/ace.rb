@@ -13,8 +13,6 @@ class Ace < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "723cf89b58d2a47670cd669057004a59a38969aeb94e73710d95f3ba7db75876"
     sha256 cellar: :any,                 arm64_sequoia: "d341e47e245341bf21821888a94c2fba6882f9fc08109bde313b196cd5a2980d"

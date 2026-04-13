@@ -1,15 +1,16 @@
 class Qtquick3dphysics < Formula
   desc "High-level QML module adding physical simulation capabilities to Qt Quick 3D"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.10/6.10.1/submodules/qtquick3dphysics-everywhere-src-6.10.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.1/submodules/qtquick3dphysics-everywhere-src-6.10.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.1/submodules/qtquick3dphysics-everywhere-src-6.10.1.tar.xz"
-  sha256 "d973847df1be6ee711e771df923537fb62fcac5bf57100f2ebc6f7742c8d2fee"
+  url "https://download.qt.io/official_releases/qt/6.11/6.11.0/submodules/qtquick3dphysics-everywhere-src-6.11.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.0/submodules/qtquick3dphysics-everywhere-src-6.11.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.0/submodules/qtquick3dphysics-everywhere-src-6.11.0.tar.xz"
+  sha256 "a57a6c8ef631a6ed1fe8390d66a2c3c658bd27fbab7419591944eb3e424a9d35"
   license all_of: [
     "GPL-3.0-only",
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # cooker
     "BSD-3-Clause", # bundled PhysX; *.cmake
   ]
+  compatibility_version 1
   head "https://code.qt.io/qt/qtquick3dphysics.git", branch: "dev"
 
   livecheck do
@@ -17,12 +18,12 @@ class Qtquick3dphysics < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "160236d2d41e44ccb25816860b0bcc35d8851a44f1331327d5bbd0120c1e3d7e"
-    sha256 cellar: :any,                 arm64_sequoia: "6d1044b2a73b208c46c0e0447f8176c18acbaa22c9c21b1c85396b8d8fad13cd"
-    sha256 cellar: :any,                 arm64_sonoma:  "ce9c8b683a3b8332632c3a5213fb8cb10afc5611b0b1190f9f32f2bb09ff3c0c"
-    sha256 cellar: :any,                 sonoma:        "34145474435160f077e60bb292da32ad8be0bab0f11a8bc40945b04828c4e764"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed268096b1788a13302b2dee1c6397b9a725eeb8888e21e6a68a164a3003861a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "942bcab07efc72e64a02363e785a97778e282d58ce648e21640a7736d589f374"
+    sha256 cellar: :any,                 arm64_tahoe:   "bdd01655a87e807054bb402cfd36923367ebd0c52da00c7c8e7fd4ca0690d1fb"
+    sha256 cellar: :any,                 arm64_sequoia: "34ebebd1ad9d9f116d4192ba77447f5531ad262a89f24a1c86e2473faf57cc4c"
+    sha256 cellar: :any,                 arm64_sonoma:  "3b1a6d12f17f9cda13ef45cb08c15ab5c6d35cfe78984d53f3f99644a6f5aa37"
+    sha256 cellar: :any,                 sonoma:        "9aaa38fb517611a3a05ce4df3ea606af679df83e62680818ce0f1a859b5de19e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "02757b61382db100708b8d71642f9e5434a34059808df9378de708c9498f6703"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c618502d7064597cc40a53ddf2cbe9b84d6ea64677db9430c8a4b2c333019564"
   end
 
   depends_on "cmake" => :build

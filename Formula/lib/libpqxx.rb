@@ -4,6 +4,7 @@ class Libpqxx < Formula
   url "https://github.com/jtv/libpqxx/archive/refs/tags/7.10.5.tar.gz"
   sha256 "a827dc8a02f4b6110bce66a56d8d97e4526a5128e2f36fa698fd2b1dfb1b9044"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "8c37900dc12a476a4d4c1d6027e28f5bcbd48dd0c13d0d5eef9130365db04f09"

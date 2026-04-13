@@ -2,8 +2,8 @@ class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
   # NOTE: Make sure to update RPATHs if any "@rpath-referenced libraries" show up in `brew linkage`
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2025_09_4.tar.gz"
-  sha256 "b1811f4fa39b0a71e8f59f77cdaa2ce545af083052a9acef1ccf7fd2c8b9679f"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2026_03_1.tar.gz"
+  sha256 "715e0d069416fc1643404df0d8ab969636cfd2c85c13e4f7cc55e4118ce10055"
   license "BSD-3-Clause"
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
@@ -15,15 +15,13 @@ class Rdkit < Formula
     end
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256                               arm64_tahoe:   "dcddf0bfcd7955e85b84b41b843de12d1ab3f6c6efde486509cb77bb75d131f0"
-    sha256                               arm64_sequoia: "34f54552944450e6cd7e87afd81e7a4132b3636075320677b1575d8468180f6d"
-    sha256                               arm64_sonoma:  "93dcd72763361b069a862cb8a7e5ec51e3f7dac39ce5a465671ebb64f1ac9b96"
-    sha256 cellar: :any,                 sonoma:        "8f045a039337ece848e892eb5df3694d81cd2ff16a9a19c82d0770a970dbaa80"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "12860025a833b12327a7e7ae2cac31c8c4cf55bd3fe5344cac42aad00700b0f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b551f2ba21d070e78f822cdb74580d93658e0701e36f105dfce3f2ef90c11d2"
+    sha256                               arm64_tahoe:   "52b7b9cdd45e1608a46944ff59341d8267b3da53b9528d24ca92f99b7c3fcc18"
+    sha256                               arm64_sequoia: "3ccc7f633ece1ce408685f97d6d28c19c5e634c33e646c580f1465a9025aa137"
+    sha256                               arm64_sonoma:  "5fc637c51044caf9b47c25e628fa03f3883564e4f93f237ab44e53c65f147635"
+    sha256 cellar: :any,                 sonoma:        "1097710e468657edc39b583f9f63cb5dbcd07af2e440afffcb069ff4c8f6297d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "902a013f1dcf1f94fa2d5885dde0267d326340977ce2cee729c6fa08f9445560"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68f0765568815e699522a337d4c08fba763706f0fc91e9051c9aa3a4dd056c19"
   end
 
   depends_on "catch2" => :build
@@ -35,12 +33,12 @@ class Rdkit < Formula
   depends_on "boost-python3"
   depends_on "cairo"
   depends_on "coordgen"
-  depends_on "eigen"
+  depends_on "eigen" => :no_linkage
   depends_on "freetype"
   depends_on "inchi"
   depends_on "maeparser"
   depends_on "numpy"
-  depends_on "py3cairo"
+  depends_on "py3cairo" => :no_linkage
   depends_on "python@3.14"
 
   resource "better_enums" do

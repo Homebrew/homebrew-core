@@ -4,6 +4,7 @@ class XorgServer < Formula
   url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.21.tar.xz"
   sha256 "c0cbe5545b3f645bae6024b830d1d1154a956350683a4e52b2fff5b0fa1ab519"
   license all_of: ["MIT", "APSL-2.0"]
+  compatibility_version 1
 
   bottle do
     sha256 arm64_tahoe:   "f058e8d9ef4de941cd6666f08eccc1438ad6d270f5670d22a828047c8fe03326"
@@ -43,6 +44,9 @@ class XorgServer < Formula
 
   on_macos do
     depends_on "libapplewm"
+
+    # Case-insensitive filesystem conflict
+    conflicts_with "x-cli", because: "both provide an `x` binary"
   end
 
   on_linux do

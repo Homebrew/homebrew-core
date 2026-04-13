@@ -5,8 +5,6 @@ class Nettoe < Formula
   sha256 "dbc2c08e7e0f7e60236954ee19a165a350ab3e0bcbbe085ecd687f39253881cb"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f6d3b32a4b364e84aab80cfa135679ec141419e601724888c54a31310cd85d1d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3ffd852b505b8793e11f4c16e537613fa07573361b0d6762145ba59727756298"

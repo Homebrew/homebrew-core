@@ -1,20 +1,18 @@
 class Envelope < Formula
   desc "Environment variables CLI tool"
   homepage "https://github.com/mattrighetti/envelope"
-  url "https://github.com/mattrighetti/envelope/archive/refs/tags/0.5.1.tar.gz"
-  sha256 "e07fcc677e375311f3c9e7f0594020c2c8da64f8ea6c391c3ad00641543e5927"
+  url "https://github.com/mattrighetti/envelope/archive/refs/tags/0.7.1.tar.gz"
+  sha256 "acfe66da7cb2f346b77a5765f9654ab006202ca1b9a8ebff962b197b20991bde"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/mattrighetti/envelope.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "76bf8b5b1187b8fdbc81c0b26b3607bf2e38f678f2eb9ba9d9eeb076fd24d44e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46bfe1fb3dd3f87b793d29c5b2321de5a3c2166d9990775c7c92428c05a92992"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f9b081f4ab7c78c9141d9d779dfdcf5049f54689ae17d2cb775a919e79ff11d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9e761284f6f67e2191150e13948e0fc6937b443ad2cb068667b652b449704824"
-    sha256 cellar: :any_skip_relocation, sonoma:        "962de83a7b02a7b3788e2deedea65e57017e7e7c1111ab57a4cf0c6bde263953"
-    sha256 cellar: :any_skip_relocation, ventura:       "7179a447ff32c1b183df3d8874965d4dbbff08c7b6d3276e6b35765c73352626"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c61a0efee93d2871b57e4fcdbd8ce0f9ea5f75536786e6bc974d3e1fa8fcba15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d65cd41287ab72e1ba6d4cda1d79d78c1916099ab31b908d165e89097e70d63"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "76a6b6c0ea646684b375b7798200bc90eacf4f6969330b029cc736f6c5eeddd5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "397564db114f78927734ed5c189e403273bf4e20355b05b240d9056489ebc786"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f88e468a799162b506357bc487300f8f87e68af18c40db1ed7fb98be40c0b002"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ff370cd34b277ccecd78aca77658ebefee23ba07420f804bd4dc23fa695a5a38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "166d27bb96f2f000afe1370ba515376166ebaeb49e46ddf2d1c56ad6a9d55212"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "117b3382613bd3dc89aea606c566619890c9b0d3c2ca401d26c097c7d8eaff59"
   end
 
   depends_on "pandoc" => :build
@@ -35,7 +33,7 @@ class Envelope < Formula
   test do
     assert_equal "envelope #{version}", shell_output("#{bin}/envelope --version").strip
 
-    assert_match "error: envelope is not initialized in current directory",
+    assert_match "error: envelope is not initialized",
       shell_output("#{bin}/envelope list --sort date 2>&1", 1)
 
     system bin/"envelope", "init"

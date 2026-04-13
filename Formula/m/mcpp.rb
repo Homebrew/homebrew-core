@@ -10,8 +10,6 @@ class Mcpp < Formula
     regex(%r{url=.*?/mcpp[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "f3678576a7e9a2007227897d1617aba79b3ace1340c0a5e77b1bcfff43da38c3"

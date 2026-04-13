@@ -17,15 +17,14 @@ class GnustepBase < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b4e784229fba45e3cf7e766550621836a32ca09fffa5f4bbb6de15a4a94b1c05"
-    sha256 cellar: :any,                 arm64_sequoia: "5ff4a3360ffad358e87d9c556f41ccfd5e6fe44dfda235056a2129cf83807417"
-    sha256 cellar: :any,                 arm64_sonoma:  "d57d4f9a586463bb70761168d02c4998603d85b0c8283811a09e1043817791aa"
-    sha256 cellar: :any,                 sonoma:        "9a4d52b364feff116b951a9791795be6c008e3b59fafe660025da9cb48e9595b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9ad9b2062112680e37f2e0c66d37e04babfa46ccfb8240ba9ce47c831c450d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb5b281a17b65f980415c499f9cccacde252a20b0be65a26a114bd7e4f500c06"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "0693816f992adcfc685d2ee8464599a92a51bfb60a8fc428b7a41f77b6657266"
+    sha256 cellar: :any,                 arm64_sequoia: "ea087ac117a4ddee94f9ab38f7bff0e307b80b2cba871be2009711a234a54d11"
+    sha256 cellar: :any,                 arm64_sonoma:  "23da697180c63dec9c9690536bb3debe66b6d78c19ef0ce507571ab2436c8bac"
+    sha256 cellar: :any,                 sonoma:        "35f3f0a775c9e8f138a46ede7e827b2017dc00f4ff60338da1e2eb433d942a58"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ca2baa3e217b0325cb5a5d8544abda7eda57237c21b50cecf04719c68773a33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3d1ac8a92a0cfe7ad301988d5018efa6e8f71f2a906723304dab14ba0448a33"
   end
 
   depends_on "gnustep-make" => :build
@@ -37,7 +36,6 @@ class GnustepBase < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
 
   on_system :linux, macos: :big_sur_or_older do
     depends_on "icu4c@78"
@@ -45,8 +43,12 @@ class GnustepBase < Formula
 
   on_linux do
     depends_on "libobjc2"
+    depends_on "zlib-ng-compat"
     depends_on "zstd"
-    fails_with :gcc
+  end
+
+  fails_with :gcc do
+    cause "GCC Objective-C support is insufficient"
   end
 
   def install
@@ -57,7 +59,7 @@ class GnustepBase < Formula
       Formula["gnustep-make"].share/"GNUstep/Makefiles"
     end
 
-    if OS.mac? && MacOS.version > :big_sur && (sdk = MacOS.sdk_path_if_needed)
+    if OS.mac? && MacOS.version > :big_sur && (sdk = MacOS.sdk_path)
       ENV["ICU_CFLAGS"] = "-I#{sdk}/usr/include"
       ENV["ICU_LIBS"] = "-L#{sdk}/usr/lib -licucore"
 

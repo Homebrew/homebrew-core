@@ -6,22 +6,14 @@ class Tdlib < Formula
   license "BSL-1.0"
   head "https://github.com/tdlib/td.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "b2c7b6d981f8553c9ea1e6c15e03a922085be2a184463d0e9b74c103a2ce0ecc"
-    sha256 cellar: :any,                 arm64_sequoia:  "4fcaff4924fb49375c92b662b6ee8a5271594413b2b2e118a37daf71bbe4b829"
-    sha256 cellar: :any,                 arm64_sonoma:   "ee744b1888d6f8e979263e56cf9c1360d6338941f238fc97394762333b13a0fd"
-    sha256 cellar: :any,                 arm64_ventura:  "453ae4e6474f7483de288a9f9401e50384dfc4e094fe34f4f6927d0868f1c53c"
-    sha256 cellar: :any,                 arm64_monterey: "d63a391500b354be858ea542555e32e5bcbf25e1c5b6e5ce6fb1fc9caa383b1f"
-    sha256 cellar: :any,                 arm64_big_sur:  "d89f1c5d42063c1c787d8bdacef1d4a7f508e4f480f65f55412fa2c6d85ae01d"
-    sha256 cellar: :any,                 sonoma:         "0cd87bf5abd70cab87e71bb9507ccdbda13b064acce240f573585dbd3935995b"
-    sha256 cellar: :any,                 ventura:        "a18fe5ac33ffbd29734e6a811a4a5f00303487c1a63bce58b9d5a05e0b161e06"
-    sha256 cellar: :any,                 monterey:       "f445c63b3ebc517e25008bc5eefe5cb631e9fbdac5f80530e292270be44bee25"
-    sha256 cellar: :any,                 big_sur:        "e005fffee17a01c0deb9d1cf6afc29fb3d997bbb56391c3fc5b5d70b52503a8a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "2301826209f4550f3662a5f36a751318b25a92bfe2f0b6ecb36a62d3eea5a9a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "763e767a1c640428361a506075089ca11a7f2e930dd315137968bc359ab901d1"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "9d1fd3dd4b4f6f6dd59c2e1534e86d48321e922ab731ac2f1fdefc1af67a10c1"
+    sha256 cellar: :any,                 arm64_sequoia: "7cb6fd775b4dbe3570749cb293e59813c6374078c7f51ef1edc3c92faa35e492"
+    sha256 cellar: :any,                 arm64_sonoma:  "623df62e47d351af45a941e704ced66b97abf7a6a54cdc0fd065f4f0bbd5d5c8"
+    sha256 cellar: :any,                 sonoma:        "625b06e1fb521c8e2dae96cc5715b0a9cf5c80714a2ff1c92eff9166784e4a30"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5db1c940a4cbf27205ab7bf666196ae0951d38661ecab0df338a6b0a8c548e46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c71a6f6d59ab8bb956483673fafbe5666e111856596661c6a3ebd210e1212ab4"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +21,9 @@ class Tdlib < Formula
   depends_on "openssl@3"
   depends_on "readline"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Workaround to build with CMake 4

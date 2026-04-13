@@ -14,8 +14,6 @@ class Zyre < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "b97b8410e7d03d6c84387280d17c503707788453fa8016649bcac985509472dd"
     sha256 cellar: :any,                 arm64_sequoia:  "94ea60be41bac352236e7e0fe5dedaf16d53e985cb4bf7bc003df2d25565fa85"

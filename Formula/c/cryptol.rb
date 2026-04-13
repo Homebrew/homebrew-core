@@ -1,28 +1,32 @@
 class Cryptol < Formula
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://galoisinc.github.io/cryptol/master/RefMan.html"
-  url "https://hackage.haskell.org/package/cryptol-3.4.0/cryptol-3.4.0.tar.gz"
-  sha256 "5973570dfd307c0a27251bb8edcfd554034549b21dfba7b69f21963d3361a388"
+  url "https://hackage.haskell.org/package/cryptol-3.5.0/cryptol-3.5.0.tar.gz"
+  sha256 "7341c026ef83b18d2c784cfedb37003f74d1560605cd9c3107b5b6fc31fb2f84"
   license "BSD-3-Clause"
   head "https://github.com/GaloisInc/cryptol.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "07bac4c0cbc02e26d1dd4b2604a3f2904f340b022b1ad812af3af37de9d640ee"
-    sha256 cellar: :any,                 arm64_sequoia: "b6e78da5494caa934c0e80fdb21d6981935406e912b4568aa97f5ee132f561df"
-    sha256 cellar: :any,                 arm64_sonoma:  "9bea8476f6309d861c0b1d224f49e20ce28d7dc2d159f7926f48fd90126aae74"
-    sha256 cellar: :any,                 sonoma:        "fc050c33e3790a174136ccdbbb943afaa4034b947f38e1062590f660d4c81ed4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d95ecef567af42b2ba1fde9260291650e4f987c06db9f6decb206f53a11c584"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b44668d086f298d344b2036a7cd0722e7825571bcc32d2b42b45b50a326cbdd"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f5f24a0cd70a9680033bcca7983f92298b9970819ea5048034b01c06ef761755"
+    sha256 cellar: :any,                 arm64_sequoia: "05b0c231a927a089c6eb30e5fdf2be6800acb034165831a7f922d95b5b03395e"
+    sha256 cellar: :any,                 arm64_sonoma:  "e56cd834fbb39dedcfa204a32722f2cfe885dd4f648857479c20e76892a25ef1"
+    sha256 cellar: :any,                 sonoma:        "a3084a03efbd1b3d8a3ecfdfeeebda0f06e235652a0204ad4e7b663568c6b659"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad4a6f9b4ce272625e31eb25a4f2f3a955d2a219dedc3b9cc4ebd95625bedcf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0691ab5284a9b219e134f6f93a10ca1023a964590c78b03621f15d1fb199ed6"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.12" => :build
   depends_on "gmp"
   depends_on "z3"
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cabal", "v2-update"

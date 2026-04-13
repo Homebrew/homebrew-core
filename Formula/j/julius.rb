@@ -5,27 +5,21 @@ class Julius < Formula
   sha256 "74447d7adb3bd119adae7915ba9422b7da553556f979ac4ee53a262d94d47b47"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "d61bf2d5a72b3921d870e4099611148d9b33ab1873f2649f29d7adc12a4bed38"
-    sha256 cellar: :any,                 arm64_sequoia:  "d0918ba6c8c4c755b0a7ad73e0efcc5e6a20924490acebf3ff0af45aef2dcfd1"
-    sha256 cellar: :any,                 arm64_sonoma:   "3b9b28223b4853e92cc9be12a3e46ab876cdf7e48fe7fce4ce2c22459ce91db3"
-    sha256 cellar: :any,                 arm64_ventura:  "345963770e4eaa6cd0a4308d657f4b0a45b00d30e23d5e7aba9143dee08f418b"
-    sha256 cellar: :any,                 arm64_monterey: "61e0a2f95974a4fdfaee2253963fe3ab20284c4325e0f34aa22bc4a9e40a09c0"
-    sha256 cellar: :any,                 arm64_big_sur:  "dcbb2b7bfd4ba078ec6473c2193ca6fefd3f1cbe6375bd662401a5b607d99387"
-    sha256 cellar: :any,                 sonoma:         "96912e179e82c1ddfd15c1f1174ca38ae3ce8121912ce3d9f4a8faf6316bb9c5"
-    sha256 cellar: :any,                 ventura:        "c4229059cd82483a8bb92be7fdaadb2d1958e4be61001fa539f71fde025eada6"
-    sha256 cellar: :any,                 monterey:       "73f943f1011686778fdae712733eb0987f97976c6f0ab26d9771c57eccf304c9"
-    sha256 cellar: :any,                 big_sur:        "4b8251857584f844fe5469a0283a773428383053f8d80eaeff885b745578aa1d"
-    sha256 cellar: :any,                 catalina:       "b06b9ca71df4cccff10e36a4a75a55f7d5bdb009f4dba9f940044da6ba0c258d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "47883d170fbc7ce73b8498ce37bb9e26ba3d57e5574f8ed03d11af3bc8ed81be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "576576ac4069a3fd9e89e71ac2cefe9f3d1e666b9aa92915f248f8bffcf19de5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "b57b4070b691f3335a89ccbe7bc8160cf89ea13740554fe7bc139a44e27225fc"
+    sha256 cellar: :any,                 arm64_sequoia: "90626fdb7e40c9ddfb802d560b463a0a986cdc78ce9f3299560981784c7234c2"
+    sha256 cellar: :any,                 arm64_sonoma:  "5489d866714d1a191332dea80d20443dc097780a68ae3983883be5505f3406a1"
+    sha256 cellar: :any,                 sonoma:        "bd47f837c69920f2fe4149028757fe97a97f5790d9f33ab33a023ffbabc6e332"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b68ee6c4454bf90a201afdeb9877d96bcd69db13177ad1b16bfe8f598e53d18f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96922bc16267b3d31de8ff17570f1d163af94fd268168470ef560587b2059511"
   end
 
   depends_on "libsndfile"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "cmuclmtk", because: "both install `binlm2arpa` binaries"
 

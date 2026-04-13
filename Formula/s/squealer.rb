@@ -7,12 +7,13 @@ class Squealer < Formula
   head "https://github.com/owenrumney/squealer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7f50def689d5a53e1e68649f2e333ef8b396185264496f78551251e44f38d230"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f50def689d5a53e1e68649f2e333ef8b396185264496f78551251e44f38d230"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7f50def689d5a53e1e68649f2e333ef8b396185264496f78551251e44f38d230"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e70ddc65dd49956dbe67cb51bf20294b8e11103831036f7777affd6788a0d375"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa2f6dfb3492dc035ada3240f826d1541344d4daf7af553834bfc6e0a846c9a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d5915c6dda915ee730544e936a0a1c7874f2d7638e8e5b3b521da899d13fb90"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2c0a6bfae29e084026e7fbe3601704dfc3a2065a8fba3dc586947b8112aaccc0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c0a6bfae29e084026e7fbe3601704dfc3a2065a8fba3dc586947b8112aaccc0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c0a6bfae29e084026e7fbe3601704dfc3a2065a8fba3dc586947b8112aaccc0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "96f338c6e640114b1be1a11a574a0f470bed209fddd99149ec03e8b5bf02e46a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "794aad91b7bb0b841222a55761135a408ee644b539eb49f99ffc6ad0bb7fd430"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87965218774664c16237e22e34285d8a8539731a80e3e0a7628cc10f788ece7d"
   end
 
   depends_on "go" => :build
@@ -23,6 +24,7 @@ class Squealer < Formula
       -X github.com/owenrumney/squealer/version.Version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/squealer"
+    generate_completions_from_executable(bin/"squealer", shell_parameter_format: :cobra)
   end
 
   test do

@@ -11,6 +11,7 @@ class Libassuan < Formula
     "GPL-3.0-or-later", # assuan.info
     "FSFULLR", # libassuan-config, libassuan.m4
   ]
+  compatibility_version 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/libassuan/"

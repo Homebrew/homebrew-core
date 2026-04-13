@@ -6,8 +6,6 @@ class Smu < Formula
   license "MIT"
   head "https://github.com/Gottox/smu.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ae16b75d47384735db2d4c2814049a0eee4b654e58a834b38bf6434c2a0baa91"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bda27a644876f6c81baefb5ef848d760a559208664d4460eba40c95c25cb06df"

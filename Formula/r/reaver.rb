@@ -5,8 +5,6 @@ class Reaver < Formula
   sha256 "e329a0da0b6dd888916046535ff86a6aa144644561937954e560bb1810ab6702"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1a2342c639b7515a7f1870db8baf31ac8d6aec8d7dbf28006b4a98263fdfc142"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "67906250f6cd74d13aa313315e80b46b0998e898a1c0589dcb67a3652b02081f"

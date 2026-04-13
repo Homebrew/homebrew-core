@@ -1,8 +1,8 @@
 class Ptex < Formula
   desc "Texture mapping system"
   homepage "https://ptex.us/"
-  url "https://github.com/wdas/ptex/archive/refs/tags/v2.5.1.tar.gz"
-  sha256 "6b4b55f562a0f9492655fcb7686ecc335a2a4dacc1de9f9a057a32f3867a9d9e"
+  url "https://github.com/wdas/ptex/archive/refs/tags/v2.5.2.tar.gz"
+  sha256 "dd95fbea4b50e9e68fd042f540fb83157a0ff25053066c3439d4527de3621d34"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,19 +11,21 @@ class Ptex < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b9ad545c0561cf637d82a5dff6e0c783c707bca219cf361a96390d0ff7484780"
-    sha256 cellar: :any,                 arm64_sequoia: "25ef8e59f1281d492ed40390e8408f9f1104f1378bf0ee1e67daaff4ade4abab"
-    sha256 cellar: :any,                 arm64_sonoma:  "c30eae1e67e46837fd7b8b42e6cd1559747c725d9bfc79520f1962566c5645e2"
-    sha256 cellar: :any,                 sonoma:        "b377aec3cfbafdb380aaf0b8efe83f305e178681836192476669322c31afc523"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6678a7e585381373ea5f21bf5d1833417a8d47dc30a0e0d2b48e6dd99434a8b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fdf8e1c4e191abd2553ffdc6dd9c57eee384d41a0edec03fca0c0958501954d"
+    sha256 cellar: :any,                 arm64_tahoe:   "e4f099c6edc4ecbad03908454937754e8c8f6c305e26c81c2f7076691cca8988"
+    sha256 cellar: :any,                 arm64_sequoia: "d2b785dd36c29c9134a6df5a3f63b259af2512472db0386732fef6a697211fda"
+    sha256 cellar: :any,                 arm64_sonoma:  "9eea79e8534259ecaa6ba343b5420ebd09a10121cbae8788239ea88c0f41b4c1"
+    sha256 cellar: :any,                 sonoma:        "bd517a22c4b204d6f8017c572bdac202afd99d6138338de08b99090d4cd49e2a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "997872daabf6c5f28913f179499df3a0a9ff6368863ec5da47302a6cc9bad964"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "382a10a67ae55b7fb623010561ada1e635976223370d361a33e7ded6123078ed"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libdeflate"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=17", *std_cmake_args

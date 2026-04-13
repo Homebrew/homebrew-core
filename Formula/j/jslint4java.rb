@@ -5,8 +5,6 @@ class Jslint4java < Formula
   sha256 "078240b17256a0472f9981d68f11556238658ebaa67be49ea49958adafc96a81"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "96eda9ffe32e9dae5f01ef6dbad6c26ae7deeff1ad79163c18c0331819d44e46"

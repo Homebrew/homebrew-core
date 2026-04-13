@@ -26,6 +26,7 @@ class AescryptPacketizer < Formula
   # v3 source code has been unavailable since at least 2024-09-01.
   # v4 requires purchase of license (https://www.aescrypt.com/license.html)
   deprecate! date: "2025-03-17", because: "switched to a commercial license in v4"
+  disable! date: "2026-03-17", because: "switched to a commercial license in v4"
 
   def install
     if build.head?

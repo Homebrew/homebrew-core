@@ -12,12 +12,13 @@ class Libpano < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ae40d74c1e27009a5d00513ce87a950a28b37eaf407b470bdb13f786b5074479"
-    sha256 cellar: :any,                 arm64_sequoia: "fbac0545d8141c470673e085b138198a2bb6d4015670a61b9e2763c1d2169f26"
-    sha256 cellar: :any,                 arm64_sonoma:  "c98a4e9f9e341fded546ba27a759ffeb1f4ff209636760a81640980ff11d88df"
-    sha256 cellar: :any,                 sonoma:        "8171b674a244d4c621dc68e41ffb4866eadd5a2f030a7ef0d4c0620de30b6948"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "28b9466184695ce7c4fdaecf05da9fcb4aa6932e50a338824edeaf5755f643a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "383c63f24f0dfd1509743d14d00c4878bbacb3c446596ee1e9df707fcc883aed"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "bed5e7b25e2109ea77ea76567c3197f60752d2e866aefaf18ac4ddf2c248cce4"
+    sha256 cellar: :any,                 arm64_sequoia: "a4d99700b3f78d2d2127aa44af61277d21aa9af993af1561bf37d8709391480e"
+    sha256 cellar: :any,                 arm64_sonoma:  "a98362bc2e1df8ab509bf95808ec9b06478231620ea1643388dd50dac292206e"
+    sha256 cellar: :any,                 sonoma:        "eb39a8e4827912f36aa9693b13dd0ed1f588c98f3a37112ab85977569c9aabe4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a42aea9bc8bd4019a965019b13c7147670db0b28780e31105dd2ddc68e9dbec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f128fb8a847e170a59c01964478ae7f141ae3be4683a26a3f008366376ac28b6"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,9 @@ class Libpano < Formula
   depends_on "libpng"
   depends_on "libtiff"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   patch :DATA
 

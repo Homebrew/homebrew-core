@@ -1,17 +1,17 @@
 class Intermodal < Formula
   desc "Command-line utility for BitTorrent torrent file creation, verification, etc."
   homepage "https://imdl.io"
-  url "https://github.com/casey/intermodal/archive/refs/tags/v0.1.15.tar.gz"
-  sha256 "a01fde996f2e506c7e90a6015a6e130cb4757d21e98063c38672bdccf2e99d9c"
+  url "https://github.com/casey/intermodal/archive/refs/tags/v0.1.16.tar.gz"
+  sha256 "3a072929379ddba929d85a579888ac51cf22e44897b7dc84af7612f49d3874d7"
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2be891c2b96611a332b05e919ae9bd4d94bc353f649fc907954a49a649d3eb1d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "840aa130a61ca1f89c05b615b20aa43ec80df2229406895455b4521796dd6f48"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c711d051f9fdfcf2b6e910d3101f0e25811532c0caa0a964f204f144b1cc996e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9e113d9474e825dc7e86a67360e1f713a515aef547c52008c6ede62611576aac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c308e078efd80e3ef65cf6db4d62a87272d2897d960b4c41a10fd9350edd05a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b50de11de888eb84d65e2ff265bd6a16effc63be4ef067cf71bb3cbb6cda22a4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f873e05c4b6c00717b18cd0b49248cc9d126b6aa37232a0d9de2228b4cd0907"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53009e91234fdb3598c91b82e6b9986f56c06468b40653fa04cbd131340c5fd5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2f1d0bd08f541bd0c7d4e40d05e9a55b85d7ecf5415ac46af4ed6838b46aabe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9a681fa9cb105b9b7de1d3d6be81dd5858da7fefd52331e552154c98647b3c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1d91a49b2e5b2b1687de635be27e3406d0124dc57f2b78f5febcade82bf84ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40616ffe3acc0e553d24b803f8c5234c5013127b49f4ab18452fc9565861a887"
   end
 
   depends_on "help2man" => :build

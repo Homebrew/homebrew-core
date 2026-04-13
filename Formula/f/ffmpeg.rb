@@ -1,13 +1,13 @@
 class Ffmpeg < Formula
-  desc "Play, record, convert, and stream audio and video"
+  desc "Play, record, convert, and stream select audio and video codecs"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-8.0.1.tar.xz"
-  sha256 "05ee0b03119b45c0bdb4df654b96802e909e0a752f72e4fe3794f487229e5a41"
+  url "https://ffmpeg.org/releases/ffmpeg-8.1.tar.xz"
+  sha256 "b072aed6871998cce9b36e7774033105ca29e33632be5b6347f3206898e0756a"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
-  license "GPL-2.0-or-later"
-  revision 1
-  compatibility_version 1
+  # Passing `--enable-version3` changes the license to GPL v3+.
+  license "GPL-3.0-or-later"
+  compatibility_version 2
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -16,43 +16,52 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "67485da6130564573f58a371edfa0ba1d395a4f4d33b98e0274dc00eee423c0a"
-    sha256 arm64_sequoia: "72d0a14e79de3fe77f8e82b8cd19317a51ee825b5a432c2f001fd626c259d54d"
-    sha256 arm64_sonoma:  "19389f40342e20e7d898e7d7d447ee396f7fe0017fef412bc1304a7a8de46513"
-    sha256 sonoma:        "c6b3f49257834d6a99e6101c46543c97d36e23f8fe29a090373c6072c065826f"
-    sha256 arm64_linux:   "e38791d20251d1c4a27adb183d5cd2c9c6f300fd6a25a272839c58a1064c08c8"
-    sha256 x86_64_linux:  "1dc46eb43e40507d8843f66656855ecdcd44c3b1ca29d376c40e62f773fd541c"
+    rebuild 2
+    sha256 arm64_tahoe:   "024e65624fd6c45be22c5584824a58f9d1574f011de2ab8663deb24859d7c270"
+    sha256 arm64_sequoia: "e1c8c446667b1b7cd74f4469171b6c5bcc2f8b83bae402fc015455c2bab03d2d"
+    sha256 arm64_sonoma:  "68360419ec69152abf9b43c9600a4204a5ae35fc5a3e1ca04c9aa2272d878177"
+    sha256 sonoma:        "a8436e19dbac435e356681824c94cd67d7382409241a0b748333568cbc85a972"
+    sha256 arm64_linux:   "b35368cffecc23ce31d656f0d1e27b594562de8398e7685e7dca3b293ffc2676"
+    sha256 x86_64_linux:  "f6e9a913d33d319cc4c47876c71d06b91ef6e37df94555052d2674b7fed159e2"
   end
 
   depends_on "pkgconf" => :build
 
-  # Only add dependencies required for dependents in homebrew-core.
+  # Only add dependencies required for dependents in homebrew-core
+  # or INCREDIBLY widely used and light codecs in the current year (2026).
   # Add other dependencies to ffmpeg-full formula.
+  # We should expect to remove e.g. x264 eventually (>=2027) when usage of it is
+  # negligible and has all moved to e.g. x265 instead.
+  depends_on "dav1d"
   depends_on "lame"
+  depends_on "libvmaf" # dependent: ab-av1
+  depends_on "libvpx"
+  depends_on "openssl@3"
   depends_on "opus"
   depends_on "sdl2"
   depends_on "svt-av1"
   depends_on "x264"
+  depends_on "x265"
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "libxcb"
+    depends_on "xz"
+    depends_on "zlib-ng-compat"
+  end
 
   on_intel do
     depends_on "nasm" => :build
-  end
-
-  # Fix for QtWebEngine, do not remove
-  # https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=270209
-  patch do
-    url "https://gitlab.archlinux.org/archlinux/packaging/packages/ffmpeg/-/raw/5670ccd86d3b816f49ebc18cab878125eca2f81f/add-av_stream_get_first_dts-for-chromium.patch"
-    sha256 "57e26caced5a1382cb639235f9555fc50e45e7bf8333f7c9ae3d49b3241d3f77"
   end
 
   def install
     # The new linker leads to duplicate symbol issue https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/140
     ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.ld64_version.between?("1015.7", "1022.1")
 
+    # Fine adding any new options that don't add dependencies to the formula.
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -67,6 +76,11 @@ class Ffmpeg < Formula
       --enable-libopus
       --enable-libx264
       --enable-libmp3lame
+      --enable-libdav1d
+      --enable-libvmaf
+      --enable-libvpx
+      --enable-libx265
+      --enable-openssl
     ]
 
     # Needs corefoundation, coremedia, corevideo

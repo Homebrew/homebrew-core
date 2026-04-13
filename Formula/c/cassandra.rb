@@ -4,18 +4,19 @@ class Cassandra < Formula
 
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/5.0.6/apache-cassandra-5.0.6-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/5.0.6/apache-cassandra-5.0.6-bin.tar.gz"
-  sha256 "50033c31dc620c17fb0d8931c7a950ffe66e457cbf6eff1b7f94cba929344d4c"
+  # TODO: Switch to `python@3.13` after https://github.com/apache/cassandra/pull/4628
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/5.0.7/apache-cassandra-5.0.7-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/5.0.7/apache-cassandra-5.0.7-bin.tar.gz"
+  sha256 "556be693f1941aeb8ec1538fe6224cbefdca7bc3729f87ff0e24a0052eb98c33"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0de4d2dcd50ab4a0b3aaa4dccf008d358d78226f7b21dfd3b2297ff667762c73"
-    sha256 cellar: :any,                 arm64_sequoia: "523dbf2e3fb561d07ea93d39fb220bc10eba243ff174fc89e8ceab85dea0e891"
-    sha256 cellar: :any,                 arm64_sonoma:  "cbd471c203a18c9c22079fd08c3e2d18d7cb935b6082adfc08cb8b1deef77128"
-    sha256 cellar: :any,                 sonoma:        "0efec8e3d2a3127251d8272d781b6aef07443702e56bf4a02089dd2428d54879"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bd31534c91dfd6979bbb6d169871918fc3854ff7ede8624f15a03f4bdd8c181"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "707e81f60da7fd7e2cd1a68af2cc3523a1ef66d1278bc2e1bedb44c108baff0b"
+    sha256 cellar: :any,                 arm64_tahoe:   "69447b29380473bb63260335e820c5dd360753a590bbfe1d9c9630e41a84d54d"
+    sha256 cellar: :any,                 arm64_sequoia: "48e2aaffd02a67bf892bfcad198c81fdf1bf79422fe95a4e1d0cba6583f03e4f"
+    sha256 cellar: :any,                 arm64_sonoma:  "4569c6b3d2975083cb538f640fa6b2e992acbf8ed4f95dbe552bba2b10ce130f"
+    sha256 cellar: :any,                 sonoma:        "7eae9fc3ddddf212d502896470a4e70aaa64f73a0e81eda8d99555fc4217a878"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "524816714602d2fc2d1a7071f884b04e2c08520bf2223fdc5a511085a5d21b47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad31007a1f33a574ea466f8fcddf21602c0be345b098024aa0883574254a3e02"
   end
 
   depends_on "libev"
@@ -30,11 +31,18 @@ class Cassandra < Formula
   resource "cassandra-driver" do
     url "https://files.pythonhosted.org/packages/06/47/4e0fbdf02a7a418997f16f59feba26937d9973b979d3f23d79fbd8f6186f/cassandra_driver-3.29.3.tar.gz"
     sha256 "ff6b82ee4533f6fd4474d833e693b44b984f58337173ee98ed76bce08721a636"
+
+    # Remove `ez_setup.py` to be compatible with setuptools 82+, remove in next release
+    patch do
+      url "https://github.com/apache/cassandra-python-driver/commit/7d8015e3c1cff543a5f64c70cff3e14216e58037.patch?full_index=1"
+      sha256 "66a5a714aed117306e6c0e78b51615b56ca655e12cb9ea5718b0c1ae384ceef6"
+    end
+    patch :DATA
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
-    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "geomet" do
@@ -43,8 +51,8 @@ class Cassandra < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
-    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   def install
@@ -148,3 +156,19 @@ class Cassandra < Formula
     assert_match "Connection error", output
   end
 end
+
+__END__
+diff --git a/setup.py b/setup.py
+index ef735b7..891d192 100644
+--- a/setup.py
++++ b/setup.py
+@@ -16,9 +16,6 @@ import os
+ import sys
+ import warnings
+ 
+-import ez_setup
+-ez_setup.use_setuptools()
+-
+ from setuptools import setup
+ from distutils.command.build_ext import build_ext
+ from distutils.core import Extension

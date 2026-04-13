@@ -6,29 +6,22 @@ class Pngnq < Formula
   license "BSD-3-Clause"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "d463943082fa76cf5dac7bfc957001bb2445351a77b79dd4f317dc6266b114e5"
-    sha256 cellar: :any,                 arm64_sequoia:  "06007a7ead893b75a74fa9f5cc7c466219fe2be5149a245e0ae560dd52503aae"
-    sha256 cellar: :any,                 arm64_sonoma:   "951d02bef2eeb1252344215eb818f95c269506f4f678b3755df4a0c483277f8e"
-    sha256 cellar: :any,                 arm64_ventura:  "871a8ea613320d94c57aae21e6fb9e3d42016d8ab88a6fd30b1f4e915591badf"
-    sha256 cellar: :any,                 arm64_monterey: "31c85fafb9fd2051db06856042a3f216f9fd24fbfd8acf95f5a51bf695989a02"
-    sha256 cellar: :any,                 arm64_big_sur:  "21e94d2f987e060920488bdaf121792282548dcf196eed01e4fd5221db414685"
-    sha256 cellar: :any,                 sonoma:         "5b5739e2d4628da75276dc69041c088fd960f1aae9d6f827c8fb92bddabd2e59"
-    sha256 cellar: :any,                 ventura:        "0cc5748776f48d4460f726fd20d0015761c3640e8ab644a024dd967edf9d67bd"
-    sha256 cellar: :any,                 monterey:       "d84ba4d373165ff3999b3c20e49ebdc69f8374a7c04a6fa48fc68d337a2e5924"
-    sha256 cellar: :any,                 big_sur:        "42695d06f657acabd7c229206d3623ca3830667c4ab1308d5371cbca7beb48bd"
-    sha256 cellar: :any,                 catalina:       "f438c5d73e9dd9c3c36283aa9f8253168de30f52242955a803714350cc247c80"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "1af6b55b0fed98058a42791addbbd0793767c0e7a8de383abdb0476b57bdc1f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18ba477730fc049d9a7b16d94247a14e3ad6fbace2f40f8aa5d180822d12e173"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "2620068d9fc38a44ae6f531bf96c375f66ada13346305f21ca928ef23746c2c7"
+    sha256 cellar: :any,                 arm64_sequoia: "22e6dab5a0b73dc8ccb43b7e5c6fac16e697dacaf1e719ce53b3a7b74b9db9a7"
+    sha256 cellar: :any,                 arm64_sonoma:  "90211658315c738ea4db4aee3a10b2600e513ee62da4e8b94c4465dfa71d1a33"
+    sha256 cellar: :any,                 sonoma:        "a705de8c00c50759ad33d85f92bf005882b37b681d97451290ec6b4677993c55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c249a8d67736f14b8d2e3353e9ab37df8c64a57f5f741e93964a5f4fb50e073f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c299814b5e7a395acdc6ee57591bbcbff32a0ff32a46041cbb6706832151bc78"
   end
 
   depends_on "pkgconf" => :build
   depends_on "libpng"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Starting from libpng 1.5, the zlib.h header file

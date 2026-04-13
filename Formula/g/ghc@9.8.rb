@@ -15,8 +15,6 @@ class GhcAT98 < Formula
     regex(/v?(9\.8(?:\.\d+)+)[._-]notes/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "9480b6b54cbcaf29cd4ad8cae23cdb03bad48485186926d66685c40c90771fcf"

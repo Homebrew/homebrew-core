@@ -1,19 +1,18 @@
 class Fjira < Formula
   desc "Fuzzy-find cli jira interface"
   homepage "https://github.com/mk-5/fjira"
-  url "https://github.com/mk-5/fjira/archive/refs/tags/1.5.1.tar.gz"
-  sha256 "8e7a8879f5d763e22777732151b3439700f2d46c6bc26c24217288eee280ddc0"
+  url "https://github.com/mk-5/fjira/archive/refs/tags/1.5.3.tar.gz"
+  sha256 "c69673a92a440c703ce5242fd14aacdb1f1c8f02b69a7cd6b05ee6bbf9fc19d7"
   license "AGPL-3.0-only"
   head "https://github.com/mk-5/fjira.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b83a4173e4933fb25d8a195d77373490a078f3a2174bf108f546db78cb41b072"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b83a4173e4933fb25d8a195d77373490a078f3a2174bf108f546db78cb41b072"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b83a4173e4933fb25d8a195d77373490a078f3a2174bf108f546db78cb41b072"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c38cd61dcd9d1c5927363e58a6b859a9bd14e79d513176c2419c52c790ede176"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "789050c51754e093aac630a57e92bb81aed1633b1948851f3cbcbbcc85800816"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57b273af104278cb40731f2104f484f98a9f86392d83f9b92295b5d93baddc8d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3576e114d0446d150fb857da28143d2b349c3a1693d0053399e25a9e571d6b22"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3576e114d0446d150fb857da28143d2b349c3a1693d0053399e25a9e571d6b22"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3576e114d0446d150fb857da28143d2b349c3a1693d0053399e25a9e571d6b22"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c4614265019bf889d2c53dfa165e360edba9dff2de5eceb13a3fb99974a242ca"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8e18c9ca9cba748c58f4de0b98cd4f7b682a4516436fdd64e7f890cf8c1e0b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f3d4257822cce2b03dfbefe4126ec3ee8672a1d2e657d3dc7051a3b2588347f"
   end
 
   depends_on "go" => :build

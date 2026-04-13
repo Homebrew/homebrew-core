@@ -1,8 +1,8 @@
 class Webkitgtk < Formula
   desc "GTK interface to WebKit"
   homepage "https://webkitgtk.org"
-  url "https://webkitgtk.org/releases/webkitgtk-2.50.4.tar.xz"
-  sha256 "d3bfa473845acfab72635bada5e0d134fda6792c5b95c5c5cd141b46125bd8e4"
+  url "https://webkitgtk.org/releases/webkitgtk-2.52.0.tar.xz"
+  sha256 "b31c55f18194ac83ba08c9b93bbeffef57a7ecff7f41c874d17a9e7853dca19f"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,8 +11,8 @@ class Webkitgtk < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "34c6dede8645e3e025e0291c445e1b2ee0e825c3ce8078db836bb9b953f891f5"
-    sha256 x86_64_linux: "13ebc4b63ad2e5fb481f9df53c0593baabf737e0d409258efe27682dcb0f7c4c"
+    sha256 arm64_linux:  "bf37a14a173c393fd875f484ae7012928a54a41f6d614deb597552b848807ad0"
+    sha256 x86_64_linux: "c6fc37543e4d6021dc1eb74b9e802e496c3b8707c5be86ff1a5fc4e2bcf3a9ef"
   end
 
   depends_on "cmake" => :build
@@ -65,7 +65,7 @@ class Webkitgtk < Formula
   depends_on "webp"
   depends_on "woff2"
   depends_on "wpebackend-fdo"
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
 
   def install
     args = %W[

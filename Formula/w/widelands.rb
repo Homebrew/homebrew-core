@@ -1,10 +1,9 @@
 class Widelands < Formula
   desc "Free real-time strategy game like Settlers II"
   homepage "https://www.widelands.org/"
-  url "https://github.com/widelands/widelands/archive/refs/tags/v1.3.tar.gz"
-  sha256 "8468b6bc0ddb70749c09c5603109ceeb79b95f3602d3aa55ecfad84f8ea82571"
+  url "https://github.com/widelands/widelands/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "e6f3e8f4fcafd367962dbacde80e26fc63afad38cfe26fadba9c92d4a01bd687"
   license "GPL-2.0-or-later"
-  revision 1
   version_scheme 1
 
   livecheck do
@@ -13,12 +12,12 @@ class Widelands < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "3a62a862ea1cf6d5f34619afd4c0b80b0ef433848ded0d103af4bb24b302fbcb"
-    sha256 arm64_sequoia: "0dc37d35152b9d92f8b2a1989e5d83a8d7c15456f070390e720b25396a6cca57"
-    sha256 arm64_sonoma:  "a671a12752fb6378b4afcf4609f8b80301f24c6bb0a32c6b69c8e836e4f935c7"
-    sha256 sonoma:        "e75054b0b228da298b0f20e2c513caa9cbd25504e186c57f637d2c21544727cf"
-    sha256 arm64_linux:   "e1e5ad56b87f7e520ab0ecb4eabc565cbe772e4ea1042eb927a26e7fbea3484b"
-    sha256 x86_64_linux:  "b9c9ed74ec42f56a34fe2fd7a75f28e7877c9ca4d27c17f9d69d856a2391aec2"
+    sha256 arm64_tahoe:   "e61c9fed2f752bd87cfae05918936c9c14f34cf1c23d2ebe42d7d858cb57a70a"
+    sha256 arm64_sequoia: "7e17bf998e0c713eb41e7431d04d1934e9e13072ae8e015940c38305ec54c5b6"
+    sha256 arm64_sonoma:  "2b1b4a6c64156b8b5b74031e165a71eb386877ba7b962376b59b6152a5ca3a73"
+    sha256 sonoma:        "36eb4c3ee035cebae44213d5c6a76a57b13714c47b70f6aaea44f46badf00295"
+    sha256 arm64_linux:   "5d0a8eb18082b2e40898313d7c83f94e06e33c9587037a10ff74130e476847d5"
+    sha256 x86_64_linux:  "eced0f3c4f891673c94286a75b9cf31fdcacc2a370db7045b9983f48ba960bc7"
   end
 
   depends_on "asio" => :build
@@ -38,7 +37,6 @@ class Widelands < Formula
   depends_on "sdl2_ttf"
 
   uses_from_macos "python" => :build
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -46,6 +44,7 @@ class Widelands < Formula
 
   on_linux do
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   def install

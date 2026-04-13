@@ -1,8 +1,8 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.11.8.tar.gz"
-  sha256 "3e7a22bb28f8955dfadaa248c8cba769de4e361efefda1b02ee24b9ed1d3251c"
+  url "https://github.com/goplus/llgo/archive/refs/tags/v0.12.2.tar.gz"
+  sha256 "a52cb2d41805747d0e882d050d6bf6a626b510c8a3d34a2c511a51df54117d43"
   license "Apache-2.0"
   head "https://github.com/goplus/llgo.git", branch: "main"
 
@@ -12,27 +12,27 @@ class Llgo < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c6451111d6a46d929d63d3376900472da6f76b96d0675a4453bfb0cd4e773fcb"
-    sha256 cellar: :any, arm64_sequoia: "e5122050ada8d64452f946b0e8fd7fb0955a4be56e43096274ef6b937384a419"
-    sha256 cellar: :any, arm64_sonoma:  "20f26a861f1c6924bac156afe56e04314526656fe8ab0bb0741d8554147d5fe4"
-    sha256 cellar: :any, sonoma:        "7d4767ece1825bf697de6e7326ee3715bf9953648f9689c5c9a29455bffbf3bf"
-    sha256               arm64_linux:   "ad241fc7466dc25750342203b224bd3889edeb91c17a03cff304e5e7963cad6d"
-    sha256               x86_64_linux:  "53c7ab05bc67f8a8c04508a885718eb132e6bcea779d22aabbaadefb40208f63"
+    sha256 cellar: :any, arm64_tahoe:   "478656cf92824d87b7ba41a8d166eb01c523019c17e03b35d00daedd826e277a"
+    sha256 cellar: :any, arm64_sequoia: "cc685e59d51a44981a1747225c3f1c3f4ecb5c991670b1ca94c9bd6395b87cb1"
+    sha256 cellar: :any, arm64_sonoma:  "754249171424bc00731d137b6c0528c3405df704535bc128e4c86ddeaf4be14d"
+    sha256 cellar: :any, sonoma:        "e67804fb00af76fc2e147a801b2174ff89083008f401de1af3acc006d2c66c86"
+    sha256               arm64_linux:   "d805ea8a6ec80bc309013a6860062c4e584a973cd876a9a289f408407e3633f0"
+    sha256               x86_64_linux:  "5aae678328b29b9217d6952fa1d8d4c0e23f51c63b3a6556fe3052c70e8d965e"
   end
 
-  depends_on "bdw-gc"
-  depends_on "go@1.24"
-  depends_on "libuv"
+  depends_on "bdw-gc" => :no_linkage
+  depends_on "go@1.25"
+  depends_on "libuv" => :no_linkage
   depends_on "lld@19"
   depends_on "llvm@19"
   depends_on "openssl@3"
   depends_on "pkgconf"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libunwind"
+    depends_on "zlib-ng-compat"
   end
 
   def find_dep(name)
@@ -46,12 +46,12 @@ class Llgo < Formula
       -s -w
       -X github.com/goplus/llgo/internal/env.buildVersion=v#{version}
       -X github.com/goplus/llgo/internal/env.buildTime=#{time.iso8601}
-      -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin/"llvm-config"}
+      -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin}/llvm-config
     ]
     tags = nil
     if OS.linux?
       # Workaround to avoid patchelf corruption when cgo is required
-      if Hardware::CPU.arch == :arm64
+      if Hardware::CPU.arm64?
         ENV["CGO_ENABLED"] = "1"
         ENV["GO_EXTLINK_ENABLED"] = "1"
         ENV.append "GOFLAGS", "-buildmode=pie"
@@ -67,25 +67,24 @@ class Llgo < Formula
       tags = "byollvm"
     end
 
-    system "go", "build", *std_go_args(ldflags:, tags:), "-o", libexec/"bin/", "./cmd/llgo"
+    system "go", "build", *std_go_args(ldflags:, tags:, output: libexec/"bin/llgo"), "./cmd/llgo"
 
     libexec.install "LICENSE", "README.md", "go.mod", "go.sum", "runtime"
 
     path_deps = %w[lld go pkgconf].map { |name| find_dep(name).opt_bin }
     path_deps << llvm.opt_bin
-    script_env = { PATH: "#{path_deps.join(":")}:$PATH" }
+    script_env = { PATH: "#{path_deps.join(":")}:${PATH}" }
 
     if OS.linux?
       libunwind = find_dep("libunwind")
-      script_env[:CFLAGS] = "-I#{libunwind.opt_include} $CFLAGS"
-      script_env[:LDFLAGS] = "-L#{libunwind.opt_lib} -Wl,-rpath,#{libunwind.opt_lib} $LDFLAGS"
+      script_env[:CFLAGS] = "-I#{libunwind.opt_include} ${CFLAGS}"
+      script_env[:LDFLAGS] = "-L#{libunwind.opt_lib} -Wl,-rpath,#{libunwind.opt_lib} ${LDFLAGS}"
     end
 
-    (libexec/"bin").children.each do |f|
+    (libexec/"bin").each_child do |f|
       next if f.directory?
 
-      cmd = File.basename(f)
-      (bin/cmd).write_env_script libexec/"bin"/cmd, script_env
+      (bin/f.basename).write_env_script f, script_env
     end
   end
 
@@ -100,7 +99,7 @@ class Llgo < Formula
     bdwgc = find_dep("bdw-gc")
     ENV.prepend_path "LD_LIBRARY_PATH", bdwgc.opt_lib
 
-    (testpath/"hello.go").write <<~GO
+    (testpath/"hello.go").write <<~'GO'
       package main
 
       import (
@@ -115,7 +114,7 @@ class Llgo < Formula
 
       func main() {
         fmt.Println("Hello LLGo by fmt.Println")
-        c.Printf(c.Str("Hello LLGo by c.Printf\\n"))
+        c.Printf(c.Str("Hello LLGo by c.Printf\n"))
       }
     GO
     (testpath/"hello_test.go").write <<~GO
@@ -134,16 +133,14 @@ class Llgo < Formula
     (testpath/"go.mod").write <<~GOMOD
       module hello
     GOMOD
+
+    expected = "Hello LLGo by fmt.Println\nHello LLGo by c.Printf\n"
     system go.opt_bin/"go", "get", "github.com/goplus/lib"
     # Test llgo run
-    assert_equal "Hello LLGo by fmt.Println\n" \
-                 "Hello LLGo by c.Printf\n",
-                 shell_output("#{bin}/llgo run .")
+    assert_equal expected, shell_output("#{bin}/llgo run .")
     # Test llgo build
     system bin/"llgo", "build", "-o", "hello", "."
-    assert_equal "Hello LLGo by fmt.Println\n" \
-                 "Hello LLGo by c.Printf\n",
-                 shell_output("./hello")
+    assert_equal expected, shell_output("./hello")
     # Test llgo test
     assert_match "PASS", shell_output("#{bin}/llgo test .")
   end

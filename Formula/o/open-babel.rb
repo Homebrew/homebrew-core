@@ -2,7 +2,7 @@ class OpenBabel < Formula
   desc "Chemical toolbox"
   homepage "https://github.com/openbabel/openbabel"
   license "GPL-2.0-only"
-  revision 4
+  revision 5
   head "https://github.com/openbabel/openbabel.git", branch: "master"
 
   stable do
@@ -16,15 +16,14 @@ class OpenBabel < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256                               arm64_tahoe:   "37da789f563a487a27f8c7fbb8ecce87ce6f192852ba0e1c97eae748b425199d"
-    sha256                               arm64_sequoia: "8a1f9f14d38fae8c7dd36a28b1d43c229978d8f3e652fd0bab0f2a4e6a4e4677"
-    sha256                               arm64_sonoma:  "0c6f3868747c69959966495b34b059d4793e5e4a50d7f4b0c8d3ef327c602f7d"
-    sha256                               sonoma:        "03a180d4412df1f0d6e3d0b6e865fcea2978d36a4d6bed6cd236d96ded931d0e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0aa8391693fb00503fdc467c0d3377b3c9fda78e02ca7d394883f67ec2ecb77a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52a63e3ffd5f4037277d25fbb3572dd6c527770a3d16fbaa7f7a9d0d4503b204"
+    rebuild 1
+    sha256                               arm64_tahoe:   "2c456fe61ba2215e23fa09d39cb689657c1ca8f73d46eac8e9216171e3464ac1"
+    sha256                               arm64_sequoia: "e7d58eda61ed6ac0d01c9025485ffa6c8cd5ed22948dcc3111aabaf64f157637"
+    sha256                               arm64_sonoma:  "f93aaad06396b9f3b960319baa8c6579a4e7b6ceb21f0f4c64f139b00f8a95e0"
+    sha256                               sonoma:        "97be0b112e05a4f9ab90c96895d8893316edb68e05deffff11b9d0ccdb7e8a47"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "89bea578b4834dc7ec4e571d6d5902f997d1bc98dbc0ae2b47354eb714e514c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af664d295e831c8bb50b88cf5457936d37843930d17685b7d2b7cddcf4e7a960"
   end
 
   depends_on "cmake" => :build
@@ -38,7 +37,10 @@ class OpenBabel < Formula
   depends_on "python@3.14"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def python3
     "python3.14"

@@ -16,14 +16,13 @@ class Ffms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4285d9a074aa6adcc2e730826d000cbeb436d9d8bdb4f3a97842aec6044a6ab9"
-    sha256 cellar: :any,                 arm64_sequoia: "6c3ddf23bef180ecf0857ade1201c7b1be2d0365f522139d0435ca0614fb9962"
-    sha256 cellar: :any,                 arm64_sonoma:  "fbe96279b730758d03155384f195087776ef5899dbac5a1af12d19b77185494c"
-    sha256 cellar: :any,                 arm64_ventura: "c198b047753f0485fab0eb7ffb9a7330c9222dc8e216842843f68c9c840b161b"
-    sha256 cellar: :any,                 sonoma:        "615383651f78749b3156ef5ed50c88358a84c147c5bf03633f344f9278f479d5"
-    sha256 cellar: :any,                 ventura:       "22cf1f6df4187feb8230aaf3a872490867b70877146b328a931610a1a283a0e8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b95e619235ff30a48caebe4853bc67adb485f38221aa12ffe68fdac2175bae0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "552d905d96b635d3fb0814e25e70d8f7f58438dc02f8d3321f576c697861af32"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "762d4b37cda59b4d929851bb8a206922fe2b5e59919152dd78f4a53e27082217"
+    sha256 cellar: :any,                 arm64_sequoia: "e3982aedb8762c68a69e4f0e8ec2f6bf36f72ef6d8970b0bc2ad6b0c652f394d"
+    sha256 cellar: :any,                 arm64_sonoma:  "0ebad5227e698f8a477de1eec61e08f39afd387a08bf6d68812cea68a79f8174"
+    sha256 cellar: :any,                 sonoma:        "4bbc6ca72fa21c5ba1ab5cf8cc380ed30c4fce7983890ad55e169b942cb60655"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd0c0cbf02ecdc775ec98aa0db63dff6bbac02e3c1fbbefecba4eb12d1085098"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "122322cb5af8f95bfac1fda7cfe7043b91d4205c940382f17ab463037b1fb43a"
   end
 
   depends_on "autoconf" => :build
@@ -32,7 +31,9 @@ class Ffms2 < Formula
   depends_on "pkgconf" => :build
   depends_on "ffmpeg"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./autogen.sh", "--enable-avresample", *std_configure_args

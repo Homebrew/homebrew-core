@@ -1,26 +1,23 @@
 class Hdf5Mpi < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/solutions/hdf5/"
-  url "https://github.com/HDFGroup/hdf5/releases/download/hdf5_1.14.6/hdf5-1.14.6.tar.gz"
-  sha256 "e4defbac30f50d64e1556374aa49e574417c9e72c6b1de7a4ff88c4b1bea6e9b"
+  url "https://github.com/HDFGroup/hdf5/releases/download/2.1.1/hdf5-2.1.1.tar.gz"
+  sha256 "efff93b5a904d66e8f626d7da60b5eedc9faf544be27dbabbaa87967b8ad798b"
   license "BSD-3-Clause"
   version_scheme 1
+  compatibility_version 1
 
   livecheck do
     formula "hdf5"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0ba24bdbc4fb2fdbf5ffc2e602d49bba1d8d3e85a2c84e9d648749a0ea19032b"
-    sha256 cellar: :any,                 arm64_sequoia: "3d151c2f7f4e990d4c87d09cfd1159a00eeced94110946b04d78e8afc643532d"
-    sha256 cellar: :any,                 arm64_sonoma:  "328ef1d38510de4d0b6acdd2aa8ba2bf96ee37c7006ee56b7cf33107386a4eb3"
-    sha256 cellar: :any,                 arm64_ventura: "ab720a1b8793cda7b0726ca973b97823986b14a01829b01532dc9ac27872851c"
-    sha256 cellar: :any,                 sonoma:        "e33bdad2d726e495962a617bfe049532cbb7fe0b65cc7e023888c8b02028ddb3"
-    sha256 cellar: :any,                 ventura:       "8a473329abf771f03d917727b158c734fc39e25a2dc11bd484d0b035ddd106c4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a08338aebc175d621fe8d25c8ce7545228c8ed465e0f8e4f2b7af29a6abfe33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "effb5567624b9c92939a07d58a03c66710dec767d17b1e85f94a7ac94f1db18d"
+    sha256 cellar: :any,                 arm64_tahoe:   "be826b39d4bae3f28fcb17eff9b1e1eb7d943dfe9032ddf87d61a23b57d78f4d"
+    sha256 cellar: :any,                 arm64_sequoia: "2c75d9f0921baeddc4a86bb616bc31f3a99c9fea78b3d6a8370fdcab70c617c8"
+    sha256 cellar: :any,                 arm64_sonoma:  "bd79c2dc5fdd0875830eaf3ed7bd4a02ff25c0592d0dade5e6b9e450e9bb463a"
+    sha256 cellar: :any,                 sonoma:        "2745926da93d021d27287fbbefab8053f1fbfef4d990058ea0684dff955c6341"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0f1ef56161bcb8235bd9b65b78c61aca298cf6d4c49b7de52c8547450eb292a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fed39da8c3d3e958bfbf7bb9423b2a7aeb961d7a0bc481f3403ddbbede297b1"
   end
 
   depends_on "cmake" => :build
@@ -29,41 +26,34 @@ class Hdf5Mpi < Formula
   depends_on "open-mpi"
   depends_on "pkgconf"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "hdf5", because: "hdf5-mpi is a variant of hdf5, one can only use one or the other"
 
   def install
+    # CMake FortranCInterface_VERIFY fails with LTO on Linux due to different GCC and GFortran versions
+    ENV.append "FFLAGS", "-fno-lto" if OS.linux?
+
     args = %w[
+      -DCMAKE_C_COMPILER=mpicc
+      -DCMAKE_CXX_COMPILER=mpicxx
+      -DCMAKE_Fortran_COMPILER=mpif90
       -DHDF5_USE_GNU_DIRS:BOOL=ON
       -DHDF5_INSTALL_CMAKE_DIR=lib/cmake/hdf5
       -DHDF5_ENABLE_PARALLEL:BOOL=ON
-      -DALLOW_UNSUPPORTED:BOOL=ON
+      -DHDF5_ALLOW_UNSUPPORTED:BOOL=ON
       -DHDF5_BUILD_FORTRAN:BOOL=ON
       -DHDF5_BUILD_CPP_LIB:BOOL=ON
       -DHDF5_ENABLE_SZIP_SUPPORT:BOOL=ON
+      -DHDF5_ENABLE_ZLIB_SUPPORT:BOOL=ON
     ]
 
     # https://github.com/HDFGroup/hdf5/issues/4310
     args << "-DHDF5_ENABLE_NONSTANDARD_FEATURE_FLOAT16:BOOL=OFF"
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-
-    # Avoid c shims in settings files
-    inreplace_c_files = %w[
-      build/src/H5build_settings.c
-      build/src/libhdf5.settings
-    ]
-    inreplace inreplace_c_files, Superenv.shims_path/ENV.cc, ENV.cc
-
-    # Avoid cpp shims in settings files
-    inreplace_cxx_files = %w[
-      build/CMakeFiles/h5c++
-      build/CMakeFiles/h5hlc++
-    ]
-    inreplace_cxx_files << "build/src/libhdf5.settings" if OS.linux?
-    inreplace inreplace_cxx_files, Superenv.shims_path/ENV.cxx, ENV.cxx
-
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -78,7 +78,7 @@ class GrafanaAgent < Formula
         log_level: info
     YAML
 
-    system bin/"grafana-agentctl", "config-check", "#{testpath}/grafana-agent.yaml"
+    system bin/"grafana-agentctl", "config-check", testpath/"grafana-agent.yaml"
 
     fork do
       exec bin/"grafana-agent", "-config.file=#{testpath}/grafana-agent.yaml",

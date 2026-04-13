@@ -5,8 +5,6 @@ class Projectm < Formula
   sha256 "b6b99dde5c8f0822ae362606a0429628ee478f4ec943a156723841b742954707"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "7f0815b03bcecd38afe7c9a8750a0822d9a17646c7e92f420e0fedb096c2709c"
     sha256 arm64_sequoia:  "a579de759ddbc2ca8b39a3dfc1cd7d2b936369790efaeda1c59efdbd63db5b2f"

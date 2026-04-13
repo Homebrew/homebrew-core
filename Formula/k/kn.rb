@@ -2,19 +2,18 @@ class Kn < Formula
   desc "Command-line interface for managing Knative Serving and Eventing resources"
   homepage "https://github.com/knative/client"
   url "https://github.com/knative/client.git",
-      tag:      "knative-v1.20.0",
-      revision: "b66b3da6ff01ee9c1f543786b56520194ac4eec1"
+      tag:      "knative-v1.21.0",
+      revision: "382000a93f176980bf5ef182d4f8a2682a167e65"
   license "Apache-2.0"
   head "https://github.com/knative/client.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca9c7ec25beac3dd0df1af2476827e9550fa4fe3fe3efdceee01978bc126b756"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6afa29700ac55a4bce686bf78a7cee5ee99bbfeb310672e0773158cdde384a04"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aa3ccb0f95a7dcbce20a796dd32ca65f5b5c9cec9e04554320fdd8c4948f065c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad536768d53272e5416025745a0a49f4965c69ee0c79561fe26c58b12163f1ee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "99660c440f3aaec918881e208e66945d1b1710601c1dd21c2fed4c218deb8001"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3d52b582b8368ecfd50c7541e4960748066f4dff9e608dfcbcd6c85a7676e7d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cf30b69b4f1c305714768b732015dd7a703bd536e4a0a5021274fc0f17a991a3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "438be7588ddfd635912a6130d68de906cf7db3f8c655a5f97b990d892a6ece55"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e51cc4c2f46c0eda809247edb27dee4c010994858051362e70721758e8ab5f9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5ff6f8b240ea7e60bf2b022b6cc9d65ae7ec8506cc190465eafa34ce48312283"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d3c49ba8034b4b91f75e8427d829f9d470506c5cbeacae309a8083f52f3bbb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d74f940af91492cee17f8547b8fe03a0805e1d32858604326bc20bfd932b8bba"
   end
 
   depends_on "go" => :build

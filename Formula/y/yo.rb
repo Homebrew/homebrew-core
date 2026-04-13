@@ -1,14 +1,18 @@
 class Yo < Formula
   desc "CLI tool for running Yeoman generators"
   homepage "https://yeoman.io"
-  url "https://registry.npmjs.org/yo/-/yo-6.0.0.tgz"
-  sha256 "db7b3bf350eb65def5b4dff427d5c164884937a713a72a018cec9271a3a53ebc"
+  url "https://registry.npmjs.org/yo/-/yo-7.0.1.tgz"
+  sha256 "466f653547a99ae4cf0de84beac13b8a882804f56718d81df3a2327343bbf7f4"
   license "BSD-2-Clause"
   head "https://github.com/yeoman/yo.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "657a27fa3d4da5c5bf01fe31db6a110457d011571385c4f4947f62fa637e727f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5b7987d0debf1e8b671ef5e14dbf896466c1cd55baefdb61c803f43f36ebc103"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b7987d0debf1e8b671ef5e14dbf896466c1cd55baefdb61c803f43f36ebc103"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5b7987d0debf1e8b671ef5e14dbf896466c1cd55baefdb61c803f43f36ebc103"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5b7987d0debf1e8b671ef5e14dbf896466c1cd55baefdb61c803f43f36ebc103"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac90a9d6b066420569c8568fc7a06372c3bba0d5d97ec019edc139eca8753599"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac90a9d6b066420569c8568fc7a06372c3bba0d5d97ec019edc139eca8753599"
   end
 
   depends_on "node"

@@ -16,15 +16,14 @@ class Hashlink < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e8e5a71b5aa8517f8d5dbecc2f5ccb41b903532663ae673e1470f0bb542470e1"
-    sha256 cellar: :any,                 arm64_sequoia: "76271bda73f86f73548ee686f1cd1077d9a74c52f0efde4f691218d190f5c666"
-    sha256 cellar: :any,                 arm64_sonoma:  "1b30d3767d3eb7794776235993e1389b25aef4630bed5dd2e40a49e985983d60"
-    sha256 cellar: :any,                 sonoma:        "e5052135ebcd62e610d2e672c4461880e4b9230def0ae4d9fb73b7db703c1ac8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "56507c5d62965324d6b3d55ae92d24489ec8ddb035f1a15f35ba88bef12897b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3a48b167dff041ff2080ec6c885ff94deae5a581677117ee69dbff14af9c91a"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "63eb38d4dbc69ab9f8c71ecfd3c8b1f81673ddf015454e0141289747c0ac4269"
+    sha256 cellar: :any,                 arm64_sequoia: "f81bd39b0a2962b274cad50e95190e5c86d4f9da5cbd27b8b5a7a3c807e3af00"
+    sha256 cellar: :any,                 arm64_sonoma:  "454fec90a208dd51f0a65bb848be96e8f343c2c1b038c7f26a7805cae6c74dbb"
+    sha256 cellar: :any,                 sonoma:        "8e5ebb95cd5752506bef4698f51e476d7de12aa64ed962a0664a48ffc63d60d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48372fc177336412549a92467756268d1da1ca27718ef3b68b2b4824bee10a8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d7d71f666e42bc1e991d8376470e7755653ec6b1629b4d080e2a5d3bb541b4d"
   end
 
   depends_on "haxe" => :test
@@ -38,11 +37,11 @@ class Hashlink < Formula
   depends_on "sdl2"
 
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "mesa"
     depends_on "mesa-glu"
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -50,10 +49,7 @@ class Hashlink < Formula
     # These appear to be renamed shared libraries specifically used by HashLink.
     args = ["PREFIX=#{prefix}"]
 
-    if OS.mac?
-      # make file doesn't set rpath on mac yet
-      args << "EXTRA_LFLAGS=-Wl,-rpath,#{rpath}"
-    else
+    if OS.linux?
       args << "ARCH=arm64" if Hardware::CPU.arm?
       # On Linux, also set RPATH in LIBFLAGS, so that the linker will also add the RPATH to .hdll files.
       inreplace "Makefile", "LIBFLAGS =", "LIBFLAGS = -Wl,-rpath,${INSTALL_LIB_DIR}"

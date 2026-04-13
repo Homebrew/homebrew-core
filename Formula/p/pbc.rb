@@ -10,8 +10,6 @@ class Pbc < Formula
     regex(/href=.*?pbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c9aa4953390dd8fc51665f703e72ed82c6d643a75f975cce1339ddb280d212d2"
     sha256 cellar: :any,                 arm64_sequoia: "540e6c2c25f64b9f01683b78101895359c1e317f0c040e1d6dcae389414faff7"

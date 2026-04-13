@@ -1,8 +1,8 @@
 class Ormolu < Formula
   desc "Formatter for Haskell source code"
   homepage "https://github.com/tweag/ormolu"
-  url "https://github.com/tweag/ormolu/archive/refs/tags/0.8.0.2.tar.gz"
-  sha256 "40d79a0e2ca0cdb8924d11de4cfdafa253ef82b91baf0b47388d61d749defb98"
+  url "https://hackage.haskell.org/package/ormolu-0.8.0.2/ormolu-0.8.0.2.tar.gz"
+  sha256 "4d89f82ee87c3e4b4cafa490a1a8260ed3f5af1a81a48a43ddfd6fe435a902ba"
   license "BSD-3-Clause"
   head "https://github.com/tweag/ormolu.git", branch: "master"
 
@@ -16,14 +16,14 @@ class Ormolu < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.12" => :build # GHC 9.14 PR: https://github.com/tweag/ormolu/pull/1175
   depends_on "gmp"
 
   uses_from_macos "libffi"
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", "-f-fixity-th", *std_cabal_v2_args
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do

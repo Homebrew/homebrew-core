@@ -22,8 +22,6 @@ class Augeas < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "a08a4025060f11bc910787a5d6b162574eade8ff34e7356993a350ddb1e8513e"
     sha256 arm64_sequoia: "61ecffdbb3274cba9dadd7dd5ec7228ee5f295657770e51bdd373e10c218649e"

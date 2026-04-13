@@ -1,20 +1,20 @@
 class Noir < Formula
   desc "Attack surface detector that identifies endpoints by static analysis"
   homepage "https://owasp.org/www-project-noir/"
-  url "https://github.com/owasp-noir/noir/archive/refs/tags/v0.27.0.tar.gz"
-  sha256 "e8a4838f811acda647bf0958ea1f5ee5fdf83fc6cecb81f59964cc87794ad204"
+  url "https://github.com/owasp-noir/noir/archive/refs/tags/v0.29.1.tar.gz"
+  sha256 "a7e3703d71acc0736effe71d3b7ee973ce0f49d03546501bd3e354f2bcf40065"
   license "MIT"
   head "https://github.com/owasp-noir/noir.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0cb9b4dba1d5a8b221949f7e7997d38611fd77552397aaf3df2f61dec20eecf5"
-    sha256 cellar: :any,                 arm64_sequoia: "ffdda9deb3ef41da80fb98b551b754b62c6c6676bfc7268266f0f848e6a2b5cb"
-    sha256 cellar: :any,                 arm64_sonoma:  "f6749ed81a9947fa82f70b114c98de4848a8dd3cd89638345e913513fb578ecf"
-    sha256 cellar: :any,                 sonoma:        "1cb79b71fe934cbfdda6f7ca360e70137ded89bc1c8dea49ea55506170764069"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1aaa01b5cc8c1717199784abfa1f06404b17c41a0228e3186fd9d1df050a74dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10f4f62e018ed1c6cdfc9012739f54ea6b209e5dc79ac73b8410f18bdc013a5f"
+    sha256 cellar: :any,                 arm64_tahoe:   "09deb3040aa035a7c48438f87e94fddd7bf3482f75dba8035214bab221e366f4"
+    sha256 cellar: :any,                 arm64_sequoia: "a4da490d5f5db6398884ddf68edf1329a79022641dd064152d64b03f22cb2605"
+    sha256 cellar: :any,                 arm64_sonoma:  "fd814218db44d32ed1e3e2dee26aa4205f16398690ca90f838078563fa72c92f"
+    sha256 cellar: :any,                 sonoma:        "16c367765a4230a251d182e71fb90eea84d50495463a1306362890df3c9f26b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a886eae8cfad285aa9044167d379afeaec0730935009fdaa9cb93649b2fb53c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20f1fc248edbabcf6a7a2df91b1eeb9acd3f2220e01e34bfbd81e52cedc32a44"
   end
 
   depends_on "crystal" => :build
@@ -25,7 +25,9 @@ class Noir < Formula
   depends_on "openssl@3"
   depends_on "pcre2"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "shards", "build", "--production", "--release", "--no-debug"

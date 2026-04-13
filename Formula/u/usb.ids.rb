@@ -4,6 +4,7 @@ class UsbIds < Formula
   url "https://deb.debian.org/debian/pool/main/u/usb.ids/usb.ids_2025.12.13.orig.tar.xz"
   sha256 "492edc99d85a25dca388930c304e85543ef5913b63b5f2fdfa2c213d77709784"
   license any_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
+  compatibility_version 1
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/u/usb.ids/"

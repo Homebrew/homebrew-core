@@ -1,14 +1,15 @@
 class Qtlanguageserver < Formula
   desc "Implementation of the Language Server Protocol and JSON-RPC"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.10/6.10.1/submodules/qtlanguageserver-everywhere-src-6.10.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.1/submodules/qtlanguageserver-everywhere-src-6.10.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.1/submodules/qtlanguageserver-everywhere-src-6.10.1.tar.xz"
-  sha256 "3360526b4f4d556673b31e29a49e15d02da52d5eaa53b0204d56a0ba160a556c"
+  url "https://download.qt.io/official_releases/qt/6.11/6.11.0/submodules/qtlanguageserver-everywhere-src-6.11.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.0/submodules/qtlanguageserver-everywhere-src-6.11.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.0/submodules/qtlanguageserver-everywhere-src-6.11.0.tar.xz"
+  sha256 "1bc8e443f561f9086d40943e7bd685e9536c4658b3df770d30cf4733b7f405bf"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
   ]
+  compatibility_version 1
   head "https://code.qt.io/qt/qtlanguageserver.git", branch: "dev"
 
   livecheck do
@@ -16,12 +17,12 @@ class Qtlanguageserver < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0a6c0e83127c5cbcac9e34ff8612657dbfb2b5a3ee7e94054436578cd1ecb410"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d0d6381178a018d0a7f2b5f3653f6fc2d6535c1322af779a7c88395a4f18c77"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c6c692b3a772db38f231959ec960dc417ad3b9663bb0640e78f08e1647a56938"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fc067cf86fdebfc76ee74b26d6dcc3f013bd3151e46685661c96525cf2ba5632"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6cb636613d7b9de1c04041c5f12e5f8fa1a3661983cc95ee3a247e660f0b7cf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbce2813ad196843221d84a477be941869de3f79571d7d5f0f55f9aeab397652"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cc92baa54e6b03eadb2014fad7edfb009a3e5a0c96684a0af950635c02203782"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "92d320321d2d9747c1fae672b50b54d236b81305a68d458ba9c3c8290878c599"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34e31e3e6933b4650fc8f3b5c1bfb9a9bc4c968675ac72287ef8dea725d12ee2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dab033911ef4100a886851f91d8ecf2ea0b02b7e30a131dcfa4f1e35f2a29ec0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9c913cb8a7a0690426edc55760c518b943f8adce10bc4bcde6898e472d89f6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88ebec5416237eb722ef566a6c9a9f19da3b1f637e71cabec05ddc04c10d0c2e"
   end
 
   depends_on "cmake" => [:build, :test]

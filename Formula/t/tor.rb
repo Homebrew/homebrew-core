@@ -1,10 +1,10 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://www.torproject.org/dist/tor-0.4.8.21.tar.gz"
-  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.8.21.tar.gz"
-  mirror "https://fossies.org/linux/misc/tor-0.4.8.21.tar.gz"
-  sha256 "eaf6f5b73091b95576945eade98816ddff7cd005befe4d94718a6f766b840903"
+  url "https://www.torproject.org/dist/tor-0.4.9.6.tar.gz"
+  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.9.6.tar.gz"
+  mirror "https://fossies.org/linux/misc/tor-0.4.9.6.tar.gz"
+  sha256 "a89aba97052e9963a654b40df2d46be07e8a6b6e24e5437917fd81acd90a7017"
   # Complete list of licenses:
   # https://gitweb.torproject.org/tor.git/plain/LICENSE
   license all_of: [
@@ -13,6 +13,7 @@ class Tor < Formula
     "MIT",
     "NCSA",
   ]
+  compatibility_version 1
 
   livecheck do
     url "https://dist.torproject.org/"
@@ -20,12 +21,12 @@ class Tor < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ba9ea9bb2bef46a560913a919f756dd24ada0feb94a371e8139a17d379270ad4"
-    sha256 arm64_sequoia: "d79d24f303185dd141800a066bb52b922dbb70f9ac4da35bb3bd811041a9d30b"
-    sha256 arm64_sonoma:  "0c62a09b9deb785a64f259b1704ee61543c675970345a9e821cbec9cc1788092"
-    sha256 sonoma:        "5e43c013d221c46417706e046ac3b0855a80e7b6fb684ea955a5ae6a132a4047"
-    sha256 arm64_linux:   "f379f70443c47e12be9cf71fd978ff57dc179dcf9861e41422f552e79113ef3f"
-    sha256 x86_64_linux:  "c3cf2a1ae42dac870f26b603969357cf306de46618ca25f82240c091c7369fd5"
+    sha256 arm64_tahoe:   "0ef89fbe46ae01eb13535f136f86905a7c1cf6d709a16bf42a2b4a0ee0321935"
+    sha256 arm64_sequoia: "152bc133e9a02aa116a0648c25372f067f0a7dda8ea8121713811567176fe854"
+    sha256 arm64_sonoma:  "804870529d75fe0e9960094756d88a4448c44e3f234365d0960a78466a748e79"
+    sha256 sonoma:        "c03763050f73ea726be00e05c06bbad6cfacf21a7a4362c101589dbfb9faf820"
+    sha256 arm64_linux:   "e27de03c84dfe6a69ae6641ad5beed0282152e8849b34faa36403c0946edad09"
+    sha256 x86_64_linux:  "64e22323a9d0b8f9581c8f56071b58faab8c615379eee21b7977da8678964b8b"
   end
 
   depends_on "pkgconf" => :build
@@ -33,7 +34,9 @@ class Tor < Formula
   depends_on "libscrypt"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

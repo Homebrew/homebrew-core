@@ -1,25 +1,21 @@
 class Libwmf < Formula
   desc "Library for converting WMF (Window Metafile Format) files"
   homepage "https://github.com/caolanm/libwmf"
-  url "https://github.com/caolanm/libwmf/archive/refs/tags/v0.2.13.tar.gz"
-  sha256 "18ba69febd2f515d98a2352de284a8051896062ac9728d2ead07bc39ea75a068"
+  url "https://github.com/caolanm/libwmf/releases/download/v0.2.15/libwmf-0.2.15.tar.gz"
+  sha256 "bbc90f22b9e86d5f1890d7da11cf7a8e61f429d4c220d900c285021deabe7a52"
   license all_of: [
     "LGPL-2.0-or-later",
     "GPL-2.0-or-later", # COPYING
     "GD", # src/extra/gd
   ]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "605434c1ac87dd6e0a72de4e8d74a6e2701f1048c3da2ebbe6af570c18dd3ee6"
-    sha256 arm64_sequoia: "8349a368a01bc74f298eb1f7ba3a7b66ce7807d4fd32957c7713caaa52107317"
-    sha256 arm64_sonoma:  "ba24f0c59a437bf0e82d7cb946b841894544cd1c23e2c867a0d171cdfd2ea672"
-    sha256 arm64_ventura: "9e85223008fa0b081256f5c6e94200dfb4610394be5dc25b782125c36b69417a"
-    sha256 sonoma:        "b85946372c5e9a9f13d1a8299553ab0e5b4ffed45429b785fe5281175d62e3ba"
-    sha256 ventura:       "a889684fd9d5bf65349b30808ae820014a2f72650b23d35e8f7a01cb887f3aef"
-    sha256 arm64_linux:   "80bbb71aed983052b36b9ca4de431ff2269e68b0e0549f70450bb16d21b9a5cb"
-    sha256 x86_64_linux:  "486038114925fd4a2e2203ae86931276b4b82fda8e47f39772a123c3adffa37a"
+    sha256 arm64_tahoe:   "2c6e1d26d2213cbe408a6289a20cab2d9a385babb56997ad30afc0c733f89569"
+    sha256 arm64_sequoia: "648aebf55487d4a5dffd40319f0fc2309e1cfb075e88a27dc03e777f9c8d6f5a"
+    sha256 arm64_sonoma:  "b69efed6e318df46ace734007e3099d1d08dc5753b56b0b9eb8e6fc111083209"
+    sha256 sonoma:        "96d66c997be9b333c085daeda09d2ec1bca0613cfbb6ea66b5ec6bfac260129e"
+    sha256 arm64_linux:   "71f7063942f28d921e37b56cba7b7a323ac3d27fde289ab4adc4f1dabf4f207c"
+    sha256 x86_64_linux:  "bdf120383ed21317c5931926dcc30b3c8d662b0e0873213b321a72ec07b5411f"
   end
 
   depends_on "pkgconf" => :build
@@ -29,12 +25,9 @@ class Libwmf < Formula
   depends_on "libpng"
 
   uses_from_macos "expat"
-  uses_from_macos "zlib"
 
-  # Backport fix for macOS
-  patch do
-    url "https://github.com/caolanm/libwmf/commit/5c0ffc6320c40a565ff8014d772670df3e0ad87d.patch?full_index=1"
-    sha256 "80ae84a904baa21e1566e3d2bca1c6aaa0a2a30f684fe50f25e7e5751ef3ec93"
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

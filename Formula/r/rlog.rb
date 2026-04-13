@@ -5,8 +5,6 @@ class Rlog < Formula
   sha256 "a938eeedeb4d56f1343dc5561bc09ae70b24e8f70d07a6f8d4b6eed32e783f79"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "abe2bf8a021e632b0e828b667b5e2e09be2cb2bf5356b40adc7787248c16b12e"
     sha256 cellar: :any,                 arm64_sequoia:  "17aeadbbb0c7138389b80f0cecf0c59b6a329176eda02d38a9566502110f72f4"

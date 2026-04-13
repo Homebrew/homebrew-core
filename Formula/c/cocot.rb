@@ -6,8 +6,6 @@ class Cocot < Formula
   license "BSD-3-Clause"
   head "https://github.com/vmi/cocot.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f6a142983575a21225d725208388e9952675f5b32b1e8b99b5cf26c32ab137a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e50202bee861bf0692cb72d1228e2ad10fa93cc047d61480b3e0c558c81746f1"

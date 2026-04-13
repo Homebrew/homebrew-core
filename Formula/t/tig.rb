@@ -4,6 +4,7 @@ class Tig < Formula
   url "https://github.com/jonas/tig/releases/download/tig-2.6.0/tig-2.6.0.tar.gz"
   sha256 "99d4a0fdd3d93547ebacfe511195cb92e4f75b91644c06293c067f401addeb3e"
   license "GPL-2.0-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "5464963cbef880b886995cebc53ba6465f96a360a08ab04a0652b98a691d7de2"

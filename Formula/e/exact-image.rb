@@ -10,24 +10,24 @@ class ExactImage < Formula
     regex(/href=.*?exact-image[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9b37a3a8d7dad43283a963946344b7851d83197ab6c582db6c73ad3609e38b97"
-    sha256 cellar: :any,                 arm64_sequoia: "f44f495419aa32f25be9e14a76466def5388eb6535e8f8a9b0755a87431342cc"
-    sha256 cellar: :any,                 arm64_sonoma:  "f206295b88ae90ba83c514706654efbe65fc2667e42050926a82a9570a54eeba"
-    sha256 cellar: :any,                 arm64_ventura: "0482d18c47021b7fa3f907971a2d90838d0f34af8b5d69bc1835370fc291f34f"
-    sha256 cellar: :any,                 sonoma:        "8a06515f2eab356cc7d5aeae79ad6b295f26dc4dc1dfd488e1182195a8621dd1"
-    sha256 cellar: :any,                 ventura:       "1fe4cac55b6ff73ec09fc4f326047cbd01398d6787d2a4b35aa0b5e1d3429757"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3412d6da12249b60dac2138039b7a4adb36a81f91dda797cffa77789e6244a82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bef9ef7ca1825d02d60715181c08c112cbf1d14eb9c891325dafd6e001ff602"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3408ea3e3e84443be2c9f8c30c93f1968a623030872acda7cc6b8a3523e4b99b"
+    sha256 cellar: :any,                 arm64_sequoia: "1088bf426db191ce01896d0f6bee7d239125996016df7886c596b6c10c91bf93"
+    sha256 cellar: :any,                 arm64_sonoma:  "0b541496b7eb11daff86b7c6c6cf91727636b2bf3b199e756c07693fd5b98a4e"
+    sha256 cellar: :any,                 sonoma:        "161474f6a91e5c07983fda9445d7d2e35ca02c1eb027fee8ebbcf34ffeabd749"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2b45b0d415e3306f409c1668bc6a00d76270fb66e92d28f9cbafc5e2bd704b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9694f083c00dc18913396ea49410cd410b598035718cdd1512c883cfeace46e7"
   end
 
   depends_on "pkgconf" => :build
   depends_on "libagg"
 
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV.cxx11

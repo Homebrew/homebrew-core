@@ -27,10 +27,13 @@ class Gpsim < Formula
 
   depends_on "gputils" => :build
   depends_on "pkgconf" => :build
-  depends_on "gettext"
   depends_on "glib"
   depends_on "popt"
   depends_on "readline"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   # https://sourceforge.net/p/gpsim/bugs/289/
   patch :DATA

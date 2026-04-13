@@ -9,12 +9,14 @@ class SpeedtestCli < Formula
   revision 2
   head "https://github.com/sivel/speedtest-cli.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "93487be757c9b3763deeb1b1415ee8ad10c5a80fcc9ebaeacbb8fbac3e9b9474"
   end
+
+  # see issue in https://github.com/sivel/speedtest-cli/pull/796
+  deprecate! date: "2026-01-18", because: :unmaintained
+  disable! date: "2027-01-18", because: :unmaintained
 
   depends_on "python@3.14"
 

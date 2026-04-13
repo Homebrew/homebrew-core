@@ -10,19 +10,21 @@ class Cubelib < Formula
     regex(/href=.*?cubelib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256 arm64_tahoe:   "73757867db87cfd2200a7817d5c674dd4e41bd679b57fbbea666ec62f6dfd7c7"
-    sha256 arm64_sequoia: "5678bf83522c7adb80932fc75aa4e163522ffa887eb95883d48d6f797c15495f"
-    sha256 arm64_sonoma:  "6c692880220e40f0da2784a6e8fd6b0d034e8f13cb5df1d3e829ba5c9df9d9cb"
-    sha256 sonoma:        "5eb3f583447141281e6f4aa4ccb230b14c61f24b5c577705a6a515ee258030d5"
-    sha256 arm64_linux:   "0ff4fe882c0d1affe9aad2162de319779d15229ba65d06c99adf5ff8864f53a7"
-    sha256 x86_64_linux:  "0319f610722cc9435d1a3063224af0825c2ef284d7a26dead2316e92c74ea62d"
+    rebuild 1
+    sha256 arm64_tahoe:   "af8563eab21f130a1c32ffebcbc1808975d166316d8ec5576a83dc2ebbc437c9"
+    sha256 arm64_sequoia: "1ccf40f98502d79ffbd32bcff4ae6212b8b96aa525e60db0665848183139da9f"
+    sha256 arm64_sonoma:  "09ebd4777ba76e31a2f4c41ee65144b9a797ee0d556278da43962164048fcfc9"
+    sha256 sonoma:        "d4013dbc7bb8da8188a0d17d09c52ebc14f36db09df5516150fe2a39ee2599bd"
+    sha256 arm64_linux:   "d9915686606c3dfa397292fdf87fec0a16af4407344ccacdadd10792a2542e45"
+    sha256 x86_64_linux:  "09faef23e866883d28efac0afb0d96a72cb574c558ff16ffe1b047b842b50fa5"
   end
 
   depends_on "pkgconf" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do

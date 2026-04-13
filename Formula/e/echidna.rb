@@ -1,20 +1,10 @@
 class Echidna < Formula
   desc "Ethereum smart contract fuzzer"
   homepage "https://github.com/crytic/echidna"
+  url "https://github.com/crytic/echidna/archive/refs/tags/v2.3.2.tar.gz"
+  sha256 "c35a6f65c8758743253e91d5ce25017d0d69864f3fad58c41269e9ef4089c1a1"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/echidna.git", branch: "master"
-
-  stable do
-    url "https://github.com/crytic/echidna/archive/refs/tags/v2.3.0.tar.gz"
-    sha256 "6fb673b10fc22068f74529ceff4e10b779f9489acaf189148fcb48f317606bf8"
-
-    # GHC 9.10 fixes
-    # https://github.com/crytic/echidna/pull/1500
-    patch do
-      url "https://github.com/crytic/echidna/commit/e302a0ab768d382644be4895d7a3aab60942952d.patch?full_index=1"
-      sha256 "a0ed8330757f925f7832872ac33a9912f3dbdb52c63c363f090eacd5214ede34"
-    end
-  end
 
   livecheck do
     url :stable
@@ -22,12 +12,12 @@ class Echidna < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2959014c245f48091a17431a0f25f2add16f5e753a598c4f5668dc7a4b7b6663"
-    sha256 cellar: :any,                 arm64_sequoia: "122afc3cbcdb997b2e490cc1959e32a8dda3ea7079dce4a87a40ee4c9a77016e"
-    sha256 cellar: :any,                 arm64_sonoma:  "cd30326888e4cc7f00ba3becfa9a603fc68767bb2d1e5c262f926dc9bf862ec5"
-    sha256 cellar: :any,                 sonoma:        "28f133e7ace9607803b0d93bcc10f0f158fe22d6b84c0bf538b582a7fb6e0589"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b14de6de490927ba6db29496b45e3d18213f6f8da65d992d61a089693c780403"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40ff247be0dee656ee1a7b0bbfc561abf0c558ab87c89a1b314432ccb11b135a"
+    sha256 cellar: :any,                 arm64_tahoe:   "73ee5125c1c57859fd03769004a15aef0a1a15269ca2347c7ad83d0ecf91ee01"
+    sha256 cellar: :any,                 arm64_sequoia: "d03c58df980548b41ab1142cf07d1a1ef6ef65b35e687250634f3fd508aa9139"
+    sha256 cellar: :any,                 arm64_sonoma:  "7894e8b14c9288b42e4517c82b4a7e55b3b6a90797bb863c155aeec4cd619820"
+    sha256 cellar: :any,                 sonoma:        "a55c55db6a2ac10af2eb9b074e172aa8752307ce21b000ec7f98a8961e9313d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "772ac3f480f5cb1d4b6c075d856ae2954ca8f211487e438ef7e0a6b270ec251e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a13f6c68f9407099551800aed96a4ec194b7c931b57b1b2f083a4ad781e3f0dd"
   end
 
   depends_on "ghc@9.10" => :build
@@ -41,7 +31,10 @@ class Echidna < Formula
   depends_on "slither-analyzer"
 
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV.cxx11

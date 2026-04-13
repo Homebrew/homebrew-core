@@ -6,16 +6,20 @@ class Pngcheck < Formula
   license "HPND"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d5129a5a31646dd3d0682d52b49ecde46e9bfe99cf95c968efb1c0e817c0b293"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38bc6c12e076844ca6ecdfb73f688059894c59aabc2ba9b71ed91d7c8e6efd99"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aa7075580867ff1a3472181c6acb62ec389d9b3082af624fa0d7b5cf33bf044b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "504007718b874754d4e61a385fc91f4c3eddbf2fbba5bda008096f1ab0336e8d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c027bcf0f0460c856c30045bd0817889efd8da5270f935e4185a8e9bbef008d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfffc05c485bdea62324b3f9813b124d42ff59be09dc52ab6c7e43137d9f9ffa"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06f4655ebdc1cb9a83d502e514cfcd8c5fa108984ac7e9536e117b3b6978a471"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "de3eab5fa5af3e288a31c498cb0f3778efaae124ffc636570e5bf7e4d0c09b39"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8bb15db528179e648131862326e6f02e0e777f2c38333e51e2e006858a70048c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "637dc8b986af16b9f14fadbfd3fd9baa9ad3d7cba8301c046ee28cd78ab0186e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fafce573ad3a6f08c1a64f544af99c62b605eca2d3fc65f3e9fbe955f968dde8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13b68192c37d494a1180cb2cdd43995796b1f314075e5c045d35c653c407f65b"
   end
 
   depends_on "cmake" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Remove files only needed on non-Unix. Doesn't need to be removed as CMake handles it

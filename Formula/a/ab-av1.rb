@@ -1,18 +1,19 @@
 class AbAv1 < Formula
   desc "AV1 re-encoding using ffmpeg, svt-av1 & vmaf"
   homepage "https://github.com/alexheretic/ab-av1"
-  url "https://github.com/alexheretic/ab-av1/archive/refs/tags/v0.10.3.tar.gz"
-  sha256 "e8978c23661db5ce114f1905768b4378b75d435a95608f99a62be98aa8d6f094"
+  url "https://github.com/alexheretic/ab-av1/archive/refs/tags/v0.11.2.tar.gz"
+  sha256 "795d0ac7f241d22930456eeff9a75e142cef150b7bf3365fb57b298c6557ef0a"
   license "MIT"
   head "https://github.com/alexheretic/ab-av1.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "70ddc335db8cc07b54248e54c670b920e365289abf07f9e74c9744352b585bfc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd771a3dc157486da2bf1685c6e02c1d08a4681b46503349d833f3570401190b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8790e10509574492ee8dd24d57f4ef5e82628e2a5267800eb03c463d284aa98"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b60c969f26f77a6728e2297d1ee4b4f614723c33443b8edf78b7bb12a1c647cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "254a3a63db772c498d24891dbccec3a0427fe6982f0b9bf29812cee16549d582"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e8de073aa07641afc7bc4e188ac5ff7f7cdef60e90be9a863ff162c8bcc624c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "800d7dda4433997fa81b9abe19faf274b647fc56ec0da8d901daf6e32fdd6dcf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d852e18f09e2fcc76ea086502558f9330046ecf89ea1b200a10b50b251b57355"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b58144acd8619ab22df4f631809d40d16ff3f39e2200e3e6b1b1a46db9d255b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8e3e4ff5915bcde7121ff94b77216404b65e08048838bec5f2a812dde93b307f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "030e005f23208da1f8ad43526233b73a0fdec91553146ffa1679d2c3ac95a75a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "208b08dc100a6dd6c2f7b990dc5d620bf984f464e4ef60e793888dabcfd2206c"
   end
 
   depends_on "rust" => :build
@@ -20,13 +21,16 @@ class AbAv1 < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-    generate_completions_from_executable(bin/"ab-av1", "print-completions")
+    generate_completions_from_executable(bin/"ab-av1", "print-completions", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/ab-av1 --version")
 
-    system bin/"ab-av1", "encode", "-i", test_fixtures("test.mp4"), "--crf", "32", "-o", testpath/"test.av1.mp4"
+    # Create a 5 second test MP4 (same as ffmpeg test) as the test fixture is too minimal
+    system Formula["ffmpeg"].bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", "test.mp4"
+
+    system bin/"ab-av1", "auto-encode", "-i", "test.mp4", "-o", testpath/"test.av1.mp4"
     assert_path_exists testpath/"test.av1.mp4"
   end
 end

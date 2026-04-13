@@ -11,8 +11,6 @@ class Minidjvu < Formula
     regex(%r{url=.*?/minidjvu[._-]v?((?!0\.33)\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "4efc0167c66e2dcc3d940290a93f1c263d2b2f0f77aa2be56a46b698a72fc998"
     sha256 cellar: :any,                 arm64_sequoia:  "a7e2ca4daf17bffbee72e2513829e5835d4d271e9daa28c5c62e806ca05ca6d1"

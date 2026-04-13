@@ -5,8 +5,6 @@ class Gnuski < Formula
   sha256 "1b629bd29dd6ad362b56055ccdb4c7ad462ff39d7a0deb915753c2096f5f959d"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f2302fda0228835c20f3158b0f0a8500c85d70d7fe58d698133da7ea792be282"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fa3056f32083991e84354204c559e07b61f5b79b0a24ca13cd655da45815b5d8"

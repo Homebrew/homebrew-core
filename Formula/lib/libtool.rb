@@ -5,6 +5,7 @@ class Libtool < Formula
   mirror "https://ftp.gnu.org/gnu/libtool/libtool-2.5.4.tar.xz"
   sha256 "f81f5860666b0bc7d84baddefa60d1cb9fa6fceb2398cc3baca6afaa60266675"
   license "GPL-2.0-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "e3a7e5f39f3933f3c92daacbc054a38628521aeb6b52fddd2a3c945a897050e5"

@@ -1,9 +1,10 @@
 class Talloc < Formula
   desc "Hierarchical, reference-counted memory pool with destructors"
   homepage "https://talloc.samba.org/"
-  url "https://www.samba.org/ftp/talloc/talloc-2.4.3.tar.gz"
-  sha256 "dc46c40b9f46bb34dd97fe41f548b0e8b247b77a918576733c528e83abd854dd"
+  url "https://www.samba.org/ftp/talloc/talloc-2.4.4.tar.gz"
+  sha256 "55e47994018c13743485544e7206780ffbb3c8495e704a99636503e6e77abf59"
   license "GPL-3.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://www.samba.org/ftp/talloc/"
@@ -11,14 +12,12 @@ class Talloc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "48fa5996bb7edeaffed110ccd66edfe54030a38308c4f7eef8b2b3477d7ec10d"
-    sha256 cellar: :any,                 arm64_sequoia: "6abdf3d390f094513a2233b594b63358dab2fd6b035b834ecacf18d4671a7b6d"
-    sha256 cellar: :any,                 arm64_sonoma:  "afc3f29cd0d83d88010f350f8cb55dc3018c2199363c92c546f9e328b14001c0"
-    sha256 cellar: :any,                 arm64_ventura: "d851af75e1e18d20ccf184bd0f1d950f7a364ff676e0e4291220d24795d87bc8"
-    sha256 cellar: :any,                 sonoma:        "ba2ccc5ac28845e2d8af43882e17bb552a66543eb635d05526a91088c29598aa"
-    sha256 cellar: :any,                 ventura:       "c9a6f30c274ae31febabd3ba18b922beca680f49534ea9cbdafaef0ac7d111f4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3feb71b0dd36238cf6739e43a0c902756462912f40b183f4a1764fc94fbaf3f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d654af5ac59ff0e6731171fddd996c5fc30d10f2c4387d521bdfa4108c27f818"
+    sha256 cellar: :any,                 arm64_tahoe:   "43e94268855378635002149f973c14b5da328ac90a27c1c64556123b8b8866d4"
+    sha256 cellar: :any,                 arm64_sequoia: "73396ffac450d962f1b798039a86cbbbeac57e4e1ed922d4fecc03e347585601"
+    sha256 cellar: :any,                 arm64_sonoma:  "9d10a64fc6fc482cfb58487a5b8020f819989f91111d4573e2e4160fc391f53e"
+    sha256 cellar: :any,                 sonoma:        "e593faad8218064edc4531ecdd7774dfbf1dfdbe612ca538f8058e32d0babd20"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f880a4f3119f311fd97e29e14805a8afd85f25a9ad1698fb5818f5202495b05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91876f82f97fedcb67b3529e3927390b3056047b3cf0d43cb2741fa289ce399d"
   end
 
   uses_from_macos "python" => :build

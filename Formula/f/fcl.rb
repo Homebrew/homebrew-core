@@ -33,8 +33,6 @@ class Fcl < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "520b5eb150c605c3d52439c344b97fc921978a7b766141f0deeb000d52a2be6c"
     sha256 cellar: :any,                 arm64_sequoia: "c3d2ac35822520051226489edef7331201d92857144d64a6fbc16339570bfbd5"

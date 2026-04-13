@@ -1,29 +1,29 @@
 class Fb303 < Formula
   desc "Thrift functions for querying information from a service"
   homepage "https://github.com/facebook/fb303"
-  url "https://github.com/facebook/fb303/archive/refs/tags/v2026.01.12.00.tar.gz"
-  sha256 "e455652551702d040b9ba7c9e3991f556c851fc513fd28b039a56127a1190dd5"
+  url "https://github.com/facebook/fb303/archive/refs/tags/v2026.03.30.00.tar.gz"
+  sha256 "b7193385301d8aa64dc8bf145f5e8990ed5ac34c566076f91bc35cdffb0e1d4d"
   license "Apache-2.0"
+  compatibility_version 1
   head "https://github.com/facebook/fb303.git", branch: "main"
 
   bottle do
-    sha256                               arm64_tahoe:   "342e0512149ac41ce762f451f5345a0809b3e24b83fcb8b30837e8978d7cc431"
-    sha256                               arm64_sequoia: "bd1fd7e297571c608e0155ee435d22ee2f17514f07adb7e68633f331cadf6170"
-    sha256                               arm64_sonoma:  "92d0d72f2b26eb915f0e74d87868a878bed4793e7c35cfca7ff4cb42a6bae150"
-    sha256 cellar: :any,                 sonoma:        "ca591f9bf14af70b415783e01bbf283fec8bcbe9abc5359d7fb99d4f92424168"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d4eea8812686e19787b8824f7d7a2536c24096cc248c479f5518110551799c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7242cbadf175d2c9961144eda50f3adcafdbbb73f75b28e86b80f036b5b7948"
+    sha256                               arm64_tahoe:   "386da334bd7bb178f71f3a84c421ba71afd60a8dbb74a741da1c5afe6f2bca6e"
+    sha256                               arm64_sequoia: "ec232834087010f944f20634c9f8f5b6d6aa410dc577418727183c5ea0b0dd53"
+    sha256                               arm64_sonoma:  "7c105f2f3e5c26823572178803d6af9860cb678057579e9c78c34a1304f23734"
+    sha256 cellar: :any,                 sonoma:        "ad0261048457fb1b0ea494bb8271bc1db1f2490998e8216e6acbb181d101a94c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "10bf39a9ccb045d70655b2dbe69d7214972887c85610a22c9a12c1921e0f6867"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d99a7e732a341dec45b478fafb89f051554e38d0001336e2f0a4a6e6111a851e"
   end
 
-  depends_on "cmake" => :build
-  depends_on "mvfst" => :build
+  depends_on "cmake" => [:build, :test]
+  depends_on "fizz" => [:build, :test]
+  depends_on "mvfst" => [:build, :test]
   depends_on "fbthrift"
-  depends_on "fizz"
   depends_on "fmt"
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "openssl@3"
 
   def install
     shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
@@ -45,19 +45,30 @@ class Fb303 < Formula
       }
     CPP
 
+    (testpath/"CMakeLists.txt").write <<~CMAKE
+      cmake_minimum_required(VERSION 4.0)
+      project(test LANGUAGES CXX)
+      set(CMAKE_CXX_STANDARD 20)
+
+      list(APPEND CMAKE_MODULE_PATH "#{Formula["fizz"].opt_libexec}/cmake")
+      list(APPEND CMAKE_MODULE_PATH "#{Formula["fbthrift"].opt_libexec}/cmake")
+      find_package(FBThrift CONFIG REQUIRED)
+      find_package(wangle CONFIG REQUIRED)
+      find_package(fb303 CONFIG REQUIRED)
+
+      add_executable(test test.cpp)
+      target_link_libraries(test fb303::fb303_thrift_cpp)
+    CMAKE
+
+    ENV.delete "CPATH" if OS.mac?
     if Tab.for_formula(Formula["folly"]).built_as_bottle
       ENV.remove_from_cflags "-march=native"
       ENV.append_to_cflags "-march=#{Hardware.oldest_cpu}" if Hardware::CPU.intel?
     end
 
-    ENV.append "CXXFLAGS", "-std=c++20"
-    system ENV.cxx, *ENV.cxxflags.split, "test.cpp", "-o", "test",
-                    "-I#{include}", "-I#{Formula["openssl@3"].opt_include}",
-                    "-L#{lib}", "-lfb303_thrift_cpp",
-                    "-L#{Formula["folly"].opt_lib}", "-lfolly",
-                    "-L#{Formula["glog"].opt_lib}", "-lglog",
-                    "-L#{Formula["fbthrift"].opt_lib}", "-lthriftprotocol", "-lthriftcpp2",
-                    "-lthriftmetadata", "-lthrifttyperep", "-ldl"
+    args = OS.mac? ? [] : ["-DCMAKE_BUILD_RPATH=#{lib};#{HOMEBREW_PREFIX}/lib"]
+    system "cmake", "-S", ".", "-B", ".", *args, *std_cmake_args
+    system "cmake", "--build", "."
     assert_equal "BaseService", shell_output("./test").strip
   end
 end

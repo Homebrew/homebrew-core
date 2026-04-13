@@ -4,13 +4,12 @@ class Libwpd < Formula
   url "https://dev-www.libreoffice.org/src/libwpd-0.10.3.tar.xz"
   sha256 "2465b0b662fdc5d4e3bebcdc9a79027713fb629ca2bff04a3c9251fdec42dd09"
   license any_of: ["MPL-2.0", "LGPL-2.1-or-later"]
+  compatibility_version 1
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
     regex(/href=["']?libwpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "1bf99b7a478fd8c861781c680257297389a1d6e1cd43930e0e6ae40a3caaac23"

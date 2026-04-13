@@ -6,42 +6,37 @@ class Freedink < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "9e05f0fa2089dda0023b3f07e54b2e0bd64806e62de6b4a9601ff845cee68d40"
-    sha256 arm64_sequoia:  "791eb877668eacf35dbc1e12754a2fc5c40f5804107367fc7f0cc2da76f0974e"
-    sha256 arm64_sonoma:   "78a162584ff38dcffdf1485d08a0e29a556f0eada9831fefef6f7dc14755d222"
-    sha256 arm64_ventura:  "c3ac13edb0efd994c52954b8a4512c0254f6fbe0874f4bae8416949dc18f2026"
-    sha256 arm64_monterey: "3c0d3f2a3362647f774125622db2f836a1f209a5bccfe66a8a7901e357d9434f"
-    sha256 arm64_big_sur:  "3d3c10351e92122890d83f912bafe794fa40a673783fa5d99b1bdfcdcd53f0cb"
-    sha256 sonoma:         "ae2e232491d307434f8ae51a6f7f373a14da5a08947af29a873988065921b974"
-    sha256 ventura:        "cbfd6fd918bcb0af203b66b15c89233bccf573d32448b1fd22fe4b0165fc4fb8"
-    sha256 monterey:       "da402e74ba8344d49ec9a0a2c93ab37aa1d3430cb33baf3d995ee3c55489710b"
-    sha256 big_sur:        "fd45feffffd96dc600cda4e725619b326ec6a84e96c5844c156aca90fb2390b1"
-    sha256 catalina:       "b971d9badc94cb0075963c341ed11c1872e3157b279def6d91fd088743b5e5e4"
-    sha256 arm64_linux:    "987d1d124d48dd9ae81001a02a9cd62d37d16758b791d6ea9decb3164dde198d"
-    sha256 x86_64_linux:   "a29b66f12f589cea7e091849b73fb86530086692fd94a627ab4fe86490a8c121"
+    rebuild 2
+    sha256 arm64_tahoe:   "68cd1561bc7d6a477d2d3457a0c1867bf19cec00fd84c46f0fe74fd18d961cf1"
+    sha256 arm64_sequoia: "445ea09cf443c8f5b9bb1f67fc5de82f0735312169e3b009166e1d4ec0cf971b"
+    sha256 arm64_sonoma:  "ded6f2f34c6a7dd4e724b04a5fa6e315507f8154908609d81eb5d00d01f0f708"
+    sha256 sonoma:        "364f029de96f0aa207090ed4b64d8e4904138435724e4503545868b29e6cc3eb"
+    sha256 arm64_linux:   "435f2a3bc5473084034dd5052eda8f0e363674ea9bc59eae57b566274ca1f924"
+    sha256 x86_64_linux:  "1cf508674933d7217495e690ffa65a37280aab02d731b415a1613aecffaea5e6"
   end
 
   depends_on "glm" => :build
   depends_on "pkgconf" => :build
-  depends_on "check"
-  depends_on "cxxtest"
   depends_on "fontconfig"
-  depends_on "freetype"
-  depends_on "gettext"
-  depends_on "libzip"
   depends_on "sdl2"
   depends_on "sdl2_gfx"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   resource "freedink-data" do
     url "https://ftpmirror.gnu.org/gnu/freedink/freedink-data-1.08.20190120.tar.gz"
     sha256 "715f44773b05b73a9ec9b62b0e152f3f281be1a1512fbaaa386176da94cffb9d"
+
+    livecheck do
+      url :url
+      regex(/href=.*?freedink-data[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    end
   end
 
   # Patch for recent SDL
@@ -66,7 +61,7 @@ class Freedink < Formula
     # Avoid windres causing build failure on Linux
     ENV["ac_cv_prog_ac_ct_WINDRES"] = "" if OS.linux?
 
-    system "./configure", "--disable-silent-rules", *std_configure_args
+    system "./configure", "--disable-silent-rules", "--disable-tests", *std_configure_args
     system "make", "install"
 
     resource("freedink-data").stage do

@@ -34,11 +34,6 @@ class Bitcoin < Formula
 
   uses_from_macos "sqlite"
 
-  on_ventura do
-    # For C++20 (Ventura seems to be missing the `source_location` header).
-    depends_on "llvm" => :build
-  end
-
   fails_with :gcc do
     version "11"
     cause "Requires C++ 20"
@@ -46,7 +41,6 @@ class Bitcoin < Formula
 
   def install
     ENV.runtime_cpu_detection
-    ENV.llvm_clang if OS.mac? && MacOS.version == :ventura
     args = %w[
       -DWITH_ZMQ=ON
     ]

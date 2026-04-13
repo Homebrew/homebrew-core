@@ -6,8 +6,6 @@ class Libmusicbrainz < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "bedefe5a0086b73a7ccfa342df5af7238cdd9851d541d19b6069549098f507d2"
     sha256 cellar: :any,                 arm64_sequoia: "c8db1669bb8869f5812eb0d46e9a84dce7ec3370bcb5405d9071612c5bdd4ec2"

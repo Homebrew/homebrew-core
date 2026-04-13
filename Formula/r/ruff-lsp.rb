@@ -19,6 +19,7 @@ class RuffLsp < Formula
   end
 
   deprecate! date: "2025-02-06", because: :deprecated_upstream, replacement_formula: "ruff"
+  disable! date: "2026-02-06", because: :deprecated_upstream, replacement_formula: "ruff"
 
   depends_on "python@3.14"
   depends_on "ruff"

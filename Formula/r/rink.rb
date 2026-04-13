@@ -5,17 +5,14 @@ class Rink < Formula
   sha256 "40048e84c2b606e50bf05dec2813acedeb48066cd48537d0dea453a72d000d60"
   license all_of: ["MPL-2.0", "GPL-3.0-or-later"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eb6d58f1c8800dc3c366f4b4593b1d4af864d63fdee448aaa9bd60b72ff69ff0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9e9d83c728a0232035908223bf1d4b0823c6c96eefb95d72c08a060f9e8c1fa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "886a2268e178971f189a726cd76757c20110bcd2fad8cb68ff6bb911a93519e3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "31c09a811a1d779c6e9f1edbe8d03cbabc5ebdd2b2f8a0117429eb93f3bafd55"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f28777dd190d29ef41985875425eeff527e18b6a7db4976b103323784d36f678"
-    sha256 cellar: :any_skip_relocation, ventura:       "78257335a434a84394810b5f47526553c58d1e57a906f1fc1619526e978c1d1e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca578f08ba68e204d37c59d253d50715e7ce4d450d73af1604c66867423eeeea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a541a87a97cb62583bceced14bbac8c03d8f0119e6702c1d773c3fc08a3e8e3e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "df19bb6db1b7a86bb97c95d46bde65c6fa3b5087113dad4998fe445bcee51f74"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "73b42e1a62e5bb245650df4a4e786eb42e1da18ec24e86fed7846c597b26989a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a6a115a75d540395c9fc6a685efd1563707d6b180836b23085a44a2b5805495c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9234380040a1d54dc20603d586e77fd048230161aa5e01277b1df37d4bf8dbc4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "15bd40dc2af1906f79d681d5d5ff2088f415e818d219dd2c1afc4156fb931ba9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e35ad2886b530ae14cf1e7f1189783a19dde7fe5c67b252265c3ab6afbc6791"
   end
 
   depends_on "asciidoctor" => :build
@@ -24,7 +21,7 @@ class Rink < Formula
 
   on_linux do
     depends_on "openssl@3"
-    depends_on "zlib"
+    depends_on "zlib-ng-compat"
   end
 
   def install

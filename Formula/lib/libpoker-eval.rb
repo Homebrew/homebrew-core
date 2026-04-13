@@ -10,8 +10,6 @@ class LibpokerEval < Formula
     skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "6f5762c63d4446544cc57abeea2c605b43442f035a34401d50c4d437257f6ad3"

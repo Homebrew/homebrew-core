@@ -1,10 +1,10 @@
 class Xorriso < Formula
   desc "ISO9660+RR manipulation tool"
   homepage "https://www.gnu.org/software/xorriso/"
-  url "https://ftpmirror.gnu.org/gnu/xorriso/xorriso-1.5.6.pl02.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.6.pl02.tar.gz"
-  version "1.5.6.pl02"
-  sha256 "786f9f5df9865cc5b0c1fecee3d2c0f5e04cab8c9a859bd1c9c7ccd4964fdae1"
+  url "https://ftpmirror.gnu.org/gnu/xorriso/xorriso-1.5.8.pl01.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.8.pl01.tar.gz"
+  version "1.5.8.pl01"
+  sha256 "0381798b7bb4f162578b4f31fe30bfe53608b5077075967f8df2facfab4c90f9"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,20 +12,19 @@ class Xorriso < Formula
     regex(/href=.*?xorriso[._-]v?(\d+(?:\.\d+)+(?:\.pl\d+)?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec2aac72e501138766c226d4983498f05536f216da04286b8457aec12f20bf7a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ce9aa17c62698d61ba30175e05e730cdbfb45c00f414728e344912d8f533e50"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c0d17d1c03669586c4d7f5e10c915ff46e0448b65838ad8f4b4b9cda589f0b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cb072e208fba6a3d7e100b173dabba79aad125900499366ae5c876223d51589e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d4c500ee979adcd61b5f7fd5790992ebd1209d7d778244d39e5b070ad317b62e"
-    sha256 cellar: :any_skip_relocation, ventura:       "6d06e4c85a3b819c1b0f6209de9ff66be94464f5f7ffc6e54987c1a9808417d6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e2de74c4a0f1472e99be18ad1810410378eb0597aad77e666657ee80ec932c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db3610de57dbb6a1b2bf32776acc9803efe9a951791101692eb65dc6df1226bd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8ae6596253b19bf4732b7c8a74f20535ab8b46414690df40c5a9319de540c604"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1817ac4183438f776342fbee5c693304bd38d1a01eabd3d147186ca9b6c46ea3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18fdd5844714ba4e72b7be697a95a429516c520baa1b16e48852c874ef0287ad"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa314d914a9a3cfe05b0fecdfa6d243b3f8781799428f2e54deba68a517221a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4b09addf2c831337eea4fb7a200b5b1ebb28d05d1078f7b6c44f84f1327b051"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cdad49ea388995ff54cd1923eb72d02ed73b6fbeb8cbfb237544680ef4ed2f7"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "acl"
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args

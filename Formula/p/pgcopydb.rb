@@ -6,8 +6,6 @@ class Pgcopydb < Formula
   license "PostgreSQL"
   head "https://github.com/dimitri/pgcopydb.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "0922fc7e2a6d606e02d8e140e9d621bb9b865cb9c9ba074a057d132cb1b3b187"

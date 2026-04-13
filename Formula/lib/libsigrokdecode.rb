@@ -15,8 +15,6 @@ class Libsigrokdecode < Formula
     regex(/href=.*?libsigrokdecode[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 4
     sha256 arm64_tahoe:   "23396e67a66de629ac081dc782c68f9fcd38617f0b6f9127f2f46dbd245f2d37"

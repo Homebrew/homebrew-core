@@ -10,8 +10,6 @@ class Libvdpau < Formula
     regex(/^(?:libvdpau[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "f9726bd90703d99de544a8ad2b2f4e043b547a82af7887ed0d220d8f011612e4"
     sha256 arm64_sequoia:  "8baf9479a1307dd3f6819d5953b200195a91d7c522f01b2b4930e9fc750b3615"

@@ -6,8 +6,6 @@ class Stoken < Formula
   license "LGPL-2.1-only"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "120ccd4eea9a910df80ea95e8041919027ef03d74fa87f982e25da2dea11bd72"
     sha256 cellar: :any,                 arm64_sequoia: "1506760360fda777047ae3f92e7fabd9b912d89a1684d55bd523850438b77bda"

@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://www.wildfly.org/"
-  url "https://github.com/wildfly/wildfly/releases/download/38.0.1.Final/wildfly-38.0.1.Final.tar.gz"
-  sha256 "35bac69f742054734cc05263642adfc4e2073211ef635e9e8c812c6de6c3a907"
+  url "https://github.com/wildfly/wildfly/releases/download/39.0.1.Final/wildfly-39.0.1.Final.tar.gz"
+  sha256 "30ce0874378d1100289d4820fce1f7646ab1278f8c30c7ae9bb84c16cbd510cb"
   license "Apache-2.0"
 
   livecheck do
@@ -11,10 +11,10 @@ class WildflyAs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "5849de27b0267d965396b1a10a431e1bcd670b77623e91a5301d6f231687da8c"
-    sha256 cellar: :any, arm64_sequoia: "4f4140e4b29756da5cb7f04db5b946c45409ccdbf865d997ad1b5dd108eee3ed"
-    sha256 cellar: :any, arm64_sonoma:  "4f4140e4b29756da5cb7f04db5b946c45409ccdbf865d997ad1b5dd108eee3ed"
-    sha256 cellar: :any, sonoma:        "7a6c17373ce94017450b539f8d60f881866d8ec55eb403873ab2f5e72c621c4e"
+    sha256 cellar: :any, arm64_tahoe:   "517a2a569b58e638fca4cb6fe98229af72d3ae567a7293d6d2516df00a05ceb8"
+    sha256 cellar: :any, arm64_sequoia: "71e35def71769915026776c48a02d4aaaa5f2bb0286a054b8cb146f336c97dcf"
+    sha256 cellar: :any, arm64_sonoma:  "71e35def71769915026776c48a02d4aaaa5f2bb0286a054b8cb146f336c97dcf"
+    sha256 cellar: :any, sonoma:        "f64f965a4165eccc9a83ddf2ed5358eff7ac790c904c59d801c36baa54e54d13"
   end
 
   # Installs a pre-built `libartemis-native-64.so` file with linkage to libaio.so.1

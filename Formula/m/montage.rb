@@ -13,8 +13,6 @@ class Montage < Formula
     regex(/href=.*?Montage[._-]v?(\d+(?:\.\d+)+)\.t.*?/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "58eb821dc6f0b9c1a85b8e5664f11465d87e00d719943644bdf303d25c7de909"

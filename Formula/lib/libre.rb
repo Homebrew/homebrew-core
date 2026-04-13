@@ -1,23 +1,25 @@
 class Libre < Formula
   desc "Toolkit library for asynchronous network I/O with protocol stacks"
   homepage "https://github.com/baresip/re"
-  url "https://github.com/baresip/re/archive/refs/tags/v4.4.0.tar.gz"
-  sha256 "fd7d8bd9ce31aee6ce95e0162931330493b6ca816fa7eb00a6801ca1af01745c"
+  url "https://github.com/baresip/re/archive/refs/tags/v4.7.0.tar.gz"
+  sha256 "b9fd286e30df103b3e06be2f821503d6f21551002737c4b8f47cf8db30dd5e19"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a29017c6c68d56ea7f28f79010e3f4279fa9f1ae49fa430c830c3386de0e66af"
-    sha256 cellar: :any,                 arm64_sequoia: "68d21d2fcfa677398b4dea15812ca014e05ca3c06fb6a51e8dc19af23c638882"
-    sha256 cellar: :any,                 arm64_sonoma:  "9a66e4fd0c389f99f9882517f000c5335d7f875a450b362681a72c07a848aad3"
-    sha256 cellar: :any,                 sonoma:        "5ab3bc7e6922cce5a1a186b0c670f35de12efe51d1c5e7960f9fd62e4590b780"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cb20117f8b7785e02582520ec6fe5efcfa48582c3526069bb98dd928736e870"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2eac19de6abafce9d5d9a86d7f674024b394fc5883485d4c9fb357b9473923b"
+    sha256 cellar: :any,                 arm64_tahoe:   "c4849b9398137a10a5ba3ffab29c7a1a6223b84c62defb5443cf2a308082abe9"
+    sha256 cellar: :any,                 arm64_sequoia: "44e0e7858b06c671ce7cf7efbb1c73cea6aaf0dff14a370ba444bf74d6505de7"
+    sha256 cellar: :any,                 arm64_sonoma:  "e21769e6c8a9d9b692ddca7e38dcfaf0400817fa5cb37ee12a558d818be53c6f"
+    sha256 cellar: :any,                 sonoma:        "4220322ee8a3a529a3087ea818db393a3ea0e164a02b6848f998a10fea1a0271"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07efd22a55d3ab0502375dec2d1e4c634d71b45a09e154a0015e1419111ddac7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbb565a5be6533757165374d5172aa8cdc168a7a6bfbd31464dafe5117700432"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-B", "build", *std_cmake_args

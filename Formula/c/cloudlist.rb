@@ -1,20 +1,18 @@
 class Cloudlist < Formula
   desc "Tool for listing assets from multiple cloud providers"
   homepage "https://github.com/projectdiscovery/cloudlist"
-  url "https://github.com/projectdiscovery/cloudlist/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "53efb4bff46b533fab0bbb0003c3fddb5874e64cde8beda977856af3e8fdb064"
+  url "https://github.com/projectdiscovery/cloudlist/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "1a165e5dc6dd1f4950517efb569e1527a9d8462af2367917660711ebbdf5e5a6"
   license "MIT"
   head "https://github.com/projectdiscovery/cloudlist.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "05ee74dbd140cf4d1fe0390ee4e72107f3d0c2676396cc2960595bb1ab222a49"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3eeeff6d7b3312e6bd66a20976b56b8d6ce218432349e0b5c033bef25917bb9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3a031f1ad78d063784809b8c086edfb9b92047ddae1c53ae6948debfc7e3e2a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7a14d6684860a6ef496dc5b65862ef0f29060d49292d96fd5a447ade69f862f0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "432374a4bd4b58a1f7e8fc2b636236cc51629ed2dcd78489733844b5a4f3e632"
-    sha256 cellar: :any_skip_relocation, ventura:       "bc9838edd6c20e8d284902868aa1e88d05199fed36c5726723d263fc21ef5eba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bedbbb60c02445c4637a38c8758de70b2d9f5e3ac19f4f3c181e361536b4f8f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3114ba22694e7c5f3b4cd24c016b5556fb2a570c461efe3cad27f27c34a3f63"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "105f6868efd65248a3caa464d62c680e8fe393dec08db4fbbef10708849a8f79"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b145d488801fa17d4ec69474fc476abd3f58009382e066d8ebf1504ba04da60d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dfab5b09047ac73122e3820db7d7518cbe333e848c41f009454ccb6e1b41b85c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "343cb3de5980a66c3700b983e5c519d7545de392a12238c14a501df64e99816f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "238a0d845508fe2fe6e8ee1fe4bf9022c5b415448471a4ed3326bae152f27a95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0604a3637ad708737f8fded6acd08ca62efdfd09564973382150a4d7fbddf7c2"
   end
 
   depends_on "go" => :build

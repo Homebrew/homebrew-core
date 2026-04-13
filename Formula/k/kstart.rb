@@ -10,8 +10,6 @@ class Kstart < Formula
     regex(/href=.*?kstart[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "041e2a23f9396a6d7497e6931652dd9d2991aac192f93dda036ff923269fcadd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e4406b6bbb8c07dce6d556cafddb099811130501c3c377dd057f4c997ba2033c"

@@ -1,9 +1,10 @@
 class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
-  url "https://nmap.org/dist/nmap-7.98.tar.bz2"
-  sha256 "ce847313eaae9e5c9f21708e42d2ab7b56c7e0eb8803729a3092f58886d897e6"
+  url "https://nmap.org/dist/nmap-7.99.tar.bz2"
+  sha256 "df512492ffd108e53a27a06f26d8635bbe89e0e569455dc8ffef058c035d51b2"
   license :cannot_represent
+  compatibility_version 1
   head "https://svn.nmap.org/nmap/"
 
   livecheck do
@@ -12,13 +13,12 @@ class Nmap < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "8b0c683be0468cbabf353946294009fab7e90f0cc2926eb660d85911037078a4"
-    sha256 arm64_sequoia: "c3acbe15e9c4599441d2c765fcf1791b7c5d51183a6bfe56662f861d1547b11a"
-    sha256 arm64_sonoma:  "d81b6a59b8fe79a572e8b5c26a4cea2e946a42ddac395e78bac36bd422241d7a"
-    sha256 sonoma:        "b3d02143aa6f854448be7dd1b9a240a79fbb293358378269f788b275d9bd968e"
-    sha256 arm64_linux:   "b3e6690a7aec429fa84f4f6281c6c288f84be08bfc4439875008a60359c0c9c6"
-    sha256 x86_64_linux:  "9700259f97a5d42d0c1e9e2c6c2ed03059dd2bc362d2eb45c106219b1fe0ac29"
+    sha256 arm64_tahoe:   "610785e4dd545c5f71d3af2d221f8a92951714710cf98ac4ed10f6fd0d0c5153"
+    sha256 arm64_sequoia: "5840513b1bcc8c8e20b68a1a9e71977d424827ba9e26c157e79760dc218fb55e"
+    sha256 arm64_sonoma:  "47740d854f1669dc68deabbfd6f5d54036c99ddb606ba39d70e747f7632f4f85"
+    sha256 sonoma:        "a5c5594350aad5168e64c364c6508b669cd5ea2273ad0f88d005b27de75cd5bd"
+    sha256 arm64_linux:   "55edc13eebfb103bdc26cdcb479daf81d709b727d6c6e2e22ae2c447cebc638a"
+    sha256 x86_64_linux:  "71db30907d6cd22b65e60fbb825cbc394ea291123aba6f9422342026bdddd6ad"
   end
 
   depends_on "python-setuptools" => :build
@@ -33,10 +33,12 @@ class Nmap < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "libpcap"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "cern-ndiff", "ndiff", because: "both install `ndiff` binaries"
-  conflicts_with "nping", because: "both install `nping` binaries"
   conflicts_with cask: "zenmap", because: "both install `nmap` binaries"
 
   def install

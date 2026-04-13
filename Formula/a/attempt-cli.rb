@@ -1,18 +1,18 @@
 class AttemptCli < Formula
   desc "CLI for retrying fallible commands"
   homepage "https://github.com/MaxBondABE/attempt"
-  url "https://github.com/MaxBondABE/attempt/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "59a5a250de15ec14802eec19b6c63de975ccb72d2f205f1402bef94cf30b2f10"
+  url "https://github.com/MaxBondABE/attempt/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "95c0d7873db135361f5de50e1add0aa472f543dd499aec3cd1fda678672c850a"
   license "Unlicense"
   head "https://github.com/MaxBondABE/attempt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f3d246f8da65165d17c588dc3bf1231532e0c8c666fc2f5bac8493c9a6911f6b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f6affd2438d988a8bf47fa4991d1df98c07b0e7e92940de0b69f8d5816269432"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b946258b9c500cb93ed7609477acf244e29c94dc90e6454e250407e912588f49"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e2830afa1aae71e0dd566895e9ee24a87831d1cb175e60a157493392c9348cc6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b19f8b44ec04231ef3b8bca972cf63df75b6ab4525c9657a350d81dc5b00751"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "405051516520cdea32998076289c1331800da5dbd81e7d16fb8d067cb6f97a56"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9a8881fa613c85f2f0c9a65950de36c1b684aafda39b6b3858f78c60d18a3e48"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07e2e1e6833b054ef29933a6ed02b0f59a79ca42d76f4e8cf7bbbc7b070f1c45"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "543b5a378075c437c6de8e8cb46fa0ce429e37f99aaf0edf0f57bfa24205206a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "33006a9c41e7804a56c6cba52cf4c05d665b1b0cd1c10546e408a4d898381bbd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0864b36766d2d2ea8917cc9abeb7e0f8eb421e0c40d4ff2ccf3de1048107dab5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ab9bd07ecd55a0d594b9d94a4a037f5425a277dbd99572dba81eeedf51c4095"
   end
 
   depends_on "rust" => :build

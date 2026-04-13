@@ -1,8 +1,8 @@
 class Krb5 < Formula
   desc "Network authentication protocol"
   homepage "https://web.mit.edu/kerberos/"
-  url "https://kerberos.org/dist/krb5/1.22/krb5-1.22.1.tar.gz"
-  sha256 "1a8832b8cad923ebbf1394f67e2efcf41e3a49f460285a66e35adec8fa0053af"
+  url "https://kerberos.org/dist/krb5/1.22/krb5-1.22.2.tar.gz"
+  sha256 "3243ffbc8ea4d4ac22ddc7dd2a1dc54c57874c40648b60ff97009763554eaf13"
   # From Fedora: https://src.fedoraproject.org/rpms/krb5/blob/rawhide/f/krb5.spec
   license all_of: [
     "BSD-2-Clause",
@@ -24,6 +24,7 @@ class Krb5 < Formula
     "OpenVision",
     any_of: ["BSD-2-Clause", "GPL-2.0-or-later"],
   ]
+  compatibility_version 1
 
   livecheck do
     url :homepage
@@ -31,13 +32,12 @@ class Krb5 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "ba7292c48faba4e1316a134b578075438a4a5fd68ce7a26a078c01299a5ad567"
-    sha256 arm64_sequoia: "f0f2b5564c2fd190fcd348e44fa173540229b6aeb0dbd0366c2dcd1c974b03bc"
-    sha256 arm64_sonoma:  "9ed1b2fce50ddeb0895f6fc8ab6f063ee52a1b0247375b163819895ba90f10aa"
-    sha256 sonoma:        "00825fbba0182d1fc4311fd0ab066f9171dbbfa5e054e8c3f9929711495cd649"
-    sha256 arm64_linux:   "cefd51a8be00bb1f11891da5d751d9789033549a4b15270ee1d455d2dbb79d2c"
-    sha256 x86_64_linux:  "f06847262502d82d12cc4db16ec946dffecbdd32c8835702c792b4ac38bc2b56"
+    sha256 arm64_tahoe:   "2968bf9d040cd58eb2933ddf03cd004d1f9abe8b19bd7f028ea8666ad47714ab"
+    sha256 arm64_sequoia: "a9db2ba99f3e99279c4aac0277cdba955510d27f09bde6051b100e660c1a1c28"
+    sha256 arm64_sonoma:  "b63debb64f3b2d7875f0868e5cefbe3375ff635df7f0d1e4fc76f3716cdbb3a5"
+    sha256 sonoma:        "a4ab63ede148b1230e05c3002024e37d402ad3a18c98976d71a83920a879c462"
+    sha256 arm64_linux:   "1e75b209585cd4b2155eb8eebadaf3c4df5948981fecfaa5633a60e5918a78d7"
+    sha256 x86_64_linux:  "5c06477705002279f07de13c147866235a99abe1495ae4deb1eed805ec542245"
   end
 
   keg_only :provided_by_macos

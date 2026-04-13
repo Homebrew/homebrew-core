@@ -5,8 +5,6 @@ class Asn1c < Formula
   sha256 "8007440b647ef2dd9fb73d931c33ac11764e6afb2437dbe638bb4e5fc82386b9"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "101f876e913d345e99ac08ef2e9144b578e3979491f8338a62cf3c0e0d346144"

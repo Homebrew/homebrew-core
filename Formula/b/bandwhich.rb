@@ -6,15 +6,13 @@ class Bandwhich < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ceb7beda5d377f5fb16336a194d7aca4fe90fc7efa0acd996bc597ce55684da8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c15e7fef87ef65a7978559fbae64620eeb81447c7d36b75f61d7b38b7550d6f5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7979b9c76cfc69fdc8a04c9d73d3e2eb971f80d97a2b001c0070dbd3b7f35a25"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1b3d6ba9e64f04836694b7fdc561898f574acdc7a9a16748c9cc7e3a55837779"
-    sha256 cellar: :any_skip_relocation, sonoma:        "20cc25bd2086b5641e01ddab375f3c1011f53ca385cb19f8cfb4b46a46e5b878"
-    sha256 cellar: :any_skip_relocation, ventura:       "960376206b857195c7d7c4640719b3e242fe1c06728eeb46ec441d517706fa7f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8b780c7481b3b9c4e70cab919adb4d3e8784d03f1c8e0e9ba38d08d764012f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f381d378861391d73194970be1237864d4ef6acb6d508db75502da5981647d7"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3010007ba0d5879cfc388d3b85da78b20705ded1b6fef52aab5ba40b6d4264a1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68844daddd6f6888ac773f51bb44194c6609f27c1da223abca7690bd3e945673"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b729baafeac965993e3aa7093d3c1af635fcf94fa3fceee6ad261eb16ed3c105"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e8ba6a626e25e7dc40eba76784b871db53461c8031b1e6a2426afab9d7de319a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a9be322f6125f0cf6deea31fa59fc019a7861b3f80dd5abc297abf4602503d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fb5abdfed0d43ec8a0e82b82eb0581f4f760ebbb56a2ac574e9cea5e0128455"
   end
 
   depends_on "rust" => :build
@@ -26,6 +24,7 @@ class Bandwhich < Formula
     bash_completion.install "#{out_dir}/bandwhich.bash" => "bandwhich"
     fish_completion.install "#{out_dir}/bandwhich.fish"
     zsh_completion.install "#{out_dir}/_bandwhich"
+    pwsh_completion.install "#{out_dir}/_bandwhich.ps1"
 
     man1.install "#{out_dir}/bandwhich.1"
   end

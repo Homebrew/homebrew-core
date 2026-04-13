@@ -11,8 +11,6 @@ class Mftrace < Formula
     regex(/href=.*?mftrace[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 5
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2d4dbf098949319339b846a75c34f03b67e6b9288be17881dc7a958e79d76000"

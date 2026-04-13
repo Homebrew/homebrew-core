@@ -2,8 +2,8 @@ class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
   homepage "https://ollama.com/"
   url "https://github.com/ollama/ollama.git",
-      tag:      "v0.14.1",
-      revision: "4adb9cf4bbf21486113eb13680b8be6a08fc5d0e"
+      tag:      "v0.20.6",
+      revision: "9330bb912079ed1ba3c384cc762728700c9e3691"
   license "MIT"
   head "https://github.com/ollama/ollama.git", branch: "main"
 
@@ -16,16 +16,31 @@ class Ollama < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "323cfb77be3a7becb6065f963a031e8733058ea6b077e9476e0307178239411b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2ea32e7d9495aea7b09d4f6ff69893d427bf99085b075d88af825e3171a6b44"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c0b5f53e5322abe6e9d1e797e6a6b7a3db2c996e2856af683dff2d672589cf9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0fbaba34b0a817dab1cf76f7cfa15c99c802bc0c951e8451565fd8cc13714c2c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cec3816ed1f607c5e4f926733f385837e2efd62cac8df14c23a29bfe28d32ffc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31e227b801560b3699105857f37e9730315dfe8d1400cbb9bd8b2bf1de305217"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "72494a5f2eabb3c3c31487f140b919c1adb97c661a025d6a49c4392e30890f71"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fea85e41d62c4d60a0741baebf54839e8feba688cb030d36fdcb5b034a289a6d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2118ba61768981f5076eb1ace25dcf2a147913c9cd08c01fdc1b7909c5285800"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3fa598acb1576b47321edca356262f77e504e64a679fed7ccc55223e7ac719c6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9636aa73fa4ecc3dca1ed2c43840293f4d4ead989bce613636cc20b786ef4d36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "feb92ebc8c31bb8751dd58975528afc0efb6c6c907afeaf35260aecf9cf8d769"
   end
 
   depends_on "cmake" => :build
   depends_on "go" => :build
+
+  on_macos do
+    on_arm do
+      depends_on "mlx-c" => :no_linkage
+
+      # Fixes x/imagegen/mlx wrapper generation with system-installed mlx-c headers.
+      # upstream pr ref, https://github.com/ollama/ollama/pull/14201
+      if build.stable?
+        patch do
+          url "https://github.com/ollama/ollama/commit/c051122297824c223454b82f4af3afe94379e6dd.patch?full_index=1"
+          sha256 "a22665cd1acec84f6bb53c84dd9a40f7001f2b1cbe2253aed3967b4401cde6a0"
+        end
+      end
+    end
+  end
 
   conflicts_with cask: "ollama-app"
 
@@ -44,8 +59,17 @@ class Ollama < Formula
       -X github.com/ollama/ollama/server.mode=release
     ]
 
-    system "go", "generate", "./..."
-    system "go", "build", *std_go_args(ldflags:)
+    mlx_args = []
+
+    # Flags for MLX (Apple silicon only)
+    if OS.mac? && Hardware::CPU.arm?
+      mlx_rpath = rpath(target: Formula["mlx-c"].opt_lib)
+      ldflags << "-extldflags '-Wl,-rpath,#{mlx_rpath}'"
+      mlx_args << "-tags=mlx"
+    end
+
+    system "go", "generate", *mlx_args, "./x/imagegen/mlx"
+    system "go", "build", *mlx_args, *std_go_args(ldflags:)
   end
 
   service do

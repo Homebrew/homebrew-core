@@ -1,19 +1,18 @@
 class Havener < Formula
   desc "Swiss army knife for Kubernetes tasks"
   homepage "https://github.com/homeport/havener"
-  url "https://github.com/homeport/havener/archive/refs/tags/v2.2.6.tar.gz"
-  sha256 "f5fe8bc809694bd8c757c3ddaac91cdcc20eb9efc988dd736838b0a8bbfdf7e8"
+  url "https://github.com/homeport/havener/archive/refs/tags/v2.2.7.tar.gz"
+  sha256 "f923cd42bb4ded5535aa089037bc285110b2bc335ae108553e50ac8bddeafff0"
   license "MIT"
   head "https://github.com/homeport/havener.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5404d60388456060489c36981d6e8383061e9b1e6055bb78ec29fff5faa47a87"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0302520d5de527eb9453496fe20c6cfd4e050ebce1daeaaec046fb6355f03486"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b63b5ddec07dc7740ca2c12f6c8007a3813b0df12833acd863b15f0d950c577"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dd60ee955dc4f2a246632aa0e52f53434f15fdf3b6f69edaa6e7d3fc08f824ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "66b014cf1e43c19b2a7dc1ff283cb27e4228ce71a6158d53f73ca7b95ed754a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8804e37af7ed905ebc1786d0b98f43e66ab003427e045f707dab585245e926b1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4397c0d71d256f7b8421d9594c5ee43c4f13b36b55bd54321537a24377b92545"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ce7e308cf1a51537d8a5a2d48ec5a024d6e7d340ca2f304e279512ba7e49bcd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bfacaa784ba083394e92da83f9bca7ed6881e2c58393e75fd08d69323020087f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "532bac41859f345e8109fbf42e907252e63baab9898ae6254f626119b6fc8d6a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75dba74d30e26878c3c1640d43bfd02fc403d45b5292f52d19288da461cb3ab0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14c8e859323222fd570e03f56edd2290754bfdc6740c1f3de551683945967cf9"
   end
 
   depends_on "go" => :build

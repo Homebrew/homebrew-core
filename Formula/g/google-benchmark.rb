@@ -1,20 +1,18 @@
 class GoogleBenchmark < Formula
   desc "C++ microbenchmark support library"
   homepage "https://github.com/google/benchmark"
-  url "https://github.com/google/benchmark/archive/refs/tags/v1.9.4.tar.gz"
-  sha256 "b334658edd35efcf06a99d9be21e4e93e092bd5f95074c1673d5c8705d95c104"
+  url "https://github.com/google/benchmark/archive/refs/tags/v1.9.5.tar.gz"
+  sha256 "9631341c82bac4a288bef951f8b26b41f69021794184ece969f8473977eaa340"
   license "Apache-2.0"
   head "https://github.com/google/benchmark.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "90bdbe5f304cfbe6e77296116f969780d1e475a09ed7fb2e2206c17cf7a36eb0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f343582dc8ff72ab02342391ab8295e8bd5d6094c4bc874dfd7b9a094cba525b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "580c1a3bf6ea70b7d740e6cf86918692b4ae4c6ace20f5b7dd7a98dac489086a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8416e88252420fa06089e252fda1e4e5a4a6052f7f2c305ebd3bfe311c5b4f79"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fb289fbd3a461722c35b95cb752be0a991b0c7ae42012e068aa84c8cd42d66f4"
-    sha256 cellar: :any_skip_relocation, ventura:       "3b7e2f85d5d7a001195b500cd8ba1d634be0e89163e2d498e4e956f38eb1a4fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb8d0998dc3349707cb2f3c484efcee4493b3b7532a4affd40f4d06f37f9c8d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfaf5d515392bcad6dc925796a1e5857d602ff9960d6419883b9c87347de096b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5869b5f29dc83b37a1a7d44bc846149111d1e3b89e27fa3237502c507ce86945"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "019455d89f81c72633489b62d4456bc0272ffe1bc77c17f98838c16d48351411"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8e628bc6a25ea09d254a199a6c1427784e46df9dc98db6684382b946f7f5812"
+    sha256 cellar: :any_skip_relocation, sonoma:        "006f44aca539706c9b216afc902219256dd0bf8c018a704cb6f06178b17dfce2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a66268855a18d1595ae79c2c0321605009710dfec02cc1ab276dc39e1ee3bd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a3f4b7908ccd9c1b945a81f41cf07209bdb87c5e397e1ad34f5e271893152d4"
   end
 
   depends_on "cmake" => :build

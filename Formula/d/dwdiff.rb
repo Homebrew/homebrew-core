@@ -11,8 +11,6 @@ class Dwdiff < Formula
     regex(/href=.*?dwdiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "72db22b7bee1b3fbb618afb253f77a38a89d8f48dce43a05e4e43f00c33f49a1"
     sha256 arm64_sequoia: "a0c989ceab85b65e504e45d4ce9168d2536a523a0aeb32c5ce252227e9b9fa73"

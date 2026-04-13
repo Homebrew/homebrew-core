@@ -6,8 +6,6 @@ class Curlpp < Formula
   license "MIT"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "9a08aba8e10cfb6a543680b097a11d64a4422b7123058bcf8736e71ce334440b"
     sha256 cellar: :any,                 arm64_sequoia: "52b67581206f16051deeb149813b5353107b51044d7d43946426f5d299ef4343"

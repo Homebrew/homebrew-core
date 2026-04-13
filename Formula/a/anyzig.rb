@@ -1,19 +1,19 @@
 class Anyzig < Formula
   desc "Universal zig executable that runs any version of zig"
   homepage "https://github.com/marler8997/anyzig"
-  url "https://github.com/marler8997/anyzig/archive/refs/tags/v2025_10_15.tar.gz"
-  sha256 "65ebdeca9e20ac347d094b504c3198eab25f130638e91554f517eef1c0275c2c"
+  url "https://github.com/marler8997/anyzig/archive/refs/tags/v2026_03_26.tar.gz"
+  sha256 "bad066c1d98a4ac469cf1d9a0203a3be65425d4cd0bc1f1a3dbf042ebb9c1c62"
   license "MIT"
 
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b742bd26786d46db9dfe46088fc423d3ea4020eb1bdab90fe871b1c157682822"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8b788c7f65dff73b02212d1b5bbd35f0d55106d4064853848371111a0cb0220"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "05c25f2403072fba5eb711fd62b2f6e97d4d2753344e2ef0d0e330d920aa883a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0205666a6552cd3e57c8c65e4f842939d6cfae318506bc7fa482e9069e185802"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "259c4a5bcec54b7948dcc82ce6cc003575e63b5fa35049ac389ebe258c8b756e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b96df77ca3f2ffd21ff157661045237683a954504516c300c8965232329446c3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b74b8a10618d168a874dfb7cbb1bd8a32a81347b6a818f223b47867090b86f23"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e325f79fe7feec7d8be39362aeb50782bf324ea99c074fb1eb392dc7991e0b96"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22edb36bfb2d62b7c3e70b970fb811fc9c3609eefe87181d5e7c5200b2e8a206"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1b8227dc878ab1f9ddb379e15ae0d886f40dcdd4a472314c6fb96eafe96a075c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eff964177238e0129e2dce0d96b6e0c09a690da2135148607b6597f409179034"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ec5b50befefe7b3e36c11b2ad750ba9e64905a1594fc3ec5d74a08b5e8abd82"
   end
 
   # Aligned to `zig@0.14` formula. Can be removed if upstream updates to newer Zig.

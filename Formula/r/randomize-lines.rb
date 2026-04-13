@@ -10,8 +10,6 @@ class RandomizeLines < Formula
     regex(/href=.*?rl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "54390ca4a64d2cc044e4a562f868476d9821274a86758db0fd035079fe9e5db2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8ec08636ac3e5aa68060b1f43a1bd6a5cad418f489a4bbc9b9554053aa06188e"

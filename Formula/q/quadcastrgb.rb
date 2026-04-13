@@ -22,11 +22,11 @@ class Quadcastrgb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2801d5cd4a174741bc30148f65714b4aa8fcf15a97294df3e7482bb088bd6d56"
   end
 
-  depends_on "make" => :build
   depends_on "libusb"
 
   def install
-    system "make", OS.mac? ? "OS=macos" : "OS=linux", "quadcastrgb"
+    os = OS.mac? ? "macos" : OS.kernel_name.downcase
+    system "make", "OS=#{os}", "quadcastrgb"
     bin.install "quadcastrgb"
     man1.install "man/quadcastrgb.1.gz"
   end

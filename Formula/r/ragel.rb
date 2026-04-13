@@ -10,8 +10,6 @@ class Ragel < Formula
     regex(/Stable.*?href=.*?ragel[._-]v?(\d+(?:\.\d+)+)\.t/im)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a861e1645f5b8f830a41c21217ff8423360dcc678bd5f25648f3737e75e3f0d6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c2bbe81eb822afe87192cd8b4688fe5bb9f84b2fe87ea343ef0155ff8b6590ac"

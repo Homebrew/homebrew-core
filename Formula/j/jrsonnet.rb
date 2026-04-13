@@ -11,8 +11,6 @@ class Jrsonnet < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "026bf62a8f25bba0ebb74716c7167c4564c69967bf4860a64e81332ca668c187"

@@ -1,9 +1,14 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "https://gwyddion.net/"
-  url "https://downloads.sourceforge.net/project/gwyddion/gwyddion/2.70/gwyddion-2.70.tar.xz"
-  sha256 "942f4e041945a850bc32d05193a115ac8a5118a6f841afa6d4dea510f9913f59"
   license "GPL-2.0-or-later"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/gwyddion/gwyddion/2.70/gwyddion-2.70.tar.xz"
+    sha256 "942f4e041945a850bc32d05193a115ac8a5118a6f841afa6d4dea510f9913f59"
+
+    depends_on "gtk+"
+  end
 
   livecheck do
     url "https://gwyddion.net/download.php"
@@ -11,12 +16,32 @@ class Gwyddion < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f157397b6c5fa83a8d4e2dd1cb54ef060ab3b6c2298554a8006ccd89bd6ad427"
-    sha256 arm64_sequoia: "c6a93e99ea54d741a02c28858ef4cedb959c039c425ad28fe37f6b47d68a40e2"
-    sha256 arm64_sonoma:  "2667a87710cdf581a8066c19cae2916cf6809f39eaa8437bba648943d6ff1cc8"
-    sha256 sonoma:        "c8e2916309b3431fc392e98de5f8ccd8b99534f0e19513756c9b8189155100a0"
-    sha256 arm64_linux:   "47e3e27c14637c56a991c08256ff8a523325052d54989f6879e94998dce31ddf"
-    sha256 x86_64_linux:  "81002efd521f8c2818f7182c6215feb390a9400c67eb0a1c47991702563bab86"
+    rebuild 2
+    sha256 arm64_tahoe:   "4600005e4a74dc2e9b3e0ec17f9e0e52c5cdebeaf4830f16e187d2b06415b44b"
+    sha256 arm64_sequoia: "f95d7836e09dfc7cdc666fd93d7125734d4b07fec1308b9c01cb3a7a875265b1"
+    sha256 arm64_sonoma:  "3c532cc85266974f4af9ba3f04b971ba1116f7a763dd9a9b9fa373033971225c"
+    sha256 sonoma:        "960dbce3c3045c936ec5bcbda40626a20664b2e8540224211e573b2784569cd4"
+    sha256 arm64_linux:   "799e34fbff79d604bdf29e5ba6e91e68466ea8ce4c208631021f73d9e0822175"
+    sha256 x86_64_linux:  "d9f991bd16d1e0e3412b2f61c9d6a6b8806c8db047482381a4f77f951294dd1f"
+  end
+
+  head do
+    url "https://svn.code.sf.net/p/gwyddion/code/branches/GWYDDION-UNSTABLE"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "docbook-xsl" => :build
+    depends_on "gettext" => :build
+    depends_on "gobject-introspection" => :build
+    depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
+    depends_on "gtk+3"
+
+    uses_from_macos "libxslt" => :build
+
+    on_macos do
+      depends_on "gtk-mac-integration"
+    end
   end
 
   depends_on "pkgconf" => [:build, :test]
@@ -24,15 +49,12 @@ class Gwyddion < Formula
   depends_on "fftw"
   depends_on "gdk-pixbuf"
   depends_on "glib"
-  depends_on "gtk+"
-  depends_on "gtkglext"
   depends_on "libpng"
   depends_on "libxml2"
-  depends_on "minizip"
+  depends_on "libzip"
   depends_on "pango"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     # Regenerate autoconf files to avoid flat namespace in library
@@ -41,23 +63,39 @@ class Gwyddion < Formula
     depends_on "automake" => :build
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
-    # TODO: depends_on "gtk-mac-integration"
     depends_on "at-spi2-core"
     depends_on "gettext"
     depends_on "harfbuzz"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   # Fix Autoconf ≥2.72 compatibility by explicitly declaring gettext version.
   patch :DATA
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
-    system "./configure", "--disable-desktop-file-update",
-                          "--disable-pygwy",
-                          "--disable-silent-rules",
-                          "--with-html-dir=#{doc}",
-                          "--without-gtksourceview",
-                          *std_configure_args
+    configure = if build.head?
+      ENV["LIBTOOLIZE"] = "glibtoolize"
+      ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+      ENV.append "ACLOCAL_FLAGS", "--system-acdir=#{HOMEBREW_PREFIX}/share/aclocal"
+      ENV.append_path "ACLOCAL_PATH", Formula["gettext"].pkgshare/"m4"
+      "./autogen.sh"
+    else
+      system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
+      "./configure"
+    end
+
+    args = %W[
+      --disable-desktop-file-update
+      --disable-pygwy
+      --disable-silent-rules
+      --with-html-dir=#{doc}
+      --without-gtksourceview
+    ]
+
+    system configure, *args, *std_configure_args
     system "make", "install"
   end
 

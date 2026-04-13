@@ -38,7 +38,7 @@ class Tmpreaper < Formula
     touch "removed"
     sleep 3
     touch "not-removed"
-    system "#{sbin}/tmpreaper", "2s", "."
+    system sbin/"tmpreaper", "2s", "."
     refute_path_exists testpath/"removed"
     assert_path_exists testpath/"not-removed"
   end

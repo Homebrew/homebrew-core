@@ -29,25 +29,13 @@ class Giza < Formula
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
 
-    # Clean up stray Makefiles in test folder
-    makefiles = File.join("test", "**", "Makefile*")
-    Dir.glob(makefiles).each do |file|
-      rm file
-    end
-
+    # Install test files to use during `brew test`
+    rm(Dir["test/**/Makefile*"])
     prefix.install "test"
   end
 
-  def caveats
-    <<~EOS
-      Test suite has been installed at:
-        #{opt_prefix}/test
-    EOS
-  end
-
   test do
-    test_dir = "#{prefix}/test/C"
-    cp_r test_dir, testpath
+    cp_r prefix/"test/C/.", testpath
 
     flags = %W[
       -I#{include}
@@ -67,7 +55,7 @@ class Giza < Formula
       test-rectangle.c
       test-window.c
     ].each do |file|
-      system ENV.cc, testpath/"C"/file, *flags
+      system ENV.cc, file, *flags
     end
   end
 end

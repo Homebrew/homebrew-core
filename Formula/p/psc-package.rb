@@ -6,16 +6,14 @@ class PscPackage < Formula
   license "BSD-3-Clause"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "b1489b1776cdab0800397074dbb0ec35a89ad1038e8cf35243cc9a6c452e1355"
-    sha256 cellar: :any,                 arm64_sequoia: "74cbe29713b84ceac9b1e0805c3585905d239c8c09692ee9fffaf24fc0c24fcd"
-    sha256 cellar: :any,                 arm64_sonoma:  "82d40bcd3e5b27f749a1c6fb8cc8707805844928200c9c0e6fb03d8248afb61f"
-    sha256 cellar: :any,                 sonoma:        "1fb1adcb05550a799c54784b0141d3b8877766fd8845543e1ec05130b2e8bdcb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3084a949cb92ad9b031bcf3b4bb96f6fd607073dbf86868826041794335ec9f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7f15621b52993c984fd4efa03e350ead5b93353ce17bf734f28788b8288525d"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "853fa3c46cc3d8014091d14617d648cb6b6b93f4c12bde49197b53fe213f85a6"
+    sha256 cellar: :any,                 arm64_sequoia: "6c5928de908600c114d1586d02da4c506a7b19c5cbf575eb1b7f59601b2af724"
+    sha256 cellar: :any,                 arm64_sonoma:  "be21d5ebf43c62b97943a8f695aaeb4c089d09e758025e09fc5d331ff94958cb"
+    sha256 cellar: :any,                 sonoma:        "cfbcf399e9fa7c9ae00731f65705c19e13484e8b4f90f40b355de009eab70d37"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b95340cc6d47cb4a2a0a39e28a6a2f9e5ea9f053610f370dc598687c1f3d85e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c39f2e672013bcc94c77c15c585fc01bafaacbb74026cda1d720bc75b991d876"
   end
 
   depends_on "cabal-install" => :build
@@ -24,6 +22,10 @@ class PscPackage < Formula
   depends_on "purescript"
 
   uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Apply upstream patch to fix build. Remove with next release.
   patch do
@@ -37,6 +39,9 @@ class PscPackage < Formula
   def install
     # Workaround to build with GHC 9.10 until upstream allows `turtle >= 1.6`
     args = ["--allow-newer=base,turtle:text"]
+
+    # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
+    args << "--allow-newer=containers,template-haskell"
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", *args, *std_cabal_v2_args

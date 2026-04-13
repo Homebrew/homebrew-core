@@ -7,8 +7,6 @@ class Ophcrack < Formula
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "2553d9e208e58765c20d11a8ce7a24ba4564caca492eaeec39ff7f3143452bed"

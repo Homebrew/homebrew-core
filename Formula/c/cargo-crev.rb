@@ -1,8 +1,8 @@
 class CargoCrev < Formula
   desc "Code review system for the cargo package manager"
   homepage "https://github.com/crev-dev/cargo-crev"
-  url "https://github.com/crev-dev/cargo-crev/archive/refs/tags/v0.26.5.tar.gz"
-  sha256 "9bf1ec351c15243c598db86b8edc292fb36b9deb8c4e94dd5506abf3edd5a41a"
+  url "https://github.com/crev-dev/cargo-crev/archive/refs/tags/v0.27.1.tar.gz"
+  sha256 "785ed01f3352331ac4f6ecd63da5ab896a4d251678ad75b6bcf1545858a4cc82"
   license "Apache-2.0"
 
   livecheck do
@@ -11,21 +11,21 @@ class CargoCrev < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0c2058bf99742c715b0715ec0c960c94aca85b3bafaa122669c43eea9420515a"
-    sha256 cellar: :any,                 arm64_sequoia: "42cb4daca9c8d0ba31bf64d356570a0f8cfaeb29d0d49ba0bfc589edc5e2f97d"
-    sha256 cellar: :any,                 arm64_sonoma:  "ff054705742a50eee0d2a398b38bc2878df9416e4794b3d918ded10b1fe3164a"
-    sha256 cellar: :any,                 arm64_ventura: "3da7ac06e686b48d9bd8f5dae16a3e0a73a0ec5f7ab1400598a83b03a7ee5800"
-    sha256 cellar: :any,                 sonoma:        "b02ac8662057a7042863e0ecd62a066c4f2bad9497f3761323b63b3fd46664e5"
-    sha256 cellar: :any,                 ventura:       "daa86a9f52d84f32cd2f88daefbc642c1d1fbf5926027f292f30a794c967d8eb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "67ada93a107cf7b62feb2a4e7c18dfc667c2f37e7e65fcd377b4844d61a3d44d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29aea144a97853f74044bcb0b34d684ca20719eb25bf5325731ef19b7a75ed55"
+    sha256 cellar: :any,                 arm64_tahoe:   "71e14ec0c42cdd3dfe446ece32f58d5f52ff6d31db25b3de1acc4a6a2dc1c5f4"
+    sha256 cellar: :any,                 arm64_sequoia: "49a298d9684d31c5a47203fa980ed2ca90f43299a5156f6af8b39eb8d04719f5"
+    sha256 cellar: :any,                 arm64_sonoma:  "698e6d52e95a6dd3efa9de309d77d6a492ca79842e74f90f85f964661b1af932"
+    sha256 cellar: :any,                 sonoma:        "3ba1e65600f43c32a417998885ddee0406696577899cb185f5f6208f6489ec0b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "194d2633b70788c541c460d7ebefff409b90a41f921ca4e3bcb68ba68efb7f88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75cc24c53306a0e7945e4a95488cd8bbf79d1aa1c7da85b66ca3dc2ed000f987"
   end
 
   depends_on "rust" => :build
   depends_on "rustup" => :test
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix

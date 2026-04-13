@@ -6,8 +6,6 @@ class Picocom < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "01b35b20e38a3e06f20de103d7d5b371386fce19b8bab8d6869886c5eb09f329"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "87020c916b8770f7458f4ab8323909d2ed5e1d48706507a2a262289f741ab627"

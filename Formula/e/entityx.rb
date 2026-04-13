@@ -5,8 +5,6 @@ class Entityx < Formula
   sha256 "2cd56d4fc5c553b786b8caf0b5bd9231434f21d43ca0e963d3bc5ee503a06222"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "83a257bcf2bbc1ca76e5148faf1a87945d4e987c575c12d3e6417cce65642a1c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e9581dc9272c4aea13b72c38984aa2697cd705083fe55fc96a3b313402428cc3"

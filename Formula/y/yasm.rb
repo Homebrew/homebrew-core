@@ -19,8 +19,6 @@ class Yasm < Formula
     regex(/href=["']?yasm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "356cc23650d159d2f22aef89c9f7542efba9297e424a9d2ce1c822f69b352d9f"

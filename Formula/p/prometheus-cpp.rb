@@ -8,20 +8,24 @@ class PrometheusCpp < Formula
   head "https://github.com/jupp0r/prometheus-cpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a31529be0b28fd1105ef7303ea057fd2da2bf90952b90147181fc36ec9f274d2"
-    sha256 cellar: :any,                 arm64_sequoia: "67fe748cad481abce5867c7402ea31ad4deaee191260205d8800abf5a892c3d4"
-    sha256 cellar: :any,                 arm64_sonoma:  "ab7bf9c8c6814af4fe56d2a669a602dbf2f3a802685527308c1d03d19772fd58"
-    sha256 cellar: :any,                 arm64_ventura: "a57c78acfdc6c2da03a6a86bfc67a198d171d0c6769cb4435efd51c07e36d8aa"
-    sha256 cellar: :any,                 sonoma:        "e8ee4564c89feef24f7abf08bd218dc6b69de9f40ebc69fc178f67661bc40c99"
-    sha256 cellar: :any,                 ventura:       "8d82c34b65dbc59e5b0817bc4cbe22745e2ba39eef9b2579b39cb31f55b51f9b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4093c9bee3ed15272957c3254c042fe99bbb85e8d8dfe0614a072c46d36f7525"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ed60a657d6508498016fb99c917682d5c5cf7c3931eb042d6cb3a248ed6d51b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3660e1736e0bfcfe5209102c6fec8f01868a26c83fee73ae7cac08b29b25bc98"
+    sha256 cellar: :any,                 arm64_sequoia: "4bf41e8ce0a562c0a9f078a374826156129b7cb9cddc165ff406df1a95774053"
+    sha256 cellar: :any,                 arm64_sonoma:  "4726a53807a467240c83c95f468a2cb62d14fbad87219f4b2620d0af435d2063"
+    sha256 cellar: :any,                 tahoe:         "ab1d6c1ba08b580de3b4035564a859080e2b9d04b5a86e1be8ff5926c6bb4b22"
+    sha256 cellar: :any,                 sequoia:       "296596fd54a73fb394c0102ba8715704b464c325d1480d8e4425f573fb5aee39"
+    sha256 cellar: :any,                 sonoma:        "97f8ef210f77c5f11810e75e48b8a090c3e62f5fb2448b21bcaf4cd8f459a6e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9a5057a04ba0e13c78670a7dd4a9ab09dbfa1d578b835b00a6a3c91fcda5d1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "009eb8e6fad556d9d251da2e45bfc897c74518adbb3dbc9b4d6d7f64a9c8ea04"
   end
 
   depends_on "cmake" => :build
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",

@@ -1,10 +1,19 @@
 class Dumpling < Formula
   desc "Creating SQL dump from a MySQL-compatible database"
   homepage "https://github.com/pingcap/tidb"
-  url "https://github.com/pingcap/tidb/archive/refs/tags/v8.5.5.tar.gz"
-  sha256 "2dee41c6e6f1251ef5aa820cbb8c47950069e3e2baeb26072604d6be25498ecd"
   license "Apache-2.0"
   head "https://github.com/pingcap/tidb.git", branch: "master"
+
+  stable do
+    url "https://github.com/pingcap/tidb/archive/refs/tags/v8.5.5.tar.gz"
+    sha256 "2dee41c6e6f1251ef5aa820cbb8c47950069e3e2baeb26072604d6be25498ecd"
+
+    # Support Go 1.26: https://github.com/pingcap/tidb/pull/66254
+    patch do
+      url "https://github.com/pingcap/tidb/commit/f641265e809082c88161f92d5c38cb6caa700ed3.patch?full_index=1"
+      sha256 "3484b5c03bc2169f5408d9f95776b3f57a4c6bb6bc7a01cfa50e2da00494821d"
+    end
+  end
 
   livecheck do
     url :stable
@@ -30,7 +39,7 @@ class Dumpling < Formula
       -X #{project}/cli.BuildTimestamp=#{time.iso8601}
       -X #{project}/cli.GitHash=#{tap.user}
       -X #{project}/cli.GitBranch=#{version}
-      -X #{project}/cli.GoVersion=go#{Formula["go"].version}
+      -X #{project}/cli.GoVersion=go#{Formula["go@1.25"].version}
     ]
 
     system "go", "build", *std_go_args(ldflags:), "./dumpling/cmd/dumpling"

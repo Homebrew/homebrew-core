@@ -22,8 +22,6 @@ class GitFlow < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "053355d898d7f3c171eec04b984fb2f4e06588b7ef58dd8f6024c5300933d27a"
@@ -42,6 +40,9 @@ class GitFlow < Formula
   end
 
   deprecate! date: "2025-12-19", because: :repo_archived
+  disable! date: "2026-12-19", because: :repo_archived, replacement_formula: "git-flow-next"
+
+  conflicts_with "git-flow-next", because: "both install the same binaries"
 
   def install
     (buildpath/"shFlags").install resource("shFlags")

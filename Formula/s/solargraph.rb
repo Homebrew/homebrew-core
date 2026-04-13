@@ -3,23 +3,25 @@ class Solargraph < Formula
   homepage "https://solargraph.org"
   # Must be git, because solargraph.gemspec uses git ls-files
   url "https://github.com/castwide/solargraph.git",
-      tag:      "v0.58.0",
-      revision: "d08a25d516bc62d3bbc0c26934a3dd2091a26b8d"
+      tag:      "v0.58.3",
+      revision: "d1669eb68f1fb542e999ddbcf7707726ca2b4612"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1d9b731624f489ba76c2e4bec7beb28f1ac61a41d7314cdeba10a54fb9b70a06"
-    sha256 cellar: :any,                 arm64_sequoia: "e737706a9fe627651f91c71c6efda3ee3dcd14ea3de7b870c464dcef186753a0"
-    sha256 cellar: :any,                 arm64_sonoma:  "bdd0c35eb0f1d07bde5cb7e5766d9efd3611464495343db2d016fdcd82cf46cf"
-    sha256 cellar: :any,                 sonoma:        "b703f1660d334e5a98a060ff2504b4602634e1f3b3c3db988ef1e03f6809e8b3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "670de85319c83ff3e8ef57d54c1f3117fcd164a43babc246464f363b07e20cf6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4448991745fb6c75aaccf2403d84224ad41882bbcd9e675af4b87d6e4669b388"
+    sha256 cellar: :any,                 arm64_tahoe:   "3198bfaa8d68f01d16e0c77643ed445d7409cc9d307638bffe74fae7f9bd86d3"
+    sha256 cellar: :any,                 arm64_sequoia: "a5a12378fb568c36cb123f65e9cbc16055690dd61b0a90547b6c9fdc8022ad90"
+    sha256 cellar: :any,                 arm64_sonoma:  "51b998fda9cffcd3f9e3ca5eecd9cd12770a93b6860fc6aa3d2fe69f01919b9f"
+    sha256 cellar: :any,                 sonoma:        "bd086d0bec28ebe9b4231205be150438dd89d868dba8aef9141954aec7da787a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf5527026033d2be9fbc281e749ebf279d0d033a5dd9d2e8f6592dc077e5bcc2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48a89d68665b532441aba666dabb1bc2a72da08b847141bc62eaadad45430a7a"
   end
 
   depends_on "ruby"
   depends_on "xz"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["GEM_HOME"] = libexec

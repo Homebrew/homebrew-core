@@ -2,21 +2,20 @@ class Tilt < Formula
   desc "Define your dev environment as code. For microservice apps on Kubernetes"
   homepage "https://tilt.dev/"
   url "https://github.com/tilt-dev/tilt.git",
-      tag:      "v0.36.0",
-      revision: "dd573535e79b343967fc29503a2537df8de340f7"
+      tag:      "v0.37.1",
+      revision: "411c6da9dc8f9391796ea40dc3c3268fc2fb3e62"
   license "Apache-2.0"
   head "https://github.com/tilt-dev/tilt.git", branch: "master"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "21a4b4914d8b38ffa6d49a40c085aad2f209659569519682ec608e0cc76e1fa0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f761d5778e7ea6dba64b76cdaccbd0333c3affb1fa80fe323a520df15c04e56a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f786299789b0636df3b8a34602b130807f59e794463f8528de172a9d10517220"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b623f3fa5552dba5d1b9257e31c79a086bfb10e811405212048c1370c6295bbf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "476cae759e5f2dc3ec062d6115f3c4ecf9de9ce885c47b2e7d8246557cab3376"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de8f2ff81ee85fb6761fccef7e6d786f1dd49e433ba91478e80c02961196d5b2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe3a0007b9a71741dc2ecf3a8f385be43bc36ebf94a4ad617546d0172ebfb258"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ac7d5849cc7b61ad90109cce9716fce10dcdbe6f3226038e222d25801756c33"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "11fd8a7e490d2ba9b23748910bdd525fc7237704eeaf53979048be4496bbd842"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c7353638df042c1d1ca95f9e7a9408459ed089626681a4dd8ff27cf7c92ddd7b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a9e5031bb136a969fcfa95b2fadbef0427d02f36c51e04e10f1cb29cbf3a6d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b61a4f68bb59de92cbed2175aaf331f9fe05ffd00f0e0830c9b48ce79eb4cb6"
   end
 
   depends_on "go" => :build

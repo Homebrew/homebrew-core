@@ -11,19 +11,18 @@ class Packetq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "112e72c771291bec60d3d430e7172edaa92e1288468005e614391280823d9822"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "30d4e340a8cb4181ac18e1a0861114366072fd9e7285403dede913b6d43c46d3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c417535f739789d04d7738608d54fe38b4ef64031c4ff594f5e0405782ef7ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "55fcb7a4a4cea35b2508da5a7431dd3f62724a2e74d0e7f5e9fbbdf07d9266f6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "242b9c3cb3def53cf305ace64795c75dc548fb094b5820a53885db9343fba998"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ba48fbdbb805d7cd4d98a01729cf039c0d712055119a67f2b9718f01bab6c24d"
-    sha256 cellar: :any_skip_relocation, ventura:        "38abae3b37b0e57c4f6cadc99d35d21d1e5ea1dc1712420812a65391bf943ab9"
-    sha256 cellar: :any_skip_relocation, monterey:       "379eeee8cd1a9b095adc60ff2147aa950cf81c98afeaffcb860e200a4500113b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "6b6008c10a371a2a456ad6a8430b911941e6e385ecf6c5c3ebdeaecfe490fca4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95b224f56ea3ceec3c1e6a13030405cb285de6861cee6987bfb0c472c68f7b5d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "29f2ffe806704b6ccf4a3b36ed2a03229aec5ab347638c02bc048b1869c269b8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0616b69581ac77fc31dc4a4d4a3d9258421ee38538997e38eca9a66a62d10339"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "175c53c989f9b926e7ddcf382517cec08f015ab1635938659ef8045f69e37e0d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "26f2629870ea59d9bc6673411af50187b30cd4cee701fadf1557e6c949b43749"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d955362f371fe590e3a44a3fb66eef99bf88782410e6c7ee4c3b9c3b62c5d68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5afff996605124f10306b5a479c3b619b35f1719b262a939f4a02d3528a29800"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", *std_configure_args

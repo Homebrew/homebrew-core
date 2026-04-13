@@ -1,8 +1,8 @@
 class MariadbAT118 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-11.8.5/source/mariadb-11.8.5.tar.gz"
-  sha256 "bcb7394569c08877c283e1649869504531bee8caafa30288f078e30d99fcb9f6"
+  url "https://archive.mariadb.org/mariadb-11.8.6/source/mariadb-11.8.6.tar.gz"
+  sha256 "b126581a8ca89376d2a3ce63fee97c114c3e15315345e769b9d00c51e1b7d619"
   license "GPL-2.0-only"
 
   livecheck do
@@ -18,12 +18,12 @@ class MariadbAT118 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "59cf4ddd881b78973042acd0866462e8cb5a2860fabf3d8451b968d80e15e071"
-    sha256 arm64_sequoia: "00523af8e39842360009353075492d7878f272f847f04cab4dabe7e44b7b48f2"
-    sha256 arm64_sonoma:  "5b0072bc097b7bc3d1f8744a5f6bfc20ca0f473c65f7d7255336b176f93334f7"
-    sha256 sonoma:        "b81a7728ee7e92060b1e64f438e5357f2cf0035b763c436c048fdf2e16497570"
-    sha256 arm64_linux:   "fd8ee7ef34f6254320264ff4849c472d338a8e836782057cd7138379409cdd0b"
-    sha256 x86_64_linux:  "2e3813813ab664e71091f4d01d9b752f53f2c848e286b0c858666f9f78707445"
+    sha256 arm64_tahoe:   "87d602255d7adcd87ac6bbe012c3cb8a322e7d3f6d6fb1e758fa26bbf711f3da"
+    sha256 arm64_sequoia: "806c0d2f5af65518b5a793d026801c9414163eef682c6aabc7de4f98f21c12c1"
+    sha256 arm64_sonoma:  "2dd91aea7a3364414d43f7357e51029d149dde7ee6bdebc6868310d2a96cc896"
+    sha256 sonoma:        "06544e82585bf6b0f3fc3172fc91368bb8444b952c17c6786245e8097f933f9f"
+    sha256 arm64_linux:   "a10bbfb32c244976a29001b04e26302bdc3402636e9d9ba5897bf5e7510abbd7"
+    sha256 x86_64_linux:  "8724295737d8df6cff49e35d414fd101d7f86a4f5b13de48b4f6a3035ba1bbf7"
   end
 
   keg_only :versioned_formula
@@ -49,7 +49,6 @@ class MariadbAT118 < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "openjdk" => :build
@@ -57,6 +56,7 @@ class MariadbAT118 < Formula
 
   on_linux do
     depends_on "linux-pam"
+    depends_on "zlib-ng-compat"
   end
 
   def install

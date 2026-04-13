@@ -10,33 +10,24 @@ class Gl2ps < Formula
     regex(/href=.*?gl2ps[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "185694678410f242d9a5749bd946b1b624fa5326b247ddb554abb073c46727e0"
-    sha256 cellar: :any,                 arm64_sequoia:  "37edb5bfe08b0943cc9edf1418be8ab73c680074942be25048b3e72af2980f90"
-    sha256 cellar: :any,                 arm64_sonoma:   "7c29529c685fb40aa712dc427ff463ac2823b0a2d93a062be9382bdf3ef449e1"
-    sha256 cellar: :any,                 arm64_ventura:  "63a6c39737be3e9507fb5113de445ad7db930409e5bd74ee117b0ac447022e66"
-    sha256 cellar: :any,                 arm64_monterey: "e08ec8cea6a733012aadbd5b2eeef661030005c1a7b24f77f5371385191ed921"
-    sha256 cellar: :any,                 arm64_big_sur:  "02cad33d0c39773c7a0c0983f125fc04fe86d265b31cac034be45379265e65be"
-    sha256 cellar: :any,                 sonoma:         "2cf482a2d3cfd1864e00efabc499a562e4fb6aa2d7df18f70b56d9e72ffb38a5"
-    sha256 cellar: :any,                 ventura:        "1839beeb6f28f90bdda10e167435429e58e82f93715e8432ef57b4c058132985"
-    sha256 cellar: :any,                 monterey:       "be22c8b58f988c2ad5ca8527f374febb62193cec05c910c14d639101d9e32cc3"
-    sha256 cellar: :any,                 big_sur:        "4ad3d5fcf0a8393e77881e4ea73c160200f6573aa05f6db84e452d920a5f7185"
-    sha256 cellar: :any,                 catalina:       "dbdfe5d8458e1224941d6e5707b725ab6872333112dc408dbf35202eddbc8d15"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9d47f762d3f0ef7169b9abd3a955295484f36ae310cfec6f3346b785c1b23259"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e85c3e2f25855ef919358e1912f3190ba8e6890cfd5329931638b595cab962d1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "cfd40bfcb06fceef93e5b04ff17a59a5df05742997959ecd4be2c9f3badc2c70"
+    sha256 cellar: :any,                 arm64_sequoia: "d45044992b502ffb0a34647b504eff67e034635c0d6c06fb580b504b3cdf9c80"
+    sha256 cellar: :any,                 arm64_sonoma:  "86df24cf3d5f86fd5d4d0a279126e8f0bfad2560637017b30ce3b8cee638fa4e"
+    sha256 cellar: :any,                 sonoma:        "17b1449046f6a3a523608a8b71277a442927ead68405f4a4881ac2686da8cea1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "852d33552ed074a82702007c52ac923cac04188db2c237fcffd2b4cacfc50342"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "892849e15a461c6ca9b2c24178518a6769d78807ef6c0c99a0b6997321c9be4b"
   end
 
   depends_on "cmake" => :build
   depends_on "libpng"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "xorg-server" => :test
     depends_on "freeglut"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   def install

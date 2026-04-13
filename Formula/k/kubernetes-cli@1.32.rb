@@ -2,8 +2,8 @@ class KubernetesCliAT132 < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/docs/reference/kubectl/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.32.11",
-      revision: "2195eae9e91f2e72114365d9bb9c670d0c08de12"
+      tag:      "v1.32.13",
+      revision: "6172d7357c6287643350a4fc7e048f24098f2a1b"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,12 @@ class KubernetesCliAT132 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7e1337c2cb4ac442356f396bd4c00c199d7af7811fc3d4fdf509de79e41c06d6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2610684e78e422e96ab7ac42971b3bafca2c091e3d1b95c7707504a92e917c2e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cca7a5c09a5262dd39c9b2886aaaa1a94f7e330f69b70d2b7e8b68c4ac07f6c1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5b7f32cef4bcd481bae7b76693d97b75b3aafe9e4ca86d8e4fc8e3b8a1150371"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "110f466ad3906e86d5cdd5d802c8230526807dd0562c1d393f1183b9f92efa82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3850fb68b729c31730609a5eb9b3f13fb6931bbf110ac81e6087ebe8145cb942"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1480fcc3b7de658c55b7e22009f52567c2ace6fe2b85c4d4b50596e7c69a658b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4b4394e40d4cbba21b447ba8cf06cda90db26fe10281f2a4feec0f3301e7b5e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3bea9edd150d89054e5ccda7a43f41405cdf6283c5749fc009ce5cb42477b5f4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b9f86c983bda7ccfc8f1885d997dfc5dbc4436fd0850d9aca45410c15758b8f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "99130c4bad62f24f7ffd165136b4ed219873750ba7c49231476988394c5b0641"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33891f40a74485dc422cc727fd6a64ac67942d55a8fed8c7218fb1bfc64258d0"
   end
 
   keg_only :versioned_formula
@@ -26,12 +25,12 @@ class KubernetesCliAT132 < Formula
   # https://kubernetes.io/releases/patch-releases/#1-32
   disable! date: "2026-02-28", because: :deprecated_upstream
 
-  depends_on "bash" => :build
   depends_on "go" => :build
 
   uses_from_macos "rsync" => :build
 
   on_macos do
+    depends_on "bash" => :build
     depends_on "coreutils" => :build
   end
 

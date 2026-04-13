@@ -6,8 +6,6 @@ class LibpeasAT1 < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 arm64_tahoe:   "6ae295b72edb4f0aab90390ee118cd2864f9ef7cb57b3f318341663c0eaad4d6"

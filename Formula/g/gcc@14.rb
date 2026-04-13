@@ -11,18 +11,16 @@ class GccAT14 < Formula
     regex(%r{href=["']?gcc[._-]v?(14(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256                               arm64_tahoe:   "6a6f4479e5f7f14995756fc8c1845c299680ea0c5788c534a9f625d48b757687"
-    sha256                               arm64_sequoia: "12a5bfe365a9bc4d26752a0169517ecbb3bcc168b98dfc2c1b7f034e5878dea9"
-    sha256                               arm64_sonoma:  "36963df72a5f78d963aa6e2704d0d676880fbdade137f6b8887bbb7a9e6cac42"
-    sha256                               tahoe:         "1f349e397413a3ea759324791f048254d1a7a557543b07525694665bc4e84554"
-    sha256                               sequoia:       "d94a51af9d807077bfda895e34a09eeaefc71ecc1386a28e6497dd4457589bfb"
-    sha256                               sonoma:        "07fbaa38d4dc9f30456e6c09a2fdedd590dcf5829b1849a5b2c57fb13e0d65c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "97fd978bc8307b20e06e35fcc5151d5ca9dc93c0c6043d56098a92c6b0b354f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14982763e0d0e18a57595baff2fa3c0df6fc5b16ae204df02cb7095038ea111c"
+    rebuild 3
+    sha256                               arm64_tahoe:   "aa76442b499cc647f5fe254808431f5d657120ee57bf3b0a9657755b6d38815c"
+    sha256                               arm64_sequoia: "cbb525d21563a9fdfc878a75817faad9e470190dad3150d853ab2e3c32649910"
+    sha256                               arm64_sonoma:  "877dda49bf352e911c1a12d9d7df02866fb2f173f0a79915bda55103e0f3f0d7"
+    sha256                               tahoe:         "77d3b260ac37e2746af49c25dd8053ac8a50a53d1232f7f7b48fb3cc491225a0"
+    sha256                               sequoia:       "eea5c507d54cdffcec60c5a69713c7acf2933eec0523f9dc01fbd02ba3c4ca75"
+    sha256                               sonoma:        "057cbf54618e7c73a3aae3ce5becbbb4e219390bdaa6f7900f26bc485761913c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d972d44e201e63410a28c3056c335d5dbb7903edf58c0e6543edc009a9d12f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcd375682eaffe0ff9c8d374d76d9ea8a02623adbbc8a39ea8009e419fdd13bc"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -37,7 +35,6 @@ class GccAT14 < Formula
 
   uses_from_macos "flex" => :build
   uses_from_macos "m4" => :build
-  uses_from_macos "zlib"
 
   on_macos do
     # macOS make is too old, has intermittent parallel build issue
@@ -46,6 +43,7 @@ class GccAT14 < Formula
 
   on_linux do
     depends_on "binutils"
+    depends_on "zlib-ng-compat"
   end
 
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
@@ -115,8 +113,8 @@ class GccAT14 < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      ENV.append_path "CPATH", Formula["zlib"].opt_include
-      ENV.append_path "LIBRARY_PATH", Formula["zlib"].opt_lib
+      ENV.append_path "CPATH", Formula["zlib-ng-compat"].opt_include
+      ENV.append_path "LIBRARY_PATH", Formula["zlib-ng-compat"].opt_lib
     end
 
     mkdir "build" do

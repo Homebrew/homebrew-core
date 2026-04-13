@@ -10,26 +10,23 @@ class Gloox < Formula
     regex(/Latest stable version.*?href=.*?gloox[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "5fb8953311b329ddc77cc9b4ca1b0e122788a9741a19adb474df78d34377ae5f"
-    sha256 cellar: :any,                 arm64_sequoia:  "d4c45c5c9a56bffba60929aa1a994e8566a971d8c0d7b6a9f2c1d267c5588b62"
-    sha256 cellar: :any,                 arm64_sonoma:   "b0c90e096ef2a3ee7b05c264338486bfd6df78666baf363e6b6648078f974b97"
-    sha256 cellar: :any,                 arm64_ventura:  "d86499393f8041798c23aac7f224a26161b3099efc7ac7b91a07223be8fb4926"
-    sha256 cellar: :any,                 arm64_monterey: "e43969d8fb19e80791a899f36a550dec9e25d9e2555678511176425967540914"
-    sha256 cellar: :any,                 sonoma:         "514e1e0c40baa8b06c66e0501fc51b11d5e4cf5960ad13e0ebb76e84151ed461"
-    sha256 cellar: :any,                 ventura:        "4f6f5f81d90b12287ab78c7cda2f2d01342e925e9cd0224c9187d681c7023df7"
-    sha256 cellar: :any,                 monterey:       "ec49c912e85c4b02f351d6c171d0b93df8387f1883c380e77e187adf98119a46"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9e5af4334ef24ff8fd701bfda9a221b82388982e1d8fe166d7ee2c30df2954cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95bec00a34c6fa57dd21c50ebeff2a52af273b3a2a413436f40eaeda30b9511d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "1818e6a640fd72abca657dee0f7dd846408f5f7854723c9a98d6c7c776f8a0f9"
+    sha256 cellar: :any,                 arm64_sequoia: "1d26a13f01fec261432f2dae041b41202cb9f6a89a8645620f4130594720350b"
+    sha256 cellar: :any,                 arm64_sonoma:  "4259b10f32c5131583820cc76e3d8e0f11ee1d75108d69e1198957530429ee7d"
+    sha256 cellar: :any,                 sonoma:        "a91156a42c6e11a6e4ee53e5ae6afd651a986ebca33cbfcce0b8dc447d9e265e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "99fb4b6444c8f11419eed45d4d29df4919b9d1c35e75615b787fc1de9269feaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc2eb3e53975d18eaebb6bf9e34fb002a68420432d36e53f709e1d94446a7d2d"
   end
 
   depends_on "pkgconf" => :build
   depends_on "libidn"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Fix build issue with `{ 0 }`, build patch sent to upstream author
   patch :DATA

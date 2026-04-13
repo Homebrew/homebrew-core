@@ -1,25 +1,22 @@
 class LibxmlxxAT5 < Formula
   desc "C++ wrapper for libxml"
   homepage "https://libxmlplusplus.github.io/libxmlplusplus/"
-  url "https://download.gnome.org/sources/libxml++/5.4/libxml++-5.4.0.tar.xz"
-  sha256 "e9a23c436686a94698d2138e6bcbaf849121d63bfa0f50dc34fefbfd79566848"
+  url "https://github.com/libxmlplusplus/libxmlplusplus/releases/download/5.6.0/libxml++-5.6.0.tar.xz"
+  sha256 "cd01ad15a5e44d5392c179ddf992891fb1ba94d33188d9198f9daf99e1bc4fec"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url :stable
-    regex(/libxml\+\+[._-]v?(5\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
+    regex(/^v?(5\.([0-8]\d*?)?[02468](?:\.\d+)*?)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "f700d5c85e52fa89adbd2fab8f8b73e071e52ab9aaef45121968209ce90a4f59"
-    sha256 cellar: :any, arm64_sequoia: "74ece1a21d1acc4aaf4f9895837de84aaf37855e309877213266aed5bfe7c2bb"
-    sha256 cellar: :any, arm64_sonoma:  "394658c92c750312e8f6ecaad34237bf6ab12a3897b810f2ad4e06349fd41f8a"
-    sha256 cellar: :any, sonoma:        "c04b51736c024ee77ebfbed0f850f05c9273dcfb9a90a1ae23eb426a00de23de"
-    sha256               arm64_linux:   "d300722e3348737fceeec7ffeb0722a1cb598bfe0c3e1f8253935e6509df5722"
-    sha256               x86_64_linux:  "70cf96991d0a83886ea06882bce125f42c209d2b932800eb6ac2359f6b92de5c"
+    sha256 cellar: :any, arm64_tahoe:   "d8f7af5b6ae22cf7f4ebc0cdcc6ff4c8da8948fed395c9ec78f70c945af17ef1"
+    sha256 cellar: :any, arm64_sequoia: "0de758278ded4db21000aef5e7e65ede12a06e98cb39bb031af13d6b1fc225f9"
+    sha256 cellar: :any, arm64_sonoma:  "21ed955b01f0d8bdd8108fe6b5ddffa0c90eb57e747bb0b2dc59c66ddd78f46e"
+    sha256 cellar: :any, sonoma:        "fda6da5a238721629336dc6136b3dd332a3ba9a1573ec3277709a03099b4a61e"
+    sha256               arm64_linux:   "b29e9a86607c16f976f10ed9c6674875e9c0261d465a4920191b68df1fb88da1"
+    sha256               x86_64_linux:  "555db96f572fb18e781cb8875bb73f3c595f2a36159dfd19350822d82e4a718a"
   end
 
   depends_on "meson" => :build
@@ -27,12 +24,6 @@ class LibxmlxxAT5 < Formula
   depends_on "pkgconf" => [:build, :test]
 
   uses_from_macos "libxml2"
-
-  # Fix naming clash with libxml macro
-  patch do
-    url "https://github.com/libxmlplusplus/libxmlplusplus/commit/662ee970644b381720d8750b07844745b78782e2.patch?full_index=1"
-    sha256 "459dfc7a45e19d8b2ca49d4a8db982ba46cbad9384a82218f43e61fb1bfc5182"
-  end
 
   def install
     system "meson", "setup", "build", *std_meson_args

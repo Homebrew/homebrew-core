@@ -1,18 +1,18 @@
 class Precice < Formula
   desc "Coupling library for partitioned multi-physics simulations"
   homepage "https://precice.org/"
-  url "https://github.com/precice/precice/archive/refs/tags/v3.3.1.tar.gz"
-  sha256 "c52b22bd7669baec3ff903eba9bf102154629634652125a60b109a5b7e803ab5"
+  url "https://github.com/precice/precice/archive/refs/tags/v3.4.0.tar.gz"
+  sha256 "1155178da7271c404947d1ff64b6e5028a82575fd532baa26bd6418de5ef2623"
   license "LGPL-3.0-or-later"
   head "https://github.com/precice/precice.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "06017d88e61cd6037ba3e281a462cd3b5a949c7feb6bd0361329d515e13ca564"
-    sha256 cellar: :any,                 arm64_sequoia: "68dde149bf2cd6894e5b34aab1cbd6254f6775a3e1eb11d9224fe8c51ad56749"
-    sha256 cellar: :any,                 arm64_sonoma:  "1e50c8c9d1f803081911b18718471fa6212992ee051ac00f77f97bc7ba50a64c"
-    sha256 cellar: :any,                 sonoma:        "0dd151e2399335ae8caa1cc02edc266e389f79658329015afc981f3e8d97c4b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d54f37577fb4adfcb8e7ee71f4a722b953fd43b1a6da957bbfef85e8385767e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec4b27f5dda87bff3e4bf28384d24a837b129e5d49fbb2aa6caea96a29741424"
+    sha256 cellar: :any,                 arm64_tahoe:   "82d38eca576ca0bb74bd0c6a2daecbc51582f903b547aa4a5bdf0940a0781007"
+    sha256 cellar: :any,                 arm64_sequoia: "e150a1a4d619eadbf151f88baec82edd919cc37f19b48f5748194b8ea0df895d"
+    sha256 cellar: :any,                 arm64_sonoma:  "a557ca251fe57719034982cd1b96f56e3677d499b30634686c6a48d8f1cdfb9a"
+    sha256 cellar: :any,                 sonoma:        "1806045e4fbf5f3a7f2554bde2392c94cc27042bec3178328eceec4782b2a6a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "41b2728e46aae9e174279f0cd6b7a4a321c421a7cdc3d395ff300e2f1b115aa3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0cc6b6b1cf975427acfe54ce5a7d8a7ec0af870752b970d4b31d831daedca26"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Victorialogs < Formula
   desc "Open source user-friendly database for logs from VictoriaMetrics"
   homepage "https://docs.victoriametrics.com/victorialogs/"
-  url "https://github.com/VictoriaMetrics/VictoriaLogs/archive/refs/tags/v1.43.1.tar.gz"
-  sha256 "96aead1b1d9b8cc6b2fd46448d9341ac215951e1032a7cd76b9a090eef0daf12"
+  url "https://github.com/VictoriaMetrics/VictoriaLogs/archive/refs/tags/v1.49.0.tar.gz"
+  sha256 "750fd3a08ce229b20977229c83ac47af28fac94d577ff94f0df6cf61c02a0617"
   license "Apache-2.0"
 
   # The Git tags are interspersed with higher versions like 1.118.0, so we check
@@ -14,12 +14,12 @@ class Victorialogs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4e3acaa5da4f5c413abee5f5d9eccf03b2de73d188a09cf2e1f1e0ae98e25c9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c39fb03be2ea4c8a20be4490b3e86fa6c9d07b2e137502589bb560a6d370cc6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30c2be555c7f5d5385e82dfd55add0c1c4b837d1d0b25d213e6f69e461c78aca"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4f011f10d9cc7eb417c0043ac4f8b21bd47a6c5ed4ca7c71b7622e84ef739979"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e619daf07561f00ee3f6c86dd275d0dd9e14bc149fa875d9e42fd466354ed1e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "862cbd4f3a02199d10f27ff8e0775d2997fccdcb79af92abd1a1152824dfa450"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cb8119f4cb17766b26fe718e5dd56fad2c820cc36ed65635f62384a7e2962138"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e6573e959db4a84083da8ec26351013ed647e4e9ff48d6d12cf2d24d3a38590d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79e313f4f7e2bd8610887ca441a47318016148cd4007d0e8cd835bf2f486d993"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e8183e94470798176aaf7575866f1b0c02a870dd36cc06e2bfe7f322099bf4ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf3b30c1c315bf246b19d5f1b2f87167b74c8b92807734f92f608bb58b27564c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dae3021f0df4389e4a08d0fc7ef32b40db72bd129264cc74f16ed473ffbc2674"
   end
 
   depends_on "go" => :build
@@ -47,7 +47,7 @@ class Victorialogs < Formula
                 "-httpListenAddr=127.0.0.1:#{http_port}",
                 "-storageDataPath=#{testpath}/victorialogs-data"
     sleep 5
-    assert_match "Single-node VictoriaLogs", shell_output("curl -s 127.0.0.1:#{http_port}")
+    assert_match "VictoriaLogs", shell_output("curl -s 127.0.0.1:#{http_port}")
 
     assert_match version.to_s, shell_output("#{bin}/victoria-logs --version")
   ensure

@@ -12,8 +12,6 @@ class Kona < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ffed758f35647079748b660475d1ae5aaa0b0b1804fa2506bad4ee473314f805"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "84c61f1623af99fce59ff37ac3310eeb4c20bfa9ed42b78eec9dcacb8c9d57c5"

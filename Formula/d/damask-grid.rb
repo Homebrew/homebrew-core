@@ -4,7 +4,7 @@ class DamaskGrid < Formula
   url "https://damask-multiphysics.org/download/damask-3.0.2.tar.xz"
   sha256 "82f9b3aefde87193c12a7c908f42b711b278438f6cad650918989e37fb6dbde4"
   license "AGPL-3.0-only"
-  revision 1
+  revision 3
 
   # The first-party website doesn't always reflect the newest version, so we
   # check GitHub releases for now.
@@ -14,18 +14,19 @@ class DamaskGrid < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "af5453a9caa4ceb66ae92013124cb47ec4816c2633551012a28c786de869f7ea"
-    sha256 cellar: :any,                 arm64_sequoia: "dbe12573573118c4e67b5035d500d16a2f4883f5cef5c99b371b1683ee517a7f"
-    sha256 cellar: :any,                 arm64_sonoma:  "467cf16fa9ef3fbcf8159d71a8ae6d18f8d9422a71dd41d3e8ff39f3c5d5ef1c"
-    sha256 cellar: :any,                 sonoma:        "b7f9a6d18fa58333c98ae6303e3ada4e2a3571dd278f5cae2e3be19ce28aa5e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "139bc698159d3ec3f16266958e5a48bc716c48ac89129190bc44433c318eef5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24734feb1be5d996087cfc5b2aae66041d3ab99321587fa5b922ab9551fc1c25"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ef7c164d6b15fac78f61d6c0b6832a4b3677a21bb055008518d4ed073c68a7d1"
+    sha256 cellar: :any,                 arm64_sequoia: "abe9e1134a90e27eba6e34cb536987d5b9ed6bcbda444fc9a9d2c86c24f977c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "911f878da45bb2625a79234875bfa0098438da433eb5654230f13678167cba78"
+    sha256 cellar: :any,                 sonoma:        "b8ea91f3e765b78baccb1fc875c2d3c8a40602b52a466c35a844a2c00e6d4c54"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "05a9a93b0cfa8969ffd550975e9180c39fb2fcd9db8741695ae0f02b1656b4a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa33f2e59c50721d54fae4173af9537f24cd5b55354414f2a1f780c9553e8882"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "fftw"
-  depends_on "gcc"
+  depends_on "gcc" # gfortran
   depends_on "hdf5-mpi"
   depends_on "metis"
   depends_on "open-mpi"
@@ -33,43 +34,58 @@ class DamaskGrid < Formula
   depends_on "petsc"
   depends_on "scalapack"
 
-  uses_from_macos "zlib"
+  on_macos do
+    depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Support PETSc 3.24.x
   # https://github.com/damask-multiphysics/DAMASK/commit/dc9aa42f04b9f5172b499c94328a22fed0ec6d9a
   patch :DATA
 
   def install
+    # Help link to libomp on macOS to avoid mixed OpenMP
+    inreplace "cmake/Compiler-GNU.cmake", '"-fopenmp"', '"-Xpreprocessor -fopenmp -lomp"' if OS.mac?
+
     ENV["PETSC_DIR"] = Formula["petsc"].opt_prefix
     args = %w[
       -DDAMASK_SOLVER=grid
     ]
-    system "cmake", "-S", ".", "-B", "build-grid", *args, *std_cmake_args
-    system "cmake", "--build", "build-grid", "--target", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     pkgshare.install "examples/grid"
   end
 
   test do
-    cp_r pkgshare/"grid", testpath
-    cd "grid" do
-      inreplace "tensionX.yaml" do |s|
-        s.gsub! " t: 10", " t: 1"
-        s.gsub! " t: 60", " t: 1"
-        s.gsub! "N: 60", "N: 1"
-        s.gsub! "N: 40", "N: 1"
-      end
-
-      args = %w[
-        -w .
-        -m material.yaml
-        -g 20grains16x16x16.vti
-        -l tensionX.yaml
-        -j output
-      ]
-      system "#{bin}/DAMASK_grid", *args
-      assert_path_exists "output.hdf5", "output.hdf5 must exist"
+    if OS.mac?
+      # Avoid mixed OpenMP linkage
+      require "utils/linkage"
+      libgomp = Formula["gcc"].opt_lib/"gcc/current/libgomp.dylib"
+      refute Utils.binary_linked_to_library?(bin/"DAMASK_grid", libgomp), "Unwanted linkage to libgomp!"
     end
+
+    cp_r pkgshare/"grid/.", testpath
+    inreplace "tensionX.yaml" do |s|
+      s.gsub! " t: 10", " t: 1"
+      s.gsub! " t: 60", " t: 1"
+      s.gsub! "N: 60", "N: 1"
+      s.gsub! "N: 40", "N: 1"
+    end
+
+    args = %w[
+      -w .
+      -m material.yaml
+      -g 20grains16x16x16.vti
+      -l tensionX.yaml
+      -j output
+    ]
+    system bin/"DAMASK_grid", *args
+    assert_path_exists "output.hdf5", "output.hdf5 must exist"
   end
 end
 

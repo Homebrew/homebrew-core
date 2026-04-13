@@ -5,8 +5,6 @@ class XcbUtilRenderutil < Formula
   sha256 "e04143c48e1644c5e074243fa293d88f99005b3c50d1d54358954404e635128a"
   license all_of: ["X11", "HPND-sell-variant"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "4f0545144b6e7c459497ebb586c522a1d3b3b5eef1160987fbe5b45e275a026c"
     sha256 cellar: :any,                 arm64_sequoia:  "098b22877ee1d5c2c16b1827117f13f95566c1bf06d042943170c6590a06e379"

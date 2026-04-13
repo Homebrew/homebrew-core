@@ -6,12 +6,13 @@ class Xroar < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7b4229edfc412c9e87bb0abdc4ed1cc74674ed5f30b3f82347dc3a5c3584e438"
-    sha256 cellar: :any,                 arm64_sequoia: "454780323112a13c73a0b85f1b4fe4db122a5a5f1bf7f8d166d1e1c080ba00ce"
-    sha256 cellar: :any,                 arm64_sonoma:  "1b29207cad93574f6eaf746f17ffa9006defcfff198dd02231960ea159582819"
-    sha256 cellar: :any,                 sonoma:        "2d62e3579becc22cbc4f979fa20bfa1f940ed252105c6a25c5de9c30da009c0e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "92c34eff0e2de37007a49bef387f37c84b27fabbbdfb357b0ec0b9cafe4d9abb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6968c6150aa956c515d40c0e94a799824859d166a94405116bb91e2a2948f91f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "52681ca01fcb75069b25d62f754db55d9c1968ba97302d808aa0819077b24091"
+    sha256 cellar: :any,                 arm64_sequoia: "1dfac9438d100ba243eb330606532c68dcc2fb148761fed094a97c505ccd8e51"
+    sha256 cellar: :any,                 arm64_sonoma:  "66b65b60b50cbace3336700d6f3958ecf13d2d7ff373afbc78b5496028874474"
+    sha256 cellar: :any,                 sonoma:        "d1f01e6bbabcb9330824fb1c5a002d4bd9ec806b3a95b4d58e64ddd52ea94860"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0c1417b6d9167ea76ca199b4b29a041d964180753e51c42a2450af222d445be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e47407779ad729169ce38b140396558791b16ff01f6e2f1b32f37f70720c26ba"
   end
 
   head do
@@ -27,12 +28,11 @@ class Xroar < Formula
   depends_on "libsndfile"
   depends_on "sdl2"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "alsa-lib"
     depends_on "mesa"
     depends_on "pulseaudio"
+    depends_on "zlib-ng-compat"
   end
 
   def install

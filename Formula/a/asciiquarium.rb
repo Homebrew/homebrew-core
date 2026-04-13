@@ -11,19 +11,18 @@ class Asciiquarium < Formula
     regex(/href=.*?asciiquarium[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3a1be21d11ec20615ff2c00ab0e5de809faac013935caefb4806e3760371768b"
-    sha256 cellar: :any,                 arm64_sequoia: "394e9653d05e18f7dd1e482fd327fd8c6ac44a924aa2ac09e3d238bc0651e7b2"
-    sha256 cellar: :any,                 arm64_sonoma:  "1ff4fa17576229f515f77c9c568bd5dccf156115b280b6884436caf6b386a127"
-    sha256 cellar: :any,                 sonoma:        "5170e968489608bd26069c5ea75151d67811f3555308f12009fcd6a3825bf93a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f412126cb90749fdff6d137087dc9fff2eccbe08c537b873119c1916f2b0c6fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d307a446c2b1c54a8f6b6636253479844b123ceb66a7b3b669993b29275befd2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "4b32a2ef9eccd44115dbbbf648622b9148932d3846ed842b9091d50fe73d0e85"
+    sha256 cellar: :any,                 arm64_sequoia: "aaa66f4be6401098af1104b81f2e05f870701b9892459c6f2fe4fc29acaf069e"
+    sha256 cellar: :any,                 arm64_sonoma:  "7bfb5f807029ce81b3431b08e2ec86d192caa227ff93a7dedf3ae63e2994f9df"
+    sha256 cellar: :any,                 sonoma:        "a9afe38c263f5370a0bcc6ac41bbaebee22d23bb52ff128cd9a6855fe1fbaafe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60b613a92e9ed7968fdc494724884349c644d03a8d763f8ed3abc15f65c42ec7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b82f3ffd2fd47e88de054aa7d0569bf0a817be6a11017e8739cf7e014eb7681"
   end
 
   depends_on "ncurses"
-  depends_on "perl"
+  uses_from_macos "perl"
 
   resource "Curses" do
     url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.45.tar.gz"

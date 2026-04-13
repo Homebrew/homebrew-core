@@ -1,23 +1,25 @@
 class Gitu < Formula
   desc "TUI Git client inspired by Magit"
   homepage "https://github.com/altsem/gitu"
-  url "https://github.com/altsem/gitu/archive/refs/tags/v0.40.0.tar.gz"
-  sha256 "68a014a5b6b920ae1f82b473e7dddf9251755ada57df126c9a0a98725d1552bb"
+  url "https://github.com/altsem/gitu/archive/refs/tags/v0.41.0.tar.gz"
+  sha256 "eba1cd649339ee1c6f02c39bcd9fc3092df8e374bfbcd194750a966b09cb5e55"
   license "MIT"
   head "https://github.com/altsem/gitu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "05ca82c535aa71bb8ff69629c273c289f9fcfc1d96ae0dd9cc4950d75f88221f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "491753a806e403005635f8930a0b08ec9349e0b506ac5782df94083b8a266ca5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "917180e227c107ac20ab1ba17e4f5f29c43ac80a17b0390e5a685fad7a68ff65"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dbc9a5bb0e1eddafcdf434b0a62f27782ba378b5a489e519a4fa3b7bae4ac0fd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "99440f8c83744f5533fdd89c57463c758117d57ce3ed8d142fb641534818193d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1e2209e3932918766807d7e419b8ffe86138320c550531cae6f744e86c8ecab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e26a16a99458e8ba03255708da91ace7d2412990bbaa07f406ace1832a10c312"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64139abb25b6584ac88caaee6ec40ec0d7897b6c3e806f723216bf79102d2cb1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a8f3f9192d82ad1ae655e43334fb65015a9203c27cabe05ca85fa879c5392e7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd8756d20bb8aefc83f82b9f1cdb99b77df4c5426857bee2e3cc5c2291e7b0c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "934a83b1dbf1b243fc07cd615cf14caba3254e468ec9bdd0d137f13f726f56c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56115a186420b966d1ebb0c245d6c7ef552dc16c93da418e568b3c47e4296907"
   end
 
   depends_on "rust" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

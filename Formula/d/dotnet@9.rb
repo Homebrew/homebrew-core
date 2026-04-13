@@ -2,9 +2,10 @@ class DotnetAT9 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.112.tar.gz"
-  sha256 "6b0d297661f16ad272212f491516f9932a93eab1c68af622b94190a566eb4d6f"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.115.tar.gz"
+  sha256 "4e9bb987d5311395e0d516b2db98bcfe02a7eb8054bb8603b6db0b8ea39b81ca"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -12,11 +13,11 @@ class DotnetAT9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a4746785b5f969bd7a8824efffbd32b08545650d7f12cb2cf314292dc85a0b26"
-    sha256 cellar: :any,                 arm64_sequoia: "a027d7eb2089f1c7736c83fad3b3f89dcaa885c0939713a0655ac67dc4005b8e"
-    sha256 cellar: :any,                 arm64_sonoma:  "2b82449cbb7cae0cf24ab243dfc43f74fb0d90e923bfbbf974d4df8c4c37269f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "647ba2c7ec49b03a1ca226767f135482c6cd1a8ccdaef84e088cc36be52466cf"
-    sha256                               x86_64_linux:  "65971dc8d44c8d0d739b3349e69be6bf2e24aebd07be37b8645a177815f78f88"
+    sha256 cellar: :any,                 arm64_tahoe:   "d0210ac9abe86301be17f2ef799950b29e673048a5e686c1eff4129f25cf07a5"
+    sha256 cellar: :any,                 arm64_sequoia: "8c50dc8fff007cc4c89e56249b168e98c7733cbcb57ad065a537c5081561035e"
+    sha256 cellar: :any,                 arm64_sonoma:  "0b8c0f69051f57cd3339a6173cf28b65d575ec1acf16f8c3b0613b5abc5a4abc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f3fedb5b3fdb90696e1b19e25eef83ef312d5d4656f77d91f7f17e12094bfb2"
+    sha256                               x86_64_linux:  "91b020b30ee7c6e901e227c70413a68a85adc96c7e7d52dcae7c53155ec6573e"
   end
 
   keg_only :versioned_formula
@@ -33,7 +34,6 @@ class DotnetAT9 < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "grep" => :build # grep: invalid option -- P
@@ -42,19 +42,13 @@ class DotnetAT9 < Formula
   on_linux do
     depends_on "libunwind"
     depends_on "lttng-ust"
+    depends_on "zlib-ng-compat"
 
     on_intel do
       depends_on "llvm" => :build
 
       fails_with :gcc do
         cause "Illegal instruction when running crossgen2"
-      end
-
-      # Backport fix for Clang 21
-      patch do
-        url "https://github.com/dotnet/runtime/commit/d4ff34564bcaf4ec5a02ecdca17ea63e5481cc42.patch?full_index=1"
-        sha256 "6b2485ca234b6dbab8ae5e2e5007c8e8d28130d14213cd5c5546cdefc27d8373"
-        directory "src/runtime"
       end
     end
   end
@@ -66,19 +60,12 @@ class DotnetAT9 < Formula
   end
 
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v9.0.112/release.json"
-    sha256 "420355ac27b4756ad45c497c42361fbff02921fa78718ee36dcf6e2632259786"
+    url "https://github.com/dotnet/dotnet/releases/download/v9.0.115/release.json"
+    sha256 "72b1fa8d56ded253f234741b88985dab54bac7e079b044ce78292405b83d4fd8"
 
     livecheck do
       formula :parent
     end
-  end
-
-  # Backport fix for https://github.com/dotnet/dotnet/issues/4037
-  patch do
-    url "https://github.com/dotnet/source-build-externals/commit/509ae3f3bf4e405e55b635699970a2d8014fba59.patch?full_index=1"
-    sha256 "83174ff071f181f720a77c01df46340c4410bc56908d7c10700498649734bda7"
-    directory "src/source-build-externals"
   end
 
   def install

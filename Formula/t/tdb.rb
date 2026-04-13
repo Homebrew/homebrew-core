@@ -1,8 +1,8 @@
 class Tdb < Formula
   desc "Trivial DataBase, by the Samba project"
   homepage "https://tdb.samba.org/"
-  url "https://www.samba.org/ftp/tdb/tdb-1.4.14.tar.gz"
-  sha256 "144f407d42ed7a0ec1470a40ef17ad41133fe910bce865dd9fe084d49c907526"
+  url "https://www.samba.org/ftp/tdb/tdb-1.4.15.tar.gz"
+  sha256 "fba09d8df1f1b9072aeae8e78b2bd43c5afef20b2f6deefa633aa14a377a8dd2"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class Tdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "68dbd4f902ea117c3400a462d65dde2fbdb84e031437ad72a3203e17068e534c"
-    sha256 cellar: :any,                 arm64_sequoia: "867552b59be50ba8f9acab7d343dfb13ddf5fc01cdb5dad9b65514e126f1be9e"
-    sha256 cellar: :any,                 arm64_sonoma:  "2bc5ca7cdcdb65b9a9742315da84853eb713aa703f083777e7bcdb85ae85ab37"
-    sha256 cellar: :any,                 arm64_ventura: "ceac8c5018279b2d32ce36c6b8a2e935bcb5021cb35cb7b36990dde903025224"
-    sha256 cellar: :any,                 sonoma:        "e57ec266ee5dbe513c5d218f99c366493871569433a3a383565876833fb95807"
-    sha256 cellar: :any,                 ventura:       "f8c8fb3c9a322a0473aee4d9dfa4d2cbab77fff71cf529106583a88401f718c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "16ca3025453f3622fe6f49a74b3f4eb4f7f6b2612392a0819ca89799aacc0bc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a312fe0c0bb79b98ce580dab59fd56fcc8306b1adcda8cc7cb34bf2525986bc"
+    sha256 cellar: :any,                 arm64_tahoe:   "263f2b310f2be1f0aeb5b98357dc28c88fbb6a46d116def650e7a30c05f3608e"
+    sha256 cellar: :any,                 arm64_sequoia: "73ab9ee5b4a954338efb2cded87651f64984a2ea27b898f4b4f584a8fa3776ea"
+    sha256 cellar: :any,                 arm64_sonoma:  "6036f32cf47d3abf27e88af33bc95e0b00156eb3f1fb8ab9c3a63ed075d1d96b"
+    sha256 cellar: :any,                 sonoma:        "960e975c3de42888b3b658be681a508da6b995997be2b5f7ea09bd7a07d4fd66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d346592209e61e26edf76232e05e41f07deecbb3430e68f0d1bf6658a674b649"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b07d10b7909161e804d6d707d300249a23bb86f9aee2cdf313cf92be772a1f47"
   end
 
   uses_from_macos "python" => :build

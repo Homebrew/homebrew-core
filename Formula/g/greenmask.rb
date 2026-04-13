@@ -1,8 +1,8 @@
 class Greenmask < Formula
   desc "PostgreSQL dump and obfuscation tool"
   homepage "https://www.greenmask.io/"
-  url "https://github.com/GreenmaskIO/greenmask/archive/refs/tags/v0.2.15.tar.gz"
-  sha256 "d9cc46c66caf3610abe35feda46cb3e341faaf8b7b3503dfc964357da9def21c"
+  url "https://github.com/GreenmaskIO/greenmask/archive/refs/tags/v0.2.18.tar.gz"
+  sha256 "631e34d0339b7dd413038590bca982b98bcb8f6512749af6baeb7284b48ce068"
   license "Apache-2.0"
   head "https://github.com/GreenmaskIO/greenmask.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Greenmask < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6566ad58caea4006f873235d0f016a243c93c1ad99a4b17d5ab5051cdd264482"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6566ad58caea4006f873235d0f016a243c93c1ad99a4b17d5ab5051cdd264482"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6566ad58caea4006f873235d0f016a243c93c1ad99a4b17d5ab5051cdd264482"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8ca0a8491c68f12ffdbb48ea4bd34a38d9c0ca247969aebde5405db32e27884e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dcb3e75cefbab8ba63885b06bc585e45dc115751ffb0e4e73523be0387ae36c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82b797ee59e812456347e03bc649c0e5a1460d80e435006f00f90c787e8b3ecc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "265c2450b88a010a1aabef43470525409ff3a53852efbb12a22ee25ec0398e72"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "265c2450b88a010a1aabef43470525409ff3a53852efbb12a22ee25ec0398e72"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "265c2450b88a010a1aabef43470525409ff3a53852efbb12a22ee25ec0398e72"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ff8fd84e94aca95b38204e22d1eb8dfe794802662a66aa401fa292a63f6e7e2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07ccc213d53e3fb9ac111fe877ca670b93af0b7df9c991971c288e08290af55f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1792fe2c18802dc9ee067d4cbc3460b5909662859c1aeb26e645efc1e4fdef9b"
   end
 
   depends_on "go" => :build

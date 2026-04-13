@@ -1,18 +1,18 @@
 class Sdb < Formula
   desc "Ondisk/memory hashtable based on CDB"
   homepage "https://www.radare.org/"
-  url "https://github.com/radareorg/sdb/archive/refs/tags/2.3.2.tar.gz"
-  sha256 "28cf10b3788b0cbdb46ec46b91ecca68091e88bb00fd1e6ce5f02a5c09ab4d67"
+  url "https://github.com/radareorg/sdb/archive/refs/tags/2.4.2.tar.gz"
+  sha256 "4b5c1c387307759aeeb76704d130a9bbe98bf68ae7bbab796efeb052e5e25e47"
   license "MIT"
   head "https://github.com/radareorg/sdb.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "467d31f7b247f5bddad146f14eed4ff027e335f59e9b8c4a60eccc7bd1832de0"
-    sha256 cellar: :any,                 arm64_sequoia: "3664a76db0ab03f761d22993ef8b1cc063a4d48264a39707f9e8b73e38b034c1"
-    sha256 cellar: :any,                 arm64_sonoma:  "d1c010b22dc2728b8c3167fedfb4be5913ba195b756a77440d8d609bacadc197"
-    sha256 cellar: :any,                 sonoma:        "1dc6ad237420827ff60f0537ef3d8bedb6e066f3cb0d45d0379221a0a1b24906"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "15708011035533daf3baa9af331e7c5021f113cf62d9ca4fe61f5559418fce6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42a40ec6519e75e6ebb1cb1b69c2d94e7f9a515a14ea338966c1235b23fe81e7"
+    sha256 cellar: :any,                 arm64_tahoe:   "4af94e6653f3b456b749f2f545ffe63e0f99553ab645cab9c5f7811fc33a74a1"
+    sha256 cellar: :any,                 arm64_sequoia: "0f45bd45d169121dcf9b6749eaab1b62163fad8c44848458c125c4b551a1dc41"
+    sha256 cellar: :any,                 arm64_sonoma:  "090254bae8959c6c519d3da1aed26058f594563af78560ee0bfa9ca20022a893"
+    sha256 cellar: :any,                 sonoma:        "9bc15183746966b8280bfa577e6dd81e232441dc6b9c4cd22fed099686f36477"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "267a5a3b9a20139f936cb95a2ecb1f1a660d2d886cd7f3e45babd2120c76f96d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9034e5f06a9692dbc708521e226cf319c995c0511765322c9ee600fdf86237de"
   end
 
   depends_on "meson" => :build

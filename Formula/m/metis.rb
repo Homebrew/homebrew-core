@@ -11,8 +11,6 @@ class Metis < Formula
     regex(%r{href=.*?/metis[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "dbb37a32bc124a76fd9496b0e95f49b1bb48b1dfe72dc398991569156193d07e"
     sha256 cellar: :any,                 arm64_sequoia:  "60ef633238eb902353465719c36fb64c5a325f823a203c1079c3e0358f72fd79"

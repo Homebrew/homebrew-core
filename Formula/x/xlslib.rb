@@ -5,8 +5,6 @@ class Xlslib < Formula
   sha256 "05a5d052ffdd6590755949d80d16a56285561557bc9a5e887e3b8b3fef92a3f3"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "0aceee9730d6524acd094d61efcf3b89387d79c7e10dc3bbbac4cf52ccb133ac"
     sha256 cellar: :any,                 arm64_sequoia:  "67eee141556944e992f338143289b2021e22023d5f205f571e56bca3a8c2b1f3"

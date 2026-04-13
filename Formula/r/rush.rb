@@ -29,6 +29,6 @@ class Rush < Formula
   end
 
   test do
-    system "#{sbin}/rush", "-h"
+    system sbin/"rush", "-h"
   end
 end

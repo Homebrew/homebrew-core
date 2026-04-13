@@ -7,8 +7,6 @@ class FregeRepl < Formula
   license "BSD-3-Clause"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "f68a61801c7e99908489f6339d178107252377a08db65607849027d869df9bd0"

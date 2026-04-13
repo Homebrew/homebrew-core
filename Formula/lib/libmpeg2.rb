@@ -12,8 +12,6 @@ class Libmpeg2 < Formula
     regex(/href=.*?libmpeg2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "774f58a1e39f846fdcb40c1b05446f9867836cc95e66fe25d2d829f8e98c88a4"
     sha256 cellar: :any,                 arm64_sequoia:  "2db4b583e04a71b456045c2bf9f7d08f1ee332e8305c0944d4b101c83ab71990"

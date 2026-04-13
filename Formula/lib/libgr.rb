@@ -1,17 +1,17 @@
 class Libgr < Formula
   desc "GR framework: a graphics library for visualisation applications"
   homepage "https://gr-framework.org/"
-  url "https://github.com/sciapp/gr/archive/refs/tags/v0.73.19.tar.gz"
-  sha256 "70dc02ca46230d1a5b7e63a8054f1c740cbbfa819e398c1d305d71668e31c1f4"
+  url "https://github.com/sciapp/gr/archive/refs/tags/v0.73.24.tar.gz"
+  sha256 "6cf573ca23cc08e7410355960a36ae9127a4c06241b05341bb974abd2ceb1b32"
   license "MIT"
 
   bottle do
-    sha256 arm64_tahoe:   "22a846eb6dfdd38de88ea6344617f8f583d3f9fb0ee9a3ff6ee78e897fcdd7c7"
-    sha256 arm64_sequoia: "66f8e48ad2ada951cf7ba387a96178b32b2ed3cc41eac251b98cba1e47197b52"
-    sha256 arm64_sonoma:  "aaaf9cf712f028bdce9d91d0028b0ae6ac38e472e824b0c0c3ced9e66e5e00c3"
-    sha256 sonoma:        "14fa77e067ebdcbec5663d5d2c5ea7ea338b0d15a1d25383e1a2fc9a3a1b5014"
-    sha256 arm64_linux:   "b676ddc0e1a6acbb88703f5a1b4e0069be65a470bf840d2809d8e651b15ebb66"
-    sha256 x86_64_linux:  "7eb319d8559144596471b2709a3a3f974168b92b9c7fc2c3343d9c3921989bf2"
+    sha256 arm64_tahoe:   "6b92d7f808bdc4f7391e3753a6be77b0e50eb962360379671abec40de1917c60"
+    sha256 arm64_sequoia: "4d6cf7eb32443dad295b6d1ce362ffb776a653e5ca3c72b46edaff7aa2c00f6c"
+    sha256 arm64_sonoma:  "b800f89319b9fc5a305ba3d5e16b289ce252e1e7c1fd3970af0308b488c06d3b"
+    sha256 sonoma:        "1158e51122c0fd6784f580caf840455a3ee249ce5c3335fb5445c97eb1f3344c"
+    sha256 arm64_linux:   "a1922f441a7f6c2097859b9ff876c8e8c2147d0be8ea0c86606090a5bb67a0aa"
+    sha256 x86_64_linux:  "059ed00ec068a771c925441c64dd1a266f11b4a57f9e9b18e87a4335454c217b"
   end
 
   depends_on "cmake" => :build
@@ -27,12 +27,11 @@ class Libgr < Formula
   depends_on "qtbase"
   depends_on "zeromq"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "libx11"
     depends_on "libxt"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   def install

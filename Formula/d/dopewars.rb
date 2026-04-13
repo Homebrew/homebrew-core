@@ -5,8 +5,6 @@ class Dopewars < Formula
   sha256 "623b9d1d4d576f8b1155150975308861c4ec23a78f9cc2b24913b022764eaae1"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "e8059b057bea2eb7a0c33542aebc0be5dfb26ba9f681594af77f6584accd328f"
     sha256 arm64_sequoia:  "5e19478fc233eac61d8c45e6b671f1853c0b4f95777a4a2d99ad1ed6eac6d38a"

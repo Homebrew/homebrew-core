@@ -1,9 +1,9 @@
 class Tnftp < Formula
   desc "NetBSD's FTP client"
   homepage "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/"
-  url "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20230507.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20230507.tar.gz"
-  sha256 "be0134394bd7d418a3b34892b0709eeb848557e86474e1786f0d1a887d3a6580"
+  url "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20260211.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20260211.tar.gz"
+  sha256 "101cda6927e5de4338ad9d4b264304d7d15d6a78b435968a7b95093e0a2efe03"
   license all_of: [
     "BSD-2-Clause",
     "BSD-3-Clause", # src/domacro.c
@@ -15,16 +15,13 @@ class Tnftp < Formula
     regex(/href=.*?tnftp[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2440ff711b034d1b7ebc3a676040bedba8424402704586cb3948c517541ab7f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29c3ac9c028f43ac6f65a2ff8c1d35499d90b6d2025a41853c699e9792195beb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f20f5343db721bf151d17ba4b37cf479e41fd8d286444bcaa7b6df312eb7b02"
-    sha256 cellar: :any_skip_relocation, sonoma:        "282fb33ade8765b9c59b745e26d314ead7a547f0d9362498d57e429a623cb8e1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3a23db7b60314ced9767889c224c4e0a743deda98e5861a62bcdf4a59dd87b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6fb344df376df4a00da292939661fa12e8dcdee1d5404906d7f533df3dc3dfb1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4e6465644d4137221c858dda232f99f049e01a413a014426d9ca6c5c00a73134"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6fa0e1a41b2b9a2005237d072de38763cc96372ff7321938c0399bb9e7288489"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9dec17258f2179ede83e7ac1d6000c7c0798a6a590e1055b88a3eceec065315"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd334d6226939c4f040a017dbfb4b2ddc2aead1069a4f2a8ba58d81cac60f7e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a0075ea6e8fb9822064a7ae05522c002c01036f0c45a94b9fc62f7c8f02bfd49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e91159c7e5d49cee3fe378c3c971cffe559d28528936751c6f07bb1ea970f5e6"
   end
 
   uses_from_macos "bison" => :build

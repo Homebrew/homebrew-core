@@ -14,28 +14,31 @@ class Gauche < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "3938d61ea6df0e0839af39a7f2c11fe15eb5b626ffcf6d83c9a9c1b861c17ab3"
-    sha256 arm64_sequoia: "a2389dca53067a6108ce35ef85c2a998f94ecf2263fe7229fd32af2080876f5b"
-    sha256 arm64_sonoma:  "1bca898ca8fc5a742e12d291fd8a4419337813bddeb49d43e4733a7af176d23c"
-    sha256 sonoma:        "0578f389e9f10c66cf413a59663baf0c64c4ae33430adbbcaf66878d06aa4d3a"
-    sha256 arm64_linux:   "74235050e6be7d472ae7f41135aae668cc04287df76a7be484ffb1385c457082"
-    sha256 x86_64_linux:  "8b7778c8b95093b9f06adc50af12f89ff7b5125b45fd94bac0e7639dcf3fce30"
+    rebuild 1
+    sha256 arm64_tahoe:   "4dcc399b09f0db638cb74c51b46a1d289f7d9eb7602e1632f409af0d780d6b70"
+    sha256 arm64_sequoia: "4b312853feb31d6e0c53f679e95365ed3990ae356e956d37c4b2f2ee89ea6ac6"
+    sha256 arm64_sonoma:  "66e48914a2fed1e6561d51ebd211968a501dabb9915744995afe9fc437b3dd1b"
+    sha256 sonoma:        "53b8b035250f0814c8a2cc90c59e05ca51ef82116a487fc76ceece4cfad07e48"
+    sha256 arm64_linux:   "1b93c768dbd692d811173b3c6b9773165d88060cfca88764493b05f0e9ba05a2"
+    sha256 x86_64_linux:  "ad6815598d031b43b878c75511c43cee7e1d18bafc3cb1e59781c0fcdd5c560d"
   end
 
   depends_on "ca-certificates"
   depends_on "mbedtls@3"
 
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    system "./configure",
-           *std_configure_args,
-           "--enable-multibyte=utf-8",
-           "--with-ca-bundle=#{HOMEBREW_PREFIX}/share/ca-certificates/cacert.pem"
+    args = %W[
+      --enable-multibyte=utf-8
+      --with-ca-bundle=#{HOMEBREW_PREFIX}/share/ca-certificates/cacert.pem
+    ]
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

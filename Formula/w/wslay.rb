@@ -5,8 +5,6 @@ class Wslay < Formula
   sha256 "166cfa9e3971f868470057ed924ae1b53f428db061b361b9a17c0508719d2cb5"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "25dba65b78dad270fd7ac6f2b7324354a528bc5d3d7c68cbcc296b9740905c10"
     sha256 cellar: :any,                 arm64_sequoia:  "695e27c926b9cba4a774c0bead3c924fe34f11e9d151e203ee82f83c3be1ae20"

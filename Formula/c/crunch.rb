@@ -5,8 +5,6 @@ class Crunch < Formula
   sha256 "6a8f6c3c7410cc1930e6854d1dadc6691bfef138760509b33722ff2de133fe55"
   license "GPL-2.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d449463edb9406d92410104b8302202c4aebd190cc181d8fea3e4fea2e8ef0c3"

@@ -1,17 +1,17 @@
 class Libjodycode < Formula
   desc "Shared code used by several utilities written by Jody Bruchon"
   homepage "https://codeberg.org/jbruchon/libjodycode"
-  url "https://codeberg.org/jbruchon/libjodycode/archive/v4.1.1.tar.gz"
-  sha256 "dba58704f269d82bc226d361e40c2e0fc627dbdcc29786b74942c1afe5092132"
+  url "https://codeberg.org/jbruchon/libjodycode/archive/v4.1.2.tar.gz"
+  sha256 "a7085da591e0c314eb3442e7b258a6b6944e6978ecb2764ab33f3cb840f47ff4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9fb9785e42d54ca8785437d4e5e88bc174cb9cdec69e8cd91e08773475bd6d15"
-    sha256 cellar: :any,                 arm64_sequoia: "1de8fff8cb97dc6b75abb29d79e99be062ad71b4920b66102b4105eadff922cf"
-    sha256 cellar: :any,                 arm64_sonoma:  "997ccd481d19913e259e63d80ccb8ceb0f19b54dbeea27a40423af0915849c30"
-    sha256 cellar: :any,                 sonoma:        "7af2eb2f6abfd048a2c5a78e3733a4a599cd12472134b68617ba5efe4a0c7845"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "840eb3be0573968cfd6c664ef2ac0fe424b864405254b67bd640fe749bf44089"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1257a5f234e39badf6f52d8a1a2f444664e78879379ef97067c5fce59555c0d2"
+    sha256 cellar: :any,                 arm64_tahoe:   "cbf0084259a113c633054d13f127c2aadb4bb670a1016f020b92c21d9aa17ff2"
+    sha256 cellar: :any,                 arm64_sequoia: "f942693372181f793814c287c4187e2eb8bc44fc02f9ad9c0537693c496af973"
+    sha256 cellar: :any,                 arm64_sonoma:  "1df1a7a4d35139f0e3f1a45261ec1667688a21ebc34c9b00fbbc8866b445a560"
+    sha256 cellar: :any,                 sonoma:        "982e433a5603a6b091b884171edab27a4df399a641c55db26f98bf393593f6cc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b56b85c6feda4344b3b5609ff88f7391f48b9264dbbfbd3ad6ecc55038393060"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f0585287d1de468c0e1f3ae89d22e78827f76c527baaed13424629c3d2e5ad0"
   end
 
   # These files used to be distributed as part of the jdupes formula

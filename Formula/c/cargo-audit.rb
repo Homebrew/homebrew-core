@@ -1,8 +1,8 @@
 class CargoAudit < Formula
   desc "Audit Cargo.lock files for crates with security vulnerabilities"
   homepage "https://rustsec.org/"
-  url "https://github.com/rustsec/rustsec/archive/refs/tags/cargo-audit/v0.22.0.tar.gz"
-  sha256 "77a739cd31259ce9365716ba1831fd401a4e29b111dea5b27ff567822811c898"
+  url "https://github.com/rustsec/rustsec/archive/refs/tags/cargo-audit/v0.22.1.tar.gz"
+  sha256 "262d42fcca5db8629b6220d84e62e7ffda913846a36089a847ffe276e6b09446"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rustsec/rustsec.git", branch: "main"
 
@@ -12,19 +12,22 @@ class CargoAudit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "081b812983513020dddd43c3e921583347aa1780f85dd744ad4794e545a6914e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8267c0ab28037b82c915da17aae11c9e23764cdd012a7c371c04532a8716256d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1bf7333128b3ad15565fa1fab3add833864949f3556469cc676a8fd98a98be8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3c72248e214204d81448af092ae6ca32893ce339e598b12ba472d9cd70a9c6bb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae8c7a01bd831f830df00b7420942247320a26575569e07e83728981ab7e53b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccab29bc1251e83250dc6886392a735c79f253dfca3ecd3c173559893770799e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b863761905e89bd87009f738a06311ff12c071952b249998a3cfa422da221583"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a3da87bd00d58d6b9fca96be4ed12ce9fc6d44ae6807de7bc5e20da3b66cddc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3aa29e243612911982cb490c5805e4632082661241b9e9596da606ef3364332"
+    sha256 cellar: :any_skip_relocation, sonoma:        "96c9f3e94687aea1e65ae80ca447e78319125e643019995cec756deec3832244"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc4d22172c227e91f20053e8bd799969b9e01c8d413d2d9ed0011367622414ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "303b9c4ba7517e22b93399a9876b8bd69307165ac9eae534db83852e449bbfb9"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "cargo-audit")

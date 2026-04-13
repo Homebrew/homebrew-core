@@ -5,8 +5,6 @@ class Hilite < Formula
   sha256 "e15bdff2605e8d23832d6828a62194ca26dedab691c9d75df2877468c2f6aaeb"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d0e8bd163b7a96b2ef1a79a9d69861cd045c6ffa351dbbda07bf25ba31899d68"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f3535152f7fa6b54957f00de4158dd790073c81737140ae90c16cbda8d37ba51"

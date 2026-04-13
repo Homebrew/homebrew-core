@@ -6,8 +6,6 @@ class PamReattach < Formula
   license "MIT"
   head "https://github.com/fabianishere/pam_reattach.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ab1297caf49a797f8d06361fcb5d690b83b2b92444fe44a5be7d2cdef1ddc123"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "762bb984039bcf0a785bce5fadb36341c579dcf9f3bbca652a839fba7988978d"

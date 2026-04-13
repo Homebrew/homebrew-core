@@ -5,8 +5,6 @@ class Libdv < Formula
   sha256 "a305734033a9c25541a59e8dd1c254409953269ea7c710c39e540bd8853389ba"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "c14359502e9d8c606b0424966181a93c26fec27eb9ca41f2313af62888716c4d"

@@ -1,35 +1,19 @@
 class Fricas < Formula
   desc "Advanced computer algebra system"
   homepage "https://fricas.github.io"
+  url "https://github.com/fricas/fricas/archive/refs/tags/1.3.13.tar.gz"
+  sha256 "7ae03c0f566c4b2bbbd6da1b02965e2a5492b1b8e4f8f2f1d1329c72d44e42a2"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/fricas/fricas.git", branch: "master"
 
-  stable do
-    url "https://github.com/fricas/fricas/archive/refs/tags/1.3.12.tar.gz"
-    sha256 "f201cf62e3c971e8bafbc64349210fbdc8887fd1af07f09bdcb0190ed5880a90"
-
-    # Build fricas as a SBCL core file instead of standalone executable.
-    # Avoid patchelf issue on Linux and codesign issue on macOS.
-    patch do
-      url "https://github.com/fricas/fricas/commit/4d7624b86b1f4bfff799724f878cf3933459507d.patch?full_index=1"
-      sha256 "dbfbd13da8ca3eabe73c58b716dde91e8a81975ce9cafc626bd96ae6ab893409"
-    end
-    patch do
-      url "https://github.com/fricas/fricas/commit/03e4e83288ea46bb97f23c05816a9521f14734b7.patch?full_index=1"
-      sha256 "3b9dca32f6e7502fea08fb1a139d2929c89fe7f908ef73879456cbdd1f4f0421"
-    end
-  end
-
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e9a297b78558b91737c3c3d03d12437405551fac907e9652eab4d415ac6fa961"
-    sha256 cellar: :any,                 arm64_sequoia: "36c8ae50dbb6ebca8fcb7bc76692470997f05428af2969ae2e5ed1aeb4a52adc"
-    sha256 cellar: :any,                 arm64_sonoma:  "89c1c4e80411f7d0eafc487926f589ca3a0d874f88dad2133fa5676af9542a1e"
-    sha256 cellar: :any,                 sonoma:        "43e36b8ff4477029525d7051560309056e8f101873306dacdb9ac8c4ce26475e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "57900b6decf4be69df0dfb499be874dfae4b250465f1d0e59dc25468738884af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f303fc5d5793d86993b3c8355a436b821a5791ec5be5476202c3faae5959fbd"
+    sha256 cellar: :any,                 arm64_tahoe:   "7b856e01080257bf1418432b9633189ca4ed781644524e7ef0b1cdba4ef09cba"
+    sha256 cellar: :any,                 arm64_sequoia: "beca5845c91aec92b2844507a0e1c1a4e64cb28f713640d6b3652ecae07f87ad"
+    sha256 cellar: :any,                 arm64_sonoma:  "9cc86a56336782739c1bd28d9848170ae62db1aa37456a5d6e2bdf8d14d8994c"
+    sha256 cellar: :any,                 sonoma:        "651b30b071db7d69a3f1d8cef34c85bbd37457ace6fa0b62e05e93506bd6b609"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b9e34d998169fd9e1d837294bda4618bea09f089cba87981d239b6fe1097176"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39384b0a803129743c8cb647dd8a5dfc8826074e418bfc20bd009e3e4a828f70"
   end
 
   depends_on "gmp"

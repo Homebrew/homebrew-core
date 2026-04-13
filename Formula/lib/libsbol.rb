@@ -6,8 +6,6 @@ class Libsbol < Formula
   license "Apache-2.0"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "e1691af94f34be58995e9226038f9c446fc50a2f8222825df323085c1a7200a9"
     sha256 cellar: :any,                 arm64_sequoia: "b09a89a225eb9340d711c26788bc531b1ca5e3f37fc7be1dcc1419124210fd7f"
@@ -18,6 +16,10 @@ class Libsbol < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:   "e6c5e5965c77dd8dc497af89ddbc8fea4542ccd551c57422967d19a42a8b87e0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ef4f70407b40a1c4791f08309df2075a15cac5a038f0085ecfa23ff0d460258"
   end
+
+  # Last release on 2019-07-06
+  deprecate! date: "2026-03-01", because: :unmaintained
+  disable! date: "2027-03-01", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
@@ -31,7 +33,12 @@ class Libsbol < Formula
   on_macos do
     # Fails with Apple Clang 1700+ / LLVM Clang 19+
     # include/sbol/property.h:135:71: error: member access into incomplete type 'SBOLObject'
+    # And cannot use GCC as has C++ dependencies so need to use libc++
     depends_on "llvm@18" => [:build, :test] if DevelopmentTools.clang_build_version >= 1700
+  end
+
+  fails_with :llvm_clang do
+    cause "include/sbol/property.h:135:71: error: member access into incomplete type 'SBOLObject'"
   end
 
   def install

@@ -14,22 +14,22 @@ class Vsce < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "3b1aa5fe7412b69b47c2ac683bd19d3d1a4536f8d5a2e1d0d453575be0114850"
-    sha256                               arm64_sequoia: "816304e05516bcbca943945cdc0cf0d6aafc60ce66d0957f8ac845d7602b08d0"
-    sha256                               arm64_sonoma:  "bc79af02a8a6790a9abcde0cb8444ebb3ad8949c331f5ab2f08f1ff8a4295ecf"
-    sha256                               sonoma:        "3773a67cb4b9175f7616e78b5ce9d3141e27954b1dfb4ba33bf64074d1357a04"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b7643a95eb08f987e4f5ab777a2175a47d4fb6a0f167f402eea8908f933bde7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd0c7492e84e88ffeeb940d2260c53d04bc5278f0e1b9125b8732fb5698b4d7b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d5dbdbbd13544c659059724ba4b29f8b458e777bb9068afccd635800c0cd4b73"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5dbdbbd13544c659059724ba4b29f8b458e777bb9068afccd635800c0cd4b73"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5dbdbbd13544c659059724ba4b29f8b458e777bb9068afccd635800c0cd4b73"
+    sha256 cellar: :any_skip_relocation, sonoma:        "697e277fb152068f51a02471c748118f6d6e47a74a059b3b1f4f915dc95eb093"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb6c71ce803227a87a139b666302048a8764083521124526920462df2778506d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51bd0dc9c14019f99dbfe25d4a164ed639347ef5ef346fa4ab574c5d08e871c2"
   end
 
   depends_on "pkgconf" => :build
   depends_on "node"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "glib"
     depends_on "libsecret"
+    depends_on "zlib-ng-compat"
   end
 
   def install

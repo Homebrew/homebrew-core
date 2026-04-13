@@ -1,10 +1,9 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
-  url "https://downloads.scummvm.org/frs/scummvm/2.9.1/scummvm-2.9.1.tar.xz"
-  sha256 "6a82f36afa9de758ab1dd377101a26a53f12417cbfd350bb8e5d7fd5b8c257e3"
+  url "https://downloads.scummvm.org/frs/scummvm/2026.2.0/scummvm-2026.2.0.tar.xz"
+  sha256 "4e10ed977daa36780c97a9b3bd7c124842f5ed9b0bfea4e8e35eda4658fa60f3"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/scummvm/scummvm.git", branch: "master"
 
   livecheck do
@@ -13,14 +12,12 @@ class Scummvm < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "1e1518b840350265526bab90fbd3469a669052a3598ade2dbfa2907c8806b978"
-    sha256 arm64_sequoia: "af1a4656f89211d7be7b493ac7ad5db142b318058121c48f73f592272f019a22"
-    sha256 arm64_sonoma:  "e5314b9eec38aaa5556d5481530573080028ad62a2bb54cd2a9e033fe290b876"
-    sha256 arm64_ventura: "2c09fab2039ad292c9d2f1e2dd0f21c02fcfa7df5340037057d43a7814aeda56"
-    sha256 sonoma:        "1bac1262b8f2dad18d22f2d2a0d08f7090e6f4579c989bb104a636d8d6b6b0c0"
-    sha256 ventura:       "2d10a2dfb6d2482ed25a3e2ffdc8d20ac59dcf7cf6bd0d1ca977b61a71169c6f"
-    sha256 arm64_linux:   "9e66e94115cd793f5cce20420a2223fa7c38e82400bedb31f1c7b50787c7dc15"
-    sha256 x86_64_linux:  "3d608c81d285a7b766260af1e646749bbf98ad8a977e140dbda9de012aaf5d6b"
+    sha256 arm64_tahoe:   "eafd8445aa49bbf8247d5380b5d21fafd02ed092c600091c6f029329ad1f0fb6"
+    sha256 arm64_sequoia: "01e515ec6a9adba2246458cafe739339b730b30ac24c6266dc1fc587cc7cff25"
+    sha256 arm64_sonoma:  "ff098c5d5f81416f9710d5201b1a26d1de3efcafc23ddc1f1b0937c94105abcd"
+    sha256 sonoma:        "9e261a9ae5575bf012567d412ec387b847c4171758436586f4591f9d8c8bce20"
+    sha256 arm64_linux:   "afebdf0abbb5231b0381a3246a72d083a4bdec2a00b5fbf49a02b80f590353e4"
+    sha256 x86_64_linux:  "db0f23cfe965073d71e226dcdf9e6dbbb218bf64a8ce885ca1cdfdae85ddc08e"
   end
 
   depends_on "a52dec"
@@ -41,14 +38,13 @@ class Scummvm < Formula
   depends_on "sdl2"
   depends_on "theora"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "musepack"
   end
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "zlib-ng-compat"
   end
 
   def install

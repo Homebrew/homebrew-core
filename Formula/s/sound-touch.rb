@@ -1,19 +1,17 @@
 class SoundTouch < Formula
   desc "Audio processing library"
   homepage "https://www.surina.net/soundtouch/"
-  url "https://codeberg.org/soundtouch/soundtouch/archive/2.4.0.tar.gz"
-  sha256 "3dda3c9ab1e287f15028c010a66ab7145fa855dfa62763538f341e70b4d10abd"
+  url "https://codeberg.org/soundtouch/soundtouch/archive/2.4.1.tar.gz"
+  sha256 "e07abf20ce8f95850c280132e1f61ad400fc1f4011b7fac698a503de6aab6733"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "023d3c93b87887210efbaea61e5fb4f8d1ad156ac99f69675605df0a053d1d62"
-    sha256 cellar: :any,                 arm64_sequoia: "73661d9ef5c0d165ac98a00a189973b287b38609523d2807ca89edffcfafaa73"
-    sha256 cellar: :any,                 arm64_sonoma:  "b262bd9eaeee94084f75336d6e9d3e3beaa631dd8168a004ced337f36e433828"
-    sha256 cellar: :any,                 arm64_ventura: "c0e31eee1801826eb30ca5a753f35c11ec679b19b802554d00cfb096b494af0f"
-    sha256 cellar: :any,                 sonoma:        "15882d0b1444f3373fbe8440de6fa9b9d561de20a1c2cfad22c40894c3c182d4"
-    sha256 cellar: :any,                 ventura:       "f7b88e434c4ee3c9ac2e9d5676f205fa40da9ddb7d32e89ad2e618aac70b6556"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "351f5272b57863806eae41298ba7658c74fc3974de8b8baf8677203701535b7f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ded546915e0db8508a66b0883f0385e89a5b5ae88f5c4607d27545c3a5c1697"
+    sha256 cellar: :any,                 arm64_tahoe:   "39c7a9f7b42d7eceab47adbe2dd62a299a2bc6696cde16e8bfefbe13048407ce"
+    sha256 cellar: :any,                 arm64_sequoia: "e3c88c3e3f09f770a320d5bcbc66deab58b7aadb7f45903ab44656e7f8dcc23c"
+    sha256 cellar: :any,                 arm64_sonoma:  "b748642ae9a1df505261660b2d40836d9d072f8350820a5b8a456c3ebf9ef7c3"
+    sha256 cellar: :any,                 sonoma:        "a98b143aff369357b87c07197525e221f461b62af1bce6ebcf31a55827b93533"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b61df500d6bf34c8a0cf7f443c19f7373479b5f90f7428345bdd113cf8d8ec6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8516cc0bf2c85ede1f7cb438287a1e1ba936001aeda358ef2f2a03ab3847d6db"
   end
 
   depends_on "autoconf" => :build

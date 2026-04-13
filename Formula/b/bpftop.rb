@@ -7,8 +7,9 @@ class Bpftop < Formula
   head "https://github.com/Netflix/bpftop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "009800df8f5531ace80a3b9ac23e44399679f8004bff3758b3fe4f3d8786730b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "5cda56bed86048a5f27bd82a9d35e4cb8e29b3486dbfc665536af2def4e241f6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "043595da3ab81238e91e928482e5dd660039b4e4dadfefbcc2a8f44a9f38291c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d7197ac182f69f14e56db0186dd7bf8d19a30d6778325c5fb9cc7d220e180d36"
   end
 
   depends_on "llvm" => :build
@@ -16,7 +17,7 @@ class Bpftop < Formula
   depends_on "rust" => :build
   depends_on "elfutils"
   depends_on :linux
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
 
   fails_with :gcc do
     cause "build.rs needs to run clang and not shim for gcc"

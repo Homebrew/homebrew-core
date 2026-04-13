@@ -5,8 +5,6 @@ class Doublecpp < Formula
   sha256 "232f8bf0d73795558f746c2e77f6d7cb54e1066cbc3ea7698c4fba80983423af"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d1c9462ef87c13b4a5c4affd18d0bc2ebf1f532bcde2a9eb44cf45ca2959f6ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2e15c4d309ffb4ce79625a484249eabbcee9f337a7e79c7c36a332cd0e25ca06"

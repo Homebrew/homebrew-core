@@ -4,7 +4,7 @@ class ScummvmTools < Formula
   url "https://downloads.scummvm.org/frs/scummvm-tools/2.9.0/scummvm-tools-2.9.0.tar.xz"
   sha256 "1b4bbd7a7ccf4584bfc2c0142b7c1b4e5db97c39d8d214757c72d50e0905b71d"
   license "GPL-3.0-or-later"
-  revision 6
+  revision 7
   head "https://github.com/scummvm/scummvm-tools.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class ScummvmTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d0d9ce1db6aa5f90e5ab793a5735b72a539ec1ef17537c02923e95557a4d687c"
-    sha256 cellar: :any,                 arm64_sequoia: "98c8e8d7f906f5a137f252a3ae78bc3bcd17675feecad98e1716be21b41c07ef"
-    sha256 cellar: :any,                 arm64_sonoma:  "5b51e517b66e0cafa867418ed4e4556f38a5995f43341ce84e187d0b93b4c97a"
-    sha256 cellar: :any,                 sonoma:        "47767c0db65bd642dffbeacd583481a054347ac263743b7ce6ee2cc0117f1c5b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "acd405eb41890990dfb3ccc1064d6e0ed64de62568e624a6bd09d56d1aec2034"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c0130120333cafa9ec0074e98057ec2d69539f74551cbbc63631c1fbd0b526e"
+    sha256 cellar: :any,                 arm64_tahoe:   "d28a7955a87d0efcbf04f382122f517576a039283383c6f22ddb6298b00edfad"
+    sha256 cellar: :any,                 arm64_sequoia: "d5a203cafe61c31df5426ad96fc271aab5447c8bbe0c5ab95778c2cebb996859"
+    sha256 cellar: :any,                 arm64_sonoma:  "b3a3b0db5b6a28c42aec199437c73c5b466d85349199999b4a2dd6e7cad6815a"
+    sha256 cellar: :any,                 sonoma:        "1e10ac9dd30c9d189516e5a3fc756c1e316637b3739b831a3d025a4e89fdb31f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb7c611303c6cb34706789248e67fe70ec974ce5e0fe76920a6b95ed2888fff2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da2882fe5bdb6fc4b5a9eca98543fc23a47ec15a8ad352dfbe38387f5649882d"
   end
 
   depends_on "boost"
@@ -30,7 +30,9 @@ class ScummvmTools < Formula
   depends_on "mad"
   depends_on "wxwidgets"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # configure will happily carry on even if it can't find wxwidgets,

@@ -1,9 +1,8 @@
 class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
-  url "https://github.com/microsoft/onnxruntime.git",
-      tag:      "v1.23.2",
-      revision: "a83fc4d58cb48eb68890dd689f94f28288cf2278"
+  url "https://github.com/microsoft/onnxruntime/archive/refs/tags/v1.24.4.tar.gz"
+  sha256 "0cf4d2ee4392fbb8aedaabc6b2ba11b4a680d1071fa4f75546c2289ca5b404cf"
   license "MIT"
   revision 1
 
@@ -13,12 +12,12 @@ class Onnxruntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3139ecbf2526d38e761f344cda531b3876c72a944508be02849f1be7c6060467"
-    sha256 cellar: :any,                 arm64_sequoia: "384348bcb99aaec171fafb39a5d21b5bb04a10f3ff53a3a63196921ec052c6f9"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9c9dd397827d17f28540445bc8d5e9d556fa6397c93da02e2b274f77d0ed4d7"
-    sha256 cellar: :any,                 sonoma:        "2823f61a3638962e3a9aa71c0e720fa3f3527d3342220d2df05b8354bdbafb05"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab9c33e0561663e3fe57884cafd5e70168b2504847d35fd3e1f4b02484cf71bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "325a8fe0a714b5a807e9d44c91ee2fdaf5673704373fbb310e1164b0c675dfde"
+    sha256 cellar: :any,                 arm64_tahoe:   "1e6c19f92971fd3b181d432199f9b9f6a60c69ba3bdee811bc960f01da5c7acb"
+    sha256 cellar: :any,                 arm64_sequoia: "32ac56b381da95d273c2481c06a05a8f17cdf0946e0dd38e4424eb844e0c9bb6"
+    sha256 cellar: :any,                 arm64_sonoma:  "86681395e3075a7183b5a48d8aac0231ebe9ed339bd697b42b793352ecf9e792"
+    sha256 cellar: :any,                 sonoma:        "1b060f94c8a7f06f2d5abc47f08e3f0638963ccc76d041028d45d056699f5965"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e708455ac9d0298be30985858b747ad44c30c0a2cc142369909a49c6198d2cd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f32f75f0ff82bf6d27478d521b4c566c006389f3930d3cc963f1136cd6aae694"
   end
 
   depends_on "boost" => :build
@@ -36,9 +35,9 @@ class Onnxruntime < Formula
   depends_on "re2"
 
   resource "pytorch_cpuinfo" do
-    url "https://github.com/pytorch/cpuinfo/archive/8a1772a0c5c447df2d18edf33ec4603a8c9c04a6.tar.gz"
-    version "8a1772a0c5c447df2d18edf33ec4603a8c9c04a6"
-    sha256 "37bb2fd2d1e87102baea8d131a0c550c4ceff5a12fba61faeb1bff63868155f1"
+    url "https://github.com/pytorch/cpuinfo/archive/403d652dca4c1046e8145950b1c0997a9f748b57.tar.gz"
+    version "403d652dca4c1046e8145950b1c0997a9f748b57"
+    sha256 "c33bcad94ccbdd4966cc21291f0dcacd40d1dd04eb4c2a6ef1c8da669c01e024"
 
     livecheck do
       url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
@@ -46,11 +45,36 @@ class Onnxruntime < Formula
     end
   end
 
-  # Workaround for Abseil >= 20250814.0 which removed absl::low_level_hash.
-  # Issue ref: https://github.com/microsoft/onnxruntime/issues/25815
-  patch do
-    url "https://src.fedoraproject.org/rpms/onnxruntime/raw/1e041e70baa51b4661c16ec5446daab332937cb4/f/abseil-cpp-20250814.patch"
-    sha256 "9b0bf4fda2acf486907005e781f68c56b47c0b05cc2a2cff04c891f2d35b92f9"
+  resource "coremltools" do
+    url "https://github.com/apple/coremltools/archive/refs/tags/7.1.tar.gz"
+    sha256 "d3222966982367b2be4ce62f1bd2b3dddc5a0ae018724a9acf850fbf2b0cc09a"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
+      regex(%r{^coremltools;.*/v?(\d+(?:\.\d+)+)\.zip}i)
+    end
+  end
+
+  resource "fp16" do
+    url "https://github.com/Maratyszcza/FP16/archive/0a92994d729ff76a58f692d3028ca1b64b145d91.tar.gz"
+    version "0a92994d729ff76a58f692d3028ca1b64b145d91"
+    sha256 "a91f4770ff9c39f4d72e339c379f566b3bbb359fa66122d85fc0bae3dde7abc7"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
+      regex(%r{^fp16;.*/(\h+)\.zip}i)
+    end
+  end
+
+  resource "psimd" do
+    url "https://github.com/Maratyszcza/psimd/archive/072586a71b55b7f8c584153d223e95687148a900.tar.gz"
+    version "072586a71b55b7f8c584153d223e95687148a900"
+    sha256 "f6c4dab91ae9a03b3019e7cab0572743afd0e1b6e75b97fcca50259c737c924e"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
+      regex(%r{^psimd;.*/(\h+)\.zip}i)
+    end
   end
 
   # Apply Fedora's workaround[^1] to allow `onnxruntime` to use `onnx` built without
@@ -71,6 +95,7 @@ class Onnxruntime < Formula
     end
 
     args = %W[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DHOMEBREW_ALLOW_FETCHCONTENT=ON
       -DFETCHCONTENT_FULLY_DISCONNECTED=ON
       -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
@@ -83,6 +108,12 @@ class Onnxruntime < Formula
       -Donnxruntime_RUN_ONNX_TESTS=OFF
       -Donnxruntime_USE_FULL_PROTOBUF=OFF
     ]
+
+    args << if OS.mac?
+      "-Donnxruntime_USE_COREML=ON"
+    else
+      "-Donnxruntime_USE_COREML=OFF"
+    end
 
     # Regenerate C++ bindings to use newer `flatbuffers`
     flatc = Formula["flatbuffers"].opt_bin/"flatc"
@@ -104,10 +135,19 @@ class Onnxruntime < Formula
       #include <cassert>
       #include <iostream>
       #include <onnxruntime/onnxruntime_cxx_api.h>
+      #ifdef __APPLE__
+      #include <Availability.h>
+      #include <onnxruntime/coreml_provider_factory.h>
+      #endif
 
       int main(void) {
         Ort::Env ort_env;
-        Ort::Session session{ort_env, "mul_1.onnx", Ort::SessionOptions{nullptr}};
+        Ort::SessionOptions so;
+        #if defined(__MAC_OS_X_VERSION_MAX_ALLOWED) && __MAC_OS_X_VERSION_MAX_ALLOWED >= 150000
+        uint32_t coreml_flags = 0;
+        Ort::ThrowOnError(OrtSessionOptionsAppendExecutionProvider_CoreML(so, coreml_flags));
+        #endif
+        Ort::Session session{ort_env, "mul_1.onnx", so};
         auto memory_info = Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeCPU);
 
         std::array<float, 6> input_data{1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f};
@@ -152,7 +192,11 @@ class Onnxruntime < Formula
     (testpath/"mul_1.onnx").write Base64.decode64(mul_1_onnx)
 
     system ENV.cxx, "-std=c++17", "-I#{include}", "test.cc", "-L#{lib}", "-lonnxruntime", "-o", "test"
-    assert_equal version, shell_output("./test 2>&1")
+    output_lines = shell_output("./test 2>&1").lines
+
+    # Remove warning messages that are safe to ignore
+    output_lines.reject! { |line| line["Skipping pci_bus_id for PCI path"] }
+    assert_equal version.to_s, output_lines.join
   end
 end
 

@@ -15,12 +15,13 @@ class CoreLightning < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "75ca48adeba263c619a9d5d65c40d2241029a091bdd8f0193a64096dd8092de2"
-    sha256 arm64_sequoia: "4bced7dfdb093e6a47b8acd1e348f7add7b202a3898fef45a5ef2bca2a9bb775"
-    sha256 arm64_sonoma:  "a5b4255ed27057b54b10c56d519318b43c45db090b76c9019812e8973a090716"
-    sha256 sonoma:        "1f58816b192df9206224ab9d09a8c7d755e80b35febc7d6dae5691c1e2c0ecfc"
-    sha256 arm64_linux:   "de4e72e16c6f9b3eae1fe41fc6c60ada3123497bdae46fe42dfe5e726595882b"
-    sha256 x86_64_linux:  "4a4d0ada5c687be92c131a196df65d0c5cc14adeabd03d657d57e827c4659fa2"
+    rebuild 1
+    sha256 arm64_tahoe:   "413d64741f471efb89d9ebe501c850392dccbc957e1a4056d3d4b0a3dc164ec4"
+    sha256 arm64_sequoia: "df6ff8d881ebcb853a9025d0077173cc3ef3442ea18ce2ddad6b3e35770fe94a"
+    sha256 arm64_sonoma:  "ef6d4c04dbf7de5a0b6b80b63cc5b1f510717a390977731ff34503166f2af86c"
+    sha256 sonoma:        "0cb2e696030b3c28ae9322dcc626190beb150506533cded15e03e081b9aa2745"
+    sha256 arm64_linux:   "94699dd32738861f7200ad7dae15a81064871016c12b4acbe7c9bdaeeab934b6"
+    sha256 x86_64_linux:  "4468958e1d22bc0546b582961665ff5beb0ae84dc01ecee317566e0c88a4a2f9"
   end
 
   depends_on "autoconf" => :build
@@ -38,10 +39,13 @@ class CoreLightning < Formula
   uses_from_macos "jq" => :build, since: :sequoia
   uses_from_macos "python"
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gnu-sed" => :build
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   pypi_packages package_name:   "",

@@ -1,7 +1,7 @@
 class Aldo < Formula
   desc "Morse code learning tool released under GPL"
   homepage "https://www.nongnu.org/aldo/"
-  url "https://savannah.nongnu.org/download/aldo/aldo-0.7.7.tar.bz2"
+  url "https://download.savannah.gnu.org/releases/aldo/aldo-0.7.7.tar.bz2"
   sha256 "f1b8849d09267fff3c1f5122097d90fec261291f51b1e075f37fad8f1b7d9f92"
   license "GPL-2.0-or-later"
 
@@ -9,8 +9,6 @@ class Aldo < Formula
     url "https://download.savannah.gnu.org/releases/aldo/"
     regex(/href=.*?aldo[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

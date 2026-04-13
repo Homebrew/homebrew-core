@@ -8,11 +8,23 @@ class Visidata < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "8be7f319d1633fce26ef5706d96174cf42244bea0f88da6114f7e5cf0ac9c962"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "3ccfa12cd45005b9f4b80b1df0a9f27a41b9f8a16e210605fdb0e6fd10d27d84"
   end
 
   depends_on "python@3.14"
+
+  pypi_packages extra_packages: "openpyxl"
+
+  resource "et-xmlfile" do
+    url "https://files.pythonhosted.org/packages/d3/38/af70d7ab1ae9d4da450eeec1fa3918940a5fafb9055e934af8d6eb0c2313/et_xmlfile-2.0.0.tar.gz"
+    sha256 "dab3f4764309081ce75662649be815c4c9081e88f0837825f90fd28317d4da54"
+  end
+
+  resource "openpyxl" do
+    url "https://files.pythonhosted.org/packages/3d/f9/88d94a75de065ea32619465d2f77b29a0469500e99012523b91cc4141cd1/openpyxl-3.1.5.tar.gz"
+    sha256 "cf0e3cf56142039133628b5acffe8ef0c12bc902d2aadd3e0fe5878dc08d1050"
+  end
 
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
@@ -47,5 +59,8 @@ class Visidata < Formula
     CSV
 
     assert_match "age", shell_output("#{bin}/vd -b -f csv test.csv")
+
+    # Verify xlsx support (openpyxl) is available
+    system libexec/"bin/python", "-c", "import openpyxl"
   end
 end

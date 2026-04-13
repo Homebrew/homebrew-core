@@ -7,8 +7,6 @@ class SimpleObfs < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "8e568d3031a09ab024c3b1aa96a5030bdfa52948af522c45958cb27db6b46397"
     sha256 cellar: :any,                 arm64_sequoia:  "6e40cb731be9ffcc73a3a058968fbb776cc5be006a11fc069c123720b4449c2f"

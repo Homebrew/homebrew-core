@@ -1,47 +1,65 @@
 class Libde265 < Formula
   desc "Open h.265 video codec implementation"
   homepage "https://github.com/strukturag/libde265"
-  url "https://github.com/strukturag/libde265/releases/download/v1.0.16/libde265-1.0.16.tar.gz"
-  sha256 "b92beb6b53c346db9a8fae968d686ab706240099cdd5aff87777362d668b0de7"
+  url "https://github.com/strukturag/libde265/releases/download/v1.0.18/libde265-1.0.18.tar.gz"
+  sha256 "800478f3bf35f0621b14928ceb317579f3e8b23de4bd2aac29b6cb8be962bbd8"
   license "LGPL-3.0-or-later"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7fc887ff6de361861449c51bd6cfb8a31ab93a91f1d4d76e41332f9e44627afe"
-    sha256 cellar: :any,                 arm64_sequoia: "3ae5875dd16e86734c59ff156ef6f03f0cc11f972193e678241ec10ac19dbf48"
-    sha256 cellar: :any,                 arm64_sonoma:  "08a3fd4a3e01254f12590f292157a8b92a898d9b4d31659f3e25d34a164f9cd6"
-    sha256 cellar: :any,                 arm64_ventura: "2837e8b323ed255ca2efb59a266cd5da0740524758df2d51e5a9834da79720f8"
-    sha256 cellar: :any,                 sonoma:        "dcee9a83c604fc27ccb54af849fe45124e12dbf66b63c53d5775aa0c1a49e34c"
-    sha256 cellar: :any,                 ventura:       "55f13980c54642c830932f317c1e458882daca74f80118cff8e4bb204ac1b0cb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "650fa2c9ab2bd73545addb81842bb9442d929b25af4eef7fedfb34a4f93cfe87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bca710186d841ef99740adb1bdd747ae4b0bebb4ffcfa4bc4024199b26c0a5d"
+    sha256 cellar: :any,                 arm64_tahoe:   "e332c5e491ae7f70b8ebae1c9f293585b7752a7afaab7333fb8ef9575812544a"
+    sha256 cellar: :any,                 arm64_sequoia: "46bfe532b550fbee788b2a270af0adddd6814631cfbab5ec8072a731fb3aeb69"
+    sha256 cellar: :any,                 arm64_sonoma:  "03ea2640c729029695efd091b57d981467e9fa10c7cc68e76a26fa34a0fba23a"
+    sha256 cellar: :any,                 sonoma:        "2d42dca33ab978407dcf81e723123edeaa37adefd99c271c620b71195da0fa24"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fd498520b9d66240acd346b1456d3dd0fe7441467da243cb806db8a79ee3dce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c17c4d65e7a4c2eafd1c5801d67bf1f6ef8edcd9e79c8dd9a650e07312a4b44"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
+  depends_on "cmake" => :build
 
   def install
-    extra_args = []
-    extra_args << "--build=aarch64-apple-darwin#{OS.kernel_version}" if OS.mac? && Hardware::CPU.arm?
-
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--disable-sherlock265",
-                          "--disable-dec265",
-                          "--prefix=#{prefix}",
-                          *extra_args
-    system "make", "install"
-
-    # Install the test-related executables in libexec.
-    (libexec/"bin").install bin/"block-rate-estim",
-                            bin/"tests"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: libexec/"bin")}",
+                    "-DENABLE_DECODER=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    system libexec/"bin/tests"
+    (testpath/"test.c").write <<~'C'
+      #include <libde265/de265.h>
+      #include <stdio.h>
+      #include <string.h>
+
+      int main(void) {
+        de265_decoder_context *ctx;
+        const char *version = de265_get_version();
+
+        if (strcmp(version, LIBDE265_VERSION) != 0) {
+          return 1;
+        }
+
+        if (de265_init() != DE265_OK) {
+          return 2;
+        }
+
+        ctx = de265_new_decoder();
+        if (ctx == NULL) {
+          de265_free();
+          return 3;
+        }
+
+        printf("%s\n", version);
+
+        de265_free_decoder(ctx);
+        de265_free();
+
+        return 0;
+      }
+    C
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lde265", "-o", "test"
+    assert_equal version.to_s, shell_output("./test").strip
   end
 end

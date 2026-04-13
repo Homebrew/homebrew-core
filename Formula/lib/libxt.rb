@@ -4,6 +4,7 @@ class Libxt < Formula
   url "https://www.x.org/archive/individual/lib/libXt-1.3.1.tar.xz"
   sha256 "e0a774b33324f4d4c05b199ea45050f87206586d81655f8bef4dba434d931288"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "dbd5cbf10b36db6b20a4acc72e8fb94c13bd2b8ab908293a52c9be2437b421c2"

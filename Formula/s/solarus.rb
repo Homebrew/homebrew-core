@@ -2,9 +2,10 @@ class Solarus < Formula
   desc "Action-RPG game engine"
   homepage "https://www.solarus-games.org/"
   url "https://gitlab.com/solarus-games/solarus.git",
-      tag:      "v2.0.2",
-      revision: "0874ea9df1bb73aa7d9c43763916805100dfc524"
+      tag:      "v2.0.4",
+      revision: "b942f8ce5c0562610a93079dcacf53a51fa88540"
   license "GPL-3.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -12,12 +13,12 @@ class Solarus < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "aabe080c5a9ec9abfd98401587bf08fa7735a80688a0be8b29f1c90f21b42eea"
-    sha256                               arm64_sequoia: "70399e45d5a8ee62c9ea4bb80b5d0ae52f052255dc89e7f65f1c7a5aca98fa63"
-    sha256                               arm64_sonoma:  "1121cf72c5321a12d5bfe33633b98e0b2b50054004a84bc3132477aabb644f4a"
-    sha256                               sonoma:        "7a8bb414a2c115728548f742f56960731f82665c267c26cedf6c8b7699c31809"
-    sha256                               arm64_linux:   "90f5ed0ea3e76d79c39173d41656362a5af72f270a91a172de0961aed6dcc478"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e10498da498c99b1f5d2870de0e6b9f5381b6894ef3e943ad4c7fab1b7edd27"
+    sha256                               arm64_tahoe:   "b76a690587b54d9f03967cc96f2efc195eb394ebbf7daf8b6a8c04ae1136d156"
+    sha256                               arm64_sequoia: "3b0e4aa0a5d17436c5401c49aa8ba45c362e46843eb4366f9ac4fbdd8ffad067"
+    sha256                               arm64_sonoma:  "e0cea3781cca840a5a2028bba7bc54faceb3ce2f646428627e32a42463afb740"
+    sha256                               sonoma:        "6fc0fd0b677a699281b508289b6d3ead8d76ae7209b3f3cf5ed81acac0beec48"
+    sha256                               arm64_linux:   "2fbcca3c7cf963a0d7e09fdea04e9ea170429750ec8661cb44b8fece0ba255e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ad431b0d53d648f4d1f8e71322b2d2f9b40ead2fbae3721f52392be551b2352"
   end
 
   depends_on "cmake" => :build

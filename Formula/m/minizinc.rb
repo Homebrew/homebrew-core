@@ -1,18 +1,18 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
-  url "https://github.com/MiniZinc/libminizinc/archive/refs/tags/2.9.4.tar.gz"
-  sha256 "6927a58fb1768f2f5f393cc642654a14c0e2c215dd8d6c9f226577cacc057d92"
+  url "https://github.com/MiniZinc/libminizinc/archive/refs/tags/2.9.5.tar.gz"
+  sha256 "7011b512dad0967c5a7ba880152f4cecdcbe2b96abf5cb078dd676893c1065b3"
   license "MPL-2.0"
   head "https://github.com/MiniZinc/libminizinc.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "d2495a3d41a8c514209e6d64922091443075dbf228a20ea0ee4a4d0fc2faa62a"
-    sha256 arm64_sequoia: "8ef0ae597cdefb9565ef9bb4e0b52d9a238fccd09bb3652d0e35cb9bf56cd253"
-    sha256 arm64_sonoma:  "8a9d3758932cf80762b85f562f8e433d171718102d0f55c5cb05821e21c89af1"
-    sha256 sonoma:        "8d3cd83922ae6f7fe0e769f8e55f23ee0467b93c69da8ad14808381c4e0e7f51"
-    sha256 arm64_linux:   "70d1ace81bf773bc8a470c5acfa5f70b23370201d47939e4ef813de42a051c51"
-    sha256 x86_64_linux:  "a0a1f4098b52483439c4e3e3ca0cd5b10a548f2b373684f062f7bbf48548096f"
+    sha256 arm64_tahoe:   "b20d88d4fbe436a6438e796a9d0ee37e9b2aab540693516df2d9f29c7966b266"
+    sha256 arm64_sequoia: "24137b35c5ae38d1412564b5deea74e56c1e5a9e77502410a98d53cad0660231"
+    sha256 arm64_sonoma:  "785ece906ed28c3b6ac6980dc5cde640a109a48fdab7340cbb0f7598e1f57fb8"
+    sha256 sonoma:        "9d7b55fe7b667e34a595393ad4b1382158f64c20b564b6fa0179ac9de7c07587"
+    sha256 arm64_linux:   "a4e9507690829a4045d363b26d681760fbcc8f92c0e848a87ae31dcd0a3021dc"
+    sha256 x86_64_linux:  "a33e2a3115c58200db5d825ad5cb3e931614671d8ee82fca01543cade180ccce"
   end
 
   depends_on "cmake" => :build

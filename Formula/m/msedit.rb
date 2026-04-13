@@ -6,14 +6,20 @@ class Msedit < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "300de72b71a69bf416777351c3f771cd8f965581ca38933dab0b5f137c99115b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a609fc4363c7917cc775e1d343ca2e9f010dca3fd61d721b15ef26cb5533901e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a33cf49751e560b1dfbcc926e3b5ff70c01891acbd11cb582dc7f3ce1cb03473"
-    sha256 cellar: :any_skip_relocation, sonoma:        "776afb0bf80f2fbf1629d631cd8eb637c0996e5ca96f5d5e738c9d4f016fa148"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bd62dbac464d403a1d01ca2b1dc5417cf0464722ed5046f9b2817e6dc001e6cc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "26108335e5657a2edcaeeb2e733774c0ca17f252579570dd57f3305e9fea9082"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67edc565c938a4a51ad0e295b6dcc499457cf85cd0f443040cd81bb42cc36a2e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ab51f79acc7a99a93dde6e3d150f0888eee399e8ab91e3c624f6019694426a2b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b8aea7360ae38105ca7172ede2e3a6ce8cf8b217a05307d7ba38aae70c55964"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7ea7cbd48b0add90c97b5dbe93a1c8945e46afafb367ca1433e53f7990b607a"
   end
 
   depends_on "rust" => :build
-  depends_on :macos # due to test failure on linux
+
+  on_linux do
+    depends_on "pkgconf" => :build
+  end
 
   def install
     ENV["RUSTC_BOOTSTRAP"] = "1"
@@ -21,7 +27,18 @@ class Msedit < Formula
   end
 
   test do
-    # msedit is a TUI application
-    assert_match version.to_s, shell_output("#{bin}/edit --version")
+    output_log = testpath/"output.log"
+    pid = if OS.mac?
+      spawn bin/"edit", "--version", [:out, :err] => output_log.to_s
+    else
+      require "pty"
+      PTY.spawn("#{bin}/edit --version > #{output_log}").last
+    end
+
+    sleep 1
+    assert_match version.to_s, output_log.read
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end

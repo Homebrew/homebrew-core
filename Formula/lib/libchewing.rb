@@ -1,17 +1,17 @@
 class Libchewing < Formula
   desc "Intelligent phonetic input method library"
   homepage "https://chewing.im/"
-  url "https://github.com/chewing/libchewing/releases/download/v0.11.0/libchewing-0.11.0.tar.zst"
-  sha256 "b2dc134f994db524d735c014c7ff41285ab439c3f7a437bb5f0e446a63b7220d"
+  url "https://github.com/chewing/libchewing/releases/download/v0.12.0/libchewing-0.12.0.tar.zst"
+  sha256 "6a7fae4aaa6e6ce2bd9f70f0016c553585ed5aca1e086476749a03ac5c3f4cb0"
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ed3ecdbd9b626a1416b759d92545511acd3134f1d70ccbc0e8881a11868ad2d3"
-    sha256 cellar: :any,                 arm64_sequoia: "7988b3043cd55bb94ea1b044371ed2f320006df97406e6ef261f32c1150afe10"
-    sha256 cellar: :any,                 arm64_sonoma:  "8214dd0b162970d155823832199d6c61d61c02b70ffaf3f0cd006f27d62c2088"
-    sha256 cellar: :any,                 sonoma:        "e9662123cbf849b97198608b564ea106cc8cf52c30daec61f47a7fa5d23ce76e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "94021f295b0bc602de4c7735af212f7ab5dea609b786dfd2a3de88aa068c746f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8961ede2ccf15b8dc15692704a4679367b9ce2f34af505019d1f03ce59d3fc7"
+    sha256 cellar: :any,                 arm64_tahoe:   "132a00dc2d430eee97da513f027bbf7538c741a5a906213f24eae75523325dcd"
+    sha256 cellar: :any,                 arm64_sequoia: "93393ae059645d40d480d9ffd46fc24bac18311dcc8b7dda2c9ad60e18d242ac"
+    sha256 cellar: :any,                 arm64_sonoma:  "2857339bc640c248c24b7e89470ffff99c75c5b22f3219b5c8a3d8a55c817379"
+    sha256 cellar: :any,                 sonoma:        "872ccd2c82e688df4cf89e5b6a59556941131caa45f0bcb3c865847c07994115"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3d54639766d9098ea291fdf8f35772c3c69155c64031155e4bf3a643646702d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc33705591f2168afb5d547d1d3eca3657a1ca57d406e0c7e5fb3746b7cb0e8e"
   end
 
   depends_on "cmake" => :build

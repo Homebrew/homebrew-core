@@ -6,8 +6,6 @@ class GitSeries < Formula
   license "MIT"
   revision 13
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "6c0d251705744036205ea82afac6a4851e9a4cd1cc02023283a87c69aa776d6a"

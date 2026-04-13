@@ -15,12 +15,13 @@ class Bottom < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5a02813cfb7ca84b845f962deead91139eed67c2bbae957324542893d94e6368"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e69cf8d61670780996c1f3b284f9ec4d80824e99104f60a54d77df4f8797ca7a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38e0d26e3850e0cc1cc3efd218447951bc29036dacbd77cbddb84e123c0a0651"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c76de8e325b1aff84e084aa957c2f9b265d69334ff892958d1dd0a3e5f34aeae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bedc68cfbb094ff38f13238f5962d8945d18820bd5478e4feb046d4913ac9198"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f36dfcc415534dc27bea91f8b8748875b56481733aee085df9e47752822d1af5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dfba9f93eadffefbc588bd0d0f845a5e6b37b611d09a063e568e23d3255a7b76"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d539c22b4ee05344c309f32323cc5f62f92938a39a719900324a5a03b3cb1e0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "018067224e884195a741cb743e597b5c632c0533708894eef382abe56eac86ef"
+    sha256 cellar: :any_skip_relocation, sonoma:        "07ed7e4e4a57ffee9c3355fa8ed4b18d9df11bc8f3cc3670cb0bd05eeff17bb1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b2f299ad71b9a03e4208575b7c87095fd6673c775b25d38578ac6856a1ec7ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85cf53c4df47b6f6f551887911783e01a36d26d3cbf80010e235107cb0c86dbd"
   end
 
   depends_on "rust" => :build
@@ -37,6 +38,7 @@ class Bottom < Formula
     bash_completion.install "#{out_dir}/completion/btm.bash" => "btm"
     fish_completion.install "#{out_dir}/completion/btm.fish"
     zsh_completion.install "#{out_dir}/completion/_btm"
+    pwsh_completion.install "#{out_dir}/completion/_btm.ps1"
     man1.install "#{out_dir}/manpage/btm.1"
   end
 

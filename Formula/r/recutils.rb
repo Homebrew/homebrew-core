@@ -6,8 +6,6 @@ class Recutils < Formula
   sha256 "6301592b0020c14b456757ef5d434d49f6027b8e5f3a499d13362f205c486e0e"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "1195eef57e411f91d204f23655150667170fdc64242f0503b7e376deb112768a"
     sha256 cellar: :any, arm64_sequoia:  "f1c4d50014f990bf82b005678e5e50d0437c4832db83e80094e0fcfbad824078"

@@ -4,6 +4,7 @@ class Treefrog < Formula
   url "https://github.com/treefrogframework/treefrog-framework/archive/refs/tags/v2.11.2.tar.gz"
   sha256 "2c878603e8dd609ddabb02ee0e3a74fe306ccdf93ea65f9999f9a60ad68249be"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/treefrogframework/treefrog-framework.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,12 @@ class Treefrog < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "472dc077d93e2bdd8944a167f143a692b09b9cad986863a2f807a7a5ca0f769b"
-    sha256 arm64_sequoia: "3cd5de64e354398012b990b47e63657cdc50b676819214c2888b8b715b8679f7"
-    sha256 arm64_sonoma:  "11189ca8d064f982fb2712cc29d5687c9235d3c92c1995bb6a8c7caf522c3425"
-    sha256 sonoma:        "059630842f97bd3996453939787ea983fbe51618355cf049d7bcea551d4f9112"
-    sha256 arm64_linux:   "cb74d250416af73e5314724745f813a40a6238c14642dab59d2cffa7b4b19276"
-    sha256 x86_64_linux:  "891c89d4b27108e6fd7dc708bc6e4e10ee1ed2ca72af7311e38458884f7408ae"
+    sha256 arm64_tahoe:   "896f7bb5986da74d32a1ee21c1ce38f0f6dca1381114d3e07af0f5e5b8f5deae"
+    sha256 arm64_sequoia: "46170c044203d63ff6d4db157b955104874b0cf9be190e32915bfccc752c31dc"
+    sha256 arm64_sonoma:  "3ea9a8155b553bcb0a9593759ca408cc5d532429b0be7ae89881af2a75cb3314"
+    sha256 sonoma:        "58ec3bfaebd43a660e01b08570090120fd6c9bd38aaeb4b30e8c268a59f408f9"
+    sha256 arm64_linux:   "6acdabe0c364720beaee152b6de4b9c1a14bfb1f238d3d43e53c9be1e7a82b8c"
+    sha256 x86_64_linux:  "76475986419e64d57fb94386bf3ac5e4adc577652413579d3fa770dbbfc03d89"
   end
 
   depends_on "pkgconf" => :build

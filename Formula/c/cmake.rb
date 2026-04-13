@@ -1,11 +1,12 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v4.2.1/cmake-4.2.1.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/cmake-4.2.1.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.2.1.tar.gz"
-  sha256 "414aacfac54ba0e78e64a018720b64ed6bfca14b587047b8b3489f407a14a070"
+  url "https://github.com/Kitware/CMake/releases/download/v4.3.1/cmake-4.3.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-4.3.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.3.1.tar.gz"
+  sha256 "0798f4be7a1a406a419ac32db90c2956936fecbf50db3057d7af47d69a2d7edb"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
   # The "latest" release on GitHub has been an unstable version before, and
@@ -17,14 +18,14 @@ class Cmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "60d81644bd73a572793cbcd7a74c4cddbec34ee53ee09e24848d33afaaddb8eb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e06a9009d98f940d2873e2e21cdaad13f622e8866f838991ed06fa44245424c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55b4255c8eafdb8b0f4672a441f0ae6b91420a6a363569022f690aea1f39a531"
-    sha256 cellar: :any_skip_relocation, tahoe:         "35e42f8d06ef0caed4c22be018b075c46a1cde0c45ed1b1b31875b6069f7c6bc"
-    sha256 cellar: :any_skip_relocation, sequoia:       "2357e7be073335b1369b2e5201d5d2af3cceeb43bbe4fa97f8a3171359350242"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e4cb6757bef63855fa0969e7f5507de92cd74d739e67cf3e9d40ae6938cb9183"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "657277ecb3da86ef8cbec1d8dd24e2a7fac9d805153634c1c328cafb386e16b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8704a4160e387e165b172089faa268727ab5bb43acc66f9fd6ade052d7d18e02"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a53eb2f9408eae51ac642a7a5026c51658455b370ce1399ea1bac4b5cdc519a6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "036c1664515b9b96321468c520207f678fd7d0850d88578475a5c1bd71a5dc61"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cfcfff5e08fc08838dd966167a93d3b7059f949377c12830adcfd079c5af9b67"
+    sha256 cellar: :any_skip_relocation, tahoe:         "637ac8abc32662f66001ffa93977421c648724e59996e4bca79fc37915b2c077"
+    sha256 cellar: :any_skip_relocation, sequoia:       "4f612d107665840da84ab5eb95f8aaab48dab240856a425c537602742f69ebf4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "046bd8864307c950d01316cee50c7ae4505e7e042c33eca62362cdfc5d084413"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b27c118ba2a778b078befeb57c390fe822f9f61c596c198203673f2aa59c485"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46388e26bcde45c6af54eed554d576dfde7e1a6133eb5957d95e528033998f28"
   end
 
   uses_from_macos "ncurses"
@@ -34,12 +35,6 @@ class Cmake < Formula
   end
 
   conflicts_with cask: "cmake-app"
-
-  # The completions were removed because of problems with system bash
-
-  # The `with-qt` GUI option was removed due to circular dependencies if
-  # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
-  # For the GUI application please instead use `brew install --cask cmake`.
 
   def install
     args = %W[
@@ -64,6 +59,9 @@ class Cmake < Formula
                                        "-DCMake_BUILD_LTO=ON"
     system "make"
     system "make", "install"
+
+    # Move ctest completion because of problems with macOS system bash 3
+    (share/"bash-completion/completions").install bash_completion/"ctest"
   end
 
   def caveats

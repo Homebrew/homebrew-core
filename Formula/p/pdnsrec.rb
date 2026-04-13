@@ -1,8 +1,8 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/powerdns-recursor"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-5.3.4.tar.xz"
-  sha256 "fb50a8587f4b3d57f88dcacc226a64c5154992b0dafd20f5bb034355e3624524"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-5.4.0.tar.xz"
+  sha256 "2f69ef7586adc805bc4f503e15a34f0c6dcfbbfdab7d959ff132d8e2cdbf250a"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -11,21 +11,21 @@ class Pdnsrec < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6631c361d339afc59f1811136182c5f21f2ed440f3f78d166fb751cd93bf8653"
-    sha256 arm64_sequoia: "31000e5582fc27e16ac20fabe1a341563c47798d42d2fea34e1c2d3a20c5de9b"
-    sha256 arm64_sonoma:  "ce16c87e61cee682f882231a8fb7143cb7b8db03b68034ca9f59533e5eafa8f2"
-    sha256 sonoma:        "f450f3a97b3b807251db90ec7681cc7ae3e6fc9b58e53b85711123cf2cfc6cef"
-    sha256 arm64_linux:   "0021534dbd4b508f647d97c1f4c500341f2d299748b5ddd59ebe0277445dda17"
-    sha256 x86_64_linux:  "de209a4ec3e03e513367bc167355e1629e507f7e73032b35c9af67c615a2faae"
+    sha256 arm64_tahoe:   "ae3ecbbca89611430786eebb3084d3c452822a2b05bb95b4fc3bed83cb65208c"
+    sha256 arm64_sequoia: "5ccf64ca2616a357dc856b6581944ff1eb392c0045cc4e13942cca0d982361c5"
+    sha256 arm64_sonoma:  "ea801397e4cdba92d931a4956c44ae8eb21276b21a9d69eaad32d1f3a81c777d"
+    sha256 sonoma:        "2427e98f702dcf42c753468ffc781ce4a1cbfae8169c4b2589fd0780b9f55339"
+    sha256 arm64_linux:   "93da768cab53319f0c9229f5af0f9ee2f46f6708d664599464e7cca61e36be63"
+    sha256 x86_64_linux:  "9ba9b75a3088b180679edccc4623c7227f1f951f6006a2f62f37bbde83eb9339"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build
   depends_on "rust" => :build
   depends_on "boost"
   depends_on "lua"
   depends_on "openssl@3"
 
+  uses_from_macos "python" => :build
   uses_from_macos "curl"
 
   on_macos do
@@ -41,11 +41,7 @@ class Pdnsrec < Formula
   end
 
   def install
-    ENV.cxx11
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
-
     args = %W[
-      --prefix=#{prefix}
       --sysconfdir=#{etc}/powerdns
       --disable-silent-rules
       --with-boost=#{Formula["boost"].opt_prefix}
@@ -54,7 +50,7 @@ class Pdnsrec < Formula
       --without-net-snmp
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

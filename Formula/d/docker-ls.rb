@@ -7,8 +7,6 @@ class DockerLs < Formula
   license "MIT"
   head "https://github.com/mayflower/docker-ls.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a9b2cf84ec38d48c0c0137b1a0f61231d5d91a2cddf0b355680ca6d186857333"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a5a6ebec1d000be676a4cd9e57ee15c4fb7e42a70aa7e03e32d83cfea4afdf4f"
@@ -24,6 +22,9 @@ class DockerLs < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "bec67bae5b9d59fc6386b0f7ef9e60cfa57cc06758befd8348b54fd2f83f7f64"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0002977a8ff7a2a2607098a743ec898e1aec0efee43095c06b56b873fbfcda15"
   end
+
+  deprecate! date: "2026-02-17", because: :repo_archived
+  disable! date: "2027-02-17", because: :repo_archived
 
   depends_on "go" => :build
 

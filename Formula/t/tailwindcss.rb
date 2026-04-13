@@ -1,8 +1,8 @@
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.1.18.tgz"
-  sha256 "28a45ee98b595a457bb4d464739d40f656c5e46f15a203da543cbe046b6471c5"
+  url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.2.2.tgz"
+  sha256 "3b942287fd9bc6a28c935f33871ef947444dfb0c11a7c7206e40765f190a0791"
   license "MIT"
   head "https://github.com/tailwindlabs/tailwindcss.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Tailwindcss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1a45d44119d59586315ade4e6f7ee6e78640891d5773194ca017dcf97e292b43"
-    sha256 cellar: :any,                 arm64_sequoia: "bd56dcc43d610edff784ac11d3fdafb597d06b3c5c18f42df1360242946e9336"
-    sha256 cellar: :any,                 arm64_sonoma:  "bd56dcc43d610edff784ac11d3fdafb597d06b3c5c18f42df1360242946e9336"
-    sha256 cellar: :any,                 sonoma:        "98bb72e88d23c4bea6e3e63034115e82e3ceba9b82de7d973fc70bacb71b40dd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "28eb748b81c60cb7b0bdac8f16eff575b564119171b2e6fc43fe140fb652fa23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2401c8ee50faa4365f90e2043fa94ae33b5138d0e785edaaa571763f4a2c2676"
+    sha256 cellar: :any,                 arm64_tahoe:   "40219adfc4514ed21280b06c6166041f4ca4aeca7557cd2a723a8b1f9d0f7d4e"
+    sha256 cellar: :any,                 arm64_sequoia: "9a05c555ea084c7e77cc6093d6aee01b9e9739a9429319d4798fc7e90602635b"
+    sha256 cellar: :any,                 arm64_sonoma:  "9a05c555ea084c7e77cc6093d6aee01b9e9739a9429319d4798fc7e90602635b"
+    sha256 cellar: :any,                 sonoma:        "6cb28c23cfc03ec43175bb798241e7945853f322f43cc7e57562ba1db6c09c26"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "323fccf36241e1123c68e3b36414eb9fe49515105482539967ae3012b0cc6085"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5075b2968e2d25a58ab313896bad32af4ce0416e21f10cdf328c0de1f188f23e"
   end
 
   depends_on "node"
@@ -33,8 +33,8 @@ class Tailwindcss < Formula
   end
 
   resource "@tailwindcss/forms" do
-    url "https://registry.npmjs.org/@tailwindcss/forms/-/forms-0.5.10.tgz"
-    sha256 "f5003f088c8bfeef2d2576932b0521e29f84b7ca68e59afd709fef75bd4fe9bb"
+    url "https://registry.npmjs.org/@tailwindcss/forms/-/forms-0.5.11.tgz"
+    sha256 "6180fcab09668a498d17c89ca11b54825c5ee6b6fc6d1343ad6fa558d9828c50"
   end
 
   resource "@tailwindcss/typography" do

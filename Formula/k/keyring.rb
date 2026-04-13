@@ -6,15 +6,15 @@ class Keyring < Formula
   url "https://files.pythonhosted.org/packages/43/4b/674af6ef2f97d56f0ab5153bf0bfa28ccb6c3ed4d1babf4305449668807b/keyring-25.7.0.tar.gz"
   sha256 "fe01bd85eb3f8fb3dd0405defdeac9a5b4f6f0439edbb3149577f244a2e8245b"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9085192ee586e38dc17edc1923d531c6a2f4343ca07d4397688916dc7eb0288"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9085192ee586e38dc17edc1923d531c6a2f4343ca07d4397688916dc7eb0288"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9085192ee586e38dc17edc1923d531c6a2f4343ca07d4397688916dc7eb0288"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9f1de52874bd707c5fc70c6efa1d89132539e37edf789ca4c8da5111fe849460"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6675a7abef4c9e6818c08bab92ef0d0d35ea9e73527dc612ad4e2cf2bd7fe7d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6675a7abef4c9e6818c08bab92ef0d0d35ea9e73527dc612ad4e2cf2bd7fe7d1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "05fe88bf0d79ee6a0d4e6794ce2cfb8727b4dccc8e1d850e4fc4218f9ff34c3f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "05fe88bf0d79ee6a0d4e6794ce2cfb8727b4dccc8e1d850e4fc4218f9ff34c3f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "05fe88bf0d79ee6a0d4e6794ce2cfb8727b4dccc8e1d850e4fc4218f9ff34c3f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4bbee0818e804547f13f8da8679f56ed5152477400d22d1a54075338a83a95cc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5aaaee3ad69593dd4d361f7b7c8cae215288c4e48dbd1d36224aaaf9b242df9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5aaaee3ad69593dd4d361f7b7c8cae215288c4e48dbd1d36224aaaf9b242df9"
   end
 
   depends_on "python@3.14"
@@ -33,13 +33,13 @@ class Keyring < Formula
   end
 
   resource "jaraco-context" do
-    url "https://files.pythonhosted.org/packages/df/ad/f3777b81bf0b6e7bc7514a1656d3e637b2e8e15fab2ce3235730b3e7a4e6/jaraco_context-6.0.1.tar.gz"
-    sha256 "9bae4ea555cf0b14938dc0aee7c9f32ed303aa20a3b73e7dc80111628792d1b3"
+    url "https://files.pythonhosted.org/packages/cb/9c/a788f5bb29c61e456b8ee52ce76dbdd32fd72cd73dd67bc95f42c7a8d13c/jaraco_context-6.1.0.tar.gz"
+    sha256 "129a341b0a85a7db7879e22acd66902fda67882db771754574338898b2d5d86f"
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/f7/ed/1aa2d585304ec07262e1a83a9889880701079dde796ac7b1d1826f40c63d/jaraco_functools-4.3.0.tar.gz"
-    sha256 "cfd13ad0dd2c47a3600b439ef72d8615d482cedcff1632930d6f28924d92f294"
+    url "https://files.pythonhosted.org/packages/0f/27/056e0638a86749374d6f57d0b0db39f29509cce9313cf91bdc0ac4d91084/jaraco_functools-4.4.0.tar.gz"
+    sha256 "da21933b0417b89515562656547a77b4931f98176eb173644c0d35032a33d6bb"
   end
 
   resource "jeepney" do

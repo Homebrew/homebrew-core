@@ -1,21 +1,18 @@
 class Nlopt < Formula
   desc "Free/open-source library for nonlinear optimization"
   homepage "https://nlopt.readthedocs.io/"
-  url "https://github.com/stevengj/nlopt/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "506f83a9e778ad4f204446e99509cb2bdf5539de8beccc260a014bd560237be1"
+  url "https://github.com/stevengj/nlopt/archive/refs/tags/v2.10.1.tar.gz"
+  sha256 "30d13ce16da119db3e987784f7864e35a562ec62c186352fae55cd003e6c58ff"
   license "MIT"
   head "https://github.com/stevengj/nlopt.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "a6812d6b611b71abaae05550adb9ee32a76a5d9589a130262ec005d2e8c15a55"
-    sha256 cellar: :any,                 arm64_sequoia: "4b5cfef104d5816a719d35624642efd027d4d4dedfd21e67ae26eed7ceb1d9d6"
-    sha256 cellar: :any,                 arm64_sonoma:  "a09deedc38d8d4d44c105c4c1c603fdf0652d9e5506885c04586ec2d25df650b"
-    sha256 cellar: :any,                 arm64_ventura: "e401c6382cc8b7d25ea8095554443a881fa0cb02e935b7dfd5eece47d7429df8"
-    sha256 cellar: :any,                 sonoma:        "53909c4a84848ff62246d64f07df563bf63afc5076b05a6fde82e3e9095f85cc"
-    sha256 cellar: :any,                 ventura:       "3d1d6b2321c6999b121cc84e40f066f8a909a652dadbc7e0ae3e438155d977fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "633654bcc4170038a67d07575d365a02e470ced5d15d97c098460c522adf09c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b98fc2b074ae63ce6fbbedce14c22165c7cd91c661895c9f36aa9aeccf3fe790"
+    sha256 cellar: :any,                 arm64_tahoe:   "895d8e1a5b7257380f335c5992c674660a122c64ee1d67eea566e65cdb1e0b84"
+    sha256 cellar: :any,                 arm64_sequoia: "9773396412cfffe1c6dc4a3c2f1f82d32c8da396ac44733b7e117d20a15166ef"
+    sha256 cellar: :any,                 arm64_sonoma:  "97e616890c809b51cbe8a8efffa8fe3ef6d69a319d7fbd7253d9738064c919f8"
+    sha256 cellar: :any,                 sonoma:        "c468957d29935740a3e7bf6248709d088b7876f944379c3f33bf65c38b7fba47"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce2cfb1d74dfb5f66022516311d416acacf8beb7186dcc89fbe0f975c1eb6a2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca3f9218108faa8cf151c88d784b7af7a090162f2efea0085d358eeb4164b5df"
   end
 
   depends_on "cmake" => [:build, :test]

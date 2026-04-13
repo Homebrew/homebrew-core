@@ -6,28 +6,27 @@ class H2o < Formula
   license "MIT"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:    "32c8d30fc271c3dafe6d2a2a6e0883adf6201cdefa4c3dfd105ad051ce5ae2b3"
-    sha256 arm64_sequoia:  "c54b0d937a91c61b234753347dd756cb2a26dcb3b7f1aa37252b55fb9ee065ae"
-    sha256 arm64_sonoma:   "02473fe011f04525a6e4fd604baa839c43988ca3fc96396774d96200e79daf87"
-    sha256 arm64_ventura:  "1227fcbf6a078a4448106c6e60af24e1bb271823a50590bf201e4887784b8edb"
-    sha256 arm64_monterey: "df4235fa62ee97877317730f405c523eb091f32ec9bf3ad433b9a72596a60fe3"
-    sha256 arm64_big_sur:  "08434131f8e46623e330dbfe07d4d2010cd9c55d28b308c04a93efb6a5cfb4a2"
-    sha256 sonoma:         "65f63aaef6dbb1ea867afc03d5ea6766dbf317cc572787ec5d30c9fa65a0ebbd"
-    sha256 ventura:        "4d046c5d98b9a75b8f53bdc068f2246c7c1958e8f4863ed2f8f2610ee6674934"
-    sha256 monterey:       "bd75d169a42961123cc4791aa219572cf9181185ae0cb8679a3a10e7705a688c"
-    sha256 big_sur:        "d54fbb44713fa39e3172e0e70a224fbd67e7657357c8179a2c257b510a9bf167"
-    sha256 arm64_linux:    "a7aafba0cec8e259b00f5a12d5a65ff12652803f1d2638c8d7c8697b44d02796"
-    sha256 x86_64_linux:   "ec3f7d26e8df24768cf2953db461dcff9a5713bb79a23c553cd30016b6a7fba6"
+    rebuild 1
+    sha256 arm64_tahoe:   "7052d31aee99253193fa7e7bdbdff7c1c1d838783c5f3bf01eb60303cadfcccb"
+    sha256 arm64_sequoia: "7a1fc642567278a8aa2a7d35860b34a5243b5632be0b710601222a70404525bd"
+    sha256 arm64_sonoma:  "216fc94308b217f17545983c554f361aa2269a60a32274bc19e3ecb307e00dff"
+    sha256 sonoma:        "73890630b88d90aade5f50e9b398dabd7d32721d04048d5be9ad4a5c086a5251"
+    sha256 arm64_linux:   "a8f570c2dc1dec9d24cd097b6b2b0c1ebb6d5186e6d7e8937248713a2250531a"
+    sha256 x86_64_linux:  "3610f00d45e27f430806f37e64f1038864d821c7cf622b572492f046398b3bc0"
   end
+
+  # See https://github.com/h2o/h2o/releases/tag/tag-no-more-releases
+  deprecate! date: "2026-02-19", because: "upstream does not provide tagged versions anymore"
+  disable! date: "2027-02-19", because: "upstream does not provide tagged versions anymore"
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046

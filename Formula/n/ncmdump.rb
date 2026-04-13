@@ -31,7 +31,7 @@ class Ncmdump < Formula
     end
 
     resource("homebrew-test").stage(testpath)
-    system bin/"ncmdump", "#{testpath}/test.ncm"
+    system bin/"ncmdump", testpath/"test.ncm"
     assert_path_exists testpath/"test.flac"
   end
 end

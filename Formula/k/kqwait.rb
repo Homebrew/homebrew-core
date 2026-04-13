@@ -6,8 +6,6 @@ class Kqwait < Formula
   license "BSD-2-Clause"
   head "https://github.com/sschober/kqwait.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a8037aef7b7c8539a012c549077b2653aeebeb3b6fa7860263bfe677625b5380"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "69088af879a12bce91e41c0f70c063c27778c4668db657edd7b99062e14f9c34"

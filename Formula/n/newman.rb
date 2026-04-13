@@ -1,13 +1,12 @@
 class Newman < Formula
   desc "Command-line collection runner for Postman"
   homepage "https://www.getpostman.com"
-  url "https://registry.npmjs.org/newman/-/newman-6.2.1.tgz"
-  sha256 "38e457fafaadb7b4ff79f5669306bb8504223c4041cf5e5b6fc592f355af7a0e"
+  url "https://registry.npmjs.org/newman/-/newman-6.2.2.tgz"
+  sha256 "83dc72024fd2c37e5dfcca80d7c38451bba5ada50d6746099730e48318bbc27f"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "293d0a0e52c8d5c1e3ddebee286788baa6329839f4e664ee12240f7c80b28831"
+    sha256 cellar: :any_skip_relocation, all: "5e59cba1703fcbc98551294a4b3ac984652d062e3f6ebff82ff7448dff88b0f6"
   end
 
   depends_on "node"

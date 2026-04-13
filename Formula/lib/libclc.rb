@@ -1,9 +1,10 @@
 class Libclc < Formula
   desc "Implementation of the library requirements of the OpenCL C programming language"
   homepage "https://libclc.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/libclc-21.1.8.src.tar.xz"
-  sha256 "6c2677362a53531c35edf482bdc9171ea0471ca0a1e9138ac9b5a1782925616f"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.3/llvm-project-22.1.3.src.tar.xz"
+  sha256 "2488c33a959eafba1c44f253e5bbe7ac958eb53fa626298a3a5f4b87373767cd"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -11,12 +12,12 @@ class Libclc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9e5fb8611e1c4e10cd9f9e7ccbde609008fbc304f6b2e1402ff4d8ba0bd8cccb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9e5fb8611e1c4e10cd9f9e7ccbde609008fbc304f6b2e1402ff4d8ba0bd8cccb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e5fb8611e1c4e10cd9f9e7ccbde609008fbc304f6b2e1402ff4d8ba0bd8cccb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9e5fb8611e1c4e10cd9f9e7ccbde609008fbc304f6b2e1402ff4d8ba0bd8cccb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e5fb8611e1c4e10cd9f9e7ccbde609008fbc304f6b2e1402ff4d8ba0bd8cccb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bf35105ccf554df20fd0c16314dcdbd3b922f7c667a1050d27408460da8eb58"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ade860b92b5326a59d9c439be0b26a5efe3b5036b4ae5ad1369ba02c6269dfe8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ade860b92b5326a59d9c439be0b26a5efe3b5036b4ae5ad1369ba02c6269dfe8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ade860b92b5326a59d9c439be0b26a5efe3b5036b4ae5ad1369ba02c6269dfe8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ade860b92b5326a59d9c439be0b26a5efe3b5036b4ae5ad1369ba02c6269dfe8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ade860b92b5326a59d9c439be0b26a5efe3b5036b4ae5ad1369ba02c6269dfe8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4befab302f4d5b36fdc346cc6be544d2f415f7af56a2c05303551ae12d033006"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,7 @@ class Libclc < Formula
 
   def install
     llvm_spirv = Formula["spirv-llvm-translator"].opt_bin/"llvm-spirv"
-    system "cmake", "-S", ".", "-B", "build",
+    system "cmake", "-S", "libclc", "-B", "build",
                     "-DLLVM_SPIRV=#{llvm_spirv}",
                     *std_cmake_args
     system "cmake", "--build", "build"
@@ -35,23 +36,23 @@ class Libclc < Formula
   end
 
   test do
-    clang_args = %W[
-      -target nvptx--nvidiacl
-      -c -emit-llvm
-      -Xclang -mlink-bitcode-file
-      -Xclang #{share}/clc/nvptx--nvidiacl.bc
-    ]
-    llvm_bin = Formula["llvm"].opt_bin
-
-    (testpath/"add_sat.cl").write <<~EOS
+    (testpath/"add_sat.cl").write <<~C
       __kernel void foo(__global char *a, __global char *b, __global char *c) {
         *a = add_sat(*b, *c);
       }
-    EOS
+    C
+
+    clang_args = %W[
+      -target nvptx64--nvidiacl
+      -c -emit-llvm
+      -Xclang -mlink-bitcode-file
+      -Xclang #{share}/clc/nvptx64--nvidiacl.bc
+    ]
+    llvm_bin = Formula["llvm"].opt_bin
 
     system llvm_bin/"clang", *clang_args, "./add_sat.cl"
     ir = shell_output("#{llvm_bin}/llvm-dis ./add_sat.bc -o -")
-    assert_match('target triple = "nvptx-unknown-nvidiacl"', ir)
+    assert_match('target triple = "nvptx64-unknown-nvidiacl"', ir)
     assert_match(/define .* @foo\(/, ir)
   end
 end

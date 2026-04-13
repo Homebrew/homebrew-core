@@ -5,8 +5,6 @@ class Sshpass < Formula
   sha256 "ad1106c203cbb56185ca3bad8c6ccafca3b4064696194da879f81c8d7bdfeeda"
   license "GPL-2.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "963f3ed3cfe2211b809ffa9a0275c2672e375a8ffc06c1df7acf7b69141815d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "38020f688c751708ec42752d847ffb0dcaa9987a9cb362f7b20adc80a2c60b9d"

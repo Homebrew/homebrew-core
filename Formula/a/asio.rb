@@ -4,6 +4,7 @@ class Asio < Formula
   url "https://downloads.sourceforge.net/project/asio/asio/1.36.0%20%28Stable%29/asio-1.36.0.tar.bz2"
   sha256 "7bf4dbe3c1ccd9cc4c94e6e6be026dcc2110f9201d286bb9500dc85d69825524"
   license "BSL-1.0"
+  compatibility_version 1
 
   livecheck do
     url :stable

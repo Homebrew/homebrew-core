@@ -10,8 +10,6 @@ class Xsd < Formula
     regex(/href=.*?xsd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "9beb0bcaa0a49b5de1613b0ce1424a3f1ba33d0697860103c4a93ec4b7f4e748"
     sha256 cellar: :any,                 arm64_sequoia: "9bab1b8a054ae9b32e68d6c0ab9ee59435715bcedbdc1206de8b54a5c8210ce5"

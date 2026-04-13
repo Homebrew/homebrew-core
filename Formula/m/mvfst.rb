@@ -1,18 +1,19 @@
 class Mvfst < Formula
   desc "QUIC transport protocol implementation"
   homepage "https://github.com/facebook/mvfst"
-  url "https://github.com/facebook/mvfst/archive/refs/tags/v2026.01.12.00.tar.gz"
-  sha256 "5c000c1ad7886a25d434224f85f9b5147acb9d0058497ec7666d843de129fd8a"
+  url "https://github.com/facebook/mvfst/archive/refs/tags/v2026.03.30.00.tar.gz"
+  sha256 "b287c7c5b317430aa890c5e952dde020fa212044d218756fe50caadd592c5780"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/facebook/mvfst.git", branch: "main"
 
   bottle do
-    sha256                               arm64_tahoe:   "f813ff02880119c7d539ab6a3db83fd71186249c7c2b79c1cdffe4c5545ea88f"
-    sha256                               arm64_sequoia: "08e8891700a1c60f4c4858a5defdd545b5d21162198215bfba03953240e8618d"
-    sha256                               arm64_sonoma:  "19d6bd6011dd8600fefaee51bd5c72f2deb4cb8b6347f2c79ff70612a528e675"
-    sha256 cellar: :any,                 sonoma:        "5d89c1d9d0c5964ae73d570b115179c8de9cf935784ff2621705c9653e90f322"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1871770bd9fd1cc27826492e2ae2464d13adcab0dfaa31044de8ef8125a5928"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3f892b66f9313c9dbb21dda7fa750549fac0f789c430c159058d068eb2d13b5"
+    sha256 cellar: :any,                 arm64_tahoe:   "86ed07969a81dc1bc0cbe451524709fdcd941a612beb03322df521e588a86892"
+    sha256 cellar: :any,                 arm64_sequoia: "9ae606d20aeaedc658edb10e8de5b63af48d85a25366658f56fccde6e0d7e201"
+    sha256 cellar: :any,                 arm64_sonoma:  "ce08b685b45915d6e2ed8b3e148c33e0feaa26161a49005d402168c5b09d2424"
+    sha256 cellar: :any,                 sonoma:        "3b54ca106fb2ddc2c14263a19fbc75cae707155d8ea9b7e4d47c73ef7db06d99"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7501131a6b775de0dd0b3fe4de23d35cb68352268e6a1bd60e21f5c45b84be55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7c6a824bd15fa5b6a7c2f2e056734ebd3c21b5b0bd7c0aab7056c3de4a38f93"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -23,14 +24,11 @@ class Mvfst < Formula
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "libsodium"
   depends_on "openssl@3"
 
   def install
     shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
-    linker_flags = %w[-undefined dynamic_lookup -dead_strip_dylibs]
-    linker_flags << "-ld_classic" if OS.mac? && MacOS.version == :ventura
-    shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,#{linker_flags.join(",")}" if OS.mac?
+    shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup -Wl,-dead_strip_dylibs" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "_build", "-DBUILD_TESTS=OFF", *shared_args, *std_cmake_args
     system "cmake", "--build", "_build"
@@ -42,9 +40,9 @@ class Mvfst < Formula
     stable.stage testpath
 
     (testpath/"CMakeLists.txt").atomic_write <<~CMAKE
-      cmake_minimum_required(VERSION 3.20)
+      cmake_minimum_required(VERSION 4.0)
       project(echo CXX)
-      set(CMAKE_CXX_STANDARD 17)
+      set(CMAKE_CXX_STANDARD 20)
 
       list(PREPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
       find_package(fizz REQUIRED)
@@ -57,7 +55,7 @@ class Mvfst < Formula
         quic/common/test/TestUtils.cpp
         quic/common/test/TestPacketBuilders.cpp
       )
-      target_link_libraries(echo ${mvfst_LIBRARIES} fizz::fizz_test_support GTest::gmock)
+      target_link_libraries(echo mvfst::mvfst fizz::fizz_test_support GTest::gmock)
       target_include_directories(echo PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
       set_target_properties(echo PROPERTIES BUILD_RPATH "#{lib};#{HOMEBREW_PREFIX}/lib")
     CMAKE

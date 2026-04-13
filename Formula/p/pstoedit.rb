@@ -6,12 +6,13 @@ class Pstoedit < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "ec621b279a29d7d40d7b5a0be2c1f3bb670afa6db0db269421b5f5bf65c984b3"
-    sha256 arm64_sequoia: "042b5b95fe959b9e09d4e407a3502f8be31239b012295c1aa7a070682e405a7e"
-    sha256 arm64_sonoma:  "1c949cb1b0dd899c1b70db1bf662d288c0cb3173facb72bd74483399a709c0b4"
-    sha256 sonoma:        "04eede4a48448503f79ab9a9a52d23982f956bf315a31147dc90d29332b4bea8"
-    sha256 arm64_linux:   "1c23ba09ab213722081cae59fe165f8bad1af2f3f8d26d950c11f55ba309eb9b"
-    sha256 x86_64_linux:  "ccbe027ead36fd375a176f7631bbccfdd2268277c16b21f22eb9900d43f1fec4"
+    rebuild 1
+    sha256 arm64_tahoe:   "71b16f3464e1314670842c663a4cfee626a740a6bc39f7ea6219cb7f21329fee"
+    sha256 arm64_sequoia: "fff1ed2e7e57c3852c5fe36c3908938d19ec278a852e1aa8ef48cc2a175c747c"
+    sha256 arm64_sonoma:  "2e0dd4ee1aeeb14214e8c313d0cbaceb1c2f0b89abb67ac6e56d1a23335ad9b3"
+    sha256 sonoma:        "80cd866453569577436a25984e996e66d45b8cf0b719c771bc25da182d92342d"
+    sha256 arm64_linux:   "c68b2fe60978946380b35dc59bf333c260dab5ac1fe3c6c17f75f4c6fbf52eb6"
+    sha256 x86_64_linux:  "9e40b2f416da1059d432772976a9782362d5911680ca6026c1af161ce9bc462e"
   end
 
   depends_on "autoconf" => :build
@@ -22,6 +23,7 @@ class Pstoedit < Formula
   depends_on "gd"
   depends_on "ghostscript"
   depends_on "imagemagick"
+  depends_on "libzip"
   depends_on "plotutils"
 
   def install
@@ -32,8 +34,9 @@ class Pstoedit < Formula
     system "./configure", "--enable-docs=no", *std_configure_args
 
     # The GitHub release tarball does not ship the generated manpage (pstoedit.1),
-    # so building the doc/ subdir fails. Build/install only src/.
+    # so building the doc/ subdir fails. Build/install only src/ and config/.
     system "make", "-C", "src", "install"
+    system "make", "-C", "config", "install"
   end
 
   test do

@@ -1,25 +1,26 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/refs/tags/2.58.0.tar.gz"
-  sha256 "5ff650c6da8fda3522c10ec22889a7fd1c6b5d1af42c24531d84c36f6cc49019"
+  url "https://github.com/PurpleI2P/i2pd/archive/refs/tags/2.59.0.tar.gz"
+  sha256 "0ebeb05e4f36ab3809449561a095dc767ad821ac6a61c95623ab49be4ffd398b"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "48c3ff51d49eff5f8a561137dfbe5f7e0cd2c1862d145c2aeb703b25aa3404e2"
-    sha256 cellar: :any,                 arm64_sequoia: "73849c19b4aa220d455e260502a3dc31c9089332fe3118d17b426142831526e5"
-    sha256 cellar: :any,                 arm64_sonoma:  "69ada8d3a422c1a750a76ba315a5314a43c8cb7b16f66eb3c016c599c63d00bf"
-    sha256 cellar: :any,                 sonoma:        "84a526c1afa6cecfe786af3c4bd60043851a103d5d87cf7df4f77d39c4122642"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "60220f3a2b8d7005ab5301cc5c9cf97659f2a6d8cf49f0018b36dc0730df46dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e542ba83f222a34d9edb58b30e932b39483d2a3f0e35c21f96f5d2ef54367aa3"
+    sha256 cellar: :any,                 arm64_tahoe:   "b1bce7c4d87cff3a5381fa39b080f6056c59ec0fb4ef7981cd70f4a5d23fba83"
+    sha256 cellar: :any,                 arm64_sequoia: "2b051ea8a4290bdbe093b9f7d1a9bfa8c1503adaf11b57afe0ddecb8e68e980f"
+    sha256 cellar: :any,                 arm64_sonoma:  "c51bec09bd9dee15dd8bc26d4d40030635c89a0cbb2d555201d7471edc030433"
+    sha256 cellar: :any,                 sonoma:        "ceee3280032116573f4f4c96b15d132bee87d78c5a09cfdf5eb7a250c7b31ad0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6bb7c13319b1c425952067ab4eed17953f3825c3ca1c3243718de466a440a283"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b794277fc76a16aa1cb5789d988a15aaf4f1801f28aed8815f396945aa834f4"
   end
 
   depends_on "boost"
   depends_on "miniupnpc"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

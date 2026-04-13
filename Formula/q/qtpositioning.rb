@@ -1,16 +1,17 @@
 class Qtpositioning < Formula
   desc "Provides access to position, satellite info and area monitoring classes"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.10/6.10.1/submodules/qtpositioning-everywhere-src-6.10.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.1/submodules/qtpositioning-everywhere-src-6.10.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.1/submodules/qtpositioning-everywhere-src-6.10.1.tar.xz"
-  sha256 "abb311ef1bd6e39f090d22480e265d13f8537d2e2f4c88f22d6519547f46be23"
+  url "https://download.qt.io/official_releases/qt/6.11/6.11.0/submodules/qtpositioning-everywhere-src-6.11.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.0/submodules/qtpositioning-everywhere-src-6.11.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.0/submodules/qtpositioning-everywhere-src-6.11.0.tar.xz"
+  sha256 "d61fd0985ede513ec34d2d1c1e92f383eb8eb46678ca9da805cf795cccb796e9"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # bundled poly2tri; *.cmake
     "BSL-1.0",      # bundled clipper
     "MIT",          # bundled clip2tri
   ]
+  compatibility_version 1
   head "https://code.qt.io/qt/qtpositioning.git", branch: "dev"
 
   livecheck do
@@ -18,12 +19,12 @@ class Qtpositioning < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "71bef1491d675f3b88cc75112aff1b031a269d21eb7f706cfc5e7b2040eb3c04"
-    sha256 cellar: :any,                 arm64_sequoia: "7e65caab4c6b3e53f9a197639a4e9f3145d7d58b286a260cc4cd75c5682b9232"
-    sha256 cellar: :any,                 arm64_sonoma:  "c37b65a30110af480f9a815e4a517ab499030f729c89418462152ff43b61f295"
-    sha256 cellar: :any,                 sonoma:        "fc25b06deda0e7a14487130ede60decfbc7d39b0ee0f456645df208902e60887"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e044e9ac7c28a72d732065720d39aec7643a693028c90c063a8b0962dc8977c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "605eedc21d91fd26c71041d162b5fa108ace96c4101f0881fd70c2459fdd0866"
+    sha256 cellar: :any,                 arm64_tahoe:   "58b60582704fcff5a97aa688b4e48ca3b1b757bb437d41dfbf4bf19287e1265b"
+    sha256 cellar: :any,                 arm64_sequoia: "1a76bd7c3d2a3ada2fdbcd73c8a7ce9e85131d600f625b3046c0a6ccf0f14ace"
+    sha256 cellar: :any,                 arm64_sonoma:  "bfdba2c31708b8e84edc0508b78165b3dd2672024ee5db97b1c5c916026091e3"
+    sha256 cellar: :any,                 sonoma:        "b2d4474b15fc92f82dbfbe1b8dea46dec6215e43cf40f1b2a70b082c7ce43a95"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "906ccc1d0d5d37c396de76e6220890f997a2364b7536b76d2bffbb79ddde677f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2084cfe7efae13cde78aa86981e869c1713e6de884a8ef69909459fab225523a"
   end
 
   depends_on "cmake" => [:build, :test]

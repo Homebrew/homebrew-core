@@ -5,8 +5,6 @@ class Td < Formula
   sha256 "e85468dad3bf78c3fc32fc2ab53ef2d6bc28c3f9297410917af382a6d795574b"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ed379b6dd0971f68d160943435d87d150b664e0b4e9037654dfe50dc85e4014c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "386a1ba61c06bcdafaa9afedf609caa8eba893e2dbe50326122e03495ad9eff1"

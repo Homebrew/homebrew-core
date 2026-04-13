@@ -8,16 +8,14 @@ class Retdec < Formula
   revision 1
   head "https://github.com/avast/retdec.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "2ad4e38c27ebda7ec954319fc7fdea9c53895e7afb4e01d3a252eeceb2d44506"
-    sha256 cellar: :any,                 arm64_sequoia: "8ed646df7127fad1de5ffe3587ea50a102c19b5a061fe27520c0a229d60c5a37"
-    sha256 cellar: :any,                 arm64_sonoma:  "dc347f9280c7321e959efb1bfbf731f515184d462fffcbf1f15e91933371e29a"
-    sha256 cellar: :any,                 sonoma:        "8f3003762a514b9378f1fc3ee2653c34e73fe5748bf8e1ea3d08ca208a084b66"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d02d73b84091a9f137258db276ce65059fa16e41e9f119799e6398d5c53457e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b98c2b9804c2aee53bc1396747e28241bf708f479bff58d488dd64c3775c7e1"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_tahoe:   "636b6b44b73121f25224e327ca950576cb95a2a5fd29890c882b7336993af7cc"
+    sha256 cellar: :any,                 arm64_sequoia: "2b66bd7a2b82e7c2984bf1cf7d527b8e689fa0915c5dae716500014a689d1c8b"
+    sha256 cellar: :any,                 arm64_sonoma:  "f51d9599b4ba56340e4db15fad2a5deedf84e9cb73efdc66ef8ccb35bd3fc7fd"
+    sha256 cellar: :any,                 sonoma:        "600a0786558e55c549ee2f437a05adb2370866ddf23212af0d018b57d22f923d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf3181456a91b4f47359036729f37ef32762af922cafd4f26451cf4f8e5eabd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6400aaaa25aba6846a2d8efd43e7c20b608a181c0cb4a2bfddb5c99618b1ac93"
   end
 
   depends_on "autoconf" => :build
@@ -28,10 +26,12 @@ class Retdec < Formula
   depends_on "openssl@3"
   depends_on "python@3.14"
 
-  uses_from_macos "zlib"
-
   on_sequoia do
     depends_on xcode: ["16.4", :build]
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

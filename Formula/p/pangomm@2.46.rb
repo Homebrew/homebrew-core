@@ -10,8 +10,6 @@ class PangommAT246 < Formula
     regex(/pangomm-(2\.46(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_tahoe:   "59acdc333ff48dcaa839724326a109208097bf5395a4a6f932f094e2479f50f4"

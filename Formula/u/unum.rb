@@ -11,8 +11,6 @@ class Unum < Formula
     regex(%r{href=["']?v?(\d+(?:[.-]\d+)+)/?["' >]}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "49e6e959912529d4da9b0097beac4bcc654679022720b74eff4c5010d5ae6c77"

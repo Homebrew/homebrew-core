@@ -1,18 +1,18 @@
 class Wtfutil < Formula
   desc "Personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
-  url "https://github.com/wtfutil/wtf/archive/refs/tags/v0.48.0.tar.gz"
-  sha256 "89dc415d539bee6258a5c8886499203dea485cd5159f4c7cb07e28d03ab57931"
+  url "https://github.com/wtfutil/wtf/archive/refs/tags/v0.49.0.tar.gz"
+  sha256 "700024091ed2db2ce1f38e20735e4edf7e9179a697ffd361851e63342b652cee"
   license "MPL-2.0"
   head "https://github.com/wtfutil/wtf.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e30a514a165505b580a411f357a0860c98a30ea1c1b5b5f7f49296bd7b50bcbe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9adf648146e0cced4264447c38dd648e7631f9e55f348f9c3159c9ab3fcc0340"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0d811e6c502935e25eafa35eb825fc741187c75c1511a379415ac7de0d6e830"
-    sha256 cellar: :any_skip_relocation, sonoma:        "10215bfbd1d56581e71219902243c35e7e867ff3d9deabd595e0ed37cb675523"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1105694b80351da941a2fa885e8c0526b0488335a39b87a40731fb2826b359b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa509a37ecd204d633805c1eeed9fa71936b93bd546d2d0cef642b1247c1dc14"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca9bf8c4528b24eedebc8e4b68ad7c994402aed6cf1842a521291cb593ac6271"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c2fba2de0dce9e98bec0bc62e36264bdf2791ca2baae53bbfd268cbcfa63aa5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e454f198d7879502bce0173e6feed3798a662dca25dfb853f07228d0fc6c78d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "56e56d9b2fa53cc7a35aa88e672d73df067d747a8f2f6768d6df12e09ce8163d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2bf1fb03df8f5a0967a579047d5b0cf04ec1984658f9f2bf0570224f7dca046f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5bbdeb0fbfabcdf2c5ef3166ac84815c8a76c25eee564a03cc76a2c8595cf86"
   end
 
   depends_on "go" => :build

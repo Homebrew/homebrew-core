@@ -22,7 +22,7 @@ module Homebrew
       sig { params(arch: Symbol, timeout: Integer).returns(T::Hash[Symbol, T.any(String, T::Hash[Symbol, String])]) }
       def linux_runner_spec(arch, timeout)
         linux_runner = if arch == :arm64
-          "ubuntu-22.04-arm"
+          OS::LINUX_CI_ARM_RUNNER
         elsif timeout > 360
           "linux-self-hosted-1"
         else
@@ -32,7 +32,7 @@ module Homebrew
         {
           runner:    linux_runner,
           container: {
-            image:   "ghcr.io/homebrew/ubuntu22.04:main",
+            image:   "ghcr.io/homebrew/brew:main",
             options: "--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED",
           },
           workdir:   "/github/home",

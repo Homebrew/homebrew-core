@@ -1,18 +1,18 @@
 class Bacon < Formula
   desc "Background rust code check"
   homepage "https://dystroy.org/bacon/"
-  url "https://github.com/Canop/bacon/archive/refs/tags/v3.21.0.tar.gz"
-  sha256 "4d258b57976f234547d01ad64e3609e675a5689c28107e74e75bfbede82bf20a"
+  url "https://github.com/Canop/bacon/archive/refs/tags/v3.22.0.tar.gz"
+  sha256 "ee6ea9784bc14e404a3dd11c2deddb4b75d597e29b645a57773011945a664f8d"
   license "AGPL-3.0-or-later"
   head "https://github.com/Canop/bacon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f20eea4ac33022a5979c3b1a1264dff38c6f0fa6b82c94b477106fd032f49bfa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1aff917fc6dcb14700d158f6762050b9b37681d86dd1a0c2f12a48e57171fcc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d0f34d068394a18c3d683651e0aaeb5c9d73979bb01917e8b441a3dbe64c6db"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0aeb89ecb831573ffef666dd4e03c0385d71b7e3fc4cc59db858887c40484ecd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27ef0626b1831168f162d90d92cc3934d5ed3f7d2506892736b87811b3ec161b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a15bf9c710270c87281094c987da22e9b848e34420735ba66923739e13b64f2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "268bb427d8ee661df203675928dd285c967dcf7623633448541f58a6cad0330f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "908048f3d7c82b637e1b4290388daf4c209ef65a2a11b0cc4a8c3588feb6d24a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1877330c9596234df01aeaf28093424c994eef378575f16cb4f9e834ea47c539"
+    sha256 cellar: :any_skip_relocation, sonoma:        "973e04ecfc46ba54111f004a747aa542e7a88df8b49936783fdfb5f4b1ba6cbf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "44d24d9a034321fc5f2c08d303c278eae8785dfacead8c19a6f654e68b94d805"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd39e0e50e4f24d54f199891b05ea7cd88fc85a514fe39aaf75bec399d86591a"
   end
 
   depends_on "pkgconf" => :build

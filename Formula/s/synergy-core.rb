@@ -70,7 +70,6 @@ class SynergyCore < Formula
     (buildpath/"ext/synergy-extra").install resource("synergy-extra")
 
     if OS.mac?
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1402
       # Disable macdeployqt to prevent copying dylibs.
       inreplace "src/gui/CMakeLists.txt",
                 /"execute_process\(COMMAND \${MACDEPLOYQT_CMD}.*\)"/,

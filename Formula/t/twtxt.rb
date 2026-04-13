@@ -6,17 +6,17 @@ class Twtxt < Formula
   url "https://files.pythonhosted.org/packages/fc/4c/cff74642212dbca8d4d9059119555cd335324b3da0b52990a414a0257756/twtxt-1.3.1.tar.gz"
   sha256 "f15e580f8016071448b24048402b939b9e8dec07eabacd84b1f2878d751b71ff"
   license "MIT"
-  revision 7
+  revision 8
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "911f4cf4aaaa2b13ca4d5e1ac85d6251dfdf3734d58a6c37501b0ea277ae0f21"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59e000dd4fbe0d09e6a33ac3bf74fb7d112f7647346692e82f28dcf516dd3f34"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18fa8469eacee8cc37794e87d22a0e93fa6a8b4dc8e7decca224122728d6a497"
-    sha256 cellar: :any_skip_relocation, tahoe:         "7a35287fe061b310150f595648d9439d98e3efbbb898d2d122cd1bab51c45733"
-    sha256 cellar: :any_skip_relocation, sequoia:       "c3027ffc990a91d54b90fa734b81c2c941afa082844c794687e7d8ce33cbd0b0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9acd630daf3082262aefe8084c9665dced3e955dde467b7c30469a1ae7986034"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a1e2e46b6a887d111e84d9df0708fbf492f59dafac19bf8e7d625c862699a9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdf642358ef57540439860600486f807ab0938d04aa6e42875fba28579bfc4e6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "364e25a8df67aaec1cd8df15d64ef8d188b9fb54e278f661e69db778ccd02270"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa31d3732dc8659fdb9ff344e0ec8386644c0bd90a118e68f7d4d4b7543a963b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9bf874e23df826b9a4bbdbd7b07aea82236bfbebb23fd72128d25302082a0e3a"
+    sha256 cellar: :any_skip_relocation, tahoe:         "879788c44f9eae0a0e4b849f2a575b7c7d27a2f655014a13811c62dbf57d534d"
+    sha256 cellar: :any_skip_relocation, sequoia:       "9d1235fdc5ad43c5755eb349cedaab271a39c0c0613bd7832e09335ce2fcc818"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d6be8158f7fe1ad25ed3406c1239bf50e0817bb2e9d42ac5f8b2f55cf37fe5a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "26d140ebc1070fc659f5eeef9295fa0108c72a5d5b861d7fb0a87fc237453861"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c484d24b9b7a112aa0fe911080799a15bd311d732587559247b4581e3f40456"
   end
 
   depends_on "python@3.14"
@@ -27,8 +27,8 @@ class Twtxt < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/50/42/32cf8e7704ceb4481406eb87161349abb46a57fee3f008ba9cb610968646/aiohttp-3.13.3.tar.gz"
-    sha256 "a949eee43d3782f2daae4f4a2819b2cb9b0c5d3b7f7a927067cc84dafdbb9f88"
+    url "https://files.pythonhosted.org/packages/77/9a/152096d4808df8e4268befa55fba462f440f14beab85e8ad9bf990516918/aiohttp-3.13.5.tar.gz"
+    sha256 "9d98cc980ecc96be6eb4c1994ce35d28d8b1f5e5208a23b421187d1209dbb7d1"
   end
 
   resource "aiosignal" do
@@ -37,8 +37,8 @@ class Twtxt < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
-    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "click" do
@@ -62,8 +62,8 @@ class Twtxt < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/80/1e/5492c365f222f907de1039b91f922b93fa4f764c713ee858d235495d8f50/multidict-6.7.0.tar.gz"
-    sha256 "c6e99d9a65ca282e578dfea819cfa9c0a62b2499d8677392e09feaf305e9e6f5"
+    url "https://files.pythonhosted.org/packages/1a/c2/c2d94cbe6ac1753f3fc980da97b3d930efe1da3af3c9f5125354436c073d/multidict-6.7.1.tar.gz"
+    sha256 "ec6652a1bee61c53a3e5776b6049172c53b6aaba34f18c9ad04f82712bac623d"
   end
 
   resource "propcache" do
@@ -82,8 +82,8 @@ class Twtxt < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/57/63/0c6ebca57330cd313f6102b16dd57ffaf3ec4c83403dcb45dbd15c6f3ea1/yarl-1.22.0.tar.gz"
-    sha256 "bebf8557577d4401ba8bd9ff33906f1376c877aa78d1fe216ad01b4d6745af71"
+    url "https://files.pythonhosted.org/packages/23/6e/beb1beec874a72f23815c1434518bfc4ed2175065173fb138c3705f658d4/yarl-1.23.0.tar.gz"
+    sha256 "53b1ea6ca88ebd4420379c330aea57e258408dd0df9af0992e5de2078dc9f5d5"
   end
 
   # Drop setuptools dep: https://github.com/buckket/twtxt/pull/178

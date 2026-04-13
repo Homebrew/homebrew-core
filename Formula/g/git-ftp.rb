@@ -7,18 +7,18 @@ class GitFtp < Formula
   revision 1
   head "https://github.com/git-ftp/git-ftp.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "74119c0541aae24192ccff0a849869feb988a02de848a93476da5d1c1ad46fba"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "95470631e72758db4f8eb07739a78f6265c09bcf41da6f69bd8c701f02bed360"
   end
 
   depends_on "pandoc" => :build
   depends_on "curl"
   depends_on "libssh2"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make", "prefix=#{prefix}", "install"

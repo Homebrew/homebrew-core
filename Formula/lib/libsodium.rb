@@ -1,9 +1,10 @@
 class Libsodium < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://libsodium.org/"
-  url "https://download.libsodium.org/libsodium/releases/libsodium-1.0.21.tar.gz"
-  sha256 "9e4285c7a419e82dedb0be63a72eea357d6943bc3e28e6735bf600dd4883feaf"
+  url "https://download.libsodium.org/libsodium/releases/libsodium-1.0.22.tar.gz"
+  sha256 "adbdd8f16149e81ac6078a03aca6fc03b592b89ef7b5ed83841c086191be3349"
   license "ISC"
+  compatibility_version 1
 
   livecheck do
     url "https://download.libsodium.org/libsodium/releases/"
@@ -11,12 +12,12 @@ class Libsodium < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f67601f25a55e3845e1792c60a7bfab15dd3541fbb03e116b147e252fb153c9a"
-    sha256 cellar: :any,                 arm64_sequoia: "e8b956a02a7563e3d2c653de81a7976a8798dc63ba906e65cc2e9f3dff89cb37"
-    sha256 cellar: :any,                 arm64_sonoma:  "258e5d00e53f7809780498b615216e20a4a4876f9b96f788e9af56eb4ed3b1be"
-    sha256 cellar: :any,                 sonoma:        "437e033a04914c6ce7c3f642410bc924e5c2edfeab136dbd77e0a4d455387bd4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef2ff41f468c1eb03d919ee31a903a242e762b1a9bb22f52e34438a907d6bbd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "082cbc3178f73ab138d65735f2b4e8c2d47df2b411f398669482d51c7001d369"
+    sha256 cellar: :any,                 arm64_tahoe:   "665929906297818edf15955cf4e4faefca7d717271c9fa448291989d2511d266"
+    sha256 cellar: :any,                 arm64_sequoia: "b231db8b0f993cb764b57560b69f484efe059ec87e47887505aa2d5872cc5a01"
+    sha256 cellar: :any,                 arm64_sonoma:  "92072108ab857b6ac1318afd28e5f1a1c3b34fb3e87f7c26c39a817721e0899b"
+    sha256 cellar: :any,                 sonoma:        "366ac240d3c97376401ae84c87d8c13852f42b037b6896b402b22336af3f8e32"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e73b320fdc416cedb028595212ff6b47f473a0c6e1d7d0aec84cc679734d87bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "985f3f49a2187467eec50c288bb7d71ecd056cdec615441c1a12d8fa77db678a"
   end
 
   head do

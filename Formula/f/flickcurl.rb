@@ -11,8 +11,6 @@ class Flickcurl < Formula
     regex(/href=.*?flickcurl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "5ad4303f2feb50ec3bcac620cb35ec60de39f7c2f40f5d20587daa161064ce2e"
     sha256 cellar: :any,                 arm64_sequoia: "f7d7fcaa4becaba9efd332bc528a22cc9a844caac877510efa8aea89906a98bb"

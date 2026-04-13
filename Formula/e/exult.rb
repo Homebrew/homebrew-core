@@ -12,12 +12,13 @@ class Exult < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "1d0f0282784693d3467ba3bec7b5667046086fd106e54286fb1af55d4a1f285a"
-    sha256                               arm64_sequoia: "ab85d54e261b3f245d2204efdbddce6c415ae05a6d37eba4b494c4caf281e884"
-    sha256                               arm64_sonoma:  "9c932e5ebeaeb4997474dab55cf1bda642cd8d7c3756869c8bd2af348673274c"
-    sha256                               sonoma:        "63110375bd14efed54f57be8ee7271b807d8ae6d61155a280c1f359bddf2c2d7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e730fc066298e15647430892b009dd6c308a31b1d8f6435f97597bdc302ea2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "296dce75d9fea9f215a17ba12631afb66bd676fc81b0fb8032a6ee9970ade4ab"
+    rebuild 1
+    sha256                               arm64_tahoe:   "a0dbfdb8bd78a5d0aad9492f99ce27f606410f32fb26d5d88b984b1f70d3d2a3"
+    sha256                               arm64_sequoia: "0eeb4d2fa5348ffff683b054760640c65aab531ac602fd842fa2ccfe642405d8"
+    sha256                               arm64_sonoma:  "52f8b804c1b411144b80b0f75c9b423cb82e929689fcf066b1c250f9078360ef"
+    sha256                               sonoma:        "8072faddf279e29551ca3c3c70991a257f6987e03debc6d4d214d4b0bd87ef9c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3fb86582c8e206293be0d6cca39b27a1d248912b5e50537a3f69c8368e60e209"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11fa142c33631b28b7d65fa2adc30b3e795cf98a845ff7a2475acc4d0f3ee1e1"
   end
 
   depends_on "autoconf" => :build
@@ -30,10 +31,9 @@ class Exult < Formula
   depends_on "libvorbis"
   depends_on "sdl2"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "alsa-lib"
+    depends_on "zlib-ng-compat"
   end
 
   def install

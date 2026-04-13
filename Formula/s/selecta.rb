@@ -1,15 +1,12 @@
 class Selecta < Formula
   desc "Fuzzy text selector for files and anything else you need to select"
   homepage "https://github.com/garybernhardt/selecta"
-  url "https://github.com/garybernhardt/selecta/archive/refs/tags/v0.0.7.tar.gz"
-  sha256 "00d1bdabb44b93f90018438f8ffc0780f96893b809b52956abb9485f509d03d2"
+  url "https://github.com/garybernhardt/selecta/archive/refs/tags/v0.0.8.tar.gz"
+  sha256 "737aae1677fdec1781408252acbb87eb615ad3de6ad623d76c5853e54df65347"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "ec55655e3c404bba347f242a7b24e7504b181fd2f364a85dad9e4c770231a79d"
+    sha256 cellar: :any_skip_relocation, all: "9fb1dc1bfe59101569e6aea3522d36cf406a2c9b2b86464fce089cc36356b75f"
   end
 
   uses_from_macos "ruby"

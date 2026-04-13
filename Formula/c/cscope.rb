@@ -10,8 +10,6 @@ class Cscope < Formula
     regex(%r{url=.*?/cscope[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a0a30f47c29cb9473180bfe1c3670ceff999e1cd694babbe88d90e012cca0827"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "690ea8542348fc155da1a174f6e98cf08d81be181a222853a504124c9071c08b"

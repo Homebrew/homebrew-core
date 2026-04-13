@@ -5,8 +5,6 @@ class MacRobber < Formula
   sha256 "5895d332ec8d87e15f21441c61545b7f68830a2ee2c967d381773bd08504806d"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "99a169217c9e38f7b17c74a953fe179c4ac781f840b2bf54d697af3cc5f6e21e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "872680f432b3c3542cf35f30795d0bb9cf0e03c12aacd2522644d0c2f56f2e4a"

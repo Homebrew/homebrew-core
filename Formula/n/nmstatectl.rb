@@ -1,8 +1,8 @@
 class Nmstatectl < Formula
   desc "Command-line tool that manages host networking settings in a declarative manner"
   homepage "https://nmstate.io/"
-  url "https://github.com/nmstate/nmstate/releases/download/v2.2.57/nmstate-2.2.57.tar.gz"
-  sha256 "7bbc0543349b7feec33b30476901ae90b192a1a361ff6fc2f66e22bf2dc082ec"
+  url "https://github.com/nmstate/nmstate/releases/download/v2.2.59/nmstate-2.2.59.tar.gz"
+  sha256 "16ebda604f576c1cb9344dae46045048613339e88af99ae7b49e48237938ea4a"
   license "Apache-2.0"
   head "https://github.com/nmstate/nmstate.git", branch: "base"
 
@@ -12,24 +12,23 @@ class Nmstatectl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3035a3433ab435294d0869a65936beae2c1e544b39d070bfb66137b443024576"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3b5f44465635841531c7fe43d453d5da280573788ad01acf5a3896f7e03a7c74"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd06f57c4aa0df4027d3b0e2a1dc18856186e0ed9865aec4b92dbac52e52a65b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "70841b5dc2a5aa9ddcde8f53dc6fd29e8c970b69294ccb19a07840c335dc8762"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "225dca77c67ca7aa077c9f34ecac978c09e3ea64aa55ac000e61da5db35db1fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "907c0675af9593c5e545b65bed2e22cb988daed720d18a168fc0e8b5464e7081"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a85d3d178668d388dd179d97d6555062a7e0c14f4b196e679997dbcaf947cc5a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "396ff73fb007c7579625a05e328126f22df7cb676c032ddbc1dea8bd046c721e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b1e1fd00068726a9f1943a99b60f2dc82999989395f896d46ce5466837a0e42"
+    sha256 cellar: :any_skip_relocation, sonoma:        "66d267584622c2a057d81840d7c8a1f50c842ebd2d83f717ff0efe31c249898c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "587b55f6655e117b2333cad8f86bfd26a0956c4717d66400fcf3dd55740ef901"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a536ee2d49aefbc614b2db14cd73a0d4c367fc755bc69efe7efee8bd781d0dad"
   end
 
   depends_on "rust" => :build
 
   def install
     cd "rust" do
-      args = if OS.mac?
-        ["--no-default-features", "--features", "gen_conf"]
-      else
-        []
+      if OS.mac?
+        args = ["--no-default-features"]
+        features = ["gen_conf"]
       end
-      system "cargo", "install", *args, *std_cargo_args(path: "src/cli")
+      system "cargo", "install", *args, *std_cargo_args(path: "src/cli", features:)
     end
   end
 

@@ -3,14 +3,14 @@ class Tartufo < Formula
 
   desc "Searches through git repositories for high entropy strings and secrets"
   homepage "https://tartufo.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/52/70/2e1422e84b1f817cb4f626337a783e44c60d9c4c1ada8c9f1a671afadb33/tartufo-5.0.2.tar.gz"
-  sha256 "d7f680da7aadc91840d2bde2605a9e71fa635ac1c6ee39490fb11e9a1494ff58"
+  # TODO: Switch to PyPI when upstream fixes workflow for 2FA
+  url "https://github.com/godaddy/tartufo/archive/refs/tags/v6.0.0.tar.gz"
+  sha256 "ba84bb6192a3647a0dd2f8b4c08c7aff46e8d5bc742e13ee1714477ae8ad7787"
   license "GPL-2.0-only"
   head "https://github.com/godaddy/tartufo.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "8affda16c621e6df802d498d4293fa69ec1b66e4dc525635f48021fb7e6bbd1e"
+    sha256 cellar: :any_skip_relocation, all: "9b6f1992cda277ce24f8b15ed1153973874c16f6039de2d7e6ec296f2bef9b14"
   end
 
   depends_on "pygit2" => :no_linkage
@@ -26,8 +26,8 @@ class Tartufo < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
-    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "gitdb" do
@@ -36,8 +36,8 @@ class Tartufo < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/9a/c8/dd58967d119baab745caec2f9d853297cec1989ec1d63f677d3880632b88/gitpython-3.1.45.tar.gz"
-    sha256 "85b0ee964ceddf211c41b9f27a49086010a190fd8132a24e21f362a4b36a791c"
+    url "https://files.pythonhosted.org/packages/df/b5/59d16470a1f0dfe8c793f9ef56fd3826093fc52b3bd96d6b9d6c26c7e27b/gitpython-3.1.46.tar.gz"
+    sha256 "400124c7d0ef4ea03f7310ac2fbf7151e09ff97f2a3288d64a440c584a29c37f"
   end
 
   resource "smmap" do
@@ -51,9 +51,6 @@ class Tartufo < Formula
   end
 
   def install
-    # Unpin python for 3.14: https://github.com/godaddy/tartufo/pull/547
-    inreplace "pyproject.toml", 'python = ">=3.8, <3.14"', 'python = ">=3.8"'
-
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"tartufo", shell_parameter_format: :click)

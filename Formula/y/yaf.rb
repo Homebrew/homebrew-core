@@ -1,8 +1,8 @@
 class Yaf < Formula
   desc "Yet another flowmeter: processes packet data from pcap(3)"
   homepage "https://tools.netsa.cert.org/yaf/"
-  url "https://tools.netsa.cert.org/releases/yaf-2.18.2.tar.gz"
-  sha256 "b2324e6c5468e4748e59d9f33312decc8e72cc9ee51e927cd7e77b3d3584d909"
+  url "https://tools.netsa.cert.org/releases/yaf-2.18.3.tar.gz"
+  sha256 "4cee46b11371fc5b7b76044c7efadb1e30043e699eb0d8d1aa4f1ca6436e8cdd"
   license "GPL-2.0-only"
 
   # NOTE: This should be updated to check the main `/yaf/download.html`
@@ -14,12 +14,12 @@ class Yaf < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "7201b08b55d9bce81c4f67e08eae208fdb9f5f65e638b59d129a52747b3bd0d1"
-    sha256 cellar: :any,                 arm64_sequoia: "3edc90e7654f43e5e6825a43cf264b5551b0e32c06e3b2bc92674822204d6a6b"
-    sha256 cellar: :any,                 arm64_sonoma:  "54b00a860afdff9c4cc7cd27822bfb6c7a7e16ec78637b6a811b430074ebac3e"
-    sha256 cellar: :any,                 sonoma:        "cb777e8ff186f4f52d9da9becefea457f54890f6445a4b1ba6762144d6793e10"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b5973aac45d6f926fefcb8326fcfe8b7aaecebb66f0ec19d5725ed12b6844e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9502982332be786abd5420bca28a7e70d3d2180cc81b74f40844aceadabf5a76"
+    sha256 cellar: :any,                 arm64_tahoe:   "3b7251cb48fe4163d5ceaf8c494d08f515f36969cbd11b663111828f9f9bb726"
+    sha256 cellar: :any,                 arm64_sequoia: "7cad8b87c9095aa1109b7a9d2aef1959d4f8a22212bd06935f81354e0b0e6257"
+    sha256 cellar: :any,                 arm64_sonoma:  "e918c459b53d43fe9c5e81fd34cce202a2837c0b9965dceab37dd80c78dd5ff1"
+    sha256 cellar: :any,                 sonoma:        "42791e849b3a3d5b6fef29e72eb312d002a522795d75ab10f1eb1a343f9cff61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a94b4b5ad8a62f6cb5303609324034aebc094f1b33c05a10013197a90104cdc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9df057a2865d4c4752a5f54c7d6b86bc91e92cc0343998821ed7dd6cbd47ba7e"
   end
 
   depends_on "pkgconf" => :build
@@ -28,15 +28,19 @@ class Yaf < Formula
   depends_on "libtool"
 
   uses_from_macos "libpcap"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
-    depends_on "openssl@3"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install
-    system "./configure", *std_configure_args
+    # OpenSSL is disabled as Apache-2.0 is not compatible with GPL-2.0-only
+    # Ref: https://www.gnu.org/licenses/license-list.html#apache2
+    system "./configure", "--without-openssl", *std_configure_args
     system "make"
     system "make", "install"
   end

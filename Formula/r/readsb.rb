@@ -1,17 +1,17 @@
 class Readsb < Formula
   desc "ADS-B decoder swiss knife"
   homepage "https://github.com/wiedehopf/readsb"
-  url "https://github.com/wiedehopf/readsb/archive/refs/tags/v3.16.8.tar.gz"
-  sha256 "71c92150fb44a451fa63498a552cc2fb1872ba21157374363065de4bb5dc57e0"
+  url "https://github.com/wiedehopf/readsb/archive/refs/tags/v3.16.11.tar.gz"
+  sha256 "ac0488a2deadd20b373a56928b7d297b5e9262566dd84ec9c72cffaedff2cc78"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d27eceafabd543f6de66f399f8468f4f51ea4b10a14ef05b70f342a3d053a96a"
-    sha256 cellar: :any,                 arm64_sequoia: "96a7146c6949cc984fe265aaba7f4a7ef959fe3564431f0f661fa3999647d149"
-    sha256 cellar: :any,                 arm64_sonoma:  "731a31088040c901fb3abd6802f9e0b4c8f9038ca9d03048e1cda4e6d2b5066c"
-    sha256 cellar: :any,                 sonoma:        "295af8379bbcaddb2a7ec4b315ec7c9f3520691791a3021c9745640db0768d9d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b73131bc5a7e6e4c83c3b6c9a8211ba530a7c07a24e31a6242516e2d3b25f7a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86738b4885705e77ca75fb88043ac2955f62792b1c1edfcbb39935a3759c3e28"
+    sha256 cellar: :any,                 arm64_tahoe:   "6cea77bd2ae08e406436388a50817887bd2ff9c761ad65dcd91d6b32c666accd"
+    sha256 cellar: :any,                 arm64_sequoia: "d68b8680399a387f90120829405827c283dddec3ac93ad9002a8da666212db10"
+    sha256 cellar: :any,                 arm64_sonoma:  "4d38d478e3d512e884f07c8c06a6a6adf608374e8570a489958dd682b86d404e"
+    sha256 cellar: :any,                 sonoma:        "1e41575b2996a26ffb30ae568c7254d95105c7eec32e2bf0292a20ac3163e595"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "14fd510cee6c10d45a3eeecb5f7efcbc23433e902d56c367473f5a8807a752f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4ef10b822578813c7a0309ce39796e5741c32e6983f135fcc323d7fc079f5b1"
   end
 
   depends_on "pkgconf" => :build
@@ -19,10 +19,20 @@ class Readsb < Formula
   depends_on "zstd"
 
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libusb"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
+
+  # Fix to error: use of undeclared identifier 'MADV_HUGEPAGE'
+  # Issue ref: https://github.com/wiedehopf/readsb/issues/128
+  patch do
+    url "https://github.com/wiedehopf/readsb/commit/6d31c983c6dd19c49b3ae95292155e5a9c7840f9.patch?full_index=1"
+    sha256 "916ce4fee223f24fcc0e0825ebc80c44d6e8978a06e6efec7ebbf86f4fa59f20"
   end
 
   def install

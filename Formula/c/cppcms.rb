@@ -8,19 +8,23 @@ class Cppcms < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5900ff545cb23a62aeee87f0298f708dea78f5276f18a26f26ca25af67dc32f7"
-    sha256 cellar: :any,                 arm64_sequoia: "e0c6465ebda4259d556b40968bd23dc813d9767f67726a65c2830c3c3ba2e232"
-    sha256 cellar: :any,                 arm64_sonoma:  "81bab19d59c5e6892944778302cbb0e78d04a8c36b20aecf02e59d9c7b655d78"
-    sha256 cellar: :any,                 sonoma:        "72d3733bbf759cb8886a96b97046c50f48ec5589ff14c1fb2b17316dd789a1cb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "26ff565057fd36a3c9f7f834764447a9442789580dd13c3a0689a0df31610f3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a43f290fed874f7b5e88c3727f084ffb4332662a5534abc8b610a2c11b9b9d81"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "78fd3c8d81ce0b0feb720b7da8db1ebfdf00670dd7d4c133bfe22a2cfa2049a1"
+    sha256 cellar: :any,                 arm64_sequoia: "1ca0e2347ea05bdd0d8d91e38d2e5e48e0452ec14ff25751ae2665c36859b491"
+    sha256 cellar: :any,                 arm64_sonoma:  "5407fbfe3aaccbc61545b918f41d98529d51e5666de00146d4e73e01cd68cb2e"
+    sha256 cellar: :any,                 sonoma:        "509c45a58217091401a6afc4ab929fe65f6ece4e2db7268f0252842016cf1998"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c93be15dcdb0cbf3ae83438c373f8fb407545a6622de1827d5fa4da934eac5b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "086440ca1c958fb8a70d99ab91e81b56809e836f831b6959a0d24eac7a92d66b"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@3"
 
   uses_from_macos "python"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Backport support for CMake 4
   patch do

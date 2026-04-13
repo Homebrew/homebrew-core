@@ -1,17 +1,17 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://www.nickg.me.uk/nvc/"
-  url "https://github.com/nickg/nvc/releases/download/r1.18.2/nvc-1.18.2.tar.gz"
-  sha256 "ee34522a04c49f2a73ff4367088ded9674d726b44fd480995df8ac90e84271d8"
+  url "https://github.com/nickg/nvc/releases/download/r1.20.0/nvc-1.20.0.tar.gz"
+  sha256 "10913d2f37a652b9b8279cda795c79a70a2b0998b6407e8afbae8e1c805f3b15"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "a0756adf6b89227b51de8bcbcd882b6286c20e13cc0e27b6912c3e187cee4d65"
-    sha256 arm64_sequoia: "6457a0b277fac9d8c91c731b295af597ca875a2bd6167ead38282b87edd50728"
-    sha256 arm64_sonoma:  "e4495c0578dd1f4846d227ec3daa80d0c56cab9bc1db9404c93dc0e4844d1493"
-    sha256 sonoma:        "9871f7d205fd1bdff03600b3a67eafd0f40c4ebe4ec04ea064b3d3dce5c040b8"
-    sha256 arm64_linux:   "97ce5f8fe1b75a0f9e2e4135470d444526f7d2dce9b4a72c48149c02853d0846"
-    sha256 x86_64_linux:  "8ec58e009abd9993be09f5a8e78c5912076faac02e385b4dc50381a0e5277ce5"
+    sha256 arm64_tahoe:   "610cb4caad6ba7c3a103d2a29f8e32424ceb7ae67def0ecac0d656790476b41e"
+    sha256 arm64_sequoia: "d7b1b2e32723835801423a6a1566afd7da81b227466ccaf71fc9839bea2e799a"
+    sha256 arm64_sonoma:  "b9a3a84085f70804127c5f7d28afc1d160ff6d0b4aff23edef86bb0237b6122a"
+    sha256 sonoma:        "37807f478eecf08b5aa540f7f6be1075941cdfa80ea9b8fb2603a8769efa7ed4"
+    sha256 arm64_linux:   "752e9bf0ec75a775376a7769a1d8087235826c136cf34a7b82e59e16f8f1085b"
+    sha256 x86_64_linux:  "79276b10482c01209a1e7716587dbe4dceb3ae6d978d24af3afa32b6b0cb8aff"
   end
 
   head do
@@ -28,10 +28,10 @@ class Nvc < Formula
 
   uses_from_macos "flex" => :build
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "elfutils"
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -43,9 +43,8 @@ class Nvc < Formula
     # In-tree builds are not supported.
     mkdir "build" do
       system "../configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
-                             "--prefix=#{prefix}",
-                             "--with-system-cc=#{ENV.cc}",
-                             "--disable-silent-rules"
+                             "--disable-silent-rules",
+                             *std_configure_args
       system "make", "V=1"
       system "make", "V=1", "install"
     end

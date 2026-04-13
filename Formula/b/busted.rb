@@ -4,15 +4,16 @@ class Busted < Formula
   url "https://github.com/lunarmodules/busted/archive/refs/tags/v2.3.0.tar.gz"
   sha256 "1669a4f59ff9e08ad4b38d4212ad8cdd4519209101e3af5459a596d5ad9a7d24"
   license "MIT"
+  revision 1
   head "https://github.com/lunarmodules/busted.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8c6534a3f45a87a5779531495b738120fdde5882da01ba03f6942c0a7dda8135"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bbcaab49639e3fda91fcdeae70cfa061888dc6137faa92567dc6c51cd23b25ab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8bfb65b86a24204bf4b2abda3cc81d17cb98a6f5da417510fe9ff1c29feea660"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cba80e5bf613babd12529bf470f9e814b588bd510ea5ff1511debf9f7f57c550"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3cd46b32b4c0c18cbed0363fd41711375ff26337bb6351f204f19b418975e8e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e50c29df45f5b59d66bcc90e9c411df9244a57fc3da5ccf0a86f5a7ecae1adf8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b365b5128600da6de31d3d468d99d5008fb2c1a359362de3fbf7b206e9b307c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cbb42897d81c69d3e00608baa5e8794c24cd5a8e7c88630d94f2c123b358b962"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85ced43b2770a173da2f8ab203fc0014ce265728fcdad2068fdea82c29b0ef78"
+    sha256 cellar: :any_skip_relocation, sonoma:        "71b2b448322e152cb75656508cad75d28fbec3a66dcf804d87d9c8621853428c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7031313aeb06f0e4cbc1610759e962b0494670f28707c7843248f74ece309e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6f66483354265a0fb9b8648ca9038154805516078072e888c56c78eb533bb3b"
   end
 
   depends_on "luarocks" => :build

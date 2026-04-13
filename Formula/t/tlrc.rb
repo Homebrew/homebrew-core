@@ -1,18 +1,18 @@
 class Tlrc < Formula
   desc "Official tldr client written in Rust"
   homepage "https://tldr.sh/tlrc/"
-  url "https://github.com/tldr-pages/tlrc/archive/refs/tags/v1.12.0.tar.gz"
-  sha256 "402942f1bc37301da9dd1870294d7edd8e81989a178c6439cfbd866d9a9bf67a"
+  url "https://github.com/tldr-pages/tlrc/archive/refs/tags/v1.13.0.tar.gz"
+  sha256 "be72997481480d66560886d2ff7b1e1d8e086169885d85edee663c9091bd32f3"
   license "MIT"
   head "https://github.com/tldr-pages/tlrc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09c51b3ef2e33c87d899f0480a720bb4224f65329a091370344b984d42f48eac"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f82f86ffb0b23c55d52ee4345d70d1d47cf089ae79232f77e1539a4913014795"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0612abdd2e4e06c1267c2dd0f1d9e15db481245bb4a24bad18609c7e5c55bea7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "202da0505b809d8acd1000455f1ae63ccdcb589a5ec8b416f7c34c5a2b46a505"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "38d841e720d52704ac843b20260fb9e5ab5ee89f57e4cde8b6aea4172be3e835"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7ce495afb5e5f4e97c9393d46f6b6a09e716626f2352729840a0c055db562e0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb3541b689da3b76db5bd4682a240c34d25b5d1c183856d0a75ff156a8389e08"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d2a1ac7501121a690c323b4d6eab28f33f9943566744adc757b0c7702bf6747"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1283ffdbd2f2c7a6971be0a29bde24aa624a227cb0811c7782713923a6b9c54"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c608e7267500f1bdff26a8d5406b1c77523c0e187bae937329f94e01e4e7d041"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98b06542d2f8b3da2b31739f95b2c26caef150b5dd0ef1d138860c723d14accd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "400015d944ed322be4703d6bc7afa9d8c2f46d1fbdd4977751acff79ce633b1f"
   end
 
   depends_on "rust" => :build

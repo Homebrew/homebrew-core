@@ -11,12 +11,13 @@ class Reprepro < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5e4f24abe9836969e7089bc7862bba0666f5c59b7332612f604d02a597960b86"
-    sha256 cellar: :any,                 arm64_sequoia: "2baab6ad6ba965ea94537aad8d592612752d2aee1267240a3d101dd7f4df8f79"
-    sha256 cellar: :any,                 arm64_sonoma:  "6a9d163e434e467024671e1c19cb2e14bfddcb84605e80ae8e4456275c2f07a9"
-    sha256 cellar: :any,                 sonoma:        "5e8ea5e5fc80e440ef93cf8a61b90537fcafc150668d4c3cb7d473db2c5ba29a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "315a7155b8557e575cc84791abad4dafcc88ef4fbcd0e42d745c4079cf1b5b8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8798fa0fd08a477f21852eeef3920f9a62618679fa7af97212622ef08026f0bf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6172bb6e3ed24a3262ba0347cd673cff1c21aa9070a19e19fd0080a824249827"
+    sha256 cellar: :any,                 arm64_sequoia: "3e5e78adbbf2fe3b280ad12b0c0280cc111cdbbe969d2f8d351e38a1ceb2d898"
+    sha256 cellar: :any,                 arm64_sonoma:  "71cb5d6c6c730747893a2824d488915df53b9ab2363db85151fffeb988e23d35"
+    sha256 cellar: :any,                 sonoma:        "f6c637c7a806b7593e34aabe0fd9a48e325c0badf49bc4ee832fa7e6daa0d94f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e597daa3f957ba29c07f0d49e3248304498da424db9a412f52786a8a59b16a0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cc1062a1b192a2454bcde2ed80996bebba8d6561382b19309b2e307fcb30786"
   end
 
   depends_on "autoconf" => :build
@@ -29,10 +30,13 @@ class Reprepro < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gcc"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do

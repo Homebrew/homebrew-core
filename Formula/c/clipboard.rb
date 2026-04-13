@@ -43,8 +43,6 @@ class Clipboard < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1300
-
     # `-Os` is slow and buggy.
     #   https://github.com/Homebrew/homebrew-core/issues/136551
     #   https://github.com/Slackadays/Clipboard/issues/147

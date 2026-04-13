@@ -12,8 +12,6 @@ class Gplcver < Formula
     regex(%r{url=.*?/gplcver[._-]v?(\d+(?:\.\d+)+[a-z]?)\.src\.}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6f8b601689942c43e4f0d69e8abe71ae861b8ab7ab6e35d30e8786fa72ef0d73"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0add15edb99e15d1f6436b96c3030d44351f54bb81196948a16ee292d5d8b5b6"

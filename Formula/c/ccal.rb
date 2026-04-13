@@ -10,8 +10,6 @@ class Ccal < Formula
     regex(/href=.*?ccal[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "886e52e30ce5de3a7be8fecca2367e09629a0832f48d286d61b122e77fc98f95"

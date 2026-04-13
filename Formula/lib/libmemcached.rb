@@ -6,8 +6,6 @@ class Libmemcached < Formula
   license "BSD-3-Clause"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:    "60a5db19afb5f8ea31dd1917cdf6e962cd54efe7fd012ab0e0c6c44497a6e2ad"

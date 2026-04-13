@@ -1,10 +1,11 @@
 class Libxmlsec1 < Formula
   desc "XML security library"
   homepage "https://www.aleksey.com/xmlsec/"
-  url "https://github.com/lsh123/xmlsec/releases/download/1.3.9/xmlsec1-1.3.9.tar.gz"
-  mirror "https://www.aleksey.com/xmlsec/download/xmlsec1-1.3.9.tar.gz"
-  sha256 "a631c8cd7a6b86e6adb9f5b935d45a9cf9768b3cb090d461e8eb9d043cf9b62f"
+  url "https://github.com/lsh123/xmlsec/releases/download/1.3.10/xmlsec1-1.3.10.tar.gz"
+  mirror "https://www.aleksey.com/xmlsec/download/xmlsec1-1.3.10.tar.gz"
+  sha256 "5915590780566dae4b5d13d51a42fc0e34b30b26fda6f2c5f744ec31b363ee1a"
   license "MIT"
+  compatibility_version 2
 
   # Checking the first-party download page persistently fails in the autobump
   # environment, so we check GitHub releases as a workaround.
@@ -14,12 +15,12 @@ class Libxmlsec1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4a0347f04db0fafdd4c94056e921f5a28a934c718f254bc878dd93e91ce59fb3"
-    sha256 cellar: :any,                 arm64_sequoia: "bf8736ca35b30186ac8023ffdd6141104bda810502bf81da0a79a0e9b5e6ea05"
-    sha256 cellar: :any,                 arm64_sonoma:  "a46d51ed400865642998a65d2a3f3ea29a514a51e4a89e05028bcd2a605ec644"
-    sha256 cellar: :any,                 sonoma:        "c2a986b51f0d901b71400760b77711f34fcfcd3c3f991c5bda92389bdaad1c3e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "116bd2f4c3f372406ae26b53f8e7dc6e6b286abbbd277cfdfb95c8a3db8cad4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e94dcf7bb5692df44d334784fb03d2a032e52f71d50b951f1615b330fcccbbaf"
+    sha256 cellar: :any,                 arm64_tahoe:   "51f825cb1ff495c3d8cd39537ca620d080a7788baa5666a64e98f34cba2c3c3e"
+    sha256 cellar: :any,                 arm64_sequoia: "18665575c61336c4cd851d105748e8aec6d21830f34cf62503e66368a6ceaa63"
+    sha256 cellar: :any,                 arm64_sonoma:  "c0883ca61525c9a82e3055b0a285557636f6e669f37bf5be0c0465399ead7795"
+    sha256 cellar: :any,                 sonoma:        "8238f04b0ac3ec78153b98780b175f19e8e56f4727b92918d33e91615a06699a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e71121ba7a168102d78e0f0720354395bdb1ba33c5665b3e83c7b05e7b73790"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "386f07f2a718de944530b492a65f1db9e5b832fad084f7505a5f673f2875bb18"
   end
 
   depends_on "pkgconf" => :build

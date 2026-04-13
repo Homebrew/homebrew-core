@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-9.3.1.44136.tar.gz"
-  sha256 "2e66b897600ddc36f8fef601ecd63896aaad8d054ca329cf22c0771f964a5063"
+  url "https://dist.duck.sh/duck-src-9.4.1.44384.tar.gz"
+  sha256 "cef789cb1900d03b38606eecd8f05e9e2b02cf50d8100680eb74230dd1a3bc60"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8ba9f59303d71b4f2f393bd823c23d2529fd369a3fa6cc9edb5d0bc371a1bbab"
-    sha256 cellar: :any,                 arm64_sequoia: "0decd70b857a4baad1fcf31f4a46e94fec07b52dd5797bf2ba47c53d61f647ac"
-    sha256 cellar: :any,                 arm64_sonoma:  "63c4af95815912b489edfe6d0dac484fddd84790af54ac844a05d42ae716bb91"
-    sha256 cellar: :any,                 sonoma:        "62e7f5e719118279273ec662b45cb2f956881fd27ff7c3d6a4724b366bc80b2f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fb00fbdc18166b43d419a076969e2b5b33e723e14400716f957fb709b44b7f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73f3aee32182acaceb5fef838838a883b0c1f814d6836b35a478b03fcb344ba1"
+    sha256 cellar: :any,                 arm64_tahoe:   "6c7beee978d94549eceb854c2353afae491885e1843ce3c4f21cec0508417e92"
+    sha256 cellar: :any,                 arm64_sequoia: "430326879c496571ba9d1591572ee51039ce861743050f02aa7f3f30ee15406b"
+    sha256 cellar: :any,                 arm64_sonoma:  "91685b49d8fb529457eba7edc03096b12ff6034aee64888053237ab3e7d6883e"
+    sha256 cellar: :any,                 sonoma:        "91455b2daf90459c7045654df2038922b9f74a559cf25f06102346a68cdeeac3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "176967fccc1caf93661202497e940cfce47b1842192dc9f20a1502775bb7a826"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d555076a7fd4a2592f13e94e47c3e5d28ac7e99ae368a7af4a5bde52315b848f"
   end
 
   depends_on "ant" => :build
@@ -27,7 +27,6 @@ class Duck < Formula
   depends_on "openjdk"
 
   uses_from_macos "libffi", since: :monterey # Uses `FFI_BAD_ARGTYPE`.
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
@@ -42,6 +41,7 @@ class Duck < Formula
     depends_on "libxrender"
     depends_on "libxtst"
     depends_on "little-cms2"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "duckscript", because: "both install `duck` binaries"
@@ -181,7 +181,8 @@ class Duck < Formula
   end
 
   test do
-    system bin/"duck", "--download", "https://ftpmirror.gnu.org/gnu/wget/wget-1.19.4.tar.gz", testpath/"test"
-    assert_equal (testpath/"test").sha256, "93fb96b0f48a20ff5be0d9d9d3c4a986b469cb853131f9d5fe4cc9cecbc8b5b5"
+    test_url = "https://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.19.4.tar.gz"
+    system bin/"duck", "--download", test_url, testpath/"test"
+    assert_equal "93fb96b0f48a20ff5be0d9d9d3c4a986b469cb853131f9d5fe4cc9cecbc8b5b5", (testpath/"test").sha256
   end
 end

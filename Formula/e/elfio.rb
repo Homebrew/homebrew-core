@@ -6,8 +6,6 @@ class Elfio < Formula
   license "MIT"
   head "https://github.com/serge1/ELFIO.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "195ef71a662681ff1d1eb3f822c1853680911960d9487d4056493a438694c5e7"
   end

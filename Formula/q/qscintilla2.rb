@@ -16,8 +16,6 @@ class Qscintilla2 < Formula
     regex(%r{href=.*?QScintilla/v?\d+(?:\.\d+)+/QScintilla(?:[._-](?:gpl|src))?[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "a4ce4700e5e688b9b0b60890459a3793fc53e8cbaf27884f9ba88e94fa719515"
     sha256 cellar: :any,                 arm64_sequoia: "27499e5e9430c801ac7265f06845ccc56d6669f1626fab44a16f1b7aec80d61b"

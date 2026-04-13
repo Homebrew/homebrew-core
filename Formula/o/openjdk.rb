@@ -1,9 +1,10 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk25u/archive/refs/tags/jdk-25.0.1-ga.tar.gz"
-  sha256 "99864b94b65a9d8e180ec55b8e53a9ab39b0eaebd3ba4438388bf7ea7d5e079a"
+  url "https://github.com/openjdk/jdk25u/archive/refs/tags/jdk-25.0.2-ga.tar.gz"
+  sha256 "e4b935e999a28ee732dfb932dcef4a8591b42f6fcd182099319db68e9d8017ff"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -11,12 +12,13 @@ class Openjdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "87540c366e47ad13fb917902c4533899107be1bc00cbf9cd8f8607d2584e0d1b"
-    sha256 cellar: :any, arm64_sequoia: "8703b312ccf7a1d45d41e27754c91a189ebbff6f6f203f6dd1b78503b68d63a3"
-    sha256 cellar: :any, arm64_sonoma:  "5ec03fccf5e2fa430f3effeeef62285b123d4e67b1e077f2edf19edfe9eb1437"
-    sha256 cellar: :any, sonoma:        "8ffb199940f468f214c74179ededd183350e64a3bfc281b2e83e71c2363bf281"
-    sha256               arm64_linux:   "60536fe1c9e78a42055182c29ed101e1b42caefeaf6a4dd816c6c2a05041ce98"
-    sha256               x86_64_linux:  "8ab4e9b554a9d6a5253c694d47359cc461d51863b258cfae5d2eb5bd3e5f807a"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "5c33d6c93e3f80a9571ba06fce035f8e4e16d91a98df91995992f30416c3deb4"
+    sha256 cellar: :any, arm64_sequoia: "86ab294dfd1dbe68caf67107af3928b4df5b4f2939f102be20a198eca743c1e2"
+    sha256 cellar: :any, arm64_sonoma:  "75d25e5430e8bd4ce24180e249561b1b9f81f3a1ca578773ed086d4c9383d26e"
+    sha256 cellar: :any, sonoma:        "16dc0565951675ec4a1951e9b948c8839fb1d8ffd964707ba5fc334f218c4dcf"
+    sha256               arm64_linux:   "cd6261f09d923dfa6d384f07863f5ced901cf8e3e7b79637e44d474fcc935086"
+    sha256               x86_64_linux:  "ceea61856c6c9f861c7c0662c3051a428a9870c99d2c14fd2429621ebf82acdc"
   end
 
   keg_only :shadowed_by_macos
@@ -34,7 +36,6 @@ class Openjdk < Formula
   uses_from_macos "cups"
   uses_from_macos "unzip"
   uses_from_macos "zip"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
@@ -46,28 +47,29 @@ class Openjdk < Formula
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
+    depends_on "zlib-ng-compat"
   end
 
   # From https://jdk.java.net/archive/
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_macos-aarch64_bin.tar.gz"
-        sha256 "d2bcbedc348978625e6ad03dda9f8f9993ce6918c34ec5328ec1c1dd2e71e0c7"
+        url "https://download.java.net/java/GA/jdk25.0.1/2fbf10d8c78e40bd87641c434705079d/8/GPL/openjdk-25.0.1_macos-aarch64_bin.tar.gz"
+        sha256 "9175d602f3be2ffa241eb01d24ba4541e29a4dfa2095d4bdc1c9eb4bf4d56705"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_macos-x64_bin.tar.gz"
-        sha256 "a2ce194209f0a1c311275cdbaadf586e48295303dbacee3ebdf57d17beecdbb2"
+        url "https://download.java.net/java/GA/jdk25.0.1/2fbf10d8c78e40bd87641c434705079d/8/GPL/openjdk-25.0.1_macos-x64_bin.tar.gz"
+        sha256 "906fec42291d1f01b4cbd419eece8ff8872dbde1e74bb22e6a98ee0322a22bcb"
       end
     end
     on_linux do
       on_arm do
-        url "https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_linux-aarch64_bin.tar.gz"
-        sha256 "1c2164216387c2f5cbacc7e96ecaa51168d954ac3805312b0a7d4d1e2726f58a"
+        url "https://download.java.net/java/GA/jdk25.0.1/2fbf10d8c78e40bd87641c434705079d/8/GPL/openjdk-25.0.1_linux-aarch64_bin.tar.gz"
+        sha256 "c5732ae191151195fbd2cfb7aef7675bf2c37cfa8bfd06f8330b6f04d4eb03a4"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_linux-x64_bin.tar.gz"
-        sha256 "635050717feab0e4c283c8e90e79e944a2b65a3b6b21f1d37dcaadad4cc29548"
+        url "https://download.java.net/java/GA/jdk25.0.1/2fbf10d8c78e40bd87641c434705079d/8/GPL/openjdk-25.0.1_linux-x64_bin.tar.gz"
+        sha256 "514db33011f2c81fa9c589f7712735b42b9d2575db8f817d3be40a92d2ef7ad8"
       end
     end
   end

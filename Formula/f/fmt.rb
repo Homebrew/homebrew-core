@@ -4,6 +4,7 @@ class Fmt < Formula
   url "https://github.com/fmtlib/fmt/releases/download/12.1.0/fmt-12.1.0.zip"
   sha256 "695fd197fa5aff8fc67b5f2bbc110490a875cdf7a41686ac8512fb480fa8ada7"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/fmtlib/fmt.git", branch: "master"
 
   bottle do

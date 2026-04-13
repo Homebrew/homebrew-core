@@ -25,8 +25,6 @@ class Unnethack < Formula
     regex(/^v?(\d+(?:\.\d+)+(?:[._-]\d{6,8})?)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "95679ab2628590f991ccb63e169583d400bfadc242a7cc87cf914e733104f1f1"
     sha256 arm64_sequoia:  "fccec5070c4616fe421556ce507d015687ccdcd4da2681b2f8cc676dd4e7df9e"
@@ -51,6 +49,7 @@ class Unnethack < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "ncurses"
 
   on_linux do
     depends_on "util-linux"
@@ -81,7 +80,7 @@ class Unnethack < Formula
     ]
     args << "--with-group=admin" if OS.mac?
     # Help old config scripts identify arm64 linux
-    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
 
     system "./configure", *args
     ENV.deparallelize # Race condition in make

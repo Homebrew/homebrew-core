@@ -5,8 +5,6 @@ class Sidekick < Formula
   sha256 "174224422622158ee78d423ac3c25bb9265914983a1f9b5b2e14543dcb0fe939"
   license "GPL-3.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b47090a52636675f0dfae5f548f852059b7dc088872a2d8d64eec484e19db617"

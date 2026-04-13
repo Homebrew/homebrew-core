@@ -4,16 +4,18 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/9.5/VTK-9.5.2.tar.gz"
   sha256 "cee64b98d270ff7302daf1ef13458dff5d5ac1ecb45d47723835f7f7d562c989"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
+  compatibility_version 1
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1c527182b2977e2a90c68cd000622dc312685e49a9a87402917a416969203b56"
-    sha256 cellar: :any,                 arm64_sequoia: "40821fb74f71d78ea3c1a8a3de870a31f977a17d31ddd6aac627a2423c01e6f5"
-    sha256 cellar: :any,                 arm64_sonoma:  "a6549d4e94df069fe0dc2eaa771136292820eb3462c6493c66385fddbe873d17"
-    sha256 cellar: :any,                 sonoma:        "3dc0560fee378ce9b12866898a5675bad8e1d3837e5a6bf8877248b3b933f311"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "89c83a857f7f529adaecea5c7f18926bf80409f30043b8d1c25cec30350cd6c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5971c75d68c2918f19705522211fd276c8de22878656fb1fed2bcd77c55333bc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "100fd9e37f999ded1ea0094a95f2ef9a7dc15251f5dca51e44107afed5831233"
+    sha256 cellar: :any,                 arm64_sequoia: "81595c5a9f1fd3fba4f5eec3aaa5eaaf1aaa187f5ea0bacad5058b4a4164bc93"
+    sha256 cellar: :any,                 arm64_sonoma:  "1f4d4b2900cbeb4923959a555d832d27d24498fa59d44ece4516b76a278c02a5"
+    sha256 cellar: :any,                 sonoma:        "462e3c9d703713bedca3e6152c113084eab8b4440a79245c2c459b46945bf389"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e432d600806ba0c6c594e791bfe2aaa664ebeb0a9caa516a989f4b37c6601cec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3cf4fa567b7a0be93666a081cdb512489b7656c43a4d5b4a97ea601a4deab16"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -46,13 +48,20 @@ class Vtk < Formula
 
   uses_from_macos "expat"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "gl2ps"
     depends_on "libx11"
     depends_on "libxcursor"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
+  end
+
+  # Backport fix for HDF5 2.0.0
+  patch :p2 do
+    url "https://github.com/Kitware/CMake/commit/27e558dfa5a5441954d8930f2b6d9ae700c95050.patch?full_index=1"
+    sha256 "ba4ecd3f9abfaae2c60c9be6978c250622bdb9979b42ddec52116d51d034f911"
+    directory "CMake/patches/99"
   end
 
   def install

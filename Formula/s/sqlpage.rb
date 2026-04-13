@@ -1,18 +1,18 @@
 class Sqlpage < Formula
   desc "Web app builder using SQL queries to create dynamic webapps quickly"
   homepage "https://sql-page.com/"
-  url "https://github.com/sqlpage/SQLpage/archive/refs/tags/v0.41.0.tar.gz"
-  sha256 "85f214f72633a5e24d36038215fafa8e3dadc297cb17a216bceea73f5f9a77e8"
+  url "https://github.com/sqlpage/SQLpage/archive/refs/tags/v0.43.0.tar.gz"
+  sha256 "ddf3e03d92d4acc90f6e650ba8f500cc5c27b82906b4eea60c7a792bd231c32f"
   license "MIT"
   head "https://github.com/sqlpage/SQLpage.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1d6eb60cb0a1a8197821c8e531118b98d285e6a1742efc45ff043e922ae8f6e9"
-    sha256 cellar: :any,                 arm64_sequoia: "f2b07e4e69735ef075c662cf5a62ab17ca54b11e62946c6a112d34951a3612d4"
-    sha256 cellar: :any,                 arm64_sonoma:  "1b5046b75c0ec1ad07daeb0338514e22b5d73ffaadd86beaa9752ef8900a2e16"
-    sha256 cellar: :any,                 sonoma:        "ccd4ffe92e6879322b9bb583b9e1f10b5ff362fed14799de7c957dd05bf519b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "32cbc0f1d4aae55b2df8dfde654852ea235d07aca87012bb20748283f554fee8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e637baa0ca70803a3c4a8e510975510f7721ad76fc9d64c0cc781248b6d422e6"
+    sha256 cellar: :any,                 arm64_tahoe:   "d4118d1134637e6b220b437b71288801f7327c1f32e88e7c140e4ee242e28a67"
+    sha256 cellar: :any,                 arm64_sequoia: "aabbea7eabdb0a772467e2e09730737084b6bf70f4f43ad95bf559b7994fe6a1"
+    sha256 cellar: :any,                 arm64_sonoma:  "eb491b4df2da04fecf8a4bb7d462e5ffcc391941d5ca958cf55f1a706e7a85e4"
+    sha256 cellar: :any,                 sonoma:        "584294f01ac5dd9d6ce3d1229fa64e397b9ccee45a02342595f1826e2d72cd8a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a61e98009c8735940fb579db97c3f1b746488c674206c2afb1907da12c0eede"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "267f860b4746ae4b8ad20aeab7b2922cc7ae3fef092f03a626e4a8e8e4cef25a"
   end
 
   depends_on "rust" => :build
@@ -28,10 +28,7 @@ class Sqlpage < Formula
     ENV["PORT"] = port.to_s
     pid = spawn bin/"sqlpage"
 
-    sleep 2
-    sleep 3 if OS.mac? && Hardware::CPU.intel?
-
-    assert_match "It works", shell_output("curl -s http://localhost:#{port}")
+    assert_match "It works", shell_output("curl --retry-connrefused --retry 4 --silent http://localhost:#{port}")
   ensure
     Process.kill("TERM", pid)
     Process.wait(pid)

@@ -1,20 +1,18 @@
 class Netscanner < Formula
   desc "Network scanner with features like WiFi scanning, packetdump and more"
   homepage "https://github.com/Chleba/netscanner"
-  url "https://github.com/Chleba/netscanner/archive/refs/tags/v0.6.3.tar.gz"
-  sha256 "ad2df332bb347eac96c0a5d22e9477f9a7fe4b05d565b90009cc1c3fb598b29f"
+  url "https://github.com/Chleba/netscanner/archive/refs/tags/v0.6.41.tar.gz"
+  sha256 "1e913b7d9cde8953d2ea77307d91c55240bc94308ac9e321a8a843f930350e04"
   license "MIT"
   head "https://github.com/Chleba/netscanner.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0b3f94976bd5b784cb146d927fe0a5f5666c6423d575a3992462d91d8ffcd228"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9b676da6d93f469d0818d8a36401f9ea5acaab79871be20503935313ff303aa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e065a383960691a87a2e0cab684c9b96334ed59f9e6e2ee3c34bb8305fbf8c18"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "457b9ebece7265aef139b9f72f3cc9304cb9da345a0d8a7598732d31c8b24900"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0d8b5c71568111b671f317a4c8e1f676c2d6bce3736fe620e7e0f35b5c39ca19"
-    sha256 cellar: :any_skip_relocation, ventura:       "d75f758710f6a73e9ec214a11e20c1bd3aa091c1042dd82ba16a098c57c9dc9a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9b62e202cf8b8f8c5fd3c700aece19d41fe4cbfe4a63a3ca499c49d98196be0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b9e389005e065ed119a75aeefc77f513408bcd380ba199a8b55e6e7d80a6eca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2bbdc73b8f4388e4eb8eda83524478f41432634a4af62e957cafff816da58241"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c6ef877e040dfdf0e498947e9cf128844e26e75588710ecf3a4aa30bd5bad24"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9de8c346a2068284a49bad268959a331d9b8e6734ab3bc04357c68b957540bc3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fb838a3d0b5d954271195ef760920298825cf9daddba983bb5e00683de0f0761"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f63fc1a81c0d4abfa64065b4a6f93fa19de58f54af00a20fd95148e2fcbe650a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "885f563d930c6cffece877d5ddbb16170f83df76fea607e29ec302f65cc4bb83"
   end
 
   depends_on "rust" => :build

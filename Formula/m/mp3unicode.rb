@@ -19,8 +19,6 @@ class Mp3unicode < Formula
     regex(/^mp3unicode-v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:   "75d5fc48faf45713ba932224204b1a5334a4f0aff1955c22913fa40238d457cd"

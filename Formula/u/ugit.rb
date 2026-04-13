@@ -9,8 +9,11 @@ class Ugit < Formula
     sha256 cellar: :any_skip_relocation, all: "5d2cbe4ed925006cc99467b8a4b837b75e60a2381641b15471fd71a08d0d2b5d"
   end
 
-  depends_on "bash"
   depends_on "fzf"
+
+  on_macos do
+    depends_on "bash"
+  end
 
   conflicts_with "git-extras", because: "both install `git-undo` binaries"
 

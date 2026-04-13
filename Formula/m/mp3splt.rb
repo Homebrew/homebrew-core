@@ -6,8 +6,6 @@ class Mp3splt < Formula
   license "GPL-2.0-or-later"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "867a665c9465e82d864910185387d4df79bced27f9121ccff36bd2f32524820e"
     sha256 arm64_sequoia:  "2d21b2a3b74e156a07882dfc20c2707bf836f011b914c88f6245a06230eacfdf"

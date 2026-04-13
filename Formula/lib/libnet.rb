@@ -4,8 +4,7 @@ class Libnet < Formula
   url "https://github.com/libnet/libnet/releases/download/v1.3/libnet-1.3.tar.gz"
   sha256 "ad1e2dd9b500c58ee462acd839d0a0ea9a2b9248a1287840bc601e774fb6b28f"
   license "BSD-2-Clause"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "1a947f6508603cdc9c46aab18eb6b812ddc91d39be2f6431d912e271b041779b"

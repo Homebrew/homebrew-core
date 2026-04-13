@@ -10,8 +10,6 @@ class Docbook2x < Formula
     regex(%r{url=.*?/docbook2X[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "87b0d72f55d9ff922befd55d7e708a23804d99c0ae1fab7e57c7694a6f91e833"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6515ef361ee9ad2b83b539b46bb8869a09e98819fdb23277340e0557be168635"

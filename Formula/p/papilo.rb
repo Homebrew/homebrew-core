@@ -18,7 +18,7 @@ class Papilo < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
   depends_on "gmp"
   depends_on "openblas"
   depends_on "tbb"

@@ -11,18 +11,20 @@ class Tippecanoe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "41f5baacdcf8fb2a3eecf025c42119d054823382187bbc2aec283d48e4f352aa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d3c3e2348158de483fb2736c54062b15f60556cd8df3d2ce6dc51887ab10e9b5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6f03bd4804e1dfd92a168d64780a83fa141071211da196f8dec7ac2c2d5bb7bf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6faf6f939872e4aced660fbadbc532a1fe89266160e35605fc3898423759c140"
-    sha256 cellar: :any_skip_relocation, sonoma:        "45ceaa42ef046d217a7beb96d03b620204f5409e456419585e5a4f5a9bd2dbc7"
-    sha256 cellar: :any_skip_relocation, ventura:       "0be791fe0605b84f8c2f33ac9d544227d7ef8bb8a36396f66c431f851ddee57b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "355ea18747634ebd9f8f60e49e4cee3ba58f1bf2ec636d282bc16371c1d1e525"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8548c16fa99ffc64952302b930cc240e2b917fad2e91379b9e8a6eaae05c3461"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "789f0c1726dbfe2e753ee90977c212738d1435b6217c4d20df7e2e1a6fb09732"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08faa5cd2a23753e7cea762bc9d69c2c3403086a923423158bee845cdf1c4eb5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5115543a48645f67a4e3cbf8c545a5c152286df2112def83b2baad49c6fde501"
+    sha256 cellar: :any_skip_relocation, sonoma:        "198449b1baacb651f09b763511340e2279ffb817896a52701245d81345eb1abd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7bad962c9d0003b05ed245187d525cec015d6e2dcae507f20af3be646394bbfd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "facc57688a1d929bef5456e1b2c5298c7ae089ed4e12fe37d46051b818c2d228"
   end
 
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

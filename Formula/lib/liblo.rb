@@ -4,6 +4,7 @@ class Liblo < Formula
   url "https://downloads.sourceforge.net/project/liblo/liblo/0.34/liblo-0.34.tar.gz"
   sha256 "69aa0cd365dba5ea7799b850a7da659ad303e6074bbd67f4ab84e4d6f5f6c3a4"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "f08a0362c895fd58456663358085ba1641a39f0fc74d62136c07efeb4d25e299"

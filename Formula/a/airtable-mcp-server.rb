@@ -1,12 +1,12 @@
 class AirtableMcpServer < Formula
   desc "MCP Server for Airtable"
   homepage "https://github.com/domdomegg/airtable-mcp-server"
-  url "https://registry.npmjs.org/airtable-mcp-server/-/airtable-mcp-server-1.9.6.tgz"
-  sha256 "f6adad7f4c67b3238209cb8be252dcff40203df361ff155ddcb560c125c4d685"
+  url "https://registry.npmjs.org/airtable-mcp-server/-/airtable-mcp-server-1.13.0.tgz"
+  sha256 "7dc5eef043b2f0214ead63e6a06e8a9d4645a35d01da60e5dab675047060cf95"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9f43d7bbae9e4224c8f8d594c9ffdf342bbab5af7cdccd7527ee03f4185e5275"
+    sha256 cellar: :any_skip_relocation, all: "a40b6ad1159c478c26c093c48263ab9ac088d34fb875d39b99173953646498df"
   end
 
   depends_on "node"

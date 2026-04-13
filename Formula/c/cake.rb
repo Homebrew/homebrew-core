@@ -1,16 +1,17 @@
 class Cake < Formula
   desc "Cross platform build automation system with a C# DSL"
   homepage "https://cakebuild.net/"
-  url "https://github.com/cake-build/cake/archive/refs/tags/v5.1.0.tar.gz"
-  sha256 "32e93073526d1c65d298d573a33b23d908484bb37fdd68b66bc36a9dde7921fb"
+  url "https://github.com/cake-build/cake/archive/refs/tags/v6.1.0.tar.gz"
+  sha256 "90c172d5ca8bd3b274cb7cbadca0a4de7f627663f2915c3ac33fe99ae7937f0d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ac7e950f55d377f780683ba9a1123a7b009aa8ae938ba97195747b7d24ae1fb4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59c34254b7a1f561b3b67f465dea3505abf761a989dde7fb4d37780b0f3e9544"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ccfac27859b9dbedd76d793cd62795d05e2c9a38ae039b604a502744f9245798"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f80802dc899b201d304a2b137878fafc03c4315b0d0f326689b206f057b54d1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7eadcc16ddfb3c38cab715f1d0fbc9b280dfa21a82995dffd5a4f144b8e5759e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "207852e14fb8ef1856aac7e6e73639eb214d1817d8b4f1c3f2b9034896c35d36"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b6d9e97185b565f36bcbcc4237013ad62a2bf76f6fa542f9d802393fdb44bed3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "baf6a9e84ead686f41b801737a919f18587012221ce22dbb8df1f9a8cf47573a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8c06c9bc2cedf9e8f85dbf53a09cf05c169aeaa9520f84b8c2d5797a301ca7e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "162608928ded9568ceea964a9ce4ffde2a87220f9343c3f8d1d87a89e067097e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b82b8d10fcf983f195b1422d768f9fcc1b2d49de038c906043846084f3104e0e"
   end
 
   depends_on "dotnet"
@@ -47,6 +48,6 @@ class Cake < Formula
 
       RunTarget ("info");
     EOS
-    assert_match "Hello Homebrew\n", shell_output("#{bin}/cake build.cake")
+    assert_match "Hello Homebrew", shell_output("#{bin}/cake build.cake")
   end
 end

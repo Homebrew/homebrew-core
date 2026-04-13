@@ -1,23 +1,23 @@
 class Libsigcxx < Formula
   desc "Callback framework for C++"
   homepage "https://libsigcplusplus.github.io/libsigcplusplus/"
-  url "https://download.gnome.org/sources/libsigc++/3.6/libsigc++-3.6.0.tar.xz"
-  sha256 "c3d23b37dfd6e39f2e09f091b77b1541fbfa17c4f0b6bf5c89baef7229080e17"
+  url "https://github.com/libsigcplusplus/libsigcplusplus/releases/download/3.8.0/libsigc++-3.8.0.tar.xz"
+  sha256 "502a743bb07ed7627dd41bd85ec4b93b4954f06b531adc45818d24a959f54e36"
   license "LGPL-3.0-or-later"
+  compatibility_version 1
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :stable
+    regex(/^v?(\d+\.([0-8]\d*?)?[02468](?:\.\d+)*?)$/i)
+  end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "7584f429685f4303440447588525e5259681cc7c08b2e53d80757c4c9aadd1c3"
-    sha256 cellar: :any,                 arm64_sequoia:  "e481f54a00978ae4fdd3c377bacfb99fb5f890ff914791151a514ce7a6ebfadb"
-    sha256 cellar: :any,                 arm64_sonoma:   "1dafdacabb0f20c0f95af6338147c4ffb65d4e516670786b995091364fa9c110"
-    sha256 cellar: :any,                 arm64_ventura:  "ea969d674fc75a2c00d3949275f22c54cb3bff8c3f172e0fa7504eb8c5a43e33"
-    sha256 cellar: :any,                 arm64_monterey: "d8da5f7b72add1164baa9dea85cf98252e453d6feccdc810a83e45864015a4a6"
-    sha256 cellar: :any,                 sonoma:         "2b8440fee6119c2db8798127a2ba79a0661d704cce7ad9981f8379ac425390dd"
-    sha256 cellar: :any,                 ventura:        "14caa93cc34a8fc23b59970bd16fcb6750d06455a1077dbdc4b019484cc1f25a"
-    sha256 cellar: :any,                 monterey:       "00a4b40549db35b1c86c7c4dbec7ce12fac4984a6978dd23f3a64f99dd55e789"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "0ec3e71db039808ea08a34d73e13d2bceb915dcdb0069f4da98478afe501e0b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "125217bab99e1e8e4752ddcbe720f68745ffaadc94930cbd432d554a87c7924f"
+    sha256 cellar: :any,                 arm64_tahoe:   "e34388e22fe43082e4eec509563daebb6c22e4741b951c1f7e51ca9dbfc6c1cb"
+    sha256 cellar: :any,                 arm64_sequoia: "69d7a7c6111cc2e15c79ec3a6b1f7665478352d546f6b53e8a3abc825061dc1f"
+    sha256 cellar: :any,                 arm64_sonoma:  "6e0659fd1db91fa0983ef291bdfc361a57ae481fa58157f3a4601b671839a45e"
+    sha256 cellar: :any,                 sonoma:        "9252bbe32c72a9648b1a1310e6c66951ef7c8d2d864fcbcb70b7776ad057b117"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d5977874a94340f0762a03848e4d1bb0c2f892b1c0cd2547113ffdc95f582ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da465553d96b4047d92ffb26069a6beba6c4b8ee03c1372a257d463e7ede8cea"
   end
 
   depends_on "meson" => :build

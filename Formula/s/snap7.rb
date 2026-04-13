@@ -6,8 +6,6 @@ class Snap7 < Formula
   license "LGPL-3.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "abb76d2d02504c5bbc694f446a88b35f5d6c5e44c06cdf9f2ddef874eada0a8b"

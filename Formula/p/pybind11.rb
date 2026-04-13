@@ -1,10 +1,10 @@
 class Pybind11 < Formula
   desc "Seamless operability between C++11 and Python"
   homepage "https://github.com/pybind/pybind11"
-  url "https://github.com/pybind/pybind11/archive/refs/tags/v3.0.1.tar.gz"
-  sha256 "741633da746b7c738bb71f1854f957b9da660bcd2dce68d71949037f0969d0ca"
+  url "https://github.com/pybind/pybind11/archive/refs/tags/v3.0.3.tar.gz"
+  sha256 "787459e1e186ee82001759508fefa408373eae8a076ffe0078b126c6f8f0ec5e"
   license "BSD-3-Clause"
-  revision 1
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -12,7 +12,7 @@ class Pybind11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5cf8e28a751807c0fe409e09c042ea247dcbe2540e48ea6dc3dc6c8c25a009e4"
+    sha256 cellar: :any_skip_relocation, all: "f0b5e787c739690f4d244c535cc23209e2e6dd0c78b7f64a2d1cd5511ba23fa7"
   end
 
   depends_on "cmake" => :build

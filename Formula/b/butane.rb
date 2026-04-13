@@ -1,8 +1,8 @@
 class Butane < Formula
   desc "Translates human-readable Butane Configs into machine-readable Ignition Configs"
   homepage "https://github.com/coreos/butane"
-  url "https://github.com/coreos/butane/archive/refs/tags/v0.25.1.tar.gz"
-  sha256 "14203e7fa13f5753e332c472d0d7be3fc7ddf9a637873463793d898bb61cf69c"
+  url "https://github.com/coreos/butane/archive/refs/tags/v0.27.0.tar.gz"
+  sha256 "a13ca441c3b4797e9c78fb7ea8335d889c346e5003f2fa7fb3ffaf6cb6de4c86"
   license "Apache-2.0"
   head "https://github.com/coreos/butane.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Butane < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "462e8be7b0aa75adecb7309207b6820cc18ca2991159e8bf3e79f8a14c5d4f93"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "462e8be7b0aa75adecb7309207b6820cc18ca2991159e8bf3e79f8a14c5d4f93"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "462e8be7b0aa75adecb7309207b6820cc18ca2991159e8bf3e79f8a14c5d4f93"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1c227b7f81ac0f40e7be5a2d263ddb1825a87c5ebbe552033abdd1cbcf6423e4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "acc15c74454f7db160bfb6801d1ddab0d043cff9152245aeaeb7e9a518c64deb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9791d51417e488f5aa4e00a60d95b46412f29f02e686ba4c7787ceee56af5aeb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea83811b0f1da01a869bbd7bf21371def281c6071e8f14c5153880e1028f9c3f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea83811b0f1da01a869bbd7bf21371def281c6071e8f14c5153880e1028f9c3f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea83811b0f1da01a869bbd7bf21371def281c6071e8f14c5153880e1028f9c3f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "42fc6fed9cec25ba4f5ceed98e19a80ca25d3c9f78d9cf4504185f9f696213ff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba7bc463566f368b77da3f77674883b1755ab9b516d69c799a44cf33facdea50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "439452d0ced524b633b6ef611e8496639af192edd26b793f1fe61771c1b68f2c"
   end
 
   depends_on "go" => :build
@@ -48,7 +48,7 @@ class Butane < Formula
               - ssh-rsa mykey
     EOS
 
-    system bin/"butane", "--strict", "--output=#{testpath}/example.ign", "#{testpath}/example.bu"
+    system bin/"butane", "--strict", "--output=#{testpath}/example.ign", testpath/"example.bu"
     assert_path_exists testpath/"example.ign"
     assert_match(/.*"sshAuthorizedKeys":\["ssh-rsa mykey"\].*/m, File.read(testpath/"example.ign").strip)
 

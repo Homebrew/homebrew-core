@@ -25,7 +25,7 @@ jobs:
     if: always() && github.repository_owner == 'Homebrew'
     runs-on: ubuntu-slim
     steps:
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: event_payload
           path: ${{ github.event_path }}
@@ -87,7 +87,7 @@ jobs:
     if: always() && github.repository_owner == 'Homebrew' && github.actor != 'BrewTestBot'
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
     env:
       PR: ${{ github.event.number }}
     steps:
@@ -185,6 +185,10 @@ jobs:
             - label: deprecated license
               path: Formula/.+
               content: license .*"(GPL|LGPL|AGPL|GFDL)-[0-9].[0-9][+]?".*
+
+            - label: review no_autobump stanza
+              path: Formula/.+
+              content: 'no_autobump! because: :requires_manual_review'
 
             - label: boost
               path: Formula/.+
@@ -349,10 +353,10 @@ jobs:
                 libgpg-error|\
                 libidn2|\
                 libmicrohttpd|\
-                librist|\
                 libnghttp2|\
                 libomp|\
                 libpng|\
+                librist|\
                 libtool|\
                 libunistring|\
                 mpfr|\
@@ -360,20 +364,21 @@ jobs:
                 node|\
                 numpy|\
                 openblas|\
+                openjdk|\
                 openjpeg|\
                 openssl@3|\
                 p11-kit|\
                 pango|\
                 pcre2|\
                 python@3.14|\
+                qtbase|\
                 rav1e|\
+                readline|\
                 rust|\
                 sdl2|\
                 shared-mime-info|\
                 sqlite|\
                 suite-sparse|\
-                qtbase|\
-                readline|\
                 unbound|\
                 xz|\
                 zstd\
@@ -383,8 +388,22 @@ jobs:
 
             - label: CI-build-dependents-from-source
               path:
-                - 'Formula/.+/(cabal-install|docbook-xsl|emscripten|erlang|ocaml|ocaml-findlib|ocaml-num|openjdk|pyqt-builder|rust)\.rb'
-                - 'Aliases/(ghc|go)(@[0-9.]+)?$'
+                - "Formula/.+/(\
+                    cabal-install|\
+                    docbook-xsl|\
+                    emscripten|\
+                    erlang|\
+                    ocaml|\
+                    ocaml-findlib|\
+                    ocaml-num|\
+                    openjdk|\
+                    pyqt-builder|\
+                    rust\
+                    )\\.rb"
+                - "Aliases/(\
+                    ghc|\
+                    go\
+                    )(@[0-9.]+)?$"
               missing_content: '\n  revision [0-9]+\n'
               keep_if_no_match: true
               allow_any_match: true
@@ -400,9 +419,10 @@ jobs:
                 glib|\
                 harfbuzz|\
                 openssl@3|\
-                wayland-protocols|\
+                rust|\
                 sqlite|\
-                systemd\
+                systemd|\
+                wayland-protocols\
                 ).rb"
               keep_if_no_match: true
               allow_any_match: true
@@ -430,8 +450,7 @@ jobs:
                 mesa|\
                 openssl@3|\
                 python@3.14|\
-                wayland-protocols|\
-                zlib|\
+                zlib-ng-compat\
                 ).rb"
               keep_if_no_match: true
               allow_any_match: true

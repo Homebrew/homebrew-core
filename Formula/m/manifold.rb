@@ -1,18 +1,17 @@
 class Manifold < Formula
   desc "Geometry library for topological robustness"
   homepage "https://github.com/elalish/manifold"
-  url "https://github.com/elalish/manifold/releases/download/v3.3.2/manifold-3.3.2.tar.gz"
-  sha256 "efdae7cd75aabab20fa2673603a9ac263d5b48912559664dde37f5d9e85eced8"
+  url "https://github.com/elalish/manifold/releases/download/v3.4.1/manifold-3.4.1.tar.gz"
+  sha256 "c0283695648886df3a0ab35ead473622338782a05a247664925eb3c41ced0181"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d8ff8859d3a76f9572d4acf0f547d7f4f419f6902c7ec58fc4facfbfc4bfc4c8"
-    sha256 cellar: :any,                 arm64_sequoia: "2887f0c2479448e4e9c90e5b29112551cef7c581907e6dc99d01e86db61f9b16"
-    sha256 cellar: :any,                 arm64_sonoma:  "75167f1b674ea31b6714daf717284a120ae25009458793a9a8a4feeb3716b0c8"
-    sha256 cellar: :any,                 sonoma:        "0739ab828ac6f351014c0e4cbb9a989e9a88dc9568d92eb753779b38de194669"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fccff6f612d40d4f26cc582b7872835c1ef7924726bb33dd0279d3d9f12c2a27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3392442fb8a153d7ae73ac4c712ecb19a3494962f6b9293fe90443df0526aeb2"
+    sha256 cellar: :any,                 arm64_tahoe:   "aa1b6aaf8f53281c221c85243a4857958878b5c438cf394e1f9148bde3c95dbc"
+    sha256 cellar: :any,                 arm64_sequoia: "bd78a4a16e4367941bab70bf3b838ee256235ef3f241f704b05f10f0af24821a"
+    sha256 cellar: :any,                 arm64_sonoma:  "523b788337489adc047b5a754a1863bb1095383c3ddea2970bcad1f3b6cf3e13"
+    sha256 cellar: :any,                 sonoma:        "69af5b7f329fd5921321da5d0711c01a80fb2c4591111dc5d3937763e58cab00"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ca61fbcfb6a53c3ba4ec5f3d7c8deed9c2787abe870f8e38b2946ddae75f5b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79739a087311fa1e90f161f8bcfb53fe2eae82a13fced9e4db37a5d5cc970d14"
   end
 
   depends_on "cmake" => :build
