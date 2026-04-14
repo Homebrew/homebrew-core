@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/refs/tags/v12.4.2.tar.gz"
-  sha256 "f3b5dbc39da14ba072dea00c2b2ec40743f753851e4ad8bd133a7a1441adeb76"
+  url "https://github.com/grafana/grafana/archive/refs/tags/v13.0.0.tar.gz"
+  sha256 "5a9de40312f2e65024919e9d866e719f5b24697b4608d249bad2142cc670ef11"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
@@ -41,14 +41,14 @@ class Grafana < Formula
     ENV["npm_config_build_from_source"] = "true"
 
     system "make", "gen-go"
-    system "go", "run", "build.go", "build"
+    system "make", "build-backend"
 
     system "yarn", "install", "--immutable"
     system "yarn", "build"
 
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
-    bin.install buildpath.glob("bin/#{os}-#{arch}/grafana{,-cli,-server}")
+    bin.install buildpath/"bin/#{os}/#{arch}/grafana"
 
     cp "conf/sample.ini", "conf/grafana.ini.example"
     pkgetc.install "conf/sample.ini" => "grafana.ini"
