@@ -2,8 +2,8 @@ class DotnetAT8 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.125.tar.gz"
-  sha256 "55461fd09921edad587043b935974dcb999974aec6addff95c8918070b03490f"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.126.tar.gz"
+  sha256 "a565874be3d71ad8564bd9b84f79c579d553909ec56f5203f1f9331450db9443"
   license "MIT"
   compatibility_version 1
 
@@ -50,8 +50,8 @@ class DotnetAT8 < Formula
   end
 
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v8.0.125/release.json"
-    sha256 "8b482195a2a93e73066d7598295ffbd69cff80af2510d603a1c20f8b5a682632"
+    url "https://github.com/dotnet/dotnet/releases/download/v8.0.126/release.json"
+    sha256 "9b1fcd1dc284ae9ed0939ecfec2a1d615486705f067521b70f11d9fec51cbab7"
 
     livecheck do
       formula :parent
@@ -168,12 +168,13 @@ class DotnetAT8 < Formula
 
     # Test to avoid uploading broken Intel Sonoma bottle which has stack overflow on restore.
     # See https://github.com/Homebrew/homebrew-core/issues/197546
-    resource "sbom-tool" do
-      url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v3.0.1.tar.gz"
-      sha256 "90085ab1f134f83d43767e46d6952be42a62dbb0f5368e293437620a96458867"
+    resource "docfx" do
+      url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.4.tar.gz"
+      sha256 "255f71f4a6fc7b9ffd0c598d0eba11630dc01262f1fa45ec4f1794508f7033cf"
     end
-    resource("sbom-tool").stage do
-      system bin/"dotnet", "restore", "src/Microsoft.Sbom.Tool", "--disable-build-servers", "--no-cache"
+    resource("docfx").stage do
+      msbuild_args = ["-p:TargetFrameworks=net8.0"]
+      system bin/"dotnet", "restore", "src/docfx", "--disable-build-servers", "--no-cache", *msbuild_args
     end
   end
 end
