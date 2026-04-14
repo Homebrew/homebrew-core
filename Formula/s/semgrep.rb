@@ -40,7 +40,7 @@ class Semgrep < Formula
   depends_on "python@3.14"
   depends_on "rpds-py" => :no_linkage
   depends_on "sqlite"
-  depends_on "tree-sitter"
+  depends_on "tree-sitter@0.22"
   depends_on "zstd"
 
   uses_from_macos "rsync" => :build
@@ -366,7 +366,7 @@ class Semgrep < Formula
       s.gsub!("$(pkg-config gmp --variable libdir)/libgmp.a", Formula["gmp"].opt_lib/shared_library("libgmp"))
       s.gsub!(
         "$(pkg-config tree-sitter --variable libdir)/libtree-sitter.a",
-        Formula["tree-sitter"].opt_lib/shared_library("libtree-sitter"),
+        Formula["tree-sitter@0.22"].opt_lib/shared_library("libtree-sitter"),
       )
       s.gsub!(
         "$(pkg-config libpcre2-8 --variable libdir)/libpcre2-8.a",
