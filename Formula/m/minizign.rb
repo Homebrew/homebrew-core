@@ -1,8 +1,8 @@
 class Minizign < Formula
   desc "Minisign reimplemented in Zig"
   homepage "https://github.com/jedisct1/zig-minisign"
-  url "https://github.com/jedisct1/zig-minisign/archive/refs/tags/0.1.7.tar.gz"
-  sha256 "e0358f68a5fe6573c7e735db45cd1b697abcef6925c922abddc20978cd20a9f1"
+  url "https://github.com/jedisct1/zig-minisign/archive/refs/tags/0.1.10.tar.gz"
+  sha256 "77e3c8e36e6492fe2a81baff1015dcd91c1826e6e502fc4087587372cc4417c4"
   license "ISC"
   head "https://github.com/jedisct1/zig-minisign.git", branch: "main"
 
