@@ -1,8 +1,8 @@
 class Ecl < Formula
   desc "Embeddable Common Lisp"
   homepage "https://ecl.common-lisp.dev"
-  url "https://ecl.common-lisp.dev/static/files/release/ecl-24.5.10.tgz"
-  sha256 "e4ea65bb1861e0e495386bfa8bc673bd014e96d3cf9d91e9038f91435cbe622b"
+  url "https://ecl.common-lisp.dev/static/files/release/ecl-26.3.27.tgz"
+  sha256 "416d5707bf11d2b3d8d33d6791419a786e4cc59ac0cc3ec505ee59b51a9f5c9a"
   license "LGPL-2.1-or-later"
   head "https://gitlab.com/embeddable-common-lisp/ecl.git", branch: "develop"
 
@@ -37,13 +37,18 @@ class Ecl < Formula
     else
       Formula["libffi"].opt_prefix
     end
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-threads=yes",
-                          "--enable-boehm=system",
-                          "--enable-gmp=system",
-                          "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
-                          "--with-libffi-prefix=#{libffi_prefix}",
-                          "--with-libgc-prefix=#{Formula["bdw-gc"].opt_prefix}"
+
+    args = %W[
+      --enable-threads=yes
+      --enable-boehm=system
+      --enable-gmp=system
+      --with-gmp-prefix=#{Formula["gmp"].opt_prefix}
+      --with-libffi-prefix=#{libffi_prefix}
+      --with-libgc-prefix=#{Formula["bdw-gc"].opt_prefix}
+    ]
+    args << "--with-sse=no" if OS.mac? && Hardware::CPU.intel?
+
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end
