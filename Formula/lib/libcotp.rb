@@ -1,8 +1,8 @@
 class Libcotp < Formula
   desc "C library that generates TOTP and HOTP"
   homepage "https://github.com/paolostivanin/libcotp"
-  url "https://github.com/paolostivanin/libcotp/archive/refs/tags/v4.0.0.tar.gz"
-  sha256 "6b17323779dac1699462d8914b81155d69914b0d28b5ed837f1570ed05f2bd90"
+  url "https://github.com/paolostivanin/libcotp/archive/refs/tags/v4.0.1.tar.gz"
+  sha256 "f8c843004d18880eb41417853fcfc3855f6197e7a32dcd87d23a6609cf0a116a"
   license "Apache-2.0"
   head "https://github.com/paolostivanin/libcotp.git", branch: "master"
 
