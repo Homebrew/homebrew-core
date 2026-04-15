@@ -1,14 +1,10 @@
 class ExVi < Formula
   desc "UTF8-friendly version of traditional vi"
-  homepage "https://ex-vi.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ex-vi/ex-vi/050325/ex-050325.tar.bz2"
-  sha256 "da4be7cf67e94572463b19e56850aa36dc4e39eb0d933d3688fe8574bb632409"
+  homepage "https://github.com/n-t-roff/heirloom-ex-vi"
+  url         "https://github.com/n-t-roff/heirloom-ex-vi.git",
+    tag:      "4.1.3",
+    revision: "d47dc5ab1c66dc603b7de92ed17692e00d42d95f"
   license all_of: ["BSD-4-Clause", "BSD-4-Clause-UC"]
-
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/ex[._-]v?(\d+(?:\.\d+)*)\.t}i)
-  end
 
   bottle do
     rebuild 1
@@ -33,6 +29,8 @@ class ExVi < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
     ENV.deparallelize
+    system "./configure"
+    system "make"
     system "make", "install", "INSTALL=/usr/bin/install",
                               "PREFIX=#{prefix}",
                               "PRESERVEDIR=/var/tmp/vi.recover",
