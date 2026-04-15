@@ -1,8 +1,8 @@
 class McpPublisher < Formula
   desc "Publisher CLI tool for the Official Model Context Protocol (MCP) Registry"
   homepage "https://github.com/modelcontextprotocol/registry"
-  url "https://github.com/modelcontextprotocol/registry/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "cc7f90da70ecf5bcba06eafda0c5358c5fefa06f1caa79a2e9ee91b9073dfd50"
+  url "https://github.com/modelcontextprotocol/registry/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "5ecb79ea40aeaa94c26c53340b3c946ccedc94031ff00b1243afd1d83d87e768"
   license "MIT"
   head "https://github.com/modelcontextprotocol/registry.git", branch: "main"
 
