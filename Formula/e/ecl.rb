@@ -1,8 +1,8 @@
 class Ecl < Formula
   desc "Embeddable Common Lisp"
   homepage "https://ecl.common-lisp.dev"
-  url "https://ecl.common-lisp.dev/static/files/release/ecl-24.5.10.tgz"
-  sha256 "e4ea65bb1861e0e495386bfa8bc673bd014e96d3cf9d91e9038f91435cbe622b"
+  url "https://ecl.common-lisp.dev/static/files/release/ecl-26.3.27.tgz"
+  sha256 "416d5707bf11d2b3d8d33d6791419a786e4cc59ac0cc3ec505ee59b51a9f5c9a"
   license "LGPL-2.1-or-later"
   head "https://gitlab.com/embeddable-common-lisp/ecl.git", branch: "develop"
 
@@ -28,6 +28,8 @@ class Ecl < Formula
   depends_on "bdw-gc"
   depends_on "gmp"
   uses_from_macos "libffi"
+
+  patch :DATA
 
   def install
     ENV.deparallelize
@@ -55,3 +57,27 @@ class Ecl < Formula
     assert_equal "4", shell_output("#{bin}/ecl -shell #{testpath}/simple.cl").chomp
   end
 end
+
+__END__
+diff --git a/src/c/stacks.d b/src/c/stacks.d
+index ef52372c6..08d49aeb4 100644
+--- a/src/c/stacks.d
++++ b/src/c/stacks.d
+@@ -281,7 +281,7 @@ ecl_stack_frame_open(cl_env_ptr env, cl_object f, cl_index size)
+ 
+ /* Some clang versions miscompile the following function on x86_64.
+  * Temporarily turn off optimizations here. */
+-#if defined(__clang__) && __clang_major__ >= 17 && __clang_major__ <= 19 && defined(__x86_64__)
++#if defined(__clang__) && __clang_major__ >= 17 && __clang_major__ <= 22 && defined(__x86_64__)
+ [[clang::optnone]]
+ #endif
+ void
+@@ -341,7 +341,7 @@ ecl_stack_frame_push_values(cl_object f)
+ 
+ /* Some clang versions miscompile the following function on x86_64.
+  * Temporarily turn off optimizations here. */
+-#if defined(__clang__) && __clang_major__ >= 17 && __clang_major__ <= 19 && defined(__x86_64__)
++#if defined(__clang__) && __clang_major__ >= 17 && __clang_major__ <= 22 && defined(__x86_64__)
+ [[clang::optnone]]
+ #endif
+ cl_object
