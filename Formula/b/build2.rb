@@ -26,6 +26,13 @@ class Build2 < Formula
     # Suppress loading of default options files.
     ENV["BUILD2_DEF_OPT"] = "0"
 
+    # Disable the fetch cache since it doesn't buy us much. Moreover, not
+    # doing so may mess up the user's cache by migrating its database schema
+    # before the toolchain is even installed. Note that while we currently
+    # don't run bpkg during installation, let's keep this in case we ever run
+    # it.
+    ENV["BPKG_FETCH_CACHE"] = "0"
+
     # Note that we disable all warnings since we cannot do anything more
     # granular during bootstrap stage 1.
     chdir "build2" do
@@ -33,6 +40,7 @@ class Build2 < Formula
 
       system "b/b-boot", "-v",
              "-j", ENV.make_jobs,
+             "config.build2_toolchain.build.readonly=true",
              "config.cxx=#{ENV.cxx}",
              "config.bin.lib=static",
              "b/exe{b}"
@@ -45,6 +53,7 @@ class Build2 < Formula
     # build-time dependencies and build system modules, respectively, when
     # the user uses actual clang.
     system "build2/b/b-boot", "-V",
+           "config.build2_toolchain.build.readonly=true",
            "config.cxx=#{ENV.cxx}",
            "config.cc.coptions=-O3",
            "config.bin.lib=shared",
@@ -69,9 +78,18 @@ class Build2 < Formula
     ENV["BPKG_DEF_OPT"] = "0"
     ENV["BDEP_DEF_OPT"] = "0"
 
-    # Only check build2 version as eg bpkg or bdep may not have the same version (intended)
-    assert_match "build2 #{version}", shell_output("#{bin}/b --version")
-    assert_match "build2 #{version}", shell_output("#{bin}/bx --version")
+    # Disable the fetch cache.
+    ENV["BPKG_FETCH_CACHE"] = "0"
+
+    # Only match the major and minor version numbers since the patch number
+    # may differ. For that, convert the version string to the
+    # '<major>\.<minor>\.\d+' regular expression.
+    vre = version.to_s.sub(/^(\d+)\.(\d+)\.\d+$/, '\1\.\2\.\d+')
+
+    assert_match(/^build2 #{vre}$/, shell_output("#{bin}/b --version"))
+    assert_match(/^build2 #{vre}$/, shell_output("#{bin}/bx --version"))
+    assert_match(/^bpkg #{vre}$/, shell_output("#{bin}/bpkg --version"))
+    assert_match(/^bdep #{vre}$/, shell_output("#{bin}/bdep --version"))
 
     system bin/"bdep", "new", "--type=lib,no-version", "--lang=c++", "libhello"
     (testpath/"libhello/build/root.build").append_lines("using autoconf")
