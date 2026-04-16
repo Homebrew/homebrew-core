@@ -7,12 +7,12 @@ class GitPagesCli < Formula
   head "https://codeberg.org/git-pages/git-pages-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9cdc501515dc4dd308a93c962ae70111d37ba20635eedbfdbcc2f7db2a8b1abe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9cdc501515dc4dd308a93c962ae70111d37ba20635eedbfdbcc2f7db2a8b1abe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9cdc501515dc4dd308a93c962ae70111d37ba20635eedbfdbcc2f7db2a8b1abe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8b69804391f4e12954b7c36ecd378de5db44a6c54c95ff3980ecc75e85cebfa2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1003a717c0d4b252ad3c6008ef145b6bbffe1725d8c6b68a78d567802f9fc16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03f2e817006428ec2b13914eb043246ddbe938a95bb15a74f057642183c9b2a4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8c2a0e689c64a4c359f3847e4ddc43f3a479fb8e6a09eed6f4001664ba59e1f6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c2a0e689c64a4c359f3847e4ddc43f3a479fb8e6a09eed6f4001664ba59e1f6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8c2a0e689c64a4c359f3847e4ddc43f3a479fb8e6a09eed6f4001664ba59e1f6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c9dc5f2e6d2e67937a58aa69bc1105d4acc68ba6fdc4d6eaa720961dc74f8289"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7606c9c7db64902d960891f5acf98d0ec3a308f0b0082e39da0e732a3b8f72a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13195887ea25c4f52777b82a91982457337336cde0802270fd2407ba28530141"
   end
 
   depends_on "go" => :build
