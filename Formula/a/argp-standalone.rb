@@ -8,6 +8,7 @@ class ArgpStandalone < Formula
     "LGPL-2.0-or-later", # argp.h, argp-parse.c
     :public_domain,      # mempcpy.c, strchrnul.c
   ]
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4e16dcc9c857334ef0c9edee97b5063ead0f3f8dddc428ccb9cbeec6881a104c"
@@ -22,12 +23,31 @@ class ArgpStandalone < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "pkgconf" => :test
   depends_on :macos # argp is provided by glibc on Linux
 
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
+
+    (lib/"pkgconfig/libargp.pc").write pc_file
+  end
+
+  def pc_file
+    <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
+
+      Name: argp-standalone
+      Description: #{desc}
+      URL: #{homepage}
+      Version: #{version}
+      Libs: -L${libdir} -largp
+      Cflags: -I${includedir}
+    EOS
   end
 
   test do
@@ -40,7 +60,7 @@ class ArgpStandalone < Formula
         return argp_parse(0, argc, argv, 0, 0, 0);
       }
     C
-    system ENV.cc, "test.c", "-L#{lib}", "-largp", "-o", "test"
+    system ENV.cc, "test.c", *shell_output("pkg-config --cflags --libs libargp").chomp.split, "-o", "test"
     system "./test"
   end
 end
