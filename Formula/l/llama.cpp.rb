@@ -3,8 +3,8 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggml-org/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggml-org/llama.cpp.git",
-      tag:      "b8680",
-      revision: "15f786e6581598638840276948a7e6183fc96a83"
+      tag:      "b8790",
+      revision: "be76dd0bb2adbced84445dbf2cc3372d0b39f09f"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ggml-org/llama.cpp.git", branch: "master"
@@ -29,7 +29,7 @@ class LlamaCpp < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "ggml"
+  depends_on "ggml" # NOTE: reject all PRs that try to bundle ggml
   depends_on "openssl@3"
 
   def install
