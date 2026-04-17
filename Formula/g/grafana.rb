@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/refs/tags/v12.4.2.tar.gz"
-  sha256 "f3b5dbc39da14ba072dea00c2b2ec40743f753851e4ad8bd133a7a1441adeb76"
+  url "https://github.com/grafana/grafana/archive/refs/tags/v13.0.1.tar.gz"
+  sha256 "0bf4d3275c9fe32184ad6c79004928da7436d8a94e0cfb7ded4216080940b54a"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
@@ -36,19 +36,22 @@ class Grafana < Formula
   end
 
   def install
+    # Fix version and should remove in next release
+    inreplace "package.json", "13.0.0-pre", "13.0.1-pre"
+
     ENV["COMMIT_SHA"] = tap.user
     ENV["NODE_OPTIONS"] = "--max-old-space-size=8000"
     ENV["npm_config_build_from_source"] = "true"
 
     system "make", "gen-go"
-    system "go", "run", "build.go", "build"
+    system "make", "build-backend"
 
     system "yarn", "install", "--immutable"
     system "yarn", "build"
 
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
-    bin.install buildpath.glob("bin/#{os}-#{arch}/grafana{,-cli,-server}")
+    bin.install buildpath/"bin/#{os}/#{arch}/grafana"
 
     cp "conf/sample.ini", "conf/grafana.ini.example"
     pkgetc.install "conf/sample.ini" => "grafana.ini"
@@ -80,8 +83,8 @@ class Grafana < Formula
     cp_r pkgshare.children, testpath
     port = free_port
     pid = spawn bin/"grafana", "server", "cfg:server.http_port=#{port}", "cfg:log.mode=file"
-    sleep 15
-    assert_equal "Ok", shell_output("curl --silent localhost:#{port}/healthz")
+    sleep 20
+    assert_equal "Ok", shell_output("curl --silent localhost:#{port}/api/health")
   ensure
     Process.kill("TERM", pid)
   end
