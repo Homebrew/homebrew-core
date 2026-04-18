@@ -1,8 +1,8 @@
 class AnsibleLanguageServer < Formula
   desc "Language Server for Ansible Files"
   homepage "https://github.com/ansible/vscode-ansible"
-  url "https://registry.npmjs.org/@ansible/ansible-language-server/-/ansible-language-server-1.2.3.tgz"
-  sha256 "3182960a35f229f453d520cfb6c9624ca18104653457eca99dc1406690fa5aa2"
+  url "https://registry.npmjs.org/@ansible/ansible-language-server/-/ansible-language-server-26.4.3.tgz"
+  sha256 "e06a9d0026807c86a692d80921e0dae1166f826db2529d385ed6162b129c889e"
   license "MIT"
 
   bottle do
@@ -20,14 +20,16 @@ class AnsibleLanguageServer < Formula
 
   depends_on "node"
 
+  # fixes `Dynamic require of "util" is not supported`
+  # see https://github.com/ansible/vscode-ansible/pull/2755
+  patch :DATA
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
   end
 
   test do
-    require "open3"
-
     json = <<~JSON
       {
         "jsonrpc": "2.0",
@@ -40,10 +42,25 @@ class AnsibleLanguageServer < Formula
       }
     JSON
 
-    Open3.popen3(bin/"ansible-language-server", "--stdio") do |stdin, stdout|
+    PTY.spawn(bin/"ansible-language-server", "--stdio") do |stdout, stdin, _pid|
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
       sleep 3
       assert_match(/^Content-Length: \d+/i, stdout.readline)
     end
   end
 end
+
+__END__
+diff --git a/package.json b/package.json
+index 0e1b067663039ecef19804f3792fdf0f58fc0a04..4ed8287c9aaeb4a0b43c66e900944e3d445683a9 100644
+--- a/package.json
++++ b/package.json
+@@ -3,7 +3,7 @@
+     "onLanguage:ansible"
+   ],
+   "all": true,
+-  "bin": "dist/cli.js",
++  "bin": "dist/cli.cjs",
+   "categories": [
+     "Programming Languages"
+   ],
