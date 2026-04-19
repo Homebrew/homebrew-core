@@ -1,8 +1,8 @@
 class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/terraform-linters/tflint"
-  url "https://github.com/terraform-linters/tflint/archive/refs/tags/v0.61.0.tar.gz"
-  sha256 "d99c9eb3003375a4220607e1b479c9292450fd2c576549b1887f1c7259730e17"
+  url "https://github.com/terraform-linters/tflint/archive/refs/tags/v0.62.0.tar.gz"
+  sha256 "e3736da82afb3a77037f72b9a01f2d5a60560664ed927426627ef7cfa3356fdd"
   license "MPL-2.0"
   head "https://github.com/terraform-linters/tflint.git", branch: "master"
 
@@ -18,6 +18,20 @@ class Tflint < Formula
   end
 
   depends_on "go" => :build
+
+  # Remove BUSL-derived Terraform source, upstream PR ref, https://github.com/terraform-linters/tflint/pull/2509
+  patch do
+    url "https://github.com/terraform-linters/tflint/commit/c3268610daeaa768bebcc4df4eea5a80c8f45535.patch?full_index=1"
+    sha256 "cc5ed46e8e0543fec04c7e95bccacfaba74ab67a75d170259c48702854e1e84e"
+  end
+  patch do
+    url "https://github.com/terraform-linters/tflint/commit/59b86dc48a1772d8ef49d823e2669f21269668ab.patch?full_index=1"
+    sha256 "e89aa2771ab3263fc1fcf2f8d3d9e786b6db34b4487c72bb542dcb7f192d5553"
+  end
+  patch do
+    url "https://github.com/terraform-linters/tflint/commit/151a53130aa6af62e17e06b4d4b9f40df1f873e6.patch?full_index=1"
+    sha256 "02a8d7922730386e603c2a29a108915cfe445e9e3b16795f39b13cd1d5b77903"
+  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
