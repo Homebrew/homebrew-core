@@ -4,6 +4,7 @@ class Bibtexconv < Formula
   url "https://github.com/dreibh/bibtexconv/archive/refs/tags/bibtexconv-2.2.1.tar.gz"
   sha256 "6c311b6e4154c9286e43a47a4691efcceb99ffe11a0d0f63a63a8ebbc2023b96"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/dreibh/bibtexconv.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Bibtexconv < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
@@ -32,7 +33,7 @@ class Bibtexconv < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-DCRYPTO_LIBRARY=#{Formula["openssl@3"].opt_lib}/#{shared_library("libcrypto")}"
+                    "-DCRYPTO_LIBRARY=#{Formula["openssl@4"].opt_lib}/#{shared_library("libcrypto")}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
