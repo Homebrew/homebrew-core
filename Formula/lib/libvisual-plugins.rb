@@ -25,10 +25,12 @@ class LibvisualPlugins < Formula
 
   depends_on "jack"
   depends_on "libvisual"
-  depends_on "portaudio"
-  depends_on "sdl12-compat"
 
   uses_from_macos "bison" => :build
+
+  on_macos do
+    depends_on "portaudio"
+  end
 
   on_linux do
     depends_on "alsa-lib"
