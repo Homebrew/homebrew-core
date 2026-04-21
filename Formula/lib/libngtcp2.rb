@@ -18,7 +18,7 @@ class Libngtcp2 < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
