@@ -1,10 +1,10 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://downloads.percona.com/downloads/Percona-Server-8.4/Percona-Server-8.4.7-7/source/tarball/percona-server-8.4.7-7.tar.gz"
-  sha256 "e5405e81c4f6e5ad5052de1043a2e529607b5060677d01ba3cafc7c69f4661a6"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.4/Percona-Server-8.4.8-8/source/tarball/percona-server-8.4.8-8.tar.gz"
+  sha256 "8ec19aa2fcb714d06ba6b0b6ed1edc3687c06664e3a922b6d54eb09fa4c48810"
   license "BSD-3-Clause"
-  revision 2
+  revision 1
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
@@ -20,15 +20,13 @@ class PerconaServer < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "7e4184b0a72ed049af7ea761067de23f74a80e8d35aca11b510accc6cad80c77"
-    sha256 arm64_sequoia: "df70d98d6ca3f4e15d6cafd4edf554de265aec8c299bd32006a1723406249373"
-    sha256 arm64_sonoma:  "5efce6732b61660083fcd35a9eb6022fb232fbdf33c8ba95d7206762a5237bf0"
-    sha256 sonoma:        "e9514dba3931501d5f65a7200f2734f41b42c78c36e37a0e67ada56151aa366b"
-    sha256 arm64_linux:   "c32354c3a110ceb3183a1c9944077857fbf33607b2aec0be182de5bf9acbd029"
-    sha256 x86_64_linux:  "dac26f725eefc0d3ccf7ca033a0b1949a6f0d0229c99d38f24f98ab313fb80da"
+    sha256 arm64_tahoe:   "c891a528752c5d71cefeb3d49d82241389d0d722609806bfacc7c6d62acdec37"
+    sha256 arm64_sequoia: "6036ca4c419f3bf4fbb24a29caed42d9422ef07c9b3c63fd50ff3595010e1d4c"
+    sha256 arm64_sonoma:  "e2d84ef1ccf07242fd9f1f2157d6208076353658bd1b8536c582137c5850fdd3"
+    sha256 sonoma:        "488aa9a09b6340717eec87841c62878f22e6cb6b32320ae1f7c69de5af4c9a09"
+    sha256 arm64_linux:   "15922ecb65d0660c317568174d8721c4c597b7876d5912a7da54e1ec441c0545"
+    sha256 x86_64_linux:  "1c83b09f506e8855ba84ca1a4afb388f8c14009214a074c91c649ed10df8a63d"
   end
 
   depends_on "bison" => :build
@@ -41,7 +39,7 @@ class PerconaServer < Formula
   depends_on "openldap" # Needs `ldap_set_urllist_proc`, not provided by LDAP.framework
   depends_on "openssl@3"
   depends_on "protobuf"
-  depends_on "zlib" # Zlib 1.2.13+
+  depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
   uses_from_macos "curl"

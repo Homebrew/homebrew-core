@@ -9,8 +9,6 @@ class Unifdef < Formula
   ]
   head "https://github.com/fanf2/unifdef.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "32f10f0ec152a2e92709ac763ae4538cc33d0504be7981302da2d9e183d55334"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d582e3e4238886e561523bdc7f0a1066ac4316c06efd6efd710ba0e6f7ea5898"

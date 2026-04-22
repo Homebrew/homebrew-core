@@ -3,12 +3,13 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://files.pythonhosted.org/packages/f5/53/b45d2d04d4154d0dc0ed1c7be5ee1eeeac011504f1f60b6da1dc0270ddf5/b2-4.5.1.tar.gz"
-  sha256 "2df5b4864d3a231e895e335fb03fd5c32376a8152c9b282f193df8d07f072b87"
+  url "https://files.pythonhosted.org/packages/35/33/432a39bb59dc411dc8c83f3b7b3876c65b52db2f2be6ae0865bff9febe1f/b2-4.6.0.tar.gz"
+  sha256 "183d3f8f64d9e19d79e2c247a70644a5a205c74eb640f23b584b68802b58aa0d"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "36086fc1980210e5980643dc34e9baf33b1d00d48fd0bb8042555e3355cf3cfe"
+    sha256 cellar: :any_skip_relocation, all: "39628b9fa922b0ca3b16d9dc9bccdade33ff513cdc644506403921426b8817c3"
   end
 
   depends_on "certifi"
@@ -34,13 +35,13 @@ class B2Tools < Formula
   end
 
   resource "b2sdk" do
-    url "https://files.pythonhosted.org/packages/7f/e3/5407dff7dc483e216c5cca50f4597f698b97546f1296b9011dc49c3201d7/b2sdk-2.10.2.tar.gz"
-    sha256 "39e51ea164a0e12c4ecbf0dac1f290622902ffa0cfa3de83e6b50ee3c95c1465"
+    url "https://files.pythonhosted.org/packages/40/80/df734de071dafc3f7d3220aa508aad27190b976385dd55df03ad5a435972/b2sdk-2.10.4.tar.gz"
+    sha256 "2bf69843b96e99f2e70a8aa052cd0aa5c0c80500855a991950051a5116bb8498"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "docutils" do
@@ -59,8 +60,8 @@ class B2Tools < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cf/86/0248f086a84f01b37aaec0fa567b397df1a119f73c16f6c7a9aac73ea309/platformdirs-4.5.1.tar.gz"
-    sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
+    url "https://files.pythonhosted.org/packages/19/56/8d4c30c8a1d07013911a8fdbd8f89440ef9f08d07a1b50ab8ca8be5a20f9/platformdirs-4.9.4.tar.gz"
+    sha256 "1ec356301b7dc906d83f371c8f487070e99d3ccf9e501686456394622a01a934"
   end
 
   resource "python-dateutil" do
@@ -69,8 +70,8 @@ class B2Tools < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "rst2ansi" do
@@ -89,8 +90,8 @@ class B2Tools < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
   end
 
   resource "tzdata" do
@@ -104,7 +105,13 @@ class B2Tools < Formula
   end
 
   def install
-    venv = virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources without: "logfury"
+    resource("logfury").stage do
+      # Work around pkg_resources by removing constraint on setuptools_scm for old Python.
+      # FIXME: logfury appears to be unmaintained so b2sdk may need to replace it.
+      inreplace "setup.py", "'setuptools_scm<6.0'", "'setuptools_scm'"
+      venv.pip_install Pathname.pwd, build_isolation: true
+    end
 
     system bin/"b2", "install-autocomplete", "--shell", "bash"
     bash_completion.install "#{Dir.home}/.bash_completion.d/b2"

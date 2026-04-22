@@ -6,8 +6,6 @@ class Ccat < Formula
   license "MIT"
   head "https://github.com/owenthereal/ccat.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "21843d1726a746b8fcfffac1d1cfb9f28c56ecaa54d596ee041f531d78e02cdd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57638eda46f68bfaf966e488fb3f7f49c7fde0386cda8f751af2669186abc1e5"

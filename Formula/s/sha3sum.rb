@@ -1,24 +1,17 @@
 class Sha3sum < Formula
   desc "Keccak, SHA-3, SHAKE, and RawSHAKE checksum utilities"
   homepage "https://codeberg.org/maandree/sha3sum"
-  url "https://codeberg.org/maandree/sha3sum/archive/1.2.3.1.tar.gz"
-  sha256 "82c0808b11f4ba039531b22877dd68e4d870f53cae0c23b7c5d22d40312129f7"
+  url "https://codeberg.org/maandree/sha3sum/archive/1.2.4.tar.gz"
+  sha256 "988a33d806ef96063c85b86919b200fa520cc97669823eb74260497609e34876"
   license "ISC"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "7a4fb57d1ba121089050fc79e69725343ef7aaa39f9d5d9f4c86a6071bc81e42"
-    sha256 cellar: :any,                 arm64_sequoia:  "123cc2c228d8770644c184f6e1a0da0b2e4398bbdf4aff9cc2465a5bc59ac41d"
-    sha256 cellar: :any,                 arm64_sonoma:   "8d980021fa368d031ffecc790b2651fe9a8e12514527a88e5c53d58dda8d25ff"
-    sha256 cellar: :any,                 arm64_ventura:  "23e518f210d7ef6d97b36328e3014fbf9c10f06b455c9f606793230ad4ce50ca"
-    sha256 cellar: :any,                 arm64_monterey: "c46d9a5c481fccbfe4b5320de6819cab08f8e645c7ce12e38297cfb62d89591c"
-    sha256 cellar: :any,                 sonoma:         "ffb035e4498574c19d6532dc55150177ed9b2392d1b02f1da845dfea33f81090"
-    sha256 cellar: :any,                 ventura:        "5ced828831e4a51f393fb43405c0ea20545c60499454263e1ad44daa0ccea1c9"
-    sha256 cellar: :any,                 monterey:       "8c723139a1467bde4d19a713fbf48ac04b92578acc4f10a61598f3c8b1676d1b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "ed7328e39c51349010f88510de20b85c2d85760c5c2fdaa2d03a095743317c51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b39669c216c9754961a9c54d0ffc1e96c425948823bc159da40a700a277e1404"
+    sha256 cellar: :any,                 arm64_tahoe:   "196e039dfd0a59bd58b165bb5750ca0d9aa61b3731f7186ebbf9c77a58af8f2b"
+    sha256 cellar: :any,                 arm64_sequoia: "f08834f4269895204adfddc2b0a3ae9ebf576090c3b9d1badcf30a5aa7cee398"
+    sha256 cellar: :any,                 arm64_sonoma:  "f593715239ade543fa8ea6f236d0c4dc4ea0eae3990a702ee650523bb0c43191"
+    sha256 cellar: :any,                 sonoma:        "5e7ec33ae779d189b665a2d37c3f448cd881ab52b4463cacb78236df6aace2e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb109976a8f23bd0cbf029c9d27a4e7aba8e932cf559a955deb52c1a38665d4e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5067fd0fb3a94ea541cdb58f5a67e9eb1f6d5b0e84690c2d9460c9e05b5f85ce"
   end
 
   depends_on "libkeccak"

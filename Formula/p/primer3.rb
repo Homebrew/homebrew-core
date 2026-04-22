@@ -13,8 +13,6 @@ class Primer3 < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b96d43ea44fb89eaf75ea0f5bcc76877ca7d73bac9dc4d2084f971c7e5a3d04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7272f6819aa6154307869334e14b9c6bf7f7e2946cb29e6ce27e0e32b591772"

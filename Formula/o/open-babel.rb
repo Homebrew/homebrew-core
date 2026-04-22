@@ -16,15 +16,14 @@ class OpenBabel < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256                               arm64_tahoe:   "d6f4008b2e5325223bc0d19908d67eea2c7530c1d44b56199bfb650822693622"
-    sha256                               arm64_sequoia: "74eb232097ce4a70c19de17cd182920d2445bdcb76a4c50d46b6120ce2c51260"
-    sha256                               arm64_sonoma:  "e8ab498a9d07c02f8ee4fdba64a17a960a1fbc87aa48f2a16417fd0204b41a28"
-    sha256                               sonoma:        "6d3673642faf25364acf5efec9e8e7914e29fe151766a504acdf852342cd58a4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd93d88d67a2413e837d21538547f7afaed7f8f5f560d6528ff6051539f94e7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8981fddd1ab4e9354513f107f8b96673869295664c0391cf643646e92d221284"
+    rebuild 1
+    sha256                               arm64_tahoe:   "2c456fe61ba2215e23fa09d39cb689657c1ca8f73d46eac8e9216171e3464ac1"
+    sha256                               arm64_sequoia: "e7d58eda61ed6ac0d01c9025485ffa6c8cd5ed22948dcc3111aabaf64f157637"
+    sha256                               arm64_sonoma:  "f93aaad06396b9f3b960319baa8c6579a4e7b6ceb21f0f4c64f139b00f8a95e0"
+    sha256                               sonoma:        "97be0b112e05a4f9ab90c96895d8893316edb68e05deffff11b9d0ccdb7e8a47"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "89bea578b4834dc7ec4e571d6d5902f997d1bc98dbc0ae2b47354eb714e514c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af664d295e831c8bb50b88cf5457936d37843930d17685b7d2b7cddcf4e7a960"
   end
 
   depends_on "cmake" => :build
@@ -38,7 +37,10 @@ class OpenBabel < Formula
   depends_on "python@3.14"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def python3
     "python3.14"

@@ -49,19 +49,19 @@ class SpirvCross < Formula
 
     # fix technically invalid shader code (#version should be first)
     # allows test to pass with newer glslangValidator
-    before = <<~EOS
+    before = <<~GLSL
       // Copyright 2016-2021 The Khronos Group Inc.
       // SPDX-License-Identifier: Apache-2.0
 
       #version 310 es
-    EOS
+    GLSL
 
-    after = <<~EOS
+    after = <<~GLSL
       #version 310 es
       // Copyright 2016-2021 The Khronos Group Inc.
       // SPDX-License-Identifier: Apache-2.0
 
-    EOS
+    GLSL
 
     Dir["*.comp"].each do |shader_file|
       inreplace shader_file, before, after

@@ -10,8 +10,6 @@ class Minised < Formula
     regex(/href=.*?minised[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5793a31a1201a62923112332d5197945ba6dc946d207b333f5f32ed0eeb2d045"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "97b244949148f54cfd90253c3d903a6b07efdc7b3cbf3da2606bfef854354977"

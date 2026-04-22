@@ -5,6 +5,7 @@ class PyqtAT5 < Formula
   sha256 "fda45743ebb4a27b4b1a51c6d8ef455c4c1b5d610c90d2934c7802b5c1557c52"
   license "GPL-3.0-only"
   revision 2
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "d3944d21d80b85aadc871416d4072fad865a21b7d19c213bcced248534c1c1c2"

@@ -5,6 +5,7 @@ class Opus < Formula
   mirror "https://github.com/xiph/opus/releases/download/v1.6.1/opus-1.6.1.tar.gz"
   sha256 "6ffcb593207be92584df15b32466ed64bbec99109f007c82205f0194572411a1"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/opus/"

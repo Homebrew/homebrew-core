@@ -10,8 +10,6 @@ class Gpp < Formula
     regex(/href=.*?gpp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "08419eecda9054ce21e532801325406a18a5bd942851db8e7e8f6773d3076fcd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e45058ae226c20f00bdbbef60d201a6a15831da191ddb73cad7d5f487fd79ffa"

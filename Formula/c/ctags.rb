@@ -29,8 +29,6 @@ class Ctags < Formula
     regex(%r{url=.*?/ctags[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1b09e6e1c3e9649115863ee3cea2062958a73f832210c98061679f217f3ad98a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "614a735ab93afb5ed2a2f12a66819e0b35a1c644021670057d0cac0fbe9910ae"

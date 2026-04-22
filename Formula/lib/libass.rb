@@ -4,16 +4,16 @@ class Libass < Formula
   url "https://github.com/libass/libass/releases/download/0.17.4/libass-0.17.4.tar.xz"
   sha256 "78f1179b838d025e9c26e8fef33f8092f65611444ffa1bfc0cfac6a33511a05a"
   license "ISC"
+  revision 1
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b7b56025da7bfcff9b6d784a2a8179d05f820d9662b67366173c99b3336c3b32"
-    sha256 cellar: :any,                 arm64_sequoia: "d097cb72eb4e70bce4ca584649fa8874e4407da3067d6faa0dcc89013ffe1743"
-    sha256 cellar: :any,                 arm64_sonoma:  "e24acdc3f1045ed1185c18c3aa48b79bc974df9ec00ebebfa6df2efdd457d9a9"
-    sha256 cellar: :any,                 arm64_ventura: "b7b2a447ccc5b838711fdae09c3f01c893ee2e0c81154dcc59efa929280c8550"
-    sha256 cellar: :any,                 sonoma:        "92276181000efe0ae9530213fed782fa369d434085817225c731785c155b582d"
-    sha256 cellar: :any,                 ventura:       "10c35278d132dadf11ff7afb87c0712163dec1bac261cd10906ebe54d9b04c8d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec085b343bf997b2b0fa3fbdd4fa560c54953f5b6b1cb93ff42ec2fbcb0ce9cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7521ae0626fddeea2cb88b3d34c1243b9aa26ec7c76fb4e4a05b956f01a507e8"
+    sha256 cellar: :any,                 arm64_tahoe:   "bb0721a4dc29f2bdff8decdcafebc18199381f48d270070d13f56b19ef17944a"
+    sha256 cellar: :any,                 arm64_sequoia: "8f95ded463c17df0c2aab2c740af0139bc4a0cdbcfb5166fd8f08dfecfadb2ee"
+    sha256 cellar: :any,                 arm64_sonoma:  "5c1a3edc4205935aef54e4145f34dc5af961eabd8fd0d9873263099443cb7646"
+    sha256 cellar: :any,                 sonoma:        "f35ce2f83bf6547a43cebd2c410dff6e06125fe5b293e3bfb053525422fa9825"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "24e7d218a421d7f5e68231640235508682e8a49178179b5b9f3771686c01f859"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3be86876627e29d2d7ce71dfac1df3afe013af1cd065b5367b43b25d64d01f17"
   end
 
   head do

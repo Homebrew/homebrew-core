@@ -1,10 +1,10 @@
 class WasmPack < Formula
   desc "Your favorite rust -> wasm workflow tool!"
-  homepage "https://drager.github.io/wasm-pack/"
-  url "https://github.com/drager/wasm-pack/archive/refs/tags/v0.14.0.tar.gz"
+  homepage "https://wasm-bindgen.github.io/wasm-pack/"
+  url "https://github.com/wasm-bindgen/wasm-pack/archive/refs/tags/v0.14.0.tar.gz"
   sha256 "60e866ce851219b18b7e16b2dbcd8323d5af0eac7d3a8a616bec3bd62fc051c4"
   license any_of: ["Apache-2.0", "MIT"]
-  head "https://github.com/drager/wasm-pack.git", branch: "master"
+  head "https://github.com/wasm-bindgen/wasm-pack.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "31c12ac93a4e52a4b61b4bdb3e6fea208eaa93b9c30039babedc5957c0bc8d6a"

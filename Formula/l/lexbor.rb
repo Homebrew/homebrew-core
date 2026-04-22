@@ -1,17 +1,17 @@
 class Lexbor < Formula
   desc "Fast embeddable web browser engine written in C with no dependencies"
   homepage "https://lexbor.com/"
-  url "https://github.com/lexbor/lexbor/archive/refs/tags/v2.6.0.tar.gz"
-  sha256 "e9bb1aa8027ab92f11d5e8e6e7dc9b7bd632248c11a288eec95ade97bb7951a3"
+  url "https://github.com/lexbor/lexbor/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "eafaa79ef9871f0bbb1978eda8677d184f7ecdcaa203d7cd25b3f86e32c014c2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2ee57c229e8b66be3cac8720e2a29b48faa079b6d6361fc9b8fe8010f81f76c9"
-    sha256 cellar: :any,                 arm64_sequoia: "67d84841e20b9ef5d849efe266199243fc0b3cb30c3df3fd7fb02d2e64da1b74"
-    sha256 cellar: :any,                 arm64_sonoma:  "2ee12217b12ecc341a022deaacc5051d89bb645dc21792b71a1a88415cee1ad5"
-    sha256 cellar: :any,                 sonoma:        "1038e977c87d3f6de9bb00c2690eb394ddf19c1038d4f482d6dd9284b4be8f1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81a7542be3ca8d0bdef3bdfc2e7807a2f73c4beee682fb37c1631c125edfa613"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa076c7d9dfeb465173bb66340b467e46524e95d607bbc645d8e5919449fc283"
+    sha256 cellar: :any,                 arm64_tahoe:   "231a737ed10d301c88fcb5c6b372411578faf9cdf22c03f2c0903454e2a0f552"
+    sha256 cellar: :any,                 arm64_sequoia: "273ee0120f9722c3158f7e92a272eb1c606b432eac36b3eed213e51548b69bbf"
+    sha256 cellar: :any,                 arm64_sonoma:  "c11c11c5e9040f456320e0e7a7ac12d9dfe9b251fd13d8a9f4e327cf1a24a752"
+    sha256 cellar: :any,                 sonoma:        "8c7eefc8862cf83d4c79daec3fae265772ce72940cf351cc3ed4c614fe8e4635"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8eb786dd2780027958e5879c2d58bea437f491eb5fa2aa1ae94e8c03528cdf4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "071ce43949be15bc761f9546029b129f7510b219103025d08c069b5cc3a5c9b9"
   end
 
   depends_on "cmake" => :build

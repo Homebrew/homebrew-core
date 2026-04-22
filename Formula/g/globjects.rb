@@ -12,8 +12,6 @@ class Globjects < Formula
     depends_on "glbinding@2"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "a7f1bf646d61bcbf6af39af096376d92c2f44b3f869251768efc78c20c3c2584"
     sha256 cellar: :any,                 arm64_sequoia:  "51e3056d71789e3db8e17d7fc966a530ecb1120c0e91bec0edc3c5b6b524db1d"

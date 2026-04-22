@@ -6,12 +6,13 @@ class CargoUdeps < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "de06a7df4d0ba93d12e5ddf1fba9775747ed832cb120e2c8fb6f0e9150fe2a9b"
-    sha256 cellar: :any,                 arm64_sequoia: "44aa26bf28330849b92a60c68841ad841a7895abf5ecae539fc486a6839b634d"
-    sha256 cellar: :any,                 arm64_sonoma:  "18ea53f3fb4cc6fcd92d0a069c01446919a02c0270d3819cdd6f7880db26cfa2"
-    sha256 cellar: :any,                 sonoma:        "21750d58f982ce3f5cdbdb57f943da3ddff3c6634d4770082eccea5d40e33a61"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ba6a379fdaec989fcd7960f99d444bbe2262ad0b5b8d4d0407a197405305947"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "702abdddc3ad718c5839a631f6ccda126289947ce7fe0785c33f644b6df28b20"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "b0f1babf90db0b6d472b3d54b4229ab27d4d477bcace4e3e72f0a6ad1a745236"
+    sha256 cellar: :any,                 arm64_sequoia: "c51d8d744d30586fb471b970924f89b0ef6f002beeead0f6f41c5b156ea347ee"
+    sha256 cellar: :any,                 arm64_sonoma:  "a474e7998c6f90ad63a4b3fcda20db6f183c1a0bf5faa8ff5aaa198447ba5516"
+    sha256 cellar: :any,                 sonoma:        "d28ca37096bf81553f948de03994f7bface8758ff248163c9d58fd3d307a1684"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f5206f7c22a18f322ebc4eea01b96e509d4831eca1cad867525b2aa06d45082"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d5767124eb006fd03faf9a346c96d88fd69edecabe53715939402b9c0ad24fd"
   end
 
   depends_on "pkgconf" => :build
@@ -21,7 +22,9 @@ class CargoUdeps < Formula
   depends_on "libssh2"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"

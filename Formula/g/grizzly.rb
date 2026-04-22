@@ -17,6 +17,10 @@ class Grizzly < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1cd0d526f55b71f84e88c4bda49551c661b56f7dcace86fbbbb637a27fd4274"
   end
 
+  # https://github.com/grafana/grizzly/pull/613
+  deprecate! date: "2026-02-17", because: :repo_archived, replacement_formula: "grafanactl"
+  disable! date: "2027-02-17", because: :repo_archived, replacement_formula: "grafanactl"
+
   depends_on "go" => :build
 
   def install

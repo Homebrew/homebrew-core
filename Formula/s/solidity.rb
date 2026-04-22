@@ -1,8 +1,8 @@
 class Solidity < Formula
   desc "Contract-oriented programming language"
   homepage "https://soliditylang.org"
-  url "https://github.com/argotorg/solidity/releases/download/v0.8.33/solidity_0.8.33.tar.gz"
-  sha256 "2fb0a76b13e25b21bcd50607713a563f64709c8c283ed65464db3a2d546b9abf"
+  url "https://github.com/argotorg/solidity/releases/download/v0.8.34/solidity_0.8.34.tar.gz"
+  sha256 "415acd0bfc87a12e3c436fb439aabc62639e7a66d433450f0135a23238b4fc7e"
   license all_of: ["GPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0", "CC0-1.0"]
 
   livecheck do
@@ -10,15 +10,13 @@ class Solidity < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c79ca3f8f7d2dbd1843dea047ad266b82678d0ddf73d4b83785e76f1befb1c95"
-    sha256 cellar: :any,                 arm64_sequoia: "7aa8c867524eacc5af4d90ac8b17c19600c36bd89563e957a9a973c565ade22b"
-    sha256 cellar: :any,                 arm64_sonoma:  "1d3f58c0b040795e66244bde9abf23c3af4e3d462acf6e8084f3c836afef14e4"
-    sha256 cellar: :any,                 sonoma:        "3890c867ec37fb10045044e144d3bb7400a660bd470465c5131a7d9273a16c56"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe4908ab648ddddf55333dfe2e55355038ef83a44223464002166c8592a75d81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eca4163211b680eec26f0b6ef2bdd828d39950b20f5db3f33960aff8dec860e6"
+    sha256 cellar: :any,                 arm64_tahoe:   "9e3645a6ebe0c93c918472d8ec36ef17c3cbc34d3ed2aa271dfb675c9d5b0efb"
+    sha256 cellar: :any,                 arm64_sequoia: "04f07924eefb08ffb28185e28fbfa04e094352822a9208b67ca3bcf4c70d1e2d"
+    sha256 cellar: :any,                 arm64_sonoma:  "9db844da9da263eb4f87372ad95a981f61c7add74e0f9e79d4916cf3cf6e2f7b"
+    sha256 cellar: :any,                 sonoma:        "4decbd94b65937c3474f4d165f5af5a4d4f5585e8532614ffb385e53f66c7a6d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f103c5adec2f4ad20ba718d74164d359f018b643ca8ffe2567f5edd1b7c827c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17ac2f832e86cc676ba6db3c807b18098cf0c423e02ee352b1d0aec3ad26d9f7"
   end
 
   depends_on "cmake" => :build

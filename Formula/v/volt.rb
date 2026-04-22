@@ -6,8 +6,6 @@ class Volt < Formula
   license "MIT"
   head "https://github.com/vim-volt/volt.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "fbaafd3e4142b6c23f3e24eb068fd5a88beb6606e19b5b2cc9f7c6bda6ebc707"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6a7d8d94a9503960278ce6a43f2cf5ce58658d04d06b72be99804a9e0d52f901"

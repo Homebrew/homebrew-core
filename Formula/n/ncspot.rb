@@ -1,43 +1,43 @@
 class Ncspot < Formula
   desc "Cross-platform ncurses Spotify client written in Rust"
   homepage "https://github.com/hrkfdn/ncspot"
-  url "https://github.com/hrkfdn/ncspot/archive/refs/tags/v1.3.2.tar.gz"
-  sha256 "d60c04c027dddbc57cbd9bcb23ec4967b4ae7330a280a7a5f6b77c1ea2cf8c99"
+  url "https://github.com/hrkfdn/ncspot/archive/refs/tags/v1.3.3.tar.gz"
+  sha256 "26edf6f1861828452355d614349c0a2af49113b392d7cd52290ea7f180f6bfe5"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "984223fd43a1f0ca585914151c89b1cd0ceb6bc58d11449c926f3b7fc575ca8c"
-    sha256 cellar: :any,                 arm64_sequoia: "c7884c9e55c87f00ac1a74a07debf5fcc96980d05f485a3bf689467b9f1b0c34"
-    sha256 cellar: :any,                 arm64_sonoma:  "5257c38aec7b81e4e06de13ac7b50663b4e8e93a59b5537537a8bb1a8726d24c"
-    sha256 cellar: :any,                 sonoma:        "a838779e650b777ac442c8931077b13263c298c956d4a0dcbf9ad4447d1b25eb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0b530ee6c7d3d2f4d793fc9b77a79291275fa1032cf7d177a1446f53304b237"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0603acaaeeb0adb231213dc8ac507b9fdb7cb3ffabd93a746f2ce29a8e7258a3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00faf4c71b398817e3e68dbe86b65d65ef9cd44e7816b63b61cdc356dd892ad9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e88de47e8ff48e7b7b628747113d1e8feb148b1c423c8349ed615498d8407c6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b0ae333c7953cfe9cb1a156c3472aa85f7a45d8f3e106e26d7b405fab390e8ff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ae62b1f8e28527e476616d9f8cd5620df0ca893b067224f47687dab12ff0dc02"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9bb3f059bf0f44ac9e0ea9582adf9663833105df7ad5b48011fa4ccaa2bb37f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ebde50fa8eaef19ca9ab59b16012072136046bdcecb3f005e1f39b3eaa24261"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "portaudio"
 
   uses_from_macos "python" => :build
-  uses_from_macos "ncurses"
 
   on_linux do
-    depends_on "alsa-lib"
-    depends_on "dbus"
-    depends_on "libxcb"
     depends_on "openssl@3" # Uses Secure Transport on macOS
+    depends_on "pulseaudio"
   end
 
   def install
-    ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed if OS.mac?
-    system "cargo", "install", "--no-default-features",
-                               "--features", "portaudio_backend,cursive/pancurses-backend,share_clipboard",
-                               *std_cargo_args
+    if OS.mac?
+      ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path
+      args = %w[--no-default-features]
+      features = %w[rodio_backend cursive/pancurses-backend share_clipboard]
+    end
+    system "cargo", "install", *args, *std_cargo_args(features:)
   end
 
   test do
+    backend = OS.mac? ? "rodio" : "pulseaudio"
     assert_match version.to_s, shell_output("#{bin}/ncspot --version")
-    assert_match "portaudio", shell_output("#{bin}/ncspot --help")
+    assert_match backend, shell_output("#{bin}/ncspot --help")
 
     # Linux CI has an issue running `script`-based testcases
     if OS.mac?

@@ -3,8 +3,8 @@ class CoreLightning < Formula
 
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v25.09.3/clightning-v25.09.3.zip"
-  sha256 "d051a08f1432ddc7b26d1132ea9ad302de935f89a5a930eafcf92f68830649ab"
+  url "https://github.com/ElementsProject/lightning/releases/download/v26.04/clightning-v26.04.zip"
+  sha256 "e9dc6784b91722b7f1a978be52804ab09c3560521a9ce5460588b3241d17de85"
   license "MIT"
   head "https://github.com/ElementsProject/lightning.git", branch: "master"
 
@@ -15,12 +15,12 @@ class CoreLightning < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "75ca48adeba263c619a9d5d65c40d2241029a091bdd8f0193a64096dd8092de2"
-    sha256 arm64_sequoia: "4bced7dfdb093e6a47b8acd1e348f7add7b202a3898fef45a5ef2bca2a9bb775"
-    sha256 arm64_sonoma:  "a5b4255ed27057b54b10c56d519318b43c45db090b76c9019812e8973a090716"
-    sha256 sonoma:        "1f58816b192df9206224ab9d09a8c7d755e80b35febc7d6dae5691c1e2c0ecfc"
-    sha256 arm64_linux:   "de4e72e16c6f9b3eae1fe41fc6c60ada3123497bdae46fe42dfe5e726595882b"
-    sha256 x86_64_linux:  "4a4d0ada5c687be92c131a196df65d0c5cc14adeabd03d657d57e827c4659fa2"
+    sha256 arm64_tahoe:   "9d6427aac923fd00782a870ff2b108b223f4002370100205f7478752c4cd0a0e"
+    sha256 arm64_sequoia: "4bcf21fb130f1bf9ba88d3ec7ebcce647b6e6ed39c39218e19994baedb88c46e"
+    sha256 arm64_sonoma:  "6688f26a6a273730fdd4ee2fef02297e3ed4eb17c4e854e72672a7ed28c25fa5"
+    sha256 sonoma:        "033141e92e5e9cfb314632de12eac1629333e31d165f87dcf89b51017b80d1d6"
+    sha256 arm64_linux:   "c21701ed76e3707c82abf68f51b39b0b3fd5d7405dcc8d351e1e40fae5f746ea"
+    sha256 x86_64_linux:  "09740161e42789b5534b9fd5e265169041836ae977b2b54ddd1b69fa4ca98f13"
   end
 
   depends_on "autoconf" => :build
@@ -34,22 +34,25 @@ class CoreLightning < Formula
   depends_on "rust" => :build
   depends_on "bitcoin"
   depends_on "libsodium"
+  depends_on "sqlite"
 
   uses_from_macos "jq" => :build, since: :sequoia
   uses_from_macos "python"
-  uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gnu-sed" => :build
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   pypi_packages package_name:   "",
                 extra_packages: ["mako", "setuptools"]
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
-    sha256 "99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28"
+    url "https://files.pythonhosted.org/packages/59/8a/805404d0c0b9f3d7a326475ca008db57aea9c5c9f2e1e39ed0faa335571c/mako-1.3.11.tar.gz"
+    sha256 "071eb4ab4c5010443152255d77db7faa6ce5916f35226eb02dc34479b6858069"
   end
 
   resource "markupsafe" do
@@ -58,20 +61,18 @@ class CoreLightning < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
+    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
   end
 
-  # Configure script overwrites `PKG_CONFIG_PATH` on macOS
-  # PR: https://github.com/ElementsProject/lightning/pull/8146
+  # Fix `configure` to build on macOS
+  # PR ref: https://github.com/ElementsProject/lightning/pull/9072
   patch do
-    url "https://github.com/botantony/lightning/commit/cca721a9f3c5a15f6792b0dc1941959dbd93ac2f.patch?full_index=1"
-    sha256 "ee375b92de3d49f4bdf33acf2eb672b693f5806ee418a380e37f3a6a4047c91d"
+    url "https://github.com/ElementsProject/lightning/commit/94cc566ce345748d4cfc38a67eacecc09ab36114.patch?full_index=1"
+    sha256 "aa0e74593d2d4ba3faefaa5528143c0cdf6d2ea0e384b000f020ed7e18e9d8ff"
   end
 
   def install
-    rm_r(["external/libsodium", "external/lowdown"])
-
     venv = virtualenv_create(buildpath/"venv", "python3.14")
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"

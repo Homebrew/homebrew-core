@@ -1,9 +1,10 @@
 class Chafa < Formula
   desc "Versatile and fast Unicode/ASCII/ANSI graphics renderer"
   homepage "https://hpjansson.org/chafa/"
-  url "https://hpjansson.org/chafa/releases/chafa-1.18.0.tar.xz"
-  sha256 "cd7475441ab8042e89dad706124999dd0aa3dc64653cdc20d49338549b9fcadb"
+  url "https://hpjansson.org/chafa/releases/chafa-1.18.1.tar.xz"
+  sha256 "e75a9772444247a70178cdd238b522d35c613dfb6f3a3bf516457958109e9910"
   license "LGPL-3.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://hpjansson.org/chafa/releases/?C=M&O=D"
@@ -11,12 +12,12 @@ class Chafa < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d598c0fe9033cf7e9e939efe492283a30f636a3fb12b08ec170ba74d2581574e"
-    sha256 cellar: :any,                 arm64_sequoia: "da2bbff403c721e8ea861213a2b71143989b12307bd33a6343f6885bfc97e651"
-    sha256 cellar: :any,                 arm64_sonoma:  "145c02c480bbd3bf68f6d812cc85fc3d3c9edc8c9802607821fcc78fba7f22de"
-    sha256 cellar: :any,                 sonoma:        "fa7578814208f8b4b7c8c3803ad0e5984aef4b60a1525d67470b4e9a13f39a2c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e7286a827cf973c440b1ab5d1aa977aed918516b74f0c0e830c3106f17267e9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9a6b476d3c0086b2d3030379d496f74cdde6167366d0452963302afda78e8d1"
+    sha256 cellar: :any,                 arm64_tahoe:   "8481084fe39e9971a49c4e1aa094c161230de635d53afb45e07e25a21b654cb5"
+    sha256 cellar: :any,                 arm64_sequoia: "0dcd125a55d77500044cdeff708777e60229d8120c85fed9186bb2194a51a8bf"
+    sha256 cellar: :any,                 arm64_sonoma:  "41113fa3f691c936a3805e7cc9cd00b860d50dbbbe2ad7bb65074425d592254b"
+    sha256 cellar: :any,                 sonoma:        "c4cc89aed4c4637d304044c4f44bc8a761f348dedad467a955d22b98bf6628a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04eeb0c26b507b7b9c6b71c46f1aa92f03ee255cf52a78eef07926c64b867b57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "356f1d9486e4e1a759490d85492e7eda81262ac3e36299bc1d8724c98ac98b73"
   end
 
   head do

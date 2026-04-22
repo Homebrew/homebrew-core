@@ -3,18 +3,18 @@ class Py7zr < Formula
 
   desc "7-zip in Python"
   homepage "https://github.com/miurahr/py7zr"
-  url "https://files.pythonhosted.org/packages/f4/ca/f79d992febd1ab6cd4d51a98abda7e5bbf8a2b5399d05347a3993c0d63f7/py7zr-1.1.2.tar.gz"
-  sha256 "2aee212c5516ddcbeb76874dc3ece38b4566fc003f51600032c723cfea89ac56"
+  url "https://files.pythonhosted.org/packages/0c/e6/01fb15361ca75ee5d01df6361825a49816a836c99980c5481da0e40c6877/py7zr-1.1.0.tar.gz"
+  sha256 "087b1a94861ad9eb4d21604f6aaa0a8986a7e00580abd79fedd6f82fecf0592c"
   license "LGPL-2.1-or-later"
   head "https://github.com/miurahr/py7zr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "512ca004fa7a5233852a2ce5c1d346389999fc137b1e7d22e76a05426ec41637"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed0f3c6bc59d671f39e0699b510f47de2914e6571f2dbdf48292bd8082a79ddc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2bd932a1c3bcc66c6c8080aa86b76b32cd4f5f92338c9c7d96cf10ba67501a1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "93b22c3c5b747e709f35fba1ab47db02792ad766cb3c595bb380eb75e50eb9c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed79d4fe8efb6e16890f7d4fd3ce52adb63317ce4f7ff91536c4ae56f0d0bedf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "736d3eb7c4122879700be4fdb8a038b705c07d3423f82e9e80df9e1e41640593"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "76e176ae724439be2fdb57ead788790e95cbe3e3c5dc7a26d0495e34edba428c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a6b7f7344bdac24401dc35317de15374ed269f91190f6d4244f96608e060f8f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e1c42bec9c464152baba0f1952859e1f1c12979fda919b72e26968849290a61"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2d71e877e3032ef07e045441ce1d78b0381359b28b1ad8b6381fd5cdac2119b5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c64c8806a211bebcec79846abb38efb00c6bddda059bcd2a4bef8d96356308a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4376a9a488122f15d14d4a669f117de6f0243c2df459db443ab6bd52c3fa5ba9"
   end
 
   depends_on "python@3.14"
@@ -35,8 +35,8 @@ class Py7zr < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/73/cb/09e5184fb5fc0358d110fc3ca7f6b1d033800734d34cac10f4136cfac10e/psutil-7.2.1.tar.gz"
-    sha256 "f7583aec590485b43ca601dd9cea0dcd65bd7bb21d30ef4ddbf4ea6b5ed1bdd3"
+    url "https://files.pythonhosted.org/packages/e1/88/bdd0a41e5857d5d703287598cbf08dad90aed56774ea52ae071bae9071b6/psutil-7.1.3.tar.gz"
+    sha256 "6c86281738d77335af7aec228328e944b30930899ea760ecf33a4dba66be5e74"
   end
 
   resource "pybcj" do

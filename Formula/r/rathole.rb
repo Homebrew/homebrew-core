@@ -5,8 +5,6 @@ class Rathole < Formula
   sha256 "c8698dc507c4c2f7e0032be24cac42dd6656ac1c52269875d17957001aa2de41"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3629eb8ca9900924fa60ca4732cb944f93362ac86259944539ca10beeffb867d"

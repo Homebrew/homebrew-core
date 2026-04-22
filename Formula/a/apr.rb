@@ -5,6 +5,7 @@ class Apr < Formula
   mirror "https://archive.apache.org/dist/apr/apr-1.7.6.tar.bz2"
   sha256 "49030d92d2575da735791b496dc322f3ce5cff9494779ba8cc28c7f46c5deb32"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "a8dbcf3f996ba1148b936081612ff5228cb4ba5a08de6635a695bd9ec6963266"

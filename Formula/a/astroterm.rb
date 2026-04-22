@@ -1,19 +1,18 @@
 class Astroterm < Formula
   desc "Planetarium for your terminal"
   homepage "https://github.com/da-luce/astroterm"
-  url "https://github.com/da-luce/astroterm/archive/refs/tags/v1.0.10.tar.gz"
-  sha256 "6d9d61b818b01bd951d5340f09486bdc66aa107259acf78dfa8c3f875a36ea1f"
+  url "https://github.com/da-luce/astroterm/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "10a98255a46517ee306be73f156eb78163aff8801f46b84a731f7b5913e1d6f5"
   license "MIT"
-  revision 1
   head "https://github.com/da-luce/astroterm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b96bb83bb335486ec6ca0fbae19a71c86d13c43a74aa249e9c06440825d42732"
-    sha256 cellar: :any,                 arm64_sequoia: "ab43710f896fd0e1774bc3d5f61a39f91938a18da5bf352e54b86e989e759ec9"
-    sha256 cellar: :any,                 arm64_sonoma:  "93e425799689e9205f5c33ede3bfe2f6df9f60bcdf4f090f870691eb784aa068"
-    sha256 cellar: :any,                 sonoma:        "39ba609a32145bcaa97c553cd1862019720b5020ded6c4ac26aed6183c5dfb34"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0980a46121da8061234713a8d5d233273eff08a1257477f609d89adf4e3fe038"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4dbe1cb9db8ebd6096aa44e5d5364583d111564b8fdec8ca8c4990cfb5775b0"
+    sha256 cellar: :any,                 arm64_tahoe:   "366ef8ecc45c6c188f134156cc8562a4e3ce17934e4406c236969482281cace6"
+    sha256 cellar: :any,                 arm64_sequoia: "e5b2c209d0b5739bad1537dca88864d25d57002942479efe45dea9ea8cd583a0"
+    sha256 cellar: :any,                 arm64_sonoma:  "42d0e0707dd6b913caae181ef0e222aef47ab0611b4fa545bdc6bc0bc54b89bd"
+    sha256 cellar: :any,                 sonoma:        "074aa01bc5d23274961b4888bcc190bb78ca79c832a9878781bda9352c7a79d6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a68071e5791586bac8984694f2420d4661ca5deea2629d2a18d8a40b5f8b0879"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d68d0ddf78f5fa237ff63291c797fddc3b87f5fd1aba16392fc5e52e5a8ff9c"
   end
 
   depends_on "meson" => :build

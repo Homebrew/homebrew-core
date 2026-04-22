@@ -6,8 +6,6 @@ class Ohcount < Formula
   license "GPL-2.0-only"
   head "https://github.com/blackducksoftware/ohcount.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_tahoe:   "9615278e57b6c482ce61401b0fedef9bdb322b7a7adb23f86c3322d1bfd18123"

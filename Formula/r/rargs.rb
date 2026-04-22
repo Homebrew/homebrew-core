@@ -5,8 +5,6 @@ class Rargs < Formula
   sha256 "22d9aa4368a0f9d1fd82391439d3aabf4ddfb24ad674a680d6407c9e22969da3"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c1b481bcf7de6ad4a0abe5f77d33d8d2ab0f3bd6a6c36de248cf4fda715d89bc"

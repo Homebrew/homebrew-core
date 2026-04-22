@@ -1,18 +1,18 @@
 class Gowall < Formula
   desc "Tool to convert a Wallpaper's color scheme / palette"
   homepage "https://achno.github.io/gowall-docs/"
-  url "https://github.com/Achno/gowall/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "ff5289250cd1bfe7adef728c85c4c97aed906330e9bd79760be540eb49343d51"
+  url "https://github.com/Achno/gowall/archive/refs/tags/v0.2.4.tar.gz"
+  sha256 "df19d8a7f4d138cfa233415ad71250c788aa1a3d310b4b19ca952fb0750c0c36"
   license "MIT"
   head "https://github.com/Achno/gowall.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "36f165943b51f74f40559f425ed5996f9c9d3262b20ddea6a123bdf8e51df68e"
-    sha256 cellar: :any,                 arm64_sequoia: "f7efae6bfdb9adf5a0447cbf1399c6daf775bec33a7b6e0990872a6ea9f6f427"
-    sha256 cellar: :any,                 arm64_sonoma:  "f7cee542eb1e00cce13bf4844c7c8d21552d8a3ddb7cae6d73aaea896d835398"
-    sha256 cellar: :any,                 sonoma:        "6eb2a3474a0202fcc14fce9f33f56bad36c01f5b2493ccf214312625142702f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "83a79630151d2c632c0227f0241c97e639a1a7a9a008d038f07c871128e8a8c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1771c623a8311087e125f2c483f541cb7ad3357cc7db212ad26d4999ed8d1c92"
+    sha256 cellar: :any,                 arm64_tahoe:   "5403ca5cf023b5555606ced24e28faf0ef8fa99b2d3ba4d5d497f041a1747751"
+    sha256 cellar: :any,                 arm64_sequoia: "b4ce509d4c8106042794f659623837f8730936d96c22ea2e1538c2eb536d4aeb"
+    sha256 cellar: :any,                 arm64_sonoma:  "407b60e4da340fda72f2204e5396e15fab23cffe46d53164798d0e0e8d92ecc0"
+    sha256 cellar: :any,                 sonoma:        "3e556619da7d217190c237cd7b9cffbfe95cb508d2cb3f87cdeec1d8d1ff5424"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a0f193d9eb5602cb4d86d124fcc8719849ba24256fba5cbe505c1747a668cc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a353d21c621447cbd989f9571412c9872947c5854ede194d5e20e5eccb0c6688"
   end
 
   depends_on "go" => :build

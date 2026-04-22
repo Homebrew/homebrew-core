@@ -11,8 +11,6 @@ class Speex < Formula
     regex(%r{href=(?:["']?|.*?/)speex[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "a7608ef62c92fd11d5eed0e3643e769087e4f0eb6de3a321fa602d6dd041387d"
     sha256 cellar: :any,                 arm64_sequoia:  "885ccb79dee4ad080d2c5ee20ab55569b0dfee064535a537568dd78adff88dcb"

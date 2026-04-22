@@ -6,8 +6,6 @@ class Sqlfmt < Formula
   license "Apache-2.0"
   head "https://github.com/maddyblue/sqlfmt.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c84039488c47b3d05d7453f65bbf8eded5b1229d9b06c398741dd99e1ee2b303"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a38467e3035c2cd803a7d6eeb898500e8be48918cc2689202ca0affeed82ea53"

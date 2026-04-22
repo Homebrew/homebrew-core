@@ -11,8 +11,6 @@ class Libvterm < Formula
     regex(/href=.*?libvterm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "8fdcd31d15a6c4f58e1dbd5818a18f17518766defb4548b5ad869e72adb23a20"
     sha256 cellar: :any,                 arm64_sequoia:  "1f9b512f3881f954e48acad23f8c6bcdc76ee979c89baaf0cabb9438843be999"

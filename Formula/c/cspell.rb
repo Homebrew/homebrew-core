@@ -1,12 +1,12 @@
 class Cspell < Formula
   desc "Spell checker for code"
   homepage "https://cspell.org"
-  url "https://registry.npmjs.org/cspell/-/cspell-9.6.2.tgz"
-  sha256 "75a2d94eac1e3b733f580c2ec60159ea25e771cefd85654583e0f730c70a6744"
+  url "https://registry.npmjs.org/cspell/-/cspell-10.0.0.tgz"
+  sha256 "55fb0a6b22adb900674cb01728bff1ad85ec3a60235471fac8d6b1d41655ff64"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9c172c16945f74198bd331dd98b725c8f41c23f9252021fbf10b924474db93c1"
+    sha256 cellar: :any_skip_relocation, all: "01892d23d03c972a0390ee89d25f320b69e66dacfb046409f1fb6cc664fd4422"
   end
 
   depends_on "node"
@@ -15,6 +15,10 @@ class Cspell < Formula
     system "npm", "install", *std_npm_args
     # Skip linking cspell-esm binary, which is identical to cspell.
     bin.install_symlink libexec/"bin/cspell"
+
+    # Replace code comment to build :all bottle
+    node_modules = libexec/"lib/node_modules/cspell/node_modules"
+    inreplace node_modules/"global-directory/index.js", "/opt/homebrew", ""
   end
 
   test do

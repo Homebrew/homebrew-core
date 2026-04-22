@@ -3,18 +3,17 @@ class Diffoscope < Formula
 
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  # TODO: Restore PyPI URL and previous `pypi_packages` DSL when upstream fixes uploads
-  url "https://salsa.debian.org/reproducible-builds/diffoscope/-/archive/311/diffoscope-311.tar.bz2"
-  sha256 "26d606468af01811f80ecbd0183fc958d9901634f4f587e775e1a6b52166d354"
+  url "https://files.pythonhosted.org/packages/7a/f0/70752112a89e25e5cbec4a58cc597d2369ff7a1ef8c5176a4d7067559305/diffoscope-317.tar.gz"
+  sha256 "9c8741f76bcbd1faec59227da31981a524abca63e19d03f3a594c19f326de542"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "12dd4d5ec377d816d36bf8e9e4eb617c1c23ab6ee6f18572ac92f7f4a9d4141e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12dd4d5ec377d816d36bf8e9e4eb617c1c23ab6ee6f18572ac92f7f4a9d4141e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12dd4d5ec377d816d36bf8e9e4eb617c1c23ab6ee6f18572ac92f7f4a9d4141e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ef4a2c2cafcaffa5491ec4c3055ae81ae598ecbeca477d72a18b003e29da8d7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81951d62042b17083009b8537a4e6ac9122ac2d2767bb809f0c3853626ec4af1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81951d62042b17083009b8537a4e6ac9122ac2d2767bb809f0c3853626ec4af1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "42b90caf9ebb09a322f8ca71c41f697335b8669db9244e010a4203ecb2b719f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42b90caf9ebb09a322f8ca71c41f697335b8669db9244e010a4203ecb2b719f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "42b90caf9ebb09a322f8ca71c41f697335b8669db9244e010a4203ecb2b719f7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1615098ac2aabbcf98b7b8819acbe7fd170c29d31c497b2f575bdb78769fb274"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2130d5a687f3972dc29888b14f23e9fba7c49e5f7c5c9e838186b012e62ca050"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2130d5a687f3972dc29888b14f23e9fba7c49e5f7c5c9e838186b012e62ca050"
   end
 
   depends_on "libarchive"

@@ -12,18 +12,14 @@ class JohnJumbo < Formula
     regex(/^v?(\d+(?:\.\d+)+)-jumbo-\d$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "b70737d5187ee86a9a28ae0a72d8ffb71a045555d633db585066c53f61de7745"
-    sha256 arm64_sequoia: "60a5968b96000102a72df069793e756067af2b87d862ce01b9cd1e24bb1a4b05"
-    sha256 arm64_sonoma:  "865c20ab8f23bf0c8213cc88014e36bf907f17a9f924d477d4866e8ea0e76e64"
-    sha256 arm64_ventura: "f70a5308db1137f69fa0da915a2d4898453db9339467044b224b64df1c9feb53"
-    sha256 sonoma:        "9579793b2cc5a9f493d4f45e92c509981dad449817f390df62fad67163656bd1"
-    sha256 ventura:       "5a03775927f3e4d2bbb843ba2fb614674f2342143d5e6b0644ceb852e7ad8da7"
-    sha256 arm64_linux:   "83af0cd09a6c71fc6b6a424a3346907678d9846c6e625c19148db1ce8dce05d2"
-    sha256 x86_64_linux:  "9c218a9de0a672e13bd10012a4b7f6257bb1cb9e4e3c094b8444ade22cefb2d2"
+    rebuild 3
+    sha256 arm64_tahoe:   "448e0b52a33cd8611647ecc701949472f5ef720c473a63664b28ffa481e9beb0"
+    sha256 arm64_sequoia: "a940aac8b599b0346e085a473e3367e773f8b9d44048fb4e47f9a53b9394d283"
+    sha256 arm64_sonoma:  "5d50196128ef065a5c546ebd40346729616b4889133d8746e77d14a8e68be5be"
+    sha256 sonoma:        "406c9044ec72e8e28fcd908cdd46de40c2b29fb05a2137a6cb6a8c5dbb4d328b"
+    sha256 arm64_linux:   "ace4712b54d8585933de16c79f39c4a3231b0d341b6402601f00fee252a937ee"
+    sha256 x86_64_linux:  "caa234a6f29de486c38d075ef354608086b4787ac005226a17794d62afd8afdc"
   end
 
   depends_on "pkgconf" => :build
@@ -31,7 +27,10 @@ class JohnJumbo < Formula
   depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "john", because: "both install the same binaries"
 

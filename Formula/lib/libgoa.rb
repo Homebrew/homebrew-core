@@ -1,8 +1,8 @@
 class Libgoa < Formula
   desc "Single sign-on framework for GNOME - client library"
   homepage "https://gitlab.gnome.org/GNOME/gnome-online-accounts"
-  url "https://download.gnome.org/sources/gnome-online-accounts/3.56/gnome-online-accounts-3.56.3.tar.xz"
-  sha256 "38596f17e0269f77e1623a6bf79569573c7bdf7b7cd863fb478a78ae664dea30"
+  url "https://download.gnome.org/sources/gnome-online-accounts/3.58/gnome-online-accounts-3.58.1.tar.xz"
+  sha256 "9ec1900cc51409c2067c07c828c10be06fe3bf68d2999bb72d7d5ed325ed9bbc"
   license "LGPL-2.0-or-later"
   head "https://gitlab.gnome.org/GNOME/gnome-online-accounts.git", branch: "master"
 
@@ -11,15 +11,16 @@ class Libgoa < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "4588e55d56f432dfa6f3359c4a170a891278a16f22aceaa4c45c8303884004d8"
-    sha256 cellar: :any, arm64_sequoia: "164fa2d3f0902092f2f99c9c6945906da577301f54ed9cabc383729ee790b9d4"
-    sha256 cellar: :any, arm64_sonoma:  "b4b235b16a3c757260ccb99190aee7e824ea1be691a95a74360d7544604dd820"
-    sha256 cellar: :any, sonoma:        "936a16a926d04c970f0020ecfd1ca71a5f27126ebaffea55da556d6364c22c9f"
-    sha256               arm64_linux:   "91d5961d09dd9f3cc27808e712317ea0c0cb609b34f6076150de4565f40c6beb"
-    sha256               x86_64_linux:  "7029ae35828b269d5944886a501524d5e70eaa84e1ae8119692e9ee9aca04ae7"
+    sha256 cellar: :any, arm64_tahoe:   "17106a0d2deae6786612b0c40bcee1d22a156179417314cd8a4d249f1f02bbe3"
+    sha256 cellar: :any, arm64_sequoia: "a3c65593935f0041c93a4b0682e19f2fd0223bcb008f8396fa7911ba60727c8e"
+    sha256 cellar: :any, arm64_sonoma:  "15c94abbbf824c560d7fcf81358d591bea5316312e0ee7ce372d7f751293a6cb"
+    sha256 cellar: :any, sonoma:        "dbf3b5e0c2ad4ca481aaf8ca49a0a074fa5441ee670eb7a03c0d77ca26f8ab86"
+    sha256               arm64_linux:   "6d40f07d27e14741b7b5e60893278fc3b95f6df93726ecb8074bd351fd8ad05d"
+    sha256               x86_64_linux:  "60542266cbd51558098b9417a22d093a3909d143b64da8415f2c9e996e5c25c4"
   end
 
   depends_on "dbus" => [:build, :test]
+  depends_on "docbook-xsl" => :build
   depends_on "gobject-introspection" => :build
   depends_on "gtk4" => :build # gtk4-update-icon-cache
   depends_on "meson" => :build
@@ -29,14 +30,24 @@ class Libgoa < Formula
 
   depends_on "glib"
 
+  uses_from_macos "libxslt" => :build # for xsltproc
+  uses_from_macos "libxml2"
+
+  on_linux do
+    depends_on "gettext" => :build
+  end
+
   def install
     ENV["DESTDIR"] = "/"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     system "meson", "setup", "build", "-Ddocumentation=false", "-Dgoabackend=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
 
-    # Remove directories that are installed in `gnome-online-accounts`
+    # Remove assets that are installed in `gnome-online-accounts`
+    rm share/"applications/org.gnome.goa-daemon.desktop"
+    rm share/"man/man8/goa-daemon.8"
     rm_r([share/"icons", share/"locale"].select(&:exist?))
   end
 

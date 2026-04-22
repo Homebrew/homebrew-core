@@ -6,14 +6,13 @@ class Nuraft < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_tahoe:   "57d924190590cdb01bcd5f62264e6c3af26192ba7e0025f31ec48f562caeb5db"
-    sha256 arm64_sequoia: "9f0444da2009a60f4b82f977cfb9bc52d968b0e5137e8b71e5fbf916af77475e"
-    sha256 arm64_sonoma:  "ef01fe0ef80d4cb4b0d71f75852eb31bf371a6467145826a0c22cc6b725e4454"
-    sha256 arm64_ventura: "a0a521444542143814cbfea45bbbe56fa663df2bf4ec6e38f9b90b109176f813"
-    sha256 sonoma:        "a4e7e1636198eb052538eadd905e38f7ad41698b8e161204d515e8580159651d"
-    sha256 ventura:       "9a0710600badd9d65b2b3848fb8d3817acd5f1f491202c19a27f3d8b367d2e63"
-    sha256 arm64_linux:   "3de18ac7749440d6cc2207d0930aae4bc8ccbb7654cf871181136398caa669f2"
-    sha256 x86_64_linux:  "5b8e3ed8205c1c74edb71ad5a819fe84c27c03c51538c5bc6eb4174ebe87398b"
+    rebuild 1
+    sha256 arm64_tahoe:   "ea3f306e6ff8caed8af6766269952ba484a9c93616bd3022536ecdf594244293"
+    sha256 arm64_sequoia: "d8c11cb1794414a156702a0dd8e2e4c2f1364b3ce70d72fe0621ec8ee38e3153"
+    sha256 arm64_sonoma:  "12ba02a1696da77e500b797871ae74e95faef90716c9926226a89eb27bccc1b9"
+    sha256 sonoma:        "6448d43767ede630932d6bdb91a5d898fa1009c2fe50ef151c39c02d9d1b6c01"
+    sha256 arm64_linux:   "fc1791ce60a81c886fe5c3484636b8ef7645eb8fa08d7d4a0f1d7ab65d40b277"
+    sha256 x86_64_linux:  "922ce348211e72adc865d2a6976cd7a2b914d1ea88c4508fb80fd7430cac185a"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +20,9 @@ class Nuraft < Formula
   depends_on "asio"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # We override OPENSSL_LIBRARY_PATH to avoid statically linking to OpenSSL

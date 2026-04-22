@@ -4,6 +4,7 @@ class Pycparser < Formula
   url "https://files.pythonhosted.org/packages/1b/7d/92392ff7815c21062bea51aa7b87d45576f649f16458d78b7cf94b9ab2e6/pycparser-3.0.tar.gz"
   sha256 "600f49d217304a5902ac3c37e1281c9fe94e4d0489de643a9504c5cdfdfc6b29"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "2c10120dc7d0f6e19f7ceaa82bf41195df1541f3971a69367611f04121babec8"

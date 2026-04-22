@@ -5,16 +5,16 @@ class Gmime < Formula
   sha256 "84cd2a481a27970ec39b5c95f72db026722904a2ccf3fdbd57b280cf2d02b5c4"
   license "LGPL-2.1-or-later"
   revision 1
+  compatibility_version 1
 
   bottle do
-    sha256                               arm64_tahoe:   "9079c8df9d0e01281591ad2028c853080b9397820bcf0226849837aa2da115ca"
-    sha256                               arm64_sequoia: "b88c637274929cbfe432be657a4f9d0ed2a6dcb8573e3289c4634f0719c243bd"
-    sha256                               arm64_sonoma:  "1a6299ff6b1f75b3d5cb80d74b2f3a10b844d67de2586cc862084f8c0a55ea49"
-    sha256                               arm64_ventura: "e62b5de106b270673a70e3cd743d197136947335d83bae2a832d77ed233841bb"
-    sha256                               sonoma:        "f9de52ad7b7be5e2731a2cee8b649fba7095ec305ebc01fb3a47c64f9b68cef5"
-    sha256                               ventura:       "d83c620fd9a041b6a8a3bcbed80886e9e95ea20ed5bb70ed4dd5010929fa2210"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27ccd3cf2c9179d022f5d3c8320c56b0e195ba60003666514ecd3827bce3311c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ff3e999c50bbcc7691fac0ba15aa27b1b2d7f99a534032724d6dfc6f3f0fe35"
+    rebuild 1
+    sha256                               arm64_tahoe:   "e78cfa945f251f0e714eec649d9a2eeff2757f70c01f4e6e3e08a8b9006ca06c"
+    sha256                               arm64_sequoia: "b8ac67284de81e8196b96900938780ad0ca73aa0b0411ba2aebddf162b37618c"
+    sha256                               arm64_sonoma:  "f19a07ff4fae238eea6a16f5a4f869d19b35fe3ff19fd2314a2f16b4f6ddfc28"
+    sha256                               sonoma:        "1cb40b5b061c18e2d6bfe10341787969e239d3bd2f535aac557e21b51cee656e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8cf5931215d8318c575fca83eb48ba30e8fddbdd1a9c54f0ebe1bea4df596aef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61032ac4859a9aa36f94a74ae6fe472fa440f4dd5047a88f915a253e5a40a71a"
   end
 
   head do
@@ -32,11 +32,13 @@ class Gmime < Formula
   depends_on "gpgme"
   depends_on "libidn2"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
     depends_on "libgpg-error"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

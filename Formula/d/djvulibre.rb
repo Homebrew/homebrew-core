@@ -4,6 +4,7 @@ class Djvulibre < Formula
   url "https://downloads.sourceforge.net/djvu/djvulibre-3.5.29.tar.gz"
   sha256 "d3b4b03ae2bdca8516a36ef6eb27b777f0528c9eda26745d9962824a3fdfeccf"
   license "GPL-2.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url :stable

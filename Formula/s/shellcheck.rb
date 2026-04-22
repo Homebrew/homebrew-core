@@ -4,6 +4,7 @@ class Shellcheck < Formula
   url "https://github.com/koalaman/shellcheck/archive/refs/tags/v0.11.0.tar.gz"
   sha256 "8b07554f92e4fbfc33f1539a1f475f21c6503ceae8f806efcc518b1f529f7102"
   license "GPL-3.0-or-later"
+  compatibility_version 1
   head "https://github.com/koalaman/shellcheck.git", branch: "master"
 
   bottle do

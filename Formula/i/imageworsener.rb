@@ -10,22 +10,14 @@ class Imageworsener < Formula
     regex(/href=.*?imageworsener[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "7c93f1acb04364dbca924bc427a320904269079da6f965a2954f3600d4ae2c23"
-    sha256 cellar: :any,                 arm64_sequoia:  "2f5e92e748e1e1993f68bf0e8313742c972c9b466ff60a307c4b8eb3c12ab388"
-    sha256 cellar: :any,                 arm64_sonoma:   "5b595eed5b2b5cd87dd3f6cf4585b3a0709ec9a4e7fddc64a54f29056133fee1"
-    sha256 cellar: :any,                 arm64_ventura:  "14a343a159b3410196cc3ed40b0e674b4bed5f8ee7b2760b49b1317e1a09811a"
-    sha256 cellar: :any,                 arm64_monterey: "0d8c2dab98fa032f871df63f93ae33d4d1a989fe7c97f185d976d976f243134a"
-    sha256 cellar: :any,                 arm64_big_sur:  "50063cbefef7614047703983639adaee5836d68c02f673aed62c38fea1c4418d"
-    sha256 cellar: :any,                 sonoma:         "dad022cb391e42d43f72c3e7f3b2e2fb3bfb28b2c933d29790c8c863086c4518"
-    sha256 cellar: :any,                 ventura:        "d360400241b1bf7a2199e04034e96da619f19c0473c17bf7637555fdaab73421"
-    sha256 cellar: :any,                 monterey:       "443be530e6d93e197026cf8ec457817446c38c94d84b39a3ca76e7a2282225ae"
-    sha256 cellar: :any,                 big_sur:        "7ce254b5dfb0dcd52e39b682cfd21ea665601cd14e9a2a5ab0c923e185ad5261"
-    sha256 cellar: :any,                 catalina:       "7301d5557860b7402e3d624c77a208c1e3eb1ed69479d6d3d3f1158a3e3ea079"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "aba845ffa91fb356cfc4f89ef25e24761c0586d43a820cf69013b72e9afe713b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffeb2d98cb08aca5974ca2ece5a40a42b5bd6e0c2422f0a3013455d00793883d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2ea02018611e3a89bd678dc6e1daa778ed958dc03d69bdc4a447cd6c43502ff7"
+    sha256 cellar: :any,                 arm64_sequoia: "0631ddddd165edc2731f57d2b3cf01513c202b4fb68a8b8d9eece1c24ce9c487"
+    sha256 cellar: :any,                 arm64_sonoma:  "b68eec2280cf90bec44ef151944a540252118d79233acbcf67e9211a7a4c0a47"
+    sha256 cellar: :any,                 sonoma:        "f3207ea97421c3105dda00945d0382f71fc3c2345b9171c28325cb032094878d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0211d900e4e2ec8d216be3435a9146a811c259add289e0b92e53deca7596f83a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b929b424d3049ee109d5974d83589f92d3f7303b35a597a429334f62bb4e8e4e"
   end
 
   head do
@@ -38,7 +30,9 @@ class Imageworsener < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     if build.head?

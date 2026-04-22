@@ -1,21 +1,18 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter-5.1.1.tar.gz"
-  sha256 "ddff538aae249bd636604128bac1ccb526a4ed5c32f00b45d3c3c1dbcdb655de"
+  url "https://mikutter.hachune.net/bin/mikutter-5.1.2.tar.gz"
+  sha256 "ac5d5cc386dd03d544d34a2fd2e5c73e38985eb2fcbe98e7137931de04bb6433"
   license "MIT"
-  revision 1
   head "git://mikutter.hachune.net/mikutter.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "11ddc87f285b209259432e9300ec37b00fd2c279ab26f99f21f9c30077cada8b"
-    sha256 cellar: :any,                 arm64_sequoia: "bff0efb2672daf2e67cb87d6b1588f188ce9764ccce7ead1f5feebda38a3bb93"
-    sha256 cellar: :any,                 arm64_sonoma:  "259ec1de6508d3d7233e51f80ddb16a3bcf4f18431b5d4fe1a7d892452eb6a0f"
-    sha256 cellar: :any,                 sonoma:        "16f048790f2e72a56a0101a3c504dc3f62f145afe40683ef315a10a8b92df2aa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "33f0985f02df6c48f1292d1be0c7546505d8494b4d2a996b47acb8aaa0cb392d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "718a0a718deb541c1bd4991bc24e73127a9edb7c97ba01cfc5a217ce58ce63c2"
+    sha256 cellar: :any,                 arm64_tahoe:   "7490c04f633cb2be02befd113c2808f4157c64d8e4916d84c2c8db1f531a4c2e"
+    sha256 cellar: :any,                 arm64_sequoia: "6d80163010cc21ea16cac7c096b33a687c2616e6fbe6bba46b00aed1ff5b0819"
+    sha256 cellar: :any,                 arm64_sonoma:  "06fc511c670b0568aee83aae0cf53fcb6be315352eaf2812a4583db75a99747b"
+    sha256 cellar: :any,                 sonoma:        "64d58bcd68598dac0653ba362eb283ac2379cc07ccf4c460971788e679085ecc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ff0a19b16293983110f8b9af06464a1aecf6322c185981a72a168e6184cd5fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4bdc4b967cf1ae1fc24f59b9407a11b36b1cc9c53768015fad2f6625c4a686ed"
   end
 
   depends_on "at-spi2-core"
@@ -33,14 +30,18 @@ class Mikutter < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxml2" # for nokogiri
   uses_from_macos "libxslt" # for nokogiri
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
     depends_on "terminal-notifier"
   end
 
-  # check `plugin/gtk3/Gemfile` for `gtk3` gem version
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
+
+  # `gtk3` 4.2.1 from upstream fails to build against current glib releases.
+  # Keep the ruby-gnome stack in sync.
 
   resource "addressable" do
     url "https://rubygems.org/downloads/addressable-2.8.6.gem"
@@ -48,8 +49,8 @@ class Mikutter < Formula
   end
 
   resource "atk" do
-    url "https://rubygems.org/downloads/atk-4.2.1.gem"
-    sha256 "b8040ed25cb206b2d54354ba8f95f365b6db16149b29fd1ab7ca8edcce8b8c86"
+    url "https://rubygems.org/downloads/atk-4.3.6.gem"
+    sha256 "b0ca3352c70ba17ec7a99a3a11454c5261bd5b24e7a3e9711d86f6dd32aa74fa"
   end
 
   resource "cairo" do
@@ -58,8 +59,8 @@ class Mikutter < Formula
   end
 
   resource "cairo-gobject" do
-    url "https://rubygems.org/downloads/cairo-gobject-4.2.1.gem"
-    sha256 "fa1735e69c14714fa09e4f647ac56c486baf69d39663ac1789ef2a62d54fc91b"
+    url "https://rubygems.org/downloads/cairo-gobject-4.3.6.gem"
+    sha256 "66e8b6ed3f78d8c7bb389b08a6b68e756ac95df02ed2433cc94ac03101a4abc3"
   end
 
   resource "delayer" do
@@ -88,13 +89,13 @@ class Mikutter < Formula
   end
 
   resource "gdk3" do
-    url "https://rubygems.org/downloads/gdk3-4.2.1.gem"
-    sha256 "74e511471be1ddc70b63272ed37702dbb690bf1b3fded9544c1928355edd7f59"
+    url "https://rubygems.org/downloads/gdk3-4.3.6.gem"
+    sha256 "8567ed324de1226fa7cfb5ee2e51e70adc589822c0e277f40276b6d9abc48e8b"
   end
 
   resource "gdk_pixbuf2" do
-    url "https://rubygems.org/downloads/gdk_pixbuf2-4.2.1.gem"
-    sha256 "caa2a3df21d50e6f0ee3ed718161eacc47f064645aba8a1a0505d0a2cd033ad3"
+    url "https://rubygems.org/downloads/gdk_pixbuf2-4.3.6.gem"
+    sha256 "c2565b92f1ea79063625dc3c36e17cfe7d9d536751d4ab79cffde05d2c221bc6"
   end
 
   resource "gettext" do
@@ -103,23 +104,23 @@ class Mikutter < Formula
   end
 
   resource "gio2" do
-    url "https://rubygems.org/downloads/gio2-4.2.1.gem"
-    sha256 "bfede5ef3af50ddd9ac786a25065d342a8ef0e405d9eea533c33d3b87c38fffe"
+    url "https://rubygems.org/downloads/gio2-4.3.6.gem"
+    sha256 "51d37db1614124b4dc0f7fd967cf90a37afb36e12e61de532cd9c21492ded5a5"
   end
 
   resource "glib2" do
-    url "https://rubygems.org/downloads/glib2-4.2.1.gem"
-    sha256 "63bb28d488d4cf6923080c5b37d15a24d043f1ee21100b43407c06f1e5987b51"
+    url "https://rubygems.org/downloads/glib2-4.3.6.gem"
+    sha256 "d21cec76d847363b4c1864aeb848133e705a0dbc35dbc4753016822dcf80e1cc"
   end
 
   resource "gobject-introspection" do
-    url "https://rubygems.org/downloads/gobject-introspection-4.2.1.gem"
-    sha256 "535bae9fa07a109e47f57e220e63517e61aed502a9d74a960eae498b1e5cda23"
+    url "https://rubygems.org/downloads/gobject-introspection-4.3.6.gem"
+    sha256 "6f09f66555bec243e258238be76b5d530604e88c1ba069d76a1b6613bc75876b"
   end
 
   resource "gtk3" do
-    url "https://rubygems.org/downloads/gtk3-4.2.1.gem"
-    sha256 "8d07a7930585cafea15790f9acfc0d6ec5629c91ed9698bfdc2c7ee6ab5560c2"
+    url "https://rubygems.org/downloads/gtk3-4.3.6.gem"
+    sha256 "aded2114051b3290ebbe9170287de6dfcc06ddc5127d56543ebedd2e80a69c99"
   end
 
   resource "httpclient" do
@@ -179,8 +180,8 @@ class Mikutter < Formula
   end
 
   resource "pango" do
-    url "https://rubygems.org/downloads/pango-4.2.1.gem"
-    sha256 "9e8431164dbce8a151f4994b8996809fb83b9b95753e7d33c23938f1e824f4d2"
+    url "https://rubygems.org/downloads/pango-4.3.6.gem"
+    sha256 "04ebb355a78b20fac0153d320452b5e2d4c3624ed35ce54c526c90df767cbedc"
   end
 
   resource "pkg-config" do
@@ -278,6 +279,9 @@ class Mikutter < Formula
     end
 
     gemfile_remove_test!
+    # mikutter's plugin Gemfile hard-pins gtk3 4.2.1, so Bundler will ignore
+    # the updated vendored ruby-gnome resources unless we rewrite that pin.
+    inreplace "plugin/gtk3/Gemfile", "'4.2.1'", "'4.3.6'"
     system "bundle", "config", "build.nokogiri", "--use-system-libraries"
     system "bundle", "config", "set", "--local", "path", "#{lib}/mikutter/vendor"
     system "bundle", "install"

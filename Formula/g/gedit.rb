@@ -1,19 +1,19 @@
 class Gedit < Formula
   desc "GNOME text editor"
   homepage "https://gedit-technology.github.io/apps/gedit/"
-  url "https://gitlab.gnome.org/World/gedit/gedit/-/archive/49.0/gedit-49.0.tar.bz2"
-  sha256 "f3437a675790c8593d511355252d751ab94328357bc6846d1106bf288161a5ed"
+  url "https://gitlab.gnome.org/World/gedit/gedit/-/archive/50.0/gedit-50.0.tar.bz2"
+  sha256 "c2d064001b95196f046a6f9705245e3a02dc427265f4e24af9bd2d5f3cb619ee"
   license "GPL-2.0-or-later"
-
-  no_autobump! because: :requires_manual_review
+  revision 1
+  head "https://gitlab.gnome.org/World/gedit/gedit.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "f16f039fa3d91301dbdffbb90fe7a7e516298ca030f1d599ab9869bea105987a"
-    sha256 arm64_sequoia: "a455eb1e0da6e1c6b453e53e1643c3f31a080d60870216c8c4ad7d62d69c386c"
-    sha256 arm64_sonoma:  "16afa1324bafcb923f6d8f0fec2cf8878d631c109ef24173fedb5aa43db65ff5"
-    sha256 sonoma:        "cc0e19ab35a92f1160e2d307422f9a78720cc851f0c1c74bc7e0a075a5702c02"
-    sha256 arm64_linux:   "a7180250047f87965dcdac66475a5818f8ce37f8eafa3d82ecbbf924ed10fa11"
-    sha256 x86_64_linux:  "77b6f806c5a7cfba5bdff000085f51c165fe6bfa64bece69054703030de7e7e6"
+    sha256 arm64_tahoe:   "7ab23f8b77bacabdc5c44b8dbd1a723d6e3466520ec79efba32c317992b9780e"
+    sha256 arm64_sequoia: "37c41e7231cf0347a22679a0e93538a583256f18ec8f6e80e2dacc746b98abad"
+    sha256 arm64_sonoma:  "9c557f5e3353b2f47bed28cb382f154ddbe00e9093756e848bf5c9accd5d4fb5"
+    sha256 sonoma:        "c0de076352635b54021b8f2071a7b165560bce4d38c71080da5a9bd9a4462420"
+    sha256 arm64_linux:   "b67918659a932d7e8773cfce2841874fd440811ec088abefd89da0518901a1ca"
+    sha256 x86_64_linux:  "2e2bb9743758ec4e03af79652116c9ed9a52957360bcf9eaea61aecab70b4c3a"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
@@ -46,8 +46,16 @@ class Gedit < Formula
   end
 
   resource "libgd" do
-    url "https://gitlab.gnome.org/GNOME/libgd.git",
-      revision: "3cccf99234288a6121b3945a25cd4ec3b7445c74"
+    url "https://gitlab.gnome.org/GNOME/libgd/-/archive/c7c7ff4e05d3fe82854219091cf116cce6b19de0.tar.bz2"
+    version "c7c7ff4e05d3fe82854219091cf116cce6b19de0"
+    sha256 "343abb090461d011dfb1bce5b5da1dfbc9f6c7b6b3223a1b322adb33675212c1"
+
+    livecheck do
+      url "https://gitlab.gnome.org/api/v4/projects/World%2Fgedit%2Fgedit/repository/files/subprojects%2Flibgd?ref=#{LATEST_VERSION}"
+      strategy :json do |json|
+        json["blob_id"]
+      end
+    end
   end
 
   def install

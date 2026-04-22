@@ -14,8 +14,6 @@ class Pktanon < Formula
     regex(/href=.*?pktanon[._-]v?(\d+(?:\.\d+)+)(?:[._-]dev)?\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "d90ddd6a6904fe38ba56eb87fc3b31c29cf19e4f67f3251245cb8ca8aa072c8e"
     sha256 cellar: :any,                 arm64_sequoia: "44134c55be8a09ccfa54203ccf2ce297df8c8a76e4ef3c94040a523c0bf50cda"

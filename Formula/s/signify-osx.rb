@@ -6,8 +6,6 @@ class SignifyOsx < Formula
   license "ISC"
   head "https://github.com/jpouellet/signify-osx.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c842d35a800bb257d062f172d661077ece1018ed30363125aebbed7ee079611f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1f645784096049b48c18e71ae3891a4430473389e52cad0c647233875bc2716b"

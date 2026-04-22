@@ -19,8 +19,6 @@ class Libcanberra < Formula
     regex(/href=.*?libcanberra[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "ec6a63b0eb4cea2f117b082fadb5acc4792206193e3a64f8a02dcfdd6abda217"

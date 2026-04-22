@@ -5,13 +5,12 @@ class Libev < Formula
   mirror "https://fossies.org/linux/misc/libev-4.33.tar.gz"
   sha256 "507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea"
   license any_of: ["BSD-2-Clause", "GPL-2.0-or-later"]
+  compatibility_version 1
 
   livecheck do
     url "https://dist.schmorp.de/libev/"
     regex(/href=.*?libev[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "6f3bcc66907452a0f795ad6532d69deacdb1059379ca5a94da3a3e286342f94c"

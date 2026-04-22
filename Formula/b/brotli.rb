@@ -6,6 +6,7 @@ class Brotli < Formula
   mirror "http://fresh-center.net/linux/misc/legacy/brotli-1.2.0.tar.gz"
   sha256 "816c96e8e8f193b40151dad7e8ff37b1221d019dbcb9c35cd3fadbfe6477dfec"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/google/brotli.git", branch: "master"
 
   livecheck do

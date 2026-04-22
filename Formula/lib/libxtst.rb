@@ -4,8 +4,7 @@ class Libxtst < Formula
   url "https://www.x.org/archive/individual/lib/libXtst-1.2.5.tar.gz"
   sha256 "244ba6e1c5ffa44f1ba251affdfa984d55d99c94bb925a342657e5e7aaf6d39c"
   license "MIT"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "3695416abec8f1da23fddcc232bdc5e9522f822f67c7a0c69f522f54c8653617"

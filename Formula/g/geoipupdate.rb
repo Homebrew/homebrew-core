@@ -7,20 +7,23 @@ class Geoipupdate < Formula
   head "https://github.com/maxmind/geoipupdate.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "210cbe3b702c115c0aa1aab4a33e45c7b7fc1e4c08007affa29d8de72ff711e3"
-    sha256                               arm64_sequoia: "78d7f7498bb083170faefe612992b4f5e2032ec9a45be6575f9be4e48a75b4dc"
-    sha256                               arm64_sonoma:  "7557755567a801e49fadaebea3d4af2d44f8ed51cf6dca8e01ae9f9234a0cb35"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d1ad0b7b8205a1769a41701bb81937f63b50da6aacb7a7347473dc9b5cbc466b"
-    sha256                               arm64_linux:   "31ad80bc48bc56966de8174803ad404156bacc0c2d3ce8c68ff1e6db89e576a9"
-    sha256                               x86_64_linux:  "6adfb1d2c719053d5d9be82450b2253d3f97ca563f850ec4ae8d280d4aedf095"
+    rebuild 2
+    sha256                               arm64_tahoe:   "6ffcdd5b4d20042abc7c43cfad948193d2dcc608bbcf3a0e8df942b05c0995ad"
+    sha256                               arm64_sequoia: "6edf968afba83f6d986ca2dc7ee31b3b2538f2307788fa0f51febbafc66ce702"
+    sha256                               arm64_sonoma:  "12a26bb493069864f06579428ef9a2ba1278883bc6209fa9e97cca49fb814c62"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1c1a3de1f94838ecf0836a3966342dcafa2101f3c44908823e88493ae3262574"
+    sha256                               arm64_linux:   "800bb13a38ccb17e75e9dc3c724f7e859a2bf5ba4c32e9fb55947e42c183a675"
+    sha256                               x86_64_linux:  "96189a674d2791bf8d4eb5063077bf00ba59c7c78d9044f17a12d4cf58afb114"
   end
 
   depends_on "go" => :build
   depends_on "pandoc" => :build
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make", "CONFFILE=#{etc}/GeoIP.conf", "DATADIR=#{var}/GeoIP", "VERSION=#{version} (homebrew)"

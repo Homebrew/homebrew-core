@@ -6,8 +6,6 @@ class Xkcd < Formula
       revision: "5e68ef5b2e7e6806dd57586e9b7ed4f97f64dba0"
   license "AGPL-3.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "12b749bea35ff4bdf2e22379ecbaf6fe1932dbed2ad24593fec9991690eb1802"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "78fd0f7eb254f594cc5600317b385bcfa759d68b118d6be7ff71385ef1816bb2"

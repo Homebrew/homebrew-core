@@ -1,18 +1,18 @@
 class Lychee < Formula
   desc "Fast, async, resource-friendly link checker"
   homepage "https://lychee.cli.rs/"
-  url "https://github.com/lycheeverse/lychee/archive/refs/tags/lychee-v0.22.0.tar.gz"
-  sha256 "ea1e0574f76c0541b014eab3fc32bf0bdda845a0e917175a5013f7920bea67e1"
+  url "https://github.com/lycheeverse/lychee/archive/refs/tags/lychee-v0.23.0.tar.gz"
+  sha256 "0c2c7387f5c8916c8c35ffd6102507663de8645da78579231a403020c34db67b"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/lycheeverse/lychee.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e119a45c76e6e54922666dd5f5e288eddccd1da0ab1835d9f39202e3303c1d7b"
-    sha256 cellar: :any,                 arm64_sequoia: "0fa88d82c193c85e40cfa696b96b5b9ad4195d1fbaea7675083623f6904f0d09"
-    sha256 cellar: :any,                 arm64_sonoma:  "5c40309cdd80ed816062d028c7b8bc33bf8613de5eba99d2d9464e9249a32108"
-    sha256 cellar: :any,                 sonoma:        "653ea4644eb47a190b00835210bac594f15cb642dace42eb0d808208a0aad3a1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ffcd95c51b24c43655c46826dc7aaff60275020817223ac2a44d5cb86fa3164"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96b7334a6f13a57aab145a95ccba6fd3d46da2cdb51cdaddcd9f8bce03543e21"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc655b833a71ae76f12fb96cdef6edcd6dc99a45c3e8526a11b8ef8f48e1ab43"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32234fa2157678726d3fc4a9a663e87f193375202daa93ef5facdc85d172e5e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "144e3ce2caeab54c24f83398759d36d18fcd8cc800ea81d51918d344161da906"
+    sha256 cellar: :any_skip_relocation, sonoma:        "14c482039779ee156e73af0c760e61728bdc9e67bbbe810b6c8ff3ec08bed368"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b674aef5069addbc961c55ddc819eac3cb44a6f6d7bd0f0da286788bddcaaf93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ebb7248c273b09a89e60ad8dd44f28b3033fd0ed55205952d0042e21c9303f7"
   end
 
   depends_on "pkgconf" => :build

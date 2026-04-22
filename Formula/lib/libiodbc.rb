@@ -5,8 +5,6 @@ class Libiodbc < Formula
   sha256 "a0cf0375b462f98c0081c2ceae5ef78276003e57cdf1eb86bd04508fb62a0660"
   license any_of: ["BSD-3-Clause", "LGPL-2.0-only"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "ab0c5ad41cb17f93a5d9b29ad4d64f6e1be2fb6f1c76bcd7db04b8ded60549e4"
     sha256 cellar: :any,                 arm64_sequoia:  "1a93beeb32954c2c1ce2bb4939c32f1940ec9491ba342ca594fc472bd01852b5"

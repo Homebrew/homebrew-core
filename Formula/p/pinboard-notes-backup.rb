@@ -7,14 +7,13 @@ class PinboardNotesBackup < Formula
   head "https://github.com/bdesham/pinboard-notes-backup.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7ecf5ebe63dd2afd072c841fdd93b48a83a4432ff21cf382eaf5d63513139768"
-    sha256 cellar: :any,                 arm64_sequoia: "3adc5f0a65085d294884fb2e4d9f30c5680258993cf42109fed2e888b060ef30"
-    sha256 cellar: :any,                 arm64_sonoma:  "0d68e9af81f782a5e5448b689c3dabc728b85271730b4dd9bbd54ecf3837f98c"
-    sha256 cellar: :any,                 arm64_ventura: "adaebd25181a724dec9e17272ef0f2fcd98d0219fbd36653038dddcaf9b11f7b"
-    sha256 cellar: :any,                 sonoma:        "ddccefd960008324daef76cd30ea92b6870d939c01c3c3e6caa15e01428f65fb"
-    sha256 cellar: :any,                 ventura:       "4ddbd28f4fb04213eb995c1e4dde8acd9ca1d7f339155ffd3b818ad5100ca366"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a286933d552029876b9c8957cf278b92eddc5c37abc8758ebc234fc3e053ce4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97a89973ad6d4fcb0ff7c5caa530764272ff4d73ed938cbb86acd0692cf36b08"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "61ab93300efacf6806b22a12a68d41abb160245fbd468320985c72541e74c08a"
+    sha256 cellar: :any,                 arm64_sequoia: "bd015512bf68cff2cce03386ecd6a33a60eda0db5aa5dce024c069f245a57f7b"
+    sha256 cellar: :any,                 arm64_sonoma:  "7f2b54f27fc60f45bd2a54fe75c9c098ee16a2112ab7f323ee0cb618f0151636"
+    sha256 cellar: :any,                 sonoma:        "87d95a1410a2d5f7332b9a86b4b822ef00bec53b26b571be9573308304b44238"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "52b12aa0e866edb547e43aa8b3203a811cdab29f55b3860047a07f4f53bf9ba9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6f27b387f833bca955fe44a98f07222cf8f31539067e5f6b538ad131df13c5a"
   end
 
   depends_on "cabal-install" => :build
@@ -22,7 +21,10 @@ class PinboardNotesBackup < Formula
   depends_on "gmp"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155

@@ -6,8 +6,6 @@ class Cig < Formula
   license "MIT"
   head "https://github.com/stevenjack/cig.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "24af56532b56382a0a26334284d11ace630a49d376ae8af4f808aede18cf17a5"

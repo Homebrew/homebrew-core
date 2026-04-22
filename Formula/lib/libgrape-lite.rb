@@ -6,8 +6,6 @@ class LibgrapeLite < Formula
   license "Apache-2.0"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "627453323fe0db452b85a864ca0173ee52fe9dbd8a5a34741c02afd885caf611"
     sha256 cellar: :any,                 arm64_sequoia: "917d4cb3fd061144c28cd909922f6da05fdde433eba392b1686f4eb31b4d9b06"

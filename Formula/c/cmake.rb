@@ -1,21 +1,13 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
+  url "https://github.com/Kitware/CMake/releases/download/v4.3.2/cmake-4.3.2.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-4.3.2.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.3.2.tar.gz"
+  sha256 "b0231eb39b3c3cabdc568c619df78208a7bd95ea10c9b2236d61218bac1b367d"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
-
-  stable do
-    url "https://github.com/Kitware/CMake/releases/download/v4.2.3/cmake-4.2.3.tar.gz"
-    mirror "http://fresh-center.net/linux/misc/cmake-4.2.3.tar.gz"
-    mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.2.3.tar.gz"
-    sha256 "7efaccde8c5a6b2968bad6ce0fe60e19b6e10701a12fce948c2bf79bac8a11e9"
-
-    # Backport support for Lua 5.5
-    patch do
-      url "https://github.com/Kitware/CMake/commit/6347854fa279cda0682c72dffbb402a0ce29ba51.patch?full_index=1"
-      sha256 "d0c0b08826fc16468dba8672f8a6b77c56062bead4c5c501360e868e511ee91e"
-    end
-  end
 
   # The "latest" release on GitHub has been an unstable version before, and
   # there have been delays between the creation of a tag and the corresponding
@@ -26,14 +18,14 @@ class Cmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec220979dcce6f31e51f2c91ea1add28d60f0a9607a61641f279115f27216035"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3631ec91752e960abbad9049edd4effa34ce2a3eca969d03df843d3c6940d60"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1e3122226b839098ac4981fc945b08dac5c43fd6e65ba02a1b96e774578914e"
-    sha256 cellar: :any_skip_relocation, tahoe:         "a8c446217cb2b06087c0764a2de9f40fd3bd9c57163fdbb22fdee738c7545e50"
-    sha256 cellar: :any_skip_relocation, sequoia:       "d84159c07d244bdb386459bf62c58d00e9f1f2425f98893883a4ee8f3e074a8e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4cc8034607d8d7c835debef687dfcf5c3fe316fd767fce86ca14979d81a221fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "139bf32b518db003c7a25f6f29e25e7371f3aa022605b5bb2e23a94074d9f425"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b94ff7d2b35b1b560c7752d7ff6b634bd2911aa15f925609d0f0814a1b418a9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e2c5a1ae09a0e35a582305caba6f7ad47adfd35cc240d8b2e6c24a106fdbb1c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8f1f9f6a2a1a73ddb23f85ab9e60b02822dbea67437e0e3263ccdbdbe119ef8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "442706522c7aa99018512b41f43ef6b3886bd6adbabc91401450852f1540ed8a"
+    sha256 cellar: :any_skip_relocation, tahoe:         "6c11190a4470cc8b813227670233c7073513090e83af6eb02e23f30c6e8e3f1b"
+    sha256 cellar: :any_skip_relocation, sequoia:       "781e965f824e5aacf040171dbe3c93785810f21125f8f2d406b0951647d19ba4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fdb020c78c9eae496d086556ca1d729cd4815203ef1b545d77de73767553b041"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b78b738d51bb50e489362ebfacc1c3f441980e153c81305cf2a03dd510a0edb1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72afa4b97cce47ab0433bc2e59b474ee585ceb3f7e55cf34ee7805ce687ae3f8"
   end
 
   uses_from_macos "ncurses"

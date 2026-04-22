@@ -1,9 +1,9 @@
 class OpensslAT35 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl-library.org"
-  url "https://github.com/openssl/openssl/releases/download/openssl-3.5.5/openssl-3.5.5.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/openssl-3.5.5.tar.gz"
-  sha256 "b28c91532a8b65a1f983b4c28b7488174e4a01008e29ce8e69bd789f28bc2a89"
+  url "https://github.com/openssl/openssl/releases/download/openssl-3.5.6/openssl-3.5.6.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/openssl-3.5.6.tar.gz"
+  sha256 "deae7c80cba99c4b4f940ecadb3c3338b13cb77418409238e57d7f31f2a3b736"
   license "Apache-2.0"
 
   livecheck do
@@ -12,14 +12,14 @@ class OpensslAT35 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "35c27a47bac3ec44884d3d0677cc12a48e13473d55af71e780f130ab107d8f39"
-    sha256 arm64_sequoia: "c647488b02d8875e1b43a42dd6d1c72a07c183813b4d06e8a4312c7b57f983cf"
-    sha256 arm64_sonoma:  "52eb885ed9b20b4d190c8e3552543ccd184d12975f76f9a42ba2054031a652e3"
-    sha256 tahoe:         "9c8d16872369512b54ee32ae388cb5aa1758cce05b9f81136dc1f3d7f908c2ab"
-    sha256 sequoia:       "73e01cceabf90f13c8b4d347b1858bd99446e4ec538b147c0ede9899db05ca12"
-    sha256 sonoma:        "81292d4877a69aeda5ab32ce9e41f1dd53870d271d248e7dac4a72eeeb489588"
-    sha256 arm64_linux:   "e1334f57fbae3b8b58291b8e28b71b27b5566570104d36ecd154c30f231d6d83"
-    sha256 x86_64_linux:  "e2134637ecbc391cd4a15288c9ad14165f84fe95b391b41fcec03c8581ac0e26"
+    sha256 arm64_tahoe:   "209c2aaf66641bb7adb2c7c57e3a55cff8b589981093aa171bf68d45b735818f"
+    sha256 arm64_sequoia: "6421e9c1bae670a03f4e4d445fdc9d1e14007d19819039179aeac1e61707a440"
+    sha256 arm64_sonoma:  "1be6326a589c5c1dfafeacbab32e4baa35f9ce2ff4c4ce4110c4cde67afd9a3f"
+    sha256 tahoe:         "ec6194aa9f3c1d16fa31b39fb0104d5afe3e002fd1318f5774cd880d0be79551"
+    sha256 sequoia:       "505fbacb893def4f89a2806806f2bbb076b5c776cf05baf486eca34e162ec182"
+    sha256 sonoma:        "911a0ae5a539504acabba706674770d36cee3a86c7348695f22d3081f70855db"
+    sha256 arm64_linux:   "117345c10f5d05c5ab7e7f893edb059cb569b493d7da5972668782ab3d89aba7"
+    sha256 x86_64_linux:  "6ad5fa9ac502a8f914241ed47573837aed895325accab61d9f0afb8a35f76738"
   end
 
   keg_only :versioned_formula
@@ -40,9 +40,9 @@ class OpensslAT35 < Formula
     end
 
     resource "ExtUtils::MakeMaker" do
-      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.76.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.76.tar.gz"
-      sha256 "30bcfd75fec4d512e9081c792f7cb590009d9de2fe285ffa8eec1be35a5ae7ca"
+      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.78.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.78.tar.gz"
+      sha256 "43b33c20f8d82dba7cc48f8cd702f8fc9811e9d07880886dfd31b7077bd4a3a6"
     end
   end
 

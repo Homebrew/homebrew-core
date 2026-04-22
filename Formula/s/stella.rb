@@ -7,16 +7,14 @@ class Stella < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/stella-emu/stella.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "5dd257952715ad8364652c9cdb0ef7e8cfab72f2f868273e7da13928ce8dc065"
-    sha256 cellar: :any,                 arm64_sequoia: "470bf4006df3634a8ee8d49e9424569f0a9bafb600a2e6c72c4a66f424013c5b"
-    sha256 cellar: :any,                 arm64_sonoma:  "0bb05c3c49f855456ae66086076ba5c51eaa4c146fbd34b688d98475dc8410dc"
-    sha256 cellar: :any,                 sonoma:        "4e137c751a90176b2ae74f8bf4b5d41d4bdc2250b5dd225ce3746483abb8a202"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "307f9ee104dcde3fe968406b3991cb49a0ea10f732c46ae9509a9dd96246ced8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b316ebff91f8c1c19294ba17cda529c4a929b16f5c38a9c2ffd815f5ae91e032"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "41e3a16e64aaf77fe123ddbd981aeeba3e994390c7d89c0c65f1c2925e7b7e9a"
+    sha256 cellar: :any,                 arm64_sequoia: "91cbc6e702faf484f0f8155e09bc0c58b554d8ad83806f6fbccc175a5a2ee029"
+    sha256 cellar: :any,                 arm64_sonoma:  "0b918bf3b40909f05f9efb55ffd1ea30edc2c5559f4bdbe005be7701e2d78364"
+    sha256 cellar: :any,                 sonoma:        "bdf6adb03cc6b6c704ef07ba259ed76dd8079c8188ec6bffa533143da369f42e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ecb978e4c694527a4ff05657d3eeee7afada54f357e13c145e1f49a61dec59cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "217c38a50c75643714b44317e94b3eef8118cd15ec1327277641a5cdaf76f78a"
   end
 
   depends_on "pkgconf" => :build
@@ -25,7 +23,10 @@ class Stella < Formula
   depends_on "sdl2"
 
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # ventura build patch, upstream pr ref, https://github.com/stella-emu/stella/pull/1064
   patch do
@@ -57,7 +58,7 @@ class Stella < Formula
                             "--enable-release",
                             "--with-sdl-prefix=#{sdl2.prefix}",
                             "--with-libpng-prefix=#{libpng.prefix}",
-                            "--with-zlib-prefix=#{Formula["zlib"].prefix}"
+                            "--with-zlib-prefix=#{Formula["zlib-ng-compat"].prefix}"
       system "make", "install"
     end
   end

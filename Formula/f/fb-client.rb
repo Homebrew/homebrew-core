@@ -14,8 +14,6 @@ class FbClient < Formula
     regex(%r{Latest release:.*?href=.*?/fb[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_tahoe:   "d8e28f243d35b05f844423d91864d16f6a762c9f504f275b844dd6b9a30e7cae"

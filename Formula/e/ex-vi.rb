@@ -10,8 +10,6 @@ class ExVi < Formula
     regex(%r{url=.*?/ex[._-]v?(\d+(?:\.\d+)*)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "c058c623956ae2057e5bb4a820c91b5f0bf3febf4f128f0f7a6e65a2d5699646"

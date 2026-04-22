@@ -5,6 +5,11 @@ class Pdfcpu < Formula
   sha256 "f92a3c0953acf4dc8d6e6c39fa89053f9e506ed1cbb1dcac13ea25ca03da8f03"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3460ddd5ac0731fcbe8360bd4073dda88b3ad1584c95e04a4f10d6ad7f3ea384"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3460ddd5ac0731fcbe8360bd4073dda88b3ad1584c95e04a4f10d6ad7f3ea384"

@@ -6,8 +6,6 @@ class Ssh3 < Formula
   license "Apache-2.0"
   head "https://github.com/francoismichel/ssh3.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f4c9c05fd2c4cbaa2a0d9bfafbc7e0a8b7b2bd4e40cca873bf8d6154d1502520"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0f4b007d021b93cfb0c17d853b9ad0f8e8d9112402a7acbbb466f90517e20a12"

@@ -12,12 +12,13 @@ class Tiledb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9cb9feab02cde5e8ae87d39892c0ba44d3952b85e06f77eabe7485bb18f749cd"
-    sha256 cellar: :any,                 arm64_sequoia: "4e0f295fac5255c7a82b939636c5fa248cfdfe4671d55e7a92b386e2527d2f7a"
-    sha256 cellar: :any,                 arm64_sonoma:  "67b8e120c9b979462ae503e21318fd44c3fe6380acaca245dc4caba4a249a633"
-    sha256 cellar: :any,                 sonoma:        "fbb4cbb718aae628c1c511101f68fa391362f8ebb4855502eacb759e959e4f07"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "beb2c3db549c2b2ee1c014ae97f9a58080c4da0a2b53a7c1f968b79d653f98e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebceb1fdef18e9956deae5774bbc31c04f795cbfb60551ae87829e0ee53a0a3c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "54fd33027f3080b795d9bb20f7fa69bf04f569812d86fbfe87cf1ccb27c9d59f"
+    sha256 cellar: :any,                 arm64_sequoia: "9a296a2fc9496cf3a0a02ca911b8ddd00519889bd959c8e326bf1f30c43b1856"
+    sha256 cellar: :any,                 arm64_sonoma:  "d3d0f806307d8f777c41c035d59e2193d809e1915b7e35e27a271c596f6ae87c"
+    sha256 cellar: :any,                 sonoma:        "cbcbbdbfadddc8ad1db6f24856e3c7db00da6916da39e5db2860ce2a020ac501"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "42d8601468572ca286e43ebf0aba0ef95ed81448731819881ea538c04b25e975"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9dd9ab013c19d5bfdb2dab16580134e17fe4b80a378fc8e87fa2358cf7fab2d4"
   end
 
   depends_on "c-blosc2" => :build
@@ -32,7 +33,10 @@ class Tiledb < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %w[

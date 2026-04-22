@@ -1,18 +1,18 @@
 class Tfmcp < Formula
   desc "Terraform Model Context Protocol (MCP) Tool"
   homepage "https://github.com/nwiizo/tfmcp"
-  url "https://github.com/nwiizo/tfmcp/archive/refs/tags/v0.1.9.tar.gz"
-  sha256 "a7f41f6e570fa4512e14c341073faec8206ae21998b135ce0da8bc50dcf7b3f2"
+  url "https://github.com/nwiizo/tfmcp/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "8bae76f5d7db9bb2bc022ab4c356e733c9935c997a2b07780c7f129f67119c10"
   license "MIT"
   head "https://github.com/nwiizo/tfmcp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e4d054365458568e0890ed4485317fb01d1b0f63d159c89cf69e90e22db523bb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a383d95000bab1e4f76a72f7e24b09677c41d6e73bd7e8d13aae23dca9e09fc2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8622fd30478fb8bfd284b6b45de1db412ab50d5f42ec22f397e81dc71de60645"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b109a5fab2069d3c6d6a089893d98af6d91cb470ef2a3d9e0c572c166561887d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7058b7da00775b347b19ad369260aad5cb87dd02f5d83f9355a3c677c0f09246"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b3c9b3fd78744bb4040c4682bcde59a914a26ed55e10f3b5fd0670541c8c8ed"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4c355d5a7c24463797e76ac30c24c69e7326c0eee9ee05e5ad79d3f427bd240f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8221c52c9bf701b7ec72b1aeb8ee6052e71a9759a48d7a3d1d5bb5a62b63e8d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9d0bfc57276cd538a3c5bd48d9ee6d618d1f627b15e19f77425decdb6c418fe1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d8d7d25f30b45530a7beb347017df18da2a55b982e1e20dea20bfae71ce0c717"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4bded53e2fa834ac80ded8d4d5d88fc85f8b0db811b23c7cac93fafcca342cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07654955edaf0f36cf25df4548dc3330c13e21293dc732ec87e311b94c7ba4cc"
   end
 
   depends_on "rust" => :build

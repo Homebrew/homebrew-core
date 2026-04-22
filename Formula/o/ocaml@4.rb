@@ -7,8 +7,8 @@
 class OcamlAT4 < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.14/ocaml-4.14.2.tar.xz"
-  sha256 "7819f68693e32946f93358df46a8ea6f517222681fcc6f7cb96214216cfec764"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.14/ocaml-4.14.3.tar.xz"
+  sha256 "a5d583b8fbab9ea7bf6cf972ef9c38e7fedacbff6db7a34e3105115d343eb069"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
 
   livecheck do
@@ -16,19 +16,13 @@ class OcamlAT4 < Formula
     regex(%r{href=.*?/releases/v?(4(?:\.\d+)+)/?["']}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:    "2d6e6250634c72884d12c4fdfcf4f585442a6c0403ed2cdae8511870226e23c1"
-    sha256 arm64_sequoia:  "76e0588c99b9497463259b330659ce2f53d1c0763f89639c5f42e5503117bac5"
-    sha256 arm64_sonoma:   "6abe32932e41a40ff75c1d429fc01ea3492f7a0c3281707c5ae472fba7c5db15"
-    sha256 arm64_ventura:  "e63d8b519711cb181b4528efa61771cc1f0075d469fd84a7878b6efb849b6efa"
-    sha256 arm64_monterey: "ea41a63891e8e0200aa517fcd0d8030cb721735d19e4cd119651d31cf2c428de"
-    sha256 sonoma:         "cee37cd961b6f813bcb86b5f20c8640abf3fd691bde2f26da46a026d1fbee93b"
-    sha256 ventura:        "54411358c0d919ff17a96d81a93020dcde72b2138c3cb382a67deb1df18a308a"
-    sha256 monterey:       "cc525d1058ce4ef19405a80cb0dcf3af11c3a6e772fb754431c1ac1053f898bf"
-    sha256 arm64_linux:    "18c59ccd659d804753cd938bc8c8b49d288f8a6c1099dcce9b7daaf06e7fef12"
-    sha256 x86_64_linux:   "b9773be3973366e8d5b4d933b7cdadfd212ad9ab76dca04b709a41504b795924"
+    sha256 arm64_tahoe:   "ed89ebc0df114efbff9e61422150bea046920ff25fe869437e7dedd156c7d2ff"
+    sha256 arm64_sequoia: "b072da183ffa7871244b81bb38a90b40b3ad454d3b00ae4778f93a297e467eff"
+    sha256 arm64_sonoma:  "ecd5e126c817fc53a545cbdfb304acae5660d432f281c9e432a59403a81686dc"
+    sha256 sonoma:        "e0b74e8a66297d2cf97ed44df50ef8278e97b4f17943b349c67863c1d829ce19"
+    sha256 arm64_linux:   "f9eb45c7cf503266d07f5a06d2a76bbe57170aac527c22114d28ff8aa8525a67"
+    sha256 x86_64_linux:  "fe5876a3ee1afa08d1910efb79609527b88006f55d050ac086ba1f8e47515579"
   end
 
   # The ocaml compilers embed prefix information in weird ways that the default

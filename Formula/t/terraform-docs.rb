@@ -1,20 +1,17 @@
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
   homepage "https://terraform-docs.io/"
-  url "https://github.com/terraform-docs/terraform-docs/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "e8180d74662707b2643930aee7ba012a29ad767ef55fd3321d6a9f3ce7fa79b8"
+  url "https://github.com/terraform-docs/terraform-docs/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "336115a1d3a7a55a7295f5768ecc0064c86ed8addc0b0ea27fdfd50b2116dd96"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e0d3dc055f2dec3731d78b46495b133ff703f1552380f32020ab8efcc59f6f82"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d35e1bb260d8ec2fd27135ffddaa6d59a41b7fba788c99f4fdd9f7f9157b82b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "efbfbfdbad330848c4b3e1f7165765aed9616a65a438fb90de41af9243f97eda"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e1b1e387eb27ef167275c66f73dc3019c082777c333ef8c03f93372594394c7f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "728494fc61676afd9396d470988588a9961c4609820bb2028194864f37f2ed1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef78dd170f5f0e90ab3b71116d50949545fb6b5c7de883749f9f9fc151f2c3ac"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "49948989b5028270adf2ad3d88dcf25f61359afb7c6f7e02d951f396b6f5dd47"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "002c6b99605ce3ff3890addbdfb0ffec041ab0f4eeca4fc15e5ca1f8598d513f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0db727dedd4739ee79cebe85bc90576f73b17cdc37f30ce62b36f4664eeb27e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6fec6ad830165d5d3bc74cfcb58e279774284d682c19a5cda6fa7d01487539d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "779194cd05c8e3af8bdc554da130fd9c6dcc88871dc28c7f1d0981b1e63fddca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec788f11b5a564344006f7464f1edb3d05093c0bfeed838b5e0da97dd512eb63"
   end
 
   depends_on "go" => :build

@@ -17,6 +17,11 @@ class Dmd < Formula
     end
   end
 
+  livecheck do
+    url "https://downloads.dlang.org/releases/LATEST"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, sonoma:       "a746a1c494721caba7ca9193a97d9c9c550599dcc3bfec608a937d1460f3963d"
     sha256                               x86_64_linux: "c54dda66e096b2640e6c0432c73b984033c16daede0f0da46d78caee726d320b"

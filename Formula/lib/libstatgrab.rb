@@ -14,8 +14,6 @@ class Libstatgrab < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "22b0adf587cf3abc79ab1bf64cce1f5fa418cc2516981fe4db0ea33cd54ce274"
     sha256 cellar: :any,                 arm64_sequoia:  "666c2bc394e1533387652704633873d2ad01670f67503bc8dbf8c66e6b53e4ac"

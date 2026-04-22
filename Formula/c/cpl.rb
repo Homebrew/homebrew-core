@@ -1,31 +1,22 @@
 class Cpl < Formula
   desc "ISO-C libraries for developing astronomical data-reduction tasks"
   homepage "https://www.eso.org/sci/software/cpl/"
-  url "https://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/cpl-7.3.2.tar.gz"
-  sha256 "a50c265a8630e61606567d153d3c70025aa958a28473a2411585b96894be7720"
+  url "https://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/cpl-7.3.4.tar.gz"
+  sha256 "f175a4e7a6935264ef49b39fddf45072c955dfe1c8d11923309f8cc774ba1d24"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/"
     regex(/href=.*?cpl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "c6ae6b7cb1a84a01d0cf02626e62fa069c69ce1ddd58da71a7dbc650f4c233b5"
-    sha256 cellar: :any,                 arm64_sequoia:  "44e6e7500a5c7a392a2b4d6ec6aeb8572da5c72ed27650293780e481d3fd05bf"
-    sha256 cellar: :any,                 arm64_sonoma:   "710c0bce11e34ef18dcba1f2c592b82827daa9027a2e6ffdf7a5523db746f4c3"
-    sha256 cellar: :any,                 arm64_ventura:  "867112ff76fc10a5a8ccf3871398c4057aba8aac147f0452f4b74e60f30c1417"
-    sha256 cellar: :any,                 arm64_monterey: "dc4fd5e0d10ebb4d9d3ae0d4c2138765e28e9185f2810fa9f5397ceb6874d409"
-    sha256 cellar: :any,                 arm64_big_sur:  "1546444c73b9c83ad97136d5fe48bcd6bee09dd72ed9de6b8ce650a6cbf28610"
-    sha256 cellar: :any,                 sonoma:         "a66a7bc13c9683f48d18ad24928ff5effa8737e61ac08da1717de9bb24d5de24"
-    sha256 cellar: :any,                 ventura:        "fc6cfb837a591afec3369fa882e5abbd9d806f9d67ed83bd9f345ce3d89a4415"
-    sha256 cellar: :any,                 monterey:       "a74afb54620905b6ae184bf64d73f67713e1016e27f97a6db6b793c72b4ba646"
-    sha256 cellar: :any,                 big_sur:        "2fff6fb7574c82deb23328136b2666cd181d864fe09eb42780bea78cf63327a1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "fcd05867d38798a06a3afcac0afff080e67484785148b6d412031f44a9e44d4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90683dbc3fc0a9636c4fe77573a82895cd369ff2449d140a6ba5e84db6d571dc"
+    sha256 cellar: :any,                 arm64_tahoe:   "a7bd4945d10901c4be2374a9c76c270501a88ad14b3ce863cbdb061d421d8c89"
+    sha256 cellar: :any,                 arm64_sequoia: "8a8ded93a1d6af1ada80df8b8a0aa08cc338d6e587b62476e2a92fbc949fc3d3"
+    sha256 cellar: :any,                 arm64_sonoma:  "10e02dd706fb7ff73c5407060ebad2b0138b73336cfd1fc38f4b861192d3f5d7"
+    sha256 cellar: :any,                 sonoma:        "5fbb2b26f3b70c1aee5490d756dbdde490b6e941d35673dc4032c664d3ca871b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3a1d9ef2ca93ec15e13e71a6e4d26900fd3cdb6cf9b1ea4223aff8ad4a79ea6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e9d917280305aa3f23da5feb00622c4a1b222cda539082193cb30a6d323bc00"
   end
 
   depends_on "cfitsio"

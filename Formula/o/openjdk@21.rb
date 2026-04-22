@@ -1,9 +1,10 @@
 class OpenjdkAT21 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk21u/archive/refs/tags/jdk-21.0.10-ga.tar.gz"
-  sha256 "133a864987b4732d46cca5084b7cde8ffef168bde4e4b0118ebd2b38c1fda2f1"
+  url "https://github.com/openjdk/jdk21u/archive/refs/tags/jdk-21.0.11-ga.tar.gz"
+  sha256 "76b8310966649ea8a6340f92d4f19f6f84e3083b682a514c8f1999c93373385f"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -11,12 +12,12 @@ class OpenjdkAT21 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "02dae336fac7051d084648a63f3c695d35f7515ef8d03c57fc89b9771456bc19"
-    sha256 cellar: :any, arm64_sequoia: "8b49ab7b8a3ec76934e4c5981b5bb3b8f80ced657bab11273629794ce2ffdfb6"
-    sha256 cellar: :any, arm64_sonoma:  "1e3c2082a336f4d3829fcf6b9fe98f7581c783107d45ecab518ae30864e5ce4c"
-    sha256 cellar: :any, sonoma:        "06990b7c8e53a4415e0c51f0579208f03b121706698cbc73b7c8efb9b81761fd"
-    sha256               arm64_linux:   "34586b9e22d73cd9b9a26941518533aae5a3baf587ac91c60b2816fc265baf56"
-    sha256               x86_64_linux:  "daf15d6f1115e05fd79ed079a9848bea761f067c79f7bfc7539929b2dfa56299"
+    sha256 cellar: :any, arm64_tahoe:   "058c332a9247c0fd1a93b12ca61587329cad821ba9e9c70683b8584dd4f7d1f2"
+    sha256 cellar: :any, arm64_sequoia: "2b99ef5a7dbf8c87072e7987d552c297dfb74b6ccb44428ce52519bb1d7acbf5"
+    sha256 cellar: :any, arm64_sonoma:  "14d203e4c3d3a5cc96b5203bad14f356ab2c73ea3f5c3b05398b1186c3ee1f9f"
+    sha256 cellar: :any, sonoma:        "242e58cc63ddbdf5a8a7e6661ccb74ecfd3939a4611d17c9f1d51c8ecc4f0eac"
+    sha256               arm64_linux:   "153fe586b0075a52a674f4772e87c11d52e20e4a4c4f93541d8bec48708de7e8"
+    sha256               x86_64_linux:  "0289cefc65058807142a402644d38f7b75ef6e5aa35293014b08e838d1b199b6"
   end
 
   keg_only :versioned_formula
@@ -34,7 +35,6 @@ class OpenjdkAT21 < Formula
   uses_from_macos "cups"
   uses_from_macos "unzip"
   uses_from_macos "zip"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
@@ -46,6 +46,7 @@ class OpenjdkAT21 < Formula
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
+    depends_on "zlib-ng-compat"
   end
 
   # From https://jdk.java.net/archive/

@@ -1,18 +1,18 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/refs/tags/v0.25.34.tar.gz"
-  sha256 "69a8aa7d196f4ea995e7f986ada178db2aaebceda3344c600e7b3cfbecba96be"
+  url "https://github.com/diku-dk/futhark/archive/refs/tags/v0.25.37.tar.gz"
+  sha256 "2b793dcfa6273d0a42449ad3777ebcd54abfe2b756afcc322d95849b8d6b57c9"
   license "ISC"
   head "https://github.com/diku-dk/futhark.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "130084440e6543ab7a53108e2c99a35dfd3e32e3127feaa72302be8159341744"
-    sha256 cellar: :any,                 arm64_sequoia: "3cd78e5471788499c116851a043458e539c83decf262512d63713f2665a0fbaf"
-    sha256 cellar: :any,                 arm64_sonoma:  "914947277c70342f0a560cb45af27755d400322d29cbc4df4e5154860ff280e0"
-    sha256 cellar: :any,                 sonoma:        "5cccec0cd5e51288c7ad29822a083868af3ddd3770061716a5f6850ff31993c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7feb520e7e96799258a737209f246bb6ad08e24d81f44e2092303486cd22aec3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1458802e265ff7a00dfd5ceca3a44df27812c1cf0768ec8946ed6368fd506366"
+    sha256 cellar: :any,                 arm64_tahoe:   "1e25f708464a1e6b0a0e7e6eb74ad785d7830b9ae6c9976b38da1b6d920a8df2"
+    sha256 cellar: :any,                 arm64_sequoia: "0217c57b93676babdf85e02057c75e844df4080c51c5d29e931a7482239c7f16"
+    sha256 cellar: :any,                 arm64_sonoma:  "283beff38c7ce55d7ca1b2487827c688a8e82b08f026800cca1ac4e028373914"
+    sha256 cellar: :any,                 sonoma:        "79ed078d51abfcd9a75999e6700ae50660d2537e3f859e9be49bb18e1dc89b22"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "076625a07bf44e52ed2912fb844ac0cccf1c1f71bf340083a15db9cb93437ca2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3cb68108a94bca17ef144d95c028882f6da1dab8b97f41055eb121de0d56286"
   end
 
   depends_on "cabal-install" => :build
@@ -22,12 +22,12 @@ class Futhark < Formula
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    # Workaround to fetch integer-logarithms 1.0.5 to build with GHC 9.14
-    inreplace "cabal.project", "index-state: 2025-10-31T08:41:05Z", "index-state: 2026-01-04T20:13:48Z"
-
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
 

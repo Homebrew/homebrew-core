@@ -5,8 +5,6 @@ class Setweblocthumb < Formula
   sha256 "0258fdabbd24eed2ad3ff425b7832c4cd9bc706254861a6339f886efc28e35be"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "88745a2bd0a9404e73e38596e27004f33a562aa98a58d47772c70892eb22b026"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7765cc1aed9b92ae0460dfeace83a4c9fee7c63598953caf6e2bbdb581c5395c"

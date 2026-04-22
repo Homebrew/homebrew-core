@@ -3,23 +3,24 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/refs/tags/2.33.13.tar.gz"
-  sha256 "419bab58f6fa0c14f5d5351636458ead5dd018beb3e40164d819a446cc1d11ee"
+  url "https://github.com/aws/aws-cli/archive/refs/tags/2.34.34.tar.gz"
+  sha256 "5cd086a0aefb9313eba06e2559cd0c218322e44784cfb338399bac61d54ab5e5"
   license "Apache-2.0"
+  compatibility_version 1
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6539145c1a88a2fdc5a8932caf150d6a9cb33c6e1c228be47e99c7ccd6872975"
-    sha256 cellar: :any,                 arm64_sequoia: "51641b5acda64413ea2ad1438261c2010187173524741c0ab91d58a3a8ecb639"
-    sha256 cellar: :any,                 arm64_sonoma:  "f4fca785465f48cf81e0f31d2a7551059a3be1329c29c5763f37d4277c334f2e"
-    sha256 cellar: :any,                 sonoma:        "56f62772cf605d500833b2cb04b015eafb70ce5fcbe77642ce4123e051d76fc0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8944548db04f19526d0eaeaa3b86dd36043ad4074fab694b51d7a4e98211fe1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "976bfd5267bec2158b04756805409b7a7d7afeeb77af66849a51b9e58f9fc897"
+    sha256 cellar: :any,                 arm64_tahoe:   "1503059a49971e434eaaa710ca030d08a2c9ff420b2dd6e4a059f03bb1ebe79a"
+    sha256 cellar: :any,                 arm64_sequoia: "c52d262bf3e68f384435feb36d52170cd201916852cc7cbe2fff13ed8d38230b"
+    sha256 cellar: :any,                 arm64_sonoma:  "e59a31cffacea5c7ba9463dde29e2d953d0324c3d026ecbd2ab2708f9c8e7dd4"
+    sha256 cellar: :any,                 sonoma:        "8644904171707f97cf7e4b0176b4b4b77716d09e2f3f60b989f2827fe8cebceb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f57885d9fd804b19cb4a5aba26b8a24e77a294186e1978f76dbe8653a1f03744"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2e053d39d4b76200cb87c4ee37fd6f2423f9c726348bc4dea1a2c34f8efc08d"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@3"
-  depends_on "python@3.13" # Python 3.14 issue: https://github.com/aws/aws-cli/issues/9914
+  depends_on "python@3.14"
 
   uses_from_macos "libffi"
   uses_from_macos "mandoc"
@@ -27,8 +28,8 @@ class Awscli < Formula
   pypi_packages extra_packages: "flit-core"
 
   resource "awscrt" do
-    url "https://files.pythonhosted.org/packages/35/c9/8e397a679f43c53cb51b338bda2645e8a474c9a4dd5606d0ee365b7b5fbc/awscrt-0.31.1.tar.gz"
-    sha256 "abb64768d25bf563da8e2165d477a491cba18bc22c4ec8db7acbdae94e59ebc4"
+    url "https://files.pythonhosted.org/packages/fd/98/ddd893b872519da47573810aac0b225433c2a4162967df73bfe0bd282bbe/awscrt-0.32.1.tar.gz"
+    sha256 "1faccfaf365c7ae8975307e42edec44eb3ae3feba2805aff2979ba8474b6bb4f"
   end
 
   resource "colorama" do
@@ -67,13 +68,13 @@ class Awscli < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/46/a9/6ed24832095b692a8cecc323230ce2ec3480015fbfa4b79941bd41b23a3c/ruamel.yaml-0.17.21.tar.gz"
-    sha256 "8b7ce697a2f212752a35c1ac414471dc16c424c9573be4926b56ff3f5d23b7af"
+    url "https://files.pythonhosted.org/packages/c7/3b/ebda527b56beb90cb7652cb1c7e4f91f48649fbcd8d2eb2fb6e77cd3329b/ruamel_yaml-0.19.1.tar.gz"
+    sha256 "53eb66cd27849eff968ebf8f0bf61f46cdac2da1d1f3576dd4ccee9b25c31993"
   end
 
   resource "ruamel-yaml-clib" do
-    url "https://files.pythonhosted.org/packages/20/84/80203abff8ea4993a87d823a5f632e4d92831ef75d404c9fc78d0176d2b5/ruamel.yaml.clib-0.2.12.tar.gz"
-    sha256 "6c8fbb13ec503f99a91901ab46e0b07ae7941cd527393187039aec586fdfd36f"
+    url "https://files.pythonhosted.org/packages/ea/97/60fda20e2fb54b83a61ae14648b0817c8f5d84a3821e40bfbdae1437026a/ruamel_yaml_clib-0.2.15.tar.gz"
+    sha256 "46e4cc8c43ef6a94885f72512094e482114a8a706d3c555a34ed4b0d20200600"
   end
 
   resource "six" do
@@ -92,7 +93,7 @@ class Awscli < Formula
   end
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install

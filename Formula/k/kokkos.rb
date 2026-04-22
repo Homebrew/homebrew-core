@@ -1,8 +1,8 @@
 class Kokkos < Formula
   desc "C++ Performance Portability Ecosystem for parallel execution and abstraction"
   homepage "https://kokkos.org"
-  url "https://github.com/kokkos/kokkos/releases/download/5.0.1/kokkos-5.0.1.tar.gz"
-  sha256 "cf7d8515ca993229929be9f051aecd8f93cde325adac8a4f82ed6848adace218"
+  url "https://github.com/kokkos/kokkos/releases/download/5.1.0/kokkos-5.1.0.tar.gz"
+  sha256 "7bdbdfc88033ed7d940c7940ed8919e1f2b78a9656c69276beb76ad45c41ec4e"
   license "Apache-2.0"
   head "https://github.com/kokkos/kokkos.git", branch: "develop"
 
@@ -12,12 +12,12 @@ class Kokkos < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "beb363f1e859cf25e8eb6ef7d100f73dabd56199129e19ad9888d2a4a07de233"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c648d5efbfbafe190b59f44aeaee07538a4c2365c510d09b65de6b5adba338cc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1fc7750d4df7f80db3348605af23e866af8bb6fcd4e6a8f125c89bdd718d5c7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7d4bb820ef3b96813c79c244e571e94838245761b81d7544373eab3d03e7d704"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0da08c965df90bc9f82fb9888e5c77c8d92eca785d5a668bac4109ed8e304a8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57f1352fbb573ea9082f14645ec191a2550b6d6ea9efa79b5494828f8871d62a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ebc9bb6533eda8d5dbb415fb4ffb6391b589bc135e66c45ae30443fab0dbc019"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15d0145c257dead6a87a776dafc2a5f57e17db9cc1cfd682a2a503a00df7ed9d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6896c39545540162e747fdc5a7723b259a2c55f0f10b798d4888cb6566ab25ef"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e4e100c02966347900d05d7c0425d752818347bc3e09a63878f7ae853513f9cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bef9e8e1473d5359b086574b2a901278edf022b497463aa58bbec489dae82fa9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f628676472a178f0eff5e71f4fabfb483d539d80b5384b934ee4d0885feff07"
   end
 
   depends_on "cmake" => :build

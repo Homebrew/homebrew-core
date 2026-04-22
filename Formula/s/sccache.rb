@@ -1,8 +1,8 @@
 class Sccache < Formula
   desc "Used as a compiler wrapper and avoids compilation when possible"
   homepage "https://github.com/mozilla/sccache"
-  url "https://github.com/mozilla/sccache/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "cc93c603b938f7444c180c049ce9d983e6b08eb2a0d44973b4794508589f891c"
+  url "https://github.com/mozilla/sccache/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "f2f194874e6b435896201655432f623d749f5583256f773743c376a6d06cede5"
   license "Apache-2.0"
   head "https://github.com/mozilla/sccache.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Sccache < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "77c6dff5a6394ff3a752f83c1f0b7ad058e66601197c2619520f64be97933dcc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d53ec259dc13203bb1a57ad40cf5a6859a67fc6655f5568f713e376efe74eba6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7671323653004a358ee5b9aa8b648c08dc58cccfae112e1aa22975755ec76a8b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ec13e02a1411e9a666158e34c4905e4aa9079e4a7d7f25e9b3f8fa117b713401"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f2e8c3166765b62543c374b673bb8a4d161b7c0f0c04cf655ff252d59a8a496"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eff70597ce6173dd9aa7cbeb028aa8a1e3ac37e4069b3277d4afb446e9409bde"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d78493b2b4aa6442d30d215533bf5fdc40335e2a441f5528b72bac5a02ce41a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c66dd3515c23a6de299c895d0d66f3d946f358186ee4e7f905c86447f95049c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cef877482d61072478b30067b193cb3d8992d70670f37769aa3deb91e90d4e29"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f8423405b506fc8ac1b78060e9cce47ff74f8ef5228ba53682375ccffb69c8be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e04a9be07ddd5016f6597255e03cb892d9ca9e45d40715c55203c324420d5de9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "045e12f0c8a7ac055585962e6f9978339d84862c200bca4bd9545d8a07a8fdbf"
   end
 
   depends_on "pkgconf" => :build
@@ -28,7 +28,7 @@ class Sccache < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "all", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "all")
   end
 
   test do

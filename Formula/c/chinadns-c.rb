@@ -5,8 +5,6 @@ class ChinadnsC < Formula
   sha256 "abfd433e98ac0f31b8a4bd725d369795181b0b6e8d1b29142f1bb3b73bbc7230"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3ad68ee0eade8b16d3698f5f38f91dedb795c40f6776be6458feb36576fc3e48"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d7f5135d04a85b3d2eb3db7d807d091f45b6c7047613d73538fe8e3fd92d2fcd"

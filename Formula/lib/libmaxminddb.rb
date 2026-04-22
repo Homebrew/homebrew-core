@@ -1,19 +1,18 @@
 class Libmaxminddb < Formula
   desc "C library for the MaxMind DB file format"
   homepage "https://github.com/maxmind/libmaxminddb"
-  url "https://github.com/maxmind/libmaxminddb/releases/download/1.12.2/libmaxminddb-1.12.2.tar.gz"
-  sha256 "1bfbf8efba3ed6462e04e225906ad5ce5fe958aa3d626a1235b2a2253d600743"
+  url "https://github.com/maxmind/libmaxminddb/releases/download/1.13.3/libmaxminddb-1.13.3.tar.gz"
+  sha256 "a66502ea76eadbe17f2cd6fd708946777253972d2ae8157dee1b23a2fb528171"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bb55987a852b83ee04fc9757a9b50673d873722194d3f99154ded5743cc318d7"
-    sha256 cellar: :any,                 arm64_sequoia: "1b13f50a8072072af83d8fe5851dab623f05967b35868ac4bf95435c4b7a423e"
-    sha256 cellar: :any,                 arm64_sonoma:  "483e40580b6cef8ced628c5c9b072004ae2c7d9f2615473dc62e2b5210d3ec51"
-    sha256 cellar: :any,                 arm64_ventura: "4b4c4de2cf912a0e0e764bd02052efc651160b547f40ee573a5bc0d6d95fb070"
-    sha256 cellar: :any,                 sonoma:        "287f6e846279aba4823828756b8c9a02537fa3ca26f2edd0ed6dfb8b9a43611d"
-    sha256 cellar: :any,                 ventura:       "5621888987d823a633346238e0044ca73d1a0a07a9a5eae43aa06dffd261475d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "288980ac6d2f257040998e48a827e2234c279304e510dba80202259c78727af3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f050b168b6f1ed601acad6218d45bab50d416eb062317614d662a5a63372f5af"
+    sha256 cellar: :any,                 arm64_tahoe:   "5936b3b75b64cab056955f2bb8c0b756fa60c53804dcd7dbde8abad2abceed84"
+    sha256 cellar: :any,                 arm64_sequoia: "490b3efc56371925d11362dd017550824c13573c4b76edb4fa2848c549d46692"
+    sha256 cellar: :any,                 arm64_sonoma:  "dd18810ef2ff421397f0841540e9a8ed078bee4d99943e45fbed763e39ba6a70"
+    sha256 cellar: :any,                 sonoma:        "7aa6d1a05efe76995a324af5ea06acdc8dc5428f2dbd9fad2d7c098af91c1f5a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9546178cbb2f9b8d6b585c18d109f5fcc8b7bce72431e97654c5da23cbc94b9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fbff53ca34d511f0c71bb801ef011da1808855abb303957cf783069bd4e35f7"
   end
 
   head do

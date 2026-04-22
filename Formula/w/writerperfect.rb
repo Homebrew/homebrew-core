@@ -10,8 +10,6 @@ class Writerperfect < Formula
     regex(%r{url=.*?/writerperfect[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "019f7df6196f57ac72fef8f42879191724bbd71243f5d55df485b5aa7b583eec"

@@ -5,8 +5,6 @@ class Ctpv < Formula
   sha256 "29e458fbc822e960f052b47a1550cb149c28768615cc2dddf21facc5c86f7463"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "891ba106991bf7d6a64f1216540cb3332c5eed558e8b7c30733d1d47b766d5dc"
     sha256 cellar: :any,                 arm64_sequoia:  "37152d389946123d23de9ee5d1bcda011032a94ba42e1df5ce82363c4224ae56"

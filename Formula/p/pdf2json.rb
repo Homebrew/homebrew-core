@@ -5,8 +5,6 @@ class Pdf2json < Formula
   sha256 "54878473a2afb568caf2da11d6804cabe0abe505da77584a3f8f52bcd37d9c55"
   license "GPL-2.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "058498536ab559f677a0d83f45179b9958c5c2274378cea76f63fc8e613a1076"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6af0ae7d69db0ff147f44d9f987843ded25580c0d2c5d00b3909f18c4566bdb4"

@@ -5,8 +5,6 @@ class Ired < Formula
   sha256 "c15d37b96b1a25c44435d824bd7ef1f9aea9dc191be14c78b689d3156312d58a"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d022a67015d76e3fadf60c52e8af70afeb0d0a05c9ea7e0e856798623db17870"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "05e4599eb5ff1fd43a3865f5b14dc52db0eae92d3972fd83baa67bc1ad2b20fb"

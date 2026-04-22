@@ -5,8 +5,6 @@ class Blitzwave < Formula
   sha256 "edb0b708a0587e77b8e0aa3387b44f4e838855c17e896a8277bb80fbe79b9a63"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "af9617a5b1ac77f4118d9bed451601510403a32d7e45c1c0b0c67073f36a724b"
     sha256 cellar: :any,                 arm64_sequoia:  "6ddfd2d5b7388e38647c23c2556e37258da48bbb0408290ccc1e54c5970fc68f"

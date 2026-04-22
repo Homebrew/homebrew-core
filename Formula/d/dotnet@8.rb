@@ -2,9 +2,10 @@ class DotnetAT8 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.123.tar.gz"
-  sha256 "f5d96e7a4796663d98e0c14cc67f3a5e3fe1e6e2d8bcc49ae1dfa7b025b4c7e2"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.125.tar.gz"
+  sha256 "55461fd09921edad587043b935974dcb999974aec6addff95c8918070b03490f"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -12,11 +13,11 @@ class DotnetAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5b8c531792f93df37379fad8723e2c4a4872ba6eccf8211357c7cf5b27c6028b"
-    sha256 cellar: :any,                 arm64_sequoia: "ec483d854410c86688b8aa6dad8d31eb35f9d5df512cf046c109f6368d590e82"
-    sha256 cellar: :any,                 arm64_sonoma:  "cc8dddeb510d81e51b0748a10f753a4eea8c1d630197a48c031326f08a6afe66"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8d17cb2012b4324a59c0a7ce8d19874b6cf4cba287e14c5b97529526f0e4f5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54da8d3236df4eae61b2e125e467483437f62ed4b1f6dd8e03e4dabbde7cec59"
+    sha256 cellar: :any,                 arm64_tahoe:   "7b55da420b9fa59dedc14ca615dda3aaa21458d572d328a69853e4952dd99529"
+    sha256 cellar: :any,                 arm64_sequoia: "4fd15729ff2a606b9bc9aad9e284895e5cc09d2030d831591ee3c66f1bb87497"
+    sha256 cellar: :any,                 arm64_sonoma:  "b6dfc4e9a3ea9b736cbfb94c70cab34f96cb3cff0740bd6cea3cdf4a21e3b3b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d41c8dc6f346457321e6095eee0613895337345040b43485cbfb8836cca35dab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f020cb1fb200a4c575ad7ed67ebc9e1554236273bb231bbe4e42137c1b5553f5"
   end
 
   keg_only :versioned_formula
@@ -31,7 +32,6 @@ class DotnetAT8 < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "grep" => :build # grep: invalid option -- P
@@ -40,6 +40,7 @@ class DotnetAT8 < Formula
   on_linux do
     depends_on "libunwind"
     depends_on "lttng-ust"
+    depends_on "zlib-ng-compat"
   end
 
   on_intel do
@@ -49,8 +50,8 @@ class DotnetAT8 < Formula
   end
 
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v8.0.123/release.json"
-    sha256 "35877fd4bf674b17f30157f1cc598c1f343348f7c5525e9fa6111b4cb7398085"
+    url "https://github.com/dotnet/dotnet/releases/download/v8.0.125/release.json"
+    sha256 "8b482195a2a93e73066d7598295ffbd69cff80af2510d603a1c20f8b5a682632"
 
     livecheck do
       formula :parent

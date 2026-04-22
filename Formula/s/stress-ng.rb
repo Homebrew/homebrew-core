@@ -1,8 +1,8 @@
 class StressNg < Formula
   desc "Stress test a computer system in various selectable ways"
   homepage "https://wiki.ubuntu.com/Kernel/Reference/stress-ng"
-  url "https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.20.00.tar.gz"
-  sha256 "fe9e5161ac186c6ada22963251ff701fe3275fac2c5b87bdb59c4cab08aaeaae"
+  url "https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.21.00.tar.gz"
+  sha256 "1339cbc6ccbff7e2ee2177bf0fd67e7b94e8ff7b07fe89bcfaec0280d800cf34"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,16 +11,20 @@ class StressNg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67b233042d194cafdcc09842b4bbc260b9d2e0824eb8fd41bffeadda82f32f6a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c40b54c7593e96e1b1d9b0d489e69a2822ad9494595695fdf00997c4b2b360bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d34b1ba0c2b78f25cde083285b698939392fd5117a40ed4ae3c2cb3530c7bff"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ed50a3ae895b189a8bacfb7bca4b2d0dbfc3c57153510e46e69936152753199a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2784ed9479fedccdd949891933db224d373fa450534bb058ee41132a2e03515"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ab3ab7b4f6aafcd435e8db81c2010e1bf0a8e4ddb429eb255261e74e399252d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c263f5c6e997c7e388e9ee8be9eee33e901af11b9cca58f8f5998e2d67515e1a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2f2bc25da24e9ea9d66531c99630d0d2af0158b9531401a67891e21d10d5229"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e39dc242bd6c2f848cd9ee3151b060ccabec8e81f8421d55af52fa55d2f90ade"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b43e3627f435901273def8fc2dbdd6731393c6b8dca3d7e11448bacb0f81b672"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d890c784813e93215aff2a62dd226f067bfc6ebb960fb52d780eab7ad268aff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f3f321d85c582369a921d8f21726bd2543dddfe787c44621d81a8cbdbd57004"
   end
 
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "acl"
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     inreplace "Makefile" do |s|

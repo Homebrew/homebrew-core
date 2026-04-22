@@ -14,7 +14,7 @@ class Genders < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "eba68a608683a6b5b812d8aaa3a59b4836ec5bf50af50a4115fde697a790274e"

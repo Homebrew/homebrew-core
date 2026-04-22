@@ -3,36 +3,34 @@ class TerraformLocal < Formula
 
   desc "CLI wrapper to deploy your Terraform applications directly to LocalStack"
   homepage "https://localstack.cloud/"
-  url "https://files.pythonhosted.org/packages/48/30/3ca48aa0615960bc891c976512df7cca1ecf72535446f4bbe9b1ac110ebf/terraform_local-0.25.0.tar.gz"
-  sha256 "8730cfc92dcdbfcb10293420cafb22566d56a2af58139e8a976828b10e07c7e2"
+  url "https://files.pythonhosted.org/packages/b9/f7/7d128b483dfd03d178c37eedc8c9329d7ee0abc4781bcfe5a0069ee63d79/terraform_local-0.26.0.tar.gz"
+  sha256 "958abac78c40b15fca6edcd833a9706a28e1cc861cb713e3fed5def345d518b8"
   license "Apache-2.0"
-  revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d7769f93ae62ca92910ef74f677fac98177afa1ae13ccfab7bf17b8e0f6902ee"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c03964a59358decef8c9ee58b926f00639c301a7858164e9c64a2348a632cc8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "013ccf77eac65fa641c456e6fa88ec890b078273e4def36dc02ce616ab6e4aa3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aa4948a1fae033c666952dfa09f984a0ee5314158136da64d1e51f154ccdc479"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7e71ac39baa41b11fcfb11454020ad8cea46f6f2ef9f73045108ae6528914666"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05032bd60ac470f02aea4d768c57d94ceb890db6e6d5960f326aaadbc9c6d123"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5ab3123ebd6269e9cc2ce1e1d6b27be3293af614d83441be1563f126168dc886"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "28d71207da6cb778f94d94656ce08df0c0e66341bb749115cb11c9bec32a48af"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a46a471006e9b6ec0ebec6683ef44a8569247da324c26fe16ad8f50af86ee70"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b9da7edff65ad55ebdf5f16a980be54ff4cfe8ed777812b46a01dd772e318a96"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f47c158d99d9934975b13362bc3520dfc8f93194fe0cd4ce702436e03485e79c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9dd31b958b5eefbf3a8de2e63f35f5ce985401488c90ed4ed28fbb2bfdf1f69b"
   end
 
-  depends_on "localstack"
   depends_on "python@3.14"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/29/30/755a6c4b27ad4effefa9e407f84c6f0a69f75a21c0090beb25022dfcfd3f/boto3-1.42.25.tar.gz"
-    sha256 "ccb5e757dd62698d25766cc54cf5c47bea43287efa59c93cf1df8c8fbc26eeda"
+    url "https://files.pythonhosted.org/packages/da/bb/7d4435cca6fccf235dd40c891c731bcb9078e815917b57ebadd1e0ffabaf/boto3-1.42.88.tar.gz"
+    sha256 "2d22c70de5726918676a06f1a03acfb4d5d9ea92fc759354800b67b22aaeef19"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/2c/b5/8f961c65898deb5417c9e9e908ea6c4d2fe8bb52ff04e552f679c88ed2ce/botocore-1.42.25.tar.gz"
-    sha256 "7ae79d1f77d3771e83e4dd46bce43166a1ba85d58a49cffe4c4a721418616054"
+    url "https://files.pythonhosted.org/packages/93/50/87966238f7aa3f7e5f87081185d5a407a95ede8b551e11bbe134ca3306dc/botocore-1.42.88.tar.gz"
+    sha256 "cbb59ee464662039b0c2c95a520cdf85b1e8ce00b72375ab9cd9f842cc001301"
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
-    sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
+    url "https://files.pythonhosted.org/packages/d3/59/322338183ecda247fb5d1763a6cbe46eff7222eaeebafd9fa65d4bf5cb11/jmespath-1.1.0.tar.gz"
+    sha256 "472c87d80f36026ae83c6ddd0f1d05d4e510134ed462851fd5f754c8c3cbb88d"
   end
 
   resource "lark" do
@@ -46,8 +44,8 @@ class TerraformLocal < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
   resource "python-dateutil" do
@@ -56,13 +54,13 @@ class TerraformLocal < Formula
   end
 
   resource "python-hcl2" do
-    url "https://files.pythonhosted.org/packages/50/8e/f82ed407a10c2dd4228ff0fceec8a16dd6a9191a2ed119233c04dccf2ca4/python_hcl2-7.3.1.tar.gz"
-    sha256 "f8f55583703daf7bbcb595a33c68de891064d565974ea39998b81d15a4c4657b"
+    url "https://files.pythonhosted.org/packages/39/7b/6c9c973484a482f833a1b88ab69e078e05cc1f761af1839d5cbe7e7fad92/python_hcl2-8.1.2.tar.gz"
+    sha256 "ae809c7e6e39e8c3c3555e7b7f389082207929591fcba062c9f76afb1abe972d"
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/cc/a9/546676f25e573a4cf00fe8e119b78a37b6a8fe2dc95cda877b30889c9c45/regex-2025.11.3.tar.gz"
-    sha256 "1fedc720f9bb2494ce31a58a1631f9c82df6a09b49c19517ea5cc280b4541e01"
+    url "https://files.pythonhosted.org/packages/cb/0e/3a246dbf05666918bd3664d9d787f84a9108f6f43cc953a077e4a7dfdb7e/regex-2026.4.4.tar.gz"
+    sha256 "e08270659717f6973523ce3afbafa53515c4dc5dcad637dc215b6fd50f689423"
   end
 
   resource "s3transfer" do

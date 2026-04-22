@@ -1,8 +1,8 @@
 class Openblas64 < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/OpenMathLib/OpenBLAS/archive/refs/tags/v0.3.31.tar.gz"
-  sha256 "6dd2a63ac9d32643b7cc636eab57bf4e57d0ed1fff926dfbc5d3d97f2d2be3a6"
+  url "https://github.com/OpenMathLib/OpenBLAS/archive/refs/tags/v0.3.32.tar.gz"
+  sha256 "f8a1138e01fddca9e4c29f9684fd570ba39dedc9ca76055e1425d5d4b1a4a766"
   # The main license is BSD-3-Clause. Additionally,
   # 1. OpenBLAS is based on GotoBLAS2 so some code is under original BSD-2-Clause-Views
   # 2. lapack-netlib/ is a bundled LAPACK so it is BSD-3-Clause-Open-MPI
@@ -17,12 +17,12 @@ class Openblas64 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "323037b68d15849767eb83b9ab4713699fdbea58ab23a7daca129d3587e85634"
-    sha256 cellar: :any,                 arm64_sequoia: "e09b4b74abd8b307ac0023dde157379319f435e70a3db9da0e575d83758eb3f4"
-    sha256 cellar: :any,                 arm64_sonoma:  "7a72fba4c0c1723e5fffd590cdc6332ffdf548fb8f5bb184707dc64b27f74c9d"
-    sha256 cellar: :any,                 sonoma:        "8e47cd44fadc91e0ca0798bfd7b978a9af9a4f62f3a0ad2becdcdebd795fce5a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8648f7bf778b0c078cdb5aaac6eebc037dfe3363f02d384dbded413bc234ac4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09214737899815592e1ec220e5eb65e9804c44c2514513f59c1885971baf1c52"
+    sha256 cellar: :any,                 arm64_tahoe:   "5acb4cea96994e55e9485dc75494398c3e928d08d586f98f5bf7ccf604327d64"
+    sha256 cellar: :any,                 arm64_sequoia: "8a168bbfc03cbc101843845ceaf0cdf68ff4eb18b824f2b9d1b48f57cbd6126d"
+    sha256 cellar: :any,                 arm64_sonoma:  "aca0f04d8af5abd8076216c26e31fe16b9a34c7f3d94c181d487d18f43b522b7"
+    sha256 cellar: :any,                 sonoma:        "b61af378c53c392121709c2ab7034761b54a52f48c30a5d4225ed7012ae02663"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd57eab8523eb94a61e9f7962fb28ab4e8af621761697400b68661640bfc70ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed51f7495fbeae1a7d16529f5b11eae3d6e602100308218b1cda678310dacfbb"
   end
 
   keg_only "the headers conflict with `openblas`"
@@ -31,13 +31,6 @@ class Openblas64 < Formula
   depends_on "pkgconf" => :test
   depends_on "gcc" # for gfortran
   fails_with :clang
-
-  # Fix configuration header on Linux Arm with GCC 12
-  # https://github.com/OpenMathLib/OpenBLAS/pull/5606
-  patch do
-    url "https://github.com/OpenMathLib/OpenBLAS/commit/c077708852c7262b6bc0da6bc094b447e7ba7b3c.patch?full_index=1"
-    sha256 "e59596a7bec1fa6c22c4bee20c8040faa15fa57aa6486acd99b9688aef15f4da"
-  end
 
   def install
     ENV.runtime_cpu_detection

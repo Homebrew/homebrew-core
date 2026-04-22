@@ -1,19 +1,25 @@
 class Eleventy < Formula
   desc "Simpler static site generator"
   homepage "https://www.11ty.dev"
-  url "https://registry.npmjs.org/@11ty/eleventy/-/eleventy-3.1.2.tgz"
-  sha256 "d2c9d4399fc628076392b21237d97cd9574e96accca830c38f678efb1c0ba829"
+  url "https://registry.npmjs.org/@11ty/eleventy/-/eleventy-3.1.5.tgz"
+  sha256 "65941649a92338aad8021fc0d0df1954b632f31299579f3e0ac72ef2a20a70d4"
   license "MIT"
   head "https://github.com/11ty/eleventy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6fa69586d48a0b58842bd657083c0ce11b2759790e10491ff2b3ca587e970aa6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2af146437081cecba9865461d2e6e1ee4ba12e92683bbb4e130449bebdf8eda5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c83fca618ae253e43b5e2eadeacbf8aacabe9cf992fa121079aae280c3e49b73"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c83fca618ae253e43b5e2eadeacbf8aacabe9cf992fa121079aae280c3e49b73"
+    sha256 cellar: :any_skip_relocation, sonoma:        "905d47811dff6b131df4be72c72447986a391c610d9a8da7388861d95d048bce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "82175fdcc0139f8c8a2290533a0a8b70016a9a3a231a64efe862e9220d1a56be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82175fdcc0139f8c8a2290533a0a8b70016a9a3a231a64efe862e9220d1a56be"
   end
 
   depends_on "node"
 
   def install
     system "npm", "install", *std_npm_args
+    deuniversalize_machos libexec/"lib/node_modules/@11ty/eleventy/node_modules/fsevents/fsevents.node" if OS.mac?
     bin.install_symlink libexec.glob("bin/*")
   end
 

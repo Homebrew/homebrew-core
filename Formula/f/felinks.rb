@@ -1,18 +1,19 @@
 class Felinks < Formula
   desc "Text mode browser and Gemini, NNTP, FTP, Gopher, Finger, and BitTorrent client"
   homepage "https://github.com/rkd77/elinks"
-  url "https://github.com/rkd77/elinks/releases/download/v0.19.0/elinks-0.19.0.tar.xz"
-  sha256 "a993a4870cadce60abbc724cf6a5c2a80f6be9020243b9e5ce075c16c6665c04"
+  url "https://github.com/rkd77/elinks/releases/download/v0.19.1/elinks-0.19.1.tar.xz"
+  sha256 "31960cd471246692b84008bffec89182f25818472f86ee1a41a09bf0dad09eeb"
   license "GPL-2.0-only"
   head "https://github.com/rkd77/elinks.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "71ffd50b78f14dff3602fafb9e249b3a1a712586698efdf4c6a32d39969b2341"
-    sha256 cellar: :any, arm64_sequoia: "1cad2a0ebe892022f566f2350c3fb74f30c0072977b5ea9c52bb246d00d20182"
-    sha256 cellar: :any, arm64_sonoma:  "de00151cc952660577f1897ffa5b684cd2751829c8b5d0eb671dce6b1221ee78"
-    sha256 cellar: :any, sonoma:        "bd0d4493bef7fd0ad399cc6d5b366c6b22bd4c04a0f444cfa7318deec24cc040"
-    sha256               arm64_linux:   "d7cad94afe5316f5449eb7fc8a7a70ce40c7a267357e78a507619c8293bd9529"
-    sha256               x86_64_linux:  "267e3566b8e3bc552eb4b808a82066ccc6cd8c0b963a1b532ac49bd6e3ece906"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "1bb748fa85a2021054ecfbc078da2ed3201320744a218d340732298fd90536d8"
+    sha256 cellar: :any, arm64_sequoia: "2f33fbb408dfd33c93ef83260d52a7cd6a48fbc3cad7e9c49940adcc5e92f734"
+    sha256 cellar: :any, arm64_sonoma:  "4149fe333d1d8522477d583dfce6eb4ba8e7369d6fff378cc7f59b69b8faf343"
+    sha256 cellar: :any, sonoma:        "25835e28f28a67984128bdeafe0ad342be1a5a4b649a4d4176ba227ee7cce737"
+    sha256               arm64_linux:   "5b6fa5b978fe374293f29e46dd8870c7533d67ba94170285e8dc9f261340f159"
+    sha256               x86_64_linux:  "2bbd226d828e84ea9ea36a907498ff54712896f49f3a407a8709c904e567c02a"
   end
 
   depends_on "meson" => :build
@@ -33,7 +34,10 @@ class Felinks < Formula
   uses_from_macos "curl"
   uses_from_macos "expat"
   uses_from_macos "python"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %w[

@@ -1,20 +1,18 @@
 class GitDelta < Formula
   desc "Syntax-highlighting pager for git and diff output"
   homepage "https://github.com/dandavison/delta"
-  url "https://github.com/dandavison/delta/archive/refs/tags/0.18.2.tar.gz"
-  sha256 "64717c3b3335b44a252b8e99713e080cbf7944308b96252bc175317b10004f02"
+  url "https://github.com/dandavison/delta/archive/refs/tags/0.19.2.tar.gz"
+  sha256 "f59b86f8c8dda4d76a3ba34b8553777a20c3b461646917d8e480fac6531bba9f"
   license "MIT"
-  revision 3
+  compatibility_version 1
   head "https://github.com/dandavison/delta.git", branch: "main"
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "702c33af336cc6b1cf1950f3bbba87df652d9310d6880a2779f0be9e8a915f43"
-    sha256 cellar: :any,                 arm64_sequoia: "e5572a654e8c6d38a1ca6d51ddffafc83abeb11bdee3a39208fb22371c7eeaf9"
-    sha256 cellar: :any,                 arm64_sonoma:  "4af7f1406d4f2e21632498f31d64b2fb7962630c9e7235312ce9bf0ad8a6d2f3"
-    sha256 cellar: :any,                 sonoma:        "fdd627e7a918dab21f5ef18f6c9c6454ea15ab13f0dc46d90816db96ad2f72b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f508627daf3121478652a6d704bd9b0a7030c270aa90277fba075ef75480f19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b6c3c87ac8377cca7ea3f1da5de9de07d511d88eb68c50118b6ac0f3ab6bbe8"
+    sha256 cellar: :any,                 arm64_tahoe:   "c35e06abe0161e57beb2d763cb43ce0beccf024613dbcfb92b31a39093b3397d"
+    sha256 cellar: :any,                 arm64_sequoia: "b45a48b049ca24a824a3f870a467412e3119dac4746f1c13443082bac9d9895f"
+    sha256 cellar: :any,                 arm64_sonoma:  "fa7ed02ac2fcbed7247f3fc58012c5e7cafdc609a849cd4295529c750a5b7df7"
+    sha256 cellar: :any,                 sonoma:        "f0aba2898cd9d587f33b330905c621c75e9230ba27f0ed249d0860fd3f641e46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "622e704b1cfc9f303fabce8859215b32ce6871e30efbd7da80084709afa0d48c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ef78e0c387f35781bb09dcbbadee5d2d10c7b21f00e6107962d1843fac73a5a"
   end
 
   depends_on "pkgconf" => :build
@@ -22,12 +20,8 @@ class GitDelta < Formula
   depends_on "libgit2"
   depends_on "oniguruma"
 
-  uses_from_macos "zlib"
-
-  # support libgit2 1.9, https://github.com/dandavison/delta/pull/1930
-  patch do
-    url "https://github.com/dandavison/delta/commit/9d6101e82a79daecfa9e81fa54c440b2e0442a33.patch?full_index=1"
-    sha256 "1967b73aeaba44cf96a3f2866d436449668028d6f8a6fa77dbc0d5c3c386c0cf"
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

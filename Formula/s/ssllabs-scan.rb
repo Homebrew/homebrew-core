@@ -5,8 +5,6 @@ class SsllabsScan < Formula
   sha256 "51c52e958d5da739910e9271a3abf4902892b91acb840ea74f5c052a71e3a008"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0f8a61fd15b012c3792bdbcdc8229833e8d9d4f9e8b009e3f88d7e8a477ac111"

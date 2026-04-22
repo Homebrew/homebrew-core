@@ -3,19 +3,19 @@ class Pydantic < Formula
 
   desc "Data validation using Python type hints"
   homepage "https://github.com/pydantic/pydantic"
-  url "https://files.pythonhosted.org/packages/69/44/36f1a6e523abc58ae5f928898e4aca2e0ea509b5aa6f6f392a5d882be928/pydantic-2.12.5.tar.gz"
-  sha256 "4d351024c75c0f085a9febbb665ce8c0c6ec5d30e903bdb6394b7ede26aebb49"
+  url "https://files.pythonhosted.org/packages/d9/e4/40d09941a2cebcb20609b86a559817d5b9291c49dd6f8c87e5feffbe703a/pydantic-2.13.3.tar.gz"
+  sha256 "af09e9d1d09f4e7fe37145c1f577e1d61ceb9a41924bf0094a36506285d0a84d"
   license "MIT"
   version_scheme 1
+  compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "f82763979e85555515c17cace1a3e82142da86aafbe470a913cff495da4082e5"
-    sha256 cellar: :any,                 arm64_sequoia: "1df91d297946b63d060e975586f5704049ff91cee099d6074536ab6d8b913400"
-    sha256 cellar: :any,                 arm64_sonoma:  "932a64cd7677c6e78af8d23436fd5c6445971132e36990d9f17da237f836301e"
-    sha256 cellar: :any,                 sonoma:        "6ca77c977ee829d61282d6fd0d894e9a23d0ff3654d4825f92e6ab672fc34e39"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b252c084afdb03e9871ca69e7969ad5a5120e49ac916414d5ebd0fc63f02c54d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6ec6ef0299e0e75a011da81902dc8e1da5b3798d010d56e51710537ecd248a8"
+    sha256 cellar: :any,                 arm64_tahoe:   "333d8f86be620759c435b94d5ebc3aa8cb7e71f4ea3594f573590344b34c15f1"
+    sha256 cellar: :any,                 arm64_sequoia: "9ce42ab99d9c4098455f99886cf4972146d28f1e3516543f5ee289f689e74e84"
+    sha256 cellar: :any,                 arm64_sonoma:  "64e756044f9d6c4f2f20e9762e2de2065f9c9874fcfe52786cb30b2a94060471"
+    sha256 cellar: :any,                 sonoma:        "2d29769306996f80d174a20df993c155e5af4e7e9ee5a50209f82f8740481e0e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9375e950e04192dd3145daa5575229d60bfb003ed13cdf3f87498880fb09ae4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c65ea781e44d48798db4493bb85598e96525eee17b5465e95993de8ff5206108"
   end
 
   depends_on "maturin" => :build
@@ -35,8 +35,8 @@ class Pydantic < Formula
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/71/70/23b021c950c2addd24ec408e9ab05d59b035b39d97cdc1130e1bce647bb6/pydantic_core-2.41.5.tar.gz"
-    sha256 "08daa51ea16ad373ffd5e7606252cc32f07bc72b28284b6bc9c6df804816476e"
+    url "https://files.pythonhosted.org/packages/2a/ef/f7abb56c49382a246fd2ce9c799691e3c3e7175ec74b14d99e798bcddb1a/pydantic_core-2.46.3.tar.gz"
+    sha256 "41c178f65b8c29807239d47e6050262eb6bf84eb695e41101e62e38df4a5bc2c"
   end
 
   resource "typing-extensions" do

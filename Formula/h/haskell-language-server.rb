@@ -14,12 +14,13 @@ class HaskellLanguageServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "31d7cacc644a5768ae6a79a22579cd91a82255382084aa70e02f3d3d740912b0"
-    sha256 cellar: :any,                 arm64_sequoia: "2748e751c5205e2cce267c851c1acd995b2f15e063e30b9abd7d787ac0161565"
-    sha256 cellar: :any,                 arm64_sonoma:  "84952f21eb2873d0ec9ddf94b609f285df3f2ec59e9261d4854d8d715bee8784"
-    sha256 cellar: :any,                 sonoma:        "393a6adff3f052d054a7245ed419f991babdcac79a53e22ccb7e3361b8e7a687"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ee4031901feafa852742643c5cd6e558f9f8b7c83aaaf5f7e139435acdab26b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f8ccd5ae69eaca97a90bb059e0a586c572e1258c91f3210ff7668c9f88acf4f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f6de8b8fa5d1f31b2ff6ef634396c9100cab345a8185824ad1c86b6787dda02c"
+    sha256 cellar: :any,                 arm64_sequoia: "aced147259a317e32d3f16bfb61f0f82233bed806b4cec722c253f52496b764d"
+    sha256 cellar: :any,                 arm64_sonoma:  "d4221d8508168e7387229d9c9d8882842f7f5e0fec4255a1472e9d9a38b2cb1f"
+    sha256 cellar: :any,                 sonoma:        "72ea8a68e64d2c5884c5088fb41615c3a0099cbf9aa8e0588d8bffe4c31c3b8d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e1bd524e3263e877838a83420c514c109c704a7a1ac13a8818aae2d7995579b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42f44eef799fd9a7ed15d33b531bcc8c0242fac8424d053d39bc776af3837b55"
   end
 
   depends_on "cabal-install" => [:build, :test]
@@ -29,7 +30,10 @@ class HaskellLanguageServer < Formula
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def ghcs
     deps.filter_map { |dep| dep.to_formula if dep.name.match? "ghc" }

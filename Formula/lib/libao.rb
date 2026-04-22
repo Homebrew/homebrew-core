@@ -4,9 +4,8 @@ class Libao < Formula
   url "https://gitlab.xiph.org/xiph/libao/-/archive/1.2.2/libao-1.2.2.tar.gz"
   sha256 "df8a6d0e238feeccb26a783e778716fb41a801536fe7b6fce068e313c0e2bf4d"
   license "GPL-2.0-or-later"
+  compatibility_version 1
   head "https://gitlab.xiph.org/xiph/libao.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 3

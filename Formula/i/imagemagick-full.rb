@@ -1,8 +1,8 @@
 class ImagemagickFull < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://imagemagick.org/index.php"
-  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.2-13.tar.xz"
-  sha256 "968e022c8c7ee620680bac658628ef0f582be7b8aa71b386a9a9d068ec17dbd2"
+  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.2-21.tar.xz"
+  sha256 "3da290f49318e52a7a663adf1837a468769d0f7db637d3567a26cfb2a52b4580"
   license "ImageMagick"
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 
@@ -12,12 +12,12 @@ class ImagemagickFull < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6a91f2a347da02311b254fcdf37e69ff8f899f379a5580b68cf2c996daf04ef4"
-    sha256 arm64_sequoia: "ad4848ac0979b84030694c89a426b442e6e867887c1239d505b61fdfdc41931f"
-    sha256 arm64_sonoma:  "9c537b700a26a6f378d2d65c7c0524804271ca7d0bad5017be60dacb97249991"
-    sha256 sonoma:        "abc62e6d5bcd298e41df72fe1fda9c51922de33c5a24182a8f82104d538d53cc"
-    sha256 arm64_linux:   "7e97adcb4891e653b17679669ac58e45db0fac1e700cc37331b44946024fbaba"
-    sha256 x86_64_linux:  "018aa4e2b0d9b1ec3da53ef8032bddc8ce4bcca1680f9cd97fea6267b3a5f1c9"
+    sha256 arm64_tahoe:   "80d0719abd31a4ad4d5f4db42bad496930ad39c1929631dab808eb16c831d041"
+    sha256 arm64_sequoia: "1cd33510a790f759564de95c16ad07951ab745157ad0a1216dd9561b4736ccb4"
+    sha256 arm64_sonoma:  "7a3fc17a737c3f02ca718282b7a4d0c4d43368d749ba1bff9bc914d183b468e6"
+    sha256 sonoma:        "e1cdcdd96a460e0fb0589bacea662f0331af57c385a91070b56e66c0334cdc54"
+    sha256 arm64_linux:   "8612b516e22d885ca3adea6d57f3fbeed59ac663f067cddc982412cb518e7f57"
+    sha256 x86_64_linux:  "ad4bb8a526bdb2761c014459fb0f6674bfb123fa6ca644b2a67daaaa75eab92c"
   end
 
   keg_only :versioned_formula
@@ -47,7 +47,6 @@ class ImagemagickFull < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gdk-pixbuf"
@@ -59,6 +58,7 @@ class ImagemagickFull < Formula
   on_linux do
     depends_on "libx11"
     depends_on "libxext"
+    depends_on "zlib-ng-compat"
   end
 
   skip_clean :la

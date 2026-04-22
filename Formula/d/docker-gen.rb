@@ -1,18 +1,18 @@
 class DockerGen < Formula
   desc "Generate files from docker container metadata"
   homepage "https://github.com/nginx-proxy/docker-gen"
-  url "https://github.com/nginx-proxy/docker-gen/archive/refs/tags/0.16.1.tar.gz"
-  sha256 "c35fcc972c68cb6feea6f2ca1437a3a2b104df138b2ccbec39659a277950306b"
+  url "https://github.com/nginx-proxy/docker-gen/archive/refs/tags/0.16.3.tar.gz"
+  sha256 "086956d86d7687575a24dd532988d63580682660e4050e19ed89125e210dd307"
   license "MIT"
   head "https://github.com/nginx-proxy/docker-gen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dccb8c3d7506d77c4c0d0f89b86144f6312c06810f951f8f5fe6edf42bea6945"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dccb8c3d7506d77c4c0d0f89b86144f6312c06810f951f8f5fe6edf42bea6945"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dccb8c3d7506d77c4c0d0f89b86144f6312c06810f951f8f5fe6edf42bea6945"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bcaa037f17e5cfd0de53ef1a10a28448a0850890e7ce81d72fd30e2c7d243b2f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b204f3f4528b82efae3521d5fa05e5b49af75cc7b42ca4ee73969d5a6cce758"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a21ac0f9a4a8079bba22eae8aa594d735431c493f299665c41de48dae1b08c4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "730d3972ec65ea77b695c46145c521d9b46b4dc0b13111cd0f218c6332c023e2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "730d3972ec65ea77b695c46145c521d9b46b4dc0b13111cd0f218c6332c023e2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "730d3972ec65ea77b695c46145c521d9b46b4dc0b13111cd0f218c6332c023e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "83f7bd6ffa371c44f2f605d333fff4b2f29d3346b54cd64fac6b1a1247b28f6c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d51c1ad0fe18acaa72de38a8a3122e4f83c918560deb957d8af314d8dd75ad50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f9862e81d0930ce3ab8bcbd52ccbfcd40e65ae847d011583ac785225b612d31"
   end
 
   depends_on "go" => :build

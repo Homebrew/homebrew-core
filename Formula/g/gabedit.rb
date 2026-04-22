@@ -14,8 +14,6 @@ class Gabedit < Formula
     regex(/current stable version of gabedit is v?(\d+(?:\.\d+)+)/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "d50f949dc32c409c6bc33b00840ceb7f85a31490b62155d6ea2a1788395e77bc"
     sha256 cellar: :any,                 arm64_sequoia:  "4218b43130e1be48172b6935ac53abd245973a5a30f46d700b3bb848fed1791a"
@@ -28,6 +26,9 @@ class Gabedit < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "0b1e20276076f99f0b8662ee3c6a84eacf7bf10d5ce122c42ca0a8063dae9b2d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "85b9f31c8d4f0b7daf320543f5da7d50a20212535bf1c753eca37aaa579c737d"
   end
+
+  deprecate! date: "2026-03-14", because: "uses deprecated `gtkglext`"
+  disable! date: "2027-03-14", because: "uses deprecated `gtkglext`"
 
   depends_on "pkgconf" => :build
 

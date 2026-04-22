@@ -1,18 +1,18 @@
 class Dasel < Formula
   desc "JSON, YAML, TOML, XML, and CSV query and modification tool"
   homepage "https://github.com/TomWright/dasel"
-  url "https://github.com/TomWright/dasel/archive/refs/tags/v3.2.1.tar.gz"
-  sha256 "b70b50bb901379c9bd1350bdef436e4cae83089a123ba3225a5fd99dbbc9e5b1"
+  url "https://github.com/TomWright/dasel/archive/refs/tags/v3.4.1.tar.gz"
+  sha256 "7fb73efd7378a784ce5cda960930ef8da01a9966e42ecc8904713a18b65e8f1a"
   license "MIT"
   head "https://github.com/TomWright/dasel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b228163b237833a2ab5a4f33601de2bbf73bb8a41492a76144b968a457862f85"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b228163b237833a2ab5a4f33601de2bbf73bb8a41492a76144b968a457862f85"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b228163b237833a2ab5a4f33601de2bbf73bb8a41492a76144b968a457862f85"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4b1d4c6fcae8636e5323f0b5b3ffd404d32e91c25531857104b7850f594f0237"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e7eb77bc8851b6280a787e1bb6946c89a12ba9f6a08ea2f3637eca101ebccf4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65750c12492d3cbcdbea2423e10009fe6a2dc28c53e52cf624f6c92fbe936ada"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6de4e0eb93742ab07d97b3308dd7676afcc3070ea113df704faa002ba81a3f25"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6de4e0eb93742ab07d97b3308dd7676afcc3070ea113df704faa002ba81a3f25"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6de4e0eb93742ab07d97b3308dd7676afcc3070ea113df704faa002ba81a3f25"
+    sha256 cellar: :any_skip_relocation, sonoma:        "44c7696a089c73d1be94963aadb3ae97200395ec677c1464dbdbc164d88f1f1e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbcc6832827b7d4d7640d8e4805ee5275255823de4201e62c92de0d4990fbd77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa2e168dec4701a26a11409a2e4a458666afa89b1d18559b6fa1c55a3bd76e82"
   end
 
   depends_on "go" => :build

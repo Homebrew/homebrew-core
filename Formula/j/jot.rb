@@ -6,8 +6,6 @@ class Jot < Formula
   license "MIT"
   head "https://github.com/shashwatah/jot.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c2251981468647abc1ef8ea360bd2dac2ab585a4cbffb5563dc12afcb448fee8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "93a520809e6790b6d9c41fedf1ef0702112bad61affb1b23cf51c9d8ef030cc3"

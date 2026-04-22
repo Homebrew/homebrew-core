@@ -26,26 +26,19 @@ class Libetpan < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "08105297d438c57ab65bea17b296762382703126bcd033627a01b0d2a26312ce"
-    sha256 cellar: :any,                 arm64_sequoia:  "28a0fa384fbe4f86bed68fea326d1cdfec1b4fc8c0b21283a00e3c268630f503"
-    sha256 cellar: :any,                 arm64_sonoma:   "eb5765b64ee9833f052439c9f5b29752115b84761e569c7d7d07d35b457fe5a5"
-    sha256 cellar: :any,                 arm64_ventura:  "daed620aaf4d24519d79be6cf34fdbf52386fa92c4c7880e8cf05cdccb0a787f"
-    sha256 cellar: :any,                 arm64_monterey: "1d33d9e801085b4c350423a936c7e79d1b6ed20b1bd0cfd08d42ae5e5274f07d"
-    sha256 cellar: :any,                 sonoma:         "a025d5684d2edc67c1b50b04ed4fab5f8ff5534c6a3c5b4093f5cf84837b46a0"
-    sha256 cellar: :any,                 ventura:        "143a977a506121a0b96acdcd4364ab55e278b2d887ab1e28f85d59c81e86e116"
-    sha256 cellar: :any,                 monterey:       "0803fa89cfe96b599bc4c811707872971b94c297e353032d614797f614bc90bc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "6b77f7345d0e27f4cbc5339afc734e0a897056111c1f79fc949c9d90b8ca66ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0c3a249c5498bb7b6b9fcd5f735b9ca04e3225b8654a72464f457506c6aa72e"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "2f2bc6b0e25e04a695cbfb726a3cfcf699098d8bcb3f65341ce73bc7fe5ac2e6"
+    sha256 cellar: :any,                 arm64_sequoia: "0f71f334cab29455274e4c1a1ea4db7d20eb8d3cd6f52a3380343c62f5473359"
+    sha256 cellar: :any,                 arm64_sonoma:  "ba50402af4e428540093a35f7493abfa5061dba3a80063c8356af13278d6b0d9"
+    sha256 cellar: :any,                 sonoma:        "6c780a96c2675aeb1dc3130c91a46f75e673e12ef3cc8a381d6973496a3ba361"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "793b454d15058dc0ba62741b7e094e27f9f311bcd56ec7fed2e197011b54eb6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf8c5f3550de87ef79a8037cba4778e4d148581c4ef4b28353a3eb80cad9aa61"
   end
 
   depends_on xcode: :build
 
   uses_from_macos "cyrus-sasl"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "autoconf" => :build
@@ -53,6 +46,7 @@ class Libetpan < Formula
     depends_on "libtool" => :build
     depends_on "pkgconf" => :build
     depends_on "openssl@3"
+    depends_on "zlib-ng-compat"
   end
 
   def install

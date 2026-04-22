@@ -1,9 +1,10 @@
 class Qemu < Formula
   desc "Generic machine emulator and virtualizer"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-10.2.0.tar.xz"
-  sha256 "9e30ad1b8b9f7b4463001582d1ab297f39cfccea5d08540c0ca6d6672785883a"
+  url "https://download.qemu.org/qemu-11.0.0.tar.xz"
+  sha256 "c04ca36012653f32d11c674d370cf52a710e7d3f18c2d8b63e4932052a4854d6"
   license "GPL-2.0-only"
+  compatibility_version 1
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
   livecheck do
@@ -12,18 +13,19 @@ class Qemu < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "54cef29e9be0160316fcc296009b95b6536026e63dd0ef85493c5f07f0216e0a"
-    sha256 arm64_sequoia: "0c403b53d0dbe62a4dd2ae84a44e646d810167013a8b985f1f635c7d76bbef7e"
-    sha256 arm64_sonoma:  "f40251478ae8a7f051637d3e5b953657cc93daa393f58a1e9e039cfb32a49083"
-    sha256 sonoma:        "04ce41d1e51777f63bcc0db1f9507bbe63fc904541c879f0b842497a31226b92"
-    sha256 arm64_linux:   "a8c4292054ac58cf88a5ff77840864feac2297f891adab7c1581f107b0169994"
-    sha256 x86_64_linux:  "f096bfd84838e82806ef05fc2abbefdcb270eeb5bc49f90159f010720524d641"
+    sha256 arm64_tahoe:   "a1a3f3bec0d8bbc6976822f8b38758486430809ceb1b6b8d9d98dacb8b961a3b"
+    sha256 arm64_sequoia: "469b7fe45e19e5c0516c5369bcba23890412f3e2c243f72690ac65fcb382fe67"
+    sha256 arm64_sonoma:  "0d80c35b4760cd5ba1da1c08c6a89511b6c31fba7d9b52f812d255d30ca6bf6e"
+    sha256 sonoma:        "a7bd0dd4d00305921af70c535ebd40f972ce6c9c4670fd3c93532da4de533f34"
+    sha256 arm64_linux:   "0a18129011938f3bde7689f42855f6f7b2ecea4eb278ed30341bbe0fb6042f15"
+    sha256 x86_64_linux:  "e8e6c18ad6782f533e82858b9e832ca2a05e0d641e1e99ae22e31531248dc489"
   end
 
   depends_on "libtool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "python-setuptools" => :build
   depends_on "python@3.14" => :build # keep aligned with meson
   depends_on "spice-protocol" => :build
 
@@ -46,7 +48,6 @@ class Qemu < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "attr"
@@ -61,6 +62,7 @@ class Qemu < Formula
     depends_on "libxkbcommon"
     depends_on "mesa"
     depends_on "systemd"
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -68,8 +70,8 @@ class Qemu < Formula
 
     # Remove wheels unless explicitly permitted. Currently this:
     # * removes `meson` so that brew `meson` is always used
-    # * keeps `pycotap` which is a pure-python "none-any" wheel (allowed in homebrew/core)
-    rm(Dir["python/wheels/*"] - Dir["python/wheels/pycotap-*-none-any.whl"])
+    # * keeps `pycotap` and `qemu_qmp` which are pure-python "none-any" wheels (allowed in homebrew/core)
+    rm(Dir["python/wheels/*"] - Dir["python/wheels/{pycotap,qemu_qmp}-*-none-any.whl"])
 
     args = %W[
       --prefix=#{prefix}
@@ -116,7 +118,7 @@ class Qemu < Formula
     end
 
     archs = %w[
-      aarch64 alpha arm avr hppa i386 loongarch64 m68k microblaze microblazeel mips
+      aarch64 alpha arm avr hppa i386 loongarch64 m68k microblaze mips
       mips64 mips64el mipsel or1k ppc ppc64 riscv32 riscv64 rx
       s390x sh4 sh4eb sparc sparc64 tricore x86_64 xtensa xtensaeb
     ]

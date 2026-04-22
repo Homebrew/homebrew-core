@@ -5,8 +5,6 @@ class Orcania < Formula
   sha256 "e26947f7622acf3660b71fb8018ee791c97376530ab6c4a00e4aa2775e052626"
   license "LGPL-2.1-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "5fee2615d28af2472b03eb9499ad1eee7e17549a421d7212d973c8cf2a39a430"
     sha256 cellar: :any,                 arm64_sequoia:  "4c6bcdc1d22075f81c8d4660d2e7f26bf495a7d3b71ba07dc73cec9cb60df3ac"

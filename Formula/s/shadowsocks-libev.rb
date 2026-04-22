@@ -1,69 +1,38 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v3.3.5/shadowsocks-libev-3.3.5.tar.gz"
-  sha256 "cfc8eded35360f4b67e18dc447b0c00cddb29cc57a3cec48b135e5fb87433488"
+  url "https://github.com/shadowsocks/shadowsocks-libev.git",
+      tag:      "v3.3.6",
+      revision: "c5e8788013a37afe54ea1c2b7c03395cccc663cf"
   license "GPL-3.0-or-later"
-  revision 5
+  head "https://github.com/shadowsocks/shadowsocks-libev.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "613c265dfbdb7f3686e9b5d533aa4993ec78fd5772c44a8872ed76094b5a8a03"
-    sha256 cellar: :any,                 arm64_sequoia:  "1634eda3b34216de2f4208756ef79a7a3cf9dd92aed1efe90657f069ad25f95c"
-    sha256 cellar: :any,                 arm64_sonoma:   "36afad86fca33908c9f81c18511aa4d59f6114e4dc85b66735eb1450bfec79bf"
-    sha256 cellar: :any,                 arm64_ventura:  "c56ecc0ed12edf94c2f375ce6cbb0b878501dbf7696cd223211a095f84b362d7"
-    sha256 cellar: :any,                 arm64_monterey: "5baa9ccd2a55ca92f1951b7c25839b6dd4b0fc9a1cf9a3f7238a1f7f7b6ed5b5"
-    sha256 cellar: :any,                 sonoma:         "089044be226fa8913cea75aa91e488c9b0a4a20bdab101c53bcf73629b912a39"
-    sha256 cellar: :any,                 ventura:        "64e0226723e4b01a528bd151671bf72cd53cb620821f7db372a1776eea430cf3"
-    sha256 cellar: :any,                 monterey:       "3f8d3f710752c395800db2d8805d126c67a4ea63665ce24eb8f4d562d3f139ff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b81d13f1ecbfacb40446d83b12acf298aaeaa326d06c15aaab11606848c87d9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "707c0ff929995f51fd54807d4a569a754173288596df027fd49290021a25a1a0"
+    sha256 cellar: :any,                 arm64_tahoe:   "a42fdc941a6684fc34969d13cfb8943ab85ec4759e6648969c568c08f91578f9"
+    sha256 cellar: :any,                 arm64_sequoia: "bfe681be47331281dfa702c0869bc11e98881b4f3c0fcec40fbaf4cf480935cd"
+    sha256 cellar: :any,                 arm64_sonoma:  "19bf52cee9260d0669dc847fe5ecf000b905c4f8be5f303df4071db906082d36"
+    sha256 cellar: :any,                 sonoma:        "790bc99c821cc3fd8b4a685e37ec40ef4a6c0f470911a43b1863db3af4773f81"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "36ee4c22c4c47e0a887832c226ce0d422fd69133a648afdb718f651faeff05e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e622c9cb22667b5b5b27358b753e6d6a987df4620f56ca811ee54c6505e8a573"
   end
-
-  head do
-    url "https://github.com/shadowsocks/shadowsocks-libev.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
-  # From GitHub page:
-  # Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust
-  #
-  # Unmerged dependency update PRs:
-  # * MbedTLS 3: https://github.com/shadowsocks/shadowsocks-libev/pull/2999
-  # * PCRE2:     https://github.com/shadowsocks/shadowsocks-libev/pull/1792
-  deprecate! date: "2024-12-31", because: "uses deprecated `mbedtls@2`"
-  disable! date: "2025-12-31", because: "uses deprecated `mbedtls@2`"
 
   depends_on "asciidoc" => :build
+  depends_on "cmake" => :build
   depends_on "xmlto" => :build
   depends_on "c-ares"
   depends_on "libev"
   depends_on "libsodium"
-  depends_on "mbedtls@2"
-  depends_on "pcre"
+  depends_on "mbedtls@3"
+  depends_on "pcre2"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
-    system "./autogen.sh" if build.head?
 
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
+    system "cmake", "-S", ".", "-B", "build", "-DWITH_STATIC=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-    (buildpath/"shadowsocks-libev.json").write <<~JSON
-      {
-          "server":"localhost",
-          "server_port":8388,
-          "local_port":1080,
-          "password":"barfoo!",
-          "timeout":600,
-          "method":null
-      }
-    JSON
-    etc.install "shadowsocks-libev.json"
-
-    system "make", "install"
+    etc.install "debian/config.json" => "shadowsocks-libev.json"
   end
 
   service do
@@ -86,15 +55,14 @@ class ShadowsocksLibev < Formula
           "method":null
       }
     JSON
-    server = fork { exec bin/"ss-server", "-c", testpath/"shadowsocks-libev.json" }
-    client = fork { exec bin/"ss-local", "-c", testpath/"shadowsocks-libev.json" }
-    sleep 3
+    server = spawn bin/"ss-server", "-c", testpath/"shadowsocks-libev.json"
+    client = spawn bin/"ss-local", "-c", testpath/"shadowsocks-libev.json"
     begin
-      system "curl", "--socks5", "127.0.0.1:#{local_port}", "github.com"
+      system "curl", "--retry", "5", "--retry-connrefused", "--socks5", "127.0.0.1:#{local_port}", "github.com"
     ensure
-      Process.kill 9, server
+      Process.kill "TERM", server
       Process.wait server
-      Process.kill 9, client
+      Process.kill "TERM", client
       Process.wait client
     end
   end

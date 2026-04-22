@@ -1,9 +1,10 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.23/htslib-1.23.tar.bz2"
-  sha256 "63927199ef9cea03096345b95d96cb600ae10385248b2ef670b0496c2ab7e4cd"
-  license "MIT"
+  url "https://github.com/samtools/htslib/releases/download/1.23.1/htslib-1.23.1.tar.bz2"
+  sha256 "f8a3f36effeec38f043c53ab1f2d9ed45064f14205c5ef8e3c815763b90803c4"
+  license all_of: ["MIT", "BSD-3-Clause"]
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -11,12 +12,12 @@ class Htslib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a38faeceb5a5bbf1db94b8284866d39c26b4ff388553b475172bad7106594880"
-    sha256 cellar: :any,                 arm64_sequoia: "ed6c17e8ed5f93267d4d83cb4c36feb8c26a650764490336ef522cf033b4dfc1"
-    sha256 cellar: :any,                 arm64_sonoma:  "ec48464d019c3d8cb10c6af649c7ca5cb285052e82f2820ab592d94a1df378e3"
-    sha256 cellar: :any,                 sonoma:        "55d83b5bd32a41299a86f559534f9d578261ac69ec057afd7236cee69ed5782a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6af2ea035e9e25fa70f14b88c00811c95199fb6055ab1a67272208a38f487ad3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53cbf8e35c705d7df70ceeea2e93f2336d398be03777984f1c271f6c6776307c"
+    sha256 cellar: :any,                 arm64_tahoe:   "7a0d00e5fbe31dac3e1994e07ed57175acee4d32ad0d88180c89d1f1e966904e"
+    sha256 cellar: :any,                 arm64_sequoia: "f627661b1ec0bac1225e8e179eb583ca214b63fab33ca3bfe4b8646ea8af8e17"
+    sha256 cellar: :any,                 arm64_sonoma:  "cdccdb46501db095f4a746e4681714f9e2a11d40980a4cfeaf332f94c7eb56d8"
+    sha256 cellar: :any,                 sonoma:        "a3f478876c6ebefe567c32b2c15678984ec63621dc12f66fe30fa12806929315"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3b36bac7e8c6084eb5d6ab9a01feab6a2bfd4fa7b247791df59e12866092ed2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "831d616b08a81740389afb6b710dfff4e6a1d012a395e2c69b47341a5958e4c6"
   end
 
   depends_on "libdeflate"
@@ -24,14 +25,14 @@ class Htslib < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@3"
+    depends_on "zlib-ng-compat"
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--enable-libcurl", "--with-libdeflate"
+    system "./configure", "--enable-libcurl", "--with-libdeflate", *std_configure_args
     system "make", "install"
   end
 

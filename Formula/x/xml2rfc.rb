@@ -3,19 +3,19 @@ class Xml2rfc < Formula
 
   desc "Tool to convert XML RFC7749 to the original ASCII or the new HTML look-and-feel"
   homepage "https://xml2rfc.tools.ietf.org/"
-  url "https://files.pythonhosted.org/packages/e5/bf/958badb4a48c9a91abf1e4896f81a2164127f86b53b0b099fc024c849584/xml2rfc-3.31.0.tar.gz"
-  sha256 "0a1d4ccc4425aed39b5f0f833a8eb1e0f9e8f1897d3441c3a15877dee36cf484"
+  url "https://files.pythonhosted.org/packages/29/0b/44c69b36f09eb20ba238007b39fa2b0e366156477431b32188fb12413591/xml2rfc-3.33.0.tar.gz"
+  sha256 "feee8140e394dbc26bc61b1e803f5403a8844aaf4d918703c7f2ab1e850b639c"
   license "BSD-3-Clause"
-  revision 3
+  revision 1
   head "https://github.com/ietf-tools/xml2rfc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bfc5079eafb3596c0c2c046dbed6bc663ae160525f1f7d998da49972bdd4cec6"
-    sha256 cellar: :any,                 arm64_sequoia: "aa78be6016946fc048b43478498fea5c78774912aaf57bc817f8067fb1f1ac2a"
-    sha256 cellar: :any,                 arm64_sonoma:  "8731eb8d0b415f3dee804a2443a3e1af00367ca184768ca0f63147a6b2620743"
-    sha256 cellar: :any,                 sonoma:        "e8d73c501f10a66e3944ee894583c4b8141cdfc3260a35d4edfb8c5527002561"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa4a72d04f00edd1dd524d0f27fc875f389725edac9066719104c3be5411184c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6da2391412a246c1b9bf7f84786ceb6427e6e7907230805e91d5fa6c4356f8e2"
+    sha256 cellar: :any,                 arm64_tahoe:   "60f2817b7f945973bc99dbe38f888b6a5f0c12a2bbed5c3091c5066f565e7300"
+    sha256 cellar: :any,                 arm64_sequoia: "65dafc4354fb6372f3152a96dd2680df1b0c2479db5a45eb971a69a64eea1cae"
+    sha256 cellar: :any,                 arm64_sonoma:  "5746b6916376fe93f802210a313e8fb669a0a75e520a22eeff32fd2eed23ceee"
+    sha256 cellar: :any,                 sonoma:        "26bd5edc84f46842ed02b4ed2022f3efb71b005a7a86bfcb73b534d3b0e57ed1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "681d79010c8d888ea13401a8e651e8e7185376496f6aa8a7c2630b8c37d036fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14765296df375d3e7511ecd2aa15c1fc0796334633c410f9244f55ec7084b86e"
   end
 
   depends_on "certifi" => :no_linkage
@@ -34,13 +34,13 @@ class Xml2rfc < Formula
   # if not then there will be an ModuleNotFoundError: No module named 'i18naddress'
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "configargparse" do
-    url "https://files.pythonhosted.org/packages/85/4d/6c9ef746dfcc2a32e26f3860bb4a011c008c392b83eabdfb598d1a8bbe5d/configargparse-1.7.1.tar.gz"
-    sha256 "79c2ddae836a1e5914b71d58e4b9adbd9f7779d4e6351a637b7d2d9b6c46d3d9"
+    url "https://files.pythonhosted.org/packages/3f/0b/30328302903c55218ffc5199646d0e9d28348ff26c02ba77b2ffc58d294a/configargparse-1.7.5.tar.gz"
+    sha256 "e3f9a7bb6be34d66b2e3c4a2f58e3045f8dfae47b0dc039f87bcfaa0f193fb0f"
   end
 
   resource "google-i18n-address" do
@@ -64,8 +64,8 @@ class Xml2rfc < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
-    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
+    url "https://files.pythonhosted.org/packages/28/30/9abc9e34c657c33834eaf6cd02124c61bdf5944d802aa48e69be8da3585d/lxml-6.1.0.tar.gz"
+    sha256 "bfd57d8008c4965709a919c3e9a98f76c2c7cb319086b3d26858250620023b13"
   end
 
   resource "markupsafe" do
@@ -74,13 +74,13 @@ class Xml2rfc < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cf/86/0248f086a84f01b37aaec0fa567b397df1a119f73c16f6c7a9aac73ea309/platformdirs-4.5.1.tar.gz"
-    sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
+    url "https://files.pythonhosted.org/packages/9f/4a/0883b8e3802965322523f0b200ecf33d31f10991d0401162f4b23c698b42/platformdirs-4.9.6.tar.gz"
+    sha256 "3bfa75b0ad0db84096ae777218481852c0ebc6c727b3168c1b9e0118e458cf0a"
   end
 
   resource "pycountry" do
-    url "https://files.pythonhosted.org/packages/76/57/c389fa68c50590881a75b7883eeb3dc15e9e73a0fdc001cdd45c13290c92/pycountry-24.6.1.tar.gz"
-    sha256 "b61b3faccea67f87d10c1f2b0fc0be714409e8fcdcc1315613174f6466c10221"
+    url "https://files.pythonhosted.org/packages/de/1d/061b9e7a48b85cfd69f33c33d2ef784a531c359399ad764243399673c8f5/pycountry-26.2.16.tar.gz"
+    sha256 "5b6027d453fcd6060112b951dd010f01f168b51b4bf8a1f1fc8c95c8d94a0801"
   end
 
   resource "pyyaml" do
@@ -89,8 +89,8 @@ class Xml2rfc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
+    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
   end
 
   resource "sortedcontainers" do
@@ -104,8 +104,8 @@ class Xml2rfc < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
-    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   def install

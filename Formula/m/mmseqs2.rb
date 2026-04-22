@@ -8,21 +8,19 @@ class Mmseqs2 < Formula
   head "https://github.com/soedinglab/MMseqs2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7b06159dad576a5e58ea3432b635167d4944540afe004fcb3f115b18a8850e30"
-    sha256 cellar: :any,                 arm64_sequoia: "2559af59e1218ea74307ceec6566773a99644344cf79f2694feb3087b47d7c52"
-    sha256 cellar: :any,                 arm64_sonoma:  "51c387d84616d349170b24f6d19a8013da1a38b26ce1470e288858ddfaaffee9"
-    sha256 cellar: :any,                 arm64_ventura: "3588b255d84d1990d827384f1d1f0580e289a07df361f2ebb3cbfc8f11ee00ae"
-    sha256 cellar: :any,                 sonoma:        "34bd808b80f87b6aefb521847f10507a27367686616a4de7f121249a9f087044"
-    sha256 cellar: :any,                 ventura:       "e077f4ccbbfd477edd045872df1e891a1038f7f2e2a52d3c72c390367ae8208c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3be48f38aa44ce99a5a96d6b67b6c54645c9e25a091aa32b8e289bc0037c3659"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd3f8a5bfe07ba3c31860971f628f04a5bec4c49606f732641b27aabccac3f4a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "db5b603365d96e19fb686f87657965c7920368c9972ba4df890e015db5a62242"
+    sha256 cellar: :any,                 arm64_sequoia: "9e54025ebe34f6c6183dea51234b59d36603c6095894e8a16970b0998452556a"
+    sha256 cellar: :any,                 arm64_sonoma:  "9acef9a8874241678098c1132be15aa1df6fd2a6a709ea4f2a98e850bafda29b"
+    sha256 cellar: :any,                 sonoma:        "32b6bd0d7785c60cd96c2012eafe53ef3bae20d12487d4bb57f1b906f0a95be1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "093b602dad229d6adfc9860a347118d837c0c21e2a7489f7ae49cefe5432ae9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1078e3ad9bea79349ebb08e136c4581cc4edd7e095961ae8f4b6ad412d35cd5"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "wget"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libomp"
@@ -30,6 +28,7 @@ class Mmseqs2 < Formula
 
   on_linux do
     depends_on "gawk"
+    depends_on "zlib-ng-compat"
   end
 
   # `git ls-remote https://github.com/soedinglab/MMseqs2.wiki.git HEAD`

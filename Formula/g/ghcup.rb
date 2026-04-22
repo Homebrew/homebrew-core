@@ -14,15 +14,13 @@ class Ghcup < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "e6a0cc1037d609427bd3e2121d2dfb07328d31bebfb6b8b42c9b703a9882e70e"
-    sha256 cellar: :any,                 arm64_sequoia: "1761d3fd2610c48ab9d2a048eb8f8a25a1c7def62ae960812f17feec94c1444b"
-    sha256 cellar: :any,                 arm64_sonoma:  "c58916768b45402fe48af59be753186db8cd56e9f28ccfe9817ab9ffc98fbf48"
-    sha256 cellar: :any,                 arm64_ventura: "2cce48ab0a56115ea853ac0f383f59fc2d419a6c9e414b5af8aa02fabb505fbf"
-    sha256 cellar: :any,                 sonoma:        "6e4b55a318b5e9dca9cec9d036dd24d3768ecbc1b8da4fa2ddbf0948cefc6bf8"
-    sha256 cellar: :any,                 ventura:       "186dd4888ad499c08142075d6e5da272c28bd376fba7ef89a01ac5d27803e3b3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "51afd964e6e0027e176f2a1b429d5e8d87b93a833be9b3382fd8435bbef1b905"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eaca952bf9b6b634b37333219d910b95761c323e386c709e7c2ab1779ad94160"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "811917322d97837106d12170b91163432ae7c85aa638d1d96f029f9dec0cbb0e"
+    sha256 cellar: :any,                 arm64_sequoia: "ec991d6ddea9fbcb3c419543dfccaab1bb6d1d0902ba195f1e42f1a37241ee0a"
+    sha256 cellar: :any,                 arm64_sonoma:  "78dc9e2eaaf35e85f6d5a11a3bf1ea93bdc7288f614bb81eeafb162942eeebbb"
+    sha256 cellar: :any,                 sonoma:        "198abd421c4cc7e9aaa9274920e01306f42d98946ac6c87266a810048eb542db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "515f3d49492075a8d3d9c54442061f468485701be58045c3e2f19da055e10a43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cf4e303d7c63d8dc7094cb14558d753ca914f5b71515b26dae21a4c20004df3"
   end
 
   depends_on "cabal-install" => :build
@@ -32,7 +30,10 @@ class Ghcup < Formula
   uses_from_macos "bzip2"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155

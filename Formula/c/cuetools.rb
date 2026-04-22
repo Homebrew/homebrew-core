@@ -6,8 +6,6 @@ class Cuetools < Formula
   license "GPL-2.0-only"
   head "https://github.com/svend/cuetools.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "608a2dff1244ef93b65739924ea96977afc75052374eb4da5fbb261b48f29413"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c25785b0909d4b8ecee88b331ae515e491427126db45af75fbbcc1e94bd287a9"

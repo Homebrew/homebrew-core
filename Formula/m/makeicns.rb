@@ -9,8 +9,6 @@ class Makeicns < Formula
     skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "eb8af37eb2ea58296938dd61754d07854878be1869c52490796617cc6fb4e43c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "89f7fec6280f4ff185da4d6bf07ba3f30f977bf40b5316c559a8af7a83f2a08c"

@@ -1,18 +1,18 @@
 class Bnfc < Formula
   desc "BNF Converter"
   homepage "https://github.com/BNFC/bnfc"
-  url "https://github.com/BNFC/bnfc/archive/refs/tags/v2.9.6.2.tar.gz"
-  sha256 "264c2973752f610d774246e76fb47ac9224ba2cff8498272f00b08411e2b089b"
+  url "https://github.com/BNFC/bnfc/archive/refs/tags/v2.9.6.3.tar.gz"
+  sha256 "f8d7356adcf8f068e6ae253402623cec0f19f1554c341f7346687a9654f5e109"
   license "BSD-3-Clause"
   head "https://github.com/BNFC/bnfc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fc1a05687a2bd431e6371fb5068f41ff0bf70648e809111d5453415d194e532e"
-    sha256 cellar: :any,                 arm64_sequoia: "2f04ec084ced7d76946370110ff81f016d7ed50292e2a772a706e07a98c20c8b"
-    sha256 cellar: :any,                 arm64_sonoma:  "a5148f425a9ce904eb4c861c5563cbf1676f9d87a2d4c85ce029bffbac9e955d"
-    sha256 cellar: :any,                 sonoma:        "e955c51e0323aef6c80360cc55765f46f1b3593df94b6044090078749767fd37"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0422a1119274343c4a342b076321170f9f987a8dd67f78a6d40c4e0efb391ac9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f523f3617e9b794c4aa57e752fb7e056adc60b2f48cf436b38692aa5de2904a3"
+    sha256 cellar: :any,                 arm64_tahoe:   "f7b90ec3d33b10d90034d85689577e54bcc5e3db9bb8dcf41362e1db32dc1189"
+    sha256 cellar: :any,                 arm64_sequoia: "a568100d6ca5ce75083ca8bcacaf4a760da3a37eae4eefdb37b35060aa8e56ce"
+    sha256 cellar: :any,                 arm64_sonoma:  "5cffb67a370c5d6f721c18547c6143e8b045f507142c4ee09a77834bd05302b7"
+    sha256 cellar: :any,                 sonoma:        "eed6cb1992d5de939a39615237832798890693ae694708decf151d979cb9ac73"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d31cddc0a99c2922f41d1aa90c78692b94a0ecb2a3af63785544cb8fbd261f8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e14bac7434cc480ce0e47aeedd0cec60ea8288669acb1335975004e8c319167"
   end
 
   depends_on "cabal-install" => [:build, :test]

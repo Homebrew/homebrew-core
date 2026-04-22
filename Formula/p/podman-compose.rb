@@ -6,15 +6,15 @@ class PodmanCompose < Formula
   url "https://files.pythonhosted.org/packages/24/91/b168a685ca6813ff9b467d76a7365a099aec16a1032b6edf39b0cd19f6c3/podman_compose-1.5.0.tar.gz"
   sha256 "5cc09362852711ce5d27648e41cb5fd058ea5a75acbcdec2f8d0b0c114a18e8e"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "6d9765042f7c657a9988eba299ea87413ebc88b51dd301bf0824eb2f42cb5fbf"
-    sha256 cellar: :any,                 arm64_sequoia: "64ec31c99c8f3eef79b7bff65d15f3aa9fee7c3d2cf10db798934655650b2eb7"
-    sha256 cellar: :any,                 arm64_sonoma:  "b090788eeecfb9762576fc0579cca1e237dbe78fe81d1bf83ec5027ce654550c"
-    sha256 cellar: :any,                 sonoma:        "0c3fef86a51ea1e01f3b292042a21721adbb26b2d3220be6a4cf3d4a64ee1b9a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fca19cda30ccd74d9837a3fadcc36b637d85a38fa42ba765f39ebaaabda87f79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2225e553f4109c8f560ede2cb744456f8c53e625ad1f168cc66f9d4cad789835"
+    sha256 cellar: :any,                 arm64_tahoe:   "c4075c4404daf3f94d39235b1a40462bf49f5e4c4911e1d7e59ded6759b39a97"
+    sha256 cellar: :any,                 arm64_sequoia: "cd35948edbd452b89c207d31977627f5cac993d98a065a6da098b2ff9223e4fd"
+    sha256 cellar: :any,                 arm64_sonoma:  "f5333d43282d786736756fc0faff6ef7ca5243e980e82e87f6b4c2ae0b143006"
+    sha256 cellar: :any,                 sonoma:        "a20a968c26f5b4ebc8cac628503495bb11ab4762fb108ab744470a2bbb1f4649"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d128d731587aaa9d77b308ff9f8396dcfaaa6d18b346acedc1d552d49af71461"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1201faa12c2393e1254c9e122d6363177528e472f42c6c5a2056eb6d528de237"
   end
 
   depends_on "libyaml"
@@ -22,8 +22,8 @@ class PodmanCompose < Formula
   depends_on "python@3.14"
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/f6/b0/4bc07ccd3572a2f9df7e6782f52b0c6c90dcbb803ac4a167702d7d0dfe1e/python_dotenv-1.1.1.tar.gz"
-    sha256 "a8a6399716257f45be6a007360200409fce5cda2661e3dec71d23dc15f6189ab"
+    url "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz"
+    sha256 "2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3"
   end
 
   resource "pyyaml" do

@@ -26,6 +26,9 @@ class Ktoblzcheck < Formula
 
   uses_from_macos "curl"
 
+  pypi_packages package_name:   "",
+                extra_packages: "openpyxl"
+
   resource "et-xmlfile" do
     url "https://files.pythonhosted.org/packages/d3/38/af70d7ab1ae9d4da450eeec1fa3918940a5fafb9055e934af8d6eb0c2313/et_xmlfile-2.0.0.tar.gz"
     sha256 "dab3f4764309081ce75662649be815c4c9081e88f0837825f90fd28317d4da54"
@@ -40,6 +43,11 @@ class Ktoblzcheck < Formula
   resource "ktoblzcheck-data" do
     url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-data-20250515.tar.gz"
     sha256 "307479cd3c487ba6d6c4f5966634a6023c1f29d4386b93a5e96cea7541bebe4c"
+
+    livecheck do
+      url :url
+      regex(/url=.*?ktoblzcheck-data[._-]v?(\d+(?:\.\d+)*)\.t/i)
+    end
   end
 
   def python3

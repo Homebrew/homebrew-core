@@ -17,22 +17,19 @@ class Heimdal < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 3
-    sha256 arm64_tahoe:   "494784674bf30f21015e779c12e571f66e440951a5d837a9b9fd3ed33454775b"
-    sha256 arm64_sequoia: "b98ef6f977b5c577651f8b4d14ada315d11eeb3155cdc1b2d80351cd21bcafb7"
-    sha256 arm64_sonoma:  "848f372439fb91e3758681e529350b9fcbeebae0e5a6100a114c124ca0ca7f9d"
-    sha256 sonoma:        "da71a50cfc7717bbd57c8c99d50c21ef705a95f14bf332380a932334d543edbe"
-    sha256 arm64_linux:   "db3a0eee434231a275600a3aaa8da18416cfc1d467c8a31631d0f8a8db03ae56"
-    sha256 x86_64_linux:  "938a68365f4def1622b54fbb92b83d6c444e8cf89c3bc693a935eeeea7e8109c"
+    rebuild 4
+    sha256 arm64_tahoe:   "a67b0f0f1d02fff96fa17c46bbc75997198259f1ed3ff80c8e6a40a11cf48966"
+    sha256 arm64_sequoia: "69306dd51e40e93e603ff444164f32ca5d486255b6be42c7b9503e5b1a84b9a7"
+    sha256 arm64_sonoma:  "ddb9f3ef8a11d7008249605c47bf53e01910ce76b1814f961e88edd25308f3ce"
+    sha256 sonoma:        "8a0d6d032dfac9d335c2840e59833c6e1620ff936b9b9451acb4ac304c5fe55e"
+    sha256 arm64_linux:   "029e7264724697de827f4bfcdf2ea3f1e0f340da3d1666185f2380e8bc4b682b"
+    sha256 x86_64_linux:  "9ec9421a895c48bbee087eb572cb4e6fe90e061306b5c0153ce41a06833cb6a3"
   end
 
   keg_only "it conflicts with Kerberos"
 
   depends_on "pkgconf" => :build
-  depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL incompatibility
   depends_on "lmdb"
   depends_on "openldap"
   depends_on "openssl@3"
@@ -44,6 +41,8 @@ class Heimdal < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
 
+  # TODO: Remove in the next release
+  # https://github.com/heimdal/heimdal/commit/f62e2f278437ff6c03d2d09bd628381c795bba78
   resource "JSON" do
     on_linux do
       url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.10.tar.gz"
@@ -53,8 +52,8 @@ class Heimdal < Formula
 
   def install
     if OS.linux?
+      odie "Remove JSON resource and corresponding build!" if version > "7.8.0"
       ENV.prepend_create_path "PERL5LIB", buildpath/"perl5/lib/perl5"
-
       resource("JSON").stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/perl5"
         system "make"
@@ -68,13 +67,13 @@ class Heimdal < Formula
       --disable-afs-support
       --disable-ndbm-db
       --disable-heimdal-documentation
+      --disable-otp
       --disable-silent-rules
       --disable-static
       --with-openldap=#{Formula["openldap"].opt_prefix}
       --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --with-hcrypto-default-backend=ossl
-      --with-berkeley-db
-      --with-berkeley-db-include=#{Formula["berkeley-db@5"].opt_include}
+      --without-berkeley-db
     ]
 
     system "./configure", *args, *std_configure_args

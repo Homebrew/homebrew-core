@@ -10,8 +10,6 @@ class Hyperestraier < Formula
     regex(/href=.*?hyperestraier[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "fddfdaa28011b5308a0195b816212d061a3b707dce5275ff26bb47ab09e22841"
     sha256 cellar: :any,                 arm64_sequoia:  "18f652254c3b115ffe6fad67be39dee791ef6b8f456122618762417eef74f4cb"
@@ -27,6 +25,10 @@ class Hyperestraier < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "82e4346da884ac2a0ef08c094839ff64c4f689a2d036dc4be0db5f7d86af69ff"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "67da1265df5336838e42f563b8b90041d83d848739bf7972950de444cef78650"
   end
+
+  # Last release on 2007-12-24 and needs unmaintained `qdbm`
+  deprecate! date: "2026-04-18", because: :unmaintained
+  disable! date: "2027-04-18", because: :unmaintained
 
   depends_on "pkgconf" => :build
   depends_on "qdbm"

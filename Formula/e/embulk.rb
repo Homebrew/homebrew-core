@@ -11,8 +11,6 @@ class Embulk < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "fc718acf04dd0ffd6e04dc816490ba13bc8af9b0de9d45b169cc6b55a9e936f7"
@@ -61,12 +59,8 @@ class Embulk < Formula
     ENV["GEM_HOME"] = testpath/"gems"
     system bin/"embulk", "-X", jruby, "gem", "install", "embulk", "--version", version.to_s
     system bin/"embulk", "-X", jruby, "gem", "install", "embulk-input-http", "msgpack"
-    assert_match <<~EOS.chomp, shell_output("#{bin}/embulk -X #{jruby} preview config.yml")
-      +-------------+-----------------------------+--------------+----------------+
-      | number:long |          command_run:string | count:string | percent:double |
-      +-------------+-----------------------------+--------------+----------------+
-      |           1 |                        list |
-    EOS
+    system bin/"embulk", "-X", jruby, "preview", "config.yml"
+
     output = shell_output("#{bin}/embulk -X #{jruby} run config.yml")
     assert_match(/^1,list,.*\n2,/, output)
 

@@ -6,28 +6,23 @@ class GitTrim < Formula
       revision: "1f39d85ddb242e9933fba9faaecd6f423f2b6a5b"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "b2df67fcfb532c34628ba780201f8e3b226e3072a1a6b5f1d61ba3205d11df18"
-    sha256 cellar: :any,                 arm64_sequoia:  "f74019b2881c6a2defd6d3dbe28b2f8763d0a720c938d6e1d160b40d6d201ecb"
-    sha256 cellar: :any,                 arm64_sonoma:   "df64036ef7f8b4accecdc1219ba8a3f926b00bf05583782c028e878565dd1ee6"
-    sha256 cellar: :any,                 arm64_ventura:  "3f230f99015946e53ff857649b92fc82ebdc01d53aabb1698379a6428056a304"
-    sha256 cellar: :any,                 arm64_monterey: "a39f49254342159071cbb88d3f3b8e97f189f5333502d185be152c73fe9c5770"
-    sha256 cellar: :any,                 arm64_big_sur:  "0f3c73e37431403348e7ac496b3b39671366a576d61e75315d0e2f6667000404"
-    sha256 cellar: :any,                 sonoma:         "9dffbd486c687cf4481e9438bd978274001c3fec5497412567554bd27b2c1cd5"
-    sha256 cellar: :any,                 ventura:        "69a202e87bbe253c69c6cdcf65faf14e9523a8419c65ddd74eacc209dd432a94"
-    sha256 cellar: :any,                 monterey:       "164e873f61a2afa6c661821d77480ecf94d7c3e4d77da26335925af31628722b"
-    sha256 cellar: :any,                 big_sur:        "0e8c7d52f14301a786bfe5cce167310955f11da5cce33c780f6dee5da1299c13"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "363a125a202717d3c041de4cfcd2b261541b0c82363d89ebece23d5141b5329f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4663a90075b39aa34a60e0b5c097bb69b1820b9a72b1d47c54562fa9e08288de"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "c1a667c8d8f57a5a98f74f25c31b4a42c3e1a590a828d3bf15fb12610fa6c502"
+    sha256 cellar: :any,                 arm64_sequoia: "e6da3b71f915437663871a49da0908935c8c5d8f3482a8b03fbd469e3607c7b6"
+    sha256 cellar: :any,                 arm64_sonoma:  "5b21797251a5babcb06c7dfdf3ca3e22bf5911969f2432d14f1b133dccf8af8f"
+    sha256 cellar: :any,                 sonoma:        "2f46851b510f9951089a9166b0252f9802b0e7274dc493c0a44e296014fd8cee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb6ad0313b09996c5057fa9d8c14c7ffada62ac91a635cc7eb7407eee01c9d44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aeeea3f5e9d35984a91e402d8e8c315b1806ab1ebcd5c13832d1a10dbbcdeab1"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

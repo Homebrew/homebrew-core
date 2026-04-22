@@ -1,19 +1,18 @@
 class Oras < Formula
   desc "OCI Registry As Storage"
   homepage "https://github.com/oras-project/oras"
-  url "https://github.com/oras-project/oras/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "12fc49ddf5c940b0ebba4c318e00b4155b682d590754e0d7330b9c4259b4af51"
+  url "https://github.com/oras-project/oras/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "33a44023666e00b6e32b5bd022a77f0813a488bdeab90c7d728b811d5f97df48"
   license "Apache-2.0"
   head "https://github.com/oras-project/oras.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50b9ee43b03ad85deed439c627879a6686f54040b60e2df025ca02cdb604e3d4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "50b9ee43b03ad85deed439c627879a6686f54040b60e2df025ca02cdb604e3d4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50b9ee43b03ad85deed439c627879a6686f54040b60e2df025ca02cdb604e3d4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b0f03ce231df9105b5b87cca36cc7aa5b147ee96b68e190fe937ece22228017f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3cb76ca077a5c8794ff6eb5268a8a1f854e2238f7e6ffac06c243c36b3cf3794"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "766686b5f9c96faf08f48f6c28aa0c0538e456285e4c0a0f933ffb6657ae4d4b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7854879fac23c228f80368e88f0836825a5969c028d06d3550f2912fa51ac6a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7854879fac23c228f80368e88f0836825a5969c028d06d3550f2912fa51ac6a8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7854879fac23c228f80368e88f0836825a5969c028d06d3550f2912fa51ac6a8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "23b787ed090524b9988d6098e9bd1f39fd06fa2f71c99f2071befac3c66b7ac6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9320a667afc254c4bcfcabaa2abf652a445a23ad5652f3e4932d905c37db943a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44ba928ae32fb6b7ada4583648b641daf0767874a148ac3e9c8db55f886faef0"
   end
 
   depends_on "go" => :build

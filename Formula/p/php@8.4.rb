@@ -2,9 +2,9 @@ class PhpAT84 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.4.17.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.4.17.tar.xz"
-  sha256 "28b234e347286158cae921d61283eb1169d89bc9d2e5f5976567260ff38b0bfa"
+  url "https://www.php.net/distributions/php-8.4.20.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.4.20.tar.xz"
+  sha256 "e454c6f7c89a42f41ebb06dc5c3578e8c8b5f1a3f0da6675665affab04e221f7"
   license all_of: [
     "PHP-3.01",
 
@@ -29,6 +29,7 @@ class PhpAT84 < Formula
     "TCL",                   # 7
     "Zlib",                  # 8
   ]
+  compatibility_version 1
 
   livecheck do
     url "https://www.php.net/downloads?source=Y"
@@ -36,12 +37,12 @@ class PhpAT84 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "7f7deb479a0636380d5d86ab8468fb9080143fae59489416945eeb1877ba4f09"
-    sha256 arm64_sequoia: "e507e9d51fb6922ae855e2a18d9c7b289acad1f7e94a0cc76907e67a3362553a"
-    sha256 arm64_sonoma:  "1bb867c91a0413fb076ad83fcf8cadfda5790aabb94234e41adf9175fbdfc610"
-    sha256 sonoma:        "b99ce8e3b44cb5b90c1d6efc2a79c87403becd616ca9b866819a42990e496add"
-    sha256 arm64_linux:   "59c0726d114ea2043b2c85a7a2a7224b74892f35dd46f4cfd590162e40c978da"
-    sha256 x86_64_linux:  "28ff49255077cb999da04d5907051e0ea3a0ef0767b1f6e734f8f26242e631ca"
+    sha256 arm64_tahoe:   "bbad37798ee000c50e1b9d4d96d959c39900c4aa44c897095f9eaf0038c969c2"
+    sha256 arm64_sequoia: "bd00d2432871871efad309bc47e721946ff0968c60d75ff61539269e7ff0f094"
+    sha256 arm64_sonoma:  "de66218be4cebf9cf0998643e9c70d29a5cdb2fc7829c0fdd2b7fd98286d7138"
+    sha256 sonoma:        "d8858cf723801d9b4922d6130151f64087b1763bc38952d4c4168f9478d680ba"
+    sha256 arm64_linux:   "b512113ced04a0516b64f52b15a3d0929bf4bcffb4d1b2208e07c53c771bf854"
+    sha256 x86_64_linux:  "9149059fd21f87b25fcbef5eaec604716a5d8266b2494d01ee660006dcc9ebca"
   end
 
   keg_only :versioned_formula
@@ -79,10 +80,13 @@ class PhpAT84 < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

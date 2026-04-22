@@ -6,8 +6,6 @@ class XcodeKotlin < Formula
   license "Apache-2.0"
   head "https://github.com/touchlab/xcode-kotlin.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c8432e2d622a06bacb457053e063480f63879c3e73abf22fe40b3114291ad881"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d3b032937ee2f5e72a80cff85d9bb0b257178e6498b050f3f45919910c7bc77"

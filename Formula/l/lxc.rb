@@ -1,19 +1,18 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://ubuntu.com/lxd"
-  url "https://github.com/canonical/lxd/releases/download/lxd-6.6/lxd-6.6.tar.gz"
-  sha256 "2ddfa88441ef1f4f1f0b49cce11285620e34f3245e792f22034a688f3c07233a"
+  url "https://github.com/canonical/lxd/releases/download/lxd-6.7/lxd-6.7.tar.gz"
+  sha256 "30d902408f8616484579be6ac8642e14a9b2c839000fbef7bb35456d79ac30af"
   license "AGPL-3.0-only"
   head "https://github.com/canonical/lxd.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3432a8b0883d111ffdf8aa0549931386690f1946478d29fadbe39dfed90c6689"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3432a8b0883d111ffdf8aa0549931386690f1946478d29fadbe39dfed90c6689"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3432a8b0883d111ffdf8aa0549931386690f1946478d29fadbe39dfed90c6689"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5170557cd4a48cb11314489480b3dde4a5781626782326cb23657203ea5811ce"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "976e58e0fcbda92ec01d53cc8c1d25168169534a6531529747ba3c97fd4dcad6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a897ae79d2929a54f9b4a6042900e2e9a01f36c55400c05440b2200c68b135f4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "59a635679e4b44072152ac8e10a7224d2e8053f6bd4c1c77b18122498879b75b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59a635679e4b44072152ac8e10a7224d2e8053f6bd4c1c77b18122498879b75b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "59a635679e4b44072152ac8e10a7224d2e8053f6bd4c1c77b18122498879b75b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fe34c778afab192d6096b98d23f9b7ab5985ecb9cfa78f82fc7824d482329dfc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "77a7f06b8e67039c50210013571089b078b78ef1cd2f70024356574a9e525980"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dafcbd6d0128b629e5dbd7acb4c4bc070793b22ef276010b16c8e2a9dd6a421"
   end
 
   depends_on "go" => :build

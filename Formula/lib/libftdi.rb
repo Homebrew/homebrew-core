@@ -5,13 +5,12 @@ class Libftdi < Formula
   sha256 "7c7091e9c86196148bd41177b4590dccb1510bfe6cea5bf7407ff194482eb049"
   license "LGPL-2.1-only"
   revision 2
+  compatibility_version 1
 
   livecheck do
     url "https://www.intra2net.com/en/developer/libftdi/download.php"
     regex(/href=.*?libftdi1[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "09132f1d347fe01a17da39c406e4311ad5af9609c5306afdfe912132df89f74f"

@@ -1,20 +1,18 @@
 class Mdq < Formula
   desc "Like jq but for Markdown"
   homepage "https://github.com/yshavit/mdq"
-  url "https://github.com/yshavit/mdq/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "25beee2251e1b48970540466bbbe1f15a1d2acf20133a2a13858734b0922877a"
+  url "https://github.com/yshavit/mdq/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "81d6ecb8602930483c234cc3a4242f8c66e82d93010114062b394d46f7c464ef"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/yshavit/mdq.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2cbe40254385b510ef1774c77dbf19bc02b31474ad65b67aa31d284d995a62e2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a554032d298a0cd6665a7baeb9a9cdbd88a637903d0a7fcc6dec69a659a50d70"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5cf5a1a792d25359bca50391fd3d07f2abd3aeb6c81a7d5995bf314f5f91bc69"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d576c93e97414e66201d4f49c833aaf6c46adfc1700a806a6a56e9d6b3005525"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5ab3ce177808cdaa6b6f4609b04df7b3c228f0abc616773e204b35eb381d2936"
-    sha256 cellar: :any_skip_relocation, ventura:       "d06c403731a9665b8c05b7e212ed9c018dabd7fdb7a90629bab70d0cb15f305b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fde41d406551a3b5052f9aaf298c217069ef51e3d46d89a6f130b2e2c198052"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "604e57bf2afb7d1b7be2b83fc4bde9135116320bef7938d46e26aef21667f7f4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "44dbf65e532102fab1fe3696799e103e33914180cc4ff55f53c27581211dab8e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cedf5a7d73236bde6a4b2c844b89f7c684345d55f1772c52cc626e3f3903b713"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68e29e84b838d2cfc8ccac060bdf6ae0a39525938f9550e9469691209e3e66be"
+    sha256 cellar: :any_skip_relocation, sonoma:        "94e90583bd84c1b738f32ce66319f15f5f85d5750407fb28547736440bc86596"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e5a5192fb6b5fc71e3f182d67073708c550c02e4c7ac46938c835b58bf62de8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a16dd3968228e3fa3edee20fb3e43b74c309ac8eb12174591d2ee527add7806"
   end
 
   depends_on "rust" => :build

@@ -1,8 +1,8 @@
 class Sqlcmd < Formula
   desc "Microsoft SQL Server command-line interface"
   homepage "https://github.com/microsoft/go-sqlcmd"
-  url "https://github.com/microsoft/go-sqlcmd/archive/refs/tags/v1.9.0.tar.gz"
-  sha256 "c11ff96b6c31314f258a7a58e52e525c525452865591a581c98a37f6c0a7df60"
+  url "https://github.com/microsoft/go-sqlcmd/archive/refs/tags/v1.10.0.tar.gz"
+  sha256 "47fa2637d492c39ea75a0b41da4bbd127bf1891116f04861a96fba8bc5e654b6"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,12 @@ class Sqlcmd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "43a84a9f451d31c2c4805a1c021534e4f006dce1317cd565116017783e95b5e1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43a84a9f451d31c2c4805a1c021534e4f006dce1317cd565116017783e95b5e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43a84a9f451d31c2c4805a1c021534e4f006dce1317cd565116017783e95b5e1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c418ae417ad44216ba17e50996f4669504b19d32b6614aa81b8d88e5de805957"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6c1fba7c92b62261a59c6dc8125b916c01c657cd1092f1473f46019949e6d683"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab4e14f44b07eed6933a266495d2ee2d0b688b32480b7dec04d5e907fb7f50dd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "959848a88dde30763e76eb3faeaece54c0e2a64e246cc155b3009a796ed89273"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "959848a88dde30763e76eb3faeaece54c0e2a64e246cc155b3009a796ed89273"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "959848a88dde30763e76eb3faeaece54c0e2a64e246cc155b3009a796ed89273"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c5c7baf6157a01057ca91de07b6c8b173a491abfe02f4b3f4c9a86ed3faa0ab1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7ff9e052a8c4788fb01b534c0da578ea99851e1c819e5e540e5efb11ac44dd2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80e19390b4e98dd9356b8f7cfd735709da60a1cf7f685c9560dd38602ed00a16"
   end
 
   depends_on "go" => :build

@@ -6,8 +6,6 @@ class Rttr < Formula
   license "MIT"
   head "https://github.com/rttrorg/rttr.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "b7fbefc620c98f69bcb1b28040e8e12b972b59a462d6e0155eab4f9d962fe156"
     sha256 cellar: :any,                 arm64_sequoia:  "fb6ba7f707377b4817a16a4e9afa427d8e4117d8ea02b82d8af5e198c04cd6f6"

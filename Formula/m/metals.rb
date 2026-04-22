@@ -1,8 +1,8 @@
 class Metals < Formula
   desc "Scala language server"
   homepage "https://github.com/scalameta/metals"
-  url "https://github.com/scalameta/metals/archive/refs/tags/v1.6.5.tar.gz"
-  sha256 "a6f9b70ae9f46a555549f1b9fe7db60a1e982999c346dad50fa54fb68557bea2"
+  url "https://github.com/scalameta/metals/archive/refs/tags/v1.6.7.tar.gz"
+  sha256 "a83ab1596997720e83980b781f3d96d2753b7548415606694e15c26e93359445"
   license "Apache-2.0"
 
   # Some version tags don't become a release, so it's necessary to check the
@@ -13,12 +13,12 @@ class Metals < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "817df4688e312ca69320964fdca39354046523765ade920d1736328ab6c6483c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6842fd80fa4f8e628dc98908590efa259f71b0c923587e956ebc1bb197dab5c1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d99dea8e2dc23ed2854c09f5230ec1041584b336cb918722a4f8bb64dee6ee5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "08ec20fb03902e3543d8014dbc2c9e84de7f6708d5ae32588fe538b87a19aa1b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2424662fb0344cdb1345acd63538a4159a8c6e57b34c2c8ca480c2e0873eeb75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87646bbe2b46af016c9989c3d1edeef6e2d193e1672158c16ca3b5d2e01a833e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca1c56a41c01cb722370d5ed47728eeebe4318fcd131576508b97b5800d76b96"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dddfe00852a98778dee81b9d97aa4b9fd817165267bd8a862a735f3226c4906f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1aff4f194883fd27098cb61d71e816cc69fe94703d6d7c2e5783a53568a30026"
+    sha256 cellar: :any_skip_relocation, sonoma:        "71d05dea8e42f7bdff1e84b3a4a3531b33d647e83e5ad5225abee2f24afee9f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "65ab4cc07ddd43ec50f098fb6afa9a976c67d0ec875303679dbc4cf849f27def"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88940c32e5eb6ac360941dd9db13b4ac0809cdb8aaa9ae2bd4d8606541d07233"
   end
 
   depends_on "sbt" => :build
@@ -39,14 +39,17 @@ class Metals < Formula
     end
 
     (libexec/"lib").install buildpath.glob("metals/target/scala-*/metals_*-#{version}.jar")
+    (libexec/"lib").install buildpath.glob("metals-mcp/target/scala-*/metals-mcp_*-#{version}.jar")
     (libexec/"lib").install buildpath.glob("mtags/target/scala-*/mtags_*-#{version}.jar")
     (libexec/"lib").install buildpath.glob("mtags-shared/target/scala-*/mtags-shared_*-#{version}.jar")
     (libexec/"lib").install "mtags-interfaces/target/mtags-interfaces-#{version}.jar"
 
     args = %W[-cp "#{libexec/"lib"}/*" scala.meta.metals.Main]
+    mcp_args = %W[-cp "#{libexec/"lib"}/*" scala.meta.metals.McpMain]
     env = Language::Java.overridable_java_home_env
     env["PATH"] = "$JAVA_HOME/bin:$PATH"
     (bin/"metals").write_env_script "java", args.join(" "), env
+    (bin/"metals-mcp").write_env_script "java", mcp_args.join(" "), env
   end
 
   test do
@@ -68,5 +71,7 @@ class Metals < Formula
       assert_match(/^Content-Length: \d+/i, stdout.readline)
       Process.kill("KILL", w.pid)
     end
+
+    assert_match "Error: --workspace is required", shell_output("#{bin}/metals-mcp 2>&1", 1)
   end
 end

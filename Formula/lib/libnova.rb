@@ -7,8 +7,6 @@ class Libnova < Formula
   # libnova is LGPL but the libnovaconfig binary is GPL
   license all_of: ["LGPL-2.0-or-later", "GPL-2.0-or-later"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "fd79a01fd5a7306387bce5efbc22a21740446e9b8f6297bcd7c5dc2d9af64284"
     sha256 cellar: :any,                 arm64_sequoia: "ffa8ba8b5274d3a3860f9f3fdcd77ac6dde469714b22627b3cde37126b96b04a"

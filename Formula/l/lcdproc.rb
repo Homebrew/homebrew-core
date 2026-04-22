@@ -6,8 +6,6 @@ class Lcdproc < Formula
   license "GPL-2.0-or-later"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "c2685b2448e1356097e6eac9c25749bb2ff46414f72c2724c23c40cc346ba1f9"
     sha256 arm64_sequoia: "3eca8d7c437762dd23e0781803c8c4c9c8b96372254c260f94c2b1c16b0f569a"

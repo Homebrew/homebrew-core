@@ -2,6 +2,8 @@ class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
+  compatibility_version 1
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
@@ -33,18 +35,15 @@ class Gcc < Formula
     regex(%r{href=["']?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "fc02178c5cd0224049ef6831571bf4f2cf279a3b04bc1db92abe7fbf262552b5"
-    sha256                               arm64_sequoia: "84c7ed0f564fe29dfff39b71d94a3d1aefeef2ee23f2f3fa4e3ca452e0707016"
-    sha256                               arm64_sonoma:  "f87cec14d9348ea0ee3c3fb33dacb7f197721604e63f1e9932c249a903e05b2e"
-    sha256                               tahoe:         "0b5b8e8a403bfb0d6fe3b9e2a70268d05bce47075c2999b17517d7c9371c0f11"
-    sha256                               sequoia:       "bdf9c9ef5439087645fc6dd859101dde4f58971d153c5392ab57eab87123f34a"
-    sha256                               sonoma:        "eec8e0760f069a2281dae4d05d75825af4f0ab832ee6b8c4cbbeb8770bd9c993"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "90f1da133c403ea9d3a710fa86e9eedfb4f26add27ed4c8d8e529557322b38df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "973438656c0bcc859c8eec615ab99c7c24d882d8b3b3ec8ead5a79dc4cde0d7e"
+    sha256                               arm64_tahoe:   "e208fa3a5ea6887bb9a81cee5ca629230f1f24eff3970f0d69f7dcf5dd5b7b80"
+    sha256                               arm64_sequoia: "49b6841a2b7af55b29db5d63ee47a433bd75f85e3c5620c6615e7528252ffd63"
+    sha256                               arm64_sonoma:  "31240b1bccad45ed8f17009c0c5c6f0018b8d7695e826d2d79e417c15fb88e4e"
+    sha256                               tahoe:         "6def38300e2044dbbe17801485f0a959fb05b408545f5c6c0ccc160d7e9e40c2"
+    sha256                               sequoia:       "04ffbfaa63efe558b4b782b200e0eab4f1e472ed1780862972bb3702a730a611"
+    sha256                               sonoma:        "893b6a357fdb8bce2dc15f827117247e4d719e4cfbd0f29b3adee68e794a4d49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf5774859ce6ff3958bb987ff07d9308d3d72da4d9afda38085d4c9379b5887f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "606c8f502852d586f85fba5754e255fa8bf8b81d371c1f75cf7edae19d852f0c"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -59,7 +58,6 @@ class Gcc < Formula
 
   uses_from_macos "flex" => :build
   uses_from_macos "m4" => :build
-  uses_from_macos "zlib"
 
   on_macos do
     # macOS make is too old, has intermittent parallel build issue
@@ -68,6 +66,7 @@ class Gcc < Formula
 
   on_linux do
     depends_on "binutils"
+    depends_on "zlib-ng-compat"
   end
 
   def version_suffix
@@ -138,8 +137,8 @@ class Gcc < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      ENV.append_path "CPATH", Formula["zlib"].opt_include
-      ENV.append_path "LIBRARY_PATH", Formula["zlib"].opt_lib
+      ENV.append_path "CPATH", Formula["zlib-ng-compat"].opt_include
+      ENV.append_path "LIBRARY_PATH", Formula["zlib-ng-compat"].opt_lib
     end
 
     mkdir "build" do

@@ -1,44 +1,40 @@
 class Deadfinder < Formula
   desc "Finds broken links"
-  homepage "https://rubygems.org/gems/deadfinder"
-  url "https://github.com/hahwul/deadfinder/archive/refs/tags/1.10.0.tar.gz"
-  sha256 "8309c720ffa76c6588c5bc8f8dc169b6633059a9d8d68cb75cc8488667d81c01"
+  homepage "https://github.com/hahwul/deadfinder"
+  url "https://github.com/hahwul/deadfinder/archive/refs/tags/2.0.2.tar.gz"
+  sha256 "13d3d4b0392d6b1548071d44dc03a14e790ea161781d5a57a196577316a97543"
   license "MIT"
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "16bda27518c67963187cbf3e02885836e78ee3ab17d65f2da4cef4649e422dba"
-    sha256 cellar: :any,                 arm64_sequoia: "74df74b31f0ada58abad5f04c1ad388637a11985bdd6bf5334892e14bd530cb4"
-    sha256 cellar: :any,                 arm64_sonoma:  "f072d90102f04bd6e2c58fffe8092f631c05f799529836a489106c8928e596ad"
-    sha256 cellar: :any,                 sonoma:        "58f600effe963652e5b1a8728756f8cb4f569c24e81317bc58df4fefd2225450"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8dc0fc3a591571d5b1ad2103ebe18d7faf57e4e1784b52684606af0187159fa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "668e513fa6afb8939fa8f1401c024a63b9838ac77a25c5336b446bff2d6cabc0"
+    sha256 cellar: :any,                 arm64_tahoe:   "3cd70822a8e851cba61fc82b404a3c288027c5e1428085419572da755190f3e7"
+    sha256 cellar: :any,                 arm64_sequoia: "da399f4212adcd55edf32b957d467ba0ca4074b5b152b98761019110867b2807"
+    sha256 cellar: :any,                 arm64_sonoma:  "56b8210526219201d86964a11f215964e61bb78b21ad8663931f052c670f2d96"
+    sha256 cellar: :any,                 sonoma:        "25aae4c594c1a3a66a7f3c89df5958f044e61b09eb66989b135eb3607178314a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c0b06102fec2f436837c35f2990b04ad9bb64dea9ba7e51a3bb6cbdb835b5ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b3b0164aa904fda4b1cb754c6cd4cb450fd7ff3d0004f0f6ad5134f845c2666"
   end
 
+  depends_on "cmake" => :build
+  depends_on "crystal" => :build
   depends_on "pkgconf" => :build
-  depends_on "ruby"
+  depends_on "bdw-gc"
+  depends_on "libevent"
+  depends_on "libyaml"
+  depends_on "openssl@3"
+  depends_on "pcre2"
 
-  uses_from_macos "libffi"
   uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    ENV["BUNDLE_FORCE_RUBY_PLATFORM"] = "1"
-    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
-    ENV["BUNDLE_WITHOUT"] = "development test"
-    ENV["GEM_HOME"] = libexec
-    ENV["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "1"
+    system "shards", "build", "--production", "--release", "--no-debug"
+    bin.install "bin/deadfinder"
 
-    system "bundle", "install"
-    system "gem", "build", "#{name}.gemspec"
-    system "gem", "install", "#{name}-#{version}.gem"
-
-    bin.install libexec/"bin/#{name}"
-    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
-
-    # Remove mkmf.log files to avoid shims references
-    rm Dir["#{libexec}/extensions/*/*/*/mkmf.log"]
+    generate_completions_from_executable(bin/"deadfinder", "completion")
   end
 
   test do

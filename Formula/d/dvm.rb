@@ -6,8 +6,6 @@ class Dvm < Formula
   license "Apache-2.0"
   head "https://github.com/howtowhale/dvm.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "56c21e2d208ab2c2c030678a272eca714942866e214155e012863c06f103f4bd"

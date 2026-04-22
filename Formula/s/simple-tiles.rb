@@ -7,8 +7,6 @@ class SimpleTiles < Formula
   revision 7
   head "https://github.com/propublica/simple-tiles.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c6422d3ddffa35605443bdf18158914654450f0ad0362673c6b136e1a116af4d"
     sha256 cellar: :any,                 arm64_sequoia: "7751a5ff3fe02cb473d4accf7cd2e4f31813b6a35521b9357b0502c202c6a820"

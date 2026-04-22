@@ -5,27 +5,22 @@ class Libmwaw < Formula
   sha256 "a1a39ffcea3ff2a7a7aae0c23877ddf4918b554bf82b0de5d7ce8e7f61ea8e32"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "37653004fafb534955ec3a74d532fd08fc67ddf6f0541de29d2b0122c453d99e"
-    sha256 cellar: :any,                 arm64_sequoia:  "e1a2a5f288071c5a5c899ed113f87a841ec434bce245a98750a1ee1b0b2c0b64"
-    sha256 cellar: :any,                 arm64_sonoma:   "952e2d7978c0a53b42c6c3bcef9faf03e878069664710baed01bbf696527f329"
-    sha256 cellar: :any,                 arm64_ventura:  "14c3ef9b89eabb6d8f579cd6b4fc6b10aff80157395e25f5f4032c365e35814c"
-    sha256 cellar: :any,                 arm64_monterey: "22010af06baf85faaa647b36eab334caa1f097cbe8f66d60c77bb745ce70bcd9"
-    sha256 cellar: :any,                 arm64_big_sur:  "02d9d169c112c585d2c8cfaaf1406a66bb6bb5a5bd909a2e842e9e5f5b6c6aee"
-    sha256 cellar: :any,                 sonoma:         "dc6f6c368344f42ba9566f294e8126a6327febfe0fdb247af4e5aff2488deb98"
-    sha256 cellar: :any,                 ventura:        "b62fd5d2f18f6f8248baef2454e48bedeb6a595b4e9eeed40f90fcf6c22722a0"
-    sha256 cellar: :any,                 monterey:       "79ed34d639601c2afd3bcf9c573635f5f43826623a82fc931d64ada62fd632fd"
-    sha256 cellar: :any,                 big_sur:        "9830e2b0688157862cc7c2345fce55ae60955c3cca0c143fef2ab582a5d6d348"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "3f1183a6f1445ed7996b31a2eca4a695e778ede67a0f7e4fa48d6687060e547d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f6f70031a248697ceaaaf2b4626511400904de27cac8f6c441196a6bf05ef1c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "fa0e72719088f76b8996124a739c41c4b34547cf9c4f260e58afd6ddcc870cd4"
+    sha256 cellar: :any,                 arm64_sequoia: "1c5bce00ac14d8cf3e3a757459c885fdd0d590d36ffa38934632e1f574a06701"
+    sha256 cellar: :any,                 arm64_sonoma:  "57398e513b5e82df0b1e72065f63e92b5260f9138c8a425e1f78c69ba54ca3cd"
+    sha256 cellar: :any,                 sonoma:        "ea299bef81d475c92fcfad1e645938f555c6d84a5079736731c0bbffde56713a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "798c441a0e2c4381934c01b24f9092f808c3a40bd7535947b9bb16eea05f010c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e148bc4687e804b19b7b4d6efa771453929595be6bd06d11957c2a91be6960c"
   end
 
   depends_on "pkgconf" => :build
   depends_on "librevenge"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args

@@ -14,30 +14,26 @@ class Binkd < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f08a49cb7363be65bcc286cc198ebb24ffc83cf2b0340600ca5fff808cbc777"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "363282ef02c77db08c0963460807439902cc81ec6bf480f1fb2714fd2f0211f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55fbf747f2e698ebf87a90b001d4bf62f9486012f860b561835a3c45730b4f97"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "18ee6019972abd32129415ce9545fbb80abf690bfe4aaa6dcd599d3ab9ab17d9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7df6b2f5bb3437e91f6c293b63cf7dc28de37b458654d9b925cb0354dd296394"
-    sha256 cellar: :any_skip_relocation, ventura:       "1d0c2d8e07da1e49cafed0aa027ea488105b3b8088b69e76d3027d3fdfe70c40"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f18098e2db860abd425689e3f7f45260039ec1b5b4c161f01182fc115fec8b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d99d97e67e7079053da1c408b6064abff7ff447a116e2044e4a39d82ed654bc2"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "98ede139dd485567a090cc5cc53906f6307761c12fa3a045f1e0849e8ad99ca1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0cebbe4af0138e31dc3dbcd9f345f58deecc65a35d5093f6ba3ac148bd3a938a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "092929f47b8414deb86f31cdad9b6b972b04e8c780780f94c331dc6b3a13c9a0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ed2d0b7abdfd578a93e0c513dfba8eeab4a1b4f078e2c99a42946bc4a7985ec4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3823ed397a9c36d9a3bedaa37a8a6691c41902de71a82528d31c31fa7fe7bb1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "982860ec2548583dda4b84be1f8efdfc18b34bc4bbc9b665f3d98ce280a6720f"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     cp Dir["mkfls/unix/*"].select { |f| File.file? f }, "."
     inreplace "binkd.conf", "/var/", "#{var}/" if build.stable?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", "--disable-silent-rules",
+                          "--mandir=#{man}",
+                          *std_configure_args
     system "make", "install"
   end
 

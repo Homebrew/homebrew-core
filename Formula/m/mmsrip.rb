@@ -28,6 +28,7 @@ class Mmsrip < Formula
   # * Last release in 2006
   # * The MMS protocol was deprecated in 2003
   deprecate! date: "2025-03-17", because: :unmaintained
+  disable! date: "2026-03-17", because: :unmaintained
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

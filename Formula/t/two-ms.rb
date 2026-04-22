@@ -1,8 +1,8 @@
 class TwoMs < Formula
   desc "Detect secrets in files and communication platforms"
   homepage "https://github.com/Checkmarx/2ms"
-  url "https://github.com/Checkmarx/2ms/archive/refs/tags/v5.2.1.tar.gz"
-  sha256 "2f19e67789febd3c156820f310c6800cb93559bc41e25d258984e502d1e7dcdb"
+  url "https://github.com/Checkmarx/2ms/archive/refs/tags/v5.2.4.tar.gz"
+  sha256 "de1fb907ecf113629233f7e7139d791ad7b91d6c4eae2c523a5c79d4b7fc1825"
   license "Apache-2.0"
   head "https://github.com/Checkmarx/2ms.git", branch: "master"
 
@@ -12,12 +12,12 @@ class TwoMs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c722d565b7a1559ff1680d80a0b09fdca34f11d6c6a007c4d0abfa004bcb4be8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5738463bf99a6b710089a98f7d1420d31dc8d935709244de8b26e396a9b78bcf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3384460eff3af25fff356b8e2f013a72739469e0ae9b06c4d39ff1fb76da2871"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b72ba4902afb963c259bcbd7b6b26a540a5e94dc9d3d560a24d2cc1e06180201"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf4462316d2d1ab28747682d79cd5a855abcfc6ece5456203ea68eb35c3a4faa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6ab67ab8ac1ba7aeb65364df5bc0a52085f08d5573680fd83ad36554febd963"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa9abb90b0d00a92f0b1905b15e78183e5c1d432b1502330ef7eec4ea032713b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2051bef9fee36a578f98b411ac7450a874a422b6578abd16887e9ddb1c820c37"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79a9be50d82a56654f822e5bb8f1e71623e24c9c517401675a19218402defbbb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ee6e5ab29b7a24ed75985ca5759c587485ddf089258a0703e675093180fee17"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "131128b771efd591cd02b83d91b55f760b8726c7169fb5a2d433f250659991d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e026112604a84d3c576217741e008d9a4090d13a00f4ac9b6c407e2c8682efe5"
   end
 
   depends_on "go" => :build

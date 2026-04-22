@@ -11,8 +11,6 @@ class Prover9 < Formula
     regex(/href=.*?LADR[._-]v?(\d+(?:[.-]\d+[A-Z]?)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f50efa708e0a002db67d676da0207bed5d12c71b5ca5c3da1db857e21864c294"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dc3e744b9971aabf272db720d2fb90a8b99dca8cb8799ef9d9d89beb306eb291"

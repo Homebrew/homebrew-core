@@ -4,6 +4,7 @@ class UniversalCtags < Formula
   url "https://github.com/universal-ctags/ctags/releases/download/v6.2.1/universal-ctags-6.2.1.tar.gz"
   sha256 "2c63efe9e0e083dc50e6fdd8c5414781cc8873d8c8940cf553c01870ed962f8c"
   license "GPL-2.0-only"
+  compatibility_version 1
 
   livecheck do
     url :stable

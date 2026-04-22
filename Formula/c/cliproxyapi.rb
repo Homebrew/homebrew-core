@@ -1,22 +1,24 @@
 class Cliproxyapi < Formula
   desc "Wrap Gemini CLI, Codex, Claude Code, Qwen Code as an API service"
   homepage "https://github.com/router-for-me/CLIProxyAPI"
-  url "https://github.com/router-for-me/CLIProxyAPI/archive/refs/tags/v6.7.40.tar.gz"
-  sha256 "8803265217a23bb0c7149d5f31c219245ed95d82405117f573d382a1c8b86bee"
+  url "https://github.com/router-for-me/CLIProxyAPI/archive/refs/tags/v6.9.30.tar.gz"
+  sha256 "0765296ed95b10d7bda76e41290dfcf97240a91f432d6c93dac7c48c294d9aa0"
   license "MIT"
   head "https://github.com/router-for-me/CLIProxyAPI.git", branch: "main"
 
   livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
     throttle 5
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "791bd8b771b898c1c6f6c003de6b9accac462ca8a94f894138400751cc15e3d6"
-    sha256                               arm64_sequoia: "791bd8b771b898c1c6f6c003de6b9accac462ca8a94f894138400751cc15e3d6"
-    sha256                               arm64_sonoma:  "791bd8b771b898c1c6f6c003de6b9accac462ca8a94f894138400751cc15e3d6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f946387aac5574517e2e741d967b921eb00713146b9b6bd0b779bff54a77f295"
-    sha256                               arm64_linux:   "ef76289c9f54d5174c89bce679963b78f8f3212c9c9c4ca2cad91165e39098a6"
-    sha256                               x86_64_linux:  "8c737171b47f3c8b29a622e553dba0a8f899a820cf10e9d40726bec2683b0d18"
+    sha256 arm64_tahoe:   "43347b6fb9ac4468b9d160dc24f0cdea600ec74f51ef94cd747f773739877e8c"
+    sha256 arm64_sequoia: "43347b6fb9ac4468b9d160dc24f0cdea600ec74f51ef94cd747f773739877e8c"
+    sha256 arm64_sonoma:  "43347b6fb9ac4468b9d160dc24f0cdea600ec74f51ef94cd747f773739877e8c"
+    sha256 sonoma:        "a0ce131d2deee41fb8f3fe113e6f1a5b49e7b1aa2696658573eacff5827511a9"
+    sha256 arm64_linux:   "dcd6a0f10a76d56dd8f52cff6abb5caca1e6b792f7d755238ce7ee5d32ad7f8c"
+    sha256 x86_64_linux:  "9afe3b5c8c6f01bc22bc8801db3b23ac1c408fb6f465975f5bf2a7cead2cef88"
   end
 
   depends_on "go" => :build

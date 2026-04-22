@@ -6,8 +6,6 @@ class Pacvim < Formula
   license "LGPL-3.0-or-later"
   head "https://github.com/jmoon018/PacVim.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "fd3523c1dca67b23666aa921d77fba212524a4bdaaf78250661d5f08ebd6e8e2"

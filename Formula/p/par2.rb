@@ -1,8 +1,8 @@
 class Par2 < Formula
   desc "Parchive: Parity Archive Volume Set for data recovery"
   homepage "https://github.com/Parchive/par2cmdline"
-  url "https://github.com/Parchive/par2cmdline/releases/download/v1.1.0/par2cmdline-1.1.0.tar.bz2"
-  sha256 "72db917f0e73c44833f6f8b4fb407d872076cc38daf111064ffcb852f674c4c1"
+  url "https://github.com/Parchive/par2cmdline/releases/download/v1.1.1/par2cmdline-1.1.1.tar.bz2"
+  sha256 "aa13effa3a27bee2fecf0eb228b631b0323bc2e085c88bbdc7f4518f8fedcee3"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Par2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7c7e8a64d6d534465f27bd0ebcf7d977ef6e055c9e49d1ea6f49b10e6721f0c5"
-    sha256 cellar: :any,                 arm64_sequoia: "a135b8d4b092bed280aed91b37bfedc53e7f536e8f7cebfc886687b6d82d190c"
-    sha256 cellar: :any,                 arm64_sonoma:  "adbdf5ea1e0b48050481f0927d809dd752da9a76895dbccb3ec906dddb0409f7"
-    sha256 cellar: :any,                 sonoma:        "e113ba52a622894780611dc348ebb7f9ce9942faa89fa57b4977d06d78b0092a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c637538062fcb34f58e6c086eba5e71f2eaa7b335ed9cb2483be6f265a406a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "876c356840164ad19ac9b1da113f7e1713101c83c0f1f14d62d5b520f5d09dc0"
+    sha256 cellar: :any,                 arm64_tahoe:   "a449305e4be7adb1b596244fad50ae6a07fc3658e42add5aae92d0b81a6baa9f"
+    sha256 cellar: :any,                 arm64_sequoia: "9275aaa1eb7db8896690c01dba586b4373358195312db5cce0ab8d16361fd70d"
+    sha256 cellar: :any,                 arm64_sonoma:  "f27cbf72540996d8baf8e1d4b7ce54fbfd7ebaf567c87914b3411567bc1cf621"
+    sha256 cellar: :any,                 sonoma:        "359f789647be0891efa3967ed182ce475990278ab1c63fe3e50bb1b56f33924e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9c8a87271b664df8703eddb89092cb9c8adc9759b34e7328ad3d090b90d1340"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cecb502688d0f159c4780146b95e2836966519944acf903f33007b92c19bbb48"
   end
 
   on_macos do

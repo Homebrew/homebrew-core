@@ -6,13 +6,13 @@ class Fourstore < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "c5baea4e48a6bdc63c9b24b606eadd3b02a9659605011306941b044f37d3c6c1"
-    sha256 arm64_sequoia: "5c9987aad4c2ab997ef0c9f359ea11ed1a39d61ab536b16661e006a28b55e8f9"
-    sha256 arm64_sonoma:  "0aab4c5aa2a0f8c0d4f759604d159196fdc8ccc52ccdaa65f8fd65322ad2cbc7"
-    sha256 sonoma:        "463dc6fd4f9af1fdcd701090c40bb3b3eb5db90465cf6574c91be35448b0a6ac"
-    sha256 arm64_linux:   "a5163f5dd78472121fb698688d5b9c2ca43988320d34479a9ffc765a9b7213cd"
-    sha256 x86_64_linux:  "d98981cc3228b17fb2ad4364a186756c88d9f8499c60d4bad3ea6d5a3c86513a"
+    rebuild 2
+    sha256 arm64_tahoe:   "b5bfc32e285c9053a23c919b79ac99292f2a32f398b0df4f5170958980c51c74"
+    sha256 arm64_sequoia: "c92babcce0a867b6e4f2de75872cde122080806cb9c3e25617bbdf1e315949db"
+    sha256 arm64_sonoma:  "75dd61e3fd948f8333871e6d754cbcbf165cbe1cf3de532c468249e90173431b"
+    sha256 sonoma:        "e545cbc9634a29e02332ae7cb504d78cbb484f0d15570a419a768a134f523b33"
+    sha256 arm64_linux:   "b59ab5aab501077629783f0222cbfcfb0a5ae19b67305b65a698a072b60b3af1"
+    sha256 x86_64_linux:  "a62ef47eb3830f72cb11136f3806c4aaa712564825bd91bf31e2f02362e8b05e"
   end
 
   # Last release on 2024-05-10 and needs EOL `pcre`
@@ -31,14 +31,13 @@ class Fourstore < Formula
   depends_on "rasqal"
   depends_on "readline"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
   end
 
   on_linux do
     depends_on "util-linux"
+    depends_on "zlib-ng-compat"
   end
 
   def install

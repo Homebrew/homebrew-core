@@ -14,14 +14,13 @@ class AssimpAT5 < Formula
   ]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3faef1c367567a99e18a728139d787d046e0aefc30f65d541f88ccfd27b1ce19"
-    sha256 cellar: :any,                 arm64_sequoia: "88b53d2e04bf2557a8b9231ccf1d7924bb55917003fe16872c8f864de930feb4"
-    sha256 cellar: :any,                 arm64_sonoma:  "74157cf837ac90bb9378ba79f75d9cbf8f4a3db379da1dc5f03db3748e2e8a42"
-    sha256 cellar: :any,                 arm64_ventura: "1b1d4f11a3c83bb8a7565c877397c86d4a06c952d3b4b85d8a756ce25516059e"
-    sha256 cellar: :any,                 sonoma:        "72f6ba4406def81da38c77507f259cd9a1f28b8efb14983ce7780007cd951391"
-    sha256 cellar: :any,                 ventura:       "17173cbe629f6dc15c3aecd382391aadeb74abd6c374760ad6143a5c16410138"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1dddf2d65a2c8f08efb3a198cd825952be67dd8785da42725dd50cda9eead96a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74fb37f50e5dea840d202a0b0cc5c8b5e7589128e5a294e23209ca131277ad43"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e3b5aa965098a82cc09f46f5bd129b9028a104298fb546485489554376bc6a2e"
+    sha256 cellar: :any,                 arm64_sequoia: "be0c878a7f9ffd255736ce7234aa372530b87fdf607cc82e7a2ff9a8e6abf812"
+    sha256 cellar: :any,                 arm64_sonoma:  "ef66cf43c97023ca761eaf432f7ad1ae99faddc5bc18c9674e287ba832f890e9"
+    sha256 cellar: :any,                 sonoma:        "fa0f212de3c4f8f760ea005f81a13b2ddca9695d0033a5dc64c4253275ba409a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "27d037b74bbbd744295ed2479032ba5e0be1b3afe67d44c45bc1de570e126ee1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f40879bbecd152b067b98d81b1842174091a0c738825689f95565803c165bc73"
   end
 
   keg_only :versioned_formula
@@ -33,7 +32,9 @@ class AssimpAT5 < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

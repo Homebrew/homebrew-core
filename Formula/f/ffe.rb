@@ -11,8 +11,6 @@ class Ffe < Formula
     regex(%r{url=.*?/(?:ffe[._-])?v?(\d+(?:\.\d+)+(?:-\d+)?[a-z]?)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83fd52f2c29e71aa022e6be65813c2da6385204d65bd9f74e7568a5e6222068a"

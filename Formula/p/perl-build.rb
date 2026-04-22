@@ -6,8 +6,6 @@ class PerlBuild < Formula
   license any_of: ["Artistic-1.0", "GPL-1.0-or-later"]
   head "https://github.com/tokuhirom/perl-build.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "63b299c6c373e14016ed4230f61d1ce8a6120f72d3665505e6948dd4b34590ea"

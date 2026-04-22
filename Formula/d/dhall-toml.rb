@@ -7,15 +7,13 @@ class DhallToml < Formula
   head "https://github.com/dhall-lang/dhall-haskell.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "d202ffbdfbf211631563eca1903d4d0a5042a1c121a0846159b5f181b9381e94"
-    sha256 cellar: :any,                 arm64_sequoia: "f60b0a53a5b7aea1eb8971c09d147d36b6eb6ac790a58e40feb7d1da7294f425"
-    sha256 cellar: :any,                 arm64_sonoma:  "63f45b97bae8d4a1bf2a8c35d76ade363a6438c10f6dddbb7af07ced0e8b5607"
-    sha256 cellar: :any,                 arm64_ventura: "bfe459be3cde24c50eaa7cb0f40902c52ce55c96071c70b51353a33ef2a65e22"
-    sha256 cellar: :any,                 sonoma:        "79f2377d29cbb9b166c4841933e87ac9d51ee7293be86ff64c7d1ef4dfa240f1"
-    sha256 cellar: :any,                 ventura:       "d73c097010f35b7556b0111c4237cb2f646c3563932b5a188fae2e7de826f093"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4c783644bfdf7d1510ed0f7599268228e9fa70b72dde0e1491d622234e3fb87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1954c0b395d67fea8d74fdec8b544aa385e708e6063b7616e156dabbaaed9ce"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "3d83e52092e335ddba928d06ae826157f26f8179ab7db6b757b4c298bf1faf60"
+    sha256 cellar: :any,                 arm64_sequoia: "996c152df3dfc9a03b591e6e73125344fb7828a98c9b735d1c8ee3b8f3e1f0d5"
+    sha256 cellar: :any,                 arm64_sonoma:  "6338c0b88b6f2eaa8a42246a7ab9c5fa6e3c265578f0fcce47a652f89895ecda"
+    sha256 cellar: :any,                 sonoma:        "c67986762a7976ae8707fb802f8350871b8d3a182b81b04c4fc92222c7cc9f9a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40e8c1b7e7f0470c7faf90f1d53ba7372a8b581547c1259d1d8363f852318aec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bb108a5e80145086584ae1367ee0eebe475ddc8a89419415e2e1d7536c7624d"
   end
 
   depends_on "cabal-install" => :build
@@ -24,7 +22,10 @@ class DhallToml < Formula
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155

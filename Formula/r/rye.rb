@@ -6,15 +6,13 @@ class Rye < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a36d38e6a1aadb4256e49e51c210fd551bcfbb42654c40f0968441f6c588934f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f26f53e090a3f1c42b880b7df2593f597e4294abe311fd1cd0ca1173cc49e5b5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e502b9c99df1d69e7caef8e63e23aed06816b90557fa487d18f6610901b13944"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c6b74baa377f0ba45f330e370166b5666e1420ec0d6c753b7a375c4fc2d8ef40"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5ac877425fa7885188dcda9743f46146bcd57d835a721f7958a8a46281357f7e"
-    sha256 cellar: :any_skip_relocation, ventura:       "31699f1f7848d15e13d80139514bcc479dca399d2dbf6129884b1e0f2a372047"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "800c9ebff0b4a200313646ad3b2db6909121a2ea8377e7d33254d09bcbddedb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b58b4ad1741833bb23f3d4411ea72a4e17ec013961dfa3ac152db8bd73fe1b30"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "698508449b2199f07b4fa53f575e0ac39441af255e04b96a6b31e679a7e175cd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1fd55a7654c655daadb3a8d6a7849dbe07eaf050c453977716bc9c9675b12e3b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e717a03a4088f7f6c176a4563e1988d8fe04e3512ef7c885fad645ed3f07c03c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "233a1f0f8520474ccf2ef277508fb00bfa2730334cd267b2342bbfe861c7aeb4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a80145bb44417eb51eba5b3a66346fbae0865e4f6372e236ba0797dc23d1c74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a6d7bba1ebf4e3386022e0b9863c8d128a76252f03c0633a5f253e556cd6fc6"
   end
 
   # https://github.com/astral-sh/rye/commit/62ec9edbe471958a05a70418b19f3acd54f0484d
@@ -25,10 +23,10 @@ class Rye < Formula
   depends_on "rust" => :build
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@3"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "ryelang", because: "both install `rye` binaries"

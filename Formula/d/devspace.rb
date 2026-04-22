@@ -1,8 +1,8 @@
 class Devspace < Formula
   desc "CLI helps develop/deploy/debug apps with Docker and k8s"
   homepage "https://devspace.sh/"
-  url "https://github.com/devspace-sh/devspace/archive/refs/tags/v6.3.18.tar.gz"
-  sha256 "9ddd097e97e46105f81f0ee56dd685d8ca6e7fc0076198e2bac2b79930fa4286"
+  url "https://github.com/devspace-sh/devspace/archive/refs/tags/v6.3.20.tar.gz"
+  sha256 "6c9e6de3fe30851959af0380ffb20dd0d07a6fe3aa35d9bfb733ac6dc5856ec9"
   license "Apache-2.0"
   head "https://github.com/loft-sh/devspace.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Devspace < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c448a898f005577e7c34d2c2af8951637f322da7bf25072cf9fb936917cc6177"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "526bbf00709c2794072d7be4365894b6fdd01bc92551e71a36b0cd03a4c59956"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4535882332cb8697229b993e16c0c5465ece85303c653eaacc4a364a0b4d7b33"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7fc8aaf396cb98c6fe2c3d651db48d4d13aa8087435396a865b44a70baaee177"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "45ec81da3106d073826a06bf6684018d8298334caf5dd96ed5148651de4694e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8bcb4a67fdff7a3b6c13bb300c5561684297264e8f0ca91e037a4cb83d22195"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f0495c288eb44ccfc746225597a44d43f7b3252f4dfd7918625c5de86ef2f288"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd7f51889211ca9fe18b2ae8237f064a19684f5b9a4425c049fff2590b1fffe3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b8f339325a902780d0087fe37a8b121d07ca4b5cbde4731fe43c13f04faeb69"
+    sha256 cellar: :any_skip_relocation, sonoma:        "26655e1bedf0dc9dbb682be6e3859e5d4105fe8280aa9b9a26649eeff11287fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfdb89b85a1d6dd6f03771c2e17355456e594af201a0d78d15583ba1e6b67ae7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f898f61966e7c602acaa05e77d82b0528901125975dc68774a473f7e105ed4ba"
   end
 
   depends_on "go" => :build

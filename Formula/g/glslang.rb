@@ -4,6 +4,7 @@ class Glslang < Formula
   url "https://github.com/KhronosGroup/glslang/archive/refs/tags/16.2.0.tar.gz"
   sha256 "01985335785c97906a91afe3cb5ee015997696181ec6c125bab5555602ba08e2"
   license all_of: ["BSD-3-Clause", "GPL-3.0-or-later", "MIT", "Apache-2.0"]
+  compatibility_version 1
   head "https://github.com/KhronosGroup/glslang.git", branch: "main"
 
   livecheck do

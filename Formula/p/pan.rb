@@ -6,12 +6,13 @@ class Pan < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 arm64_tahoe:   "b8d538f62f76e016d4f151ee754488cc49b99330e24d4fc8b35a18237890ea99"
-    sha256 arm64_sequoia: "03fe7b99d3137b9e116e95e5a5e7c9d3820014d055cc3ed614f8149920fcd30b"
-    sha256 arm64_sonoma:  "aa1c2cf6c95e9851e19147dae6c0ff6e79b157297e1fd13db79b21fa61319cb8"
-    sha256 sonoma:        "b337ee2e0dee5d89fb6928f12c033fab23c434d72f58b4cd613cfcf80b87f298"
-    sha256 arm64_linux:   "a44bd5ffc0d6dcbdd4ea1fc868cbc1b98a1a9690d15224e2405fd6ae4fc1d24d"
-    sha256 x86_64_linux:  "fce6566f60df60476732cf33270fb43c9ea7e7ecb8d871efb4573fae0003fdff"
+    rebuild 1
+    sha256 arm64_tahoe:   "fc39105d5b48f22b138d5e626c42098275959204729ef193ef91ae6837d504d7"
+    sha256 arm64_sequoia: "2e171ead5e91ddde91ec9adfbc04f0a87587e23b98ad31bac4499669f941b823"
+    sha256 arm64_sonoma:  "df046b01f313cdf657b78d17b4166c882844e72181c685c12072dbc6bc18a4bb"
+    sha256 sonoma:        "cdce7a683c5aaf45652ac0bbe8e440fdea8ca44169bb24e1379865023160d5b6"
+    sha256 arm64_linux:   "69cb546174ad3bd1c3d534cb3a1ee5aa40f42b747fef0e23d5121be2efc450db"
+    sha256 x86_64_linux:  "9f4fa7cdfb0692cc38119803c6c2d97de0b1e64dfef6f4244a0cc25e7322bf01"
   end
 
   depends_on "cmake" => :build
@@ -31,8 +32,6 @@ class Pan < Formula
   depends_on "harfbuzz"
   depends_on "pango"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "at-spi2-core"
     depends_on "gettext"
@@ -40,6 +39,7 @@ class Pan < Formula
 
   on_linux do
     depends_on "xorg-server" => :test
+    depends_on "zlib-ng-compat"
   end
 
   def install

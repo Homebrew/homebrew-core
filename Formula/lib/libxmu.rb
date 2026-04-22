@@ -4,6 +4,7 @@ class Libxmu < Formula
   url "https://www.x.org/archive/individual/lib/libXmu-1.3.1.tar.xz"
   sha256 "81a99e94c4501e81c427cbaa4a11748b584933e94b7a156830c3621256857bc4"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "f3119cf62a6b19cb301339f6611ad94df20c57f1d1f7cf508284f38baf9688bc"

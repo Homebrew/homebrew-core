@@ -1,13 +1,32 @@
 class Distcc < Formula
-  include Language::Python::Virtualenv
-
   desc "Distributed compiler client and server"
   homepage "https://github.com/distcc/distcc/"
-  url "https://github.com/distcc/distcc/releases/download/v3.4/distcc-3.4.tar.gz"
-  sha256 "2b99edda9dad9dbf283933a02eace6de7423fe5650daa4a728c950e5cd37bd7d"
   license "GPL-2.0-or-later"
   revision 3
-  head "https://github.com/distcc/distcc.git", branch: "master"
+
+  stable do
+    url "https://github.com/distcc/distcc/releases/download/v3.4/distcc-3.4.tar.gz"
+    sha256 "2b99edda9dad9dbf283933a02eace6de7423fe5650daa4a728c950e5cd37bd7d"
+
+    # TODO: Remove in the next release
+    # https://github.com/distcc/distcc/commit/6d54352e209066418b4b268c7d2d266e05df1eb3
+    resource "libiberty" do
+      url "https://ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20250315.orig.tar.xz"
+      sha256 "5b510b5e0918dcb00a748900103365a00411855f202089ff81dc5ef99d8beeaa"
+    end
+
+    # Python 3.10+ compatibility
+    patch do
+      url "https://github.com/distcc/distcc/commit/83e030a852daf1d4d8c906e46f86375d421b781e.patch?full_index=1"
+      sha256 "d65097b7c13191e18699d3a9c7c9df5566bba100f8da84088aa4e49acf46b6a7"
+    end
+
+    # Switch from distutils to setuptools
+    patch do
+      url "https://github.com/distcc/distcc/commit/76873f8858bf5f32bda170fcdc1dfebb69de0e4b.patch?full_index=1"
+      sha256 "611910551841854755b06d2cac1dc204f7aaf8c495a5efda83ae4a1ef477d588"
+    end
+  end
 
   bottle do
     rebuild 1
@@ -19,53 +38,43 @@ class Distcc < Formula
     sha256 x86_64_linux:  "d04aa534933e21b7e469f009c76e5bde6e50ecadecbab3d6de4f134db8f7eef2"
   end
 
+  head do
+    url "https://github.com/distcc/distcc.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "pkgconf" => :build
+    depends_on "popt"
+  end
+
+  depends_on "python-setuptools" => :build
   depends_on "python@3.14"
-
-  resource "libiberty" do
-    url "https://ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20250315.orig.tar.xz"
-    sha256 "5b510b5e0918dcb00a748900103365a00411855f202089ff81dc5ef99d8beeaa"
-  end
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
-  end
-
-  # Python 3.10+ compatibility
-  patch do
-    url "https://github.com/distcc/distcc/commit/83e030a852daf1d4d8c906e46f86375d421b781e.patch?full_index=1"
-    sha256 "d65097b7c13191e18699d3a9c7c9df5566bba100f8da84088aa4e49acf46b6a7"
-  end
-
-  # Switch from distutils to setuptools
-  patch do
-    url "https://github.com/distcc/distcc/commit/76873f8858bf5f32bda170fcdc1dfebb69de0e4b.patch?full_index=1"
-    sha256 "611910551841854755b06d2cac1dc204f7aaf8c495a5efda83ae4a1ef477d588"
-  end
 
   def install
     ENV["PYTHON"] = python3 = which("python3.14")
     site_packages = prefix/Language::Python.site_packages(python3)
 
-    build_venv = virtualenv_create(buildpath/"venv", python3)
-    build_venv.pip_install resource("setuptools")
-    ENV.prepend_create_path "PYTHONPATH", build_venv.site_packages
+    if build.stable?
+      odie "Remove libiberty!" if version > "3.4"
 
-    # While libiberty recommends that packages vendor libiberty into their own source,
-    # distcc wants to have a package manager-installed version.
-    # Rather than make a package for a floating package like this, let's just
-    # make it a resource.
-    resource("libiberty").stage do
-      system "./libiberty/configure", "--prefix=#{buildpath}", "--enable-install-libiberty"
-      system "make", "install"
+      # While libiberty recommends that packages vendor libiberty into their own source,
+      # distcc wants to have a package manager-installed version.
+      # Rather than make a package for a floating package like this, let's just
+      # make it a resource.
+      resource("libiberty").stage do
+        system "./libiberty/configure", "--prefix=#{buildpath}", "--enable-install-libiberty"
+        system "make", "install"
+      end
+      ENV.append "CPPFLAGS", "-I#{buildpath}/include"
+      ENV.append "LDFLAGS", "-L#{buildpath}/lib"
     end
-    ENV.append "CPPFLAGS", "-I#{buildpath}/include"
-    ENV.append "LDFLAGS", "-L#{buildpath}/lib"
 
     # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
     # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
     inreplace "Makefile.in", '--root="$$DESTDIR"', "--install-lib='#{site_packages}'"
-    system "./configure", "--prefix=#{prefix}"
+
+    system "./autogen.sh" if build.head?
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

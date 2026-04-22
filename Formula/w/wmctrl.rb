@@ -11,8 +11,6 @@ class Wmctrl < Formula
     regex(/href=.*?wmctrl[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "39edb4ef55820d995ac4b636c4215cee31e25c958f59f1d843cc85ee38e690e8"
     sha256 cellar: :any,                 arm64_sequoia:  "76d0afbd8d8a925bf3d2137457f49f03f9550733358079820150adc2976010c3"

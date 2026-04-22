@@ -5,8 +5,6 @@ class Libkeyfinder < Formula
   sha256 "a54fc6c5ff435bb4b447f175bc97f9081fb5abf0edd5d125e6f5215c8fff4d11"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "6aea01723afe6eb5a66b410f68f0b6e1e36edf0acc87e5d178faa2ee1e7f1526"
     sha256 cellar: :any,                 arm64_sequoia: "2dd1ceb165b79e82738bf1fa3fa7e21a71f6ed471fd3c0214a96dda2f82f967d"

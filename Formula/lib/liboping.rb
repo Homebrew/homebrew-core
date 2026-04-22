@@ -10,8 +10,6 @@ class Liboping < Formula
     regex(/href=.*?liboping[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "b799d5c3ab5ca9ace10e0b8e9f338111ce0220b1df97d3d5c025a18e0c6d47a6"
     sha256 cellar: :any,                 arm64_sequoia:  "5395bb6ef912f023eb75a29a46eb614a0fb9dec8f65fe29f40af6173d0f8f809"

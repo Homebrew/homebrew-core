@@ -6,10 +6,10 @@ class Arjun < Formula
   url "https://files.pythonhosted.org/packages/04/22/c5b969720d2802de2248c2aac0414ee5ae234887cfe150564d591c73fb23/arjun-2.2.7.tar.gz"
   sha256 "b193cdaf97bf7b0e8cd91a41da778639e01fd9738d5f666a8161377f475ce72e"
   license "AGPL-3.0-only"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0789abd9244f990ad66cb3ab01e8bdf64f5cd5546d2b5de1d18b1bc1939076a0"
+    sha256 cellar: :any_skip_relocation, all: "5dfeba18687d0646513f109f5622609596280099a41346e43fad140587e52f73"
   end
 
   depends_on "certifi"
@@ -22,8 +22,8 @@ class Arjun < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "dicttoxml" do
@@ -42,8 +42,8 @@ class Arjun < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "urllib3" do
@@ -56,8 +56,33 @@ class Arjun < Formula
   end
 
   test do
-    dbfile = libexec/Language::Python.site_packages(python3)/"arjun/db/small.txt"
-    output = shell_output("#{bin}/arjun -u https://mockbin.org/ -m GET -w #{dbfile}")
-    assert_match "No parameters were discovered", output
+    port = free_port
+    (testpath/"server.py").write <<~PYTHON
+      from http.server import HTTPServer, BaseHTTPRequestHandler
+
+      class Handler(BaseHTTPRequestHandler):
+          def do_GET(self):
+              self.send_response(200)
+              self.send_header("Content-Type", "text/html")
+              self.end_headers()
+              self.wfile.write(b"<html><body>OK</body></html>")
+
+          def log_message(self, *args):
+              pass
+
+      HTTPServer(("127.0.0.1", #{port}), Handler).serve_forever()
+    PYTHON
+
+    server_pid = spawn python3, testpath/"server.py"
+    sleep 2
+
+    begin
+      dbfile = libexec/Language::Python.site_packages(python3)/"arjun/db/small.txt"
+      output = shell_output("#{bin}/arjun -u http://127.0.0.1:#{port}/ -m GET -w #{dbfile}")
+      assert_match "No parameters were discovered", output
+    ensure
+      Process.kill("TERM", server_pid)
+      Process.wait(server_pid)
+    end
   end
 end

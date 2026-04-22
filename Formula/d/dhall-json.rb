@@ -7,15 +7,13 @@ class DhallJson < Formula
   head "https://github.com/dhall-lang/dhall-haskell.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "73baa2fd19be65be837a3c3309d7504e9d418eb7f0f339904eebb220966b603f"
-    sha256 cellar: :any,                 arm64_sequoia: "39ad85b98a17ab00830ff951a371b3307f8f233b45515b5a8a4b508c7e26bf14"
-    sha256 cellar: :any,                 arm64_sonoma:  "cb38db666618de2732dc9c6cfdc60011110896a4ecaf74a13c0d6154fd1e8c01"
-    sha256 cellar: :any,                 arm64_ventura: "1f626e15918be89bc14f16ca825aed2b448b98b93170fc01ef1a3f53ae2cd7b6"
-    sha256 cellar: :any,                 sonoma:        "f52f5df894456c02bf8b32e05a296fabe0526faaf79ecf024baf9507705b439e"
-    sha256 cellar: :any,                 ventura:       "49846bb950d02b98c5640e93d527273a049d93445cfac3dfd01adf70a0036db8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8df66ff7736b7d73de01bc9b317ccf7eae1527d28b8ea1a55b59630a4ee6aaed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8791ac3d987c13ac8c904f876b01cdcf089e9aecc1476b101367df6621bcfa3"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "5b790ced1db4fd7941d3bf402dd5b24fc89ed2dfd878d29475bb344da661296e"
+    sha256 cellar: :any,                 arm64_sequoia: "3ff0895f95e1bfce054ad771de2e0003d8a28f5b122b24a4b7d0ef9af4b64a1e"
+    sha256 cellar: :any,                 arm64_sonoma:  "8d50f129fd2de08651d0236d9a874df0d4248cfa3c91a7d075b8e50be76cd838"
+    sha256 cellar: :any,                 sonoma:        "8da9034586421f58ba9b51df7ac5ff0fa11175741d2805e6e4b2d3e8e273910b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9e495a9250e2373cc89392183c27f7d4efd4c4ddd60b4a1756f8e0bc7e0c80f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef938910ed4727970c8f3bd2ca25e2610ecaaf41d1b2de45bf9176fb83f7975e"
   end
 
   depends_on "cabal-install" => :build
@@ -24,7 +22,10 @@ class DhallJson < Formula
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     if build.stable?

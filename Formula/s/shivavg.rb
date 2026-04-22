@@ -5,8 +5,6 @@ class Shivavg < Formula
   sha256 "9735079392829f7aaf79e02ed84dd74f5c443c39c02ff461cfdd19cfc4ae89c4"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "0aaf1bb18c79c32a37185bca6b61d84f088d434be24e051128d48f6c8d4e779f"
     sha256 cellar: :any,                 arm64_sequoia:  "65aec8af6d55bd324b1590d4e29d30cc3a3da50c4492bb6f5dd0c8906bb0fd58"

@@ -4,6 +4,7 @@ class Inih < Formula
   url "https://github.com/benhoyt/inih/archive/refs/tags/r62.tar.gz"
   sha256 "9c15fa751bb8093d042dae1b9f125eb45198c32c6704cd5481ccde460d4f8151"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "2da037de9e1fcd435b7f6ce72ad3f4d68daba4309177706b4985cb1a8b177410"

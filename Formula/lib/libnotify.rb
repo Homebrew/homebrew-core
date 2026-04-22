@@ -4,6 +4,7 @@ class Libnotify < Formula
   url "https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.8.tar.xz"
   sha256 "23420ef619dc2cb5aebad613f4823a2fa41c07e5a1d05628d40f6ec4b35bfddd"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "d8ee57b001510f29334c55080553cf34f41b9e8643484429ec1a0d4852f9fb58"

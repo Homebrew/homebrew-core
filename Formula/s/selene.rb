@@ -1,27 +1,24 @@
 class Selene < Formula
   desc "Blazing-fast modern Lua linter"
   homepage "https://kampfkarren.github.io/selene"
-  url "https://github.com/Kampfkarren/selene/archive/refs/tags/0.30.0.tar.gz"
-  sha256 "2cb62ef165012f062208fbc906af0f390a60f2adcf0cba9f1d60c12feccf8d23"
+  url "https://github.com/Kampfkarren/selene/archive/refs/tags/0.30.1.tar.gz"
+  sha256 "61c66d7e40d8d00fe8364a2696c7f87bcb976d838bd681fd802d427c7675a872"
   license "MPL-2.0"
   head "https://github.com/Kampfkarren/selene.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3dda5bb5c452a76baf591c09cb261ac305eb454092b38c0c4bf6c7e55a089137"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7a74a8cf951217daa515c208c4f40068ddebdae5aaf9951ec0d6436bc3fecf6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac4825a8aeb601c537936187ce01cb0ee8b52d6058d0d8ea7a4bbc74711678f7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c4f7769cb4798c52295fe8a9832d8800d27d6f5f211f9da41294a3a6b31fb0ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c27f717bc98db91664c1125f224bf52b74b250c1218d83b931f3219940739829"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e557d22a1a4bfbaaa14fd1c7fd9cd05e4154b9390a488e256cde521efea7106"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cbcf7c178fa11c1afbdd4e8b6774a63f59548f83271c410459e8ab880ad657d8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8125a29586e52cd90876de09eab14a84971c9373d2b6c6e56c5d04cf3870cdf2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e714599b1be78018752f5a906ad1a4f274bb7305a16ee18b4010f4f076bea247"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b80ff59bc0699f7a96ccef7827855fefb8a4753989c0486ae095bec7b82b8edc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "89bcf20592930998bea9b22b5356d469999997747ddbbf9247421be333389113"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fd0ce6b395be9edd863fcfa1323417a4f22d8d853ea82edcb7974defe81cd40"
   end
 
-  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   def install
-    cd "selene" do
-      system "cargo", "install", "--bin", "selene", *std_cargo_args
-    end
+    system "cargo", "install", *std_cargo_args(path: "selene")
   end
 
   test do

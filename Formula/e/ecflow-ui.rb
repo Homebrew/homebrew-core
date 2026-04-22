@@ -1,8 +1,8 @@
 class EcflowUi < Formula
   desc "User interface for client/server workflow package"
-  homepage "https://confluence.ecmwf.int/display/ECFLOW"
-  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.15.2-Source.tar.gz"
-  sha256 "6e4738167a17b7a8787e4084183b30bd7170a0d150e85eebedb0cfe46e87d856"
+  homepage "https://ecflow.readthedocs.io"
+  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.16.0-Source.tar.gz"
+  sha256 "666f804473e0bdc63f51e0b74531217c74f6e6ed40a33c11f7d2916918489741"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class EcflowUi < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "3a2d6944d14d35d8697c41b1896b47d1c92200d78635af09645bd08b9169c852"
-    sha256 arm64_sequoia: "c9e2e95dbac66a092105dc3a09e375b93878ac3fac6c63fb55dc2a18a9d94eec"
-    sha256 arm64_sonoma:  "299ff590bc226d95352ef2163348f8b79b0c6bdb96ac84fdff87d845f5dbfbf2"
-    sha256 sonoma:        "126a9c10588756a2eb999a2a7c52783076357132bcf96ebed3dca7ae7429c84f"
-    sha256 arm64_linux:   "65e8ff9d3e04469d9a42b54e0af1a8c6a94b527c307914d28da3ea11eec3cdba"
-    sha256 x86_64_linux:  "fd752424e0e1ba3c63117decd5bed7dceb3cf5f109f2efb71a4e6ba236aa34ce"
+    sha256 arm64_tahoe:   "79bce7cc72cf7eb4bf1c8e2089fdd3cd97c6c4b0780b7ba01f0a2644e73d1048"
+    sha256 arm64_sequoia: "6ba32325148149edd2ad15df2d7ae281d44495391c743cbb79e70d6f8548e165"
+    sha256 arm64_sonoma:  "3e9f65e669f805447fc5b3f57b906460b7fcdc36ec515658df27f866936ebfee"
+    sha256 sonoma:        "7d261ea2a63aa5fe4bf190334310055b1a0b579bb87967df6dab493a3961703d"
+    sha256 arm64_linux:   "603a380e3bd9cbdb07a224f36ab72b0edb1f545f94870b0f58a7544e4059d5ac"
+    sha256 x86_64_linux:  "a9d1f88ce53b5ac82283ed7632eab85d1571b2d4becaa0bffd010137288b081f"
   end
 
   depends_on "boost" => :build
@@ -28,7 +28,10 @@ class EcflowUi < Formula
   depends_on "qtsvg"
 
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %w[

@@ -6,8 +6,6 @@ class Owfs < Formula
   sha256 "af0a5035f3f3df876ca15aea13486bfed6b3ef5409dee016db0be67755c35fcc"
   license "GPL-2.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "cfce021f58090c3ca7128b8cd83544f67ee1305486f639e0659f799381b2c0ea"
     sha256 cellar: :any,                 arm64_sequoia:  "9ffbd0a7e7138e0e41418388b894e28c1afa188d2182acd3f8518dfad76fd4a0"

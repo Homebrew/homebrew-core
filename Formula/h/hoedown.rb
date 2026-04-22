@@ -5,8 +5,6 @@ class Hoedown < Formula
   sha256 "01b6021b1ec329b70687c0d240b12edcaf09c4aa28423ddf344d2bd9056ba920"
   license "ISC"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "73ef87613d6b099fc9431c878d5b38912eaa0e9d1fa5c60dd6710695e54065e0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fb7b81c0d930df8830f4424d2737dfe94320153725066bf2669c24f9cbb9ef46"

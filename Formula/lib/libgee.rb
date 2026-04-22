@@ -4,6 +4,7 @@ class Libgee < Formula
   url "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz"
   sha256 "189815ac143d89867193b0c52b7dc31f3aa108a15f04d6b5dca2b6adfad0b0ee"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "f2b5d2af9aaf72eca39ea04074d26eae49e96fcf2d43e38f659cfd5115443a55"

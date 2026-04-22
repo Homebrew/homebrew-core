@@ -10,8 +10,6 @@ class Openmama < Formula
     regex(/^OpenMAMA[._-]v?(\d+(?:\.\d+)+)(?:-release)?$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "5702a64103b3c429d8d1499aedd50c032b572b3ba6c748f185cf2566a3fdf390"
     sha256 cellar: :any,                 arm64_sequoia:  "786b187f472ddd357f105cffc281cf4f8382b46ae31c5b428a5f1d8038c812ae"

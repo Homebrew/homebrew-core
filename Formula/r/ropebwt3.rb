@@ -7,18 +7,21 @@ class Ropebwt3 < Formula
   head "https://github.com/lh3/ropebwt3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ace7d2899e8a64aa7917729d3843310664a273b0002fb11661b3581bce6d8ff8"
-    sha256 cellar: :any,                 arm64_sequoia: "2816087437f9c04c81fcc6f922bd1f54bac2a6fc67b2bc120fd5b9c5b9c91f81"
-    sha256 cellar: :any,                 arm64_sonoma:  "3ffad1259072183a1c758647620fd36759292ec78695f9d5dcf0f0ca46fc0001"
-    sha256 cellar: :any,                 sonoma:        "83d407ddc0073d0a31e78816dc6c550d95fac2b12670973b7a773c6933b1938a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "37610d8215a2948b8b71bf5e88bd28c95281876cd4a1a5858cc466722c397286"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a50533ffbe4aaf7262926a560ce95c3dd9eff4bf387566cb14872aebe728983"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ceb1467adeb7b88f75b34df0e9e4d4680428c3d3f470731a54b89654240f0c02"
+    sha256 cellar: :any,                 arm64_sequoia: "cb74b320bb47569ad99f4f971eb293f180dc16855e39fe1ff78e4f7f17db5262"
+    sha256 cellar: :any,                 arm64_sonoma:  "74e7e74087beeec688d47cf60fc60f865d3c99049670b98dbe030ec00c8d2c0e"
+    sha256 cellar: :any,                 sonoma:        "c0d44bb1e7c876d6ca2793a8992c8c63155a8748df7874986897d0fcf9540998"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e61fd03b0a5f96a969c73397d94fb5d1dd7659dd55bc791544accc4c58179777"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01a4f42c930c3b6bbe46d536c2ed6bba3296c2b932ebd5c793abe4742f7d1f1b"
   end
-
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

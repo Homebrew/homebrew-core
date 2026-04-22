@@ -26,9 +26,11 @@ class Erg < Formula
   uses_from_macos "python" => :build
 
   def install
-    feature_args = "els,full-repl,unicode,backtrace"
     ENV["HOME"] = buildpath # The build will write to HOME/.erg
-    system "cargo", "install", "--features", *feature_args, *std_cargo_args(root: libexec)
+
+    features = %w[els full-repl unicode backtrace]
+    system "cargo", "install", *std_cargo_args(root: libexec, features:)
+
     pkgshare.install buildpath.glob(".erg/*")
     (bin/"erg").write_env_script(libexec/"bin/erg", ERG_PATH: pkgshare)
   end

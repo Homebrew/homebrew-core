@@ -4,8 +4,7 @@ class Libsamplerate < Formula
   url "https://github.com/libsndfile/libsamplerate/archive/refs/tags/0.2.2.tar.gz"
   sha256 "16e881487f184250deb4fcb60432d7556ab12cb58caea71ef23960aec6c0405a"
   license "BSD-2-Clause"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     rebuild 1

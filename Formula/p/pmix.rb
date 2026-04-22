@@ -2,6 +2,8 @@ class Pmix < Formula
   desc "Process Management Interface for HPC environments"
   homepage "https://openpmix.github.io/"
   license "BSD-3-Clause"
+  revision 1
+  compatibility_version 1
 
   stable do
     url "https://github.com/openpmix/openpmix/releases/download/v5.0.10/pmix-5.0.10.tar.bz2"
@@ -20,12 +22,12 @@ class Pmix < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "56c2785cbeb51b3bf0fc950f98f553521e60050fd0c5d36620e07f528a26ace0"
-    sha256 arm64_sequoia: "391f5cea8dcc65ad8d1fa75114a89da05c814591c3e6f3886df1fb720e84a639"
-    sha256 arm64_sonoma:  "59095213991c4af37c293f7488ff3ebb70d7ae11baa5671d73c5169ea407860c"
-    sha256 sonoma:        "cadd5c07187b2747f85fa7496f5d12d4879fe790c929d59b14cd04a000549b81"
-    sha256 arm64_linux:   "51454dafd8c88ccdb2e4b762da58da655d85f1442b436f3833b4fc5d47522e02"
-    sha256 x86_64_linux:  "4bbd504b46145a5d913ce38cd67bb67bd7aec93c1afa3dabc000d4a988b6df20"
+    sha256 arm64_tahoe:   "5ae502e52b0701368cd61fd43b12f67df1c074bd2a6027bf5f1cbe1ef213817d"
+    sha256 arm64_sequoia: "2f1d03fa49fb8731e9e60c03b25670bfe10acbaeeafc20de491eab57bda31c26"
+    sha256 arm64_sonoma:  "6ff719706c1ace854d29922ddbe65a62a64f4f6f356b3af44d6eadcb7511e39e"
+    sha256 sonoma:        "d93205b42ae1181cbfd0b84ee6fe6697cb60f8c6472cfffddc16c6af10f4a174"
+    sha256 arm64_linux:   "d5c71a20e25fd1ad9d512dd40c882eef16c980a387a601e2617195913175c2b1"
+    sha256 x86_64_linux:  "93fd3b3e99b624b63f07fb8580d22684387aaacbcf8c3bf9a89536253b32ce09"
   end
 
   head do
@@ -40,7 +42,10 @@ class Pmix < Formula
   depends_on "libevent"
 
   uses_from_macos "python" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Avoid references to the Homebrew shims directory

@@ -4,6 +4,7 @@ class Tbb < Formula
   url "https://github.com/uxlfoundation/oneTBB/archive/refs/tags/v2022.3.0.tar.gz"
   sha256 "01598a46c1162c27253a0de0236f520fd8ee8166e9ebb84a4243574f88e6e50a"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "cc9fcdb5dd902f43174d0da933d9fd5cbefbc0a64782564b5b8193abc627ec0f"

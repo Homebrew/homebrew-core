@@ -1,23 +1,19 @@
 class GnuSed < Formula
   desc "GNU implementation of the famous stream editor"
   homepage "https://www.gnu.org/software/sed/"
-  url "https://ftpmirror.gnu.org/gnu/sed/sed-4.9.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/sed/sed-4.9.tar.xz"
-  sha256 "6e226b732e1cd739464ad6862bd1a1aba42d7982922da7a53519631d24975181"
+  url "https://ftpmirror.gnu.org/gnu/sed/sed-4.10.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/sed/sed-4.10.tar.xz"
+  sha256 "b8e72182b2ec96a3574e2998c47b7aaa64cc20ce000d8e9ac313cc07cecf28c7"
   license "GPL-3.0-or-later"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "48a39d1b81adb766f45db53a0f4f8e9ce8b942386c270cfcdad3fbd08cb653f9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70edbfd4aa9ec24bd48e21353d18433741c13ec10c9903d5c93349eabb83bebb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "829d21105387351f6c7b07cd845d7e234c1a460ea5e50cc2f5dbcface45e378d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9a9b26c3bd0bdcfc258a24bb6b16eaf8677deaa5242adb8153f5ef0799f16946"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4993928cc2d43c4eeb320e5851bb4d2ab31bd88a1c52f287141af18e46afc4b9"
-    sha256 cellar: :any_skip_relocation, ventura:       "9308ada3186ff94fafa9f3c8f2d937de4c2c4cde7ceeb2a69984095b072d795c"
-    sha256                               arm64_linux:   "6a3e57a3c43b15a0bd0cfe27e176f0b935650fd482a028a184dbb6b67f47d0a9"
-    sha256                               x86_64_linux:  "1b67527e8abadc04f961bb46ac20e54f731bcfe485d2813932735096f34ceca8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "046672d06b2dd62a59d7088c58cec29749e436366e81dbe18f1b42cbad96fbb2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2afabbecf1e1a0f324af43c3a7d76714e30afdc97a9d29f46d9d07dc80059ca4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "beafe9167ff24d0c7bec394dfd710dba520f5f6cff89d604e718834f04e3cbc6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "04dad428ef00e0d35bcbb5964058d96e53b01768232679e67f8fa59b13afc576"
+    sha256                               arm64_linux:   "3dd83efc27792d0a9980bcdbd7d2601e27bf54fa9469bad29ead18d00eac4d34"
+    sha256                               x86_64_linux:  "6c02e4e02bd27c0807dbfb2ff7759b66f992cd490102a67f5d76c4fd63e59f8d"
   end
 
   def install

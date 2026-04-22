@@ -12,13 +12,13 @@ class Irssi < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "e838b3335dd0b71b4b964e940581f17d1d5fc8a119ffe39cd82b56e2988c5898"
-    sha256 arm64_sequoia: "9c578d13963910805f69c3134b94f56ee2539b48bab23f09f8ba5e91cf5bb715"
-    sha256 arm64_sonoma:  "829ab4654ce73add153d8ce958261a01546bc336c5492e996b9da46616fe7410"
-    sha256 sonoma:        "325ec802f037de5afdfd31447b888796f7baabb9dbcbe82b2b1aab13e00f0a8d"
-    sha256 arm64_linux:   "051d92da2db9dcd16362dc6204dcff2ef9bebbfd337c05a3848e9f3823c67c63"
-    sha256 x86_64_linux:  "b6b393fae0dd1c43829314886be5ee26018a3ed2b8ea18c633d0e9ed37c7d642"
+    rebuild 2
+    sha256 arm64_tahoe:   "380f42555868ac5b61259d1dddcd47d94d15e3b86829b379b750beaf2a47c6c9"
+    sha256 arm64_sequoia: "6cda96f843ce728a0493321ca5b9003a37ff61013939697bd314b168b7fd9ebd"
+    sha256 arm64_sonoma:  "e7aef7fff21ebc2f2e6abe9dba1768307bf2eb454a1ddba7a085c166bcb599ad"
+    sha256 sonoma:        "83c6d196ae4f4ddd984ae7b056de427a0ffb59118c4e3a29261e2aab483b0aba"
+    sha256 arm64_linux:   "5b9b324500185f2ab9dd750ab8d32c8318ae26f7baf077ec6837ee273c648df4"
+    sha256 x86_64_linux:  "b304553e132ba3665e7a2b6daca8393da7c6a4ec4ef24141dd437c979edd33be"
   end
 
   depends_on "meson" => :build
@@ -35,20 +35,20 @@ class Irssi < Formula
   end
 
   def install
+    perl_vendorarch = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{vendorarch}")
+
     args = %W[
       -Dwith-proxy=yes
       -Dwith-perl=yes
-      -Dwith-perl-lib=#{lib}/perl5/site_perl
+      -Dwith-perl-lib=#{perl_vendorarch.sub(HOMEBREW_PREFIX, prefix)}
     ]
 
     # Add RPATH to Perl modules so Homebrew's audit can find libperl.so.
     # The modules are loaded by Perl (which already has libperl), so this
     # isn't strictly needed at runtime, but satisfies the linkage check.
     if OS.linux?
-      perl = Formula["perl"]
-      perlarch = Hardware::CPU.arm? ? "aarch64" : Hardware::CPU.arch
-      perl_core = perl.opt_lib/"perl5"/perl.version.major_minor/"#{perlarch}-linux-thread-multi/CORE"
-      ENV.append "LDFLAGS", "-Wl,-rpath,#{perl_core}"
+      perl_archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
+      ENV.append "LDFLAGS", "-Wl,-rpath,#{perl_archlib}/CORE"
     end
 
     system "meson", "setup", "build", *args, *std_meson_args
@@ -67,7 +67,6 @@ class Irssi < Formula
     # Verify the Perl module compiled successfully. Upstream treats Perl
     # build failures as non-fatal, so they can go unnoticed. To debug,
     # move this test into the install block to surface build warnings.
-    ENV["PERL5LIB"] = lib/"perl5/site_perl"
     system "perl", "-e", "use Irssi"
   end
 end

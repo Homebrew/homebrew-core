@@ -28,6 +28,7 @@ class Readline < Formula
       sha256 checksum
     end
   end
+  compatibility_version 1
 
   # We're not using `url :stable` here because we need `url` to be a string
   # when we use it in the `strategy` block.

@@ -6,8 +6,6 @@ class Nsnake < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/alexdantas/nSnake.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1ede653161111adadc9dc28604dc24adf4ffba2657224e300c613c230d46bfc6"

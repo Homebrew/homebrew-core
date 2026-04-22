@@ -4,6 +4,7 @@ class Libplist < Formula
   url "https://github.com/libimobiledevice/libplist/releases/download/2.7.0/libplist-2.7.0.tar.bz2"
   sha256 "7ac42301e896b1ebe3c654634780c82baa7cb70df8554e683ff89f7c2643eb8b"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
   head "https://github.com/libimobiledevice/libplist.git", branch: "master"
 
   bottle do

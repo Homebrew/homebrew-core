@@ -14,8 +14,6 @@ class Peg < Formula
     regex(/current\s+stable\s+version\s+is\s+v?(\d+(?:\.\d+)+)/im)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "69199b8b5ca9791da1895d31d558d1205468f97741268abb2bb7944320cf050b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f2404175aa4fe06bfa03b4cd11cd1aa8ae657e85353062c11c73c553544a032e"

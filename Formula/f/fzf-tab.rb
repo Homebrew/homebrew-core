@@ -1,12 +1,12 @@
 class FzfTab < Formula
   desc "Replace zsh completion selection menu with fzf"
   homepage "https://github.com/Aloxaf/fzf-tab"
-  url "https://github.com/Aloxaf/fzf-tab/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "6b9c82c73ceb70ab13d1b6ef07c7bda7d43a3c507152dc156f783f1f1a6774ad"
+  url "https://github.com/Aloxaf/fzf-tab/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "d75ac08c2c8af5a6a0478787b0f11fabbe24951973b7841ae963431e2070ee9a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2910cb431fc8fdae1ee9f6e3e1a14434b2010e09cedc1deedf4a70c3b0502d07"
+    sha256 cellar: :any_skip_relocation, all: "070b819cece9212109f22a5f0c8dc93aedf3e2e5d58378a8d4f945a81a0f99b0"
   end
 
   uses_from_macos "zsh"

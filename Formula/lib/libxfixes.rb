@@ -4,6 +4,7 @@ class Libxfixes < Formula
   url "https://www.x.org/archive/individual/lib/libXfixes-6.0.2.tar.xz"
   sha256 "39f115d72d9c5f8111e4684164d3d68cc1fd21f9b27ff2401b08fddfc0f409ba"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "18951c8c4a266fc614d3d17798983f314230614d42184a5169d053a5d228c85c"

@@ -11,8 +11,6 @@ class Itstool < Formula
     regex(/href=.*?itstool[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "716cb0efd44428ef62000438ff166627c117befbdd87b6d9c5580afac54c9dc2"
     sha256 cellar: :any,                 arm64_sequoia: "8659b398ae66d88d974879a6a4e4372f21b81f7d018b13d9dd10b459e84ddd95"
@@ -40,6 +38,14 @@ class Itstool < Formula
   resource "libxml2" do
     url "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.1.tar.xz"
     sha256 "c008bac08fd5c7b4a87f7b8a71f283fa581d80d80ff8d2efd3b26224c39bc54c"
+
+    # Track the version of libxml2 formula. This is not the same as `formula "libxml2"`.
+    livecheck do
+      url "https://formulae.brew.sh/api/formula/libxml2.json"
+      strategy :json do |json|
+        json.dig("versions", "stable")
+      end
+    end
   end
 
   def python3

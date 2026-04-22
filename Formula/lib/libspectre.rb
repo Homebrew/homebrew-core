@@ -5,13 +5,12 @@ class Libspectre < Formula
   sha256 "55a7517cd3572bd2565df0cf450944a04d5273b279ebb369a895391957f0f960"
   license "GPL-2.0-or-later"
   revision 2
+  compatibility_version 1
 
   livecheck do
     url "https://libspectre.freedesktop.org/releases/"
     regex(/href=.*?libspectre[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "827462a01392f7b4ba24ec5b45ea4aeee0e7e0a674efe43d5b0e52ffeb150bf0"

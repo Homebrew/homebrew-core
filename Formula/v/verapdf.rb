@@ -1,8 +1,8 @@
 class Verapdf < Formula
   desc "Open-source industry-supported PDF/A validation"
   homepage "https://verapdf.org/home/"
-  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.28.2.tar.gz"
-  sha256 "48225e1b75d1dc1b9c87b845668bca37f9628a5a0a0010a6a8b55c8b332c3462"
+  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.30.1.tar.gz"
+  sha256 "eccc9745d08f9096785712498a479ab1a9f772fecf10f5e62cf7582670ed4776"
   license any_of: ["GPL-3.0-or-later", "MPL-2.0"]
   head "https://github.com/veraPDF/veraPDF-apps.git", branch: "integration"
 
@@ -12,14 +12,12 @@ class Verapdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3cd84926712c2b06d9aa5500a6577809256e1b3c5a7690dd6af807c6e8e68f01"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e4ab904561e91dc5a727f1aef5b92d6375b511453853da22e1a8bd8ff3f2a5c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe5e4c7241fb3f4cd5b0b7d3ff6da79dae60059da3e8374707c7ec99b07298f1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e4d47eba52e8321865e0a87cd8cdb849803af7dc6791c75a2d9c3b0636f56c54"
-    sha256 cellar: :any_skip_relocation, sonoma:        "320b07cb60d7dc030d16fef2c12417e2484d6fec0452e1a2d60455946531f9bd"
-    sha256 cellar: :any_skip_relocation, ventura:       "036f34f42ac11286ecae531cb5b5f9ccdbf4fa9392a190c33a94abf1a0ddf982"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "daf107c8fed2ce3613bdb98afe21304efa0d69566f96ac8d83e126fbf12f43dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "549f11f668ca6a791fb4ec44ef80774ba65eee9b218c9994e194bc3ab2a2f06b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea9d7f18979e35c99b61c546589905727685bb19cd34585dc7806b6093bb022c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f2b1facb9288e003c92eea3fea1ef80ae4c0ae1ce1082df08743d1732cf773e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1be4d2d3e1839cbaee8be2cff9d9e1c96d8873b4fb1d45a30be9eb5943899942"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a2e6a315b08158f5be6ca986abcd3bc6073a36574e3fe8963a1042483f2674af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "80090fbb7e9f9ed3375162a78e92927386e53e451a7983eda43b21cb53c00a15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d53ee6eb4fba0b8f4c1b8b77c3bfb249574d56cc12fe0665fd7d9aa818ded83a"
   end
 
   depends_on "maven" => :build

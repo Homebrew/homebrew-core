@@ -6,18 +6,20 @@ class Adapterremoval < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "896c7233e9f91a6a6ccdaf4d9327b77283bcb8af87234c957905fb46f1643cfe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad8f771d05f2b2a193c0bdac1ffdbae8b9213e1cc04a0c92d35135d4d5504262"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70ace6d9c876a32e46322733499ec9c331d56d48f3a4c567f997bc43e3304deb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2efcd4380b4a9be30bcaa32552abe16aee7742860c49b4854651f3775914d118"
-    sha256 cellar: :any_skip_relocation, sonoma:        "324c6792d35fed4dc9a80e8853261cdfc232f9510d4480878ec774e20d5f733b"
-    sha256 cellar: :any_skip_relocation, ventura:       "04770b3b45993c485713def1d48d104c8ddd83b95fe12a02a45860b04d171423"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b32f3d296d346274a86d5f9a29e7af74afcdbcc76545536f311c8f9d4954f85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ac45069d93dbe0781c369b55b7252bf863d7cc379c359b4e56d4bb589e35fd1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d55def0eb8e4d90874c3462c3c2088ee0addd14709835ce600cd277631c94a62"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6c89e56b55bd143ad31f49b4f21a9a90dd1b2ec589bc93c762b3921a0e5bca28"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0cf4e7d64e4c63c3b1626cc6a4073169bd10af09a31a83c42bb04d3343158198"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6d23629123200eacea62c12486cc564549941a3ad868e9a234122b83751afa57"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "811e8cb621752ab6dac595d0c716d6d77bfc26254c0a5eb814760c91f2abae94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06fb66c36fde9bd21bd005089ff665eb257a5ed15751414fca394457b27c388c"
   end
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV.deparallelize

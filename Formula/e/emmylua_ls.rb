@@ -2,21 +2,26 @@ class EmmyluaLs < Formula
   desc "Lua Language Server"
   homepage "https://github.com/EmmyLuaLs/emmylua-analyzer-rust"
   # The project name is `emmylua-analyzer-rust`, but it contains several crates, not all of which we install.
-  url "https://github.com/EmmyLuaLs/emmylua-analyzer-rust/archive/refs/tags/0.20.0.tar.gz"
-  sha256 "5ddee74a31e63598ec619b73c483ab8d66c126f89b28447014d0e012bab57d1e"
+  url "https://github.com/EmmyLuaLs/emmylua-analyzer-rust/archive/refs/tags/0.22.0.tar.gz"
+  sha256 "d1b7eec2f607b58a2bb3599530de3ef206911f521d4e5a4eb229d1fd6fbee7c2"
   license "MIT"
   head "https://github.com/EmmyLuaLs/emmylua-analyzer-rust.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e12707815c52a8b34f92c7375a6a7aeb774a2a85e7bcdc19c832f91ff4ffac8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ea2cb788210e3134e9e7819f2d54d0a536a14936a18d93da52678ecc9f830a7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50ae28c1eac3beb777e00ebf7b474e050598d80a3a858e91bd30fd65fb62fae5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c85f288329d68c59554098bf05efe5ccbe6bbd6440b31df95d3929986bd6f0f9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1def74cd5676afa7d94182c398868798a01d5f0823af89489bf62e772d80924c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "497553f3b02b246caa20201721945dd35bc2b9dea507647f54e70815edb75fb5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83ce19dfdd252ee87882cf7d3770b235ac44c8876fed02689f84cdf59e0a8837"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc10452701348db882ef7cce63ebca6fd027290126c68ad3579c7e2237598403"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1ec9d2c6115393edec4946eb057cd10885ae853ebb92da135030949c1d455fe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7384ffd4ed031b2db648f25da9c52c5345999403d251f1f5b28e915eacf494da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf266cc83ec53bd33be15f83b0a922b4e67d3ff78f2a4dc4aa4786a3f3a5a1e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b51cce4370d35b9c5caab2a94e2d4d813ccd706f49fa8251f6e587dbbfe6ac9e"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/emmylua_ls")

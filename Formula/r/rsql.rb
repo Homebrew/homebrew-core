@@ -1,20 +1,18 @@
 class Rsql < Formula
   desc "CLI for relational databases and common data file formats"
   homepage "https://github.com/theseus-rs/rsql"
-  url "https://github.com/theseus-rs/rsql/archive/refs/tags/v0.19.2.tar.gz"
-  sha256 "a6bf445998062dbb1a840895d42783ed947e42265422aba2bbdb8a669d2177d6"
+  url "https://github.com/theseus-rs/rsql/archive/refs/tags/v0.19.3.tar.gz"
+  sha256 "37ec3b5b364d0444657116babf6969c0cf2d071debea4558f90d3173ab685f73"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/theseus-rs/rsql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a936612adb0d6ea4764621131bf0604a23549355bc64f8f578344dd475505693"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b31ac7cc12a1f3a71885c4d0c53b023ea7d7d2a9709128e2ae712253937b6ed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84a95550759893530a734322482d93f9e6456494e56706d9f93d23bfdcf6715a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c44f42187d6962c11a4a30194753555258ef609fb23dd972adef96354b0ecbc9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3f1ac82644cfa85718929241a5061bfc4f58232102a689b8a526cafb7a7e71fc"
-    sha256 cellar: :any_skip_relocation, ventura:       "d6e10c5392373900a7bb9635cb5bddb140908d4d8937cb0a5ff01c7af36a89bd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfa5d0128b0e49f2eb21e60348fd68cb7946b5e036d6802a03cbb62ff09ad3e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e8fe12b46214d9dea30d9cfb74696447421c3907759862628d83035eb5e7599"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a439617bc4d7b2d9ad8cd1e7b4f77bbad1d3d40049b8f0f048b172087f12289f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "262c9edff604425b3f151d2a3e5f62e07a0aa51659feb22a735dc363568a4eed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb6ac41df16e3d7a8e14ca9fdd8b4da2df57a4bc37f61546acc8015e619d9574"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9a1f0469221de743364b2be13b241dde7b91fb3c795feeec8367e5032b52710b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0cfdf02e32c0a6fd49011ddcd752ea8a6ebc9ab5b61a6e820981afbec92162ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cac0bccdc5b023c6d1ae310b3fe3190acaf40fa704a84b7660a81aa5aaef995"
   end
 
   depends_on "pkgconf" => :build

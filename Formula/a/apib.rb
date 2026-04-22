@@ -6,7 +6,13 @@ class Apib < Formula
   license "Apache-2.0"
   head "https://github.com/apigee/apib.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :stable
+    regex(/^APIB[._-]v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
+  end
 
   bottle do
     rebuild 1

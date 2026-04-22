@@ -1,22 +1,18 @@
 class Counts < Formula
   desc "Tool for ad hoc profiling"
   homepage "https://github.com/nnethercote/counts"
-  url "https://github.com/nnethercote/counts/archive/refs/tags/1.0.6.tar.gz"
-  sha256 "4d3394b32afa98b91fd624a9c4df690d07fa1d6559cd87bb82a4bde6131fbc5f"
+  url "https://github.com/nnethercote/counts/archive/refs/tags/1.0.7.tar.gz"
+  sha256 "a5685538819838ba2fba0b78d11b5d80e37753b9015735f71f0c2065442fe9d8"
   license "Unlicense"
   head "https://github.com/nnethercote/counts.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "24d9ace69ae8a6c2bdb85fcb5c1c42b53f73209bb2a9958cd02e2b1aaff40fe4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "104e0c1a70c346de9a881f3604a940409c21292be6f728bad0d317423d7e3302"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "199acdd7193a93a8431adcd011441e85c609dcd6b31060fca9663d623d841ab1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2fd0e4ee5182e9000723388e231d8fe2f7ba902e33224c6f1f48bb7e186e3c23"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c5408f15252264a19fabff4a2370e9b222c2c1519f94016d807eacf44831ec13"
-    sha256 cellar: :any_skip_relocation, ventura:       "da24a18685e6e26d88c71a4e10dc1639234f798e29c85e118e06728a792a4c4d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "43508d50d22d1ced7b27695086b8c16a38b217a48aeb999d80e60ad2835d544e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d38003ebf1f3fd5c46e7ce4e87190f617d81a20ac8bc9ff91f8cdb4eddb9374"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b2f17f2b9f8199aa0177f07115e7880d933b06e2e5348acfd63284855d45fb64"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68b6b379ab3d791ab5ebe45fa8173e2689a36d7b3ba12abd0c8aeb3eef4f5686"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07c330e6758722d04159249a940bd3e429878fe48d7f66c1c126e54045369416"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cffc66f3ebcdc02e5f656baeb5beac4b369f1655682c92f53c3b926b861590e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb49e94d8a7f1e13e84c74b9c5d97d342477d09a2f65ffaa6b21b54b8ca191dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25e29cb5ccf375beff6f7d302eeec0873e537c187f6f84aa2442e8841d88f9c1"
   end
 
   depends_on "rust" => :build
@@ -50,6 +46,6 @@ class Counts < Formula
 
     assert_equal expected, output
 
-    assert_match "counts-#{version}", shell_output("#{bin}/counts --version", 1)
+    assert_match "counts-#{version}", shell_output("#{bin}/counts --version")
   end
 end

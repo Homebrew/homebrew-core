@@ -6,8 +6,6 @@ class Minidlna < Formula
   license "GPL-2.0-only"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "9fc0ed3ac5675b3dbfe74a361c9b43f7d82a29a65a12abc56ac1b9efd30d1258"

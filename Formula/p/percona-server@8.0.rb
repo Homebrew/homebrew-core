@@ -1,8 +1,8 @@
 class PerconaServerAT80 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.44-35/source/tarball/percona-server-8.0.44-35.tar.gz"
-  sha256 "e1e88d2b35f37394c086c748290bf2850927b0e89549291b6570c563ea889d81"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.45-36/source/tarball/percona-server-8.0.45-36.tar.gz"
+  sha256 "137cdb24a1f5b8afbd1fef38457b98ead8d73e3cc73c22a3c6facc94ab3871de"
   license "BSD-3-Clause"
   revision 2
 
@@ -21,12 +21,12 @@ class PerconaServerAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f1dbd528492984198c9bb40f8cbc31f2cdfee87c00240a1068114fdd0610fe7a"
-    sha256 arm64_sequoia: "cbea36663913bc9fae7de10591a1da3b348f1012200cacdd4ba83192769eccf6"
-    sha256 arm64_sonoma:  "1995a6d5589981966e2690539892c1a751023333ee733e434a0703cb1861f1d8"
-    sha256 sonoma:        "dde8b25089ea14167bc30ae09454f7b990994ec4c68f94c59c08a6e925021854"
-    sha256 arm64_linux:   "f6b4fc5314c1b687da08ff0c371b53aeded951245e8402e189608fe64c09c363"
-    sha256 x86_64_linux:  "f979e6375c2d0801c269502529598d5c8736996722cbb52dda1d2a1b08493c39"
+    sha256 arm64_tahoe:   "ac0a31a73fc96d9835a962a4c050f8faea5e4df40e8ec80346799f893cffa8cb"
+    sha256 arm64_sequoia: "ba9c39d652faad5d4cfac6784e16790c257348bd87c35343e6b53858f541caba"
+    sha256 arm64_sonoma:  "6de6a293bb61a42d6e5b80d67a43a5abaa47ec04064385101afb2fa797032624"
+    sha256 sonoma:        "1133ea109fdd6939e5b1a76ae4896e0d4a193a87f5edd0807beb6afe069a1218"
+    sha256 arm64_linux:   "faa648487f16b79391ed8b6359fecc09ce7620b474600b9c4be143e6a77d2745"
+    sha256 x86_64_linux:  "e6ddf848b0a7b7c3c7d95d1ced3e646d8e84cdab45241c15b8a95c5cb8176015"
   end
 
   keg_only :versioned_formula
@@ -45,7 +45,7 @@ class PerconaServerAT80 < Formula
   depends_on "openldap" # Needs `ldap_set_urllist_proc`, not provided by LDAP.framework
   depends_on "openssl@3"
   depends_on "protobuf"
-  depends_on "zlib" # Zlib 1.2.13+
+  depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
   uses_from_macos "curl"

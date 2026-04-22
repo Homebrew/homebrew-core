@@ -1,8 +1,8 @@
 class BareosClient < Formula
   desc "Client for Bareos (Backup Archiving REcovery Open Sourced)"
   homepage "https://www.bareos.com/"
-  url "https://github.com/bareos/bareos/archive/refs/tags/Release/25.0.1.tar.gz"
-  sha256 "b44c481ddf1cfdf603e1b1fc1c4e4a120d5a0e9f34f781c90b1c487fc4716f27"
+  url "https://github.com/bareos/bareos/archive/refs/tags/Release/25.0.3.tar.gz"
+  sha256 "3c4d942612dde94b0bc36a339049c90650c846837f1c035c96bb71cc7b40d9b2"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -11,12 +11,12 @@ class BareosClient < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "c8712148ed1a04070756deaf5266fd990d2926366299ac8b1712dba76d66aab3"
-    sha256 arm64_sequoia: "ddab504b2ee507681e170cfdae645ea5e827923522ee3ded655562589e8dfea4"
-    sha256 arm64_sonoma:  "693f8cade447a111c1382f61c2eb3916c03911d579409340f7cc9063bc3e648d"
-    sha256 sonoma:        "f52ca53f1c94008645e21a5b33668433d33d28f7862892e0f769a22142a013e2"
-    sha256 arm64_linux:   "8def1e93084de5dbe8c0a16d5926d8ce4572ecb2ca97852bfcc6d927542ad847"
-    sha256 x86_64_linux:  "26d5070cafb1f7c0640991a6a610474da97a82c9a5c4b639e3b227a27642a568"
+    sha256 arm64_tahoe:   "aa4783a6060df41588447d5fdf4c3fceb089a1ed8be1aaf45dfecdba46c0452c"
+    sha256 arm64_sequoia: "ca3749cc0af8439520f15fd8c7655f3175ecb33cfaaa9ba982af6ec53302a1d8"
+    sha256 arm64_sonoma:  "d10af53f7033b3db03b05f0859a2dfb795d5922f9c859df7e1239c8cc6d77316"
+    sha256 sonoma:        "2018f586d097accce2cdb7c9848facb2d7524174694775b98c500f0013cb2a46"
+    sha256 arm64_linux:   "d44341dbecfc47a9b581f06d03f63b81d8cf6b73128ede5ff304b05405ed84ab"
+    sha256 x86_64_linux:  "47da9a0b939866c852556b1005aac5710edf0eae08c551b835410cbe9294d2f8"
   end
 
   depends_on "cli11" => :build
@@ -30,14 +30,13 @@ class BareosClient < Formula
   depends_on "readline"
   depends_on "xxhash"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
   end
 
   on_linux do
     depends_on "acl"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "bacula-fd", because: "both install a `bconsole` executable"

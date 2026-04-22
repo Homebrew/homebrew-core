@@ -6,8 +6,6 @@ class Pinfo < Formula
   license "GPL-2.0-only"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "667ab0c89a77262f57669ed57148c06df889bdc835231752a1dd4fd279142263"
     sha256 arm64_sequoia:  "156abee096126843dea45d4b863b41cfaf28f9acd4fd8932b1388b981b299e5f"
@@ -26,10 +24,14 @@ class Pinfo < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gettext" => :build
   depends_on "libtool" => :build
-  depends_on "gettext"
 
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build

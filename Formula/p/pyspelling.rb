@@ -6,14 +6,15 @@ class Pyspelling < Formula
   url "https://files.pythonhosted.org/packages/fe/ed/3fe00b8a3f8a74a993e1e08931d674cde7bd718c1af44ef415ff1f6b000b/pyspelling-2.12.1.tar.gz"
   sha256 "9108981dc174d6400a7ed4917cf4af91daf3eb83578d4570c0726b92c2a32e7a"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "02807a71a8e0381aef6431b7302fa785d68cb9e0e5b3824e005fd2307507f3f7"
-    sha256 cellar: :any,                 arm64_sequoia: "02fd30b354673974231e100825e21a3c624382f418e1d52e778557d7a0047d29"
-    sha256 cellar: :any,                 arm64_sonoma:  "975240842bae5988e1f7a5ac37f0bb50af63bf369282c6117ade86b29d310fb0"
-    sha256 cellar: :any,                 sonoma:        "834326a17f27b9c8c4da911081b9f9530bdbe32c767ee9e8002fbd8cea03b796"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "98f5cd10a7b8953a91812e0fb3f2b8138afc701ddb01e10da73174f6007bb4b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "989d40f2cd5c3403fc4b78b84dd307f9703f46acdc5b514c6ad9e8db8050a6ad"
+    sha256 cellar: :any,                 arm64_tahoe:   "b83f670c1567255ad8077ae70987a89ddfde7583ab0ccbc1d4147bc502715797"
+    sha256 cellar: :any,                 arm64_sequoia: "2c23257399b2741659bb05d4ac7531407b922267dc4137ee13f8b14f28c75c64"
+    sha256 cellar: :any,                 arm64_sonoma:  "b21e9048e501d3487e9a95b98d0ecb0f5116e392fe7af84ef9083e84e8ff828a"
+    sha256 cellar: :any,                 sonoma:        "76cdc40c40302803ad264b8f4d238d2a611b25e69788765d0fb22e6b839576e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "15b939f1d658130b42b15a064b1310bb36f6e45abb8d1ad9abfbf6b7c5bd7d51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e138038bbdda3924b4b0a8d4716e0764a06e40aa61b6aea44b74f7870ef172b3"
   end
 
   depends_on "aspell" => :test
@@ -24,8 +25,8 @@ class Pyspelling < Formula
   uses_from_macos "libxslt"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/77/e9/df2358efd7659577435e2177bfa69cba6c33216681af51a707193dec162a/beautifulsoup4-4.14.2.tar.gz"
-    sha256 "2a98ab9f944a11acee9cc848508ec28d9228abfd522ef0fad6a02a72e0ded69e"
+    url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
+    sha256 "6292b1c5186d356bba669ef9f7f051757099565ad9ada5dd630bd9de5fa7fb86"
   end
 
   resource "bracex" do
@@ -46,13 +47,13 @@ class Pyspelling < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
-    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
+    url "https://files.pythonhosted.org/packages/28/30/9abc9e34c657c33834eaf6cd02124c61bdf5944d802aa48e69be8da3585d/lxml-6.1.0.tar.gz"
+    sha256 "bfd57d8008c4965709a919c3e9a98f76c2c7cb319086b3d26858250620023b13"
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/7d/ab/7dd27d9d863b3376fcf23a5a13cb5d024aed1db46f963f1b5735ae43b3be/markdown-3.10.tar.gz"
-    sha256 "37062d4f2aa4b2b6b32aefb80faa300f82cc790cb949a35b8caede34f2b68c0e"
+    url "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz"
+    sha256 "994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950"
   end
 
   resource "pyyaml" do
@@ -66,8 +67,8 @@ class Pyspelling < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/6d/e6/21ccce3262dd4889aa3332e5a119a3491a95e8f60939870a3a035aabac0d/soupsieve-2.8.tar.gz"
-    sha256 "e2dd4a40a628cb5f28f6d4b0db8800b8f581b65bb380b97de22ba5ca8d72572f"
+    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
+    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
   end
 
   resource "typing-extensions" do
@@ -86,6 +87,11 @@ class Pyspelling < Formula
   end
 
   def install
+    # Workaround for https://github.com/html5lib/html5lib-python/issues/593
+    odie "Check if setuptools workaround can be removed!" if resource("html5lib").version > "1.1.0"
+    (buildpath/"build-constraints.txt").write "setuptools<82\n"
+    ENV["PIP_BUILD_CONSTRAINT"] = buildpath/"build-constraints.txt"
+
     virtualenv_install_with_resources
   end
 

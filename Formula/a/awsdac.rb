@@ -1,16 +1,16 @@
 class Awsdac < Formula
   desc "CLI tool for drawing AWS architecture"
   homepage "https://github.com/awslabs/diagram-as-code"
-  url "https://github.com/awslabs/diagram-as-code/archive/refs/tags/v0.22.4.tar.gz"
-  sha256 "c01e3f1b7ee531a552d095b50ec01332b4985aefe054ac3899d0f270e13245f4"
+  url "https://github.com/awslabs/diagram-as-code/archive/refs/tags/v0.23.tar.gz"
+  sha256 "df8f9ca155ec84e26db6f2060b20cda2e2d5b81d990ae96e7b26a006bee8fb33"
   license "Apache-2.0"
   head "https://github.com/awslabs/diagram-as-code.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4609266e567991f0a6336fbf63eb20a6a87e4ad47890dcc177fa7a0a4a999de0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4609266e567991f0a6336fbf63eb20a6a87e4ad47890dcc177fa7a0a4a999de0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4609266e567991f0a6336fbf63eb20a6a87e4ad47890dcc177fa7a0a4a999de0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7be1fe4983eb49c41c02bedd796e255a4012c6371814b5ce1cfa9522416f2fea"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2148b86ef64e6cb6dbe77a810cbfad514c751abd75f1853d50658c94649bf384"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2148b86ef64e6cb6dbe77a810cbfad514c751abd75f1853d50658c94649bf384"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2148b86ef64e6cb6dbe77a810cbfad514c751abd75f1853d50658c94649bf384"
+    sha256 cellar: :any_skip_relocation, sonoma:        "59d67de9c136c5f50e24a0dc6ab275b80fa891684139f2d546a609f355813161"
   end
 
   depends_on "go" => :build

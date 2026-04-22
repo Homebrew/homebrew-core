@@ -11,6 +11,7 @@ class Webkit2png < Formula
 
   # requires Python 2, see https://github.com/paulhammond/webkit2png/issues/108
   deprecate! date: "2025-03-21", because: :unsupported
+  disable! date: "2026-03-21", because: :unsupported
 
   # Requires Quartz, as well as other potentially Mac-only libraries
   depends_on :macos

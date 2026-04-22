@@ -1,17 +1,18 @@
 class XorgServer < Formula
   desc "X Window System display server"
   homepage "https://www.x.org"
-  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.21.tar.xz"
-  sha256 "c0cbe5545b3f645bae6024b830d1d1154a956350683a4e52b2fff5b0fa1ab519"
+  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.22.tar.xz"
+  sha256 "1a242c8917c49ba29ccc1f6021613d8a2b9805dd0d271a66ae9d09f4b0bb06b3"
   license all_of: ["MIT", "APSL-2.0"]
+  compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "f058e8d9ef4de941cd6666f08eccc1438ad6d270f5670d22a828047c8fe03326"
-    sha256 arm64_sequoia: "eee2c1c2c080f6453514590a41691aee01de049b8e9caa3284bf47a0d7aa7a65"
-    sha256 arm64_sonoma:  "3e8f16dbda81adb975791175b81187068bbba3b74b03f133307a214d12ee9e55"
-    sha256 sonoma:        "c5cd0e5ddc3485c4e871ac0a6713f9e33c62ad3bd26b9aba02f51ca3be24b4b9"
-    sha256 arm64_linux:   "5d8bc153d1aa91bf152d10f0a2adf6d044d08643a1534e34bd80e8c586341812"
-    sha256 x86_64_linux:  "71a264687ab492cb3e77004426f7c8bca0602232ec8867a3aa72b6eb17459d19"
+    sha256 arm64_tahoe:   "4a437746fbb931ee7095fa41d537b8a5d8e0d9db060d0bff09358fedc14bb80f"
+    sha256 arm64_sequoia: "77d4f062c4186d65e7d915a36b77b7132164899fba01d47c33dee60a6a8870e7"
+    sha256 arm64_sonoma:  "8dae32b24f595c142ecd24469a1b01daceb1a201989dac1a467c52cdf71f2aee"
+    sha256 sonoma:        "b6de9c5ea890b95d0dc9b3d47a886f066ca7276a2d0896fe39259d83605d0654"
+    sha256 arm64_linux:   "eac9b9823f8dba050ffeb490eb0fb28807f8bd6880d6bb96009e12d67fefc73f"
+    sha256 x86_64_linux:  "26a1aadf41f19be76ae3ffb0703ae6b21cfed150f35bd5dabd9d585af8c280ec"
   end
 
   depends_on "font-util"   => :build
@@ -43,6 +44,9 @@ class XorgServer < Formula
 
   on_macos do
     depends_on "libapplewm"
+
+    # Case-insensitive filesystem conflict
+    conflicts_with "x-cli", because: "both provide an `x` binary"
   end
 
   on_linux do

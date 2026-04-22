@@ -5,29 +5,26 @@ class ClangFormatAT11 < Formula
   sha256 "ce8508e318a01a63d4e8b3090ab2ded3c598a50258cc49e2625b9120d4c03ea5"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "85290508842e9f1649d4faa323396d04640dec3435cf08e62bacb90b1da36986"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6042bc3d6961fbe848bedd13b7e0f45a351d0e843091e14235e616622d128b00"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d680a9a2a892531dfd38de0cd43dee55268a7eafea7ab72f21b00f06705a04fd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1948c72aaec14b99817bf4fff1b6e07172f57975318a0b570c01f35be45cdd98"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "04eb4f41a69b4e4f1c3d4b020cfcafe07556fec0ce45bc2ffb1ad858e8ce389c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "08840589ede996c8040c994dbf2fd257892fbab226721bd4212f759bb88ecf08"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ed31b4214f10d7c730040ef07fba68c7eb2cf99ff6e8118feda8c02114c16fa2"
-    sha256 cellar: :any_skip_relocation, ventura:        "155903a7ad58a6f720625d6690e892003c3e8b743df77a9f24d2007df207e48f"
-    sha256 cellar: :any_skip_relocation, monterey:       "e59f3acdd1ccb01100c1e22093b61c5d442b3eb290857e9226ace3e070376b20"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d05a3e8c962d0170d27dd1cba184cd9fc7fabad7792e60402dc530c1849b33f6"
-    sha256 cellar: :any_skip_relocation, catalina:       "34600b6ed222dfaa3ad410e6abbbc2ec86da0cc8f6906156d443665f57472db0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "0b4ef3bd69407a87625451feb91e7487e215d247de4d5c7308953ec3a12fa6ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd67883368c8948f35545a2bce2356f8af91f1c518b17e5e41fc95d286dc9a00"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b1923e76a7a7db381a5aeec33e8b36b58dbc1894ed430bb0c0d2030b23351466"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "80badd34294c905914f5525552db99369edbeb249d6ef7ca418d9df12988acf1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d0b218f548e745af34b0652e5032bd6a526f36ce5e087fa907ea4d14700ebce"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8cf417694a7860c8b13c14fbcb0c85734e909769a376a16af6af60c8ae85c4e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9cd3b2638563b5d8b649bd25f641713494eaca6117557f5c02e3eadb214e425c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c8221c67cd82366a807f2efed7dc2e1d927e4865e6f2d06d8bec74089e30efd"
   end
+
+  deprecate! date: "2026-02-18", because: :unmaintained, replacement_formula: "clang-format"
 
   depends_on "cmake" => :build
 
   uses_from_macos "python" => :build
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "clang" do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/clang-11.1.0.src.tar.xz"

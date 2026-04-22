@@ -11,8 +11,6 @@ class Glktermw < Formula
     regex(/href=.*?glktermw[._-]v?(?:\d+(?:\.\d+)*)\.t[^>]+?>\s*?GlkTerm library v?(\d+(?:\.\d+)+)/im)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4fa3de55e34832b4cd122d80784210b5d85389306182944ebc6e1a63b5b54262"

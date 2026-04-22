@@ -1,23 +1,27 @@
 class Docmd < Formula
   desc "Minimal Markdown documentation generator"
   homepage "https://docmd.mgks.dev/"
-  url "https://registry.npmjs.org/@mgks/docmd/-/docmd-0.3.9.tgz"
-  sha256 "3bb453b54bf5a101df12e98ef0cc9ad121f68530a5f867721133b9155bad7981"
+  url "https://registry.npmjs.org/@docmd/core/-/core-0.7.1.tgz"
+  sha256 "01a158ff71f64cd7955ac9b48f189094555485c520733eea62148804c61e89f7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6bd3c0aa846cbe4b7dff1bb8a01af75743f52327c95a20ca85aaaf4e8ff86c22"
+    sha256 cellar: :any_skip_relocation, all: "b3929b7afb3bd2aa241c0c68edcc60e30ee2151342bb91ed43bd364a430af1ef"
   end
 
   depends_on "esbuild" # for prebuilt binaries
   depends_on "node"
+
+  on_linux do
+    depends_on "xsel"
+  end
 
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 
     # Remove pre-built binaries
-    rm_r(libexec/"lib/node_modules/@mgks/docmd/node_modules/@esbuild")
+    rm_r(libexec/"lib/node_modules/@docmd/core/node_modules/@esbuild")
   end
 
   test do
@@ -25,6 +29,6 @@ class Docmd < Formula
 
     system bin/"docmd", "init"
     assert_path_exists testpath/"docmd.config.js"
-    assert_match "title: \"Welcome\"", (testpath/"docs/index.md").read
+    assert_match 'title: "Welcome"', (testpath/"docs/index.md").read
   end
 end

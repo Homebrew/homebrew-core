@@ -1,29 +1,29 @@
 class Cocogitto < Formula
   desc "Conventional Commits toolbox"
   homepage "https://docs.cocogitto.io/"
-  url "https://github.com/cocogitto/cocogitto/archive/refs/tags/6.5.0.tar.gz"
-  sha256 "b807f6201dcbebbd97e0e8e34d8f2f14885b1b1c529b465463fe7a4dc8209ff5"
+  url "https://github.com/cocogitto/cocogitto/archive/refs/tags/7.0.0.tar.gz"
+  sha256 "cc00dacf1dd12b63976b0ca3c4ec383f902a95ed148968ccd35d9a174f66966f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a704fbe771aa230e5f98656e922a01efe4312a6e33dbfb78bbb04ee87a06463c"
-    sha256 cellar: :any,                 arm64_sequoia: "36bbcd4bfb64967dca2190df496432a21ba77d3883b25200ca631ec94b3371a3"
-    sha256 cellar: :any,                 arm64_sonoma:  "c02747e437f09dfcb70359ad8e859c86e5fd4c01d41f1cd1ec0ae6ca6bdefd10"
-    sha256 cellar: :any,                 sonoma:        "b6563dc90f933912cabfcb22ea6260e97d6fe610c5ea679c0a0e98fed2d2fff4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c71d19c76a15b2cd48561419e940279ede41de5bf7236dcf99cf977db39a363e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "740669b61556b1b7213dd4037ad17e6e36bd5ea9f5b2130a6154ccc0f43066ce"
+    sha256 cellar: :any,                 arm64_tahoe:   "88ff662284f7f242372e75430dacd7eafcfc26918e61981abfd74de963c9b34e"
+    sha256 cellar: :any,                 arm64_sequoia: "69d6b4328b431c98df2b7f2f9e654c1f1ebd83d5d455eecca43d1865ef2f53a2"
+    sha256 cellar: :any,                 arm64_sonoma:  "91910dbc605d51048db6dd512e894735d4d56781ca4224c9ba428fb580f588f2"
+    sha256 cellar: :any,                 sonoma:        "e3aa13b9c500755886f8cef11eb5d4b68d01d3d60d237a3a2cd1d73978f4923a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c28d53145ad804f7f71bc5140425a21d31b0093fbf3318a64aa378f3220e5e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3404ea70767d5d51bd225b30da32e17fbf6c45df751731360c76610027ad7268"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
 
-  conflicts_with "cog", because: "both install `cog` binaries"
+  conflicts_with "cogapp", "cog", because: "both install `cog` binaries"
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
 
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "crates/cocogitto")
     generate_completions_from_executable(bin/"cog", "generate-completions")
 
     system bin/"cog", "generate-manpages", buildpath

@@ -6,8 +6,6 @@ class Paps < Formula
   license "LGPL-2.0-or-later"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "8d95f99591217a56718331ee68a6996b39f059ca4aecfe5d0921a11566d75735"
     sha256 cellar: :any, arm64_sequoia: "b26fed1929f8d01dac18fb575c540f386006b2db8ce860288001f1424b3e6baa"

@@ -6,13 +6,13 @@ class Isync < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "51ac23702b00a76b69d7b7a5a2a49e12a1dfdec10d39eba583456af95a1e5b24"
-    sha256 cellar: :any,                 arm64_sequoia: "87e89cf7ba0e8017e911fac5e775caf4f87a13c4446feef4036b68682d297318"
-    sha256 cellar: :any,                 arm64_sonoma:  "351efb217c463419e3b6f6955416904a75391b3b6a48d78694c2cdba516679fc"
-    sha256 cellar: :any,                 sonoma:        "374da5a258a54405bcfc02798557deb06477dac7b5d3377ffbea83d23bbfa869"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de3bcb74523494f0e6f3c56e0042c166f5fed1566fb3b9890aa9d5c2837655a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b212a214d32232c91c5bb140d8ee04af558b87864e7514737cadd4cf8b9f93c7"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "112d7d4dd67530267fd137c2a4dc088128cfb86645df9baacdf347657f638779"
+    sha256 cellar: :any,                 arm64_sequoia: "0f5182fcd8741c7a5206d2dbe599e4ae4d69af77e9cfd6fce910fb73da81790b"
+    sha256 cellar: :any,                 arm64_sonoma:  "27e9a03df42264de7db35d52232a1752051caee2ab0eeead25e16d81c026cf9a"
+    sha256 cellar: :any,                 sonoma:        "a0ced90c4006994b8a962ff402b1580aa27f821193aaec168562f08eee713c13"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb02c3cdc9fdae85acc97a271031a4fc62b23241926f3cd905f2d201a21f1e0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "328a896bb3825d07bf63b0650f0031fc1a0ff7c44a785952cf3c29f88f53a881"
   end
 
   head do
@@ -25,11 +25,14 @@ class Isync < Formula
   depends_on "openssl@3"
 
   uses_from_macos "cyrus-sasl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

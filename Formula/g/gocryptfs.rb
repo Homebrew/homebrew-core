@@ -7,15 +7,16 @@ class Gocryptfs < Formula
   head "https://github.com/rfjakob/gocryptfs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "0dcfa87911d05b4bcc751d9a15b6aefd1b2876499c7f1f9eed58a9af84b891dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "689397d13f30daf5630dcb4ee457a6a2ca1d77100a23d9dd4a40c1f31840a2b0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "24867295279b069b510db25edee6a78ee40ecb2a6d2007cc6ce3d893ba1a0fb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "089b2030c913a45efcbee7fd1b66f7c1957fc7fb994e8821f43da7b53796d18a"
   end
 
   depends_on "go" => :build
   depends_on "pkgconf" => :build
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "./build.bash"

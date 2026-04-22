@@ -10,6 +10,8 @@ class Zstd < Formula
     "BSD-2-Clause", # programs/zstdgrep, lib/libzstd.pc.in
     "MIT", # lib/dictBuilder/divsufsort.c
   ]
+  revision 1
+  compatibility_version 1
   head "https://github.com/facebook/zstd.git", branch: "dev"
 
   # The upstream repository contains old, one-off tags (5.5.5, 6.6.6) that are
@@ -20,24 +22,23 @@ class Zstd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "ddb0c145060bc2366ce5d58d95aa205bb15cb4c66948f20bb85e23fdb5eba7e9"
-    sha256 cellar: :any,                 arm64_sequoia: "55a4e0a4a92f5cf4885295214914de4aefad2389884085185e9ce87b4edae946"
-    sha256 cellar: :any,                 arm64_sonoma:  "60c34a6a3cadf1fc35026cde7598fbe7b59bd2e5996c4baf49640094b4ffeb37"
-    sha256 cellar: :any,                 arm64_ventura: "2332527b27c6661bf501980bd71a5b4fe1b417122bf8b37d9f082e47b377b7f9"
-    sha256 cellar: :any,                 tahoe:         "873feb2d747bb21708c0229bb977364d0794e65bccbf18e33934a424342e83a1"
-    sha256 cellar: :any,                 sequoia:       "342e64c01287a716615d14d4a71770fc5930871dc0a965fbdda6062f80dc1952"
-    sha256 cellar: :any,                 sonoma:        "77457805185cd2c70fe81245b9e2d1a3e178a1be55e032eb504391dbd4d4e9ab"
-    sha256 cellar: :any,                 ventura:       "c7b411aee72bc1e36d9a2647059433da62a0ca9a4cc7baeb44a2226e0a0de8b8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2148094d7e41ccbe0ac29f351d6544093d45ff0aa41f0ff90f3e3b0c594d824a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecd3f9ef36c6f9b324a36c33727962c37be5d12fdbe330e9b863112f24c49e11"
+    sha256 cellar: :any,                 arm64_tahoe:   "628a4ef53428d0078e3d76d297171ce8d0294f5ec1de3f20305e08c4dd333565"
+    sha256 cellar: :any,                 arm64_sequoia: "d72adf48460a8384b256f88061cd7b9df4977df7fa2e0794051d427db754a565"
+    sha256 cellar: :any,                 arm64_sonoma:  "35b5150b27512a94ebaee7b4399aaa8adf42d247e6968319e4aeac3c05365281"
+    sha256 cellar: :any,                 tahoe:         "90c345a174a631a157f7ea056fe41205fb77778e65d4bdc91097a3fb3a62faa6"
+    sha256 cellar: :any,                 sequoia:       "8b2443dfa62b9d28cf0321e0e670bb096b2680fe72739999228291f36018311f"
+    sha256 cellar: :any,                 sonoma:        "8b8656acd6f30bcbbb9a033ae840afea299c9f0852f71b7540492b0fe7a36742"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "575617c1532fe90e212c052fb14fcd4fa295890e3bc9ac69dc52404a04a95855"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d5ca8948526a2e3a487db0cd0acec9f4b415d5a4b08cffe27e2ea0c339c9dbe"
   end
 
   depends_on "cmake" => :build
   depends_on "lz4"
   depends_on "xz"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Legacy support is the default after

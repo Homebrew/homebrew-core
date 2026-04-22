@@ -4,9 +4,8 @@ class Snappy < Formula
   url "https://github.com/google/snappy/archive/refs/tags/1.2.2.tar.gz"
   sha256 "90f74bc1fbf78a6c56b3c4a082a05103b3a56bb17bca1a27e052ea11723292dc"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://github.com/google/snappy.git", branch: "main"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "e735754860a1b086bf31814117dff6eaee6a1d9f26e8de33ee9d75f1decc770b"

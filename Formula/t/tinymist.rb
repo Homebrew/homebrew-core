@@ -1,8 +1,8 @@
 class Tinymist < Formula
   desc "Services for Typst"
   homepage "https://myriad-dreamin.github.io/tinymist/"
-  url "https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v0.14.10.tar.gz"
-  sha256 "215c08d8a10ff51e15711f0684eafc85d119dc98db57f4f47ec7bf5987ea681e"
+  url "https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v0.14.16.tar.gz"
+  sha256 "f9c8f33ac4208f7f7d3a56f3005645cb5959fd8bceca56488c7016a0880ebe1c"
   license "Apache-2.0"
   head "https://github.com/Myriad-Dreamin/tinymist.git", branch: "main"
 
@@ -15,18 +15,20 @@ class Tinymist < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "141107cd600ec9084c0f23aa6d17237f46befa0ea399f9c45ac0950948771480"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c59d1f7108e44f67d21de944a49aee909d28a6477d44b8bb5f850bc7269588e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3994687ebc60daa4f52deac832cbde58b13221ebe4adfbfd09ee8d9d7158912c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7bed8575ead5a60d5fffbf620bdff2d7e685cb2d7818aebbdd9160a5775b0fe4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb341def15d08ce05ba41de06e10355b1416203347dbb8392e458ad6fd3e6cb5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e56aeaab347eb1a83fcee80aa29f9007f12214d72fc3f733e5835b01e3c2bf1e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b5ae315923a00214aa33b536f46e0f7a7dd0299928c1df2b3aeaf25dbf1b324e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14962661c5e1303769775eb737a8b75f7caab9073327e67881302c1a8ca32931"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "638aec58d38727c79265dd35fc806c9ada01625495430383dc4dfc50b38c125a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "47224320f7b30bcb8611c969d06393a69f7e6bc4b33c89559b7f931645b02dda"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "50032f40e6bd88882d1df4a529512b79c6b8c6822dd8d1304e56ca643c70a42e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85f990a50cc931dc86f527d241517b6837281feaf9ef4470398add5fb44efab9"
   end
 
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/tinymist-cli")
+    generate_completions_from_executable(bin/"tinymist", "completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do

@@ -3,13 +3,13 @@ class Icdiff < Formula
 
   desc "Improved colored diff"
   homepage "https://www.jefftk.com/icdiff"
-  url "https://github.com/jeffkaufman/icdiff/archive/refs/tags/release-2.0.9.tar.gz"
-  sha256 "e6080e24982d749106b42bf62df9ad9010a6f85e557e3dbbe28deb781184167e"
+  url "https://github.com/jeffkaufman/icdiff/archive/refs/tags/release-2.0.10.tar.gz"
+  sha256 "0db463ddf9006c671170022cae2ce6ef101b0da6329ab59ae90a534ef57fea5e"
   license "PSF-2.0"
   head "https://github.com/jeffkaufman/icdiff.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1db5c0e424512c9a5300244b024b550fb68e9e6617ed39c26c5a07e6fec7e049"
+    sha256 cellar: :any_skip_relocation, all: "0983cc614b2109d7aab7d91987c091341e27c51a4dae4e5aecca3decf6602e39"
   end
 
   uses_from_macos "python"

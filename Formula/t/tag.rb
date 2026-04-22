@@ -7,8 +7,6 @@ class Tag < Formula
   revision 1
   head "https://github.com/jdberry/tag.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "dd8bc8fffd2b86efc0a22070b48426c82f98979625bf991332a633a83070cc85"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0276d10f3dbc55011085ba7d45f74a29760a8985108e946be3d2c6abf0bdfb34"

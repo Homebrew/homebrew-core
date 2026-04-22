@@ -1,9 +1,10 @@
 class Libexif < Formula
   desc "EXIF parsing library"
   homepage "https://libexif.github.io/"
-  url "https://github.com/libexif/libexif/releases/download/v0.6.25/libexif-0.6.25.tar.bz2"
-  sha256 "7c9eba99aed3e6594d8c3e85861f1c6aaf450c218621528bc989d3b3e7a26307"
+  url "https://github.com/libexif/libexif/releases/download/v0.6.26/libexif-0.6.26.tar.bz2"
+  sha256 "0830ed253fceeb60444fb309598bc8a9491d3007dc054aad3a50a347c5597c57"
   license all_of: ["LGPL-2.1-or-later", "LGPL-2.0-or-later"]
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -11,14 +12,12 @@ class Libexif < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ef49b4bf108c622d0a0f18d5911230f489e1d93f5dcda597949125cad02d7389"
-    sha256 arm64_sequoia: "db630e3ebf4c47a7c96f14e8edf29eaf88d89fbe2b0fb6737e1babdc39c230da"
-    sha256 arm64_sonoma:  "a70285c25d276538094060000acea0828c0f0f287c5bea731b780f3a6d8357aa"
-    sha256 arm64_ventura: "44869b2f698103429ec8a0f46613fa6acf144a1e5b237addadb1902cc482e8fd"
-    sha256 sonoma:        "4ccd8b1a418d04e1991120ffb36e82b75dc255b3d652371f93b47032c4f5d829"
-    sha256 ventura:       "2fe6759911975daa49a08569542b4ca535310b6260112dbf8b34f97247632980"
-    sha256 arm64_linux:   "db6839524b1045b07572a9b3838dd98c6f3d041d762bd77ce8799a1a5fdff114"
-    sha256 x86_64_linux:  "1426d9fdac3dcf9359098176fa0a8477c0b3fb05bae374e5fa9daedf3142aead"
+    sha256 arm64_tahoe:   "124b33b57bbf93384d1155983930a81b258d1358b1eff29ec17ac5bc868b0aea"
+    sha256 arm64_sequoia: "de8d0b2637cf96b06dd2e4e5d89e75511d1b6cdf4f6b82894ec7e1219e614c69"
+    sha256 arm64_sonoma:  "3efa42a370d416f5f9ea9bceed5bfbee25b7110e2b6d299af448bf877e665401"
+    sha256 sonoma:        "020318b7bd815dfed8dddefa9e824123b61f3b19b8f574fba91dab98053ddbb1"
+    sha256 arm64_linux:   "6b89826eaeef82ae698829e319b553ef87635915f5b907267db66d239d2eb67f"
+    sha256 x86_64_linux:  "4389caca58aaf778b35bc8d7ade6e863df28735894f69b7c2473ac96c44ac971"
   end
 
   head do

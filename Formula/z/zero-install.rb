@@ -11,8 +11,6 @@ class ZeroInstall < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "72363e55fe980db764f061a8963c2e9fe3fb58370b1daa7fa48ce4bb2729990f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c693f4d80b111a0a5358f8b473320134c026a20d87febc6f827bab257876baff"

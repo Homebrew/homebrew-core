@@ -1,18 +1,18 @@
 class Katana < Formula
   desc "Crawling and spidering framework"
   homepage "https://github.com/projectdiscovery/katana"
-  url "https://github.com/projectdiscovery/katana/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "707d355be6a288a96262197a2ed28f041d789f4cda8463637954e4a9fb0830ce"
+  url "https://github.com/projectdiscovery/katana/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "ee18fd5d0bf3e8f6c73fdc77c7b874dfa993d0e4b5f8d4e475eaea2ce62d8bdb"
   license "MIT"
   head "https://github.com/projectdiscovery/katana.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "07698689720828c1e3e486f3cb1ea60521c7e9dcf0bf89ba9c0fbaa8a3d1bd10"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "755c6ef7d8920aa7fc767cd4d710d3e3a4f4043962ae43859073b8167f329cdc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bbfb395c8681d88dcc8aafd24517bbc1bca568fe1f528c9399f8f44199a8c159"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d32d4fa493fe8d4564bb74224a208677efd322d7410bbeb4bd07c3541f8539e2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2248ad149e4e23be064480b29168237386c0d799a1380d9be1ba495d0037cb5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22e87001d78e97c78c790a94396b7660c4051853f1a2d99cca36c548d0b7dd09"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b53dc2653fd4eae2d0e7699e2bc4fe4752bbec77fc7ccb09a6d86af69809b434"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7ee984f935a8fb7088a6b198ff9f1a0c2e716a5969f2cda95ac9d411b1a37ec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3743ea05922ee8b5f7ec130f8cab1455545708120c1300f9ef162eff55d48c6f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e63b6a315bfbeed73431159a5f4c38abd7fd2fc0d7953c033e3c145ad1d396a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6808287543212b5a02cb27cfaf21d7bb3971bd07c0c23bc5d8b40c9a47cb5e3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7e18bfc230e404df821a890b8aedd60550bf93bc0d2a651791e382b03e51420"
   end
 
   depends_on "go" => :build

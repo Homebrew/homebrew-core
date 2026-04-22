@@ -1,8 +1,8 @@
 class Lazygit < Formula
   desc "Simple terminal UI for git commands"
   homepage "https://github.com/jesseduffield/lazygit/"
-  url "https://github.com/jesseduffield/lazygit/archive/refs/tags/v0.58.1.tar.gz"
-  sha256 "e4f0d4f3cebc70a802f95c52265e34ee879265103ebb70b5dd449ae791d0cbbb"
+  url "https://github.com/jesseduffield/lazygit/archive/refs/tags/v0.61.1.tar.gz"
+  sha256 "2a550c9b609c5eb0e1c2640e8114ac05b94c671803f77e08a9dcdbd66372e2c4"
   license "MIT"
   head "https://github.com/jesseduffield/lazygit.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Lazygit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b58875f799a731405c1a697746645cc8f5e2defa75c8fda90d37d076764551b8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b58875f799a731405c1a697746645cc8f5e2defa75c8fda90d37d076764551b8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b58875f799a731405c1a697746645cc8f5e2defa75c8fda90d37d076764551b8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b5e65e3a62637efdf1f8665ff5ccf2a8fce5d4cff0730be6a016d3b05ac7bfa8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1955c592c72ef01a20fbec9074bb1205c04ea4ec3c84d6bb173bf00f66487f7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "420c80f591c47859e3245cee1f6675c18202f3a210f7bf75aa3f396b9cc01813"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8b9bcbe1de4005a065c87110f3ae0993a88e67efec96b0c9a863f0c35ec1460f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b9bcbe1de4005a065c87110f3ae0993a88e67efec96b0c9a863f0c35ec1460f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b9bcbe1de4005a065c87110f3ae0993a88e67efec96b0c9a863f0c35ec1460f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "af6d4ee7cd246a3602867d42d5ac9a22130d9beffaa0596d0b89e3099befc94e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebd8536410f6863541a6f88e06f0fe0592556cd1a381974bd1ec42c8ee97ed09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59188b1a68d4c954d0557a2e714abfe93ded706ff378ed6c3aab6cb73b212591"
   end
 
   depends_on "go" => :build

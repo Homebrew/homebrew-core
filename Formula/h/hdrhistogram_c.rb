@@ -4,19 +4,23 @@ class HdrhistogramC < Formula
   url "https://github.com/HdrHistogram/HdrHistogram_c/archive/refs/tags/0.11.9.tar.gz"
   sha256 "0eb5fdb9f1f8c4b9c6eb319502f8d9e28991afffb8418672a61741993855650e"
   license any_of: ["CC0-1.0", "BSD-2-Clause"]
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b7ddf6ab3293d244ec56b54c22b2bcceab29a4e0af233b754e6ad443ece3b40a"
-    sha256 cellar: :any,                 arm64_sequoia: "8dc24b714f1bf7fd3fcc551be90d150046ca3a8a498606b72e257b7d55838d07"
-    sha256 cellar: :any,                 arm64_sonoma:  "6d76ceec4e5677b28270fe45b2b36161d4fad87f95b2c803b998fbb2be4bada7"
-    sha256 cellar: :any,                 sonoma:        "bd5c101eca263aed10648169b5d6dfb3bd14a4767752e99a2a14e44f901688ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e7cd5528740d26d187668cac84d0184780bbbaa40d17ae472e47b9d94ff2602"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e6c9941b0e46340858286a635edb47af4b1334d64160e5e6bb7ffb9cff6c0e6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d6176ee0c8f1da767cf07c9bc3f1481de19d9e500cafaa1896065ab2e5961cf9"
+    sha256 cellar: :any,                 arm64_sequoia: "8e2ebaf0b19adeda703f29a398f06a370bfc26e1c491e5485581b897c376180d"
+    sha256 cellar: :any,                 arm64_sonoma:  "4d62d2a9add2e38b3a446786b87a533fa5ffe737d32511cad60cabc60c81df66"
+    sha256 cellar: :any,                 sonoma:        "890f9ac2df4f21715c3e14a8e3cc370004e8959268ef36246494ed4043be85b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5af92ae3629352a0e39691af319f65ca20108cf56acb807661408a63f57ef29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10d7ecdf95eb22af3ba8e15175e25cf00a88ec7357171f96dfb9cf3d529528c4"
   end
 
   depends_on "cmake" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DHDR_HISTOGRAM_BUILD_PROGRAMS=OFF", *std_cmake_args

@@ -1,18 +1,19 @@
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://getsops.io/"
-  url "https://github.com/getsops/sops/archive/refs/tags/v3.11.0.tar.gz"
-  sha256 "0182659099cd6a2fbcb41b507f8cd363667a0d6eb442098f6cebdf4ca8ecd2ac"
+  url "https://github.com/getsops/sops/archive/refs/tags/v3.12.2.tar.gz"
+  sha256 "24b1f23a677535d1e06b63f8b4f7793d4f325b86c5454724fac90f5e73903e26"
   license "MPL-2.0"
   head "https://github.com/getsops/sops.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52994ee8ae4c40be548d83f52e47549788fe07bb4cb04a9700c605d26b773d7f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52994ee8ae4c40be548d83f52e47549788fe07bb4cb04a9700c605d26b773d7f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52994ee8ae4c40be548d83f52e47549788fe07bb4cb04a9700c605d26b773d7f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fb2334538fae10f195960465f656619f7a123dbe5a7bb21c447715909b14dae5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4fe0236b892c9bb0a7bb74d2d69cfd14303bb46bc992da2577ab380462055303"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9557d761c6abc996ce3e66b6411956fcd7c5dd984ee27eb2fe4ad6f0f34f19a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9b09a92006fe701494f378f8a58faf1c3dfae6932b1ab217725a1728542b8bd4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b09a92006fe701494f378f8a58faf1c3dfae6932b1ab217725a1728542b8bd4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b09a92006fe701494f378f8a58faf1c3dfae6932b1ab217725a1728542b8bd4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d86665bedc9eb0c2deac9d82c532b0c9155339aef946dbe99b2b210ea227a916"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04c65a6452f9fe980b379c9aedb1db807c03050f17f492b52f1b4d28b68880dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d076dd279b45587a24becd3b54a0b9974621ef89e3fa7ee880f253cc0994f0f9"
   end
 
   depends_on "go" => :build
@@ -21,6 +22,8 @@ class Sops < Formula
     ldflags = "-s -w -X github.com/getsops/sops/v3/version.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/sops"
     pkgshare.install "example.yaml"
+
+    generate_completions_from_executable(bin/"sops", shell_parameter_format: :cobra, shells: [:bash, :zsh])
   end
 
   test do

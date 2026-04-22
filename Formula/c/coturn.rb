@@ -1,8 +1,8 @@
 class Coturn < Formula
   desc "Free open source implementation of TURN and STUN Server"
   homepage "https://github.com/coturn/coturn"
-  url "https://github.com/coturn/coturn/archive/refs/tags/4.8.0.tar.gz"
-  sha256 "a3b302b52c5405a2595f59036c95fc3676e640436ba67e3f621937ec648b1ea5"
+  url "https://github.com/coturn/coturn/archive/refs/tags/4.10.0.tar.gz"
+  sha256 "b28d0c21535ff27300234a8c11ca08dceef9c33515a5842f362531bd70083083"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Coturn < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "d38701f1c1c672a30bc5d42ef428b4c5efa22418d12e27bf94e78bf6c904f06a"
-    sha256                               arm64_sequoia: "8024d055cf20ac67e1a163583b340eb889d8b2cd83ced4e2650aec94855064e8"
-    sha256                               arm64_sonoma:  "58b8abbe7590b12749b3f10f66933e7a3dc8b685de56b2c346a725463def2881"
-    sha256 cellar: :any,                 sonoma:        "65262816d66456297922be972a056f6b8ec36e56be68c3137c07bb835371177b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "22832cccdf52b5ab2f1e05c3ca72626a13f0efb2c47daa8fcf1997dda97f9569"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9095996248a3877188d93bb39b4b37c73ab303f4bd0f3e7c8c65eb501ce94cb3"
+    sha256               arm64_tahoe:   "e75ad66ee05e77f6aac6b6dc47a03989868067b4c1ed7b790e18b0ab92604379"
+    sha256               arm64_sequoia: "d049a99186126a6cd72e03b2496a91fedecf409bdabb5261c384812184b6d59a"
+    sha256               arm64_sonoma:  "9c2b74f769b586d036399bb3faeb7951aff2ba542a27eff01aa9568d1c89ce48"
+    sha256 cellar: :any, sonoma:        "9b2c0e14f85a7cfc0c283c1f45a051e4678b8d04de44e38608d048d9a8061318"
+    sha256               arm64_linux:   "a33de85dd32d11218e94d4912046cedafa75076812c21e9f3b5826eba18a071c"
+    sha256               x86_64_linux:  "eeedf35c6481fcc4a5d7c674668fc402d0b95eb4d891f4e667659ad71e05c845"
   end
 
   depends_on "pkgconf" => :build
@@ -24,6 +24,8 @@ class Coturn < Formula
   depends_on "libevent"
   depends_on "libpq"
   depends_on "openssl@3"
+
+  uses_from_macos "sqlite"
 
   def install
     ENV["SSL_CFLAGS"] = "-I#{Formula["openssl@3"].opt_include}"

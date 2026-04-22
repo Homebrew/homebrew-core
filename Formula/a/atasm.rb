@@ -6,15 +6,18 @@ class Atasm < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4624c43d42f400c186a54fd6000c7553737ffdf7021910b2f1b1656261a26d4d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "27ea6963c065e0e76560943ac765b1596013c8aa709c9d04e6a31f7d0c6c2e37"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c6bfc5cf70bab6cd80ba13cb72ed949658f2d1a0ebff6ec8b01bee87c2783b84"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39e1fba5d843e6ed3e7486f9d89e6ade88d6fe2ed9699a1c7795bed46688157b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "072eff0c34c17d737d83ecbd61f1351c934b88014a9b9677f70be1ab1cf7c876"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9a213cabdfe9445ab776d7588de31d43005c0389c41a114ae8c3b1ebcf82c08"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "729fb2476730654734f87152e0925af39a747afeda5a1d1719d74c0fb1b77b94"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95d431fd1b13e5e3736ed4309f4ff2f8e8206cee0ace352d5353013429f0c0ff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b61dcd891f38286d01f400a00b258eec3b684e7a2ea8d7c6fa1265a57acdeea"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2465fe4a6ff41737c651a8d9ea59bdfa1fe00842ec23373e43c6bb80371fee78"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c55e4b9e3127a958e9925d8a7ec67ec21c410df64a6e1d9a1c15b1a048a20a68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c9938e74e5a9bdd32cd294b8fa073eb27a13312fa6dec6027c346a5a2a42699"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     cd "src" do

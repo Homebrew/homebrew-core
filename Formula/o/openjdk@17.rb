@@ -1,9 +1,10 @@
 class OpenjdkAT17 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.18-ga.tar.gz"
-  sha256 "15c4fbd1d69254d362c24e82f4e9ab7ed69c8ebc7daf996500210698c944230a"
+  url "https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.19-ga.tar.gz"
+  sha256 "b165f0dd120f4455904b76cf87dd9352fd23f88c2e9a33c2532fabacc3cca962"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -11,12 +12,12 @@ class OpenjdkAT17 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "50687a5526c3c0fe3437a45e3b01ac2d22af9a2dc7edec033d490b5745c53462"
-    sha256 cellar: :any, arm64_sequoia: "8983a4ffdb1b5931d8d057bce3f5cfb526985eb42af0aab4aa9283272f7e3b8a"
-    sha256 cellar: :any, arm64_sonoma:  "c10665a37f28e462ada3dffc46a6878c00eeaad671c3d14096be471e672f9d86"
-    sha256 cellar: :any, sonoma:        "5f472acdd0db687b2a3e9420763cbbafcd3bef583241c93ba52f5b538f6e7148"
-    sha256               arm64_linux:   "721c6d0f0146aeaac7a4ec00414a36c9df8ab1b349c36df425fc28d48a9a5ce5"
-    sha256               x86_64_linux:  "cbbc88a93cef5051bbc5d497c0bab5fb7f6ebaf0ad71ae07d8281a575e174061"
+    sha256 cellar: :any, arm64_tahoe:   "6d51e51e754dc75437c5c552eea568ec2f166e39fc3faa256e668083a8620c17"
+    sha256 cellar: :any, arm64_sequoia: "5544476e1a2a6d9e449c637e4224513091ff97ee63896aca161175a041ad3a14"
+    sha256 cellar: :any, arm64_sonoma:  "b95d5e34016e8839a15ea90d2c9f74365424df4c98911d4e7f42ab05c7b160ec"
+    sha256 cellar: :any, sonoma:        "4d13b59638a205d7a77bf2a20907fafe0344e39f479648732216b67b1eb93a36"
+    sha256               arm64_linux:   "b4d4eb0b9925ed74487a0e44fdff65eea0f13d317b4508cc44f13ca1f54b2e4f"
+    sha256               x86_64_linux:  "586ff683171f8b5c61705128337a497b35c06081df4146b0b8a64ac1ebd8cd7b"
   end
 
   keg_only :versioned_formula
@@ -35,7 +36,6 @@ class OpenjdkAT17 < Formula
   uses_from_macos "cups"
   uses_from_macos "unzip"
   uses_from_macos "zip"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
@@ -47,6 +47,7 @@ class OpenjdkAT17 < Formula
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
+    depends_on "zlib-ng-compat"
   end
 
   # From https://jdk.java.net/archive/

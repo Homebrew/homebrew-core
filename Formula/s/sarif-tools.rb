@@ -6,16 +6,16 @@ class SarifTools < Formula
   url "https://files.pythonhosted.org/packages/16/3c/68e41db88aa15124175936017928e99182b3df8e6913c5e194c67d641996/sarif_tools-3.0.5.tar.gz"
   sha256 "52d09c101121231fb3489ad8c7af56896b8a95415cef726a6db5e7d74c6834d2"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/microsoft/sarif-tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "550644070de6931b18d2ab82c9ac5cfd44fca3a1df13c9abf530e2c4a155b8e1"
-    sha256 cellar: :any,                 arm64_sequoia: "bc0635459d0ce7aa8ff56c94e79de38fdf2d315d60647b349540d6383b31e390"
-    sha256 cellar: :any,                 arm64_sonoma:  "682c452c073f418a4644b29a49a7d43ddd788e8779347b4e2f9688815ab7f46a"
-    sha256 cellar: :any,                 sonoma:        "d4f532efd411bee51b1f4a112acf5cf1d47839919e19003f4804687a4996f58a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "961c48827b16bcdb7463bb8acd0ff7c64b61aa2419fa550ecdb2c6c12a8aa0e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db17e58b02d613b2030d9c4f5e60f646ac10fb6de997dbb1caf1e5a955b9980c"
+    sha256 cellar: :any,                 arm64_tahoe:   "a47134113932b3f39c8abccdfbbd9aa871020fd21748b1f4b954d26917587c53"
+    sha256 cellar: :any,                 arm64_sequoia: "d2a332e0a9a42c79f7142982bde15a04da8e8850f17ce19cc0fba50810f05c9d"
+    sha256 cellar: :any,                 arm64_sonoma:  "17c35c7e55a776a53c08eb400bd43677277dc08c688fff5ff7b59331dbcf572e"
+    sha256 cellar: :any,                 sonoma:        "b9a150fe1c7bf75128d9d04ca09ab9a933cb7a24c03566422a8681eb8f266fd2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c48aacd997358426a10514dd6ec271732a7359ac74d9ee0722da8e6190ea637f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d007d112b070a209ee225d6e8f610337218b9c2af45371e1cc1b529daaafb11"
   end
 
   depends_on "cmake" => :build
@@ -36,10 +36,10 @@ class SarifTools < Formula
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "patchelf" => :build
+    depends_on "zlib-ng-compat"
   end
 
   pypi_packages exclude_packages: %w[numpy pillow]
@@ -55,8 +55,8 @@ class SarifTools < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/33/f9/0e84d593c0e12244150280a630999835a64f2852276161b62a0f98318de0/fonttools-4.61.0.tar.gz"
-    sha256 "ec520a1f0c7758d7a858a00f090c1745f6cde6a7c5e76fb70ea4044a15f712e7"
+    url "https://files.pythonhosted.org/packages/9a/08/7012b00a9a5874311b639c3920270c36ee0c445b69d9989a85e5c92ebcb0/fonttools-4.62.1.tar.gz"
+    sha256 "e54c75fd6041f1122476776880f7c3c3295ffa31962dc6ebe2543c00dca58b5d"
   end
 
   resource "jinja2" do
@@ -65,18 +65,18 @@ class SarifTools < Formula
   end
 
   resource "jsonpath-ng" do
-    url "https://files.pythonhosted.org/packages/6d/86/08646239a313f895186ff0a4573452038eed8c86f54380b3ebac34d32fb2/jsonpath-ng-1.7.0.tar.gz"
-    sha256 "f6f5f7fd4e5ff79c785f1573b394043b39849fb2bb47bcead935d12b00beab3c"
+    url "https://files.pythonhosted.org/packages/32/58/250751940d75c8019659e15482d548a4aa3b6ce122c515102a4bfdac50e3/jsonpath_ng-1.8.0.tar.gz"
+    sha256 "54252968134b5e549ea5b872f1df1168bd7defe1a52fed5a358c194e1943ddc3"
   end
 
   resource "kiwisolver" do
-    url "https://files.pythonhosted.org/packages/5c/3c/85844f1b0feb11ee581ac23fe5fce65cd049a200c1446708cc1b7f922875/kiwisolver-1.4.9.tar.gz"
-    sha256 "c3b22c26c6fd6811b0ae8363b95ca8ce4ea3c202d3d0975b2914310ceb1bcc4d"
+    url "https://files.pythonhosted.org/packages/d0/67/9c61eccb13f0bdca9307614e782fec49ffdde0f7a2314935d489fa93cd9c/kiwisolver-1.5.0.tar.gz"
+    sha256 "d4193f3d9dc3f6f79aaed0e5637f45d98850ebf01f7ca20e69457f3e8946b66a"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
-    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
+    url "https://files.pythonhosted.org/packages/28/30/9abc9e34c657c33834eaf6cd02124c61bdf5944d802aa48e69be8da3585d/lxml-6.1.0.tar.gz"
+    sha256 "bfd57d8008c4965709a919c3e9a98f76c2c7cb319086b3d26858250620023b13"
   end
 
   resource "markupsafe" do
@@ -85,23 +85,18 @@ class SarifTools < Formula
   end
 
   resource "matplotlib" do
-    url "https://files.pythonhosted.org/packages/ae/e2/d2d5295be2f44c678ebaf3544ba32d20c1f9ef08c49fe47f496180e1db15/matplotlib-3.10.7.tar.gz"
-    sha256 "a06ba7e2a2ef9131c79c49e63dad355d2d878413a0376c1727c8b9335ff731c7"
+    url "https://files.pythonhosted.org/packages/8a/76/d3c6e3a13fe484ebe7718d14e269c9569c4eb0020a968a327acb3b9a8fe6/matplotlib-3.10.8.tar.gz"
+    sha256 "2299372c19d56bcd35cf05a2738308758d32b9eaed2371898d8f5bd33f084aa3"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
-  end
-
-  resource "ply" do
-    url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
-    sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
+    url "https://files.pythonhosted.org/packages/df/de/0d2b39fb4af88a0258f3bac87dfcbb48e73fbdea4a2ed0e2213f9a4c2f9a/packaging-26.1.tar.gz"
+    sha256 "f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/f2/a5/181488fc2b9d093e3972d2a472855aae8a03f000592dbfce716a512b3359/pyparsing-3.2.5.tar.gz"
-    sha256 "2df8d5b7b2802ef88e8d016a2eb9c7aeaa923529cd251ed0fe4608275d4105b6"
+    url "https://files.pythonhosted.org/packages/f3/91/9c6ee907786a473bf81c5f53cf703ba0957b23ab84c264080fb5a450416f/pyparsing-3.3.2.tar.gz"
+    sha256 "c777f4d763f140633dcb6d8a3eda953bf7a214dc4eff598413c070bcdc117cbc"
   end
 
   resource "python-dateutil" do
@@ -130,10 +125,6 @@ class SarifTools < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
   end
 

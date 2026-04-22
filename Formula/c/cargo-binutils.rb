@@ -8,8 +8,6 @@ class CargoBinutils < Formula
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rust-embedded/cargo-binutils.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1462ea07e63a12bca4c626cb452706ea56780f777a580ba4080c87978b661af8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e345e71200c674756c1c5052eb06d5c5476ab91b0446b2f53fb4d21329e86f8"

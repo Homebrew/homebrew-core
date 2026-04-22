@@ -10,8 +10,6 @@ class Solid < Formula
     skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "d60b8794f39a07abe48ee17d5d5d71de75ee92f8d39dc81fe32bb31b12020558"
     sha256 cellar: :any,                 arm64_sequoia:  "a120341c8125672e287c5273d0aa022bc1751270b12b94d24aaad75efb8e86f8"

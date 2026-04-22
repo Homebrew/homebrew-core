@@ -6,8 +6,6 @@ class Onioncat < Formula
   license "GPL-3.0-only"
   head "https://github.com/rahra/onioncat.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "376be0d8ae8f091f6f6dae5beba524fd5ba07e2606264a73c1b827e187dc3ea2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "29b153e2b454faccfb935cf8524b3b37fafb5b17a86ba38377d887ca0bbd86a0"

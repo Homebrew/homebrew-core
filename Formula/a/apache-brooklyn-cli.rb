@@ -11,8 +11,6 @@ class ApacheBrooklynCli < Formula
     regex(%r{^(?:rel/)?apache-brooklyn[._-]v?(\d+(?:\.\d+)+)$}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "40f8748f92e5bf30f1451b1590f1bcfa7d2cb4001b3b464a3cba2536207dabfb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "503ba57fecdd845c589d3d989e55389df542bf408d74c6b6bdaaaaa3b9fa9d7a"

@@ -7,6 +7,7 @@ class LittleCms2 < Formula
   sha256 "ee67be3566f459362c1ee094fde2c159d33fa0390aa4ed5f5af676f9e5004347"
   license "MIT"
   version_scheme 1
+  compatibility_version 1
 
   # The Little CMS website has been redesigned and there's no longer a
   # "Download" page we can check for releases. As of writing this, checking the

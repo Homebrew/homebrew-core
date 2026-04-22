@@ -10,8 +10,6 @@ class Cgdb < Formula
     regex(/href=.*?cgdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "960dae291afe8d9e0ce627ee8c4d0fd2a521fdc7f0b731f4c7c5d7830a60ae2f"
     sha256 arm64_sequoia:  "dac79a6089d98cfbe4c2b9083d34c0558227e6888546e76c0d425550cb808f30"

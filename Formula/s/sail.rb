@@ -17,6 +17,8 @@ class Sail < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0949b302bcdcc51a96ec2f2882cd0bd2ce63634414dc9cf3f77e3369e37346f5"
   end
 
+  # `pkgconf` and `rust` are for bcrypt
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage

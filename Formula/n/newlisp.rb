@@ -10,8 +10,6 @@ class Newlisp < Formula
     regex(/href=.*?newlisp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "cd0b1afe583ffbacd299097ba50acf21f8343d26301612afad78ce5ce18f56a6"
     sha256 arm64_sequoia:  "c650062494ac00fe19dc828930d6748e11cb89b40b8f9bb248425b7a8dec8cc7"

@@ -1,27 +1,27 @@
 class Openjazz < Formula
   desc "Open source Jazz Jackrabit engine"
   homepage "https://www.alister.eu/jazz/oj/"
-  url "https://github.com/AlisterT/openjazz/archive/refs/tags/20240919.tar.gz"
-  sha256 "c50193b630c375840026d729bb9dda6c7210b1523e62d7ae019ce2e37f806627"
+  url "https://github.com/AlisterT/openjazz/archive/refs/tags/20260301.tar.gz"
+  sha256 "9c117a8d9aa539c4dcb3fb5788130563a83ca1d9819e538f233721d823f7a650"
   license "GPL-2.0-only"
   head "https://github.com/AlisterT/openjazz.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "0febc2f95efd03671c03ef8ce9687243a2dad0e66009c81005463ffa22590cc7"
-    sha256 arm64_sequoia: "a7187b8961dddc281206ef88cda1c3f4a58814d0f55b3d6f526ceb8d3c9db01e"
-    sha256 arm64_sonoma:  "1fdf7bc6cc7a1e571240965ef4ba7a404aad892fb358223cfee277d1a0532dd0"
-    sha256 arm64_ventura: "d0520016ae1625393667870d16f357d577492da14f0786b68f15e3779e723aaf"
-    sha256 sonoma:        "19b1f3221c3f5c2ebd7adfc04a31678e5b977f1ddbdbd8bc7f4a98c547fd21b2"
-    sha256 ventura:       "f97fe8756255c753917f6983306e91dd7744e30ad8192b982f661f448c726786"
-    sha256 arm64_linux:   "46f6d97acd3a0e936733f28485f168a49827155624ffe4d59e294d48562cb946"
-    sha256 x86_64_linux:  "828353e6344b50b4fba0f4603e4f7794495bed782e220186129e1c9d37800daa"
+    sha256 arm64_tahoe:   "6bfc89162e63bb17558bc08624c060105ff815e076fbb396d145b5e635ca2ea6"
+    sha256 arm64_sequoia: "74de474ee4ceb88b075a6c6a512e3248a25c74f6009002f89dd0b156812be670"
+    sha256 arm64_sonoma:  "6dd6527671c8191ea8b206a3808f10108cd56c3ce4e4cae4ecb6f3ad79304164"
+    sha256 sonoma:        "12c74f58ca66e40d408c048acf972ce3ab9da5dabfc49ecfa3ea490e46e98ef3"
+    sha256 arm64_linux:   "07bf3d6746df890feac5085f6172c230e4f00b316730068de499795786ff2aeb"
+    sha256 x86_64_linux:  "f616f9102db1c8e95a380643842bee98afda25af124666c3b4734437070d47c6"
   end
 
   depends_on "cmake" => :build
   depends_on "sdl2"
   depends_on "sdl2_net"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # From LICENSE.DOC:
   # "Epic MegaGames allows and encourages all bulletin board systems and online

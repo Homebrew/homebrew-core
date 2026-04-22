@@ -1,18 +1,18 @@
 class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
-  url "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.4.4.tar.gz"
-  sha256 "7c663c3c41da9354b5af277bc2fd1d2360788050b4e0751a32bcd50e8abaef8f"
+  url "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.4.10.tar.gz"
+  sha256 "b61ae2d0fa4872c5f5fc45618f107945df37c0eba4853263091b949c513d3319"
   license "BSD-3-Clause"
-  revision 1
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2f178082410e7e565f6c49529ae469389b370ee610dc8fad1fa00443c335e5e8"
-    sha256 cellar: :any,                 arm64_sequoia: "fa612fb4903658f936a5f88b156375655da7b9dcd48bf92909ad2e72bacbc52a"
-    sha256 cellar: :any,                 arm64_sonoma:  "4b5b405edce030ff8cd9f5dd2f9e057cf4a72d7b0616a3e82a0433a8ec91a467"
-    sha256 cellar: :any,                 sonoma:        "e0571f29298064fc0ff0e3bb5aebb3b91d1044df0ecdea6bbd13cca20c79036a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "95622a65b05748afcd6f5c3446148b1cbdeae7f79d42f402d35c0dbaa89586ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7a8d7b4217b6c949a3d2fef741587b5dcfd4b8b92e20a66f9a3ed2e2724be0d"
+    sha256 cellar: :any,                 arm64_tahoe:   "623ae02f5db193d2812ecd8d2cebeec4c11854ffeb2231cce90010377fc060f4"
+    sha256 cellar: :any,                 arm64_sequoia: "09ab9a6fa80ba14e82c992d56a15070c19ea8d23e9cf8f6e6ed5a22a39778cd8"
+    sha256 cellar: :any,                 arm64_sonoma:  "4ae91b9cdc38374b4ecd80ce0def49e80f7a6c351560aeff3bc9f46f22d6b3cb"
+    sha256 cellar: :any,                 sonoma:        "ec96db2b6595dd967923fbb8d2e4dd16fdd365e6264f2705555803000dfc67fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dd8f6c747c7416958c7df9829e081d3a8f04c6a5fb40ff5df8899db573cd34b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f07d1fccfdf54ce2dfb458bc8dc4e76a0d7ef31ac7b86a13f7cbd5e2b7928ef9"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +22,9 @@ class Openexr < Formula
   depends_on "libdeflate"
   depends_on "openjph"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # These used to be provided by `ilmbase`
   link_overwrite "include/OpenEXR"

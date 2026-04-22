@@ -1,10 +1,10 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
-  url "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.1.tar.xz"
-  sha256 "c008bac08fd5c7b4a87f7b8a71f283fa581d80d80ff8d2efd3b26224c39bc54c"
+  url "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.3.tar.xz"
+  sha256 "78262a6e7ac170d6528ebfe2efccdf220191a5af6a6cd61ea4a9a9a5042c7a07"
   license "MIT"
-  revision 1
+  compatibility_version 1
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -14,13 +14,12 @@ class Libxml2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "9e3cde9378a4638dc046655cc428e2fbf4cd2ec2991337fae3e57a9f065ef0e6"
-    sha256 cellar: :any,                 arm64_sequoia: "d0656869714b8c590f9c980b08860c7245834a2679310ac7d411b1b9366593b1"
-    sha256 cellar: :any,                 arm64_sonoma:  "ce27f215780fe6f227d0e24571d84d781c6ad52d8537d2ad6a1b5d404753c09a"
-    sha256 cellar: :any,                 sonoma:        "833e98eaf14e628e1b3d3a7389be56eed7c476c807a60d43ff3fda3f972ebe18"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "23f7f1f4c905b53efa09671d5a784742909ed0d108ccc8573ba32397cbec461b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3845c8e494648b4acecd10d54117f661a22fc637ac2b1c5e106d67caaa0939ba"
+    sha256 cellar: :any,                 arm64_tahoe:   "fa797509d0bd7d73b1c296bb696d544a6c5e212f1a196d867aba7e53d0d6c6b4"
+    sha256 cellar: :any,                 arm64_sequoia: "cf956a7b12be9755ac1a905470c35ad070c7a4fa52a13b380c66eae3dcccf353"
+    sha256 cellar: :any,                 arm64_sonoma:  "e8105aa3d75882944ac86f34a3feec34075ec774c58f1d30848e1f6addc2499a"
+    sha256 cellar: :any,                 sonoma:        "c39f8567f5d228ab173ab8c467b65cae0b85f7da07d8cd8984597d5e3caeafd3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3a2523b36bbc7cff373c7325d5cba58c53d94bebfcac43d7a570ec84dfe4f4c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a76858b74071c78ad6f70ccdcb29563944d18da9350504c4d95bed17279593d1"
   end
 
   head do
@@ -36,7 +35,9 @@ class Libxml2 < Formula
   depends_on "pkgconf" => [:build, :test]
   depends_on "readline"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
@@ -70,7 +71,7 @@ class Libxml2 < Formula
     system "./test"
 
     # Test build with pkg-config
-    ENV.append "PKG_CONFIG_PATH", lib/"pkgconfig"
+    ENV.append_path "PKG_CONFIG_PATH", lib/"pkgconfig"
     args = shell_output("#{Formula["pkgconf"].opt_bin}/pkgconf --cflags --libs libxml-2.0").split
     system ENV.cc, "test.c", "-o", "test", *args
     system "./test"

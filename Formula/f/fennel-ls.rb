@@ -1,17 +1,17 @@
 class FennelLs < Formula
   desc "Language Server for Fennel"
   homepage "https://git.sr.ht/~xerool/fennel-ls/"
-  url "https://git.sr.ht/~xerool/fennel-ls/archive/0.2.3.tar.gz"
-  sha256 "80cba4a35873d0cb112e5aebc62bf616d07ab7c42d49bf032a8c3b04da9a121f"
+  url "https://git.sr.ht/~xerool/fennel-ls/archive/0.2.4.tar.gz"
+  sha256 "d50a48e2c65e84c87694cf7fd142ffcfc3a573567a1610a0b1accb97930ee2d5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff"
-    sha256 cellar: :any_skip_relocation, sonoma:        "914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6404a2fde8770bd42bf773d331a2745506137bfd5bcad021febe2f6078078a5f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b9934b9c9d2df6da8693af31de78af5146777a2ba90bf6f6e57d9ba33d274a09"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9934b9c9d2df6da8693af31de78af5146777a2ba90bf6f6e57d9ba33d274a09"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9934b9c9d2df6da8693af31de78af5146777a2ba90bf6f6e57d9ba33d274a09"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b9934b9c9d2df6da8693af31de78af5146777a2ba90bf6f6e57d9ba33d274a09"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9934b9c9d2df6da8693af31de78af5146777a2ba90bf6f6e57d9ba33d274a09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d21888a8352b783653791b7acd6f72be608c6389bc76054456b5796924707a8"
   end
 
   depends_on "pandoc" => :build

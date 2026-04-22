@@ -10,8 +10,6 @@ class Mpdscribble < Formula
     regex(/href=.*?mpdscribble[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "2812de40e805a9ea32ff8e5108217294c2b71bd5fe8cea5de4dc0192817d8aaf"
     sha256 arm64_sequoia:  "b3c8401d8bd06997be951e75b158905c4fa35cdeceffee5e6b242ec1843b0074"

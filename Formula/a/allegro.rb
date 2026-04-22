@@ -1,8 +1,8 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "https://liballeg.org/"
-  url "https://github.com/liballeg/allegro5/releases/download/5.2.11.2/allegro-5.2.11.2.tar.gz"
-  sha256 "f035fe128dd5f2412c32add41ed4058ad8154f6e9571084574487d67dbdbaae0"
+  url "https://github.com/liballeg/allegro5/releases/download/5.2.11.3/allegro-5.2.11.3.tar.gz"
+  sha256 "aba4679a5b1f2bf62482eba6e8814a94de7ffc86de5f8587ba199fcc61b4a04f"
   license "Zlib"
   head "https://github.com/liballeg/allegro5.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Allegro < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ad681765153acc0fda4da580cc3ba66de27645bbd74e3c252b2a1e0609226652"
-    sha256 cellar: :any,                 arm64_sequoia: "35d5fbb95eb7695c2d85e080680802f621adcaa3d34a75f194fb24d5e067ceb5"
-    sha256 cellar: :any,                 arm64_sonoma:  "32e4ccc2d808520adfe38e38c02839a53cda33863bc23aa9cdc1422cc9e7eb6a"
-    sha256 cellar: :any,                 sonoma:        "42cb8a1c25c9757b841925fb203ab6b71a27b9f6d5a1d025db24b449cf6a3ffa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2cb54616a1922c3db8e113d507a6f579705ef135dd85b35943e579d3c9fe9bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f99597861da48d4bbef543da329c05378c5543611805bbade3835f59378c365"
+    sha256 cellar: :any,                 arm64_tahoe:   "e3e3538d2dd7ac9ab3c79343acec0f77a2746a50a6435371dfc35a75715aba9b"
+    sha256 cellar: :any,                 arm64_sequoia: "8c04e595d03638289223bedd1696bacd8df8530f1a55721b3682af08c198a603"
+    sha256 cellar: :any,                 arm64_sonoma:  "5da777e9838c3f86978a15ea5359b928123e70d32ca7ac43670631f17e85458b"
+    sha256 cellar: :any,                 sonoma:        "1e0c9fe820bf392ee0707eff299fe523ebbd6e21d1327714f5c3ac36a53f3df7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "70dbfd0353c0655b5a6bfe5520fabe067e17e423a209465b435cc067b1eec6bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ae31e6b786d07b263625a5c9d6ac16e77749a438492d9a8cf69a00e9be4b5ac"
   end
 
   depends_on "cmake" => :build

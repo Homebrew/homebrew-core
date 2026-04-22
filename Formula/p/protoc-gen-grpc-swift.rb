@@ -1,8 +1,8 @@
 class ProtocGenGrpcSwift < Formula
   desc "Protoc plugin for generating gRPC Swift stubs"
   homepage "https://github.com/grpc/grpc-swift-protobuf"
-  url "https://github.com/grpc/grpc-swift-protobuf/archive/refs/tags/2.1.2.tar.gz"
-  sha256 "5ae934c7a87366c5895c1d788fd6273c3236c1d3f336858aad7a83d32b318c6d"
+  url "https://github.com/grpc/grpc-swift-protobuf/archive/refs/tags/2.3.0.tar.gz"
+  sha256 "c7bee7458102e21e6a58302a2946f1bd0a885caa3040556193ed0a49a57c34b1"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/grpc/grpc-swift-protobuf.git", branch: "main"
@@ -13,10 +13,10 @@ class ProtocGenGrpcSwift < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c23b76ca80380e683252aa8034b10c3e71bfc2e5fbe3f2f88ee3ab070a12dbbf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4244da40cd3c39b8750598dcf5d937d9770ca16086861af40d444091296fe081"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7b54eeb065e01e243af9217a824ad7caa8c6727634817af4aa3b3bc2ff7fd02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "268f3a750008e3905deb4ae10dc6fe52c7a2eb2c2c9402dfd652b5f6b7f5fd9e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9cd9e70551c661413509f39e1ae84985f402d6e7a613102bba9cdbd6f6ef0e47"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3309e2cef17759593d4ab36e098ae4b8cd97814e105572acd08b0b685612bcba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "72cebc2409038d77bfa8aa9ba6278e8ed1e59efacf6f6c63e7fd196986d991a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e424f49b131eee0119bd7f47849b0603b9e3f71dad51fe345abd6bcb54d381ad"
   end
 
   depends_on xcode: ["15.0", :build]

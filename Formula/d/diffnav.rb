@@ -1,18 +1,18 @@
 class Diffnav < Formula
   desc "Git diff pager based on delta but with a file tree"
   homepage "https://github.com/dlvhdr/diffnav"
-  url "https://github.com/dlvhdr/diffnav/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "e2304e5cb87c47ff3927f401a97bd24fbbd86ff6e939ad21c51d7e03082821c9"
+  url "https://github.com/dlvhdr/diffnav/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "df3879b12275bed16065ad9c08107c874445d265aa1fdc51d5f66a1f2fb7f392"
   license "MIT"
   head "https://github.com/dlvhdr/diffnav.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1cae61f63495e7c88fc5c9f36f4130b3a135f874f8c836c9a78e3838136f4656"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1cae61f63495e7c88fc5c9f36f4130b3a135f874f8c836c9a78e3838136f4656"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1cae61f63495e7c88fc5c9f36f4130b3a135f874f8c836c9a78e3838136f4656"
-    sha256 cellar: :any_skip_relocation, sonoma:        "09cd99e951af25edd20c8e983a421fd080ee94ead8d8ec8465375d68d89bd189"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0e9a86f4176f066162d578b715a0382e3064634be204a1d0106f53a93cda46f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a81faca9d51751125de89e2f8a91a5e8eb97bd8ee502bec30b4157fb894e0b69"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2fab53e6a649edf1434ee108d81cf4d8810713ef5fd14c7cbe6b05059f22c850"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2fab53e6a649edf1434ee108d81cf4d8810713ef5fd14c7cbe6b05059f22c850"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2fab53e6a649edf1434ee108d81cf4d8810713ef5fd14c7cbe6b05059f22c850"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4d11a088fb274bda33190e0acdc786157ae32d4b303ddb42a1442a903df1e4dd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e777d7c97922dda39af604506d950694fa8c3bf4fb2d6110210bc49eda676ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42d4a4b37e195334e09191b9186ed35d26e9b152ec46850594f66cd494d6b545"
   end
 
   depends_on "go" => :build

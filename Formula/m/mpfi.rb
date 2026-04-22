@@ -10,8 +10,6 @@ class Mpfi < Formula
     regex(/href=.*?mpfi[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "d14d9dd673a7e6bdcb8b910766ad693f6f3be81aea82d329a4ceed79e90aea4e"
     sha256 cellar: :any,                 arm64_sequoia:  "826e309c5518bcf7aa755eefe369c2b91704820d2bf0730c0341b16e7a877033"

@@ -1,19 +1,18 @@
 class Gptscript < Formula
   desc "Develop LLM Apps in Natural Language"
   homepage "https://docs.gptscript.ai/"
-  url "https://github.com/gptscript-ai/gptscript/archive/refs/tags/v0.9.8.tar.gz"
-  sha256 "13666d4cce007c3da8c1a9afdd6ffa0ae9d584aaa5ca57597caf71c5008d490c"
+  url "https://github.com/gptscript-ai/gptscript/archive/refs/tags/v0.9.9.tar.gz"
+  sha256 "1f875ca3da55f1c2d697807a375dba517ad5f49a2b1115d22590b2bcd968548e"
   license "Apache-2.0"
   head "https://github.com/gptscript-ai/gptscript.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "98967124df84610751260f4f03fa7fee00a941da36856e3ffb8e20e41726d232"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "98967124df84610751260f4f03fa7fee00a941da36856e3ffb8e20e41726d232"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "98967124df84610751260f4f03fa7fee00a941da36856e3ffb8e20e41726d232"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0fc40388c1dbb5e75e5270e56fb52a91972345b29499c6a101480b7f4fc6a6a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0563f0afa41010c31bab0afa7be1c030e92f341851a44c04c16bb7d327e0109"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "251b0b4896122432f75e7402bb84e136999962195563ca19e0d4cf05e5103dc4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bff15834f6a38946cdf73bee8b55efb58f3ed81f7a5374d3e80f22192b0ce49f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bff15834f6a38946cdf73bee8b55efb58f3ed81f7a5374d3e80f22192b0ce49f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bff15834f6a38946cdf73bee8b55efb58f3ed81f7a5374d3e80f22192b0ce49f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fadef1894aa8e23ed95daa279b410304eeaeeb2b95281a67632ef8d0c08e426b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f5674b31456e0064de7508605782a1045b4fa345cbc214660611ecaf5130d0e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb2ba5fb7537abadb968090d3133b2ad1e026e66f096dff60eb20278d4fe7263"
   end
 
   depends_on "go" => :build

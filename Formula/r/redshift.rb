@@ -6,8 +6,6 @@ class Redshift < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "b3f728c06b42f585bdf50685e7613ee66f639d43f85030942edf712b6ad928ab"
@@ -33,10 +31,14 @@ class Redshift < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "pkgconf" => :build
-  depends_on "gettext"
   depends_on "glib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     args = %w[

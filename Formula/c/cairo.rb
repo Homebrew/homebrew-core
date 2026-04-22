@@ -12,15 +12,13 @@ class Cairo < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "0a59b15b0790cfdd761af1c0fcb82264fd3fbd9a75202bd2e194fc98999c12ec"
-    sha256 cellar: :any, arm64_sequoia: "c3c657a2dd0fac3e84d3c5d4e8327313f0ef217f26da2f73fbc50765fc9e9502"
-    sha256 cellar: :any, arm64_sonoma:  "af9f8ed4d44e37149a44f1a6cfdca8bacb7034690dcaa39619485171b15cbc26"
-    sha256 cellar: :any, arm64_ventura: "36d4e7c07a598f0aaf9190b4cd5203daa9ca613af73b152c5c6db12ccd235869"
-    sha256 cellar: :any, sonoma:        "a29a888d7f2cdf008c4e0525a72e3f5ad68c7917b830dad7c3d66f6e050fa4a2"
-    sha256 cellar: :any, ventura:       "4ce538d943ce70f5f9c7f10c3655e1385ef65172d2e26add2fc721901b170dfd"
-    sha256               arm64_linux:   "707c35672e01d67c2f6de3a7db40c9f6bf305d50ba71e58d4004896263743c89"
-    sha256               x86_64_linux:  "829f25c2b757e94571913ec6857d454c26d0bc729a154f067ad33ac985c47a00"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "3099d9356456b9aced4b35bfb6723c45014c09d7b090190bcd8d17053244dd3c"
+    sha256 cellar: :any, arm64_sequoia: "91a09ffb4c4025f8204305e25c9d16b5d9e3427c65baabe8a11c7c5e6e07e29e"
+    sha256 cellar: :any, arm64_sonoma:  "28602bd6232c6f102f2f545662a8ea5db0ef1405de2c5296bd8490c910f391af"
+    sha256 cellar: :any, sonoma:        "8eac751ce30d7e665220bb02d2bd7aa209c041951edca3439918554e9dcb0e63"
+    sha256               arm64_linux:   "8d2393d42a2e6b4abda5d72981614960f30d35599f9a213944d3948b085529d7"
+    sha256               x86_64_linux:  "3d852e0bcef8e7bf1f4e5b9defa709da64a2dc2dcef4c35d177cebdbf552e65b"
   end
 
   depends_on "meson" => :build
@@ -38,10 +36,12 @@ class Cairo < Formula
   depends_on "lzo"
   depends_on "pixman"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

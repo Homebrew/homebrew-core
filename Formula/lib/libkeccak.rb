@@ -1,19 +1,17 @@
 class Libkeccak < Formula
   desc "Keccak-family hashing library"
   homepage "https://codeberg.org/maandree/libkeccak"
-  url "https://codeberg.org/maandree/libkeccak/archive/1.4.2.tar.gz"
-  sha256 "a0c15046d0922f20ca5ca2b632181b5f4c37038c3a740127af2751ee37583181"
+  url "https://codeberg.org/maandree/libkeccak/archive/1.4.3.tar.gz"
+  sha256 "5b28b11b38cc0ea750abd8a3f9cc2463df0e475f06a7a3c3e379471dde3a3d2b"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2136f3cbe1f2e62462e58c25820af5eb9cc110a855daa84871d7179bf4b19c91"
-    sha256 cellar: :any,                 arm64_sequoia: "70977efcdb774de369d24949c0e01429980706b72369428da2a7d63b87f3c0d7"
-    sha256 cellar: :any,                 arm64_sonoma:  "f60cca3b212fb9e7347b2b6fbfe40320871f340dd8b1c7cef1b82f1f051e2cec"
-    sha256 cellar: :any,                 arm64_ventura: "f36edf66bb02643f97a5aa6bd18330839ee173537a10961e38eaf5c99ea9f2a0"
-    sha256 cellar: :any,                 sonoma:        "b86b8c1a529602eec5de64c6d78f820baf7c611b22ddcbc32b187eb73cdfd700"
-    sha256 cellar: :any,                 ventura:       "40d03f81b05b53dbc8ca7e6e5c3de4890a2dbf5665d376f5f2a55d57f232bed9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e520ee48c95376e0f23d47dfbf70c36589ea5c50612cdddc7c4cec2546f1f1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ffb9b214f2a9ac56836f8459caa910d8077dc26cc93e85989a72fcddeee3df5"
+    sha256 cellar: :any,                 arm64_tahoe:   "76d0b52421d09d7390ee5c1ecfab8a2cf5e4e6fc172e36ed2d75c0457d4db33a"
+    sha256 cellar: :any,                 arm64_sequoia: "98f18e1c890f10ac9847977b9431f06a463c2c079646b478736b3c4e7e6bdb46"
+    sha256 cellar: :any,                 arm64_sonoma:  "6436b47438451ee3d21c44a668efc8e3a1b4c6572fbca312386eacd16e90c26d"
+    sha256 cellar: :any,                 sonoma:        "f9cc552ba41aeab13af7891a9c41ae1beaf268ce8024db38820b8665240e7954"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32b32420cd4b89364da22635402652e1ba6d1b74fcc68dab229915e76e1f9597"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7efd8af258f42baf7e3b243eb9463ebeeb97272330737cc4b40324b7a967a114"
   end
 
   def install

@@ -6,8 +6,6 @@ class Hexedit < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/pixel/hexedit.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "53b4ed34afba44fcb5795b16ee29da47f4226d7b75ed2984bddb2a2a74d74039"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "604722ab45e22e81dbfdc0d047e99be5e11dc0dbe938bb9e12623a452681f848"

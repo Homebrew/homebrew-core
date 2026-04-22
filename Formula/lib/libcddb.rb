@@ -6,8 +6,6 @@ class Libcddb < Formula
   license "LGPL-2.0-or-later"
   revision 4
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:    "6324ea57171157edaca9aa78bbc30d5bc2389a5b9357bd8929a71bbdb7800720"

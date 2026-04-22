@@ -5,8 +5,6 @@ class XcbProto < Formula
   sha256 "2c1bacd2110f4799f74de6ebb714b94cf6f80fb112316b1219480fd22562148c"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "1907041d187bef23a433c472482195a2cd8a4db3787f9da47db1ae5e5d47894a"

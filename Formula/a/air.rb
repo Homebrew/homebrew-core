@@ -1,18 +1,18 @@
 class Air < Formula
   desc "Fast and opinionated formatter for R code"
   homepage "https://github.com/posit-dev/air"
-  url "https://github.com/posit-dev/air/archive/refs/tags/0.8.1.tar.gz"
-  sha256 "5d3f445ab046a2765a279eb33f296d091eb783a73d6f9da220294c5298b263d8"
+  url "https://github.com/posit-dev/air/archive/refs/tags/0.9.0.tar.gz"
+  sha256 "55cae527153badeb348b7b04ffb3c9f1d9f20e27e388edeae694a05a5e32f289"
   license "MIT"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "078dd37959d207d294fdfd5619c22d40190048caee0e355f9b436cd8f7810904"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66be0d37d7e424ef885fdbb14f0883cb98d0f3d3cb703994d3fda5242a250fc0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35922c152779f31d53d57e2644fe098561f0056cfb579529c95c3539c8f3b4e1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e12336b3f00141c4fba4e2e0e24122faaf1a0774173185cb1d8bdcdff193c92a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "100a438291a034863c8bad0973fcebc8cb1cca067ede14ddb7094fa6277bfe16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f35e9759f3e71135b1865a1f7588ac020c67ad728a9d2349543312c0ea1c9ba8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3cdb70245f6c433f14ccf5c6a3e473211d841d68e866c075482a5aac84924220"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d3f08bac31302ae24da92a96b36c52ee646308bd22fb1e43af535d2961f937d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "21354f33670a2f68b622df816b7f5aa63e39ba59a87ef770834f1e621023c10a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "006fb173fa272b8659f87e98a7ac5bbba08025ab25bdd95e71db012721563d05"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "09795b0dd31cc71c4f8a352c9632fce9a0011cfbf1406ec6705c6d5f6bfc06db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "038cdad4a0b237a93301ec63bf275466cd43e3fc354c79aae2898aa6f0fb34f3"
   end
 
   depends_on "rust" => :build
@@ -21,6 +21,8 @@ class Air < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/air")
+
+    generate_completions_from_executable(bin/"air", "generate-shell-completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do

@@ -6,8 +6,6 @@ class Stolon < Formula
   license "Apache-2.0"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b989bb383b1ce5523628d9b310afe7a911ab92f8e9797aaa8ea655ec576ebd05"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5a9cff2775f8b7655d68bd8899ae8090a23c1d38add3f842fd850ea5fdd3b258"

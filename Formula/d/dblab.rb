@@ -1,19 +1,18 @@
 class Dblab < Formula
   desc "Database client every command-line junkie deserves"
   homepage "https://dblab.app/"
-  url "https://github.com/danvergara/dblab/archive/refs/tags/v0.34.2.tar.gz"
-  sha256 "fdcf88a1b4bbfea0d401a8ed13b930408e6fd85bde341565cb7a7a649a274d94"
+  url "https://github.com/danvergara/dblab/archive/refs/tags/v0.38.0.tar.gz"
+  sha256 "41fd691aca6f433f8795ca88a0fdfc5e68d662a00b2e4d6d4ec80537bc71a744"
   license "MIT"
   head "https://github.com/danvergara/dblab.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d43adf54e6fbfe3f960a9bd4bf528858dffa1bb81a851b6a4ca5aef05ffc140c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cea1288d11278beda5ccc60f3a408bda994a6369419bbbec5a0d2c95f2e03db1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ecbc95d339025267a8542c8098302c605ff3321be1e589df9f9c965cfccbca2b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2e920c103d4854a1451be086592028bd97510f06ac1c8eac56d0cab17a9307ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd7b61a08cb70653413b4db05ebe47e49215bd2c23e8d23a3cc1a973e0ef2d40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5737a66d22c3fb01cf61104de5d8addbf9935947cfd8fddfde71792fca629dc1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cef4035aad5f28aa94f7d9e24b6939abd5e1b76922ff848284482711bb576a54"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "238e80f6a5b32ddd46182da8885e75acd84f7e9b04ab9c5f1c3f6a880598e99e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc2cbe404fd4ead037a29bd1e5cced2ec4d717176e636b093e59ab5a35dc6388"
+    sha256 cellar: :any_skip_relocation, sonoma:        "66a68c114319b3a998d4c04eb1e681eee47a73b8d798e8e4cab4ae7331ace7a3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b85b794c068cfdd94b49c40f8dee1a068872ecb105413e70ac127aecb348b932"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82a7ac29c265eaf5bbde35bb5c08d4d7589ea9b1ab06647cccff87e410bd97c0"
   end
 
   depends_on "go" => :build

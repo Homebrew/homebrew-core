@@ -1,21 +1,17 @@
 class Md4c < Formula
   desc "C Markdown parser. Fast. SAX-like interface"
   homepage "https://github.com/mity/md4c"
-  url "https://github.com/mity/md4c/archive/refs/tags/release-0.5.2.tar.gz"
-  sha256 "55d0111d48fb11883aaee91465e642b8b640775a4d6993c2d0e7a8092758ef21"
+  url "https://github.com/mity/md4c/archive/refs/tags/release-0.5.3.tar.gz"
+  sha256 "353c346f376b87c954a13f3415ede2d51264cc61dc5abcd38ff1d2aa0d059b9e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "d3c08c51d39761be30ec5c67c297d31af0a1f4d15d02d633a528253dc57c8ef5"
-    sha256 cellar: :any,                 arm64_sequoia:  "528d191cb50a6f5901faf2bf989374657792410929d5ac78b1515f412e07ab58"
-    sha256 cellar: :any,                 arm64_sonoma:   "5a535b9cec9b6155304abead938f5022fe7522b881dd6e12f6f45c9b4c0f0d3a"
-    sha256 cellar: :any,                 arm64_ventura:  "be769f9eb2de4a0c2b3ba400e79b07dc9d6c5f6c0c9e9d032f24bc6c5ef1a916"
-    sha256 cellar: :any,                 arm64_monterey: "9fe6e97ee446af5c8999daeabbb4ef4e1e7f3a57d4c5ad60dabe125da501b5e7"
-    sha256 cellar: :any,                 sonoma:         "1c0f5cba7d83945b1d458e5dfe5b0fbffd698f7f15a04c63b19f96ed8967a6dc"
-    sha256 cellar: :any,                 ventura:        "74a1f6056f0ee6860fa3ea51e0018ccfeabfb6f9db19b3f2ac924c3792c8644a"
-    sha256 cellar: :any,                 monterey:       "e1ac92816bcad76852239c7963853b648d99f39d46fee483027ccd3997e104ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "bddcdff231d805814edf2992309a92dee28f6db946465d74cae3bb4888509a97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70158ffa050cd2f2ca59f5341051208cc96ca416f026e09e8db469683eb93eac"
+    sha256 cellar: :any,                 arm64_tahoe:   "32f2359b9c497452dfc897a44bdd10031aa1a2f1d85639844942bd844bf2a42c"
+    sha256 cellar: :any,                 arm64_sequoia: "2d0ec98420dcb79e21758f1cc32043bfbebfbf0e5195f44968507092f30b29a7"
+    sha256 cellar: :any,                 arm64_sonoma:  "d3e2962165abbffe5cf6f50e0c220b4baa9ee453bf64ec92043abfe249f881ba"
+    sha256 cellar: :any,                 sonoma:        "1989ec20fcab62d4fb41a900ad7ab3fe3e35aadc92200c4df8832f4028881708"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "222c0c3879934ca82c72c87568a501bdfe4e68c27d6ed9c0ec9918567e768e21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43976f4c7033d21274f1891ee268a129d8680cc3514bd14016b4bf5d7de45bdd"
   end
 
   depends_on "cmake" => :build

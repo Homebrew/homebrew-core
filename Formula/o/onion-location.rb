@@ -6,16 +6,16 @@ class OnionLocation < Formula
   url "https://files.pythonhosted.org/packages/72/0d/e2656bdb8c66dc590da40622ca843f0513cd6f4b78bb1f9b6ed4592d283e/onion_location-0.1.0.tar.gz"
   sha256 "37dc14eab3a22b8948f8301542344144682108d1564289482827dc45106ee1d5"
   license "AGPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://codeberg.org/Freso/python-onion-location.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "baa4ff2b02318710c4850c12d8edb6ab4bcc5af830b444c986a80868c5d528bc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b71f3837e7e808014ee217baf60334de606a89578501704f5ef867f17a005277"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9b7fdcf9c7d60d720575abaaae39b8957d798eee94dc1211004eb0303bc8da8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eb545649597b97ecd542a47aefbe7bad5fe08b6a553d80e47c53b1f826cefc3b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad645508d83434779999108a74dae0912214966df64a4ac6744b53dc5b369bab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2ccd7b906a0e2d403e7c2670d2170e854a93f3935de3629c3ae4a4a7ada7e1b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c5269569ff0fa6d6df925661c2e84af617e587c8c88a143780ab22a5cdb7b05a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7bc2d10df3c754847b79e6ccfc7487de05882bf0c06ae202a0ca9ca7345d6201"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "da547be0eefb2d66baaf86ffa2d2104668a2f666e16508617e8db76a1eb88d2a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "526d7270029ec4d12f3cae562cd87899a187cc44d299e050e64654de247ef1f1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f4fbccbe514d2545b48ba333cc11bd29e6fe6413b8e31e03ea2ce66a2416c08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa473935477f402322158be862a9cb575c67ed375e7932ecf9877d094a57ceed"
   end
 
   depends_on "python@3.14"
@@ -24,8 +24,8 @@ class OnionLocation < Formula
   uses_from_macos "libxslt"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/77/e9/df2358efd7659577435e2177bfa69cba6c33216681af51a707193dec162a/beautifulsoup4-4.14.2.tar.gz"
-    sha256 "2a98ab9f944a11acee9cc848508ec28d9228abfd522ef0fad6a02a72e0ded69e"
+    url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
+    sha256 "6292b1c5186d356bba669ef9f7f051757099565ad9ada5dd630bd9de5fa7fb86"
   end
 
   resource "bs4" do
@@ -34,13 +34,13 @@ class OnionLocation < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
-    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
+    url "https://files.pythonhosted.org/packages/28/30/9abc9e34c657c33834eaf6cd02124c61bdf5944d802aa48e69be8da3585d/lxml-6.1.0.tar.gz"
+    sha256 "bfd57d8008c4965709a919c3e9a98f76c2c7cb319086b3d26858250620023b13"
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/6d/e6/21ccce3262dd4889aa3332e5a119a3491a95e8f60939870a3a035aabac0d/soupsieve-2.8.tar.gz"
-    sha256 "e2dd4a40a628cb5f28f6d4b0db8800b8f581b65bb380b97de22ba5ca8d72572f"
+    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
+    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
   end
 
   resource "typing-extensions" do

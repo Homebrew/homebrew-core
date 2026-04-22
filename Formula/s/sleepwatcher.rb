@@ -10,8 +10,6 @@ class Sleepwatcher < Formula
     regex(/href=.*?sleepwatcher[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "77ad0daae582536562d912657a5a3deeffa9f16ad0f3dc9b7b69e5d345f1f26d"

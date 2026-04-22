@@ -3,6 +3,8 @@ class Libgeotiff < Formula
   homepage "https://github.com/OSGeo/libgeotiff"
   license "MIT"
 
+  compatibility_version 1
+
   stable do
     url "https://github.com/OSGeo/libgeotiff/releases/download/1.7.4/libgeotiff-1.7.4.tar.gz"
     sha256 "c598d04fdf2ba25c4352844dafa81dde3f7fd968daa7ad131228cd91e9d3dc47"

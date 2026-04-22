@@ -20,7 +20,7 @@ class Tuc < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--features", "regex", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "regex")
   end
 
   test do

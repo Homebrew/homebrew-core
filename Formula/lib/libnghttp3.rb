@@ -5,6 +5,7 @@ class Libnghttp3 < Formula
   mirror "http://fresh-center.net/linux/www/nghttp3-1.15.0.tar.xz"
   sha256 "6da0cd06b428d32a54c58137838505d9dc0371a900bb8070a46b29e1ceaf2e0f"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/ngtcp2/nghttp3.git", branch: "main"
 
   bottle do

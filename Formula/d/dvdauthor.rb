@@ -11,8 +11,6 @@ class Dvdauthor < Formula
     regex(%r{url=.*?/dvdauthor[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "ed44deb629315e130b499c9e41a1cdfd789d62ed26e410c10d480a27ea93abec"
     sha256 cellar: :any,                 arm64_sequoia: "17b2f6a33354311992ca16d0f2455671df0f23b65cdb83088ff383b0fd78daff"

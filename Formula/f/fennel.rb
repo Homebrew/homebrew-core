@@ -4,9 +4,10 @@ class Fennel < Formula
   url "https://github.com/bakpakin/Fennel/archive/refs/tags/1.6.1.tar.gz"
   sha256 "8bf46040ea9554f4c132de6cb6bf26a30ce8f7c99e58e82bc971c533d91ecd71"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "36fbb446051e0b447c6536773f6efd1644486f605ca30b3ea679dea8f683f15e"
+    sha256 cellar: :any_skip_relocation, all: "e1101f993a8ab14fc3f1d8dd0a7c9ed61369de54960825471829cb02f92c688b"
   end
 
   depends_on "luajit" => [:build, :test]

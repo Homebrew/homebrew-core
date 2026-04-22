@@ -1,18 +1,18 @@
 class Gopeed < Formula
   desc "Modern download manager that supports all platform"
   homepage "https://gopeed.com"
-  url "https://github.com/GopeedLab/gopeed/archive/refs/tags/v1.9.0.tar.gz"
-  sha256 "43ba451fc691a65b43ae97003a4600bf9106ad562bc6e4b3f757f9ca1074170b"
+  url "https://github.com/GopeedLab/gopeed/archive/refs/tags/v1.9.3.tar.gz"
+  sha256 "da8da9516fbe2a01db1dab11dda97c7e3096e43a14a7c13202a2f92976aa6db9"
   license "GPL-3.0-or-later"
   head "https://github.com/GopeedLab/gopeed.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7faf00b1e70ffa23dcb7d61d33c18568aa73f1230d9275382a6ece610f024501"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "087ed4941de0968e8f5582c64569ecfca4df1185f64696551376582e652d4e6d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c025be4dcf4912dea3ea711082508549d431a7c4082189f571542462620d9fa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "664a67391f4125dc962cc9d07984b2acb622bc8e62bd09f182ae2964e45e8880"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dcf0798783a2a8e127913a7839b203bfc8c7a9a5b9625aeac1eb9992b0a55836"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad2a2b9f75ffb6c78723fcb0331d5ce36ed1441efc54e7b35dbf686fd6eadbd7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5371a3df1130b0045c7b3ff44192e50975946b82d41b1fe5db0d04c97377a730"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5348d981526b4777b675a8ffe90369e39ee6fe80f06b3671eb029addcd1c767e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6124c6365947f575520399e761cf2450efb982b29c84b99f823772513838b46f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9d256f495e41b9d337c35917427fbcb5b437b0cb6c374f4ff7b9a432983119b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "50f2623e58e483e73e7176213c40db30c1f9c5ba3261cb32e4b23f59ad213d13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fd3e6d0e1e37c0bc86e55f914817b67ccdae2c6455b6d5abd214cfee1c5e788"
   end
 
   depends_on "go" => :build

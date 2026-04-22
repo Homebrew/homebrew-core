@@ -11,8 +11,6 @@ class Fst < Formula
     regex(/^fst-bin[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c534ae0a86b7877c91a52b122d2be15066ca1c4a7d0e6f00fc99ede4d256bd45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8ec7353ce5d9f6c88ae018bb0da9dc32555aafdc7fa4aa3202c1d9a49e397369"

@@ -1,8 +1,8 @@
 class Rebar3 < Formula
   desc "Erlang build tool"
   homepage "https://rebar3.org"
-  url "https://github.com/erlang/rebar3/archive/refs/tags/3.26.0.tar.gz"
-  sha256 "a151dc4a07805490e9f217a099e597ac9774814875f55da2c66545c333fdff64"
+  url "https://github.com/erlang/rebar3/archive/refs/tags/3.27.0.tar.gz"
+  sha256 "985cae6e957334cfa549190b9f5efb9185c184a18fc181c87b8dde096ba79f38"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Rebar3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "91f97c1a0c766bd4bd606dd905d2015fab02177682a4b254b0717ed1b2281218"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f888fa980daebaefdb7270b40c2a16fcf4d2e4c8679bd27e684e35add3c51652"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94841cc4ffd844b7601b303f0eaf8b232147db461f640514c117d4772a5ee13d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0151a43fbb9c46a54ebfcf369aa0d0b9b39249ef706e53e2d2440964ff773cd9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3dccde1cbdf81c504b0f66a3074c7eb1a70140f3d64ef00d6a43ca7303db88a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58d9bc37a3f42bf0264e3f4d8fac7d97166a021a94918d731c4a9937e8439cc5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "94b3bd9f293d74e1dc1b73bfc720da505e1231e47a37dc16dcc0692a42841361"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ee39f3c79763195428824f9321846d9f06d87eeb55bb61e2fe8abbe28e7b046a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ceaf0897426411e3ca0d2d9b813c5a00b6258a3a79f0f6db5310102c317b09eb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0530db6336388349156d54bd48dc901762e9e2400f3451672c06e5760fd6a79d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "085765e94871855b1b5234c97cf96deadb21fe3b34635e32f1310e40c0d70fc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "959e9d042c97cb228e137556169daa64f8c8823a8127a0f0123db68f876eabfe"
   end
 
   depends_on "erlang@26" => [:build, :test]

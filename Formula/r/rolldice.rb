@@ -5,8 +5,6 @@ class Rolldice < Formula
   sha256 "8bc82b26c418453ef0fe79b43a094641e7a76dae406032423a2f0fb270930775"
   license "GPL-2.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09a28787c7477eadf288aa7a5ae71453ad26dd4625bb10f16fc018268a30d3ab"

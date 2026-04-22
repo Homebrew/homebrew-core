@@ -1,12 +1,12 @@
 class Glaze < Formula
   desc "Extremely fast, in-memory JSON and interface library for modern C++"
   homepage "https://github.com/stephenberry/glaze"
-  url "https://github.com/stephenberry/glaze/archive/refs/tags/v7.0.2.tar.gz"
-  sha256 "febbec555648b310c2a1975ca750939cd00c4801dede8362fcf84cab7b3ae46f"
+  url "https://github.com/stephenberry/glaze/archive/refs/tags/v7.4.0.tar.gz"
+  sha256 "e7592590187dd56f16558a08b36e90bf349e885330f3a3961048df302cc9dfa1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "44c72bc90c251f86d3be39dac64e44b43cacfb29178c885889ded67d439c3bc0"
+    sha256 cellar: :any_skip_relocation, all: "d70ea01a57c88199a462fd446b5d1d74e454c008ba9083f88be4f336991bb7f1"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -16,17 +16,12 @@ class Glaze < Formula
     args = %w[
       -Dglaze_DEVELOPER_MODE=OFF
     ]
-    args << "-Dglaze_ENABLE_AVX2=#{(!build.bottle? && Hardware::CPU.intel?) ? "ON" : "OFF"}"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
-    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
-    # Issue ref: https://github.com/stephenberry/glaze/issues/1500
-    ENV.append_to_cflags "-stdlib=libc++" if OS.linux?
-
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.16)
       project(GlazeTest LANGUAGES CXX)
@@ -53,6 +48,7 @@ class Glaze < Formula
       }
     CPP
 
+    ENV.append_to_cflags "-DGLZ_USE_STD_FORMAT_FLOAT=0" if OS.linux?
     system "cmake", "-S", ".", "-B", "build", "-Dglaze_DIR=#{share}/glaze"
     system "cmake", "--build", "build"
     system "./build/glaze_test"

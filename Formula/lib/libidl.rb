@@ -6,8 +6,6 @@ class Libidl < Formula
   license "LGPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "a0e91391470fe336c418566901c022fbd51387a87581ac820e72592c561001d7"
     sha256 cellar: :any,                 arm64_sequoia:  "dc9090a7f3672741f6edaa0564cc8c5cb28cb24e4bc43108d8953e05f3fb1eaf"

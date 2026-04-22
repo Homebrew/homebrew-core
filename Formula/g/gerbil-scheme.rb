@@ -1,9 +1,8 @@
 class GerbilScheme < Formula
   desc "Opinionated dialect of Scheme designed for Systems Programming"
   homepage "https://cons.io"
-  url "https://github.com/vyzo/gerbil.git",
-      tag:      "v0.18.1",
-      revision: "23c30a6062cd7e63f9d85300ce01585bb9035d2d"
+  url "https://github.com/mighty-gerbils/gerbil/archive/refs/tags/v0.18.2.tar.gz"
+  sha256 "8e4cdefea8d75feea4d5df33cc90b37dc5e8d6ab03b7b4b7eb749ae7d9ff739e"
   license any_of: ["LGPL-2.1-or-later", "Apache-2.0"]
 
   livecheck do
@@ -11,29 +10,26 @@ class GerbilScheme < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "6c166d32e62d375fab7baf018d875b4f0a44536b9e33158bf9894af87b8964d7"
-    sha256 arm64_sequoia: "939444b532cbb429e5385d5b9eaf5c998e5100cd6f44c73a08e03d81cf5390d6"
-    sha256 arm64_sonoma:  "f82c1f9904a538503b8465a690f2eeb492b719a76fc0e581610ff46ab10fba98"
-    sha256 arm64_ventura: "3a84f0abe9b30ccbbcfc7e5915f75af455b45b53b032f92e3bccae0fe3cf59bb"
-    sha256 sonoma:        "4b5ad778a0eb69040087799891cef2915423e36bee59b44b429846ac750a6b50"
-    sha256 ventura:       "333d0738fe5d912401ccee0cc0958db84b4e90e304c0365805580d071fb45b95"
-    sha256 arm64_linux:   "4d104632dda501548237d32ba5a454dccb9409b3b58b380f39a552017349193d"
-    sha256 x86_64_linux:  "6b5f1a9d1e67afb310f18b033089eafa83514b33a9a32605651ff3ddbc5765e8"
+    sha256 arm64_tahoe:   "5d5b0c0983acb6e54a5b980bafd5966d0a56a565ad5629a70f6664652cfab2b5"
+    sha256 arm64_sequoia: "d0d981ad80f1b71ffe7ef8fff4b6e5f5e330bb348ed82415d1d536ae6d387f27"
+    sha256 arm64_sonoma:  "32a553ff944193e9152d3e164380e484d19d4ef71232e292a62c1515c90673e7"
+    sha256 sonoma:        "5004a6b5a26614f190c4fc4e5d3e353cbb35b4f56c01498a7d278a6494f065b0"
+    sha256 arm64_linux:   "b329cfd3d24ed07d56b6a6558e051f970083f29c02b43689db0b575d6077a376"
+    sha256 x86_64_linux:  "9e1c6732baed62c845e8fe0169f5e3eb5998773fd12aaa3700a47c1d21fe6403"
   end
 
-  depends_on "coreutils" => :build
   depends_on "pkgconf" => :build
-
   depends_on "openssl@3"
 
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gcc"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "ghostscript", because: "both install `gsc` binary"
@@ -44,6 +40,7 @@ class GerbilScheme < Formula
   end
 
   def install
+    ENV["GERBIL_VERSION"] = "v#{version}"
     system "./configure", "--prefix=#{prefix}", "--enable-march="
     ENV.deparallelize
     system "make"

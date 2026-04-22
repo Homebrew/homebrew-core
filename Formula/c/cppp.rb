@@ -10,8 +10,6 @@ class Cppp < Formula
     regex(/href=.*?cppp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "29bae12103813789942c21786cc253702a2d5eae6baeff11561afc12bbafde7f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4b14311322cdff7ec30e93ba573bf916eae962c7d2488e7f85a88a4b8bead0a6"

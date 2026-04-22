@@ -6,8 +6,6 @@ class SfPwgen < Formula
   license "Zlib"
   head "https://github.com/anders/pwgen.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "02488155f0876824620ee9745fb8bd4d6b89fae828bfc0926aebc7f422647a93"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b97cc880e036c31a7f53592df3eeecd8965645fafff19d1957bfdbfc2b35a45a"

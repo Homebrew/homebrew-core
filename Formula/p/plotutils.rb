@@ -7,8 +7,6 @@ class Plotutils < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "d0c2f1bd4307fc85da7079c7e215075d8440c8bb92c44e47d7b449d76afb6055"

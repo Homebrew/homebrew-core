@@ -1,8 +1,8 @@
 class Fheroes2 < Formula
   desc "Recreation of the Heroes of Might and Magic II game engine"
   homepage "https://ihhub.github.io/fheroes2/"
-  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.13.tar.gz"
-  sha256 "0bc3d22aa646ac850744feff6fa2ed75836c13b52b07635b5452a6bec0f28744"
+  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.15.tar.gz"
+  sha256 "f69c103da4eb1028e84fd87878fa71275651b52cef9f01716e2a870a6aa01c63"
   license "GPL-2.0-or-later"
   head "https://github.com/ihhub/fheroes2.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Fheroes2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b8628bbf3456c73359af718a1f896f1a2a8027b8ca88ef9428956bf3c6702060"
-    sha256 cellar: :any, arm64_sequoia: "083e10b0c012933f008b3b817a843ce8dfda650db29bc54de561568a601d094d"
-    sha256 cellar: :any, arm64_sonoma:  "8d2aeb156062efb256bbd9cfacfdb9f3aa2157f692b29bdbfe80116b8e74d5db"
-    sha256 cellar: :any, sonoma:        "e9aec983ca52106d25777848b8c014fd2d775cdec1c70ffdbb34ef735b6e0537"
-    sha256               arm64_linux:   "47b7487b125ccf560f68c294a1d8949792d9f3792ae6a416d318e5f63c0dc213"
-    sha256               x86_64_linux:  "c8a990b5ae66ce76dffb0f497a6475e7e408dd457818952287ccb695c9554c73"
+    sha256 cellar: :any, arm64_tahoe:   "9615d16771a9972551505d16984b124f913b559ff1457913086603187587c73e"
+    sha256 cellar: :any, arm64_sequoia: "c0a8ac70e4cd96640231c8d0e29cdd872344aabf9f9fb1460f8e86e6194eccdd"
+    sha256 cellar: :any, arm64_sonoma:  "4c18772a320b4485519f9b39a642b0256baa80673ae7c38e19b6ebc632eb6313"
+    sha256 cellar: :any, sonoma:        "56ff3371af65b4c9842838f370efc6f008cd1fae4c294e21c0f187f525905eb4"
+    sha256               arm64_linux:   "22335fbbc4f40608efb83ea56e534be5f774725bf074bdb9d6d967368c76f3ea"
+    sha256               x86_64_linux:  "03eab61996ddb4676e72e17b2dafe3626e0abbe19e46b317bf650f3b8fd441f7"
   end
 
   depends_on "cmake" => :build
@@ -27,15 +27,16 @@ class Fheroes2 < Formula
   depends_on "sdl2"
   depends_on "sdl2_mixer"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Avoid running dylibbundler to prevent copying dylibs
     inreplace "CMakeLists.txt", /^(\s*run_dylibbundler)\s+ALL$/, "\\1"
 
-    args = std_cmake_args
-    args << "-DMACOS_APP_BUNDLE=ON" if OS.mac?
-    system "cmake", "-S", ".", "-B", "build", *args
+    args = ["-DMACOS_APP_BUNDLE=ON"] if OS.mac?
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

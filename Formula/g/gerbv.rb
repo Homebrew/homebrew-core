@@ -1,30 +1,21 @@
 class Gerbv < Formula
   desc "Gerber (RS-274X) viewer"
   homepage "https://gerbv.github.io/"
-  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "3eef8eb8a2755da8400e7a4394229475ad4cf1a2f85345720ee1da135a1aec44"
+  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.11.1.tar.gz"
+  sha256 "b9a01ed892702f21f78b6ef4ec701e2db3220b5702d1cf93b10e843cad1e69a1"
   license "GPL-2.0-or-later"
-  revision 1
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:    "16ddd7d1212886648901aef5bd32548cda6180e8ea9ac2bd0092733453b20947"
-    sha256 arm64_sequoia:  "2cec6e703cf8900a47542fbbf627d938289b09b1344dd25c7a1f4920c5210d50"
-    sha256 arm64_sonoma:   "f0033cf40029771a108a543761225a8cf7f76a93978c64d5fe06b77e1d212ecf"
-    sha256 arm64_ventura:  "78372c7e31bacbc5f95a5741ccdbd2a2c1c45709c63cf1dda4df2e1e11e9df79"
-    sha256 arm64_monterey: "6b6149199423babe20ed89d917bde3217a1fde6064e58670ffd2b9bc9ea437bc"
-    sha256 sonoma:         "7f898d7cad1631c74609ef044011c7e16e7bf667e0d63af22b511ca31daa6f26"
-    sha256 ventura:        "0ad6231d51238f613960b2fa1344c0be1ce317a91464fd81295a882788b5157c"
-    sha256 monterey:       "01753a1244ff7d7a2c783aa1b1acb0dfe76b420b68b872fa8ef339885596d343"
-    sha256 arm64_linux:    "b76c77dcb774a0990ba2b2d549df16254250b47d3173a0cfb6ec595a4257df24"
-    sha256 x86_64_linux:   "581743d09f59d3e816c5f7f903e26d82eb53065b0cbbed29685f94967c96a641"
+    sha256 arm64_tahoe:   "4dc6433925aeac44a2a626ba71738c2e34758a19f4f50cad7a194e61f8052fa4"
+    sha256 arm64_sequoia: "359c1d89dffeabd88988af8a7c8d76d0decc38b25b34adeabd9b98d1e7b0dd71"
+    sha256 arm64_sonoma:  "721a75cbe5f39991039fe5a30fe70897f9054da0690f7bf9013b3d88642e7900"
+    sha256 sonoma:        "7520ca2ae7c43b1c466c3d150403cffd43815ad79c0ccfcca1d611ba8cbffdef"
+    sha256 arm64_linux:   "31c9be5a7194ec14a38eb81f4eb60ac0d8e7cef0bca37852a286d0a3c261790f"
+    sha256 x86_64_linux:  "1552e7fc822f0fb03a3768d7aa095d70c7b1bd9ebee8dfa4d6efa79b8e2155a7"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "gettext" => :build
-  depends_on "libtool" => :build
   depends_on "pkgconf" => [:build, :test]
 
   depends_on "cairo"
@@ -39,21 +30,18 @@ class Gerbv < Formula
     depends_on "pango"
   end
 
-  def install
-    ENV.append "CPPFLAGS", "-DQUARTZ" if OS.mac?
-    inreplace "autogen.sh", "libtool", "glibtool"
+  # Backport CMake fixes, upstream pr ref, https://github.com/gerbv/gerbv/pull/303
+  patch do
+    url "https://github.com/chenrui333/gerbv/commit/13e73c2767f0170cd4ff660ba0ccceac7c080573.patch?full_index=1"
+    sha256 "d1e8adc4371cfa3b2cc033b06c26daf2aa219cdd8d7a58b3fadfbdc0cbf9f920"
+  end
 
-    # Disable commit reference in include dir
-    inreplace "utils/git-version-gen.sh" do |s|
-      s.gsub! 'RELEASE_COMMIT=`"${GIT}" rev-parse HEAD`', "RELEASE_COMMIT=\"\""
-      s.gsub! "${PREFIX}~", "${PREFIX}"
-    end
-    system "./autogen.sh"
-    system "./configure", "--disable-update-desktop-database",
-                          "--disable-schemas-compile",
-                          *std_configure_args
-    system "make"
-    system "make", "install"
+  def install
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Ensure generated gettext sources exist before parallel translation build.
+    system "cmake", "--build", "build", "--target", "generated"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -70,7 +58,7 @@ class Gerbv < Formula
     C
 
     flags = shell_output("pkgconf --cflags --libs libgerbv").chomp.split
-    system ENV.cc, "test.c", "-o", "test", *flags
+    system ENV.cc, "test.c", "-o", "test", *flags, "-Wl,-rpath,#{lib}"
     system "./test"
   end
 end

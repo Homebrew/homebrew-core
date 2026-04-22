@@ -1,22 +1,22 @@
 class Libmicrohttpd < Formula
   desc "Light HTTP/1.1 server library"
   homepage "https://www.gnu.org/software/libmicrohttpd/"
-  url "https://ftpmirror.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.2.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.2.tar.gz"
-  sha256 "df324fcd0834175dab07483133902d9774a605bfa298025f69883288fd20a8c7"
+  url "https://ftpmirror.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.5.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.5.tar.gz"
+  sha256 "b46d00f58efa6f497b97d2e782c4ee66301d412ddd855dd3068518b3a2cd3ea2"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "744bd620cfd4c01fdab40a0b91d689994d549ce6f31f54a785c968348f29e089"
-    sha256 cellar: :any,                 arm64_sequoia: "b7a29d626f13b7c07748d4100cf0c0f9703e1a719d8b1afc80854e7730cdf0ba"
-    sha256 cellar: :any,                 arm64_sonoma:  "aea54f52d2c8721371f8607573ca73c7a4416ac7403ea6bd9595e3a894e477a9"
-    sha256 cellar: :any,                 arm64_ventura: "5f8e0e18ec4d2e5e20035c158491e0f2ae8ba7df895d6c218694e21bb9830eeb"
-    sha256 cellar: :any,                 sonoma:        "156e4a7aff40fbe887ee8bb29c5a9d5461344f6691e892549a3ffb9e6bcf77bf"
-    sha256 cellar: :any,                 ventura:       "c9e8f4ed223f6be8e4e50749728eebf986e855dda1dccaf2727530cb200623f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6d3a71cbb43a0ab2f6bbe97a6355ac7a4524386a39051e90e78367da7914c06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4432eb01656c407982be598afc6c27aad4aeb5ad92d33db646d0ca38ad15518"
+    sha256 cellar: :any,                 arm64_tahoe:   "cd84cc41c84e505be8a957788a3f2993c082d5c7c29e68ee951228bcd79374d9"
+    sha256 cellar: :any,                 arm64_sequoia: "291e7f43b1f252816c7daa42c69079ca3022ba778d1381768c42301b269e0286"
+    sha256 cellar: :any,                 arm64_sonoma:  "c1959ffe509c181f211be15b8cef3c5ffec9ab8985354cb56b6321c0760d9e12"
+    sha256 cellar: :any,                 sonoma:        "c889f12e20ce446ef65784e28f3135eedc3c358d69963dab068331a1345a7eef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c8ef804898c01fa619655d9b62e3754eaf74421322989dbf24dc6aac702ac5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9901822c18a24a632deacd02755e0e20936eb5a5a9134dadda3b844d8e203ed9"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "gnutls"
 
   def install

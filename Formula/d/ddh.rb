@@ -10,8 +10,6 @@ class Ddh < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2b2788b0596f11e1662e743517535b5b5d61a034fa8b6ad5d4df84853905e58e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c38c189b4375eb8031c68bcd0c6f070ec7ce5c851306322d0b15d5c0a797f242"

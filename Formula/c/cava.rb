@@ -7,12 +7,13 @@ class Cava < Formula
   head "https://github.com/karlstav/cava.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "40bfbe3b8229358b42a646fad6d31616cf84ecc6f758d0cdf17b32f88b2e2430"
-    sha256 cellar: :any, arm64_sequoia: "1016458731ecffadbafeb4a10ad4aacc307b67a11568cfb8842344012893938b"
-    sha256 cellar: :any, arm64_sonoma:  "48381551d630ab4220cc39267c036c552f0ddea37afcfdfdb62f7d234009bacc"
-    sha256 cellar: :any, sonoma:        "e012cc6ab3a2bbf0f76244641e809882eea9190d94f34668d2dabfe83d6401d2"
-    sha256               arm64_linux:   "1e38d63792ba6bbbb12c1a1fe5d700e676f403bcce6c21681f000be9402d44e5"
-    sha256               x86_64_linux:  "43eda213bfc5d7e6f33894e04be08f1a32fcea5c230a65de659d73967ee6bf6e"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "ce734b6cad4e09a28b71bc21f861a2181f1d45254e2f27d1f2b6fd705484a7bd"
+    sha256 cellar: :any, arm64_sequoia: "7795fd596a4671c4d2ef6c8cda1e1f6eab3b7a28bab20c9be7da4ea476207e5d"
+    sha256 cellar: :any, arm64_sonoma:  "78f2072bcaa832eb5ada0a584169cc5f4f9c1aeee3e5998328dd7baf0e830227"
+    sha256 cellar: :any, sonoma:        "5849239202007b3d4738a803c006224c0c6d627bacd75d615e5bee22159e69e8"
+    sha256               arm64_linux:   "df962ffaf8f270bb6e60df98fa09edb6810a380ae0b52fd00e4722b30eae3003"
+    sha256               x86_64_linux:  "4fbdd158121e515e5ed7bfa4f9b4645178fb65d50c9171feedba2cde7fe89a47"
   end
 
   depends_on "autoconf" => :build
@@ -22,14 +23,18 @@ class Cava < Formula
 
   depends_on "fftw"
   depends_on "iniparser"
-  depends_on "portaudio"
 
   uses_from_macos "vim" => :build # needed for xxd
   uses_from_macos "ncurses"
 
+  on_macos do
+    depends_on "portaudio"
+  end
+
   on_linux do
     depends_on "alsa-lib"
-    depends_on "jack"
+    depends_on "pipewire"
+    depends_on "pulseaudio"
   end
 
   def install

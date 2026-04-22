@@ -10,8 +10,6 @@ class Empty < Formula
     regex(%r{url=.*?/empty[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9e5c98a10342c451a8b3132ed20b2f4ea156dd075fa553d9af40798fd5f47af7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5528963e58f7075c3d661672120c3af66b0c63b4f8ff744171659e866af291ee"

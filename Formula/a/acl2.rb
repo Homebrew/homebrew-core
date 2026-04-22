@@ -1,10 +1,10 @@
 class Acl2 < Formula
   desc "Logic and programming language in which you can model computer systems"
   homepage "https://www.cs.utexas.edu/~moore/acl2/"
-  url "https://github.com/acl2/acl2/archive/refs/tags/8.6.tar.gz"
-  sha256 "c2d73e66422901b3cc2a6f5a9ab50f5f3b1b4060cf9dc9148d076f3a8b957cf9"
+  url "https://github.com/acl2/acl2/archive/refs/tags/8.7.tar.gz"
+  sha256 "d6013c22e190cbd702870d296b5370a068c14625bf7f9d305d2d87292b594d52"
   license "BSD-3-Clause"
-  revision 15
+  revision 1
 
   livecheck do
     url :stable
@@ -12,11 +12,11 @@ class Acl2 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "1206a65d92771cb92c143f845aea5d823cd51e9509c4a9634f81ca6dbc34093c"
-    sha256 arm64_sequoia: "e1ea055ee9d9b0ca6390d588b36b87404f3db11adfc9b6d1a08bc9f739b8db3f"
-    sha256 arm64_sonoma:  "33da5327235e954378f521c26627f0c340d07eab414fff7974373a1b30b68753"
-    sha256 sonoma:        "19f12e7e0c35bfae87ee58e66f0ec527138e1aa88120b173acce226b4d3b3a1a"
-    sha256 x86_64_linux:  "36e546567d2531e1d88437d92508f20bf5800e016b5ac7b48afa805a8168ac90"
+    sha256 arm64_tahoe:   "5e71a151f1b20b4ac7ecc5e06c9e24230b3d56a8c9ac7c3e18772a489cdbac0f"
+    sha256 arm64_sequoia: "47224d8da3c28dfcde6365d5567678d15191e810f893aadcab8b35e014be63e3"
+    sha256 arm64_sonoma:  "90d2c2a503799b06c858978ba982846fd533b74fe527cc5e90a16b21ac0fd0d0"
+    sha256 sonoma:        "09ae0bfbc2cfee944326ccf5428ec11b3ac62cac5b6ddd93cbc808fdb042d63b"
+    sha256 x86_64_linux:  "3d77079ea4ceeb15a54b560b55270b7760fdab18317bd06a87dacae099254f0d"
   end
 
   depends_on "sbcl"
@@ -30,6 +30,7 @@ class Acl2 < Formula
       "books/kestrel/axe/x86/examples/tea/tea.elf64",
       "books/kestrel/axe/x86/examples/add/add.elf64",
     ])
+    rm_r buildpath.glob("books/kestrel/axe/*/{examples,tests}")
 
     # Move files and then build to avoid saving build directory in files
     libexec.install Dir["*"]

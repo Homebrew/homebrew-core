@@ -25,9 +25,13 @@ class Standardese < Formula
       url "https://github.com/standardese/standardese/commit/0593c8fbaee48ffac022e2ea95865d808cc149ce.patch?full_index=1"
       sha256 "4b204256b97a4058b88c7b2350941d2c59a6c38aeb91e4112e1d267fdd092d03"
     end
-  end
 
-  no_autobump! because: :requires_manual_review
+    # Fix build with Boost 1.89.0, pr ref: https://github.com/standardese/standardese/pull/249
+    patch do
+      url "https://github.com/standardese/standardese/commit/d0c2073f9f13d26abd1be872b809e089ed20c9f6.patch?full_index=1"
+      sha256 "506c3cd1d2654aee37e200c57b9095c9bbad09de1d7a27efc545ea7c092cd4f0"
+    end
+  end
 
   bottle do
     sha256                               arm64_tahoe:   "842c08d83d331c26b95f718e07b43df23a1f9c5ef4f6df0c9920c3099773353f"
@@ -53,12 +57,6 @@ class Standardese < Formula
       url "https://github.com/foonathan/type_safe/commit/cdf334cd8e5fcb5e21ab470decdfcbd190ef7347.patch?full_index=1"
       sha256 "f9ab60828058f133c726f77ce8358714c6aa994c9cce29b703cf7a5fbdb2ae00"
     end
-  end
-
-  # Fix build with Boost 1.89.0, pr ref: https://github.com/standardese/standardese/pull/249
-  patch do
-    url "https://github.com/standardese/standardese/commit/d0c2073f9f13d26abd1be872b809e089ed20c9f6.patch?full_index=1"
-    sha256 "506c3cd1d2654aee37e200c57b9095c9bbad09de1d7a27efc545ea7c092cd4f0"
   end
 
   def install

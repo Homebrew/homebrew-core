@@ -11,8 +11,6 @@ class Synscan < Formula
     regex(/href=.*?synscan[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "377c4e84126ddf0320b437927b8c7274bf0429aa68862b4b46187b1572a11d6a"
     sha256 cellar: :any,                 arm64_sequoia:  "5c810311391581f8e9c6c8638d6e11c467198c36c9ebe08ee2f7a25da0d19636"

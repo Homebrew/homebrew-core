@@ -14,8 +14,6 @@ class PgTop < Formula
     regex(/^v?(3(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "9adc494d9d026662d8e072527c22e736fe60bf0153eecdc5d3d4b6271abfc8a9"
     sha256 cellar: :any,                 arm64_sequoia:  "b9d888449873a35c6f29b43698da65bda0e4136eb1f2d0176338fcbc617e4e5b"

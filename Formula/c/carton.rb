@@ -6,8 +6,6 @@ class Carton < Formula
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/perl-carton/carton.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7cf6c91209b768cb3e963c1eb14131efe738a851748d61d9adf402c274beeabf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "228551b5317d850f5ba6cc3dcf31eced4f9df54d28a804ce0dbf24652ca30e75"

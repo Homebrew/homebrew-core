@@ -18,8 +18,6 @@ class Picoc < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "190a69c827d572ea5c16c28021907f6eb657eaa4b3381fc379ebeeda16e1c102"

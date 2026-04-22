@@ -5,7 +5,13 @@ class Cdrdao < Formula
   sha256 "ba3eadcae7b62a709e9e23988d7fb41f822c408dcec9bd99ff1a343d1bcbc524"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :incompatible_version_format
+  livecheck do
+    url :stable
+    regex(/^rel[._-]v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
+  end
 
   bottle do
     sha256 arm64_tahoe:   "a87345e6d975df2e81170e4f82906ba52a913ae907fbff6c3b58b5d5660de8ed"

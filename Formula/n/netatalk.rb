@@ -1,8 +1,8 @@
 class Netatalk < Formula
   desc "File server for Macs, compliant with Apple Filing Protocol (AFP)"
   homepage "https://netatalk.io"
-  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-4-1/netatalk-4.4.1.tar.xz"
-  sha256 "8fcab0bf3b39cd8a94fe3ee7a8264c6000515a3af377da3416696609ab13316d"
+  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-4-2/netatalk-4.4.2.tar.xz"
+  sha256 "31fca3b379014810e4b9d6a498aee286d29d3e9ff70326e87e14d93eaa6d0a5e"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -17,12 +17,12 @@ class Netatalk < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "a035b13e47aa4e8c0b69b8c8d1349fdbd1770498742d4355c34fdfa8438ea6dd"
-    sha256 arm64_sequoia: "9d836b99af5ab42bba289f88704e773fbf7b943a88460d3b356cb3598fac4f46"
-    sha256 arm64_sonoma:  "00c9b000cfc0f11c3818ed4f569f23e43c2b248a954cc63ebfbaf38910d848be"
-    sha256 sonoma:        "c60acf3487cac5ef372d67eeab9f23083ff8c6812e8a039d8abfec4d72176606"
-    sha256 arm64_linux:   "ebbf5e06fe8b5d04eafee507c8be83d68ea8fc18e8c2822e1dddd3826fc37f96"
-    sha256 x86_64_linux:  "b0b70664aa88aaf213ba4d943c5f5fc0034fd5d67143ba638c4cbb7139c51046"
+    sha256 arm64_tahoe:   "b955fd7d4965c4007641b24613d7b84136117653201458a6e8a999c676a116f5"
+    sha256 arm64_sequoia: "e3c8a55a6449d45500764ba400e16930a723097fb07f46b1959f855e79e11720"
+    sha256 arm64_sonoma:  "13e97200f28a470cbad9854e19c4ea8f1997e593179ca4e10eb7bc135aa2e2ad"
+    sha256 sonoma:        "92980157ba810950a905250ca8874c0babc6ddd8ffc8e717fafb2a6ec33986b9"
+    sha256 arm64_linux:   "475d8dedd339614f2eea1184f470838b92b836b881f942333e958192f7a84614"
+    sha256 x86_64_linux:  "d6977182c52360c9a3f8bd19d157aebb28106d1ce73f9180d1a472548ab8018b"
   end
 
   depends_on "cmark-gfm" => :build

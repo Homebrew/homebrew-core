@@ -1,8 +1,8 @@
 class SlothCli < Formula
   desc "Prometheus SLO generator"
   homepage "https://sloth.dev/"
-  url "https://github.com/slok/sloth/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "85c3369845fb44db90603422dddc2ac4f21f28f1bac4994f6e1e91707cd98cba"
+  url "https://github.com/slok/sloth/archive/refs/tags/v0.16.0.tar.gz"
+  sha256 "f1ddad49462cf66652e611f7903ecb0dd86b9fa8f4bc43c7e458e8fa87de854c"
   license "Apache-2.0"
   head "https://github.com/slok/sloth.git", branch: "main"
 
@@ -12,12 +12,12 @@ class SlothCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d48912e0ff06aaecac777e863ae79a8f5e3a4927cb39f0b68df832645da76abe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d8a11f2892f80a1c88aed87d98a156db15ac20294dc37a3c1710b5907c2a1bc0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51e8262235ea010b346e539c28815d5652459c040ec3880c8c0cec9c84579b53"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8011382bc46786eba1e82918d9bae201f759d64e94ffbacedcc8fd2c635cab03"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e2a7b92a6d7fce7d77419ea056044ff1faaaa14ca24ce574657fb8df9b30d677"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d06d3529fc05ca63b8c4c15fa8d7eeb1c48bb9787df738f0f9251fdc1529b380"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "190794921c6b77780f3d1df1d59b8facf7cdb24aa4efb54133fbf001ab5364cc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0490372823b434af5147a805555f4ffe2dc9c6ee35b388748babff749e4d70fd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dadade0a24902bbbf7eae296a705fce580bfc6e81517e3b3d6404251e613b4d3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "abce79423a0c2b589184eea712492f143e1864670fb9a183cbf8329399dc0f82"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "10b3daadfc45e9666921b9ccf3441ec4b6adfbe02ec043b3495e2b574ca0514d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c0194ac911679b52468285ad282f663908ec62bc823871d2b094b71141c1753"
   end
 
   depends_on "go" => :build

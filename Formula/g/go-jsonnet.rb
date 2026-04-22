@@ -1,8 +1,8 @@
 class GoJsonnet < Formula
   desc "Go implementation of configuration language for defining JSON data"
   homepage "https://jsonnet.org/"
-  url "https://github.com/google/go-jsonnet/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "ee7aa004e78fb49608bcf28142a7494dc204a07cc07d323dd2cff3d97298c696"
+  url "https://github.com/google/go-jsonnet/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "9c463043a05c1e833c57136521e808ee8df192131f00c636235a2b54823d8c4c"
   license "Apache-2.0"
   head "https://github.com/google/go-jsonnet.git", branch: "master"
 
@@ -11,17 +11,13 @@ class GoJsonnet < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "71970a3746e1df0623b04394d223a551253fc3fa2af026885d976f85df469def"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1da0bff35201dd30f0992b3a4d2be4dcf4081a8ece97e8841cdc56202ce9f5f4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1da0bff35201dd30f0992b3a4d2be4dcf4081a8ece97e8841cdc56202ce9f5f4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1da0bff35201dd30f0992b3a4d2be4dcf4081a8ece97e8841cdc56202ce9f5f4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "857205b6b5af2d4cbf762b4479612ceb5cb330d89c4825a7519f216a39fd61f6"
-    sha256 cellar: :any_skip_relocation, ventura:       "857205b6b5af2d4cbf762b4479612ceb5cb330d89c4825a7519f216a39fd61f6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd6fefa551f11430c771c4f9bc581a08b0ca166eb1caa02d52cfdae71e4e0065"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f561d3294310d773a7f59d4eeb506aca0a86b510a654965096bbebe041c87032"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "85de63336520c4bff8ac427d7669521c77497a3e67e82a49b41c82de33feb6bd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "85de63336520c4bff8ac427d7669521c77497a3e67e82a49b41c82de33feb6bd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85de63336520c4bff8ac427d7669521c77497a3e67e82a49b41c82de33feb6bd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ac32711401c962f3781e5cef03fdc233dc8a2cc983fda610329bc5adde641bb5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "408dd089b37267bdc16c7b10ce2269dca3eca7adcd71e22b1ac9219142356323"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3b41611f2b1ea2b8cdefbc358239d10c9a7d0f6f0db19d82bb74ee11e70c968"
   end
 
   depends_on "go" => :build

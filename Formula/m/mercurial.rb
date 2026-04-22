@@ -3,9 +3,10 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-7.1.2.tar.gz"
-  sha256 "ce27b9a4767cf2ea496b51468bae512fa6a6eaf0891e49f8961dc694b4dc81ca"
+  url "https://www.mercurial-scm.org/release/mercurial-7.2.1.tar.gz"
+  sha256 "f750f86c5734a8df776a003db45e9a9df4e398a770479ea4cc19b61e9f3acd17"
   license "GPL-2.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://www.mercurial-scm.org/release/"
@@ -13,14 +14,14 @@ class Mercurial < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e9317232e4d64a63fd18d1d57ff64bb72c86514cb91d47823e78996e317502d8"
-    sha256 arm64_sequoia: "5d06c3f6f5c8fe73397da5f6976aa2c85143362ba3da9887ed2ad26e91355fea"
-    sha256 arm64_sonoma:  "ae97183ee9cbae17551ac76ca2e8761ae2c55f82880b3e5b22bcf95dd08dcd8f"
-    sha256 tahoe:         "fdd91a61b1e6294d834fc23e7ebabada863f8e1580e5e4dc4df52f681e44f34c"
-    sha256 sequoia:       "42e620046194f67bc4c79e132cd13a2c028f48adb704a4ea73ef2ea0d6669294"
-    sha256 sonoma:        "8bd7368319b0c07882655a590d8ce824da1e4c96c2aba737b824d49091412de3"
-    sha256 arm64_linux:   "9693770c636081f6caa6e3886b5873d0cf80a6ac417d3190726c47bd79714a89"
-    sha256 x86_64_linux:  "867cf560617edbc930596f467e5be84fd735eacfe4fd263a65d1af51ef83dfe3"
+    sha256 arm64_tahoe:   "c1e01ffba2cba593f92cbcc237cd240505bc5fe79450a31783d0cb2cc4259c84"
+    sha256 arm64_sequoia: "2e81ec73a58dd9baa092ceef91982aa83ccd2339be24576308f3a7febaca70a8"
+    sha256 arm64_sonoma:  "b7fc40a7bc93c71f02dbac91673ff199be7107fd993c71c663db794e46dc45d7"
+    sha256 tahoe:         "b2a63d68506cc4fdb5b53d752dea1e74147b0b7f90b74fd126fb6eac1ce6d4fa"
+    sha256 sequoia:       "ed556a41b308048e952c2bdddaee5fa7a9cca5901c341b9fc44545a3f9db64df"
+    sha256 sonoma:        "b597d2978873edeefb8f2064cf469afc1c0783bcec92397e1830181a71c1b23c"
+    sha256 arm64_linux:   "2b063d35baae67536b02ff614c49ff6b54079fbfe9804fed7376f24382ba7bbd"
+    sha256 x86_64_linux:  "5dbc2c85287e270559bf0a23c8d73db0ae4cd03cd40192b90fef93b45d8eb020"
   end
 
   depends_on "python@3.14"
@@ -33,10 +34,10 @@ class Mercurial < Formula
     system "make", "-C", "contrib/chg", "install", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg", "HG=#{bin}/hg"
 
     # Configure a nicer default pager
-    (buildpath/"hgrc").write <<~EOS
+    (buildpath/"hgrc").write <<~INI
       [pager]
       pager = less -FRX
-    EOS
+    INI
 
     (etc/"mercurial").install "hgrc"
 

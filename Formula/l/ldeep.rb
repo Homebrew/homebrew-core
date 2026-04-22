@@ -3,19 +3,19 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/3e/b9/7eb3e7fa0f138b91feb241c4323e0e9dec7f07cb95110c51eabe1d8d5e7e/ldeep-1.0.89.tar.gz"
-  sha256 "bbaa2534200ddfa1acd1e40e0e9ca188929046288089e85e95eadc1f1d978b40"
+  url "https://files.pythonhosted.org/packages/a0/e6/3da498f6a5b0ada48ef16602cc5bafbea1e43992d7c4c64aa2d167e3cbd0/ldeep-2.0.0.tar.gz"
+  sha256 "2adea5d3268b6cfc4edeeb415d4720525b92d8ca574aed9bf4925790080bd88d"
   license "MIT"
+  revision 1
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "173fedcceb95522500010113b9bf5a0581f4858c67a416728b1b7fcb08cfacdf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13e17f405d31367c90a180aaeef9ee37ae117b939236fc898139d2c932e4a95c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e8cbceb3e126f12281330f55abc17fee0dd9a737f1e6ba68e7cbe4b6321a294"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dc1b6af948befea40fb1edde767526e7f2e172748d52aab332a9892d64cc0d8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdb5ac42d8212cdebb899133698ffca2457f16d8e4a0e2ebc7755413d842fbdd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a5a6b607d6f811ca2d596d2cf1ddbd6a64d0b1aa6014994ff0c969482ec0d5f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c853f18ae0c3b753e90d242b155385e3864c3ae4e46901bd2166264d2513d00d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1ae59c536a56c625583797b018b5a608fe466c6a7f2cb6960137e3325b0c37f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d23419c22454d9e048015927ac02f0341d8becc1f769ed7a4082c5ec8774d95d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "24354ed626ab5a8f4e6e9e5586068846b36753a38e1ec2f7b9cc744e7725a129"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f1b52323891c02926c5fa79a89bd61b2af6020bcb013194507f542504beb44e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c5b339b726d9807d6fa636a020ee53d320522940ac12ddf3de36877197323e8"
   end
 
   depends_on "cryptography" => :no_linkage
@@ -46,8 +46,8 @@ class Ldeep < Formula
   end
 
   resource "gssapi" do
-    url "https://files.pythonhosted.org/packages/b7/bf/95eed332e3911e2b113ceef5e6b0da807b22e45dbf897d8371e83b0a4958/gssapi-1.10.1.tar.gz"
-    sha256 "7b54335dc9a3c55d564624fb6e25fcf9cfc0b80296a5c51e9c7cf9781c7d295b"
+    url "https://files.pythonhosted.org/packages/23/52/c1e90623c259a42ab0587078bb04f959867b970add46ff66750ead8fc7c5/gssapi-1.11.1.tar.gz"
+    sha256 "2049ee4b1d0c363163a1344b7282a363f9f4094e51d2c36de0cf01d4735e0ae2"
   end
 
   resource "ldap3-bleeding-edge" do
@@ -61,8 +61,8 @@ class Ldeep < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/ba/e9/01f1a64245b89f039897cb0130016d79f77d52669aae6ee7b159a6c4c018/pyasn1-0.6.1.tar.gz"
-    sha256 "6f580d2bdd84365380830acf45550f2511469f673cb4a5ae3857a3170128b034"
+    url "https://files.pythonhosted.org/packages/5c/5f/6583902b6f79b399c9c40674ac384fd9cd77805f9e6205075f828ef11fb2/pyasn1-0.6.3.tar.gz"
+    sha256 "697a8ecd6d98891189184ca1fa05d1bb00e2f84b5977c481452050549c8a72cf"
   end
 
   resource "pycryptodome" do
@@ -81,20 +81,16 @@ class Ldeep < Formula
   end
 
   resource "termcolor" do
-    url "https://files.pythonhosted.org/packages/37/72/88311445fd44c455c7d553e61f95412cf89054308a1aa2434ab835075fc5/termcolor-2.5.0.tar.gz"
-    sha256 "998d8d27da6d48442e8e1f016119076b690d962507531df4890fcd2db2ef8a6f"
+    url "https://files.pythonhosted.org/packages/46/79/cf31d7a93a8fdc6aa0fbb665be84426a8c5a557d9240b6239e9e11e35fc5/termcolor-3.3.0.tar.gz"
+    sha256 "348871ca648ec6a9a983a13ab626c0acce02f515b9e1983332b17af7979521c5"
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
   end
 
   def install
-    # Unpin python for 3.14
-    # Issue ref: https://github.com/franc-pentest/ldeep/issues/143
-    inreplace "pyproject.toml", 'requires-python = ">=3.8.1,<3.14"', 'requires-python = ">=3.8.1"'
-
     virtualenv_install_with_resources
   end
 

@@ -3,19 +3,18 @@ class Offlineimap < Formula
 
   desc "Synchronizes emails between two repositories"
   homepage "https://github.com/OfflineIMAP/offlineimap3"
-  url "https://github.com/OfflineIMAP/offlineimap3/archive/refs/tags/v8.0.1.tar.gz"
-  sha256 "82ce54136465ea1cce62f4e961e8c155ac3eee2149fa812763629448902d7d69"
+  url "https://github.com/OfflineIMAP/offlineimap3/archive/refs/tags/v8.0.2.tar.gz"
+  sha256 "c299cbbab92d48215ea37ec06ec68699d17e59ab97a1b98e792f75e0a507b306"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/OfflineIMAP/offlineimap3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "89057fbe4e4bd0da45e4b7b015e62e9d5f5b4944251b3f9b1d91370ae0e8644e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "89057fbe4e4bd0da45e4b7b015e62e9d5f5b4944251b3f9b1d91370ae0e8644e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89057fbe4e4bd0da45e4b7b015e62e9d5f5b4944251b3f9b1d91370ae0e8644e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9888a2ec89503b3b0ccc2b6fea20251edfdf4d4c1f9f48e7bff8a0b14bd129e3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9888a2ec89503b3b0ccc2b6fea20251edfdf4d4c1f9f48e7bff8a0b14bd129e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9888a2ec89503b3b0ccc2b6fea20251edfdf4d4c1f9f48e7bff8a0b14bd129e3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47c364fb81fe40a2118707e9bf9b7761a05733a925167597e2696fd1b98a0f07"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47c364fb81fe40a2118707e9bf9b7761a05733a925167597e2696fd1b98a0f07"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47c364fb81fe40a2118707e9bf9b7761a05733a925167597e2696fd1b98a0f07"
+    sha256 cellar: :any_skip_relocation, sonoma:        "01573f83d5463c999e6340dd61caaf870acb6f710aa164f32a718b92e101f89d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "01573f83d5463c999e6340dd61caaf870acb6f710aa164f32a718b92e101f89d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01573f83d5463c999e6340dd61caaf870acb6f710aa164f32a718b92e101f89d"
   end
 
   depends_on "certifi"
@@ -48,8 +47,8 @@ class Offlineimap < Formula
   end
 
   resource "jaraco-context" do
-    url "https://files.pythonhosted.org/packages/cb/9c/a788f5bb29c61e456b8ee52ce76dbdd32fd72cd73dd67bc95f42c7a8d13c/jaraco_context-6.1.0.tar.gz"
-    sha256 "129a341b0a85a7db7879e22acd66902fda67882db771754574338898b2d5d86f"
+    url "https://files.pythonhosted.org/packages/af/50/4763cd07e722bb6285316d390a164bc7e479db9d90daa769f22578f698b4/jaraco_context-6.1.2.tar.gz"
+    sha256 "f1a6c9d391e661cc5b8d39861ff077a7dc24dc23833ccee564b234b81c82dfe3"
   end
 
   resource "jaraco-functools" do
@@ -63,18 +62,13 @@ class Offlineimap < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/ea/5d/38b681d3fce7a266dd9ab73c66959406d565b3e85f21d5e66e1181d93721/more_itertools-10.8.0.tar.gz"
-    sha256 "f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
+    url "https://files.pythonhosted.org/packages/a2/f7/139d22fef48ac78127d18e01d80cf1be40236ae489769d17f35c3d425293/more_itertools-11.0.2.tar.gz"
+    sha256 "392a9e1e362cbc106a2457d37cabf9b36e5e12efd4ebff1654630e76597df804"
   end
 
   resource "rfc6555" do
     url "https://files.pythonhosted.org/packages/f6/4b/24f953c3682c134e4d0f83c7be5ede44c6c653f7d2c0b06ebb3b117f005a/rfc6555-0.1.0.tar.gz"
     sha256 "123905b8f68e2bec0c15f321998a262b27e2eaadea29a28bd270021ada411b67"
-  end
-
-  resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
-    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
   end
 
   def install

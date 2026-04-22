@@ -7,19 +7,22 @@ class Code2prompt < Formula
   head "https://github.com/mufeedvh/code2prompt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "02e5313ee1e04391137b435bc3f012f58942f4572f36101be6682901245dd746"
-    sha256 cellar: :any,                 arm64_sequoia: "ca1cd1d2ad45322cb1d566c1c3acdb73bbd0e470abe0740adf743c56e8c8a6eb"
-    sha256 cellar: :any,                 arm64_sonoma:  "05c84df90bca289b012b49bdf24f37cdf86ab213d7109ce1407f200ca5bf323f"
-    sha256 cellar: :any,                 sonoma:        "62e151d3d7bf970a88402dbbef884f0c92b611ef16da266bc7ce5bf2360ebb1b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "26a1054374ff05ab96d2294d5079a3b995f56c3f6fd4e9c8b5e669fc58d2406e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45ca59f26707d460a2287379ea37bd80f6c2fb81bcda5f8e947189dcfc60f471"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "14aa4f7a6f013ffc948306bbe0210b951ccc0523d78ebd1b1c5ef0a36c08f1c2"
+    sha256 cellar: :any,                 arm64_sequoia: "e7bdea92a684ab0483bad093e9aa554d2df195d77eb2676f1f469b71c524a7ed"
+    sha256 cellar: :any,                 arm64_sonoma:  "d25ee8e05d2016985e5ebcf1befe31d2ddbd9b67fc482ed9d00a39f0e61ff04b"
+    sha256 cellar: :any,                 sonoma:        "48fb47f8ece13be5215c64d39b3b641498fe3f9e46c901dedaa2123adddd9361"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8133b94fe8d8ff29a3b14dfadfd7c333b40f811193d0a0cc8fa81805e8851133"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "901f372469f56db97e43cb4ad0beff306ed34532bb7728be03d71cfd19ca8fa1"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Ensure the correct `openssl` will be picked up.

@@ -12,8 +12,6 @@ class Figlet < Formula
     strategy :page_match
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "08cea07f0d5aa44680d79cf97dbae12da8f80e85deb70b36f0e701be0896efd5"
     sha256 arm64_sequoia:  "a157e5806797a85551f7773614157047dfa09fb38e76d6502cb93c79a207851c"

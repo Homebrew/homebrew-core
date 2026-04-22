@@ -12,21 +12,22 @@ class GitInteractiveRebaseTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "59edafac4ddba19f47cd31f4c09274eecd241460d37336a094137b4d78d7baf9"
-    sha256 cellar: :any,                 arm64_sequoia: "be79dedf848897cbce256b691a0baf54fff8ae7138c674a8aac9f0818c6a5eae"
-    sha256 cellar: :any,                 arm64_sonoma:  "8290dbb2de4e0273fc9bf1de29cb27bc564a1ad921c024fcc9bf80911550eea4"
-    sha256 cellar: :any,                 arm64_ventura: "a8d4f2130634d33aff7b2a4ae0dbce99d783cbb07659ec5b40ce4e51f9661852"
-    sha256 cellar: :any,                 sonoma:        "1057b8baf1e744c13106e99148d3157483d33d7052d6c5cf31e07a8ced6941a4"
-    sha256 cellar: :any,                 ventura:       "14d3693aeb6937371f12b737ea2d168843b6c3bd5d08ff4a439603afe4f53a7e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "03172eaa8df62e5a3d3e30b250cf5008c9416738541198ac25380bca13cb8054"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a88b6633a37b3db5fceb6ff1dd10dfb3c8c8131d0f0f940fa166d92bddaf7520"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6deb4776ef5eb24799282fc8b4489e643c97c8d56303287763626f350ed79cd1"
+    sha256 cellar: :any,                 arm64_sequoia: "835c61bf47166e53349a684b49dffc494a454da85ac7f246cc86274490614219"
+    sha256 cellar: :any,                 arm64_sonoma:  "84dc9fc37498504ad7d7d1e9ddb032acbedd7402f97dfbbc02856753815b6ee1"
+    sha256 cellar: :any,                 sonoma:        "39e883fcac9342280b03218a663e61ce29ca8854e036c270a2e7dc1702d84d74"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dc6bb58f3af6b57b89d172f05cc6c16c8c3f21d295a3912a6068013906b82afd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60f1a23c2048c4581dfd226e3bc7bbeb83f0a54d33cff7e1c0d3847fc2e2b729"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # support libgit2 1.9, upstream pr ref, https://github.com/MitMaro/git-interactive-rebase-tool/pull/948
   patch do

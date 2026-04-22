@@ -4,6 +4,7 @@ class Glew < Formula
   url "https://downloads.sourceforge.net/project/glew/glew/2.3.1/glew-2.3.1.tgz"
   sha256 "b64790f94b926acd7e8f84c5d6000a86cb43967bd1e688b03089079799c9e889"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://github.com/nigels-com/glew.git", branch: "master"
 
   bottle do

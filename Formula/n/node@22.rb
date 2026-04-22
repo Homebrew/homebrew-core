@@ -1,9 +1,11 @@
 class NodeAT22 < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.22.0/node-v22.22.0.tar.xz"
-  sha256 "4c138012bb5352f49822a8f3e6d1db71e00639d0c36d5b6756f91e4c6f30b683"
+  url "https://nodejs.org/dist/v22.22.2/node-v22.22.2.tar.xz"
+  sha256 "b6bedd3a8cacd5df7df015a5088264b12c74a277ba60684cb9642ae8eb743132"
   license "MIT"
+  revision 2
+  compatibility_version 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -11,12 +13,12 @@ class NodeAT22 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "40e01214ea4051854d6a01a1ee8f447fe3ea332ed72cc8729e94fb8893f3d4fe"
-    sha256 cellar: :any,                 arm64_sequoia: "8df9622529cea51c29297c490f028aad42b402dd3ad0f36e0a48a57b2fbd5678"
-    sha256 cellar: :any,                 arm64_sonoma:  "8f8bb90848e2174224316b81ef3f34aa333684d7ee809a8bbf74a89bc4f1d2fe"
-    sha256 cellar: :any,                 sonoma:        "76af282fde5dabab1c469c1e4c8f3670f22bf2bc5cf56b6b4562fb6c1bfff6be"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "138c857478d15f76fee87190397d6706d58488926c693a2c8c9a31e979ad74ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eec931d242d22fe55b84bab6c283d8e3b67e6cbb91283b91a2357615e166945f"
+    sha256 cellar: :any,                 arm64_tahoe:   "7bfae698e37587beaf70e52f76b9176531a62318cfbf5400aa373b81b58c7edc"
+    sha256 cellar: :any,                 arm64_sequoia: "f802a7e95a4df48df7b7f337e339f50b2df47f6281981960171d4bb376e65003"
+    sha256 cellar: :any,                 arm64_sonoma:  "f076ace0f9a1ab67a79ee7d0509364b9a95ab76b004dce1331db01350a9acfb1"
+    sha256 cellar: :any,                 sonoma:        "64ec464f8f26e87a73d7e438755b19be4b4c290020dd5cb24eb56ae068d27959"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "20e88233331ea969abdf80d95529928f5ab795804cbef4bf6b047015fe4ff630"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20160761c5c0819f3901d834d8fb02467c0e31132a0bc5fde975431bcd325b30"
   end
 
   keg_only :versioned_formula
@@ -42,10 +44,13 @@ class NodeAT22 < Formula
   depends_on "zstd"
 
   uses_from_macos "python"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do
@@ -56,8 +61,6 @@ class NodeAT22 < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
-
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.13")
 

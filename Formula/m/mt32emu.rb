@@ -9,9 +9,10 @@ class Mt32emu < Formula
   livecheck do
     url :stable
     regex(/^libmt32emu[._-]v?(\d+(?:[._-]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "51037c0eac2abd5e9470bc021f98ce2eb2034acfd16e381594277e90dd016232"

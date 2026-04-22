@@ -2,6 +2,7 @@ class Purescript < Formula
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "https://www.purescript.org/"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://github.com/purescript/purescript.git", branch: "master"
 
   stable do
@@ -55,13 +56,13 @@ class Purescript < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "c756170a50204cdf15a8860de91d790406f3700854f4bc2dff3d19c9d48262e0"
-    sha256 cellar: :any,                 arm64_sequoia: "ef1cdddbd66ac94205a03942dfedd868f6e2bca9d960c20c6dda374f92458e5b"
-    sha256 cellar: :any,                 arm64_sonoma:  "c131e80cd223e18506deab074eda3134e21a338792fd9202d12dbe9a76c40026"
-    sha256 cellar: :any,                 sonoma:        "905810197a1336b51a8b5b82b2d111a90c921841e7c746453f651bea6a85fcd6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4b97017de69541d9a93fb76c2942acbb0303a5eeea58a2c178b8c68a93678cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dec7c0fd9fc1fa96c302c5b241d7b5b5f379027d1fbc7f5da5fa4bf534856729"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "6816c04335a5db15f75e148c2c5a32bda26768b80d0b5ff76162a50c568adf6d"
+    sha256 cellar: :any,                 arm64_sequoia: "035715c84e56262a479fb1ea36540aad9a5eabf6c7df5f8492c22d1bb060d50c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c632a186c55a5a4031ab0c935965987506489b165e4b497d55bb1898cd102ffa"
+    sha256 cellar: :any,                 sonoma:        "307a30f58a38fe6991b6362d5f36d8b22094d595aefce3b4630566ee0e03180f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71a6893562316ed81a0b374eb74754435d0f512b727d3430952232d24e8ba397"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ab1488698c461b43eb948dc0dcd752ea4cdad6216ce45ef809b5d49209bf0c7"
   end
 
   depends_on "cabal-install" => :build
@@ -70,7 +71,10 @@ class Purescript < Formula
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Minimal set of dependencies that need to be unbound to build with newer GHC

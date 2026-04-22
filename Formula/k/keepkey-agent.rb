@@ -17,6 +17,10 @@ class KeepkeyAgent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fe6d7952edb6af22d1163a15aa5231e5282dd397891b33a20159a1c80f3ad11"
   end
 
+  # https://github.com/romanz/trezor-agent/commit/60bed0f411595ea1b0bb122fafdd0852e10d1eec
+  deprecate! date: "2026-02-21", because: :unmaintained
+  disable! date: "2027-02-21", because: :unmaintained
+
   depends_on "pkgconf" => :build # for hidapi resource
   depends_on "cryptography"
   depends_on "hidapi"

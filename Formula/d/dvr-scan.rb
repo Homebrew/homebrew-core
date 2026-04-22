@@ -29,6 +29,11 @@ class DvrScan < Formula
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
   end
 
+  fails_with :clang do
+    build 1699
+    cause "pyobjc-core uses `-fdisable-block-signature-string`"
+  end
+
   pypi_packages exclude_packages: %w[numpy opencv-contrib-python pillow],
                 extra_packages:   "pyobjc-framework-cocoa"
 
@@ -75,8 +80,6 @@ class DvrScan < Formula
   def install
     # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
     ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}" if OS.mac?
-    # pyobjc-core uses "-fdisable-block-signature-string" introduced in clang 17
-    ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1699
 
     without = %w[pyobjc-core pyobjc-framework-cocoa] unless OS.mac?
     virtualenv_install_with_resources without:

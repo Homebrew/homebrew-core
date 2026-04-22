@@ -4,6 +4,7 @@ class CAres < Formula
   url "https://github.com/c-ares/c-ares/releases/download/v1.34.6/c-ares-1.34.6.tar.gz"
   sha256 "912dd7cc3b3e8a79c52fd7fb9c0f4ecf0aaa73e45efda880266a2d6e26b84ef5"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/c-ares/c-ares.git", branch: "main"
 
   livecheck do

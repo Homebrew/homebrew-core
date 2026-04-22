@@ -1,37 +1,25 @@
 class Glslviewer < Formula
   desc "Live-coding console tool that renders GLSL Shaders"
   homepage "https://patriciogonzalezvivo.com/2015/glslViewer/"
+  url "https://github.com/patriciogonzalezvivo/glslViewer.git",
+    tag:      "3.5.2",
+    revision: "edb58380ba8523d32e72966d0d0508ba78c28ffd"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
-
-  stable do
-    url "https://github.com/patriciogonzalezvivo/glslViewer.git",
-        tag:      "3.2.4",
-        revision: "7eb6254cb4cedf03f1c78653f90905fe0c3b48fb"
-
-    # Backport support for FFmpeg 8
-    patch do
-      url "https://github.com/patriciogonzalezvivo/vera/commit/74b6ff1eccb7baccdb3f7506377846ef20051de1.patch?full_index=1"
-      sha256 "9fe1f83af45a8740bb7bd3322e9b71bd5c3582b7397d68864d4f75e0c83541d4"
-      directory "deps/vera"
-    end
-  end
 
   livecheck do
     url :stable
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "71def3742a3b6dcd962ba7fd6cdd972a32eb958457b4e95ecdbd25270260ed0c"
-    sha256 cellar: :any,                 arm64_sequoia: "81f3f92b622f746143e0093ae8fc2a285e3d84f3301507ff69afe9928ea5ab3d"
-    sha256 cellar: :any,                 arm64_sonoma:  "50ab6a1054838c1bb0149c7d01bafd270e4c60ecaa8fd9224b4edfbf4cecb355"
-    sha256 cellar: :any,                 sonoma:        "7fb9c08e7bac8481dcb111484dc3eae1cc737217ae5cf1f97f1fe7752700217e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc1b7fd1658789fd23a044debe30deca835490c7a00409507672a9f9c4c998d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39bc756f9b0b10b57aaf57d366b2d21fcf601d3be5cff1f98a0b7af6610cf755"
+    sha256 cellar: :any,                 arm64_tahoe:   "5f1579f56c5a86e383914f713e890eac7d18f78389edee0b66343a42ea8fa462"
+    sha256 cellar: :any,                 arm64_sequoia: "79ba95dd1db4c757f3fbbac82965bebaaa59296e9642d852068132435bd8b0c2"
+    sha256 cellar: :any,                 arm64_sonoma:  "ad1602c476e6866b3f9b482a2e499ddd98ec4e5c4c8a73aa92e49f0d086e77c7"
+    sha256 cellar: :any,                 sonoma:        "db23b8590ebdbbbeed58dfd817ab2d52a3a838abf18e740ea55d330c8016f535"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a33b5a5f882330cd436aed165045841b8a84f6f627fc56c270f032c5035f50ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4df83c750277d08f1b53aa5aa065e2d35075c122ec34dc8568e441ab06bbad2"
   end
 
   depends_on "cmake" => :build
@@ -47,7 +35,7 @@ class Glslviewer < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

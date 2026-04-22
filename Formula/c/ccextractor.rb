@@ -1,17 +1,17 @@
 class Ccextractor < Formula
   desc "Tool for extracting closed captions from video files"
   homepage "https://www.ccextractor.org"
-  url "https://github.com/CCExtractor/ccextractor/archive/refs/tags/v0.96.5.tar.gz"
-  sha256 "821614d7b31d47bf3bf6217a66464b826c0f86d2bcde070b6fba74f54dff55ff"
+  url "https://github.com/CCExtractor/ccextractor/archive/refs/tags/v0.96.6.tar.gz"
+  sha256 "d2bda9d2071ccf7a81a43c10e82ec00899b2a25b391c300e965274f92ad46208"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f640d9cd318188c14097436f5206c5a0854dc6d39aa668474b45284bdbeed0ab"
-    sha256 cellar: :any,                 arm64_sequoia: "a8c3f93fe37be67cd3e716d6d121d50800106f4855d13baaeee28bae8742cbd7"
-    sha256 cellar: :any,                 arm64_sonoma:  "f026f821a560198bf26aa1f68997db6254dc21f5639ec00b430bd329e7938978"
-    sha256 cellar: :any,                 sonoma:        "528159cd5633d3b2f74809871ec205e98ac9fab621f403022a283e8c7d5ce1d3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fee597d0a65901487b2b0ab7ddc1fa7807013ec1db8ba301a0ed72e30e1847dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36941b509ab4fefce7a9bd0a3392cd7a625880b5dce0a20b4d3342395be4bd56"
+    sha256 cellar: :any,                 arm64_tahoe:   "12c08c826b1c250658d66d379f72561580175beefe027cc0c171dffa67eba093"
+    sha256 cellar: :any,                 arm64_sequoia: "0fcdc7c0b826a813a867b827dd893fe2cc37febbf6288f2a5d7b548044d6260a"
+    sha256 cellar: :any,                 arm64_sonoma:  "a852bf9a730bd1551c295ba37541f8f70b39c5f7544a42e292735791a25dffef"
+    sha256 cellar: :any,                 sonoma:        "123f78f64acb113f4d0115ff351399d7f4c7e370b53aed233294b8edf0647cfb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8594c9a98cd6eb8251c1c88cbcea50d1dd4ece4dfe8461664847558e4d3d3f12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0ef2ceeff67d6a30349edf4eeef1e452788f44f0c8d7d880c76cb58ae25a8c6"
   end
 
   depends_on "pkgconf" => :build
@@ -22,12 +22,11 @@ class Ccextractor < Formula
   depends_on "protobuf-c"
   depends_on "utf8proc"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "llvm" => :build
     depends_on "leptonica"
     depends_on "tesseract"
+    depends_on "zlib-ng-compat"
   end
 
   def install

@@ -8,8 +8,6 @@ class Pstree < Formula
   sha256 "64d613d8f66685b29f13a80e08cddc08616cf3e315a0692cbbf9de0d8aa376b3"
   license "GPL-3.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "999cb5fb08aa25b078cf66c5a24c1b1244532e5757965e0089631b3bf4e4836e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d294c9c8a1f140ad0505ab702204a8d909c860318e0013694dd760b95a39d1d1"

@@ -1,17 +1,17 @@
 class Appwrite < Formula
   desc "Command-line tool for Appwrite"
   homepage "https://appwrite.io"
-  url "https://registry.npmjs.org/appwrite-cli/-/appwrite-cli-13.1.0.tgz"
-  sha256 "8d1a4684f97566352b43256b48cbf7bf60de098012d406a643d98df75aa04729"
+  url "https://registry.npmjs.org/appwrite-cli/-/appwrite-cli-18.2.0.tgz"
+  sha256 "0fd1965754680ab1d42b99d44a182782a0321fa12f5bd9e48e3a4fb84ce2e25f"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cb64af9cb03b48893c19cd72903bb72f8df5092e0eae5cb520e59af962ccb297"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b1b2cbd3ca47e5ae2a518941b41df1fca2e6f4bbbdf7259796591982f2f16f9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b1b2cbd3ca47e5ae2a518941b41df1fca2e6f4bbbdf7259796591982f2f16f9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "820ce78f469b4b3206c1efea4dc22c8b4b107f36ef4f9aeeff05ea94a4ffe8da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a775afc64023abbf595551bfd69e344d47c77397410d90b4e13bc77411c57d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a775afc64023abbf595551bfd69e344d47c77397410d90b4e13bc77411c57d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d1af412f517404849b1b5785ae760be097bec24f05797308e8eff406bc3693a2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c748ec118a6681084595b274e9713b6859777ba6b8479b6b1ad8cc529d4e258"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c748ec118a6681084595b274e9713b6859777ba6b8479b6b1ad8cc529d4e258"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fd2e99a223ab15169d671c8f9101abf0d0c1e1f4bd0e23eb43b1db59a61ac948"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e9676d2e281e682fa768955f66541c1c718f090848a4d793f4d663f9697d202"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e9676d2e281e682fa768955f66541c1c718f090848a4d793f4d663f9697d202"
   end
 
   depends_on "node"
@@ -21,7 +21,8 @@ class Appwrite < Formula
     bin.install_symlink libexec.glob("bin/*")
 
     node_modules = libexec/"lib/node_modules/appwrite-cli/node_modules"
-    deuniversalize_machos node_modules/"fsevents/fsevents.node" if OS.mac?
+    machos = %w[fsevents/fsevents.node app-path/main]
+    machos.each { |macho| deuniversalize_machos node_modules/macho } if OS.mac?
   end
 
   test do

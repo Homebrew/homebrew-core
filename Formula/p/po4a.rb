@@ -12,28 +12,61 @@ class Po4a < Formula
   head "https://github.com/mquinson/po4a.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "99b634ddaa9e1631a85c0367a75ebdcd4a0eed10a49c4e6061e54f3b0d4082c5"
-    sha256 cellar: :any,                 arm64_sequoia: "15a7d1f8dd7588ad499e99584c54ca8badcc467ff3665717390e20b9030116e9"
-    sha256 cellar: :any,                 arm64_sonoma:  "f0284f6a1e92743418e37f624227bac70406047f0185be2ed3a368e88d234f7b"
-    sha256 cellar: :any,                 sonoma:        "87725e834ae77d29191af104e14e07dfdd3828fa103cba1b17a01841e974a014"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a61bae9e45efa69179520d1e3477d2ddfae746c0be7cb7420fb1dba12adce36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9c07678029c1a5a1fb4c3cf4fd90ebbd4ae078c43eb25108137db79e0172a86"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "08b9a793f7b589dc09de4e2a9973fb4a944c2814e87bfbdd42a3b2344ffab49e"
+    sha256 cellar: :any,                 arm64_sequoia: "5ccc2e17840df2c7e6c1296c7d594adec3543b3b230819bf6164b0ea384e8bfb"
+    sha256 cellar: :any,                 arm64_sonoma:  "af2dada6c7c576abb28bfab0db2b74f06f476376c7e75515d72b2d88323ceb7f"
+    sha256 cellar: :any,                 sonoma:        "3a6cc9bd1e076edb447eada1df96fadcd0c4b0f74f23302e548dd8f6f1e6647b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "09e05f340a3e093c01436be844d9c5998ecc5e5740deb3daf8af71d56c80ef8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5927670f77918b411a03fa7ed9200ae7e9cd07076dbdfea62a414848bff525e9"
   end
 
   depends_on "docbook-xsl" => :build
   depends_on "gettext"
-  depends_on "perl"
 
   uses_from_macos "libxslt"
+  uses_from_macos "perl"
+
+  # Resources for following Perl modules and their recursive dependencies:
+  # * Locale::gettext
+  # * Pod::Parser
+  # * SGMLS
+  # * Syntax::Keyword::Try -> XS::Parse::Keyword::Builder (build) -> ...
+  # * Term::ReadKey
+  # * Text::WrapI18N -> Text::CharWidth
+  # * Unicode::GCString -> MIME::Charset
+  # * YAML::Tiny
+
+  on_linux do
+    resource "Module::Build" do
+      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4234.tar.gz"
+      sha256 "66aeac6127418be5e471ead3744648c766bd01482825c5b66652675f2bc86a8f"
+    end
+
+    resource "Class::Inspector" do
+      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Class-Inspector-1.36.tar.gz"
+      sha256 "cc295d23a472687c24489d58226ead23b9fdc2588e522f0b5f0747741700694e"
+    end
+
+    resource "File::ShareDir" do
+      url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.118.tar.gz"
+      sha256 "3bb2a20ba35df958dc0a4f2306fc05d903d8b8c4de3c8beefce17739d281c958"
+    end
+
+    resource "Term::ReadKey" do
+      url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
+      sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
+    end
+
+    resource "YAML::Tiny" do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/YAML-Tiny-1.76.tar.gz"
+      sha256 "a8d584394cf069bf8f17cba3dd5099003b097fce316c31fb094f1b1c171c08a3"
+    end
+  end
 
   resource "Locale::gettext" do
     url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/Locale-gettext-1.07.tar.gz"
     sha256 "909d47954697e7c04218f972915b787bd1244d75e3bd01620bc167d5bbc49c15"
-  end
-
-  resource "Module::Build" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4234.tar.gz"
-    sha256 "66aeac6127418be5e471ead3744648c766bd01482825c5b66652675f2bc86a8f"
   end
 
   resource "Pod::Parser" do
@@ -46,9 +79,9 @@ class Po4a < Formula
     sha256 "550c9245291c8df2242f7e88f7921a0f636c7eec92c644418e7d89cfea70b2bd"
   end
 
-  resource "Term::ReadKey" do
-    url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
-    sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
+  resource "Text::CharWidth" do
+    url "https://cpan.metacpan.org/authors/id/K/KU/KUBOTA/Text-CharWidth-0.04.tar.gz"
+    sha256 "abded5f4fdd9338e89fd2f1d8271c44989dae5bf50aece41b6179d8e230704f8"
   end
 
   resource "Text::WrapI18N" do
@@ -61,9 +94,9 @@ class Po4a < Formula
     sha256 "486762e4cacddcc77b13989f979a029f84630b8175e7fef17989e157d4b6318a"
   end
 
-  resource "YAML::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/YAML-Tiny-1.76.tar.gz"
-    sha256 "a8d584394cf069bf8f17cba3dd5099003b097fce316c31fb094f1b1c171c08a3"
+  resource "MIME::Charset" do
+    url "https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.013.1.tar.gz"
+    sha256 "1bb7a6e0c0d251f23d6e60bf84c9adefc5b74eec58475bfee4d39107e60870f0"
   end
 
   resource "ExtUtils::CChecker" do
@@ -71,32 +104,29 @@ class Po4a < Formula
     sha256 "8b87d145337dec1ee754d30871d0b105c180ad4c92c7dc0c7fadd76cec8c57d3"
   end
 
-  resource "Class::Inspector" do
-    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Class-Inspector-1.32.tar.gz"
-    sha256 "cefadc8b5338e43e570bc43f583e7c98d535c17b196bcf9084bb41d561cc0535"
-  end
-
-  resource "File::ShareDir" do
-    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.118.tar.gz"
-    sha256 "3bb2a20ba35df958dc0a4f2306fc05d903d8b8c4de3c8beefce17739d281c958"
-  end
-
   resource "XS::Parse::Keyword::Builder" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.48.tar.gz"
-    sha256 "857a070ba465ab5b89d4d8d36d92358edd66e5e7b4a91584611d85125ac9a9c7"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.49.tar.gz"
+    sha256 "76c5ed142abba1f1df2335849681c83d83cc0842fe854af71081d2c411efb0bb"
   end
 
   resource "Syntax::Keyword::Try" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Syntax-Keyword-Try-0.30.tar.gz"
-    sha256 "f068f0b9c71fff8fef6d8a9e9ed6951cb7a52b976322bd955181cc5e7b17e692"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Syntax-Keyword-Try-0.31.tar.gz"
+    sha256 "7bc6242d746378982a599b34de35f07d3decc9e09d5646f8fa3b87f459414a4a"
   end
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
+    ENV["PERL_MM_USE_DEFAULT"] = "1"
 
     resources.each do |r|
       r.stage do
+        # Workaround for macOS perl as MakeMaker can only search libraries in perl compile-time paths
+        # Issue ref: https://github.com/Perl-Toolchain-Gang/ExtUtils-MakeMaker/issues/277
+        if OS.mac? && r.name == "Locale::gettext"
+          inreplace "Makefile.PL", '$libs = "-lintl"', "$libs = \"-L#{Formula["gettext"].opt_lib} -lintl\""
+        end
+
         if File.exist?("Makefile.PL")
           system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "NO_MYMETA=1"
           system "make", "install"

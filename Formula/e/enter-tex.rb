@@ -4,17 +4,16 @@ class EnterTex < Formula
   url "https://gitlab.gnome.org/swilmet/enter-tex/-/archive/3.49.0/enter-tex-3.49.0.tar.bz2"
   sha256 "cd83dc75c36edcc9fc53c27b092796f0c1df1c4e1b36a15516a56e7aab48f31d"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://gitlab.gnome.org/swilmet/enter-tex.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "d4f3f78d741b6b74ee5d5614d371083d7170d3632831fbeba0bd4b0860c0e09a"
-    sha256 arm64_sequoia: "54bc5763249a15db71b9bcd7c99130d1c9792bacee307649191830c1047fb3dd"
-    sha256 arm64_sonoma:  "a03bac81e59688fe5cb8300fe1d9a98d54016ae68437d265bd3efaa2c04361d0"
-    sha256 sonoma:        "e5081612b8cfb7600fd27ea1f3d10effb7f9dda93d23f9cd468c37bca10dadb2"
-    sha256 arm64_linux:   "62c99fb21e459a0035af2fe1f7ff9a26578d0050e394a80a6657571945a30da0"
-    sha256 x86_64_linux:  "76fde6a58a4d9e38b0db038361296fc5c1b435b58cbdc2d33fdc2c2369928a98"
+    sha256 arm64_tahoe:   "f502eae1452a1ce9a5620c720358ed52ea861bd8fe7b27dacbab42ae6475d180"
+    sha256 arm64_sequoia: "2f5789f7d0ff10b42d6d8122144c447f2a240a079ef4410ae8249409aec0b069"
+    sha256 arm64_sonoma:  "9fa7b34915c8362871270da348d1feea32c8f6320cbfcfbfb7e10f25a1076eed"
+    sha256 sonoma:        "238adf76e9e013bb87e8ee8649c7d5df5e009596f260a06e4e048b0f02c6d4b2"
+    sha256 arm64_linux:   "f1655115bbe3e30f31a1b669e58e25861951f62bf8ca195d3e93de5aee3f2c23"
+    sha256 x86_64_linux:  "99c7370294d9d727faa05a4dcf1614186284605893cdf47a5c2eb9b3696e616e"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database

@@ -1,29 +1,21 @@
 class Amass < Formula
   desc "In-depth attack surface mapping and asset discovery"
   homepage "https://owasp.org/www-project-amass/"
-  url "https://github.com/owasp-amass/amass/archive/refs/tags/v5.0.1.tar.gz"
-  sha256 "975b23891423a29767d9d83c4d4d501e5ae524288be424b0052e61a9fe8a2869"
+  url "https://github.com/owasp-amass/amass/archive/refs/tags/v5.1.1.tar.gz"
+  sha256 "5aeb5fa23070fbd3aa365757e2bc9bd294f78456c4d391bc077769adbd1dbe0a"
   license "Apache-2.0"
   head "https://github.com/owasp-amass/amass.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "91cdfd185942688add2d63aec30c4b7fe8828c2fbc8072ab18010aac7e18813e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91cdfd185942688add2d63aec30c4b7fe8828c2fbc8072ab18010aac7e18813e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91cdfd185942688add2d63aec30c4b7fe8828c2fbc8072ab18010aac7e18813e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "91cdfd185942688add2d63aec30c4b7fe8828c2fbc8072ab18010aac7e18813e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "58786c0989372a5d55673fff78637bbe533a4efac67979e379e666e5b5a98f18"
-    sha256 cellar: :any_skip_relocation, ventura:       "58786c0989372a5d55673fff78637bbe533a4efac67979e379e666e5b5a98f18"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2d310e25c95898c0c70021e1cd9319d9b8e1cd1aad50d54f2f7f4991547ebb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af6fec44a8e37e2acf94f169a8f888551fcfdd33a1d22b4d742204fc02ac85e6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0858e9a8b7d99e76652642969d4ec85caea00169b6f55cff2793e2e0d50bd592"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0858e9a8b7d99e76652642969d4ec85caea00169b6f55cff2793e2e0d50bd592"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0858e9a8b7d99e76652642969d4ec85caea00169b6f55cff2793e2e0d50bd592"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4748b5419556f2afb8c22d9b58da675eab66a4320a5904ac0647f8161ab975c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd1da4421acfbfde4f85ebfc0bd338844d4b44d37db16855c2c6571a3cb5288a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8d71769197d1f6c9f503bd52306e26ab3484c64a5528f0c147416ee5d4bcb21"
   end
 
   depends_on "go" => :build
-
-  # version patch, upstream pr ref, https://github.com/owasp-amass/amass/pull/1083
-  patch do
-    url "https://github.com/owasp-amass/amass/commit/fbdb97b6884e0ac01526c9c555a1e4a37533fa95.patch?full_index=1"
-    sha256 "188412fb8e1663bacfd222828974a792a40c3e795dee62133244e27a45772883"
-  end
 
   def install
     ENV["CGO_ENABLED"] = "0"

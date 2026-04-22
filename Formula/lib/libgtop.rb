@@ -6,8 +6,6 @@ class Libgtop < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 arm64_tahoe:    "382e8b7e104d1ce90d94d855cf90d2fc04526ed66699aff6225088850d8ca8a5"
@@ -28,9 +26,12 @@ class Libgtop < Formula
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "gettext"
   depends_on "glib"
   depends_on "libxau"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     # workaround for newer clang

@@ -1,8 +1,8 @@
 class PgpoolIi < Formula
   desc "PostgreSQL connection pool server"
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
-  url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.7.0.tar.gz"
-  sha256 "7f3edabb04ab7e22087d550e112c6666915df37ba833df722d96ddcb47313547"
+  url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.7.1.tar.gz"
+  sha256 "9ee55642dd4450191a6452a0aa6de6d1c5f717ac64cbca0b9367b7c5808ae142"
   license all_of: ["HPND", "ISC"] # ISC is only for src/utils/strlcpy.c
 
   livecheck do
@@ -11,24 +11,18 @@ class PgpoolIi < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "8232572a85b6da2a588cf5674cb60b588d1608e0e08a14c4894bd8ec8d8648ab"
-    sha256               arm64_sequoia: "33ceddee4ad0f216203d28cdcfa1f20c493e7388ec19ee2f4aa9d7c241bbad99"
-    sha256               arm64_sonoma:  "d0c0ad252f8db75b1961712ec63c08eaf796dfaffa2a7a1a42a67ce0077eebdb"
-    sha256 cellar: :any, sonoma:        "65ab1234098c05900398ae0355dacd53c1ded1f0dcb19e0b85c38b9726af1506"
-    sha256               arm64_linux:   "f0dd3870692dea75462866977c5022c759e952b87c3ab8b15c1d1ed8bc763436"
-    sha256               x86_64_linux:  "33cca1bb5660395149f84e2323a8620aca7be972a3e7928f8be184de3e2d2832"
+    sha256               arm64_tahoe:   "898916cee76fefbf45347cc364f3fce32a05b0071740a4ab491ce779803ed179"
+    sha256               arm64_sequoia: "5420df37f58cfaf70852073307b6c901fa3e84e1b17af3dd76a33158391000fe"
+    sha256               arm64_sonoma:  "4d558e1eb95a2af64ff322fa9727b720d64d576ed3490d9f39e34c816f9e5c05"
+    sha256 cellar: :any, sonoma:        "24476956742b91a87968d2642b5b6b7c4b876afc00dc33eed699538a154ba08c"
+    sha256               arm64_linux:   "a0c94479e17ef08a249523d3218ae1bdb5973832309743f88879a854594fd07c"
+    sha256               x86_64_linux:  "a3856790fbe145805893209d93eff5538d25a3408e85c2683239df9d8c7a471b"
   end
 
   depends_on "libmemcached"
   depends_on "libpq"
 
   uses_from_macos "libxcrypt"
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     # Workaround for use of `strchrnul`, which is not available on macOS

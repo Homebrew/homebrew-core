@@ -3,17 +3,18 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/34/37/e1d6da9ba4fe77111df66873ad74e4d46a560cd0fc57891cde6908d1e6ea/svtplay_dl-4.173.tar.gz"
-  sha256 "d50405a8eaaae44482a74cdcacfead72d6926d39e9239404ff6206f84275144b"
+  url "https://files.pythonhosted.org/packages/1a/8c/90512575319191b2f29540680f827c201b254aa88d1419dd5c4829e27345/svtplay_dl-4.179.tar.gz"
+  sha256 "2906e7cc2a62720db30189df39713e67945bdca7b1bdb3a074bfa444cf6f688d"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "57932040fc0611981c893a8d303d20e7e17c03d2720967246a3f014ead3b1a4f"
-    sha256 cellar: :any,                 arm64_sequoia: "02c899181bdf2761714a51e01a2cadef3066c6c1fb1b94c3fdf5d5fc7b366076"
-    sha256 cellar: :any,                 arm64_sonoma:  "cafcbafc6429fa5f0c17eb6cec1fd0c69b99d276d2501fc030d24f021e05bf4e"
-    sha256 cellar: :any,                 sonoma:        "c2f3a06c598f0af40524a86b338e03e89e75dd2961fe7769d20e045e0f71e9a8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d417f49366c5fedb6415db9aea4cad6fbf5bc3ccc36f2c0b903d06d06474d159"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1750a884743e616f56e2834dc6675a4ec0053492786357ceee36f10ab2d3d63a"
+    sha256 cellar: :any,                 arm64_tahoe:   "52cb291e61f4886ad59d17fc99bc02d30b72c71116d99c153b018f8070c215b3"
+    sha256 cellar: :any,                 arm64_sequoia: "ffbc0165c5d04cbc1ecb42120f66573f37e76303ef05fc9b4e900d258a6aeb42"
+    sha256 cellar: :any,                 arm64_sonoma:  "a30d4930db2cf7bad849a1ccf98fec43bc4f8c5eb1350dc167c7ba4060eb5d73"
+    sha256 cellar: :any,                 sonoma:        "6927fa6b36cb554b63ca3736e948c4344a9d67102dd9c4b78a8ca64a768a1f61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b54635dbf6fc3027a199d8b81491fb40ce23c3cb62a911b529c5526e0cefec45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23b674fc0ecb7436fa40cc02907c8ec08919af9595b7f27854e57764413d4014"
   end
 
   depends_on "certifi"
@@ -24,8 +25,8 @@ class SvtplayDl < Formula
   pypi_packages exclude_packages: %w[certifi cryptography]
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "idna" do
@@ -44,8 +45,8 @@ class SvtplayDl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "urllib3" do
@@ -59,8 +60,8 @@ class SvtplayDl < Formula
 
   def caveats
     <<~EOS
-      To use post-processing options:
-        `brew install ffmpeg` or `brew install libav`.
+      To use post-processing:
+        `brew install ffmpeg`.
     EOS
   end
 

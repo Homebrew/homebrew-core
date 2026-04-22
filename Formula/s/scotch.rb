@@ -1,8 +1,8 @@
 class Scotch < Formula
   desc "Package for graph partitioning, graph clustering, and sparse matrix ordering"
   homepage "https://gitlab.inria.fr/scotch/scotch"
-  url "https://gitlab.inria.fr/scotch/scotch/-/archive/v7.0.10/scotch-v7.0.10.tar.bz2"
-  sha256 "75137f33ed28a12f433d4ab6e92794b2d4cfdd4377d35fe4361bc8e9808ffff4"
+  url "https://gitlab.inria.fr/scotch/scotch/-/archive/v7.0.11/scotch-v7.0.11.tar.bz2"
+  sha256 "82fb468485b153a41031e50a7ca668fccbd3b8561d31dc7535da4210dde01f48"
   license "CECILL-C"
   head "https://gitlab.inria.fr/scotch/scotch.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Scotch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4fde16dc755bef5d54d0e878155746e17cdebab4677c4a9a855a59eb47748139"
-    sha256 cellar: :any,                 arm64_sequoia: "5d27f3a0fa57ef65aaf1b11989c16f59f39f71381b87ba39b92bc40cf0ff92d8"
-    sha256 cellar: :any,                 arm64_sonoma:  "41fbeef3d5a921cc12dd2d85b633a89a3e0c0881349d8eeb2c7ac4a4b3357a3f"
-    sha256 cellar: :any,                 sonoma:        "34fd2b83da463390a4742b223a012590a3b48afc5f0fc03fb899483dabcec2e1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "74b03d23501be289965b5ba5973068d5bf728119d6874392129eaab7cfd00542"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae39e826fff736c58d24437ec1ff2b472c72d3228ff7ae0db3321ffb049641c8"
+    sha256 cellar: :any,                 arm64_tahoe:   "d84363ab0cdc3b0a2b0d05347158a30361f2694e441db84e4fdd549ceb39ac31"
+    sha256 cellar: :any,                 arm64_sequoia: "cf99aaa54bdf7ca12122af0d4bf5adfee1227dd613789645ae37f7decda59885"
+    sha256 cellar: :any,                 arm64_sonoma:  "fd4cdbffde2ed42d05c78fa4d0ff32a6acb18504a682d44b709c752a86b1425b"
+    sha256 cellar: :any,                 sonoma:        "70c317924634f70ef971e306832042b778c105ddf4708e9c2f51291c86a92d0c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e676c45f8ddabb75072cf687e37ab3be3ec7bbccb3636488c1bc07f498fd593"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df940782b8de2e7b436fc7c64bca5210cec1a38a9e5bb6c679bcb0f3c5d43e8a"
   end
 
   depends_on "bison" => :build
@@ -27,7 +27,10 @@ class Scotch < Formula
 
   uses_from_macos "flex" => :build
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[
@@ -64,6 +67,7 @@ class Scotch < Formula
     C
 
     args = %W[-I#{include} -L#{lib} -lscotch -lscotcherr -pthread -lz -lm]
+    args << "-L#{Formula["zlib-ng-compat"].opt_lib}" if OS.linux?
 
     system ENV.cc, "test.c", *args
     assert_match version.to_s, shell_output("./a.out")

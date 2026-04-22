@@ -4,9 +4,9 @@ class Libisofs < Formula
   license "GPL-2.0-or-later"
 
   stable do
-    url "https://files.libburnia-project.org/releases/libisofs-1.5.6.pl01.tar.gz"
-    version "1.5.6.pl01"
-    sha256 "ac1fd338d641744ca1fb1567917188b79bc8c2506832dd56885fec98656b9f25"
+    url "https://files.libburnia-project.org/releases/libisofs-1.5.8.pl01.tar.gz"
+    version "1.5.8.pl01"
+    sha256 "ccbc3e7f43a0929691973539cef45f6468a3f3d72612af0b001a659957a045c7"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -21,12 +21,12 @@ class Libisofs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "91745e9aaaf63e3aa7091f09d06b334dde568da0e517c476d12d436231929b8e"
-    sha256 cellar: :any,                 arm64_sequoia: "dde88abfa9bf4de11ff3651116092d3e48ed73a4edde2b06a5f18f58c237d2b2"
-    sha256 cellar: :any,                 arm64_sonoma:  "b87c10636af673e4955f45e59c84bc59006f95164901523a2b1949ddcbfc7f5e"
-    sha256 cellar: :any,                 sonoma:        "b718bf4b7ea56c1e064e538a97b46c81e32f97e9dbc604c0e514efe584ba2b6c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d06187d556a812c2ee1de797cabbb570132ef12f10f58d50fd652ab1e7ec634"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c62d9f3b97f96ff2cdc2867372690016c4b2e07adb3d20da58bfda08b40ea9e9"
+    sha256 cellar: :any,                 arm64_tahoe:   "51499f11405e131d706495a2e55f0f6e36ce0a898111e34918bccc1e659b4154"
+    sha256 cellar: :any,                 arm64_sequoia: "6481f1993c2428c65c39cfb7c257f496b7d785b95618067b3d612917afc6d2d6"
+    sha256 cellar: :any,                 arm64_sonoma:  "efe1ed96e030ac1aee1e2a5b84d0ffcf0cc7463840f88267489307cd62889825"
+    sha256 cellar: :any,                 sonoma:        "cbb251eac3d3a0acf7b787c94be00265984ecdc84dd39fedddacdf90232d27be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "03c49a76ae9abc78236c6caa06e60c7108e7236d2b5b49a7ecc54b9a24819144"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba7c5e53415464406c2bd683ef2ed9291b16b5b132fbfff3dc1f9fd1effae2bb"
   end
 
   head do
@@ -39,7 +39,10 @@ class Libisofs < Formula
 
   depends_on "libzip"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "acl"
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     if build.head?

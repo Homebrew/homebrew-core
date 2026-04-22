@@ -6,15 +6,15 @@ class Enex2notion < Formula
   url "https://files.pythonhosted.org/packages/de/5c/c0ce22d810226345411b03177f9b43c35b82c3a671d5d73f56fc43b0858e/enex2notion-0.3.1.tar.gz"
   sha256 "f11d8a7b6c135b4d08c63e1256279d56b3798cdd48ad3b6e39c0770dc3bd82e6"
   license "MIT"
-  revision 17
+  revision 19
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e13e820f1bf41f33543fe1f3a38864985e7ccd73899b993a3ac857db30f1e714"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3331396477cfe59373c64efb73aae765bec87dcdadb2f8e4a7da5a7f8aadee84"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7619e0da8d00b1456b1512994f5ba96842a8d0d975566d461be10a42debc8375"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0b797877705534bab754ed3f8127df32f7835d134ecdd9a026287d274d24ea83"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4c2b655ed4b327dcedaf79547d0499143ca0783fe851bf2ebf22a02eacd0f62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ad72decb59d5e77ecc0b9387394a17601ee1baac3c403fcede14a0a2fc4a848"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06baab3ccfb6d78cd577fd1cb933ede26b98127686409fc23ca5d4cdd7086c74"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "144bc708a77980a2522e449dba61d54a676f72c56681c3be9aa38682f3028b9c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a46a44dfd4e757a180d3e3d191caf1fee4414998047fe99936bc18d77ff31a4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "049f9783572b61abf8856030551227bb40bd8a49988aadbc87058e845ddda025"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2cd92b7e70a13b9c0758d056fb4467d34659efc8d214f243dc4fbf1af32077e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c621745ce38de5f444cf6f1b8856e4ccc5965d1b21b5d1623f68ffffc48bf64f"
   end
 
   depends_on "certifi" => :no_linkage
@@ -24,10 +24,7 @@ class Enex2notion < Formula
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
 
-  # `lxml` is manually updated to support Python 3.14
-  # Issue ref: https://github.com/vzhd1701/enex2notion/issues/126
-
-  pypi_packages exclude_packages: ["certifi", "pymupdf"]
+  pypi_packages exclude_packages: %w[certifi lxml pymupdf]
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
@@ -45,8 +42,8 @@ class Enex2notion < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "commonmark" do
@@ -62,11 +59,6 @@ class Enex2notion < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
     sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
-  end
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
-    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
   end
 
   resource "notion-vzhd1701-fork" do
@@ -100,8 +92,8 @@ class Enex2notion < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
+    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
   end
 
   resource "six" do
@@ -110,8 +102,8 @@ class Enex2notion < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/89/23/adf3796d740536d63a6fbda113d07e60c734b6ed5d3058d1e47fc0495e47/soupsieve-2.8.1.tar.gz"
-    sha256 "4cf733bc50fa805f5df4b8ef4740fc0e0fa6218cf3006269afd3f9d6d80fd350"
+    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
+    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
   end
 
   resource "text-unidecode" do
@@ -125,8 +117,8 @@ class Enex2notion < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
   end
 
   resource "typing-extensions" do
@@ -135,8 +127,8 @@ class Enex2notion < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/5e/a7/c202b344c5ca7daf398f3b8a477eeb205cf3b6f32e7ec3a6bac0629ca975/tzdata-2025.3.tar.gz"
-    sha256 "de39c2ca5dc7b0344f2eba86f49d614019d29f060fc4ebc8a417896a620b56a7"
+    url "https://files.pythonhosted.org/packages/19/f5/cd531b2d15a671a40c0f66cf06bc3570a12cd56eef98960068ebbad1bf5a/tzdata-2026.1.tar.gz"
+    sha256 "67658a1903c75917309e753fdc349ac0efd8c27db7a0cb406a25be4840f87f98"
   end
 
   resource "tzlocal" do
@@ -150,13 +142,24 @@ class Enex2notion < Formula
   end
 
   resource "w3lib" do
-    url "https://files.pythonhosted.org/packages/bf/7d/1172cfaa1e29beb9bf938e484c122b3bdc82e8e37b17a4f753ba6d6e009f/w3lib-2.3.1.tar.gz"
-    sha256 "5c8ac02a3027576174c2b61eb9a2170ba1b197cae767080771b6f1febda249a4"
+    url "https://files.pythonhosted.org/packages/c0/91/b2eb59c2cf243de5de1e91c963655df78c015509f51297685a8c86a27b8c/w3lib-2.4.1.tar.gz"
+    sha256 "8dd69ee39ff6398d708c793abc779c334a69bac7cee1cdf71736c669ed6be864"
   end
 
   resource "webencodings" do
     url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
+  end
+
+  # `lxml` is manually updated to support Python 3.14
+  # Issue ref: https://github.com/vzhd1701/enex2notion/issues/126
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
+    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
+
+    livecheck do
+      skip "Skip until new release with compatible version"
+    end
   end
 
   def install

@@ -2,16 +2,17 @@ class Dvisvgm < Formula
   desc "Fast DVI to SVG converter"
   homepage "https://dvisvgm.de"
   url "https://github.com/mgieseki/dvisvgm/releases/download/3.6/dvisvgm-3.6.tar.gz"
-  sha256 "19dac117e5a307db5f56bde03a711a96b8c6afa0a7d38a698b313fc8d42e1468"
+  sha256 "26446bb3b10739ff0925c9e416b76d2d222075c9d5dcfafe6e214609d072ed1a"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a7ea70646b8eeb5253487029ad239849cd47d86d979b17f00b8f45decee66806"
-    sha256 cellar: :any,                 arm64_sequoia: "180f615716ae2f5a25c72409bbc841d6f01b78ec0b010c8c74e2b202ed49758c"
-    sha256 cellar: :any,                 arm64_sonoma:  "9045969a6b7b7a85f8c38c18ea0cfafce4a8d36f91d871aecf0bc6b86c87776b"
-    sha256 cellar: :any,                 sonoma:        "39b703778b45567d7e01864138cd84fea3abc3a9451cf6d0ec4d227597cd5364"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b99ba83475efb2a7de3f77d7344fba3d7bcc591851b8d525f1965bfeb1c53753"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f883fa99fb3fe5fd73ecf87690fcfd15a05c523559cf8aa11aee9fc63b29f344"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "4e4e50ff08bb77348f99e721bbc28da6b979642cf35b02a4ad3c77670dbb9206"
+    sha256 cellar: :any,                 arm64_sequoia: "cd3025efcf127977c45a40c97f427a419ec71c8111914afdf9f61b20d7ebb255"
+    sha256 cellar: :any,                 arm64_sonoma:  "32e7561006749b0e2c109b61007c7a487b6b0bdc5f1e58f40eb519117fca05f0"
+    sha256 cellar: :any,                 sonoma:        "9c5c57dd7f7c9d78ce7364898fdc654f69ef139e1808ef3dbac83627fb33871e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e4109e7ac608cb01d54f5cc3cd407f7b9808592deedd2276d95d642a7bed5574"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e5bf36eeba83828c796f3c32ec68ecb32a7fc81c9635e5ef4cc3d2788a7e1d4"
   end
 
   depends_on "autoconf" => :build
@@ -26,14 +27,16 @@ class Dvisvgm < Formula
   depends_on "texlive"
   depends_on "woff2"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = [
       "--disable-silent-rules",
       "--with-texlive=#{Formula["texlive"].opt_prefix}",
     ]
-    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" if OS.linux?
+    args << "--with-zlib=#{Formula["zlib-ng-compat"].opt_prefix}" if OS.linux?
 
     system "./configure", *args, *std_configure_args
     system "make"

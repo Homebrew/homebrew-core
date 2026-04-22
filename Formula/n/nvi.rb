@@ -11,8 +11,6 @@ class Nvi < Formula
     regex(/href=.*?nvi[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "aa9ca9f2bf556b19378cc59734101a3fd3ae96a4221589f4c39f0a2690c25e3e"
     sha256 cellar: :any,                 arm64_sequoia:  "4dadb4e9103dae1a849b5bd29bb0a4fb66a66ae99302541fca056fe4cd305770"

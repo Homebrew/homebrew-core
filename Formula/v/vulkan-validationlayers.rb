@@ -1,8 +1,8 @@
 class VulkanValidationlayers < Formula
   desc "Vulkan layers that enable developers to verify correct use of the Vulkan API"
   homepage "https://github.com/KhronosGroup/Vulkan-ValidationLayers"
-  url "https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/vulkan-sdk-1.4.335.0.tar.gz"
-  sha256 "464f754abdebef13c342e18861eab87be0ecc36cb1c257f6b2ddfa10afb8401a"
+  url "https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/vulkan-sdk-1.4.341.0.tar.gz"
+  sha256 "7f521490495e43561f70fe8b6317fd5cc13d4083413f1abf891f50cbabe12238"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-ValidationLayers.git", branch: "main"
 
@@ -12,12 +12,12 @@ class VulkanValidationlayers < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fb9ce3ae7b5e089d360a2a91d1d05a11d7e75a9ad63759a6d4264c16ed5f1de7"
-    sha256 cellar: :any,                 arm64_sequoia: "afd13e57c11111618f85da2f9e5572e9bf2ae6eff11e53098ccfae82389cb81c"
-    sha256 cellar: :any,                 arm64_sonoma:  "f5306273bf21b001c1ca1a8da749f115126a9964e29873c27f03d8bccb6b5815"
-    sha256 cellar: :any,                 sonoma:        "2e5f6f5496dc317c8764beb7de02361fbc6ee940e1c7c2f82b3fa1d17ee704a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "10270bea4413590a1732eee963db7575800c9cce1f88650d0986120c8d6b6ec9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c231bb4f18bb0dde1e512f50e4bc91d5dc981a5d881299906955c03ae2106e8e"
+    sha256 cellar: :any,                 arm64_tahoe:   "d587e63d697495df391155967d4961abefcc7fbae00f7b0cffbf316ef6267982"
+    sha256 cellar: :any,                 arm64_sequoia: "6baf1e04b1ea523cf9323ff6390fb6a7f378033eb49397333b72e1606c9529ad"
+    sha256 cellar: :any,                 arm64_sonoma:  "996d26ac91beaf678f51862a470aa8ea0dc594e84c3d3895f6125aabe3fc0d82"
+    sha256 cellar: :any,                 sonoma:        "c46930e660bc6ce4ae5604c60f9789af631483bd43f948eca3389ee9a893b650"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "53f930a8eabb0c0e813813f2ff9f4ca33a61c6f8e1fd6a30b39346e79e3e22b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "caf1177297cec627adeba9594320e093f6838173dc8862f982d59ee5a85f6cda"
   end
 
   depends_on "cmake" => :build

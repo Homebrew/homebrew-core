@@ -37,7 +37,7 @@ class Libslax < Formula
   uses_from_macos "libxslt"
   uses_from_macos "sqlite"
 
-  conflicts_with "genometools", because: "both install `bin/gt`"
+  conflicts_with "gastown", "genometools", because: "both install `gt` binaries"
   conflicts_with "libxi", because: "both install `libxi.a`"
 
   def install

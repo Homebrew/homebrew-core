@@ -1,9 +1,8 @@
 class Sapling < Formula
   desc "Source control client"
   homepage "https://sapling-scm.com"
-  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20250521-115337+25ed6ac4.tar.gz"
-  version "0.2.20250521-115337-25ed6ac4"
-  sha256 "53c48bb807a7c65965a9f9f154f955ec4ccbce6696f721db73d0873e4bf03244"
+  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20260317-201835+0234c21f.tar.gz"
+  sha256 "6e0eaa1b1a6e21003e45120ba23b6466ae2a91b5b5d5e80c347981dfac61d975"
   license "GPL-2.0-or-later"
   head "https://github.com/facebook/sapling.git", branch: "main"
 
@@ -13,17 +12,15 @@ class Sapling < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "80cad9a3bf004ddf9ca69b5b8f5734b7457cdc6afb56f90b36b4b1f39f29a742"
-    sha256 cellar: :any,                 arm64_sequoia: "68b681bdf583a8244cc12d20040bbc2bf72b483003e5f72718a02bf1eb1a4b6b"
-    sha256 cellar: :any,                 arm64_sonoma:  "ba622027c69cacce85eceb38fb55ec67a3567cc443e2cf171856be99140c8659"
-    sha256 cellar: :any,                 arm64_ventura: "d627d3b0eac2220c1babc65f6edd21e22f8d52c49da837be04adbad790af7294"
-    sha256 cellar: :any,                 sonoma:        "7ddc287232eac9b2999e0f1a6e4cbf85492c229afee18aa563e8625414b09149"
-    sha256 cellar: :any,                 ventura:       "53b00042db69f2fda7927ec5f4bcaf81b80b91d364f63539c1b5da4268bf0e8e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d992b99c149985d77dbddfa0a5bc25f8b556b13bec5d6b24f8d9c3647a7de96f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b90ffdd93cb0040aac0e050c9004bdcc9d7e9e2c23bb654166786eaf14efd1d"
+    sha256 arm64_tahoe:   "bcc8f92b5352181eebc179a39a818df3ecfb5df27273ecdfce5a2d2f8cea92b2"
+    sha256 arm64_sequoia: "1b990fd8fbf7dc1d585d7f879a2865854995c1743963fc02abdc9cf888eb97d0"
+    sha256 arm64_sonoma:  "fb87ed59e4a96bfb1bf860c010a6a9ee1195168da8da83a58fe95f7881495cc2"
+    sha256 sonoma:        "0f1bcacb15dd92517710c35f6665580d5e1426db798ba16cdfb4c08b67bdaa9b"
+    sha256 arm64_linux:   "20a323bfa9845ce5ee37ed0a0d01dc5967d80f3858c6131a295b0518607d6cde"
+    sha256 x86_64_linux:  "cc67e8b49a40e4170aa1a394bd329cbac444f11cd7e3c52543486d6918ef3df0"
   end
 
   depends_on "cmake" => :build
@@ -43,7 +40,10 @@ class Sapling < Formula
   # this is a workaround to allow to build against system curl
   # see discussions in https://github.com/Homebrew/homebrew-core/pull/197727
   uses_from_macos "curl", since: :sonoma
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "sl", because: "both install `sl` binaries"
 

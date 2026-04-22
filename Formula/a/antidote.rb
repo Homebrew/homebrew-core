@@ -1,12 +1,12 @@
 class Antidote < Formula
   desc "Plugin manager for zsh, inspired by antigen and antibody"
   homepage "https://antidote.sh/"
-  url "https://github.com/mattmc3/antidote/archive/refs/tags/v1.10.2.tar.gz"
-  sha256 "0c095f74fefe67d4262c01661c34775c23a5303fac445f8591018af6e7b39862"
+  url "https://github.com/mattmc3/antidote/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "48d486670fa14097ec5a5a649456aff94f0098618c9320ad634f88d0669c8f5b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ed3c6d6d6ab2c404f978e4d78e0a5cde924abbbc91dcd28c0999532d75b8e6f0"
+    sha256 cellar: :any_skip_relocation, all: "be509e5acf62b97683ee3a1cc9ab3362594bb3088af3955a6996ede36dfb1a8c"
   end
 
   uses_from_macos "zsh"
@@ -34,6 +34,6 @@ class Antidote < Formula
 
     system "zsh", "--login", "-i", "-c", "antidote install rupa/z"
     assert_equal (testpath/".zsh_plugins.txt").read, "rupa/z\n"
-    assert_path_exists testpath/".zplugins/https-COLON--SLASH--SLASH-github.com-SLASH-rupa-SLASH-z/z.sh"
+    assert_path_exists testpath/".zplugins/github.com/rupa/z/z.sh"
   end
 end

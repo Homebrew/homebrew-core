@@ -1,24 +1,24 @@
 class PythonFreethreading < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.14.2/Python-3.14.2.tgz"
-  sha256 "c609e078adab90e2c6bacb6afafacd5eaf60cd94cf670f1e159565725fcd448d"
+  url "https://www.python.org/ftp/python/3.14.4/Python-3.14.4.tgz"
+  sha256 "b4c059d5895f030e7df9663894ce3732bfa1b32cd3ab2883980266a45ce3cb3b"
   license "Python-2.0"
-  revision 2
 
   livecheck do
     formula "python"
   end
 
   bottle do
-    sha256 arm64_tahoe:   "93cc8f91424a35e856bc46f306bb44c546f07ac762b76c92270cd4ea518f719b"
-    sha256 arm64_sequoia: "fceea393b64ef4455d4b811cca1d98cdc272ade194bacbd30ebe072825006043"
-    sha256 arm64_sonoma:  "3a9b6f85ca65b7a2d8ab7169dd6108dd2f26703756ba3cf2cf019258b5b6a968"
-    sha256 tahoe:         "f6e659cf6ecaec9cd8ca201a571b706d8be99213bfe78d7fe201eca968508c39"
-    sha256 sequoia:       "8fb4f1a203d0803f14fa56f1932ef1ccd1e29230ab82d3a5244e04ef4ec5b387"
-    sha256 sonoma:        "12b4002db6eb70b54893920c0cb31e14acf285cf3c3fa438eb1165d40d07f87c"
-    sha256 arm64_linux:   "b39b43cc98ab1374355281c37e2b42a07e2432516a807689eb6dd120f3471bb4"
-    sha256 x86_64_linux:  "459736ee7428d8911a632e8a91bb4819d9071afd629fe1111b11188dbd147a37"
+    rebuild 1
+    sha256 arm64_tahoe:   "de45a1ea2ac97814b3964fd2183f2c984a277f7ff011ac3f8751526abce0fe03"
+    sha256 arm64_sequoia: "5207aea14d8e1ce1a0876062cfc98c9ea72829f1dd4d42e32e9f1d267afb6f58"
+    sha256 arm64_sonoma:  "20fed90639904b0e95ee45e7439248e5abc929e53691c300ed7484eb9fff7de5"
+    sha256 tahoe:         "70d4daa341988f5d2e232b64c38b9779c44192a7aa522d6b4e735bce1e6d7afb"
+    sha256 sequoia:       "ff77b06d49b810ec0e60f7ca3e8bd0f4d4338cbda0ca2d48c295a916f13a8fea"
+    sha256 sonoma:        "73c4e1ac46b27c65efed23c7fd50c92a15518e3442909f87a90f315818efe1c2"
+    sha256 arm64_linux:   "e6f97d3e578a5c5e0ce5c218230c7935aef4c4653fb547780747315ef782b11b"
+    sha256 x86_64_linux:  "667e4e91425f256e59438c95c656149490791ab7fd97e5b18b6ade4b6f7f432a"
   end
 
   depends_on "pkgconf" => :build
@@ -37,18 +37,17 @@ class PythonFreethreading < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
-  uses_from_macos "zlib"
 
   on_linux do
-    depends_on "berkeley-db@5"
+    depends_on "gdbm"
     depends_on "libnsl"
     depends_on "libtirpc"
+    depends_on "zlib-ng-compat"
   end
 
   pypi_packages package_name:   "",
                 extra_packages: %w[flit-core pip wheel]
 
-  # Always update to latest release
   resource "flit-core" do
     url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
     sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
@@ -60,8 +59,8 @@ class PythonFreethreading < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/44/c2/65686a7783a7c27a329706207147e82f23c41221ee9ae33128fc331670a0/pip-26.0.tar.gz"
-    sha256 "3ce220a0a17915972fbf1ab451baae1521c4539e778b28127efa79b974aff0fa"
+    url "https://files.pythonhosted.org/packages/48/83/0d7d4e9efe3344b8e2fe25d93be44f64b65364d3c8d7bc6dc90198d5422e/pip-26.0.1.tar.gz"
+    sha256 "c4037d8a277c89b320abe636d59f91e6d0922d08a05b60e85e53b296613346d8"
   end
 
   resource "wheel" do
@@ -157,7 +156,7 @@ class PythonFreethreading < Formula
       args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     else
       args << "--enable-shared"
-      args << "--with-dbmliborder=bdb"
+      args << "--with-dbmliborder=gdbm" # NOTE: no dependents so can directly use GPLv3+ `gdbm` to avoid BDB
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
@@ -436,11 +435,13 @@ class PythonFreethreading < Formula
     assert_match "ModuleNotFoundError: No module named '_tkinter'",
                  shell_output("#{python3} -Sc 'import tkinter' 2>&1", 1)
 
-    # gdbm is provided in a separate formula
-    assert_match "ModuleNotFoundError: No module named '_gdbm'",
-                 shell_output("#{python3} -Sc 'import _gdbm' 2>&1", 1)
-    assert_match "ModuleNotFoundError: No module named '_gdbm'",
-                 shell_output("#{python3} -Sc 'import dbm.gnu' 2>&1", 1)
+    # gdbm is not provided on macOS
+    if OS.mac?
+      assert_match "ModuleNotFoundError: No module named '_gdbm'",
+                   shell_output("#{python3} -Sc 'import _gdbm' 2>&1", 1)
+      assert_match "ModuleNotFoundError: No module named '_gdbm'",
+                   shell_output("#{python3} -Sc 'import dbm.gnu' 2>&1", 1)
+    end
 
     # Verify that the selected DBM interface works
     (testpath/"dbm_test.py").write <<~PYTHON

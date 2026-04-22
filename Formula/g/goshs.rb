@@ -1,18 +1,18 @@
 class Goshs < Formula
   desc "Simple, yet feature-rich web server written in Go"
   homepage "https://goshs.de/en/index.html"
-  url "https://github.com/patrickhener/goshs/archive/refs/tags/1.1.3.tar.gz"
-  sha256 "f6b62e2161161c368538b0911c0f1ccfc16ce68d0531495ce8d1ffd4d9110a9f"
+  url "https://github.com/patrickhener/goshs/archive/refs/tags/v2.0.3.tar.gz"
+  sha256 "fbcf87e7b6463d6273ac48693791c01d24e7c69360359175cc6e5c0fefdfb7b1"
   license "MIT"
   head "https://github.com/patrickhener/goshs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "53a33b2135b2badf0530d5fd3ec4cc09d170e79cd8ec590174295f9327952b7e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53a33b2135b2badf0530d5fd3ec4cc09d170e79cd8ec590174295f9327952b7e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53a33b2135b2badf0530d5fd3ec4cc09d170e79cd8ec590174295f9327952b7e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "407c85ce4ac2b51e2172e60523df14aea6d59bbea23290bc0503bd6f5b7532b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fcd11471619fc6e1e73f3e94a64db521b2dc0f76ba7f8df9ed516af0f16afc54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c89a25d370dd64cb1ce997d12af0de43fa5a074a5630761e6057824cfdc6a3dc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d1ba25c7326946d5c14799a3412b4ced2905f634afbacf4e428d5ba2da2f7c33"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d1ba25c7326946d5c14799a3412b4ced2905f634afbacf4e428d5ba2da2f7c33"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1ba25c7326946d5c14799a3412b4ced2905f634afbacf4e428d5ba2da2f7c33"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c20d92d01db1613c51b98ff2f386b3c8be51c9de942096915a41b26bde3d9671"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce54458951a4f87bc9bbca25c509671d5492cd795d3cdfd41382d3d747569367"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90b7157599f8f96c428d809f80fcd62fd280023d839749303d63636dfc5e4017"
   end
 
   depends_on "go" => :build
@@ -27,12 +27,11 @@ class Goshs < Formula
     (testpath/"test.txt").write "Hello, Goshs!"
 
     port = free_port
-    server_pid = spawn bin/"goshs", "-p", port.to_s, "-d", testpath, "-si"
-    sleep 2
-    output = shell_output("curl -s http://localhost:#{port}/test.txt")
+    pid = spawn bin/"goshs", "-p", port.to_s, "-d", testpath, "-si"
+    output = shell_output("curl --retry 5 --retry-connrefused -s http://localhost:#{port}/test.txt")
     assert_match "Hello, Goshs!", output
   ensure
-    Process.kill("TERM", server_pid)
-    Process.wait(server_pid)
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end

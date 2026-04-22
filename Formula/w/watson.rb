@@ -6,16 +6,16 @@ class Watson < Formula
   url "https://files.pythonhosted.org/packages/a9/61/868892a19ad9f7e74f9821c259702c3630138ece45bab271e876b24bb381/td-watson-2.1.0.tar.gz"
   sha256 "204384dc04653e0dbe8f833243bb833beda3d79b387fe173bfd33faecdd087c8"
   license "MIT"
-  revision 10
+  revision 11
   head "https://github.com/jazzband/Watson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd59d5755139b4ef6952e14515584bc20dfa1603f89caee9057532b2bce7f611"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43673f64013557f7d5694db5e026908ffb66a70f617b4c6d8c026470b79bb9e8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f490cf7058219e9c270dc8b5cdfd05858fff45fc58ab70628c9c44efa97e217"
-    sha256 cellar: :any_skip_relocation, sonoma:        "29d16ea3e55b56995e95e4e14045bf36072147c56da7b3d2dbf1451981614ce6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "155dd0deb4d9ccfd91caf092d719dda688ea2761bac9178271b4c614aa6ae482"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a28ef0742aa99dbd31a42f7cdc49a704c1ef93140b5c1c4df977d4a9fbe8c10a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "636a4097668a8e3ec7cc49429e35f896d8aebc3984085c9687320b08b15e7d89"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa6712b35763cdeb78018fdcb0ccc691d2bd5c63cef002e5a5b199a50c675ed6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "716779a07b2648434a262cd5c6aa36ab45ccc50f2a3604cf67dec0aefb5f80c7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "72ab375139193cfaf5b3e2f509f3e03fac1b4eabdbbf934521bc65c8650bad76"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "37aecf4af2904f70075588d5b8d690dc1808705791ccd03c04dc0cb9d89f8b1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e49544f8bb907fec6278826fd5069c5f57f209dd7a86fee0eb244cc5454a41a3"
   end
 
   depends_on "certifi" => :no_linkage
@@ -29,8 +29,8 @@ class Watson < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "click" do
@@ -54,8 +54,8 @@ class Watson < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "six" do

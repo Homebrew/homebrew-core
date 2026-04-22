@@ -4,6 +4,7 @@ class Clingo < Formula
   url "https://github.com/potassco/clingo/archive/refs/tags/v5.8.0.tar.gz"
   sha256 "4ddd5975e79d7a0f8d126039f1b923a371b1a43e0e0687e1537a37d6d6d5cc7c"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,12 @@ class Clingo < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "f4a0ef85978edfdfb395006c8ce603575282b12859dc1d25fe2edf6e57d9879b"
-    sha256 cellar: :any,                 arm64_sequoia: "75b64a722804b1c96506cc085e207c8f3cb3e14b23b0836dbac7a2ee9170f64f"
-    sha256 cellar: :any,                 arm64_sonoma:  "71587c5bf9b5336b95d5c62170e2515978065f398f85dab7bbdb3831e38d007e"
-    sha256 cellar: :any,                 sonoma:        "062bf230ada4dbb858940bf7316dd2f9b217b6d92fb2cc8543ddf38633e97a8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "608cc630ce095d1f32ad28dd0105a54e69aecbb38340e33883dd8e6747713e02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c13546d050e4d818f0e7aba365840f6e1d825e1a1ac1de4e10249e8821305f9"
+    sha256 cellar: :any,                 arm64_tahoe:   "7d606936da6a7f4091d200cf507e6d84dbadab7e44ccea7ddf1f85b04e1c92ec"
+    sha256 cellar: :any,                 arm64_sequoia: "cadf7db4623f11e771514eb2a29b08625bffacb5e38289d7f6b8bf76ac84bf36"
+    sha256 cellar: :any,                 arm64_sonoma:  "b6a25764a9f579481219b13cc37b85370e1711d65479ac5157aa174de25dfa38"
+    sha256 cellar: :any,                 sonoma:        "0ce74dea22d40520801a1bad792df7cb8ea148b39f57fa7f24076beae86f01f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "295fb70cc8ee473656c529f06107ca59bd4b439fb98fc50af1db18003940a109"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "790e57292114c711904b97f44dfcd4f6bb09535f73b9d0e54d61f4e862d40156"
   end
 
   head do

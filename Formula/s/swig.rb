@@ -4,6 +4,7 @@ class Swig < Formula
   url "https://downloads.sourceforge.net/project/swig/swig/swig-4.4.1/swig-4.4.1.tar.gz"
   sha256 "40162a706c56f7592d08fd52ef5511cb7ac191f3593cf07306a0a554c6281fcf"
   license "GPL-3.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://sourceforge.net/projects/swig/rss?path=/swig"
@@ -11,13 +12,15 @@ class Swig < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f81744448d2febe7a570d66b5b7369d35cccef3d096edef61701b01926a46680"
-    sha256 arm64_sequoia: "dcc28b964c457a9cdf7821589be61ad6634273320bb55ce4649e0baa23593bef"
-    sha256 arm64_sonoma:  "343fe4b5de85267a1bdcbb0a9ebab3ba8f8693949368ca2811262ff1f93eb200"
-    sha256 tahoe:         "8b6a5fd4c930e215c199e4d839d24dbeeccc9d9c9186df30b1f5f8c828b64110"
-    sha256 sonoma:        "198565cf5ba843a3e16194a834eb08e45634138ec387704eec46184ac4a01bc3"
-    sha256 arm64_linux:   "32d185b5d3c8cf39d2079d8865b1ee54526cd40b0f41ef815e14c6386522016f"
-    sha256 x86_64_linux:  "0fe3e8eccfbd0ad2fa8cbf0cdbe06646fb3fc14946dd6cdc5b7a3a33451f3242"
+    rebuild 1
+    sha256 arm64_tahoe:   "296e06c126d3bc5ce67eae4496e4fb15f53b1147fd727e59744449d118ddf3c4"
+    sha256 arm64_sequoia: "3f5f55dfeafa86f7fde759a6ed895c17711f795bc5c5dc653e948b160b39e095"
+    sha256 arm64_sonoma:  "3deb29512380d6f2438509ef376b9c6420e0c09929f1ba46c6a6defc80b0c938"
+    sha256 tahoe:         "7101266ed6af8753601bfa9e161f69b2293bf21c20d85a0215a33afadc8e2bfd"
+    sha256 sequoia:       "4a6c4df0a64de986d68c579f9fffa7b51da50a037370584e0c30575be14d86d1"
+    sha256 sonoma:        "b46f000c265b1862456a228ada44689992430d48c7d913ccfbf6d39fdb39452c"
+    sha256 arm64_linux:   "da35dceea818eca91178d1d69b9ebf15ba68ac343e47fec99c4a3edf889c023e"
+    sha256 x86_64_linux:  "a225dfc60e2cf8404edf0275411d60d831b4fbcc707a5019e9246aef10915d98"
   end
 
   head do
@@ -30,7 +33,10 @@ class Swig < Formula
   depends_on "pcre2"
 
   uses_from_macos "python" => :test
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV.append "CXXFLAGS", "-std=c++11" # Fix `nullptr` support detection.

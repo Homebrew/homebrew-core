@@ -17,7 +17,7 @@ class FuzzyFind < Formula
     regex(/^v?(\d+(?:\.\d+)+)/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6c68a4273ab53b216ddb7f7ade942b7e700bbfa900c5a7b97a6404577d4aec7f"

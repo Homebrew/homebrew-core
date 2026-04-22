@@ -1,20 +1,18 @@
 class Shfmt < Formula
   desc "Autoformat shell script source code"
   homepage "https://github.com/mvdan/sh"
-  url "https://github.com/mvdan/sh/archive/refs/tags/v3.12.0.tar.gz"
-  sha256 "ac15f42feeba55af29bd07698a881deebed1cd07e937effe140d9300e79d5ceb"
+  url "https://github.com/mvdan/sh/archive/refs/tags/v3.13.1.tar.gz"
+  sha256 "b31aad2d4c26b0c6e8ebe894d59022520bbebce33e082d7d29e4325eee35d308"
   license "BSD-3-Clause"
   head "https://github.com/mvdan/sh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f1b1d608e46c6a7ac98efd1bf44b821393f479809ee357f04762b34ee2614b2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6a4cdf35bd37ddeac3608da2adfc45c2d1b276b9419154d925cfe63b8973035c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a4cdf35bd37ddeac3608da2adfc45c2d1b276b9419154d925cfe63b8973035c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6a4cdf35bd37ddeac3608da2adfc45c2d1b276b9419154d925cfe63b8973035c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2a7f654ebd0ad605b8f47f4d182e1106050ad6f34cb1b68967d979c54e72e86c"
-    sha256 cellar: :any_skip_relocation, ventura:       "2a7f654ebd0ad605b8f47f4d182e1106050ad6f34cb1b68967d979c54e72e86c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a322ef4b30bc6f54f645988c0cb5b4a02887bff693af18f75dbf42bb022adb8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38a4a4aef3735b47289c4d985c8f922b1b96ef9e36232a90d4aa88c80eeb997c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf8528e33b4d5c4d8572fa23f45a2dbe3935b54a21b522cc0e4059e5a70b4fcb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf8528e33b4d5c4d8572fa23f45a2dbe3935b54a21b522cc0e4059e5a70b4fcb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf8528e33b4d5c4d8572fa23f45a2dbe3935b54a21b522cc0e4059e5a70b4fcb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b7d542832f29366a897f46c3659e06e190ebf27458d1e8260b410d185cd6e6dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e3ee9253b76dc169b3be3a9d24dd15caebdcc1c82eebe1c2de549fdd87f4067"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e78519471a3c6a1f082c944277d3e97ee4cab817f7a8d92ee69c635a85cf3d3f"
   end
 
   depends_on "go" => :build
@@ -22,11 +20,8 @@ class Shfmt < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    ldflags = %W[
-      -s -w
-      -extldflags=-static
-      -X main.version=#{version}
-    ]
+    ldflags = "-s -w -extldflags=-static"
+    inreplace "cmd/shfmt/main.go", "version = mod.Version", "version = \"#{version}\""
     system "go", "build", *std_go_args(ldflags:), "./cmd/shfmt"
     man1.mkpath
     system "scdoc < ./cmd/shfmt/shfmt.1.scd > #{man1}/shfmt.1"

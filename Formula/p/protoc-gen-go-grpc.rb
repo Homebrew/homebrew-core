@@ -1,10 +1,9 @@
 class ProtocGenGoGrpc < Formula
   desc "Protoc plugin that generates code for gRPC-Go clients"
   homepage "https://github.com/grpc/grpc-go"
-  url "https://github.com/grpc/grpc-go/archive/refs/tags/cmd/protoc-gen-go-grpc/v1.6.0.tar.gz"
-  sha256 "6e269733f8728b6583ce7e8ca4b2aafec286f4ac4e878a8d75477787ba8c389b"
+  url "https://github.com/grpc/grpc-go/archive/refs/tags/cmd/protoc-gen-go-grpc/v1.6.1.tar.gz"
+  sha256 "9dae3e712ceda8f3740511632bdb18872387bc4642131d05d190e65483f4a422"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class ProtocGenGoGrpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f1b7364fb58f3114af0cb279f95bfd8ca75c5668370ab660985f3d664ff4c6b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f1b7364fb58f3114af0cb279f95bfd8ca75c5668370ab660985f3d664ff4c6b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f1b7364fb58f3114af0cb279f95bfd8ca75c5668370ab660985f3d664ff4c6b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dae87a508c5b65366ee6040bef6c92db9cd01ae74a312758e6e763d76201c5ad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0893c49d9b70f3eaacae8d7d8dc995a67cf7a507c9994124b80e5b1649f7acb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2713b5516337288a481945fb9979c800b46d9b04f824d936ad74dfb928895d13"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "23b5b2dfbc954af373166be4e13a6f559030114c931e0b35f16b75e0ac1636dc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "23b5b2dfbc954af373166be4e13a6f559030114c931e0b35f16b75e0ac1636dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "23b5b2dfbc954af373166be4e13a6f559030114c931e0b35f16b75e0ac1636dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "931fc918491c0b4dd87f68a731eea11765086b189dc0ad7099c8d092abaa0501"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1f27075ce0439369568899c03745d93c10c39b352117b8a31c6582d1a652d95d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23f3e27aebf9cd43e9c97436554f7ef20d4869cb9c7d9cbd76f75328b3d90c42"
   end
 
   depends_on "go" => :build

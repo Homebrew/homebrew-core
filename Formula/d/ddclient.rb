@@ -12,23 +12,23 @@ class Ddclient < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1c81f1b45525d57fa8fdf5f7b2702b91e2a0de15a683c90b874f2ba458323675"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1c81f1b45525d57fa8fdf5f7b2702b91e2a0de15a683c90b874f2ba458323675"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c81f1b45525d57fa8fdf5f7b2702b91e2a0de15a683c90b874f2ba458323675"
-    sha256 cellar: :any_skip_relocation, sonoma:        "93452946abd46f1ac2466ef6146895e8d9f9e0e20177ef87c781c9db8980797c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec89b03aa54b8ec6dfb5edcc98cbe85694c2992e91af532089209bb58f6a2b6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa4b8c1590e6d701d81fbf6f206f23c702706890506d9f271c5285dcd1deba64"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd99a31bc382b37fb1c30b0951207f62cac95ca4a63e1aa8b33418d8c7835b02"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd99a31bc382b37fb1c30b0951207f62cac95ca4a63e1aa8b33418d8c7835b02"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd99a31bc382b37fb1c30b0951207f62cac95ca4a63e1aa8b33418d8c7835b02"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f21970276380eb8695cf3d1fe7db5e34ebb4f6a30e5e016a40f09f9aaea3a463"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7e668a3f6c30e6ee9161cee638436862bf180227acaf1d9d18c91f3c5fc11993"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21970b6c0bf60078a269f10b8e22da146a75f65ef69cead984b9026203664493"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
   uses_from_macos "perl"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@3"
+    depends_on "zlib-ng-compat"
 
     resource "IO::Socket::INET6" do
       url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.73.tar.gz"

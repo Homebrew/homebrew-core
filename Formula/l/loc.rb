@@ -5,8 +5,6 @@ class Loc < Formula
   sha256 "1e8403fd9a3832007f28fb389593cd6a572f719cd95d85619e7bbcf3dbea18e5"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6ade85599116f563a1624e494b7b3040cdcba3167058a0611e2c9b1172d27be3"

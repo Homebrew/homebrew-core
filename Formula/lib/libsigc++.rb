@@ -4,6 +4,7 @@ class Libsigcxx < Formula
   url "https://github.com/libsigcplusplus/libsigcplusplus/releases/download/3.8.0/libsigc++-3.8.0.tar.xz"
   sha256 "502a743bb07ed7627dd41bd85ec4b93b4954f06b531adc45818d24a959f54e36"
   license "LGPL-3.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url :stable

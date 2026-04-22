@@ -5,32 +5,35 @@ class Unar < Formula
   sha256 "652953d7988b3c33f4f52b61c357afd1a7c2fc170e5e6e2219f4432b0c4cd39f"
   license "LGPL-2.1-or-later"
   revision 7
+  compatibility_version 1
   head "https://github.com/MacPaw/XADMaster.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7b0c0857811518183003efc8ad4f2ff29bdfe25975263939f53091d4cbd48a24"
-    sha256 cellar: :any,                 arm64_sequoia: "b4bfdfb90639a2152fac34b8449e8c3f37408ab40cb61e7ea449c3fa8b5da2fd"
-    sha256 cellar: :any,                 arm64_sonoma:  "fa3a9602a7e50a70bd82c4d9d6c980002d45b52c4283480ad6d7f8fcec9afd0f"
-    sha256 cellar: :any,                 sonoma:        "b096eff750abefa23a208c882b6a344ba3ed3f4d5048be6ea7014c71199559da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c188cf22fd54207f8bd2bf2b5d7c6a2f213b3ca8a6b00ac89e145a3a613ac23c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51ddaef98a6c11ca8dbc11f53a8a9a3ae0398e9822d814a28e380698d44d048d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "0ef068932336d86ad68784341497223c5d17d6e56ed564a698d6686031ff97fa"
+    sha256 cellar: :any,                 arm64_sequoia: "e38bf30cf01db29aa27d0bf1b208009eb6d64547904f6923ef6994bb74e264c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "5114acd866a2552989947614859b3cfd347c52cebc1d7ae4677824e9db94f56b"
+    sha256 cellar: :any,                 sonoma:        "0d686d8ad4563aab687d8a48578ccafde6bec7681939c280357ef02f14829f5d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "85565efda882c47c9abf8d29ad7da951ab88459bf5cabb179a21fecaeb46158c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "128ef931a133a2dba46f9bfacfe00d28830ec81adcea315d026159321fd1a79d"
   end
 
   depends_on xcode: :build
 
   uses_from_macos "llvm" => :build
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "gnustep-base"
     depends_on "icu4c@78"
     depends_on "libobjc2"
     depends_on "wavpack"
+    depends_on "zlib-ng-compat"
   end
 
-  # Clang must be used on Linux because GCC Objective C support is insufficient.
-  fails_with :gcc
+  fails_with :gcc do
+    cause "GCC Objective-C support is insufficient"
+  end
 
   resource "universal-detector" do
     url "https://github.com/MacPaw/universal-detector/archive/refs/tags/1.1.tar.gz"

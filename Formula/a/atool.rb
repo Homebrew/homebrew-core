@@ -10,8 +10,6 @@ class Atool < Formula
     regex(/href=.*?atool[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 4
     sha256 cellar: :any_skip_relocation, all: "7bdc1cec48daaf7c140aa3ebb5e32ea863e560947ff2ed110339f84bdcea25c4"

@@ -10,8 +10,6 @@ class Mpgtx < Formula
     regex(%r{url=.*?/mpgtx[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)(?:-src)?\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e6a9e46221da11c97decd1340aa411ca181d6c0eb331470e61e5c08b96cf6823"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2ad9aa8dd08b96ea82867c569333e92438e2e7131c287a1f4a2f9ab8be6a3755"

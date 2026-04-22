@@ -11,14 +11,13 @@ class Tarsnap < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0a6fa3ce87975086eb2327e182c9e667c26f7b108ca55fae07d1395c234fcb41"
-    sha256 cellar: :any,                 arm64_sequoia: "78007da0922ad1bb06ec75c05b9306fa3a52937245371c53e325c840f7f00891"
-    sha256 cellar: :any,                 arm64_sonoma:  "12b7762dc18b71cd86b9bf7aa12fe0a4cbb4f4537e4072e66482039a7744cb06"
-    sha256 cellar: :any,                 arm64_ventura: "7baebf33f0670c8fd4e3788599fa28a10c83a4be7ea0ddc1538cd48d68d58067"
-    sha256 cellar: :any,                 sonoma:        "02a5c3c5a3c09a084eb4941fdc6cb74428011200705656ebae06386e92244f81"
-    sha256 cellar: :any,                 ventura:       "a79d0a85059b11a514f05fcb0ae86faab0758983f2aa3280144761cfa1506f19"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "668e24f0f0c50a92bc5a6800d3e74c5b162b51b3ced6e18b5cd9dd7570c2b89d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e00f951a9e99d1456f080c90c3a9bdbfedda1b04af93317daa3c67a71613cf4e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ca2b3013ba1c54f48150e5d0e7e14319e34c30dab2672ed07e5ed0ae892094a5"
+    sha256 cellar: :any,                 arm64_sequoia: "4cb5837e33134878309495068c652e56eff9737952e1e3a55b6e8182170f0cb3"
+    sha256 cellar: :any,                 arm64_sonoma:  "9375a2dd6ebab4d05d7a6cd6aa64d9d044c9774924d60f81528788aa3cc32e1d"
+    sha256 cellar: :any,                 sonoma:        "3304b5c996c73844068ad9baef54cb66f93cb30abed8da61d0e1f58794ca7ab2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6439740896ab865ec1ea55f3f00522288cd72cd4eae4c0f563c784c783ab3b7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7053a34f26dfd83767bf485f74fafcf8c48aefc7270c66461342d4f4f4a3db6a"
   end
 
   head do
@@ -30,10 +29,10 @@ class Tarsnap < Formula
   depends_on "openssl@3"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "e2fsprogs" => :build
+    depends_on "zlib-ng-compat"
   end
 
   def install

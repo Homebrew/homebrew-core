@@ -1,26 +1,23 @@
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.120.20.tgz"
-  sha256 "d89a9d28c6d1bd0a90736ba71611a0650f8066ea84ad3c1352a4b82ce2524dd7"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.121.5.tgz"
+  sha256 "dd4b97c0b8d3738ea2d9bc17fc433bb4e577b924a2d3d5a6508ce3fb40f0fd25"
   license "MIT"
 
   bottle do
-    sha256                               arm64_tahoe:   "a4f10e78fe6df79cb480046bd3cc1943f614428c5f8a4edc15a778d7761ce8b2"
-    sha256                               arm64_sequoia: "f431cc764b3f3ca8e1cabbabb5de28d5f131230fc29f4481609d6ffaa41907b5"
-    sha256                               arm64_sonoma:  "868793eca910e16a2f1b3a2af26715bee3ddcb4177aaa512cc30a417889c184e"
-    sha256                               sonoma:        "e0d50e88d03d7f71de0d881d7f66d6686b045f592647e430cbb37fa953520f26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "53c4974502237c5d065aa0599ebff6cfd35804a1e755a6051e855eeb9a544900"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "908173c45a1279f18fbf03b5d59b15227cf5b6b94c4e07c9d70f1f8a4916e651"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "146fb42970d43262ecef171a0d32b9730c3b6a7527c303e92977c10dd89599d8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1355ee0dc87f69fadec41ca21043ffc8e34dd66248ad0baebfda4e1cae960710"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75fb15d12cfea6d3918c97e63c072bcb952361990f17836658f6330e8ab9854c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b3974db862641dd84947f3540bdf0d51273df84f162bb5a4b45469a69231f23d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8576e093a2700e9744c5c4ff902a5475c4768311480d6757e184ecf87743762c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8a429820b9978faeb5e0a494920e185323433518f40b7753d82fc9de458f296"
   end
 
-  depends_on "glib"
   depends_on "node"
-  depends_on "vips"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1700
-    depends_on "gettext"
   end
 
   fails_with :clang do
@@ -28,42 +25,20 @@ class Promptfoo < Formula
     cause "better-sqlite3 fails to build"
   end
 
-  # Resources needed to build sharp from source to avoid bundled vips
-  # https://sharp.pixelplumbing.com/install/#building-from-source
-  resource "node-addon-api" do
-    url "https://registry.npmjs.org/node-addon-api/-/node-addon-api-8.5.0.tgz"
-    sha256 "d12f07c8162283b6213551855f1da8dac162331374629830b5e640f130f07910"
-  end
-
-  resource "node-gyp" do
-    url "https://registry.npmjs.org/node-gyp/-/node-gyp-12.2.0.tgz"
-    sha256 "8689bbeb45a3219dfeb5b05a08d000d3b2492e12db02d46c81af0bee5c085fec"
-  end
-
   def install
-    ENV["SHARP_FORCE_GLOBAL_LIBVIPS"] = "1"
-    system "npm", "install", *std_npm_args(ignore_scripts: false), *resources.map(&:cached_download)
-    bin.install_symlink libexec.glob("bin/*")
-
-    os = OS.mac? ? "apple-darwin" : "unknown-linux-musl"
-    arch = Hardware::CPU.arm? ? "aarch64" : "x86_64"
-
-    # Remove incompatible pre-built binaries
-    node_modules = libexec/"lib/node_modules/promptfoo/node_modules"
-    rm_r(node_modules/"@anthropic-ai/claude-agent-sdk/vendor/ripgrep")
-    codex_vendor = node_modules/"@openai/codex-sdk/vendor"
-    codex_vendor.children.each { |dir| rm_r dir if dir.basename.to_s != "#{arch}-#{os}" }
-
-    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    keep = node_modules.glob("onnxruntime-node/bin/napi-v*/#{OS.kernel_name.downcase}/#{arch}")
-    rm_r(node_modules.glob("onnxruntime-node/bin/napi-v*/*/*") - keep)
-    if OS.linux? && Hardware::CPU.intel?
-      rm(node_modules.glob("onnxruntime-node/bin/napi-v*/*/*/libonnxruntime_providers_{cuda,tensorrt}.so"))
+    # NOTE: We need to disable optional dependencies to avoid proprietary @anthropic-ai/claude-agent-sdk;
+    # however, npm global install seems to ignore `--omit` flags. To work around this, we perform a local
+    # install and then symlink it using `brew link`.
+    (libexec/"promptfoo").install buildpath.children
+    cd libexec/"promptfoo" do
+      system "npm", "install", "--omit=dev", "--omit=optional", *std_npm_args(prefix: false)
+      system "npm", "run", "--prefix=node_modules/better-sqlite3", "build-release"
+      with_env(npm_config_prefix: libexec) do
+        system "npm", "link"
+      end
     end
 
-    # Remove unneeded pre-built binaries
-    rm_r(node_modules.glob("@img/sharp-*"))
-    rm_r(node_modules.glob("sharp/node_modules/@img/sharp-*"))
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do

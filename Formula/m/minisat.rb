@@ -6,27 +6,21 @@ class Minisat < Formula
   license "MIT"
   head "https://github.com/stp/minisat.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "be98d2db67c95a2f1621123cf0310ab38afecfb478407a0d43f0d90fff34ea25"
-    sha256 cellar: :any,                 arm64_sequoia:  "67c3c4650f6e2e5c65d53d7d2681783cda655b3eb9915f79debdbaf77c8ddcf0"
-    sha256 cellar: :any,                 arm64_sonoma:   "956661daa83980e03eecb0b94a3acba68ce6a8bf4a122b286c94c9aeed708db9"
-    sha256 cellar: :any,                 arm64_ventura:  "518ea1441facc4926c3edddf1fd5e6bf4d2db6460f10d4c4d4ef6c9fd69dcd3d"
-    sha256 cellar: :any,                 arm64_monterey: "22895418f1f5e0d2a1efb9cc700f40bdb29e9809423f0c7949eeaacbbbf7b4f3"
-    sha256 cellar: :any,                 arm64_big_sur:  "b802117d6cc0fa96bedac9eaa086908687ad87c7a368558e47c2417d3d2b7146"
-    sha256 cellar: :any,                 sonoma:         "1f8b90a6d6db3e00b7d74587345abdeeb472a2b423f2a940ef1b487e86e410cf"
-    sha256 cellar: :any,                 ventura:        "491bdcc2b593d154333f27413de300da1ef3112c12e950906d49bc50de9aada8"
-    sha256 cellar: :any,                 monterey:       "5b028ad6aa66e082709083453b17d150eee4cb2a134b8cccd8c62567928b5859"
-    sha256 cellar: :any,                 big_sur:        "ecc424ea3cde4f1a8d7056802d384ce1ab9823393301cac432dc26260685437a"
-    sha256 cellar: :any,                 catalina:       "0940a0cb0c4c4d6130d1eb7aa698561d6b01904044ee57731ad2c12092e30e46"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "63183ba50129d6699c3df8ede63fa932b1daa7c0765fcca11a8a6ba7e245a029"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1277996ab9a57f7c617501f9b386c2bb18ac90e00293738c12222dd89d90a979"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "cf6593a34e4fccf6f0e21cd5a5ff25f1228a88bfa865a2a11d87e0a106186a7c"
+    sha256 cellar: :any,                 arm64_sequoia: "c99b867058712c4d612c88a4994b087b44d6cea68e01ce30b7af6153609a27e9"
+    sha256 cellar: :any,                 arm64_sonoma:  "da140f3fdbd9218b87aa76edc4ca27e630eb64e1c9f88c9766e66889e01259aa"
+    sha256 cellar: :any,                 sonoma:        "8b4162944a00007011efc0b60bc3938c0f54b25526121cc1700bf108e673b287"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2a9974eb7be498a0222d84b7b0f82b9fe56c1c41b5437612534219a0d1bf71f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "498f58fa3f510fd9d3381319c866db4a789ab7bbafbf230e635e2a47424ed6c5"
   end
 
   depends_on "cmake" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",

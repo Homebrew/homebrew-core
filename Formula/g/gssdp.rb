@@ -5,8 +5,6 @@ class Gssdp < Formula
   sha256 "ff97fdfb7f561d3e6813b4f6a2145259e7c2eff43cc0e63f3fd031d0b6266032"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "757813a4572ec251ec2b0b5d08fac402448d7eb07e798f4ddae34beafb4dd786"
     sha256 cellar: :any, arm64_sequoia: "ebe88f533fe10a5c8bcd40124a1eba3be1fb2d7b1f519b8d52c8e5d72de9a252"

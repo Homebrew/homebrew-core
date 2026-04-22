@@ -1,22 +1,22 @@
 class Braid < Formula
   desc "Simple tool to help track vendor branches in a Git repository"
   homepage "https://cristibalan.github.io/braid/"
-  url "https://github.com/cristibalan/braid.git",
-      tag:      "v1.1.10",
-      revision: "16729390a2a8e6b45919545b056a1a7ac83c14d6"
+  url "https://github.com/cristibalan/braid/archive/refs/tags/v1.1.10.tar.gz"
+  sha256 "b0b7193f4d5ea58abafe1522047973680881115e933286d6556b9e78304626c7"
   license "MIT"
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "78e214117c886ec92c2b3d84876a19e9e312f646f7880c21bcaa8b2f1498262b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "78e214117c886ec92c2b3d84876a19e9e312f646f7880c21bcaa8b2f1498262b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78e214117c886ec92c2b3d84876a19e9e312f646f7880c21bcaa8b2f1498262b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "78e214117c886ec92c2b3d84876a19e9e312f646f7880c21bcaa8b2f1498262b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "227918651f6ee7548fa9f85de4ee3bfbf4ed168591caafaaac909b65e56fa6f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15697bebe2c12c8ae85c97b3fbfb612805e7e780366c55a492068484bd0d1fa7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "595da34cfddb9113bd28b7cc30eb1902a21fb869cb403866101d446cc89c33e2"
+    sha256 cellar: :any,                 arm64_sequoia: "b1543df0eeeb51fb4d0bbf8db358cc41066098070c70978601154ab444598efd"
+    sha256 cellar: :any,                 arm64_sonoma:  "9901ab7b30f4ddee1b980cffd069793c705bd693edc2fa7ffb69fc556dd2ea0e"
+    sha256 cellar: :any,                 sonoma:        "c895e76a6dc11de45e9c306e72ada141d5a0a18ccb143d6454acfb932f4914e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2ecddacae1d63c92959d5a9c0f4023eb5921f057d6579c4ec2865fa41cef16d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d32a5e8c8532b23f3609d5f8557d73bcd60db26f85c3d8bf81f50385017e6836"
   end
 
-  uses_from_macos "ruby"
+  depends_on "ruby"
 
   resource "pstore" do
     url "https://rubygems.org/gems/pstore-0.1.3.gem"
@@ -66,9 +66,6 @@ class Braid < Formula
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
-      next if r.name == "json" && OS.mac?
-
-      r.fetch
       system "gem", "install", r.cached_download, "--ignore-dependencies",
              "--no-document", "--install-dir", libexec
     end
@@ -81,8 +78,8 @@ class Braid < Formula
   test do
     mkdir "test" do
       system "git", "init"
-      (Pathname.pwd/"README").write "Testing"
-      (Pathname.pwd/".gitignore").write "Library"
+      Pathname("README").write "Testing"
+      Pathname(".gitignore").write "Library"
       system "git", "add", "README", ".gitignore"
       system "git", "commit", "-m", "Initial commit"
       output = shell_output("#{bin}/braid add https://github.com/cristibalan/braid.git")

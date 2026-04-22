@@ -6,8 +6,6 @@ class Xsel < Formula
   license "MIT"
   head "https://github.com/kfish/xsel.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "4b77e0f9695c3024acfae203e697084bd2dc38dedfa687df634a44edff53b570"
     sha256 cellar: :any,                 arm64_sequoia:  "b4ef9c989ee8e286f69314d95de96579f0a33336fb5b673b494c27f764c25998"

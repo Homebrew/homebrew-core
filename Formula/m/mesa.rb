@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-25.3.4.tar.xz"
-  sha256 "3a0fc6ec070b45ae25dc2ccb5e52fae1d89141f7c39c4a91fe4eaa80dfff9deb"
+  url "https://archive.mesa3d.org/mesa-26.0.5.tar.xz"
+  sha256 "d229c9937d9a25ca0a8958c59f425174563d300ec42acbea2dbe84a055023368"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -20,15 +20,16 @@ class Mesa < Formula
     { "GPL-1.0-or-later" => { with: "Linux-syscall-note" } }, # include/drm-uapi/sync_file.h
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # include/drm-uapi/{d3dkmthk.h,dma-buf.h,etnaviv_drm.h}
   ]
+  compatibility_version 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "ffa615e47150df39d68fdc678adef3b6d9b1827fb2b61d7fd6fc35d0c05f0369"
-    sha256 arm64_sequoia: "51a93e14311c08b78becacf1c2b7c761f99b25ca392af5cf9fcd541c6ba46327"
-    sha256 arm64_sonoma:  "358291feef5ea478c512ba017b05ea03d7a889c77d6ec87f9765a3e4ff56b5fa"
-    sha256 sonoma:        "db1620d5eeb4b23100bea86a5251d6f241a5186b45ffa9dc64dec5d7586520ae"
-    sha256 arm64_linux:   "556752f81c7e61a8e6b66e36198b85905a0202800cf5a7d3697d80f297f1afe7"
-    sha256 x86_64_linux:  "797427d3600d79309ee50049e4b8573359caa5b260776af2fda07fcaf7aa9210"
+    sha256 arm64_tahoe:   "d509bbd7fe114da6795f6e3ab2fb227edd880dfdeb5bc74247531c7d499f8d95"
+    sha256 arm64_sequoia: "208ef680cfe0aa46c5f3824c6854370d7714dcfdee8b4efb2bc85ae0e3b96592"
+    sha256 arm64_sonoma:  "ec868d0301da1d2a4e36bc28732ed3b904bd49f355633ab0ea8d16abe271c9d7"
+    sha256 sonoma:        "a27d769f6c27f5dc4e05260e14c2b93802fe281df3c8228e775f2152dad21fa1"
+    sha256 arm64_linux:   "d94fd79823ed016ae241d595d0de70d9a0b622fd4f70ce8ed2235cc399fa1119"
+    sha256 x86_64_linux:  "992d9a58e36a46f1334cea37c739224b451f8142d96b30f08099c778183a211f"
   end
 
   depends_on "bindgen" => :build
@@ -45,7 +46,7 @@ class Mesa < Formula
   depends_on "rust" => :build
   depends_on "xorgproto" => :build
 
-  depends_on "libclc" # OpenCL support needs share/clc/*.bc files at runtime
+  depends_on "libclc" => :no_linkage # OpenCL support needs share/clc/*.bc files at runtime
   depends_on "libpng"
   depends_on "libx11"
   depends_on "libxcb"
@@ -54,11 +55,11 @@ class Mesa < Formula
   depends_on "llvm"
   depends_on "spirv-llvm-translator"
   depends_on "spirv-tools"
+  depends_on "xcb-util-keysyms"
   depends_on "zstd"
 
   uses_from_macos "flex" => :build
   uses_from_macos "expat"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "molten-vk"
@@ -72,16 +73,17 @@ class Mesa < Formula
     depends_on "valgrind" => :build
     depends_on "wayland-protocols" => :build
 
-    depends_on "elfutils"
     depends_on "libdrm"
     depends_on "libxml2" # not used on macOS
     depends_on "libxshmfence"
     depends_on "libxxf86vm"
     depends_on "lm-sensors"
     depends_on "wayland"
+    depends_on "zlib-ng-compat"
 
     on_intel do
       depends_on "cbindgen" => :build
+      depends_on "elfutils"
     end
   end
 
@@ -145,11 +147,13 @@ class Mesa < Formula
       # Work around .../rusticl_system_bindings.h:1:10: fatal error: 'stdio.h' file not found
       ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
 
+      vulkan_drivers = (MacOS.version >= :sequoia) ? "kosmickrisp,swrast" : "swrast"
+
       %W[
         -Dgallium-drivers=llvmpipe,zink
         -Dmoltenvk-dir=#{Formula["molten-vk"].prefix}
         -Dtools=etnaviv,glsl,nir,nouveau,dlclose-skip
-        -Dvulkan-drivers=swrast
+        -Dvulkan-drivers=#{vulkan_drivers}
         -Dvulkan-layers=intel-nullhw,overlay,screenshot,vram-report-limit
       ]
     else
@@ -193,6 +197,7 @@ class Mesa < Formula
         #{prefix}/etc/OpenCL/vendors/rusticl.icd
         #{share}/vulkan/explicit_layer.d/VkLayer_MESA_overlay.json
         #{share}/vulkan/explicit_layer.d/VkLayer_MESA_screenshot.json
+        #{share}/vulkan/explicit_layer.d/VkLayer_MESA_vram_report_limit.json
       ] do |s|
         s.gsub! ".so", ".dylib"
       end

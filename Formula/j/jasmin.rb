@@ -6,8 +6,6 @@ class Jasmin < Formula
   license "BSD-4-Clause"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "5ca0d0e4caaf51963cbbc63ffa2b3b2506737c8c0cc8a2773acb76f185221b11"

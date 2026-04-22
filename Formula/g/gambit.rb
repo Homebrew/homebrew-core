@@ -1,8 +1,8 @@
 class Gambit < Formula
   desc "Software tools for game theory"
   homepage "https://www.gambit-project.org/"
-  url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.5.0.tar.gz"
-  sha256 "19693666276aa6defdcb32be7eb4e2fcd965dcb1acefbe7fad96053ee3a46ada"
+  url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.6.0.tar.gz"
+  sha256 "5d0ac6809841b02347b31accfb6ee31d6ae0593f33dcf58b71b9ca543b465fd9"
   license all_of: ["GPL-2.0-or-later", "Zlib"]
 
   livecheck do
@@ -11,12 +11,12 @@ class Gambit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "08af0221f4432596af0261c4d346b4f3b92380f8317fdd3b297e5678084695a7"
-    sha256 cellar: :any,                 arm64_sequoia: "f7dc644a3fbd42c0576604fc2e1330fe2098197d3bbd30be4e2ed216f9c66862"
-    sha256 cellar: :any,                 arm64_sonoma:  "64491df3a8506e64c95a765d35bc4930b0f9db0fbf743701a7196e92db3da780"
-    sha256 cellar: :any,                 sonoma:        "9a41b52cd8ab1a5f816c689eb3123905cddc9babb9afded1fef4662f631480ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c34be7773313956cfd194d423445a225831b6337de5fedaaa0b497bbbea5811"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13c06efc4a32359830544c6cd58e9b270427a21c2bf81b1e3aab311a5e386318"
+    sha256 cellar: :any,                 arm64_tahoe:   "1981b508d7ec1e7f9bd9abd0f9cc604e1f0953b1261b9ad5478ab74dc13aff3c"
+    sha256 cellar: :any,                 arm64_sequoia: "ca7a9c1c14a39a81072f117e3f4ccc89a41f1502d5be242c3aaea9574982eceb"
+    sha256 cellar: :any,                 arm64_sonoma:  "917c3966b4a0b41a0e4dc605430eb816da5d48bc5bd585c45b96925e1c9f88da"
+    sha256 cellar: :any,                 sonoma:        "04f5090eea9d0a69cf46f6e6c0f868394ab5470032b426b387accfb13d876b4b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8bdcb2fd44695f5fe0ede13b74a9fb25bf400b5785de2c01eac50d9e6d98ecbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e73a3408e96fa4501a02949808f405324017d2acb50415cc11c77c252a2cb33"
   end
 
   depends_on "autoconf" => :build
@@ -39,15 +39,15 @@ class Gambit < Formula
   end
 
   test do
-    system bin/"gambit-enumpure", pkgshare/"contrib/games/e02.efg"
-    system bin/"gambit-enummixed", pkgshare/"contrib/games/e02.nfg"
-    system bin/"gambit-gnm", pkgshare/"contrib/games/e02.nfg"
-    system bin/"gambit-ipa", pkgshare/"contrib/games/e02.nfg"
-    system bin/"gambit-lcp", pkgshare/"contrib/games/e02.efg"
+    system bin/"gambit-enumpure", pkgshare/"contrib/games/e04.efg"
+    system bin/"gambit-enummixed", pkgshare/"contrib/games/e04.nfg"
+    system bin/"gambit-gnm", pkgshare/"contrib/games/e04.nfg"
+    system bin/"gambit-ipa", pkgshare/"contrib/games/e04.nfg"
+    system bin/"gambit-lcp", pkgshare/"contrib/games/e04.efg"
     system bin/"gambit-lp", pkgshare/"contrib/games/2x2const.nfg"
-    system bin/"gambit-liap", pkgshare/"contrib/games/e02.nfg"
-    system bin/"gambit-simpdiv", pkgshare/"contrib/games/e02.nfg"
-    system bin/"gambit-logit", pkgshare/"contrib/games/e02.efg"
+    system bin/"gambit-liap", pkgshare/"contrib/games/e04.nfg"
+    system bin/"gambit-simpdiv", pkgshare/"contrib/games/e04.nfg"
+    system bin/"gambit-logit", pkgshare/"contrib/games/e04.efg"
     system bin/"gambit-convert", "-O", "html", pkgshare/"contrib/games/2x2.nfg"
   end
 end

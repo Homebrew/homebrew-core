@@ -7,8 +7,6 @@ class Soapyrtlsdr < Formula
   revision 2
   head "https://github.com/pothosware/SoapyRTLSDR.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "48f1464d0739465385b31f436ae6f9ea01ce68132730976767238c830f13c318"
     sha256 cellar: :any,                 arm64_sequoia:  "76b22eaf2c71839e2f26068ed671fd7652ed7aac92b582cbc267159d0fb851ca"

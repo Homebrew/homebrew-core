@@ -1,8 +1,8 @@
 class Binaryen < Formula
   desc "Compiler infrastructure and toolchain library for WebAssembly"
   homepage "https://webassembly.org/"
-  url "https://github.com/WebAssembly/binaryen/archive/refs/tags/version_125.tar.gz"
-  sha256 "36177034ef0f0d826fd7dc9ab9d92ef20190a79d69856f764151ffe9c11d7350"
+  url "https://github.com/WebAssembly/binaryen/archive/refs/tags/version_129.tar.gz"
+  sha256 "326f03e3a8b9eddc63cd9d6ff943bee86dae6f736c9f217e58530350381b011a"
   license "Apache-2.0"
   head "https://github.com/WebAssembly/binaryen.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Binaryen < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b517fd9435a51e97dabdcd8d61e9fbb657b06a3eba39e662ba26f11cd11e3916"
-    sha256 cellar: :any,                 arm64_sequoia: "f08f11c275540d21d343dc727f0cf31732706ddc1201f1c53d0b6c1c28e8f71b"
-    sha256 cellar: :any,                 arm64_sonoma:  "6d39c2f9a916b7a209ba116863ca46a555c4227c8404c0cbb7149d029416bcda"
-    sha256 cellar: :any,                 sonoma:        "38883cf18c3aa17128aa969af37ae16eeb0798f29ac70b34ab8e2cbc252e67a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "01a019abadde60c46dfcc8d56e91440eff81c43f231f8e0c5e80f559512d6086"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7cd86cd21c1674afedf1bfae2fcb4d01b3cf2307282678165fc40180d18af23"
+    sha256 cellar: :any,                 arm64_tahoe:   "62f236956783f0acb1846eabe1a74fdff6199fe39bcb1168dec4a183f7de0b02"
+    sha256 cellar: :any,                 arm64_sequoia: "1b10ced6728968be30b291524fb53b55feaa411a49b95b1403d657e86405485f"
+    sha256 cellar: :any,                 arm64_sonoma:  "665475a0a58387e3055e7a8441c5d4c2af861dcb1128671668bf5624781b8d39"
+    sha256 cellar: :any,                 sonoma:        "b58c190f68b72e017bfa64a1c3f997e7b9385be986e3fa2a9b3cd451e9ce2501"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f0aa2afab9f0bd16a5fb44cdc03fdbfd6ba637e1da7978fde2511ef1a81331c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "060f1a6e3cfa3d8318782812eeb3bf107ce3598d738df87468fbe515f8026100"
   end
 
   depends_on "cmake" => :build

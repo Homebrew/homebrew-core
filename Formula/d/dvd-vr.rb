@@ -10,8 +10,6 @@ class DvdVr < Formula
     regex(/href=.*?dvd-vr[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c866d88cd9c2d24675c6adb25ea1b78fc4139e15d46ce14e652e1302c99137f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7ec179b825a5afc971de1205ec65943227d9c09257a16558a068bc47c024887d"

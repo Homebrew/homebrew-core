@@ -2,8 +2,8 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.tigera.io/project-calico/"
   url "https://github.com/projectcalico/calico.git",
-      tag:      "v3.31.3",
-      revision: "2e3c880bcabff580ddd7a08340878ede207f37be"
+      tag:      "v3.31.5",
+      revision: "2e4da40144aac869e1ed2cc220b6c4b62f32efdd"
   license "Apache-2.0"
   head "https://github.com/projectcalico/calico.git", branch: "master"
 
@@ -14,12 +14,12 @@ class Calicoctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b3ee2078f724dd254a3d590ec47aaecd515d4527d7c9c922c3418410d557c57f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3ee2078f724dd254a3d590ec47aaecd515d4527d7c9c922c3418410d557c57f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3ee2078f724dd254a3d590ec47aaecd515d4527d7c9c922c3418410d557c57f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fd1cc3b52446c62b073fe738caae2344901ab216cf88c13184183382ee68a5a8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f538c9d56a580a8f44eb1f2988de353785dbaef5974937da97815aa37fe3be8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec3822de28efb4ab81e2f8a05dd9de02388aac44149333b655f7e7f836ad2cc0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "941d2905283b26d49a3a833af333cbb5b92f34c61b906d93cb858c4b7e333eae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "941d2905283b26d49a3a833af333cbb5b92f34c61b906d93cb858c4b7e333eae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "941d2905283b26d49a3a833af333cbb5b92f34c61b906d93cb858c4b7e333eae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bf99fd2f62fc0bf11bcc7adc24aa84541634a0d3a8a26d5979fb017b750394b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0ce28c76729c3edc5fd229d72b30c22107f49dc6178cbb24d6495a561b549b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab454cbd3610d479b69771ea701b12a5a33b545a240333df2ba811c0395fe68c"
   end
 
   depends_on "go" => :build

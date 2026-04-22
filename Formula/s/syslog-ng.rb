@@ -3,23 +3,11 @@ class SyslogNg < Formula
 
   desc "Log daemon with advanced processing pipeline and a wide range of I/O methods"
   homepage "https://www.syslog-ng.com"
+  url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.11.0/syslog-ng-4.11.0.tar.gz"
+  sha256 "37ea0d4588533316de122df4e1b249867b0a0575f646c7478d0cc4d747462943"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 4
   head "https://github.com/syslog-ng/syslog-ng.git", branch: "develop"
-
-  stable do
-    url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.10.2/syslog-ng-4.10.2.tar.gz"
-    sha256 "841503de6c2486e66fd08f0c62ac2568fc8ed1021297f855e8acd58ad7caff76"
-
-    # Backport Python dependency updates to avoid vulnerable packages
-    patch do
-      url "https://github.com/syslog-ng/syslog-ng/commit/89c1dcfb411e3c5611629fe99561f3106eb19b0f.patch?full_index=1"
-      sha256 "eb42508fa0a1b716ef8967151f10fe86b427e21fc50ef2f160c14bbd35a89291"
-    end
-    patch do
-      url "https://github.com/syslog-ng/syslog-ng/commit/dc070981e726ca1babb8e48bc368d0429eac9223.patch?full_index=1"
-      sha256 "1d7bb9994f0aff742fec24a038df90d199fa2e43aae28a396dc51a892fe7a95b"
-    end
-  end
 
   livecheck do
     url :stable
@@ -27,12 +15,12 @@ class SyslogNg < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0a3a80ea6526e2b5dc0884a562e5b26cb82a0ff9b6830992ab087d56c2cbf05a"
-    sha256 arm64_sequoia: "6247fedd689fa834b488a7cf04952a96eda47f71f80af324b694ea0690b3078d"
-    sha256 arm64_sonoma:  "fcbfe149b4d89ecd5e5bb55cfa449b1dc88f6c0bff59eaf9e56cc06cb4580bb8"
-    sha256 sonoma:        "4807a03b86afaeb94309dab844062c55521484e7cceef4cb3190136dc46531f6"
-    sha256 arm64_linux:   "4ab28e3ef104754afa47b09ceafd6162c7d9239aa9b876055d07d74894c80d07"
-    sha256 x86_64_linux:  "91a18b034e0b78035a437a6bc0702202c37eb065061a6ec87b16c523246a3f3a"
+    sha256 arm64_tahoe:   "bf8103b3948084c9ee20689d056df70370c0e65609caed961f7d31e8380a8a78"
+    sha256 arm64_sequoia: "171d112af4bde4df1a02fc8a757538a3b7dddcb0fb9afbbf66b03a10b94470bd"
+    sha256 arm64_sonoma:  "a859325d43eb76bb54552a08f184663587601e1aba084502c5eea63e3a470181"
+    sha256 sonoma:        "992aa131bab9c4b95ad94dfdc769bc2fc92e7aa022967ba1b3143dab9349acee"
+    sha256 arm64_linux:   "f1460fc2a4b3251b23c0685f739d3f0200b0a96a7ee14782d4752021997721c7"
+    sha256 x86_64_linux:  "89119f25bb0d0dc80201c0121f5b90a46dacd28d6dd0dc995364a3bb84c2665b"
   end
 
   depends_on "pkgconf" => :build
@@ -58,13 +46,16 @@ class SyslogNg < Formula
   depends_on "riemann-client"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

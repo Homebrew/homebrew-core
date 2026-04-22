@@ -1,17 +1,24 @@
 class Radicle < Formula
   desc "Sovereign code forge built on Git"
   homepage "https://radicle.xyz"
-  url "https://files.radicle.xyz/releases/latest/heartwood-1.6.1.tar.gz"
-  sha256 "a4806357baf162263002a24fc24660dfed7a43d566a24fc5428b0948d67e2011"
+  url "https://files.radicle.xyz/releases/latest/heartwood-1.8.0.tar.gz"
+  sha256 "c1de84fee59ae1c69fac5e42c932f4d2765a85630b27642f77792fc765948097"
   license all_of: ["MIT", "Apache-2.0"]
 
+  livecheck do
+    url "https://files.radicle.xyz/releases/latest/radicle.json"
+    strategy :json do |json|
+      json["version"]
+    end
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4e11422998700c5249fcc8f64455ff641759a1cd54c48e8e8f1247e380ff36db"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8cd7a08c94ba66d98f47921a52f8ffe7c07906043ad58b9c5a0efb871565f2e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5a94672e5c8b0c9929b278b32b740066f9af2cfa2538dfb930fd79816a6428c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c65df15d763aca75824479d0e904e121614a583007cff87c47d41eb3f7969e5d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4edae9386a5a06eda3155f6bc4e82b2b6c780761a17824d4b2e317f35a06ab7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96457b9b2e4acd952d08749b0f2937e77630d3789e810a179494d1da3d223866"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4d208f5a25bbab7fa45a173aa7fc5d9a2110553a59edab74c64e885c1f4f7d20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2ae0b766779e9b8869000ef68776693e0c7709c9abc40dadb0a5489d4660ede0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d0104b90ae5a07c926ead686f255078e6ea512fe4ea52e0390a904b860eecc0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f8f4631c56c352441e6000fec0a921b9655cd54e064b669bbae56474ccb09076"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e42a705b7fd6dd5203491791ea3943af98ea6b81c6da04f0dcf3bba476c8563f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "326623a7b34c86eef1c598e00f5be67fe3a0fc730ed38fdda76876512c1cdc33"
   end
 
   depends_on "asciidoctor" => :build
@@ -19,7 +26,9 @@ class Radicle < Formula
 
   depends_on "openssh"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["RADICLE_VERSION"] = version.to_s

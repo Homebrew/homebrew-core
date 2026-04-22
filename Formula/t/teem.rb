@@ -7,28 +7,22 @@ class Teem < Formula
   license :cannot_represent
   head "https://svn.code.sf.net/p/teem/code/teem/trunk"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "f4d6028758c3ab8fc8c0aac33a7d8ba0326c175d0cc4e2b0ec717b2d20e923da"
-    sha256 cellar: :any,                 arm64_sequoia:  "81b45cdf2ea8755adac691f6e58accc314cf9ddfe9152c3f017fd839df3da9c2"
-    sha256 cellar: :any,                 arm64_sonoma:   "3e9555bbe75fe5a36a3f62a36434158fa024153accdb69266ffce6d59254fed7"
-    sha256 cellar: :any,                 arm64_ventura:  "675bc15ec206fbcdd01c475ae95b82f8fbb5f8143bd781ee87ba09971eb75d84"
-    sha256 cellar: :any,                 arm64_monterey: "1c2da9c13e69b5cf2729b29ee33b48208963735e6e0394a17709993e6457a0e3"
-    sha256                               arm64_big_sur:  "92abe3197ae4ee54df9af997f519538bd8e2b93f5221185f02aaa61de4b5e5aa"
-    sha256 cellar: :any,                 sonoma:         "c65d52399cfdd28153cde34b05075a2be6fb2e1530f5b6f9d3a971fcf4115c27"
-    sha256 cellar: :any,                 ventura:        "d4dec6840b897d0a4c59e41beb0802a6fb1c4736974558c4f96485ad3bb34792"
-    sha256 cellar: :any,                 monterey:       "f179c33f2bb70a99d4f52e47f21dd8be70e49642607f47af90b1d5001f369d48"
-    sha256                               big_sur:        "c7c9999dbb12db2cfd64815a3df772be7222278bb22e857b72d0db0101d498af"
-    sha256                               catalina:       "105f54c1cb830584bcf694756ab18eab2a7d9a67e3226699272c4449cc2f816e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b136f971a5b05201d52c353da5db32fb4d0781d79ded3ac590425f03e12ea3b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5940970f22f2f7c70ad15cda8f227df675d47924d4a37ff5461699dde188f7f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ef2e584274fd5642063c5d7bf9d7703f53dddff875dda63bec93dd02494adbae"
+    sha256 cellar: :any,                 arm64_sequoia: "13027b516f281a9ef843fdceae4605cf760d4b5d1cf214a5c876c44faaacb289"
+    sha256 cellar: :any,                 arm64_sonoma:  "d5a28a5ec0e6fef247462ce5b68578c7622567e09d5bd67039f9627f505f50af"
+    sha256 cellar: :any,                 sonoma:        "9a590e8d60b1bf8861fe929c3ef8b48d86cd09ad284ca3d18301c953535f40e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ba0d90b02aaee75c6524eaf32735d5490df9acabb564505dbc830f99a46822b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50798411da1cae2c7cfec2d965db058f705791f3799cf7040baacd45518150ce"
   end
 
   depends_on "cmake" => :build
   depends_on "libpng"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Fixes build with CMake 4.0+.
   patch :DATA

@@ -6,8 +6,6 @@ class SwitchLanPlay < Formula
       revision: "c0c663e3fdc95d6d6e8ab401caa2bfb5b5872e00"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bc7be8d18040e7c518cd4f4eb42e99c53b4b8601b9f291d2ea766d3c8dade613"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "62c1155ae43a4751ab7efaeee9e02c57e8782186aac73312eb874289f7e6aec4"

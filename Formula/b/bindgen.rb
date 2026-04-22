@@ -7,14 +7,13 @@ class Bindgen < Formula
   head "https://github.com/rust-lang/rust-bindgen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e365fd73111ab1f7631e50ef51f4123d07e83c1f841ca7eff0422f884808a40"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e96f4bff4bf8646a132175f87710ffe282dadf9814a67cb0e2ab5cbfb47aaf97"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68791b14f20aa5fbf605d2c762f4937c6e2389ab0659cf034699dfa5f41a2969"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b944567744c969e7238489247ecaa33f89fe66db3a1b02e58280a083688f8d83"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6c7bb66b409bc5c4e9eb5f72cca1731fff75f37f7d1384ca8898d8db8cae48eb"
-    sha256 cellar: :any_skip_relocation, ventura:       "792a06e919fcf82e56401303df647e59151368a8df2b633f6a042eef48f9d62a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b6fe44a6d1ee205e403de6abdfb06a0956ff3747a4201100e5c031beaa86599"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a12ce571a9dcdf6ba8212d717096305d37d845c80551c3d26a0679efc76e2824"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c2f7d3db04e1d65571db3b16e177306ac4eb49b5822285f16f3fb10efb1ef4c7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b3a1d65a74fdc60b6baf24a69534ed17f9125be32c5d558259284422478d2cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84e886c463767c888ab70a4f433110146e55a3efd8e3b81bac60a49ed9bd9f31"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ed1122e2b31766476afb2d1a56408b1b290ef935e87fc4b5a2a1b4110aadad01"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd76fccd60a9833a65116705011cbe7357729c425e11634076c2aab36b84945e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ea06f579a2e35648dd5127263947f8d654809ed968c26db40cf8e3884e7eb11"
   end
 
   depends_on "rust" => :build
@@ -24,7 +23,8 @@ class Bindgen < Formula
   def install
     system "cargo", "install", *std_cargo_args(path: "bindgen-cli")
 
-    generate_completions_from_executable(bin/"bindgen", "--generate-shell-completions")
+    generate_completions_from_executable(bin/"bindgen", "--generate-shell-completions",
+                                                        shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do

@@ -7,8 +7,6 @@ class ClangIncludeGraph < Formula
   revision 2
   head "https://github.com/bkryza/clang-include-graph.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "b91cadc2503430beeeb5007a71b88e6876f847f4498f7a03cb73ad4f9108de5f"
     sha256 cellar: :any,                 arm64_sequoia: "53c10e1ad6a3dfdf71cb4c8076f86feb3dadb35167c4dc6f522a32296ffd093b"

@@ -7,13 +7,13 @@ class GitCinnabar < Formula
   head "https://github.com/glandium/git-cinnabar.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "98719735b1336e7563142bc20589c09a0af0c2a85cc800304091d6820030ad90"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f22781503e1834d87080a9eb1144c33b2d1d8ac1268a51412c11b18f39e09198"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd57c5c697df952beb5870fc8aa3395fd3445d68718a7613028b9c25db4900b7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "96078ff2f74896e23f8cc90c924e588dcdd7d8ec27f3415789048f2746872502"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a88ba4de45ce1ea571ed42c04b9db49dba009361d2a9d7728b8dc8903f1bc25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "249044e3aee1d59c56b68391ff6963ecc65ff2efae0cda8a9df5adbeadb0c9dc"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47b06591734734c4dbe34b9172cb62e65fb79b1349ec81b058eeba46e9d2e917"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da1e839b2a39b20a5aa8136e2be5686275a0cd0f0e3c58d2f9688b27c3c0b5e9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6cc05fcdd91d94b52b65055dd953e476c26749d0062e8ddae14f1fc3e5ca1d08"
+    sha256 cellar: :any_skip_relocation, sonoma:        "71939c24c0359e4776f84468c34677094e7cf15a973cb126b3bc5fe57fa5d65b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf3538e386b2274c833fb1f902ffb2ad1c58c3fb4319d7f7ae8a6870e4a7775d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c274e3418ef3507c849e77dcf5ffdaf74bdec0c79f28b385550b5896f04151a3"
   end
 
   depends_on "rust" => :build
@@ -21,10 +21,10 @@ class GitCinnabar < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "pkgconf" => :build # for curl-sys, not used on macOS
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "git-remote-hg", because: "both install `git-remote-hg` binaries"

@@ -1,8 +1,8 @@
 class Inko < Formula
   desc "Safe and concurrent object-oriented programming language"
   homepage "https://inko-lang.org/"
-  url "https://releases.inko-lang.org/0.19.1.tar.gz"
-  sha256 "af39f9e9fd662523359a36011a74d24c727a8c44daaeb5b073ed4fb30ef69390"
+  url "https://releases.inko-lang.org/0.20.0.tar.gz"
+  sha256 "14356c5fd0a024a0ea5efb62c68bc404cd97325cfa78f0daee5d7f61bbcf407a"
   license "MPL-2.0"
   head "https://github.com/inko-lang/inko.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Inko < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bddaed79422f3a2fb9105da1cd96c58c717de0fefb973ec2999ca2d398a3d72d"
-    sha256 cellar: :any,                 arm64_sequoia: "bd6b91afa47d549e6d38fc0cac071db2afbd45f6959199c412ea7a2c6e27fd36"
-    sha256 cellar: :any,                 arm64_sonoma:  "55c06dd1342079a5822b1d03fcbae4e2f1ca79114cc14087b9e35357d36ffedb"
-    sha256 cellar: :any,                 sonoma:        "8008e252687334b2475f2a925990d19a32053b6e3346fb9bba79f2887eb990e1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4073f68d1769c856d26625e23955bf6c98f7633bb1a115418b05ace33c7bceb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "729da31aad19a58cad802277d887e317595508da5c55e3893e56680cabd96449"
+    sha256 cellar: :any,                 arm64_tahoe:   "de85bb77207af2a479666d3d74eedb2bb07829db0bcdd5c7b4198ebf983daafa"
+    sha256 cellar: :any,                 arm64_sequoia: "9792044d4821e5cb674df291fce3dcc78cc3d9902fe7ab6a05cecf3b91d4a203"
+    sha256 cellar: :any,                 arm64_sonoma:  "7df0aa33f7887f2a8276bd8a1f2a4f8b073f78e90838762e379865a894ab9e8c"
+    sha256 cellar: :any,                 sonoma:        "1c4d68f66ddd8123df0c405d6fd6fc7ddd8d3e651a13942a952ff7c866f2a2c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48d02f0c7220f3588ba1de594b0fab258927a357d99b6eeee227e6ad324ebbdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52ff47e77cfddaf91e24b11b68948bff67517dc20a3a1bc396aa1333d5a6adca"
   end
 
   depends_on "rust" => :build

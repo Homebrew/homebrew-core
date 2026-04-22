@@ -1,8 +1,8 @@
 class Iproute2 < Formula
   desc "Linux routing utilities"
   homepage "https://wiki.linuxfoundation.org/networking/iproute2"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/net/iproute2/iproute2-6.18.0.tar.xz"
-  sha256 "6ba520e1975e4c50dc931eeae91ea37c198b8a173744885f8895b84325f9d456"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/net/iproute2/iproute2-v7.0.0.tar.xz"
+  sha256 "3d40cffb6219c35de4771f63d3a280ef7e9bb11038eb7c45a47e5538b6fe102f"
   license "GPL-2.0-only"
   head "https://git.kernel.org/pub/scm/network/iproute2/iproute2.git", branch: "main"
 
@@ -12,15 +12,14 @@ class Iproute2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "e7a500a0eb4794ceea637bd3120a55f7a5c51a929f8e9244ac32e83a9e10e66d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "20878f94b38d55d21a0900a3fd75356080dfd5929db88680b6b2e520d6a2e910"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "b678c2c6d8f6c42cf9b08a3a58e01f18f87554afef3c852784250098f9aad841"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "900f2291b17bc971da2faf92e0a295d1f1c298ef27492cb07e84b22c22698148"
   end
 
   depends_on "bison" => :build
   depends_on "flex" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL incompatibility
   depends_on "elfutils"
   depends_on "libbpf"
   depends_on "libcap"

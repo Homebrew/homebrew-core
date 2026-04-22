@@ -1,18 +1,17 @@
 class Pgvector < Formula
   desc "Open-source vector similarity search for Postgres"
   homepage "https://github.com/pgvector/pgvector"
-  url "https://github.com/pgvector/pgvector/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "a9094dfb85ccdde3cbb295f1086d4c71a20db1d26bf1d6c39f07a7d164033eb4"
+  url "https://github.com/pgvector/pgvector/archive/refs/tags/v0.8.2.tar.gz"
+  sha256 "69f4019389af05dc1c9548deb8628e62878e6e207c03907f2b8af2016472cdaa"
   license "PostgreSQL"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "71331f9fce25247c15fa2b8c38ff776c396bedec8f157e6a55b4a8a4df8a3bf7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "020d8b756ac7ec0fc1a3bc098585d5c51135ca16aab20ce1adf24e6c41322938"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4ba83ebac1b5836c368e3b5b9409650a3a8b75afd13281066bfe9e3b66b5c6c7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b004e0e298b7cf38af96444ab2282d577595cd982176d143fbde704d22998354"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd82274ea8b8c03b811de6db28adc8e3d313daf53b2fb3270046ce4277ed277c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37f45074367bb109411982def1e757518d7ec77f2c22a3df5544d910226b92d8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8cf8043ead096eaa3f792e14a89702ec73d0383178afe9d9c778130774800e9c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "399278fcbb54591159019a4e821cc19b651dc8df6d26fa5920c5cf6e6007f4f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0cad39c6f8e5f8d289fee2b5a801bc70795f4e6b4419de5fb0ed1b6dce40f04"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bd3324af174e284d6e2b2499061e744b9f259eebb3b03732abb96a38eaf1581f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "13085e8a50a501137a1e19ee44d2dfcf1a186fc69aa3969bacebd5a4a58c29e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4654c76fc87533d553c91d2c5bc7f7452fbe28d54f7812f99ccb9b71833bafff"
   end
 
   depends_on "postgresql@17" => [:build, :test]

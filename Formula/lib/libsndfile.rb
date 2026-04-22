@@ -5,6 +5,7 @@ class Libsndfile < Formula
   sha256 "3799ca9924d3125038880367bf1468e53a1b7e3686a934f098b7e1d286cdb80e"
   license "LGPL-2.1-or-later"
   revision 1
+  compatibility_version 1
   livecheck do
     url :stable
     strategy :github_latest

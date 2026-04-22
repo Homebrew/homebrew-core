@@ -21,6 +21,8 @@ module Homebrew
 
       def get_pull_request_commits(pull_request)
         owner, repo = ENV.fetch("GITHUB_REPOSITORY").split("/")
+        raise "Unable to fetch `GITHUB_REPOSITORY` environment variable" if !owner || !repo
+
         response = GitHub::API.open_rest(GitHub.url_to("repos", owner, repo, "pulls", pull_request, "commits"))
 
         response.reject! do |item|
@@ -34,6 +36,8 @@ module Homebrew
 
       def commit_modifies_bottle_block?(sha)
         owner, repo = ENV.fetch("GITHUB_REPOSITORY").split("/")
+        raise "Unable to fetch `GITHUB_REPOSITORY` environment variable" if !owner || !repo
+
         response = GitHub::API.open_rest(GitHub.url_to("repos", owner, repo, "commits", sha))
 
         files = response.fetch("files")

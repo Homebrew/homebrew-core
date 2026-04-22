@@ -15,7 +15,7 @@ class Zf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "035ab9aebe146b56a3c40e46c1fa39aba039a22db37d5c57e4e25f3737940fe1"
   end
 
-  depends_on "zig" => :build
+  depends_on "zig@0.15" => :build
 
   def install
     system "zig", "build", *std_zig_args

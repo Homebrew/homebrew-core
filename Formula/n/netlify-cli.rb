@@ -1,17 +1,17 @@
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-23.14.0.tgz"
-  sha256 "c83f48ee76d5cdab7e3bb3d115d7d3751252810e2e127ba3793bcf09a74c9282"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-25.1.0.tgz"
+  sha256 "f7faa0b4df30b0b82a1b272eb1bafe6583304c9470a0a88a88be5a1f7bedeb8e"
   license "MIT"
 
   bottle do
-    sha256                               arm64_tahoe:   "6c17fbdaa81e2c4a1050f58114928f1093e8b094b6bea909b77dcfe0f9c8e625"
-    sha256                               arm64_sequoia: "bca5628cae2d972cf63c64f5bbc4f6db8fef78a5b3e54bd8416ca47007d498dd"
-    sha256                               arm64_sonoma:  "4c9cdc149e3e5f96ddf3c7519dabc6989a42e90fc7325365caf482be08375b67"
-    sha256                               sonoma:        "85236e2ea600ae1f73d3a4e77cbc18e1eee10f8f167cd241be2b263f3cc09bdf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c0a6e5d172bad6db89e881453bea9616f65aa0ecc4699163738b87c7458a9ab3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cc24a348b76e041bbf2204c03e17b89903d79fc2f4b0524a7741f1c90f26127"
+    sha256                               arm64_tahoe:   "8ebbfa160b6437b184f64b8f0ac115b06fef8a9735423a24f2c329adde0d62dc"
+    sha256                               arm64_sequoia: "bfa0f8b5760c293037f3bc0f68f9b38ca3f2146573f91ded9779238f9adc82e2"
+    sha256                               arm64_sonoma:  "4cebe2af91a824c11cecb8e62235117f473a8b7fd601efa8db9b2f0fb6ba40b7"
+    sha256                               sonoma:        "69b548f9c5d40ab5cdde560ae562c4a607d437d653b5c5ee6ed8d08a9d7d05c3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "30ee7e4f48f95b680dd08e90d82bfd23b9c6b77d713541e6c452c5c48e3b113b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f55cf842cb1b3c58500232e3a96966a9367cf57297fedb1bd294a819fe5ffd51"
   end
 
   depends_on "pkgconf" => :build
@@ -46,13 +46,19 @@ class NetlifyCli < Formula
     rm_r(node_modules.glob("@parcel/watcher-{darwin,linux}*"))
 
     clipboardy_fallbacks_dir = node_modules/"clipboardy/fallbacks"
-    rm_r(clipboardy_fallbacks_dir) # remove pre-built binaries
+    rm_r(clipboardy_fallbacks_dir, force: true) # remove pre-built binaries
     if OS.linux?
       linux_dir = clipboardy_fallbacks_dir/"linux"
       linux_dir.mkpath
       # Replace the vendored pre-built xsel with one we build ourselves
       ln_sf (Formula["xsel"].opt_bin/"xsel").relative_path_from(linux_dir), linux_dir
     end
+
+    # Remove incompatible pre-built `bare-fs`/`bare-os`/`bare-url` binaries
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    node_modules.glob("{bare-fs,bare-os,bare-url}/prebuilds/*")
+                .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
   test do

@@ -5,7 +5,13 @@ class Libiptcdata < Formula
   sha256 "c094d0df4595520f194f6f47b13c7652b7ecd67284ac27ab5f219bc3985ea29e"
   license "LGPL-2.0-only"
 
-  no_autobump! because: :incompatible_version_format
+  livecheck do
+    url :stable
+    regex(/^release[._-]v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
+  end
 
   bottle do
     sha256 arm64_tahoe:   "56f886ae4863583e9c8d911dd0f312b1ddb7330043e3296eb5cdeeb14cdf13f2"

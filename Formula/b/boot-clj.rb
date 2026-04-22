@@ -6,8 +6,6 @@ class BootClj < Formula
   license "EPL-1.0"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "5d6682e08bc0900b365f7f704190ed3358ff39d7d53cde67e813d79e69f28f2b"

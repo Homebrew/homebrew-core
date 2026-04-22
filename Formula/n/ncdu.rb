@@ -21,7 +21,7 @@ class Ncdu < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "zig" => :build
+  depends_on "zig@0.15" => :build
   # Without this, `ncdu` is unusable when `TERM=tmux-256color`.
   depends_on "ncurses"
   depends_on "zstd"

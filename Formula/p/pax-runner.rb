@@ -11,8 +11,6 @@ class PaxRunner < Formula
     regex(%r{<version>v?(\d+(?:\.\d+)+)</version>}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "f7195e6a142137e103125c0176376e562a2e0ba115d5e61ed15b0c2a00e92cf5"

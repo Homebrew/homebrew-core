@@ -17,7 +17,9 @@ class Flintrock < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "17ac5368bc13e842cb4b2649cf2872c3d75a7c2c47e3f29c3db2c8cd63cb7416"
   end
 
-  depends_on "rust" => :build # for bcrypt
+  # `pkgconf` and `rust` are for bcrypt
+  depends_on "pkgconf" => :build
+  depends_on "rust" => :build
   depends_on "cryptography" => :no_linkage
   depends_on "libsodium" # for pynacl
   depends_on "libyaml"

@@ -1,8 +1,8 @@
 class Runit < Formula
   desc "Collection of tools for managing UNIX services"
   homepage "https://smarden.org/runit/"
-  url "https://smarden.org/runit/runit-2.3.0.tar.gz"
-  sha256 "190e11c1f8072b543bb6bd53850555c458d6e306d53df3fc1232d300c3e21b51"
+  url "https://smarden.org/runit/runit-2.3.1.tar.gz"
+  sha256 "634f23c8c4d1d440043be0fe928ddf904626289e97bfe7c5826e93aaf2cc6fe9"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,15 @@ class Runit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "740a71a530fd2b232d9f748242f754f83b6539413e0d66a6f6c71a3ee05b7bcb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a0cdcfc77c6aa021cefdb6b7912cf2ea2f4b7f3b983e6773d9b5db50ead2e6e7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8523d16c2e695d31be790e2da2a5be482ad8455f9212b5b2346671b6f7a7981"
-    sha256 cellar: :any_skip_relocation, sonoma:        "234f9ceca1568e80014aad5e5361c34b70dd90b327931978117fe7e85563cd3e"
-    sha256                               arm64_linux:   "85a69d7aa280e9052c20ae0b6b4e2614cb317ae5639d0cbe266766b622b2d693"
-    sha256                               x86_64_linux:  "f4761f4ef955b6c445a241e14f48d3180d8f65d10f2df79eeb7d62debd6ac524"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9df648ce12c6d653303f224386961cda0ac9f8b0745fcc41821f671538a28c08"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e82c5e0878d603839613a0046ccaa773ba88f67acd54290afd77bc01716e0fb6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe4f3826fdd17af52828597c22754a6a1e0952a0f2a66179cf572e3858fb82b8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e35ad2f49f4b0cf4a0dd60d08c3d071e96a26b87ce4a8bf872e43488794eb4ca"
+    sha256                               arm64_linux:   "b54ca8cbb080d15c9eafc949d595dd23d456595a6bfc4f9ef1231f662ea79c74"
+    sha256                               x86_64_linux:  "291aed06b55caca42f5af93eec0143d85d2e96db8556a53eb4f9e62b6a84045c"
   end
+
+  conflicts_with "sandvault", because: "both install `sv` binaries"
 
   def install
     # Runit untars to 'admin/runit-VERSION'

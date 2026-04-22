@@ -1,9 +1,10 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.27.0-source.tar.gz"
-  sha256 "ae2442416de499182d37a526c6fa2bacc7a3bed5a888d113ca04844484dfe7c6"
+  url "https://mupdf.com/downloads/archive/mupdf-1.27.2-source.tar.gz"
+  sha256 "553867b135303dc4c25ab67c5f234d8e900a0e36e66e8484d99adc05fe1e8737"
   license "AGPL-3.0-or-later"
+  compatibility_version 2
   head "git://git.ghostscript.com/mupdf.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Mupdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f220b26700cafb1949b7338bd3d9ab9cf6d7bad31f92e647fc16457d0c37aa95"
-    sha256 cellar: :any,                 arm64_sequoia: "f052033b4c55fe7c89e5276f82d32bf890494fba7d298053ea6ae594b960f907"
-    sha256 cellar: :any,                 arm64_sonoma:  "a47e4f44c449edefe399c8cf7a28a45ac3cc3379e0eade6da06622d03a9e0ade"
-    sha256 cellar: :any,                 sonoma:        "e0edc930d9b49c8c0ae9af842fc8fcd249e34544c328fbeaf50c430fac876ccb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e02b5117b38d4fc87d73ad6a32cb54979893bb7fcfad41dbdce06cbae7e1e19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0272a405452dfb464b7529a2140b2c851f14c07ef80d6da5075afbd0431fd614"
+    sha256 cellar: :any,                 arm64_tahoe:   "adfc5220c9f64113fc61920f81073107d3baf4c1139c884f6f7d78f0de3a437b"
+    sha256 cellar: :any,                 arm64_sequoia: "c8e638337695132e732310023481986c1ec2d3d72d3d5640751e31f780306c36"
+    sha256 cellar: :any,                 arm64_sonoma:  "69f930f318dd7ad6c5b12d419ed65e90ed26c6a33ca47ef7e2cc040d0f6c045c"
+    sha256 cellar: :any,                 sonoma:        "0120967cfd6b2f95be99963d5453aac7fc3f6942c48633189369fb816b0e344f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9c407b06730358c2ad4a6c3ead32af302b649ac6858fc73c013353b669672b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22d86c746fddcc6e410442ce198defcd205663c6a1b660c5308dda0ee2124cb3"
   end
 
   depends_on "llvm" => :build
@@ -35,8 +36,6 @@ class Mupdf < Formula
   depends_on "python@3.14"
   depends_on "tesseract"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "libarchive"
   end
@@ -46,6 +45,7 @@ class Mupdf < Formula
     depends_on "libx11"
     depends_on "libxext"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "mupdf-tools", because: "both install the same binaries"

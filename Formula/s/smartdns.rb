@@ -26,7 +26,7 @@ class Smartdns < Formula
   end
 
   def install
-    system "cargo", "install", "--no-default-features", "--features", "homebrew", *std_cargo_args
+    system "cargo", "install", "--no-default-features", *std_cargo_args(features: "homebrew")
     sbin.install bin/"smartdns"
     pkgetc.install "etc/smartdns/smartdns.conf"
   end

@@ -5,6 +5,7 @@ class Diffutils < Formula
   mirror "https://ftp.gnu.org/gnu/diffutils/diffutils-3.12.tar.xz"
   sha256 "7c8b7f9fc8609141fdea9cece85249d308624391ff61dedaf528fcb337727dfd"
   license "GPL-3.0-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "380bbf30a86eed3cc85348f32fc17062840a11a7b2e5568c3efeac866c191640"

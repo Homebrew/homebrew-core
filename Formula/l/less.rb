@@ -1,9 +1,10 @@
 class Less < Formula
   desc "Pager program similar to more"
   homepage "https://www.greenwoodsoftware.com/less/index.html"
-  url "https://www.greenwoodsoftware.com/less/less-691.tar.gz"
-  sha256 "88b480eda1bb4f92009f7968b23189eaf1329211f5a3515869e133d286154d25"
+  url "https://www.greenwoodsoftware.com/less/less-692.tar.gz"
+  sha256 "61300f603798ecf1d7786570789f0ff3f5a1acf075a6fb9f756837d166e37d14"
   license "GPL-3.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url :homepage
@@ -11,12 +12,12 @@ class Less < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8c23ae5763bcba9cbff2da7967fec51fd3f51e36b0522558ccbebd7b8bd17341"
-    sha256 cellar: :any,                 arm64_sequoia: "6c85b28bcb617f101c830b3cec3f98eabe0de4e151a5fbdf37f70b3b38ea5983"
-    sha256 cellar: :any,                 arm64_sonoma:  "f9c731b3ac564cbf7f1c7cdfa65ba71026baac38816648932c2c433901171000"
-    sha256 cellar: :any,                 sonoma:        "e816da7f3c8ba12c261895ef68afab4fb84dbb57c6f66c1d9763395cad289668"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc1dcbbb63e319f1a4d7d2ec493b42fceebb7345df3cbdc1640bae1bbfc88242"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d928500f063a44e6bf7a27c3b154dfbacefb4ee73ba080a687f452cf2204ec2f"
+    sha256 cellar: :any,                 arm64_tahoe:   "b722c9aa81a00fae94f5db080f405fe169691d739adfe87773538f911b4f7f6b"
+    sha256 cellar: :any,                 arm64_sequoia: "49025d79f5e34f8d10a247b84c108113473d7bc4286f3cedcfdf527f6d7b006a"
+    sha256 cellar: :any,                 arm64_sonoma:  "d3ad99fc4a0d87f3b9d8fbb6ae632f9b346edcade504df137b237c8e2feaccbb"
+    sha256 cellar: :any,                 sonoma:        "11411cbab4a546b0017adcc73aad460a36698512f8c7db96e7a483667cf8ccf8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7aa23eb672f228b03513584c06a12a182bfb31bc48ba23bda1d46b3e8c7eaba0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4ebb640487e5fde5b887326fe22373eafc0af64bbc9da3ad9d03a5d65c8e92b"
   end
 
   head do

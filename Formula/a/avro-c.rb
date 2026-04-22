@@ -7,12 +7,13 @@ class AvroC < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bbdf1ec9340996a46133cdb5c069d0fa413f0998a05c7ff4589d1e6ae5a43a51"
-    sha256 cellar: :any,                 arm64_sequoia: "cc17f9907b085d176a5726058a266f0c251c3fbe64bddccbfa2c1cec17d9c06a"
-    sha256 cellar: :any,                 arm64_sonoma:  "0b67b5f253ad41f9c2e13d79179987140a5072ceec7aa37460c2c9e3fa06f229"
-    sha256 cellar: :any,                 sonoma:        "3c17d0b642d61939628c80f9a3fc6ef200b06d735bb7bf3a80007e6adf0aab1e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ac05bd00f42b859e03b56503b0942c6cb423a0205ab4c444fd962994293347e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55f8e43ea2d0386f33e078a3238886d1de56e4fe843a3e4e0c525179b7189698"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "abb6d682b6136ad799198b11633ab0a197bae12b256ab0ddd5d7d0ea77bf3f41"
+    sha256 cellar: :any,                 arm64_sequoia: "44c05e639545cf1f19322088a4becef2a6918d55bd531be545af501dfee7b39c"
+    sha256 cellar: :any,                 arm64_sonoma:  "1907a3e4371b719d35b0a56d265d6c7c425d11ec5e4f14ac3a08a9c11ad52580"
+    sha256 cellar: :any,                 sonoma:        "f59a5d3deb7314c5c9c1fbb149e7e74470fc6b160b33e4e10dd0c71adff72658"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0fa921d188143ffc18e81dd7c664593775e6496d921c85b4a63d6e1fde0b1b81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1c7c2673ab920322902e435fb6b4c562c90b3c5fbbaf1b2f62d15a5e7db1edc"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +22,9 @@ class AvroC < Formula
   depends_on "snappy"
   depends_on "xz"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

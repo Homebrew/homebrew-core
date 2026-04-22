@@ -15,8 +15,6 @@ class Nauty < Formula
     end
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "ad142c57ac892999d006142e11eb4f6ff089c97b3093dde91d57d0b0f04a5ba6"
     sha256 cellar: :any,                 arm64_sequoia: "dd405c462075aeaf8ee1afe353616bd346d7e59d6916f84d2008b6ccd98c9349"

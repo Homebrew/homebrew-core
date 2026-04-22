@@ -1,18 +1,18 @@
 class Svu < Formula
   desc "Semantic version utility"
   homepage "https://github.com/caarlos0/svu"
-  url "https://github.com/caarlos0/svu/archive/refs/tags/v3.3.0.tar.gz"
-  sha256 "64d81d3ad15c44deb872be9325e090ee545bed73b12e663b23ef7405e7ef4aeb"
+  url "https://github.com/caarlos0/svu/archive/refs/tags/v3.4.0.tar.gz"
+  sha256 "7448fafc958551e06ad7c8bb2eddc5db9bd5d7335a7d5c80750193b68b6f78bd"
   license "MIT"
   head "https://github.com/caarlos0/svu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b5d58781f22d5f5fe1165fdb06487ed9961be753ac2f59a65acdba206571b596"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5d58781f22d5f5fe1165fdb06487ed9961be753ac2f59a65acdba206571b596"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b5d58781f22d5f5fe1165fdb06487ed9961be753ac2f59a65acdba206571b596"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d3a0b9634bfd7ea418cfd397afd1c75aa37eb40f01aa7da291590df58e84fd5f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0580c66105548fd3a6d68ee27ae0763204834a2b50290ac17908249e078502fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24d8333a51d0f3cd0c2e36ffd86722d1707902b5e1071ca1d3d84d350d207b39"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e2cb5cf9e7e3a54ac0305ba6b92bc6579b00806940ee1b4bcb35ebb80949479a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2cb5cf9e7e3a54ac0305ba6b92bc6579b00806940ee1b4bcb35ebb80949479a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2cb5cf9e7e3a54ac0305ba6b92bc6579b00806940ee1b4bcb35ebb80949479a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "71e37771b8a1f26f2171dd64b6c06d6b2fb575265b234f1bce6169c5df6545f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb6fc6f24f354b2784e272ce6e3ff82f9cf47b26de6d9b11b0da4514c6e9ee54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cddc90ff2dec26b876cd70a333c71f69d47163402eeb2ad3cb2018fecc75bbb"
   end
 
   depends_on "go" => :build
@@ -27,6 +27,6 @@ class Svu < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/svu --version")
     system bin/"svu", "init"
-    assert_match "svu configuration", (testpath/".svu.yaml").read
+    assert_match "svu configuration", (testpath/".svu.yml").read
   end
 end

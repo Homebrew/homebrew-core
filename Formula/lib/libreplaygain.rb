@@ -5,13 +5,12 @@ class Libreplaygain < Formula
   version "r475"
   sha256 "8258bf785547ac2cda43bb195e07522f0a3682f55abe97753c974609ec232482"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://www.musepack.net/index.php?pg=src"
     regex(/href=.*?libreplaygain[._-](r\d+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

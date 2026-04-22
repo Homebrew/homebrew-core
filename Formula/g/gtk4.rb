@@ -1,9 +1,10 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.20/gtk-4.20.3.tar.xz"
-  sha256 "2873f2903088a66c71173ea2ed85ffae266a66b972c3a4842bbb2f6f187ec153"
+  url "https://download.gnome.org/sources/gtk/4.22/gtk-4.22.3.tar.xz"
+  sha256 "0145a4a243b283303d90bdfd2d8a0c6b9106b880390b63c161d9505672f9df38"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
   head "https://gitlab.gnome.org/GNOME/gtk.git", branch: "main"
 
   livecheck do
@@ -12,12 +13,12 @@ class Gtk4 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b148c5fa5231680513700b3c6bbcebd78889be3dea019c90d5fe87dcc98a4e69"
-    sha256 arm64_sequoia: "8bc0c060d122e27fe86aa2efae734fa6fea6771fb6b89dfc30319434f4255aa0"
-    sha256 arm64_sonoma:  "0f8d64257e4aa6387bb44952275332e37fa07e8af5a5aa85c4dad16b664736d4"
-    sha256 sonoma:        "6bd4d64cce03590ea7b8b94029eae0d648c487efec2163f051b4fab3bced33b6"
-    sha256 arm64_linux:   "9592d89401f4cc24139c73f695bf2d989f42e24b5d856bc9dacdb9a0495ff4b6"
-    sha256 x86_64_linux:  "1ac6c9d5ecbcfcd2e809c35860f49a46e92b4f5b30adb53457b71b8819cf2f1c"
+    sha256 arm64_tahoe:   "ba475195ce1f29e3934dc56d39f33ef1ca95b6c39c533624289aadfd3687e0dd"
+    sha256 arm64_sequoia: "4f4c3dafeb2bff8137275f16d4a19bed220bcfd426f607e7d75a0847f0a99b67"
+    sha256 arm64_sonoma:  "66b13d499b80b7aed3ad0b2a0c43867d73d88505b1fbdbddfb72837c486bdafe"
+    sha256 sonoma:        "e0a95a53507828a1bfad552a5c680a7a85943fce0b16fb373df9ca281bb30a22"
+    sha256 arm64_linux:   "3ede8222dfb636c5566cd76ae91d52875e40662e3c56e15fa0a1875189b169d6"
+    sha256 x86_64_linux:  "f95e4874d4f6968f6d4debbf4a01e0448c1fc6309f67cafc984a43f155791b5a"
   end
 
   depends_on "docbook" => :build
@@ -28,7 +29,6 @@ class Gtk4 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "sassc" => :build
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "fribidi"

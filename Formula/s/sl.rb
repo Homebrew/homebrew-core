@@ -6,8 +6,6 @@ class Sl < Formula
   license "MIT"
   head "https://github.com/mtoyoda/sl.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "99c2620dc9fe4058ba790fd445adf4160f5201ef2ad2abae5b9d90b707684f26"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "154511be7a41ffedfc392b2be2134fc6e5a0a7de8a34c27cc00b41dce1f6cd38"

@@ -2,8 +2,8 @@ class Nexus < Formula
   desc "Repository manager for binary software components"
   homepage "https://www.sonatype.com/"
   url "https://github.com/sonatype/nexus-public.git",
-      tag:      "release-3.80.0-06",
-      revision: "74aa87dcd43439ef2b69d0a5e49d5522b7944261"
+      tag:      "release-3.91.1-04",
+      revision: "260bcab61f935243160c3a47ba648571ccd2a21e"
   license "EPL-1.0"
 
   # As of writing, upstream is publishing both v2 and v3 releases. The "latest"
@@ -14,37 +14,36 @@ class Nexus < Formula
     regex(/^(?:release[._-])?v?(\d+(?:[.-]\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cbdb021da2cc6066138e09589e806d1a07ca47626d99c9f4a3ae2f6fb0c778e7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c64a1a99d2afc641dde2157e425fe1a1480af05863156d042425e2eb46de3d82"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "502879f5c9432a298e842d0b81f38f1f8bb7fadbb6b07f21acac20c5645a0e9d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b9a7a7083af570c7bc74eb35ecf4685fe113f1bcace468f15e49bac4b51d2593"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d76c559159d879f391d5b7811adebcfab467c93f0f2c43e7a6eef9a50d742d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebbcd5d02c9ace245c37de557a8e814aa5242fd5eefaba4cb1d94c12014e3006"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c9c17d6f8a303bc91518b1fb6820994a2d2dc51b3d0a41f010531f0fb2be1846"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88ca50aa08b329324db93097a9dbba7ba54acfc19a13af9e9600da8bbfd82fd6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47fa0ad2320508c073666cb2d56b1a30de1b6aad5f976849eac58e9e704591cc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "73351751fc24cd8e3e7a6962f2d84cd44b5cf6c0622c56ee84db2ecc57e06320"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1882ec83de35a5609ea03cedcbb1e9fa1db96f3e56e25b866a80d4ccc9b9c22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fb541d72bd9b57294886f3c225de4f5da009e06a91d28f5f711f1804baa3c54"
   end
 
   depends_on "maven" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   uses_from_macos "unzip" => :build
 
-  # Avoid downloading copies of node and yarn
+  # 1. Avoid downloading copies of node and yarn
+  # 2. To avoid non-FIPS provider loads bc-fips classes, use isolated classloader.
+  # 3. Add NoopRecoveryModeService to avoid recovery mode that is implemented by private module.
   patch :DATA
 
   def install
     # Workaround build error: Couldn't find package "@sonatype/nexus-ui-plugin@workspace:*"
     # Ref: https://github.com/sonatype/nexus-public/issues/417
     # Ref: https://github.com/sonatype/nexus-public/issues/432#issuecomment-2663250153
-    inreplace ["components/nexus-rapture/package.json", "plugins/nexus-coreui-plugin/package.json"],
+    inreplace "public/common/components/nexus-coreui-plugin/package.json",
               '"@sonatype/nexus-ui-plugin": "workspace:*"',
               '"@sonatype/nexus-ui-plugin": "*"'
 
-    java_version = "17"
+    java_version = Formula["openjdk"].version.major.to_s
     ENV["JAVA_HOME"] = Language::Java.java_home(java_version)
     java_env = Language::Java.overridable_java_home_env(java_version)
     java_env.merge!(KARAF_DATA: "${NEXUS_KARAF_DATA:-#{var}/nexus}",
@@ -58,7 +57,7 @@ class Nexus < Formula
 
     system "mvn", "install", "-DskipTests", "-Dpublic"
 
-    assembly = "assemblies/nexus-repository-core/target/assembly"
+    assembly = "public/selfhosted/assemblies/nexus-repository-core/target/assembly"
     rm(Dir["#{assembly}/bin/*.bat"])
     libexec.install Dir["#{assembly}/*"]
     chmod "+x", libexec.glob("bin/*")
@@ -87,34 +86,6 @@ class Nexus < Formula
 end
 
 __END__
-diff --git a/plugins/nexus-coreui-plugin/pom.xml b/plugins/nexus-coreui-plugin/pom.xml
-index 9b8325fd98..2a58a07afe 100644
---- a/plugins/nexus-coreui-plugin/pom.xml
-+++ b/plugins/nexus-coreui-plugin/pom.xml
-@@ -172,7 +172,7 @@
-         <artifactId>karaf-maven-plugin</artifactId>
-       </plugin>
-
--      <plugin>
-+      <!--plugin>
-         <groupId>com.github.eirslett</groupId>
-         <artifactId>frontend-maven-plugin</artifactId>
-
-@@ -212,12 +212,12 @@
-             </goals>
-             <phase>test</phase>
-             <configuration>
--              <arguments>test --reporters=jest-junit --reporters=default</arguments>
-+              <arguments>test -reporters=jest-junit -reporters=default</arguments>
-               <skip>${npm.skipTests}</skip>
-             </configuration>
-           </execution>
-         </executions>
--      </plugin>
-+      </plugin-->
-     </plugins>
-   </build>
-
 diff --git a/pom.xml b/pom.xml
 index 6647497628..d99148b421 100644
 --- a/pom.xml
@@ -137,3 +108,67 @@ index 6647497628..d99148b421 100644
 
          <plugin>
            <groupId>com.mycila</groupId>
+diff --git a/public/common/components/nexus-crypto/src/main/java/org/sonatype/nexus/crypto/internal/CryptoHelperImpl.java b/public/common/components/nexus-crypto/src/main/java/org/sonatype/nexus/crypto/internal/CryptoHelperImpl.java
+index dfeb6f0..38e067c 100644
+--- a/public/common/components/nexus-crypto/src/main/java/org/sonatype/nexus/crypto/internal/CryptoHelperImpl.java
++++ b/public/common/components/nexus-crypto/src/main/java/org/sonatype/nexus/crypto/internal/CryptoHelperImpl.java
+@@ -87,8 +87,25 @@ public class CryptoHelperImpl
+   }
+ 
+   private static void loadNonFipsProvider() {
+-    // BouncyCastleProvider must be set as the last provider
+-    Security.addProvider(new BouncyCastleProvider());
++    try {
++      Class<?> providerClass =
++          getNonFipsClassLoader().loadClass("org.bouncycastle.jce.provider.BouncyCastleProvider");
++      Provider provider = (Provider) providerClass.getConstructor().newInstance();
++      // BouncyCastleProvider must be set as the last provider
++      Security.addProvider(provider);
++    }
++    catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException
++        | InstantiationException | IllegalAccessException e) {
++      throw new RuntimeException("Failed to initialize non-FIPS provider", e);
++    }
++  }
++
++  private static URLClassLoader getNonFipsClassLoader() {
++    // Load bcprov and bcutil in an isolated classloader to prevent bc-fips classes
++    // (which share org.bouncycastle.crypto.* package names) from interfering.
++    URL bcprovUrl = BouncyCastleProvider.class.getProtectionDomain().getCodeSource().getLocation();
++    URL bcutilUrl = org.bouncycastle.util.Arrays.class.getProtectionDomain().getCodeSource().getLocation();
++    return new URLClassLoader(new URL[]{bcprovUrl, bcutilUrl}, null);
+   }
+ 
+   private static void loadFipsProvider() {
+diff --git a/public/common/components/nexus-scheduling/src/main/java/org/sonatype/nexus/scheduling/internal/NoopRecoveryModeService.java b/public/common/components/nexus-scheduling/src/main/java/org/sonatype/nexus/scheduling/internal/NoopRecoveryModeService.java
+new file mode 100644
+index 0000000..9279594
+--- /dev/null
++++ b/public/common/components/nexus-scheduling/src/main/java/org/sonatype/nexus/scheduling/internal/NoopRecoveryModeService.java
+@@ -0,0 +1,26 @@
++package org.sonatype.nexus.scheduling.internal;
++
++import org.sonatype.nexus.scheduling.RecoveryModeService;
++import org.springframework.stereotype.Component;
++
++@Component
++public class NoopRecoveryModeService
++    implements RecoveryModeService
++{
++  @Override
++  public boolean isRecoveryMode() {
++    return false;
++  }
++
++  @Override
++  public void enableRecoveryMode() {
++  }
++
++  @Override
++  public void disableRecoveryMode() {
++  }
++
++  @Override
++  public void ensureNotInRecoveryMode(final String taskName) {
++  }
++}

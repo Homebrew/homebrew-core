@@ -1,12 +1,12 @@
 class Doctest < Formula
   desc "Feature-rich C++11/14/17/20/23 single-header testing framework"
   homepage "https://github.com/doctest/doctest"
-  url "https://github.com/doctest/doctest/archive/refs/tags/v2.4.12.tar.gz"
-  sha256 "73381c7aa4dee704bd935609668cf41880ea7f19fa0504a200e13b74999c2d70"
+  url "https://github.com/doctest/doctest/archive/refs/tags/v2.5.2.tar.gz"
+  sha256 "9189960c2bbbc4f3382ce0773b2bb5f13e3afd8fed47f55f193e11e85a4f9854"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a680aeecce8a2548b38121d6282e90d856eb76d4d371518c4a3cd65845158fb7"
+    sha256 cellar: :any_skip_relocation, all: "327aba0814a710bea52f932aec32c4843540b648b99a3c4c638c7d8ef9aec576"
   end
 
   depends_on "cmake" => :build

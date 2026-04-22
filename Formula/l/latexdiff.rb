@@ -6,11 +6,11 @@ class Latexdiff < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "746b7460cf8014f4097fe356f29c89316814db4f3bc3ce2a638dca6c6e9fd0bd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7d747cedc4241a804cc7280b7605d20853ddfdbad574b7ee90fabca194f23152"
   end
 
-  # osx default perl cause compilation error
-  depends_on "perl"
+  uses_from_macos "perl"
 
   def install
     bin.install %w[latexdiff-fast latexdiff-so latexdiff-vc latexrevise]

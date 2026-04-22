@@ -6,8 +6,6 @@ class Oakc < Formula
   license "Apache-2.0"
   head "https://github.com/adam-mcdaniel/oakc.git", branch: "develop"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "60abd2db575988443d770ae177888cff9366de42bbe23c1da3fede13903385c6"

@@ -6,10 +6,11 @@ class Wik < Formula
   url "https://files.pythonhosted.org/packages/ee/93/4a221efc5995f8ee24731a145277de0beb68477f30cdf76954355cd6c62f/wik-2.0.1.tar.gz"
   sha256 "a12141d06967a7c21dee62fdd6d6086e4cb3f14ea18fae4aa294e39dfd5f23e2"
   license "MIT"
+  revision 1
   head "https://github.com/yashsinghcodes/wik.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "53a1c915027c512348b3e72530e6e96dba092deb7bc36dbea420437e9659e2d0"
+    sha256 cellar: :any_skip_relocation, all: "89d53c78c63729c81c8fe40d74064e8c340a63403e6f57d2aecc0959ce26dc67"
   end
 
   depends_on "certifi" => :no_linkage
@@ -23,8 +24,8 @@ class Wik < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "idna" do
@@ -33,8 +34,8 @@ class Wik < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "soupsieve" do

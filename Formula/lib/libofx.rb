@@ -5,8 +5,6 @@ class Libofx < Formula
   sha256 "1ca89ff7d681c9edad312172ac464231a8de686e653213612f9417492cef0d37"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "67845c43017a64530b8c0340bcb29c70dff8121b8af9ec532c3e51b9a651754a"
     sha256 arm64_sequoia:  "e4b8c683f7d31032a59fc92af99e162ed7b91d250b05ddb8f22f2a92d44ae571"

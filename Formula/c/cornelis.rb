@@ -7,14 +7,13 @@ class Cornelis < Formula
   head "https://github.com/agda/cornelis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "103d80490d25947c1dd3d7161b76f5b5a63845afc8c961a8d9664cc61a5d3f90"
-    sha256 cellar: :any,                 arm64_sequoia: "bf400828f83abba48acb6c2ec8e25ed1e96917c925f213ab6d39c4113a53409b"
-    sha256 cellar: :any,                 arm64_sonoma:  "d25401f92c4d9d180780f1230eb0ccf39b1b80974f12b9d248392e4a3aeea090"
-    sha256 cellar: :any,                 arm64_ventura: "6ec7c5adf4a3de1e3f1bb14c16b8331a5ddea0e53e89e6a4fdfb3a7d9ee1acba"
-    sha256 cellar: :any,                 sonoma:        "a8a253190ca8160a77009bd98428a911e7b1744347a5cb3064425b1a82bb3ac6"
-    sha256 cellar: :any,                 ventura:       "424458fd634c9cba6e292d05a251d1bee0ec1d7b877c833f41604f557d6f7b91"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c535f472a6eee69b4e10dab39e5907adc21ee787b494863bc6f8b5bbcc83bb88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99250a940957d3ed12ff7037381f5b1a2599a479d2a4900327f01f0e42bc81f0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3ab116742d0b8c90533803a535510040520b1a90d8e0b68e9a9d10fc6ca065af"
+    sha256 cellar: :any,                 arm64_sequoia: "f539829b0e192eb0891a00b8a200ccf0e6c11002499662de544535214dbc3f2d"
+    sha256 cellar: :any,                 arm64_sonoma:  "4a907e326af68978aa8c5a1bca6bc3f29557e7d94a5397a0ceff6b5a1e63468b"
+    sha256 cellar: :any,                 sonoma:        "05c0bca472d34b3ab32a48d4e67005584e2be329c93996817029724ffb857547"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "681e3180af2e1f4bd4c88f2ecaf47b73c5cf3999bfbe61fe9497bc3e618ebef0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26837b1b79f08ab9ed366fd425cabec1d927cea8ba6d3355480c8e324be9476f"
   end
 
   depends_on "cabal-install" => :build
@@ -23,7 +22,10 @@ class Cornelis < Formula
   depends_on "gmp"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155

@@ -6,23 +6,23 @@ class Bedtools < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "31fb10bdcf4acbae4eec588dfae4f131545f8cc87e45c7e6e7347adaf050645b"
-    sha256 cellar: :any,                 arm64_sequoia:  "2e84cd0c3fa3bfe3fe5c55304cb4d53edfbffba792c40e98fc5a2c057d8e81b1"
-    sha256 cellar: :any,                 arm64_sonoma:   "6b96362dc4065246cfd8a311991b81b13d1901feb8edd5db27c2911b47432f00"
-    sha256 cellar: :any,                 arm64_ventura:  "31c196dcf1892f9a483abacfe84ed3922e09842d27c396880657fafd2dc98c52"
-    sha256 cellar: :any,                 arm64_monterey: "ad11f55f0de575280f25dea508fb8096bb80b4f1029cb1c0c7f8d88e81a0f4bb"
-    sha256 cellar: :any,                 sonoma:         "99cb51ae62edfdd1f194fc1baf75c1133e061db3ca260f0699967ab421d5b015"
-    sha256 cellar: :any,                 ventura:        "651f6403baaf21f1a9d3ee1735820d034896e6bbe74fa8c8e0ce0723ecbe3535"
-    sha256 cellar: :any,                 monterey:       "4637c3326795fef57d614b6107fa563a767ecd779d32da27103a6f92e7e1f286"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "6f3ba51c86b51817350e0d7cb983c769d4d4a3e739cd7e502635d090e9681739"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16348989a791c74aa29f518072b2e696bca7c5818806dfae80ec2bec341d0af1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "1e609e7589f355b608db522a0ea0f645093f68d2b103919fe0a45dc155b305a5"
+    sha256 cellar: :any,                 arm64_sequoia: "f46a8643bf1b9c29b01d1fd3a7e842adbb707bb167fe939cf35f9516edda9844"
+    sha256 cellar: :any,                 arm64_sonoma:  "d11daa75a18bab575cef615a79d679d710cf6213c1cfc060cb7b0c55976e0612"
+    sha256 cellar: :any,                 sonoma:        "f3f23539a6d31e0c7d0576084965996aaeecfd61a6c055163fc0214fc9869ca6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd4c766589bc8b4f73d33846a7b895536071694917d559e551776e6ba48c5d0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55200ba7e7f92b5491db32eb807a08718ccd330bbc5d3fbc702e561bc5abc89a"
   end
 
   depends_on "xz"
 
   uses_from_macos "python" => :build
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make"

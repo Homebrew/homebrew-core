@@ -1,8 +1,8 @@
 class MongoCDriverAT1 < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
-  url "https://github.com/mongodb/mongo-c-driver/archive/refs/tags/1.30.6.tar.gz"
-  sha256 "49904f5757fc6fd3671e554b93602907505a34c80365f4dceda3b5da481f0770"
+  url "https://github.com/mongodb/mongo-c-driver/archive/refs/tags/1.30.8.tar.gz"
+  sha256 "11f87477efe7aa9cacd9fd18872eb7e629adee898af627f670d1c2e2911b4670"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class MongoCDriverAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f8d80b35837d53c74e36c55ceabef1d2181aa578e84f9d09cc06af4fecf75f9a"
-    sha256 cellar: :any,                 arm64_sequoia: "ec209b833df2081a7b827b57439b553f48eec456ce5caddd3044af98a09052ec"
-    sha256 cellar: :any,                 arm64_sonoma:  "976ae65d3b2ef97381678f5435e34327ce646ae5ba99cbb9791d0198b6e79cb6"
-    sha256 cellar: :any,                 sonoma:        "2ae6577ddcf763700531ccc717c14178b11d2ff0131a5d62a144cd0cc5defbe6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4ca65a252f47d29c0f18e8d0f9047c33d44e1e7d18594039700b2c8af841686"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc2847d983bf25ed028d429787b778216f3dd64da70b4e0d3e748797c9c44282"
+    sha256 cellar: :any,                 arm64_tahoe:   "631afe5e9a69bdefc9fc3a7bc6a8594092d95992dc69576911450c1e4e05ead9"
+    sha256 cellar: :any,                 arm64_sequoia: "e63f93a4b2e8a25bdbd8296552f7d2f5068b1c26d2da377bc850e5b6684527b7"
+    sha256 cellar: :any,                 arm64_sonoma:  "e37e0f01f42b7bc092f61f666a73d099db68c7befcd055cec1c2d7030cc153b2"
+    sha256 cellar: :any,                 sonoma:        "5fa45af42b827d347807e64531ed1e2670d9496479d9c921813d16dc2e3e766e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "feb745e0367542478306534be0ba3cce7f48bbb259b36ffa5dd597d55a271270"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb8bb4be9623dae26fe356cee0e366cf5e26951e25074b62563bb97ab89a0839"
   end
 
   keg_only :versioned_formula
@@ -27,8 +27,11 @@ class MongoCDriverAT1 < Formula
   depends_on "pkgconf" => :build
   depends_on "sphinx-doc" => :build
   depends_on "openssl@3"
+  depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     File.write "VERSION_CURRENT", version.to_s

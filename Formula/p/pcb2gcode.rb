@@ -1,31 +1,31 @@
 class Pcb2gcode < Formula
   desc "Command-line tool for isolation, routing and drilling of PCBs"
   homepage "https://github.com/pcb2gcode/pcb2gcode"
-  url "https://github.com/pcb2gcode/pcb2gcode/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "96f1b1b4fd58e86f152b691202a15593815949dc9250fab9ab02f2346f5c2c52"
+  url "https://github.com/pcb2gcode/pcb2gcode/archive/refs/tags/v3.0.4.tar.gz"
+  sha256 "46351d4b7479059becae064cc68f2d1d68d42ae314ff7a1d9a240c71a3c0c98c"
   license "GPL-3.0-or-later"
-  revision 11
   head "https://github.com/pcb2gcode/pcb2gcode.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
-  bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d61829e13e6a6a9b43e1e6c50792af67569b848002bcdff37010ee0d30919b6f"
-    sha256 cellar: :any,                 arm64_sequoia: "62c9eac391af2f8d19f488ccb9ae7f4e54c64e2800800e5f41c076f50dc82083"
-    sha256 cellar: :any,                 arm64_sonoma:  "9762896bae8cc1c9e702de028e845babb22ef2bf42c1fa9fe1dd58cd253cbbdb"
-    sha256 cellar: :any,                 sonoma:        "def45c121938993698c91f804c91c41cafa3403346ffe533f29eb60dc9f9be02"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c43f17e52e97ca5ad9e4b616a5a3c79dc321df6452a25d5e756fd5d02729ecd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb2dee5690b95bf05bb41b11d875cd546a68902aa1d36f39ee516b9f5e218e81"
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "373eb016147cacaae8a92764e90174ec55bcc27171d9238f289ec76f4f45255a"
+    sha256 cellar: :any,                 arm64_sequoia: "9496f3dd204ab47ec120a55e19102691846fb618890a774d9ace72b0ee7f9683"
+    sha256 cellar: :any,                 arm64_sonoma:  "56041fcc4f7cba2195b3aa1d9e56faa22188de2e8efea840d2ce51f62a3ca411"
+    sha256 cellar: :any,                 sonoma:        "c65064eac44c6d3e2b7358fff30ac7ae2a4d7c8bd475c1368367664d336ddb58"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "83faded151315a4904655a62a8db3282c5894ded28fe620a81ea7512324c4961"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8e41931226ba97f4a05603125be2831a1e3d2f987ca88b920d3ebf8ca1adc3b"
+  end
+
   depends_on "cairomm@1.14" => :build
+  depends_on "cmake" => :build
   depends_on "glibmm@2.66" => :build
   depends_on "gtkmm" => :build
   depends_on "librsvg" => :build
   depends_on "libsigc++@2" => :build
-  depends_on "libtool" => :build
   depends_on "pangomm@2.46" => :build
   depends_on "pkgconf" => :build
   depends_on "at-spi2-core"
@@ -40,9 +40,9 @@ class Pcb2gcode < Formula
   depends_on "pango"
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

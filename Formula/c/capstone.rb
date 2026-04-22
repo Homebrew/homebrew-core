@@ -1,9 +1,10 @@
 class Capstone < Formula
   desc "Multi-platform, multi-architecture disassembly framework"
   homepage "https://www.capstone-engine.org/"
-  url "https://github.com/capstone-engine/capstone/archive/refs/tags/5.0.6.tar.gz"
-  sha256 "240ebc834c51aae41ca9215d3190cc372fd132b9c5c8aa2d5f19ca0c325e28f9"
+  url "https://github.com/capstone-engine/capstone/archive/refs/tags/5.0.7.tar.gz"
+  sha256 "6427a724726d161d1e05fb49fff8cd0064f67836c04ffca3c11d6d859e719caa"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://github.com/capstone-engine/capstone.git", branch: "next"
 
   livecheck do
@@ -12,14 +13,12 @@ class Capstone < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3d11af12bdb07cb427b9acfd92976b1aaba30d6b19e202dab45e39c2b6fd8f3f"
-    sha256 cellar: :any,                 arm64_sequoia: "eb410c79448b4cb73f7b34ad6fd733d60c493d0f884be84ec40cef075615e629"
-    sha256 cellar: :any,                 arm64_sonoma:  "808aee150aa07ab56497c7f4f8ea8c5a29508e12a51e04f5fd5a10b39552dd30"
-    sha256 cellar: :any,                 arm64_ventura: "9c34130c8f13ab1d2f151ef58e821d3227aefc60eccccf2ed3e9ba21b07266d4"
-    sha256 cellar: :any,                 sonoma:        "3222d61b83d900f610bdfbd2f16f42ac8d216254974e1dde6750cf3cbdfdcbff"
-    sha256 cellar: :any,                 ventura:       "bfdcb8212326f01615b010f6c5bb359d97e402f5f233e9addd8da64a031e46e8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b82b12f9c6415e7e7ded2519d7bd896bd55e8a48122dc9d7d48d1f7b65ef1ffa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5c2eda3e2bb749151141b634a542346c0b8fab09e0e7bbc49e841ea7f82b8d6"
+    sha256 cellar: :any,                 arm64_tahoe:   "921a27cf982706500e7e16c12cc5ae870c24d81e777da7c148b8567a49a72e76"
+    sha256 cellar: :any,                 arm64_sequoia: "ab8960a1668a44a537f3056943fb72b8f7753345f2ac4668edd5e3c2e3d94eaa"
+    sha256 cellar: :any,                 arm64_sonoma:  "3631f944a439f070a8eca3e4fe352e41958c55c24bb41502d0a52c34de5b0273"
+    sha256 cellar: :any,                 sonoma:        "b97f0af3c785ea395f7839dd26963b8760502b77ebba09f19d6d7250d0c0f090"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cddc772e19f285df16a76407672c04ce0e69e54e04f9fe80ac1028814a3a81d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0908fcf12ddcc240126a6b15addfbe2d3b4e5758786b541f3847f2a39d58703a"
   end
 
   on_macos do

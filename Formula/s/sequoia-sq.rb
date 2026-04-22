@@ -34,6 +34,8 @@ class SequoiaSq < Formula
   uses_from_macos "bzip2"
   uses_from_macos "sqlite"
 
+  conflicts_with "sq", "squirrel-lang", because: "both install `sq` binaries"
+
   def install
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["ASSET_OUT_DIR"] = buildpath

@@ -1,22 +1,23 @@
 class Hdf5Mpi < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/solutions/hdf5/"
-  url "https://github.com/HDFGroup/hdf5/releases/download/2.0.0/hdf5-2.0.0.tar.gz"
-  sha256 "f4c2edc5668fb846627182708dbe1e16c60c467e63177a75b0b9f12c19d7efed"
+  url "https://github.com/HDFGroup/hdf5/releases/download/2.1.1/hdf5-2.1.1.tar.gz"
+  sha256 "efff93b5a904d66e8f626d7da60b5eedc9faf544be27dbabbaa87967b8ad798b"
   license "BSD-3-Clause"
   version_scheme 1
+  compatibility_version 1
 
   livecheck do
     formula "hdf5"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "caf2dbe3e96d3e7ed4f8457fbc4b11786c7529e2dd70cbb7ec941f8bfc6dfe7f"
-    sha256 cellar: :any,                 arm64_sequoia: "53fcc73745c194a5fac3e1f1e7173de981c70dffae569a0c9cd68507c0d478fe"
-    sha256 cellar: :any,                 arm64_sonoma:  "e9309fccc7350411d7548fe88c0deb09f50062e1f3900bb0eac4b99542a1bcdc"
-    sha256 cellar: :any,                 sonoma:        "717e830e7379dbd12d506c7c3a0bfe00ef4349ba29c9ccea9044cf7e06b31c53"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "36474a3ff7fc0e0aec844374fb2f738c9a4d8657c10bd19d2d46a4e1c17243ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff89895ec5e2f43e0c1eaddcdca76aadc61f9b5b61519d945df29d734d509e7a"
+    sha256 cellar: :any,                 arm64_tahoe:   "be826b39d4bae3f28fcb17eff9b1e1eb7d943dfe9032ddf87d61a23b57d78f4d"
+    sha256 cellar: :any,                 arm64_sequoia: "2c75d9f0921baeddc4a86bb616bc31f3a99c9fea78b3d6a8370fdcab70c617c8"
+    sha256 cellar: :any,                 arm64_sonoma:  "bd79c2dc5fdd0875830eaf3ed7bd4a02ff25c0592d0dade5e6b9e450e9bb463a"
+    sha256 cellar: :any,                 sonoma:        "2745926da93d021d27287fbbefab8053f1fbfef4d990058ea0684dff955c6341"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0f1ef56161bcb8235bd9b65b78c61aca298cf6d4c49b7de52c8547450eb292a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fed39da8c3d3e958bfbf7bb9423b2a7aeb961d7a0bc481f3403ddbbede297b1"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,9 @@ class Hdf5Mpi < Formula
   depends_on "open-mpi"
   depends_on "pkgconf"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "hdf5", because: "hdf5-mpi is a variant of hdf5, one can only use one or the other"
 

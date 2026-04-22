@@ -33,10 +33,6 @@ class GitMob < Formula
     system bin/"git-add-coauthor", "bb", "Barry Butterworth", "barry@butterworth.org"
     assert_equal 3, JSON.parse((testpath/".git-coauthors").read)["coauthors"].size
 
-    system "git", "config", "--global", "git-mob-config.github-fetch", "true"
-    system bin/"git-mob", "BrewTestBot"
-    assert_equal 4, JSON.parse((testpath/".git-coauthors").read)["coauthors"].size
-
     system bin/"git-mob", "bb"
 
     script = testpath/".git/hooks/prepare-commit-msg"

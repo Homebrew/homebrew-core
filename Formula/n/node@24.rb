@@ -1,9 +1,10 @@
 class NodeAT24 < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v24.13.0/node-v24.13.0.tar.xz"
-  sha256 "320fe909cbb347dcf516201e4964ef177b8138df9a7f810d0d54950481b3158b"
+  url "https://nodejs.org/dist/v24.15.0/node-v24.15.0.tar.xz"
+  sha256 "a4f653d79ed140aaad921e8c22a3b585ca85cfdab80d4030f6309e4663a8a1c8"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -11,12 +12,12 @@ class NodeAT24 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "36bc3c404c60cef1c868032b3196c26683dc96de1c881d4f4409496d08509c38"
-    sha256 cellar: :any,                 arm64_sequoia: "dd36cbbbb43556f07560b6800ad9b65636ee7226313f0585787dfb519f147006"
-    sha256 cellar: :any,                 arm64_sonoma:  "39336ec43a60453d71ac281934a3dc7ba233ecf72dd3b46f1d6ad028e6260efa"
-    sha256 cellar: :any,                 sonoma:        "9a93fc7599d02a03c3de3014b1cca008631d7c3c9441f597f1a7657c57ec6844"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdd3c079aa582a83fb629a90c06e433bc79f7b6bd162bed9376867a1807c8152"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bca02d5db89e1f13256dbc8f4286dc85354e1b62fc4c74c28f582ab4122a93b"
+    sha256 cellar: :any,                 arm64_tahoe:   "f08293c7e6496ffe8191d051d5cf8786b614ecab5825b824ba8e9031aa517d25"
+    sha256 cellar: :any,                 arm64_sequoia: "85e36590cd3944b672a2257d13bc342e14aba780bdac15dbcdaf33fc93fda370"
+    sha256 cellar: :any,                 arm64_sonoma:  "82f8ec8f619ff5e5f2c62febb9962d5c6fc09ffae1b9f0a18190ae5b3b6c7e27"
+    sha256 cellar: :any,                 sonoma:        "afc81a9ee3c219d3054da056b19d653dc39e6fc396c9d531b0d03988f56b1884"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "420f56970527dc9e47f1024edc47435ccf389532e0fde6a6b1e6b14ffefc70c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fac5be0f58fd355c54dd71ebce48b49309c078b4f15098e201054611ea7be3a"
   end
 
   keg_only :versioned_formula
@@ -29,6 +30,7 @@ class NodeAT24 < Formula
   depends_on "python@3.13" => :build
   depends_on "brotli"
   depends_on "c-ares"
+  depends_on "hdrhistogram_c"
   depends_on "icu4c@78"
   depends_on "libnghttp2"
   depends_on "libnghttp3"
@@ -41,10 +43,13 @@ class NodeAT24 < Formula
   depends_on "zstd"
 
   uses_from_macos "python"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   # https://github.com/swiftlang/llvm-project/commit/078651b6de4b767b91e3e6a51e5df11a06d7bc4f
@@ -75,6 +80,7 @@ class NodeAT24 < Formula
       --shared
       --shared-brotli
       --shared-cares
+      --shared-hdr-histogram
       --shared-libuv
       --shared-nghttp2
       --shared-nghttp3
@@ -89,6 +95,8 @@ class NodeAT24 < Formula
       --shared-brotli-libpath=#{Formula["brotli"].lib}
       --shared-cares-includes=#{Formula["c-ares"].include}
       --shared-cares-libpath=#{Formula["c-ares"].lib}
+      --shared-hdr-histogram-includes=#{Formula["hdrhistogram_c"].include}
+      --shared-hdr-histogram-libpath=#{Formula["hdrhistogram_c"].lib}
       --shared-libuv-includes=#{Formula["libuv"].include}
       --shared-libuv-libpath=#{Formula["libuv"].lib}
       --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
@@ -119,10 +127,16 @@ class NodeAT24 < Formula
 
     # TODO: Try to devendor these libraries.
     # - `--shared-ada` needs the `ada-url` formula, but requires C++20
+    # - `--shared-gtest` is only used for building the test suite, which we don't run here.
+    # - `--shared-merve` is not available as dependency in Homebrew.
+    # - `--shared-nbytes` is not available as dependency in Homebrew.
     # - `--shared-simdutf` seems to result in build failures.
     # - `--shared-http-parser` and `--shared-uvwasi` are not available as dependencies in Homebrew.
     ignored_shared_flags = %w[
       ada
+      gtest
+      merve
+      nbytes
       http-parser
       simdutf
     ].map { |library| "--shared-#{library}" }

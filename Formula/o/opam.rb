@@ -1,8 +1,8 @@
 class Opam < Formula
   desc "OCaml package manager"
   homepage "https://opam.ocaml.org"
-  url "https://github.com/ocaml/opam/releases/download/2.5.0/opam-full-2.5.0.tar.gz"
-  sha256 "25fb98f962c4227c1261e142afc68a416778e6e819600bd5ee3ec4a18ae1e238"
+  url "https://github.com/ocaml/opam/releases/download/2.5.1/opam-full-2.5.1.tar.gz"
+  sha256 "48c5bfaf5f5c4048cc5f40025de7385f5bad3a8269756216cd6dd2f2150033ed"
   license "LGPL-2.1-only"
   head "https://github.com/ocaml/opam.git", branch: "master"
 
@@ -22,12 +22,12 @@ class Opam < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "49fa1631fb9dc7f680166f185f095d1eeedd84f30c34a363b9a57a86b286ab91"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a499ecffcda3cbd6264b6d110e54d632544fae0d80ef106d81e9328ca0bbc9be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13e3540dd831e33ecb61be42da177cd9a7cd815f2e2fe90cf3ddbd38dfaf2dfb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aebc9646975f09d68083d69eddf58221fa8e0bb221958b67fecbb6b9ce95e8fb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "71866a75c2a3f2c6f87927e7d74b059d8f49d792a03968364583df919adec39d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fc029045abb424f08f33f54b9bf6a48e6ffad9bce02f05c4e3e93a5093146b4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2ffbf7f241b17f60038e8b997f136aa818ec77ee5ecb855445cc723f6d112834"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a102ff25064c45d9d18566307acec0317c06019c0a7cf672a635afeb7a0bab5e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58dee4dadacafdbc36f8d2db56d95f350a59ac89bcff75213406394215af45b4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e59be521f2ead04874aa787b4984c8adb4af62736b25c5d0bbe0f7d3873893f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca2f8f0aeee21bb39fea9128b741e15424645156fb726edfa7afccbab9fb0c35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05e4e66f31665ef1fcf0cec5e6853b58849d56585dec45d734b1e27e45d1c0c6"
   end
 
   depends_on "ocaml" => [:build, :test]

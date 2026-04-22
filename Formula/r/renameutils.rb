@@ -11,8 +11,6 @@ class Renameutils < Formula
     regex(/href=.*?renameutils[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "0fdd550dfb8a3ec4c7b30c22a6be8bf88104207328b51b7a3806b9f254e4eb85"
     sha256 cellar: :any, arm64_sequoia:  "93b6c0287a2a5222cc55484b0baa724174ac826afffc016f75165fdc0d37e6ea"

@@ -17,8 +17,6 @@ class JsonSpirit < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "c9211705e246541e5540eab0704d64a67124566cda09695e26b7ed3966b0c61f"

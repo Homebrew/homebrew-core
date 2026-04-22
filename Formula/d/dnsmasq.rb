@@ -4,6 +4,7 @@ class Dnsmasq < Formula
   url "https://thekelleys.org.uk/dnsmasq/dnsmasq-2.92.tar.gz"
   sha256 "fd908e79ff37f73234afcb6d3363f78353e768703d92abd8e3220ade6819b1e1"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  compatibility_version 1
 
   livecheck do
     url "https://thekelleys.org.uk/dnsmasq/"

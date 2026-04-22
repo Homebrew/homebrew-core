@@ -1,18 +1,19 @@
 class Rclone < Formula
   desc "Rsync for cloud storage"
   homepage "https://rclone.org/"
-  url "https://github.com/rclone/rclone/archive/refs/tags/v1.73.0.tar.gz"
-  sha256 "91c777ce0bf41caa5de9aeaeae37310f9310bd7b12b5eee7337f57cbaae5830c"
+  url "https://github.com/rclone/rclone/archive/refs/tags/v1.73.5.tar.gz"
+  sha256 "e52541bc238dd434a0335f467697d7d9575529698a74aab534ad39b8649f8a49"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/rclone/rclone.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d6a1ec94e5f5c4c12b3b35eb85ddf39f80214063a932f24cd3dc7b6af7feefc0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "940ecc5f8b7b71edbdf7e0160a5fd368d88470c6b1cf64ec3c56d359c6a81744"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5feb8fc5e6ea3256b759be7e64a1f117e9fa3dc46d87a6657462c6ee7b85d97e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "14c6b386c466932ba813a0b9c6a42a609a88c805de4927f7854e6e9006f9e83b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "31b928cc7ea70fe040dc1045dcfb504267fbaf28756e8ed96375f34566e179da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "950572c8999baa924b088836d2bbb68a719147e7c7d6061ec8271a2bd981b68c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9a72b0876fdc29dd0ec25b99c22fab96fb0cbfe4a24f9fb21ac7ec8682f28ae3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8643bfc56cfeb510a837f340007b2060e36033957e9e979a14dbec3377ac148f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0259030d92c3287cd5bcf372c7131ca1a2e5bce4f8231cd0c50f162863883a58"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c63534a72dd83b4e04fb668bbd518a84e681502e52244abe4ef6111d155ce8b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2fadbde92b7d82ae13005945ea75aef859371c1e2d6f89417743b60ebae9634"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2e90819f16c8f27b13e23611a740e3a33ae811b3ae7b95d76d2c4d71de80cb9"
   end
 
   depends_on "go" => :build

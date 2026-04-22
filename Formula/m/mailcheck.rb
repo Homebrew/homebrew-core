@@ -5,8 +5,6 @@ class Mailcheck < Formula
   sha256 "6ca6da5c9f8cc2361d4b64226c7d9486ff0962602c321fc85b724babbbfa0a5c"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c8e59c981638d71fa3e78a9998b696e677189346da07f918bc290752c289f1dc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9826a29c8ea6cc9f8a3c2c1a85c39726d0412898ab38feccdc027ccf505a5662"

@@ -4,6 +4,7 @@ class Ripgrep < Formula
   url "https://github.com/BurntSushi/ripgrep/archive/refs/tags/15.1.0.tar.gz"
   sha256 "046fa01a216793b8bd2750f9d68d4ad43986eb9c0d6122600f993906012972e8"
   license "Unlicense"
+  compatibility_version 1
   head "https://github.com/BurntSushi/ripgrep.git", branch: "master"
 
   livecheck do
@@ -26,7 +27,7 @@ class Ripgrep < Formula
   depends_on "pcre2"
 
   def install
-    system "cargo", "install", "--features", "pcre2", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "pcre2")
 
     generate_completions_from_executable(bin/"rg", "--generate", shell_parameter_format: "complete-")
     (man1/"rg.1").write Utils.safe_popen_read(bin/"rg", "--generate", "man")

@@ -6,17 +6,14 @@ class Sox < Formula
   license all_of: ["LGPL-2.0-only", "GPL-2.0-only"]
   revision 6
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "efd1927beadef2b84a6a9840549240134d77eff31208e118f37463f8042874ae"
-    sha256 cellar: :any,                 arm64_sequoia: "dd3179a8e7d8399ef404e8e19e199d7cb2d43bc7472cc6e5932777dd204ea20f"
-    sha256 cellar: :any,                 arm64_sonoma:  "ec5c73d125f2ac73ddde98d2264a298611f2dd819a873e115178f083216064bd"
-    sha256 cellar: :any,                 arm64_ventura: "719011d445046c330686ae5fef7df2561b14c9f966025263bb948b176b528552"
-    sha256 cellar: :any,                 sonoma:        "b9caf7383de463f53526e60b33f07792bcbd89a99d358ed76ed91df4ac580b58"
-    sha256 cellar: :any,                 ventura:       "a582da3eaee0febd63765341ba7e70fabc57895f7595641fe1565dff40929231"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "526bdf965df84741c4e639c24931f3f03e9b19d438caa735192214e1831d809f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c44da47de6f97f6e1542c5757a01e7aa1dad4ba631d2ae3eb0c24c1bca09a5d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7cadfa60a83a3b9f4474f7fad9ce3a98ae3ddf76025ac24a2aa4d4c3c3e6def9"
+    sha256 cellar: :any,                 arm64_sequoia: "ac396d46374213381ce1b2f647c642ab11ecb01d9420bca12406b020b66ebeec"
+    sha256 cellar: :any,                 arm64_sonoma:  "2ed6611f5c885830d3b666c7705ebc06aade824c01db7c25ff11bd1ed6852722"
+    sha256 cellar: :any,                 sonoma:        "80ff50c0e93e0d6230a3905005101338da05bb8775bbd22728e6b886c7766d94"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d32108a449ba98aed550004ad68815dbf223635e7725a349080060d987d04c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5bc49e8db2bf0f43c4f3a9b47f4b6a5824da8ac31e8988aa244b931aa6531b7"
   end
 
   depends_on "pkgconf" => :build
@@ -29,10 +26,9 @@ class Sox < Formula
   depends_on "mad"
   depends_on "opusfile"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "alsa-lib"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "sox_ng", because: "both install `play`, `rec`, `sox`, `soxi` binaries"

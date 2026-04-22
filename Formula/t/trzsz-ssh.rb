@@ -5,8 +5,6 @@ class TrzszSsh < Formula
   sha256 "8c7ef4ace4c7aed564f447f3f91142367f782eef87b58a95f587480ca1ae08ba"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f5ed283aba0b804c2cb5c97e23b6129e0dbba74a5d531d81914679349e142265"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5ed283aba0b804c2cb5c97e23b6129e0dbba74a5d531d81914679349e142265"

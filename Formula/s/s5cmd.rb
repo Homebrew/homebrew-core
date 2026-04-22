@@ -6,8 +6,6 @@ class S5cmd < Formula
   license "MIT"
   head "https://github.com/peak/s5cmd.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "61627603298bb1a3eb5eaea5f87ccadd359fcce806e7d117e793dde778a2b70e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "916e4d04783629cfd49481c1f6aa50ea3cde6f77a3083ff0f297e55c73e5bb79"

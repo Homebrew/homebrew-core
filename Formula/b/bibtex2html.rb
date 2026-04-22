@@ -10,8 +10,6 @@ class Bibtex2html < Formula
     regex(/href=.*?bibtex2html[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "261c680993c384f4739fb747b85d0c6b346e5075a0450c588d4cd25093359d30"

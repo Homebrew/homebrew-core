@@ -10,17 +10,14 @@ class Mupen64plus < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "bcdd3173e040bf26c85fb1ede2377ebffaa0ce143720c5f2d200159cb52d3708"
-    sha256 arm64_sequoia: "fa76319a48aa3bc5d5997f8c5108156a8501c110bc7e02a3a69d86065cd28264"
-    sha256 arm64_sonoma:  "5005db0835711d42c5d6c457795e4b6374e974568f380fb381d440266dbdd5b1"
-    sha256 arm64_ventura: "5a9308e8d1a6356bbef3f5f6009fb06c1d190d59fd3e85565c4f9e1123cf3ff1"
-    sha256 sonoma:        "26e73f4712a1bf42221a86efe322010a2f9b521f58c9b24611881522967b790f"
-    sha256 ventura:       "788e3150ef2a190f730edd401a47c46b548f978994fdcd5497f2ed7ec1db433c"
-    sha256 arm64_linux:   "c97d64ce1bfe545d8d9e25100ab24dd6a75c660683473db88417db2015ccecda"
-    sha256 x86_64_linux:  "6b1e569e22ff2c8f5ef5b343f93a684b6a866e12df7b5e1dd615b79c4e361b75"
+    rebuild 1
+    sha256 arm64_tahoe:   "73a594a4179e8c405898e24d23a3de66e3476734fe4d6271229a65ad9d94d143"
+    sha256 arm64_sequoia: "2ac11668fdeba8ca47b221e7e35fa0a7c1388644144673ea2981dd282214bdd6"
+    sha256 arm64_sonoma:  "1ba75f761d4a6c9520ff61d79fe13e08d2d0c72b039f4f40bc8ba35bd1dbcc86"
+    sha256 sonoma:        "7af6a82beaa3bcd3f82e86abab6f473836a542f2e6a35daa1795b2ae88e791e4"
+    sha256 arm64_linux:   "0b6dc156754e78588093434bd7d0a8729704b3425d3241887ce84d59b986131c"
+    sha256 x86_64_linux:  "53ffc3a9f022ab20a782517db83e4b69cd4722e998cfe4ac41d10c49ab2a513a"
   end
 
   depends_on "pkgconf" => :build
@@ -28,11 +25,10 @@ class Mupen64plus < Formula
   depends_on "libpng"
   depends_on "sdl2"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "mesa"
     depends_on "vulkan-loader"
+    depends_on "zlib-ng-compat"
   end
 
   on_intel do

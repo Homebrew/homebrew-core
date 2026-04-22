@@ -14,6 +14,13 @@ class Pcl < Formula
       url "https://github.com/PointCloudLibrary/pcl/commit/2d6929bdcd98beaa28fa8ee3a105beb566f16347.patch?full_index=1"
       sha256 "66e6b47a2373224f6a64a87124c94fbe79d3624b4cb0d71603c4805323343b62"
     end
+
+    # Apply merged, unreleased PR to fix build with Boost 1.89
+    # PR ref: https://github.com/PointCloudLibrary/pcl/pull/6330
+    patch do
+      url "https://github.com/PointCloudLibrary/pcl/commit/8dfb0e10ebdf4a5086328b38f854294d2d6b1627.patch?full_index=1"
+      sha256 "f31c11abb6bec8864b7a109472768ba80e87ddf90533890c303294d264f389e1"
+    end
   end
 
   bottle do
@@ -50,13 +57,6 @@ class Pcl < Formula
     depends_on "libx11"
     depends_on "mesa"
     depends_on "mesa-glu"
-  end
-
-  # Apply open PR to fix build with Boost 1.89
-  # PR ref: https://github.com/PointCloudLibrary/pcl/pull/6330
-  patch do
-    url "https://github.com/PointCloudLibrary/pcl/commit/8dfb0e10ebdf4a5086328b38f854294d2d6b1627.patch?full_index=1"
-    sha256 "f31c11abb6bec8864b7a109472768ba80e87ddf90533890c303294d264f389e1"
   end
 
   def install

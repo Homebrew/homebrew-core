@@ -1,8 +1,8 @@
 class PetscComplex < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation (complex)"
   homepage "https://petsc.org/"
-  url "https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc-3.24.4.tar.gz"
-  sha256 "772bb47638f8335e4a5982c48947af250e58061100a817c9e1e2fdc50de2ce95"
+  url "https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc-3.24.6.tar.gz"
+  sha256 "d6ad14652996b0e0d3da51068eec902118057f275de867e8cf258ffd64d90a7d"
   license "BSD-2-Clause"
 
   livecheck do
@@ -10,12 +10,12 @@ class PetscComplex < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "9d131575a859d6aec4851922a178e4fe55f9165a2360437d4c0b91fc138210c2"
-    sha256 arm64_sequoia: "0647ef8918520885a6729efcf369822b80f8f17f9b0f0e62bed8a9b22a0ded83"
-    sha256 arm64_sonoma:  "1a8c233fcc24d3bd0770c5b9d58671cd2cbc475da16de538ac362ef5fef04a20"
-    sha256 sonoma:        "60861caceeedd59dfbe0beb580911bcf5d32d27813e0fcc0ac4f594f0116bd62"
-    sha256 arm64_linux:   "242290675015eeb338c194958a977123ccd9c5dabd39a096ed6a6a2bf690634f"
-    sha256 x86_64_linux:  "fd4d185e94be4156a6c3262d6b5eb39d496b769c643b26b1db12ed17bfaf45dd"
+    sha256 arm64_tahoe:   "426fd47e53a58fe78b4ab6a8d6e2878f8a7fd7f1e54576408e39bae0beb9fc20"
+    sha256 arm64_sequoia: "f7b6524808509647d6d14e7f9cf3382ab39ccae3619f4f29fe76b94d7f92f670"
+    sha256 arm64_sonoma:  "d677aaeb98bfba32ed8fa63fa043aa0827d25eb0d128237f94e9600e5a567523"
+    sha256 sonoma:        "4833f9bac5b6ba3a54a6455b9cf8dfecf6bd86542fe608a480f2bec812cd7c24"
+    sha256 arm64_linux:   "c43dd33aa8ee5f9f53991820b26c3cb17a073ac9d376aa44f516a0655ee56b2f"
+    sha256 x86_64_linux:  "973127a365546f4dcb07b773e13842a1c6cdde91c9d2b8a5d916b507177c7675"
   end
 
   depends_on "fftw"

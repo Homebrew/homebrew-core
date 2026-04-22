@@ -5,8 +5,6 @@ class Json5 < Formula
   sha256 "a98d1dd7c6b101fd99ae692102dc05a65f072b3e6f8077d3658819440bf76637"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "549882eb4bc333f0952050c2578e929cf4d653d3834467aa364ef0b07f4133d3"

@@ -11,12 +11,13 @@ class Omniorb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d1d18197b8e60eb0d7c301cedf714d2f77371a84767060df364e0939b6623d13"
-    sha256 cellar: :any,                 arm64_sequoia: "26608b9e21b3bd279db67b11721e8b6db62b0f635e4aa4c136025e3ec85939b8"
-    sha256 cellar: :any,                 arm64_sonoma:  "e7456a95b773cdbbb5911f76b7dbd2795dbe09979d704589a2c9ab7d0ee5209e"
-    sha256 cellar: :any,                 sonoma:        "f82a0ddf7c8ecdc548722f7189f3bd22740cac3730717c57f3defb39f34ba4e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf8cd5089645a78552c75ed40807748947caabf2a8b21c748a2551f531b520db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83475901471cdf6d650972b34703694938352ae993900762f70f246427b534cb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "69b171103aff52ec76b37157af9cafc619a8ab5f65daa0676ac03a39f94b3fcd"
+    sha256 cellar: :any,                 arm64_sequoia: "be7ed7887d18f0c634f0a9a0fcf50e3baad81ac4dc19485a380ccef79b39c60f"
+    sha256 cellar: :any,                 arm64_sonoma:  "b7e79d9bd6cf2c3146ad1aae8fda733fab5fcb6977c10b8bf1e1f82779fc4f0d"
+    sha256 cellar: :any,                 sonoma:        "4dd41368f4fde967adde35d8839e3e20078e32b13e41baa1fd852c8e3afffe36"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6fb616f204dc7acf360397e4aeea7d145d6c5eb32c27f152de10c771a042ac2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a82a3a9f22891f7155ca75558b834b0465338da0c4a03875648428527b64dcd"
   end
 
   depends_on "pkgconf" => :build
@@ -24,7 +25,9 @@ class Omniorb < Formula
   depends_on "python@3.14"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "bindings" do
     url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.3.4/omniORBpy-4.3.4.tar.bz2"
@@ -40,7 +43,7 @@ class Omniorb < Formula
 
     # Help old config scripts identify arm64 linux
     build_arg = []
-    build_arg << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    build_arg << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
 
     ENV["PYTHON"] = python3 = which("python3.14")
     xy = Language::Python.major_minor_version python3

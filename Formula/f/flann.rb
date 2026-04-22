@@ -5,6 +5,7 @@ class Flann < Formula
   sha256 "e26829bb0017f317d9cc45ab83ddcb8b16d75ada1ae07157006c1e7d601c8824"
   license "BSD-3-Clause"
   revision 4
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "6635599071926575a5e3eef3bd48521d93b5fb74da6e21fbf60d99c4b6823ff1"

@@ -6,18 +6,20 @@ class TerragruntAtlantisConfig < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9dec17aa158c10a82522b739705b0adf4ee38a3aa0b7ae1e557dba5bd403e73"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9dec17aa158c10a82522b739705b0adf4ee38a3aa0b7ae1e557dba5bd403e73"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9dec17aa158c10a82522b739705b0adf4ee38a3aa0b7ae1e557dba5bd403e73"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aebee1dd99ca225d24872c9deaaaa75e5d3929b5342290b377e0134eb10ab29e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c10183ff34a7f6f80a81d9922b6464941d199e15c177f5bb5bb3c1dbc8e0fedb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9792965a2e68d6c2310b8aca3ac9c56f9c20b46729ae79d9466bfc023fccd8b2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "261f959f81e57e9d04a6b54f405b74c9d26543b266badb1b6dd2af33fec1d84b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "261f959f81e57e9d04a6b54f405b74c9d26543b266badb1b6dd2af33fec1d84b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "261f959f81e57e9d04a6b54f405b74c9d26543b266badb1b6dd2af33fec1d84b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "109f864174bb9720779d3b902bdde2779596b889caefea37ae2405083797a6d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "035faf5b65044abb053f4739afec6947c0934af43b23e94760da3172caad408c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c0ab073df774ef3d5cde7524112fd229edbd38ee219d630c533da49f39d6f2a"
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+    generate_completions_from_executable(bin/"terragrunt-atlantis-config", shell_parameter_format: :cobra)
   end
 
   test do

@@ -3,8 +3,8 @@ class MysqlClientAT80 < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/8.0/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.45.tar.gz"
-  sha256 "f679707d05f0c2b61e9b14961302e7f540c23e9e5e2bffd8ad9193599e295cee"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.46.tar.gz"
+  sha256 "dff4332ee7f8f37fc0516c66763600a22a81c8192c743c477b6484206e314f2f"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -12,12 +12,12 @@ class MysqlClientAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e64173ee56c31739134cd06df27f4590f970b336b8584b6809746890d07659b7"
-    sha256 arm64_sequoia: "06d29c681212f7f7ccdc8aecb8ca436344cf8ce1dc76d0faab11b9a7d15ef39b"
-    sha256 arm64_sonoma:  "ea81b8fd4dc4dff70258bfed613c2314ffa2627ed7041fbb5a5acbfcc87cb090"
-    sha256 sonoma:        "23f362f731daf2989cb506994fcb69d5d0e52b71770fa06f4e2adb80e5d5d0cb"
-    sha256 arm64_linux:   "16912c662fb071e209bfa44de3ab0ebf26967a861fcdfd6a77df90f0bb7f5540"
-    sha256 x86_64_linux:  "f9f8b84a8fff348c2a215ffd5d25a7aaeb67b9f0b881ba67532427c7bb7993ab"
+    sha256 arm64_tahoe:   "b04aa085d7b540a2a26910f0adc7eaa82776f4a31c050205877e72dc1b0b14d7"
+    sha256 arm64_sequoia: "c62722b6ab50c2608f96655d03136ee76106e30b6ea57e3bd2ed0fa672aa2a96"
+    sha256 arm64_sonoma:  "934915d2baa56d43a1f01f7b8e0d982922e03972ce8d690c7a76e47bfc4fb79d"
+    sha256 sonoma:        "4aaed2075ded190d1494d60f66a66dfccbe09e3ad0e054043524e953104cf495"
+    sha256 arm64_linux:   "73443c2a2c0bc42a5bec2d5f8f110c65cf8cfe952c91dc02cf3db29f8de1fca6"
+    sha256 x86_64_linux:  "5b3762f299d424bde333aae29bc00580ed7f52eb0c622887a0222848372fa089"
   end
 
   keg_only :versioned_formula
@@ -28,7 +28,7 @@ class MysqlClientAT80 < Formula
   depends_on "libevent"
   depends_on "libfido2"
   depends_on "openssl@3"
-  depends_on "zlib" # Zlib 1.2.13+
+  depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
   uses_from_macos "libedit"

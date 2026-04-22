@@ -12,18 +12,21 @@ class Hck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2b701fbd9c9c3255cf08902aafec7534565d6b72be454aa8d65ca60b2a56fcd0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eebac3b042a4687b2299d79c7660c48cecfe8377da44250bf16887c7310d8079"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb5c2973e5cf849f5a67053cbf186cac6669dbb42399daebf932063a96118cac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b3e7fb8cb36a5b462e1200194705dc74ea3a94b31521d0a1a56eac2d0729d1f7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4eab96ce3ffb5740ea3c317e7b2b249b6d98c48bf784a9e3ab912cfefbbb36e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75760e081bfd9fac813e1288abae8a6671399ebee192bde6fc9d7e2e82fb63df"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d4df79cddcbf021932b7300c9a6cc6cdebc9b9d85a551353456d4f8c8c07538d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b3406b0ab689cba7e8d8ffe40033e3b3867ac0527a3c7a903915254532f6a6e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93ce77bb3b5310079ada1d764f560e692d96b4ca65aeaa90893195aa5d58abb0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f6a147eff8f1e3e69aeeaa681afd81dd69e19bd865e0b675b21fc680fb752c80"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b6a6b21c1ecb5cf9da85863fbf8e23e05275e1a6883552199fb697f12f99e05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b46f9971e8d64866900c0b57f67903455d7c0dbeebb4a5fa59e093118b150ff"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

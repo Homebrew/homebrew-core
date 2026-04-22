@@ -11,8 +11,6 @@ class Gocr < Formula
     regex(%r{href=(?:["']?|.*?/)gocr[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "22d93d120980d188dbee305cbec8c1d22aab0a9def0580ff3ecaeaa44fe488e7"
     sha256 cellar: :any,                 arm64_sequoia:  "f38bbed5dfe8ae2150cab6f508e71dc9402d9f05c3c72273f3c9270dd42ff6fa"

@@ -15,20 +15,21 @@ class Fw < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cd14056e2a81b11fd288c68433e1f87005671ca829fd51e56de976b672a598db"
-    sha256 cellar: :any,                 arm64_sequoia: "eb202098914bbc6a57f1934081506e50fccd9ee67ee37b9ef91b2b2484976f7b"
-    sha256 cellar: :any,                 arm64_sonoma:  "b99fcb8532b6b7bc74ca0a292e56587a9965c4a01027b556ff1d508637490f11"
-    sha256 cellar: :any,                 arm64_ventura: "75b0b011571ecad44d356a4faef9a567b6c5bb0ba21902bf6ac8fbd4a482e505"
-    sha256 cellar: :any,                 sonoma:        "70ae18ac9fba06db184692a0ae3cf8572968a3551315371a7d0bb720f3f900e3"
-    sha256 cellar: :any,                 ventura:       "5cbef520c888d19d9a8e0371ff1a6c3df79ad7e9feed67eff8e9f387da2e18de"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de1fc07bfe852cd4530592303da3b6918413467777ae9f9becc6845a1113ab94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37b9bd2e6018551c47b3c0774add1b88594f21a608b0a801c3a2154d28a006ed"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7780f59e32df0457b9148d55505e274053393a4545cf61fcf790cb0b23dfe19e"
+    sha256 cellar: :any,                 arm64_sequoia: "29432219c0916cdca047dd8cccd1cd207dbc68411f0e65d2118a574f977d923b"
+    sha256 cellar: :any,                 arm64_sonoma:  "93b69db1251551a66d1a24f4a9940562d2a04672ef4b19e4b39fde432365a174"
+    sha256 cellar: :any,                 sonoma:        "40916ca263737c78e58fd02c91d7aa82e738fad567031cd62c0a67d7e8c4ac6b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c60ab562c31623fcb540d57810708e49c38f652430c85a239b46210b5fdab21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3ebff57c1fc6a7739a8486817e893a075902406d6c00ef329818f5bbbf46ad2"
   end
 
   depends_on "rust" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "fw.1" do
     url "https://github.com/brocode/fw/releases/download/v2.21.0/fw.1"

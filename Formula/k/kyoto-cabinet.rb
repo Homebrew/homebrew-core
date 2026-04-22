@@ -10,31 +10,26 @@ class KyotoCabinet < Formula
     regex(/href=.*?kyotocabinet[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:    "f1cd90b662671193b56b1bf686c6d5f99fb16d0a6532037ab150753c026c5b02"
-    sha256 arm64_sequoia:  "e2094e4b5871b1aab91c2877eccc2be6fa719fccd3f7cbf741682d15b47b2733"
-    sha256 arm64_sonoma:   "c7f6a7ff504412e535d711652f9dfa3a998681ce1d30339e60b56d41932b86dc"
-    sha256 arm64_ventura:  "3f771335b64a4362f2b48aba77a2599e342725aee13c066830a713cd19dd1bcd"
-    sha256 arm64_monterey: "dc57e5dd4befc2604e975c32e31387b892ac9a1d328ef20d15bbc2c7020c45bd"
-    sha256 arm64_big_sur:  "48787ff1ea4af71c49229e67fe4e147229f8bac86376f1f54057edde098020db"
-    sha256 sonoma:         "8db7c00ff046d2cabfd2efcdf2b277cebe6006e01617ab85e8d5c9f751d60402"
-    sha256 ventura:        "90c2584ed35710ac0d4827dd373f533e313b1c562057aa76a727d2c1d963f772"
-    sha256 monterey:       "362b63259bb9f6d81d8320f741b8d4238cfbd1800bb7c4b1a7653abdba172bcb"
-    sha256 big_sur:        "c6572ef13f91e704d480f0a4ad4353168160a3b8d33d05b299e97c4c9f5399b7"
-    sha256 arm64_linux:    "d8b85343a89770b3b65f6179c3ebd12e261cf51980faf78ee4b2ae9e4edca85e"
-    sha256 x86_64_linux:   "e5da4592e6cd893f7c1955a3d07b28e1ab97fc39ef1a41ea0550cdd4f84d3d0f"
+    rebuild 1
+    sha256 arm64_tahoe:   "8c03d0a70b2156784bf4db81491d582b8dd5791125a5621a00d9cdbd5d34da4e"
+    sha256 arm64_sequoia: "e6e743ed4be2b0c94966e6622276884fe654cb266caff7f1899d09486100302a"
+    sha256 arm64_sonoma:  "5f81a814035a2afa3c5c2be4d7325553120d5f4763b0d48e602d0de7e6ec89f7"
+    sha256 sonoma:        "1eec27e4a7aa9f4f345ee8c2c4025551b4d195013b6e001028d03ddbd3845d8e"
+    sha256 arm64_linux:   "12244c6b610c93626dd6163c17077439df64c9390f11f145ad94392bee33dffd"
+    sha256 x86_64_linux:  "c8fab699165ea045c5067847edb04c38d8b7326ad4cf0936031d93838709944e"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   patch :DATA
 
   def install
     if OS.linux?
-      ENV.append_to_cflags "-I#{Formula["zlib"].opt_include}"
-      ENV.append "LDFLAGS", "-L#{Formula["zlib"].opt_lib}"
+      ENV.append_to_cflags "-I#{Formula["zlib-ng-compat"].opt_include}"
+      ENV.append "LDFLAGS", "-L#{Formula["zlib-ng-compat"].opt_lib}"
     end
     ENV.cxx11
     system "./configure", *std_configure_args

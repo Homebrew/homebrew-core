@@ -11,15 +11,17 @@ class Abook < Formula
   head "https://git.code.sf.net/p/abook/git.git", branch: "master"
 
   stable do
-    url "https://git.code.sf.net/p/abook/git.git",
-        tag:      "ver_0_6_2",
-        revision: "a243d4a18a64f4ee188191a797b34f60d4ff852f"
+    url "https://abook.sourceforge.io/devel/abook-0.6.2.tar.gz"
+    sha256 "2d6bde2d2d03523f164f930e4fdec6025f3a94abe48a43706f543880a1a21ebe"
 
     # Backport include from https://sourceforge.net/p/abook/git/ci/39484721c44629fb1f54d92f09c92ef4c3201302/
     patch :DATA
   end
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :homepage
+    regex(/href=.*?abook[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_tahoe:   "4179f858a3406d98bbf021e5a431cf064b6430839a4210643925af38a9c037af"
@@ -44,6 +46,7 @@ class Abook < Formula
   end
 
   def install
+    ENV.append "CFLAGS", "-std=gnu17" if DevelopmentTools.clang_build_version >= 1700
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"

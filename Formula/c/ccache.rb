@@ -1,18 +1,19 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v4.12.2/ccache-4.12.2.tar.xz"
-  sha256 "96ad53c76ecdb9c7a78e28a9bfdf2c95d7eece28546510fde7e16e5a13e2f7f8"
+  url "https://github.com/ccache/ccache/releases/download/v4.13.4/ccache-4.13.4.tar.xz"
+  sha256 "4a7ef278b39d031b9ec524c0778d24bdb3e761940ed368060b54594f15559537"
   license "GPL-3.0-or-later"
+  compatibility_version 1
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
-    sha256               arm64_tahoe:   "4a95f0628e060f7a0d4da82ce652b04ebdc54890b4d28faa34a930c727c2f5bb"
-    sha256               arm64_sequoia: "3ab59fc2188130ed99706c9222a00f98cdce3817697851ca7ee3b33a80509a97"
-    sha256 cellar: :any, arm64_sonoma:  "21bd4ee841d067315971f34091aee5de6de262b821405fe3af7f2dcb92a8e59d"
-    sha256 cellar: :any, sonoma:        "67c81b3dc7b26825ad28c68a842dfa32c75635936eb9e5493ed58f99c896e8b8"
-    sha256               arm64_linux:   "6be92cfe07e707ea8f707cc3aa2eee0cd1938bf21007f58eb2ea54ed8a240279"
-    sha256               x86_64_linux:  "346cef05266a077ddd33470f81a2226a8df370e53299c59910039b4aea46475c"
+    sha256               arm64_tahoe:   "95ee0c395bd3e4ff2073dbbd510ab8308aa1d35de5931dcaf5886942ca08629d"
+    sha256               arm64_sequoia: "6b10053c008945604b6bd074fb80877d371823b2b5104ac63cf6687f0c60ba49"
+    sha256               arm64_sonoma:  "10d5e1aa5ec6cc88c344f6dc165065e4ae45e7620fea74420e9dfa1baf9bf051"
+    sha256 cellar: :any, sonoma:        "5ff1fc6bc3067981de02c58f8fd245caa02bfe5507144e925e023fc18d92c7f4"
+    sha256               arm64_linux:   "9b16a8079cbc9379e1fa3edfa61aecc8574776fb2b587fb83c28228c11d27b96"
+    sha256               x86_64_linux:  "114468c755b458b178c0785a1d138d8e66d5a564449d19a7b529287a3402a94b"
   end
 
   depends_on "asciidoctor" => :build
@@ -22,11 +23,23 @@ class Ccache < Formula
   depends_on "pkgconf" => :build
   depends_on "span-lite" => :build
   depends_on "tl-expected" => :build
+
   depends_on "blake3"
   depends_on "fmt"
   depends_on "hiredis"
+  depends_on "openssl@3"
   depends_on "xxhash"
   depends_on "zstd"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
+
+  # Expose base16 source digest in debug input text, upstream PR ref, https://github.com/ccache/ccache/pull/1735
+  patch do
+    url "https://github.com/ccache/ccache/commit/517329f27aeb90195bda57955435cafbe88f38c6.patch?full_index=1"
+    sha256 "4e14cfc43d5654f67f011393501ecba8402acbaf51fffd55cce94f668b3aa35c"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",
@@ -109,7 +122,7 @@ class Ccache < Formula
     assert_equal "6ef4b356229ca145dca726e94e88ad10", shell_output("#{bin}/ccache --checksum-file test.c").chomp
     # Test that we link with blake3 correctly.
     file_hash = shell_output("#{bin}/ccache --hash-file test.c").chomp
-    assert_equal "5af3d23skapbcgbs975geemfqv6r6utsu", file_hash
+    assert_equal "5af36887ca2b2b6417c49cb073acfd7cdb37bbcf", file_hash
 
     system bin/"ccache", ENV.cc, "-c", "test.c"
     system bin/"ccache", "debug=true", ENV.cc, "-c", "test.c"
@@ -117,6 +130,7 @@ class Ccache < Formula
     input_text = testpath.glob("test.o.*.ccache-input-text").first.read
     assert_match File.basename(ENV.cc), input_text
     assert_match "test.c", input_text
+    assert_match "### sourcecode hash (base16)", input_text
     assert_match file_hash, input_text
 
     # The format of the log file seems to differ on Linux.

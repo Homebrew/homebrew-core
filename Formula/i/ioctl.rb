@@ -1,8 +1,8 @@
 class Ioctl < Formula
   desc "Command-line interface for interacting with the IoTeX blockchain"
   homepage "https://docs.iotex.io/"
-  url "https://github.com/iotexproject/iotex-core/archive/refs/tags/v2.3.3.tar.gz"
-  sha256 "e6502d310408d1f4ae8f215abb87b9d11a514a72f5c532175a065edb7f35dc78"
+  url "https://github.com/iotexproject/iotex-core/archive/refs/tags/v2.3.8.tar.gz"
+  sha256 "a49ce532d3b6e7041c8a636991766e4babe5d43c77f20dbce93f136a289f6b7e"
   license "Apache-2.0"
   head "https://github.com/iotexproject/iotex-core.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Ioctl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9eedea6ac42d2f903ea355853426e9ade1d8e51c0c8c0970c7845478b7f5f19f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f5ac55590d519e716148a31c1fcc689d0058f7110777a8308ceb3f0910e64bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0cb026c98207704d3131a50d93751f5eadbd74362b434946cc8007811711da1e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "faff9560e695ba6b8ba05881ca90a93f6af05a152ff381059e99d70b0dacdabe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fb99ec75c335dbbfbbf5655859a108933af130beaa5b85e2cdfbd5b20538863"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b950b02dac2ffc160332555416f3d779db3f02fc2eccd9e8c51a4a3aa998236c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83bd38d0e5a579c1ebd497083b513c9baf763ea3d866c3350c1275e195c09529"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ebccd46d8e88820a20e36a5d6082fba477362241742a44af49e6c5116a969d4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c74adbf1d64c56b134b6bab9ae84cec66cb0c576806297d9b7e0c2e3b4c22d8c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8a2927f7b63abca16082557b9daabf41832fad490d90872b989aacd2e165a8f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "531600fcccb7e8c8be9d281bd259762d66571109ae5fbc07a91898884194c699"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fee6acb62f0fcf259beb939662c4b5c1f72ebf17fee7177fa74a2303c3e21ff"
   end
 
   depends_on "go" => :build

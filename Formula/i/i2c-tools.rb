@@ -10,8 +10,6 @@ class I2cTools < Formula
     regex(/href=.*?i2c-tools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_linux:  "8f6ac4fca0fb5e2bb8dd2cc1891c75021b6af50de8e3e66cef13131a67e4bfee"

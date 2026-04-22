@@ -1,8 +1,8 @@
 class RekorCli < Formula
   desc "CLI for interacting with Rekor"
   homepage "https://docs.sigstore.dev/logging/overview/"
-  url "https://github.com/sigstore/rekor/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "84ad7f314c87b1ba8b9198aea318327dfbf97a2367bdebecb0054fb4d8b3b89b"
+  url "https://github.com/sigstore/rekor/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "3b6e0c202ed4e387a095852e680b6503d46d7a26ce8060daf223fe6657450983"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class RekorCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "49653b8b8750690c92ff1cd00462638aec874589298fbee806c25e86f010d23e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "49653b8b8750690c92ff1cd00462638aec874589298fbee806c25e86f010d23e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49653b8b8750690c92ff1cd00462638aec874589298fbee806c25e86f010d23e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "61a8866b7d5853d906201ad1c5cefbd069a6c51a32dd48332829501349975696"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6dc6a1eab182b049d9f41f1a1af0ddf727c778ade03edbf8910a404a50817f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69ada55b8cc3141dee6ed1aaa4f1e909257a9dfff08562210db481d503baa1cc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c3015d97b694bd2a14db852c57c9d53a029e77f29b45125d906d3d9fb3715c58"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3015d97b694bd2a14db852c57c9d53a029e77f29b45125d906d3d9fb3715c58"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3015d97b694bd2a14db852c57c9d53a029e77f29b45125d906d3d9fb3715c58"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8f356be3d43bf51680eaa4aeb76b6ecffd90b0c3db969dd1260c1a7420c9a0b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "69b766112dae48f1c329b5550617a7192e2e0514aa752c8818d14c69e981fb29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3767a5534fe576d29b472e5b59053b3d833e3dd400fc6bf72bffe5b5a0a0941"
   end
 
   depends_on "go" => :build

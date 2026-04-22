@@ -27,6 +27,11 @@ class Iconsur < Formula
   on_monterey :or_newer do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
     depends_on "python@3.14"
+
+    fails_with :clang do
+      build 1699
+      cause "pyobjc-core uses `-fdisable-block-signature-string`"
+    end
   end
 
   pypi_packages package_name:   "",
@@ -48,8 +53,6 @@ class Iconsur < Formula
     if MacOS.version >= :monterey
       # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
       ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}"
-      # pyobjc-core uses "-fdisable-block-signature-string" introduced in clang 17
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1699
 
       venv = virtualenv_create(libexec/"venv", "python3.14")
       venv.pip_install resources

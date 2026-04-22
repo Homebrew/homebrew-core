@@ -1,18 +1,18 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.24.8.tar.gz"
-  sha256 "c6c21209617960f37d94e744e24ecf864a86a828e7ee3876ab490ea0b5c3cdb4"
+  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.24.9.tar.gz"
+  sha256 "8a3e7af8e203e561527e07be09aa98b94fb8f6befd7ec4c884e3bbac6bc8c744"
   license "GPL-2.0-or-later"
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "a6113a1577ffc06cbd4f9a5fba1fea2775dc8f275071ef06d447a8181ffa05a2"
-    sha256 cellar: :any, arm64_sequoia: "55a0b6f6a389702491dad9c0e646661b26b6554b4e0b6d1a4a3bfd242a7de600"
-    sha256 cellar: :any, arm64_sonoma:  "7101c0bdfc76702a4ab6772a81d08498ec0b508fec8b7aa7ca5fe4037b163fb3"
-    sha256 cellar: :any, sonoma:        "28970f00af7e8ea40a2448d9a3cecc62f77a4e5524e77a5f631d7aae0619f67f"
-    sha256               arm64_linux:   "a48f6a4225df59de9b3f641a8f5243b511a245c7c7cf42b801997ffe70a41d56"
-    sha256               x86_64_linux:  "cdddcd1cce17a0be84e4ab710c12f3097e9db2871f4c75cdf9cf6648740c64a3"
+    sha256 cellar: :any, arm64_tahoe:   "8d0332213c26540e5b26aa2b6603bf123b3650c8a1fc00d1ca5b89200aa7322c"
+    sha256 cellar: :any, arm64_sequoia: "fd96e5bca800e7563e4a770e7aa4c8591263c8a41124cdf6573fa0c5948c449c"
+    sha256 cellar: :any, arm64_sonoma:  "6dd4d39f7e6844bd15eca3b0c97b5c9a39324ed2a419fd04342e9ac12c0db116"
+    sha256 cellar: :any, sonoma:        "c3af6ecf454b0194a244eede1db75fb2fc17e1f05bab36189479ae68b0789f98"
+    sha256               arm64_linux:   "8ee5978ec6ae1385d82153344e06e03b30690aa4b7e79cf653aa9e777b592d06"
+    sha256               x86_64_linux:  "52180e68ad44aa59725ad53e1401e5db04000d6f5f331101c0a08b8f9e5e9aef"
   end
 
   depends_on "meson" => :build
@@ -34,12 +34,12 @@ class Mpd < Formula
   depends_on "libmikmod"
   depends_on "libmpdclient"
   depends_on "libnfs"
+  depends_on "libnpupnp"
   depends_on "libogg"
   depends_on "libsamplerate"
   depends_on "libshout"
   depends_on "libsndfile"
   depends_on "libsoxr"
-  depends_on "libupnp"
   depends_on "libvorbis"
   depends_on "mpg123"
   depends_on "opus"
@@ -50,7 +50,6 @@ class Mpd < Formula
   uses_from_macos "bzip2"
   uses_from_macos "curl"
   uses_from_macos "expat"
-  uses_from_macos "zlib"
 
   on_ventura :or_older do
     depends_on "llvm"
@@ -67,6 +66,7 @@ class Mpd < Formula
     depends_on "jack"
     depends_on "pulseaudio"
     depends_on "systemd"
+    depends_on "zlib-ng-compat"
   end
 
   # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
@@ -99,7 +99,7 @@ class Mpd < Formula
       -Dfluidsynth=enabled
       -Dnfs=enabled
       -Dshout=enabled
-      -Dupnp=pupnp
+      -Dupnp=npupnp
       -Dvorbisenc=enabled
       -Dwavpack=enabled
       -Dgme=enabled

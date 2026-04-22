@@ -26,13 +26,15 @@ class Cdktf < Formula
   depends_on "node"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1700
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
+  end
+
+  fails_with :clang do
+    build 1699
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version < 1700)
-
-    system "npm", "install", *std_npm_args
+    system "npm", "install", *std_npm_args(ignore_scripts: false)
     bin.install_symlink libexec.glob("bin/*")
 
     # remove non-native architecture pre-built binaries

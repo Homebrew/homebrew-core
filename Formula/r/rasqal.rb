@@ -10,8 +10,6 @@ class Rasqal < Formula
     regex(/href=.*?rasqal[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "2ab423879b5e055a6e0895821440d428dd3d9c03becafe542a15b76072593e88"
     sha256 cellar: :any,                 arm64_sequoia:  "de698e3a83cb5fb348934c69dc81af3013e0cb60a4a8a94a53963554eaf8b2b7"

@@ -1,19 +1,18 @@
 class Crane < Formula
   desc "Tool for interacting with remote images and registries"
   homepage "https://github.com/google/go-containerregistry"
-  url "https://github.com/google/go-containerregistry/archive/refs/tags/v0.20.7.tar.gz"
-  sha256 "623a87ec77206bae301a9af64b42ba05e602b1608d0ee3574749b348ab4dd7ac"
+  url "https://github.com/google/go-containerregistry/archive/refs/tags/v0.21.5.tar.gz"
+  sha256 "c2291876a087f93a61b561594a389e6543091c0c5c50f16b5f9c14417d2fc947"
   license "Apache-2.0"
   head "https://github.com/google/go-containerregistry.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d1eb007d46a20d7951ed9d0c7bbc0ce26a27e2aa576b08cd25e68017e361194a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d1eb007d46a20d7951ed9d0c7bbc0ce26a27e2aa576b08cd25e68017e361194a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1eb007d46a20d7951ed9d0c7bbc0ce26a27e2aa576b08cd25e68017e361194a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6c31eef5c2fa3efbd01c6df8cda5d4ffbc3acd1a6763b707e43134306f90ba56"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c1d172bcede0ef610c4cc5fd7b7ed8c6855f220f013a6f622821f8c20ba9d18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78bb2e5add10e20cef5621b5fff2483e5821faa75fdafb6300279cde599450ae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ed3d8e4ada4febd347f40a114df65e004e0c49b2f5ded98d066d8333eadb16b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed3d8e4ada4febd347f40a114df65e004e0c49b2f5ded98d066d8333eadb16b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed3d8e4ada4febd347f40a114df65e004e0c49b2f5ded98d066d8333eadb16b0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4145a93b20ae6136f6e1e09c884f76e7fd3579cdc9fd3ef6d7b23a8ad3a1ea61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "85a9939f2cc6ab3ad972ad6eee8f6358b542098bb163dbea631466c829bfdf57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d5f8ea6cfbfe70b7beadd64beb674e36b564ed4c15e3d38d9f9d4f19ee080ca"
   end
 
   depends_on "go" => :build

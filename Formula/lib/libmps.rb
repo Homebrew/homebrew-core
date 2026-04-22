@@ -6,8 +6,6 @@ class Libmps < Formula
   license "BSD-2-Clause"
   head "https://github.com/Ravenbrook/mps.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c615224288aff51fe425cc3ab91473dbf05f95391c883ca5764e0de227992891"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c651514f2ee9c277517272b328db0e41ab0cc06b3998302e591db274dc70f104"

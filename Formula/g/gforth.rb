@@ -6,8 +6,6 @@ class Gforth < Formula
   license "GPL-3.0-or-later"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "ede972e5e6570b4811d3967dd77c8780142c5bc97884a392c523b4b91b913148"

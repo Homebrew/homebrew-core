@@ -1,18 +1,19 @@
 class Cryptography < Formula
   desc "Cryptographic recipes and primitives for Python"
   homepage "https://cryptography.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/78/19/f748958276519adf6a0c1e79e7b8860b4830dda55ccdf29f2719b5fc499c/cryptography-46.0.4.tar.gz"
-  sha256 "bfd019f60f8abc2ed1b9be4ddc21cfef059c841d86d710bb69909a688cbb8f59"
+  url "https://files.pythonhosted.org/packages/47/93/ac8f3d5ff04d54bc814e961a43ae5b0b146154c89c61b47bb07557679b18/cryptography-46.0.7.tar.gz"
+  sha256 "e4cfd68c5f3e0bfdad0d38e023239b96a2fe84146481852dffbcca442c245aa5"
   license any_of: ["Apache-2.0", "BSD-3-Clause"]
+  compatibility_version 1
   head "https://github.com/pyca/cryptography.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "92d8aa87b7e06827b7005d249aab7b477062ddc5e24be66aa8c870982e996e01"
-    sha256 cellar: :any,                 arm64_sequoia: "18cc3e671fe4e153482b22cb03116b755d2efe0bb6a6bb7a106e52a5c5f4345a"
-    sha256 cellar: :any,                 arm64_sonoma:  "f2940989b507edf85572600e7e33fc6aa105d6b6ab264e78d45fca89552847ee"
-    sha256 cellar: :any,                 sonoma:        "70c65e0b942f4e138d75f932a27ce23fa546a73b380ccd36d6b096faebb89bfc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec09ba9ca83dc8a31c4eb6799091814fcddcdb4945d8ffdba2a21a9bf95338d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5458396be9cf189441d8d310906428f4f7c63cde3c6e214c4e5091239959fbe3"
+    sha256 cellar: :any,                 arm64_tahoe:   "3d43b0d3b147ca50564cfba22f64542064c39c6e26cb424a163d4d736c9a5f3b"
+    sha256 cellar: :any,                 arm64_sequoia: "8cc97e1422c73bfdb9e1e8f0b7cf541f586f652b62f306920295db066d683022"
+    sha256 cellar: :any,                 arm64_sonoma:  "deb86e70cbbf84bbcfab0b2db91c6724a6e3067018fb1163dc6ae12736a14abe"
+    sha256 cellar: :any,                 sonoma:        "77ad383d5926c6be04fb8744a435d6baf7d22fb30e353fc55b311491d2f68f49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7730c451d5d7c0f9d501911a64cdf358bce3ff87ee8d38d31ef763b768375e7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bad0ca4c5e73d94f6016d7ba9b0252a275d82450841487aadf9389d5365df8b"
   end
 
   depends_on "maturin" => :build

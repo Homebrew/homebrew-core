@@ -1,18 +1,19 @@
 class Pandoc < Formula
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://github.com/jgm/pandoc/archive/refs/tags/3.8.3.tar.gz"
-  sha256 "064775f55802fea443c53b9ad61b6af5aab3fcda71c40e8ccb97f650dce78640"
+  url "https://github.com/jgm/pandoc/archive/refs/tags/3.9.0.2.tar.gz"
+  sha256 "c300c60ae4d47da6e5d265e93f89b896324cdc84ccbb504b88a9855bacd6b5d7"
   license "GPL-2.0-or-later"
+  compatibility_version 3
   head "https://github.com/jgm/pandoc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c701324c788c3d37d77fa3beba285aff7e91e9f931406082744f86fecf63aa6f"
-    sha256 cellar: :any,                 arm64_sequoia: "f3875a6c57702c9a02abc2f45f6e4313d650704bbf89bea80044746c7cdb0e31"
-    sha256 cellar: :any,                 arm64_sonoma:  "013ae292c9be6c9a592e8f585f429f88efd671cbc502281e68724b9069e3bf29"
-    sha256 cellar: :any,                 sonoma:        "56e28903135c09615455ad5b500b524d9d84f7a3ee90732a870e0f3f0c4be7b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9948957559ef8779b7e845b84f59f72a29d7da8fcfbde9578aeda8cd9598c25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c96acda21739e17f8016312bc3d65e4e58793c0cbf164eb01e2e5a1c459cfd2"
+    sha256 cellar: :any,                 arm64_tahoe:   "40762c24f0337d9dc07466e365c0c3e0cb6023122bca9a6b36dcc0dd962f0b04"
+    sha256 cellar: :any,                 arm64_sequoia: "94e1a3309022f75f42f7aba3c9d17f14fa743ad6704c469090e555f30c1c2552"
+    sha256 cellar: :any,                 arm64_sonoma:  "400988089c12d7a44b9aa4f06214362ef3afd861a9fb2ef880787f287a91b989"
+    sha256 cellar: :any,                 sonoma:        "61e744c37e05f28910e506d594e4304ded58c5785a5ea81dd9a42ba2c9a4b73f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ff02fb459c083ca44395eb4cc5be0926a9623ef555eeb775181d7b6f8a88461"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "918d76d5425b6e862faa3eebb5f2cf3d1ccbc28fb63eb51623bea89c4947f90a"
   end
 
   depends_on "cabal-install" => :build
@@ -21,7 +22,10 @@ class Pandoc < Formula
 
   uses_from_macos "unzip" => :build # for cabal install
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155

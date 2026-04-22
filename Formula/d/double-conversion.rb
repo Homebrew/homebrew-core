@@ -4,6 +4,7 @@ class DoubleConversion < Formula
   url "https://github.com/google/double-conversion/archive/refs/tags/v3.4.0.tar.gz"
   sha256 "42fd4d980ea86426e457b24bdfa835a6f5ad9517ddb01cdb42b99ab9c8dd5dc9"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://github.com/google/double-conversion.git", branch: "master"
 
   bottle do

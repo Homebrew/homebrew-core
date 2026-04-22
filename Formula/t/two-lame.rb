@@ -5,8 +5,6 @@ class TwoLame < Formula
   sha256 "cc35424f6019a88c6f52570b63e1baf50f62963a3eac52a03a800bb070d7c87d"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "3d0622b14c8204b38bc567923186649071882fca6ef5e8315d049958c07ca5ed"
     sha256 cellar: :any,                 arm64_sequoia:  "8adffc94879ee562f0f12517db906144dffb3e5154318eb23bd33426834f32dd"

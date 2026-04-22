@@ -6,8 +6,6 @@ class Libmypaint < Formula
   license "ISC"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "11d123c05be7148acf8a9e8e99b84c4734252dd3085a03e4d9ed39616d5ece02"
     sha256 cellar: :any,                 arm64_sequoia:  "ada0de7fc29d5634da50e9a9dd05858fdb5fc839f6cfefb8dda3977ab7e9dd8c"

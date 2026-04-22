@@ -6,8 +6,6 @@ class Libcds < Formula
   license "BSL-1.0"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "35d45642d081770329b82ecd4fd379a6e7a9b4aa3bf0edf7a1fb81d9ce3a755b"
     sha256 cellar: :any,                 arm64_sequoia:  "03307db4af7a248e4eed5333726ee17188845f0a28403a8a716816155835d411"

@@ -1,18 +1,18 @@
 class Regal < Formula
   desc "Linter and language server for Rego"
   homepage "https://www.openpolicyagent.org/projects/regal"
-  url "https://github.com/open-policy-agent/regal/archive/refs/tags/v0.38.1.tar.gz"
-  sha256 "6ec8d93bea5f9b3cb311cf53265b51c984107a8cbd90c102dd2f864107d776c6"
+  url "https://github.com/open-policy-agent/regal/archive/refs/tags/v0.40.0.tar.gz"
+  sha256 "6ceaec611652af634cf9c8384a322af74038c1c8b874b5dbc1da350ce4565797"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/regal.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c1ecfcecc9249b6b4c689d49604d25f404c8a72fcdeb1f85ad2ad4096b4668d1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f9abca1e34f538bf660941ca0e9b0a7208f03ef9ba031b96bddfd3fbc8fd51d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "170766f51f52f81238b902b0acdbecb59ea83fc30c5934cc404fd98b760051b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5e35e5fd3f804e91f2d72c24a4ec606a5e2db55b9be2481c8077cd8d7569b719"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3641d06c16db42073a3c8b8cc2d87740247f91825ef27364e7ab1397960852bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e6d4399d51a1fa2a42b4d85a1ab97dcc8a249394096dd2096081e4706a92270"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cec6c02fe7011597626821c8d2aa93693e857b9f622339e8e114c87f72c9f891"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cec6c02fe7011597626821c8d2aa93693e857b9f622339e8e114c87f72c9f891"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cec6c02fe7011597626821c8d2aa93693e857b9f622339e8e114c87f72c9f891"
+    sha256 cellar: :any_skip_relocation, sonoma:        "39fe2905bef26492872ceaba4e96669a44ff0e2e5c6f8b21130b63522244d12e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "14bb6488833bab5cfb7995200c9e549a3e68e3b7c9ad2da54c59cfd842beaa33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e169c07644b0ea9af9733e45d1668b036fb1db015a2d13f99b799e6878addbe1"
   end
 
   depends_on "go" => :build

@@ -10,8 +10,6 @@ class Jthread < Formula
     regex(/href=.*?jthread[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "6afeed9e7aae5a7268e9361ab770bc8b477a4e3752043ab2ece66a38eb589be6"
     sha256 cellar: :any,                 arm64_sequoia:  "0b2a1b4160a03bae62a73f61bd3e2bbedd3a4080f4e2650060a05bb445301c4b"

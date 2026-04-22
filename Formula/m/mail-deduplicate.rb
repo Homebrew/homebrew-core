@@ -6,11 +6,11 @@ class MailDeduplicate < Formula
   url "https://files.pythonhosted.org/packages/0c/0c/0e83bc1a549394b6c372caa8e6e5859020d23f470362d02276f1d2d56645/mail_deduplicate-8.1.2.tar.gz"
   sha256 "30ed948490f35f47da27829f239c20068a936010d78e198da44b69f1d65c3d1e"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/kdeldycke/mail-deduplicate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "03bcd3be40f5122e5bf174e5edd3aa219bfb410b57e86fd9f1108fa2150e86dc"
+    sha256 cellar: :any_skip_relocation, all: "dd072a9c0b5647ae5191f6ce0e9eacaaace4c51fdebdf2edbff5f3217cb6151c"
   end
 
   depends_on "rust" => :build # for click_extra > uv_build
@@ -36,8 +36,8 @@ class MailDeduplicate < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "click" do
@@ -46,8 +46,8 @@ class MailDeduplicate < Formula
   end
 
   resource "click-extra" do
-    url "https://files.pythonhosted.org/packages/50/2a/79e85d7683fd97037326dbdad60524c075ef01dad2adad0a6d6fa40c41a4/click_extra-7.4.0.tar.gz"
-    sha256 "869cd811074a4c5049fb241087e55242bf36ee328133ae932f37730833d9b9d9"
+    url "https://files.pythonhosted.org/packages/61/cd/65d46aed5d64524e47fe39b2d6119e9295d23dbe65916ca64cd0f26efb05/click_extra-7.8.0.tar.gz"
+    sha256 "235ac590e893c6eee88ecbc22500c5f7d24ed5fdfbed7824dfb8d730a0759dc0"
   end
 
   resource "cloup" do
@@ -60,14 +60,9 @@ class MailDeduplicate < Formula
     sha256 "5c3d86081fbebd04dd5de03626a0607b809a98fb6ccba5770b62466fe940ff20"
   end
 
-  resource "distro" do
-    url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"
-    sha256 "2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed"
-  end
-
   resource "extra-platforms" do
-    url "https://files.pythonhosted.org/packages/fb/df/73e313d4ecca7b703b6f369d9ed0c2c0d4d8a149e1c675e9915f8426a513/extra_platforms-6.0.0.tar.gz"
-    sha256 "ff0d392e390d2447183af4b300dd4569d2dbf760adf1e30c2b0cefb30ee58488"
+    url "https://files.pythonhosted.org/packages/d6/ee/372b3699b3e1cfc7f35430ab14d91b1fb04eff032b96f17a1a7e69a279ac/extra_platforms-11.0.3.tar.gz"
+    sha256 "56225020fe60859bdd27549311b8efc5e3213f79c7851292d9f07189ee730ec1"
   end
 
   resource "idna" do
@@ -81,8 +76,8 @@ class MailDeduplicate < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "six" do
@@ -91,8 +86,8 @@ class MailDeduplicate < Formula
   end
 
   resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
-    sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
+    url "https://files.pythonhosted.org/packages/46/58/8c37dea7bbf769b20d58e7ace7e5edfe65b849442b00ffcdd56be88697c6/tabulate-0.10.0.tar.gz"
+    sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
   end
 
   resource "tzdata" do
@@ -111,8 +106,8 @@ class MailDeduplicate < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
-    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   def install

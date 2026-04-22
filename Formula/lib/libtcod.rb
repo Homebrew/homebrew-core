@@ -11,12 +11,13 @@ class Libtcod < Formula
   ]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3687d7b12bb271b81362baef090770acda1e6b7917e6321e0bae1dc3ac520e06"
-    sha256 cellar: :any,                 arm64_sequoia: "c08ce55939f22ea91ce2a5f195e5cc8640c29ea4e75dae51773dfd86b78750c7"
-    sha256 cellar: :any,                 arm64_sonoma:  "a696e891e5fc13f55b730c8c2e3c3a80d616fb0ec11cdfd7ffe3e74611b31bec"
-    sha256 cellar: :any,                 sonoma:        "2d82f0ef65eb6bd3ae04ac29c6c58051d43339ba50ef40ff1d46dce2547b31c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0066f7f25b53c3ef0f386b63b11a04c1c15bdf804348f0f893c20b696b7ec89a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d02c1e93daa5f1c0d1256280caa89e53b4825949778e5567ee537d406709160b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "612e3f1e9f6976f652fbcf1a2eb61eea4fcc89587d7b53b15787b4397540da73"
+    sha256 cellar: :any,                 arm64_sequoia: "2936e52ddf2b7f8b348dd7c853b72151525639fa980e48db5321546887b8d472"
+    sha256 cellar: :any,                 arm64_sonoma:  "2fb1ffcb63481f5bdd7ccbb37cc9ee5306893d6f081b80449066bab9b9259534"
+    sha256 cellar: :any,                 sonoma:        "658e1e5d8b99476480480624806bc1f356064487dec25717193218d13564f1f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7061320d3e56653d9479caaaaf03cfc2a8ba93e3072afbf9a2edac0cd6852c81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bd3c9f84e29286387f4741845a996b3fcecffec5ba6715842db8168f25249ee"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +25,9 @@ class Libtcod < Formula
   depends_on "sdl3"
   depends_on "utf8proc"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     rm_r("src/vendor/zlib")

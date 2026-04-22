@@ -1,18 +1,18 @@
 class Sniffnet < Formula
   desc "Cross-platform application to monitor your network traffic"
   homepage "https://sniffnet.net/"
-  url "https://github.com/GyulyVGC/sniffnet/archive/refs/tags/v1.4.2.tar.gz"
-  sha256 "7fc4cc610a2bbd823604abe6acabceac2cbeb9d42129851df9b6b24cc24d05c7"
+  url "https://github.com/GyulyVGC/sniffnet/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "c2000ee833c8329d5aaf2b4c1f950d01b48b2a93bd094f949dbed5d6ac4f4d8c"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/GyulyVGC/sniffnet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a6044656799fbb1c3834c323e39fbb4564d54716bacdc1b1324487a3c0642aa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "792d9b7324c83a420008db4d9f5411ba7caa18e91a54e0e0fcdf7eff3058d724"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b8c49b200bee621d64aa6825fefe1a04ed6b3af360d784b4d2b6940c06e6569"
-    sha256 cellar: :any_skip_relocation, sonoma:        "628b4d505e61357664fcfa85193e755ebd59b04b2f72f6944c2f6bbbe0dccf48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3d3d86d6d894281e8fa2c7d4e0bb9597254218a3d1dfbe96356bbf97a33b0eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a245e62ff02c4d56dc2588888c03b728165b1348c13e031a0c2080b0756f3dc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cb270fc29006b2715f9349ebb56be995c87882077445f116e112fbb124df4b8d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f1550377e32b24139576e6bf66bf4ee8499ac0003b7d8994bf25a3a99bb0e37"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "680474f087bac2d927c28983cecfa659662c82785f127f40781b50c3575cc01b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d474bd3b1d41fd98cf764cc0ad1caf194d9122314d873505d79d53267cb9066f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "417d26b7b402396152a20d5d38cd97133e16942b5cc46019d14d2dc59e2ac6d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a37d1b708f7922f7399d952d2b5282e96e1bb8fcc5e8b3e1b949d055ad0fd5bb"
   end
 
   depends_on "pkgconf" => :build

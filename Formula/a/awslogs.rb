@@ -10,12 +10,15 @@ class Awslogs < Formula
   head "https://github.com/jorgebastida/awslogs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e87a84459a7c0bab495fcf6c9ce7de50669da05a01146b7c5d54eeda2597ddc2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4ea8c49112003cc5134e77115ba62350a6b7e00c76f35d838ba05f3166f65842"
   end
 
   depends_on "python@3.14"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/ee/21/8be0e3685c3a4868be48d8d2f6e5b4641727e1d8a5d396b8b401d2b5f06e/boto3-1.42.24.tar.gz"

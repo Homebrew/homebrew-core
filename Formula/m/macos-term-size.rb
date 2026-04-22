@@ -6,8 +6,6 @@ class MacosTermSize < Formula
   license "MIT"
   head "https://github.com/sindresorhus/macos-terminal-size.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "046cbcf0ab73b2a5f6e22b25bf54bbcf305f9a7e8b0af9cb6d60ff773da962ff"

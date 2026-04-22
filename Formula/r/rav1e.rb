@@ -4,6 +4,7 @@ class Rav1e < Formula
   url "https://github.com/xiph/rav1e/archive/refs/tags/v0.8.1.tar.gz"
   sha256 "06d1523955fb6ed9cf9992eace772121067cca7e8926988a1ee16492febbe01e"
   license "BSD-2-Clause"
+  compatibility_version 1
   head "https://github.com/xiph/rav1e.git", branch: "master"
 
   livecheck do

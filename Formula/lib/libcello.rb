@@ -11,8 +11,6 @@ class Libcello < Formula
     regex(/href=.*?libCello[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f29b04252a3f79f89b5ed93d519639c4cf6c6033036d42d8a60567f466a19a96"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0e380cf6073b22792954d22559177ff5ff3cbaf11fbe00948c27b675338ff116"

@@ -1,19 +1,18 @@
 class KubeBench < Formula
   desc "Checks Kubernetes deployment against security best practices (CIS Benchmark)"
   homepage "https://github.com/aquasecurity/kube-bench"
-  url "https://github.com/aquasecurity/kube-bench/archive/refs/tags/v0.14.1.tar.gz"
-  sha256 "30ae4e876a05f6acfe783034079a347b6748d4068ba4b7e340376e2a50d9112f"
+  url "https://github.com/aquasecurity/kube-bench/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "7d9e894863998800a57cc5045a62dd5b7e958951347f172a96aea0907f200b19"
   license "Apache-2.0"
   head "https://github.com/aquasecurity/kube-bench.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2afbdb9a5900df8ef130ee9928debe03bfbc0b4ed65d5c55e6dce996b8332c24"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2afbdb9a5900df8ef130ee9928debe03bfbc0b4ed65d5c55e6dce996b8332c24"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2afbdb9a5900df8ef130ee9928debe03bfbc0b4ed65d5c55e6dce996b8332c24"
-    sha256 cellar: :any_skip_relocation, sonoma:        "776d80d4a519f8ed549e16de1e8362e4762150a8675d70b6cdc64873ee5233e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7df3eaf03ed2ee6145c7a617105ca8731224f0e3f2d96d353cf16f02088de0e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a4c7bb078169d3bc08456d37b049b38e31e9eb245ed23aeebcad62b4d8b0a51"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "78f5fe779d3aaa2fe518a5a6a34a92d36993bb157f60848307d511194a5f443a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "78f5fe779d3aaa2fe518a5a6a34a92d36993bb157f60848307d511194a5f443a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78f5fe779d3aaa2fe518a5a6a34a92d36993bb157f60848307d511194a5f443a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1eca0d5815a129efa69b75b756fdd554adcc6d85618110d83c5187ff60b2f837"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2355e2d2cffbfab948499fa1a3c3d759becdd035cdd1dde35de0f66e012d55b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b0883040ac4a1ae9a6c84a7dc6f76a92b801e5e619ecde4de77be1b3adb56d0"
   end
 
   depends_on "go" => :build

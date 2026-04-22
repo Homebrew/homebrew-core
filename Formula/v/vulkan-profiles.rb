@@ -1,9 +1,10 @@
 class VulkanProfiles < Formula
   desc "Tools for Vulkan profiles"
   homepage "https://github.com/KhronosGroup/Vulkan-Profiles"
-  url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/vulkan-sdk-1.4.335.0.tar.gz"
-  sha256 "67173fc2d767639dd87fbe85e678de3f4c5e659c5df418d06c1be30a202b8fd3"
+  url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/vulkan-sdk-1.4.341.0.tar.gz"
+  sha256 "a20173e02fba707e4d1ef2badd1c0009df8aa142cb402ac48670be12e8c3fda6"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/KhronosGroup/Vulkan-Profiles.git", branch: "main"
 
   livecheck do
@@ -12,12 +13,12 @@ class VulkanProfiles < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "36cc8e069beddda8ea171425a781ccf9753375143d7c7035ad88f42627113a54"
-    sha256 cellar: :any,                 arm64_sequoia: "40e3166e73362559a6e748c303914118204e4eaed7cf533a038cbd3019aef981"
-    sha256 cellar: :any,                 arm64_sonoma:  "05f91e199ecd72e140f1469e800fc5bdc19270f663317914f529fa50157abeea"
-    sha256 cellar: :any,                 sonoma:        "ed38221bc8bdec3e24d6fd621c36c307f3f4785bfeea0e5835fa6b29f99e723e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd4fabc9f612ff249baa985c379280012fbc018e977dc8b301ed343c5bfabd93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83eb587a9c5d9859581eac8737cb7391e5fa8c99ff490cea1a080fa6e69acc1f"
+    sha256 cellar: :any,                 arm64_tahoe:   "7a173ab675e9c90c1fa4af74722308057623e65b1c893fb4cb64ed5d52255679"
+    sha256 cellar: :any,                 arm64_sequoia: "ff15d720beaf413868fc7105c8a8c2acc76e7dd87f5ed615fe5e08fad5767713"
+    sha256 cellar: :any,                 arm64_sonoma:  "367fd3313c20c5514b8cc127cdad0b7df2cf27d92a9d1a0091e4e68a205c27a8"
+    sha256 cellar: :any,                 sonoma:        "e3f752b08717a737bdb2e0f3ec4caeb36aed2492cb43e13f76164b9b48d9f129"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ef0052707a6505a93de581f8ddeeb263c5ae9d4514a9ab759f03811eb8cade2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cc02fe269e747f23e656e4cfd0ddaac01cb50bebdfed100625d920b5d48715b"
   end
 
   depends_on "cmake" => :build
@@ -73,6 +74,9 @@ class VulkanProfiles < Formula
       assert_path_exists share/"vulkan/explicit_layer.d/VkLayer_khronos_profiles.json"
     else
       ENV.prepend_path "VK_LAYER_PATH", share/"vulkan/explicit_layer.d"
+
+      # Disable Metal argument buffers for macOS Sonoma on arm
+      ENV["MVK_CONFIG_USE_METAL_ARGUMENT_BUFFERS"] = "0" if Hardware::CPU.arm? && OS.mac? && MacOS.version == :sonoma
 
       actual = shell_output("vulkaninfo")
       %w[VK_EXT_layer_settings VK_EXT_tooling_info].each do |expected|

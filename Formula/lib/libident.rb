@@ -10,8 +10,6 @@ class Libident < Formula
     regex(/href=.*?libident[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "79ba04c7084f4d774e85a799733bf4e79676f6ef0d5fc7c9036db9fd2e2b97e5"

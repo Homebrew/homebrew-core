@@ -17,7 +17,7 @@ class Kickstart < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--features", "cli", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "cli")
   end
 
   test do

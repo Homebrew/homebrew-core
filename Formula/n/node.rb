@@ -1,9 +1,11 @@
 class Node < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v25.5.0/node-v25.5.0.tar.xz"
-  sha256 "7e35efaf63c8fe7737b8c62792ec547e5a95a69f1f813fcfba28566aecc9fd92"
+  url "https://nodejs.org/dist/v25.9.0/node-v25.9.0.tar.xz"
+  sha256 "8f78af3ee55fb278668b5f801db58bd1a38ea161318eb5ce2128ddbc9cd813aa"
   license "MIT"
+  revision 2
+  compatibility_version 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -12,12 +14,12 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7e7f7f40fc11ee78b1fea467cdbe250463627a0f6efd4fef90de2b2e302c05d6"
-    sha256 cellar: :any,                 arm64_sequoia: "e833ad5cacd1198ffba867047620983a80991cbdb29c557bf61757ea20e9bc20"
-    sha256 cellar: :any,                 arm64_sonoma:  "c326a85bf19113b39782c05c0b9309a6110416ae6d32a3182f4b40d4ccdf4997"
-    sha256 cellar: :any,                 sonoma:        "e8b90fcaf0e60428680fd81d4c780fce475ce29d8810ad4b9c8a3dc8faaffb3c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "647d674f36427c0facc22cacfdac4f31b7459af0d3f269f1427be96c9b817b1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e0baab65e38c1e99266abcf7fb47aa3df45a4d7afbebcd23b9a81d843aa54f0"
+    sha256 cellar: :any,                 arm64_tahoe:   "3432dd22a4f6bb6b6a2decdaa6e39f980518120106b25e8f9032c92e97380938"
+    sha256 cellar: :any,                 arm64_sequoia: "8c3fb7faffdab909f18ecd255cd7ec63d0fd874d48285f40b4e09ef472140f71"
+    sha256 cellar: :any,                 arm64_sonoma:  "c384fef61921d8e3af26fc67231bbf581ffe176de2e5ecef42c4ea66ba2bf1a5"
+    sha256 cellar: :any,                 sonoma:        "492d9823b1e958a334d664b9694a02d2e2087280d248c398284d75787cdf8733"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "21c9e2e7f8fb82c2764cddf862baf49e5c86e7483b30902186e63f1f8aa77bbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "863422cefaae72ab333d662a64a39e81b97a00065c9bc0e7a460b1b16e010a1b"
   end
 
   depends_on "pkgconf" => :build
@@ -32,6 +34,8 @@ class Node < Formula
   depends_on "libngtcp2"
   depends_on "libuv"
   depends_on "llhttp"
+  depends_on "merve"
+  depends_on "nbytes"
   depends_on "openssl@3"
   depends_on "simdjson"
   depends_on "sqlite" # Fails with macOS sqlite.
@@ -39,10 +43,13 @@ class Node < Formula
   depends_on "zstd"
 
   uses_from_macos "python"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   link_overwrite "bin/npm", "bin/npx"
@@ -63,8 +70,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.8.0.tgz"
-    sha256 "5a219dd7d4e71d7d289ed45097182cedaf93370223b143108f6dcb8eccac1375"
+    url "https://registry.npmjs.org/npm/-/npm-11.12.1.tgz"
+    sha256 "e679850e663b16f5f146ee425d0eb0e3442c1d2bda3d513bbfd7c81f5ee5db38"
 
     livecheck do
       url "https://raw.githubusercontent.com/nodejs/node/refs/tags/v#{LATEST_VERSION}/deps/npm/package.json"
@@ -110,6 +117,8 @@ class Node < Formula
       "hdr-histogram" => ["histogram",       "hdrhistogram_c"],
       "http-parser"   => ["llhttp",          "llhttp"],
       "libuv"         => ["uv",              "libuv"],
+      "merve"         => ["merve",           "merve"],
+      "nbytes"        => ["nbytes",          "nbytes"],
       "nghttp2"       => ["nghttp2",         "libnghttp2"],
       "nghttp3"       => ["ngtcp2/nghttp3",  "libnghttp3"],
       "ngtcp2"        => ["ngtcp2",          "libngtcp2"],
@@ -117,7 +126,7 @@ class Node < Formula
       "simdjson"      => ["simdjson",        "simdjson"],
       "sqlite"        => ["sqlite",          "sqlite"],
       "uvwasi"        => ["uvwasi",          "uvwasi"],
-      "zlib"          => ["zlib",            ("zlib" unless OS.mac?)],
+      "zlib"          => ["zlib",            ("zlib-ng-compat" unless OS.mac?)],
       "zstd"          => ["zstd",            "zstd"],
     }.each do |flag, (subdir, formula)|
       rm_r(buildpath/"deps"/subdir)
@@ -130,14 +139,14 @@ class Node < Formula
 
     # TODO: Try to devendor these libraries.
     # - `--shared-gtest` is only used for building the test suite, which we don't run here.
-    # - `--shared-nbytes` is not available as dependency in Homebrew.
     # - `--shared-simdutf` seems to result in build failures.
     # - `--shared-temporal_capi` is only used when building with `--v8-enable-temporal-support`
+    # - `--shared-lief` is not available as dependency in Homebrew.
     ignored_shared_flags = %w[
       gtest
-      nbytes
       simdutf
       temporal_capi
+      lief
     ].map { |library| "--shared-#{library}" }
 
     configure_help = Utils.safe_popen_read("./configure", "--help")
@@ -187,9 +196,8 @@ class Node < Formula
     ln_s libexec/"lib/node_modules/npm/bin/npm-cli.js", bin/"npm"
     ln_s libexec/"lib/node_modules/npm/bin/npx-cli.js", bin/"npx"
 
-    generate_completions_from_executable(bin/"npm", "completion",
-                                         shells:                 [:bash, :zsh],
-                                         shell_parameter_format: :none)
+    # Use the _npm completion included in Zsh rather than generating broken completion
+    generate_completions_from_executable(bin/"npm", "completion", shells: [:bash], shell_parameter_format: :none)
   end
 
   def post_install

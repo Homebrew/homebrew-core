@@ -6,15 +6,16 @@ class Grayskull < Formula
   url "https://files.pythonhosted.org/packages/9e/b3/3dc573164d215320b0f2ebd2da07352abb13a843d1dcae6e261d678aa712/grayskull-3.1.0.tar.gz"
   sha256 "6ccbcc7455c08b68d95ed880fe486d87ad321ee483ccb375bfd8163c19a0fdfa"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/conda/grayskull.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0bea4584f95992631872492944f970fd8b6838029272e482f0af91ff4ec49fab"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "98e6bff6dd3f70ca04329de31140a49a6feb923f33bca6da7d10277300953f3b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d672938ecfee9c49fe85bd635b7f5148e868130d619d03045e7f842cf0b439f5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "455ecffa8668b228f7c533e17171c8e4652cad0777f5326fc8ef685cb34258e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9946d2b6317b89568ce26e827e1474468225b0176fc6a4b8622dbf6ead0f9664"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5299e0fa8d78b94e14d85746dfa9c48897bdf6e88d533aa7d134e756e20e95d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b1dc52007a1f23748fb0445fdaa7137b00eaac4ac673a77126d99ffe46dd608"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b85834d89bfb00cfc3a88f2cb7c087042cc6e9a8b559a694b00483566849c07"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14a2fef9027eea16a6b37e479297cc8d5c4286440f85daf129b2f3bd74a7ca5e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "71dda93a5d3d386b608094e7cf59230548b82343d1080d0cabf47823cb69339d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7309b0adabe2552358cf8a59edc31ecacb7ca2a0cfb4bb8ed967f84415d8353f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43c0e4d3908d9b110101e77e6137cd856d1b41dbfe6fe38957b59b506d8a1f53"
   end
 
   depends_on "cmake" => :build
@@ -30,8 +31,8 @@ class Grayskull < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "colorama" do
@@ -75,8 +76,8 @@ class Grayskull < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "ruamel-yaml" do
@@ -90,8 +91,8 @@ class Grayskull < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/86/ff/f75651350db3cf2ef767371307eb163f3cc1ac03e16fdf3ac347607f7edb/setuptools-80.10.1.tar.gz"
-    sha256 "bf2e513eb8144c3298a3bd28ab1a5edb739131ec5c22e045ff93cd7f5319703a"
+    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
+    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
   end
 
   resource "soupsieve" do

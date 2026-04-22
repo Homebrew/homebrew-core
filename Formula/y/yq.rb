@@ -1,9 +1,10 @@
 class Yq < Formula
   desc "Process YAML, JSON, XML, CSV and properties documents from the CLI"
   homepage "https://github.com/mikefarah/yq"
-  url "https://github.com/mikefarah/yq/archive/refs/tags/v4.52.2.tar.gz"
-  sha256 "598ad3719f6b8a199f374baf7a32e9ff527300e56816f4652cd3640c230bf79b"
+  url "https://github.com/mikefarah/yq/archive/refs/tags/v4.53.2.tar.gz"
+  sha256 "1bc19bb8b1029148afa3465a9383f6dcccb1ecce28a0af1d81f07c93396ce37d"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/mikefarah/yq.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Yq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c32eaf9c17dc8bedd7425698808253844a7667a0b28f9f63de423520a90d95d3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c32eaf9c17dc8bedd7425698808253844a7667a0b28f9f63de423520a90d95d3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c32eaf9c17dc8bedd7425698808253844a7667a0b28f9f63de423520a90d95d3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5305fc4680d38eb39e2d7b45b18dc5dee3191657d296f4d60591734262d68985"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0cb6b95f95865fcc575ce43541a4b4a9536333633e4613052d5d23acfff3b2eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed84420394fc4c6a79df0091a84dad5d84078fff4d71fbcbace8bba264e892d4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d17c2839ee1777042fee74ea12ae4b208ad185b7568736848056fca2c280ae10"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d17c2839ee1777042fee74ea12ae4b208ad185b7568736848056fca2c280ae10"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d17c2839ee1777042fee74ea12ae4b208ad185b7568736848056fca2c280ae10"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f286c6fe05ab3414f9698d81d59d36209980c63b3937e2e4e9437981e1fec8f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fb220286c54f661e9779d91eff29f46055ff544995b8beffacd7e6486df5fb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c30770b766c4be4264aaab9e3d901451cb8465d6e34cd42480b3088446ea1dd"
   end
 
   depends_on "go" => :build

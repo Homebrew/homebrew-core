@@ -55,12 +55,13 @@ class Agda < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b0b7ab12ac19d533c7dc37e6f11b7cf17729b176a41c1c5d53ea8c34e6d6615e"
-    sha256 arm64_sequoia: "e3b43d5354650ef5603c7c838a9ec1658795a93112393fc3e04002a63c29c93c"
-    sha256 arm64_sonoma:  "2e43e9dcf8147a8c45647aed49f5e81ea76da774a5aba545826c6f8c7fe3e5a4"
-    sha256 sonoma:        "6c4ed39ac8d453d22c68148d7411341059cd09f88362f95779063824545dfdb2"
-    sha256 arm64_linux:   "b3aa90ba8de385fa884e64139b79ea45389e86959b8bc1f5dde9e2d2c5091ed4"
-    sha256 x86_64_linux:  "20e68ba94e2bba1687c2f962fb1587eb3005bb913e78c6b94e0afd8e8b16e27f"
+    rebuild 1
+    sha256 arm64_tahoe:   "3f7b090a2ddef6b21d12b360562225550b5052f70a9f16839afc553f0bcdad0e"
+    sha256 arm64_sequoia: "cbc178c91fa436738cd71303af4edb3105d95e5041843de8f0a3ec5cbbac3993"
+    sha256 arm64_sonoma:  "ea4c080db237debe22c8889bcbcf1ad67faf7a66be0495e52628ff226389a36d"
+    sha256 sonoma:        "0df08c8a58ba9454afddbd9e6d311f4eb63869b04e486895c2abebf8c6f4ce9a"
+    sha256 arm64_linux:   "5048669180928b424510c70ba74d9a2db0852213ac8b9a31a7a7d4f20e26d3bb"
+    sha256 x86_64_linux:  "90c3445afa1850ba4eae9fae4646938d42f3a06da728bb6b2a64bce4bd4a281b"
   end
 
   head do
@@ -92,7 +93,10 @@ class Agda < Formula
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     agda2hs_build = buildpath/"agda2hs"
@@ -212,6 +216,8 @@ class Agda < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["ghc@9.12"].opt_bin
+
     Pathname("#{Dir.home}/.config/agda").install_symlink opt_pkgshare/"example-libraries" => "libraries"
     Pathname("#{Dir.home}/.config/agda").install_symlink opt_pkgshare/"example-defaults" => "defaults"
 

@@ -6,8 +6,6 @@ class Mstch < Formula
   license "MIT"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "de05bbbd99f8eb688ae2cd08287796eddbd6774bed8f27945cc818e8a1aee27a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "437c22d289926bc83d04a407aacb2673331d7bb27165a6c17af2994febc67c02"

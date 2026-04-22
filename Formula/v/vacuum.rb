@@ -1,23 +1,30 @@
 class Vacuum < Formula
   desc "World's fastest OpenAPI & Swagger linter"
   homepage "https://quobix.com/vacuum/"
-  url "https://github.com/daveshanley/vacuum/archive/refs/tags/v0.23.5.tar.gz"
-  sha256 "46738cb0ad25472b7dab64b3e1b2fb2fe0aa914ddf0e4123cc66f684c7cb99f8"
+  url "https://github.com/daveshanley/vacuum/archive/refs/tags/v0.26.1.tar.gz"
+  sha256 "e53ff6e3fcb40db676a349012b7ad7e14bc4259328f8853690afe9bbdc166cda"
   license "MIT"
   head "https://github.com/daveshanley/vacuum.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9f59f79d8d265c1e5e156e824d0e4e29a4ddce3d5372c68a070482a0ebb96a77"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "806f8659fe3878cb9e7bcd8ef1b685e090aa33ba919c5a2a5fa2e64520ae9ce3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bba10cdeb5601e626236d43679a11878ff0d6ddd379c18e4c57392d2c1a15d22"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5ffdc751a9988860fb8d944d9ec6f9edca9486d6fc258fbeeeadd39b0c444b76"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9d410e76563d99259d9071f5cc948f9ede556976bc63674401fbc4b1201fe99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fbfd7a172010a5ed8d62ecd3d3946439a0f338bd4d71c42e62e87548df24051"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a30d83955fd9c7dbf7940233cc66aff1d227995d30fb53cadc188b804c8b0ff8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "55b331fcd91c4d54b207d83cffffd87866605e40a3294aa6db87c78a83f0f7a9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a4f42f5ab4f9233abf998ce5273af6f6a2cf800c595a14db0ff189564aaac30"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a105ed0aa4b2c4f64b109d5ffe517064791c37fbb44568d7bd34d50feed56ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "20e965d3e529ba7cd77fad7a55fd90fda84a6003946c0fcfa1cbf7e95896f3a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a62b135a7320e0a06f598d52c21a18287da5fafbe6432dfddd6bdb67c8cf4fa5"
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
+  depends_on "yarn" => :build
 
   def install
+    cd "html-report/ui" do
+      system "yarn", "install", "--frozen-lockfile"
+      system "yarn", "build"
+    end
+
     ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:)
 

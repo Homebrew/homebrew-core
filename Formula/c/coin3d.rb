@@ -4,8 +4,8 @@ class Coin3d < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://github.com/coin3d/coin/releases/download/v4.0.7/coin-4.0.7-src.tar.gz"
-    sha256 "a01276052c31e84e4a069ee4452eab3b65a7d101a3fd7a09803be59125616270"
+    url "https://github.com/coin3d/coin/releases/download/v4.0.8/coin-4.0.8-src.tar.gz"
+    sha256 "aff6c7edf24cfb935edba46574ec5f83b543c47ff79e40c21fb92dc709b0f2c4"
 
     resource "soqt" do
       url "https://github.com/coin3d/soqt/releases/download/v1.6.4/soqt-1.6.4-src.tar.gz"
@@ -19,12 +19,12 @@ class Coin3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "49443d09f0467d12e81c022f986b92c6c2ea98aed128e2c04d7343b4b089734e"
-    sha256 cellar: :any,                 arm64_sequoia: "df83d5cf0449dec342406f9d66d5413fac738b1f188fb662da43f037d46510d5"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9f49771924fc09d2fea2471bfa26ce75eb575f1f6de875cff005cf787a50950"
-    sha256 cellar: :any,                 sonoma:        "bdd27ec1686977865494c754219a9d0c8e15fd3edea4d3e4097de330fb40b3bf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "297309b6aafc080387697d01842df94757b58000c84b4ef00ea8a1ee44437cdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccd152688f979fb8d5f33f635d51ea71a887fabada4ae949bd9280590d77815b"
+    sha256 cellar: :any,                 arm64_tahoe:   "c99f420721e92e91139456224982baac1eb95863a36880bcff3d7892f96dc777"
+    sha256 cellar: :any,                 arm64_sequoia: "e370d24b0e20aff5f37a7ddfa10cd4b262661863172f3a76d437e73b24ef9875"
+    sha256 cellar: :any,                 arm64_sonoma:  "45e831f7434645b2eb8ac03b66088fe24aec3792abe5ccf6cf08ddb81fca624c"
+    sha256 cellar: :any,                 sonoma:        "c97ccb81514a19c8e18fb1144e60cde5e9cb6979e2a0eb11a62030dc647073fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75155d00c26b9df819b006d8a4b0abfbeda5fffbde5f4dbc8ad09bedcc52b4dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d44311b6e8b687dcd7010a3aac45c37ee96f50586a0283712cb23405771e1582"
   end
 
   head do

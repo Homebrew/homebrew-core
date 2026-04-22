@@ -5,6 +5,7 @@ class SharedMimeInfo < Formula
   sha256 "32dc32ae39ff1c1bf8434dd3b36770b48538a1772bc0298509d034f057005992"
   license "GPL-2.0-only"
   revision 1
+  compatibility_version 1
   head "https://gitlab.freedesktop.org/xdg/shared-mime-info.git", branch: "master"
 
   livecheck do
@@ -14,8 +15,6 @@ class SharedMimeInfo < Formula
       json.map { |item| item["tag_name"]&.[](regex, 1)&.tr("-", ".") }
     end
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "fa674742c5c404fb7265f93a797e483c3ddec4a405180c467d73ffa3a4c2ad86"

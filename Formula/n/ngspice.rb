@@ -1,9 +1,10 @@
 class Ngspice < Formula
   desc "Spice circuit simulator"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/45.2/ngspice-45.2.tar.gz"
-  sha256 "ba8345f4c3774714c10f33d7da850d361cec7d14b3a295d0dc9fd96f7423812d"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/46/ngspice-46.tar.gz"
+  sha256 "a0d1699af1940b06649276dcd6ff5a566c8c0cad01b2f7b5e99dedbb4d64c19b"
   license :cannot_represent
+  revision 1
   head "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
 
   livecheck do
@@ -12,19 +13,14 @@ class Ngspice < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "fdf2c82d303c3b5944bdbd049ef15a40c388450879d085479965fd481148ed48"
-    sha256 arm64_sequoia: "4f819c80ddd4483301f7e01871aeb3049f9e219e22d315052423bde23ccb242d"
-    sha256 arm64_sonoma:  "4226d7fb2762659a85353d5d6bebba7f9c3808a5ade8a0ea4fabe2dff6e8e6b3"
-    sha256 arm64_ventura: "bb9832d330e7aa8d6e7642f2b7502af8aa6112b68ea4a2dd6fb0c97154c4492e"
-    sha256 sonoma:        "e589ca50ee6186e1ebe7d078df4cab987786504dce9f8e49f21686ffe775fe69"
-    sha256 ventura:       "525615c53f2f18720430f273b141d5f0da96a1180232f1838cd2e4418c51d1d0"
-    sha256 arm64_linux:   "943fc32abf2e74b11faa47f458a0c39c7789ca041bef2fe1ea5358b95afa67a6"
-    sha256 x86_64_linux:  "4825e30255d2c0fdb9d41e374ddf3984eb38f5eaae5e9e1a0439abd425c35eb7"
+    sha256 arm64_tahoe:   "8343461583c56ca951d0508e8459462ea98f6af3f1783e2e491874828a1a5ad9"
+    sha256 arm64_sequoia: "3cffddf9fe4c94c3b706847ba461d60ca89dff9379839d72cc1c2f75e060983d"
+    sha256 arm64_sonoma:  "3ce129ec06cd1db6ead129a5f36a645fa196920df68b2b3870d4e3f8a840c7ee"
+    sha256 sonoma:        "93543c940da1f0d3d9f413ea0e49e1e7b274ea57d8bfde30ef8d6e1386b4782c"
+    sha256 arm64_linux:   "8f25521726c656b9866cb1ebb30bdd3c23ce6da724536a4de01b0597ccc7f3b1"
+    sha256 x86_64_linux:  "f42643fd6446de764738e5a58b68a01136f8ae8c6e89f8bbadae66b8db0bb1e7"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "fftw"
   depends_on "freetype"
   depends_on "libngspice"
@@ -43,11 +39,10 @@ class Ngspice < Formula
     depends_on "libxmu"
   end
 
-  def install
-    odie "check if autoreconf line can be removed" if version > "45.2"
-    # regenerate since the files were generated using automake 1.16
-    system "autoreconf", "--install", "--force", "--verbose"
+  # Disable the broken macOS memory check. upstream commit ref, https://sourceforge.net/p/ngspice/ngspice/ci/96404e993984065f9104d724672bcdcafd7f356f/
+  patch :DATA
 
+  def install
     # Xft #includes <ft2build.h>, not <freetype2/ft2build.h>, hence freetype2
     # must be put into the search path.
     ENV.append "CFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
@@ -93,3 +88,24 @@ class Ngspice < Formula
     system bin/"ngspice", "test.cir"
   end
 end
+
+__END__
+diff --git a/src/frontend/outitf.c b/src/frontend/outitf.c
+index a9e47df..56883b0 100644
+--- a/src/frontend/outitf.c
++++ b/src/frontend/outitf.c
+@@ -556,6 +556,7 @@ OUTpD_memory(runDesc *run, IFvalue *refValue, IFvalue *valuePtr)
+ {
+     int i, n = run->numData;
+ 
++#ifndef __APPLE__
+     if (!cp_getvar("no_mem_check", CP_BOOL, NULL, 0)) {
+         /* Estimate the required memory */
+         size_t memrequ = (size_t)n * vlength2delta(0) * sizeof(double);
+@@ -569,6 +570,7 @@ OUTpD_memory(runDesc *run, IFvalue *refValue, IFvalue *valuePtr)
+             controlled_exit(1);
+         }
+     }
++#endif
+ 
+     for (i = 0; i < n; i++) {

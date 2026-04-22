@@ -12,8 +12,6 @@ class Duti < Formula
     regex(/^duti[._-]v?(\d+(?:[.-]\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0682c28b17ef7f44de34a1fd7a6d3eba5b40b8428f78c18462619386bd564cb2"

@@ -5,8 +5,6 @@ class Mmtabbarview < Formula
   sha256 "a5b79f1b50f6cabe97558f4c24a6317c448c534f15655309b6b29a532590e976"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "a502f7deb3e18188669316c46c503980256b4286d0c52d1e211a772d45919844"
     sha256 cellar: :any, arm64_sequoia:  "9ae9758b04f5cbc6068b0e41266db2fbad7065d90134060c27bc73d36d780c2d"

@@ -4,14 +4,16 @@ class Gstreamer < Formula
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
   revision 1
 
+  compatibility_version 1
+
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.0/gstreamer-1.28.0.tar.bz2"
-    sha256 "f1ab0903c789ee153e116963b8dbc02d40d7bf5e8bc25c70777585b5b61f5a15"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.2/gstreamer-1.28.2.tar.bz2"
+    sha256 "3eb15429a2721b91fe8339c321867462eb87b98cdad2109292a0aa42cdd6e2c3"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.0/gst-plugins-rs-gstreamer-1.28.0.tar.bz2"
-      sha256 "00c3e13cf2aeb5340159c046f01e6d41690157fc93a643727b03f32ac955197d"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.2/gst-plugins-rs-gstreamer-1.28.2.tar.bz2"
+      sha256 "f736a9e3cad1c71a736ffc6749a076bb0939274bbe6f2635a3c4ea65bae7e910"
 
       livecheck do
         formula :parent
@@ -25,12 +27,12 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "53c72342367355e243bb0c7f1fab43728e74733cf0eb3fdb013f05fb04f2583d"
-    sha256 arm64_sequoia: "1323de42a3e118dd5377307a0fcd74f8f1fd46f7f8e02edfaec365d417b3d1b9"
-    sha256 arm64_sonoma:  "ba4d78b14c825a0887732d1242fc129e0664e45c0b653665ca38a4cf8c85ad8a"
-    sha256 sonoma:        "9b10549f31b7b3a00f0cb17e2f009e8a160ed5fe8d858edcfb0aa08911d9f36f"
-    sha256 arm64_linux:   "1e18942901b85385fec860b1df7011463b74ede8e69796588a9cdc700a2dd641"
-    sha256 x86_64_linux:  "90f3affcdf77731011b603d1bdfbf1b2010c307d52dfe303a7affbd5139dc3be"
+    sha256 arm64_tahoe:   "0e56fbc7435860a959989d837080e67b7c75818e57f4c5a839edf62abc8d3119"
+    sha256 arm64_sequoia: "87027019ee76aee0eb91847d20b113dbc40699782417c25a9e50f8f33d80a2d7"
+    sha256 arm64_sonoma:  "e9eba457ff38bfb24ef516d0df9b2229a9af6c4a678640fcc110280fc516b2f1"
+    sha256 sonoma:        "221f74211397058ef3146527940a54ca53bfe3857e813291ac58012662e6982f"
+    sha256 arm64_linux:   "98f35d8fe7ba3fa17a658870824b4eecdc92fa26b3a44315f878069c7e103d7e"
+    sha256 x86_64_linux:  "ab9129bb8a25422e1e58897009888766b2c655e24a75ce60dd91ea51bfded8e5"
   end
 
   head do
@@ -43,6 +45,7 @@ class Gstreamer < Formula
 
   depends_on "bison" => :build
   depends_on "cargo-c" => :build
+  depends_on "cmake" => :build
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
@@ -113,7 +116,6 @@ class Gstreamer < Formula
   uses_from_macos "bzip2"
   uses_from_macos "curl"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -125,6 +127,7 @@ class Gstreamer < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "elfutils" => :no_linkage
     depends_on "fontconfig"
     depends_on "freetype"
     depends_on "libdrm"
@@ -134,10 +137,11 @@ class Gstreamer < Formula
     depends_on "mesa"
     depends_on "pulseaudio"
     depends_on "wayland"
+    depends_on "zlib-ng-compat"
   end
 
   def python3
-    which("python3.14")
+    Formula["python@3.14"].opt_bin/"python3.14"
   end
 
   skip_clean "lib/gstreamer-1.0/libgstnice.dylib", "lib/gstreamer-1.0/libgstnice.so"
@@ -203,6 +207,7 @@ class Gstreamer < Formula
       -Dgst-plugins-rs:sodium=enabled
       -Dgst-plugins-rs:csound=disabled
       -Dgst-plugins-rs:gtk4=enabled
+      -Dgst-plugins-rs:webrtchttp=enabled
       -Dgst-plugins-rs:sodium-source=system
     ]
 
@@ -213,10 +218,17 @@ class Gstreamer < Formula
     # Prevent the build from downloading an x86-64 version of bison.
     args << "-Dbuild-tools-source=system"
 
+    # TODO: Remove when gst-plugin-whisper builds on Linux arm64 again.
+    # Whisper was added in 1.28.1 and currently fails in CI with Rust type
+    # mismatches (*const i8 vs *const u8).
+    # Ref: https://gstreamer.freedesktop.org/releases/1.28/#1.28.1
+    args << "-Dgst-plugins-rs:whisper=disabled" if OS.linux? && Hardware::CPU.arm?
+
     # Set `RPATH` since `cargo-c` doesn't seem to.
     # https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/issues/279
     plugin_dir = lib/"gstreamer-1.0"
-    rpath_args = [loader_path, rpath(source: plugin_dir)].map { |path| "-rpath,#{path}" }
+    rpaths = [loader_path, rpath(source: plugin_dir), rpath(source: plugin_dir/"validate")]
+    rpath_args = rpaths.map { |path| "-rpath,#{path}" }
     ENV.append_to_rustflags "--codegen link-args=-Wl,#{rpath_args.join(",")}"
 
     # Make sure the `openssl-sys` crate uses our OpenSSL.
@@ -265,7 +277,10 @@ class Gstreamer < Formula
     skip_plugins = OS.mac? && Hardware::CPU.intel? && ENV["HOMEBREW_GITHUB_ACTIONS"]
     ENV["GST_PLUGIN_SYSTEM_PATH"] = testpath if skip_plugins
 
-    assert_match(/^Total count: \d+ plugin/, shell_output(bin/"gst-inspect-1.0"))
+    ENV["LC_ALL"] = "C"
+    ENV["LANG"] = "C"
+    gst_inspect_output = shell_output(bin/"gst-inspect-1.0")
+    assert_match(/Total count: \d+ plugins?/, gst_inspect_output)
     return if skip_plugins
 
     system bin/"ges-launch-1.0", "--ges-version"

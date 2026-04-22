@@ -1,8 +1,8 @@
 class Gitoxide < Formula
   desc "Idiomatic, lean, fast & safe pure Rust implementation of Git"
   homepage "https://github.com/GitoxideLabs/gitoxide"
-  url "https://github.com/GitoxideLabs/gitoxide/archive/refs/tags/v0.50.0.tar.gz"
-  sha256 "8ad0fdcfa465fedac7c4bafaae2349ad0db7daf48a80d9cb2bd70dd36fa567aa"
+  url "https://github.com/GitoxideLabs/gitoxide/archive/refs/tags/v0.52.0.tar.gz"
+  sha256 "8c4edd66f19e9c672040f8a4f76de5f3feafff5c443fc54554ae142a36bc10af"
   license "Apache-2.0"
   head "https://github.com/GitoxideLabs/gitoxide.git", branch: "main"
 
@@ -12,22 +12,25 @@ class Gitoxide < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1999efb9ba72e149f3dc4a717013a678ef4b37e2bdf0fffafde6ebc75b6d9a93"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44137ce72ee44354493a8582a4df6713fc6b23cb368a7386782e029709b7ca6d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8bddc1fe73a6c46a84ca9fb66cd145b029a63f980e299bbfdf41493fd8072fbe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1de2a5e170ec12e051dd50b13a41fda91891d46463e025c7331b9b5a9f2d9081"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab3342a3e2b1971aee7575147231a6a32a0e255db46017c47739504a3025c583"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1de421e2752caee925da0824a8fb607bfb4486ecf8ea5dcb9978140461997798"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fcbc1b1f45e44cbabd0dc7e49ec38d15634fdfc010cc8e2d84efc7d4255c5896"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d62b3680fb49e321fc4bf1d5a3557347bb1f3a27e5295b50ef54ea7c2def2d4a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37172e4bbc32fafb3831a3dee1fa7c54cf4bced044cedcb227cbec63eb594de6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fe3ca99efefbf69c3f5d0fb3c7b127f2bde97a36811b225e935a548b817d3fc4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2dbeced411a62ffd597b5444bd8f0849e6e58cb090ac9a5190427e1cdb9963d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2dafac43e8540a3195e884b96ee1376c987ab57b9bf69cae9f5441c0a9346218"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    features = %w[max-control gitoxide-core-blocking-client http-client-curl]
-    system "cargo", "install", "--no-default-features", "--features=#{features.join(",")}", *std_cargo_args
+    features = %w[max-control gitoxide-core-blocking-client http-client-curl hashes]
+    system "cargo", "install", "--no-default-features", *std_cargo_args(features:)
     generate_completions_from_executable(bin/"gix", "completions", "-s")
     generate_completions_from_executable(bin/"ein", "completions", "-s")
   end

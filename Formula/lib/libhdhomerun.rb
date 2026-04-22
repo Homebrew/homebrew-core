@@ -1,8 +1,8 @@
 class Libhdhomerun < Formula
   desc "C library for controlling SiliconDust HDHomeRun TV tuners"
   homepage "https://www.silicondust.com/support/linux/"
-  url "https://download.silicondust.com/hdhomerun/libhdhomerun_20250506.tgz"
-  sha256 "879b1bc476c9b93e77ee280a84fc1157e7cc47d43ed9c8398d88a8ac5f35c034"
+  url "https://download.silicondust.com/hdhomerun/libhdhomerun_20260313.tgz"
+  sha256 "792d43b98bdc146fa8872f8205f4f8feb1c1d5557e3c77edda6b6b1ede9b9db0"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,17 +11,13 @@ class Libhdhomerun < Formula
     strategy :header_match
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0863843dfe760dd0454dae929a74f5230819eb2261ca61604ba41ce4044a9a1d"
-    sha256 cellar: :any,                 arm64_sequoia: "b5e3c2ecfd8f80433a08d6cb12b312cc7ba251a0ddf1ca97580a10f4c598e69c"
-    sha256 cellar: :any,                 arm64_sonoma:  "d4e45edcb85bc4fd9a91e31ab8746fbd4b266c96dd20f93ace422219a1b2d397"
-    sha256 cellar: :any,                 arm64_ventura: "328ec2c2954853416d1d40cdc8c809b3191f2098b73776d30dabe6875439d173"
-    sha256 cellar: :any,                 sonoma:        "ad1590aa306190614b9ba2a331f40c24a9c502f2fdcf9c29534f545f98997033"
-    sha256 cellar: :any,                 ventura:       "7e8887f15b1e3e8bb58d7b49ad4030cee33e816d355ce19a79141c0bed0835ef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0308f092dc2348b44aa5c3e63afaf14f40e6c824f330ff9f1df3a5848b7f4a91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "267e2668fdd5abf33dd50623014e4e4c5724204159a71a5f51a8fc38a9932390"
+    sha256 cellar: :any,                 arm64_tahoe:   "c40ac7a094030a4f15e9edfac94ce0bf0d47742edaf0c035d021222527f6c174"
+    sha256 cellar: :any,                 arm64_sequoia: "a3340353584c80d273aff9acee853ae3320c54c3f897daf1d4208f8c9aa9cbcd"
+    sha256 cellar: :any,                 arm64_sonoma:  "adf8fe192ddd194186516644c31ac80031062e009ddb03dd653834e1b09f1be1"
+    sha256 cellar: :any,                 sonoma:        "17c9afa4faba64af7726035a5b87fd326661c1f11fafcb5d935e53268a84f3af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f742f0f12a70fc98c70ce3ee227295f3bd83f5211004cf3e2f3f1a6d37bb435b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "573a0aed2cc1bed2f790a9e4bf13bc50f5860b9e10c9b241edcdae9510ceac86"
   end
 
   def install

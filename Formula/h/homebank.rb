@@ -1,8 +1,8 @@
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "https://www.gethomebank.org/en/index.php"
-  url "https://www.gethomebank.org/public/sources/homebank-5.9.7.tar.gz"
-  sha256 "2b8fdf512429a30ed7a457cf5af476756c0cfddc9fce7600dab95c7f03be26e4"
+  url "https://www.gethomebank.org/public/sources/homebank-5.10.0.tar.gz"
+  sha256 "783fd8bb2ebba09713e5d7c183d454f4a4393e828af5763f768b48afabc54386"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Homebank < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "3988f0b361d633eef069fbed7cde09c3b4ebd067187b9d11169ba1202b7ed5a7"
-    sha256 arm64_sequoia: "da4e8fe1e597fdb149d5b7650b349dd7ec4176250ba69a406a75931654eefd0a"
-    sha256 arm64_sonoma:  "fe2624c7b3006d5df116145b519a951d5015aee8108d3dbff1d5d8e6931c4209"
-    sha256 sonoma:        "3b512e6ee0a6aa2a6004e064467561412aac122e88ae6e4ba95b9ff3cd0b226d"
-    sha256 arm64_linux:   "93ef66a1d299281342aee3a472b1720985a171920a0a659517dc0b4514dc4af3"
-    sha256 x86_64_linux:  "331f89447df7924ae0da3c5354d9106193b94a6faf0dd74060e87114103abd46"
+    sha256 arm64_tahoe:   "aee02dc3fff432117ece240c1eaf45c01698a96cc7b56526b6c36370f6aed519"
+    sha256 arm64_sequoia: "a7de2cf81bb1f9ec967095a62de4f0156315670399bb5ea29dbabb9bbd93b99b"
+    sha256 arm64_sonoma:  "4bde5b38338f1e4b5ad88e6f19321c8f3bd45d34a19e4d90ea046e015da70ff3"
+    sha256 sonoma:        "fb96d22c3544f1468447fb8aa6bf32d4d1a05d188a5bc51261d6e59b358d4c7b"
+    sha256 arm64_linux:   "a1b95c04cd7c6d3f41eff4866919b92313f0b1b7874d528187e81b14c66fdaea"
+    sha256 x86_64_linux:  "4a1c4fe05561650143adf5bb451e1aa28e35e199f2519636d4ef42c12b36b1f8"
   end
 
   depends_on "intltool" => :build

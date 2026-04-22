@@ -10,8 +10,6 @@ class CairommAT114 < Formula
     regex(/href=.*?cairomm[._-]v?(1\.14(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "3c84812ac04258b3fe766341479b99b1e28a9572b995e7bd33e3184fdb29055a"
     sha256 cellar: :any, arm64_sequoia:  "87bd872e7129feb2db9ca965fe5e065ebef30f6a196f0c80d8012b60cef66bf2"

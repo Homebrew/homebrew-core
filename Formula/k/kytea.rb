@@ -22,10 +22,19 @@ class Kytea < Formula
 
   livecheck do
     url :homepage
-    regex(/href=.*?kytea[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+    regex(/kytea[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    strategy :page_match do |page, regex|
+      index_file_path = page[/src=["']?([^"' >]*?index[._-]\w{8}\.js[^"' >]*?)/i, 1]
+      next unless index_file_path
 
-  no_autobump! because: :requires_manual_review
+      js_content = Homebrew::Livecheck::Strategy.page_content(
+        URI.join("https://www.phontron.com/kytea/", index_file_path).to_s,
+      )[:content]
+      next if js_content.blank?
+
+      js_content.scan(regex).map { |match| match[0] }
+    end
+  end
 
   bottle do
     sha256 arm64_tahoe:    "5ad912b4301454e3c29c5dd0f9b4c9b592d140d0ecc24cb12261408a7dc5ea56"

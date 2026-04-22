@@ -11,8 +11,6 @@ class Expect < Formula
     regex(%r{url=.*?/expect-?v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "02453adc4b8102ccdea2eddf5bb2a282ad6a62ad373121bf6ee6d9273e3d6d4c"
     sha256 arm64_sequoia: "bc49887735929062d3e347a111a7b53a0de95813652d626f00d9b5663ecb0c1d"

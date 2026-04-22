@@ -1,10 +1,16 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.52.0.tar.xz"
-  sha256 "3cd8fee86f69a949cb610fee8cd9264e6873d07fa58411f6060b3d62729ed7c5"
-  license "GPL-2.0-only"
-  revision 1
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.54.0.tar.xz"
+  sha256 "f689162364c10de79ef89aa8dbf48731eb057e34edbbd20aca510ce0154681a3"
+  license all_of: [
+    "GPL-2.0-only",
+    "GPL-2.0-or-later",  # imap-send.c; trace.c; ...
+    "LGPL-2.1-or-later", # xdiff/
+    "BSD-3-Clause",      # xdiff/xhistogram.c; reftable/
+    "MIT",               # khash.h; sha1dc/
+  ]
+  compatibility_version 1
   head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
@@ -13,38 +19,41 @@ class Git < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "b38e9da78154b13b32f1445f8547ac399f2b2e7141ad75b6629d24469e27c7ed"
-    sha256 arm64_sequoia: "c19806bab8c8059b2a01275670829864d4c4243042b6ed771e0cff2cfdc20e2d"
-    sha256 arm64_sonoma:  "44293f455b4c39f3e3466715be74aecd3995ed765163a5def0407dc6b6cdad17"
-    sha256 sonoma:        "4712f38cb96b889883b28adb93cfb06f489676f5e5ae9e7583098a93b9cdd862"
-    sha256 arm64_linux:   "567e3a8b79357b48b95a1d4c59f4c1e8f1e9e8fcd921104598f608960a15acab"
-    sha256 x86_64_linux:  "6fdac40b74282d1b5aa610a2ad05a7688c146acdec7bdb5004ee42ca25a705fe"
+    sha256 arm64_tahoe:   "0907a55ddd94935d16e13351e3238892d7a57f4ccaa58e20ba2609c4f2a1c4c0"
+    sha256 arm64_sequoia: "d12f1bafed785a94c45d0bffb303c28cbc0aaec5ab9a8b4939c51f216de1f2d9"
+    sha256 arm64_sonoma:  "538bdc752f5a51e98124b0cdce5493339e5821a50a03fd3a78fe7754038ea1c4"
+    sha256 sonoma:        "7286fead4972e9e8374dd85a420d7e55da5bbba9e4b34fa90cb6c183d31663bb"
+    sha256 arm64_linux:   "67e05269b64b7cbcb24739519817b56a081696e350fe1913282b08bbfe90368e"
+    sha256 x86_64_linux:  "81874ce3bd63063dc77f6d1cc85e30c52108e172f32b232ae865f9b2e55001e1"
   end
 
-  depends_on "gettext"
+  depends_on "gettext" => :build
+  depends_on "pkgconf" => :build
   depends_on "pcre2"
 
   uses_from_macos "curl"
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  # Don't try to add a libiconv dependency without reading this PR first:
+  # https://github.com/Homebrew/homebrew-core/pull/258461
 
   on_macos do
-    depends_on "libiconv"
+    depends_on "gettext"
   end
 
   on_linux do
-    depends_on "openssl@3" # Uses CommonCrypto on macOS
+    depends_on "openssl@3" # for git-imap-send (GPL-2.0-or-later), uses CommonCrypto on macOS
+    depends_on "zlib-ng-compat"
   end
 
   resource "Authen::SASL" do
-    url "https://cpan.metacpan.org/authors/id/E/EH/EHUELS/Authen-SASL-2.1900.tar.gz"
-    sha256 "be3533a6891b2e677150b479c1a0d4bf11c8bbeebed3e7b8eba34053e93923b0"
+    url "https://cpan.metacpan.org/authors/id/E/EH/EHUELS/Authen-SASL-2.2000.tar.gz"
+    sha256 "8cdf5a7f185448b614471675dae5b26f8c6e330b62264c3ff5d91172d6889b99"
   end
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.52.0.tar.xz"
-    sha256 "e6efd0da47a15b6a59401c8c5c8944e4315b18a176b89bb57812778d6307be84"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.54.0.tar.xz"
+    sha256 "7ff72bfdfed4f20563f34416cf27614fb9c35bfad590db0062f2a0a9636514e4"
 
     livecheck do
       formula :parent
@@ -52,8 +61,8 @@ class Git < Formula
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.52.0.tar.xz"
-    sha256 "23186deddb3083bbaa9eb947cde26a5c7322d7fdb75bb4b3d60795db38221ac5"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.54.0.tar.xz"
+    sha256 "292062d18f3a215213ea8317ed22b94f02ad9572520b9293164d7db3eb888953"
 
     livecheck do
       formula :parent
@@ -82,7 +91,6 @@ class Git < Formula
     perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
 
     if OS.mac?
-      ENV["ICONVDIR"] = Formula["libiconv"].opt_prefix
       ENV["PERLLIB_EXTRA"] = %W[
         #{MacOS.active_developer_dir}
         /Library/Developer/CommandLineTools
@@ -150,6 +158,11 @@ class Git < Formula
                      "CFLAGS=#{ENV.cflags}",
                      "LDFLAGS=#{ENV.ldflags}"
       git_core.install "git-subtree"
+    end
+
+    # Install git-jump
+    cd "contrib/git-jump" do
+      git_core.install "git-jump"
     end
 
     # install the completion script first because it is inside "contrib"

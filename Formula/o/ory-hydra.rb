@@ -2,8 +2,8 @@ class OryHydra < Formula
   desc "OpenID Certified OAuth 2.0 Server and OpenID Connect Provider"
   homepage "https://www.ory.sh/hydra/"
   url "https://github.com/ory/hydra.git",
-      tag:      "v25.4.0",
-      revision: "de9baaa9bc1b1865710d4e07e4bd0c4aca599447"
+      tag:      "v26.2.0",
+      revision: "0b84568fffccf151dc5e6c7955fdfb738555bf4b"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,12 @@ class OryHydra < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "274aabae4b98765b98ce3f76009442d38da0bc5ddd0f7c742525b45f61f68026"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "71b0f3ecf4c9d762e28c0181e6b2cac901027e7dafb7a3839bbab9898012838a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f11da4d0cde25e0b87efb35b4073da9071ca00699421572d04ebbc868a5969fb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f69f9f90d69047df0462ff793e2685e1e04ff1135a7efb3b44da1b6ef68b3472"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ca48ceb1eaff823a4b9e9f8ad04f94f161407f3e8c83dc9aab5e232c2aec688"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50dd566a516cde0ed8a8cbcc8a0771a61331c5ef275a2573e2275098330260bf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e6a5cf20f779808294e03f7e8699d40d2c19eb504addeb30c3339807ba499de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0219cdb3c7c76d3b9b4bc65c0d6b219c5b45fb177a02d16b2fba7d4a914ee13"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2a92af11de6f8273a2387edb32e36c0fe151b72874f009b42a21732acf5fdd9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "67270e24642d9e52c9c64117cd656067a1ec3c8499fd8aa5ceea52f6ca94dff4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "df4be22645ba489172eb76c795c3fa43190d9f5ba078b8c563978f3114f3581a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86e6b0714024572615b390e4940778212e9eaad2623e3c09bb616c6080c86e4f"
   end
 
   depends_on "go" => :build
@@ -34,6 +34,8 @@ class OryHydra < Formula
       -X github.com/ory/hydra/v2/driver/config.Commit=#{Utils.git_head}
     ]
     system "go", "build", *std_go_args(ldflags:, tags: "sqlite", output: bin/"hydra")
+
+    generate_completions_from_executable(bin/"hydra", shell_parameter_format: :cobra)
   end
 
   test do

@@ -17,7 +17,7 @@ class Urlview < Formula
     regex(/href=.*?urlview[._-]v?(\d+(?:\.\d+)*[a-z]?(?:-\d+(?:\.\d+)*)?)/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b6e3087bd014b40df019a8836f5f478181677742d8b45636acba03c5a7c956fa"

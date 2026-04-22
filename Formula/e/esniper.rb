@@ -6,7 +6,7 @@ class Esniper < Formula
   sha256 "a93d4533e31640554f2e430ac76b43e73a50ed6d721511066020712ac8923c12"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0009b1cbccaa056103dc110ff59bd1bebc1f2581bf91b64ffd5aee76009efda8"
@@ -23,6 +23,10 @@ class Esniper < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "d51c39d3d114d8ed2a5dfa939ed50bcdf0df86ee908691a9113c92447ecb598f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "676227a142bc96ca566a352c446328a78c7ad02bb80b56e3f3f131e755994a31"
   end
+
+  # https://sourceforge.net/p/esniper/git/ci/e2b495c6aae6596a2c8ac039d76afdf0764b06d7/
+  deprecate! date: "2026-03-30", because: :unmaintained
+  disable! date: "2026-09-30", because: :unmaintained
 
   uses_from_macos "curl"
 

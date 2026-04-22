@@ -8,26 +8,24 @@ class LeelaZero < Formula
   license "GPL-3.0-or-later"
   revision 12
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f9734b50a25c17fcf027c69260fe4d315a6c85040b12e81f03acf821ffb2b876"
-    sha256 cellar: :any,                 arm64_sequoia: "03d82cf9fb5a0a711725ea9e342298549ae0dcb70422957647c8a30d0e5a981b"
-    sha256 cellar: :any,                 arm64_sonoma:  "ff21baba4abe3d860b5c74f18e9b19cf6296e4188bc72d693bd73c4462c481b6"
-    sha256 cellar: :any,                 sonoma:        "114462e902891cc9e0817769c9ad3cbd29d865b370e2108fc9e6c8dc7d46c07b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a4d47a8070af91baa2a1e5196822a0a649697d9608769219ee56efecd9d332f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5427fd85859eb63f54b45cb31f00185eb32c7c1d7ca296dd4be832004927a07e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8ccf615e92183ab7d8f06a8148e89ebe79c45e0f3e12ba4c845d15ec9492542d"
+    sha256 cellar: :any,                 arm64_sequoia: "d7d8ddd70a07c331aa0900ba316bfc2f21bb3793ea72784bcf7df910feac651d"
+    sha256 cellar: :any,                 arm64_sonoma:  "16214ba1b05b5cb5854f2f4bd38e5bc0e1af03eb07e6bbd42eb9d4ddaf98ef65"
+    sha256 cellar: :any,                 sonoma:        "9b671b74931247c299cc35f74154b3e433aab14ce3beecbbbe61ef4bd2694435"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8118f4939edb749336936eea44f839b8960cdeded29190c8fbbe9dbccf65824d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30aeb411b41c6d336ee9a21bb7c34613d6a04135993b177ed398a8395e2161df"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "opencl-headers" => :build
     depends_on "opencl-icd-loader"
     depends_on "pocl"
+    depends_on "zlib-ng-compat"
   end
 
   resource "network" do

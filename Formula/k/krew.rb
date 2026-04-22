@@ -2,20 +2,18 @@ class Krew < Formula
   desc "Package manager for kubectl plugins"
   homepage "https://sigs.k8s.io/krew/"
   url "https://github.com/kubernetes-sigs/krew.git",
-      tag:      "v0.4.5",
-      revision: "e7e5b619d0defd3fe53f66ce7e7330b21386e944"
+      tag:      "v0.5.0",
+      revision: "8a4a6fffb08d2ee04b4b013253160a50ed22139c"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/krew.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7dc4fca1e891c7c53a71401ca2ec46a4c9c5a7520c87bb2487f11aa2d45790f2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2612180540b05504e2f9c3aae82cb6335ffa55e88ac9e27f2bdad18390c22dc0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2612180540b05504e2f9c3aae82cb6335ffa55e88ac9e27f2bdad18390c22dc0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2612180540b05504e2f9c3aae82cb6335ffa55e88ac9e27f2bdad18390c22dc0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "97a497441f46ee46bd7c458d3d369697ca2fe43c75fc58a861db755a2d205ff5"
-    sha256 cellar: :any_skip_relocation, ventura:       "97a497441f46ee46bd7c458d3d369697ca2fe43c75fc58a861db755a2d205ff5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b31068dbe7492c0fd237c55bf3f6be3bdeab2af67074466c700c3c240f45617"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67e4f1ed2eb1d0d9871d87749e10251448e279bafbfe74ab1e13229cb3151841"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ab8a466d076e3a2702ed3eea99459a61e8498f0aa3aaea34c3386081d9476b2a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab8a466d076e3a2702ed3eea99459a61e8498f0aa3aaea34c3386081d9476b2a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab8a466d076e3a2702ed3eea99459a61e8498f0aa3aaea34c3386081d9476b2a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "903e7e7ac13fe8decbc25675f5e3351116f2e0721763d916aea7d26b73bc4655"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "35ed7ffed867cf97d5a72d09259298612ecc710854fb7adbcaad2eacddf6905e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92c4a63ada948ff0efb097f8964f7057aad0dd76c623c09e0fe2f108d3458379"
   end
 
   depends_on "go" => :build

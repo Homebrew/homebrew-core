@@ -10,8 +10,6 @@ class Mp3wrap < Formula
     regex(%r{url=.*?/mp3wrap[._-]v?(\d+(?:\.\d+)+)(?:-src)?\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "28af69383fd4f657495f0aedda9e53ac66cccce24bda0a280ebf5a79939cce6e"

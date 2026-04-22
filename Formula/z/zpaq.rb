@@ -8,8 +8,6 @@ class Zpaq < Formula
   revision 1
   head "https://github.com/zpaq/zpaq.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "806e95bf2357903bc8a6a1766850a6030386cef25a672a274315c252dc2b998f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0d82a2ae7e022957f0f0675433d8e01622f3ce1a42c2cc7c76ce902f3685744c"

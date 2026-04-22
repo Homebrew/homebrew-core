@@ -5,8 +5,6 @@ class OpenJtalk < Formula
   sha256 "20fdc6aeb6c757866034abc175820573db43e4284707c866fcd02c8ec18de71f"
   license all_of: ["BSD-3-Clause", "CC-BY-3.0"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "cb7361d9bbf78cc39da0b9992981dc8485c7f5ac0f5f3f191f5e0b27c8c1b9ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "51df7e0512ffe97b112a49dcb57c51da678a0cce2893cf8e3a9430044aef7d7f"

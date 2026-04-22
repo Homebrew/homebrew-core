@@ -11,8 +11,6 @@ class Fastme < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "4e5a8fb8bcbb621a2b49132177b1d4672669a8994b6bc31e5fc654082689c50c"

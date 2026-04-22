@@ -1,18 +1,18 @@
 class Numbat < Formula
   desc "Statically typed programming language for scientific computations"
   homepage "https://numbat.dev/"
-  url "https://github.com/sharkdp/numbat/archive/refs/tags/v1.20.0.tar.gz"
-  sha256 "8b368bafe05eb25f776e516abd94c3a4899b32e520934b6cb4d123ec03f1e9dc"
+  url "https://github.com/sharkdp/numbat/archive/refs/tags/v1.23.0.tar.gz"
+  sha256 "578c0ff6cb80098baca84042a104644758907002e4fc7ba839a1266be7f4af28"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/sharkdp/numbat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d88038adc361ef733a2bcb763c36cd2f8b04433d679f6aa8cd4b49200f0a0564"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d1c502f326f3a8ac6deda047f09ed45baf17eb5151888bdf2a54e49c00f621d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e14f86d2065812196825b8d5f2cccc9df436a5e3c14a31aee77aadaa6c37f193"
-    sha256 cellar: :any_skip_relocation, sonoma:        "245dfbb71afb1a0a86d79980593aa41417f4ad273bb7cf2aaf2a3107f6582fa8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b63fd69638a935d8dc7c9bc833c55e1d20a9b61a5d2863970be398527c9958b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68ca9518a4576631532a16c8b3a549eb8cbf5c985274f770fb8b801c759892a2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "42efb059afe4151561edd4ca071bdebec12e1ad54ebff646cc9b3019fbcbfe57"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3cedcaca702f1509f2806d177feb601003d8d7455f4b2a83cfe3a83457450ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3889a908520723c35e3c597318aedcaf46d1ee10d7411b29fc77d5937170a1ff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "436601d4daa6f8d8bac24dda906ef04a621cfaaca1eced925b410d340988c976"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04be8a287921f3add7d40f7ab38bc97f22b0966dce8d6915f2e5934222ac36f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cf98475c54b7074d9b5b964e1640d3477bf4db053768680be189901ba78ee94"
   end
 
   depends_on "rust" => :build

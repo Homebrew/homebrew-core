@@ -1,8 +1,8 @@
 class Coder < Formula
   desc "Tool for provisioning self-hosted development environments with Terraform"
   homepage "https://coder.com"
-  url "https://github.com/coder/coder/archive/refs/tags/v2.28.9.tar.gz"
-  sha256 "45d952255cdab8a5de0133909cb3983754b7917cef2131f3d6173128ac46f7d0"
+  url "https://github.com/coder/coder/archive/refs/tags/v2.31.9.tar.gz"
+  sha256 "ff99562227a584ab9c96451700092f8eb4398a7aa4428457b7c138d4d38407fd"
   license "AGPL-3.0-only"
   head "https://github.com/coder/coder.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Coder < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d51b396afddb635d62e76fa3656a1576976801645292b88b0323301864aec599"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "11969e0581404b45e3bed05cbaba93655d05c23a866a268073dc2933bd8823a4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c56105d46e58373a5e4a3f629e4b442e9960ac7772693cf0c516548980f69564"
-    sha256 cellar: :any_skip_relocation, sonoma:        "399deef29f4ed5fbc3b75043ad14d377921f4e4d3ae7175f5119213629921f3e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e93385b164d9533529d42101482c0b1e659f8f0ba6e54f3c68c187954b3624c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f054c4796d515c480c9ff37970f40c3ea01d55249b3a9e366eb7391c6349c743"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "917cc20650465ea70b61221e3f04d6f3282d4f5b36ed67737c069baabc046f09"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe542d368646a8121705648058f43c0b1b771918718de0778b02f111a29f4ab6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acc900df108c6d40a90cc79ec6206f81ab46131d803c9c40d902cfe057d931f0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "23a5d5b1bcad0442b7b0d3fd6c5772a564dc3e71ebadff9c61d12a0ecfd3655f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "45af9001249621d93b63449bfbe407a427b18efd4df4159f4fd57cc892196275"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb628918638cc5119caad2c3f4e9c10c25b2c721dfaf90a6a92a4f1c82db70dd"
   end
 
   depends_on "go" => :build

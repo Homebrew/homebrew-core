@@ -6,17 +6,14 @@ class Pistache < Formula
   license "Apache-2.0"
   head "https://github.com/pistacheio/pistache.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "e3debddab926a1b7ddc20bec37d36630bb517f44fb96d98d37c503db10d5fe82"
-    sha256 cellar: :any, arm64_sequoia: "df6e5955a69ba59d16fa1085e2a264b6886ac13eaefcfdad36b6cde24fdd357f"
-    sha256 cellar: :any, arm64_sonoma:  "17198b6e042abadfa94de4824bb3e9d9a2696230ed2d54cae8dabf8550467fd7"
-    sha256 cellar: :any, arm64_ventura: "d7a4d961bd52ea6e84601692baf0aa290738c73f31b2522627e766e386fe470f"
-    sha256 cellar: :any, sonoma:        "8eaf723d1a39743fee0bbcd114aba4bb58cc28a1a5dd2b6ee6a398c1e6164e98"
-    sha256 cellar: :any, ventura:       "c15f1071afc06d9f6f60e54921af214d6c8e6787db6e9ca0fc249c9d208b5aef"
-    sha256               arm64_linux:   "f2f94bda2565558e53b6ce5359d82dddf46c486f19744622795da71f2dcb28dc"
-    sha256               x86_64_linux:  "e864df73e63ce4399b8c6324f3b86e36c83128f0034aceea2b6dd3941f8a5385"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "8c6aceaa9caabb3aa5f359e4b774e682a1a04b8e6d8d2c3387ca2b568490761e"
+    sha256 cellar: :any, arm64_sequoia: "0b698f3e972e1febd10c62315914dd7f52fbbe97dd4a3e7da0aa3e2e95a902dd"
+    sha256 cellar: :any, arm64_sonoma:  "5ea7eca9d7b84fe69c2e4f7d3b6792b0fa844f357b7ea18963a533d30af77f34"
+    sha256 cellar: :any, sonoma:        "0251e36381a86a7e82f7ea5f905ad9abc20d68ec387876935276e63e91dde120"
+    sha256               arm64_linux:   "ab8a26e48f468b791843eb18d69460c70e51e2a0a0cba9e91a649db54bf5e21f"
+    sha256               x86_64_linux:  "a18870e8bca2a60e1fe41d00a47dd157273ae689145163b6730982ad0b550f43"
   end
 
   depends_on "cmake" => :build # for howard-hinnant-date
@@ -34,7 +31,10 @@ class Pistache < Formula
   depends_on "zstd"
 
   uses_from_macos "curl" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "meson", "setup", "build",

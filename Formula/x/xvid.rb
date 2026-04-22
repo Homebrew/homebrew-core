@@ -10,22 +10,21 @@ class Xvid < Formula
     regex(/href=.*?xvidcore[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "21251c2f572311e1e1dc610bc763596ae8e3a4a181fdfca98ba168a545df4151"
-    sha256 cellar: :any,                 arm64_sequoia:  "c3bf171815c62e62be978f5d1913e7ce2e045cdb3e33012499e06197775ff4bd"
-    sha256 cellar: :any,                 arm64_sonoma:   "8062840ad8e79ae9c733f5d8f4b822e70d962c243e7c9eceee95bb100e016743"
-    sha256 cellar: :any,                 arm64_ventura:  "58aa3f757ca260fb922ee623240b710ef7e1cc75dea00c314d6d5ecd98289cbf"
-    sha256 cellar: :any,                 arm64_monterey: "ccf0c5b732d140dce8c595ff6bad287ed5be49a2c6a05912a1dbfdedfcb232bf"
-    sha256 cellar: :any,                 arm64_big_sur:  "8974d7b8f816f7d5e8d9ae967b94922e0ed212f22f6475b7fa4c80c7a95d6582"
-    sha256 cellar: :any,                 sonoma:         "1ed739249685549c93ef3f8b4ed04c065ea69d814e5c7404487e113776bcee9f"
-    sha256 cellar: :any,                 ventura:        "4726e597ea39861c53660614ebba7270095f12e99d76085f4bf0956408e91e38"
-    sha256 cellar: :any,                 monterey:       "57aae7b7565705fdd83b0c2996cf0d2e3569546e9691197d175431b89a9599b9"
-    sha256 cellar: :any,                 big_sur:        "feabfa1a3df3b916654ba5eef30193b65cdba70a7a49cca6406ec0c214b50338"
-    sha256 cellar: :any,                 catalina:       "ace5fea6272f3594b5c8fca6f1fe03c41c50a14af8599751571c5e44a49a5a53"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "e475555bb33107d071edd20bd02e1934ead3c91afc51b36c6f0bf9b61477dc88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93bd40f313f5a6656ce1ca70cfeacf67deacd647beaf204ab3fd610a2d92c5a7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3a95088d2a638b37179758a0abdc7324ab03097b02f2216b67989ae87d3b3892"
+    sha256 cellar: :any,                 arm64_sequoia: "e7e300ab7d6f6872713f63145b650c66d0d9841a691eb44c4ab3adf06ce57f33"
+    sha256 cellar: :any,                 arm64_sonoma:  "ea6039c190cc6453cff9503a8db8142fd72c70287c9fe880e90d71eb4e83131a"
+    sha256 cellar: :any,                 sonoma:        "59d0e5210d62d77f4d08f85ba6dcf57870b953ff25f29d1cce1d38da0a4bcc42"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "343db5afde898a2804e5a7a2269ef6ca4e50926a825991e33c3615c3ee35ba93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c455a429edf2c2723ab4aca880bd1827ff028b01a2799142fa1f9469006587f"
+  end
+
+  # Remove -flat_namespace based on MacPorts patch (which needs autoreconf).
+  # https://github.com/macports/macports-ports/blob/master/multimedia/XviD/files/configure-flat_namespace.patch
+  # They reported issue via email: https://trac.macports.org/ticket/69855#comment:10
+  on_macos do
+    patch :DATA
   end
 
   def install
@@ -34,6 +33,13 @@ class Xvid < Formula
       ENV.deparallelize # Work around error: install: mkdir =build: File exists
       system "make"
       system "make", "install"
+    end
+
+    # Create unversioned symlink to use shared library
+    if OS.mac?
+      libxvidcore = shared_library("libxvidcore")
+      odie "Remove manual symlink!" if (lib/libxvidcore).exist?
+      lib.install_symlink lib.glob(shared_library("libxvidcore", "*")).first => libxvidcore
     end
   end
 
@@ -51,3 +57,16 @@ class Xvid < Formula
     system "./test"
   end
 end
+
+__END__
+--- a/build/generic/configure
++++ b/build/generic/configure
+@@ -4404,7 +4404,7 @@ $as_echo "ok" >&6; }
+ 	   { $as_echo "$as_me:${as_lineno-$LINENO}: result: dylib options" >&5
+ $as_echo "dylib options" >&6; }
+ 	   SHARED_LIB="libxvidcore.\$(API_MAJOR).\$(SHARED_EXTENSION)"
+-	   SPECIFIC_LDFLAGS="-Wl,-read_only_relocs,suppress -dynamiclib -flat_namespace -compatibility_version \$(API_MAJOR) -current_version \$(API_MAJOR).\$(API_MINOR) -install_name \$(libdir)/\$(SHARED_LIB)"
++	   SPECIFIC_LDFLAGS="-Wl,-read_only_relocs,suppress -dynamiclib -compatibility_version \$(API_MAJOR) -current_version \$(API_MAJOR).\$(API_MINOR) -install_name \$(libdir)/\$(SHARED_LIB)"
+ 	else
+ 	   { $as_echo "$as_me:${as_lineno-$LINENO}: result: module options" >&5
+ $as_echo "module options" >&6; }

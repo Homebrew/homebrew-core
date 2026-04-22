@@ -7,8 +7,6 @@ class AptDater < Formula
   revision 2
   version_scheme 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "ca8d65020e488e692c5785619fda1d960a49f88b2f80e2213f1d56f39b6f40de"
     sha256 arm64_sequoia: "e9a104010e991369030ef2f6b060658977e33252724fb5a1891a69242a8c3fc8"

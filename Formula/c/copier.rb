@@ -3,17 +3,17 @@ class Copier < Formula
 
   desc "Utility for rendering projects templates"
   homepage "https://copier.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/40/be/35bb44c0c7c278bd9144f5934aa10a2d532cedea4e16494c6552aa7132e1/copier-9.11.3.tar.gz"
-  sha256 "f4da98c7f3dd2243480433541b3b4d9daa788bce13b7b6d43c0c6d84bd50e889"
+  url "https://files.pythonhosted.org/packages/9e/0f/9762830def619c9aa2cb7cf2ab59ade60bfd8a83325767ad3edca597d29f/copier-9.14.3.tar.gz"
+  sha256 "8737a14af1540ad19d6a6d59a05ff07bb0a81b286cca9ee79163572352df6e5e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c60b62a2cf182a47b1406affd60a277e1332de67dd022816585be3c4b55ac007"
-    sha256 cellar: :any,                 arm64_sequoia: "dc18a8e40a09129b1686c6f80dbb4e36cb9884ffa3906e5f2fbcb19ea97c0520"
-    sha256 cellar: :any,                 arm64_sonoma:  "3b4878a12e5929b905f351c727fa88f3dc1e43d1a5f596de7f2d6b8c2e6a6e9c"
-    sha256 cellar: :any,                 sonoma:        "d7c7bbc10fac18fda6bf5706efbfa4c12c76df271e738a132915a0e63e31e4a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4aac49b092300d5d45db5c73ceebfb6ac6e912738acd5ec85c0dd7542eadb7c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63563da04feab3c0c9843a2d78925a1279fd49cb10721128017617e69fb4ff7d"
+    sha256 cellar: :any,                 arm64_tahoe:   "e7b1c0de88dd217d738c2360c13f92765b09af80b4ac668b82ff66f657ed49cc"
+    sha256 cellar: :any,                 arm64_sequoia: "5340c47965b66be8b588e7f848a13fa9bb881c679f3b8cd31253ffb94b20ddec"
+    sha256 cellar: :any,                 arm64_sonoma:  "e4f1c3dcd6761b323638aa062339027dd7610630915b84e02847ba1719d7ef56"
+    sha256 cellar: :any,                 sonoma:        "f11e7afdeec8d3df6bed0de737368b1a61ec324808e129a41414911491e5da8c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad32bc02929a7984648dcaf259e4b9ed366b971e846e1a478850b0f9fa2ff492"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ffeb0978dc5b7210e24f28085d7e69a129550afc132e78b50b42fae45e66c36"
   end
 
   depends_on "libyaml"
@@ -28,8 +28,8 @@ class Copier < Formula
   end
 
   resource "dunamai" do
-    url "https://files.pythonhosted.org/packages/f1/2f/194d9a34c4d831c6563d2d990720850f0baef9ab60cb4ad8ae0eff6acd34/dunamai-1.25.0.tar.gz"
-    sha256 "a7f8360ea286d3dbaf0b6a1473f9253280ac93d619836ad4514facb70c0719d1"
+    url "https://files.pythonhosted.org/packages/9f/67/d5611975faaa5e4a920f4b19e4caccd5df0facb925687850f1e45f5876f2/dunamai-1.26.1.tar.gz"
+    sha256 "3b46007bd65b00b4824ead0a1aee365fd22d0ec2b9c219497d4fd48f52860c8b"
   end
 
   resource "funcy" do
@@ -58,13 +58,13 @@ class Copier < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/4c/b2/bb8e495d5262bfec41ab5cb18f522f1012933347fb5d9e62452d446baca2/pathspec-1.0.3.tar.gz"
-    sha256 "bac5cf97ae2c2876e2d25ebb15078eb04d76e4b98921ee31c6f85ade8b59444d"
+    url "https://files.pythonhosted.org/packages/fa/36/e27608899f9b8d4dff0617b2d9ab17ca5608956ca44461ac14ac48b44015/pathspec-1.0.4.tar.gz"
+    sha256 "0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cf/86/0248f086a84f01b37aaec0fa567b397df1a119f73c16f6c7a9aac73ea309/platformdirs-4.5.1.tar.gz"
-    sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
+    url "https://files.pythonhosted.org/packages/9f/4a/0883b8e3802965322523f0b200ecf33d31f10991d0401162f4b23c698b42/platformdirs-4.9.6.tar.gz"
+    sha256 "3bfa75b0ad0db84096ae777218481852c0ebc6c727b3168c1b9e0118e458cf0a"
   end
 
   resource "plumbum" do
@@ -78,8 +78,8 @@ class Copier < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "pyyaml" do
@@ -93,15 +93,11 @@ class Copier < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/25/6f/e1ea6dcb21da43d581284d8d5a715c2affb906aa3ed301f77f7f5ae0e7d5/wcwidth-0.3.1.tar.gz"
-    sha256 "5aedb626a9c0d941b990cfebda848d538d45c9493a3384d080aff809143bd3be"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
   end
 

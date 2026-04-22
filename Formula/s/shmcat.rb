@@ -10,8 +10,6 @@ class Shmcat < Formula
     regex(%r{url=.*?/shmcat[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3d2215296ac7593c43a7ae9fb164cff3b11804dc7c0ec1b20af35397701a3b2d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "103cda477b51d8e4ef25053b80346b9c7e433ef5db2c3f9efc21e815faf1556b"

@@ -5,8 +5,6 @@ class Websocketd < Formula
   sha256 "6b8fe0fad586d794e002340ee597059b2cfc734ba7579933263aef4743138fe5"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "be906b57564f8192370b7cdbe3febd1feff0c77ef06e84a4a56470d3af071ee9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3b32f5cb8758b74b70de5a6f552ddf5aef4cae18908df4b0d42e9c999a9b851"

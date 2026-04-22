@@ -13,14 +13,13 @@ class Cataclysm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8dadb20312e5e2a96f0b9e07de09a0f84b4c7e754932a183861141a2a62b25fd"
-    sha256 cellar: :any,                 arm64_sequoia: "2cce9de78e3da9ad7fc8eeaa2998b468bff0d6d342ebd2dc5dd0683821569ac6"
-    sha256 cellar: :any,                 arm64_sonoma:  "175fc6b0ea8289e9c76da22277ed6eb35dde251dd88416f2ef8edaea83f15213"
-    sha256 cellar: :any,                 arm64_ventura: "cbbbf7dcd3b21d4db6f5e7994677269b79e871c43eecde80ea9fa16c84065859"
-    sha256 cellar: :any,                 sonoma:        "2fdb081a3ec309197e0909ad4d9fa32802595e661370b9c1a507d6942fa155d0"
-    sha256 cellar: :any,                 ventura:       "7cac6a7e522742a8657f2f0bcbfa3a8814390c2ff47dfea131d7f03028517768"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c58fbd6b591afb768dcca07ff541c9f8871bc99a59ab34aae14e281048f06c47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e864a77dc73f1e8c043b4b7c0c7d728e23ce09f77d0c75cf258e87cf8cb3d42"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "492b7c7f2a66af205374ca334b4424cfe0beed549aacaac6e9380e1132cb366e"
+    sha256 cellar: :any,                 arm64_sequoia: "c7262395e501e9f37bddc7a552c4b4e0f3b920f0aabef1eab3b26de586a43dd3"
+    sha256 cellar: :any,                 arm64_sonoma:  "4f34105d17b58a4c9f6a807d524107d38f29d47fbb09eea1134708a1fab2ee8d"
+    sha256 cellar: :any,                 sonoma:        "a7b35b49b7b630c8e30748a52cd20e9224a9bdb3b44ec0019124f6c5a6d9f416"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "11de987a3cc2dea85f666402020210db6c9af56ba5c9f3594c3bb6169c58ef9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60f13c7d80e9b622b4153053872837e318be0aa3116535deaa138f49fc0a7a3b"
   end
 
   head do
@@ -39,10 +38,12 @@ class Cataclysm < Formula
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

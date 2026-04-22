@@ -4,6 +4,7 @@ class Libspelling < Formula
   url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.4.10/libspelling-0.4.10.tar.bz2"
   sha256 "d6388f3dc207269743ec920b14bb3be55ab4bd97a18e167b52a09cec0554dc2b"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 arm64_tahoe:   "11153634aad81e3844d252f6d844a3959243360ff7a825594109d096512f6f97"

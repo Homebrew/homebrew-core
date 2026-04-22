@@ -6,8 +6,6 @@ class Nfcutils < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "cd0945f758948d322f434b25388ca838233019379db9edad5ef599278141c020"
     sha256 cellar: :any,                 arm64_sequoia:  "588fdde98a8a04e2641697c4b881cc1ec3ef7ad1cc2f57d83f93769d9e9331a0"

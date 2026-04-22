@@ -1,19 +1,21 @@
 class Pie < Formula
   desc "PHP Installer for Extensions"
   homepage "https://github.com/php/pie"
-  url "https://github.com/php/pie/releases/download/1.3.7/pie.phar"
-  sha256 "1c70946eb99d5ac163b38bc85bd4945675893f284a132ce52049e3b1fb092532"
+  url "https://github.com/php/pie/releases/download/1.4.1/pie.phar"
+  sha256 "96a48a407e3e670048aebbad0fff0314cfa6a1a502b81d62b91e45f6f1c2640c"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fdb90a5e411a776aba2b36ac9c4ab414128e5e9b4959547021a33ae1738b65aa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fdb90a5e411a776aba2b36ac9c4ab414128e5e9b4959547021a33ae1738b65aa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fdb90a5e411a776aba2b36ac9c4ab414128e5e9b4959547021a33ae1738b65aa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8755f4f7a6aecfb61f272ba74baa81ec11162c166d77458c71a201e4412d8fca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8755f4f7a6aecfb61f272ba74baa81ec11162c166d77458c71a201e4412d8fca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8755f4f7a6aecfb61f272ba74baa81ec11162c166d77458c71a201e4412d8fca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ee964a98b14dbf96127320e21a1cd31645a7a7e88898492b6223c8a6a4461a34"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ee964a98b14dbf96127320e21a1cd31645a7a7e88898492b6223c8a6a4461a34"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee964a98b14dbf96127320e21a1cd31645a7a7e88898492b6223c8a6a4461a34"
+    sha256 cellar: :any_skip_relocation, sonoma:        "74325b010f05bc73e62220096bed8035160baa1e7eecf736ebfb83160b07667c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "74325b010f05bc73e62220096bed8035160baa1e7eecf736ebfb83160b07667c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74325b010f05bc73e62220096bed8035160baa1e7eecf736ebfb83160b07667c"
   end
 
+  depends_on "pkgconf" => :test
+  depends_on "re2c" => :test
   depends_on "php"
 
   def install

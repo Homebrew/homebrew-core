@@ -1,10 +1,10 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-3.6.1.tar.gz"
-  sha256 "ec0cfaab475630106211d180d71df46782e41e10b6dffe91d79ca818ecd2cbb4"
+  url "https://download.osgeo.org/postgis/source/postgis-3.6.3.tar.gz"
+  sha256 "58ff19ae133e470280efb4949ef92e0364d4c2a66bef8c57e69477348d815ea3"
   license "GPL-2.0-or-later"
-  revision 1
+  compatibility_version 1
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -12,12 +12,12 @@ class Postgis < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d30ff7262adbaf4a37f3637dc77fff6637574154e25069b4ff3dfc75d51241fe"
-    sha256 cellar: :any,                 arm64_sequoia: "f123ccaae8397cb49e35406963b0772a962c92042d2b23738fe7db9960e218b2"
-    sha256 cellar: :any,                 arm64_sonoma:  "89dadbbd91a12afa5f6ebbd74179cf4ad6434cebaa367aacc737d72f77ebb335"
-    sha256 cellar: :any,                 sonoma:        "1908b9db23bcb1468084d3a04adaf3c0bf689c32e124eb34dd106e25436e0b65"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd5095f7d81ec4715d581de3285e12300edf57e1ce38651ef3cc554650db88a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5d6b7526fdfee008feaa17b7ed0d5551f65f40c4af230d4ac7ddaabbb3d5af3"
+    sha256 cellar: :any,                 arm64_tahoe:   "76e35db280d8cfb48228d1bbbda6836972119098b44dce7daf4a7cf970749804"
+    sha256 cellar: :any,                 arm64_sequoia: "189b3159d3fadbc05f464fc68e182aa09179f0fc087986e7b0a1100ee794a8f2"
+    sha256 cellar: :any,                 arm64_sonoma:  "90dd7287c71cea1baa5064c458ba89c5afaff9245192742772d86c8a017ccf83"
+    sha256 cellar: :any,                 sonoma:        "7b809abd25c7d8e5258aa751bb43b427942ff077a1064a50bb22bbc98a9aebba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "931b9d55c5f4db95e9d127d70a769921f84c4659b45a59bdb32567ada837d5a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96f7b708864700b7dcbf3893fdbdd697f17d32c018fb3e657acb3f999c50bf0a"
   end
 
   head do

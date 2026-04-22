@@ -17,18 +17,14 @@ class GnuSmalltalk < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "11802ea09914aaed9ad773498371bfcbd35bebd339d82455c8e9b7d15a7a6ba2"
-    sha256 arm64_sequoia: "fa42deb9637324919358ee25610a53e01088fb726c82f4128f9472da1311935c"
-    sha256 arm64_sonoma:  "1a03cac9ae46b6523cc6353c3714b2fd5d1151df2d41fc3929d3c03bab813917"
-    sha256 arm64_ventura: "e737012cfb9f7029528a4f733125cc9dcf710b7f70fa2d2c19e5bbd16e7a6141"
-    sha256 sonoma:        "0ee808a189abc91152255eb4b7401e56dafa3cad5a226b898e84aaf7a37fbdcf"
-    sha256 ventura:       "a4df3db5ceb9a6d123906ee112131e3a33a25bc484124e3eaaf63858930492b7"
-    sha256 arm64_linux:   "cbecc28a3dc88c1ccd58ecf2facfd8d9f0edd686e31334b1c93dd82d4a8bc8f6"
-    sha256 x86_64_linux:  "f3cc37783b2695b0a1fa9e8fd21e7b4b2a77f10a4aa0c9a97d4e86fbb2e6a524"
+    rebuild 3
+    sha256 arm64_tahoe:   "0b4242a4f666b10130804e15b8ac1cb06db8ca8c2dce4b3ff22809b27e3bed03"
+    sha256 arm64_sequoia: "baa1b37e3cc684dae9fa2bec7372228339adfc3c775a95ce93553f72249d9516"
+    sha256 arm64_sonoma:  "29864f96663e3b39da8d1b27e896ccf7d76921dea8a950a155b8a931f49a1ef3"
+    sha256 sonoma:        "8153d28cbf7150c2c8f5067f37f8ff9a0fe6c2dcfda627d3838fd02130ca0b3c"
+    sha256 arm64_linux:   "0c98372d450e874686423037537b0be9f07793cb285b8e63b7d5ab5318354b02"
+    sha256 x86_64_linux:  "e4cbaebdce96bc94f1fe18569515079f6c6e370146805bb04a6e4bbc7e19a331"
   end
 
   head do
@@ -53,7 +49,10 @@ class GnuSmalltalk < Formula
   uses_from_macos "zip" => :build
   uses_from_macos "expat"
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Fix compile with newer Clang

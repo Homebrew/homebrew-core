@@ -4,6 +4,7 @@ class Kyua < Formula
   url "https://github.com/freebsd/kyua/releases/download/kyua-0.14.1/kyua-0.14.1.tar.gz"
   sha256 "3caf30a7e316f4f21c32e1c419ec80371fe113e3eed10ba1db9e6efc7ee15ecb"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/freebsd/kyua.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Kyua < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "cf92949e914060b023d35f613ab94ccdc61a567fdeb2f97ab1ecc8bd76f07f86"
-    sha256 arm64_sequoia: "efa4be0f2c6ba270d92a837a28fc12a2c2ae556ba18049a9b1b651ff13aff060"
-    sha256 arm64_sonoma:  "8d71d68fc24a0d42ad67d1a7c08c8c39f41ec6f7d56e3743eb400e66d5b6c087"
-    sha256 sonoma:        "54c01bbaa9eb73a6dbd47ff636ceec11eb72104ecac9d7774f60d2b0a31133a4"
-    sha256 arm64_linux:   "9491024b99bc4b9c3cb628c94fdef74fb7dede7dfa0a335dd03b4a9d211f29e0"
-    sha256 x86_64_linux:  "d01915cc4e5d4b63e64b3fda56c343ab81bf2f21662c312cd5acd22264fc5282"
+    sha256 arm64_tahoe:   "df0a26d9a6b340e9503b8fb2f5bd49a1612fafb68a16f2046f0157a3945ba394"
+    sha256 arm64_sequoia: "9b7a4d39f2619978508b4aaca8e298fd2d7b3571ad20616c8742b27e1526f9dc"
+    sha256 arm64_sonoma:  "2960aa79f59cfe291e1d58f60bb7d7d76fc73d076c2167015e1950001e828c70"
+    sha256 sonoma:        "9b8c73b9b4cdf1a3c8c7706e81f598df30944a4b67a28492920a82b14456c92c"
+    sha256 arm64_linux:   "e239437e15b41ff4af492f36a66ff06e7630112d0bb7828a89685cb3c1948273"
+    sha256 x86_64_linux:  "3a8e53115d5afe1d92d1d9db3c3468cc4755c38b869b24530e5d92fae670d5e2"
   end
 
   depends_on "pkgconf" => [:build, :test]

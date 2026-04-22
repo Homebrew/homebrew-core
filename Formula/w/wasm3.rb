@@ -5,8 +5,6 @@ class Wasm3 < Formula
   sha256 "b778dd72ee2251f4fe9e2666ee3fe1c26f06f517c3ffce572416db067546536c"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "67558c58d6f3470d32cc63b037032141ef9d5333b140266449b61ce990b0e5f0"

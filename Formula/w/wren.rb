@@ -10,8 +10,6 @@ class Wren < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "8c4291a4d7ced18176f129c62108b7a2f0286501d05b23ba5f3edcc3016f69c9"
     sha256 cellar: :any,                 arm64_sequoia:  "32ef27315c3c2718071ccbe516fbdc91934eb94d2a0e5f91ec63c215efb8aea0"

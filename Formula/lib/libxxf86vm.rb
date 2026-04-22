@@ -4,6 +4,7 @@ class Libxxf86vm < Formula
   url "https://www.x.org/archive/individual/lib/libXxf86vm-1.1.7.tar.gz"
   sha256 "9a983e3cbb7a57905262291a17da962293c0645f99efd475e3c85264bfddc337"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "eecafb9b9780c7af7c07b4f50393d44a2b0f068bbdf7dfa1cfb1a8ada5362729"

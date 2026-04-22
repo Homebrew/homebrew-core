@@ -10,8 +10,6 @@ class Jflex < Formula
     regex(/href=.*?jflex[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "0e6a95ad6f0aa8fbe269ef4f17eb27227c43456e925a39baafa5bca7e25c151f"

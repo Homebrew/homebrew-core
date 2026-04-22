@@ -6,8 +6,6 @@ class Plenv < Formula
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/tokuhirom/plenv.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "5a0466e4db621c88c365d43a2833a11f9fb5c8284c906b34e2d8d71365370d31"

@@ -1,8 +1,8 @@
 class ErofsUtils < Formula
   desc "Utilities for Enhanced Read-Only File System"
   homepage "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git"
-  url "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.8.10.tar.gz"
-  sha256 "05eb4edebe11decce6ecb34e98d2f80c8cd283c2f2967d8ba7efd58418570514"
+  url "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.9.1.tar.gz"
+  sha256 "a9ef5ab67c4b8d2d3e9ed71f39cd008bda653142a720d8a395a36f1110d0c432"
   license "GPL-2.0-or-later"
   head "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git", branch: "master"
 
@@ -12,14 +12,12 @@ class ErofsUtils < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "74421b46b5e4d74ea7db26e59e68795df9ad8bf16ebdd01e592d387d30886062"
-    sha256 cellar: :any,                 arm64_sequoia: "b174f3b652f72de1830fbc87f77bfcd20d5e4e8332b234d6d82cac2504ace237"
-    sha256 cellar: :any,                 arm64_sonoma:  "1b7334a9d05b74b253ccbf19f14b5239d14cb1f47f5a38fa1c035c8a2ed61cb6"
-    sha256 cellar: :any,                 arm64_ventura: "b059764774718929bb84e69fc0dcac51bf0d2819cdd75e6016df77fda2695c21"
-    sha256 cellar: :any,                 sonoma:        "c8aa11405cbb3a8d3a21e6662b65672a7785963c168f27fe2b31d07e0f59b739"
-    sha256 cellar: :any,                 ventura:       "24cf420f807e846c42c7b0a1edf81d7b218dbca608f991128b01f13e0400aa59"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb03b56ff7a012df2fe260656e3cc9d7076547cd21283fa1f9fe4b9e400983fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7eb92c707a9e789b23311707b07bab6a09097d07eb4d33caab2acd53afba59ec"
+    sha256 cellar: :any,                 arm64_tahoe:   "fcd98111d3eaf796ebb28e1714fca383c2b750c75aa7a692991d2b1abaeec321"
+    sha256 cellar: :any,                 arm64_sequoia: "fc05f424e0cac372e60490b710d30184ee92faaee899de8759c4f2f3b6e12ca9"
+    sha256 cellar: :any,                 arm64_sonoma:  "d35a4cdbd72dd9b04bf33ec14f2d786da070606eca70c93a9c3040a507a09c46"
+    sha256 cellar: :any,                 sonoma:        "781c2d8a935ba8e8c7b8a5f2721d3a1cfbe695927c1afe67da0392d462f19229"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec5a0c1d3922c42c26d84c5b3f2cfe8ceaa0e18db0256da169fa8722a1fce6d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7635fad4505da693bfa9b47be3669fb7bffcbd70425e04c099b48dfb868d5d2c"
   end
 
   depends_on "autoconf" => :build
@@ -29,11 +27,10 @@ class ErofsUtils < Formula
   depends_on "lz4"
   depends_on "xz"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "libfuse"
     depends_on "util-linux" # for libuuid
+    depends_on "zlib-ng-compat"
   end
 
   def install

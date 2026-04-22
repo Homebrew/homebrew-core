@@ -7,8 +7,6 @@ class Ffind < Formula
   sha256 "cf30e09365750a197f7e041ec9bbdd40daf1301e566cd0b1a423bf71582aad8d"
   license "GPL-3.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "04003304502f97107473f1e6be50bf658ff48ec2f8b3c2b12e743279bbfcb2a7"

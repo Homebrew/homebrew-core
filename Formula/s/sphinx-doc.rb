@@ -6,15 +6,15 @@ class SphinxDoc < Formula
   url "https://files.pythonhosted.org/packages/cd/bd/f08eb0f4eed5c83f1ba2a3bd18f7745a2b1525fad70660a1c00224ec468a/sphinx-9.1.0.tar.gz"
   sha256 "7741722357dd75f8190766926071fed3bdc211c74dd2d7d4df5404da95930ddb"
   license "BSD-2-Clause"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f41e5b35971deda76209697b50a9ab72e66789643b6d80d659894c1a74d9674e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d699be88b8b9f051e8afd4d22a3fa2c28e085dd60ef4fed6f4982b0b5d2ddf60"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd0567c653af4b2fbf2597c42f8dda24a917e8c609526c634384918ea3406b94"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b148af00d76427bb9e02db6b58186bfed25f9d3d83d9f8831b0d9934587d37f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d4b5e72711c3f2eae0dca1dd83d4188d6e0eb0818dce89fd63c77419939237d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "174b95f3bfc24fc36bb8ec821238fcb52745d2a1b5cffaa9b8390c0f19a365df"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "403306417034eee1460d2a451af71543d63abc935c36a3a723597d99c0cca565"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68f81364763fd1d28d7783325766f01c11624d25131c10a48600aba70a33a0cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9bb6e9d09c7dce17d2d60f634d41a0d5b9f7c2dfa574e940353031f8ed2ae463"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6a955918164cca20f11550cbf4300d119550cdc41fdadff0d7bbf15fd1d7e9c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3835cb4b2df3fef3140da9bceb6a6b6bb18248715ee9232b384efae0fade0791"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f069b640115e0d97671dea166a280c7858fd8c798f22cbe682ef74c336b7232b"
   end
 
   depends_on "certifi"
@@ -29,13 +29,13 @@ class SphinxDoc < Formula
   end
 
   resource "babel" do
-    url "https://files.pythonhosted.org/packages/7d/6b/d52e42361e1aa00709585ecc30b3f9684b3ab62530771402248b1b1d6240/babel-2.17.0.tar.gz"
-    sha256 "0c54cffb19f690cdcc52a3b50bcbf71e07a808d1c80d549f2459b9d2cf0afb9d"
+    url "https://files.pythonhosted.org/packages/7d/b2/51899539b6ceeeb420d40ed3cd4b7a40519404f9baf3d4ac99dc413a834b/babel-2.18.0.tar.gz"
+    sha256 "b80b99a14bd085fcacfa15c9165f651fbb3406e66cc603abf11c5750937c992d"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "docutils" do
@@ -49,8 +49,8 @@ class SphinxDoc < Formula
   end
 
   resource "imagesize" do
-    url "https://files.pythonhosted.org/packages/a7/84/62473fb57d61e31fef6e36d64a179c8781605429fd927b5dd608c997be31/imagesize-1.4.1.tar.gz"
-    sha256 "69150444affb9cb0d5cc5a92b3676f0b2fb7cd9ae39e947a5e11a36b4497cd4a"
+    url "https://files.pythonhosted.org/packages/6c/e6/7bf14eeb8f8b7251141944835abd42eb20a658d89084b7e1f3e5fe394090/imagesize-2.0.0.tar.gz"
+    sha256 "8e8358c4a05c304f1fccf7ff96f036e7243a189e9e42e90851993c558cfe9ee3"
   end
 
   resource "jinja2" do
@@ -69,18 +69,18 @@ class SphinxDoc < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
+    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
   end
 
   resource "roman-numerals" do

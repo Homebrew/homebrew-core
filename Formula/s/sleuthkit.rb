@@ -1,8 +1,8 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.14.0/sleuthkit-4.14.0.tar.gz"
-  sha256 "fb6ea1801bcfc4c7d3a283d7592c6bd65add655411749513b5c429b86541e9a9"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.15.0/sleuthkit-4.15.0.tar.gz"
+  sha256 "3a8c1e7d18a9b81f3e5e8aa78313974aceaafc6e051d636bc92cd7168286eca9"
   license all_of: ["IPL-1.0", "CPL-1.0", "GPL-2.0-or-later"]
 
   livecheck do
@@ -12,14 +12,12 @@ class Sleuthkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2f05503ba819fabf434097defa4e8968471199abd9fc9ce1ade416c8f548c0ba"
-    sha256 cellar: :any,                 arm64_sequoia: "4618433aefde7d203834d43f15b6a100f233c3e4173ef2fd1fe708d0fed22988"
-    sha256 cellar: :any,                 arm64_sonoma:  "73615ba817ae871688f19a26e23d1751019862f4df4543af2f7d5b9006907c1b"
-    sha256 cellar: :any,                 arm64_ventura: "ccb252574fbfa02e92dd5c708392d05ee5c4603e40162e03ea2129acb1ef4a86"
-    sha256 cellar: :any,                 sonoma:        "bca1bf151256fcddcd5a8c0597e42bd2df0bca96f6a440c6dbe1f70de9326a52"
-    sha256 cellar: :any,                 ventura:       "3e478aa0baea538d7343c5786f6b15358a114e3ca81a3d36d3ed44e7d63525d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e73d02460dc9c1eafee2ad805c562db85fcd4519c04d1c5845d50eb36a9ac288"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c24edf33851639af78901322c231f25100791200e4f8ad644078bc54cb3f425a"
+    sha256 cellar: :any,                 arm64_tahoe:   "8233c5659ba82a3205be66daffa367de9c19e3bd571fa7832f2834212410e6f8"
+    sha256 cellar: :any,                 arm64_sequoia: "f9e7ee4dd3deaf1501c319c1fe5ecf51c00304452f04869ed326ed7f80c23093"
+    sha256 cellar: :any,                 arm64_sonoma:  "f13a74ab449fcd144c40c93afcb71596f9ba54eee8cc6e2dbd1a7d0ddd2a3828"
+    sha256 cellar: :any,                 sonoma:        "e079c6a173f523658c6d26f536899c198178c953c76ccf5df0b41d646ccde891"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd317ae9a6cc96e26521c5a80e0c2cf83e6e692911f1d5ec97ae87b294bec0f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09ffae9958cc8fcdc806aa0676b483b7a374024e612221b291f20abbe001f0b2"
   end
 
   depends_on "ant" => :build
@@ -31,7 +29,9 @@ class Sleuthkit < Formula
   depends_on "openssl@3"
   depends_on "sqlite"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "ffind", because: "both install a `ffind` executable"
 

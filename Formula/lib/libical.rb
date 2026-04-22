@@ -12,12 +12,13 @@ class Libical < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9947b3e026805b69dd932ff37e8f5b038f33d55042783f01320805aa0eaf2525"
-    sha256 cellar: :any,                 arm64_sequoia: "8a95d52f3fae76f4252b74adafd4e82a2512a0c78c4a1cbe9b83ea215143e513"
-    sha256 cellar: :any,                 arm64_sonoma:  "5592f102e7a4da49d6de58655e2ea3b8998aaef51bf74c5f524a4694cc612f98"
-    sha256 cellar: :any,                 sonoma:        "8cc7a1bc62d20db855e43f0c2c42cccb9cc17e2c14fe4bc2779ce40e410df32d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3662c9b1e5cf9c1f2824266ef71cebcc93dde2cef195477c1238f968353516f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5cc9dc2fa2fe2deca5871429fc5f2023a9ca677f23d9680804652514a03edb2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ac4a8191b1b659e8439da4765e3c7ac591d838f1deb3ceee74b9962e91faa513"
+    sha256 cellar: :any,                 arm64_sequoia: "03a9412643774563a580ee5b96132fdeee39e6b73d24bed845a521b5451a56a8"
+    sha256 cellar: :any,                 arm64_sonoma:  "7106190ead9d59a8679a29b4743e1876922b3765d1e575441c720f350ffa2fbb"
+    sha256 cellar: :any,                 sonoma:        "49011b8b33ecb6de63946e79c23daab5e0c851d17f1cbd075706adae86539601"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a56a71650ae63ecbfd7a46034dfa5f3e4188f4079a0cef73c67c68c051892851"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "276ee1adb53b80fbef7c71bc97bf5a59008d599d24e79d6ce57a9cffb8f6bb9b"
   end
 
   depends_on "cmake" => :build
@@ -31,13 +32,9 @@ class Libical < Formula
     depends_on "gettext"
   end
 
-  on_linux do
-    depends_on "berkeley-db@5"
-  end
-
   def install
     args = %W[
-      -DBDB_LIBRARY=BDB_LIBRARY-NOTFOUND
+      -DCMAKE_DISABLE_FIND_PACKAGE_BerkeleyDB=ON
       -DENABLE_GTK_DOC=OFF
       -DSHARED_ONLY=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}

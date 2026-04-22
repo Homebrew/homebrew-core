@@ -3,16 +3,17 @@ class Virtuoso < Formula
   homepage "https://virtuoso.openlinksw.com"
   url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.16.1/virtuoso-opensource-7.2.16.tar.gz"
   version "7.2.16.1"
-  sha256 "0a70dc17f0e333d73307c9c46e8a7a82df70a410ddfe027a5bf7ba6c9204a928"
+  sha256 "7e1d5842840f0b4d967c6c668187959a62414f39698e6ee53793c24594f7bbe7"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2b7ac32764f0040dd1056417f422fb02e15f76bbc2cd674fb5f7537a1877b1cf"
-    sha256 cellar: :any,                 arm64_sequoia: "2d605053b6e21ce0601876ac33732170b904c04e5f8cb8c197968b35034ac74c"
-    sha256 cellar: :any,                 arm64_sonoma:  "f00770df5eb0747dbc02fd9f388acba7f510f9039de36bc1dad6925b6a08e637"
-    sha256 cellar: :any,                 sonoma:        "f0ba234fa8b8dc07f98676a6afdd9c18cd3c123dafdbc5c2dc029b386675131e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "013851e403ba961433f12a29be5cbed55368cd4adb7a5bedc27daf4e114d6037"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4215aa1feb1db4985d004bd6e0fea39de4010dff0ed0fa4c20e1be2153003a2c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "124db9abc6fb578c856559f376a79ef4c24935256fb8c64cd765b87123365f00"
+    sha256 cellar: :any,                 arm64_sequoia: "3bcc3cfdf19576a1890aa35ca987172d5e327c37c6e3f15f787e562e46c5aca4"
+    sha256 cellar: :any,                 arm64_sonoma:  "e20f3e3d0619edabc99bd4c345bb9f2638541c52621a661b4fa97acfc46c186e"
+    sha256 cellar: :any,                 sonoma:        "cb48dfa38804d73c29f23f6a07d022b11bebf62f55cf522f5ae8b7ba93f8ec7e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "54033ce5c9971b061dc154ce4c6bfeaab5e55add60176420d61e9410e682a855"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b252f86f5451180e49ed9329fa33723217618ff199260d8f71e50060cdcc18fe"
   end
 
   head do
@@ -32,11 +33,11 @@ class Virtuoso < Formula
   uses_from_macos "gperf" => :build
   uses_from_macos "python" => :build
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "net-tools" => :build
     depends_on "xz" # for liblzma
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "unixodbc", because: "both install `isql` binaries"

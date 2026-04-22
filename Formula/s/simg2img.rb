@@ -7,17 +7,18 @@ class Simg2img < Formula
   head "https://github.com/anestisb/android-simg2img.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "58a7ef68da47e40e6d78c4d848f6c0b27faa50b211114ff21e368fe196855269"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4379d5396841f588cdc104f78d544b13c8ffced771e3951a1f125832c254655e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c521ed91a882110a4bf62d1937e3ed7bf92953b9bf29cafe90a96f414fd8635"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7991544d5ea48f9b2ac646a907165e7196d33198213360276bed43f1fd9cd21c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5cb6ebc371ac048e15cf499fc82b8620727669732a0cf9ae522b9a46888e2ac7"
-    sha256 cellar: :any_skip_relocation, ventura:       "ef6aec762912ae04441813a968c07bc6463da4df22e479a6745242e811268fa2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f76f92bfcc1a1c8a0aed24f14b1ec062deead3839fa236883435aebb8d54cb83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7ee989bd69ca55912a71b8317711a5ed08d5341c7ba5d24156abcb53a9a6135"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "24a4849d1dd7c830c30fe616fb752e3fd0c2fb11313ada32d3355762d4765881"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9577828d12632f3b93ffb4a5ab7d41ec8a103c0c79bf3f63b82b2c5c4824b7bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c21744d5cf470ad2f34d56744744239bac51f08cdf3bfec889815536cf4a517"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dbb8d4abc6e1771b2ad35ad31e8de166b9ffbdf4999c7578ab90d4fc381fcff9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "47dc8a4e077eddf71ba9eec796d93fe4b2418ce7d848c17f0269a81865d93518"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12395fc0ab3bc7182727330297eba9ac9db3d3ae9e52e256943f2dd0af38c561"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make", "PREFIX=#{prefix}", "install"

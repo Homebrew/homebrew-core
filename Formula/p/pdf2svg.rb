@@ -5,8 +5,6 @@ class Pdf2svg < Formula
   sha256 "fd765256f18b5890639e93cabdf631b640966ed1ea9ebd561aede9d3be2155e4"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "58b344d12758452174b82e00489ee46159fd8522d1665748c87226b390bb2a42"
     sha256 cellar: :any,                 arm64_sequoia: "9d3dee3bc068da7b48766e2020f59c88b699526c1e0649569ff6ead73832a2d2"

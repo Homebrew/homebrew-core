@@ -1,17 +1,18 @@
 class Gravity < Formula
   desc "Embeddable programming language"
   homepage "https://www.gravity-lang.org/"
-  url "https://github.com/marcobambini/gravity/archive/refs/tags/0.9.0.tar.gz"
-  sha256 "c3bf1dfa9b881bcdbc259102b9997dec7289e18663f51103de673826783cea66"
+  url "https://github.com/marcobambini/gravity/archive/refs/tags/0.9.7.tar.gz"
+  sha256 "6f75b995402fa0140e6d9b594c632ef145c1ff7ba80b4e5b65106117fc41984c"
   license "MIT"
+  head "https://github.com/marcobambini/gravity.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "984f8c939ed835a4b7d3cf1ca27a3cc0563b13a665da1ce73aa7897104a3b943"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "187fb5a7dffad37011e777b898c6e27d4b923a004c2371ae24f8db2aece2c1dd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35f67b6a4bd03c684deda21c05d2226765b99a469694f0b36495af7eee958573"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2ef561c3f244eaa3f14501ae3dffd88817d59956d6aff96625e440f23feb3c60"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c9eae21c4d214e2e15fa324f8a3c91fbb2317449697f4bef9d418bc513f86248"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15d21ad9f8233f3aa519c43b28d395d2a12ed80fa4f8427cd55cae23de28338f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec3b9d10debd6c9f7b62da13d8124b02ab09b1f58e35b782d60f7e4a333fc015"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a924f86ec2a85e9ba98bac33cbcb2d3f95c0d25d88115201e2991687a8f2ae88"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6be75446aee6c6e9cd38d53167ec2840d58e769fbf393cb83bd052e35dc67672"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ef792c2081eb85678cb13a6ba65cf79ffacc1f692b879ee21007b5ec9be97f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dfe83f37ff00cba154e21b4fd3f732d370d29521e31251b7cae233f9dd21594"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20472b64ad64254ef6719332320a93571814d1bc5b757da4ed94bda57da0bedc"
   end
 
   def install
@@ -21,11 +22,11 @@ class Gravity < Formula
   end
 
   test do
-    (testpath/"hello.gravity").write <<~EOS
+    (testpath/"hello.gravity").write <<~GRAVITY
       func main() {
           System.print("Hello World!")
       }
-    EOS
+    GRAVITY
     system bin/"gravity", "-c", "hello.gravity", "-o", "out.json"
     assert_equal "Hello World!\n", shell_output("#{bin}/gravity -q -x out.json")
     assert_equal "Hello World!\n", shell_output("#{bin}/gravity -q hello.gravity")

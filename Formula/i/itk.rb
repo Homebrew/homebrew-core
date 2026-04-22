@@ -13,12 +13,13 @@ class Itk < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "08b8928fba8edad9cd0cf5648dd5a84501f67cf8ca16c3fbe9f121eea0b7f2d8"
-    sha256 arm64_sequoia: "ca3ac349ce5bbbd934763ab69a3738eee1b597c6aea11dd01831d7b1992c91d5"
-    sha256 arm64_sonoma:  "d6e7a6642aafeb95c5569a62a24df21ab6c38492f45e1cec50e9d3b6b2823dad"
-    sha256 sonoma:        "c5ff45fec35deb8f0538c16b9c5a639377d59edd436800e4f852b149a5e07724"
-    sha256 arm64_linux:   "f3da0475831c191ca629f771bee74bde3113dbaa376be22b3fb5a000bc5295a3"
-    sha256 x86_64_linux:  "05d19dfd68e93b34aa127fdb18c36e28b61446250196d979d3f9fd2edb7c56ad"
+    rebuild 1
+    sha256 arm64_tahoe:   "b2a8f96cd226af1a815933d1daee93c710ceaafaac326c8820a9104427df3917"
+    sha256 arm64_sequoia: "23133969310686e96f33a55f517f0fb41e20d13211cae77bcfaf9a9072385faa"
+    sha256 arm64_sonoma:  "4f9be429fe1e5c8f5e86a3aaf829223407acf93f9fa6f88fdc7fafc691acd8ee"
+    sha256 sonoma:        "b1a1409ea3e92ab6adcb31ae2d234ae0eddd7b835a267ea026f578f876377c3e"
+    sha256 arm64_linux:   "da238b4ffceb9c53fd94bba8ba720d714173fd072c31729008bec80314c81b4f"
+    sha256 x86_64_linux:  "94c87addcf68107b478da8dde5df4ae2c5d82f98c104765dc8cfed670adbb6ec"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +34,6 @@ class Itk < Formula
   depends_on "vtk"
 
   uses_from_macos "expat"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "freetype"
@@ -43,6 +43,7 @@ class Itk < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "unixodbc"
+    depends_on "zlib-ng-compat"
   end
 
   # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.

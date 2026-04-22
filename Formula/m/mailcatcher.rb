@@ -7,12 +7,13 @@ class Mailcatcher < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "574e00bb8e66f77c67440e5509ca37dfd755c8eb725637571f8316b40c1d9d6b"
-    sha256 cellar: :any,                 arm64_sequoia: "1856171e11d03898bce8c0fc4798dc97c5026a855d310a6c2b077eddf4f17a85"
-    sha256 cellar: :any,                 arm64_sonoma:  "1b378930e1d9954f1d55897326c4f16aed612a35e9e1175635afd2d100a96101"
-    sha256 cellar: :any,                 sonoma:        "e2ef3898fdc9ce6a7f9fe108b0839b8ed349bfb45580a971173f4820e207f588"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b9d6b88128335c4950805eecda0c08d644267efc755fed6c46d59352e18e2f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a839abe265132df9b7a078e798acae6399d8a69fcaafd9c9d1be59aa44ac05c4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3403bf380a433529d8be12139efa13559b1e6d8edd8459291c38b9d1d3739540"
+    sha256 cellar: :any,                 arm64_sequoia: "8922d322087511af1252413be29da5acc36a80c0fa3f8637cabd045fe51b5c33"
+    sha256 cellar: :any,                 arm64_sonoma:  "2f7ae002bbc85e18e6ffb5961be8d88bd8b30eba798c674e705973973af180c3"
+    sha256 cellar: :any,                 sonoma:        "5eea40aec4d9fc9eae8a4312eaf695b287af5ae86f207911b20d7bc9b68469c6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4e5e7f3396a9ed8a27acba60216f835aec1d4db497c8ad1b66185cd395cd47d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84be37438a4f72435ac7646b2abb4595163a560f015a833c5c8d5a35ce36f4a3"
   end
 
   depends_on "pkgconf" => :build
@@ -24,10 +25,10 @@ class Mailcatcher < Formula
   uses_from_macos "libedit"
   uses_from_macos "libffi"
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "node" => :build
+    depends_on "zlib-ng-compat"
   end
 
   resource "rack" do

@@ -6,8 +6,6 @@ class Opencoarrays < Formula
   license "BSD-3-Clause"
   head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "d1754a06e742ffd50f899af3cf5a186a43aaff6960e26806587e3613589dbd7b"
     sha256 cellar: :any,                 arm64_sequoia: "a4946c282cb6a26c68ce00264b72cbe34fc9c11809a9fa2264a8eb4e9654e132"

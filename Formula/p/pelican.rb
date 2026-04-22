@@ -3,17 +3,17 @@ class Pelican < Formula
 
   desc "Static site generator that supports Markdown and reST syntax"
   homepage "https://getpelican.com/"
-  url "https://files.pythonhosted.org/packages/cf/ab/a5e863de66054c561e111687b4c1f7cb2ad5f2d4805d2bb12863f0f637cd/pelican-4.11.0.post0.tar.gz"
-  sha256 "0d5e9c0cc9c6713ab6c25b2c4b64844f34d9be8c8c8cc7f42c3a8aa6b3bbbe33"
+  url "https://files.pythonhosted.org/packages/c4/8d/da26b77f0d9827d341bdedea357ccb5670717e3a9b4142e3e44c7f34db44/pelican-4.12.0.tar.gz"
+  sha256 "3983b5d2dc84c7bdf967154359077a2b78c0bbd2f7dcc55292133a7779609458"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3e277d1a8e8d1625d447c9ef37653d430857521bc09b9de7a1807312f4607b68"
-    sha256 cellar: :any,                 arm64_sequoia: "28e907ea9ee64065b5fdb510cbbe17b9c31b3c80208f5106d4acb208d99daeb9"
-    sha256 cellar: :any,                 arm64_sonoma:  "34810c7215386ec3cb9324b0e27048e2e4d730458b67031d117eb5ea108aeb86"
-    sha256 cellar: :any,                 sonoma:        "82afdff03fb2b0e88758d388eee5ff6ea171f5bc127550a9acfb734856fd9129"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab92e94e5f5c2d8790df1a5cf7d923ef13d763094c731ae34d7e26fcef83f662"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f7771d3e1183bb045c920f33d6531fe2020423a0d3c4e16ecbd0abb19501618"
+    sha256 cellar: :any,                 arm64_tahoe:   "23a21dd4c29026f3395409c414246df6661e1e7e1b11f3b4dc675cbb8f28879b"
+    sha256 cellar: :any,                 arm64_sequoia: "7f29a50d8afa4169eb8070c163d6d2c8c583632f5d572a5567db172bd005ef2e"
+    sha256 cellar: :any,                 arm64_sonoma:  "987414f9a159092c7f8e260c5ea9ea4e85c082ed5b50f1b2725d6417c374caa3"
+    sha256 cellar: :any,                 sonoma:        "98bf6d351b3bd43126f1245fe9bba29fca89bc8d4e4d8c6dad94affa65f50580"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4d21eb90d05297dbc47ff31780e664c7fd9776e2fe0ada56902e43d301649e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7bc58367a9e752569423646777cc844921f237121c390dd4156e9ca4b145dd7"
   end
 
   depends_on "rust" => :build # for `watchfiles`
@@ -22,8 +22,8 @@ class Pelican < Formula
   pypi_packages package_name: "pelican[markdown]"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/c6/78/7d432127c41b50bccba979505f272c16cbcadcc33645d5fa3a738110ae75/anyio-4.11.0.tar.gz"
-    sha256 "82a8d0b81e318cc5ce71a5f1f8b5c4e63619620b63141ef8c995fa0db95a57c4"
+    url "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz"
+    sha256 "334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc"
   end
 
   resource "blinker" do
@@ -32,8 +32,8 @@ class Pelican < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/4a/c0/89fe6215b443b919cb98a5002e107cb5026854ed1ccb6b5833e0768419d1/docutils-0.22.2.tar.gz"
-    sha256 "9fdb771707c8784c8f2728b67cb2c691305933d68137ef95a75db5f4dfbc213d"
+    url "https://files.pythonhosted.org/packages/ae/b6/03bb70946330e88ffec97aefd3ea75ba575cb2e762061e0e62a213befee8/docutils-0.22.4.tar.gz"
+    sha256 "4db53b1fde9abecbb74d91230d32ab626d94f6badfc575d6db9194a49df29968"
   end
 
   resource "feedgenerator" do
@@ -52,8 +52,8 @@ class Pelican < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/8d/37/02347f6d6d8279247a5837082ebc26fc0d5aaeaf75aa013fcbb433c777ab/markdown-3.9.tar.gz"
-    sha256 "d2900fe1782bd33bdbbd56859defef70c2e78fc46668f8eb9df3128138f2cb6a"
+    url "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz"
+    sha256 "994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950"
   end
 
   resource "markdown-it-py" do
@@ -77,8 +77,8 @@ class Pelican < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
+    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
   end
 
   resource "python-dateutil" do
@@ -87,18 +87,13 @@ class Pelican < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz"
+    sha256 "edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36"
   end
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
-  end
-
-  resource "sniffio" do
-    url "https://files.pythonhosted.org/packages/a2/87/a6771e1546d97e7e041b6ae58d80074f81b7d5121207425c964ddf5cfdbd/sniffio-1.3.1.tar.gz"
-    sha256 "f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc"
   end
 
   resource "unidecode" do

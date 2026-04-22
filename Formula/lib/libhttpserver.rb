@@ -6,8 +6,6 @@ class Libhttpserver < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/etr/libhttpserver.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "3c6d43ba60b58af6cbb736fcef51bc8378c8616ba1bc9be95699d19f588cfa4a"
     sha256 cellar: :any,                 arm64_sequoia:  "a52ab6c0ede296608a7aa71640485e6295b72ae13cfdbb14cbd91c032d9c0af7"

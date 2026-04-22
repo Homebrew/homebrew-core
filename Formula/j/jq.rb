@@ -4,6 +4,7 @@ class Jq < Formula
   url "https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-1.8.1.tar.gz"
   sha256 "2be64e7129cecb11d5906290eba10af694fb9e3e7f9fc208a311dc33ca837eb0"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url :stable

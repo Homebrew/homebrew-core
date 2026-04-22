@@ -2,8 +2,8 @@ class Apt < Formula
   desc "Advanced Package Tool"
   homepage "https://wiki.debian.org/Apt"
   # Using git tarball as Debian does not retain old versions at deb.debian.org
-  url "https://salsa.debian.org/apt-team/apt/-/archive/3.1.15/apt-3.1.15.tar.bz2"
-  sha256 "225da89dfa8adf81c2ba16f9a1884eb6978328b0014a273734936a559bc2582f"
+  url "https://salsa.debian.org/apt-team/apt/-/archive/3.2.0/apt-3.2.0.tar.bz2"
+  sha256 "5ee51677f2240b6d40b39233407fd8d00c7a86e92cd3d0c2e57c9c752ed1d164"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,8 +12,8 @@ class Apt < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "a34dd0eccd834f084f6701cbe63e79c9e3853e388f77562dbf08de056f2834bb"
-    sha256 x86_64_linux: "ec35f6373a73971293094b39da79dc9703346ad25ba3afe2ba1b263f58c8ffdd"
+    sha256 arm64_linux:  "e732261545696d954189756c36a6c75062239d4fff91be6b8a6ddc5dedb74dcb"
+    sha256 x86_64_linux: "2d093a16fb414d2a22bd92762abd4dd57879cad56d22282b3cb562470e965cf6"
   end
 
   keg_only "it conflicts with system apt"
@@ -27,6 +27,9 @@ class Apt < Formula
   depends_on "po4a" => :build
   depends_on "w3m" => :build
 
+  # Upstream plans for replacing Berkeley DB:
+  # - https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1119193
+  # - https://salsa.debian.org/apt-team/apt/-/merge_requests/489
   depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL-3.0 restrictions
   depends_on "bzip2"
   depends_on "dpkg"
@@ -39,7 +42,7 @@ class Apt < Formula
   depends_on "systemd"
   depends_on "xxhash"
   depends_on "xz"
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
   depends_on "zstd"
 
   fails_with :gcc do
@@ -50,10 +53,12 @@ class Apt < Formula
   resource "triehash" do
     url "https://github.com/julian-klode/triehash/archive/refs/tags/v0.3.tar.gz"
     sha256 "289a0966c02c2008cd263d3913a8e3c84c97b8ded3e08373d63a382c71d2199c"
-  end
 
-  # Add missing <optional> header
-  patch :DATA
+    livecheck do
+      url :url
+      regex(/^v?(\d+(?:\.\d+)+)$/i)
+    end
+  end
 
   def install
     # Find our docbook catalog
@@ -82,17 +87,3 @@ class Apt < Formula
                  shell_output("#{bin}/apt list 2>&1")
   end
 end
-
-__END__
-diff --git a/apt-private/private-cmndline.cc b/apt-private/private-cmndline.cc
-index 7ea1878..117644d 100644
---- a/apt-private/private-cmndline.cc
-+++ b/apt-private/private-cmndline.cc
-@@ -17,6 +17,7 @@
- #include <cstdarg>
- #include <cstdlib>
- #include <cstring>
-+#include <optional>
- #include <unistd.h>
-
- #include <algorithm>

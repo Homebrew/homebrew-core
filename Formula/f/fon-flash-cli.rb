@@ -6,8 +6,6 @@ class FonFlashCli < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/ericpaulbishop/gargoyle.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bf2b2be0852a150b152ca34168452729049d20ee6b2a89a1c724e6c064114978"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f3f3e955e9c78f33084b9ad4a915383ff41a9decff3b638c605a407bf8d877c1"

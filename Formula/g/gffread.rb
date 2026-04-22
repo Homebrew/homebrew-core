@@ -1,25 +1,17 @@
 class Gffread < Formula
   desc "GFF/GTF format conversions, region filtering, FASTA sequence extraction"
   homepage "https://github.com/gpertea/gffread"
-  url "https://github.com/gpertea/gffread/releases/download/v0.12.7/gffread-0.12.7.tar.gz"
-  sha256 "bfde1c857495e578f5b3af3c007a9aa40593e69450eafcc6a42c3e8ef08ed1f5"
+  url "https://github.com/gpertea/gffread/releases/download/v0.12.9/gffread-0.12.9.tar.gz"
+  sha256 "3ee1a3a2db938569bcccb1e8d908503392ebf0a3f203ddaff1b967b8ade614d1"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "13fd1969b97e3117c0f06a55d3e957e2453dcef7331f03014d45a73a59fd70f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "defe51476a0787bf947f7f1ef4303b52302dbe96b163937eb59e6d491e753a01"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "62b090464eb1b0f2d1f0708e301cf4497a67782b96db9762c4a2eed1debfea73"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "65ddd7c7737f4ddfc2205aebb8be9e15efcbf543da71e76bb1c16b0cb6354913"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "25d4134d3c271a6f558ebee697ac59ee253c5df70aeaa22a58b28f1f23faa6e8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9edeb2e17155f0d1bcc178fe53991d9a1e98a8db5e5091fee916eb194f9be0e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1c0b8963e2c47669ab50268bef64d09b89af8d6472a37de6c34c184f5e0f3a3a"
-    sha256 cellar: :any_skip_relocation, ventura:        "f6e69ada91d38745bcd11fa7156ee50154ddca975b5b60e914c007d299708837"
-    sha256 cellar: :any_skip_relocation, monterey:       "6c91305b71b24859d2dc2974fd4ccc0b8deca23457d652cbc7feaf96bfee6275"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8fe67ffbdac10132a2177190fea3d275b780e35baa58d44bdcc64b9f632c0484"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9910ca8dee44eb2dfecc42829678239da26ef39c301af53a0110572ad13f0f53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0786b5ced3ce7d42b8f02a3898c6e22b7c7e56ebcb779d987909a62ac0200563"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc146d732fa9d7ff8575941815ef0d06f3a57330da3a7ec9f18daa3c92f56e5f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa002f0123c04ce5f9e4b24589d6487bad99a2381b739f01edee872c4e58a2cc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "387db5e149ae11a55955833a00abd3d7b9310633a3887c94ca4ca073cd92cc7e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3a34d37615094a8ce4869a376bc42c594824b73e32f0dc37e7fa21eaaf8b5bd6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "30c6ff37eef9a58c0d9998112c59c8d0b9df539e1d8a6e054c195cae4db0bb34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e89307727dd3730db1edd52ac69069225ebeb70b0cfbb4b0e117cbb67e40ab99"
   end
 
   def install

@@ -11,14 +11,13 @@ class Snobol4 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "76b3222469613ba6e90653854907660b1b13724b1a2920efe6893cbfb1f7e968"
-    sha256 arm64_sequoia: "d628d4ea0897d407f1b244dc75fb8168b93d77b1de0c862200acfba011096009"
-    sha256 arm64_sonoma:  "b3f7a50e01ebddadfe570f4e13a630898a86e388e65ac4e2cad8e88b268b3d1e"
-    sha256 arm64_ventura: "a382d391551c2bf3462b47c2214c0d4bd7f79fbc90b46494a6bfa13fc60ea825"
-    sha256 sonoma:        "b6eb99a66c91dee6b0de92822663111e954207148a3ff26f7e5c7460d17ddc09"
-    sha256 ventura:       "677075a50ad434850c41aa511e5382a8306acc3ad8a65a386e5105463f96fff7"
-    sha256 arm64_linux:   "94b2fcd9d8c0e566448129cd582b82bbe03bab0f1c2e3e15fa60e6c6540739a9"
-    sha256 x86_64_linux:  "0cf89fdce929dfabbed1e366a5d85e7206adc6b520bbecec8950259b505b1c04"
+    rebuild 1
+    sha256 arm64_tahoe:   "386f57258d19733bba9f79839743634ccdc0902fffe86afa9e0e8bf37b7fd035"
+    sha256 arm64_sequoia: "be80dab2b55d9f5cdfe7048659aa67ed87b0e64819d2d8c213db3a897b7f8651"
+    sha256 arm64_sonoma:  "8d6f1601dec1dd71250698920a2f3f51a4029da00408233459ce2dde4001fff5"
+    sha256 sonoma:        "4afab736c1e01614e1d6d305fc65c9d17e2352cd50cb99473f0b8a573f428360"
+    sha256 arm64_linux:   "5b19a3df62c11519f9fa0f4100fb82cfb9d97445f881f786de15764b3de37e60"
+    sha256 x86_64_linux:  "04420e3ce73484c4ca3ee3115d30b9db317def98bf1ec831188385639f49d445"
   end
 
   depends_on "openssl@3"
@@ -26,10 +25,10 @@ class Snobol4 < Formula
   uses_from_macos "m4" => :build
   uses_from_macos "libffi"
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "readline"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "sdb", because: "both install `sdb` binaries"

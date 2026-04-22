@@ -1,21 +1,18 @@
 class Libfontenc < Formula
   desc "X.Org: Font encoding library"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/lib/libfontenc-1.1.8.tar.xz"
-  sha256 "7b02c3d405236e0d86806b1de9d6868fe60c313628b38350b032914aa4fd14c6"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libfontenc-1.1.9.tar.xz"
+  sha256 "9d8392705cb10803d5fe1d27d236cbab3f664e26841ce01916bbbe430cf273e2"
   license "MIT"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "badff62bd95618002e7da104527ef4d9f6cd09c7fc285ffb5fc2d519b0e2e7ac"
-    sha256 cellar: :any,                 arm64_sequoia:  "5e4228d360d809601a62a880d67db005d4a9d3a92ddfbf47e6c6d0154f258bcd"
-    sha256 cellar: :any,                 arm64_sonoma:   "67887ebe92518e43424e8b468b310fde9ab42d9791d387d59519cdbfb4a2f43c"
-    sha256 cellar: :any,                 arm64_ventura:  "15cec1b1e8ca8856aa59de28068cd187831281b1376597d7bb87c5f79b80e10c"
-    sha256 cellar: :any,                 arm64_monterey: "129b929cf9305162d58922cce06530c4c1da2968adc292503240105c454bae67"
-    sha256 cellar: :any,                 sonoma:         "bddef82fa135b48fa58485df06f80aeda327ac2e77a4fdb05d3543135c123692"
-    sha256 cellar: :any,                 ventura:        "ce1f99b92616293e816e6d04918e1570ff18ed052ba6cdcb66115ceee37d9240"
-    sha256 cellar: :any,                 monterey:       "4f2d62d14136a1c6ca9e4f01d1b1bf454c9e90bc6eb3f50e6bff76a631ac0621"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "484aac796b8b64a4cf00668a052c6734851f54de232c684a48255245bf7898f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f29d93ac7c98c61ac6e50b6d057bac244b13eb52046af1634ee623f452b1c5e"
+    sha256 cellar: :any,                 arm64_tahoe:   "08ad2bfdfb5d488ee3aef88f8f18c08fcbf93f96eb8e611cee542997ceaf3152"
+    sha256 cellar: :any,                 arm64_sequoia: "167dd0c71a50faf0fcb51f03b3e93f2afe059b1e34c7bf14e22d3bec6a86c22f"
+    sha256 cellar: :any,                 arm64_sonoma:  "6b89669fe88e40b68ad42d9c41ec3a89701d60cac1592d53d76a7f023c8f35dc"
+    sha256 cellar: :any,                 sonoma:        "1287de8752c34becfa9e8f7c9b485c4009fa182520304cf51c52530878cb7738"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "588498decf9879a21330a600ccb23fc22f150b8097ec75b3bacc430911259aa1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4091913f2c2f28015d3f9acc97c008d2563b1cd39c70d2da0267f6a4a7a57dd0"
   end
 
   depends_on "font-util" => :build
@@ -23,7 +20,9 @@ class Libfontenc < Formula
   depends_on "util-macros" => :build
   depends_on "xorgproto" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

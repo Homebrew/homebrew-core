@@ -10,8 +10,6 @@ class Dsh < Formula
     regex(/href=.*?dsh[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "cbb546751736cb2f93c9f59a4851ad2157a1440e5f5e914c15f5efb8800f2196"
     sha256 arm64_sequoia:  "d73aea65a96f05c4040e1b38d8238dbaee979d65c886c388b3eb7d7f5b388295"

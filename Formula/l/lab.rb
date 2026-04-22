@@ -6,8 +6,6 @@ class Lab < Formula
   license "CC0-1.0"
   head "https://github.com/zaquestion/lab.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e797c832335a5532813bc21bb9b373cec8551469955c9dea5826787f0053ed87"

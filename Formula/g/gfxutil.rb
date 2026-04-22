@@ -7,8 +7,6 @@ class Gfxutil < Formula
   license :public_domain
   head "https://github.com/acidanthera/gfxutil.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "aaa2bcf67a5e5655cb62fcee4118904fba8f0f195c908c2d18576f3a7680d817"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "63bb7dcf0a63573ae3d930724c50172fdee932cebf3733d5862cd961fa2ff5c7"

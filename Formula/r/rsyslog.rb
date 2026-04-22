@@ -1,8 +1,8 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2512.0.tar.gz"
-  sha256 "93c50025d90b6c795fa350d56a3d832bfce45043ea9bd68240d9c2a9394bc629"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2604.0.tar.gz"
+  sha256 "2a04b1cd6f0a5e2b60eec231acce3cf9927c4ed02bc5fbbe5dc4c35fcf887b64"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
@@ -11,21 +11,26 @@ class Rsyslog < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "c2db8984acc93f4ba08df481201f0a1b453667ca6c3cdcdee9dfa5e09b53031b"
-    sha256 arm64_sequoia: "1f27f4f152d39ea634d38240a5189678e46bfb2fabb0b67e86897867e46fe5e0"
-    sha256 arm64_sonoma:  "f353642ec2e7a8c2426b68537b4f57764c298cc8b8049965173db2345b5e1bd0"
-    sha256 sonoma:        "7099a72ee3a37a07338d8a03b1032a47bb1b3cf601d4876be3073bada2cb7efb"
-    sha256 arm64_linux:   "aea0fa66d5662bfd917fd4fb2946b47ddfaeea25754159398994e4ba3c3c3a05"
-    sha256 x86_64_linux:  "aae84034d0e933bf106ade3111c86a6d4b5acbf1d16f2a14fb8cc07f275973bd"
+    sha256 arm64_tahoe:   "ac940ccc2bad665de82d87172ee265bffbbd7830d61982c164a3581692a21520"
+    sha256 arm64_sequoia: "e6119ab21408febc7fd07ed7ef2a4f1498a9a7a9d29a9ea78618f4df4f4f54d1"
+    sha256 arm64_sonoma:  "1b0b99a5514977571d829fdeaae9df573b745a5bd7ff5dd02b09bd7332ecf453"
+    sha256 sonoma:        "d00a64376b1149cbc2190b6756c456036e2bdc1216275cc8cc872de5a0425899"
+    sha256 arm64_linux:   "40c6fc9a9ffd047e4b1a2d931624ca2910c3da52f2fe10088ae29eec6e13e502"
+    sha256 x86_64_linux:  "e1f531545831c8af04a56fc70d4e9b60bbc6ec55c11e27f12a99f9785df8d4a7"
   end
 
   depends_on "pkgconf" => :build
   depends_on "gnutls"
   depends_on "libestr"
   depends_on "libfastjson"
+  depends_on "protobuf-c"
+  depends_on "snappy"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--enable-imfile",

@@ -10,14 +10,15 @@ class GdriveDownloader < Formula
     sha256 cellar: :any_skip_relocation, all: "4bf15846802e9bd0249ea5dda20be4a1f3324fedf7de558ab40d756aa3a1904e"
   end
 
-  depends_on "bash"
+  on_macos do
+    depends_on "bash"
+  end
 
   def install
     bin.install "release/gdl"
   end
 
   test do
-    assert_match "No valid arguments provided, use -h/--help flag to see usage.",
-      shell_output("#{bin}/gdl")
+    assert_match "No valid arguments provided, use -h/--help flag to see usage.", shell_output("#{bin}/gdl")
   end
 end

@@ -6,18 +6,28 @@ class Ccls < Formula
   #       https://github.com/Homebrew/homebrew-core/pull/106939
   #       https://github.com/MaskRay/ccls/issues/786
   #       https://github.com/MaskRay/ccls/issues/895
-  url "https://github.com/MaskRay/ccls/archive/refs/tags/0.20250815.1.tar.gz"
-  sha256 "b44d9f981e65dcf950525886f8211727da8a41d3070d323d558f950749bc493c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/MaskRay/ccls.git", branch: "master"
 
+  stable do
+    url "https://github.com/MaskRay/ccls/archive/refs/tags/0.20250815.1.tar.gz"
+    sha256 "b44d9f981e65dcf950525886f8211727da8a41d3070d323d558f950749bc493c"
+
+    # Backport support for LLVM 22
+    patch do
+      url "https://github.com/MaskRay/ccls/commit/d31cc9f07668a91c892d5f13367b9a1e773fbe2b.patch?full_index=1"
+      sha256 "13c2503f682d7b2932a2a4544f1fc32ace8799be9e9234b2f1df0867536a20fc"
+    end
+  end
+
   bottle do
-    sha256                               arm64_tahoe:   "d41a620c124d28b837a29cfec3e13876930ae1e009e418288fc88999e32b6e27"
-    sha256                               arm64_sequoia: "749dfea1d4613ad31cd9fb75a6453abcf2a4255583d34725875b628e28a5a2c4"
-    sha256                               arm64_sonoma:  "6efb922e55abc89e8692f01983fb0535aba8c98ff1f44d955b2a1f2c2009335f"
-    sha256                               sonoma:        "45f103aff2b44c753aea52f1029069d9e07411b71fe406646bb4a1b1d26ff45f"
-    sha256                               arm64_linux:   "fa9463f30db82918f4ac61bfd4874ad5edc7e64602fd914cb64a54b7474c838e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ec6d7f2aaecfb5a5489a51020a06b6898c82b2e7597b47baec619f88eca9a06"
+    sha256                               arm64_tahoe:   "828f8f022c4d2d28a12e5f21e58ba81c43e6800e243ca23168a255dcebab8725"
+    sha256                               arm64_sequoia: "abff16b5beb658a167a6a9f23b8e89634c1eabf4b30f76335fac35be7e8f1301"
+    sha256                               arm64_sonoma:  "046d68534f7476f7b65cf6df4f036bc0920e7d1adcd42ebea40b159e6f174dab"
+    sha256                               sonoma:        "e3674eb35881af0ba202937b1bea6949533982fd150492b0efaa7e4ada1db537"
+    sha256                               arm64_linux:   "1a7cc23edfbe66b0582a9a2c802c79cf08fad134a1160e30d5be6e4b70c64a4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d436bec5d893d5b61d6c43fe7e64d716475a20961e56a35b3d4c4db467e91a0"
   end
 
   depends_on "cmake" => :build

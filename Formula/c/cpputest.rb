@@ -6,8 +6,6 @@ class Cpputest < Formula
   license "BSD-3-Clause"
   head "https://github.com/cpputest/cpputest.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "abff3233390673fd95af1c7bccd0b1b9c9687db0057b816cdb43b996f1d0bf73"

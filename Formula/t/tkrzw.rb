@@ -11,25 +11,39 @@ class Tkrzw < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "fc118de56a8fac03f58c69b8af87157ba99f837885e0bf92ba6a6c3190b72af4"
-    sha256 arm64_sequoia: "ab5d487ff3e9827fdc4c61a698a2bd94ac7476b90530dcff5644a325ba8a93a7"
-    sha256 arm64_sonoma:  "70cbd979207abeae3c522f5f1a8fd8bf72eeeafdd015e80d780b185e7668b14c"
-    sha256 sonoma:        "c8a0f6879237655ef6a8e0a25293b3be58e87f6e65c0441690e409ad9337b75f"
-    sha256 arm64_linux:   "c2762232e09d5ba59613499f799af33b1c835403ffa3b55940b5cb1e83122322"
-    sha256 x86_64_linux:  "8071105a6bd977363587e9d2995cc5d7b1a53da7a905d082df4033598ef1728e"
+    rebuild 2
+    sha256 arm64_tahoe:   "2a93d5a38b3e08c37d54d667daec5725390de6704e0ded01dae185d6fece38fa"
+    sha256 arm64_sequoia: "c0d04a3456293bd15f82e6a73841e89afa3667c703090ef5bbf8cc83f65a7ed3"
+    sha256 arm64_sonoma:  "4cdac837ea7a7725dfd53dd144ecf10bdd943ad16afb69a78fb157898902c159"
+    sha256 sonoma:        "f0a9dfb7aa1d28dc848b8ae5a67093fe8ba7d73576fbb49f6eaf31804a46f63c"
+    sha256 arm64_linux:   "2b2d2a3bc55190b7b8d86704fc5ca5920280277a238d55b20ae15c8ec00f1496"
+    sha256 x86_64_linux:  "b4afc2a954abf29f144c953048526c89d242af29652ac59d9ee05cd5d715ecd0"
   end
 
-  uses_from_macos "zlib"
+  depends_on "lz4"
+  depends_on "xz"
+  depends_on "zstd"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    if OS.linux?
-      ENV.append_to_cflags "-I#{Formula["zlib"].opt_include}"
-      ENV.append "LDFLAGS", "-L#{Formula["zlib"].opt_lib}"
-    end
     # Don't add -lstdc++ to tkrzw_build_util and tkrzw.pc
     ENV["ac_cv_lib_stdcpp_main"] = "no" if ENV.compiler == :clang
 
-    system "./configure", "--enable-zlib", *std_configure_args
+    # zstd support is needed by dependents. Other features are for indirect dependencies.
+    # Also force shim path for CC/CXX as configure seems to use a different PATH
+    args = %W[
+      --enable-lz4
+      --enable-lzma
+      --enable-zlib
+      --enable-zstd
+      CC=#{which(ENV.cc)}
+      CXX=#{which(ENV.cxx)}
+    ]
+
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end
@@ -49,6 +63,7 @@ class Tkrzw < Formula
 
     cflags = shell_output("#{bin}/tkrzw_build_util config -i").chomp.split
     ldflags = shell_output("#{bin}/tkrzw_build_util config -l").chomp.split
+    ldflags.unshift "-L#{HOMEBREW_PREFIX}/lib"
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *cflags, *ldflags
     assert_equal "world\n", shell_output("./test")
   end

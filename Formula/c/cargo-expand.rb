@@ -1,18 +1,18 @@
 class CargoExpand < Formula
   desc "Show what Rust code looks like with macros expanded"
   homepage "https://github.com/dtolnay/cargo-expand"
-  url "https://github.com/dtolnay/cargo-expand/archive/refs/tags/1.0.119.tar.gz"
-  sha256 "c4b2c38dd157ce8eeb81ee1762b0a235ed23d2300fdb29a73c54313a927b0262"
+  url "https://github.com/dtolnay/cargo-expand/archive/refs/tags/1.0.121.tar.gz"
+  sha256 "99d61908f3e2364b31e82e9fb781c80044d26cbfdb2386ab8640205f3b535325"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/dtolnay/cargo-expand.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "edf4e8b9e99bdbdea745dd5ede756debf8984ccf0dd61071ef6d81b7140950c4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "363b9b225b848bb67b5b111c834cbd42e0408d4c8bb390913dd2bd69084a5989"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a6260c40dbe842fa826bedede2da7a344f171306b8a2829a37119dcb38097e5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5c9b272c580e62e6438fd39043703709d0f84554111b79e4d32467dc3bc9ad00"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d85452155ab6c0b1549a0705b198c330c9d5cf0054296359c6c3f344d7665814"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb6b38bdf57f68ab2ad2897db12473d31e8714d226a34b528fa2f21cc138ce28"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f4139f4c27426889430a11fe35e5472ed5d0b6c28d74165f791ad5edd82ba2a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "539e0e3c5c6ad1b6a8b273a501c7cb1bdb20b178aceae5b2014bb771d2f5e796"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d4f215902b635d4562af8fe5d25a7a8205de154b10504d207e8439d5d53c15b9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a85596b5dc6a518f612ef25a33bdbba81e312040fa79fb3ff5ac1fb412092ace"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3a6c0f2d93b324bff5723e662f358285d5ff256e5572dbd3acd9268d7397f681"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6ca0b032a90bbdef8df0895b9558359e22f4bd9eadb625e092370a804e173a6"
   end
 
   depends_on "rust" => :build

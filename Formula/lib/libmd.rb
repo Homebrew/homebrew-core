@@ -1,16 +1,15 @@
 class Libmd < Formula
-  desc "BSD Message Digest library"
+  desc "Message Digest functions from BSD systems"
   homepage "https://www.hadrons.org/software/libmd/"
-  url "https://libbsd.freedesktop.org/releases/libmd-1.1.0.tar.xz"
+  url "https://archive.hadrons.org/software/libmd/libmd-1.1.0.tar.xz"
+  mirror "https://libbsd.freedesktop.org/releases/libmd-1.1.0.tar.xz"
   sha256 "1bd6aa42275313af3141c7cf2e5b964e8b1fd488025caf2f971f43b00776b332"
-  license "BSD-3-Clause"
+  license all_of: ["BSD-3-Clause", "BSD-2-Clause", "ISC", "Beerware", :public_domain]
 
   livecheck do
-    url "https://libbsd.freedesktop.org/releases/"
+    url "https://archive.hadrons.org/software/libmd/"
     regex(/href=.*?libmd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "dd432cf5a6edaf4bf4c5fe5ffbf129122c5691ee3c98b13b7b6c512b95e917d2"
@@ -27,8 +26,17 @@ class Libmd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c07679b6d5141498eaaab977d8501cf12219feb13a7ae040044561d5abece9af"
   end
 
+  head do
+    url "https://git.hadrons.org/git/libmd.git", branch: "main"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./autogen" if build.head?
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

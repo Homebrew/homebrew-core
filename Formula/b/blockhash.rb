@@ -7,8 +7,6 @@ class Blockhash < Formula
   revision 4
   head "https://github.com/commonsmachinery/blockhash.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "67363b29a30df42d320f72595bd81ce0dc7e41ec7cf0ec5f620bc90e6256a681"
     sha256 cellar: :any,                 arm64_sequoia: "da404e78c996ce8a8cc0f39fb53c7b98de1df04a20f3f04224ef34d181d427e1"

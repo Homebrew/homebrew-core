@@ -21,6 +21,7 @@ class Vcs < Formula
   end
 
   deprecate! date: "2025-03-22", because: :repo_removed
+  disable! date: "2026-03-22", because: :repo_removed
 
   depends_on "ffmpeg"
   depends_on "ghostscript"

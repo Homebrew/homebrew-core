@@ -28,7 +28,9 @@ class Teip < Formula
   def install
     ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
-    system "cargo", "install", "--features", "oniguruma", *std_cargo_args
+
+    system "cargo", "install", *std_cargo_args(features: "oniguruma")
+
     man1.install "man/teip.1"
     zsh_completion.install "completion/zsh/_teip"
     fish_completion.install "completion/fish/teip.fish"

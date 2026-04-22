@@ -1,20 +1,18 @@
 class Tml < Formula
   desc "Tiny markup language for terminal output"
   homepage "https://github.com/liamg/tml"
-  url "https://github.com/liamg/tml/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "68a87626aeba0859c39eebfe96d40db2d39615865bfe55e819feda3c7c9e1824"
+  url "https://github.com/liamg/tml/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "45824c36e810c568365d7f04c69900a0ef1abb46644f94a054cfe2d160999320"
   license "Unlicense"
   head "https://github.com/liamg/tml.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b6cf3e1d68d91ba4a9ac1a89f12888ae12688d1900db3274f1cc636ab8c7f80b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b29c24330dd225c36eca02a8b4ebaf812acea9b2f6fb927e5130cf03261afa32"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b29c24330dd225c36eca02a8b4ebaf812acea9b2f6fb927e5130cf03261afa32"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b29c24330dd225c36eca02a8b4ebaf812acea9b2f6fb927e5130cf03261afa32"
-    sha256 cellar: :any_skip_relocation, sonoma:        "614aa201d2d108d63b5758ddd9ff35d591bd129f096fbc04c702868422576e6c"
-    sha256 cellar: :any_skip_relocation, ventura:       "614aa201d2d108d63b5758ddd9ff35d591bd129f096fbc04c702868422576e6c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ce7ed2e65514f5e6eaf588dc625153887044642505caa235383785af27ccc23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a69543363747967ff8fdc7ff2252bb11ceaafc97fd9374832dd5576485928cd6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "10b34badd3fef44e0bf17c4b4c82a136d08f4ad72fb80037b5897f338a683464"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "10b34badd3fef44e0bf17c4b4c82a136d08f4ad72fb80037b5897f338a683464"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "10b34badd3fef44e0bf17c4b4c82a136d08f4ad72fb80037b5897f338a683464"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4b24f741548871912f5a3528e28b5cc992e4ae75d194e4598c27d506f2700a4f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9f31aae22bfb77db6c3d0541ebd2917baafcc96d2bbbf3937b5a482cfb0de47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e8917c0a83fd27f6c87020f2279523fefd4ebbcdc479802b6caac90a3e532c9"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Kdoctools < Formula
   desc "Create documentation from DocBook"
   homepage "https://l10n.kde.org/docs/doc-primer/"
-  url "https://download.kde.org/stable/frameworks/6.22/kdoctools-6.22.0.tar.xz"
-  sha256 "d893f2758f9e1d9a529d1b573b3fc413d4c3e0cf4b8573ecee5c99c8d66a3f11"
+  url "https://download.kde.org/stable/frameworks/6.25/kdoctools-6.25.0.tar.xz"
+  sha256 "2c5866257edda20f33c35f64a8bcab08de3dddb4e751bbbc2e09e941df979918"
   license all_of: [
     "BSD-3-Clause",
     "GPL-2.0-or-later",
@@ -17,12 +17,12 @@ class Kdoctools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "938a5644209f8569f1e63beb25f2f66abc1d3798706051287d1a089f41376917"
-    sha256 cellar: :any,                 arm64_sequoia: "548171532b506b32d898abb850230f4e6c6d6957d3dfd764ec5f9c5b06e84fe2"
-    sha256 cellar: :any,                 arm64_sonoma:  "3fa39fc610cda146237ab010df74f80d4b183ccf02b1c1a95b23561e9ae5deaf"
-    sha256 cellar: :any,                 sonoma:        "d148abeb5b5c8bd9651e917e98d97117c8059119003f0702f09eb4199569f899"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "08af03687dc729b4d11c4ae3fc419330dd4953d07c05343fcc47ab6214caca03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39679de9b2fc6d36cacb61e914a94b808be39c1f7de75bee7a2e95d10d581fc8"
+    sha256 cellar: :any,                 arm64_tahoe:   "9629bacda36d1df1db24123754d05a8b16431a6209b719ab81942520f7e71078"
+    sha256 cellar: :any,                 arm64_sequoia: "ebb69e88a3bcecf2a00a93e4b25f0d1dd5f9ed8282c7d8c3cc938fabd2ac9dfb"
+    sha256 cellar: :any,                 arm64_sonoma:  "201cb6456de82cc87aa3d8ec4995e0dd9e1dd7f4953f5dbb6c998eb5a1294ef3"
+    sha256 cellar: :any,                 sonoma:        "36714f85849d17e08301e636d01d2b6967f5781ce6168833e5bd13f61d6b036a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d1a23ea10f78fa2a37b734d133e242b5bf5c096bf5b15e586f25e4becc4b5b10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdbbbf36521ef7636643060022578fb98bb8babc19b2c6696ef59503eacdf28f"
   end
 
   depends_on "cmake" => [:build, :test]

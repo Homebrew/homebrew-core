@@ -10,8 +10,6 @@ class Dvdrtools < Formula
     regex(/href=.*?dvdrtools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d9ce7dd044c0b813f15a0a53332e50bd2f4b85fca18f7bb9951796f061abdb24"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57b79ee1791a3cbd816e11cbb178cf961f4fc0b5b71324233ea6c68a6c420db1"

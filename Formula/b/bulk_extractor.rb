@@ -12,15 +12,13 @@ class BulkExtractor < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "28112f82cc9e0e627462d3a4b5d882ac36e00ca7367a9a367dc15b5d7dfc95c3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a31d530c9667f15046ad54b617056fe121a9eec4f7b24749207b8b6e84f9083"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d670cf96b00bf5497c822bf2b7f0aef8c1b23cec45692a37bb2c61e3fedc0c0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a2707abfb8d0b3cf9744d495661c47a3ff3fc0bf16cbbc09311ccd462dc54c9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f3f3290fda284e7b8e04d5c64ee3a06b06048b37c1f7399a3374ac033c3d5f74"
-    sha256 cellar: :any_skip_relocation, ventura:       "f85d235e221af43b55ab85384aa5f4e3799d5cd73c8bf54e41cf1d0cae93464f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dd712b046cc8a9d3b6707582ab3a2d309b71c534617828cb8eca95e8a56905f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "624fbdcd4889624e1c1da350a4433335234d25bf861686bcf4736e5f4315ee0b"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fce16972463075eb40a46aff2cec48868513aeeb181a67fbdf41ead522d06d0e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d584ce493285ccd23882534b8707dc2635a97ff4890fb3c84051a2544b9eaf91"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba5d8eec3919cad2196afcabb07b9f92d04de7e46d908887aae54cdb655a57fa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cd2032241f7acb78ae73beb4254a1c9a55ad60b88568b52e260859ae01eacc41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "63def3013392e1b55add767f77b6722108804e57ccf91090ea82f3cff28292aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19a7347706e0ec70fd5db04d47420c392ff30a7f9da887cb8f66c56c86ba7c6b"
   end
 
   head do
@@ -37,10 +35,10 @@ class BulkExtractor < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "expat"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@3" # uses CommonCrypto on macOS
+    depends_on "zlib-ng-compat"
   end
 
   def install

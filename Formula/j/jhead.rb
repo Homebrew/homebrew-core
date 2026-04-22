@@ -5,8 +5,6 @@ class Jhead < Formula
   sha256 "999a81b489c7b2a7264118f194359ecf4c1b714996a2790ff6d5d2f3940f1e9f"
   license :public_domain
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6695433af5f3468402173a67b2de5d735712c095f4bdbe8701e6b2354b43c38f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "891f4ab79df46ae9c29264f4cedff94944b4864c60db72d0e22ee015a381f3dc"

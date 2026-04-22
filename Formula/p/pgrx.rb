@@ -1,17 +1,17 @@
 class Pgrx < Formula
   desc "Build Postgres Extensions with Rust"
   homepage "https://github.com/pgcentralfoundation/pgrx"
-  url "https://github.com/pgcentralfoundation/pgrx/archive/refs/tags/v0.16.1.tar.gz"
-  sha256 "8638d911003b93e8a73ad86e3cfa807165d2d3e69fce45dff98b19838ca66d13"
+  url "https://github.com/pgcentralfoundation/pgrx/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "fc39703527b34f916fef9fb0e44e8aab3f5691e1f15f7e89030d96050c322afe"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "18ec52d8f23536e3d83cae766791ce71909ea1ecfe8d8825ca08c28900e6e360"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0635a05b7737daf0b4920af5d82304362ac2bd68af62bbeef539b0701ff445fb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a81c4f856715e16bac6cc47e06db980bff34ea6a7e0305ee62922381e2c1b88"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f51e9c9b42b10de08a5d03be749a015981b0e71863de04c1924868d763743628"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6f41bedbb746bf6b0cb10f431ea03da30c7f2c174685871ff9a48f18e30190a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6c3c8f45df8886bdf8f9a9a5065c66217b06b22af1722ef2fb233f44f5c5bb0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "93ef1e628ad8ca6a9eb7174dbc949d2465b9324f92a979a7bf1dab2f4c5cab29"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a13d89e91363f12e5a3d0a8c2c6f1cf2a0836922cb016c74cadab02e1d1fcd9b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "380c2dabb4cc76115966d4cbe542d088646892e8b486e7538d0019e4376e63de"
+    sha256 cellar: :any_skip_relocation, sonoma:        "de4ad7d75687f82d59862f5b9d75d01333cf51492975da6118bba10f4388a502"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7557d8fc1b6fd4968c12a88942419ae526085f454b409b793b471c2ee9842f71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58aac8c85d6f4a68f7c3e1891ea59703d2481590cd0603194368968470281196"
   end
 
   depends_on "pkgconf" => :build
@@ -19,7 +19,9 @@ class Pgrx < Formula
   depends_on "rustup" => :test
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "cargo-pgrx")

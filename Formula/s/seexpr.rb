@@ -10,18 +10,14 @@ class Seexpr < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "0fd5628f6fdb5836a1dac4449b9d676a31ef446d1e7f7f991a62c09e56029d2c"
-    sha256 cellar: :any,                 arm64_sequoia: "bb4a0dda70f5ddd52570aa14998475ca6a14a02e57c0703084d32b25fee3b69d"
-    sha256 cellar: :any,                 arm64_sonoma:  "1b5ce1a0a308b584bd43837a5cc06fa4d1c88276bec2b1a510088a96d947033f"
-    sha256 cellar: :any,                 arm64_ventura: "48d883728af997e5d3805c2b162973aa5d883b38db75ce2caeb5174406276713"
-    sha256 cellar: :any,                 sonoma:        "e4c95048b7bef18faee54008b94f674863f18b42fd1fa6bc978c6c96a0167791"
-    sha256 cellar: :any,                 ventura:       "1634179b0990f9b55997ea81ff5a9b8702cb4d8fdaaa3f3ef64d34b5ccb45bfb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc21c3bcac5847ffdfab83c45e85312726b9bc0bc4f6af7b3a1457b85e2baa97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb306407c4c3dceac93d89e8505a81bde4b4a20798f2e856bf7189ae41dc77ea"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "d4fedca978d91b1a42b576ef1f225c684897945f78293fadee966d41f2217bdf"
+    sha256 cellar: :any,                 arm64_sequoia: "3614da63f916d5bcf3ebfbb5e707891cce153aff309b701a08d689e8c973b50e"
+    sha256 cellar: :any,                 arm64_sonoma:  "889e644f77e922e3afe2ed53c6c111d35fb7837c04509e3a27eba0a9af53ac7c"
+    sha256 cellar: :any,                 sonoma:        "fe743ec07b0822631267242e83c572bbdbceb95dc12b991f0075b68fbba676cf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f486c2cef08b8cc2e96b906608c22d77c4f22a3f302ffb1b31fecfaea85b53ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6c0b48fe9fe1f0239ff16864d3c1b28c5ff683a9d18cedfb27c28ee6c98ba61"
   end
 
   depends_on "cmake" => :build
@@ -41,12 +37,12 @@ class Seexpr < Formula
                                     (!build.bottle? && Hardware::CPU.sse4?))
 
     args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath}
       -DUSE_PYTHON=FALSE
       -DENABLE_LLVM_BACKEND=FALSE
       -DENABLE_QT5=FALSE
       -DENABLE_SSE4=#{sse4 ? "ON" : "OFF"}
     ]
+    args << "-DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: share/"SeExpr2/utils")}" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

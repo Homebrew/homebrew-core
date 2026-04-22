@@ -1,7 +1,7 @@
 class SolrAT811 < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://solr.apache.org/"
-  url "https://dlcdn.apache.org/lucene/solr/8.11.4/solr-8.11.4.tgz"
+  url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/8.11.4/solr-8.11.4.tgz"
   mirror "https://archive.apache.org/dist/lucene/solr/8.11.4/solr-8.11.4.tgz"
   sha256 "163fbdf246bbd78910bc36c3257ad50cdf31ccc3329a5ef885c23c9ef69e0ebe"
   license "Apache-2.0"

@@ -4,6 +4,7 @@ class LibimobiledeviceGlue < Formula
   url "https://github.com/libimobiledevice/libimobiledevice-glue/releases/download/1.3.2/libimobiledevice-glue-1.3.2.tar.bz2"
   sha256 "6489a3411b874ecd81c87815d863603f518b264a976319725e0ed59935546774"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
   head "https://github.com/libimobiledevice/libimobiledevice-glue.git", branch: "master"
 
   bottle do

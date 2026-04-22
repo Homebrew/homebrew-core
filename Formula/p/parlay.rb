@@ -1,18 +1,19 @@
 class Parlay < Formula
   desc "Enrich SBOMs with data from third party services"
   homepage "https://github.com/snyk/parlay"
-  url "https://github.com/snyk/parlay/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "7254db230b23f6d089df3f7f31d9092681707445cfd29fc22007cf2a773c335a"
+  url "https://github.com/snyk/parlay/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "c1f9eaa073b6c958a0722b145fcea9fa3579c9b5552f3359d86f91917441253b"
   license "Apache-2.0"
   head "https://github.com/snyk/parlay.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0092099408325109423825cb6c021a1b30345a5e45ed66967dbbefb8d1e91768"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0092099408325109423825cb6c021a1b30345a5e45ed66967dbbefb8d1e91768"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0092099408325109423825cb6c021a1b30345a5e45ed66967dbbefb8d1e91768"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6926910aaf3cd28a3abc63cdfa6738ddd5108ecdd3254514d1a9c8a1ea1cc033"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4721527d028d63cd025e55e13ac0fb363b07a26f3c19a74c7ec4dc8f453d5bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63ae80c044d1d761529f68449001b16f6f775b818fe6ae0894b788cce66e90dd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9297b5a3bb7c1157e04ff6306b7c32dc5d7ed64993fe4b10cf6d1c75cd2c6896"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9297b5a3bb7c1157e04ff6306b7c32dc5d7ed64993fe4b10cf6d1c75cd2c6896"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9297b5a3bb7c1157e04ff6306b7c32dc5d7ed64993fe4b10cf6d1c75cd2c6896"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7f42c1f875078675c7cd60c6e70ae9db99b84cf798938d7f01dce436c9737c41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "849416c24d196e8956172d41d25e1fc874190f374004e60289eae74b1dcf4345"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33be478a04fc6420f2f23d785293c5a4cf96e4489310750fe11454f2de95b63a"
   end
 
   depends_on "go" => :build
@@ -20,6 +21,8 @@ class Parlay < Formula
   def install
     ldflags = "-s -w -X github.com/snyk/parlay/internal/commands.version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
+
+    generate_completions_from_executable(bin/"parlay", shell_parameter_format: :cobra)
   end
 
   test do

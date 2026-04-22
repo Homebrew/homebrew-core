@@ -11,19 +11,20 @@ class Siege < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "001bc8d61b3da2e018fe736581c85cb66c27d511247f835507e8b5ce193a4c2e"
-    sha256 arm64_sequoia: "08fabb8f6c318f991ed06f36d95d8f3734d4444bad46d886fb6fec1813b1e791"
-    sha256 arm64_sonoma:  "2e4bd0d640a16f1b797e1d42706fa4e1eefb949f18135ce00abd1f8824b2b1a9"
-    sha256 arm64_ventura: "2e23a74480a04cfcba9aa6cab0d1f50cb5d6bfd048875c08f639dfce8b0f95da"
-    sha256 sonoma:        "f76ae74125c7a43c4750a53af619149d76b80ddf3db0d49bfd0fcdaa44325796"
-    sha256 ventura:       "2f96c850f0183940d41a32597e3eade26482d3c1e976c3655792867da71d5aef"
-    sha256 arm64_linux:   "4d52a6c4509c34b372dfa5ed3766252be8890b517ce7041134137aa86a94c4b7"
-    sha256 x86_64_linux:  "eebf365d3688b6e2d26a82deac2260ea8f1f7049b4fe602ade5d3c287631a341"
+    rebuild 1
+    sha256 arm64_tahoe:   "322ae54214a25c55311e3e2f1aa930c2fd54ea02f0274fbd4e0cc5b9ab8387c4"
+    sha256 arm64_sequoia: "2675e2c6b50a3f4257710468d6bfad23be161161659e66260f4090763590e4d7"
+    sha256 arm64_sonoma:  "524d5bf687c5adc7affb917cf3e4bb6a58b3c0510f162f829c14e8b39d53e19e"
+    sha256 sonoma:        "3017a5bbaa9663d5bdbabb8b169cd8420b8ae20203d82961ef2a1debb6f7a5cc"
+    sha256 arm64_linux:   "9284ea04070d1d998f6d1e2cd6e5fb8eb596f4ee26c60cdc32b146f37a757917"
+    sha256 x86_64_linux:  "6f02cca62e76799c557d000eb640f5772d666572241bc2b9a5c05e23aa32b76b"
   end
 
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # workaround for newer clang

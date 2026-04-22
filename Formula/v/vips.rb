@@ -1,10 +1,11 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.18.0/vips-8.18.0.tar.xz"
-  sha256 "b85ab92280c30d22f5c8fe2f68b809cddb7eaac437d8c33474475dac84ddc574"
+  url "https://github.com/libvips/libvips/releases/download/v8.18.2/vips-8.18.2.tar.xz"
+  sha256 "a30d4aede16f1c2899c1a2241870f8a7409feafa38484bcdcdac113d6d6f8ff5"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 1
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -12,14 +13,15 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b806822f928a2678f4d29538c0c73e806ede8a6ae7d7ecf82f0e96e6d05f30e5"
-    sha256 arm64_sequoia: "a70e8caf492541c7772935b9f199cd07ce63266ca634352fa195bd2052a9e837"
-    sha256 arm64_sonoma:  "660f84803d688867e2024c50be97a30c2be6cf671bb2a0d08173fd90422e9c04"
-    sha256 sonoma:        "fc3d79657db2b998bbc323c3c3d1da206efed83758ecdfe280d9ca4e08bba6ec"
-    sha256 arm64_linux:   "a52f472c33e9a099d4aac73cb0eff64c6d04d42cb92b76ad1bd385ccba6d7f62"
-    sha256 x86_64_linux:  "e507a55b10673f0fd6679203d1d30b7d5cb9e8898e5552846039a3447ec33e9f"
+    sha256 arm64_tahoe:   "e009b71e1fcc9309ba0346a9b1f2dcb6b06b50a0486a61f44d67c2aeef9a806f"
+    sha256 arm64_sequoia: "7016e9d5a9a274b198898375de1075449f71a424f57dcddd985e111c8cdbc3c4"
+    sha256 arm64_sonoma:  "36c641f678f1224e0aab11c427565b7a420d5ff1307146e4afdd607c887194ee"
+    sha256 sonoma:        "4f97f1cf8737230dc933aff2217ac9f29a77ced703735d778fe84e608cded4ce"
+    sha256 arm64_linux:   "7b4a29d60a0c343e352a54829a7fc4ab1cb0d02bd2f5fbea7334ff3b876774a5"
+    sha256 x86_64_linux:  "75dfe5c6c9191ddeb732f47b6f8f15eb9d38cdf0aaa2b2e1f772e94c70270fee"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -29,7 +31,6 @@ class Vips < Formula
   depends_on "cgif"
   depends_on "fftw"
   depends_on "fontconfig"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "highway"
   depends_on "imagemagick"
@@ -55,7 +56,14 @@ class Vips < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # mozjpeg needs to appear before libjpeg, otherwise it's not used

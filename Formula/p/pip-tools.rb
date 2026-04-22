@@ -3,19 +3,17 @@ class PipTools < Formula
 
   desc "Locking and sync for Pip requirements files"
   homepage "https://pip-tools.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/c4/79/d149fb40bc425ad9defcb8ff73c65088bbc36a84b1825e035397d1c40624/pip_tools-7.5.2.tar.gz"
-  sha256 "2d64d72da6a044da1110257d333960563d7a4743637e8617dd2610ae7b82d60f"
+  url "https://files.pythonhosted.org/packages/4a/db/c6e2a02db5d98aa5f3250a305ce71e8bc3d1a022d1f47a54d14492ae23de/pip_tools-7.5.3.tar.gz"
+  sha256 "8fa364779ebc010cbfe17cb9de404457ac733e100840423f28f6955de7742d41"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/jazzband/pip-tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "39b89419235da25658130d63e2e03ff5ac6dc22943f2c3f6a44bc7437c1603b9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "69cd19c215403a326b70aa2bfc3b3b944e1159640acf2ed9d8b6096a5142cd0e"
   end
 
   depends_on "python@3.14"
-
-  pypi_packages extra_packages: "platformdirs"
 
   resource "build" do
     url "https://files.pythonhosted.org/packages/42/18/94eaffda7b329535d91f00fe605ab1f1e5cd68b2074d03f255c7d250687d/build-1.4.0.tar.gz"
@@ -32,19 +30,14 @@ class PipTools < Formula
     sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
-  resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cf/86/0248f086a84f01b37aaec0fa567b397df1a119f73c16f6c7a9aac73ea309/platformdirs-4.5.1.tar.gz"
-    sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
-  end
-
   resource "pyproject-hooks" do
     url "https://files.pythonhosted.org/packages/e7/82/28175b2414effca1cdac8dc99f76d660e7a4fb0ceefa4b4ab8f5f6742925/pyproject_hooks-1.2.0.tar.gz"
     sha256 "1e859bd5c40fae9448642dd871adf459e5e2084186e8d2c2a79a824c970da1f8"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/86/ff/f75651350db3cf2ef767371307eb163f3cc1ac03e16fdf3ac347607f7edb/setuptools-80.10.1.tar.gz"
-    sha256 "bf2e513eb8144c3298a3bd28ab1a5edb739131ec5c22e045ff93cd7f5319703a"
+    url "https://files.pythonhosted.org/packages/82/f3/748f4d6f65d1756b9ae577f329c951cda23fb900e4de9f70900ced962085/setuptools-82.0.0.tar.gz"
+    sha256 "22e0a2d69474c6ae4feb01951cb69d515ed23728cf96d05513d36e42b62b37cb"
   end
 
   resource "wheel" do
@@ -53,11 +46,7 @@ class PipTools < Formula
   end
 
   def install
-    venv = virtualenv_install_with_resources
-
-    # Replace vendored platformdirs with latest version for easier relocation
-    # https://github.com/pypa/setuptools/pull/5076
-    venv.site_packages.glob("setuptools/_vendor/platformdirs*").map(&:rmtree)
+    virtualenv_install_with_resources
 
     %w[pip-compile pip-sync].each do |script|
       generate_completions_from_executable(bin/script, shell_parameter_format: :click)

@@ -6,8 +6,6 @@ class Gtmess < Formula
   license "GPL-2.0-or-later"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256                               arm64_tahoe:    "032661770161ac72df852e094fc8e45548d91740ff5f462563941972e31d374f"

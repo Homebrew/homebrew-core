@@ -1,8 +1,8 @@
 class Libp11 < Formula
   desc "PKCS#11 wrapper library in C"
   homepage "https://github.com/OpenSC/libp11/wiki"
-  url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.17/libp11-0.4.17.tar.gz"
-  sha256 "bbd86cdadd0493304be85c01a8604988c8f6c3fff8a902aa3f542a924699c080"
+  url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.18/libp11-0.4.18.tar.gz"
+  sha256 "9292de67ca73aba1deacf577c9086b595765f36ef47712cfeb49fa31f6e772fb"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libp11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7f29d8f49217c15b8a322b614e3c68884bbe9252350c8f6030776cf158fa696c"
-    sha256 cellar: :any,                 arm64_sequoia: "20680029905d728ee5e0cc3b6a00ca88cf1b034a6b5bc33275e315739e4e9c42"
-    sha256 cellar: :any,                 arm64_sonoma:  "ba2057c4b98095844a0728fce2b1f13f516f0d88f36a306d005cbf4a856b9be6"
-    sha256 cellar: :any,                 sonoma:        "ee0162528d5473f8c89ade8e0b2cca71a15152d8c5a376a76d0a3840f1c2c298"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f984f63a85077100d1865174163319bc835e3f813e9cdcd979abc6a98dcc97a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e038457691894c929a0f468744f27f14379152de24c415af76edf7a5e15933e"
+    sha256 cellar: :any,                 arm64_tahoe:   "a94d83844bc1f18b84f86706ebf2c352aca06d25600caf40607abf84a6143754"
+    sha256 cellar: :any,                 arm64_sequoia: "d2bd6f345624a39294440cecbfc059e545a5dc39a7bab8c8e739755721ac5c31"
+    sha256 cellar: :any,                 arm64_sonoma:  "b3cf34f7f345d962fc543d2dba6b9a81a36a8644936dfab1dcc1349b612ebcb8"
+    sha256 cellar: :any,                 sonoma:        "74bc484a52d1b9385a0c63d0adc420f34376286b34a5652c53dc6454ec9f2205"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "230793e71d2b7f3b024ed4ebd9644848c5718fde2002ce92b89635ac5cc1a318"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31470d470591cdffac76a296ace50dbc0df4a6cbf5210afd2dc40b0e4a0e5f19"
   end
 
   head do

@@ -11,7 +11,7 @@ class Rtf2latex2e < Formula
     regex(%r{url=.*?/rtf2latex2e[._-]v?(\d+(?:[.-]\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 arm64_tahoe:    "7b023787b6ca5b67c6aed5da197e586269857f3d0ca369d7bcb1f8104876def6"

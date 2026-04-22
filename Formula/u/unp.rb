@@ -10,15 +10,12 @@ class Unp < Formula
     regex(/href=.*?unp[._-]v?(\d+(?:\.\d+)+(?:~pre\d+)?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f8e6eebe12a5258e2798298cf372b0fd8dd80085420656f9dc7b48206073a8a0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fdcd81250f756b4075c45a1a4ca5282fab58f2b70008d85da4ad3fdd6b91738b"
   end
 
   depends_on "p7zip"
-
-  conflicts_with "uutils-coreutils", because: "both install `ucat` binaries"
 
   def install
     bin.install %w[unp ucat]

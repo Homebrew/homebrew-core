@@ -1,25 +1,17 @@
 class Hstr < Formula
   desc "Bash and zsh history suggest box"
   homepage "https://github.com/dvorka/hstr"
-  url "https://github.com/dvorka/hstr/archive/refs/tags/3.1.tar.gz"
-  sha256 "e5293d4fe2502662f19c793bef416e05ac020490218e71c75a5e92919c466071"
+  url "https://github.com/dvorka/hstr/archive/refs/tags/v3.2.tar.gz"
+  sha256 "bceab1cb3c3b636d9ff4dfbaf8b035530e76a36d948767ed1735c4e79d7473eb"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "60932e5b5653859d9c2b7c74426edc047719ba50cd7b2071503636c2c0a0b40a"
-    sha256 cellar: :any,                 arm64_sequoia:  "76e0d87760c6519a63d6cf0e7719b4683292572ac923e29b9f366d67deae37df"
-    sha256 cellar: :any,                 arm64_sonoma:   "72781912003352405419c5a62748a8a19807b5ac77691013fb59fe54084617e7"
-    sha256 cellar: :any,                 arm64_ventura:  "fc49b795a9a4182c314a299e959d3307a90e0dcd349f7a177f4990177fdbbd2d"
-    sha256 cellar: :any,                 arm64_monterey: "db9cc4ec008f0de26ed8804a27497ab85e0ef5130cbaff99d36b7a9e290484ed"
-    sha256 cellar: :any,                 arm64_big_sur:  "27b892cd3e184775eb18ad1538f102470d9ea46f2b12aaeae0c9369eb7d10ae6"
-    sha256 cellar: :any,                 sonoma:         "8305545469de8189ba8bf0ab46f91bd055beecdb95632e7227f25b3e247963e9"
-    sha256 cellar: :any,                 ventura:        "dab8c56dc9d4a3c14b97a16e4b7640e911fc263cdf8c0d051ef7b2f5914c5d68"
-    sha256 cellar: :any,                 monterey:       "4d612879fc6066185b3b1cf9f334f55dfafbab73295bc041d3edc8fd1a2d0be7"
-    sha256 cellar: :any,                 big_sur:        "196bd9dcd789830ca5ea6f3ee94ba43bf3ec0574cbc21196c0461a20b1b34757"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "7e90597a53137de8a61011df6b8e453657a4e679e42f1f98da5e9e29259c948f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f3e5c6ea14b17a5e83263bc1df77201cf44eee579f2663656c9912893de7df0"
+    sha256 cellar: :any,                 arm64_tahoe:   "9348756624b912bde30a667b01d54dc146823647642f16783fd43b64172d19c1"
+    sha256 cellar: :any,                 arm64_sequoia: "5c3cfaae97f048b41e25d9d79f9f2951bba6593872b13cab543ae5ec2c8518ef"
+    sha256 cellar: :any,                 arm64_sonoma:  "12764e0b6619fd95dcc2568ba75aea2629cea3fa11039acda82fd1cd4d55f0b2"
+    sha256 cellar: :any,                 sonoma:        "bb7c70afe249596ea8ddc54273638cce6f2bd59bc7e88680e922bd99f3e279cf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c0f07a862b669a185a4da02d995fd01ff12d19945b3628e09c2f59b5a7d7a97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b95920a4bed1c587f8c86e4d3e520ca1849da7cd53107c6890459c7763dca43"
   end
 
   depends_on "autoconf" => :build

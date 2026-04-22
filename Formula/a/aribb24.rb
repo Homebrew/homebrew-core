@@ -5,8 +5,6 @@ class Aribb24 < Formula
   sha256 "88b58dd760609372701087e25557ada9f7c6d973306c017067c5dcaf9e2c9710"
   license "LGPL-3.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "68aed54c8d78b72dcc8306e91e004c2afcf193563be22adca2774fa094121ee5"
     sha256 cellar: :any,                 arm64_sequoia:  "4f5a5fb9f91e28f11bbf33dda14a54b36510cecc834a29f0ba28d980a57760fc"

@@ -26,7 +26,7 @@ class ZigAT014 < Formula
   # Unsupported since Zig 0.15 was released on 2025-08-19, but we are
   # giving an extra 1 year for dependents to migrate to newer Zig
   deprecate! date: "2026-08-19", because: :unsupported
-  # disable! date: "2027-02-19", because: :unsupported
+  disable! date: "2027-08-19", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "lld@19"

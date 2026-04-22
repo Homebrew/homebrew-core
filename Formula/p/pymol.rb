@@ -3,25 +3,35 @@ class Pymol < Formula
 
   desc "Molecular visualization system"
   homepage "https://pymol.org/"
-  url "https://github.com/schrodinger/pymol-open-source/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "54306d65060bd58ed8b3dab1a8af521aeb4fd417871f15f463ff05ccb4e121fe"
   license :cannot_represent
   revision 3
   head "https://github.com/schrodinger/pymol-open-source.git", branch: "master"
 
+  stable do
+    url "https://github.com/schrodinger/pymol-open-source/archive/refs/tags/v3.1.0.tar.gz"
+    sha256 "54306d65060bd58ed8b3dab1a8af521aeb4fd417871f15f463ff05ccb4e121fe"
+
+    # Allow numpy 2+, remove on next release
+    patch do
+      url "https://github.com/schrodinger/pymol-open-source/commit/1b3aca8c053336fc5c7f72e79b4801f8fdd1af39.patch?full_index=1"
+      sha256 "639261ff5b4d9c930ead3179cbbf64bf1e8fa575678561a0287c11f5a6cfa4d6"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7842155d1653dcac15aea4606bbd63c1f1e40794cb271a0e9e1412b385b02928"
-    sha256 cellar: :any,                 arm64_sequoia: "69eb3cb8a63929434d49b63ec23c918029d711507c2754d9101a373a2c0855fe"
-    sha256 cellar: :any,                 arm64_sonoma:  "e061cd2eadd3e8b83899d9ca2fb0342817fca456ffcc8bba7e44761715815aec"
-    sha256 cellar: :any,                 sonoma:        "827640cce279378c55a571e3b4916d9d6e36e1a43b26f58685e7a0d84acf5578"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "18009e85941180f2741714ce7304f9af59561f5d5c08a9e0a14a8a3e1fbe26f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91cf52343f5f7311c10c9915bd272328316184f67f9c4b49dfd224e21dfbe52e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "79544fccc4d17bd20141025aae92f35b17f88a5c1758ab78c89fcccf5615c14e"
+    sha256 cellar: :any,                 arm64_sequoia: "665acb4efa21c515d5e6509db8fbaacc7e40ce859503a05035fe75a4f3f14000"
+    sha256 cellar: :any,                 arm64_sonoma:  "a9abfeb724074d4d4f0db7ad04209ab03003b585c139d857a7bf13424c9b26c8"
+    sha256 cellar: :any,                 sonoma:        "3c6324e63327d59aab594c97b560404d65808239706184dc5e06acdd703f82d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a338973b21416583937072cd7061b4aa3b6e08e68fe779dd8a3b4c9a598384a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c886c77fa66a6563c17e0f049af5528e269df4315b794b4b8951f6350135a525"
   end
 
   depends_on "cmake" => :build
   depends_on "glm" => :build
   depends_on "msgpack-cxx" => :build
-  depends_on "sip" => :build
+  depends_on "python-setuptools" => :build
 
   depends_on "freetype"
   depends_on "glew"
@@ -34,35 +44,16 @@ class Pymol < Formula
   uses_from_macos "libxml2"
 
   on_linux do
-    depends_on "patchelf" => :build
-    depends_on "freeglut"
     depends_on "mesa"
   end
 
   resource "mmtf-cpp" do
     url "https://github.com/rcsb/mmtf-cpp/archive/refs/tags/v1.1.0.tar.gz"
     sha256 "021173bdc1814b1d0541c4426277d39df2b629af53151999b137e015418f76c0"
-  end
 
-  resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/cb/d0/7555686ae7ff5731205df1012ede15dd9d927f6227ea151e901c7406af4f/msgpack-1.1.0.tar.gz"
-    sha256 "dd432ccc2c72b914e4cb77afce64aab761c1137cc698be3984eee260bcb2896e"
-  end
-
-  resource "mmtf-python" do
-    url "https://files.pythonhosted.org/packages/d8/0f/f3c132dc9aac9a3f32a0eba7a80f07d14e7624e96f9245eeac5fe48f42cd/mmtf-python-1.1.3.tar.gz"
-    sha256 "12a02fe1b7131f0a2b8ce45b46f1e0cdd28b9818fe4499554c26884987ea0c32"
-  end
-
-  resource "pmw" do
-    url "https://github.com/schrodinger/pmw-patched/archive/8bedfc8747e7757c1048bc5e11899d1163717a43.tar.gz"
-    sha256 "3a59e6d33857733d0a8ff0c968140b8728f8e27aaa51306160ae6ab13cea26d3"
-  end
-
-  # Allow numpy 2+, remove on next release
-  patch do
-    url "https://github.com/schrodinger/pymol-open-source/commit/1b3aca8c053336fc5c7f72e79b4801f8fdd1af39.patch?full_index=1"
-    sha256 "639261ff5b4d9c930ead3179cbbf64bf1e8fa575678561a0287c11f5a6cfa4d6"
+    livecheck do
+      url :url
+    end
   end
 
   def python3
@@ -76,14 +67,8 @@ class Pymol < Formula
       system "cmake", "--install", "build"
     end
 
-    inreplace "setup.py" do |s|
-      s.gsub!(/ no_glut = True$/, " no_glut = False")
-      s.gsub!(/ use_msgpackc = "guess"$/, ' use_msgpackc = "c++11"')
-    end
-
     ENV["PREFIX_PATH"] = "#{buildpath}/mmtf:#{ENV["CMAKE_PREFIX_PATH"]}"
-    venv = virtualenv_install_with_resources without: "mmtf-cpp"
-    (prefix/Language::Python.site_packages(python3)/"homebrew-pymol.pth").write venv.site_packages
+    system python3, "-m", "pip", "install", "--config-settings=use-msgpackc=c++11", *std_pip_args, "."
   end
 
   def caveats

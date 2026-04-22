@@ -12,8 +12,6 @@ class GccAT11 < Formula
     skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_sonoma:   "55ec3e36278e110b74b148fefe5ccacf82223d0fb2fceb3c8230a03bfbc2857f"
     sha256                               arm64_ventura:  "b0936cf63d97795bfe8e17a9e4a4f75be0fd3f9407e467d5d02df1fba5caa499"
@@ -36,10 +34,9 @@ class GccAT11 < Formula
   depends_on "mpfr"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "binutils"
+    depends_on "zlib-ng-compat"
   end
 
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and

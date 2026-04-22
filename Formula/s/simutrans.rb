@@ -15,17 +15,16 @@ class Simutrans < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a8349c878a8f212a11c5a387eb9d07178e5d4ea8715b02c937d5114ba2f7a900"
-    sha256 cellar: :any,                 arm64_sequoia: "7882263a911cbabe05edc77dd7184ea1b7f85c38097d7b932f1899b97bbb5966"
-    sha256 cellar: :any,                 arm64_sonoma:  "58f3f1132d0dc17ddeb8528b300995b1ea2d350773d7e7b29e066f6f3a13e6be"
-    sha256 cellar: :any,                 arm64_ventura: "f40a7b52c289c9f503d2dddf1661e8283715199387345ce250262fb272f7083d"
-    sha256 cellar: :any,                 sonoma:        "38a48ab9d571ff46144a5c027029d075844501836ba13630ed6fa4da8b586ca2"
-    sha256 cellar: :any,                 ventura:       "d10461a9ad6bf0ecdaee60455a7aeae1caf103769bc4c4cf57a994a4055d1671"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f026f6d07f49d4b7c6e2a35b2390f9c3563d7c49f485b37a1632e356606aae2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "732b3387dd1c5962f52d12044421c4139ae6d654bd003670ec541fa6e762b484"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "1fd7de0f2f6d759224c301571e17f5057755b13ad09ead31dbc2589c6ea0c4f8"
+    sha256 cellar: :any,                 arm64_sequoia: "5534b80d0083a84792de4c454e8856c96101d3d932bfa04c2b413731119d9530"
+    sha256 cellar: :any,                 arm64_sonoma:  "f5b0dcbb5ee3432922b76039f1f7a8ebd935abb9cab334986a50405e1b172640"
+    sha256 cellar: :any,                 sonoma:        "54bcf8151b603d18cdb4b2c50d627289797bc65b21d58282e41567a601c0bce9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "365b26012ec707690ec42834ab7ac2753d8547246fde48f13bf8e66274f328ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba5871955287bcbe8520ed25d63be1c4ce7c9b797caab0c2cac970676f9b4c44"
   end
 
   depends_on "cmake" => :build
@@ -41,7 +40,10 @@ class Simutrans < Formula
   uses_from_macos "unzip" => :build
   uses_from_macos "bzip2"
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "pak64" do
     url "https://downloads.sourceforge.net/project/simutrans/pak64/124-3/simupak64-124-3.zip"

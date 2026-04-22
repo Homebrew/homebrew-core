@@ -3,20 +3,24 @@ class Rbtools < Formula
 
   desc "CLI and API for working with code and document reviews on Review Board"
   homepage "https://www.reviewboard.org/downloads/rbtools/"
-  url "https://files.pythonhosted.org/packages/26/76/8e5ff9d9f83c5e53fa32dadf139916d40b0bcf4e5cfa0dc1f150a2775050/rbtools-5.3.tar.gz"
-  sha256 "092f9c573448a22432b2aafab20e94dea1c37ff833d23a44f0daee55b9a88e1d"
+  url "https://files.pythonhosted.org/packages/47/45/e6d3e9e63416e8a820aefe09d46cccc931fc0705947361a67703a587e11e/rbtools-6.0.tar.gz"
+  sha256 "6cef4170edafbb0d804c61b208dbc4d4685b8e654b98b667ae084ac610a66db4"
   license "MIT"
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "f6a0487b407bae3c316c0342ac52c6912e8dac8ec3c8ed37bd345fc3747dbdb6"
+    sha256 cellar: :any_skip_relocation, all: "715c6328bd4328209be2fa311f0447e25845cf29420e225443b55af529fa32d8"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "python@3.14"
 
   pypi_packages exclude_packages: "certifi"
+
+  resource "appdirs" do
+    url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
+    sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
+  end
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
@@ -29,8 +33,8 @@ class Rbtools < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/76/66/650a33bd90f786193e4de4b3ad86ea60b53c89b669a5c7be931fac31cdb0/importlib_metadata-8.7.0.tar.gz"
-    sha256 "d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000"
+    url "https://files.pythonhosted.org/packages/f3/49/3b30cad09e7771a4982d9975a8cbf64f00d4a1ececb53297f1d9a7be1b10/importlib_metadata-8.7.1.tar.gz"
+    sha256 "49fef1ae6440c182052f407c8d34a68f72efc36db9ca90dc0113398f2fdde8bb"
   end
 
   resource "importlib-resources" do
@@ -39,8 +43,8 @@ class Rbtools < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
   resource "puremagic" do
@@ -67,8 +71,13 @@ class Rbtools < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
+  end
+
+  resource "typelets" do
+    url "https://files.pythonhosted.org/packages/a2/c6/7df6df552fab0e6ddad9d230981afb9deaa662211756cdf2bf70aa091ba1/typelets-1.1.tar.gz"
+    sha256 "5fd0a01016402a2f87892ac855241ee2769b7595c7e955acce040c86f71bfb38"
   end
 
   resource "typing-extensions" do
@@ -86,6 +95,9 @@ class Rbtools < Formula
 
     bash_completion.install "rbtools/commands/conf/completions/bash" => "rbt"
     zsh_completion.install "rbtools/commands/conf/completions/zsh" => "_rbt"
+
+    # Remove tests to make :all bottle
+    rm_r libexec/Language::Python.site_packages("python3.14")/"rbtools/clients/tests"
   end
 
   test do

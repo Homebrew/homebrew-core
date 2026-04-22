@@ -5,8 +5,6 @@ class Stress < Formula
   sha256 "cdaa56671506133e2ed8e1e318d793c2a21c4a00adc53f31ffdef1ece8ace0b1"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bc133ce107c928388f3e8e1ae2ec46c12fac73f1ae01281486530180d60adba7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7b3708a81bbe9930b49170bb1bbed935a7f4ef6e1c0aa5d6501ab2fa4d2598a5"

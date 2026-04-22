@@ -2,16 +2,12 @@ class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
   license "Apache-2.0"
+  compatibility_version 1
+  head "https://github.com/neovim/neovim.git", branch: "master"
 
   stable do
-    # TODO: Bump to use tree-sitter 0.26+ when new Neovim release supports it
-    # TODO: remove `head` block when stable supports tree-sitter 0.26+.
-    url "https://github.com/neovim/neovim/archive/refs/tags/v0.11.6.tar.gz"
-    sha256 "d1c8e3f484ed1e231fd5f48f53b7345b628e52263d5eef489bb8b73ca8d90fca"
-
-    # TODO: Consider backporting for compatibility with 0.26
-    # https://github.com/neovim/neovim/commit/f4fc769c81af6f8d9235d59aec75cfe7c104b3ce
-    depends_on "tree-sitter@0.25"
+    url "https://github.com/neovim/neovim/archive/refs/tags/v0.12.1.tar.gz"
+    sha256 "41898a5073631bc8fd9ac43476b811c05fb3b88ffb043d4fbb9e75e478457336"
 
     # Keep resources updated according to:
     # https://github.com/neovim/neovim/blob/v#{version}/cmake.deps/deps.txt
@@ -23,31 +19,61 @@ class Neovim < Formula
     resource "tree-sitter-c" do
       url "https://github.com/tree-sitter/tree-sitter-c/archive/refs/tags/v0.24.1.tar.gz"
       sha256 "25dd4bb3dec770769a407e0fc803f424ce02c494a56ce95fedc525316dcf9b48"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/neovim/neovim/refs/tags/v#{LATEST_VERSION}/cmake.deps/deps.txt"
+        regex(%r{https://github\.com/tree-sitter/tree-sitter-c/archive/v?(\d+(?:\.\d+)+)\.tar\.gz}i)
+      end
     end
 
     resource "tree-sitter-lua" do
-      url "https://github.com/tree-sitter-grammars/tree-sitter-lua/archive/refs/tags/v0.4.1.tar.gz"
-      sha256 "cef44b8773bde69d427b5e50ca95e417c86c0be91caa37a6782c90d6f529da70"
+      url "https://github.com/tree-sitter-grammars/tree-sitter-lua/archive/refs/tags/v0.5.0.tar.gz"
+      sha256 "cf01b93f4b61b96a6d27942cf28eeda4cbce7d503c3bef773a8930b3d778a2d9"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/neovim/neovim/refs/tags/v#{LATEST_VERSION}/cmake.deps/deps.txt"
+        regex(%r{https://github\.com/tree-sitter-grammars/tree-sitter-lua/archive/v?(\d+(?:\.\d+)+)\.tar\.gz}i)
+      end
     end
 
     resource "tree-sitter-vim" do
-      url "https://github.com/tree-sitter-grammars/tree-sitter-vim/archive/refs/tags/v0.8.0.tar.gz"
-      sha256 "aa0a45027408bc33da0f2244272dbdc0b4e71bd18f71e5b885f6f7cbae407338"
+      url "https://github.com/tree-sitter-grammars/tree-sitter-vim/archive/refs/tags/v0.8.1.tar.gz"
+      sha256 "93cafb9a0269420362454ace725a118ff1c3e08dcdfdc228aa86334b54d53c2a"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/neovim/neovim/refs/tags/v#{LATEST_VERSION}/cmake.deps/deps.txt"
+        regex(%r{https://github\.com/tree-sitter-grammars/tree-sitter-vim/archive/v?(\d+(?:\.\d+)+)\.tar\.gz}i)
+      end
     end
 
     resource "tree-sitter-vimdoc" do
       url "https://github.com/neovim/tree-sitter-vimdoc/archive/refs/tags/v4.1.0.tar.gz"
       sha256 "020e8f117f648c8697fca967995c342e92dbd81dab137a115cc7555207fbc84f"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/neovim/neovim/refs/tags/v#{LATEST_VERSION}/cmake.deps/deps.txt"
+        regex(%r{https://github\.com/neovim/tree-sitter-vimdoc/archive/v?(\d+(?:\.\d+)+)\.tar\.gz}i)
+      end
     end
 
     resource "tree-sitter-query" do
       url "https://github.com/tree-sitter-grammars/tree-sitter-query/archive/refs/tags/v0.8.0.tar.gz"
       sha256 "c2b23b9a54cffcc999ded4a5d3949daf338bebb7945dece229f832332e6e6a7d"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/neovim/neovim/refs/tags/v#{LATEST_VERSION}/cmake.deps/deps.txt"
+        regex(%r{https://github\.com/tree-sitter-grammars/tree-sitter-query/archive/v?(\d+(?:\.\d+)+)\.tar\.gz}i)
+      end
     end
 
     resource "tree-sitter-markdown" do
-      url "https://github.com/tree-sitter-grammars/tree-sitter-markdown/archive/refs/tags/v0.5.2.tar.gz"
-      sha256 "122be47d4a50ac75a4f6861a17c3c88144197e0949f5d83ca917f2382b37761b"
+      url "https://github.com/tree-sitter-grammars/tree-sitter-markdown/archive/refs/tags/v0.5.3.tar.gz"
+      sha256 "df845b1ab7c7c163ec57d7fa17170c92b04be199bddab02523636efec5224ab6"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/neovim/neovim/refs/tags/v#{LATEST_VERSION}/cmake.deps/deps.txt"
+        regex(%r{https://github\.com/tree-sitter-grammars/tree-sitter-markdown/archive/v?(\d+(?:\.\d+)+)\.tar\.gz}i)
+      end
     end
   end
 
@@ -57,28 +83,27 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "cfd8b300b05d3dea574845a7158b08c1733502816892522bc57205475f4c97c6"
-    sha256 arm64_sequoia: "a6e456b504df759202e5402f2f4ffe1213f01e06b9b3d39d95580505bf0912e1"
-    sha256 arm64_sonoma:  "3ca28c90195f578a8263a2b2d7ab67f724bd80ba656423bda2e35c4cf2d92d0f"
-    sha256 sonoma:        "0395c342b45728126663f10c945c2c238172763363f879c0628aa6933a19ca0b"
-    sha256 arm64_linux:   "b78c6e371c8ee77189262e98078a7194365fb198dbf4c778ad69b2023732a34a"
-    sha256 x86_64_linux:  "ca74f40e189c28deeff7aedc1387336fe1a31fd3b3b5a54afbedaa6ba0b8b7ff"
-  end
-
-  # TODO: remove `head` block when stable supports tree-sitter 0.26+.
-  head do
-    url "https://github.com/neovim/neovim.git", branch: "master"
-    depends_on "tree-sitter"
+    sha256 arm64_tahoe:   "cdaa2f1d26932e71f4b832898b3d07f56e3932bdd4dd759aa4cda6c8fa686f66"
+    sha256 arm64_sequoia: "167c282bbfa9b6553ef83ae2f3a271b0936a9013f0f90bd0fd545ff22d5370fb"
+    sha256 arm64_sonoma:  "98f40270c4cf11c1e07eb4327115d22a508a5cc4247bf522f638a743a362c3b0"
+    sha256 sonoma:        "2b5e37aa8f6c50608b093fa1a9fe578e9535c08610eac65cc1620c5564a9f6d2"
+    sha256 arm64_linux:   "88e14a9a172834419a7b211cc8fe0f6153ebaaffcbd4ef04f472126a2290c0bb"
+    sha256 x86_64_linux:  "7370f807c61ca4e2cf6f2be20992019441383d90011788b30b1f427296e1c115"
   end
 
   depends_on "cmake" => :build
-  depends_on "gettext"
+  depends_on "gettext" => :build
   depends_on "libuv"
   depends_on "lpeg"
   depends_on "luajit"
   depends_on "luv"
+  depends_on "tree-sitter"
   depends_on "unibilium"
   depends_on "utf8proc"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     if build.head?

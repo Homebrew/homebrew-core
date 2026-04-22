@@ -1,8 +1,8 @@
 class Flowpipe < Formula
   desc "Cloud scripting engine"
   homepage "https://flowpipe.io"
-  url "https://github.com/turbot/flowpipe/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "21f1f6b0bd484547d94b9bd6db005812968c4c0784fa2228f7cff0da56ccd95e"
+  url "https://github.com/turbot/flowpipe/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "9ef3a35e764764acd9e83ce85b6f6cf126189da83c08d2dcd6ee65d226664c12"
   license "AGPL-3.0-only"
   head "https://github.com/turbot/flowpipe.git", branch: "develop"
 
@@ -15,14 +15,12 @@ class Flowpipe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7604b029f8a4a0ea48f26274cfbc550d258fcd446e2bfc6288f86716132ac550"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6a7e66c5eea1ec50206654c7267d750139ebdf99614e9afedc76164f2f208699"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb9fcddc36e7294e7f84333f3c4b4e1b00626eb6ab33362c2311f6ed0d0a9259"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "de5f50ff8048be290b36092fcd890b85b672a4286183a2a1cb0771cf60c0412d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ff20f9941e5e7b7effef9e3f0d122f060893429c9c933ec3721c145fe7342bae"
-    sha256 cellar: :any_skip_relocation, ventura:       "cd4417405a3224f626a5ce80074bbed8735b31a8f2d56467692d7dc6bac3d4b2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6c75b403dc102e00429d8ac05a925d72253e373947ff608db5a8bd3e005a10f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c9b2da386e4f32aa027f6f91451644838b1d69eb5cbd3e6d5424b2c9dba229f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2158c406bb23fd50848cd194ae268334091f7dc0f833cf84126136fcd558882a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d1ec458fc2f19ada03dc870f32a2591826a29784338fb376f924195e59e4ea8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9dd6eaf4ac04de74f92bbcba0eeee3a597f5081abc7998ab911879b3af2be619"
+    sha256 cellar: :any_skip_relocation, sonoma:        "587f6abff4e2b55e1f9c1f53342728209a5272ae07af0771f9f54a37d91dfb4d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "59d36d72a1b888521f2ca809fda9f2f3f11b589cc533c1fd7a0e24f1c6034856"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a069fd0e32d8fcdcbb57ec53b43cd810d7e228b5072b367ac54c42e107a7e8b"
   end
 
   depends_on "corepack" => :build

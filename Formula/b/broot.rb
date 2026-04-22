@@ -1,25 +1,29 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot/"
-  url "https://github.com/Canop/broot/archive/refs/tags/v1.54.0.tar.gz"
-  sha256 "92f88c6051c8ed7276d43a4ab45aacfe7b0dd1d65b3503d45ba1f9dad5e95cf1"
+  url "https://github.com/Canop/broot/archive/refs/tags/v1.56.2.tar.gz"
+  sha256 "3e7be4252c76565f6d71b34bd07d26e1444b9ac2e1c8271c724f6e866fe75565"
   license "MIT"
   head "https://github.com/Canop/broot.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aa2dee1a9f4bc486bb01b1437d579cb582a2c940bea8601bda4e1481054d3410"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2272cf7bd24ea1fe14c14b9b1e94e01f639c51707dc43c165256b454fc01745c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4bea1db2edb44f126dba7da189729fba1763e3933ef0bcf2ac2b343e6d49587a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "be917425848e6fbdc1255b3658a2800cd88358c6eb60494eff1281549e5c69e4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "af6dc7bb7b757a7c6ab3dfd48c64ddd940a7207a323c57d3408157d7c12202b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb1a236b35eeb3ec14106e9ed53869ed027198e2f1b9ad78eaa557287a26a64a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4c3f44c63c335e67ccbb18d3f434ef53f35f415d454c22756fa5ea70c1cbe257"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b53b0aa9c2a73c86e5fb65cc5a62b1c4feaffdbbd158e29effe1791b77e4a7d4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32bf11832c25c8959b9bc0d03a8fdffe4294c4955c64c6b9bd05aad2d54b7744"
+    sha256 cellar: :any_skip_relocation, sonoma:        "091053c173bca639071ab5581a5400e9f6c9f15681176712faf850c0858c82cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c65cbf84becefe4628874c041cdb73b6279fd6c2ae8bfafd3a9a2b7073dff7b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "423d9e73268d6a02b0d00c3b45a29e06c84caa66caa55c9f39c1ed3d7d47a74f"
   end
 
   depends_on "rust" => :build
   depends_on "libxcb"
 
   uses_from_macos "curl" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -40,6 +44,8 @@ class Broot < Formula
     zsh_completion.install "#{out_dir}/_br"
     bash_completion.install "#{out_dir}/broot.bash" => "broot"
     bash_completion.install "#{out_dir}/br.bash" => "br"
+    pwsh_completion.install "#{out_dir}/_broot.ps1"
+    pwsh_completion.install "#{out_dir}/_br.ps1"
   end
 
   test do

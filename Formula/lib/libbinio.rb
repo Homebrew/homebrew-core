@@ -5,8 +5,6 @@ class Libbinio < Formula
   sha256 "398b2468e7838d2274d1f62dbc112e7e043433812f7ae63ef29f5cb31dc6defd"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "cf564d5b74db4094f9eb7cc697d1562e37fb5ee0ed26209f4ad0d257d19e8ec7"
     sha256 cellar: :any,                 arm64_sequoia:  "b907d94fd656bef05130d427f7327462a255838a0c36fbfa5dd3402053415a91"

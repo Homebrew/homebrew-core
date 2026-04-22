@@ -10,8 +10,6 @@ class Bibutils < Formula
     regex(%r{url=.*?/bibutils[._-]v?(\d+(?:\.\d+)+)[._-]src\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ac24439c4f2cf3ea608eb7b411d8094183796f81a3dee10e3ee550672e9ffae9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9cd55399d769cbc1cab21cfad48bb843a8c8a7c0a966445c6530c88ba8361b7d"

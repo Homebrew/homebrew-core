@@ -10,8 +10,6 @@ class Prodigal < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "53b753a4ebac8132ae38ba5c35f9c5466ea322b76bb87d4b408a11ace114ae9f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0586dd1f22c8cdb1ed73c2eefc20f80ff3ad711cfb16e2f72ca7f72798161f51"

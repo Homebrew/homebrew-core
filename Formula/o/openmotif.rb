@@ -4,21 +4,16 @@ class Openmotif < Formula
   url "https://downloads.sourceforge.net/project/motif/Motif%202.3.8%20Source%20Code/motif-2.3.8.tar.gz"
   sha256 "859b723666eeac7df018209d66045c9853b50b4218cecadb794e2359619ebce7"
   license "LGPL-2.1-or-later"
-  revision 3
-
-  no_autobump! because: :requires_manual_review
+  revision 4
+  compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:    "371bb9f35979b5035726d70d03b8e5fee6cf8993b95f5328a77c8423f934c1b7"
-    sha256 arm64_sequoia:  "a8bc176639f8fb38b41aab636e20c407232203d408d07098042a68e3f4ed610f"
-    sha256 arm64_sonoma:   "088de6041cdf83f4d5ab19861a340937bb78e13d455d1c5819926a8a77842488"
-    sha256 arm64_ventura:  "1019a2b092f310c8ee4d777401dd907b59e07f0c7b6ea18735a50932e2f42c1a"
-    sha256 arm64_monterey: "7abd4f014f6171882ad37dc0c7eea95d79f80c8ae23dca71341745e83564b211"
-    sha256 sonoma:         "7a3a027c94087fbae8276b1b1ea1d5005aedf1e9a5c50f5bb5045f58678ebee9"
-    sha256 ventura:        "f812e91446ca3ac40eb384466f591a41548b8a8c48b566f68cb32180a10246b7"
-    sha256 monterey:       "14ef0a26ccc456c032334f4013d8938098f8dabcd4297f31b64c787794ed8be9"
-    sha256 arm64_linux:    "6853dee96064d53c771ee48fc99c0a93dcd8f503f9cdec71e0a6e715a8cbf899"
-    sha256 x86_64_linux:   "48f58afdf62747a75241a1be50fde497d04d74fe09e4385c47e01bcc4a572e4f"
+    sha256 arm64_tahoe:   "c0bfac872caadffd55339660bae1d6f2b3c7e5453524561f7c74a8ee19c649c1"
+    sha256 arm64_sequoia: "891b9cebcba317b8a31d705ac752f285140823c8e49c2ef07723cb5c909f9c3e"
+    sha256 arm64_sonoma:  "21605264e90be187d695971f25b00ab6913b7cbe9b8a9550ae5cbe656208b5dd"
+    sha256 sonoma:        "ad3dd71f84bc42558d9d8d327fabf8a2c3e3f5bb04c9053f3422c816987b74eb"
+    sha256 arm64_linux:   "81c0e83009c1e586a0f24db70915d074fed577be6c8e90d03eb76acc2b0b6e8f"
+    sha256 x86_64_linux:  "0d5600cd872a9afd8a2af1d9dfd72ee38f227304f4b5849def52bbd697c4956d"
   end
 
   depends_on "pkgconf" => :build
@@ -50,6 +45,14 @@ class Openmotif < Formula
       url "https://raw.githubusercontent.com/macports/macports-ports/8c436a9c53a7b786da8d42cda16eead0fb8733d4/x11/openmotif/files/patch-lib-xm-vendor.diff"
       sha256 "697ac026386dec59b82883fb4a9ba77164dd999fa3fb0569dbc8fbdca57fe200"
     end
+  end
+
+  # Fix performance of text anti-aliasing:
+  # - https://github.com/justinmeiners/classic-colors/issues/12
+  # - http://bugs.motifzone.com/show_bug.cgi?id=1715
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/b18bd78945e11e0b43be4445a52beaac3b37a274/Patches/openmotif/fix-anti-aliasing-performance.patch"
+    sha256 "12907f303766cf1601714181c6276d0ebf94d36624eb2bbd8592ec046342ed77"
   end
 
   def install

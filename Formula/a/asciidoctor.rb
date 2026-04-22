@@ -6,7 +6,13 @@ class Asciidoctor < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "83482da376e6cbc52582198a08c0a04cd652f0560df93c5c496bed02053cc818"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3951c7e0d82ca03dc973d88588c0a13193f043e0d4b5aa0836dba461b9dba9dc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3951c7e0d82ca03dc973d88588c0a13193f043e0d4b5aa0836dba461b9dba9dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3951c7e0d82ca03dc973d88588c0a13193f043e0d4b5aa0836dba461b9dba9dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3951c7e0d82ca03dc973d88588c0a13193f043e0d4b5aa0836dba461b9dba9dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "917225adfd18ac73b16ac74dabba98fa12c8f1ca462c34d73d7790d9ad30b96f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "917225adfd18ac73b16ac74dabba98fa12c8f1ca462c34d73d7790d9ad30b96f"
   end
 
   # Some gems require >= ruby 2.7
@@ -137,6 +143,13 @@ class Asciidoctor < Formula
   resource "rouge" do
     url "https://rubygems.org/gems/rouge-4.2.1.gem"
     sha256 "f371732db127913fe10f13b1c25500b927539167a746dc8ee8089ad868bba1fd"
+  end
+
+  # ruby 4.x doens't include logger in the standard library, so we need to add it as a resource
+  # Issue ref: https://github.com/asciidoctor/asciidoctor/issues/4684
+  resource "logger" do
+    url "https://rubygems.org/gems/logger-1.7.0.gem"
+    sha256 "196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203"
   end
 
   def install

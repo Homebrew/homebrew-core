@@ -6,20 +6,19 @@ class Pangene < Formula
   license "MIT"
   head "https://github.com/lh3/pangene.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2c6dbdfbc682f5845cae51d931b77a475097693bbd76343919365f2f3413a6e1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08730dae3029ce76ebbf0bef953e839242f80bfd64f4ba430b7c94bf89b20a3c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b448acf9c369e6a67524e8d7c68fb781c5f526a3c41a74679a251965c8a5de3b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "03ab1d6a2d24f4629689f39536fb9422f934b86eef4dd5d0ceafeb479140c472"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9c86caf9ed1c9918e4286f785151b4af0b7e5fd665c430948c5eb0f14a8c8424"
-    sha256 cellar: :any_skip_relocation, ventura:       "96ad645c4f2a6ae15cbf231a2e9b080fa3334d8b412e1c5dbdbe580bd66f6c22"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c01933d9ab50883be5455c7666cb5afadfaf1789eefb6613d8fdc51eeb9f9f64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "487052e67934b027898914dcfec64d1805b0ab9f9457704c1bb5e2aed204d5a7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2e9554d2a1b331e934b0406114f7715310f2ed7098974c296aeadb30a0c9bcfd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd8173d3cdc049cae0b8d4a5552e37a3d8e0d1e005c7b0612265f21ce95d6000"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "05bf28efff30aec8113844714eeff1304247a691021a60490cf75b6c54705a79"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e905200f81de11386382c91f4e9dfea33dd602db225fa38176334fc270544649"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a5cb10124741f78bd51cf03b6f95c05c4b49d014ddfe1176a2ae8f39a2fcd13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "760dad96c7446a19bd22cc485545e821b9a0f671c0b57803a4e15f2eedf36e5a"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make"

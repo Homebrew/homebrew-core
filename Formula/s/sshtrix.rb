@@ -10,8 +10,6 @@ class Sshtrix < Formula
     regex(/href=.*?sshtrix[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "2bbdb14a7d6048a400de9bdc3a39ca12d50c462cc524158305ad93fc9bcd2192"
     sha256 cellar: :any,                 arm64_sequoia:  "a605f08172c039a927c317f64789c3168e610ed42ba321974e587db76906d546"

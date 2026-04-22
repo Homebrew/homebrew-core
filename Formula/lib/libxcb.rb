@@ -4,8 +4,7 @@ class Libxcb < Formula
   url "https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.17.0.tar.xz"
   sha256 "599ebf9996710fea71622e6e184f3a8ad5b43d0e5fa8c4e407123c88a59a6d55"
   license "MIT"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     rebuild 1

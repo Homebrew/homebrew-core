@@ -4,6 +4,7 @@ class Mono < Formula
   url "https://dl.winehq.org/mono/sources/mono/mono-6.14.1.tar.xz"
   sha256 "3024c97c0bc8cbcd611c401d5f994528704108ceb31f31b28dea4783004d0820"
   license "Apache-2.0"
+  compatibility_version 1
   head "https://gitlab.winehq.org/mono/mono.git", branch: "main"
 
   livecheck do
@@ -12,13 +13,13 @@ class Mono < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "20022e3bf3f9e4b1bcad7a4f4903565049164a9c2691e6b2585af777c50ea7d6"
-    sha256 arm64_sequoia: "409206a1822a5d6cf3646c8f0f5b8fe94c7f41558d80383da49eb3346d2f6472"
-    sha256 arm64_sonoma:  "6ef5f47269cf14ad82b94fb8cef2a679ff2bb990a8f74b42e407b5af8beec387"
-    sha256 sonoma:        "d48e2373e32762b53a03da1ce174f40de2a88e0e0027e85484bd7123c2558e2d"
-    sha256 arm64_linux:   "44fbfa33608470d00c50a4e1a7b27dd4d4c38a030fb3b2a6b9a7c117cdd259e7"
-    sha256 x86_64_linux:  "f261ecc67558b51d217ca044e51699a739780bfeab4563502f34bbbf7be7fa62"
+    rebuild 2
+    sha256 arm64_tahoe:   "2859f9fc32324373e145969a201a90621c1443001d454d8b0c48ce349356f725"
+    sha256 arm64_sequoia: "ada6e9683f3e1c9c4f0dc372680250252cfca61ac77c1f8f6299ad3b8452cfd8"
+    sha256 arm64_sonoma:  "66ab0b66299f71ab5f37ad15ac0282b7628af0e9daf210df43120118cb4bc8e4"
+    sha256 sonoma:        "42ea1aab95e1cdb360e600e2ef1d0b868a91fa8aba7d0d1e6d437d7388b39d3d"
+    sha256 arm64_linux:   "bf35bf67b10fa9755014d6efb0bbe5b882309675846ffce33bf2c9fc824e7453"
+    sha256 x86_64_linux:  "a2671d691010f3649f86ef822be69121d1bcb7071f1c04b1959d4b05a4ad7a96"
   end
 
   depends_on "autoconf" => :build
@@ -31,7 +32,6 @@ class Mono < Formula
 
   uses_from_macos "unzip" => :build
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
     if DevelopmentTools.clang_build_version >= 1600
@@ -49,6 +49,7 @@ class Mono < Formula
 
   on_linux do
     depends_on "ca-certificates"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "xsd", because: "both install `xsd` binaries"

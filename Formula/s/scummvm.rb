@@ -1,8 +1,8 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
-  url "https://downloads.scummvm.org/frs/scummvm/2026.1.0/scummvm-2026.1.0.tar.xz"
-  sha256 "e15b8650c2bd9e11b69b49eef9dea1eedccc5b1c191748b15c34167614d77b66"
+  url "https://downloads.scummvm.org/frs/scummvm/2026.2.0/scummvm-2026.2.0.tar.xz"
+  sha256 "4e10ed977daa36780c97a9b3bd7c124842f5ed9b0bfea4e8e35eda4658fa60f3"
   license "GPL-3.0-or-later"
   head "https://github.com/scummvm/scummvm.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Scummvm < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "9b8b41e00303a44fab6074eeac13ef183c6cf3fc167cc934e705dce5c1e94bbe"
-    sha256 arm64_sequoia: "2825c53a1f67cccede84c19113d28a0612740bfc4b88c65d7633c42d86568669"
-    sha256 arm64_sonoma:  "35897da6949b78259eaf3da7c588bc6285446edd75793fd369511c73c753106c"
-    sha256 sonoma:        "a5195517e33e764df64776544cbfbc820b789cf96e082b8bb3b83f2c72bd2413"
-    sha256 arm64_linux:   "1297386d01e756231a59fa06d3f669524dfee8311a40b5772fc479ecf646ec14"
-    sha256 x86_64_linux:  "659126a0d7cdb853b58356323b348f42a219fff87df3dc259d2b04bef0a9921a"
+    sha256 arm64_tahoe:   "eafd8445aa49bbf8247d5380b5d21fafd02ed092c600091c6f029329ad1f0fb6"
+    sha256 arm64_sequoia: "01e515ec6a9adba2246458cafe739339b730b30ac24c6266dc1fc587cc7cff25"
+    sha256 arm64_sonoma:  "ff098c5d5f81416f9710d5201b1a26d1de3efcafc23ddc1f1b0937c94105abcd"
+    sha256 sonoma:        "9e261a9ae5575bf012567d412ec387b847c4171758436586f4591f9d8c8bce20"
+    sha256 arm64_linux:   "afebdf0abbb5231b0381a3246a72d083a4bdec2a00b5fbf49a02b80f590353e4"
+    sha256 x86_64_linux:  "db0f23cfe965073d71e226dcdf9e6dbbb218bf64a8ce885ca1cdfdae85ddc08e"
   end
 
   depends_on "a52dec"
@@ -38,14 +38,13 @@ class Scummvm < Formula
   depends_on "sdl2"
   depends_on "theora"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "musepack"
   end
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "zlib-ng-compat"
   end
 
   def install

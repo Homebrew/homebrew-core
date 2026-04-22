@@ -4,6 +4,7 @@ class Libdatrie < Formula
   url "https://github.com/tlwg/libdatrie/releases/download/v0.2.14/libdatrie-0.2.14.tar.xz"
   sha256 "f04095010518635b51c2313efa4f290b7db828d6273e39b2b8858f859dfe81d5"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "77f8ac3d31bc58f8e000a6b065fa1eeff3c0f832e1d4e3c5fa67b464307c4e87"

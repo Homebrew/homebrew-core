@@ -5,6 +5,7 @@ class Mpg123 < Formula
   mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.33.4/mpg123-1.33.4.tar.bz2"
   sha256 "3ae8c9ff80a97bfc0e22e89fbcd74687eca4fc1db315b12607f27f01cb5a47d9"
   license "LGPL-2.1-only"
+  compatibility_version 1
 
   livecheck do
     url "https://www.mpg123.de/download/"

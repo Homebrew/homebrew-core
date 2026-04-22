@@ -6,8 +6,6 @@ class Speedbump < Formula
   license "Apache-2.0"
   head "https://github.com/kffl/speedbump.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f991bd2a54623cf73881d495c86a2d7b4bba3c5af8fae3a74d85a1bec5bb41cc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a52604fc55f69494bce2c79dfe29d9b85ad5b8828242a10358aad3d5f82dd161"

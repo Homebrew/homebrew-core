@@ -12,12 +12,13 @@ class Znc < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "1e2747232b52e744dab03602e2c64f7e597f1f88137776f4b0a0c8dc7f64c267"
-    sha256 arm64_sequoia: "dd385047888682db30c1faf5154c5f8e57b43730fc82bd9caa9787603a483126"
-    sha256 arm64_sonoma:  "47341f5d07357a6bd1da686a3e729febc24d5e4e4bd35024c30cb67662429c51"
-    sha256 sonoma:        "476b92c741b5434cb920cc71c994905c59310f38758defb7a22bf9e03abc2b40"
-    sha256 arm64_linux:   "bf6d1c94f945793eb5f7120673ca4ebe155533a1548874f3781c73a849698ff0"
-    sha256 x86_64_linux:  "d753d6a0086085f22ac70f0b74d604ba8dbc0816052daa298b3daf472f5f8e93"
+    rebuild 1
+    sha256 arm64_tahoe:   "afb9c0ccfe01f8d0c335ad33d7cb27d3bcff074ca0e22158d83caabf73bc7277"
+    sha256 arm64_sequoia: "b74d2600ee42c8c0cbf9ba88c13be60fde6a8de877803a94a10f80a23018eb69"
+    sha256 arm64_sonoma:  "ef62cd1a62388891aca94018dadc7484def7d0479d4714b3843898516892b85b"
+    sha256 sonoma:        "25b53ba0a8aa7400cd84902fc9f9b871b81af26021ec417420384341b27d7c80"
+    sha256 arm64_linux:   "f9a460da2c37ce2776fd85d3201a8ca6911cb423e94bf7682e67bb97f5c95577"
+    sha256 x86_64_linux:  "d7cabd8dc640eb9161c5489da76eff509f3459bac957c427da009241c3dfeea7"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +30,9 @@ class Znc < Formula
   depends_on "openssl@3"
   depends_on "python@3.14"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     rm_r(["third_party/cctz", "third_party/googletest"])

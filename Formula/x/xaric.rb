@@ -10,8 +10,6 @@ class Xaric < Formula
     regex(/href=.*?xaric[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "c6912be695b886211e28a85bc88a76e468102a70cf3a251181dcb98a7915ce0f"

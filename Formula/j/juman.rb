@@ -14,7 +14,10 @@ class Juman < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :homepage
+    regex(/href=.*?juman[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_tahoe:    "68ea21f6a0d59d8aaca739e79302615c6dee8dfc5f5f15f6e686a3df478e8372"

@@ -6,6 +6,7 @@ class X264 < Formula
       revision: "b35605ace3ddf7c1a5d67a2eb553f034aef41d55"
   version "r3222"
   license "GPL-2.0-or-later"
+  compatibility_version 1
   head "https://code.videolan.org/videolan/x264.git", branch: "master"
 
   # Cross-check the abbreviated commit hashes from the release filenames with

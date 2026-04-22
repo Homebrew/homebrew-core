@@ -4,16 +4,16 @@ class Ncnn < Formula
   url "https://github.com/Tencent/ncnn/archive/refs/tags/20260113.tar.gz"
   sha256 "2fdc5c6e37f8552921a9daad498a1be54a6fa6edd32c1a9e3030b27fab253b47"
   license "BSD-3-Clause"
-  revision 1
+  revision 4
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "ea9b1e38db71d0ae31c074640c77afd720c1ff859e89a540e9129b20fb3442f4"
-    sha256 cellar: :any, arm64_sequoia: "78f0c9860140aa8cdb69fe51a7c3647473a0a301f5e7868ca91ea92c0fad334b"
-    sha256 cellar: :any, arm64_sonoma:  "e8bc303bf1ebfb4556567711ca6b64dd4eff9ae83af091b94ce84bb2c8251dbd"
-    sha256 cellar: :any, sonoma:        "0237fa9ac429e1b6c8b44b7153db7877f0ff509e1c2a3c8b48c47c63889ec154"
-    sha256               arm64_linux:   "e3cb380fb1e77162851b3d61de4f7125dd92179bfccc459a2325b3a16f94af42"
-    sha256               x86_64_linux:  "bfbdab9e43121aa8eec89ef93ab75e51851cd628e94a6f7733510f9c49d99d73"
+    sha256 cellar: :any, arm64_tahoe:   "32a3ae7eca14922823925b1c28d705510320366701f9ae0bf8c41adc408188b9"
+    sha256 cellar: :any, arm64_sequoia: "699a86a1bdeb0c9ee5f96ca2456c2724ecf332e95a82dea148c23af773e9ace5"
+    sha256 cellar: :any, arm64_sonoma:  "3d16f91290dec7ecf6cac1371a3502cd7897c4de8f4d5e411707f8f315712c0b"
+    sha256 cellar: :any, sonoma:        "1df71d2f7c96bb19c3d6c72e1677035b8f7d5b40815bf865a589c8f460b606b0"
+    sha256               arm64_linux:   "4e00671612b1b942aa589e0ff38b6a1ebd7151c1f9d2ad30a9f647d69fd843ba"
+    sha256               x86_64_linux:  "941bd38539d20bb2adcccd1af07157e0c37ef04f50da1c4db5bf44551ccec351"
   end
 
   depends_on "cmake" => :build
@@ -69,6 +69,9 @@ class Ncnn < Formula
     elsif ENV["HOMEBREW_GITHUB_ACTIONS"] && Hardware::CPU.intel?
       # Don't test Vulkan on GitHub Intel macOS runners as they fail with: "vkCreateInstance failed -9"
       vulkan = 0
+    elsif Hardware::CPU.arm? && MacOS.version == :sonoma
+      # Disable Metal argument buffers for macOS Sonoma on arm
+      ENV["MVK_CONFIG_USE_METAL_ARGUMENT_BUFFERS"] = "0"
     end
 
     (testpath/"test.cpp").write <<~CPP

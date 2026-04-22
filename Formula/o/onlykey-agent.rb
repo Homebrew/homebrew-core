@@ -6,15 +6,15 @@ class OnlykeyAgent < Formula
   url "https://files.pythonhosted.org/packages/68/80/e89b6c3680bedb1e14e99f0539ac805bddc7d8dd87c58805c64484966b7c/onlykey-agent-1.1.15.tar.gz"
   sha256 "49b19bec28dc0fb7053ef01266d8a9e7a078bb146214a641bdbb1feac6fc7ddb"
   license "LGPL-3.0-only"
-  revision 11
+  revision 12
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "02d754797497e491be94a2ecec98bd2745e98c23350f84f29b5a201ebfb2cf89"
-    sha256 cellar: :any,                 arm64_sequoia: "e87b81ad3220f487f73d27cca29972d6a0056688c86ee960ecef4917a4e2bbf1"
-    sha256 cellar: :any,                 arm64_sonoma:  "14b7bb51dbb7d5b6f472403f69816556c3f7580ae7a988da613cb762d25ea744"
-    sha256 cellar: :any,                 sonoma:        "84f5e77dc0e99d71751bccdc2237974ad6e4d5c9a010c543f0456b74f5207255"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f2378af747cecafb7ab65810ef50fbc349e3df6d928c6510de6d4c212362dd7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ccb753c42280e0f62fd3d932877f77a87df03c1c9881e3a23fff279d372ba12"
+    sha256 cellar: :any,                 arm64_tahoe:   "723e5c37777aac7061d64d52e13476b5825e546fea410bdd4965d264ea1be2f7"
+    sha256 cellar: :any,                 arm64_sequoia: "1401aa450cad17fb117c55dd3cdb0f04220ec3165a69d5eb342593d86a4428cc"
+    sha256 cellar: :any,                 arm64_sonoma:  "1ce8dbd07234e8edc540a42863fbe713ea5f94677ebf387bc50fe4d25ec49770"
+    sha256 cellar: :any,                 sonoma:        "d8e425336cce8f42a110ae67c6bec8c7f9287c7d0972160e60b66101c0696e6f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e72c8522fc1fd56a0b09f78643ec700a3f3524578711e71354745dee8b8da1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "866463862380b35c1177ff29852ac71a6322567f3b5ed104ab430c08fae628c1"
   end
 
   depends_on "pkgconf" => :build
@@ -27,11 +27,11 @@ class OnlykeyAgent < Formula
   depends_on "python@3.14"
 
   pypi_packages exclude_packages: %w[certifi cryptography],
-                extra_packages:   "setuptools"
+                extra_packages:   "setuptools<82" # Upstream uses `pkg_resources`, so should limit the version < 82
 
   resource "aenum" do
-    url "https://files.pythonhosted.org/packages/09/7a/61ed58e8be9e30c3fe518899cc78c284896d246d51381bab59b5db11e1f3/aenum-3.1.16.tar.gz"
-    sha256 "bfaf9589bdb418ee3a986d85750c7318d9d2839c1b1a1d6fe8fc53ec201cf140"
+    url "https://files.pythonhosted.org/packages/07/e9/8b283567c1fef7c24d1f390b37daede8b61593d8cdaffb8e95d571699e83/aenum-3.1.17.tar.gz"
+    sha256 "a969a4516b194895de72c875ece355f17c0d272146f7fda346ef74f93cf4d5ba"
   end
 
   resource "backports-shutil-which" do
@@ -45,8 +45,8 @@ class OnlykeyAgent < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "click" do
@@ -55,8 +55,8 @@ class OnlykeyAgent < Formula
   end
 
   resource "configargparse" do
-    url "https://files.pythonhosted.org/packages/85/4d/6c9ef746dfcc2a32e26f3860bb4a011c008c392b83eabdfb598d1a8bbe5d/configargparse-1.7.1.tar.gz"
-    sha256 "79c2ddae836a1e5914b71d58e4b9adbd9f7779d4e6351a637b7d2d9b6c46d3d9"
+    url "https://files.pythonhosted.org/packages/3f/0b/30328302903c55218ffc5199646d0e9d28348ff26c02ba77b2ffc58d294a/configargparse-1.7.5.tar.gz"
+    sha256 "e3f9a7bb6be34d66b2e3c4a2f58e3045f8dfae47b0dc039f87bcfaa0f193fb0f"
   end
 
   resource "cython" do
@@ -70,8 +70,8 @@ class OnlykeyAgent < Formula
   end
 
   resource "ecdsa" do
-    url "https://files.pythonhosted.org/packages/c0/1f/924e3caae75f471eae4b26bd13b698f6af2c44279f67af317439c2f4c46a/ecdsa-0.19.1.tar.gz"
-    sha256 "478cba7b62555866fcb3bb3fe985e06decbdb68ef55713c4e5ab98c57d508e61"
+    url "https://files.pythonhosted.org/packages/25/ca/8de7744cb3bc966c85430ca2d0fcaeea872507c6a4cf6e007f7fe269ed9d/ecdsa-0.19.2.tar.gz"
+    sha256 "62635b0ac1ca2e027f82122b5b81cb706edc38cd91c63dda28e4f3455a2bf930"
   end
 
   resource "fido2" do
@@ -160,8 +160,8 @@ class OnlykeyAgent < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "semver" do
@@ -170,8 +170,8 @@ class OnlykeyAgent < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/86/ff/f75651350db3cf2ef767371307eb163f3cc1ac03e16fdf3ac347607f7edb/setuptools-80.10.1.tar.gz"
-    sha256 "bf2e513eb8144c3298a3bd28ab1a5edb739131ec5c22e045ff93cd7f5319703a"
+    url "https://files.pythonhosted.org/packages/0d/1c/73e719955c59b8e424d015ab450f51c0af856ae46ea2da83eba51cc88de1/setuptools-81.0.0.tar.gz"
+    sha256 "487b53915f52501f0a79ccfd0c02c165ffe06631443a886740b91af4b7a5845a"
   end
 
   resource "six" do
@@ -190,8 +190,8 @@ class OnlykeyAgent < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/25/6f/e1ea6dcb21da43d581284d8d5a715c2affb906aa3ed301f77f7f5ae0e7d5/wcwidth-0.3.1.tar.gz"
-    sha256 "5aedb626a9c0d941b990cfebda848d538d45c9493a3384d080aff809143bd3be"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   resource "wheel" do

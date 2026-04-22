@@ -4,6 +4,7 @@ class UserspaceRcu < Formula
   url "https://lttng.org/files/urcu/userspace-rcu-0.15.6.tar.bz2"
   sha256 "850b192096eb11ebf2c70e8f97bc7da7479ee41da1bebeb44e3986908bac414f"
   license all_of: ["LGPL-2.1-or-later", "MIT"]
+  compatibility_version 1
 
   livecheck do
     url "https://lttng.org/files/urcu/"

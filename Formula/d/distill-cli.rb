@@ -6,8 +6,6 @@ class DistillCli < Formula
   license "Apache-2.0"
   head "https://github.com/awslabs/distill-cli.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "05931eb86c8a7c5af00e0119729144e1ec1b71ce608aadce8bda08b9c7d332da"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e0945169c404d9651481553a66e74eccc15dd9fc3fd5fd7090db762c64a679b"

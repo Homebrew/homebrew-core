@@ -7,8 +7,6 @@ class Thrulay < Formula
   # contribution licensing clause) but different phrasing from the SPDX license
   license :cannot_represent
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "eb92cf4715801f5889b767248ee53ccc473da2803c836e00651846de45dd2c38"
     sha256 cellar: :any,                 arm64_sequoia:  "8980e64ea2ecc17ba2e111d4798a39c7789fc1b0009c2f0ae5664b0fcff8603f"

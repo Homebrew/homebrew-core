@@ -1,8 +1,8 @@
 class Echidna < Formula
   desc "Ethereum smart contract fuzzer"
   homepage "https://github.com/crytic/echidna"
-  url "https://github.com/crytic/echidna/archive/refs/tags/v2.3.1.tar.gz"
-  sha256 "4ba8598467d06c6f2ea6ca453b2c4e51c318752dff39cd1c8510470ed0fd7b75"
+  url "https://github.com/crytic/echidna/archive/refs/tags/v2.3.2.tar.gz"
+  sha256 "c35a6f65c8758743253e91d5ce25017d0d69864f3fad58c41269e9ef4089c1a1"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/echidna.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Echidna < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b4c0c8e4703789c0a9a78b8581dbd70d8111ce6df831232915a4df984e886de1"
-    sha256 cellar: :any,                 arm64_sequoia: "b82dac91e964bcaccb7daf3bf674390548087480013e4b5a6e8988df4a7d7d91"
-    sha256 cellar: :any,                 arm64_sonoma:  "a390cb7a1f470f2c745413f52686357d1a0e1a08d54090c7a4d2a9c70162951e"
-    sha256 cellar: :any,                 sonoma:        "8dc501bded131ae6f2902e226834031ceb45780219771b102416af8017fe15c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7f057c41d4aa548b33bf692c57d697d16363bc3694511bd3117e5ccdbbdb47c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0799bd6976031fa133b66f5262a9327260cf4a3da4fc44452054c021d7260b7a"
+    sha256 cellar: :any,                 arm64_tahoe:   "73ee5125c1c57859fd03769004a15aef0a1a15269ca2347c7ad83d0ecf91ee01"
+    sha256 cellar: :any,                 arm64_sequoia: "d03c58df980548b41ab1142cf07d1a1ef6ef65b35e687250634f3fd508aa9139"
+    sha256 cellar: :any,                 arm64_sonoma:  "7894e8b14c9288b42e4517c82b4a7e55b3b6a90797bb863c155aeec4cd619820"
+    sha256 cellar: :any,                 sonoma:        "a55c55db6a2ac10af2eb9b074e172aa8752307ce21b000ec7f98a8961e9313d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "772ac3f480f5cb1d4b6c075d856ae2954ca8f211487e438ef7e0a6b270ec251e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a13f6c68f9407099551800aed96a4ec194b7c931b57b1b2f083a4ad781e3f0dd"
   end
 
   depends_on "ghc@9.10" => :build
@@ -31,7 +31,10 @@ class Echidna < Formula
   depends_on "slither-analyzer"
 
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV.cxx11

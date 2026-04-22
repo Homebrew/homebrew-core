@@ -5,8 +5,6 @@ class Udp2rawMultiplatform < Formula
   sha256 "a4c2aece9e302a7895319efe940e5693522bafe9ae35b3f8088f091b35599e8a"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "72ead352399ece1b7045bc70fdc82b5cd82246adf55fb61e6eaaa467583ffb65"
     sha256 cellar: :any,                 arm64_sequoia:  "5c9cec87f3f22ae136248cc81851645b561e7136008a7a2fcdba3787daf3daa2"

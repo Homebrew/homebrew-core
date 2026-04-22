@@ -1,23 +1,30 @@
 class Libcotp < Formula
   desc "C library that generates TOTP and HOTP"
   homepage "https://github.com/paolostivanin/libcotp"
-  url "https://github.com/paolostivanin/libcotp/archive/refs/tags/v3.1.1.tar.gz"
-  sha256 "9b5778b8e38d9b0c33d6331ec980094b0035bf53e6064bbcc2ed988b0d4b3d13"
+  url "https://github.com/paolostivanin/libcotp/archive/refs/tags/v4.0.1.tar.gz"
+  sha256 "f8c843004d18880eb41417853fcfc3855f6197e7a32dcd87d23a6609cf0a116a"
   license "Apache-2.0"
   head "https://github.com/paolostivanin/libcotp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "84d385a54915c1048ff6a18fc4b150b9f0641966afee99596318f578a60a808b"
-    sha256 cellar: :any,                 arm64_sequoia: "6050b9fc9fb8e8179d90486ba1bed1a08b76303fa8994dfee894199956dec6f6"
-    sha256 cellar: :any,                 arm64_sonoma:  "1ae0f2b236927c8fd0471d308190a2df8cac550defcdc4439e804a3c345e9796"
-    sha256 cellar: :any,                 sonoma:        "bd5666bbdf0d655a9079c1ef37f8aeb3b881e2fb55459eec2956076a1a78c642"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7db49b6cff8e362d1b905247c2d97360f30e386ff85f041bc19bd88ea7f14e8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85418e6ddf1ce99c62d2e0e524503cd7b027481a8cd44c6cd867f129a02f3ce9"
+    sha256 cellar: :any,                 arm64_tahoe:   "0432f71957f15840f25f6a7cd62e503e0977da69ca646d7413cb802f3399fe89"
+    sha256 cellar: :any,                 arm64_sequoia: "edfd170ad7ef376ec709f6800a185d8bfaa64cb79221cc18dc8c956a6c48e025"
+    sha256 cellar: :any,                 arm64_sonoma:  "bf9b1fed333f5416705027187e648592fbcad50f6c64617511d854dc28d80043"
+    sha256 cellar: :any,                 sonoma:        "5cdf7ca276d63052c7da8babb64d8d6ac4b77d2b60da26b5bfe409b116746b8f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48d6c3db6d207670b88ddc3e3ebaafa52cc906014b3e28e4b835739a19686cf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50912d744adc2980feffa5fc72eec2ce61ba2b391b7f87d53e7402b5a4dfd98f"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libgcrypt"
+
+  # Backport macOS-compatible linker hardening.
+  # Upstream PR: https://github.com/paolostivanin/libcotp/pull/76
+  patch do
+    url "https://github.com/paolostivanin/libcotp/commit/83fd77822e774032387b9e38b2d612bb3fab236d.patch?full_index=1"
+    sha256 "6a117238f03a838c3e842f4a7e652e5dd792f3c124ca9f792e56a00d01b004b8"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
@@ -37,11 +44,11 @@ class Libcotp < Formula
         const int64_t counter[] = {59, 1111111109, 1111111111, 1234567890, 2000000000, 20000000000};
 
         cotp_error_t cotp_err;
-        char *K_base32 = base32_encode((const uchar *)K, strlen(K)+1, &cotp_err);
+        char *K_base32 = base32_encode(K, strlen(K)+1, &cotp_err);
 
         cotp_error_t err;
         for (int i = 0; i < 6; i++) {
-          printf("%s\\n", get_totp_at(K_base32, counter[i], 8, 30, SHA1, &err));
+          printf("%s\\n", get_totp_at(K_base32, counter[i], 8, 30, COTP_SHA1, &err));
         }
 
         free(K_base32);

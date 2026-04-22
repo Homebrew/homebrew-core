@@ -6,8 +6,6 @@ class Tuntox < Formula
   license "GPL-3.0-only"
   head "https://github.com/gjedeer/tuntox.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "bff9afd8a3a6496881f6ad2d4920d3caf40cc4310b6240c989a1cc009e37ea5d"
     sha256 cellar: :any,                 arm64_sequoia:  "a89e240676e2a2acce9e69f80a92d36cf7a15f22668227aec6ac8cbd9aaffcc9"

@@ -1,18 +1,20 @@
 class Astgen < Formula
   desc "Generate AST in json format for JS/TS"
   homepage "https://github.com/joernio/astgen"
-  url "https://github.com/joernio/astgen/archive/refs/tags/v3.37.0.tar.gz"
-  sha256 "bc41e4b04886047350b1db1cfe303b4ded6f243b3a094b1c42304f08ffa5732d"
+  url "https://github.com/joernio/astgen/archive/refs/tags/v3.42.0.tar.gz"
+  sha256 "fdaa0b63ec5ce7b718011cc4df302d415a8d7b80ba68a62599221a8e256610fd"
   license "Apache-2.0"
   head "https://github.com/joernio/astgen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b8c1334f238d8b4d80861999d72ccd1fa727a7112e0cdd6933f6eaaa68619376"
+    sha256 cellar: :any_skip_relocation, all: "5415f948a456b8a335b2f52c2f79bbaca22c0cae02cf888cbb8598ce509dca16"
   end
 
   depends_on "node"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Install `devDependency` packages to compile the TypeScript files

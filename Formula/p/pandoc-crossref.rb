@@ -1,18 +1,19 @@
 class PandocCrossref < Formula
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.22b.tar.gz"
-  version "0.3.22b"
-  sha256 "f7ce5f637ca27169286ebc66c684a60bee379e0545ba7b5d75b439cf65a84a5e"
+  url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.23a.tar.gz"
+  version "0.3.23a"
+  sha256 "7b3638c8b8d416f28e950cf650c52d3e961f53ce6cc640133caf8ee99b2efade"
   license "GPL-2.0-or-later"
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "528b3f91d2ea0a7d05ab1cd32081f7c7659807dd7e4327ec10a783d4e98e2271"
-    sha256 cellar: :any,                 arm64_sequoia: "630a5c00e8f2723e560a44942ad4ab8f186a395ba75c67b034324b0efef80f97"
-    sha256 cellar: :any,                 arm64_sonoma:  "352065d71cf5ea6dc06da75e8f2a913d86356c3671b4d8fb39fe363e178fbc7b"
-    sha256 cellar: :any,                 sonoma:        "7cb8dbeea448be750cd49848a2be7c4b0439f786431dc4ff0fb73f761d4c1276"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "40c2ee6a13e4f1945d558caf145ead90d950ad3252cc9878ed52f6d2fb667950"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63595278b847e03fd84635d14b6faf9df7d4ac9bbc9c3ef349a6796e71b0ed60"
+    sha256 cellar: :any,                 arm64_tahoe:   "b9b183c44cac850fb1b9fed061f569e237aa661897ebde73b25fab4dcc680a2a"
+    sha256 cellar: :any,                 arm64_sequoia: "5f5b1c921a1ec12673fed139bc30d0081a9e3907576924b37a99031e6b6a4ba3"
+    sha256 cellar: :any,                 arm64_sonoma:  "7cd1f3f54aca0e4ca23b0763a767dbf6954e616d8476ad487305c44cce44a435"
+    sha256 cellar: :any,                 sonoma:        "d372123947b5b6ba2e2855d54698d05cca6834c79d05aa02e93948a973dbc3a6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e2d364ba6b6b1ed44f8420fa662a609c156e111b13940842fe445dbe8c61f214"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c968d8b3f4e2fea0abf4d45e88de701b529de113e77527fd155313712faeb505"
   end
 
   depends_on "cabal-install" => :build
@@ -22,7 +23,10 @@ class PandocCrossref < Formula
 
   uses_from_macos "unzip" => :build
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     rm("cabal.project.freeze")

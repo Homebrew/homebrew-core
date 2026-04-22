@@ -1,17 +1,17 @@
 class TemplateGlib < Formula
   desc "GNOME templating library for GLib"
   homepage "https://gitlab.gnome.org/GNOME/template-glib"
-  url "https://download.gnome.org/sources/template-glib/3.38/template-glib-3.38.0.tar.xz"
-  sha256 "40d00dc223dcf2eb7f2ec422f7dec5a67373a0ca1101abca0f49c62f050cb312"
+  url "https://download.gnome.org/sources/template-glib/3.40/template-glib-3.40.0.tar.xz"
+  sha256 "e533ec2f6c24cc6df66ac55ac824fadd1b4a5f433a11cbf3a6b25815c0cfcfd5"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b3ab7adc6345abeb4dc093292a825914ecaffd78d30ba9f0847e12b5aa9f2d97"
-    sha256 cellar: :any, arm64_sequoia: "d373da3667fd52328b674bfee2e7e00ae6491c1bb5c062c6a708405024eead88"
-    sha256 cellar: :any, arm64_sonoma:  "7f5ece60e9438f43195763b98fdd4288515e1e56a3def2c5ffc18201fcc68fb9"
-    sha256 cellar: :any, sonoma:        "3ec54286435a0e5ce5c8eb74b984bfbac346e8170f83591dd5c9984d70c5ab4e"
-    sha256               arm64_linux:   "4305c9ea3e417f2e4db5784a1eac0cccdf5a1043ea45f65bb1bd92ecfcb5e1bc"
-    sha256               x86_64_linux:  "ce711717e79f3d62de5c5462b667809227a3c7296e1c030b15aa2fe915f2a172"
+    sha256 cellar: :any, arm64_tahoe:   "934953c6f2489b4b93150ac065da9734ae0eca17027531f6f4b13ec9e67158d9"
+    sha256 cellar: :any, arm64_sequoia: "15c9037f32b68d162ee9e7930736c185ad01790df7c4ea87c41eaded8b121419"
+    sha256 cellar: :any, arm64_sonoma:  "29329618672a3009b73ad4d0f8ece182fb949e5336a76f81952e112cb4cd25a1"
+    sha256 cellar: :any, sonoma:        "3ceb0dcb6ffeadceb7bd0d90e887197a028839fe46c76f9ecaea12dd15420311"
+    sha256               arm64_linux:   "3c3915749f31ece2b70b30bbe8d583659edcd549ea471d289734d09921a14a9b"
+    sha256               x86_64_linux:  "3894f9ee2b66a8d93181138e3ebaeace928609912ede356bf4d70223212a123a"
   end
 
   depends_on "bison" => :build # does not appear to work with system bison

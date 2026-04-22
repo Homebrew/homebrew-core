@@ -3,14 +3,13 @@ class GitRevise < Formula
 
   desc "Rebase alternative for easy & efficient in-memory rebases and fixups"
   homepage "https://github.com/mystor/git-revise"
-  url "https://files.pythonhosted.org/packages/99/fe/03e0afc973c19af8ebf9c7a4a090a974c0c39578b1d4082d201d126b7f9a/git-revise-0.7.0.tar.gz"
-  sha256 "af92ca2e7224c5e7ac2e16ed2f302dd36839a33521655c20fe0b7d693a1dc4c4"
+  url "https://files.pythonhosted.org/packages/b7/51/771e8ecd76847a6e822d40e070604eb3d916bf25f73b369417a9789103d5/git_revise-0.8.0.tar.gz"
+  sha256 "3239b1809cd659b33f6f323d3bfca5c7e3a9eb2eace223cf63b346f91c8c831c"
   license "MIT"
   head "https://github.com/mystor/git-revise.git", branch: "main"
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "0b06f748fef88b876546518daf22793e085197982bade5ebe8717552923c8903"
+    sha256 cellar: :any_skip_relocation, all: "3e1ae84726cd469773545306d82f51ede22cf7fe406b05f811fb59404012276c"
   end
 
   depends_on "python@3.14"

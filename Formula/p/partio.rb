@@ -6,24 +6,24 @@ class Partio < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cccb872455488e3a4d9095e75835cff1efb9a83b86075cf58ce2044f66301984"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "45574d3811124023d1ee5bf6a6fa62667409b489e030dece79d3f531ce3adc6c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7e6d55b5429815c0ea7c8fafc7e82c5ebb9c55ec32f9fdeb12afb4f00c387dae"
-    sha256 cellar: :any_skip_relocation, sonoma:        "496f1b42c79ec2f83a9e0a47a724987e439e03ba6d995089a003e5169e32707c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d67a524cad0b323bde0fc19efadd9840acfcd57a24078c567af52cb2eacf6f40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f78da84d936388758df3f9f21111afe4da1049620b74d737e9bf305ecbaecf8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1df6144f110d59a0a2702a819891b5d2431c1b2d5320c8a754c70c7afe121979"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d85a46d17cd0d8faa344925cc6e7a735c68efb81c30f9e7e366d160ef31c91f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "33038f52f8f29283fa3a34105974fd9a816eb7afc123326c09b238f6ae51057b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "23633ba6707787461a94f4093040e6cf61a0d0e47e0bf4cc76122554952f5dcc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d26cd91d005741e2c3953bd72ec068bad724c4bfe83914ab96b18f988aeac93f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc0eb880e0fd2c7c033434e9433dd6ffc9af4b3ec6b61f81f705877f337f3bb6"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "python@3.14"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "freeglut"
     depends_on "mesa"
     depends_on "mesa-glu"
+    depends_on "zlib-ng-compat"
   end
 
   def install

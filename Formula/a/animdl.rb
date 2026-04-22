@@ -7,16 +7,16 @@ class Animdl < Formula
   url "https://files.pythonhosted.org/packages/5b/79/4be6ac2caca32dea6fe500e5f5df9d74a3a5ce1d500175c3a7b69500bb3f/animdl-1.7.27.tar.gz"
   sha256 "fd97b278da4c82da88759993eaf6d8ad6fc3660d0f03de5b2151279c4ebd8370"
   license "GPL-3.0-only"
-  revision 2
+  revision 4
   head "https://github.com/justfoolingaround/animdl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9a663d581aaa831267a9d020758c8e5962d4dece43a67489a4525d68fcfade28"
-    sha256 cellar: :any,                 arm64_sequoia: "d4336be64ad08c2357dcbecf84b0fb609535038a10fd64dde7c406e6b652dcf7"
-    sha256 cellar: :any,                 arm64_sonoma:  "3426b7b2035ccffc75e4c2be898123954df6d09625b9459a47423ce05ee6fd14"
-    sha256 cellar: :any,                 sonoma:        "0c05e962bd34c1c60da5d29f7ffdc5f527ee3c2c9531b4dacf61379afc5d59ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdd4e7d41e4ed34284d9229e198f95eb05c2e445c7d3f528a10abeb1bec371b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "139de394e6a5375b2e3276ea77f3a0f58cff05e17bb60903307b5e451d9493cf"
+    sha256 cellar: :any,                 arm64_tahoe:   "9a75c3d2d27abfbf8272525bc807473c0f105eed748f01863c0c53fd26f65424"
+    sha256 cellar: :any,                 arm64_sequoia: "f62b51db8d31a1bd1134d858d43158d2058f46f5873122f70ee86c19d320ebf7"
+    sha256 cellar: :any,                 arm64_sonoma:  "4af52ede02b1871c1616a495110f026c876395bdfe45b5454f74a95d82142779"
+    sha256 cellar: :any,                 sonoma:        "1394d0275d44e9a4b405cb1f96cd0be9f394d9e1e44353cf027986f3b35025bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6859899e2a61655fafcb7022325b2722523700e5fd32eaae2e2cadda8480b766"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d51a66d3dc2c8bcd3e72c75732d7cccda5c32ee8c2cf353c1796ded918b8288f"
   end
 
   depends_on "certifi"
@@ -39,8 +39,8 @@ class Animdl < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/c6/78/7d432127c41b50bccba979505f272c16cbcadcc33645d5fa3a738110ae75/anyio-4.11.0.tar.gz"
-    sha256 "82a8d0b81e318cc5ce71a5f1f8b5c4e63619620b63141ef8c995fa0db95a57c4"
+    url "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz"
+    sha256 "334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc"
   end
 
   resource "click" do
@@ -94,8 +94,8 @@ class Animdl < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/80/1e/5492c365f222f907de1039b91f922b93fa4f764c713ee858d235495d8f50/multidict-6.7.0.tar.gz"
-    sha256 "c6e99d9a65ca282e578dfea819cfa9c0a62b2499d8677392e09feaf305e9e6f5"
+    url "https://files.pythonhosted.org/packages/1a/c2/c2d94cbe6ac1753f3fc980da97b3d930efe1da3af3c9f5125354436c073d/multidict-6.7.1.tar.gz"
+    sha256 "ec6652a1bee61c53a3e5776b6049172c53b6aaba34f18c9ad04f82712bac623d"
   end
 
   resource "packaging" do
@@ -114,8 +114,8 @@ class Animdl < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "pyyaml" do
@@ -167,12 +167,8 @@ class Animdl < Formula
   end
 
   test do
-    (testpath/"config.yml").write <<~YAML
-      default_provider: animixplay
-    YAML
-
-    assert_match "One Piece Film", shell_output("#{bin}/animdl search 'one piece' 2>&1")
     assert_match "animdl, version #{version}", shell_output("#{bin}/animdl --version")
+    assert_match "Aired @", shell_output("#{bin}/animdl schedule")
   end
 end
 

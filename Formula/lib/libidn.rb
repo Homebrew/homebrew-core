@@ -5,6 +5,7 @@ class Libidn < Formula
   mirror "https://ftp.gnu.org/gnu/libidn/libidn-1.43.tar.gz"
   sha256 "bdc662c12d041b2539d0e638f3a6e741130cdb33a644ef3496963a443482d164"
   license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "16554b492c8460ae8e23e3886bef64a944c2cd3bc4314e7df80971272b6173a3"

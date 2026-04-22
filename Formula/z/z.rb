@@ -12,8 +12,6 @@ class Z < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "8d048cdf7dd88dfdfe1e89e73a842fb91e743d6e0ec6c60fc99607e0c3d511b0"

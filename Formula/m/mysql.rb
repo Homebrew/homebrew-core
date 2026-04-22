@@ -7,21 +7,20 @@ class Mysql < Formula
   mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_9.6.0.orig.tar.gz"
   sha256 "240061d869d5ae188c9a333845928899e9d963ccbd67865a8a2e4b6fcb67178c"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 2
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
     regex(/href=.*?mysql[._-](?:boost[._-])?v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256 arm64_tahoe:   "d51ce7302dedf3dd04d77e1f30ed6e975c4c21264faaa24aad7629b35166b5eb"
-    sha256 arm64_sequoia: "c8dc8176a9e28dd96c82bea016fbf31b735b0bab0b3bca7212625ad9eff7eb63"
-    sha256 arm64_sonoma:  "2a97b572ec58e25adfa69ab4e26096362eb0049f21971469600f2ac6597bfbb7"
-    sha256 sonoma:        "6e03cab52201f12180339184e6f63facc865539aa2a59c721d4ca872fc86c41a"
-    sha256 arm64_linux:   "52c3b93c86c5ab7593d6607ca5d528542055daecc7a3d188dca5f8ee577b66f1"
-    sha256 x86_64_linux:  "24ce2e9b005789315614ab4576c0e25e47a98dee9da3cc133318885d5f41dd1a"
+    sha256 arm64_tahoe:   "4589e009eb714a89c399173d43879db1437fffce1f8e8783ab3d552596a05c0a"
+    sha256 arm64_sequoia: "ae9faee2eb29541466d91d7ea6c6a0d9f0dad5dc201fcfaea002aa5c4d00b4e1"
+    sha256 arm64_sonoma:  "ef7cced36ec02fdcae4ecb5d9c727a5c343f6a087c2286e65ee6f83a5f88599d"
+    sha256 sonoma:        "c7baa68b46cf6d48a87db98511f0c72ccc1a3d5282d15bdf4b90af6e9f949335"
+    sha256 arm64_linux:   "2e7b7990c15f0ca33fc4b290a1159fb191632bfab41eefecd824b9d790016a54"
+    sha256 x86_64_linux:  "0c4d355a4ca976b25692f2aab087aee54b9b18c18000d470aacfef1bb826b3a9"
   end
 
   depends_on "bison" => :build
@@ -32,7 +31,7 @@ class Mysql < Formula
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "protobuf"
-  depends_on "zlib" # Zlib 1.2.13+
+  depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
   uses_from_macos "curl"
@@ -50,6 +49,7 @@ class Mysql < Formula
   end
 
   on_linux do
+    depends_on "llvm" => :build if DevelopmentTools.gcc_version < 13
     depends_on "patchelf" => :build
     depends_on "libtirpc"
   end
@@ -57,8 +57,8 @@ class Mysql < Formula
   conflicts_with "mariadb", "percona-server", because: "both install the same binaries"
 
   fails_with :gcc do
-    version "9"
-    cause "Requires C++20"
+    version "12"
+    cause "fails handling PROTOBUF_FUTURE_ADD_EARLY_WARN_UNUSED"
   end
 
   # Patch out check for Homebrew `boost`.
@@ -78,10 +78,13 @@ class Mysql < Formula
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
 
     if OS.linux?
+      # TODO: Remove after moving CI to Ubuntu 24.04. Cannot use newer GCC as it
+      # will increase minimum GLIBCXX in bottle resulting in a runtime dependency.
+      ENV.llvm_clang if deps.map(&:name).any?("llvm")
+
       # Disable ABI checking
       inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
     elsif MacOS.version <= :ventura
-      ENV.llvm_clang
       ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
       # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
       # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.

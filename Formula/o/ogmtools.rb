@@ -10,8 +10,6 @@ class Ogmtools < Formula
     regex(/href=.*?ogmtools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "86153da84a3749d259955192038722ee1f4adc2142f382cc29c2885ec07b348a"
     sha256 cellar: :any,                 arm64_sequoia:  "789b9bad9d0902bf85da322c80b14401105d4307a1affc78e523e9c9e22fd8ce"

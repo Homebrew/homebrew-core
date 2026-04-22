@@ -7,8 +7,7 @@ class Bison < Formula
   sha256 "9bba0214ccf7f1079c5d59210045227bcf619519840ebfa80cd3849cff5a5bf2"
   license "GPL-3.0-or-later"
   version_scheme 1
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d47d87f1bead6f00956ea21f147d46ded1c5c2ac0c53193a1ed7b46105492228"

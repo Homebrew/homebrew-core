@@ -1,6 +1,6 @@
 class Opensubdiv < Formula
   desc "Open-source subdivision surface library"
-  homepage "https://graphics.pixar.com/opensubdiv/docs/intro.html"
+  homepage "https://www.opensubdiv.org/"
   url "https://github.com/PixarAnimationStudios/OpenSubdiv/archive/refs/tags/v3_7_0.tar.gz"
   sha256 "f843eb49daf20264007d807cbc64516a1fed9cdb1149aaf84ff47691d97491f9"
   license "Apache-2.0"
@@ -8,9 +8,10 @@ class Opensubdiv < Formula
   livecheck do
     url :stable
     regex(/^v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
   end
-
-  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "0008ddc2f7b700de6b4be9c40e34265cd286eb82e2c8f3dbd5644765c7ba7992"

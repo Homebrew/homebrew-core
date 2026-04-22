@@ -6,12 +6,13 @@ class Osmcoastline < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d0e6db503b8a8d7e321e77c2a90b6b987b109cd05b816f8856cef1161d85020e"
-    sha256 cellar: :any,                 arm64_sequoia: "22e941da84243f2a688e3893a029e99444806d98868028fbfc672bd19efd276d"
-    sha256 cellar: :any,                 arm64_sonoma:  "77c7b703fc6058078fe16a321bc480e7b2446992439b5d00ecfd74cfd89623b4"
-    sha256 cellar: :any,                 sonoma:        "1500aa6debfc8685a7a8c3329e419f7939789b59489376a174e260792c7ff17b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0400b2824c0c7d6457be12e8889eb9cab96fbea07df8e08fafb5eaeaeb5fe66f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63590187632c0e2c45bc7ffaaadcb7e939504c487ee08c5cca563bb248b91069"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "c594f9f9ef9f7dd27e3decdc3e17f52b040836ba8574901414134d1c94666ac0"
+    sha256 cellar: :any,                 arm64_sequoia: "be34804e33a4dc5106e58b9e97eecefb2cd162842c8106bf19d51b36976fceb1"
+    sha256 cellar: :any,                 arm64_sonoma:  "711e33588946976ca7e2e68e9f1f42f6ac5975e9c814f62ab126a224610776da"
+    sha256 cellar: :any,                 sonoma:        "d3d8c1f5652b522195c764a951abf041b962308757953c45caac2ec79195f15f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c251ca8a96cb5020fa83e406ed3aaccf1ff5c93d43284a86876ef62475cfc1af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc4f8e794f3b8619d5dd0c24c61b75077cb775849cbc1442b9bd9fb07d36f744"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,10 @@ class Osmcoastline < Formula
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
   # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.

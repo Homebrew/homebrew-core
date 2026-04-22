@@ -6,8 +6,6 @@ class Octobuild < Formula
   license "MIT"
   head "https://github.com/octobuild/octobuild.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae3196c00596806784136909afae180ce3556bc53770ca95c8266324c285f1a3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "476cd1bbe57d73e981ac7d93033892ce3a70e507dd4538bbcb3da11d615997f3"

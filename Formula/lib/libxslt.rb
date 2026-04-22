@@ -4,6 +4,7 @@ class Libxslt < Formula
   url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.45.tar.xz"
   sha256 "9acfe68419c4d06a45c550321b3212762d92f41465062ca4ea19e632ee5d216e"
   license "X11"
+  compatibility_version 1
 
   # We use a common regex because libxslt doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -13,12 +14,13 @@ class Libxslt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f84bd522d90559af9d166263695c0bdfb1dd99523b99c25a908f5dfeff0d2823"
-    sha256 cellar: :any,                 arm64_sequoia: "c6c94bfff23f4c1bd122badc497e6c5f9c0d3cbb764507bd75d30a680fe3ee67"
-    sha256 cellar: :any,                 arm64_sonoma:  "52285c023c4a4b8854cf02c732e29f87895b654ccf03d2f124ec51775dcdadc2"
-    sha256 cellar: :any,                 sonoma:        "97488beb7b0f8b4e85f82374abe0bc8b251c110ec12e2133251acef583e647d2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f92807009e5459c8402a6aa16b487ac01c753841eb37540ca80677979e31cc65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1682448b43ec04a0f79ee77fc8cc6bf65c04a279e5879d2ca19c894d27943c5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5247978b2374fcb0d2a4f9b0ce74c08fde85305c2d2816b458e8a64fc7013c7d"
+    sha256 cellar: :any,                 arm64_sequoia: "f1ba7468eded4f5db764b1a35802820af8be74455130443dce0748370b9d4e54"
+    sha256 cellar: :any,                 arm64_sonoma:  "97e95a9b6f10e601120a14bb003b6bb4ca6248123368425ea6295cc36f40f4e3"
+    sha256 cellar: :any,                 sonoma:        "75584f355ae00d06a7e5b1844e08acad55ea3a8d48db8425ef7f5066db590a5c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a08d60e1ea50a89702e83b5ac483104831961bb42d47684ba7f6f8bd3bbed98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b03c065c1b506ebe8caac9d6ad14b9d46950faad527e6ca89aafcd9eec234e5"
   end
 
   head do
@@ -49,6 +51,8 @@ class Libxslt < Formula
                           *std_configure_args
     system "make"
     system "make", "install"
+
+    inreplace [bin/"xslt-config", lib/"pkgconfig/libxslt.pc", lib/"pkgconfig/libexslt.pc"], prefix, opt_prefix
   end
 
   def caveats

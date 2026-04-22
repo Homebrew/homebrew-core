@@ -6,12 +6,13 @@ class Hadolint < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "625b9db801f4540117e0a36ba75d80daf0f5a62a0e7efc567fcb2e45dd2809e8"
-    sha256 cellar: :any,                 arm64_sequoia: "8f921836ab7439f49d938a06dfe2cd74f08f4071343668488245f72b970b0ffd"
-    sha256 cellar: :any,                 arm64_sonoma:  "d6e9f305fd34de4b4cba2ec91aa69e4bd90ce588da7714e82cfa60f102a74e02"
-    sha256 cellar: :any,                 sonoma:        "2d04e42e392a9157bb74bf3e8e930e4d6bad68a5876f0a3b16641392604fe179"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4a9c84e75a91304c5eb1aa234a507ee78f651f88d48d23f96ea9a162eb1bd2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3ba3e8be4d79224cfe1a24d75008c89d56193d884e20d053b1e1079d016f0a5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5fb72dd7116d76a9c78806853ed98d4da2f15f8ca46c9f5511ef66e3c9c36225"
+    sha256 cellar: :any,                 arm64_sequoia: "7af3406142276fb1dfe68ed7211fe9bca1e348114de6390c53f08dc5d11b5c3c"
+    sha256 cellar: :any,                 arm64_sonoma:  "29512bf0e04e72b3085f88b9240bb30c91665b622c1d8cc2d7c961d985280a47"
+    sha256 cellar: :any,                 sonoma:        "d3fb60d34da4c25bde58751038a8b9d794fe6c9863e5a945250bfa7877e5446b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6bbbbade4308b73a44f059afe1d9926e0d787ba9a48d1508789a74d7913d0ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5b8c9a91f19e10eced2063d35eb89e54c239e0270caed1a3ff72afd62292674"
   end
 
   depends_on "cabal-install" => :build
@@ -20,7 +21,10 @@ class Hadolint < Formula
 
   uses_from_macos "libffi"
   uses_from_macos "xz"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Workaround for GHC 9.12 until https://github.com/phadej/puresat/pull/7

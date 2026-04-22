@@ -4,6 +4,7 @@ class Ldns < Formula
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.9.0.tar.gz"
   sha256 "abaeed2858fbea84a4eb9833e19e7d23380cc0f3d9b6548b962be42276ffdcb3"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
   # tendency to lead to an `execution expired` error.

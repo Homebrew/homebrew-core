@@ -1,10 +1,11 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/solutions/hdf5/"
-  url "https://github.com/HDFGroup/hdf5/releases/download/2.0.0/hdf5-2.0.0.tar.gz"
-  sha256 "f4c2edc5668fb846627182708dbe1e16c60c467e63177a75b0b9f12c19d7efed"
+  url "https://github.com/HDFGroup/hdf5/releases/download/2.1.1/hdf5-2.1.1.tar.gz"
+  sha256 "efff93b5a904d66e8f626d7da60b5eedc9faf544be27dbabbaa87967b8ad798b"
   license "BSD-3-Clause"
   version_scheme 1
+  compatibility_version 1
 
   # Upstream maintains multiple major/minor versions and the "latest" release
   # may be for a lower version, so we have to check multiple releases to
@@ -15,12 +16,12 @@ class Hdf5 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b0b7cbbfd0b4a5a7631c1b4a874e55216b6759eea361c9c9578dc5facaea4eee"
-    sha256 cellar: :any,                 arm64_sequoia: "8ff4e4519419c163a9994e26c6efce4aac29b2b30559862a6788ae7680f38327"
-    sha256 cellar: :any,                 arm64_sonoma:  "a8087eef9b98690fd7fff33d42ee5a7abbcfe1bca4473b9722f23a1a6ad0d789"
-    sha256 cellar: :any,                 sonoma:        "cf5da64803d500ee0f1e7f270997f742615632dbce3268b7bc444cff4d680c33"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee5802265ecad3b39a76995a9edfd5d583e72aeff7715c6a3c610ee3ec88cb3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8134b7bdd4cae67b32efd851769819415b886921263e24b0af93b0d536f8443e"
+    sha256 cellar: :any,                 arm64_tahoe:   "114c9d8e9bea42989f21fb2910f29aa80906bd6924c6d332783d2b38c7a63419"
+    sha256 cellar: :any,                 arm64_sequoia: "c6fbf7bfe222ee75a8eec078486f0317e56d7d9c154f22dd135eceda927dfebf"
+    sha256 cellar: :any,                 arm64_sonoma:  "b5f41add9cb70b7f5325fef0be693a8433ea60b72b27acf70c68b043f5e2055e"
+    sha256 cellar: :any,                 sonoma:        "23e4bf63102a12668a5a1cf07e610a46ced3a917b818fa88592cf721dc7e87e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "55e6b9b7905a97cc4bb846368bc88f39f9717c8033cf9c2591d15b5b6e47e0a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8e15df7406f1ae8ef07a41c86c8390a6bf931947becc7de20864206878ad86d"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +29,9 @@ class Hdf5 < Formula
   depends_on "libaec"
   depends_on "pkgconf"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "hdf5-mpi", because: "hdf5-mpi is a variant of hdf5, one can only use one or the other"
 

@@ -11,8 +11,6 @@ class RmImproved < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "359402f5080c82f120e5acc163d030297d937245584604c5f0a8b4a7c55b6f33"

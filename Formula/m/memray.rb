@@ -3,19 +3,17 @@ class Memray < Formula
 
   desc "Memory profiler for Python applications"
   homepage "https://bloomberg.github.io/memray/"
-  url "https://files.pythonhosted.org/packages/36/18/5df5995a7b142e12ab194f4b2fd1473efd51f4f622dfe47f3c013c3c11f7/memray-1.19.1.tar.gz"
-  sha256 "7fcf306eae2c00144920b01913f42fa7f235af7a80fa3226ab124672a5cb1d8f"
+  url "https://files.pythonhosted.org/packages/96/04/5b886a36df947599e0f37cd46e6e44e565299815f044e2303ab2ae9f8870/memray-1.19.3.tar.gz"
+  sha256 "4e0fb29ff0a50c0ec9dc84294d8f2c83419feba561a37628b304c2ae4fe73d03"
   license "Apache-2.0"
 
-  no_autobump! because: "`update-python-resources` cannot update resource blocks"
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d2d072fad3df8ecf71559500dd07394143b8049f6f2ac0fa6e7a68c448409dd9"
-    sha256 cellar: :any,                 arm64_sequoia: "435b44b2071742f5b6dd01b1f3c11e5e1c1f3766e02dcc6df71b42ecab24d385"
-    sha256 cellar: :any,                 arm64_sonoma:  "df666e1456e9cb1eb5dc2ade2e7b502291bd24d1821eae2d2126bdb010061e9f"
-    sha256 cellar: :any,                 sonoma:        "39e3599c7842e1d7e4a317f4276cc2de6ad778208825a2ead26b3719a035ee3d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4bac4073dc761cb244574af394a24ee6c7018cc0315ec223702808b4dfaf294a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d75359949ca5cb8466cd6bab8cbfc9af0236bea2bd2972c32ca8139892260729"
+    sha256 cellar: :any,                 arm64_tahoe:   "2c9246f78d99696f620bb859e31279790114279c677a4b5cf796371fb405e008"
+    sha256 cellar: :any,                 arm64_sequoia: "b8e3b30e9e0b3553666cb1e21f580983245f4e98ba61c3b4200dc529d1d7d1db"
+    sha256 cellar: :any,                 arm64_sonoma:  "a08d9a49e81c5a30d57caffd8fb8148d8dd3b5ed7fca341736a1ac45a79ad7d5"
+    sha256 cellar: :any,                 sonoma:        "a8d40b7ef0a91ee3135aa4c26f92effc88608665cabc867bc3c4bd144f20041b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a64abbe70926bfd4e42f345dc9a31937724bddf6d5cf1ba42e92bded7bf1bd31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b09c6cc73a3fa3daabf69546b9adb9db92cbdfd9cc4001cfe68a099f061fd82"
   end
 
   depends_on "lz4"
@@ -30,8 +28,13 @@ class Memray < Formula
 
     # TODO: Consider creating a formula for (lib)debuginfod
     resource "elfutils" do
-      url "https://sourceware.org/elfutils/ftp/0.193/elfutils-0.193.tar.bz2"
-      sha256 "7857f44b624f4d8d421df851aaae7b1402cfe6bcdd2d8049f15fc07d3dde7635"
+      url "https://sourceware.org/elfutils/ftp/0.194/elfutils-0.194.tar.bz2"
+      sha256 "09e2ff033d39baa8b388a2d7fbc5390bfde99ae3b7c67c7daaf7433fbcf0f01e"
+
+      livecheck do
+        url "https://sourceware.org/elfutils/ftp/"
+        regex(%r{href=(?:["']?v?(\d+(?:\.\d+)+)/?["' >]|.*?elfutils[._-]v?(\d+(?:\.\d+)+)\.t)}i)
+      end
     end
   end
 
@@ -41,8 +44,8 @@ class Memray < Formula
   end
 
   resource "linkify-it-py" do
-    url "https://files.pythonhosted.org/packages/2a/ae/bb56c6828e4797ba5a4821eec7c43b8bf40f69cda4d4f5f8c8a2810ec96a/linkify-it-py-2.0.3.tar.gz"
-    sha256 "68cda27e162e9215c17d786649d1da0021a451bdc436ef9e0fa0ba5234b9b048"
+    url "https://files.pythonhosted.org/packages/2e/c9/06ea13676ef354f0af6169587ae292d3e2406e212876a413bf9eece4eb23/linkify_it_py-2.1.0.tar.gz"
+    sha256 "43360231720999c10e9328dc3691160e27a718e280673d444c38d7d3aaa3b98b"
   end
 
   resource "markdown-it-py" do
@@ -66,23 +69,23 @@ class Memray < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/61/33/9611380c2bdb1225fdef633e2a9610622310fed35ab11dac9620972ee088/platformdirs-4.5.0.tar.gz"
-    sha256 "70ddccdd7c99fc5942e9fc25636a8b34d04c24b335100223152c2803e4063312"
+    url "https://files.pythonhosted.org/packages/19/56/8d4c30c8a1d07013911a8fdbd8f89440ef9f08d07a1b50ab8ca8be5a20f9/platformdirs-4.9.4.tar.gz"
+    sha256 "1ec356301b7dc906d83f371c8f487070e99d3ccf9e501686456394622a01a934"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/ff/51/51a0863339c4c3fa204f43044e52dfd688a7ee2ba2c987e021acc9583a42/textual-6.3.0.tar.gz"
-    sha256 "a89c557fa740611551dcf4f93643f33853eca488183ef5882200dde8e94315e8"
+    url "https://files.pythonhosted.org/packages/cf/2f/d44f0f12b3ddb1f0b88f7775652e99c6b5a43fd733badf4ce064bdbfef4a/textual-8.2.3.tar.gz"
+    sha256 "beea7b86b03b03558a2224f0cc35252e60ef8b0c4353b117b2f40972902d976a"
   end
 
   resource "typing-extensions" do
@@ -91,8 +94,8 @@ class Memray < Formula
   end
 
   resource "uc-micro-py" do
-    url "https://files.pythonhosted.org/packages/91/7a/146a99696aee0609e3712f2b44c6274566bc368dfe8375191278045186b8/uc-micro-py-1.0.3.tar.gz"
-    sha256 "d321b92cff673ec58027c04015fcaa8bb1e005478643ff4a500882eaab88c48a"
+    url "https://files.pythonhosted.org/packages/78/67/9a363818028526e2d4579334460df777115bdec1bb77c08f9db88f6389f2/uc_micro_py-2.0.0.tar.gz"
+    sha256 "c53691e495c8db60e16ffc4861a35469b0ba0821fe409a8a7a0a71864d33a811"
   end
 
   def install

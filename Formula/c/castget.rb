@@ -11,8 +11,6 @@ class Castget < Formula
     regex(/href=.*?castget[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "6260cc2436ada19971dceea5edf959d05602b072b8c9e4fe4e3cd4ba2d1cd414"
     sha256 cellar: :any,                 arm64_sequoia: "0a168ca1b2f72f15dec7ccc87492f7687daa913751dc92f93e170847d725d415"

@@ -7,8 +7,6 @@ class TrezorBridge < Formula
   license "LGPL-3.0-only"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "571d4d50ac297d3cbf185c383d7e9dce39043801ebef303bd63b5a07bf819777"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "026eae2c42ba181bbb882176d03e3592558cb7d2d946d3de7c1766c30dd4fdce"

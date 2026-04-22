@@ -1,20 +1,18 @@
 class HickoryDns < Formula
   desc "Rust based DNS client, server, and resolver"
   homepage "https://github.com/hickory-dns/hickory-dns"
-  url "https://github.com/hickory-dns/hickory-dns/archive/refs/tags/v0.25.2.tar.gz"
-  sha256 "b4f4b3ff1cbefd1023c6e2b96b3db237e051e4b6c3596cafb310da4901212e58"
+  url "https://github.com/hickory-dns/hickory-dns/archive/refs/tags/v0.26.0.tar.gz"
+  sha256 "53a374acd54ae7eed39802b179f4f542afbcefaa29420dbc9bac7d950e8c3622"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/hickory-dns/hickory-dns.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00338c97c57b343444b4d6383b5f4537a74ce7eefe7267699773bf176697121a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8f589615fd4ae0e19b330aebf7c932480fd246e2e890e263cb091c9deb3229c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e4641077055a67a0cf03f1a91f7b08e3ce543fd357b546fa23ecac969117eaec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "898885c68864696ba13319a1d7d5b079d6e2c3dc535cce904d0d1b95d24f3cbd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "93208fe97224110bb8ff4638f3ee46936701f6a25d219e8b85a0b08224aaa343"
-    sha256 cellar: :any_skip_relocation, ventura:       "382b24e7db321eca7f60bd4c0b35994413ff9022e42b9d685a4fe63def240cbd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cffb447b25434f6d148933f632a8445b5dfbcaf5208f195707b21348be3ad0ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5a06249c3bc754dac00f8f5924b864dd2658476c309d82c38a82b6ddefee282"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5ad253c2962b91ca323316999d34803b1223254def86587be8f0794a7ab2080e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "73821743eb002cb9f4fd6526d229842781dba7d1c5a8a597d600e6f439077f52"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96d10898db36cff704103d4364b6928e4bf68afe6c200056ef53ec08483dfb06"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fb371131038fa1e825d179d2a29a944f7cd32e07868b95bc78f5d7c6115fce7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a5ca2ce09388c76a77edcd59f258b1fb7d49e33daf09fbf39ccd757f003a756"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db41fb4820861917065acfaa4aa95ff0b1880a928406f157de3777e9797d61df"
   end
 
   depends_on "rust" => :build

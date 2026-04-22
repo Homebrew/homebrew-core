@@ -1,18 +1,18 @@
 class Atuin < Formula
   desc "Improved shell history for zsh, bash, fish and nushell"
   homepage "https://atuin.sh/"
-  url "https://github.com/atuinsh/atuin/releases/download/v18.11.0/source.tar.gz"
-  sha256 "9435d2dd2469e1eeab0c0dc80425b35c51b286ba4e4ed36914c9813c2a54f4e0"
+  url "https://github.com/atuinsh/atuin/releases/download/v18.15.2/source.tar.gz"
+  sha256 "ede9b9640392c8688f22ab0e252de3b2b047dd0824c62d31a32c7462ddcb56aa"
   license "MIT"
   head "https://github.com/atuinsh/atuin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "197e5c97c187a6f5166018ff5e1d420c93ef8cf5cc8ed142c8f76d464332d053"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0a2297772a1ec141f18b51abb7206d622074f20dd65e42448b01e707dc2685b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12f7589e4bf1653415750efc38c4894a2d1ac00f539b8ebec7b4517c67f9fc76"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0eb9e19123be969842edde25beed354e84d433574d5c506cb43396814d8e4fe6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea0075eaa08b4ef8eec9855616354f7766b936951d778fac5cd2a6dc845a2e82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e9571790d1fea8cc778542673c6f2d22316cecd3f8d247ee00d7befab61a79a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6a0822467028783b2b58cc9a7900f11ee799bbf834940e19e5f1cf98c44c0447"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "486353498b054fb114fef3f21ccf947486ec2d8ba7c9b82ce9e12af1acf6b78f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22f319cd86f026a24d777d5ec7e5b2b01b18e84e7d2e3b948cce388ade574238"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7fe3b4675efe30ac806618927a5af6c03d811f0571a8b197bec5d2b67d4f6528"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6d98e87b523b7be810d87135260c0f42634b42d29686ee8e5078024b731f81d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b7c41f4c474ef29b7f39433be2847af263f9a86029cffe9328ea7321048bf2e"
   end
 
   depends_on "protobuf" => :build
@@ -21,7 +21,8 @@ class Atuin < Formula
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/atuin")
 
-    generate_completions_from_executable(bin/"atuin", "gen-completion", "--shell")
+    generate_completions_from_executable(bin/"atuin", "gen-completion", "--shell",
+                                                      shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   service do

@@ -1,19 +1,17 @@
 class Tssh < Formula
   desc "SSH Lightweight management tools"
   homepage "https://github.com/luanruisong/tssh"
-  url "https://github.com/luanruisong/tssh/archive/refs/tags/2.1.4.tar.gz"
-  sha256 "bbe8938b96c04aad5a843405a4414dde925f8827f29ac9c7d855d1bc84348b75"
+  url "https://github.com/luanruisong/tssh/archive/refs/tags/2.1.5.tar.gz"
+  sha256 "8878d73af523281441e6ec708998bf8aea1a5b22bf0a8822abd72067bd6566a9"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "44fa3c9ba54472a28312f3411920b57cd1279eb607bca1a71f1aeec3e45fd84b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44fa3c9ba54472a28312f3411920b57cd1279eb607bca1a71f1aeec3e45fd84b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44fa3c9ba54472a28312f3411920b57cd1279eb607bca1a71f1aeec3e45fd84b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5810f3b875548a049e3b59dff22ef18114783a8875f7d83106dcfdde3e40cfad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2bf2c612ad29cb9719d3afae93b87e2ed62fb14925b0777a4c4c00c94faf179f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d92a59eaf31856c56126a1cfda5fff069a1bb7d4c3e12af3ab20b6a0fc6cc035"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca99f99d0f0ca2952d2ac557b4d51582bcb243f09928b2d5dd0be6eb8e4282f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca99f99d0f0ca2952d2ac557b4d51582bcb243f09928b2d5dd0be6eb8e4282f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca99f99d0f0ca2952d2ac557b4d51582bcb243f09928b2d5dd0be6eb8e4282f7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "48e81a78f08b8edd896366364455ea07235c755c8859c2e97731a66a498b14fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7693e8363687cb2fdd94f773632400a71779cee347eea90ec0638d1116c478d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b757f84ba81c25d8a257c77cd43b2df9961e7f60afaab3a1796787da68c2301f"
   end
 
   depends_on "go" => :build

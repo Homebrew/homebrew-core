@@ -2,6 +2,8 @@ class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
   license "Apache-2.0"
+  revision 1
+  compatibility_version 1
 
   stable do
     url "https://www.apache.org/dyn/closer.lua?path=thrift/0.22.0/thrift-0.22.0.tar.gz"
@@ -16,14 +18,12 @@ class Thrift < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "42608a22cdba8bc0100f0d60f78359ea3d9a2baaec1eadf236a05f5362c9b87f"
-    sha256 cellar: :any,                 arm64_sequoia: "70c48b3b34e4aa0908129c427ee8c0da57a052180692f01c6afb468cc1e1392b"
-    sha256 cellar: :any,                 arm64_sonoma:  "a8bd60c98ef9c6a987391251b619506453bc60fa81f8a8d419e8732c01c540df"
-    sha256 cellar: :any,                 arm64_ventura: "54a0bf02668741b09c8e3859d25cf4f3228bb3259a93aa1e82ce39c447de8946"
-    sha256 cellar: :any,                 sonoma:        "f4173a0bc4fe8a05a14c8d33bdcf5e2364965f4138ee0c58b9627dad43b3ba2a"
-    sha256 cellar: :any,                 ventura:       "d6d6745b54e308233d5e85e98887ffa7029785535c7861cd48cd22ccf2a6adf6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2346bc45c0a02792c5dc16144571f15842fac8f95840e6c9a0d7a9de7da3859c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32a0c481912313d3b116a70687b97318473645131958ce443ddba3668cd394c9"
+    sha256 cellar: :any,                 arm64_tahoe:   "4bb047f3d74c5a11f20e5bd50a79ad89745ae9684b5f90529ee76928af6ade36"
+    sha256 cellar: :any,                 arm64_sequoia: "57789905a11fba3cc15bdf565b3ae5cb433ead8bca0cb8303f020d185b4ef642"
+    sha256 cellar: :any,                 arm64_sonoma:  "cdf09a38f15d2f72ab1a9edc47a5af5e613f448c66b43d47259c5716553e3993"
+    sha256 cellar: :any,                 sonoma:        "96a2cc6d24ea0a82e431f87befb21766da37630a685dcefb0274bf8c939f5c0a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "33dca7c0cac36c3b2c72df78a56c732dfc9705750a12b504b6e98ce4d9341b7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9206127d5d2652d0803c870a06daf8ca6d24b4d12676b39bad2f767c18479453"
   end
 
   head do
@@ -38,7 +38,10 @@ class Thrift < Formula
   depends_on "bison" => :build
   depends_on "boost" => [:build, :test]
   depends_on "openssl@3"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./bootstrap.sh" unless build.stable?

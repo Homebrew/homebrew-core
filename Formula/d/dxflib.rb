@@ -10,8 +10,6 @@ class Dxflib < Formula
     regex(/href=.*?dxflib[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "3bbe74f4cb179ff9cd5df3e09b664f29033deb63211128b73bab5cf18c6b71a1"
     sha256 cellar: :any,                 arm64_sequoia:  "a4ba8424bf3cd50726d26445fa590fb069d6dff461324400938a3be82e98ef0c"

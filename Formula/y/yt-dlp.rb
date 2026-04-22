@@ -3,27 +3,25 @@ class YtDlp < Formula
 
   desc "Feature-rich command-line audio/video downloader"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/93/b3/025d41aa2b5b814c0898a4c5b2a9aa210192f616738aac5a86ef5780f0f6/yt_dlp-2026.1.31.tar.gz"
-  sha256 "16767a3172cbb7183199f4db19e34b77b19e030ab7101b8f26d6c9e6af6f42ae"
+  url "https://files.pythonhosted.org/packages/8b/34/7c6b4e3f89cb6416d2cd7ab6dab141a1df97ab0fb22d15816db2c92148c9/yt_dlp-2026.3.17.tar.gz"
+  sha256 "ba7aa31d533f1ffccfe70e421596d7ca8ff0bf1398dc6bb658b7d9dec057d2c9"
   license "Unlicense"
+  revision 1
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "534466fb651ae9570f666b9917f6c271fdeee3e2c1ac094414aeb7697e61c36d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd94679c02b7c813794cfd144bc37adcbba4ac7a126bd0af1181d84c7ef7ae7b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cbfe57cc51b659551c8615cc9f32f0ebc2ce30c4fb69a2dde9d5c0a70aed7e40"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f2b88c7c547f3e5a1521d0d1d623fb25af579dbf84827597d9508959634ff043"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "75d743b346a335f234fe6ac1161329ff2592f6470e69993d9a5850678ad6d99b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f3e6d2cc2163a328068bad452ae3efb1c69c6ed99ccf2f2e31dcfc205cc06d8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9826aa4e7261cf6ce793bdd277144b2a331d02298e75b817600bd9e68cbcd663"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9981e65100fb6f6a8453a457d761b1a7e2feabf7c190d224736d8865c7af5721"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a817808dad1a25fab7bc0895baecc043dd126cbc871c2108a4ae1ca17c430c3a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ebb0d25bea1855b94060a48564db822be87912508117e3891bc906725f6a80a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "100c416c5c111a406654a88bea5490ca867b6bae7e8426484921aa237fb96922"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b99cb6ac470ce6870a898d89232e7cb21fc121cda01713530084e7301bb67a2"
   end
 
   head do
     url "https://github.com/yt-dlp/yt-dlp.git", branch: "master"
 
     depends_on "pandoc" => :build
-
-    on_macos do
-      depends_on "make" => :build
-    end
   end
 
   depends_on "node" => :build # https://github.com/yt-dlp/ejs/issues/37
@@ -40,8 +38,8 @@ class YtDlp < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "idna" do
@@ -60,8 +58,8 @@ class YtDlp < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "urllib3" do
@@ -75,12 +73,12 @@ class YtDlp < Formula
   end
 
   resource "yt-dlp-ejs" do
-    url "https://files.pythonhosted.org/packages/e9/80/4b6c7f91b373e01cdc18080f41fa399592945abce7db74c2e6d0fb8468db/yt_dlp_ejs-0.4.0.tar.gz"
-    sha256 "3c67e0beb6f9f3603fbcb56f425eabaa37c52243d90d20ccbcce1dd941cfbd07"
+    url "https://files.pythonhosted.org/packages/d3/e6/cceb9530e8f4e5940f6f7822d90e9d94f1b85343329a16baaf47bbbb3de1/yt_dlp_ejs-0.8.0.tar.gz"
+    sha256 "d5fa1639f63b5c4af8d932495f60689d5370f1a095782c944f7f62a303eb104e"
   end
 
   def install
-    system "gmake", "lazy-extractors", "pypi-files" if build.head?
+    system "make", "lazy-extractors", "pypi-files" if build.head?
     virtualenv_install_with_resources
     bash_completion.install libexec/"share/bash-completion/completions/yt-dlp"
     zsh_completion.install libexec/"share/zsh/site-functions/_yt-dlp"

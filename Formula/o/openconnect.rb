@@ -2,6 +2,7 @@ class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
   homepage "https://www.infradead.org/openconnect/"
   url "https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/o/openconnect/openconnect_9.12.orig.tar.gz"
   sha256 "a2bedce3aa4dfe75e36e407e48e8e8bc91d46def5335ac9564fbf91bd4b2413e"
   license "LGPL-2.1-only"
   revision 1
@@ -11,15 +12,14 @@ class Openconnect < Formula
     regex(/href=.*?openconnect[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "bacd0a4fde84646627d45b4b821956d89442cd67e3645d6b6acb78957f96e01f"
-    sha256 arm64_sequoia: "8cf6e196c261898329d0bcf1ef0a0f6ea239c12f0884377e240262655464d85b"
-    sha256 arm64_sonoma:  "1612de7a532555d862636d428aaee7bb2042ed62adade421425f93fb64f5ffdf"
-    sha256 sonoma:        "8ddfafaffa683afac65283d1cb7386916d6dd81cf1bd35f04e51572ca5e2ce37"
-    sha256 arm64_linux:   "2525fee7be139490f52d7426415ac2bc8fcc916737bdddbeb464295314167429"
-    sha256 x86_64_linux:  "8a12c919696a92c83d8da6ac36c3965e70ad500810db4322e0abd72ab7bd9a4f"
+    rebuild 1
+    sha256 arm64_tahoe:   "fbcb589590fc3a10a33601e2dfafabaec8e58000357a655b0976e95a80f42aaf"
+    sha256 arm64_sequoia: "b5067d6b52fc350aa1391393cf637643fb8f4eb0f70536575099d8451a068123"
+    sha256 arm64_sonoma:  "5b3b175974886107af03dc6cd3ef87e69f3265123fd0ebddb6bd67f40715c2b4"
+    sha256 sonoma:        "968aca8e8f7d13c995ca44e15dbcb98bec6d7449186d47e64fc7cf2f3fcf31d1"
+    sha256 arm64_linux:   "9edbd927405417ac939217c28428d0e12fef1d3d4cb70e4d5bc5cb629d7fa5d1"
+    sha256 x86_64_linux:  "16f82b8f546ddd8a65a41c40a68e71d90829a928d567cd72f7c41ad5380fd0ed"
   end
 
   head do
@@ -40,10 +40,13 @@ class Openconnect < Formula
   depends_on "stoken"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   resource "vpnc-script" do

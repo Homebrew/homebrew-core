@@ -5,8 +5,6 @@ class Wiggle < Formula
   sha256 "ff92cf0133c1f4dce33563e263cb30e7ddb6f4abdf86d427b1ec1490bec25afa"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "87190c54a3ffa3b6212f17c7183d42f8a6615a1da033a9c22175b93363c23e8d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8887ecafbe844cb6e671f1b2d74668d28ee8116ad5efe005853c96f4bbe1255c"

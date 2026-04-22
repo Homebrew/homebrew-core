@@ -5,8 +5,6 @@ class Icecream < Formula
   sha256 "249dcf74f0fc477ff9735ff0bdcdfaa4c257a864c4db5255d8b25c9f4fd20b6b"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "13a9005297bac5939d73c7cb06837620691588609ff902db613ed9bbb12cd139"
     sha256 arm64_sequoia:  "3e72ef8ca299726695641f68412f9071e3840671808710ae1d4fc09b120d73e8"

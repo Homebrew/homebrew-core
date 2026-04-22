@@ -5,11 +5,6 @@ class Jemalloc < Formula
   sha256 "2db82d1e7119df3e71b7640219b6dfe84789bc0537983c3b7ac4f7189aecfeaa"
   license "BSD-2-Clause"
 
-  # TODO: See if Meta continues releases https://github.com/facebook/jemalloc/discussions/7
-  livecheck do
-    skip "archived, see https://jasone.github.io/2025/06/12/jemalloc-postmortem/"
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "e4143a4cc719df4053a6f3c77a92afc0c24444d305fe8a5f1be4fafa6771403f"
@@ -35,7 +30,7 @@ class Jemalloc < Formula
       --prefix=#{prefix}
       --with-jemalloc-prefix=
     ]
-    args << "--with-lg-page=16" if Hardware::CPU.arch == :arm64 && OS.linux?
+    args << "--with-lg-page=16" if Hardware::CPU.arm64? && OS.linux?
 
     if build.head?
       args << "--with-xslroot=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl"

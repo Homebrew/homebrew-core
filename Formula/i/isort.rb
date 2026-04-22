@@ -3,13 +3,13 @@ class Isort < Formula
 
   desc "Sort Python imports automatically"
   homepage "https://pycqa.github.io/isort/"
-  url "https://files.pythonhosted.org/packages/63/53/4f3c058e3bace40282876f9b553343376ee687f3c35a525dc79dbd450f88/isort-7.0.0.tar.gz"
-  sha256 "5513527951aadb3ac4292a41a16cbc50dd1642432f5e8c20057d414bdafb4187"
+  url "https://files.pythonhosted.org/packages/ef/7c/ec4ab396d31b3b395e2e999c8f46dec78c5e29209fac49d1f4dace04041d/isort-8.0.1.tar.gz"
+  sha256 "171ac4ff559cdc060bcfff550bc8404a486fee0caab245679c2abe7cb253c78d"
   license "MIT"
   head "https://github.com/PyCQA/isort.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f8a1f07df8891c8812977c1469578923a4129f2afaa12a9533fcd2f585a1fe1d"
+    sha256 cellar: :any_skip_relocation, all: "1189562f00b3e1f484d1132ac5d99f11bf6e3003e0fbcec9f11115cd2fa83d3f"
   end
 
   depends_on "python@3.14"

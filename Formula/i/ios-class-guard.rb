@@ -18,8 +18,6 @@ class IosClassGuard < Formula
     regex(/^v?(0(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "309a61c546e963a18349f50f48dcf782c98fedb310b248b9d2d9936d842d5ec1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4de6dec4f0120a68ac884defc966d1e3ff7da2cae669cccf3b80f72cdf7e7ddc"

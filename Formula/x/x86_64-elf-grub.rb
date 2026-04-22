@@ -6,34 +6,32 @@ class X8664ElfGrub < Formula
   sha256 "f3c97391f7c4eaa677a78e090c7e97e6dc47b16f655f04683ebd37bef7fe0faa"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "a3bfac9b34a745e29d7ee88e5e148d6a4327b5b3b742db5be069adb39bcc1032"
-    sha256 arm64_sequoia: "9e7f8e4ae40110b6b2ef9610497ecc11612f2c28c399ac3addf7587ddcb88284"
-    sha256 arm64_sonoma:  "66784aa8aecb9d70cab2eefb31b6f21cd0a2e29b3325c958abed5288c257b2e0"
-    sha256 arm64_ventura: "d5e9b928e26082ce63928c69575178c6deb912d36100ce95580b211c788b7f31"
-    sha256 sonoma:        "ee6afc8a7dd71bded334efa01e9df5aa578093bde953a392939175e4092b83b2"
-    sha256 ventura:       "6e256eb718661e554414730235ed267d15b10f928eaf8d47c27280a672321e48"
-    sha256 arm64_linux:   "ad44fcab75cc08c82da70dc089b4a085dc2abf8c06dff9f8164fc16d98c239f3"
-    sha256 x86_64_linux:  "e164e802fcb5d850632334568f4af43abd00561bc635f54f207aad940cb04362"
+    rebuild 1
+    sha256 arm64_tahoe:   "53b8b89694c2d829f0b1a2d2f66d2337c989701666214a98bda3669e835ad9bc"
+    sha256 arm64_sequoia: "5c7bf91186736387bce0a339c643572cbd603ff797360e3077b3d56568d9ede6"
+    sha256 arm64_sonoma:  "ead30cf7afe4384bb52c9d6c1dc5f71d166de453043398a54728768d5e6845de"
+    sha256 sonoma:        "550a7d1ac501183b9c04490744605f04c0320327832dfee05d0be280316db621"
+    sha256 arm64_linux:   "ffb7c4eb420c42f558fe96e3692cbf5b2b3b3e1f1a2b6e66a5a5a03f5d7e2e20"
+    sha256 x86_64_linux:  "02531df2a6711bb5519575d72c4c83f76f4d71f79caeb5172b3c102d601bc522"
   end
 
   depends_on "gawk" => :build
   depends_on "help2man" => :build
-  depends_on "objconv" => :build
   depends_on "pkgconf" => :build
   depends_on "texinfo" => :build
   depends_on "x86_64-elf-binutils" => :build
   depends_on "x86_64-elf-gcc" => [:build, :test]
   depends_on "freetype"
-  depends_on "gettext"
-  depends_on "mtools"
-  depends_on "xorriso"
   depends_on "xz"
+
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "python" => :build
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   resource "unifont" do
     url "https://ftpmirror.gnu.org/gnu/unifont/unifont-16.0.02/unifont-16.0.02.pcf.gz", using: :nounzip
@@ -47,9 +45,6 @@ class X8664ElfGrub < Formula
   end
 
   def install
-    ENV.append_to_cflags "-Wno-error=incompatible-pointer-types"
-    ENV["PATH"]=prefix/"opt/gawk/libexec/gnubin:#{ENV["PATH"]}"
-
     touch buildpath/"grub-core/extra_deps.lst"
 
     resource("unifont").stage do |r|

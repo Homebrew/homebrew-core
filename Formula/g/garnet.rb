@@ -1,22 +1,21 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  # Check for dotnet 10 support on release updates
-  # https://github.com/microsoft/garnet/blob/main/Directory.Build.props#L4
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.94.tar.gz"
-  sha256 "695a978865a175a2503fae0e93f5045ce2a65386e91f005031924abf90596979"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "cca16e06df6e018576d75e24c9760a283317d8ac0c60a20928acf8821925b363"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ab1b3dce7bc85bec254e04c8b0711ae8c14d991c62059e8c1301645abaaaed7d"
-    sha256 cellar: :any,                 arm64_sequoia: "105c286172216b397b461b8abe39fc8e7c8aa9c614c52e7be6c3a67be597e400"
-    sha256 cellar: :any,                 arm64_sonoma:  "328c46b12961a4a1b2876ed3b96f021235112cfa98ef92631178b127bed7fdbd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fca653a7a94bea5bb893160e94bf6f2faff94ab7e9be0dc591ba529fa199fc67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "393532dec2a43a840c1ca303b745bf81538b567286a86c49b5124c13fb256ddb"
+    sha256 cellar: :any,                 arm64_tahoe:   "a50bea64c958cd4bf558add28335722ffb54da8c62b5426885f90fd0998dbc8c"
+    sha256 cellar: :any,                 arm64_sequoia: "d54866d8c572980df5ebbfcd4a9b9086eec74291a1c618b27607116fe07f4567"
+    sha256 cellar: :any,                 arm64_sonoma:  "68eb70d7764c83aa8224a6c43f612f18c8307e95c8cf62423b8643b104be180b"
+    sha256 cellar: :any,                 sonoma:        "87d494ce0f67dd6401044b3e3b1785accc8283370cbb95f0f46ba9201c883088"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de5b57a554a21d15f5abbf7466ee88c2403b45adcc1f22a736b03fe29da5ad0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "108d9b1da7be9aa32c8ec0b0d28c2e6f00f1620175298f3685f2bd1e58e9231e"
   end
 
   depends_on "valkey" => :test
-  depends_on "dotnet@9"
+  depends_on "dotnet"
 
   on_linux do
     depends_on "cmake" => :build
@@ -39,7 +38,8 @@ class Garnet < Formula
       end
     end
 
-    dotnet = Formula["dotnet@9"]
+    dotnet = Formula["dotnet"]
+    # .NET 10 flags IL3000 here even though Garnet falls back to AppContext.BaseDirectory.
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
@@ -47,6 +47,7 @@ class Garnet < Formula
       --no-self-contained
       --use-current-runtime
       -p:PublishSingleFile=true
+      -p:WarningsNotAsErrors=IL3000
       -p:EnableSourceLink=false
       -p:EnableSourceControlManagerQueries=false
     ]

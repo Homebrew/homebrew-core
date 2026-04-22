@@ -5,8 +5,6 @@ class Diffr < Formula
   sha256 "6c5861e5b8f5d798e027fe69cc186452848dc4ae5641326b41b5c160d3e91654"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "071c7a6bb8aa37bd0282e02096635a6aff9afb1e263dff03ae426a2d45351511"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "25cdb1a853eceeba0ce00dee4f2b5657abe9865ee7568a0cf18ee0b5fe95d3bd"

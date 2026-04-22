@@ -5,8 +5,6 @@ class PythonTkAT39 < Formula
   sha256 "00e07d7c0f2f0cc002432d1ee84d2a40dae404a99303e3f97701c10966c91834"
   license "Python-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "605652d4b416da946391152dfff95e132051024b39f5bf92874d1c4e7df1bb16"
     sha256 cellar: :any,                 arm64_sequoia: "15e8153bd95f1440bb888f1e7e944558edde77901a1b0057bdf4ab5645080b1d"

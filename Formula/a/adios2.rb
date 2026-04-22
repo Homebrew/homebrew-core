@@ -4,7 +4,7 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/refs/tags/v2.11.0.tar.gz"
   sha256 "0a2bd745e3f39745f07587e4a5f92d72f12fa0e2be305e7957bdceda03735dbf"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,13 @@ class Adios2 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "cfaa152686072051bf806292f84349863cfe91bbaa0ec5a78a1f8860c271bdb3"
-    sha256 arm64_sequoia: "e86c2fb5b9a560bfa635e782524d707f9898da66e6f3c4cd9774b0b646b0f99b"
-    sha256 arm64_sonoma:  "ec0c9b5d971fff4f46067e043c4af98a9dcb239b58684440b42e4831889bcde7"
-    sha256 sonoma:        "024c1dcfbee8324b98a8722a43774b1d82c6ca6ec6215e12af82d7c803217560"
-    sha256 arm64_linux:   "e9ee045840f9b577f276af5dfc35db65c235271af34e59e4c4cef21ffef46f1a"
-    sha256 x86_64_linux:  "bc99b90e7bf695c4ae428ae7abdedefd43b5fe26074d20905c0b8f33cf576add"
+    rebuild 1
+    sha256 arm64_tahoe:   "0fc0bba06d97e22d5c1869d158bc966d4edae99020e4ca7c8c4c13004f3b52c4"
+    sha256 arm64_sequoia: "92c091315f8dbadb845f200cace50fc6e18b55a78d8cdd6ef45872e8c8ee6486"
+    sha256 arm64_sonoma:  "45d3e08530811c78a0aa15aa60d41b44a70698a4c44b741d16be03365f103dc1"
+    sha256 sonoma:        "d9fef9268fa1e89e72598057dac3eb94651f795bda0db338ddd995c76c62fb0e"
+    sha256 arm64_linux:   "534704afd26df44507961778f55a3792962cfe487fd94efe4b9148330e976b12"
+    sha256 x86_64_linux:  "b52a6393a46cb6e8c64b502f88b2d032f029d15148347038cc709870f156cfb4"
   end
 
   depends_on "cmake" => :build
@@ -40,12 +41,15 @@ class Adios2 < Formula
   depends_on "zeromq"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1400
     depends_on "lz4"
     depends_on "zstd"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   # clang: error: unable to execute command: Segmentation fault: 11

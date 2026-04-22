@@ -11,8 +11,6 @@ class Voroxx < Formula
     regex(/href=.*?voro\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e92608286d7f5525760a291095fffa5174353cd4360288b3b370734e266e332a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c76ccd2f7c88492a312735928f7b629188da9bac80b579effbf140eaff73cb7"

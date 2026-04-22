@@ -53,8 +53,6 @@ class NodeAT18 < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
-
     # Fix to avoid fdopen() redefinition for vendored `zlib`
     # Too many commits to backport, so apply a workaround
     if OS.mac? && DevelopmentTools.clang_build_version >= 1700

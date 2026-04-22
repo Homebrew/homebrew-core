@@ -1,19 +1,18 @@
 class KubectlRookCeph < Formula
   desc "Rook plugin for Ceph management"
   homepage "https://rook.io/"
-  url "https://github.com/rook/kubectl-rook-ceph/archive/refs/tags/v0.9.5.tar.gz"
-  sha256 "5f7f24006a7b3f2b7a15ec3292272fe6fb7ee4611caebb1324121e806650e449"
+  url "https://github.com/rook/kubectl-rook-ceph/archive/refs/tags/v0.9.6.tar.gz"
+  sha256 "5e580a42f1fda40a0ec4db0af24bc09f2ec0fcb02393ffb6ba2d7b08ea5c99e2"
   license "Apache-2.0"
   head "https://github.com/rook/kubectl-rook-ceph.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "38ef6b6b5600bafd151530f7cd750328fe5ae537e29a8f0256c48c00b888ee51"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38ef6b6b5600bafd151530f7cd750328fe5ae537e29a8f0256c48c00b888ee51"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38ef6b6b5600bafd151530f7cd750328fe5ae537e29a8f0256c48c00b888ee51"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ca5cffd2a78ceed9a0d2777c1eccb1b555e75a23215dbe9d1d42f1fc6d0f5884"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f31f6d9ed0bcf0b233bf2deef70c717b46cc8a232d9ccd26f971fe376298b642"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c67ffb743c4d5fb29bfe87cb63617614c1fe094681bf390f937ae17aadeca7cc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0e70fc098596221f6b4d0dbc2f1c1336052cbf2981a92f3a2221577b8ac281c1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c5f03adfaa167f91787d63d0646f4c4f9cb9732a020f53d13d3ee143a8239e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b4272be22632b74e10d0de5bc7bbb77c5f273b6e7f649cb206f41ce2e465ad29"
+    sha256 cellar: :any_skip_relocation, sonoma:        "df71650b4b0ea6ce29c31f2d784995f0e9109f41f354481b73c4f17e471a1b5b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "805404e5d0d91b466323291780bcea20cd0740319ab9178a58b07f136aeb2f0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3084c2e1aff1f91c9d81859903ced607f76fcad83bd43a258d8003aa28468284"
   end
 
   depends_on "go" => :build

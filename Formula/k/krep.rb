@@ -1,17 +1,17 @@
 class Krep < Formula
   desc "High-Performance String Search Utility"
   homepage "https://github.com/davidesantangelo/krep"
-  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "ad8ddf43c93d96c681a555b8e614674332be6674fc2baef7d011902f0558e5bc"
+  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "058d02e9a34861b92695073ccc3243ca79bdc9b0dcc5b9e798720a22786d5ae6"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7e8fe7796515e5389c4ce73692c0c659499888ee7b29b2e3c3015644389781c6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "150b2415272c560352b11ab3c30a8c151e050f4c4371bb31346ac69edc823543"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84fe2d1e44262ef89ce5cac8f06a973001d9872000c3f3933d15a3c5785f6e98"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c94d9eca1625b1cbcc7f7471894906948ce257a01223d68964ff151245ccbe09"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f323eb1cccbe7eabbf8adb67b668abfe1c67f2e58be28a7226aa6743714815e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80ae9762e3e2c9856e98403b7d4f84a5d559648b8e499081b2bc0cc0e3dbf636"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ff4efa02ebb3322d57a51f2476e7eb2021fdb15f2db95d5fbd570cd497f88901"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8d5676f6811579cc52a7a0fc99aa70a455f4caed8dfe574dbdc6890b850c5dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43247aabbc75a8f3e0ee1b0ed82897d10a9fc32857f03df80626c6c41212c009"
+    sha256 cellar: :any_skip_relocation, sonoma:        "051df7b22c054e8f4e7a8e985148a4c90c610123d182e05ff31a70e59322fc41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f63521b7bff474b94707f701b813037da0eec83dd580cf94f238fd04f39c66d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "764f707d98401a8f024deeed5075c84639f12852cbea7c29aef6da2161901029"
   end
 
   def install

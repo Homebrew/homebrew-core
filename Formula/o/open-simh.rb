@@ -11,16 +11,14 @@ class OpenSimh < Formula
     regex(/^v?(\d+(?:\.\d+)+(?:-\d+)?)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "67df29be666984944e37f97342ad07fc1461f5cbe01c0cb8f42bd922ce052274"
-    sha256 cellar: :any,                 arm64_sequoia: "3bd5b3ff10236b2b6f4c2cd999ccb7e2153a88d016d6481ac78cbd29e3eac677"
-    sha256 cellar: :any,                 arm64_sonoma:  "7cef924d844b2c9292b3bac8b15984b75dda71442d37bfd68a0a85c2ea6df235"
-    sha256 cellar: :any,                 sonoma:        "04fcdedce9b84cb20f27ef9cfdf872125cbc372f051a9260e0bd9b986a2f339d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "45c1d47467c0db6b528fe3e51e07852409bf7a69d752126ecb3caa31224e60df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47f761326158b79077aa6838502fc6186f111da84c6e98425f8722f0165ec5c1"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "14ca95542e0080680f5a68363b5a3cf88faebd66d2a85e0820048e4019a5b38c"
+    sha256 cellar: :any,                 arm64_sequoia: "25571e5341da2b41ee773893e974a462101e920cc7d92b27bd789ccd2f027989"
+    sha256 cellar: :any,                 arm64_sonoma:  "0d4672a79f07348b1727f6ced8a944a6bfe0ebdb5f3128c221738568c39077c3"
+    sha256 cellar: :any,                 sonoma:        "647307fe3b6a161e7764656a93f21c70888d85cb9ad4cbb262aba4913f839247"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "304120ac24e399c353405da304d1fcd76751342f2cfbf262f5d1f558bec6b96c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de06ffb145c4dc46c4b3535be6a5b99ac8ddec04cd7cd914ca1f8b0ccf595104"
   end
 
   depends_on "libpng"
@@ -28,7 +26,10 @@ class OpenSimh < Formula
 
   uses_from_macos "libedit"
   uses_from_macos "libpcap"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "nova-fairwinds", because: "both install `nova` binaries"
   conflicts_with "sigma-cli", because: "both install `sigma` binaries"

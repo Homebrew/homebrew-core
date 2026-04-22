@@ -7,14 +7,13 @@ class Frotz < Formula
   head "https://gitlab.com/DavidGriffith/frotz.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "ebf6d67e2019ef8eebb2917725a5d3e981e3638769b42da1e31ac0ba0c54714e"
-    sha256 arm64_sequoia: "624ff5dacf69ae3388d0c62040b5a5bd96efb74998e858b0050677fbbf1ef85a"
-    sha256 arm64_sonoma:  "b60c0567651c1c60ca575897dd34211f12b4c88d99d7b21e18af209e81c4a44d"
-    sha256 arm64_ventura: "3b4a5db73230793ae6dd4a1bad5625f8c680e35d64dd5abc7481cb8c5445ff8b"
-    sha256 sonoma:        "a811b517afb5ce7d597cf82a5b04925c302789a502d78363d0cd14755d31896b"
-    sha256 ventura:       "8904ff9893d5daa532535d53eebdbd387e569892f0544ae9b1d8995e44906d46"
-    sha256 arm64_linux:   "b90ff551b819c8f69602fadfa3aff2f5118d08a5a06f09cecd1e022421cc63fc"
-    sha256 x86_64_linux:  "2130987d855f301a70ddf5b8a91aaa3dc348f773da11dcafa62c83339cc96d41"
+    rebuild 1
+    sha256               arm64_tahoe:   "13e6781a5e0e185bb4bb73634f55d01ae38a55127b20f0f6eb0e88ff13bef27a"
+    sha256               arm64_sequoia: "c6318bbdd29d11d3e152f706fb323f0d21a1e2c4c5e34e018b9471a69fcbdc84"
+    sha256               arm64_sonoma:  "5e33bf2af7642a97850c3c2c721e57b7c7ab5fa1f41af67252bba0ddd9f1b9a5"
+    sha256 cellar: :any, sonoma:        "7a026e6bed92668413cc87b1f258bcae2b5148eb0047870213888297321a4c9c"
+    sha256               arm64_linux:   "aa9a5806184fe47d3fefec645caf64db935ff3f85bb4254e2b8ed9ebfb9c4c4a"
+    sha256               x86_64_linux:  "40aecc84a29e2a331e298a2d1a1640c6b5efc63a56960799b04c75ddcf7c169a"
   end
 
   depends_on "pkgconf" => :build
@@ -30,7 +29,9 @@ class Frotz < Formula
   depends_on "sdl2"
   depends_on "sdl2_mixer"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # fix SDL interface build failure
   patch do

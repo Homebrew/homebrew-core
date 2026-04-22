@@ -1,10 +1,9 @@
 class ShairportSync < Formula
   desc "AirTunes emulator that adds multi-room capability"
   homepage "https://github.com/mikebrady/shairport-sync"
-  url "https://github.com/mikebrady/shairport-sync/archive/refs/tags/4.3.7.tar.gz"
-  sha256 "a1242d100b61fe1fffbbf706e919ed51d6a341c9fb8293fb42046e32ae2b3338"
+  url "https://github.com/mikebrady/shairport-sync/archive/refs/tags/5.0.2.tar.gz"
+  sha256 "1fe2394d2ded30017ca1038a46d4261b4983d94d98b8dadc7bca64431b27bd08"
   license "MIT"
-  revision 1
   head "https://github.com/mikebrady/shairport-sync.git", branch: "master"
 
   livecheck do
@@ -13,13 +12,12 @@ class ShairportSync < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "447c5c992c4ad4ff74c204130ac70dc7342d2a63afd2c7d0e04f70e3ffb67ea2"
-    sha256 arm64_sequoia: "d0b40af6d6416eddfe8705ee6940d60c5393bd3059420b25efc4e2111fd840e8"
-    sha256 arm64_sonoma:  "af03fcf8f24c90998351820f7ccc379467ff06fd38c2989a0fecd3274113d062"
-    sha256 sonoma:        "00b4a040ab219ef15622f06046be96254b5033beebdf73d97a1f051c7029e66c"
-    sha256 arm64_linux:   "6476dfec263694efd858ea866f95b5ad2e95c53624e80666014a9875c279e1ce"
-    sha256 x86_64_linux:  "0ad387fee8205804b6325c8ef73d8c67d7f77cda6f75129f31f708c93e9c4c5b"
+    sha256 arm64_tahoe:   "100c7c7245317c1bd2001b86fd14f55d67cbe39005fc0a085e235a5746f17a73"
+    sha256 arm64_sequoia: "6e5a3b57c7a640cb4cdccd345e78babe2a072ecd984b509fee9e6907b528e086"
+    sha256 arm64_sonoma:  "7cb0284ee2fcb64966525c6ac9ec73bf266d149fdf165908c42854746e4eaf17"
+    sha256 sonoma:        "7f5ae7695e28e83617327577a64ee4bbd281175525b6dc3a88be7123e5ce78a7"
+    sha256 arm64_linux:   "7b785dc908b01f750c209371c0aa154473f701802778533da2cad3c4dd601fd6"
+    sha256 x86_64_linux:  "eb7e702e7dcce7411e448f6b9336aceb71f49fd5e7895d50cac12df03e774dfc"
   end
 
   depends_on "autoconf" => :build
@@ -40,7 +38,7 @@ class ShairportSync < Formula
       --with-ssl=openssl
       --with-ao
       --with-stdout
-      --with-pa
+      --with-pulseaudio
       --with-pipe
       --with-soxr
       --with-metadata
@@ -67,9 +65,9 @@ class ShairportSync < Formula
   test do
     output = shell_output("#{bin}/shairport-sync -V")
     if OS.mac?
-      assert_match "libdaemon-OpenSSL-dns_sd-ao-pa-stdout-pipe-soxr-metadata", output
+      assert_match "libdaemon-OpenSSL-dns_sd-ao-PulseAudio-stdout-pipe-soxr-metadata", output
     else
-      assert_match "OpenSSL-ao-pa-stdout-pipe-soxr-metadata-sysconfdir", output
+      assert_match "OpenSSL-ao-PulseAudio-stdout-pipe-soxr-metadata-sysconfdir", output
     end
   end
 end

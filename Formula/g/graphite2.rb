@@ -6,8 +6,6 @@ class Graphite2 < Formula
   license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "MPL-1.1+"]
   head "https://github.com/silnrsi/graphite.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:   "a5645201ace59a1ee7c24d075adf37ae1965018b41221062e8088b191763334d"

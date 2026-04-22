@@ -1,25 +1,24 @@
 class NagiosPlugins < Formula
   desc "Plugins for the nagios network monitoring system"
   homepage "https://www.nagios-plugins.org/"
-  url "https://github.com/nagios-plugins/nagios-plugins/releases/download/release-2.4.12/nagios-plugins-2.4.12.tar.gz"
-  sha256 "9a246245d8270f15759763160c48df5dcdc2af9632733a5238930fde6778b578"
+  url "https://github.com/nagios-plugins/nagios-plugins/releases/download/release-2.5/nagios-plugins-2.5.tar.gz"
+  sha256 "44d1510b5e17055fd9aa4a1d9662a234fc5d5c1b96548852c8e78701584b2684"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:    "6e751f176edcabbb88a2606c98ec0f3062e717b4b0ab5ffaa0e8d16b9406dc06"
-    sha256 arm64_sequoia:  "10c5062b3d3edead969f7e18215628e643a7e71f8fdf5b25806305e767c1b999"
-    sha256 arm64_sonoma:   "1617bf68a8d2468f70a4e0e9d46cffee9883578dfa0eddcc1af71463bf55ef12"
-    sha256 arm64_ventura:  "2c4c5f8a661d01b36f7fc1a5fc5f4c24971516fc47f907da6818842e26fd51e0"
-    sha256 arm64_monterey: "4592b8a1585568faa9129f9b5ca5ff9f2eee674dac8763b684ba721bdacb2635"
-    sha256 sonoma:         "3a9c7c79fe4c09d02b7287c16b62d2f3d0870752f538b5e4a57857ba0e745803"
-    sha256 ventura:        "2fe347734de901c7483944d7c1538bffb740202f88920a626eccd6ec41c9c35e"
-    sha256 monterey:       "735a78ed14375db0a52fc95f6b93f9410f47717250e134d8c19c4c70e6bce23f"
-    sha256 arm64_linux:    "355d267b73906c7fd019558f9f85019a9cc0547215e0bcbe3614724572d18149"
-    sha256 x86_64_linux:   "dd70e314dbf872a7f0e54bc7364a3c86ed14b8ebe621825512a6421df14f15eb"
+    sha256 arm64_tahoe:   "5628345a480acea682615f3e8d7019113801d34734421111ee9eec7feef0c2ee"
+    sha256 arm64_sequoia: "04adde77b1eaf68bba563e941c8d91cbed9f3e76c8e97bab5ecafd6c5f74cce4"
+    sha256 arm64_sonoma:  "87dc4aa01fe10b6d83ca62542866a94f1bdcbeb7450434e40ffcec4672e9b25b"
+    sha256 sonoma:        "d242844eee49592bfe4f1db06b6ad4df79b1d398b873338759035b1d199b6958"
+    sha256 arm64_linux:   "f32f85405c13021c66d8877004538df510746e256c491a8f0662ec2889198f5e"
+    sha256 x86_64_linux:  "f192dfe18ab4a936a948df908c4cdc26eeea100ad2ad6eaa75115b866f6d3a21"
   end
 
-  depends_on "gettext"
   depends_on "openssl@3"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "bind"
@@ -29,15 +28,13 @@ class NagiosPlugins < Formula
 
   def install
     args = %W[
-      --disable-dependency-tracking
-      --prefix=#{libexec}
       --libexecdir=#{libexec}/sbin
       --with-openssl=#{Formula["openssl@3"].opt_prefix}
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args(prefix: libexec)
     system "make", "install"
-    sbin.write_exec_script Dir["#{libexec}/sbin/*"]
+    sbin.write_exec_script libexec.glob("sbin/*")
   end
 
   def caveats

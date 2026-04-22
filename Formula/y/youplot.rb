@@ -7,15 +7,16 @@ class Youplot < Formula
   revision 2
 
   bottle do
-    sha256                               arm64_tahoe:   "1c739f9e27747bdbec27e82a88c3cc9ce882974a6918a3815cf5547d19f255e3"
-    sha256                               arm64_sequoia: "3188353334f66de3bc164af96efd052c0cd7041164d7f04be0fe6d24bdb0d66d"
-    sha256                               arm64_sonoma:  "02fa87a89be61f440f0729e7b2a89f51a898e7a94f167500244de0d345988d1b"
-    sha256                               sonoma:        "c0f738a4dd673db99a6541d7ec7a94314c7d9823a6a543902f1a090c39ed46b3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5765565dd1195a9709e85821ae349f88b87b4519fc27f6305260460d6e4eb545"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cf27ee6dd3a4fc889a2d085f897132c2586462351eb9e8731e8b8bd6952afb7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "eeb8d9717d60ae7b9dfcd78aacdc79015d4ca8295b7f97fe1edd475ae4792d91"
+    sha256 cellar: :any,                 arm64_sequoia: "b2dbf2a7fa893c9113ea3f231d61bde826361916aeab171ffcda8c19f62d7513"
+    sha256 cellar: :any,                 arm64_sonoma:  "895212146959ad158fd3ed9a352f23f044abe05cac8f08a2288dc969a7d02ca8"
+    sha256 cellar: :any,                 sonoma:        "ef0afa69f04a5b1b718d24ff46ebd7c285ff6d520d54c1f4369c0d4887b45e54"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dedea3ca0dcb2c889d0f26e9fe2f06f9eb506db2457950066ca15cae852fcc60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "823bd972bb4b954f066ef5503fdba09fa90b1c097143201817e06ff4e1be4724"
   end
 
-  uses_from_macos "ruby"
+  depends_on "ruby"
 
   resource "enumerable-statistics" do
     url "https://rubygems.org/downloads/enumerable-statistics-2.0.8.gem"

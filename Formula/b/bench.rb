@@ -20,16 +20,13 @@ class Bench < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "0ef5a04cf943fb775dec58c9f01e7a351234e96415eeddf7a1334fdc25e44125"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9c5230fa0e73d5d95d308cba623b7482ecb7615ea7cba70da81cc2eaa402d911"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e53da698afa731c749f40351c628f1883c1e02b9a1d88d7d77184ed938b4004a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "95efaec2d62c71aa134fa3ce9219acfe3cad30adcd4dd39a677869dd577ddcb0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "58f3eaed9c9d200b98ae8cf639d50270d55353eac3cf7630c5ec256e18ee179d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a3bb09eecf4d8c6a6be9de614227f20d1745abbb11d6de6e55d627ab82e381a7"
-    sha256 cellar: :any_skip_relocation, ventura:        "dc156d8b5153328baa9611a2b3debce3ba9579ce5de607843f7cb1446499e3f7"
-    sha256 cellar: :any_skip_relocation, monterey:       "0b40ea1f0980aa3d99c04d339739a8a9db6f149122e327b5b6f8107f972d597c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9524c8585e0d39098a57f013cbd52142c7bc67c409bffded1f3fc9198c3e218f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe9558853d72f47d9f9ebec85e2e80eef181c37e607c7e40cf398845e49cf576"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3064182e52b625f6abe652df7f1d6d7a01f2c58ac27bd8c7561bd03b9ca7cb80"
+    sha256 cellar: :any,                 arm64_sequoia: "a0386f704c608217e565de8f96d4896f24442fb9b9c4ab7d6eca35e2207b6faf"
+    sha256 cellar: :any,                 arm64_sonoma:  "4c385be74bcb734fdebba6911e0c50f03372589fdc35a3cf30b4cfdbd24c67ff"
+    sha256 cellar: :any,                 sonoma:        "e1fad9d66bd1904f7c6ce6f084d36719727b3958a456b8e00496d60e90e5a484"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b44a07113c5f89b4e662c0e25e233b5a5c50363dc329ac76d1adcd3246967e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bfc8a2a84dd8d843c3b68bbd054aa1493353210d1657062c5cecc5de9f4d982"
   end
 
   depends_on "cabal-install" => :build
@@ -37,7 +34,10 @@ class Bench < Formula
   depends_on "gmp"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155

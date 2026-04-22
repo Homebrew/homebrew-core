@@ -1,30 +1,29 @@
 class Pivy < Formula
   desc "Python bindings to coin3d"
   homepage "https://github.com/coin3d/pivy"
-  url "https://github.com/coin3d/pivy/archive/refs/tags/0.6.10.tar.gz"
-  sha256 "7b409816c9fad84cf94f93659281f9dd2501d285eb2fc609e9401a3d004ce723"
+  url "https://github.com/coin3d/pivy/archive/refs/tags/0.6.11.tar.gz"
+  sha256 "78f79bd7d1ce7e8140ceba4b1220136ea1f14b4403b1e463c59fa892feed961e"
   license "ISC"
   head "https://github.com/coin3d/pivy.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "cbb8303807dc68efa785a595b464ea44c17aa17c5811848d26a4ffefdeaf6783"
-    sha256 cellar: :any,                 arm64_sequoia: "711d681b19f5b4b6277890b04c480ef1fbfd8c7f5529c6628004fc1d057553b9"
-    sha256 cellar: :any,                 arm64_sonoma:  "90c2d18f4261f8f4c65405dc18f32c322b03f24504bdff55c03608e2e5c53762"
-    sha256 cellar: :any,                 sonoma:        "f8b2a7c238524c232c368b45c0ac5761e56e794970b79fe7a84d31efdda7e4a8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "735ebf4fddd4b49343e5baf4e60580f3e2134d13f7bbbc36b18011fbe549206a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58037db476464761029fa53f2c5a2365dbe2e4fcb87ef993556cb3b2fa1400ac"
+    sha256 cellar: :any,                 arm64_tahoe:   "3c3efc4969c94db900ff5a8d2e564792db5b2aa0b17d687f441e29d654e872bf"
+    sha256 cellar: :any,                 arm64_sequoia: "4ad65036fd17e5f291383b618d1d4d0a372a424baf46db6f9d5660350bb2099f"
+    sha256 cellar: :any,                 arm64_sonoma:  "bafa801b126aec60325b9a44060cffa929b2cbb064b2799972868f6b5a0cd51c"
+    sha256 cellar: :any,                 sonoma:        "8d401a42d19e519d79fceb13e776808a6f249b52c054ee464e18fdc20730e872"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9f4842d2e3d7cda6a5576989b3f99c80904831dafc11953ce1091e80b6384db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fec926400c3514af60807399894ac76d0a0f1251795b36d512c9aa50ef2240d7"
   end
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "coin3d"
   depends_on "pyside"
-  depends_on "python@3.13" # `pyside` is not yet support for Python 3.14
+  depends_on "python@3.14"
   depends_on "qtbase"
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

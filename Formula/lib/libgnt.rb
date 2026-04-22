@@ -10,8 +10,6 @@ class Libgnt < Formula
     url "https://sourceforge.net/projects/pidgin/rss?path=/libgnt"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "8e41afafab8780d6c9415e0be6819934f2256539126ac13ca992f20a735a4dec"
     sha256 cellar: :any, arm64_sequoia: "54589732aa242fcd90ecc861024846b94b55280206e11300614a5b537fad3809"

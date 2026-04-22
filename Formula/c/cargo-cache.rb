@@ -7,20 +7,21 @@ class CargoCache < Formula
   head "https://github.com/matthiaskrgr/cargo-cache.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d569689e087953be570cbdb6dd283cdd09dd2242b864f1a3123e58353b3c39f6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a88dd6bebd24182cbafb2adb0e6ee8cf348fdeb9e95111f0850725469a982136"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0eb3f619312917ccefece5cc1ea0711fc1d85f373122cca5b36970449317dddb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "00a91483c1c50bb2e583c1e5ab9a41898b6b8b435b2d3ac61bfc736c49797871"
-    sha256 cellar: :any_skip_relocation, sonoma:        "54dcccbf025bbd1cf5b018742d3b14c919e47c3777a16934b32e49b02c7dac0b"
-    sha256 cellar: :any_skip_relocation, ventura:       "859498190a594da4d6f10908b807b524638bf398f9b029da99500da6efe6429f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ac3792893742e3bceaeaaa7aa28e36ff5de0e33a8a7e7abaa58d9fcf26230b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13787d990ce59471ceafc5846c2e2262453a91f5c2c121bad2a903af3d523796"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8ae58970c1cad67cab7d1c1ed0b354989d34eccfcdaaead753754d12eca1aa2b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "133e58a5df245b9b9dbbd403e1046c33783a29c682abfb03a6b9242da7187c15"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a0ad53eb576c0924d411370548d093113570d8368c4f19da86e31683ddb14c86"
+    sha256 cellar: :any_skip_relocation, sonoma:        "32cc1e6a496f5a5668f098b86af3d456412a7c8066a739aa62e9cb1c80c9d47f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "64d31e9da185cca1ee9d2ce9f27bf9a0339d00abb25f3e7fb0bbc7b79a4b0eae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66ba80fe970d805ce31c1df5a8847af3d515d0bc81df6d142c5d287e7b923549"
   end
 
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

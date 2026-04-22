@@ -6,8 +6,6 @@ class Sqsmover < Formula
   license "Apache-2.0"
   head "https://github.com/mercury2269/sqsmover.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "faceaa44808fd35b7d1131f1bda53f0390a814864185b8a16cb76d0531fd54af"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "71138465799d2eef41934e3c9af64946ba7568d99b33c26b4f139bcba0957342"

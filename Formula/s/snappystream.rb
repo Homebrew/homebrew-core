@@ -7,8 +7,6 @@ class Snappystream < Formula
   revision 1
   head "https://github.com/hoxnox/snappystream.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1b9bfaec4d6e7207937aa78282ec7fd13860da55f88a518ad7c0804a4b6004fd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8bfb07955fdb8b0896bbb1084651c320a78d2e5e4ae5d26242b86469ae8d39aa"

@@ -1,18 +1,18 @@
 class Libcoap < Formula
   desc "Lightweight application-protocol for resource-constrained devices"
   homepage "https://github.com/obgm/libcoap"
-  url "https://github.com/obgm/libcoap/archive/refs/tags/v4.3.5a.tar.gz"
-  version "4.3.5a"
-  sha256 "bca78a2076ebb02179f93ab6cf2363b1256d878b540f810c238ea231ad5948ab"
+  url "https://github.com/obgm/libcoap/archive/refs/tags/v4.3.5b.tar.gz"
+  version "4.3.5b"
+  sha256 "383a17d8466cee7c1cb1d4dfbffad2651004850b29eb590e9591c7bedd46741d"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "87537dd8d3d18b25f365590bba0f0bbd2213564550648cb9216d715c5c3cc7bf"
-    sha256 cellar: :any,                 arm64_sequoia: "1f236f253e71cbaf92741c2962ef91002a18b14d94b7173f9198ea7fa033708a"
-    sha256 cellar: :any,                 arm64_sonoma:  "39f9d7f64997c687db7dfdc9021f93b89855722bd42083439bc5e47f159d3c43"
-    sha256 cellar: :any,                 sonoma:        "ab6cfab4f8c71b7d660afff59fb24b4dcb53fbee213bbe9d671e15ad9fe705b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "455b960a284815a66eb7097a40641a8ebb2cffce774dc28235f18b2db44de5b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a4270feb490a55243e8e47674212ab7492e0a8287df66ec88e07c368e2675dd"
+    sha256 cellar: :any,                 arm64_tahoe:   "4614d5a660ad58aa00e228de30c28add5dd4ee8611c0ddc5c3236a8a3941d9ef"
+    sha256 cellar: :any,                 arm64_sequoia: "349f96040d93262a68f26c292a45204d1a96202b99de55f094825cb3ab520493"
+    sha256 cellar: :any,                 arm64_sonoma:  "54b950c8e6d8e55a442a70b56cde596a146bd9cec7d04229a0d208233b09a971"
+    sha256 cellar: :any,                 sonoma:        "a9b7105c8631b2e1786751405313d385724af7d3aaf0a9458fb348043f0f87d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d8292ca619e7c69e16abb18cb5fe081aef97b1a21e2bf5bf5803fa3f9135a69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e67be80f3a376965b7144640716268676dc9b2314256d41092cd9e5ba7954da3"
   end
 
   depends_on "autoconf" => :build

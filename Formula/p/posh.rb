@@ -1,8 +1,8 @@
 class Posh < Formula
   desc "Policy-compliant ordinary shell"
   homepage "https://salsa.debian.org/clint/posh"
-  url "https://salsa.debian.org/clint/posh/-/archive/debian/0.14.3/posh-debian-0.14.3.tar.bz2"
-  sha256 "6030fa51a03d0625794df0f52c74103d230390dbc0e22cdce946f5f5e6ff33ff"
+  url "https://salsa.debian.org/clint/posh/-/archive/debian/0.14.5/posh-debian-0.14.5.tar.bz2"
+  sha256 "dcb22cf8761f1d7c805f9af08dd1e91a91079850fd0b56df88c2240fa3e5f8ac"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,18 +11,20 @@ class Posh < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "180e38dcaededb7bf2f1ed55b02adcb756136ddca91ac11e8bbeba57a525afaa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ec6609559b42164f4d1a9e855eaa0754867562b40c23919b7cb0791e93409bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a12b2e8b08a4f7f04c6d3aa5e74f4754e70c007711367efc1971df614f2fbaa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9f665cf7536a4dd8f70f99b8d39af44c06980cc8e7e01905c7acc9f342a47f6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "752c708a0cbe2e63ac77e1261e5a9c3773a4cd331de54b9b9f90282a90cb3940"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "359384c23a46977a8891636407294023a59917d078758f4deed7db1fae57a1ba"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b4c49c448bc48352595390ec617225d314607e4252a3a1c2d09f359c94132ac7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c8ed5ec9c2e118a4f7e338a96f0220b3f07a0a4290fb0ee07244e86ef95b119"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d57d832f54a956df8d62cfbb91debefee44c01572488e553e0913238b528fe84"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1ea534ecc8db83c349191c2cc289025bc7b07b9c6b41506bda1a36b53aa7f831"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "55dad8d1b9709fe46183a0a0770f848221b685a7d70bec2120d7fcfb7fb55ef4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99ea129f3be132e51c8eadcc1d7fc1fb00a330e62d2fa9fb69e69a6e79e2399a"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
   def install
+    # Upstream still uses K&R function definitions, which do not compile as C23.
+    ENV["ac_cv_prog_cc_c23"] = "no"
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"

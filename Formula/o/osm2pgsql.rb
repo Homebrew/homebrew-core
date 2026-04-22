@@ -7,18 +7,18 @@ class Osm2pgsql < Formula
   head "https://github.com/osm2pgsql-dev/osm2pgsql.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "ae644af87377ab7b3929748cf15cf4151b96e3e960195062dfae930a9ef92072"
-    sha256 arm64_sequoia: "da139f76e7af7412be8e7602dba9f505c7a340a83cbd1bad2a56c047cd69c4a6"
-    sha256 arm64_sonoma:  "eb336eca001d75bf3285581214dbcddd702aa81cd657a1a9bdf74bc9e8f4e9d1"
-    sha256 sonoma:        "f969b377e07e963a6389c7595cc67da42977cf68b569a34301a94cfc6ce1e69d"
-    sha256 arm64_linux:   "c28a695b8b96dd3a35f11a2e8be256245e930dc2d260fd6b717fe72d946f6712"
-    sha256 x86_64_linux:  "3200c49625f208c5171192dc160c001ce9a205e87050fe7ce41627d997f9e9e3"
+    rebuild 1
+    sha256 arm64_tahoe:   "a5f9ab6a4a201781ae815d913f773583684dca4538e0aff2d992ca8e9b5a177a"
+    sha256 arm64_sequoia: "c22d991054d0f3ca640e949d2be019afc6d5e7bd8825f359eab3e8b7604acda8"
+    sha256 arm64_sonoma:  "14964a21c76e55705881b99d27a459ed1a098126fe6d3632368df967129ea9dc"
+    sha256 sonoma:        "77ff1260704e17ec3aa45de6bcc3947b3dddf0c31693b266305201ca7f148545"
+    sha256 arm64_linux:   "c554b99264e3a52791e14c304dae74e0c37f9d87082752e79169b00b6c1ef231"
+    sha256 x86_64_linux:  "719e9ab7dbc8d76cc317006f9492c619bcd79a40b24b76056e04a9d6f9264b11"
   end
 
   depends_on "boost" => :build
   depends_on "cli11" => :build
   depends_on "cmake" => :build
-  depends_on "fmt" => :build
   depends_on "libosmium" => :build
   depends_on "lua" => :build
   depends_on "nlohmann-json" => :build
@@ -30,7 +30,10 @@ class Osm2pgsql < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # This is essentially a CMake disrespects superenv problem
@@ -40,11 +43,12 @@ class Osm2pgsql < Formula
                                      "set(LUA_VERSIONS5 #{lua_version})"
 
     # Remove bundled libraries
-    rm_r("contrib")
+    rm_r(Dir["contrib/*"] - ["contrib/fmt"])
 
+    # TODO: Switch to external fmt when v12+ is supported
     args = %w[
       -DEXTERNAL_CLI11=ON
-      -DEXTERNAL_FMT=ON
+      -DEXTERNAL_FMT=OFF
       -DEXTERNAL_LIBOSMIUM=ON
       -DEXTERNAL_PROTOZERO=ON
       -DWITH_LUAJIT=ON

@@ -11,8 +11,6 @@ class Jed < Formula
     regex(/href=.*?jed.?v?(\d+(?:\.\d+)+(?:-\d+)?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "6551a5b3bdfe80b3b1446fbf84950d6c14a9b08c511c08af2424b4722821cf78"

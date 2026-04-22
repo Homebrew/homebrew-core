@@ -10,8 +10,6 @@ class Tta < Formula
     regex(%r{url=.*?/libtta[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f8a462551e8fec801357526eed49a963aaa646f1c9ff3cd657ec1787ac8ff9f4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eaf4b5e6bf2e815f028c54bb2df0d3470f984495c16526ee8d51ea6a08c3a7fa"

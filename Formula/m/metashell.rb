@@ -5,31 +5,26 @@ class Metashell < Formula
   sha256 "028e37be072ec4e85d18ead234a208d07225cf335c0bb1c98d4d4c3e30c71f0e"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8300899bfccc7d1e79cde7767e71465014c207c48a8adcc5e0823d81e7c61c99"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9de8b8eddbb354a0ed45d39d24e06cee5f05b57a0810155817a7362f45df635a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "842e31ef53f8bd669b6e7344f028ab4de0255a77a593635b9720a451d2e2d47d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4533ad286ccc480236aebbfd1f16b0dd2db015b5c3ffd154c3747e2a25096bac"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2958abbe2881a59769b0638d4418acd8d3d5ebd3ab909221f72df4c1354eaf57"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8fca9954509cf6db5673c609974da67a844b2bc0f8b51b4acbc39a99ecea42da"
-    sha256 cellar: :any_skip_relocation, ventura:        "99787eaf229f32b79c509af891747afa30315dd4e8530a4d298f0bc438c051ce"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e8541db362af85b6564cf836accecb73ec8d529d586d52adbae3fe7e5cc88b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9ca77aef4b0bde4d3cb95aea6d5f7d58d66f464b544ab4002e1c0cb6c27eb105"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd4c0e36370c2b809c525c309f22e0bc849bb0bc8cc92e5d1dfe34f29e9e9ddd"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "31ffe3eacbb6ebd7186612d278f5df4fac34eb2d5efe844e7413ada10a59ce3c"
+    sha256 cellar: :any,                 arm64_sequoia: "aec2935132e0d2d67702b10cab3b2e362c3dcd8ad82a27296d71999d1c1e5e24"
+    sha256 cellar: :any,                 arm64_sonoma:  "eb81c0aeccad45137a84692e5190c7ec08d7f08263671ccc0edfd404d3547309"
+    sha256 cellar: :any,                 sonoma:        "2108b65d96f0b6ee0eca068bf5880c7a9e3acdcd341dfb7f3d68fceb7d09cbc8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2109f64273ef097d9a3ea8e1eea326dada552053facdee5075f03f38d418ef8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "559e19b799f8f41040ba4a770086dccc2dbbb69f72093bf0839fff94066a274b"
   end
 
   depends_on "cmake" => :build
+  depends_on "zstd"
 
   uses_from_macos "python" => :build
   uses_from_macos "libedit"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "readline"
+    depends_on "zlib-ng-compat"
   end
 
   # include missing cstddef, upstream PR ref, https://github.com/metashell/metashell/pull/303

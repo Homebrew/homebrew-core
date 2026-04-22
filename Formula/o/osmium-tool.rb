@@ -1,17 +1,17 @@
 class OsmiumTool < Formula
   desc "Libosmium-based command-line tool for processing OpenStreetMap data"
   homepage "https://osmcode.org/osmium-tool/"
-  url "https://github.com/osmcode/osmium-tool/archive/refs/tags/v1.19.0.tar.gz"
-  sha256 "192713eef894735cf2d0dbeed3f8def67c067198e553de01d4a1f14417a64019"
+  url "https://github.com/osmcode/osmium-tool/archive/refs/tags/v1.19.1.tar.gz"
+  sha256 "e629d2f3e500ffa5df6f1b1689161ab3dea3a82f66beec2b453a74b8d782f949"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bc1baa5dd5df76da0e60f58ab7aeca9dcc6777db4a17e0dfb504bacc257d9244"
-    sha256 cellar: :any,                 arm64_sequoia: "e57e2cba4963d12d94581a3a36a4c72da6cb1d525424fcb453b7fd0aaed010a2"
-    sha256 cellar: :any,                 arm64_sonoma:  "fc65c6b56db4e2d6c82c11aceede8839433d417cb1e03db37f7ce60c99cc046d"
-    sha256 cellar: :any,                 sonoma:        "4ef02a031522ff53efdf941b319ac1f6cc87e03cb2f90f3955c642ab4c594bdc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a7b8de027ed75631ab6ed95bf5d49f64ec865f863cf1f52bd036cdd55299b74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5df231e42fafe4d7e276c602219adce1c84ac38e536871af96322730caa7f795"
+    sha256 cellar: :any,                 arm64_tahoe:   "150ed6e50922b14f1c9ae961178838a095d7c6f85431b0290a59c06729788d79"
+    sha256 cellar: :any,                 arm64_sequoia: "1e7ab6669b6660c6870d4af9a7f047135cb2fff8aabc40a2305eaec16d6d819b"
+    sha256 cellar: :any,                 arm64_sonoma:  "c9ee74497fe1729afa04c0912793d37f6aee76c8f3a8c6ef6592c365fb06e1e3"
+    sha256 cellar: :any,                 sonoma:        "addbb0da5c3cb86ee2c080829dff7832688a99cffa71194c72ea0a7e69e79f23"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "901af55b90a8b55d2010aaeb6901128361f6999bdfe5dd4e27438c835a329098"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f83163be3e38b634c93b6d3c906d62f8cb5ee1d7a711c8c09ce6896f8def5bf6"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +24,10 @@ class OsmiumTool < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     protozero = Formula["protozero"].opt_include

@@ -5,6 +5,7 @@ class Aspell < Formula
   mirror "https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.2.tar.gz"
   sha256 "57fe4863eae6048f72245a8575b44b718fb85ca14b9f8c0afc41b254dfd76919"
   license "LGPL-2.1-only"
+  compatibility_version 1
 
   bottle do
     sha256 arm64_tahoe:   "1039dbbb1d5abd5d4f78a211fdcaa5657456a153b2282bda45ebffe6c0ab1b70"

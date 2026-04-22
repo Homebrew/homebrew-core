@@ -10,8 +10,6 @@ class GitRemoteGcrypt < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4efe32b0ed3c56c7b8124db517898b05ac38ab6730e19c051ca05a5ec50c42ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0b60bf238fc835d16a3722c2169c060f08f3eab5182af7d3b67686d48a851391"

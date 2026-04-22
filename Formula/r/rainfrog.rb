@@ -1,18 +1,18 @@
 class Rainfrog < Formula
   desc "Database management TUI for PostgreSQL/MySQL/SQLite"
   homepage "https://github.com/achristmascarl/rainfrog"
-  url "https://github.com/achristmascarl/rainfrog/archive/refs/tags/v0.3.13.tar.gz"
-  sha256 "93cc3b00eb6cd55ac778cefb509845ea0a3c342844ea794022258278089f6b01"
+  url "https://github.com/achristmascarl/rainfrog/archive/refs/tags/v0.3.18.tar.gz"
+  sha256 "3854293991b0dac036d640a7194be7fd71440c1e8739ffad39bab8dc651c8ade"
   license "MIT"
   head "https://github.com/achristmascarl/rainfrog.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9a7ff420812bbe2dd6e3ecc31ffd94fc59fec331f21ce31675093411ddc6898f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22429d266abb059fe18a01ea3d8ede90341d082d42e87eadd4c71cb071faaa7f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9808fe3a5938de9b4b34da9cd2586ca02ed670b5db24c61326313ebebe9e7b4d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4eb26ae97f4bd63b7c511f3a773007e746b2bd4ef19f9faabdce2effc124c7db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7bcd445990f5d75bfef2cc93a30900179ff0ceb55aeafddde1505bfc134c76d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1903674e830858f727319e5ebc12432426e31aa4a1cab945d1b89a2f57c8938"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b8e5b7bc7e1ed2687faf4e47d8736a56f9ee109ef66ef7ef1ff785d02f44e17c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8deb9745d8cefc698cc5328432cf291702eab75c9384bf31db3448d867bc60bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d14ae46cea9e8529a86b581e08bc9bd522716ef42d246f03c9631614771edf1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8f624d48f4c911d48f4f13619070669aaf7a7436f853430cfbe74ee06c9c002a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e72811170fa1e263f14500ece775f807cb23448c0b2be3b32a9d8d1332640c44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b93372b8eddd5f8bddd2f59fed8d61867e6fd678fa2ca44dd9c52d9e1e6967a9"
   end
 
   depends_on "rust" => :build

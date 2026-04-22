@@ -1,19 +1,18 @@
 class Neovide < Formula
   desc "No Nonsense Neovim Client in Rust"
   homepage "https://neovide.dev/"
-  url "https://github.com/neovide/neovide/archive/refs/tags/0.15.2.tar.gz"
-  sha256 "a8179c461d41277b41692edcae64af6d1c80454aafff608af0268c5abca95b5c"
+  url "https://github.com/neovide/neovide/archive/refs/tags/0.16.2.tar.gz"
+  sha256 "a2016cceab3cba50b6a8b2f6787ae9017a85923575e89a83ebb9d428e8f80ca9"
   license "MIT"
-  revision 1
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3cd1ae192871c857c1bc7cfdc86dd0ed8d37e2bf468399297dfd2848f4897acd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7431a80ee963a89341748415cb400ca9c3b12b4c075e1c132a1249baf3cabade"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9eb5a431e1f6433db53cf329ac0644741ee173328c47d6420f98771bb91c4215"
-    sha256 cellar: :any_skip_relocation, sonoma:        "97c3ca622612e86cd722364c4f1f369a46be1a0bf0ec37fc871e4e1a73488ba5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "51f55132c2a8e2bd4a8147297727c1e9c10ce293822616fad48282b826067ffe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0ca27a7dc416660e96bc0830c909bbf25d83fa3ec5cf14516ee3d39afe89ac4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7708b2c0dd2a7e477cbf5356651356aeee272dbe3abacc43a5458ed791a49d6d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d745456e8e4fe4ae122473125fc4193912efc7a2bec54bef439c6f683099b176"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a601edbdf48cd39c52325dcc0ece4c63015874b9a19664b4196edb84b43f5d8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fe2e463394919597829d82ecdb9d02971941bb8d75033e141e1563618761517e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a1d67b6e85b580e3d47ff66029ef37a77df37f5f2ebd8e9d006eecb16bce34b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "363ff7bb4895c4626687bb96d9f1dac82d73e9a73853177854dec561c8ccab51"
   end
 
   depends_on "ninja" => :build
@@ -28,6 +27,7 @@ class Neovide < Formula
   end
 
   on_linux do
+    depends_on "xorg-server" => :test
     depends_on "expat"
     depends_on "fontconfig"
     depends_on "freetype"
@@ -41,7 +41,7 @@ class Neovide < Formula
     depends_on "libxcursor"
     depends_on "libxkbcommon" # dynamically loaded by xkbcommon-dl
     depends_on "mesa" # dynamically loaded by glutin
-    depends_on "zlib"
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :gcc do
@@ -72,11 +72,11 @@ class Neovide < Formula
     bin.write_exec_script prefix/"Neovide.app/Contents/MacOS/neovide"
   end
 
-  def nvim_connected_clients_count(socket)
+  def nvim_ui_count(socket)
     Utils.safe_popen_read(
       "nvim", "--headless",
               "--server", socket,
-              "--remote-expr", 'luaeval("vim.tbl_count(vim.api.nvim_list_chans()) - 1")'
+              "--remote-expr", 'luaeval("vim.tbl_count(vim.api.nvim_list_uis())")'
     ).chomp.to_i
   end
 
@@ -89,10 +89,11 @@ class Neovide < Formula
     sleep 1 until socket.exist? && socket.socket?
 
     neovide_cmd = [bin/"neovide", "--no-fork", "--server=#{socket}"]
+    neovide_cmd.unshift(Formula["xorg-server"].bin/"xvfb-run") if OS.linux? && ENV.exclude?("DISPLAY")
     ohai neovide_cmd.join(" ")
     neovide_pid = spawn(*neovide_cmd)
 
-    sleep 1 until nvim_connected_clients_count(socket).positive?
+    sleep 1 until nvim_ui_count(socket).positive?
     system "nvim", "--server", socket, "--remote-send", ":q<CR>"
 
     Process.wait nvim_pid

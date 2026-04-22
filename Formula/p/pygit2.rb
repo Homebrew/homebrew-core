@@ -1,18 +1,19 @@
 class Pygit2 < Formula
   desc "Bindings to the libgit2 shared library"
   homepage "https://github.com/libgit2/pygit2"
-  url "https://files.pythonhosted.org/packages/17/49/cf8350817de19f4cafe4ae47881e38f56d9bbebaa9e5ef31a5458af4bcf8/pygit2-1.19.1.tar.gz"
-  sha256 "3165f784aae56a309a27d8eeae7923d53da2e8f6094308c7f5b428deec925cf9"
+  url "https://files.pythonhosted.org/packages/3a/a4/10ce00feef5c43eddacab19ae6610c4d4ef3ab77e544e9ee938772cd1c17/pygit2-1.19.2.tar.gz"
+  sha256 "cbeb3dbca9ca6ee3d5ea5d02f5e844c2d6084a2d5d6621e3e06aa2b11c645bfd"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
+  compatibility_version 1
   head "https://github.com/libgit2/pygit2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "15f26a039eaeb8cf8650eaec7fb59014823ed90e02c161b9b982683382499fe9"
-    sha256 cellar: :any,                 arm64_sequoia: "fcf1dcb11ab25e0fae1c66ecfb8641c61b77e617156ce2773cae310bf40d8079"
-    sha256 cellar: :any,                 arm64_sonoma:  "a2742cf033a1434640c0b70cdf44447d7ccce26c3e19aa34eb2777c6c3936ecf"
-    sha256 cellar: :any,                 sonoma:        "095d41bf399bc7b46c6f531c6ffec33913b2dd70a42c08ac44d37b5b21df3581"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c02462e83c3919b1125f1e442b252ae3ab69f993dcd7ee82e8d6ca5347326b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76d50bbc5185231ce8bcb987b07afaa758c5f8af3dbc888315f3c4082fa325cb"
+    sha256 cellar: :any,                 arm64_tahoe:   "bfdc0abcc0ccc4e69789f3dc14e728db7b3184e11fbebb305d9a05ad1bc7e4d6"
+    sha256 cellar: :any,                 arm64_sequoia: "2f8e22c0c4e9205e96ee57c6ce21006a0ea79cbede397d921a17aab5a9abbe55"
+    sha256 cellar: :any,                 arm64_sonoma:  "2c700aa068287e7bd398ee594beecefdfd98057cb43aa510ca29cb0669bb021b"
+    sha256 cellar: :any,                 sonoma:        "0b94b6108da12f11f0ac5c4acc8ccf7734a3adf879996d437ca1d1951cfaf9c4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f03c9fc5a888a0054368674d740ee1b5d087c1ade0f4cd8c6408e26a237ccea6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "188d7b172fe47d0cef2bd4ce113d14b8269d9482c8195fba68b8a12903e0fbbc"
   end
 
   depends_on "python@3.13" => [:build, :test]

@@ -4,8 +4,11 @@ class LibfuseAT2 < Formula
   url "https://github.com/libfuse/libfuse/releases/download/fuse-2.9.9/fuse-2.9.9.tar.gz"
   sha256 "d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5"
   license any_of: ["LGPL-2.1-only", "GPL-2.0-only"]
+  compatibility_version 1
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    skip "No longer developed or maintained"
+  end
 
   bottle do
     rebuild 1

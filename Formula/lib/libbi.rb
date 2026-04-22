@@ -7,8 +7,6 @@ class Libbi < Formula
   revision 6
   head "https://github.com/lawmurray/LibBi.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f3492d6763bd53c9d705448646ae73c947d565cd274b66a3b134a9caa208377"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "067ddc67e0af1fb1760fa56d6ae5439c2ab0e4ca132ea3c7aba98d09fd68ac2c"

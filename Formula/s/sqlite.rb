@@ -1,10 +1,11 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/index.html"
-  url "https://sqlite.org/2026/sqlite-autoconf-3510200.tar.gz"
-  version "3.51.2"
-  sha256 "fbd89f866b1403bb66a143065440089dd76100f2238314d92274a082d4f2b7bb"
+  url "https://sqlite.org/2026/sqlite-autoconf-3530000.tar.gz"
+  version "3.53.0"
+  sha256 "851e9b38192fe2ceaa65e0baa665e7fa06230c3d9bd1a6a9662d02380d73365a"
   license "blessing"
+  compatibility_version 1
 
   livecheck do
     url :homepage
@@ -17,21 +18,23 @@ class Sqlite < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f7ebe1089758247f108cae46ba047aa9d45dbd562b7bbfeb1678b4e5b547bddc"
-    sha256 cellar: :any,                 arm64_sequoia: "cb1870c29597328d998dbb1a073e0b74a7b3d78af86c7355bbde2ba1accbd837"
-    sha256 cellar: :any,                 arm64_sonoma:  "8e53d196a3c0f85e0d1c119872c45f40440357ebf1f074865e2117d57353e341"
-    sha256 cellar: :any,                 tahoe:         "8314c1fc8c1c89daf2f9a9281d782ee644cea7059a0adbe2718584d914b59fc4"
-    sha256 cellar: :any,                 sequoia:       "b5bc8cee3e3a3a7fe801e6fa363418ace4eb7cd3effcc03d4eb288fde68a446d"
-    sha256 cellar: :any,                 sonoma:        "2ee523c62053996fa1a620ae756376642e76b952abae1601b55def1ddd6e66a4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4928c40f0de780b84faad3def71dd9288634b20101fb3a17dc5c78f9bbdd2a42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f75b216a1653cde3decc1af5c7db7578c98d63595cb9ef14a6eacf8d96e1521"
+    sha256 cellar: :any,                 arm64_tahoe:   "eb0597f2fc461458b99d9988915a1ec6c55f9a503a63d30cd8f55db661160f34"
+    sha256 cellar: :any,                 arm64_sequoia: "70310585b41dbac8b84540f061b12882490cd55b4101982d3aa33155d8b7243d"
+    sha256 cellar: :any,                 arm64_sonoma:  "36080e3273614fe3d606ff0bd5bb090ad33c19f186ba44c35807b8f97afa15be"
+    sha256 cellar: :any,                 tahoe:         "109b479dafa7d3170606a3d13795478031baf2b60d2bf77bc1045c4a6a6578f6"
+    sha256 cellar: :any,                 sequoia:       "3f6f75a8f1422c1da90f2c07ec9bae606100ab0b3f52422288118a34801230b6"
+    sha256 cellar: :any,                 sonoma:        "d1e0f1cc65d426ba689fd0c512d918179b11b9c6be177ddc92b7751c6252be76"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f854d0fde3e8a2e8321476fd488f273e69833c672d7d672d3e0b13e3a3c5475"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1a29a99fae0bbd1e20ffc396aa6b4e9f47c0dcc11dd88c3d4c18f1de2fa904a"
   end
 
   keg_only :provided_by_macos
 
   depends_on "readline"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Default value of MAX_VARIABLE_NUMBER is 999 which is too low for many

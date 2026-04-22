@@ -1,8 +1,8 @@
 class Brev < Formula
   desc "CLI tool for managing workspaces provided by brev.dev"
   homepage "https://developer.nvidia.com/brev"
-  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.316.tar.gz"
-  sha256 "095452684cb08ffc3b94d1415c17ba9ef25f1355d4d3105645bdc6ad498e2278"
+  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.322.tar.gz"
+  sha256 "0e5d5617ec1397367cda5239bff686825b393744dd7fa45e2aa63f57303ea869"
   license "MIT"
   head "https://github.com/brevdev/brev-cli.git", branch: "main"
 
@@ -15,17 +15,19 @@ class Brev < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b03e0c6f35cee6c9429546caa7f234cf4d81823e9b9d7b3c70a7904202d63831"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b03e0c6f35cee6c9429546caa7f234cf4d81823e9b9d7b3c70a7904202d63831"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b03e0c6f35cee6c9429546caa7f234cf4d81823e9b9d7b3c70a7904202d63831"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8dc968faad45671c0aa786fba01ba18098901495150a287e24db32e12e4744f2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "51b6a9d8acc2a759a774bd5d4355f92e724dddb71296c371ef545bd49378e04c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1731517e837c3949ca6ebe97b97e9adfe50090cde7dd6b96190064ee5a44e5dc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e53525d2d26fea160614f92bd4a276dc2e1981ebec5acf2d14655c1885b26abd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e53525d2d26fea160614f92bd4a276dc2e1981ebec5acf2d14655c1885b26abd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e53525d2d26fea160614f92bd4a276dc2e1981ebec5acf2d14655c1885b26abd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bde9a255fb41943b5f7506f0886650935ad7ce6df98f1d9c1291e93ea9fa41e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "041af20790119656bf2b955b83055f997e6efc2b289d7b6cdf1b3392deaba957"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e52012d6b71ab05c4eb9e14f740a4dd8b12ebeb66498f07131bccfb893e1404"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = "-s -w -X github.com/brevdev/brev-cli/pkg/cmd/version.Version=v#{version}"
     system "go", "build", *std_go_args(ldflags:)
 

@@ -11,8 +11,6 @@ class Opencbm < Formula
     regex(/<h1[^>]*?>VERSION v?(\d+(?:\.\d+)+)/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "d5e8f6b89063a3de0040990afe6bd3a5e135bf0ed37bf05f51af658af12a58f5"

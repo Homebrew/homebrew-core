@@ -5,8 +5,6 @@ class Check < Formula
   sha256 "a8de4e0bacfb4d76dd1c618ded263523b53b85d92a146d8835eb1a52932fa20a"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "ce6a229334822ebeb404ea91776ddb2727e76754724dbc6b7dae91cc274748cd"
     sha256 cellar: :any,                 arm64_sequoia:  "11f6f6c67483ebc4a230480a1b068882a8476afc52517d2d68de0ecc24ea305b"

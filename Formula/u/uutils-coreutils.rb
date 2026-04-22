@@ -1,9 +1,10 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://uutils.github.io/coreutils/"
-  url "https://github.com/uutils/coreutils/archive/refs/tags/0.6.0.tar.gz"
-  sha256 "f751b8209ec05ae304941a727e42a668dcc45674986252f44d195ed43ccfad2f"
+  url "https://github.com/uutils/coreutils/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "03f765fd23e9cc66f8789edc6928644d8eae5e5a7962d83795739d0a8a85eaef"
   license "MIT"
+  revision 1
   head "https://github.com/uutils/coreutils.git", branch: "main"
 
   livecheck do
@@ -12,54 +13,33 @@ class UutilsCoreutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "924e04cc141bcc932b40bc227a08870284fd97e12ef878e708fbda7520fe1221"
-    sha256 cellar: :any,                 arm64_sequoia: "c873ce99aeb0582375b6200020d8ed8caf4fda2ad4766b4f61445cc420da714b"
-    sha256 cellar: :any,                 arm64_sonoma:  "75840cfa19f39f32d53936f2c87d6f546b86336cef332ab1716347490cb44b65"
-    sha256 cellar: :any,                 sonoma:        "30a21dfd48fc8aa7829555b59770b67db8ff303d5218efad2054271a43010bd7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f53fcc66d49a33f9241eea86eb0a99c17100e773c6d6a55fde64bbe27059cf60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a495f658272b20d8ded7e0152f10e68932de7b97103c310cc5b5327120884d5"
+    sha256 cellar: :any,                 arm64_tahoe:   "3dca4194eb52ee1018d7245b8c8a7e3bd7196c61bfe4efe052f16f53c78b5156"
+    sha256 cellar: :any,                 arm64_sequoia: "6f093fbe0c368002408b0b95d3140f18dee0363bb09025a4e0ff698cae92c047"
+    sha256 cellar: :any,                 arm64_sonoma:  "79902e7e0b7694995e314b3c3da68168b108035e33caa0e705d05fefb53e0a4e"
+    sha256 cellar: :any,                 sonoma:        "03a3427054fceb821c369225b2105bd45e7dff653a10150bc9f43c0a4cf1b2a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d7323360044c84ebc07d70ac0791647c191d4c6ec79abdba2307b1be6ceaf4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "303487e992bd9bff355d0ef51d8f7d5282fb6337a3f5f9f8f4e937e427b42a9e"
   end
 
-  depends_on "make" => :build
   depends_on "rust" => :build
   depends_on "sphinx-doc" => :build
-
-  on_macos do
-    # TODO: remove conflict in follow-up CI-syntax-only PR
-    conflicts_with "coreutils", because: "uutils-coreutils and coreutils install the same binaries"
-  end
-
-  # TODO: remove in follow-up to 0.8.0 bump PR
-  conflicts_with "unp", because: "both install `ucat` binaries"
 
   def install
     man1.mkpath
 
-    # Prevent to add a feature for `selinux`
-    inreplace "GNUmakefile", "$(SELINUX_PROGS)", ""
-
-    args = %W[
-      PROG_PREFIX=uu-
-      PREFIX=#{prefix}
-      SPHINXBUILD=#{Formula["sphinx-doc"].opt_bin}/sphinx-build
+    args = [
+      "PROG_PREFIX=uu-",
+      "PREFIX=#{prefix}",
+      "SPHINXBUILD=#{Formula["sphinx-doc"].opt_bin}/sphinx-build",
+      "MULTICALL=y",
+      "LN=ln -sf",
     ]
-    # Call `make` as `gmake` to use Homebrew `make`.
-    system "gmake", "install", *args
+    system "make", "install", *args
 
     # Symlink all commands into libexec/uubin without the 'uu-' prefix
     coreutils_filenames(bin).each do |cmd|
       uu_cmd = bin/"uu-#{cmd}"
       (libexec/"uubin").install_symlink uu_cmd.realpath => cmd
-
-      # Create a temporary compatibility executable for previous 'u' prefix.
-      # All users should get the warning in 0.6.0. Similar to brew's odeprecate
-      # timeframe, the removal can be done after 2 minor releases, i.e. 0.8.0.
-      odie "Remove compatibility exec scripts!" if build.stable? && version >= "0.8.0"
-      (bin/"u#{cmd}").write <<~SHELL
-        #!/bin/bash
-        echo "WARNING: u#{cmd} has been renamed to uu-#{cmd} and will be removed in 0.8.0" >&2
-        exec "#{uu_cmd}" "$@"
-      SHELL
     end
 
     # Symlink all man(1) pages into libexec/uuman without the 'uu-' prefix
@@ -92,7 +72,6 @@ class UutilsCoreutils < Formula
   test do
     (testpath/"test").write("test")
     (testpath/"test.sha1").write("a94a8fe5ccb19ba61c4c0873d391e987982fbbd3 test")
-    system bin/"usha1sum", "-c", "test.sha1" # TODO: remove in 0.8.0
     system bin/"uu-sha1sum", "-c", "test.sha1"
     system bin/"uu-ln", "-f", "test", "test.sha1"
   end

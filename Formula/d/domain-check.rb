@@ -1,20 +1,18 @@
 class DomainCheck < Formula
   desc "CLI tool for checking domain availability using RDAP and WHOIS protocols"
   homepage "https://github.com/saidutt46/domain-check"
-  url "https://github.com/saidutt46/domain-check/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "37d3c700d288d8beac3e6685d23a6034de5fb10538691dc53f6c679a26e76fb4"
+  url "https://github.com/saidutt46/domain-check/archive/refs/tags/v1.0.2.tar.gz"
+  sha256 "8ce92177fb4739b9c8d8c262c85d370173769e46411af4418d02acf70876ad54"
   license "Apache-2.0"
   head "https://github.com/saidutt46/domain-check.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "829c048778054b22f4db890f78cbd3f75fde925f026e0b81b9200085e1f1aa5b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "635d21a45cf09356c46b9851b7de92b6fd423278a99e787287745df69a17587b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9924c37da9b37b9cde0f7216a50b9cfb605535c713e26796138e8deec5c7d316"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c6800c2f7cc58f98ef6944b344949e758e60c10ddb5d21055c09e0939ec656a5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5391a580a4d148ffc763b027fee2c3c4f2c5909a96dd6f487f0db3b3b14e2d58"
-    sha256 cellar: :any_skip_relocation, ventura:       "24ce8d5ebf223fa8c46262f7cc22f059ae641b045bd523a302113d16c1a5f13e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "264985616da42cca2e4bf09669a82ab41739d1b6be1fd3dd187169930f287492"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73d90ab7d9d70bf77574b54a5ce39f874a17fbf3a0874dfc0b5010c8c493f85f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6dc3a3825a8ed97d4801594785706fbc6de93938bc6fdc51646f90ff48ad8b9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f081fb38c78ec4e3e8e5a8c7c9c60824a57472aa3232e4c4301da3cf5eece24"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58e12669d93aa4548ec57d5bba34e8debedaf5d684113e637f2fada060fd62a6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7155ec86dcf2d43f982b20959c906a2aae5d6abdc1eadcf4c557a13338e8df9d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "247221e67740fbfaa07daeab28b729211c75fec790dbece9a52336f4d9da50d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "626d05f289cc1e412d8dcd8de8328b928b1b55c0115c33917a125dd262fbc13c"
   end
 
   depends_on "rust" => :build

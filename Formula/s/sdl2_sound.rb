@@ -7,7 +7,6 @@ class Sdl2Sound < Formula
     "Zlib",
     any_of: ["Artistic-1.0-Perl", "LGPL-2.1-or-later"], # timidity
   ]
-  head "https://github.com/icculus/SDL_sound.git", branch: "main"
 
   livecheck do
     url :stable

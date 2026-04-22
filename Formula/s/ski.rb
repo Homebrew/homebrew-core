@@ -3,8 +3,8 @@ class Ski < Formula
 
   desc "Evade the deadly Yeti on your jet-powered skis"
   homepage "http://catb.org/~esr/ski/"
-  url "https://gitlab.com/esr/ski/-/archive/6.15/ski-6.15.tar.bz2"
-  sha256 "390e13ebc84a49d956a17d9e8842e78666e5718f12b7256c42fe7842fdddf664"
+  url "https://gitlab.com/esr/ski/-/archive/6.16/ski-6.16.tar.bz2"
+  sha256 "49f97ef545c5ad0ef29ebeb2cc087a84de6764543325a9472df89792ea70d98f"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/ski.git", branch: "master"
 
@@ -19,7 +19,7 @@ class Ski < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "14141d2ba391efd4932d5c119c2429abb66f8ef243bc0b22fcf9b71f717be9aa"
+    sha256 cellar: :any_skip_relocation, all: "98a857570a3b6256fa5c54a790c7f688c0283df59cef730b59409d3ede94fa65"
   end
 
   depends_on "asciidoctor" => :build

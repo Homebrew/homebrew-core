@@ -5,8 +5,6 @@ class Eventpp < Formula
   sha256 "d87aba67223fd9aced2ba55eb82bd534007e43e1b919106a53fcd3070fa125ea"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "8c9e674ef83f8d4768c4bfd91497f725487973384179be6bd8986ab37c55d7b2"
   end

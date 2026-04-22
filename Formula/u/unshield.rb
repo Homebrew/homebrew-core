@@ -7,26 +7,27 @@ class Unshield < Formula
   head "https://github.com/twogood/unshield.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ca7cacd291d91e1efd405c583a994117fff1fc42dc0fc464312f502607d8abb9"
-    sha256 cellar: :any,                 arm64_sequoia: "958b5103955b4485df69ee82cfefd26fb6f41da6852b05a10b0fa75ec04ae558"
-    sha256 cellar: :any,                 arm64_sonoma:  "397ed621a6603bd58822fe74cd47f32a74396f64daeba951c57ffa3fa699eb80"
-    sha256 cellar: :any,                 arm64_ventura: "b7cf5fafee5891f097cba5e79298640a672df925261bb8ecf033d07ccd15df2d"
-    sha256 cellar: :any,                 sonoma:        "22fe14bf3e367654c7899946475a7eaf8238e27b59a4b7f9c79b0d2705fdba4e"
-    sha256 cellar: :any,                 ventura:       "f853aee13b486fec004917ef8a3d35a5ba21171da6f0b0a1c7b0cd1904ff6cf3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b65582b6f445ae0cd30ac4761345fb6fedfbdca7ae043818b649645d85f329f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bed5e7793bcfe46608d32e67dd616e8e3058909abb805d4f2f91fa9b8b7e3518"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "a71745f5ca81751bdc007d2d767fa242595cf190b27bc15e2197184061c574fc"
+    sha256 cellar: :any,                 arm64_sequoia: "309409b6e7b1d22e402b027c9dae775b8a7311fec26a1aa8847d5ef155e34cfd"
+    sha256 cellar: :any,                 arm64_sonoma:  "4752e1173c153c3f877695afd23b068b335709945ec20ac5b1a9525b1c0208a6"
+    sha256 cellar: :any,                 sonoma:        "91f0c94d83e2a9e4ee096fa22a11b64242eeb09dd8e378e57ae8da0cefead494"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c11473c5338c952d85e2596e71c221ea48a837f21a7fd09b5925c6da66eac99f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "094b707a57cd05087eb1737f692213a5b55eb1937f832e606d2418fddb8e867e"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # cmake check for libiconv will miss the OS library without this hint
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DUSE_OUR_OWN_MD5=OFF"
+    system "cmake", "-S", ".", "-B", "build", "-DUSE_OUR_OWN_MD5=OFF", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

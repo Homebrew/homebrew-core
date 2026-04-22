@@ -1,12 +1,12 @@
 class BbCli < Formula
   desc "Bitbucket Rest API CLI written in pure PHP"
   homepage "https://bb-cli.github.io"
-  url "https://github.com/bb-cli/bb-cli/releases/download/1.3.4/bb"
-  sha256 "6c6c5e64b67b113d8d2249bc153303044a94a60c6017e3ed392c3a4087f54c02"
+  url "https://github.com/bb-cli/bb-cli/releases/download/1.4.1/bb"
+  sha256 "ed7aa1861743aef75782865461bb03bcc0cfd29231d29dc882a59fb7c4189048"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e6e39224aa02067b7a78bfc90146384a68c1c80afd67c013e70ae0e6b97740ee"
+    sha256 cellar: :any_skip_relocation, all: "9103b2f8975990a2d66486c6e1e0b7432393dfdee1477393f5b8e8d2f28471c8"
   end
 
   depends_on "php"

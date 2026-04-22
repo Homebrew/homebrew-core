@@ -10,8 +10,6 @@ class Remctl < Formula
     regex(/href=.*?remctl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "65ed94e43fc5b48a50c38a417453622fda2f57d2845db6555cda4b1366f7da8e"

@@ -6,17 +6,14 @@ class Analog < Formula
   license "GPL-2.0-only"
   head "https://github.com/c-amie/analog-ce.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "f7dcb27fbb927e223eb5de35e0121ed04978d431cbda451bc90d514db6f91898"
-    sha256 arm64_sequoia: "cf6b6b5922287fd9aad880021dbc161e361b3e1a485ae29ebba5a205085c9bd1"
-    sha256 arm64_sonoma:  "566c70a3d0443d7072dd51cacc8d0717fbc0d39d34c7a5ea2283b85238e565b5"
-    sha256 arm64_ventura: "6165d65fc23d23b5abf3ee30b59ede9b9626de03259e6ce24779adb72870925e"
-    sha256 sonoma:        "67ef4efa366ab045c74c946acfee46f118d1053b90f477493476e814a4247c30"
-    sha256 ventura:       "7b02e3af7264089c6f6c9fbf9e7f5568be220104ca01bc17a640d4e4979b2dc2"
-    sha256 arm64_linux:   "d24b9f6178f2c5b1f903e5c5416a8ae63c40906c5e4761eeaa144cbf21d26072"
-    sha256 x86_64_linux:  "f81a6b3348847b5dbbcfad4242a43d9a98266c7cbc037a22656a610a3ffa2104"
+    rebuild 1
+    sha256 arm64_tahoe:   "f22cbd76f12ee0e8c0d4b1796634aca86f5e3201c1803314de1e3c454b5e8c16"
+    sha256 arm64_sequoia: "c00525c34d51ac0b67b85e4f9801ea066182af4d2f43fb6062275c4591a40ebb"
+    sha256 arm64_sonoma:  "0346aa1c3b80936b8bcad80a898283a7094ae5a792def8892500ab07e4a8d96e"
+    sha256 sonoma:        "6225d15ba873ae228f09bfb64ef1a1e4bdaecd6e3dd7d7825a2cc9b470ac4985"
+    sha256 arm64_linux:   "d0050e27757f0c7a60c9a44c28fc8b57b91b0e00a1cbd4abf5e458c1deda9974"
+    sha256 x86_64_linux:  "d0a8c9b27401c61853b013a89a2be2810d9b8dda0b1967270959d0838376b0e5"
   end
 
   depends_on "gd"
@@ -26,7 +23,10 @@ class Analog < Formula
   depends_on "pcre2"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = [

@@ -1,20 +1,19 @@
 class Rustup < Formula
   desc "Rust toolchain installer"
   homepage "https://rust-lang.github.io/rustup/"
-  url "https://github.com/rust-lang/rustup/archive/refs/tags/1.28.2.tar.gz"
-  sha256 "5987dcb828068a4a5e29ba99ab26f2983ac0c6e2e4dc3e5b3a3c0fafb69abbc0"
+  url "https://github.com/rust-lang/rustup/archive/refs/tags/1.29.0.tar.gz"
+  sha256 "de73d1a62f4d5409a2f6bdb1c523d8dc08aa6d9d63588db62493c19ca8f8bf55"
   license any_of: ["Apache-2.0", "MIT"]
+  compatibility_version 1
   head "https://github.com/rust-lang/rustup.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "64f4ef0c6a93f3f1261e7a83e5e1de535af07109777de50e699d7bc76c5e8e7c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a0dc5a8b36e61ac52cd3c1f2cd8d47fbd31a53ff398b7c1db7b74aa964328e10"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71920ea5fdebe6673e965ec021c7dc11c5f60f55cb21a308972ea9d339b23109"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bbd23bbce4c67a64fa453e13e033c282b38e2cc3c6d69de9bebc09463ce31617"
-    sha256 cellar: :any_skip_relocation, sonoma:        "03a586bc26e67104067448d73c503074699639aa04eed6504651cfede0efeeef"
-    sha256 cellar: :any_skip_relocation, ventura:       "8ebebf2b6d8d8968456fc43b0bab11861d676bdb936efd907791e9f48de9b3bf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "02949aabdf891fe17a36471e9758775efff183255719d33496b89b48a171542e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36d2915f62a55bffc816e6ffdb7032d6488b8672d1bb556836082eed53943cae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6c25d273bdcfced40a76808858e6817b486513cc8d868860002492670e2fbdb0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8aa9ac9513b9680fedf2d8817d8327408baf7ebe022a97ed8da0e7c703f42e5e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a425fe59f5a297874f18a28ae6e99d4f9631aeab1cd8d321d83e9861222ae7c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f12b096c790141eb3b7a03cacfa3ba814089b0fd403e1b66456dc7cd033d2383"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fc2f0762c6d963689677499ad3bf139fc17f4199468c2f7e8a3d1f897672d49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5181fb2e07be82fb124c2da941b76c45fa3a2199cd49561f4e584d0ee5820a5e"
   end
 
   keg_only "it conflicts with rust"
@@ -30,7 +29,7 @@ class Rustup < Formula
   end
 
   def install
-    system "cargo", "install", "--features=no-self-update", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "no-self-update")
 
     %w[cargo cargo-clippy cargo-fmt cargo-miri clippy-driver rls rust-analyzer
        rust-gdb rust-gdbgui rust-lldb rustc rustdoc rustfmt rustup].each do |name|

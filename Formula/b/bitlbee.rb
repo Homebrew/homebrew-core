@@ -11,8 +11,6 @@ class Bitlbee < Formula
     regex(/href=.*?bitlbee[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 arm64_tahoe:   "31ddec7ca433f3bcf5dc5f86206c99464e9586065bf0fbb54b327051ff751dff"

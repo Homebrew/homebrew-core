@@ -1,8 +1,8 @@
 class ZlibNg < Formula
   desc "Zlib replacement with optimizations for next generation systems"
   homepage "https://github.com/zlib-ng/zlib-ng"
-  url "https://github.com/zlib-ng/zlib-ng/archive/refs/tags/2.3.2.tar.gz"
-  sha256 "6a0561b50b8f5f6434a6a9e667a67026f2b2064a1ffa959c6b2dae320161c2a8"
+  url "https://github.com/zlib-ng/zlib-ng/archive/refs/tags/2.3.3.tar.gz"
+  sha256 "f9c65aa9c852eb8255b636fd9f07ce1c406f061ec19a2e7d508b318ca0c907d1"
   license "Zlib"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -14,12 +14,12 @@ class ZlibNg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "eda237ebfd034c7529c24b4de24e796d4b9d949eba2fb8eca20aa17507c28269"
-    sha256 cellar: :any,                 arm64_sequoia: "46cbd9f86d8450a612ab4c72b7695011cd94dafadf762f09640ab2ddc0b4ceb0"
-    sha256 cellar: :any,                 arm64_sonoma:  "3cf5eb2ff042b02d37c46c23c816dd1c888e48ea457658aef4cbfff04f3b7e5d"
-    sha256 cellar: :any,                 sonoma:        "5adf8f11e1b810cd11336fba239ae24b95f5d9e1924df268282226d1bc640661"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2517bb59eeac0cc8653758f229b68c584ea743777c5109baa9d59aca8a312ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6b881b00a10f68d4f0f735854135bd1a6b961f6f5f9e81079eb21cdf83df4d1"
+    sha256 cellar: :any,                 arm64_tahoe:   "a87dab0cc6c372a080df58274d8ad4d7d032b447f5feff33d6ce0edbda68cadd"
+    sha256 cellar: :any,                 arm64_sequoia: "31190cf145afdde40615ad0b0fb7c054d71017af4d2b2e6912cb42d1798e4cd8"
+    sha256 cellar: :any,                 arm64_sonoma:  "2a428652543e36cb95a743249147849805e42392573953fc910714dc10fd6650"
+    sha256 cellar: :any,                 sonoma:        "0f6fb50f01003b052ebf7edc658e3e6c2ecaea87458360b3624c04539fc8b04b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dc45b55efd239d80b0ac1122de13d532efc10297cc2cbf8f7379f6f3cc341187"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c99108dad1da97a6929733bf7ed22741197c39e64bd247da00a274eddecb0b1a"
   end
 
   depends_on "cmake" => :build

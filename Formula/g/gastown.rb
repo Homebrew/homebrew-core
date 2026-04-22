@@ -1,29 +1,25 @@
 class Gastown < Formula
   desc "Multi-agent workspace manager"
   homepage "https://github.com/steveyegge/gastown"
-  url "https://github.com/steveyegge/gastown/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "690ba9f7e70544ee101cda38d57fd79d1e614f4241a39b253ffdf1ea125cdc1e"
+  url "https://github.com/steveyegge/gastown/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "6fccaa887e93a84bfe7daba6cac276ff1e2c0f786a8d12254160e15c7fe8bd4b"
   license "MIT"
   head "https://github.com/steveyegge/gastown.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9471063074eaf3fbc95b717fe0252245fca7babe652726243537c46e874a39ca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9471063074eaf3fbc95b717fe0252245fca7babe652726243537c46e874a39ca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9471063074eaf3fbc95b717fe0252245fca7babe652726243537c46e874a39ca"
-    sha256 cellar: :any_skip_relocation, sonoma:        "881283dec1104b6d7b3d034e2daae80000339a1b69d8009721d7d245dc2048c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "613a2fd807746254105132365ab26500a80b577ee98f9b20cd83bae6d9a37559"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2afd85f9871bd6b36ded9fd994f25adfa651fded46fbff851446d852529b2d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6ca034db6ccaf764da65f1d6df5318e4192b1c5014dd158a1aeaa2f38dd07220"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ca034db6ccaf764da65f1d6df5318e4192b1c5014dd158a1aeaa2f38dd07220"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ca034db6ccaf764da65f1d6df5318e4192b1c5014dd158a1aeaa2f38dd07220"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bb57da4744bb4b5a95ffac47cfdc95c60449e7ad6a69a585790269c9ad25011e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a55182592a822fa5862235cdabda3d8c6fc0f86df1d7ae46f654d209830d5f26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f10db030fe964aaa6fe1aaf27d009dc71e8a44e855459f34a4ff746629cb0cfb"
   end
 
   depends_on "go" => :build
   depends_on "beads"
+  depends_on "icu4c@78"
 
-  # update timeout for `bd version` check, upstream pr ref, https://github.com/steveyegge/gastown/pull/871
-  patch do
-    url "https://github.com/steveyegge/gastown/commit/991bb63dc0181d5d6356d52a6319d70ff1684786.patch?full_index=1"
-    sha256 "2d584793851a1ae00e71a1fbe77512c84a33b3d0b81e5203e92cc6c11d0f3bdf"
-  end
+  conflicts_with "genometools", "libslax", because: "both install `gt` binaries"
 
   def install
     ldflags = %W[
@@ -41,6 +37,9 @@ class Gastown < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gt version")
+
+    system "dolt", "config", "--global", "--add", "user.name", "BrewTestBot"
+    system "dolt", "config", "--global", "--add", "user.email", "BrewTestBot@test.com"
 
     system bin/"gt", "install"
     assert_path_exists testpath/"mayor"

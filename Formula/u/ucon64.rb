@@ -11,26 +11,21 @@ class Ucon64 < Formula
     regex(%r{url=.*?/ucon64[._-]v?(\d+(?:\.\d+)+)-src\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:    "ac2730906d6b8ba2c3fa8a010fab0911f6c249b85e913a4195e99fdb8596cee2"
-    sha256 arm64_sequoia:  "f55e08ec43d072e3a5e53d38a3244adae7dcaceca71045c2bd525f05a1588609"
-    sha256 arm64_sonoma:   "301ce960dee0312e69f72b00da7d4e297091039cfe5e3d10364fe48fb0b49122"
-    sha256 arm64_ventura:  "228557d22fcc52015a45e5e22d4e8b9d6a9997600e5ad4127afd39d2bdbd7dd0"
-    sha256 arm64_monterey: "516c8d6bcfbc9101c237e9ec08d13b11f9e0347d1fa5841f670cb8945a93b665"
-    sha256 arm64_big_sur:  "ca76694128cae76b0f5f177d3ab2106a7e955caf7480be607368e8507cf0ab75"
-    sha256 sonoma:         "92e61d689784b5efd81c592b19479e8daea813005c712443ccff002ce2c6e504"
-    sha256 ventura:        "9e2d7117710cb6f8084dcbc36ecf0c607c1de1d31923df54224cf6f21f8b86ba"
-    sha256 monterey:       "1ffac20e4aafeabe33ab750f2f40589bb894caf7ee372380a065abeb7e06655c"
-    sha256 big_sur:        "1638a10fb2622983abc00934ba023cb03a1d7b332e45d9024b717f74a0d3fee7"
-    sha256 catalina:       "3672dbe3c97e6d71f22a6666adec1cca709ffc3dea9c76baf16fbeb8f63a4782"
-    sha256 arm64_linux:    "15cef90fe66dfeaa08768ef3a8c3640ae30454fbd7e682b05357b7bc95be9fb3"
-    sha256 x86_64_linux:   "f2b2e0353e5bfa4e226a5182b6d36786874ced3c0ae4426866d2a2436aa0c739"
+    rebuild 1
+    sha256 arm64_tahoe:   "5f3fb969676e2ae50d11401a3b4da71df0a5e99adc037ba0f04fca6c9def11d7"
+    sha256 arm64_sequoia: "6c441a8fc88d68888010de08d4c309e113f51d7678e61708b6210fa08fdaf851"
+    sha256 arm64_sonoma:  "bbab173eda2b5b91ca4ecce4e02fe84f17f4cbefb6e6c89282ec9e9934132aea"
+    sha256 sonoma:        "9ca84df8b500fbee8ca081cfd47baf5b3f3f90cdf30fa3e208ec265b093b02c9"
+    sha256 arm64_linux:   "68ab6314679f0e61da877eebbeb975f14395a331897ae1c5422e8b28b1ad8682"
+    sha256 x86_64_linux:  "469604929938639dcb7d0f9e5e246c4a817cbaecdbd18ae797bd6ea32394b4f6"
   end
 
   uses_from_macos "unzip" => [:build, :test]
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # ucon64's normal install process installs the discmage library in

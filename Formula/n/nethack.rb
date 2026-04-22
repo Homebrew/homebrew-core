@@ -25,7 +25,7 @@ class Nethack < Formula
     regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 arm64_tahoe:    "9266431ce0bd0980d82d8a6a0a899d1e31ad90236598706d79600b6acf76cdef"

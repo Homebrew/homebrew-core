@@ -11,8 +11,6 @@ class GnuProlog < Formula
     regex(/href=.*?gprolog[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "47608f61774ab4abb61279ebad504f55aec87807f65c9399f63aeec15fae16d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "311488f7874b46d9e06c9499df180ab4008260935fbe5f6335eb4cb37d303f84"

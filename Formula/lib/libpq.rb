@@ -1,9 +1,10 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/current/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v18.1/postgresql-18.1.tar.bz2"
-  sha256 "ff86675c336c46e98ac991ebb306d1b67621ece1d06787beaade312c2c915d54"
+  url "https://ftp.postgresql.org/pub/source/v18.3/postgresql-18.3.tar.bz2"
+  sha256 "d95663fbbf3a80f81a9d98d895266bdcb74ba274bcc04ef6d76630a72dee016f"
   license "PostgreSQL"
+  compatibility_version 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,12 +12,13 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "45aa1668f5f0ded58652306525b008cab1cd78d64b39f77975b4314724146495"
-    sha256 arm64_sequoia: "28ad8ca6f9b262c718b4fd4486c45211cb8847f6a07031fdadee26978ed6f713"
-    sha256 arm64_sonoma:  "1e1bbad6817851a75ec790a18779b2580ab200013530683c339e271e67726478"
-    sha256 sonoma:        "5190c06e00bc0ce9ca965568925c8f235d149ff6d3b526b9e7f278e148da6e9c"
-    sha256 arm64_linux:   "f5164f475e135797456916bdcfa24b2a47cec6cde87d7900b9b59ab58cebc381"
-    sha256 x86_64_linux:  "b3f9b5ce82be0a12937af75b4bccc0500319fea0e0d06281119d6572ae8f9557"
+    rebuild 1
+    sha256 arm64_tahoe:   "f96594ae6831348bebbd5ecdd97ed172b483f1790da9d3a034faf5e0eff19827"
+    sha256 arm64_sequoia: "6e25a04f5a7a52d71afac60bffe3d33a0a598946e85f714a7972c76641f80833"
+    sha256 arm64_sonoma:  "606ce0195cff8fd82a137d9d171efd9c92f3be85cccb5efd2fe7c18b5f9f54c1"
+    sha256 sonoma:        "b224f61433551dc0376cbbf36de587764f54f7d3edd7dc2a03c3b1a1e4e96faa"
+    sha256 arm64_linux:   "0522b3a485c9ef1735dc99df1d4e7504905a14453e36bb67969b96a8d3240464"
+    sha256 x86_64_linux:  "73c9af232d61f649aea14aa1153ccb742af9d12bd4f8cd7c4124bc6fd3a1af25"
   end
 
   keg_only "it conflicts with PostgreSQL"
@@ -34,10 +36,11 @@ class Libpq < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build # for xsltproc
-  uses_from_macos "zlib"
+  uses_from_macos "curl"
 
   on_linux do
     depends_on "readline"
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -47,6 +50,7 @@ class Libpq < Formula
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--with-gssapi",
+                          "--with-libcurl",
                           "--with-openssl",
                           "--libdir=#{opt_lib}",
                           "--includedir=#{opt_include}"

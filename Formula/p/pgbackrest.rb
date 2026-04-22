@@ -6,12 +6,13 @@ class Pgbackrest < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c4dcda0ce80b65f0eb89b01b65597e403d2ea9fef9699f4445627fd27b2fbd55"
-    sha256 cellar: :any, arm64_sequoia: "d47591951421f7c9ec4a3a53fa16aaa3addcfebea79aaeea604ba44d53942e26"
-    sha256 cellar: :any, arm64_sonoma:  "68704df2bfa7cd6b1e7a14687c7bc4619837e78f252276e0335e57a79fc76a78"
-    sha256 cellar: :any, sonoma:        "35a6492cb9596bdf811ccb87412a99962242c525fe61fbc3144a1b35efa8f116"
-    sha256               arm64_linux:   "f600113c9ef79f9be687a6de9f56ea183484a657a7a53f82e43f6d8a20f21aa0"
-    sha256               x86_64_linux:  "0c05d59f22af465f3b650c6992ddf99a6af622b108eecc5f23587e0717aec91a"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "ddf0b1c7f851c41a77323611559129b573d908defcf89c0ce441c43d742d02a1"
+    sha256 cellar: :any, arm64_sequoia: "1e88c3515ef3cef29cc6f5b54d36553ea31162934558f664540f87e208fd41d3"
+    sha256 cellar: :any, arm64_sonoma:  "444bfaf0fbdab8e7a838ac28df2b141d28e50d2edca914655f2ac1a79a210dd8"
+    sha256 cellar: :any, sonoma:        "ab091b268bf5912d2d75eac9110303543d9d3e1a21fa30632bd38da38d3b4869"
+    sha256               arm64_linux:   "f94aa5e2ba0c8a37044fc749817bd8bdfa64c37095aee594c758aca26197c681"
+    sha256               x86_64_linux:  "aa984f5a9161767d92ea237ce5a55b01342b93c879da811baaba149ab3e0cabb"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +28,10 @@ class Pgbackrest < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: Formula["libpq"].opt_lib)}" if OS.linux?

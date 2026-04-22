@@ -1,20 +1,18 @@
 class Onnx < Formula
   desc "Open standard for machine learning interoperability"
   homepage "https://onnx.ai/"
-  url "https://github.com/onnx/onnx/archive/refs/tags/v1.20.1.tar.gz"
-  sha256 "9bcd6473c689b1ac3aeba8df572891756e01c1a151ae788df5cbc7a4499e5db5"
+  url "https://github.com/onnx/onnx/archive/refs/tags/v1.21.0.tar.gz"
+  sha256 "42ffedcd8c9b6363694300c6ffec1ada77f9620176465719acb27b13a4d6f2de"
   license "Apache-2.0"
-  revision 2
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bbf1df574852d99a3f963757bb9a40cb323efc459a63b071fba3412bc2541135"
-    sha256 cellar: :any,                 arm64_sequoia: "95d12d398aec1782ca39311a292f734bfb019972e3b201b8f5e72f2b8c6c80ca"
-    sha256 cellar: :any,                 arm64_sonoma:  "9d8cd9e111b67a6a9a787190efc5b08141516b06c1ca27d6b629c33a0abf6667"
-    sha256 cellar: :any,                 sonoma:        "67a9dbc10663c920dfaaab5dca20aa6a154f6ecc4f109283b0b7fcddcd29ee06"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc8ce399f13a465255d52932e60efdc2166bfb65fe1409f639c6cb2ff47ec1b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3c26bae98f2aa1e494f51af11ab7378d8db403c249727a0e99f76011cf357e8"
+    sha256 cellar: :any,                 arm64_tahoe:   "8cd8c0daff9b8c47f945a07a7eb43c0e2fc34520341734ca93af877e9ddb03d9"
+    sha256 cellar: :any,                 arm64_sequoia: "c5afe37ccfc484e10911a41f277dc1c18ee7ca7f8a49db1133c8efafd4be4c5a"
+    sha256 cellar: :any,                 arm64_sonoma:  "758b9bd4424040396ba0028de0a21020af720b2f7e1eef8976efd42b727c9cfc"
+    sha256 cellar: :any,                 sonoma:        "5b37df5d538ab2d9663dc3d36d4b387c22c368f854b9105a0d90f3e856ee5cbe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6f1e737833f65c753da7cc5734137ba1b0ff21f6403b1d92afa442b26e1144b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc50ad4ddbb1e6df2a603697e0a211daf210c6619621ac6da16bcbcee0ef23a1"
   end
 
   depends_on "cmake" => [:build, :test]

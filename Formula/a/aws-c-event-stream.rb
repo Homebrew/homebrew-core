@@ -1,17 +1,18 @@
 class AwsCEventStream < Formula
   desc "C99 implementation of the vnd.amazon.eventstream content-type"
   homepage "https://github.com/awslabs/aws-c-event-stream"
-  url "https://github.com/awslabs/aws-c-event-stream/archive/refs/tags/v0.5.9.tar.gz"
-  sha256 "e9371ffe050c24ca4eda439d58a06285db88b550e9cbec006d6ea21db02d424a"
+  url "https://github.com/awslabs/aws-c-event-stream/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "88835b4c78462547917f622fd9dda45c991b7e356d9c07e2f0537d4d97fbd4fb"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "798d6b235e2fd03963295b36e8a54d4937b10031d648a2e345999444f67d3387"
-    sha256 cellar: :any,                 arm64_sequoia: "309a49f7da8a85650d94c3076b923f727253de59bccc51a4f38819228a357037"
-    sha256 cellar: :any,                 arm64_sonoma:  "cd918cb03bb15c6051ef36a60240dcc883d4e0d0bc35ddff198d3fdc6fcd8023"
-    sha256 cellar: :any,                 sonoma:        "a47e86b52a454595a9fc827e3605618cc03d8be6ab3bf29f2f186b4bf7d2f92d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c178e26ebd3f8557c68cd2eaf637e64d9a017bce20b0770465fe06a804684c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "089b842aba72d6b21ea7c53e8f266bc12afbf3a7be6fef10812dac66c97b2b34"
+    sha256 cellar: :any,                 arm64_tahoe:   "650f8d16066cb5429d0dc4f5ffd60fdd63c402c184d2fd9cd9c9592c8f3edbea"
+    sha256 cellar: :any,                 arm64_sequoia: "d85395211ce132b8840e4805479503486f6346cc173712edba721acc90a891ef"
+    sha256 cellar: :any,                 arm64_sonoma:  "1d418d1fe1df20d6b8d7c046da560d561e0f9676773f60654c659559f702d4fc"
+    sha256 cellar: :any,                 sonoma:        "07eebede34f51bac83219ce13f1afb4fbf262460e8a21b4cf2dcf637e9a64e65"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9bf7e81a5d77851096f96adbe69f216ec3d08aad50093c98071d114d99a7841d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2da13887f8427923c7f22c7e2fa87d380d1a2be1c990cf6ef01ec73605606fda"
   end
 
   depends_on "cmake" => :build

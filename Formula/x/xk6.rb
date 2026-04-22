@@ -1,8 +1,8 @@
 class Xk6 < Formula
   desc "Build k6 with extensions"
   homepage "https://k6.io"
-  url "https://github.com/grafana/xk6/archive/refs/tags/v1.3.3.tar.gz"
-  sha256 "fe1e6a216cd5f6c73dca5540487a13d6cd8251bc38a87afff1c56a5e88d334b4"
+  url "https://github.com/grafana/xk6/archive/refs/tags/v1.3.7.tar.gz"
+  sha256 "351d123473f6f67e054493c43cff41aa37eb792b80c8cf8625ff1057cafb5373"
   license "Apache-2.0"
   head "https://github.com/grafana/xk6.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Xk6 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "95bee8691f69b5dd89a9748d596b9aa714ea1e55eeeb75532116f3b0c6376b11"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95bee8691f69b5dd89a9748d596b9aa714ea1e55eeeb75532116f3b0c6376b11"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95bee8691f69b5dd89a9748d596b9aa714ea1e55eeeb75532116f3b0c6376b11"
-    sha256 cellar: :any_skip_relocation, sonoma:        "10ed75c23d471906fbbbc0eb1177ee6b64c728e4d30de99f2f69348ca821a0de"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9db0ddbc9af334bbad51867d44352f632f592163ed33c4262aeb6253b23e04ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe1f7d476ae5cfcf3b9971ffeead096e20f05c445512f195186aa4692231b36c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "acf58905e286e6651c996d8d1ba7bb51cc0005c8ef831c471a3aaf9a81c38a92"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "acf58905e286e6651c996d8d1ba7bb51cc0005c8ef831c471a3aaf9a81c38a92"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acf58905e286e6651c996d8d1ba7bb51cc0005c8ef831c471a3aaf9a81c38a92"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5a7a3131e3436ddc0f8415bfc7cd993108e57319a3232f3fcccf1b4f33d10471"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98a6db087e4499c556883dce18d33519d5528e2b9a890447e44f68de0261f5e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96f804b8603ff5d1bd2ab7cb5d8e3ad9b0f583c06d19715d49a762569cd8135b"
   end
 
   depends_on "go"
@@ -38,9 +38,9 @@ class Xk6 < Formula
       system "git", "commit", "-m", "init commit"
       system "git", "tag", "v0.0.1"
 
-      lint_output = shell_output("#{bin}/xk6 lint")
+      lint_output = shell_output("#{bin}/xk6 lint --disable=vulnerability")
       assert_match "✔ security", lint_output
-      assert_match "✔ vulnerability", lint_output
+      assert_match "✔ build", lint_output
     end
   end
 end

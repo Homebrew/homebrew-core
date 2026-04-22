@@ -7,12 +7,13 @@ class Rizin < Formula
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
   bottle do
-    sha256 arm64_tahoe:   "623c6e5ca6f9d24278c73a8b2139e30ae5eac16f939a2d4f81ff6e30dd4e77a9"
-    sha256 arm64_sequoia: "700ecc118cb84d3f5bfb3a6f9849a489111a071e22bdb7c4f0cc3ad3f2300e5b"
-    sha256 arm64_sonoma:  "abcee8b4f9fe0a5e4bb40a7f1e7417a452960f22b6a643663c22aa6c28bce09b"
-    sha256 sonoma:        "1ae8492e9cd00a23944df4e0b430c6cf9652c2a7d781abbe878edd885f406d1d"
-    sha256 arm64_linux:   "7e13ca87860a53034a1225e3798fce5fa94bed357fccf8fd544fb7d49659fb67"
-    sha256 x86_64_linux:  "58b1252759962edffdfbc2b1f1ce5870cb59dd8371ffcedee41ca4d9fdf10078"
+    rebuild 1
+    sha256 arm64_tahoe:   "b46c736276c060f36dccbb6bafc5216d7010b8ec4d5864b5f4ec8536d611bfde"
+    sha256 arm64_sequoia: "72fb388c5879904773c4e4da645ede12114e1c0e678fd20019477256d6b58f1c"
+    sha256 arm64_sonoma:  "9fe0bec7ad14cf2256eb8161792dc4e7c7652e7356d404726c19b2eea0c645d1"
+    sha256 sonoma:        "4af3b7d816afea6cd2c8410faed4ba8b4239820b1927eb599f4633a7d3f6318c"
+    sha256 arm64_linux:   "c7546ce2d1464e6f8650a589e503466e789aacf59c368ba076ea9d66021fd12e"
+    sha256 x86_64_linux:  "07d86a1c8573f66cc6b7f0f76a7cc04dc98a1d46d4788986ad8a644458ee6be0"
   end
 
   depends_on "cmake" => :build
@@ -30,7 +31,9 @@ class Rizin < Formula
   depends_on "xz" # for lzma
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

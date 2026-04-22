@@ -6,20 +6,31 @@ class Movgrab < Formula
   license "GPL-3.0-or-later"
   revision 10
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "25557d01e1b440c88a1c606ec1bf4d309fb96f26b6552763c4f2133bf051bf18"
-    sha256 cellar: :any,                 arm64_sequoia: "2b1dae1c56de07dab28dd97d6169709b4711e34001161d8a8daf2b7b20303e0f"
-    sha256 cellar: :any,                 arm64_sonoma:  "a6616ac97c469fe1248b5bbfc4b453bad26b5d62380756c518a791026d4d454c"
-    sha256 cellar: :any,                 sonoma:        "1424eb3926a2a14e9d29afbd3bbc89ee69ada326d4c9a2834c9a15e7e0bcd080"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fdab47fe3bf34b8dad1b015721cf655f190aa0dfb67ad93eeda49c0c3c0c1acb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbcec355453382e09592b4d92ab23020bf52e6ea2a7d8c9cee74a523e50cf7d4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "906cf4a9106e0dbdc98f73e43412b095779cb620a8ea9b4a770b3d6c0fe71cc3"
+    sha256 cellar: :any,                 arm64_sequoia: "7759f5a72c8d8402841e25d3a35ef5f985ce7f41911767582179935d0bf40b0b"
+    sha256 cellar: :any,                 arm64_sonoma:  "e4a8f1dc0f536a8d96f842f4b285d36ec8b5dc7526617deb623598c3a43262bf"
+    sha256 cellar: :any,                 sonoma:        "9877cdc87f7efe12b097c0301614934ea999895fc2b4238564bc48730b92dc46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e8f4bcd11c7f2a24c9f0f4b6e8c07046643b01a516b8e11b07f3a54d653545b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bd514f0b8349b7a15da7d9c28d64a2a8eaba6f16bdd36beb1aaa449f9b68088"
   end
+
+  # Last release on 2017-07-19 and upstream consider projects abandoned:
+  # * https://github.com/ColumPaget/Movgrab/issues/5#issuecomment-591343423
+  # * https://github.com/ColumPaget/Movgrab/issues/7#issuecomment-3425456387
+  #
+  # Also doesn't work with OpenSSL >= 3 while libressl has GPL-incompatible old
+  # OpenSSL license (https://www.gnu.org/licenses/license-list.html#OpenSSL)
+  # and Movgrab lacks a special exception to distribute combined work.
+  deprecate! date: "2026-04-07", because: :unmaintained
+  disable! date: "2027-04-07", because: :unmaintained
 
   depends_on "libressl"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Fixes an incompatibility between Linux's getxattr and macOS's.
   # Reported upstream; half of this is already committed, and there's

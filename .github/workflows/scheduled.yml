@@ -33,7 +33,7 @@ jobs:
     if: startsWith( github.repository, 'Homebrew/' )
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
     outputs:
       json: ${{ steps.matrix.outputs.json }}
     env:
@@ -96,7 +96,7 @@ jobs:
     if: startsWith( github.repository, 'Homebrew/' )
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:main
+      image: ghcr.io/homebrew/brew:main
     permissions:
       issues: write
     needs: create_matrix

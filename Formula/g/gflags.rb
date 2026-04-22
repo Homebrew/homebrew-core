@@ -4,6 +4,7 @@ class Gflags < Formula
   url "https://github.com/gflags/gflags/archive/refs/tags/v2.3.0.tar.gz"
   sha256 "f619a51371f41c0ad6837b2a98af9d4643b3371015d873887f7e8d3237320b2f"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "8dd2b968003c63083b15c69ecc4902a28fd36c7409c1e88ede63d5faa4e2e2b9"

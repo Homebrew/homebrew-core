@@ -1,8 +1,8 @@
 class Lilypond < Formula
   desc "Music engraving system"
   homepage "https://lilypond.org"
-  url "https://lilypond.org/download/sources/v2.24/lilypond-2.24.4.tar.gz"
-  sha256 "e96fa03571c79f20e1979653afabdbe4ee42765a3d9fd14953f0cd9eea51781c"
+  url "https://lilypond.org/download/sources/v2.26/lilypond-2.26.0.tar.gz"
+  sha256 "bbe82dbeba7f7f99ddcd8d1fa134a0d89cafa6e8f815fde5bb01f4208b06fe05"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-3.0-only",
@@ -19,16 +19,13 @@ class Lilypond < Formula
     regex(/href=.*?lilypond[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "08e195be137c3be99594e3277083e3a87a1ddb795770df30a2c87054b5a8994f"
-    sha256 arm64_sequoia: "5013c14b99b247ed68522f21c35bd688e32b6b6a14d4db0a37224bc47d25da58"
-    sha256 arm64_sonoma:  "0641f300ee72f3f31a31b868fb7093e5eb5bb98479fd89a4de493f5076b2a6a0"
-    sha256 sonoma:        "793294ac152b0b61343a9d38852246c995d12a6c12e445e2f928bb961b36cb1f"
-    sha256 arm64_linux:   "5924a471b8630d1dee04084de229ba6423e1b7ceb4609cbe609592a8a07ddb93"
-    sha256 x86_64_linux:  "295fc0a3f0be89287c2856b2d7fbcc639a444f5d694ebe47e4af952c75b6029b"
+    sha256 arm64_tahoe:   "3105d0c645967f0405173d0521d258fb88b6f95d4154547d4b71df72470831d9"
+    sha256 arm64_sequoia: "1f4389b9f3a425d7c54b6de2b83966bfcc89cbcb9c0e2652361da84ee247d952"
+    sha256 arm64_sonoma:  "607a9d68b9032c97b8a7e3aaf8798002732e00d80f4e86d3fdb2e5049b6beb1f"
+    sha256 sonoma:        "76d49d11c62ee6443fb82e5011ad3939942ba91863aee07cd62759d37a97570b"
+    sha256 arm64_linux:   "fc9bf54f0e144441e031ff5c956ac7fc0e4f454ad4d6648a3a733c6b1ca87169"
+    sha256 x86_64_linux:  "7e8c8a433ddc32619b5b828c37f94400a5a586be4da50cb3f410615cb42ef4b8"
   end
 
   head do
@@ -37,21 +34,23 @@ class Lilypond < Formula
     mirror "https://git.savannah.gnu.org/git/lilypond.git"
 
     depends_on "autoconf" => :build
-    depends_on "make" => :build # make >= 4.2 is required
   end
 
   depends_on "bison" => :build # bison >= 2.4.1 is required
   depends_on "fontforge" => :build
+  depends_on "gettext" => :build
   depends_on "pkgconf" => :build
   depends_on "t1utils" => :build
   depends_on "texinfo" => :build # makeinfo >= 6.1 is required
   depends_on "texlive" => :build
   depends_on "bdw-gc"
+  depends_on "cairo"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "ghostscript"
   depends_on "glib"
   depends_on "guile"
+  depends_on "libpng"
   depends_on "pango"
   depends_on "python@3.14"
 
@@ -59,12 +58,13 @@ class Lilypond < Formula
   uses_from_macos "perl" => :build
 
   on_macos do
+    depends_on "make" => :build # make >= 4.2 is required
     depends_on "gettext"
     depends_on "harfbuzz"
   end
 
   on_linux do
-    depends_on "gettext" => :build
+    depends_on "zlib-ng-compat"
   end
 
   resource "font-urw-base35" do
@@ -78,7 +78,6 @@ class Lilypond < Formula
     system "./configure", "--datadir=#{share}",
                           "--disable-documentation",
                           *("--with-flexlexer-dir=#{Formula["flex"].include}" if OS.linux?),
-                          "GUILE_FLAVOR=guile-3.0",
                           *std_configure_args
 
     system "make"
@@ -89,7 +88,7 @@ class Lilypond < Formula
 
     elisp.install share.glob("emacs/site-lisp/*.el")
 
-    fonts = pkgshare/(build.head? ? File.read("out/VERSION").chomp : version)/"fonts/otf"
+    fonts = pkgshare/File.read("out/VERSION").chomp/"fonts/otf"
 
     resource("font-urw-base35").stage do
       ["C059", "NimbusMonoPS", "NimbusSans"].each do |name|
@@ -109,7 +108,7 @@ class Lilypond < Formula
     system bin/"lilypond", "--loglevel=ERROR", "test.ly"
     assert_path_exists testpath/"test.pdf"
 
-    output = shell_output("#{bin}/lilypond --define-default=show-available-fonts 2>&1")
+    output = shell_output("#{bin}/lilypond --define-default=show-available-fonts")
              .encode("UTF-8", invalid: :replace, replace: "\ufffd")
     common_styles = ["Regular", "Bold", "Italic", "Bold Italic"]
     {

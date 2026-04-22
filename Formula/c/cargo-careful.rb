@@ -1,18 +1,18 @@
 class CargoCareful < Formula
   desc "Execute Rust code carefully, with extra checking along the way"
   homepage "https://github.com/RalfJung/cargo-careful"
-  url "https://github.com/RalfJung/cargo-careful/archive/refs/tags/v0.4.9.tar.gz"
-  sha256 "7010dfb5b501a9287cecf0b143a262625732e0af3fea6385d491ed352b133b9c"
+  url "https://github.com/RalfJung/cargo-careful/archive/refs/tags/v0.4.10.tar.gz"
+  sha256 "494e913f8c99b6d247a9a52aef0bbd9af0e9cf9c3a4144a15769d88c31509579"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/RalfJung/cargo-careful.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9dceb1280616b1beed9f40c200ade53af14ab9da69a0bb97bff131ad061798da"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ce5fb0d737094c5b6e2c373dc011af52f56cd922b5ce0b885345e9e1b3164b4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "faed12f99aad9c45d6f2d8dc72e796855129edfde0bb71a669f5eac04f11991c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "988d5fea11a9cac95b15d2be04704940f5485710c305c0095b653e0030ee854f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ea8b838592392f6adf0d79986abb86193cca86ed7d941967c90fc8f3fdf392c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "682bcb542c28e2f6d6a134c1da144a6f4ca36c046337cfac0da7b467ccc9ade0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "23cb59889107b3ff442e9fc402d83401ee9555fc8b84957ccde3a57574c664b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e386d3e2c1f4d6cffca6640ba265e593bf5d00df7b809ba2491390a36fbe64f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "932e4dc30279f7184d67a91303284d9e1760697c375f9f5601dff82f7142a537"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7eb19b59d5c6753968d55dfac28b68f8374d2f598f060bd95784a569e747f07a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "34ece2b3e45487841d2812d66d14d0ae9967730d219fbcba37cc06f03307c51d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28f0c18eac5a04e95b551c8755a04b0e70e11f20b291058a8d49390143a49fbd"
   end
 
   depends_on "rust" => :build

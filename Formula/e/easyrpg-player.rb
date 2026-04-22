@@ -12,12 +12,13 @@ class EasyrpgPlayer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "010c14b95eb5e8fe48becc6514332b5aa893c70253f3343eb485447d4e29944b"
-    sha256 cellar: :any,                 arm64_sequoia: "147cff0fae0012e7b6b9c7067ab1e51696a0c16c67666bedd09013c2a32bad78"
-    sha256 cellar: :any,                 arm64_sonoma:  "ed0af9ae907e58d82ae9318ebed9ed031718089b0936762e95689f84df763abd"
-    sha256 cellar: :any,                 sonoma:        "66310aa05ec8ee09e282e1dd042e5e860b9f55369b557bb7850d5abd07c06fb6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2d5f939dea1d2c04a49f0adcb0cd7e906039db2094793a21100821cf316014b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf66f728208ecc9253c29ddc21b0cb6b6afe569d81ff2e85f73dd3c6a1f473c1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d68b064595c8cbdd5c098f14d6d44c825fb98a6cd75436d3024177edce4d79cb"
+    sha256 cellar: :any,                 arm64_sequoia: "77efe336e1733908004d1fb26f927a9cfa961e8e22adb44258a26e13410e274c"
+    sha256 cellar: :any,                 arm64_sonoma:  "af5a6d2c7c2f817dc3bf91f340b5c421cf112e1474ecb177d5911d9205b26cf1"
+    sha256 cellar: :any,                 sonoma:        "5f10d972d19d0185dae65942651b83b4b60aed838a45df89efb9691763635d9a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "54fc30c523fb4e5cb8e059cce4f70608fbf5ff562175ec42dc0ac7cc58addd8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6bb2d6be07d2f602df98c6e4da8377fbaf186ce2f295845304aa1520aec3ff6"
   end
 
   depends_on "cmake" => :build
@@ -38,7 +39,6 @@ class EasyrpgPlayer < Formula
   depends_on "speexdsp"
 
   uses_from_macos "expat"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "inih"
@@ -47,6 +47,7 @@ class EasyrpgPlayer < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "zlib-ng-compat"
   end
 
   def install

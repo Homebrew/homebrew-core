@@ -11,20 +11,20 @@ class Kcgi < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "995d131805a53b35e355853a6cf3a7290267c591b50684c426ca2c14f78dbd05"
-    sha256 cellar: :any, arm64_sequoia: "529d2e0848102f7cb852069560a5d361c93b16411325dea133642e2614b31d88"
-    sha256 cellar: :any, arm64_sonoma:  "ee60acbe9c53f523840df57c559f14c78a58f585bb35f566de920d78e58cf60f"
-    sha256 cellar: :any, sonoma:        "a420823399526dbc9384934a5347f75514f174e0000887619bd39075aac45fda"
-    sha256               arm64_linux:   "edf49575195a7febbeb3a5e97151e2851d0554bf1f17a812cc9a962923712c35"
-    sha256               x86_64_linux:  "18361510b90235c6579f72229c26b2eb9895910a80b63e075046c16f4a1b29f5"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "191a0d3f1d112f9585774eddd41909e942affd5338e7c8144d38803e986acc66"
+    sha256 cellar: :any, arm64_sequoia: "709e821d80864c2780293caa51f078fdb3f900bff44e515fcf938564819e4d4f"
+    sha256 cellar: :any, arm64_sonoma:  "06fef37ce17eea27851fdc51b89191eb3363c849f6f8f47b65797a22fd1aba3f"
+    sha256 cellar: :any, sonoma:        "47d68ef9bc518eae514f46b1dcb7a1b25b5445fec3b67ba9eb00e58af2a62067"
+    sha256               arm64_linux:   "d2864c56de92d3996fe29fc5f3bd28e8cae3fc36e3823aee230b57b53c57952d"
+    sha256               x86_64_linux:  "884dac750cf8338c422c6fcd249002d42e77d2c9b6e332fea44ab048fff7c421"
   end
 
   depends_on "bmake" => :build
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "libseccomp"
+    depends_on "zlib-ng-compat"
   end
 
   def install

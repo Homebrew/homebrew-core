@@ -1,28 +1,27 @@
 class Supermodel < Formula
   desc "Sega Model 3 arcade emulator"
   homepage "https://github.com/trzy/Supermodel"
-  url "https://github.com/trzy/Supermodel/archive/refs/tags/v0.3a-20260129-git-e3a6b05.tar.gz"
-  version "0.3a-20260129-git-e3a6b05"
-  sha256 "9e06d7778727d48a2adcdfead9cb6e12c1309fba4012c630edff428d9b45ae7d"
+  url "https://github.com/trzy/Supermodel/archive/refs/tags/v0.3a-20260228-git-d6dec3d.tar.gz"
+  version "0.3a-20260228-git-d6dec3d"
+  sha256 "4b99ca451379436ad284d682c6849a925d8810daa229271be2e63d24c0cf340b"
   license "GPL-3.0-or-later"
   head "https://github.com/trzy/Supermodel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b79b760979d0a91584ad90b6a8eca43e4360a63d0d0d6574ae282e70091c7478"
-    sha256 cellar: :any,                 arm64_sequoia: "b35ec934ad6f6995fdbe2932076ec70c6eb44023c0b9a01ee0884a06a923b859"
-    sha256 cellar: :any,                 arm64_sonoma:  "e5d91a278e8beb1399d008abd35d8a3deac719d5aad2bd31f5a321d761fa0e68"
-    sha256 cellar: :any,                 sonoma:        "40b4ff8d9fbd49e93df86bc51e01ddd67a6c9f3fcae0ee555a0e139217550c53"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "df7963833da24fc12528f63d30cf720fd117d815d8d9fe092aa80d244ad753f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a12646aa03668e161360430051e6bde1c62ea97631542dd8fb6f350a5c8bffc"
+    sha256 cellar: :any,                 arm64_tahoe:   "0371f7d2f4c880a1cb0be485e0cce84256540a1000d203cbf0cfccc3dea7aa79"
+    sha256 cellar: :any,                 arm64_sequoia: "f7e3f881dfc4c4010bbde38779f7b28ff9ea53d8ea623d07a935c39e6e1154ca"
+    sha256 cellar: :any,                 arm64_sonoma:  "e4e7f42b1a731d17984fb9ffa48e02e5439280e625ecdf50da9566482f1dd54d"
+    sha256 cellar: :any,                 sonoma:        "cd2c90c6b7e2459b867b92476255d138093871804c562b2455e97405b88878b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b5c42ecc38e0cf4ccd479739c8f33a20e1feb0689530e552155bb956a6bb95c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61f47cc3b5ada785aeabd68913e9bab259ec7a3af3ce6715e512b9173e91e81b"
   end
 
   depends_on "sdl2"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "mesa"
     depends_on "mesa-glu"
+    depends_on "zlib-ng-compat"
   end
 
   def install

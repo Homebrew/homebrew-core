@@ -1,18 +1,18 @@
 class Sesh < Formula
   desc "Smart session manager for the terminal"
   homepage "https://github.com/joshmedeski/sesh"
-  url "https://github.com/joshmedeski/sesh/archive/refs/tags/v2.22.0.tar.gz"
-  sha256 "e983542701b8c7998f046819e00f04a6a57ca5e3db6fa02891cb6ee4f6dd3b52"
+  url "https://github.com/joshmedeski/sesh/archive/refs/tags/v2.25.0.tar.gz"
+  sha256 "567dc40efd48fe6376e5da700373554eb4181a3244731f9cc55747633f457ef7"
   license "MIT"
   head "https://github.com/joshmedeski/sesh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9a9e5d0123a6ce91ac4beac8a858d75b01a87149776a0bdace5e7a4cf34c7b81"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a9e5d0123a6ce91ac4beac8a858d75b01a87149776a0bdace5e7a4cf34c7b81"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a9e5d0123a6ce91ac4beac8a858d75b01a87149776a0bdace5e7a4cf34c7b81"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b413a71f9a19ffc2be49b59e24c6664525d3c6da467f5a0bb5e0a4af4f194a62"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ee36121a573119d70d10a5e2370d3451cb1edb362ec45cb186af88bf9fde760"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f740f58b310d86f2deb72bb90cb79d228956d3b1152f2799ec2197274a218735"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "312f7c35d392469c56d3560411f4c91fe5ffbb941cfd92848110d69a2156d6f2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "312f7c35d392469c56d3560411f4c91fe5ffbb941cfd92848110d69a2156d6f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "312f7c35d392469c56d3560411f4c91fe5ffbb941cfd92848110d69a2156d6f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "12429ff1f09a0666920cb64d62a6ad5900d01e5f8cf6b9a31e2703f1b61715a3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d663c18399f26cb189f8e2d7b70f32a733b8a4836c5167ab712d888f49d43ed7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c133ce117651c43af6740b3824187d86d915303f318d8a7063de030c825bbf30"
   end
 
   depends_on "go" => :build
@@ -20,6 +20,7 @@ class Sesh < Formula
   def install
     ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
+    generate_completions_from_executable(bin/"sesh", shell_parameter_format: :cobra)
   end
 
   test do

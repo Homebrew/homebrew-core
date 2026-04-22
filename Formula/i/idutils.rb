@@ -12,8 +12,6 @@ class Idutils < Formula
     regex(/href=.*?idutils[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 arm64_tahoe:    "e60e746f4261098cdd11898d89c236538d8232579351a5ebad27194c7f3f3784"

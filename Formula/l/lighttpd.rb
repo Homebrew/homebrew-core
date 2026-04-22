@@ -11,12 +11,13 @@ class Lighttpd < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0a5583c02185f8052e7eaffd66c71ce3664eade4870b67792aee5cbcd06d2805"
-    sha256 arm64_sequoia: "06d7e74518bdfcf530d4f15663438cfb0d20146970099852ff6c3d4c3cbef1ab"
-    sha256 arm64_sonoma:  "b7edf2907293e0e10e0498a4e6513d638cc1f6d2bf8ad169018835254d7a7938"
-    sha256 sonoma:        "5713e25f7dd33f6817f865858544b5b534b491252574d75140ee3b2a37136080"
-    sha256 arm64_linux:   "1289c89c548e955d6d8f689fe3738bdd3252890665aff75c43c65c819a4fd0de"
-    sha256 x86_64_linux:  "b6c9e2497f72c7e635736d9dcd923c681cf0a0322d8ce45a2326b0a9506c1a2e"
+    rebuild 1
+    sha256 arm64_tahoe:   "8e6000d9ebee3364d83babba1271abfb827020f0ac611bd1f137c59229132b84"
+    sha256 arm64_sequoia: "50093f112787c67d9ca3d236eff0441751c453dd59ad065ec2c76b7ddfe47614"
+    sha256 arm64_sonoma:  "d50f7214b9644d56e9a5c2c048fb60b4ba10038e667ec19099abcf82b52287e6"
+    sha256 sonoma:        "cfdb31aa3e83547b1fc22979098f00453307751d367e5407825d1dcddb198123"
+    sha256 arm64_linux:   "84f45685dc6ea785eec1794bf41316bc38c85a3c11980d4d3dafa2b27cdae2ba"
+    sha256 x86_64_linux:  "1895e77ef23228f1640ac369440fecfb78acc4d8ce9fcbd56af8a8fc01947aa6"
   end
 
   depends_on "autoconf" => :build
@@ -29,7 +30,10 @@ class Lighttpd < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libxcrypt"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # default max. file descriptors; this option will be ignored if the server is not started as root
   MAX_FDS = 512

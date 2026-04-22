@@ -15,6 +15,10 @@ class CargoShuttle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "32ed2953148966df0689a01238a4b1122337cafbc037f4bbaf26798d27084ff8"
   end
 
+  # shuttle.dev is shutdown, https://docs.shuttle.dev/docs/shuttle-shutdown
+  # currently, there is no self-hosting option, https://github.com/shuttle-hq/shuttle/issues/2136
+  disable! date: "2026-02-06", because: :unmaintained
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"

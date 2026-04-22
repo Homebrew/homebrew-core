@@ -9,8 +9,6 @@ class MecabKoDic < Formula
     skip "No longer developed or maintained"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "411a3b0709b2f5450a05106102c7f41f8a3004954d34b54279c7a9ab2bad91c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4493b0c9c904a1fc3a0e1a25e6f394f6bd499bee75efeb01379121fc7e08abaa"

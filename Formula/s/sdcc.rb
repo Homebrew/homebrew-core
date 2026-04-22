@@ -12,14 +12,13 @@ class Sdcc < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "7ff34d8aaf315983a7f5da110b4851625964d4886f04d1f3aff780bb0cf99c15"
-    sha256 arm64_sequoia: "8a5ba597acf12b5d1035666984b1ee68bbe732957ef7d4db046e3259298519c2"
-    sha256 arm64_sonoma:  "730449a156f828dabdb32497504d9e014207648c93064516648af3bb3c19f59f"
-    sha256 arm64_ventura: "3c7396176a31c4ed07f70ee1bf32b7cff2e27de40f382cd5208dbb2dd6a5134f"
-    sha256 sonoma:        "1f1004c896b885aa65e33c71530906f085f81241a5ca3f42737a252dcff22200"
-    sha256 ventura:       "babe449f182d8d1a8ee922b2ca74d7a7bcfe55d2c85133d356ed80c03c4ae49a"
-    sha256 arm64_linux:   "c8462d05395dfcd9c0b18ba670cbf28a19bd771af37352b55fa49e56ee297832"
-    sha256 x86_64_linux:  "93079cad266875209f9c852f8f06da7b4c5e1975b4cf0719f33925af508d9f0e"
+    rebuild 1
+    sha256 arm64_tahoe:   "42efbd33b94c29841d06d3e55dcdaca4d15c580283cafa557bcaa897d229c383"
+    sha256 arm64_sequoia: "d20234031c26f6ce70e990137707f6efdb58f44f0937874cec4ea58c02957a75"
+    sha256 arm64_sonoma:  "b33d78cfa452a144e36cb97e7fa6a21f4bb190d54db6bb66cb93a7dfc3f56661"
+    sha256 sonoma:        "923eff6fa7522d6ef4bb001edb69ed9372b8eb55a143f8f1b392b2ef82604719"
+    sha256 arm64_linux:   "52df93b8ad9113b0a8c560a1702c58f2743e1e39ddba31de70316446a34d9f5c"
+    sha256 x86_64_linux:  "93e44c24cbcd84f457b2e496d544261a4dfbd146824d36b6f86542727f570bae"
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +29,6 @@ class Sdcc < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "zstd"
@@ -38,6 +36,10 @@ class Sdcc < Formula
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

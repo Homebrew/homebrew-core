@@ -4,6 +4,7 @@ class Bat < Formula
   url "https://github.com/sharkdp/bat/archive/refs/tags/v0.26.1.tar.gz"
   sha256 "4474de87e084953eefc1120cf905a79f72bbbf85091e30cf37c9214eafcaa9c9"
   license any_of: ["Apache-2.0", "MIT"]
+  compatibility_version 1
   head "https://github.com/sharkdp/bat.git", branch: "master"
 
   bottle do

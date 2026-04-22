@@ -6,8 +6,6 @@ class Cliam < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/securisec/cliam.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eeafe136193d401e2cc34aa783643bebd6f72c54c77de32f17513f60ef4a5daa"

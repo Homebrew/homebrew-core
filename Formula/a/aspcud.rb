@@ -5,8 +5,6 @@ class Aspcud < Formula
   sha256 "4dddfd4a74e4324887a1ddd7f8ff36231774fc1aa78b383256546e83acdf516c"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "38a5c5010a8e9f38e95233d7b20dcdb75b76c33e1cb3f80410dc01b277ddc17e"
     sha256 arm64_sequoia:  "429008eb29edff4d08e840bd0eb373ea061c357d01ebab4e416f9d4681b95b0a"

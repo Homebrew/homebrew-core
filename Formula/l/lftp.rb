@@ -6,14 +6,13 @@ class Lftp < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "7fb1f7e9e672a8299dfd17a230ad0625fc3b7eb5ef5be73a0efbb6635ca6315b"
-    sha256 arm64_sequoia: "275b333b0e01dc1bc87f11332d5ee33d1399d73f36e3123f97a7a16d229c5d37"
-    sha256 arm64_sonoma:  "91e89854b82451fcd1dc6bfb2182b344adec778d5951224242aee4de60324034"
-    sha256 arm64_ventura: "47191323a1e714ea7534413bdc8d4dc90960cebe01cd634c85f44d100790c438"
-    sha256 sonoma:        "e4cb328becffa3416e370bd627bbea0e29505fe162f3d1c4ff54ad1da50ebb3b"
-    sha256 ventura:       "91432c67fc43b779976229a1c2982e4cfa32cff893d68cfe0e382fd175259ea3"
-    sha256 arm64_linux:   "ad07c842761f21a2452fe69d76b1212725274ce09df5061bacd09ac77667b6b5"
-    sha256 x86_64_linux:  "a4b7a6b989cdc30e9f5070e0d3669e2717e53b13984aef179035b99f0e2c2ab6"
+    rebuild 1
+    sha256 arm64_tahoe:   "d18f0124b629090aea7a35fc4a860e63e55c25cf21534acf8293d91ce52112a4"
+    sha256 arm64_sequoia: "8977a9fa5c15417e34d2564d95715064292d65b200c1ad704147ee555c542810"
+    sha256 arm64_sonoma:  "ab4a8500603f5bc678a185a8de4babc442fbbda9efdef3e4ab7bbcd32df5a42c"
+    sha256 sonoma:        "e71c6bca446546bbf15228bbbce5f49294f1180fa36bfdb42afc9309dbbe09fe"
+    sha256 arm64_linux:   "14c4eeb37d1458cb5a2ee7e1bbab6485c598e93ab126155ff773c3da5ab9f05e"
+    sha256 x86_64_linux:  "6ed8ee10b71dbbaa5dfa5d7451840592d30598730a325d749360d7f1e6472f83"
   end
 
   depends_on "libidn2"
@@ -21,10 +20,13 @@ class Lftp < Formula
   depends_on "readline"
 
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

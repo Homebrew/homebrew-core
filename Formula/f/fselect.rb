@@ -1,17 +1,17 @@
 class Fselect < Formula
   desc "Find files with SQL-like queries"
   homepage "https://github.com/jhspetersson/fselect"
-  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.9.2.tar.gz"
-  sha256 "5263963ef5f02c74e968206221095722557a764ff92b7f343a92a37d718d87a6"
+  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.10.0.tar.gz"
+  sha256 "e4b2612aef1076c5f045849c90757eee222c5b7b6c94e53909b931c1ba4d7f45"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5ad66c09932e4ed74ba415089f1c00066df73019686489f731ee711892e12739"
-    sha256 cellar: :any,                 arm64_sequoia: "b263d2b0eeb1dbb4aa54b0774c6299f893a3b5766ca6cf54147d81b013a28022"
-    sha256 cellar: :any,                 arm64_sonoma:  "480a4062148f0195d3a1b7ffb02f6b66ec52a0213a3358545285144ff38ef3c1"
-    sha256 cellar: :any,                 sonoma:        "402dfebf0395bd8f7f198ba863d423c12d10a9bca6fcf0a4b5491eff4db46e32"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc96e86e615efe87b7d69298f1b3cc0015ce9fe520c1b0a6e1dbc5fa19bf6ade"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00aa3fe78cd421137a1afa88e26914968ca03526cb6db9da04845f266b772208"
+    sha256 cellar: :any,                 arm64_tahoe:   "ec27fccbd7aeefbbbba28657b88384c294b417ae39e1e511435236f3b55f6f10"
+    sha256 cellar: :any,                 arm64_sequoia: "134e23e5ba499e756e06c99754cda51df83e064d152f34c62950056f2de0d953"
+    sha256 cellar: :any,                 arm64_sonoma:  "6ff02ae75a5aefcf30585964968df9ad844075b5b1deb416658cff55d3c807bb"
+    sha256 cellar: :any,                 sonoma:        "a458cd014865b360f32e1ba9e2fd54dfeee7d4cb38e2d04221830d4fb3052cbf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a35584aeaa958b7a98167662d09dcc61a308779dd2a42a08bed89913dde97a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "708797bd5ade2552555cd36e867f82207de10bfc43c783f827467bc17c2310c7"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys

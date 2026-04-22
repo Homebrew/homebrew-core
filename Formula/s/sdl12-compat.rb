@@ -1,9 +1,10 @@
 class Sdl12Compat < Formula
   desc "SDL 1.2 compatibility layer that uses SDL 2.0 behind the scenes"
   homepage "https://github.com/libsdl-org/sdl12-compat"
-  url "https://github.com/libsdl-org/sdl12-compat/archive/refs/tags/release-1.2.72.tar.gz"
-  sha256 "daf6726b89d71120395472dd3cbc16c7a3b0bcbe2c1495de90885d4c2b266d3e"
+  url "https://github.com/libsdl-org/sdl12-compat/archive/refs/tags/release-1.2.76.tar.gz"
+  sha256 "e889ac9c7e8a6bdfc31972bf1f1254b84882cb52931608bada62e8febbf0270b"
   license all_of: ["Zlib", "MIT-0"]
+  compatibility_version 1
   head "https://github.com/libsdl-org/sdl12-compat.git", branch: "main"
 
   livecheck do
@@ -12,12 +13,12 @@ class Sdl12Compat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b2e3618480a324e387efbe8c57da95fe5c2bc9abf3fd07586fb735431832ccac"
-    sha256 cellar: :any,                 arm64_sequoia: "3be1263a87b1fb9d65b1be1aa2b2e8edee92eb7c0d6da61a8f2b509e2c9e8416"
-    sha256 cellar: :any,                 arm64_sonoma:  "e1d7ae2dfeab8aaa5e2bc45c0fd1934ad6bcabc0d3ee5e091978d52231173fb6"
-    sha256 cellar: :any,                 sonoma:        "8a8beb898caa9edb92eb332f91289bb40070c7b700557685fb357550faa9991e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "45d457557e4a994234c618ffb3201fa48f9f528a602f9cd4be7dcbb8d876c34a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62513e0453720dba860aa9ab6a89942ec5a61942b2cfec46e6bc62b72f000ff5"
+    sha256 cellar: :any,                 arm64_tahoe:   "72161caba641a583c35ae7329d312e133e075d22181e6e73b05ee419606c02ef"
+    sha256 cellar: :any,                 arm64_sequoia: "2f0e4787c520344e1ce8e10f60c1b9d671a17d7a8895e38ce96b517fc23021e5"
+    sha256 cellar: :any,                 arm64_sonoma:  "99b0dba0da565a052dbb4ec3791f81a7880c20de8e69d2aa0e40a68001a9dc7c"
+    sha256 cellar: :any,                 sonoma:        "49274bc46c2f0f2ba1494e4ac6e70f494c894e0e6559835d4f7cc3f7c601ceed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a4fe54f8946efbcc8db2e5775f09ece08c6fc0b7e141ad49c7e0caed0cf4a46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0510ee9c54c6ce20809c5bbad6e295d4cd1c280f64829f1ac2c1331863a7bbb9"
   end
 
   depends_on "cmake" => :build

@@ -4,6 +4,7 @@ class Libxinerama < Formula
   url "https://www.x.org/archive/individual/lib/libXinerama-1.1.6.tar.xz"
   sha256 "d00fc1599c303dc5cbc122b8068bdc7405d6fcb19060f4597fc51bd3a8be51d7"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "1661f76115723be21049a852556fe270ce1f53693beab0931ffa88b40b757129"

@@ -3,14 +3,12 @@ class PythonTabulate < Formula
 
   desc "Pretty-print tabular data in Python"
   homepage "https://github.com/astanin/python-tabulate"
-  url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
-  sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
+  url "https://files.pythonhosted.org/packages/46/58/8c37dea7bbf769b20d58e7ace7e5edfe65b849442b00ffcdd56be88697c6/tabulate-0.10.0.tar.gz"
+  sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
   license "MIT"
-  revision 1
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, all: "bf04dabaefe13b12d6ee7fc435aab9e87fb25473a0ec5e0adb9afcf516243cc7"
+    sha256 cellar: :any_skip_relocation, all: "cf5d7aede52290a5bf98484a5d72b5475f88a6cf877a8b2e04a6d284f927bf3d"
   end
 
   depends_on "python@3.14"

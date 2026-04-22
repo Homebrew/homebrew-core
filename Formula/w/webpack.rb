@@ -3,20 +3,20 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-5.104.1.tgz"
-  sha256 "b9b96b5231bca94c3f9a5094a629225f7f994cb0ff1ba4ac8110d6407c194bc6"
+  url "https://registry.npmjs.org/webpack/-/webpack-5.106.2.tgz"
+  sha256 "8437b31d3948448a87c282d00621c5b2a411ab7d280b8df5cd8d5733f636e5a9"
   license "MIT"
   head "https://github.com/webpack/webpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "710d6ea4d8ba0f59517064657ba1796b8079ce179b70a28f8bdd5ea81abb5bbf"
+    sha256 cellar: :any_skip_relocation, all: "4cf6e79ea0e53c03e22e3aac4aca08ee389ca0752902711fc855647c85dd3dd1"
   end
 
   depends_on "node"
 
   resource "webpack-cli" do
-    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-6.0.1.tgz"
-    sha256 "f407788079854b0d48fb750da496c59cf00762dce3731520a4b375a377dec183"
+    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-7.0.2.tgz"
+    sha256 "aff76cea56dd87feb531c2fa0681c1672abd2bf0955d368986c1ad21741cbe82"
   end
 
   def install

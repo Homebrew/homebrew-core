@@ -22,15 +22,13 @@ class DhallLspServer < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "797c7aaf9dfa0b1f3ac0fa6f9e60f65104f6e00f32c6e2d8a6ff61bef59cbb26"
-    sha256 cellar: :any,                 arm64_sequoia: "c1360370c18b3dd49045a151702e1c47e682061b038da2b8c5c01a4f02061dfb"
-    sha256 cellar: :any,                 arm64_sonoma:  "a80e624b671d0a14d92dbc998596e547c0923d35aaabc1f1a6987182c37396b2"
-    sha256 cellar: :any,                 arm64_ventura: "246f4f56e4f00e9f21099d476dbc39373678f839f0b0b15cf1ee78a46c42a3d8"
-    sha256 cellar: :any,                 sonoma:        "80c56c36b6e2c24a5856531f008de9483a2c9f57ca97eb21fd0abaa8d03a8806"
-    sha256 cellar: :any,                 ventura:       "3de7a46b8262e74062f3dd8899620eec6d289b6926b09b61842fbafbc0878acc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b45dc4e064626430772b0e482bd439af404e018edf3f07b06fa85c4fc0efa04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e7f98063d0d1fd03f9da8bf1b320f4263e756b0bd871f3fd45f85cd8d24c886"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "62e173a901ac5df5613428d1453d556686766e950e039ca8448531048421dc23"
+    sha256 cellar: :any,                 arm64_sequoia: "f81418294d9b140abcff481884ca1821ba45d03bb216bcd44380fab63ddb2a24"
+    sha256 cellar: :any,                 arm64_sonoma:  "16cfd71bb784211c5d5ea281c31e9b3825d2ed6be743f795c32e44cd8f6be755"
+    sha256 cellar: :any,                 sonoma:        "50e77b999e1af1e2bb5b4cdc4a29f3e0061d69062e7a155eaa74171e5d6803e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "00df60a9a813b1e271e7ca3760bf200d9fb9eb0aa55e055b217588ad7c0deed6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "921a9aa115b3dcf194ed4046ed626bea502bf14c7220c9dffb6942b242e4e0be"
   end
 
   depends_on "cabal-install" => :build
@@ -39,7 +37,10 @@ class DhallLspServer < Formula
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = if build.head?

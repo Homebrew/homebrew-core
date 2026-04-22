@@ -10,9 +10,10 @@ class FreeradiusServer < Formula
   livecheck do
     url :stable
     regex(/^release[._-](\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
   end
-
-  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 arm64_tahoe:   "d3f0e7b7ab81d4933f413d642e00cd0792699e31fc0c2d623a3b3107c0bf887d"
@@ -33,11 +34,15 @@ class FreeradiusServer < Formula
   uses_from_macos "libpcap"
   uses_from_macos "libxcrypt"
   uses_from_macos "perl"
-  uses_from_macos "sqlite"
+
+  # Links to macOS sqlite and libedit prior to Tahoe
+  on_system :linux, macos: :tahoe_or_newer do
+    depends_on "readline"
+    depends_on "sqlite"
+  end
 
   on_linux do
     depends_on "gdbm"
-    depends_on "readline"
   end
 
   def install

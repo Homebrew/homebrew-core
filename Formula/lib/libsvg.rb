@@ -5,13 +5,12 @@ class Libsvg < Formula
   sha256 "4c3bf9292e676a72b12338691be64d0f38cd7f2ea5e8b67fbbf45f1ed404bc8f"
   license "LGPL-2.1-or-later"
   revision 3
+  compatibility_version 1
 
   livecheck do
     url "https://cairographics.org/snapshots/"
     regex(/href=.*?libsvg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "091152c66a1d15b4dd1fb58d23f484a24bc7e4e6f3f5d93d864400e30b2a14ad"

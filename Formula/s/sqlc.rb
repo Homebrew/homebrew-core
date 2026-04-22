@@ -1,19 +1,18 @@
 class Sqlc < Formula
   desc "Generate type safe Go from SQL"
   homepage "https://sqlc.dev/"
-  url "https://github.com/sqlc-dev/sqlc/archive/refs/tags/v1.30.0.tar.gz"
-  sha256 "32a8ff2acd852c4a004383b441e6614b6c57ce1a294c0e455ab7431f017aa895"
+  url "https://github.com/sqlc-dev/sqlc/archive/refs/tags/v1.31.0.tar.gz"
+  sha256 "d7fbb60926adbc69b9c6baefab3e87e8d01be14e350977fa039a7742dfdbc96d"
   license "MIT"
   head "https://github.com/sqlc-dev/sqlc.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "65a2c9a85988703e6034ce9568f7dda5be00815420d70b5ab72ccd800402f50a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b88f2250038d6f2b180887259f9c0f77acf70f3f6070624f42b7e1c313d4180e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30b22cc47b06649cbe945bf610f466cfe46f3bcad5319b6ed38b0f2ca18f3ee2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ea73b26ee1d06ee62c4e67aa5fa3c4c5becd4cfadabd5c5eb025b4ce4c9a5d69"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "456430594367578fb997bc22625954b1c72095d81a99faa09029c914fa3661ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04f0741a948e12432ca3c56088b59b49a391152e3802fc24a453642d1ca2bce5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2cbf600a35ae939a42d4bbe98869247badf5109539058ad7015136b136bb6587"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ad1bafebea9f92edad7ff81300ffd6d16e763ae1047651cd3bc146131ff98d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1224496a326238279872d6062eafc21cff6b0c5904e8f3954e172253def9b51"
+    sha256 cellar: :any_skip_relocation, sonoma:        "480139d8d033a7245bdddc81bde6dfce82e965ea6183ea2e84b1d31e222071fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9ac69fbe289c20ad05e08d3a9cdfec073ab534516cec36d75b5dbf073221022"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80d1502fe45b27877e0189a5908a259f27e1b44678d8ef74632979792619dd31"
   end
 
   depends_on "go" => :build

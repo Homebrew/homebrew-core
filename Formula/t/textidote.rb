@@ -11,8 +11,6 @@ class Textidote < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3341188f4b8fb7912f78dcb53dda8f624dcc8693f96a51c1ccaa49422746b84a"

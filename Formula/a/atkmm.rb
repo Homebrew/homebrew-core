@@ -5,8 +5,6 @@ class Atkmm < Formula
   sha256 "6ec264eaa0c4de0adb7202c600170bde9a7fbe4d466bfbe940eaf7faaa6c5974"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "a0084966800d7cf115466eb824f41e5c4c8fa269437abdc7d874f1ba5d52c04d"
     sha256 cellar: :any, arm64_sequoia:  "7b9d9f8002ad938aeefbdad02a83210e5e0b9e76cfba58cf5754d6d72bf48c45"

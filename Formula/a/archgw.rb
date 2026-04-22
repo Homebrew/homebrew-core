@@ -6,15 +6,15 @@ class Archgw < Formula
   url "https://files.pythonhosted.org/packages/a4/76/79f9d1fab003cf58703ac6db13f8f84f75fd9135c57e4937ae363aaf37fb/archgw-0.3.22.tar.gz"
   sha256 "809a97dfe33e797616b4e039d21c2a9bee8fc3af8e45e98724155e6702d32cdb"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cde4cde267e77b58d5caeb355625111fe5ef351a9d42eb0c525be2b83dcb9498"
-    sha256 cellar: :any,                 arm64_sequoia: "37204b2d2ccc58945598122060c0697f2b60359d429b4a395b9ce23844f741e3"
-    sha256 cellar: :any,                 arm64_sonoma:  "fe67a825df3ff36122d40c1a831687e24189572484e544ea7d7a3db2805e1682"
-    sha256 cellar: :any,                 sonoma:        "ab8d8237720e64ac024e29b5add8f33a88417afbcfd706576b569e974c65b352"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8e5e612c9bb8cd939e9e54458d3227ecb19a9c03fe99dbd9369edeec2bda1fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85566a740218450e7f0df93ce7923e05881c5cd18cce76f684e90216642bbf19"
+    sha256 cellar: :any,                 arm64_tahoe:   "32a3f6a9cc1f04b8a616e7e7bc171db8abeb83911aaeafeb924240c79d0287d9"
+    sha256 cellar: :any,                 arm64_sequoia: "60f14912774e226595aae393a71bd6917eda8de187c46e23a28aeecdb34a0bec"
+    sha256 cellar: :any,                 arm64_sonoma:  "b041923c414c3770792d1178eed0e735487da4a1211f0d0d977b1608cd952b19"
+    sha256 cellar: :any,                 sonoma:        "4fa30c035735aaca79132c3f9dca05043d1e3523fecb41d2240d60e575ccd234"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "53acc174aac219f5b847a2ef39e4a5629f4b5dba36f2cb94f2741242cbbf9397"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff48e4b4abe3d2b25932731f1e233f167099107a11dfac901574cfc02b322fdb"
   end
 
   depends_on "certifi" => :no_linkage
@@ -25,13 +25,13 @@ class Archgw < Formula
   pypi_packages exclude_packages: %w[certifi rpds-py]
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
-    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "click" do
@@ -75,8 +75,8 @@ class Archgw < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "urllib3" do
@@ -85,10 +85,6 @@ class Archgw < Formula
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"archgw", shell_parameter_format: :click)

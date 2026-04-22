@@ -6,8 +6,6 @@ class Pget < Formula
   license "MIT"
   head "https://github.com/Code-Hex/pget.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6cc7cd05524fed05854389575505915428d98b973b8c3c392ea5869fbae72c04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d0cbbdf49e2ddf9f6c53982a891dff83b332e5cc760fb2bae4a5c8e2e2d738c8"

@@ -5,8 +5,6 @@ class Idnits < Formula
   sha256 "195ed8c9bfd38fbaf1ecb674a894f98f43be774dfecc37da5ef953ccba99ce76"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "0821ceb278c9bb73ef75f4aa1ebeca58d6e5264d4360d63ccdf0d1b43e23d2e6"

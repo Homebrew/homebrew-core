@@ -10,8 +10,6 @@ class Cksfv < Formula
     regex(/href=.*?cksfv[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "98f4a00c83288bac3479fcd9e301409f3445d816bad334c6bd7632f302f8b638"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "96608dc540a21f5e14b2a1731b0d6350c00063db4528a1bcb56186188a157c00"

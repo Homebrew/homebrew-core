@@ -15,7 +15,7 @@ class Nkt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bfad96393a8777fd9c745d034c8baf253c1a1a62c393f0a6322b3190bd9be07"
   end
 
-  depends_on "zig" => :build
+  depends_on "zig@0.15" => :build
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.

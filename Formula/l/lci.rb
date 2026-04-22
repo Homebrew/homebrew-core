@@ -5,8 +5,6 @@ class Lci < Formula
   sha256 "51725e33a7066100757b7da84b2290a651a5f47b985eb3e3647acd871964cd58"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_tahoe:   "8489fde41d750512814a3aa95a72fe1df512d724e9d543b7c05a0f515a0b8007"
     sha256                               arm64_sequoia: "13a9869c2bc147eb19005e15ed2ccd27a6afec14b8ec661b535e6a8a288b47bc"

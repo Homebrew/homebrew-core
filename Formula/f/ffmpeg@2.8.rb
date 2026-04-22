@@ -6,24 +6,20 @@ class FfmpegAT28 < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 7
+  revision 8
 
   livecheck do
     url "https://ffmpeg.org/download.html"
     regex(/href=.*?ffmpeg[._-]v?(2\.8(?:\.\d+)*)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "7283cae85b5f5e67c2a651dc5f8b91128033c6b7328361adbb951e15e1f691b6"
-    sha256 arm64_sequoia: "66758ba4e8df1a54b6b14c165eaec57332e1de2afae5c2296bdfd1aa94d4b507"
-    sha256 arm64_sonoma:  "35060e5c989c22c0a9eef15ede9422aed7f98bb86a7acf2647f9a164fc79ac7e"
-    sha256 arm64_ventura: "48b23738acea1da8e3ae59ab7ad6e9f49e4a6baa06804723a8d0729c7fc0aac2"
-    sha256 sonoma:        "b5cfb6fa778c6ece95a45b4ca2318b35ea3fc8413c9e641e418f11a3dea6bef4"
-    sha256 ventura:       "d32a745adb90ee398b93e7b21034b0fb8685f80c5cb2056e9c0679ad6d51a8c4"
-    sha256 arm64_linux:   "acee2bb1614681484dccfd58d649a5bcdc774efc402b45d1bf108ee0183bb246"
-    sha256 x86_64_linux:  "f2ba2aa6fed3859f1a03433ba43af98e31c334c04b2f581e1fc71b39471bb5d3"
+    sha256 arm64_tahoe:   "bae260c1a31f316dd652f4303f8432c48fc204e24d4d43991dc87b05cc60499d"
+    sha256 arm64_sequoia: "4c4d7e61422afc7d4124be058dd4d9eabbcbb8c0412eb4ad5fd7a4cbbf9bcdc0"
+    sha256 arm64_sonoma:  "5094bd37d69bab6ade913ff8663081a7969ce23db6d72753eba941f338c7114a"
+    sha256 sonoma:        "32e4419502dac2f59cfe8c7b82506f00f152fab55c395bf0a0506ed2c464569e"
+    sha256 arm64_linux:   "7ed56e8b454a70d760824309e9a2241fa3fe29e0f750c8d18aec6c28af6ba028"
+    sha256 x86_64_linux:  "5b447d92a974d1a3fb96e0f0b2ac9761906de6d47d15b2f1834992b74670e44f"
   end
 
   keg_only :versioned_formula
@@ -65,10 +61,10 @@ class FfmpegAT28 < Formula
   depends_on "xz"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "zlib-ng-compat"
   end
 
   def install

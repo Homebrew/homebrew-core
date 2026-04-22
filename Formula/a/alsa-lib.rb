@@ -4,6 +4,7 @@ class AlsaLib < Formula
   url "https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.15.3.tar.bz2"
   sha256 "7b079d614d582cade7ab8db2364e65271d0877a37df8757ac4ac0c8970be861e"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  compatibility_version 1
 
   livecheck do
     url "https://www.alsa-project.org/files/pub/lib/"

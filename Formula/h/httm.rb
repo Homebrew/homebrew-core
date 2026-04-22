@@ -24,7 +24,7 @@ class Httm < Formula
   conflicts_with "nicotine-plus", because: "both install `nicotine` binaries"
 
   def install
-    system "cargo", "install", "--features", "xattrs,acls", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: ["xattrs", "acls"])
     man1.install "httm.1"
 
     bin.install "scripts/ounce.bash" => "ounce"

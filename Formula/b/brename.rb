@@ -5,8 +5,6 @@ class Brename < Formula
   sha256 "a16bceb25a75afa14c5dae2248c1244f1083b80b62783ce5dbf3e46ff68867d5"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de768e5762a8564a275a8bc3f06407d3b17e8eb22cfb7619baa517815aefa460"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "39e2df7de67e853a566edaa7a2ba0f092013367b2efcea51d3c5c5d311b8fd94"

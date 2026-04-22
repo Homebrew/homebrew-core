@@ -5,8 +5,6 @@ class Osqp < Formula
   sha256 "dd6a1c2e7e921485697d5e7cdeeb043c712526c395b3700601f51d472a7d8e48"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c954c2ec86a360b05b33c2adca519d53f4b4a668ec21dd1843c0a03811239b5d"
     sha256 cellar: :any,                 arm64_sequoia: "ccb60f0cfb872511bca80235ac7a946fa63b37a5a3dd12824225233b53da0a0c"

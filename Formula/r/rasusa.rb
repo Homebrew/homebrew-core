@@ -1,20 +1,18 @@
 class Rasusa < Formula
   desc "Randomly subsample sequencing reads or alignments"
   homepage "https://doi.org/10.21105/joss.03941"
-  url "https://github.com/mbhall88/rasusa/archive/refs/tags/2.2.2.tar.gz"
-  sha256 "f764d257fcdedcf08b8cb18bd4e93ffab8a788785e7161feb16ea1f2d4f30361"
+  url "https://github.com/mbhall88/rasusa/archive/refs/tags/4.0.0.tar.gz"
+  sha256 "cfbcb8db74d2675d8844c99a48877cb109cd25d2aa97fba3945ccbba07bc073e"
   license "MIT"
   head "https://github.com/mbhall88/rasusa.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e8a82381026f260b8e9fbd877895e6b98014d0ee57dd02408bd361448e6f9f9a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d85950d24d6d39fdbe673927b499994c505bdf6bb1cec55a7f76bbe1e23ad46"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3d635745b1cde72db516a3603ebcc47ffb7f05c9019d81f044ff6cd4377c3905"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ff0b1250b016282ba37d89b1799cbc24cb6e957a19f8ed2d4be90f4d9f439f45"
-    sha256 cellar: :any_skip_relocation, sonoma:        "83e3c75c6178c30ca0c85a637eea94af66492574d2c77c311d470e0e9b870892"
-    sha256 cellar: :any_skip_relocation, ventura:       "40ad9eecb61d0e9fcab53e2211b2e45c50050005eeeb755882988643b5fc77e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "17dee28a35d9afd606bbe9516aa79b4cf764a4a4c0501d3a46804c42dee7a448"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fa6cb47cd34bde6a923d4b454dde2be0d30b1bd02a8aa8b12040a413f963089"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e490ba8f6e4b8ca4d8965e0b4ae6448a205d8bf462d13aac83890e4f35f8452b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "23305294ff906613a194a85f77e5f1d4463fbc1ab37ff01e82ced0b57e53c0b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ec81daba484e187053e985a64e91b7c3220e24d52db27774531f522ec775dff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9b403394e19b92b43b877d75fd5b560ae64c03fe528ab8b7ddfe25da366e7fd9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "70e117cfe0638fa31b945ea99472d85b5c5a112a728852f138ad8849fa9aed38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "654b1cd11beeafdf126f3501dd64e9a5c26de589fa05796d0265b91a67f28b69"
   end
 
   depends_on "rust" => :build

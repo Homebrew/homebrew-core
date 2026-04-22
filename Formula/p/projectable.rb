@@ -7,14 +7,13 @@ class Projectable < Formula
   head "https://github.com/dzfrias/projectable.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b1841396e1fbe48ea92b634be22e4c1f15356fda280eacb4cadf3c5795c29cbe"
-    sha256 cellar: :any,                 arm64_sequoia: "f355d14b2034c1fb76bf40a0ac128cb5676f234169393a61de59ae51e77da776"
-    sha256 cellar: :any,                 arm64_sonoma:  "0eafa10a8ae0d7b2a90f70145efb71a517609fa31e09ee10b7fe734201965f0c"
-    sha256 cellar: :any,                 arm64_ventura: "a288dcbf708ffeb16c512655d9426e801553471fee1c095a6d2d329f41ccb6ec"
-    sha256 cellar: :any,                 sonoma:        "69ff855f70534030139cdda5c4097aa271b15d3d1a0fb0f12455fa6c1e35e94a"
-    sha256 cellar: :any,                 ventura:       "9e4c0a031c0e5a51107f68cceaa6840ef7a39fbcd434d1ec04b80a8b891a2cc9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "94f11e18c380dbb5abb93f6d4869b17e28703cec992939d30e86f9c2583f7683"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "136b8c39fe40e6103870b2b193562107b86302613337bce7892b24dcb2007515"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ccd276c023c85a06dde2ee0d327f924e546178c408f67e83a955660c9175758d"
+    sha256 cellar: :any,                 arm64_sequoia: "807150e84939dc9e77f01e5d8e9c2b826456399a3c456b76292d99324c1ed7f7"
+    sha256 cellar: :any,                 arm64_sonoma:  "56b10743eed8508024a1dee415c63095e932e45d78724186bce24cddb492f8d9"
+    sha256 cellar: :any,                 sonoma:        "afd84a1fa7930a0e039333cc60402708cbb7a67156c2c90744c265e1e2583d99"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1120e3794cc5c73c58aaa6ce78f16ba76c7df6982f94de5eac0cbb616cfe2bd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5b7bbc33a02a2c7ba457562a08d857db94c73b60f7045e8306b487f7d9514d4"
   end
 
   depends_on "pkgconf" => :build
@@ -24,7 +23,9 @@ class Projectable < Formula
   depends_on "libssh2"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"

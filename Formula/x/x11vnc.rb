@@ -6,8 +6,6 @@ class X11vnc < Formula
   license "GPL-2.0-or-later" => { with: "x11vnc-openssl-exception" }
   head "https://github.com/LibVNC/x11vnc.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "f1a4ed13ffea08fefdfaed2e5b5405a29d302c3e1dfe0ea8f8be69bee9cb4d9c"
     sha256 cellar: :any,                 arm64_sequoia: "04683ae07f04702dffa93bf7fda5c4019e61d64505539c712559ed4dbe82a41d"

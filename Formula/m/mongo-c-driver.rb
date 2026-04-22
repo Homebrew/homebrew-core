@@ -1,9 +1,10 @@
 class MongoCDriver < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
-  url "https://github.com/mongodb/mongo-c-driver/archive/refs/tags/2.2.1.tar.gz"
-  sha256 "de10b35ad8362eaf6951723117f90c3c171548da05980890f7e5f60aa56f8d24"
+  url "https://github.com/mongodb/mongo-c-driver/archive/refs/tags/2.3.0.tar.gz"
+  sha256 "0edd0e143af77861309d59c5c029d2408df7348c429c5e1f483c7ba449cb35ce"
   license "Apache-2.0"
+  compatibility_version 1
   head "https://github.com/mongodb/mongo-c-driver.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class MongoCDriver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "91b814c83ad34c45cc0ccfd23246d982664301193ca0d27596050fa2932d23a6"
-    sha256 cellar: :any,                 arm64_sequoia: "dda81c7482c96dc7dfe7e5695c37dc6fc5dac89f8e9a890e2f3187398eefcf23"
-    sha256 cellar: :any,                 arm64_sonoma:  "2b80e4bd923221f10098a423c68bdbacdaf581b558debc241cd6c58300cb4a4f"
-    sha256 cellar: :any,                 sonoma:        "6d0eb5e51731fa75235e996e3c8549b06ce75b0339b0d75429790fa006ac138d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ba490162f0a908cc4f1654fcc4cada11b95fdbbdc048b0279fe967bc1bb985b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a165552f0541590e64aebf561042b9ff4d0b744cc7ea81425c724d4c3777beb3"
+    sha256 cellar: :any,                 arm64_tahoe:   "336926859b333b66f2d74164b652b5a0c0a3e1b99524e0e29087db3ce8f69537"
+    sha256 cellar: :any,                 arm64_sequoia: "ebb36242b858213ae11773aacc11ec7c2df90da4a06d2f5a851dbf5eaa8999fa"
+    sha256 cellar: :any,                 arm64_sonoma:  "cc736db383f037928e0635bd19b196e68a2ec401b1ddf01a1db0275dfb6906f9"
+    sha256 cellar: :any,                 sonoma:        "5681798f8425885c4eb5cb5d751887b5bd68465b0ee12735271ec101ba659712"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9499499331e8470642bdc2fe7d32c6ed3ae663fc4ea80dac1504263d2da79a06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ace76b739e8a16294c95c3982b57d581c8154d3df299b445a4edb35373126d17"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +27,9 @@ class MongoCDriver < Formula
   depends_on "openssl@3"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     File.write "VERSION_CURRENT", version.to_s if build.stable?

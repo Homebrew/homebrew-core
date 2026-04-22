@@ -6,13 +6,12 @@ class Libshout < Formula
   sha256 "39cbd4f0efdfddc9755d88217e47f8f2d7108fa767f9d58a2ba26a16d8f7c910"
   license "LGPL-2.0-or-later"
   revision 2
+  compatibility_version 1
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/libshout/?C=M&O=D"
     regex(%r{href=(?:["']?|.*?/)libshout[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "76663b1032171e339e3050387e161c4428a0831ee4c0142c76ba6fd0d4dfa767"

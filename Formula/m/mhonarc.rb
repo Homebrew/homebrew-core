@@ -7,8 +7,6 @@ class Mhonarc < Formula
   revision 1
   head "https://github.com/sympa-community/mhonarc.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "d648abb0708b23fccab9dc49db5ced470814ee385962ab662f7209b657fe05e3"
   end

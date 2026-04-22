@@ -1,18 +1,19 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils/"
-  url "https://ftpmirror.gnu.org/gnu/coreutils/coreutils-9.9.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-9.9.tar.xz"
-  sha256 "19bcb6ca867183c57d77155eae946c5eced88183143b45ca51ad7d26c628ca75"
+  url "https://ftpmirror.gnu.org/gnu/coreutils/coreutils-9.11.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-9.11.tar.xz"
+  sha256 "394024eda0a5955217ceda9cd1201e65dc8fa3aa29c2951135a49521d57c3cc3"
   license "GPL-3.0-or-later"
+  compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "c1c98196cf47ba0693fcdfdc382baffe28f2898f566e93ef1b24b59ce30d1a8e"
-    sha256 arm64_sequoia: "8c9f197f43acda73bf08c352730f37e49b4059622cfa6a45e1d71a1e018a92fd"
-    sha256 arm64_sonoma:  "44051d68ba9de8afd8902900396d4726f447a08342f540c460f7472f18de1862"
-    sha256 sonoma:        "d23bd4e530c024f868213201dfac8d0135c3e20d561065e3e0a55886c8cbdbb9"
-    sha256 arm64_linux:   "8df4ae2018195ec710a08c196648f75a50728b9104acc6bdb00a5b81a2c1f93b"
-    sha256 x86_64_linux:  "7f625a7b2b2eac3151a8d762b2f0458f97669746f077bf758d68490d546b0dc4"
+    sha256 arm64_tahoe:   "85beae05ca59ba87d10380b529d6fb3837f3527c79a6045abb52643eb3ff2316"
+    sha256 arm64_sequoia: "e75a85cd1f8b672e5201b0ceb01e0191256a883ef358607014d872e13abd7e8e"
+    sha256 arm64_sonoma:  "c129203771d9d9ed082bca8ae0cbd796c5894bfb46a376befac5eca5fdf923e5"
+    sha256 sonoma:        "8b7880f72dbbcebbeb2205dcd89c1b080c37348f4b88c0bae97ba27d7cd8ff9f"
+    sha256 arm64_linux:   "75a7c53b9f0f58c0cd9df9562c91a83d3ab828075d8b3929b0f96bcf1b8c0581"
+    sha256 x86_64_linux:  "897ba82f564f78ce7f4b1c3574bba98c5bf296b230654f2ccdc3087b088d455b"
   end
 
   head do
@@ -29,10 +30,6 @@ class Coreutils < Formula
 
   depends_on "gmp"
   uses_from_macos "gperf" => :build
-
-  on_macos do
-    conflicts_with "uutils-coreutils", because: "coreutils and uutils-coreutils install the same binaries"
-  end
 
   on_sonoma :or_older do
     conflicts_with "md5sha1sum", because: "both install `md5sum` and `sha1sum` binaries"

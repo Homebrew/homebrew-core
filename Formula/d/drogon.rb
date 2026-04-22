@@ -9,12 +9,13 @@ class Drogon < Formula
   head "https://github.com/drogonframework/drogon.git", branch: "master"
 
   bottle do
-    sha256                               arm64_tahoe:   "661141d4f4f5c52605a0adebe33418ac677778f4d683d0c0786134eae5a4bf3f"
-    sha256                               arm64_sequoia: "795425c3e71d1e871ab40a07efd3d0915016b079b7914147493c192fa8cba8af"
-    sha256                               arm64_sonoma:  "ad3c7dbdd666305037c7a91afde3e4a5a6608333c87f76c8c2a9b3cdf2bba4da"
-    sha256                               sonoma:        "37f3817fdf6577228cb5954858c9b3bf2e9f13cb367d0415a0c1f448ddab9302"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7784c5c3b1e48766ccca5bbd40cb4adb2f9be085de2b9ed2626f411d8ae51b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a7ed5174166065dcce49c797b9e64ce167756455ab6c07a68cab1f6bac28128"
+    rebuild 1
+    sha256                               arm64_tahoe:   "e54d554cd89483fea3b1033aa7a8c0142b8dd0a7f6e96fe99851c0250f9a103c"
+    sha256                               arm64_sequoia: "a7d97d0b74b7b8bc3740fd0eaafcf93f1fe0ab72f683a28da9e3256111cb0df2"
+    sha256                               arm64_sonoma:  "f02d33b2b8f47537762cd61f8ddacdb8503a4e898cd4086e6869068a5817ef79"
+    sha256                               sonoma:        "a2dddfaf010e2f0040161dc6e7d6365f269fc7ef16f6b2b30cb28c972c2343ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "19365063e0137d2933f96c033ed5b064b14784e84ac5d65c7b2eff84c84fa3e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4608264dbac7b1e42f24b1d12c16cf9f67a8d62a6165bae4534acebf4941e274"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -24,10 +25,10 @@ class Drogon < Formula
   depends_on "openssl@3"
 
   uses_from_macos "sqlite"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "util-linux"
+    depends_on "zlib-ng-compat"
   end
 
   def install

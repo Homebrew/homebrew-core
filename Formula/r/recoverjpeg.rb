@@ -10,8 +10,6 @@ class Recoverjpeg < Formula
     regex(/href=.*?recoverjpeg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0cf49dc7323f9987a3d847fed81edc56edd45ff8e14846c7bf9de6cc4cb360cc"

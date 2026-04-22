@@ -1,19 +1,17 @@
 class Nanoarrow < Formula
   desc "Helpers for Arrow C Data & Arrow C Stream interfaces"
   homepage "https://arrow.apache.org/nanoarrow"
-  url "https://github.com/apache/arrow-nanoarrow/archive/refs/tags/apache-arrow-nanoarrow-0.7.0.tar.gz"
-  sha256 "bb422ce7ed486abd95eb027a1ac092bbc1b5ed44955e89c098f0a1cb75109d5c"
+  url "https://github.com/apache/arrow-nanoarrow/archive/refs/tags/apache-arrow-nanoarrow-0.8.0.tar.gz"
+  sha256 "1c5136edf5c1e9cd8c47c4e31dfe07d0e09c25f27be20c8d6e78a0f4a4ed3fae"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "80ebd3cac2eac2d67f2563d335cb9145d94f38a2403ee1470bb3099732f75a0a"
-    sha256 cellar: :any,                 arm64_sequoia: "bf71bbbdde9c971b89659c9ae196fc56ce3e7b180caacc3640a62cf20b7c62f1"
-    sha256 cellar: :any,                 arm64_sonoma:  "672338d155c58aa60c7fe8107909b6c12c7b39d97581741b6073d6941867bafd"
-    sha256 cellar: :any,                 arm64_ventura: "997e95fcd0948c90c9680f98fe02c74b91dcced1937cc2dc74940711753e8ed4"
-    sha256 cellar: :any,                 sonoma:        "5f4126977b7e17a6701822ec3529b8f550cd39d48c2de275e35d0a5dc0588609"
-    sha256 cellar: :any,                 ventura:       "2c50ca39d9ad131e3bc0ef1583f301a79e41cb8831603b472e7c4bdc8f6a47a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1fc86678c0558fba9a493d4dec9e68b8c0fd070c4765df27c1bdb3c083ab4ec5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8c7cb7755e696b37ea6bc6a64cc1602f03eddab8e89e285ef17b138e98658d1"
+    sha256 cellar: :any,                 arm64_tahoe:   "3be15a1432ef534229e44b2fedc889dfb66a9926e6321dc0734533c4ec023305"
+    sha256 cellar: :any,                 arm64_sequoia: "301c06180225be941aee32d0b9d102fc348e2fb9370bf2287855694dbec3aefb"
+    sha256 cellar: :any,                 arm64_sonoma:  "6b33fffeed666fb78fa66e9f3e2dccec18692815eaff495170bc382a3350e96b"
+    sha256 cellar: :any,                 sonoma:        "76d6d0478a00c229569fc038bd5d14e849878ef01c5d33e616b9239367f6453d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "529e8d6aa3e287726a199029bd9906f16a6d17520ea758594338b2dfff1ee328"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e76f0d672cc78711442eb6426aa42305a5964e62e88f79cbd4f4bd88cc7d38af"
   end
 
   depends_on "cmake" => :build

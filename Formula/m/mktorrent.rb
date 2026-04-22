@@ -6,8 +6,6 @@ class Mktorrent < Formula
   license "GPL-2.0-or-later"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "933acd62ccfd2b56d26d97b232f9dd96fb291c1efb60dd00a7f4b0e5e30fee71"
     sha256 cellar: :any,                 arm64_sequoia:  "7710b5cf4314030f0c38e8ade9ef142c269decf770b77527ae931882dcc5b921"

@@ -2,20 +2,20 @@ class Tilt < Formula
   desc "Define your dev environment as code. For microservice apps on Kubernetes"
   homepage "https://tilt.dev/"
   url "https://github.com/tilt-dev/tilt.git",
-      tag:      "v0.36.3",
-      revision: "7e4dc61fec0c7c4986a53b93f19214459b4f18d3"
+      tag:      "v0.37.1",
+      revision: "411c6da9dc8f9391796ea40dc3c3268fc2fb3e62"
   license "Apache-2.0"
   head "https://github.com/tilt-dev/tilt.git", branch: "master"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c241dbbe59f478a333ca654989771d898af022fc711ef8fefdd4ed08e3f88df0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec6d3537d7288ee691ff5829f274b7ead8e52afa423b7481663e5cf31840e091"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1704f60b56b4e2ae3c5e35c05bd6a8700a53931ffecbd78ad25cd8c18d03bb10"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7c1053002e926d32ac69dec9a4206b1b41679a216f557a1bf113248d7ddd1943"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "af03e6137b16e0cd93ae651edcb82425ae397cf8beba7ed1692f2a4bdb0ae19e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37e54f7c82668d5deb0083e6610010b2845077068f0fce006588f8f6b4ed3f13"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe3a0007b9a71741dc2ecf3a8f385be43bc36ebf94a4ad617546d0172ebfb258"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ac7d5849cc7b61ad90109cce9716fce10dcdbe6f3226038e222d25801756c33"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "11fd8a7e490d2ba9b23748910bdd525fc7237704eeaf53979048be4496bbd842"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c7353638df042c1d1ca95f9e7a9408459ed089626681a4dd8ff27cf7c92ddd7b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a9e5031bb136a969fcfa95b2fadbef0427d02f36c51e04e10f1cb29cbf3a6d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b61a4f68bb59de92cbed2175aaf331f9fe05ffd00f0e0830c9b48ce79eb4cb6"
   end
 
   depends_on "go" => :build

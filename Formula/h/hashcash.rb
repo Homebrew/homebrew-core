@@ -12,8 +12,6 @@ class Hashcash < Formula
     regex(/href=.*?hashcash[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "4f0504fa7b4b3ae51ffb3163090b4b4309557b5327cac38f203fdf11dfb8e026"
     sha256 cellar: :any,                 arm64_sequoia:  "ff46dc55af54e0d3f0e20308536a4ebd0d08fa18c8ae1797fbc75bf2be97c79f"

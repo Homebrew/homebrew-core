@@ -6,8 +6,6 @@ class Hexgui < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/apetresc/hexgui.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e0fa3feb12e15a8975ea760a3f4794e202ebf5a1c3268135aecd5e8f7174f518"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ccdb3e80a0eb41a92445f2eb7338c220303da8c6bd8e536e825d69b7fa2908a1"

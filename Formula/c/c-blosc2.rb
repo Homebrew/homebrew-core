@@ -1,33 +1,37 @@
 class CBlosc2 < Formula
   desc "Fast, compressed, persistent binary data store library for C"
   homepage "https://www.blosc.org"
-  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v2.23.0.tar.gz"
-  sha256 "125e0ac2fac3d81239c1de036cb335bc8eca86b19216e97e0b23de3283d3274b"
+  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v2.23.1.tar.gz"
+  sha256 "3a1a55d1e3794fb2b51a12e722d611b3e577443abb7ff9951666511f576ea3da"
   license "BSD-3-Clause"
   head "https://github.com/Blosc/c-blosc2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7178230cfd6749dd6ee7481c33ec6caac7fc57d9c089b884aa550917b37caf80"
-    sha256 cellar: :any,                 arm64_sequoia: "b44e42f3fd7aed3a5fa21818b844fb53344b7e984c82cf61637ddda43e15ca18"
-    sha256 cellar: :any,                 arm64_sonoma:  "0d0107db587b44594e608ed422686529f76f842a3c468c38d1e8584fd284daca"
-    sha256 cellar: :any,                 sonoma:        "3e4eae5fb8da844700b5f4a59a0b39981ac4aa09db4e76e4d67a9d6cb768e9b9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c8c9bbff32662e8e10cc0d6f434bf199be08e6b5a7a4f6f094b8b97e4414835"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cc5fd46626a5cbbfc8b26e2124b2998cde30f4de6fa0d1378abb6af0e82864f"
+    sha256 cellar: :any,                 arm64_tahoe:   "91448eaa6c8e16b006c19886acea4ac58264283dbf3ea8fd162ff1d39e6db9f0"
+    sha256 cellar: :any,                 arm64_sequoia: "0be8067bbf25c9d6b967ca40b1b00e104b6360e94dde074bfea9d9513e1708a5"
+    sha256 cellar: :any,                 arm64_sonoma:  "c5389b2626af39a505b153259d9293f76b687622a920d498725e9ed1a17d6d99"
+    sha256 cellar: :any,                 sonoma:        "bf86940c02cd637d88301284e74a606c4d4bffc830d53a48d711a4e744b8fbdf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc07ddbf6019521e4c51d1207772f53066a4e5edc613b52e46e578bdff046d1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9905447e2b2599757bebab05c143b0f94f5708d943d1e58b4520553abd1373c"
   end
 
   depends_on "cmake" => :build
   depends_on "lz4"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
   end
 
-  def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1400
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
+  fails_with :clang do
+    build 1400
+  end
+
+  def install
     rm_r("internal-complibs")
 
     args = %w[

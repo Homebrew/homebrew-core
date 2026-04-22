@@ -11,11 +11,8 @@ class GhcAT910 < Formula
   ]
 
   livecheck do
-    url "https://www.haskell.org/ghc/"
-    regex(/href=.*?download[_-]ghc[_-]v?(9[._]10[._]\d+)\.html/i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| match[0].tr("_", ".") }
-    end
+    url "https://gitlab.haskell.org/ghc/ghc/-/wikis/GHC%20Status#all-released-ghc-versions"
+    regex(/v?(9\.10(?:\.\d+)+)[._-]notes/i)
   end
 
   bottle do

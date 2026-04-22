@@ -5,8 +5,6 @@ class Clean < Formula
   sha256 "761f3a9e1ed50747b6a62a8113fa362a7cc74d359ac6e8e30ba6b30d59115320"
   license :public_domain
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bc6ccc5a72395c51b6aebf78f3301e538b0c8d4ee67f42943cd4d0e15354b842"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a1e4fead81bdadea6bd617523d7628f215ae6ee6a440a761d9a8b93348471ed8"

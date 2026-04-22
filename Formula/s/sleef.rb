@@ -4,6 +4,7 @@ class Sleef < Formula
   url "https://github.com/shibatch/sleef/archive/refs/tags/3.9.0.tar.gz"
   sha256 "af60856abac08a3b5e72a8d156dd71fec1f7ac23de8ee67793f45f9edcdf0908"
   license "BSL-1.0"
+  compatibility_version 1
   head "https://github.com/shibatch/sleef.git", branch: "master"
 
   bottle do

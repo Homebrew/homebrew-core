@@ -5,8 +5,6 @@ class Flock < Formula
   sha256 "01bbd497d168e9b7306f06794c57602da0f61ebd463a3210d63c1d8a0513c5cc"
   license "ISC"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "aa8dc5d082d7ad26bdd99dbb7b33a4d2a23c4c92a97baed4739c25119e30bafe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b3e9f9fbebb4256a845dd8db15993c3cd7c17cabac188c0695780c5b2b8a06d8"

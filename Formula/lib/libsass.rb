@@ -5,14 +5,13 @@ class Libsass < Formula
       tag:      "3.6.6",
       revision: "7037f03fabeb2b18b5efa84403f5a6d7a990f460"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/sass/libsass.git", branch: "master"
 
   livecheck do
     url :stable
     strategy :github_latest
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "ed01028a87ef04e5dd829f40013f3db3cff5317e1cb0ee3f7ac9de135281cb61"
@@ -26,6 +25,9 @@ class Libsass < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "8b569c57c1429048b0e8d3c3f4e15bc6f9b9efc3943cdaa6a9e6f7d891f59750"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "091841d5a1c742f6574ef14d6bb952d54409c7fcbc2085222a11b18eee0e38ba"
   end
+
+  deprecate! date: "2026-04-02", because: :repo_archived
+  disable! date: "2027-04-02", because: :repo_archived
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

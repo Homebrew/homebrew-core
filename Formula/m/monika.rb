@@ -7,15 +7,18 @@ class Monika < Formula
   revision 2
 
   bottle do
-    sha256                               arm64_tahoe:   "7666c9d8ccb5caf33268ea57d5bc2bdfbf2ba02d535efcf8ea12cfcdf5f9c96d"
-    sha256                               arm64_sequoia: "2accf99bc8d99d1d99fd923906461946b1840fbdeecf7263c1155e41ecd4fc87"
-    sha256                               arm64_sonoma:  "23df655b1021663e0bc6184514c6f509ec1a492b5d8766f9d9b09b09375c9d35"
-    sha256                               sonoma:        "fd2f4b9bf912a309be3a54757296966146450636de52de8426f4ca376dbd9a2c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "26485a9c9e463158a569f093f03eec4a3a2c614044ca23f736928f167e4184df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98229abf3b9246bf3478688d12018043004695ce89588260ddea3346b4f207fd"
+    rebuild 1
+    sha256                               arm64_tahoe:   "8758ea33703b5c0c17a2761f32c97f0deb21c08c6795eee47de06031645110e4"
+    sha256                               arm64_sequoia: "64bd0c4aa6bfa2b191d6e1442b248430462730b10be45546714d27eb7606898a"
+    sha256                               arm64_sonoma:  "208e46a9f034bedac3d0a7bac2c68a18ee61cd3321aeff25dfdf556ff5d63612"
+    sha256                               sonoma:        "53f106ddd400e9dc86a2d2071c01415593c6fd3d7aa13a8e010af483a94a43aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "73017a52b8cc391a457495015cdea44011d82bdb362618cd5c305c55a65f5ed5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b93ff991a39a3eb117d3a95d4acc8b1f05d6ab02445ee6dd6da0bb697fbc8370"
   end
 
-  depends_on "node@24"
+  depends_on "rust" => :build
+  depends_on "node@24" # node 25+ fails with Clang < 1700. LLVM Clang fails on node-addon-api@^4.2.0
+  depends_on "sqlite"
 
   on_linux do
     # Workaround for old `node-gyp` that needs distutils.
@@ -23,21 +26,36 @@ class Monika < Formula
     depends_on "python-setuptools" => :build
   end
 
+  resource "@napi-rs/nice" do
+    url "https://github.com/Brooooooklyn/nice/archive/refs/tags/v1.1.1.tar.gz"
+    sha256 "d6570f64e2efa79d5bbeb6765b2ad42f41e732e900e5668f5336d5033f250137"
+
+    livecheck do
+      url "https://registry.npmjs.org/@napi-rs/nice/latest"
+      strategy :json do |json|
+        json["version"]
+      end
+    end
+  end
+
   def install
-    system "npm", "install", *std_npm_args
+    system "npm", "install", "--sqlite=#{Formula["sqlite"].opt_prefix}", *std_npm_args(ignore_scripts: false)
     bin.install_symlink libexec.glob("bin/*")
 
-    # Remove incompatible pre-built binaries
-    os = OS.kernel_name.downcase
-    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    # Replace pre-built binaries
     node_modules = libexec/"lib/node_modules/@hyperjumptech/monika/node_modules"
-    node_modules.glob("nice-napi/prebuilds/*")
-                .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
+    resource("@napi-rs/nice").stage do
+      system "npm", "install", *std_npm_args(prefix: false)
+      system "npm", "run", "build"
+      (node_modules/"@napi-rs/nice").install Dir["nice.*.node"]
+      rm_r(node_modules.glob("@napi-rs/nice-*"))
+    end
 
-    cpu_profiler = "@sentry/profiling-node/lib/sentry_cpu_profiler"
-    node_modules.glob("#{cpu_profiler}-*")
-                .each { |file| rm(file) unless file.basename.to_s.start_with?("sentry_cpu_profiler-#{os}-#{arch}") }
-    node_modules.glob("#{cpu_profiler}-*-musl-*").map(&:unlink) if OS.linux?
+    cd node_modules/"@sentry/profiling-node" do
+      rm(Dir["lib/sentry_cpu_profiler*.node"])
+      system "npm", "run", "build:bindings:configure"
+      system "npm", "run", "build:bindings"
+    end
   end
 
   test do

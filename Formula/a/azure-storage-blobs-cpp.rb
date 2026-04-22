@@ -4,7 +4,7 @@ class AzureStorageBlobsCpp < Formula
   url "https://github.com/Azure/azure-sdk-for-cpp/archive/refs/tags/azure-storage-blobs_12.16.0.tar.gz"
   sha256 "66f2bbb0d1ce4af80c985fd9c212643007bf30d5d4b76a840014c4ac05ab7c25"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class AzureStorageBlobsCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "df7ab62e091932cd093337f3de4ed407ac93a610b9cb19880fd370d2c4575891"
-    sha256 cellar: :any,                 arm64_sequoia: "29c17bd656a4d38a3e023ca2438a8c5e1f52edc9ba796a0035bf0d1dd6ae1e8c"
-    sha256 cellar: :any,                 arm64_sonoma:  "bbf5e0c0fa67baef1ba276a653e30d1b2567a9362157276e116933ff41438312"
-    sha256 cellar: :any,                 sonoma:        "03b2433bac7a34f859af853d73b8831f50ef8aee6387f1f741ee0024264f8cdd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "df8fcd320188cf1325b281189cfaadafe879195fc765fb743851d7cf16498106"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbda435defceea5df55a8b3cf926e62ee4cd68a6cec73d5646db885d5d8cca50"
+    sha256 cellar: :any,                 arm64_tahoe:   "f4db6c252fb3c5776b33bef0da927099fbfa1421c075affe0e46b4a751d5d964"
+    sha256 cellar: :any,                 arm64_sequoia: "3d4f5e65f00d379266c6471b72a0ff185482c09929a19abdf8f48c2d10102874"
+    sha256 cellar: :any,                 arm64_sonoma:  "a3a3aee492489fc5d9d5990d934fe1ab20a24e39d7f86e759b971595afbbcd30"
+    sha256 cellar: :any,                 sonoma:        "b3f9c1d973e7fc8e23889c17df8d97bb0df6312797d2f6f49b406441535896cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "24c6fbc3e40268d843a852bb1abe69a86e38e4ce052d97664db914a19d31f762"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b53502b8d56a46a937dfd3b2ae449d0f341e277bea1bbbc56f7de966ac50f66a"
   end
 
   depends_on "cmake" => :build

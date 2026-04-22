@@ -23,7 +23,7 @@ class LanguagetoolRust < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "full", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "full")
 
     generate_completions_from_executable(bin/"ltrs", "completions")
   end

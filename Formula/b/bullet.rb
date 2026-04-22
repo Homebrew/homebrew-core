@@ -1,12 +1,10 @@
 class Bullet < Formula
   desc "Physics SDK"
-  homepage "https://bulletphysics.org/"
+  homepage "https://pybullet.org/wordpress/"
   url "https://github.com/bulletphysics/bullet3/archive/refs/tags/3.25.tar.gz"
   sha256 "c45afb6399e3f68036ddb641c6bf6f552bf332d5ab6be62f7e6c54eda05ceb77"
   license "Zlib"
   head "https://github.com/bulletphysics/bullet3.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 4

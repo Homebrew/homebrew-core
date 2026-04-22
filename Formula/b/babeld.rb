@@ -11,8 +11,6 @@ class Babeld < Formula
     regex(/href=.*?babeld[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f977cf0194b8bb8a3a60a434904a2a858b0b9f336176327800a731ef007ab1a1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "62f048341c61438f5d7fade7659f694402543ca20d8fa7d06d42e87e42144e0c"

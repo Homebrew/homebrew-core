@@ -11,8 +11,6 @@ class Lrzsz < Formula
     regex(/href=.*?lrzsz[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d775c475daffed711d6092a64ff59d2b70a4190d2a38a0d0546c745ab3f47be3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6009c2f7058febf2aff37e82a6b2c3fd7d553948facff288e10b7c9b681b75dd"

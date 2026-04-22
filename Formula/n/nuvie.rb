@@ -10,8 +10,6 @@ class Nuvie < Formula
     depends_on "sdl12-compat"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "fa2594d6ea248c288f64937010118a7b84c70264c24dae72c5e6059930c9a35d"

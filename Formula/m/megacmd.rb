@@ -6,8 +6,6 @@ class Megacmd < Formula
   license "MIT"
   head "https://github.com/t3rm1n4l/megacmd.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9a2e36bb3c2d380512873dbca8ecac3e42bea9d1007addbce0ca66c3d8114772"

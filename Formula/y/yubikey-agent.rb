@@ -6,8 +6,6 @@ class YubikeyAgent < Formula
   license "BSD-3-Clause"
   head "https://github.com/FiloSottile/yubikey-agent.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "13a582964b590f21b2fdd7c29ae6f76c2d598fc9a9e50e3f7e0086f6bb50fda1"

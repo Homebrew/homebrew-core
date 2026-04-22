@@ -1,17 +1,18 @@
 class Libxpm < Formula
   desc "X.Org: X Pixmap (XPM) image file format library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXpm-3.5.18.tar.gz"
-  sha256 "74eb57253ed3085686371a331737daf072223b77f76bba13ed65a4b3aa6cb403"
+  url "https://www.x.org/archive/individual/lib/libXpm-3.5.19.tar.gz"
+  sha256 "f241f705c607fba1a53338f7e1c12005d6da326b5cb55a11a10847781b4578c0"
   license "MIT"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "dfb4812d9570c75c744777378f7653ec3e0072cc64c1676652aba5a63ffb93be"
-    sha256 cellar: :any,                 arm64_sequoia: "d08be880b43305b277322925741f7f138c5905a36424a70f2c07d3f8a3327f92"
-    sha256 cellar: :any,                 arm64_sonoma:  "b0c7ad30c0f8032516bd5fb60ffa9901a2d93a46d91431cd4e8843b93d661f0a"
-    sha256 cellar: :any,                 sonoma:        "7fd1c8870bcb2cd60c92ec28220a3815540cf2c36330fa457843e1f10ad55da4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba51d06c36169b8cc001fd6f284eb7a0787b1b59f621f68ff1913647ecb3a56f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "448c52d170a337416e588bc7d6b36d267de2ad1de1efe939a6b11bc48aa8fedd"
+    sha256 cellar: :any,                 arm64_tahoe:   "fef03ab80e768bc0fc5c567e800c95bca21157340e0e0d297537c8d595215e85"
+    sha256 cellar: :any,                 arm64_sequoia: "79818bdb6efbfd188b9511251f22d217b49b2fb7970ab09810386da0f5d13287"
+    sha256 cellar: :any,                 arm64_sonoma:  "e090a33a97bb1e17d100c1ea7bc335e18a5e265d26712e3fe572f8c9ab17c47a"
+    sha256 cellar: :any,                 sonoma:        "252204dc54592339724faab52d4589ce62610b17f9a2b7a5d3d2c890f52af4a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8af9cf8b188aae0d4730b2a6aea7afaf282867299d4a4b62281bdf1d47eae5d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43b6a4aabe0711b533e2c6cf27db7bb0568817c54fb5ecf91d1e6dd6b62abcb3"
   end
 
   depends_on "gettext" => :build

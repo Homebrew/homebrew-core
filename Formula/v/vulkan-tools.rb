@@ -1,9 +1,10 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/vulkan-sdk-1.4.335.0.tar.gz"
-  sha256 "85bf51a54271c87925711f7159ea66cc6c5abf6afd5f2bbf452d444fd7deccf3"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/vulkan-sdk-1.4.341.0.tar.gz"
+  sha256 "dc65f1ea97dd0b2155c2281a79e87d27183c0737fb96377744091a3c8460ae1e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
 
   livecheck do
@@ -12,12 +13,12 @@ class VulkanTools < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "ed580a73b6bdc8721f0453c8312203dee62439babd8b11213b2644627f49a741"
-    sha256                               arm64_sequoia: "24237d99c1fa18190b73dba3be77b7e349f9108d6a69fb1e3a9333753e3dbb54"
-    sha256                               arm64_sonoma:  "b2addfe52958c3e3218ab5a5760e929b5e7cb978a396d20c64bc75d8bd11159c"
-    sha256 cellar: :any,                 sonoma:        "25902da3967d58422e934913a8c3573a6b003622d9d34040a11c183a101fb171"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "be1453bff71c9fd172ccae483b9838b9d5413d50326a25dbb42c52f31f08e8ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68d974b3cef85b11a5ed25fef259d80231ac6e97c8bf951d38ef71cea1cc66a6"
+    sha256                               arm64_tahoe:   "fe466af64eb0df78741dd5589227b82965852cdb0facdcc6678249b230ae53bf"
+    sha256                               arm64_sequoia: "ec4caa656999c05c1ea1bcf916a06311cd7ab99c95d5d1a51f88d3fc65d43671"
+    sha256                               arm64_sonoma:  "3041f942f46481d8d0c903306127f525a0e06cdf1fa43d2067bc74d9636ce0be"
+    sha256 cellar: :any,                 sonoma:        "351bae3eac14ac1ce4a2e287eab054667447e4f63184491a9a08e490e5876c87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee0b9073a9d84d9f838d4c11a074ed078fa1b9183ed21387028156b04cb6842a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42cb62a3d420ec2e1eee6c3cba7a8ae54c26a0c6d68871fe7cc580ba96e594e7"
   end
 
   depends_on "cmake" => :build
@@ -107,6 +108,9 @@ class VulkanTools < Formula
     end
 
     return if !OS.mac? || (Hardware::CPU.intel? && ENV["HOMEBREW_GITHUB_ACTIONS"])
+
+    # Disable Metal argument buffers for macOS Sonoma on arm
+    ENV["MVK_CONFIG_USE_METAL_ARGUMENT_BUFFERS"] = "0" if MacOS.version == :sonoma
 
     with_env(XDG_DATA_DIRS: testpath) do
       assert_match "DRIVER_ID_MOLTENVK", shell_output("#{bin}/vulkaninfo --summary")

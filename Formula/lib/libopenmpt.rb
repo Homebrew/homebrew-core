@@ -1,10 +1,11 @@
 class Libopenmpt < Formula
   desc "Software library to decode tracked music files"
   homepage "https://lib.openmpt.org/libopenmpt/"
-  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.8.4+release.autotools.tar.gz"
-  version "0.8.4"
-  sha256 "627f9bf11aacae615a1f2c982c7e88cb21f11b2d6f0267946f7c82c5eae4943b"
+  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.8.6+release.autotools.tar.gz"
+  version "0.8.6"
+  sha256 "caa2fa959e389f4374d9e2df3af5c633452c12dd80442cba2e89cb7ff2b93c5b"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   livecheck do
     url "https://lib.openmpt.org/files/libopenmpt/src/"
@@ -12,12 +13,12 @@ class Libopenmpt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4be673aceb001642e12d2f7992946bf85305a42561227daba2b0389d4442f46d"
-    sha256 cellar: :any,                 arm64_sequoia: "684c17f93ecbc379409f75d3f275c7998cbd95fff7b7aa4c59700f03014b9be7"
-    sha256 cellar: :any,                 arm64_sonoma:  "291cc2513e0a63db6f3d11f186701c08f291b23fe1839b1c1afe5afe819e27c4"
-    sha256 cellar: :any,                 sonoma:        "486cf7ec136a7cc464593c7eb5e887cbc9852ba402c0d6258287f43801c3d663"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "690df6cd7e7e7af1ff89eb1160180f0c54fdaa0457b9e43409efe52556fb4f6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4febab73735e3851d7e10a3f88815915856ea329a8a4427d625dc82c28e2f39"
+    sha256 cellar: :any,                 arm64_tahoe:   "3100a44cac42a5301a265ce93e28a5278832b9eae826f0025a811ca6736661c6"
+    sha256 cellar: :any,                 arm64_sequoia: "37aaac41ea5818d3435dda2c7673a5d78b42c3347a27d2ef0399da6ced4b19c5"
+    sha256 cellar: :any,                 arm64_sonoma:  "7f8b1bb0934499969b12f35bd6e0a2a97c3aadf92996d4b5e0fa58feae889df8"
+    sha256 cellar: :any,                 sonoma:        "fa4fec4c54ea6203a9a46d4d288a08d69e1d1bac1cd2ec99a03fd2d194fdc943"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b99ca507fe526b56d93681d4681f426a469f21d4d58a89d57347935c98fb75a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edd7140d0223a7266f3e6019321dc800dff590e47cdfe7b4cd416e5d9d818abd"
   end
 
   depends_on "pkgconf" => :build
@@ -29,15 +30,13 @@ class Libopenmpt < Formula
   depends_on "mpg123"
   depends_on "portaudio"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "pulseaudio"
+    depends_on "zlib-ng-compat"
   end
 
   def install
     system "./configure", "--disable-silent-rules",
-                          "--without-vorbisfile",
                           *std_configure_args
     system "make"
     system "make", "install"

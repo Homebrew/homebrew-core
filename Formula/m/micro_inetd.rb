@@ -24,6 +24,7 @@ class MicroInetd < Formula
 
   # Original URLs are dead and last release from 2014-08-14
   deprecate! date: "2025-03-18", because: :unmaintained
+  disable! date: "2026-03-18", because: :unmaintained
 
   def install
     bin.mkpath

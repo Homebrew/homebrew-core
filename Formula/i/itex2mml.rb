@@ -16,8 +16,6 @@ class Itex2mml < Formula
     regex(%r{<b>\s*Current itex2MML Version:\s*</b>\s*(\d+(?:\.\d+)+)[\s(<]}im)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9927eb95f7d9d7dddfc7c684ca069bfa8b612c519461ef5233aa54098b9ea8d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7218674b662a6415899e7eb4dc00ac2634c60837b7a4b9fa7a4019cf668d8890"

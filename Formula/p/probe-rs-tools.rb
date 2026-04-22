@@ -12,12 +12,13 @@ class ProbeRsTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "72561b7cfe019ec5388177cebfc6a282c072db438126f50fd6ba1040173fe7c1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c469c1f12f639a99a87cbe82a9e61fb72e35ccf77223cb146e0178de61069817"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4883d91b31024bcc7ba8325e2bbd6942848b3e344090e6f3b1ba0e5ab6b8db92"
-    sha256 cellar: :any_skip_relocation, sonoma:        "22c29bc2cfc86bc983ba5380adfe2000cee668230fd6454b46cdc13fa72f9062"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f2f7b1c27291038dd79450360855ed5c5e503607469666f76f91324265fea75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "443675403cf06b8a7494b922aebd0dd1fbb491958e387b83d732fc486e02e8f7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8504d65b58632718d04633f2fa4e7a8071911a51c1a3d35e01d5c658c0add46"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5db28b08012d601203218b1a98f02826b7a237fcedc02e8221cac8936b526d73"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3487bdba126c8a24fe522f77492f41a1c7c338db02b0a5d674f41ba506cca8c4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "069e5194da136493154b590703e424390984c67f0704479576e2a584789f7334"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "016c7c2ea0f71f6079af477f649c989d3dc1a9a5bdb9cf76a2b781281efe9de6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff012f42ad627145f6b19023b0f6dd75c82efcca65509911f285b3c68715b7c9"
   end
 
   depends_on "cmake" => :build
@@ -32,6 +33,17 @@ class ProbeRsTools < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "probe-rs-tools")
+
+    # probe-rs completion forces the use of the --shell parameter in the middle of the command line,
+    # so we cannot use the generate_completions_from_executable function
+    (zsh_completion/"_probe-rs").write Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"probe-rs", "complete",
+    "--shell=zsh", "install", "--manual")
+    (bash_completion/"probe-rs").write Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"probe-rs", "complete",
+    "--shell=bash", "install", "--manual")
+    (fish_completion/"probe-rs.fish").write Utils.safe_popen_read({ "SHELL" => "fish" }, bin/"probe-rs", "complete",
+    "--shell=fish", "install", "--manual")
+    (pwsh_completion/"_probe-rs.ps1").write Utils.safe_popen_read({ "SHELL" => "pwsh" }, bin/"probe-rs", "complete",
+    "--shell=powershell", "install", "--manual")
   end
 
   test do

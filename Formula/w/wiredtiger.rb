@@ -11,14 +11,13 @@ class Wiredtiger < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "63fefdf4715c6dd504e69d3f5ca1ca38d81f4bcb343007eab4f25f0d205f5f6a"
-    sha256 cellar: :any,                 arm64_sequoia: "fe94103be40ac4d1f2030cf28f3bd93dda5f65f45196884e18e21dc48825a502"
-    sha256 cellar: :any,                 arm64_sonoma:  "6f46b39b9ad85313b1cbcb81e9b86204a15a017b859bbbafac05094a994a5284"
-    sha256 cellar: :any,                 arm64_ventura: "0333748feb3a4d7939b945a6e24dda5a73f7a9fcc7497e21b8af17ce6197e666"
-    sha256 cellar: :any,                 sonoma:        "2c6472b714776076789ecdab468016f3c4b25ebcd84695ca70a67d463537c4a6"
-    sha256 cellar: :any,                 ventura:       "4085e3bbb32627b3dac06760f86dfb6e28a7d580dfa9cbeaab94a3126a4f11da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "18d06663d840ca7f85f41444dc1ffce4571bed81429217d3937e6990c22287ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "100e4051caa78dbd63c57f3e0a3be5f0272676e187c191d040068cbaf5c67aa4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "dfd76ff5a1f4613d737c82c0ebb8bcbf5cb79faf7a11a2b103c689bccfbed8f8"
+    sha256 cellar: :any,                 arm64_sequoia: "a7462c10690b4b271a507ebe77a9401f6407fd7730d6cffc3dd91f46cecc7f02"
+    sha256 cellar: :any,                 arm64_sonoma:  "69d074c898cc7496956c98b3bfe5e65e69ffbd164cb8797f33c004de39e15b2d"
+    sha256 cellar: :any,                 sonoma:        "98b5ac96a1369d4e5f87e1538fc4c1d1888ce15949aa901e336561297796fa43"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba8058cc496593f04586db264681fa2698427402b7b44de3cccc99402596f2df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "440d19c8f513fc401876a626f5cbba6ba4750ef959c44bf3106481ec50277098"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +27,12 @@ class Wiredtiger < Formula
   depends_on "zstd"
 
   uses_from_macos "python" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
+
+  conflicts_with "worktrunk", because: "both install `wt` binaries"
 
   def install
     # CRC32 hardware detection: https://github.com/wiredtiger/wiredtiger/tree/develop/src/checksum

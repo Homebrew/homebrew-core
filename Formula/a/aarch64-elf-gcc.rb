@@ -11,14 +11,13 @@ class Aarch64ElfGcc < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6b143ee35830f3cafa970d17d063cc1ca6c9ddd1e0e8be53fc9c736cb6b093b0"
-    sha256 arm64_sequoia: "84c76461cca4e1e88ca11ab1a25319f3688d8b8687c18de0131f970fdbcf9cc3"
-    sha256 arm64_sonoma:  "30169f8be9da11b9da508bb9149035e79decf4acfe85e7073e79220a8d7cc3f0"
-    sha256 arm64_ventura: "b1ce1405c117b7af21c7f3d7aae0d09fc461a736133c7893f162d74e523177f8"
-    sha256 sonoma:        "ba627e18b1d928e4df9a05c7e865f2e99ebdf58413a771323036d828091f8e68"
-    sha256 ventura:       "72262b703d74775bf3f319aaadab659322f7c94f1b83210fa1ce4d31bf21f35b"
-    sha256 arm64_linux:   "6575f0e5e5408f293992aa5e0f728c2d902411cab9c0f1310152ee732314e429"
-    sha256 x86_64_linux:  "1a04adeee3439a7bb9c9cc881853f1445697531304ab3a42f9e2d127ca398ff1"
+    rebuild 1
+    sha256 arm64_tahoe:   "39189131b2a9ec33531819fde63a3c2c615a567534ec0ba374e7e3cd777ab71f"
+    sha256 arm64_sequoia: "f062b32aef147d3a3ed3cab81b1bb8035ecff41704a29396269ea9a26538f16f"
+    sha256 arm64_sonoma:  "e1b18592e811e0a49d41bd2127f3faa213f4eb5ba9d4cdcdee48a37dd10fb4c0"
+    sha256 sonoma:        "0e637245c9e661fe6b2ca5ca71d70de801b61eaf3f7ffefa28c65eead537d157"
+    sha256 arm64_linux:   "9d4aab0a30ebe5a41f85546bcfbb87e0372c493fb0774230fdeb555148c59b7f"
+    sha256 x86_64_linux:  "21b851cee98d065f9a40ad491b495677043850c9f246d8233c71e681cdae50ce"
   end
 
   depends_on "aarch64-elf-binutils"
@@ -28,7 +27,9 @@ class Aarch64ElfGcc < Formula
   depends_on "mpfr"
   depends_on "zstd"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     target = "aarch64-elf"

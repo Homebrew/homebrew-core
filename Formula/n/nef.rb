@@ -5,8 +5,6 @@ class Nef < Formula
   sha256 "147b8723d65ababedd04abf2ea4445c2b16dd7c18814a92182ae61978eb1152e"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f5be34019bcdbf094f59babc2e715f8fb410fbd8547dfd42a926478e125f249b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "13b82b8e2f7ba23ae87d20f575790635cd3d8ffb92bd2b89cc5fc970b39f2aee"

@@ -5,8 +5,6 @@ class Qp < Formula
   sha256 "6ef12fd4494262899ee12cc1ac0361ec0dd7b67e29c6ac6899d1df21efc7642b"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f2ce20d5b9492b790930a30e31d9cc0676ff4620e89ab8ce1175fd918915f52f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "057596b8dcd5522e27c794855e7660cb04ca8573e49f1fbeee9ed62fad13d985"

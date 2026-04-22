@@ -11,21 +11,21 @@ class BaculaFd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "06814f801d435234eda5bc445d9faa6634fb646fea8fc9b9c801daad7daf564c"
-    sha256                               arm64_sequoia: "63a1ce591508863f9c78b987c14dd6bf168d49349b8479310685cbb442cd122d"
-    sha256                               arm64_sonoma:  "b41791686a3499085b3522f3c4a0fa7ac85cd7a404e9c9cafda74ce0dfba6c43"
-    sha256                               arm64_ventura: "41e90a2019cdb02163dd8ff8044117f16960eda69ccd8fa8811c9ab3e6a9bfd7"
-    sha256                               sonoma:        "ab5d9db5f59ce74e1c8a1a33413e4aa8e26a7ff5237e2bc86038b1f41fb08ada"
-    sha256                               ventura:       "42c3f2e6d299ef9e9bf8f28d8b1111e446bfbed29f538a50237d340f509acf29"
-    sha256                               arm64_linux:   "c85f6c053e80dae666859a88d5250366c368a235af84a7414b7d3e08981043d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebf5f15762df9a4ef212ff679a0973851ae21ab9faa251e2944e4e687b4b73e1"
+    rebuild 2
+    sha256                               arm64_tahoe:   "d8e6479890fe58003ea82668949e353c887a5142551e12fa482ab94291a41567"
+    sha256                               arm64_sequoia: "1b45de630f6e4739ae934b5d00ae94500d70f6671bba548b08a0be0d980ed295"
+    sha256                               arm64_sonoma:  "fbe7144f73805ae418979f1585cbdeb44fd567d029123887790b45e066471839"
+    sha256                               sonoma:        "25564b366864ae82e37c6c6daebf04d060c416c47bd62981cfa984bacbe58dc8"
+    sha256                               arm64_linux:   "00e58d0749aa2b73b7c7f41074e77f62c072cd02c47a0d9e0bcf781775bc415f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f29b7a47f97ba906ad99a6ca74735719764540697d700495e4545bbf66c1038"
   end
 
   depends_on "openssl@3"
   depends_on "readline"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "bareos-client", because: "both install a `bconsole` executable"
 

@@ -11,21 +11,22 @@ class Fig2dev < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0320c377a1d3575a7ffd6b6128c7247785823470dfff770c2718951e7ceea539"
-    sha256 arm64_sequoia: "aebdf1e7cf34ee70d57542077cd5074ae289f18239713ddd49a57d9ff563a516"
-    sha256 arm64_sonoma:  "937a6e007c92c11c9ec3bf965241e18d1e190a83c3542dbe901925350e972207"
-    sha256 arm64_ventura: "a97284bb9afc2196c9cc4299be7d98950ea6a22b6c59fe0917ce03ebc8cf4a8e"
-    sha256 sonoma:        "040e8f13d396fb52f5a15ffd237e37639fd4429e2b0ba0bf3cf5c965ce31e7c6"
-    sha256 ventura:       "1f6e1e07ed4b86d59035e074c821d37ebf54348434a5fb222ef722d2cb4543e9"
-    sha256 arm64_linux:   "8d5c0689d6650d821e33e7a360a1235c8382cc2517bab0fcc96ad016b5b44c09"
-    sha256 x86_64_linux:  "ada9a36cc0cd0cb0f6ee15522a4d579f6a32bc5cc035866e2449759019cacb57"
+    rebuild 1
+    sha256 arm64_tahoe:   "24dd6f6aa035586bd4c43d727b1329b822da452a0f64005a9defa12f2fa0faed"
+    sha256 arm64_sequoia: "3d512815be04dc846c43c7545cc14789388a7840c79e8ad32a577c8c684d4e8e"
+    sha256 arm64_sonoma:  "d0d35f3dab34be63355f01fa4ab890e2717aefb06f9746743e1643bf3bcba6b2"
+    sha256 sonoma:        "f5c02dd6fc06b3a6a1c4ba2bf18092557333e0c71c44d07d096f5b55351a545a"
+    sha256 arm64_linux:   "283acf4bd2ad10d9129183b890593d493f10fbefc264ea7c1976ae3acd7a931e"
+    sha256 x86_64_linux:  "33f3779d09912197a0591a8e94c6c8906726982c38cf7f9adbe0ec3222ab8d66"
   end
 
   depends_on "ghostscript"
   depends_on "libpng"
   depends_on "netpbm"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--enable-transfig",

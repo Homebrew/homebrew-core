@@ -5,8 +5,6 @@ class Libconfini < Formula
   sha256 "f4ba881e68d0d14f4f11f27c7dd9a9567c549f1bf155f4f8158119fb9bc9efd6"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "eb8f8042903c062720e17741771d92b7c53aafba9642780f0ccda86f6abf2c80"
     sha256 cellar: :any,                 arm64_sequoia:  "fbb299d21214fdc73d660ee6cc61ea6a6aff2d85558db6095558be0202c30440"

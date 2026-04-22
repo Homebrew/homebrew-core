@@ -5,6 +5,7 @@ class Portmidi < Formula
   sha256 "f21201d4cc233638d7bb6ee29ee6dece54f6c9c1aeb7989bc978001caaf2f666"
   license "MIT"
   version_scheme 1
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "02be979b495e1a9e201b22e8e136c97a5c81930e169c1aa38b83b46dd82f73e2"

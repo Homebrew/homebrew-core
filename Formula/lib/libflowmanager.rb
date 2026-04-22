@@ -11,8 +11,6 @@ class Libflowmanager < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "f13149f2c98c93aefc337e29981ccf5a09d48abb58cfbb90763fd9fbc0d32216"

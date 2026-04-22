@@ -4,7 +4,11 @@ class Dmg2img < Formula
   url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/dmg2img-1.6.7.tar.gz"
   mirror "http://vu1tur.eu.org/tools/dmg2img-1.6.7.tar.gz"
   sha256 "02aea6d05c5b810074913b954296ddffaa43497ed720ac0a671da4791ec4d018"
-  license "GPL-2.0-only"
+  # OpenSSL is only used in vfdecrypt so avoids incompatibility with GPL-2.0-only
+  license all_of: [
+    "GPL-2.0-only",
+    "MIT", # vfdecrypt
+  ]
   revision 1
 
   livecheck do
@@ -12,29 +16,23 @@ class Dmg2img < Formula
     regex(/href=.*?dmg2img[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "0cdc762d353e27c43eacd4221ac499f96a71ac67bd650ceac82d8e8a64f526c2"
-    sha256 cellar: :any,                 arm64_sequoia:  "4c3872719a1261f5cd981d5320bba65289e6c2c9e06e73478f3e3bb8267b64ec"
-    sha256 cellar: :any,                 arm64_sonoma:   "3abeed11bf75f80c25bfc4f8f3935f8160820623dfb84380ac5b8982ef0498f4"
-    sha256 cellar: :any,                 arm64_ventura:  "af9009c8bc805eee1b8b88c88f4323e31f9990476cd61bab48edb90c84c89e4e"
-    sha256 cellar: :any,                 arm64_monterey: "03c18ebfadd3f15af4c5acfc3ddff35352b3ed74b734ad1a3f7fc3f991d641c7"
-    sha256 cellar: :any,                 arm64_big_sur:  "30d93d8a25986e284ce16234d63262b9b09282194cac91c96e30ef2ac36915ed"
-    sha256 cellar: :any,                 sonoma:         "fa89dd61ee460f99225bc6458e4057d94f6ecfbb5a6ca303480562d22e855375"
-    sha256 cellar: :any,                 ventura:        "8cb155a0d62a038484e9bda45b83cede96e6410ef20580bf715723c0285ff9eb"
-    sha256 cellar: :any,                 monterey:       "5f98d762bda9e92cf497e1bca2cfc1f738da6251c807802cdaf4128b9f6d0972"
-    sha256 cellar: :any,                 big_sur:        "0fb916b99c3006b44195e38d0234cb38e1e1aef0c76f73688d75b25d704d689d"
-    sha256 cellar: :any,                 catalina:       "f78214ca14fa444d792fd6c9eeec1068717cb64ee8ce635154ccc783bc37099e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "87d9a58139f343a3753c44a15ce9b451dedd5b8e7ef9672dd7b4a2b3f2eb8e86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6fe4e0cd5213bfcefed195911e5f7445c0d70016ce01e29ade4fb8dfd8cfa6b"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "606ad411e551ca06e51b65e8e86db388a2f8d49a684fac4b803fc06adee95f1d"
+    sha256 cellar: :any,                 arm64_sequoia: "e53bab095d09aa8d3d81a821708ac729baef3b6a9daac210b435597fff8126e3"
+    sha256 cellar: :any,                 arm64_sonoma:  "fdd994d5c6ce537fbac1a97af5ef621cd3e2049588e4f586fd2c460b210b4069"
+    sha256 cellar: :any,                 sonoma:        "4365149beabaf567f6b2ed11c2ad6e09989911c30be42a841e9b53f265bbe7a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b58b6e5656e913aa9001e9b4a11ff670711e97bb96e129ab04a08ec64bf60924"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef48b1f21bb0dd210883e31452368224a72fc775db03a15b95c29f61c1e41c82"
   end
 
   depends_on "openssl@3"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Patch for OpenSSL 3 compatibility
   patch :p0 do

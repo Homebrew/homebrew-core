@@ -1,18 +1,18 @@
 class Asciinema < Formula
   desc "Record and share terminal sessions"
   homepage "https://asciinema.org"
-  url "https://github.com/asciinema/asciinema/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "d07d22d9531fa98d2999dfc2ef27651efc3a4f5e5f46a78c3c306b69c466af8b"
+  url "https://github.com/asciinema/asciinema/archive/refs/tags/v3.2.0.tar.gz"
+  sha256 "247c7c87481f38d7788c1fb1be12021c778676c0d0ab37e529ec528f87f487ce"
   license "GPL-3.0-only"
   head "https://github.com/asciinema/asciinema.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e9fdc83648ed5b37f69d6b53be3d1d060f057a865261cd3915e9c10635fb24d7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0a73db4590fabb02ff364bee1be8fff789d65a07f075bb2311665c8d9ca01a2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b82b8e50e33036e0eba554c1abe0709984de6954d361462bd2eba5029d65efa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8e01901d599e3af89e662e559423f8f16f4ae0a67daed4bfbf91242bee41c4c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6ca601ceaea2b4565e52b466d799c57aeeba764dbf3a213c75cf2299125e39c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "736b3df5be7bc6c2129aaf50308dd1311f2c336a80913f8cefb86e1c4fa6518c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "957266f04bb63edbd0e5ef47a0b199d32f4ad6b5a79129aee3ffb2e5184468ae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f010b93dbcd8ffe51c1815b810c3c97950559223bd86700f9d32bc56117e5cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c05e6a4ad18495b3139defd17badd933d015ab8e999ed027728eb1c948afe0a5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e12009a260e5e4771ba681edd7580e19b7c1f19648ce0fcdab8e5f8d16681a94"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7780bb54f22c281c204d04348c55eeedec49908552927e69ed5c23c48d5ba8d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a65fffb9cbaa31616c6b8fbc74d24103950e02ef009a9409c354b3598f3bbf36"
   end
 
   depends_on "rust" => :build

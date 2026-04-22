@@ -1,9 +1,9 @@
 class Chuck < Formula
   desc "Concurrent, on-the-fly audio programming language"
   homepage "https://chuck.cs.princeton.edu/"
-  url "https://chuck.cs.princeton.edu/release/files/chuck-1.5.5.6.tgz"
-  mirror "https://chuck.stanford.edu/release/files/chuck-1.5.5.6.tgz"
-  sha256 "5bde628ef05aac598c9f5158c723e7ff5d6feaa869b0dc8effdbdac6d16fcb01"
+  url "https://chuck.cs.princeton.edu/release/files/chuck-1.5.5.8.tgz"
+  mirror "https://chuck.stanford.edu/release/files/chuck-1.5.5.8.tgz"
+  sha256 "d230f74cea1b0454ccfae4b2fedfb27ea20e6250c7130f079fa4195fef1f304a"
   license "GPL-2.0-or-later"
   head "https://github.com/ccrma/chuck.git", branch: "main"
 
@@ -13,12 +13,12 @@ class Chuck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2ad3a1ef170e0d7a79348ed08dcf963eca6cad0da36ab8955b318f90ecfc4f53"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f26aeb3b3aa2c8f1841caed594c5e62d37dd45c194bbc89872d6771810a1351e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0fc6508c0401f469e8f87adc02d61ba11bcb2e6adc80744e7da2881a380aa57a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ed2a7668acd64464c280703e528a6c61b54abf88dab6e765d7c7118bea0139e4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb172d508f5e64a50b32c2c36c6f535fe377cfd16bbb811325ab0fec9b29af6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfc105d19595839778aedf809628cd32e727e65da53d34005cbcdc135e8cea2b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "90aeecdbdb811c2f2d5b81330c91530dee442875ede789dcff5ac8182d9e0495"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9b066b058cb643f831f78464115db90ecbd0c38a7d39af42e70d3b3b9bd3d23"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c36a5216af60b0326a886724ea824921d96c470cd7927fc18d256e23d1efd2a8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "16ae1612c06080d613ce793a60fea3e71436c3a1132d2c5ff2262be682379d24"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "33e1f30b7cd0e5f21f477fa2f24ca9499dbd67500af8c9bf1a8d62ce0f8ac5a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9c83b1a3ea0b9064ffbbfec30225f1e3ba8b2dbfd99e9d4c3e02a96d9763017"
   end
 
   uses_from_macos "bison" => :build
@@ -38,6 +38,7 @@ class Chuck < Formula
   end
 
   test do
-    assert_match "device", shell_output("#{bin}/chuck --probe 2>&1")
+    (testpath/"test.ck").write("<<< 2 + 3 >>>;\n")
+    assert_match "5 :(int)", shell_output("#{bin}/chuck --silent #{testpath}/test.ck 2>&1")
   end
 end

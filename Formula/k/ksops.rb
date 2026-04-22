@@ -1,8 +1,8 @@
 class Ksops < Formula
   desc "Flexible Kustomize Plugin for SOPS Encrypted Resources"
   homepage "https://github.com/viaduct-ai/kustomize-sops"
-  url "https://github.com/viaduct-ai/kustomize-sops/archive/refs/tags/v4.4.0.tar.gz"
-  sha256 "c3c6ce4503cab59a3ee345ba771cee01caccd99d1ee9f3668f58214cd5ef6742"
+  url "https://github.com/viaduct-ai/kustomize-sops/archive/refs/tags/v4.5.1.tar.gz"
+  sha256 "c3cd2b77e6adb4cc84bcaad8cbd751ee0c633bed2f835ac85ce2bc969d21a88b"
   license "Apache-2.0"
   head "https://github.com/viaduct-ai/kustomize-sops.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Ksops < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "364262faf875534b99ccc31bd7927081d4fe7cd621a76a56c301a6ab67f1a469"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "364262faf875534b99ccc31bd7927081d4fe7cd621a76a56c301a6ab67f1a469"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "364262faf875534b99ccc31bd7927081d4fe7cd621a76a56c301a6ab67f1a469"
-    sha256 cellar: :any_skip_relocation, sonoma:        "52792d1cb8bd04bc47e4879360db2941e1baf75858a7c60a70cb9763ebeecfea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b126ac5047ce953ed01692c3e66a8e81a43ee92ec39c604f9bf0a65a7d7f931"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6db3f9f9fc371dfa67d4fac397b1534af08e6b23ee6009e0eaa9269c101ffd96"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5cf3c5fab0551b7ba2b5bc1b166046bce3b1050d5876ee09ecadf36bae9d5130"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5cf3c5fab0551b7ba2b5bc1b166046bce3b1050d5876ee09ecadf36bae9d5130"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5cf3c5fab0551b7ba2b5bc1b166046bce3b1050d5876ee09ecadf36bae9d5130"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa62ceb900c50e3c2c583257edbd5bf881e1b233c8b4b797b90b2e510347ab4f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "21bfa69a3ec57d2180770c83113f6b5d5ad3c699e750caffc0264f27ab0089e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1aab175011c839c14d07bf473b2f7ebd3bd30037b677c1aaf4c848035013c332"
   end
 
   depends_on "go" => :build

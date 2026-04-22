@@ -1,18 +1,18 @@
 class Ghorg < Formula
   desc "Quickly clone an entire org's or user's repositories into one directory"
   homepage "https://github.com/gabrie30/ghorg"
-  url "https://github.com/gabrie30/ghorg/archive/refs/tags/v1.11.8.tar.gz"
-  sha256 "928f0ddb92a62295a9bdc8dc68fe4fca80991a1c410e2392011dc2c4b04f83f6"
+  url "https://github.com/gabrie30/ghorg/archive/refs/tags/v1.11.10.tar.gz"
+  sha256 "4135ccc8fc3ea1f606fcc5bd817e01a169a23e05865f4e4081f2c98c21653908"
   license "Apache-2.0"
   head "https://github.com/gabrie30/ghorg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de5d0452ec6ae5363b6c89c6d71ea56e0075b594e34b4703ddd8971c9d35a1c9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "de5d0452ec6ae5363b6c89c6d71ea56e0075b594e34b4703ddd8971c9d35a1c9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "de5d0452ec6ae5363b6c89c6d71ea56e0075b594e34b4703ddd8971c9d35a1c9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "10faa30db9a88c1a82a5d8bf7b58bbb9d70e17c330f41a61be8e51649c9c0566"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c69e7fc1b556faabec5efbe5b5499098bf8f109b8b130aec92bf2c440f9e8d1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8433443d5a7d474b0f8dc010f21ef01649f022e33ce3c0792e96b7f9ee9838e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "951b6ca6e05d7e4df3f98c69345f151c4682f39349884c84bae59c67a13fe139"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "951b6ca6e05d7e4df3f98c69345f151c4682f39349884c84bae59c67a13fe139"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "951b6ca6e05d7e4df3f98c69345f151c4682f39349884c84bae59c67a13fe139"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fc56b28a7b971494692dd3e20600fdc8890dade7ba716ba45c394a0c37d6b354"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3b38a5cead9a69489d6f78a5b984bf709b036f511622cfc199e636a3aebe6bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38e67c563184b6f8b0e3161c30a0aa8e712605e3ba00368bb6549500e78e9780"
   end
 
   depends_on "go" => :build

@@ -18,15 +18,14 @@ class Openmsx < Formula
     end
   end
 
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6244caea502ad4a17f1f84371f7c4bdf62c412c8743618a18017a1b0f56b9143"
-    sha256 cellar: :any,                 arm64_sequoia: "2304ecae91e34e36305ea2a8fc98e42fe2c4e9c42f7bd274acf5602253d1e1f0"
-    sha256 cellar: :any,                 arm64_sonoma:  "890c123b5456354ea46ccb1352972f1d3ac632fe1e5c2e9f9c9c9652ab9345f7"
-    sha256 cellar: :any,                 sonoma:        "9960a99ce629978b0a64a7c5aaeee1d939474904793f166cddcbb7138ab376e6"
-    sha256                               arm64_linux:   "fa49c48000867d2b69dfef7727f2ca857b86535dbd71c78aba8ca465f686f6a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9836011dde7a872bd5f9c7085e794496b969d7160bc3fff5b9310227a246530"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e5ae1c09d02fecd72160c6d855f89a4deba2bb7e772bbc2786de450ecb4c9fa5"
+    sha256 cellar: :any,                 arm64_sequoia: "4f595788d6873c14cfa8466a1c20ea54a5e126fa9ec5eb22324062360ce31ea1"
+    sha256 cellar: :any,                 arm64_sonoma:  "239315047c4a68e4c4dc241791cfdd50491c4423ed61177cc751f13482df41c0"
+    sha256 cellar: :any,                 sonoma:        "79258e774e8e2ab3b893546a75ef070bc40ff80cae847619c47b4a8405f00923"
+    sha256                               arm64_linux:   "b40df8913652a5d810da13e575a6c3a32293ecbc9310e7be18c12090c7dbda10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5879ce754cabf63705ab53bbf4620d882611e4106b87bca5567f818db5d4b97"
   end
 
   depends_on "freetype"
@@ -40,7 +39,6 @@ class Openmsx < Formula
   depends_on "theora"
 
   uses_from_macos "python" => :build
-  uses_from_macos "zlib"
 
   on_ventura :or_older do
     depends_on "llvm"
@@ -53,6 +51,7 @@ class Openmsx < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :gcc do

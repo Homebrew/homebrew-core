@@ -11,8 +11,6 @@ class Cidr2range < Formula
     regex(/^cidr2range[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3382d71c74172fa8b5cdd02e8668ab6103ad35ab7f2269ad7f51d0fd2c35ceb7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "17e1e7697199411cdab3f8d1be909e6bfa407a2f8017cc142d83732a540bbecf"

@@ -5,8 +5,6 @@ class Bbe < Formula
   sha256 "baaeaf5775a6d9bceb594ea100c8f45a677a0a7d07529fa573ba0842226edddb"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8fd3005bedec280a143b22eb15bb126055e121ba0e1db118108c0878104263c9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a207fd77fb072a948ca2261b0b2968e98932bea8c7afa112d310c6a6d9739d39"

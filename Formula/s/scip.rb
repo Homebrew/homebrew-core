@@ -1,8 +1,8 @@
 class Scip < Formula
   desc "Solver for mixed integer programming and mixed integer nonlinear programming"
   homepage "https://scipopt.org"
-  url "https://scipopt.org/download/release/scip-10.0.0.tgz"
-  sha256 "b91d2ed32c422a13c502c37cf296eb9550e55d6bd311e61bfa6dfb9811b03d87"
+  url "https://scipopt.org/download/release/scip-10.0.2.tgz"
+  sha256 "7544647007c9a63a770a71f5884a50ac81da37372bb6958d08588870bd58a50b"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Scip < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d34ce00329bf1ee4b0eb0e173c8a32559d3e5ed807a58ce7c38d64b2a5a8b515"
-    sha256 cellar: :any,                 arm64_sequoia: "53cc523a67b262b84cfcd148cc45e341b0e78af1a09726f05cd3806ca96a816a"
-    sha256 cellar: :any,                 arm64_sonoma:  "14e01b3befd24f3a7c7a6f4fcc5ac8040207d6c6b558e88b55de1571d05c6420"
-    sha256 cellar: :any,                 sonoma:        "169ba2332962c0dd133d2d818132af9dec46687cb34cb2b464350a2a7b847cbf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e261bc85758fd9965ef7173d4b7eb14d4cbf09228a1835df0ec34043bc92fc52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2159678993d921f14507fa26cc06e12d51e383df2079b8bbe5f03321c2aaac4c"
+    sha256 cellar: :any,                 arm64_tahoe:   "7c19c0c741487ae4510c4b6c9a1153a281a88f34fac38a003f7dd3c44c4b9079"
+    sha256 cellar: :any,                 arm64_sequoia: "9b4274caff954b9a3c1cf1e9c7d40fc463bd85e2c2bb17a4d5ce655bd4efc4b4"
+    sha256 cellar: :any,                 arm64_sonoma:  "74592695f57e9711b936f200c414bd56512ce0e58b5e103ea74a23d7084f0625"
+    sha256 cellar: :any,                 sonoma:        "45073bd25f64ab72d9eba4dc9f2df699da72f3b7f309ca3fa22066af2a8a4a98"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9996d235dfe0374db8fbda66a93bef51d4c59ebcc63d44579764d8268068a2c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36cc79aa4cea363dfcc9356b9cefbba3d260c6cb27a69b83fb9f06b997c65262"
   end
 
   depends_on "cmake" => :build
@@ -31,14 +31,13 @@ class Scip < Formula
   depends_on "readline"
   depends_on "tbb"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "boost"
   end
 
   on_linux do
     depends_on "boost" => :no_linkage
+    depends_on "zlib-ng-compat"
   end
 
   def install

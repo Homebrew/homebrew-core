@@ -6,8 +6,6 @@ class GitHound < Formula
   license "MIT"
   head "https://github.com/ezekg/git-hound.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "15f176bb2320758e6a88797ee77011a189b7814857a0ed920dd4b32a3335012d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "373e91c48dda4ac71e85490387430dbfdb73d27d72a0964a33933e8e6d5f1753"

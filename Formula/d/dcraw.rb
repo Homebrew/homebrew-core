@@ -12,8 +12,6 @@ class Dcraw < Formula
     regex(/href=.*?dcraw[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "06e4e4b56c7abf6a3401a398f2b0caca6851a348dc87215c53ccb1eef0b38e18"
     sha256 cellar: :any,                 arm64_sequoia:  "a083652ace0c260b03d51e3a34412dd5f9213cf146dca60f6d5d2a1ecbc8c191"

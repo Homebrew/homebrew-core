@@ -5,8 +5,6 @@ class Yydecode < Formula
   sha256 "bd4879643f6539770fd23d1a51dc6a91ba3de2823cf14d047a40c630b3c7ba66"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "054034a4990c7dab07cc32767d6d851fef67b58993c276573c8d510fd59698fe"

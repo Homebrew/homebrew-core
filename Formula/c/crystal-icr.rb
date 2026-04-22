@@ -6,20 +6,14 @@ class CrystalIcr < Formula
   license "MIT"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "c52591afce68da74a66cae841087ab3924e09a340d7a44cabb5dc44aec6be0fa"
-    sha256 arm64_sequoia:  "39cdaf2148c5f0a4bd256139cda76e88414ff6f88546030ff3897f879f066e13"
-    sha256 arm64_sonoma:   "8dced8d90ae05f60022cad48273fe5dedbdb270c676f1f814bee7600f8b6451b"
-    sha256 arm64_ventura:  "a541b6b20507872a2b45a244c6842a1509553d178a596e1d0d19a799f1ab3e56"
-    sha256 arm64_monterey: "3944027c41242611a14ec6226bc7eaf63e6275483df6b6820115d39c27ca76f2"
-    sha256 sonoma:         "1c5da529830479e589129eb4bbe877aca87e67d1855a5ee4019917c98b88d688"
-    sha256 ventura:        "32a63575106616c8855062c261bbd3c02b07fd0ee30dd3aaac50226b375a37c3"
-    sha256 monterey:       "b134f903e53188ad2d8c2a891441c86a48467e4134e774bec72a04ff74085a58"
-    sha256 arm64_linux:    "0aae032bd0c90aeb0da487eea0ef7da34b12d2dde7a062ff78df1073bf2bf919"
-    sha256 x86_64_linux:   "a65683caabc652020da6d97ce2d2a8acc7552af5c75c6afce6010d9c4b0ce156"
+    rebuild 2
+    sha256 arm64_tahoe:   "47b87d51941304b32356638c1fc18d7f790abc8f11d78c31cc36e3330cafaf3a"
+    sha256 arm64_sequoia: "8e4b4b0b69f4f672124104df16a9cf4792d8db5209517e9e87a09cf0d2072ad6"
+    sha256 arm64_sonoma:  "7c2fe232277ff3b4b6ba7891b48be012ec6b587eccb836808e5020ffff1aa0ea"
+    sha256 sonoma:        "0059fb894cac54596771eea17d0841284093f8b4875f6a2ae26b8f83a646e0fa"
+    sha256 arm64_linux:   "26f4637129c847fbf3a153ff0975bf4f1c38b2ca19504d53cf093349ed480b37"
+    sha256 x86_64_linux:  "915770d019bb1f2d74bfd0481e6d1233bb51ab8eae2115aa070a47558edaf5e3"
   end
 
   depends_on "bdw-gc"
@@ -30,7 +24,9 @@ class CrystalIcr < Formula
   depends_on "pcre2"
   depends_on "readline"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

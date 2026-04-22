@@ -2,18 +2,18 @@ class WgpuNative < Formula
   desc "Native WebGPU implementation based on wgpu-core"
   homepage "https://github.com/gfx-rs/wgpu-native"
   url "https://github.com/gfx-rs/wgpu-native.git",
-      tag:      "v27.0.4.0",
-      revision: "768f15f6ace8e4ec8e8720d5732b29e0b34250a8"
+      tag:      "v29.0.0.0",
+      revision: "d2e3330ade4ae1bb238d76b485926f067e7ee64c"
   license "Apache-2.0"
   head "https://github.com/gfx-rs/wgpu-native.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5d9096aa62a2380a8701a99199129341f38709c4f5e024eff9300947490716ee"
-    sha256 cellar: :any,                 arm64_sequoia: "458c08a381bf1d928149688a4c923e030c26a6e7c377392e892fd22fd5c4a05f"
-    sha256 cellar: :any,                 arm64_sonoma:  "c50a895c5a9f4953f348460ca915e18e1c1d93068f947f816f7d497ec7c3f105"
-    sha256 cellar: :any,                 sonoma:        "00bb5a82177c270587d840fed5f9dcffd31d1280251874bb1b57dce3af47dbc8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae9f023013f655e09b7de422b427efda141a69a2d7e3f86c38215858b505eab6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6859115c5a86f4d7e2e4298de573f68b340d22e68edc2e1b9128b1c85d671092"
+    sha256 cellar: :any,                 arm64_tahoe:   "7cc3b38e9e319ae09bd3aebfb8f9b25143fd0b1115133f8d8e746e7fcff559a2"
+    sha256 cellar: :any,                 arm64_sequoia: "ec305f91cca1a09a7b560563d35eab486f3ed1985f1bfca11328e69cee5a82cd"
+    sha256 cellar: :any,                 arm64_sonoma:  "09c1a3c1a9c108a97a8f48c56f82009ce15cac0ae48d50b13a8dbd0ce2d9fb98"
+    sha256 cellar: :any,                 sonoma:        "3325394962e971ba056dc7c533613d789e3f0d28c5013056c3c3414bf8bc2ce0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e204deee10c0452c9fe23492faa5b497b37ec37dbdb9c995d36f5599d025010"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07f40872287f69103207325022fc2176e180ce060b2dab932e203443690013a7"
   end
 
   depends_on "rust" => :build

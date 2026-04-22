@@ -1,45 +1,25 @@
 class ActionValidator < Formula
   desc "Tool to validate GitHub Action and Workflow YAML files"
   homepage "https://github.com/mpalmer/action-validator"
+  # Using crates.io source as it includes schemastore submodule code
+  url "https://static.crates.io/crates/action-validator/action-validator-0.9.0.crate"
+  sha256 "e379b5be9a8a4659aaec855a3321e40d98c5216d6191bc362a24d5b605a2cbcb"
   license "GPL-3.0-only"
-
-  stable do
-    url "https://github.com/mpalmer/action-validator/archive/refs/tags/v0.8.0.tar.gz"
-    sha256 "2a75ecde0a5e58b525623db1f270f7d0153e3707d3ad87adee73fd4ef6adeac6"
-
-    # always pull the HEAD commit hash
-    resource "schemastore" do
-      url "https://github.com/SchemaStore/schemastore.git",
-          revision: "d94af770cffaa34559f5279acbcc3a548bb0ea8c"
-    end
-  end
+  head "https://github.com/mpalmer/action-validator.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2fca02f94098fb5318e9cf6a729e498a08788e7d165895f5dddfa321781d606a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c634f2face2954fa059011d97fd132eaa440aa712982913470b009a279384bd5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e382a477d0f3078fd02333b9d333d6ee76405cd318d3c7f983732f0da2ff774"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "470f7ae27fb3bce14d1bcdee86558a353eb3fc847fc3e70c2b856177c7c24735"
-    sha256 cellar: :any_skip_relocation, sonoma:        "728921173c7f6ec599d088e865b7db2e85de594dacf69961310b44462d54fc25"
-    sha256 cellar: :any_skip_relocation, ventura:       "a6835560feda32a13dc86443867887fce516f7025cd8045e42de6ba8273047b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0541c834ef9cd4fc192f3babc34741dde6e5c0d428dc4266238a1072e13760de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94e49dda6b381d74167f63da53903bf8a3e7b243d456eeb6d305b91b1ec43d10"
-  end
-
-  head do
-    url "https://github.com/mpalmer/action-validator.git", branch: "main"
-
-    resource "schemastore" do
-      url "https://github.com/SchemaStore/schemastore.git", branch: "master"
-    end
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "12edda1e1aa6916ec8afaab4e068395e3ec81d2ff319ef572fe2c4187309470d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6166f38a0e059a1a1d8c28ba7aee2656e9769182add2154703f636fee323a4cc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14ab16254be123c6604ed9127ec2290858c83b338779f867e073c18646e8f931"
+    sha256 cellar: :any_skip_relocation, sonoma:        "543d0e8f0e3a0fa20b7b1ded901d0112c4e2f52fb3e46400dca43b2d11e627d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e50f6621e00aa7e515d73a7765296a05c8fb0882734224c6fcc103d72a5fb9aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8f9021532e74756bad01482d0d435e1ec420429521c27c5c06e243c2108e3f5"
   end
 
   depends_on "rust" => :build
 
   def install
     ENV["GEN_DIR"] = buildpath
-
-    (buildpath/"src/schemastore").install resource("schemastore")
-
     system "cargo", "install", *std_cargo_args
   end
 

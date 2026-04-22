@@ -7,12 +7,13 @@ class Freeling < Formula
   revision 13
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e156b45ac74b87aa415932e5577173796a7b77207708b9b599200b7438bc86ac"
-    sha256 cellar: :any,                 arm64_sequoia: "7260ffdbaeef2635424243bef7a16d75f32361d81b4f1946691a6a8ad0f10662"
-    sha256 cellar: :any,                 arm64_sonoma:  "b24bc3defe2c34f3b8eaaf8d68fedfc86a48a9b771db05a2270af3cdebc02a0d"
-    sha256 cellar: :any,                 sonoma:        "05668767c7bb58eb8df2200c2da8da1c8f941a23e06eddbd1675e5d53aeeb309"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "10357fffdd9dcc0bce6b4e234caae1d60e2c996a6260d97cdf3ba6380219e754"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8314e02d61508254e04ef46a8a6a0bebc8817ef9ba265536da3065b92915b6cc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "da96408a42b876a1aefc4337783ebb0203b5ccdbe487d363fe3594bbd5aed321"
+    sha256 cellar: :any,                 arm64_sequoia: "cb2fffda68c5af4a65a43eecc84a8650097454d9c78c94dd37e96288e505eb9a"
+    sha256 cellar: :any,                 arm64_sonoma:  "60c5ffef39d292344fb0dad6d11ed9fb0b9f39bb4508e919fe42175666588347"
+    sha256 cellar: :any,                 sonoma:        "4171dbc6b31de0360a4278f503660de5376847db28cc4bf97af4b286a871c8fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3daf501eb541caf93c400beea8633264c5468f7a41b59294cb31cf36b489b853"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bde9ff0e82cddc046515d15f8808c867dee2435e22f072a99d2e9bfdddd3d218"
   end
 
   # Last release on 2022-07-15, bundles a copy of `dynet` which doesn't work
@@ -25,7 +26,9 @@ class Freeling < Formula
   depends_on "dynet"
   depends_on "icu4c@78"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "foma", because: "freeling ships its own copy of foma"
   conflicts_with "hunspell", because: "both install 'analyze' binary"

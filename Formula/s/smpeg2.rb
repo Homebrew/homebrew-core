@@ -16,8 +16,6 @@ class Smpeg2 < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "f577393854025f6e32304032a00a3f29a27af3e71a52502025315f86b44ae9fb"

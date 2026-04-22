@@ -1,9 +1,9 @@
 class Tinc < Formula
   desc "Virtual Private Network (VPN) tool"
   homepage "https://www.tinc-vpn.org/"
-  url "https://tinc-vpn.org/packages/tinc-1.0.36.tar.gz"
-  mirror "http://tinc-vpn.org/packages/tinc-1.0.36.tar.gz"
-  sha256 "40f73bb3facc480effe0e771442a706ff0488edea7a5f2505d4ccb2aa8163108"
+  url "https://tinc-vpn.org/packages/tinc-1.0.37.tar.gz"
+  mirror "http://tinc-vpn.org/packages/tinc-1.0.37.tar.gz"
+  sha256 "f63b7e21c32c4c637576d85f36bdd28ea678b5aa17fad02427645dea30e52ac7"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -11,22 +11,21 @@ class Tinc < Formula
     regex(/href=.*?tinc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "9387ad8982b1f4471517f5edee95e4f6aa272a47ebfa86adbad67c7c019d3a85"
-    sha256 cellar: :any,                 arm64_sequoia: "aa59254216d5b699c9656872ddf6cd268d0ca8370e340116e56ec192c4c26f40"
-    sha256 cellar: :any,                 arm64_sonoma:  "bdcb1f7311ec710a0b372b7c28793f6ab29a4be5346775c0f4751f54e1913053"
-    sha256 cellar: :any,                 sonoma:        "645b7d301ba9e5d979deb444801639e5933e2b8ad67d1db0cca420dadc0fdf07"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "efec5d1ef53cede8a0d1acf38ac128c7be0f13d47eee5bde73e9c2c4f6c2736f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00197b538b9a810f768fb915e71bf1bd0bdf8f5ef24c2abcacb053259d1681ba"
+    sha256 cellar: :any,                 arm64_tahoe:   "897c1713ce7c66a1d3f86969cc83533f95698b45329b69b433960455956dc381"
+    sha256 cellar: :any,                 arm64_sequoia: "5b7c292388af7f65cea0c8a21857d7009015dc77f4ba3d00ca62e58c3f0e4e59"
+    sha256 cellar: :any,                 arm64_sonoma:  "a1ac53e02128200442cce3bf8c64254e333f3bbb2a9adfbb7dda354c90208682"
+    sha256 cellar: :any,                 sonoma:        "491fc00a0fefb950612e107b07aad81cb0d181609f091d4286fc775411f1468e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "850d77178d63e341487866033023e8616b199932fc8debfea28cb9eaa4ad1d2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42b16b3f616da81e4f7b8311c4746bb60d73a14c8544308c52181bd241766f03"
   end
 
   depends_on "lzo"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # fix build errors, upstream pr ref, https://github.com/gsliepen/tinc/pull/464
   patch :DATA

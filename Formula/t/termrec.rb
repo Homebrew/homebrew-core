@@ -11,18 +11,14 @@ class Termrec < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "0abe8cc3df72b187ea7c2aa19c180e0ef4404ff91560cd1b4bbc7e20884bdd85"
-    sha256 cellar: :any,                 arm64_sequoia: "e49f5031c0c2bd9c8a17c75bd3d345755a47525ef4a68d32ca257dcb47b7eb10"
-    sha256 cellar: :any,                 arm64_sonoma:  "206c6ea13f36cb770ad80f1702f1620a5a8cd8a82eea1e01d136f6b46ccecf03"
-    sha256 cellar: :any,                 arm64_ventura: "b5e160a090054b7e36883023816a7123f6305131c9248cb2543d939d209a7c7b"
-    sha256 cellar: :any,                 sonoma:        "8225f9ddc5ff3c7e8110435fdfd09d5e0310a4370dcded0e1b4a4ef06424f9c7"
-    sha256 cellar: :any,                 ventura:       "d58a44779c299757776b50043dd4a039fdccc99d96d77a4ada9096499adbfe01"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3958a773f4a5f6981ed0d7bd45594a982d7db69b77badac66615edee697f84ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5d5fbe66e009d9a482ea968920e75bf9789fcbc1b08fa7d865ab90528709a11"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "83130b80ca5853bcb36c51451cf600c22c5fa8138cd525723cd8e9b960ff9791"
+    sha256 cellar: :any,                 arm64_sequoia: "9a3d784e024e949a5fe44cb29e1edfbe6021bc07f9aba114337c49aa9e94f755"
+    sha256 cellar: :any,                 arm64_sonoma:  "3967ae0f38e3f4232a886c6b96d51db474588e950dcc3c3acf6c4b2b02425a1a"
+    sha256 cellar: :any,                 sonoma:        "6b37974b1c45960c3572d2a030dc45a1c3d10e4e8165e158167a5949625e1f72"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "adc70be44639d06db0b15cbd211ded8e4e84826389152de96dc9e089a9d78a0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd26bd9def49e75e6030be96b864fa6cb0ddca5660f06b858d9176edecf6883b"
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +26,9 @@ class Termrec < Formula
   depends_on "libtool" => :build
   depends_on "xz"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Work around build error: call to undeclared function 'forkpty'

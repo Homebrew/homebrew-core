@@ -13,8 +13,6 @@ class Clip < Formula
     patch :DATA
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "db658e6fcb0e356d9c460e6a9d68a284b7cfc259410427072fe0a3e980a79c3b"
     sha256 cellar: :any,                 arm64_sequoia: "39474a5890b2367e6ef4e94946bfd9298d939b124cca416f7c497a9594c767b0"

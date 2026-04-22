@@ -1,29 +1,28 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://qmmp.ylsoftware.com/files/qmmp/2.3/qmmp-2.3.1.tar.bz2"
-  sha256 "a61d1c1faa9c411c75292a5710999182b918831b8f0f200c87149e3ff353bea9"
+  url "https://qmmp.ylsoftware.com/files/qmmp/2.3/qmmp-2.3.2.tar.bz2"
+  sha256 "4d8bbae619e99cfd665d96c3688d2d306f5ffc30144e07b37ca701a99e326365"
   license "GPL-2.0-or-later"
-  revision 1
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
     regex(/href=.*?qmmp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "325c1290350157b642ffbd3571937e81e8c2baff0a48930a3303c9831f79f857"
-    sha256 cellar: :any,                 arm64_sequoia: "4d5a4086a5587a7eee245b3394da3bef3f0fbc46ae46f927f83e0e4a10297478"
-    sha256 cellar: :any,                 arm64_sonoma:  "09462312d1c684873aed7d297e0681a38c81081f55f37e95205ca08b1f5e783a"
-    sha256 cellar: :any,                 sonoma:        "fb2823cea55e2f56de666f0dc2f636646124cdca8e2ec6c379b5be86754c20f1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ee446b2d6e0bb504d563a00cfdac8bc212bb50c188e92861bb296745da082d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93e249d6775b45f06d7e24053e57f8263ca2389c67a491ccff2ef9b9cce22dc3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9d03ff5bfcc0fbba96e84e791d03ba977b65cfc121436b1d66c05381a5e70dc0"
+    sha256 cellar: :any,                 arm64_sequoia: "6cd2fb64ba6b2b840bc0afb65a42d711242b82afba083e1d845a9c9ead80e530"
+    sha256 cellar: :any,                 arm64_sonoma:  "c79c9a4ba9e420423177ea92934fbe20c515521a156d5b42486799c4e6cd3a08"
+    sha256 cellar: :any,                 sonoma:        "29615da1ed9e7311f7199f881eac6ff69783c70e201ff6d3a0b53db50d858b96"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9db1616a8dc11b5b89dd45f8925a5548b48572bc559415c91cb1060dc82a351b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fb506ef7761e01022e4b3943be52d9ca5e0e9860f764b01d8361e512c0f9e54"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "qttools" => :build
 
-  # TODO: on linux: pipewire
   depends_on "faad2"
   depends_on "ffmpeg"
   depends_on "flac"
@@ -69,6 +68,7 @@ class Qmmp < Formula
     depends_on "libx11"
     depends_on "libxcb"
     depends_on "mesa"
+    depends_on "pipewire"
   end
 
   resource "qmmp-plugin-pack" do

@@ -14,12 +14,13 @@ class Gmt < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "4973062a7cc8be77b13b447f18d4a144383fa108c8767c5242fcc7793fd0ea62"
-    sha256 arm64_sequoia: "141a5484e250b3fd7abb38eb056d0f3825b8a108c9f80e7ed3ab2a2bfbb9e88f"
-    sha256 arm64_sonoma:  "b94932ff613d2b16e61075f8161c1ff713b07de3913a543790b73e76ae9ca7ed"
-    sha256 sonoma:        "8d1ba4ecdf6a22f23505de0057bc7494401e8cd5788877010849f3d5a8eadc2d"
-    sha256 arm64_linux:   "4bd317b770e13de964ce17cd535bebf7695386374fa943668d81d8b19ed64596"
-    sha256 x86_64_linux:  "2c1bef8d1f9457ce7970ddd802dcb2c22cac1f9bfd2f4d3cfc363fbebd02f0eb"
+    rebuild 1
+    sha256 arm64_tahoe:   "62b4a61ca7facf02308e342b040410293eb975c81e41bd5d7932b5e4ef4306f2"
+    sha256 arm64_sequoia: "bccfe823ce8298c14b07cc0219578045bf84b4251ae8c80ca196d04c809cac41"
+    sha256 arm64_sonoma:  "47b6ac952bc211853f31d86fce3877eb032d35d5d62873b51328e6c2479581b0"
+    sha256 sonoma:        "4c3cb71550b8dab5896bcf74e2ca10044fd89f3c56234abfbb3816207bed4002"
+    sha256 arm64_linux:   "e57abef6646bb5644e01a895eec9477a3bb20c69c88d6ce30943e0c6a895f9be"
+    sha256 x86_64_linux:  "fce66e4f910156ba3037405cf395e388d2459f8708a8f81699fccf294100c738"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +33,10 @@ class Gmt < Formula
   depends_on "pcre2"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "gshhg" do
     url "https://github.com/GenericMappingTools/gshhg-gmt/releases/download/2.3.7/gshhg-gmt-2.3.7.tar.gz"

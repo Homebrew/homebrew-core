@@ -1,8 +1,8 @@
 class Ascii < Formula
   desc "List ASCII idiomatic names and octal/decimal code-point forms"
   homepage "http://www.catb.org/~esr/ascii/"
-  url "https://gitlab.com/esr/ascii/-/archive/3.30/ascii-3.30.tar.bz2"
-  sha256 "36e313791de9a1c9a4fd4133a6215279b8754dd1c4cb2ab2a3d7842f27dafb0c"
+  url "https://gitlab.com/esr/ascii/-/archive/3.32/ascii-3.32.tar.bz2"
+  sha256 "cde70847d7e91b14cd855addceb1c7a07470a192cb7d178168fa421c1c21c826"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/ascii.git", branch: "master"
 
@@ -17,16 +17,12 @@ class Ascii < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "11cfc4ca9c93744de8e2be5d04df19e4d2210f813580d74da65a819c54600cc4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2e225f8d820c8a2a106ecaa694d127747e33367cf2a3ad817c6b5252f61368e5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b09302d5da1fde775d54d424f6c0170f37f1da1b2513d51b1f823735852828b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0139a6c8bb456eae23940a7c52c35b41312de889f6ef3f83629772939a745bca"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "47ba21ef26f596735cd2c3b7de685190497ad837127b3d1fa5807fc59845243c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "45a69a2b921833d1baf72f0d09b468ab454288be54e06a98cba131341b7dca9f"
-    sha256 cellar: :any_skip_relocation, ventura:        "4b0846635b36a199106674d2afd42d8e7dea53f853787653cd4ecb6db150ac72"
-    sha256 cellar: :any_skip_relocation, monterey:       "22f33f9d9ac7142411fb7d9d7108c630c139a171ab68551adb5338c7bbba265b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "8c43387bff6017bb5d5f61ef1ed614bbf73172d5c446fba156f7e4b017ffdfed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4be383b6e806721fc89c09ab1e971ad2d5be5922952f8d67141fa765a50d8dc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dab01b3541b12d1b64df0115702613b61b57189b5deb21b464bd9316dad77fc1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9329415c173e581e5ce702d0bb484d263062c080597ca63274e71830f8db5015"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acc5cb46dd2c416305a12540280e8c09bcf5bc9aaf00ffd7ad015ee605904d95"
+    sha256 cellar: :any_skip_relocation, sonoma:        "74644cff9063f9317600ef45e8d3d0ff457f944a40f0f6f7481540744a5d19a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4d5665d1967f1b236d23700ffd48d89c8386da50a83511631adc3450734daab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0889952e24a573950f01ab2c9f8c5e292c726f56f9380850f6e47831bf4da20"
   end
 
   depends_on "asciidoctor" => :build
@@ -34,6 +30,7 @@ class Ascii < Formula
   def install
     bin.mkpath
     man1.mkpath
+    system "make"
     system "make", "PREFIX=#{prefix}", "install"
   end
 

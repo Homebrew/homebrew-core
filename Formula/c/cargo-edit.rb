@@ -1,17 +1,17 @@
 class CargoEdit < Formula
   desc "Utility for managing cargo dependencies from the command-line"
   homepage "https://killercup.github.io/cargo-edit/"
-  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.8.tar.gz"
-  sha256 "73bfbd80c0f54bffd8ebdfeb579ba8bd0ba4be9fdad06ed0f8dc99d3911f4774"
+  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.10.tar.gz"
+  sha256 "f0c085d9e25bbfea568baf521a199290eb95bf162ddca586a7f87b2634d9a573"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a52dfe8b3c4d58b217875c74573d3c15abe5b43c9b1e317f12242d377eefeddf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "61e8bcda5da3db706ab96d1341838df44ae62c525d4c077449c77e4dceb7309d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4fc9e0aa19f1bbc6d1bba2ca2d1d02d557f2f84c000b400ae2ddd160820b7772"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4968c1767c3952c1f1683e8425647f8e017c776c58bddde39b1f853cdd7131f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6f332d347e376a3850344410ee04367ef5eba241cc642daa016a1aa545a4d9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "217c786dc4fb72e883df140018317ac746447c4830b3aa6678556470395106ff"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b0085678b01b83ae70e9af72018f959dbe3a2057c6d87322b151d38ac7884770"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a235c03a28f85057c27255f3310011f9cb1ebb8e4f984e80b95253d7f196b79f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32becd94b5fb088db38afb872ba48032f3daf1657c0a8b636ee8c732763da913"
+    sha256 cellar: :any_skip_relocation, sonoma:        "603cb95b90ebdc503e3e0d7662e0d79d37a2f0c7e37441fe47e87a08677091b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca7137e71288b24c1006e8920f55c79558c79f8d0a8a46339ccc34f65dfb8b5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ee65c29d06c124652508bd85b00a288629dff7bfc3b7d67e00906f2cd40c18d"
   end
 
   depends_on "pkgconf" => :build

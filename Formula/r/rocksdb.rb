@@ -1,18 +1,19 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/refs/tags/v10.10.1.tar.gz"
-  sha256 "df2ff348f3fac8578fd4b727eee7267aaf90cd403c99b55e898d1db63fa8cff5"
+  url "https://github.com/facebook/rocksdb/archive/refs/tags/v11.0.4.tar.gz"
+  sha256 "b4dfd75199f385ec76056f81d33cde8f4cb446ea2ed1821feec7b996b3409f67"
   license any_of: ["GPL-2.0-only", "Apache-2.0"]
+  compatibility_version 1
   head "https://github.com/facebook/rocksdb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c30b38a794af560e0af606cd0f283f7b5bef70c2d6425b1b85ee4102899a4b42"
-    sha256 cellar: :any,                 arm64_sequoia: "c008b0f1b20dc09dbd14210cc058d7246b513dd7e700ad378dc97029a3e1efc1"
-    sha256 cellar: :any,                 arm64_sonoma:  "351f19962d33a93255796c3a1c8eefd3cb71c3753eb9f509eab01a091dfb7f82"
-    sha256 cellar: :any,                 sonoma:        "69347ffccff1bf4e47cf463c1c0af7b45426e2016912a4ef0d727da1afb1a46e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "90de5e47dbd2746a04f0d4cac1ffe1441334eb89167da350305da702080a0c80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7d9961c19c555ab81f1902e7ba5715611ebecdfc63a7c122c0883e43e3dcfdf"
+    sha256 cellar: :any,                 arm64_tahoe:   "27c6911b0c57747c2766d314d766d60235587b051f75b21659eab6d554e0837a"
+    sha256 cellar: :any,                 arm64_sequoia: "d2608e9cae567e84d7368a24a73724ac0fde7258587cad85e86c0eff25004e73"
+    sha256 cellar: :any,                 arm64_sonoma:  "ed4d1e08e10418b45b76dbc455db8b1f422dba42e0f7ac59a018743bd8b284a4"
+    sha256 cellar: :any,                 sonoma:        "9175d6da82a52771d6c1d96b33321ef81f772a4274a676fe16a98f2b6d046224"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "89022b4cacebf33bb83bf5ffb1383eecf9b981102d915e659d8ab86b88cd9935"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26a074fcd71e498da0669ce78ffa0ebbfaa09fe7433e93ded39223fa825fdce2"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +23,10 @@ class Rocksdb < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

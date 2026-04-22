@@ -6,8 +6,6 @@ class BwmNg < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/vgropp/bwm-ng.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ec3ddaf321252ebe934527a12aa3e1addb76f797cf5a618f8a9565c3d248d5af"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "75b60058b57ac9733b0b3f0b7d83fd14bf2a23c5ef2b05fccc3c0494d773aab7"

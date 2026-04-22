@@ -3,19 +3,19 @@ class Cookiecutter < Formula
 
   desc "Utility that creates projects from templates"
   homepage "https://github.com/cookiecutter/cookiecutter"
-  url "https://files.pythonhosted.org/packages/52/17/9f2cd228eb949a91915acd38d3eecdc9d8893dde353b603f0db7e9f6be55/cookiecutter-2.6.0.tar.gz"
-  sha256 "db21f8169ea4f4fdc2408d48ca44859349de2647fbe494a9d6c3edfc0542c21c"
+  url "https://files.pythonhosted.org/packages/92/03/f4c96d8fd4f5e8af0210bf896eb63927f35d3014a8e8f3bf9d2c43ad3332/cookiecutter-2.7.1.tar.gz"
+  sha256 "ca7bb7bc8c6ff441fbf53921b5537668000e38d56e28d763a1b73975c66c6138"
   license "BSD-3-Clause"
-  revision 10
+  revision 2
   head "https://github.com/cookiecutter/cookiecutter.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1a9a8d92358c9f266422597108b2086484d088c09f1a1cab66b89288cd87cf2d"
-    sha256 cellar: :any,                 arm64_sequoia: "99741644640c2c8e242ca82f167e84c168d87142d90a04eeff07d724241e3e9a"
-    sha256 cellar: :any,                 arm64_sonoma:  "7496091a5024306e77518c7e15c32672b582ff77d7dbcda14b75c8c54763e6b4"
-    sha256 cellar: :any,                 sonoma:        "e96031b8a8f36479c546c24a1c5d304d492bafcb4245416f4fb894b501b624fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09e31fc95a317f998cf8cffe2e7f19cfd923c576210097ecb1f78930a7041048"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e33153fe5f1de663e3cf01134d1378b318c259297a05f4d7993f81310936e39"
+    sha256 cellar: :any,                 arm64_tahoe:   "d136410d48863132c607c7484d765012d74a72912da2829a0de9d79ad9e6067c"
+    sha256 cellar: :any,                 arm64_sequoia: "f000dab727f749f951d6696621581fa3fe29f2ea6fcadc4e543aebe7e5202bd7"
+    sha256 cellar: :any,                 arm64_sonoma:  "699c5951d640648c041c47b75252db17b58b3ee7cb00bf4524c88e576149c5e4"
+    sha256 cellar: :any,                 sonoma:        "1acca062520c1db10e96237cc79b12507a77ce983457e5374986ad9116c685e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ff6d17ffcf9ccbbf7bf0fb6bbbc0988cf8387fbac905246af4f4c4d39011eca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "581a5a42d18b9c255250a206fbce6a0d2cc9092fa7ef12aca5851936292b0bbb"
   end
 
   depends_on "certifi" => :no_linkage
@@ -30,18 +30,13 @@ class Cookiecutter < Formula
   end
 
   resource "binaryornot" do
-    url "https://files.pythonhosted.org/packages/a7/fe/7ebfec74d49f97fc55cd38240c7a7d08134002b1e14be8c3897c0dd5e49b/binaryornot-0.4.4.tar.gz"
-    sha256 "359501dfc9d40632edc9fac890e19542db1a287bbcfa58175b66658392018061"
-  end
-
-  resource "chardet" do
-    url "https://files.pythonhosted.org/packages/f3/0d/f7b6ab21ec75897ed80c17d79b15951a719226b9fababf1e40ea74d69079/chardet-5.2.0.tar.gz"
-    sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
+    url "https://files.pythonhosted.org/packages/86/72/4755b85101f37707c71526a301c1203e413c715a0016ecb592de3d2dcfff/binaryornot-0.6.0.tar.gz"
+    sha256 "cc8d57cfa71d74ff8c28a7726734d53a851d02fad9e3a5581fb807f989f702f0"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "click" do
@@ -75,8 +70,8 @@ class Cookiecutter < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "python-dateutil" do
@@ -95,13 +90,13 @@ class Cookiecutter < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
+    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "six" do
@@ -131,8 +126,16 @@ class Cookiecutter < Formula
   end
 
   test do
-    system "git", "clone", "https://github.com/audreyr/cookiecutter-pypackage.git"
-    system bin/"cookiecutter", "--no-input", "cookiecutter-pypackage"
-    assert (testpath/"python-boilerplate").directory?
+    assert_match version.to_s, shell_output("#{bin}/cookiecutter --version")
+
+    system "git", "clone", "https://github.com/audreyfeldroy/cookiecutter-pypackage.git", "--depth", "1"
+
+    require "open3"
+    Open3.popen3(bin/"cookiecutter", "--no-input", "cookiecutter-pypackage") do |stdin, _stdout|
+      stdin.write "public"
+      sleep 3
+      sleep 5 if OS.mac? && Hardware::CPU.intel?
+      assert (testpath/"Python-Boilerplate").directory?
+    end
   end
 end

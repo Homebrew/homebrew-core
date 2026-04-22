@@ -6,15 +6,14 @@ class Ntopng < Formula
   license "GPL-3.0-only"
   head "https://github.com/ntop/ntopng.git", branch: "dev"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "228fe15cfa6146f9c51b05d0ae6b7545c6a5f2b5239d989858b40550121b0e20"
-    sha256 arm64_sequoia: "95bd7ecf2920b30bdd7967c334820dd8efa0f4e077488f6110e0ff72c1b6bb21"
-    sha256 arm64_sonoma:  "559da0d0cfc7f0e1e0068bda0fa3688e5862eb2af13ed074f938d1b4c3c27abd"
-    sha256 sonoma:        "1e2ae802d297666a7af70c177fd1aabdfc1e2ee5ce36d2454a2426c2275a1ce6"
-    sha256 arm64_linux:   "47de4bd1eb4ed5f348330aedb1cef65517b5fa3edcf5afead0ddc75640368580"
-    sha256 x86_64_linux:  "566aba2570620468609f295bfe3ac606aff9710f34e7f5283b9e6d6fc7c9ef1a"
+    rebuild 1
+    sha256 arm64_tahoe:   "ad21a48529fb2d9342fae2ccd7917ea2ec48db11f39f1502b295a08d0014ab0c"
+    sha256 arm64_sequoia: "8aca05d9e9e80b09d69c3840cbfca39c10ce988433b7a3855df7d6479c3598e0"
+    sha256 arm64_sonoma:  "6af02e8b862c98dcd92ecd8447f4b1b8a3ff31c4a7be6fa8c958e85b8c2402ad"
+    sha256 sonoma:        "70de138eb5a6b07cc28c555f784011e9c423cb61b0758ee24440f68debb8af8f"
+    sha256 arm64_linux:   "febfe7fde846b678bcfd8f2aefeea4d807315d4a490cb9e8daee9ae34f6c7792"
+    sha256 x86_64_linux:  "94c2efe3b6277a3f4942865476a329ae413a58c73047a9faed559344a9103654"
   end
 
   depends_on "autoconf" => :build
@@ -38,7 +37,6 @@ class Ntopng < Formula
   uses_from_macos "curl"
   uses_from_macos "expat"
   uses_from_macos "libpcap"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "zstd"
@@ -46,6 +44,7 @@ class Ntopng < Formula
 
   on_linux do
     depends_on "libcap"
+    depends_on "zlib-ng-compat"
   end
 
   resource "clickhouse-cpp" do

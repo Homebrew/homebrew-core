@@ -6,8 +6,6 @@ class Libnxml < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/bakulf/libnxml.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "4c39575bded5e30f6417654a6d1eabb5a2812401fe97ff351fb3067f76ab7a8a"
     sha256 cellar: :any,                 arm64_sequoia:  "3e49138d11e9bb15e135e9387bb4e1f1d55a7daa354b3caa245e9b25a1b5ace0"

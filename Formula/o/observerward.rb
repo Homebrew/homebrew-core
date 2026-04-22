@@ -1,21 +1,26 @@
 class Observerward < Formula
   desc "Web application and service fingerprint identification tool"
   homepage "https://blog.kali-team.cn/projects/observer_ward/"
-  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2026.1.13.tar.gz"
-  sha256 "7f15a48928617b9acd08ec189b20e9dd796830328c27f7bdea8369a5605f30de"
+  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2026.4.8.tar.gz"
+  sha256 "18135c9f93023b09efa078bb0e354ad9a31a261afbbafba17dc90dbb1a06c525"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a512214aebb7ce2c5b30521407db42d54444ffe70138d9ef5148be6256ec6797"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "321a40ced48d4388890747b981f3688e3f5a8a8d8a9d77d4f30793e3f223b3d2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95774cd0f192c59984a4342241991c4030b78fbb405edc3da5f54be2b29f295e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4b97113459bf0f3cfd930ce7108670b5669c425e9ae3bbcea8e203ba7bfd6ed1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a220e4fc24e90d8f1cc080b1cd79fc46de666a7323392cb45c0fd9c45ed54751"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2996035aa9b94a3a89a82f5fc45758a3cf1cb30fea55c7a5967e6fd7c3bd3924"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "43f8bd966feefc910a8a110507aaa8a77ab5843fb499c27841a6ee2507aa48a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9e4750a5685efe5e6fb17b607d862cf92daf81531e5b7f6d51dc877926b7319f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e47922e06279e9c0137fd86f3e2f0cbdddeb7ab029d3cf84087c43fd376f75a7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7adc3ee43dfdd1d82df1e2f33c585e30a96b3ed685d2f24182c880a86909cb51"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e88c1ae6906692f06f062a0057e9005017b404da06f8b2da548163ad5d4ab5bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa5962a6daa911d399396387816d56fae4e41bce56196219482e777d42a55a14"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     rm ".cargo/config.toml" # disable `+crc-static`

@@ -5,8 +5,7 @@ class Make < Formula
   mirror "https://ftp.gnu.org/gnu/make/make-4.4.1.tar.lz"
   sha256 "8814ba072182b605d156d7589c19a43b89fc58ea479b9355146160946f8cf6e9"
   license "GPL-3.0-only"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     rebuild 1

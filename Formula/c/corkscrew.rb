@@ -10,8 +10,6 @@ class Corkscrew < Formula
     regex(/href=.*?corkscrew[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ddf9f9bccfc3f8abdac5ab156b3adebb82d263eec75503ca53b657dba4e310f3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d17faa8d3e8eb0fe11107515daf53fd0f9d22caaaa0d32993ca6e961ee9559cf"

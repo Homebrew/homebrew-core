@@ -4,6 +4,7 @@ class AwsCCommon < Formula
   url "https://github.com/awslabs/aws-c-common/archive/refs/tags/v0.12.6.tar.gz"
   sha256 "138822ecdcaff1d702f37d4751f245847d088592724921cc6bf61c232b198d6b"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "2d0343c9653e92155e51a9ed8c832b3092f308b6f94f472f2e902c1976f3f463"

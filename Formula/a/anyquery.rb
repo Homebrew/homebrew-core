@@ -16,7 +16,9 @@ class Anyquery < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe11155b9ff95e6974a11c963eba2ccf3ee387bfb8357fe51d5793b3542223be"
   end
 
-  depends_on "go" => :build
+  # unpin Go when Anyquery supports Go 1.26
+  # (when go.mod references vitess > v23.0.2, ref https://github.com/vitessio/vitess/pull/19367)
+  depends_on "go@1.25" => :build
   depends_on "mysql-client" => :test
 
   def install

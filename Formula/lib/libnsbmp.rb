@@ -10,8 +10,6 @@ class Libnsbmp < Formula
     regex(/href=.*?libnsbmp[._-]v?(\d+(?:\.\d+)+)[._-]src\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "d75c82e5602bfb3c49ca8de06f9bb16002f10f1eb09b6c025d3a4e160f4b8aef"
     sha256 cellar: :any,                 arm64_sequoia:  "334b42b3b30917e7cb0850b079cced2c020a9ffe8389d1a703ffcd2896f64a22"

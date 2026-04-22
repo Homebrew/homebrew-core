@@ -7,8 +7,6 @@ class Phodav < Formula
   revision 1
   head "https://gitlab.gnome.org/GNOME/phodav.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "f1192115b21287b4a91568fa9257b8db536bb3529471c9fcf09da51f43408206"
     sha256 arm64_sequoia: "275e604708cdfcd2d5468532bd3ae37c7fc914f913ae2923b5c10b05d9ccab89"

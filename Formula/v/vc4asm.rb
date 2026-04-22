@@ -5,8 +5,6 @@ class Vc4asm < Formula
   sha256 "f712fb27eb1b7d46b75db298fd50bb62905ccbdd7c0c7d27728596c496f031c2"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "212c820e20fe7369665a9193ac74df93754800cd6b538a8a1b76957310a844ac"
     sha256 cellar: :any,                 arm64_sequoia:  "c66f2ce86c71a5c824c8e0f19edd39b714ae56d6f3ebdfc287fa7549e66a8f2d"

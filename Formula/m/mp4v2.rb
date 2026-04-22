@@ -5,8 +5,6 @@ class Mp4v2 < Formula
   sha256 "033185c17bf3c5fdd94020c95f8325be2e5356558e3913c3d6547a85dd61f7f1"
   license "MPL-1.1"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "bf656d8a485b0663a730368ad755d921f3456ceeca347501c8cbcc401c63bbc6"
     sha256 cellar: :any,                 arm64_sequoia:  "1a2c9a7beb75abcc15327b7b7437a831ae61855cc781e1200d11a4c1cf34a299"

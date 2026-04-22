@@ -22,6 +22,7 @@ class Tcpkali < Formula
   end
 
   deprecate! date: "2025-03-19", because: :repo_removed
+  disable! date: "2026-03-19", because: :repo_removed
 
   uses_from_macos "bison" => :build
   uses_from_macos "ncurses"

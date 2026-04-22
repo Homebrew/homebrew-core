@@ -10,11 +10,11 @@ class Tofuenv < Formula
     sha256 cellar: :any_skip_relocation, all: "3febcab9a632034fdedf2d4ae0105d4425bcdb12ac73e58b586a1ddf6db36487"
   end
 
+  uses_from_macos "jq", since: :sequoia
   uses_from_macos "unzip"
 
   on_macos do
     depends_on "grep"
-    depends_on "jq"
   end
 
   conflicts_with "opentofu", "tenv", because: "both install tofu binary"

@@ -10,8 +10,6 @@ class Mp3info < Formula
     regex(/href=.*?mp3info[._-]v?(\d+(?:\.\d+)+(?:[._-]?[a-z]\d*)?)\.(t|zip)/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1d0639d384ade218845be170da852cfc449bd37d136857ed765e42af992ca260"

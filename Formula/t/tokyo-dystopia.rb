@@ -10,8 +10,6 @@ class TokyoDystopia < Formula
     regex(/href=.*?tokyodystopia[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "a2f63111d93534d9aee115227c1f069d622d08d0df19e9d9664f653c28b60dc4"
     sha256 cellar: :any,                 arm64_sequoia:  "da35291f169e133bb8dcc321c5114ea62714f6e0eadab7a69cef121e0c76813f"
@@ -27,6 +25,10 @@ class TokyoDystopia < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "6c1c01fa3151f25a7d15fde5db6d0c5e27cf836b8b57d40c4f39bb3a82dddec7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1babf4df457924711f3ad2fc7e8f9f797950f53de9f1b740290ec1c112ca83e8"
   end
+
+  # Last release on 2010-08-01 and needs unmaintained `tokyo-cabinet`
+  deprecate! date: "2026-04-18", because: :unmaintained
+  disable! date: "2027-04-18", because: :unmaintained
 
   depends_on "tokyo-cabinet"
 

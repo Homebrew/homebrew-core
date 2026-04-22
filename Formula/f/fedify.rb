@@ -1,18 +1,18 @@
 class Fedify < Formula
   desc "CLI toolchain for Fedify"
   homepage "https://fedify.dev/cli"
-  url "https://github.com/fedify-dev/fedify/archive/refs/tags/1.10.3.tar.gz"
-  sha256 "95d0f4c9a67e634dbc1778f44e81922b8d5db005bef99e9bdd2b4bc11190c2f2"
+  url "https://github.com/fedify-dev/fedify/archive/refs/tags/2.1.8.tar.gz"
+  sha256 "657d0e22d0ebe4ea9800198f58ba1929f60cff082fe44fa20434b0a59fa98f03"
   license "MIT"
   head "https://github.com/fedify-dev/fedify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b5b1f2932ce0753a870ba00637123c45d7041aee202256029db3a8d52809fec6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "693bd4f0f3df137acb695e2600db38af77b83e27dc86af32ec2e255e31907807"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b5480d88c068f4329d7c07c53dd55bbd6781f9722990bf0221e25933444be992"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9fbc5131edb56f0e1ed8f27609713a91686363e6e125f414838a475fccf16fcb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c298f7ef863e09897125235a66214d615c87979447ed381d175229a04cdfd65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8b0838e64c1ac9f49eb1e0e01d2b4ea42e11fc6483933a7d8a1da43ebd19a48"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8f782c319d87f23d72a066ee38cdfe56917e73ac8c8b9190f0912e285c5cf49"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a53c0db339afbe02709a9ecd3d998239d8fb2f84390bebcbf9c40d3791b88cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df103a49a7fdac409c3e2d11ebf2ba2ddc81896c43d89950e06a8a99f22ce326"
+    sha256 cellar: :any_skip_relocation, sonoma:        "135fd72a24f711417b02ce27fb2270ecfac1c879b1aa7fc0abbf1cc7a1a3ef7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "66da17f906900fb2a854d076af866d44a0e10c2978863cbbba15093cdd66cb69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "043412dc8bdeefb086868fbaecfdb8071691a58eb8ad0a540dc057305b638cfd"
   end
 
   depends_on "deno" => :build
@@ -46,8 +46,7 @@ class Fedify < Formula
   end
 
   test do
-    version_output = shell_output "NO_COLOR=1 #{bin}/fedify --version"
-    assert_equal "fedify #{version}", version_output.strip
+    assert_match version.to_s, shell_output("NO_COLOR=1 #{bin}/fedify --version")
 
     json = shell_output "#{bin}/fedify lookup -e @homebrew@fosstodon.org"
     actor = JSON.parse(json)

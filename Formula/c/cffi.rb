@@ -5,6 +5,7 @@ class Cffi < Formula
   sha256 "44d1b5909021139fe36001ae048dbdde8214afa20200eda0f64c068cac5d5529"
   license "MIT"
   revision 1
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "04b0f56120f37b235dc1a8063149e279bad1cc9132727b25158393db8c930c2c"

@@ -5,8 +5,6 @@ class Nift < Formula
   sha256 "4900247b92e0ae0d124391ec710a38b322ae83170e2c39191f8ad497090ffd24"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "cffde6265d86b958248a1f0acbb45874f3319a9fed29b5bac84afc5bd1f9799e"
     sha256 cellar: :any,                 arm64_sequoia:  "ec431ecc4b58ffa4a1a11fee47560dacd95b7868b4a49510d760e63c5d509d69"

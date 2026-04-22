@@ -21,10 +21,10 @@ class OsinfoDbTools < Formula
     sha256 x86_64_linux:  "5432275a5e7c855af96a4eee2c464566ed2b46c379ad81fe86feb1f9f940fd49"
   end
 
+  depends_on "gettext" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "gettext"
   depends_on "glib"
   depends_on "json-glib"
   depends_on "libarchive"
@@ -32,6 +32,10 @@ class OsinfoDbTools < Formula
 
   uses_from_macos "pod2man" => :build
   uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   skip_clean "share/osinfo"
 

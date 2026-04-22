@@ -7,8 +7,6 @@ class Lbfgspp < Formula
   revision 1
   head "https://github.com/yixuan/LBFGSpp.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "5a7448c359aea68fd3317768eb086befc6442be56cf0d1c864d59aea9150d9da"
   end

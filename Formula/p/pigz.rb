@@ -12,18 +12,19 @@ class Pigz < Formula
     regex(/href=.*?pigz[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "826d8436f8f3d6f7ec60f78f728f966499f295539f132ae06a20532696742d99"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2136c50e0f5f4e7078f8e323aa6bfd5dbd170da137e7930f9f4a28d32be4a4e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d530c3e0e7ace1ca42ba8b4f233b42294024ca5b1d896e59d794372a447b70b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad8e22780abe73636213e792aa1d9f77593d392508b7ac45f0e0310c6f1c387b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5943909e6487fc62989be3ee2dc9788b28322f6f0025c52f59df30e3dd5e11e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6f8eefa10c0d4704e5ab22e5211d683972f25e1573618191e6d29342a838c44"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "042145d01637ec82b2da2e4c2ef05ff1391b39c5aaafdebbe46d43f2b595404a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3dfeb313ced9d0f068c33679c38a50db0a2a26a9177ffd0d6845d1320cea3879"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "671f18fa88cf17e1eed437f51b85b97ef54b0d650222d3a905d60fe4399a57f0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1b7fedaf53aad7b5d257fe1789ad82d864979a70dc6b1a2b51ca913b131c1673"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d4c423ba93d711357705b6f4bd87d39c83ec4d60a94fd0ef08a2c875532eeee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9daa1d45e359ca4ff5c166c27c17803b3218ca73446e957df017614671ee9690"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"

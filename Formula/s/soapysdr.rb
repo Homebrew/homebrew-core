@@ -14,16 +14,14 @@ class Soapysdr < Formula
     patch :DATA
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 4
-    sha256                               arm64_tahoe:   "52ad613af98da0b017164de38b0029ec486d8c3b602735ac13dee37bd06b9ef1"
-    sha256                               arm64_sequoia: "b370df36657b7a9948cfe87614c270397370abaa1ae524aed812378c45a01a2c"
-    sha256                               arm64_sonoma:  "813a78fda8de094ad4fc55f3639ccb2613093c3417d63f1365fbbbde2143f878"
-    sha256 cellar: :any,                 sonoma:        "be69465ae0ab16f994a8fa2333a6af39dda156f57502dbdc3e1f0f4556c2f975"
-    sha256                               arm64_linux:   "fd95f81a9f8ae0308000a40b1a7bf0316b86aebeec1cf94283ccefbb0a48ec7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06d821fe8e03e9746d93d7667bbb9655d3c05ee8fa1f7764447b0c8ce36592fd"
+    rebuild 5
+    sha256                               arm64_tahoe:   "d10703185cc1b8b3312bdbc0621131238980f07481bab599dcc498a06e1c1106"
+    sha256                               arm64_sequoia: "a57f1047d84abdf6272e01276e21ca325a0ca8b5aa716fba5fd91f9b4bedcf44"
+    sha256                               arm64_sonoma:  "635b13fc20043aaee3de8be3c111caef4eb8213643ea04257b6ca7834ccddd49"
+    sha256 cellar: :any,                 sonoma:        "c2b21d678a8d0d0f785d8257a32c7d48a7992adef5b6a7c14e6cd4e34d79cf3b"
+    sha256                               arm64_linux:   "b92128272614278c0799f954abebd5cb9404ded017babda7f8a5767ffb60e8de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c37220d056fd15397e731350bf2078625e70b50baf9033db994aa2a18e5f9f62"
   end
 
   depends_on "cmake" => :build
@@ -37,10 +35,13 @@ class Soapysdr < Formula
   def install
     args = %W[
       -DPYTHON_EXECUTABLE=#{which(python3)}
+      -DPYTHON3_EXECUTABLE=#{which(python3)}
       -DSOAPY_SDR_ROOT=#{HOMEBREW_PREFIX}
-      -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
     args << "-DSOAPY_SDR_EXTVER=release" if build.stable?
+
+    site_packages = prefix/Language::Python.site_packages(python3)
+    args << "-DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: site_packages)}" if OS.mac?
 
     # Workaround until next release to avoid backporting multiple commits
     if build.stable?

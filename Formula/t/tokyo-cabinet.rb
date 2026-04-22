@@ -11,27 +11,21 @@ class TokyoCabinet < Formula
     regex(/href=.*?tokyocabinet[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "5655b93d3db869cbf2abe384b76277cd015652da54ef000ddad3b78e8c7da775"
-    sha256 arm64_sequoia:  "4f3639469a608b0ad65b82a7529849eb87808348165e167cb3ff347cfb92dd54"
-    sha256 arm64_sonoma:   "2b6225400e5958eca5bc1c1b2539e4b511020af2c268b4d955f3a05bffbaa7db"
-    sha256 arm64_ventura:  "50d14af6225ba943a9fda88ddfa7527525ace16d00fa6a67bb47a58bde2bad17"
-    sha256 arm64_monterey: "8613d58abe525cbea2a46d918013fc2372666dd3a158c49d71cc44c82aaad340"
-    sha256 arm64_big_sur:  "1c4886501c3137bf93f3afcb374fd4b218a37e2aa36fb1065e43753ebbb162a9"
-    sha256 sonoma:         "c7d9ad175da2501a8249a95d77e9c755b8decd26cb744f839bdc5b17176c82a6"
-    sha256 ventura:        "520ecff48dd7c1a31ac7c3fa9c12c91804778ff921a5bae42e8076e0fb2e4fdb"
-    sha256 monterey:       "48abfb18ba86f14dd9698399b13e22771b2888077523804adfab8e6bae31b64f"
-    sha256 big_sur:        "d9f3ac52eec8c99b8b9474d5e7eb53fb9cdb012bd377ffbed78db87b0e465c47"
-    sha256 catalina:       "23694919d46c474b8c12d69d2e980d08f96f6bface62a74be7b8554de532e871"
-    sha256 arm64_linux:    "2c17d11fad21ee6b273e754d76564b0213376df0a9699f66d9a30111cc3d6c63"
-    sha256 x86_64_linux:   "14fcc181d3ded3aae77cb94d6667b04c81c2dd46981529b40c8fa765b794b98f"
+    rebuild 2
+    sha256 arm64_tahoe:   "4443340968f13e90acfd2e0491be08daf43624bb64554b72d8f36997013650de"
+    sha256 arm64_sequoia: "972d0577b287658d7e6998da98ca2ec90a4f556ac8477b6d2bf0715a9a3a53b0"
+    sha256 arm64_sonoma:  "ff7f8db793fb34cab4df2f1d8b5a5c69493c331a04f43df07d6cf4852fabc29e"
+    sha256 sonoma:        "b40efcef4f5fd2f20b089c0508f846118c2d201139cb83dfdfd66195b7268c7e"
+    sha256 arm64_linux:   "a0345079ed1d67a3d20844ebefe5b7a2140fc302824523cf7a194f9ccf848cdb"
+    sha256 x86_64_linux:  "049e05440f7039b0f3bf2bde34a891a00cac26da036d7a8cf74fae2cde43d2c8"
   end
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}"

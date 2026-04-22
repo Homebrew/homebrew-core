@@ -4,6 +4,7 @@ class Skalibs < Formula
   url "https://skarnet.org/software/skalibs/skalibs-2.14.5.1.tar.gz"
   sha256 "fa359c70439b480400a0a2ef68026a2736b315025a9d95df69d34601fb938f0f"
   license "ISC"
+  compatibility_version 1
   head "git://git.skarnet.org/skalibs.git", branch: "main"
 
   bottle do

@@ -4,6 +4,7 @@ class GumboParser < Formula
   url "https://codeberg.org/gumbo-parser/gumbo-parser/archive/0.13.2.tar.gz"
   sha256 "dbdc159dc8e5c6f3f254e50bce689dd9e439064ff06c165d5653410a5714ab66"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c7ea823bbc414304986e981cfc0cb322c6b2ecf13b337645f6a8615284529122"

@@ -4,6 +4,7 @@ class Libparserutils < Formula
   url "https://download.netsurf-browser.org/libs/releases/libparserutils-0.2.5-src.tar.gz"
   sha256 "317ed5c718f17927b5721974bae5de32c3fd6d055db131ad31b4312a032ed139"
   license "MIT"
+  compatibility_version 1
   head "git://git.netsurf-browser.org/libparserutils.git", branch: "master"
 
   livecheck do

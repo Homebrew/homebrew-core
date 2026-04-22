@@ -4,6 +4,7 @@ class Uvwasi < Formula
   url "https://github.com/nodejs/uvwasi/archive/refs/tags/v0.0.23.tar.gz"
   sha256 "cdb148aac298883b51da887657deca910c7c02f35435e24f125cef536fe8d5e1"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/nodejs/uvwasi.git", branch: "main"
 
   bottle do

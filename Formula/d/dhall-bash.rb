@@ -16,15 +16,13 @@ class DhallBash < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "16244660e90287842060815f5e5e0b3390e67a5dd18d0caa171edd9d61460666"
-    sha256 cellar: :any,                 arm64_sequoia: "61d284e40933fe164546711dc5595f5e87fb234839fb56af80bbeb360d91700d"
-    sha256 cellar: :any,                 arm64_sonoma:  "6220e81ec5cd70de07c1c7e43bdb590a0aea042298700168e6fcf6b854ba9d8f"
-    sha256 cellar: :any,                 arm64_ventura: "9e5096f50c89403fabf0797203289e090af5173c8350cc265e5e59268cece9e8"
-    sha256 cellar: :any,                 sonoma:        "0ab1b570e3c1d868934221ae92b23a84f314ee4d51c4ebd3272163488999673e"
-    sha256 cellar: :any,                 ventura:       "77529ea2f79316fd15f32850c35aae0a810ed7e38ce5c17762c4d6316be06f09"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fbf43c06b2e19ca68f0de41e156d16e9e05a98a036fc9b3236b2bcb7720b0405"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c7711cbba94bfdb4287d80b936ced23f59c77c33fd2225c86b4ecec931d1fd5"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "7f274ea970c65fd534fc7d341376d42b84b24ca994af99b98bab41e14cbe1be5"
+    sha256 cellar: :any,                 arm64_sequoia: "2f2fd79aa19aa70ee8d45f2ed0f78473063d9cfd9d308d32cebeab1bee56a9b5"
+    sha256 cellar: :any,                 arm64_sonoma:  "719ba58654cb84ab5dae98d554e6124363f0c8582c36c621d9ed26e781a167a7"
+    sha256 cellar: :any,                 sonoma:        "bd81c8c4264ef63efcdd07c59d87d413a83b83f140ef737e114eec5db7b851fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d0077fb6556ff60d8ff7fdd9ed89cc52424567bc03089237d588d8b9edb7ecf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce078653ce0eba7af9a386dea3090b7fbd36c141a08b8eb5cfff1197a77b971f"
   end
 
   depends_on "cabal-install" => :build
@@ -33,7 +31,10 @@ class DhallBash < Formula
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     if build.stable?

@@ -24,8 +24,6 @@ class Tcptraceroute < Formula
     regex(/^(?:tcptraceroute[._-])?v?(\d+(?:\.\d+)+.*)/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "3487da59a7faa8fc676d540fd1b5f310b62b845250e1916db5dfbb192a37b76f"

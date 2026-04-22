@@ -6,20 +6,21 @@ class Navi < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "164b6bc6da84bf4ba668b338c22242716f844ebb4ed90dbac98b73d7b5433926"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6a732472b8c33807c91a31262c5846ab54573065e4dd5607ebfa091e38e373a4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bcd14604b76454e6c530c032b0af690d969d956086a2c47fac647fce1f328937"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e3ed6e03a9e3872469df60473a0ffd9fe8948a291c8dc8257d1cb67ee442dad4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3a23f84baf95a5a955901f125840d05c11ecba50e7453ac0e18015471da15a2f"
-    sha256 cellar: :any_skip_relocation, ventura:       "34775384b07e23691e7e8159dd684a39b627bd2ebb77433757e6df6ac6deec99"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa4b10ede4b81b48185af35208e2dd75a196c04cac9fab7dd4eb398b5d3581c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58d36e08b9840f8a3080c62f126bb0da33f62972441ca609af73d1ae25d4bacf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b3ff7e21fcfa5d67d3f1a241c072dae09d25e53db64b17b08f32ea31af16ac5b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d1e8788887b0af9311ae2ec08e2e8b79f2c8eb956fe83c6a626428bd8f31ca52"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe900be26fc0611571f6f0234a051cea807be33f790ca5bfad20fee7f216111f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7c7f7bc05db098687b6f96f31999913ef40940ddf1261e01be3f42ab0dfb4bad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a4116fe87ca4f2a1854f6f0a00d693f3a6a4269b4d6e534d9e4a4f9d71d7f50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e26d0fbed48d505f515974efeeeee05b93e073d8b3b6241068432720fb3b6e59"
   end
 
   depends_on "rust" => :build
   depends_on "fzf"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

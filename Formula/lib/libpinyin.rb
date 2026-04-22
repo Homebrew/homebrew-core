@@ -1,9 +1,22 @@
 class Libpinyin < Formula
   desc "Library to deal with pinyin"
   homepage "https://github.com/libpinyin/libpinyin"
-  url "https://github.com/libpinyin/libpinyin/archive/refs/tags/2.10.3.tar.gz"
-  sha256 "a49286721fb2b0234d86c095db9226246b0aa4a0bb6a885d0902da2743c56476"
   license "GPL-3.0-or-later"
+
+  stable do
+    url "https://github.com/libpinyin/libpinyin/archive/refs/tags/2.10.3.tar.gz"
+    sha256 "a49286721fb2b0234d86c095db9226246b0aa4a0bb6a885d0902da2743c56476"
+
+    on_macos do
+      depends_on "berkeley-db"
+    end
+
+    on_linux do
+      # We use the older Berkeley DB as it is already an indirect dependency
+      # (glib -> python@3.y -> berkeley-db@5) and gets linked by default
+      depends_on "berkeley-db@5"
+    end
+  end
 
   # Tags with a 90+ patch are unstable (e.g., the 2.9.91 tag is marked as
   # pre-release on GitHub) and this regex should only match the stable versions.
@@ -21,6 +34,12 @@ class Libpinyin < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4bf5113220b57a9691995f825b0171c9bba1c63fd0aee0e9c6eb9c2f8023c44"
   end
 
+  head do
+    url "https://github.com/libpinyin/libpinyin.git", branch: "main"
+
+    depends_on "tkrzw"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -28,14 +47,7 @@ class Libpinyin < Formula
   depends_on "glib"
 
   on_macos do
-    depends_on "berkeley-db"
     depends_on "gettext"
-  end
-
-  on_linux do
-    # We use the older Berkeley DB as it is already an indirect dependency
-    # (glib -> python@3.y -> berkeley-db@5) and gets linked by default
-    depends_on "berkeley-db@5"
   end
 
   # The language model file is independently maintained by the project owner.
@@ -47,8 +59,26 @@ class Libpinyin < Formula
 
   def install
     resource("model").stage buildpath/"data"
-    system "./autogen.sh", "--enable-libzhuyin=yes", "--disable-silent-rules", *std_configure_args
+
+    args = %w[
+      --enable-libzhuyin=yes
+      --disable-silent-rules
+    ]
+
+    # Berkeley DB seems to be low/questionable maintenance while Kyoto Cabinet was succeeded by Tkrzw
+    if build.head?
+      args << "--with-dbm=Tkrzw"
+      ENV.append "CXXFLAGS", "-std=c++17"
+    elsif version >= "2.12"
+      odie "Switch DBM to Tkrzw! Also switch to release tarball and use ./configure in stable."
+    end
+
+    system "./autogen.sh", *args, *std_configure_args
     system "make", "install"
+  end
+
+  def caveats
+    "The formula will switch DBM to Tkrzw in version 2.12 which may impact user data."
   end
 
   test do

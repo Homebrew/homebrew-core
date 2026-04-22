@@ -7,8 +7,6 @@ class Huexpress < Formula
   revision 2
   head "https://github.com/kallisti5/huexpress.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "0e4ce00990799c34600701c248f3cf8b2e8ed560b58b8616bd63aafdc2fe3f2f"
     sha256 cellar: :any, arm64_sequoia:  "c72017994c148e0c3320a90bcadb956732c96b544def28ff398892e578922c22"

@@ -18,20 +18,18 @@ class Hashcat < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "04938ddb4f29ca141392fcbef86f0c56ef4a1ff7ee443df0dc9330bd37613458"
-    sha256 arm64_sequoia: "176202f95fd8029106c44ab68cccca4e16b1361bb57873fbef2781ac32f05246"
-    sha256 arm64_sonoma:  "491d1d4b437d54bf68ac5209b9af93d00305789ba55a1292aa3b7a9c3b019c11"
-    sha256 sonoma:        "93f83e9b2b9f140d92b8717cd06c05ebb72b8f6ab1abbe155e48a108bdb55ea8"
-    sha256 arm64_linux:   "7731ba769d810587420d468e1518c17114c9b0340fc446cb18c6898587772de5"
-    sha256 x86_64_linux:  "c6313e643cf002cf3c16b9b075fe5c01880dac49301efcad3960c5023399e322"
+    rebuild 2
+    sha256 arm64_tahoe:   "e7a4a2f834223bbd0a6cc98fa37c322c50df75e3af42106973cd015c38d80f4f"
+    sha256 arm64_sequoia: "1e52f0146178dbee305dce189b2252cc8281bedc8cefaf6f6c0772330009a285"
+    sha256 arm64_sonoma:  "a1050a21c04753c0711f77d0cba6cdff0d5df3c64a14f16132faeb9ca89833d1"
+    sha256 sonoma:        "f48e951eb2e1d4779cedf97bc64f57dc77c34aa906d17af8952fbf629ae88006"
+    sha256 arm64_linux:   "2f87ec3529e895d0023ba9aad41bfa23561ec90f7d078e118f69cf94d1ae1fac"
+    sha256 x86_64_linux:  "71e6f0aca36375f3ce64d931210cbcf6e84f28e16d96c0f7af8e80be8e169ce4"
   end
 
   depends_on "python@3.14" => :build
   depends_on "minizip"
   depends_on "xxhash"
-
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gnu-sed" => :build
@@ -41,6 +39,7 @@ class Hashcat < Formula
     depends_on "opencl-headers" => :build
     depends_on "opencl-icd-loader"
     depends_on "pocl"
+    depends_on "zlib-ng-compat"
   end
 
   def install

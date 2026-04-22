@@ -28,8 +28,6 @@ class Ekg2 < Formula
     regex(/^ekg2[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "a7cbb93dd8788ed190854be1563c1643bda0e79d4373f095ef76811c37f1fff7"

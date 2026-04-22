@@ -6,24 +6,24 @@ class RnaStar < Formula
   sha256 "3f65305e4112bd154c7e22b333dcdaafc681f4a895048fa30fa7ae56cac408e7"
   license all_of: ["MIT", "BSD-2-Clause"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce54c8718ce2f01777c22e6f7b6295570c7e4785716bfebb04a9551eb453bdb2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df53db303004a937634a3eaa227119f92eac00286bc80df0558dd1db1e5bb314"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c12dcd41638c9578c39ee0ecb0ec33996ee390690eb95d68b49f56f0f129c608"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "eef8d5c492f1e608a796350bd6a1fd0acfd46487c18ce901aeaf7aae8d570607"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b53c13aeff5e16110831413444b3bea8e6bdecbf068950a7431d8e8744f8583b"
-    sha256 cellar: :any_skip_relocation, ventura:       "bf2216ad5cce311a52543ea4e1921a203ca6c1f03ed99057f977d804ed8326c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "13e7fc7429c847374ed68269193f64d78c78359d1fd97bab32ab47d1f3f0719c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8766e41ed4f092c6fc9715603a34309012200a8db2cb2cd0bdea1c40534f64d6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3cc36219b20aabc038935df3d795f5ab8046d67f88ad40bf1e90b74f10746621"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab4489cd7b4f3d2272e70a64f88240cfa7f9502d96b483459c97900ff61f9f6c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac0c9e88bb13017f4343db7543406c58c1d3da4f836b21b14a80733dd7aa6f84"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8d1554593695865e8b97479da30e9e85969a09e3bfed7b85cd76a5fc0f92267c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a0d46c0e0cef0f5dd6eae84587faad3262e7d47bee63308663ec248b8295d2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "892ea43a227bf609b9d4f82f2c25b5a7a2ced59672133d48fbee2dd29095705f"
   end
 
   uses_from_macos "vim" => :build # needed for xxd
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

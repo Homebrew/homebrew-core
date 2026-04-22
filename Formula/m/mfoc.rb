@@ -7,8 +7,6 @@ class Mfoc < Formula
   revision 2
   head "https://github.com/nfc-tools/mfoc.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "3bc4430e432a6be762cc41bde75929ad6fe8395ce5b851fee12e161c81c6bf21"
     sha256 cellar: :any,                 arm64_sequoia:  "3b89cfda6f79a47fad9df8891458eaf4923c2c6fdea0e17a75bd5f9c1fe7fdc3"

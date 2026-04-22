@@ -6,17 +6,16 @@ class Foreman < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "961597e37878c33f9903db7e51dc9be14d5fe11434e179527f9c25a045408d7c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "961597e37878c33f9903db7e51dc9be14d5fe11434e179527f9c25a045408d7c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "961597e37878c33f9903db7e51dc9be14d5fe11434e179527f9c25a045408d7c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "961597e37878c33f9903db7e51dc9be14d5fe11434e179527f9c25a045408d7c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "961597e37878c33f9903db7e51dc9be14d5fe11434e179527f9c25a045408d7c"
-    sha256 cellar: :any_skip_relocation, ventura:       "961597e37878c33f9903db7e51dc9be14d5fe11434e179527f9c25a045408d7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "23abef518736e00d017b564a9f78b2063a0fd93825d81bf79885ff6a909cf061"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23abef518736e00d017b564a9f78b2063a0fd93825d81bf79885ff6a909cf061"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c78c793e9a91e349838d6e2d36be7f599d8a0778b5c4ce8d4d3d6fb88c6c485f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c78c793e9a91e349838d6e2d36be7f599d8a0778b5c4ce8d4d3d6fb88c6c485f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c78c793e9a91e349838d6e2d36be7f599d8a0778b5c4ce8d4d3d6fb88c6c485f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c78c793e9a91e349838d6e2d36be7f599d8a0778b5c4ce8d4d3d6fb88c6c485f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "10202c8dbc359d723a3568da5b08773c19c49439999efe557a386ce96355ad3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10202c8dbc359d723a3568da5b08773c19c49439999efe557a386ce96355ad3a"
   end
 
-  uses_from_macos "ruby"
+  depends_on "ruby"
 
   resource "thor" do
     url "https://rubygems.org/gems/thor-1.4.0.gem"
@@ -27,7 +26,6 @@ class Foreman < Formula
     ENV["GEM_HOME"] = libexec
 
     resources.each do |r|
-      r.fetch
       system "gem", "install", r.cached_download, "--ignore-dependencies",
              "--no-document", "--install-dir", libexec
     end

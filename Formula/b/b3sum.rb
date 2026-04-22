@@ -1,8 +1,8 @@
 class B3sum < Formula
   desc "Command-line implementation of the BLAKE3 cryptographic hash function"
   homepage "https://github.com/BLAKE3-team/BLAKE3"
-  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.8.3.tar.gz"
-  sha256 "5a11e3f834719b6c1cae7aced1e848a37013f6f10f97272e7849aa0da769f295"
+  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.8.4.tar.gz"
+  sha256 "b5ee5f5c5e025eb2733ae3af8d4c0e53bb66dff35095decfd377f1083e8ac9be"
   license any_of: [
     "CC0-1.0",
     "Apache-2.0",
@@ -10,12 +10,12 @@ class B3sum < Formula
   ]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6aaf982754d33580087973ca57abe9cac3e80a9555177128acfb0d172deabbb9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f33d4bcdc088033950592a36f76b8f05f9715d24443e6f77ec4f727883859680"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f4512945637551c43ecedc21c8155d7db4fd366ace20cba409d049a9d00fe39"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b268f3ce958127c16a7ea5d433c4ca3ee91d1363ea18f575d1f185610cf2b8e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "45792accea89ca0d2d227df9261cf7d894cc7aab297abf8edcb258e085c70aba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "826be694ff9a93cb3dea1f7dee19533475c00e97a7c058878ae0dd3dcfc44df1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4100532594b5001bbcd160336763bc4c8e826de7f2167a55ca8039e49bbc81d3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9796e711df22877d8220ffdec8f1f5df498b31f7379426e651f66eff1c1537c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8a6043328002eddbf20b66caf2ce882dd20edb74d2366e5239d57c274b9a2da"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ec11d828f1564a78d0b5771de10c5794cfb3816e4e44e83a6056e0bb531e1274"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "573c3fa1546591b01ea7767c27b87ad8441ac709e01114f19cf2e14c0f12da8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2585317d48c21de02b4505fb63e56921aa571b6b9f64f05cb79ad72ebe6ea032"
   end
 
   depends_on "rust" => :build

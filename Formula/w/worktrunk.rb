@@ -1,21 +1,23 @@
 class Worktrunk < Formula
   desc "CLI for Git worktree management, designed for parallel AI agent workflows"
   homepage "https://worktrunk.dev"
-  url "https://github.com/max-sixty/worktrunk/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "935a04e72df06f1d739c81e962edb205ce0b4f7352479cc3b027ae68332fa422"
+  url "https://github.com/max-sixty/worktrunk/archive/refs/tags/v0.43.0.tar.gz"
+  sha256 "e9190598a75f124e0c3fcc3c999aae38195aa2763a562a739e0974ac4071350f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/max-sixty/worktrunk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cf25422080fe5b9b2ea0ce4600fd97e34fcd1a9e7fffe109a0dd657c54f4e881"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "469553503100b134859ce67a9674c75bc2db6f2243950e9e6c93f6d1cd183f2e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3d708680b6722e0fe30412362b96a0ac9ba0ab56272f47c73f7eb8cd73ab3312"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6165dbf582a11b1939cdcc93f34e8f2c2fa984afc6e19c3fe12c474634e0f291"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7dbd599ebd8d9a4c2ae6f541fdf1a7391ef5aebaded31ca41c84832bc16bd39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1627b41dbc0768874e0bd87fadb206aa9b5fe8eef4bf001cb0da509a67e6caa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea365aeb3f11b399939d8d7804cc5c143c40c728ae008eaef8917214e211cb58"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "63161e202d2ade729f988729df170533c5d04148b95395903bbe1418dae6bb2f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f8ce447235a6d519c3700136698652d4a219de5c24e20367eeb9ad0df90fdfb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "17fb05f96ea744b150a1d8ac4451a8c3dd0ac7e5049bd3aae4cc360156f0ba3b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f093652d47a4d78ee2dbce99a834ed631365df6732a8c43feb1cd10884ac035d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d10dfe2c408aca05396f7b167d03d28f539919b7f9da30b6bda726ccbae7b691"
   end
 
   depends_on "rust" => :build
+
+  conflicts_with "wiredtiger", because: "both install `wt` binaries"
 
   def install
     system "cargo", "install", *std_cargo_args

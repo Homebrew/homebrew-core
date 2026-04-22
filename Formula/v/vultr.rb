@@ -1,19 +1,18 @@
 class Vultr < Formula
   desc "Command-line tool for Vultr services"
   homepage "https://github.com/vultr/vultr-cli"
-  url "https://github.com/vultr/vultr-cli/archive/refs/tags/v3.8.0.tar.gz"
-  sha256 "41cc0a9c62b61196802bc2105d0fd7c835eea554d8378eb84d6ce0c8c55eb16c"
+  url "https://github.com/vultr/vultr-cli/archive/refs/tags/v3.10.0.tar.gz"
+  sha256 "cc5caa50168e2dd94600e7cbb7449d1435fa6a656a641be98da483b3de871958"
   license "Apache-2.0"
   head "https://github.com/vultr/vultr-cli.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f9a74884d0432d2cc32306431969d37c16b64ed5ffa4f64834168cdf8595f808"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f9a74884d0432d2cc32306431969d37c16b64ed5ffa4f64834168cdf8595f808"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9a74884d0432d2cc32306431969d37c16b64ed5ffa4f64834168cdf8595f808"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ae0b71e0b1b478419735a43ee0bafd839a3251316e2b560ae8239775ff06edd2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3beec54204eb258eb8770196ba08264f6f011cae6bc04818b96d5e7226cc4212"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7c607a84ed880626d6a1feca8ced6fc1d13e9abcc5c6e5d50410c68bac81f07"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bb667b796bf993370f6b80bfebbae08d066690c01146058916f95d97f584e40c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f2915a7cc09f41ca33ca13795a8822494b9323137583486cf8f3af70c8398cbd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c302a8cda670f6b3dba3c5b0640165895da997dc83a3d9457cef9c5f5df83585"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bd3bf88a15aa01f5d5d710deed2950bdcfe46ef88c2c17298727399a8daad4bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e4dc6ed485efcd40a9c20ea058c29bcc97a36e5afdf2b9219032216a2288e363"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2056e0b7edc603c871ce11b932c8386f3e01ef86536e88c03371db27b2be69b0"
   end
 
   depends_on "go" => :build

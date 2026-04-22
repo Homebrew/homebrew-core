@@ -1,35 +1,22 @@
 class Libaegis < Formula
   desc "Portable C implementations of the AEGIS family of encryption algorithms"
   homepage "https://github.com/aegis-aead/libaegis"
-  url "https://github.com/aegis-aead/libaegis/archive/refs/tags/0.9.1.tar.gz"
-  sha256 "9dcda145c57542f63d28921ba8754e0ede9e782f1dac48de4db0151175fe3099"
+  url "https://github.com/aegis-aead/libaegis/archive/refs/tags/0.10.1.tar.gz"
+  sha256 "0f3350dabf1d54ddb94a34a8fc8509ba21cb8431a841a98be78ec274238a86fc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "960c1aa2f45bc307521bc1434647c73b9c3e089d0246f2f2a5e237fad4f7b23c"
-    sha256 cellar: :any,                 arm64_sequoia: "bcdd097645b631e3955794978550920ed1e1c97ae3682c820da55f4dc7cde533"
-    sha256 cellar: :any,                 arm64_sonoma:  "0b0fab071a81b639fcd1b894a7470ab06122de773c0a0dd8b7ee6ab354a49572"
-    sha256 cellar: :any,                 sonoma:        "78c929858c9e8964a8e5a64a12fa42e51512d6d21bd071d00d9a65702264945d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7fdaa1455da818e47413034bb16970b9cf3559a679e0868b95623d97e1b0363"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b17d36c21070888ba219d5c82d9c178366c92217e16602e214b59655fc8d4451"
+    sha256 cellar: :any,                 arm64_tahoe:   "21cc2428570e656c2251478d4c04be8a9fd2322927f022a37d2b001f56fa05c8"
+    sha256 cellar: :any,                 arm64_sequoia: "683b9f5c7e1a6c53103d1a684071b12f346adb89a26c33c5ee5973acb7e1f931"
+    sha256 cellar: :any,                 arm64_sonoma:  "bf72aec5302129e7611e834c76775e765367a0d7b29cd333b73f7b2e125dc380"
+    sha256 cellar: :any,                 sonoma:        "80d1d09122b433ad4743f5db81152e8c353598c978433f5bfb2e4daf006fd3f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "224df5254d16376f022ba76dc3027f3ca687e5a8f2f26c8c12b0823b8f99f565"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d90673a5ccff080cf7f36daa9cdf4231df0e11525a7e4a67e09f602f589d6a4a"
   end
 
   depends_on "cmake" => :build
 
-  on_arm do
-    on_linux do
-      depends_on "llvm" => :build
-    end
-
-    fails_with :gcc do
-      version "12"
-      cause "error: inlining failed in call to 'always_inline' 'veor3q_u8'"
-    end
-  end
-
   def install
-    ENV.llvm_clang if OS.linux? && Hardware::CPU.arm?
-
     # The library contains multiple implementations, from which the most optimal is
     # selected at runtime, see https://github.com/aegis-aead/libaegis/blob/main/src/common/cpu.c
     ENV.runtime_cpu_detection

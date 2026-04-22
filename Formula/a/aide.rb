@@ -6,12 +6,13 @@ class Aide < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1b824511e574b671dda7775cbdad34a85c266b5a0ace089f4f89dff39d2de0f3"
-    sha256 cellar: :any,                 arm64_sequoia: "c67d531ee376c102f48595f783ef7d3cad7a2eae40e0e61f8560a9f8c8ea9c0f"
-    sha256 cellar: :any,                 arm64_sonoma:  "db187e522297a83172d1be7002d7883d6789033fb0cace18819f4c84cfbecdc4"
-    sha256 cellar: :any,                 sonoma:        "c822520dc070ec4bf8d031f5e70b6a40cc0878be9aa0c332bfa4fa9c9813805f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b37079e50567281c1c16aec7437e4030b721957e99fde442d969cd401c5c64e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d55e9f7050b86e90ce4e45358f9c5aadbee151bc541d934342b9c885be6ec227"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e84fe8e7cdbd88400214740e38b924ff7bdfe449b2ef2de235d4e9751e3e9225"
+    sha256 cellar: :any,                 arm64_sequoia: "810d048246d7ce9e0ddb19468037f5469af08414ab9fcfa121c0489eb0214958"
+    sha256 cellar: :any,                 arm64_sonoma:  "b65c8a523b64e3895a18a94e79c9edf0ce7190bccd07fed057671c6e3f8ca81e"
+    sha256 cellar: :any,                 sonoma:        "4ea8bb4acbd0926da91bdd8ee2ed6f6adea517aa51a3abce5f62e248425f2a89"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2f434138bea735edc207d22050845a60d34b494161a7d2f339bad6c11acba8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd4e10567325568eadfb6dcde6da800b5a682212bddc7a878554fccbdb251582"
   end
 
   head do
@@ -31,7 +32,10 @@ class Aide < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with cask: "aide-app"
 

@@ -1,10 +1,16 @@
 class Vice < Formula
   desc "Versatile Commodore Emulator"
   homepage "https://sourceforge.net/projects/vice-emu/"
-  url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.10.tar.gz"
-  sha256 "8e5bac18cbcb9f192380ad3ef881f8790f5b75c41d7b3da65d831985d864d6d1"
   license "GPL-2.0-or-later"
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.10.tar.gz"
+    sha256 "8e5bac18cbcb9f192380ad3ef881f8790f5b75c41d7b3da65d831985d864d6d1"
+
+    # Backport of https://sourceforge.net/p/vice-emu/code/46032/
+    patch :DATA
+  end
 
   livecheck do
     url :stable
@@ -12,12 +18,13 @@ class Vice < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "72d2956c691be19c7fd2d3cabf5bdbdfeba7e3f82f025f6084463190f27d4b60"
-    sha256 arm64_sequoia: "0aca55924f4d7159a30dd60eff038d3a6d2c16fc001a637629953e841a1ddd72"
-    sha256 arm64_sonoma:  "d1c1f2e7b41ef6bce878be69e1d6f8593a0b3ffee382ec723a503876534c0687"
-    sha256 sonoma:        "f32364d8cd6e0d0f3c31c8b91b1c82580c3876c71119ceb2ec846b912b1976ac"
-    sha256 arm64_linux:   "d547ce42a42763a57e038f1a5380993add37ad9862474798d07f79efbfb1937e"
-    sha256 x86_64_linux:  "a51a3fefb5be0361e45f40723625546194d48fdab926b0ded6ff7cad886d84cb"
+    rebuild 1
+    sha256 arm64_tahoe:   "6418080055eb645bc56525d0d902c9df649addb24ff8cef9756c149e6cfdbb29"
+    sha256 arm64_sequoia: "f174235f11f4a31dbcfe8e5d1ca149c2b0b925db9783b35d82fb1a63e6d7c664"
+    sha256 arm64_sonoma:  "eefe51be44c3fe3f8e82fdcbd5ece73f7ca1d00e4b6d6da3fdf090fc62defecb"
+    sha256 sonoma:        "58fd2917eb22933c25ee8584e29972b2f6cf7b79f1a8acf050db0a570f6875f3"
+    sha256 arm64_linux:   "1e99deba75899f6d0dfe9e4f0a85f3a8b1fecb983f6a4048c0c47f4aea7d82e3"
+    sha256 x86_64_linux:  "76eb6cfb7a1b879a8c6ee4fa2fdcfd72312d646b574262d8a48a1742fbb5c8b0"
   end
 
   depends_on "autoconf" => :build
@@ -26,7 +33,6 @@ class Vice < Formula
   depends_on "pkgconf" => :build
   depends_on "texinfo" => :build
   depends_on "xa" => :build
-  depends_on "yasm" => :build
 
   depends_on "adwaita-icon-theme"
   depends_on "at-spi2-core"
@@ -37,17 +43,14 @@ class Vice < Formula
   depends_on "glew"
   depends_on "glib"
   depends_on "gtk+3"
-  depends_on "lame"
   depends_on "libogg"
   depends_on "libpng"
-  depends_on "librsvg"
   depends_on "libvorbis"
   depends_on "pango"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -61,6 +64,7 @@ class Vice < Formula
     depends_on "libx11"
     depends_on "mesa"
     depends_on "pulseaudio"
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -86,3 +90,15 @@ class Vice < Formula
     assert_match "Initializing chip model", output
   end
 end
+
+__END__
+--- a/src/arch/shared/macOS-launcher.c
++++ b/src/arch/shared/macOS-launcher.c
+@@ -26,6 +26,7 @@
+ #include <unistd.h>
+ #include <libgen.h>
+ #include <limits.h>
++#include <mach-o/dyld.h>
+ 
+ int main(int argc, char *argv[])
+ {

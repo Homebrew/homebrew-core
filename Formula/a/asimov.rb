@@ -6,8 +6,6 @@ class Asimov < Formula
   license "MIT"
   head "https://github.com/stevegrunwell/asimov.git", branch: "develop"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "86f8b1f739784ed4e90e99090a27454e9b2852787fe6110f9bf15b991e3fe4c4"

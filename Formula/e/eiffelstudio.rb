@@ -14,7 +14,7 @@ class Eiffelstudio < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "f14da97c4684f2384c2d68dab556ea970b6191e8995634a31707e5a14bfb85a1"

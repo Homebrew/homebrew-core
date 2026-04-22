@@ -4,6 +4,7 @@ class Appstream < Formula
   url "https://github.com/ximion/appstream/archive/refs/tags/v1.1.2.tar.gz"
   sha256 "564ec87b16e9e4ee81fb021e612250fd27f3a3ecd31c209a5dd1ff59def3022d"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 arm64_tahoe:   "f2c581be46ed6b1247e389b64e1ad6362873ab8c03302cbf0dedc0120ab92299"

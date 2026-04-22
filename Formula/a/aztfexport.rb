@@ -7,8 +7,6 @@ class Aztfexport < Formula
   license "MPL-2.0"
   head "https://github.com/Azure/aztfexport.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "17d6ac76357f0d14269f333ba6d24a2824d5b1be8e44656cdf2baec885a57f03"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "17d6ac76357f0d14269f333ba6d24a2824d5b1be8e44656cdf2baec885a57f03"

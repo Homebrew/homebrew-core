@@ -2,10 +2,11 @@ class RocqElpi < Formula
   desc "Elpi extension language for Rocq"
   homepage "https://github.com/LPCIC/coq-elpi"
   # Update resources based on https://github.com/LPCIC/coq-elpi/blob/v#{version}/rocq-elpi.opam#L18-L26
-  url "https://github.com/LPCIC/coq-elpi/releases/download/v3.2.0/rocq-elpi-3.2.0.tar.gz"
-  sha256 "46e2e9baa79c7376cf1afb132a6aa9edc256e9c386d0a5f7ddef5fa136e98759"
+  url "https://github.com/LPCIC/coq-elpi/releases/download/v3.3.1/rocq-elpi-3.3.1.tar.gz"
+  sha256 "97468eea82299c7276ea5e1047342e8897de5a437a357e595a5728183ea66721"
   license "LGPL-2.1-or-later"
   revision 1
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -13,12 +14,12 @@ class RocqElpi < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "2da325e513a39adb79ecb5e8cf05a79312ef1d1dd61153418e31710a0d892e8d"
-    sha256 arm64_sequoia: "92c552c672119f646308d2d44c912d9d615a3c23878489d3a0f12f7c8cd3aec8"
-    sha256 arm64_sonoma:  "d251297888afd3d1991a0c2d2cd0c5efb1d5655edb4ad267999ec0a5eb288361"
-    sha256 sonoma:        "61059ec4126dfde0143cd76d3cd31f2b2618edf1f47afb3654f91bf8d69072b3"
-    sha256 arm64_linux:   "2404e71feb1d66bb5ec3df4045600f92aac10da7a077087c34ce452e5bc6db9f"
-    sha256 x86_64_linux:  "c312095185bdfffa85a5d821e1685103c520d674c450211c4cf21306937e4e48"
+    sha256 arm64_tahoe:   "bf16e11e81aed811ff3370122873ec135f0476d5330b19b23d7739e170bf6713"
+    sha256 arm64_sequoia: "5f85a3d033ed19eb30ccf6e830beafeebcb7e103c7499ba6286499f09e91250b"
+    sha256 arm64_sonoma:  "633a069ba51abb921442b4e1595ed42afe8b04457642fb8dbec23bc4538a8012"
+    sha256 sonoma:        "f97723ee6985064bae456a0ac66f9a1aa2a4c6bce468b9c7a9c8f2d43154a390"
+    sha256 arm64_linux:   "f41e452874613a8407aa014a926e1d5f9ff9bbfd602f915012f4e4cbf817dd00"
+    sha256 x86_64_linux:  "e43ac552f0e02fc52356122e1069a60266d814aff7082300e4869bbad7d64259"
   end
 
   depends_on "dune" => :build
@@ -32,8 +33,8 @@ class RocqElpi < Formula
   # The result is similar to using `--deps-only` in other formulae. We can't
   # run that here as it installs a duplicate copy of `rocq`.
   resource "elpi" do
-    url "https://raw.githubusercontent.com/LPCIC/elpi/refs/tags/v3.3.1/elpi.opam"
-    sha256 "aca7918b921d7cd029e3d484d27ebcf2ba4eb5fea691deada7da2d8f7632e381"
+    url "https://raw.githubusercontent.com/LPCIC/elpi/refs/tags/v3.6.1/elpi.opam"
+    sha256 "24e253b1cd5afb678f0f1e0d7f340ac3c549cf974a5c029a402c2fab5d582635"
   end
 
   resource "ppx_optcomp" do

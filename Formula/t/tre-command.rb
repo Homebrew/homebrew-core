@@ -6,8 +6,6 @@ class TreCommand < Formula
   license "MIT"
   head "https://github.com/dduan/tre.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "61124e9bd9782b9ddfa36f838995411afa0d901063b33eaf25e527c5e63b7b8d"

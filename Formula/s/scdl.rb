@@ -3,24 +3,38 @@ class Scdl < Formula
 
   desc "Command-line tool to download music from SoundCloud"
   homepage "https://github.com/scdl-org/scdl"
-  url "https://files.pythonhosted.org/packages/1f/0f/48fbebdf53bb5a82a55a424aef30d929bbe4a2fa01804339b690393e05e7/scdl-3.0.3.tar.gz"
-  sha256 "087220a10d5a30388f4a7c9b927af8f6d0ddcb7d0c3fd154788e947df7b15ce3"
+  url "https://files.pythonhosted.org/packages/29/68/602ea370bb383a043f577787a4bbfd9f4e193ffcbe1a7b6325e37f126a08/scdl-3.0.4.tar.gz"
+  sha256 "afb72fb28293584d16fe96e399b686aab6bdfaa6f5303c5fd81e42feb76b09d5"
   license "GPL-2.0-only"
   head "https://github.com/scdl-org/scdl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2731d2c780fd12b4a5d8886b630ddd7cdedc8e1f98124997bbc4c6fabab81e8b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8c53dd9bca484cb1314f2b245366cfe2827398fd37cb90825dfdf7c33b124834"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "50aade0c02039ee017426aaae3aaecd5a1317ab9a2ca43760893c30871369024"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce7782e4ea3d28c9388ccfad4175ecc41fd38b94e9b05cdf21ac4e99d39075a0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bf0119c66fbca86e2385c89eaa216a3b7f28e666c6651a060ca0290fff64cec2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60ab05fbd09e5ab81f729edd62c934749e68a50726bf0fc0ef79dce5022c697a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "440a651fb52aa6dbfea3b5e05f3127d22df5d75092933d31889233f64dc5ff39"
   end
 
   depends_on "certifi" => :no_linkage
+  depends_on "cffi" => :no_linkage
   depends_on "ffmpeg"
   depends_on "python@3.14"
 
-  pypi_packages exclude_packages: "certifi"
+  pypi_packages exclude_packages: %w[certifi cffi]
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
     sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+  end
+
+  resource "curl-cffi" do
+    url "https://files.pythonhosted.org/packages/9b/c9/0067d9a25ed4592b022d4558157fcdb6e123516083700786d38091688767/curl_cffi-0.14.0.tar.gz"
+    sha256 "5ffbc82e59f05008ec08ea432f0e535418823cda44178ee518906a54f27a5f0f"
+
+    # Backport of upstream fix for v0.14.0. upstream pr ref, https://github.com/lexiforest/curl_cffi/pull/697
+    patch :DATA
   end
 
   resource "dacite" do
@@ -69,8 +83,8 @@ class Scdl < Formula
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/14/77/db924ebbd99d0b2b571c184cb08ed232cf4906c6f9b76eed763cd2c84170/yt_dlp-2025.12.8.tar.gz"
-    sha256 "b773c81bb6b71cb2c111cfb859f453c7a71cf2ef44eff234ff155877184c3e4f"
+    url "https://files.pythonhosted.org/packages/58/d9/55ffff25204733e94a507552ad984d5a8a8e4f9d1f0d91763e6b1a41c79b/yt_dlp-2026.2.21.tar.gz"
+    sha256 "4407dfc1a71fec0dee5ef916a8d4b66057812939b509ae45451fa8fb4376b539"
   end
 
   def install
@@ -85,3 +99,120 @@ class Scdl < Formula
     assert_match "[download] 100%", output
   end
 end
+
+__END__
+diff --git a/libs.json b/libs.json
+index 5d63db1..03c334d 100644
+--- a/libs.json
++++ b/libs.json
+@@ -30,8 +30,10 @@
+         "system": "Darwin",
+         "machine": "x86_64",
+         "pointer_size": 64,
+-        "libdir": "/Users/runner/work/_temp/install/lib",
++        "libdir": "",
+         "sysname": "macos",
++        "link_type": "static",
++        "obj_name": "libcurl-impersonate.a",
+         "so_name": "libcurl-impersonate.4.dylib",
+         "so_arch": "x86_64"
+     },
+@@ -39,8 +41,10 @@
+         "system": "Darwin",
+         "machine": "arm64",
+         "pointer_size": 64,
+-        "libdir": "/Users/runner/work/_temp/install/lib",
++        "libdir": "",
+         "sysname": "macos",
++        "link_type": "static",
++        "obj_name": "libcurl-impersonate.a",
+         "so_name": "libcurl-impersonate.4.dylib",
+         "so_arch": "arm64"
+     },
+diff --git a/scripts/build.py b/scripts/build.py
+index f40a6f0..ed17fdf 100644
+--- a/scripts/build.py
++++ b/scripts/build.py
+@@ -50,10 +50,12 @@ def detect_arch():
+ 
+ arch = detect_arch()
+ print(f"Using {arch['libdir']} to store libcurl-impersonate")
++obj_name = arch.get("obj_name", arch["so_name"])
++so_arch = arch.get("arch", arch["so_arch"])
+ 
+ 
+ def download_libcurl():
+-    if (Path(arch["libdir"]) / arch["so_name"]).exists():
++    if (Path(arch["libdir"]) / obj_name).exists():
+         print(".so files already downloaded.")
+         return
+ 
+@@ -63,7 +65,7 @@ def download_libcurl():
+     url = (
+         f"https://github.com/lexiforest/curl-impersonate/releases/download/"
+         f"v{__version__}/libcurl-impersonate-v{__version__}"
+-        f".{arch['so_arch']}-{sysname}.tar.gz"
++        f".{so_arch}-{sysname}.tar.gz"
+     )
+ 
+     print(f"Downloading libcurl-impersonate from {url}...")
+@@ -86,6 +88,10 @@ def download_libcurl():
+ def get_curl_archives():
+     print("Files for linking")
+     print(os.listdir(arch["libdir"]))
++    if arch["system"] == "Darwin" and arch.get("link_type") == "static":
++        return [
++            f"{arch['libdir']}/{obj_name}",
++        ]
+     if arch["system"] == "Linux" and arch.get("link_type") == "static":
+         # note that the order of libraries matters
+         # https://stackoverflow.com/a/36581865
+@@ -130,9 +136,11 @@ def get_curl_libraries():
+             "iphlpapi",
+             "cares",
+         ]
+-    elif arch["system"] == "Darwin" or (
+-        arch["system"] == "Linux" and arch.get("link_type") == "dynamic"
+-    ):
++    elif arch["system"] == "Darwin":
++        if arch.get("link_type") == "dynamic":
++            return ["curl-impersonate"]
++        return []
++    elif arch["system"] == "Linux" and arch.get("link_type") == "dynamic":
+         return ["curl-impersonate"]
+     else:
+         return []
+@@ -142,6 +150,15 @@ ffibuilder = FFI()
+ system = platform.system()
+ root_dir = Path(__file__).parent.parent
+ download_libcurl()
++extra_objects = get_curl_archives()
++if system == "Darwin" and arch.get("link_type") == "static":
++    extra_objects = []
++    extra_link_args = [
++        f"-Wl,-force_load,{arch['libdir']}/{obj_name}",
++        "-lc++",
++    ]
++else:
++    extra_link_args = ["-lstdc++"] if system != "Windows" else []
+ 
+ 
+ ffibuilder.set_source(
+@@ -151,7 +168,7 @@ ffibuilder.set_source(
+     """,
+     # FIXME from `curl-impersonate`
+     libraries=get_curl_libraries(),
+-    extra_objects=get_curl_archives(),
++    extra_objects=extra_objects,
+     library_dirs=[arch["libdir"]],
+     source_extension=".c",
+     include_dirs=[
+@@ -165,7 +182,7 @@ ffibuilder.set_source(
+     extra_compile_args=(
+         ["-Wno-implicit-function-declaration"] if system == "Darwin" else []
+     ),
+-    extra_link_args=(["-lstdc++"] if system != "Windows" else []),
++    extra_link_args=extra_link_args,
+ )
+ 
+ with open(root_dir / "ffi/cdef.c") as f:

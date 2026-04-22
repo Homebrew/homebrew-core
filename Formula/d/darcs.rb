@@ -6,13 +6,13 @@ class Darcs < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "60ea4e045b5df028037e96e75d87ec49abf683f86fe06783a62c9252c12b6857"
-    sha256 cellar: :any,                 arm64_sequoia: "c6e054554c172fd77903e34d991250008b7189cc169fb598adf6bf9a4b5c956c"
-    sha256 cellar: :any,                 arm64_sonoma:  "fc15e6c6b4f25d8bc96517ca1fc1c03fecf6e5bb344a40e7b39c467507c9ab5f"
-    sha256 cellar: :any,                 sonoma:        "a9a5404dcb578f8169bc4c640ca8eb7c4ee85bc2165eadb15c6b3abcc80ebcc6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b59ab9ff70e3a68a4e48f44070a4f9a2cc79270aa9678b90138b913fb4b00ac6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "038ccd3331bc1203def1a825cbf497efd76069efea5d45fa4a2a3fb40badbd6c"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "b136e4dddca375c9cbbcc9a7dbb428e39d76e5281efd34bf6f8d0242386d9aef"
+    sha256 cellar: :any,                 arm64_sequoia: "aa20414a1524f322745264585f1b7e4ab9c3eb7bd5a0e41bff3f5bb8f121df3d"
+    sha256 cellar: :any,                 arm64_sonoma:  "e5d6d511c4cbbbdc6e7d7e79f02315cd5eae3b6e5c791599b20ebecb401cdf20"
+    sha256 cellar: :any,                 sonoma:        "9735bb1d1d9a86199a42b26815311db4f9c1953e1329ffe2ded96a6a14437f38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "025db6a2cfdc508f1acf571bc802f4d93519b4877a79869b826427d83b2d5b83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d38c3251fefc0ff7e1dfbdf9ed4455eac8b4a001a26a1dc7cfeda90c646f7717"
   end
 
   depends_on "cabal-install" => :build
@@ -21,7 +21,10 @@ class Darcs < Formula
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Backport fixes for newer GHC[^1] and Cabal[^2]. Darcs uses a different
   # patch file format and cannot be applied with the external patch DSL.

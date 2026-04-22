@@ -14,8 +14,6 @@ class Rinetd < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "ac09912351ca2587bbea4572cbc2d5101d93b14a1ccf925cff8cfa83aedf5128"
@@ -44,6 +42,10 @@ class Rinetd < Formula
     inreplace "Makefile", "rinetd.conf", "rinetd.conf.example"
 
     system "make", "install"
+  end
+
+  service do
+    run [opt_sbin/"rinetd", "-c", etc/"rinetd.conf", "-f"]
   end
 
   test do

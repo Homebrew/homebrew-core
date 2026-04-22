@@ -6,8 +6,6 @@ class Uptoc < Formula
       revision: "30266b490379c816fc08ca3670fd96808214b24c"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a3d7a5541827372a2aae8b7feafc0f335b732fd0697fb2cf1bd608c493b53662"

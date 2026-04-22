@@ -6,8 +6,6 @@ class Fpp < Formula
   license "MIT"
   head "https://github.com/facebook/pathpicker.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "3cd7e3e25d729646c8cbb993eaa2c3d517dc128693dcdbc39bd1362c11429390"

@@ -7,8 +7,6 @@ class Httpstat < Formula
   sha256 "56c45aebdb28160dd16c73cf23af8208c19b30ec0166790685dfec115df9c92f"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "4c6ac7e7f5619376d294d7921048b7bfc2745c280518b2ce977f8091d5536ef9"

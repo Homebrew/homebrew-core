@@ -6,8 +6,6 @@ class Jinx < Formula
   license "MIT"
   head "https://github.com/JamesBoer/Jinx.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1b79fa4e492e378b7efebc2117fc5842ce1dcd57180e332a2eb6ce00b1915c16"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "640fd3707ccc9262904729a97da5789a22e9cb46c658b7d20aecbb323749a1a2"

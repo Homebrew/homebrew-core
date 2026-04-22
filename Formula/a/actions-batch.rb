@@ -6,8 +6,6 @@ class ActionsBatch < Formula
   license "MIT"
   head "https://github.com/alexellis/actions-batch.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "59536a5a9f181ae349d14c6c2b55d6a8e022365f1ae425321e6ceccb43d9f4b5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "275c7fbcf663d2acb91d05bde500b7138a1cb7f5df5f1247c887ca7bbe823019"

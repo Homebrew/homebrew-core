@@ -5,8 +5,6 @@ class Perceptualdiff < Formula
   sha256 "0dea51046601e4d23dc45a3ec342f1a305baf3bf3328e9ccdae115fe1942f041"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "03e7c420c4d2142cbec50a5ff677801f9a2ffef94cfdcb96715cfd88eca62667"
     sha256 cellar: :any,                 arm64_sequoia: "69f5e86989148e15fdca126111c1070bb23777eabadd346f8e735b6cedc86f5a"

@@ -10,9 +10,9 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://ftp.osuosl.org/pub/mutt/mutt-2.3.0.tar.gz"
-  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.3.0.tar.gz"
-  sha256 "5d5ebc40843f7156d5ede30e50016798ac7336467f7ad347e716510516cc2130"
+  url "https://ftp.osuosl.org/pub/mutt/mutt-2.3.1.tar.gz"
+  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.3.1.tar.gz"
+  sha256 "470d7b0e3d134a05fb8064dedd74771b06bcd639c80fccd7773dc322aafbb7b6"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -21,12 +21,13 @@ class Mutt < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "40282c914f9881dde7e3d5030f63fde50c6847c0e750a0a8d2217d504d8f3218"
-    sha256 arm64_sequoia: "a14ee9f45c5cc72cf0ee0507a4ace0d88ab013ab6fd6a7f4d9c8c824ad793fdb"
-    sha256 arm64_sonoma:  "a725f196217b3c395bff34ef5866c3781529dc0089abbb280cc18f0f93ba9726"
-    sha256 sonoma:        "7d2853011485fd5d5c9439661e9ba8f2d5e9064e8d0d41528b15f46b96237267"
-    sha256 arm64_linux:   "0e0b9a0548c5d0c56ec2e27f105f78b3ea44acb3a472ade5501cf7cc87136619"
-    sha256 x86_64_linux:  "7859bd0243233d734331c22984cca2e6c3529e308878a8a4d9f82a5436217e9e"
+    rebuild 1
+    sha256 arm64_tahoe:   "7b3f6bd8f446e44e5f3bc416d76ebddb6a1fc2aa5f0d0a90f658456c19c8a3c7"
+    sha256 arm64_sequoia: "682e5ff1b3de2927ca3b2392f9bb31d9512ba53d670a4d1443cabb95c705d5f9"
+    sha256 arm64_sonoma:  "307538a7057f977b2e1cf2dc58201b3ed4c5e61bf893eb00f8a3b8a43642b6a0"
+    sha256 sonoma:        "96adf1eaa6932024d451badf4514fc857583552f21d6c93d4e04bacd9558d659"
+    sha256 arm64_linux:   "aefee900cfcc4426a648d15d9e5384d9e7c555d4da2353280f0d1e05260cbbe6"
+    sha256 x86_64_linux:  "034e669358e9711e96af30a0f01e0747d8fea84f53a39d3865fba081f25e8644"
   end
 
   head do
@@ -43,18 +44,21 @@ class Mutt < Formula
   depends_on "gpgme"
   depends_on "libgpg-error"
   depends_on "libidn2"
+  depends_on "lmdb"
   depends_on "ncurses"
   depends_on "openssl@3"
-  depends_on "tokyo-cabinet"
 
   uses_from_macos "bzip2"
   uses_from_macos "cyrus-sasl"
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
     depends_on "libunistring"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "tin", because: "both install mmdf.5 and mbox.5 man pages"
@@ -63,6 +67,10 @@ class Mutt < Formula
     user_in_mail_group = Etc.getgrnam("mail").mem.include?(ENV["USER"])
     effective_group = Etc.getgrgid(Process.egid).name
 
+    # NOTE: For hcache backend choice:
+    # * Kyoto Cabinet, Tokyo Cabinet, QDBM and Berkeley DB may be unmaintained or low maintenance
+    # * Remaining options are GDBM and LMDB. NeoMutt (fork) now recommends LMDB. Gentoo also
+    #   recommends LMDB as fastest for Mutt, https://wiki.gentoo.org/wiki/Mutt#Header_cache_backends
     args = %W[
       --disable-warnings
       --enable-gpgme
@@ -73,9 +81,9 @@ class Mutt < Formula
       --enable-smtp
       --with-gss
       --with-idn2
+      --with-lmdb
       --with-sasl
       --with-ssl=#{Formula["openssl@3"].opt_prefix}
-      --with-tokyocabinet
     ]
 
     configure = build.head? ? "./prepare" : "./configure"

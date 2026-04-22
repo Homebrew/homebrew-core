@@ -1,8 +1,8 @@
 class Kubo < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://docs.ipfs.tech/how-to/command-line-quick-start/"
-  url "https://github.com/ipfs/kubo/archive/refs/tags/v0.39.0.tar.gz"
-  sha256 "eb46fd70743049384a1b3ea8b07fa9c80db10811bc0bc64f0ba7e52d6c9d60bf"
+  url "https://github.com/ipfs/kubo/archive/refs/tags/v0.40.1.tar.gz"
+  sha256 "befa8943654245abdb501535184cfe0789c14f22e59b60c80d744c9e35916147"
   license all_of: [
     "MIT",
     any_of: ["MIT", "Apache-2.0"],
@@ -15,21 +15,15 @@ class Kubo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6fafb4b11cd40c9552ff50782000b4cd3582b742995d27da775c44e8a9ebee94"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e55dad3da85e1983f50f3039dc46a88e8ddb449a7850593e2aff3009f2137593"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fdef8ec73d0ce0f5a690a229930c8d9648c3598402aed43dbdb6ff60745ceafc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9ea3fe7f705fcf2425ec60f485b7df938c3f2a5f6c3096d11150f041e2ec1b8f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "05f0196e054936ae401b64ec8541c615c4319aa608e7b4684b9d672b6c8ab92a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9f9e599789c54d8b74054a8701d927601d76f7440e49503035c0092e752585b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe00345823a6c255642b65123f7b0ffc8cf0a989f8c013915da7dc7c8b2efdd5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d376cfb04356a6c2401a1a7768055935f8bb265da0896f425bff7161bdd2c64e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "418f8ab5690bfd37b57d6ea51b4d8e32b9624536168bc4e81acda77ab3b51810"
+    sha256 cellar: :any_skip_relocation, sonoma:        "38af8cd0ed7cff415c0dceda1ec96a7281457d8065b8acc7673005b1f534e0bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2865ccd92e5989e7e8c0e5347bcac42770b299c06067ebc7fc16c6e29568c404"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b6cf942cee0b91ebdd2722b03ea2818b90dd38b411f95620bd816552a3c2347"
   end
 
   depends_on "go" => :build
-
-  # bump cockroachdb/swiss for Go 1.26 support, upstream pr ref, https://github.com/ipfs/kubo/pull/11124
-  patch do
-    url "https://github.com/ipfs/kubo/commit/ecf967de3a0ac32c0e2c4f2391518b64741376df.patch?full_index=1"
-    sha256 "2ed099b25219f9fde686461e684ff8fbe26fb8ab66b2e6cb213975e84e82dee1"
-  end
 
   def install
     ldflags = "-s -w -X github.com/ipfs/kubo.CurrentCommit=#{tap.user}"

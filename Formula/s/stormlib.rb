@@ -7,18 +7,22 @@ class Stormlib < Formula
   head "https://github.com/ladislav-zezula/StormLib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "63610ef760e7c3bed0a6611a7801294dc6763ecd43d76f698f1c8ccd1a9f24f7"
-    sha256 cellar: :any,                 arm64_sequoia: "36f84767d28782b692fad1e3be42f65527e78fd6015172aadf924f41823b587d"
-    sha256 cellar: :any,                 arm64_sonoma:  "0178c3c24eaf5bfbd7b636b12f33d8d2260fc6050d083639eea7ba08cab97467"
-    sha256 cellar: :any,                 sonoma:        "e54dfc0899f388dd5680b107b0cb87af0ecb58070f6aaa207969799469371e80"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d7459f3505756339ba31dab393c5bb3d828ea94b3461b2b891605e3d10b792d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a65a1853f0206e4b5515783f36e845f2d61b9f97c31251cd61fa78fb1e0bd30b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "96e129fd5dd134918fc64ce2a706deb1e7911e7a6ea98bc709e207b797388d75"
+    sha256 cellar: :any,                 arm64_sequoia: "f2e00691eec59dc82510bc91264312663640b906b2f484f209e3d33efb4a813a"
+    sha256 cellar: :any,                 arm64_sonoma:  "4ffca97a33b072d0823035dc6a757c7fbf96041ee7bbf6581dfa6639481bb60d"
+    sha256 cellar: :any,                 sonoma:        "a2e153410331b03506c454ac4240ba49acd06da4e5149cf759f20a6a465d07ca"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "77271d55a05e72595f18e3a611b7994b607e6c8fdb7e181a143f80298228d792"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c22bb47d47efd4d54345ab1c348f4e9d9ab81149a3e59b129fd2e5703d3ace05"
   end
 
   depends_on "cmake" => :build
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # prevents cmake from trying to write to /Library/Frameworks/
   patch :DATA

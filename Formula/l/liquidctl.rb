@@ -3,20 +3,18 @@ class Liquidctl < Formula
 
   desc "Cross-platform tool and drivers for liquid coolers and other devices"
   homepage "https://github.com/liquidctl/liquidctl"
-  url "https://files.pythonhosted.org/packages/1d/87/8b80a72696a906fde5ead01398291c4ae67353d8d445b3828af4217b7d2c/liquidctl-1.15.0.tar.gz"
-  sha256 "82243acf320c2686b274c13e804e8dd56ec97eaa0a9347d4107974428fb548d1"
+  url "https://files.pythonhosted.org/packages/7f/9c/11f37716eeeccc72a781c80e76021a33cafa35578627263199ea62b2eb2d/liquidctl-1.16.0.tar.gz"
+  sha256 "b631a9f9c17980304c482ba72599b4089cc168d8c2edfdf65b0daa85cc614f8f"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "63b4ac7a552c00a37b4b626b3163a3e7c275dba5ad63f3f707b744c6901a5632"
-    sha256 cellar: :any,                 arm64_sequoia: "1a5ccb7a04dfda0fe3c79d6f34486b9fb4c69e96663b1fcac7679aae7d7974ac"
-    sha256 cellar: :any,                 arm64_sonoma:  "39589c229c94d548a9b8fba0fe087994a2f2590a7b35401e24fbddd3b53e95b1"
-    sha256 cellar: :any,                 sonoma:        "32805c65afba7042eee53fdd22452ac8f598f285189cfd2df1f188d2257fc6a4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c69e12cbe513510bff71ed2a8c2f0ec958c0d9ea4d4189ead137eed35361621d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf919448f0f83ef3ce22aa46b4b3d667fe82317311d00bf9c5d4057c5bfd8e84"
+    sha256 cellar: :any,                 arm64_tahoe:   "7a2f3026da192b9ba6b7428b02e53de8b5a42d5719317b058149ddd53d6533be"
+    sha256 cellar: :any,                 arm64_sequoia: "73744eacfe8436609f9da2fc7ac669165234c01a7e42b0ab4fc5ec8ad25e06f8"
+    sha256 cellar: :any,                 arm64_sonoma:  "18fb44bd6ec29270bb006ada1ee62f7ab87f3350f266bc5fc6a0c3dd162cf3b8"
+    sha256 cellar: :any,                 sonoma:        "c632f9005aa0b61d636334d43762bdbad8b7fe692e95d91d5056704cc504a92d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d07acbcfe6a0fb5614ee4d9dbff5bef534420e275a4fccda0892b94f7ff995e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2952ce4b674d0e11922bb15808c77f36b2bfafbc4246cd1edc39e8a62b71471f"
   end
 
   depends_on "pkgconf" => :build
@@ -32,8 +30,8 @@ class Liquidctl < Formula
   pypi_packages exclude_packages: "pillow"
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/d3/7a/359f4d5df2353f26172b3cc39ea32daa39af8de522205f512f458923e677/colorlog-6.9.0.tar.gz"
-    sha256 "bfba54a1b93b94f54e1f4fe48395725a3d92fd2a4af702f6bd70946bdc0c6ac2"
+    url "https://files.pythonhosted.org/packages/a2/61/f083b5ac52e505dfc1c624eafbf8c7589a0d7f32daa398d2e7590efa5fda/colorlog-6.10.1.tar.gz"
+    sha256 "eb4ae5cb65fe7fec7773c2306061a8e63e02efc2c72eba9d27b0fa23c94f1321"
   end
 
   resource "crcmod" do
@@ -47,8 +45,8 @@ class Liquidctl < Formula
   end
 
   resource "hidapi" do
-    url "https://files.pythonhosted.org/packages/47/72/21ccaaca6ffb06f544afd16191425025d831c2a6d318635e9c8854070f2d/hidapi-0.14.0.post4.tar.gz"
-    sha256 "48fce253e526d17b663fbf9989c71c7ef7653ced5f4be65f1437c313fb3dbdf6"
+    url "https://files.pythonhosted.org/packages/74/f6/caad9ed701fbb9223eb9e0b41a5514390769b4cb3084a2704ab69e9df0fe/hidapi-0.15.0.tar.gz"
+    sha256 "ecbc265cbe8b7b88755f421e0ba25f084091ec550c2b90ff9e8ddd4fcd540311"
   end
 
   resource "pyusb" do
@@ -56,9 +54,11 @@ class Liquidctl < Formula
     sha256 "3af070b607467c1c164f49d5b0caabe8ac78dbed9298d703a8dbf9df4052d17e"
   end
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+  resource "smbus" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/4d/5c/70e14aa4f0c586efc017e1d1aa6e2f7921eefc7602fc2d03368ff912aa91/smbus-1.1.post2.tar.gz"
+      sha256 "f96d345e0aa10053a8a4917634f1dc37ba1f656fa5cace7629b71777e90855c6"
+    end
   end
 
   resource "smbus" do

@@ -1,18 +1,18 @@
 class Millet < Formula
   desc "Language server for Standard ML (SML)"
   homepage "https://github.com/azdavis/millet"
-  url "https://github.com/azdavis/millet/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "32e76069e95e17dc00cd3ae6823300dde846b305633aeb571a9999e4d30bd1b9"
+  url "https://github.com/azdavis/millet/archive/refs/tags/v0.15.1.tar.gz"
+  sha256 "ba5651ab14a07b2f2f09aad11f151e0fe4e767ccc4064122a5c56308c0320244"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/azdavis/millet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "602d9efe3d160330dfc40b662ab1e3fd3254c7544741b603f1422a4edce5ccad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "564f8c256fca4a88991d6502f847536bf794bef91ce64c89b05e6ef3a7bc5715"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3953fc44fe8ed75723cb38d8ecaec016af0ad4793d0865034d42f26d69e6af47"
-    sha256 cellar: :any_skip_relocation, sonoma:        "52982a72dbd15ab2fa525a85e76d7a6219b2cb11852c6d3c27f9761a056d8b16"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3fd6e9167bd12e3d6fd0dd75592c9589138d8b49706dfa03ac38113870dd51db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c368c30449aa0b21400effa109982de18688316887bc3ebc71e62a0767ca5a45"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f4cc683cba304eb87085b60f70545616099a84d4281014ee93a30c2c366fb8b7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "642268eddf5678529e58fc16636ddb2e38657177b798c6b1801d305c82264b9d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6f8f6f5f7dcca843f574ff63d26e255518aba424c8e5fb7d49ec7ed0158f215"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e0dc30970f99720b85a440850626df262fc71db4b4f74787fa5613afb4f6c97c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4219b0fd1cc06b6c02951a80618a11a522d9ede6227a586849b9c76cf7190c86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e18791bb10394022f41891876fdfa52f9eb4ab95022a986a60e7627cab22cc5"
   end
 
   depends_on "rust" => :build

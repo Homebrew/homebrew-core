@@ -1,17 +1,18 @@
 class AwsCIo < Formula
   desc "Event driven framework for implementing application protocols"
   homepage "https://github.com/awslabs/aws-c-io"
-  url "https://github.com/awslabs/aws-c-io/archive/refs/tags/v0.26.1.tar.gz"
-  sha256 "5481178b99f074314b23b39b35786715fb0c1bf9773023ff83efe0d62d6e0ce2"
+  url "https://github.com/awslabs/aws-c-io/archive/refs/tags/v0.26.3.tar.gz"
+  sha256 "521fd0848fca661130bbb7278a414d7a38bdcb9bc8ffa89f6660d84e5838a303"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cc12f673bff8e14b9028ba9dd5d63f3569e18504b73b011bdcd5c1360fd9e632"
-    sha256 cellar: :any,                 arm64_sequoia: "9d517b93eb5aa9928001e879b73cda880bb098e55dc1dc306e44544d833b2128"
-    sha256 cellar: :any,                 arm64_sonoma:  "729b66fa364fba7de210ab575b6f6b93987aeeb17f361b08de350bc2f6d52696"
-    sha256 cellar: :any,                 sonoma:        "798efa5bf8d2e5665091cc786d9be22517645b1c7e3962e5d2a84d2010fd012a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e379afae8bbe78246c0731c24fa683d2d72d5ee29c1e44c8fa8b6be087c0b77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34e2da3546cdf4ee4a322be2077de0a1606765109e8c765c2b1ef1d7495024c8"
+    sha256 cellar: :any,                 arm64_tahoe:   "f96cf4e4319785524c71a88e1cb2f1d065bf5f4b0111c77887115777fbd8dc38"
+    sha256 cellar: :any,                 arm64_sequoia: "3fa6c3a84abe7104e2161f822f6a653ba5b825c4d6f69ac829e61d2dd26257fd"
+    sha256 cellar: :any,                 arm64_sonoma:  "4daec1224842c5e4cf4406c8ed9a04d331533e1107e0d192bde1f370035b7109"
+    sha256 cellar: :any,                 sonoma:        "a2076fe1abd39e628ea7e796d1fea5595585e52ffa7e0884a5ebee3b419e599f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a16bcbe7b75b407602af6e23e84bcb9cbb96d6780d0f7c9642fcfbb8957bbc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c2b99161cba1c51c6562c0959ede8b4a9d2b468da23dc672aa1428c0ae5ce5a"
   end
 
   depends_on "cmake" => :build

@@ -3,6 +3,7 @@ class CeresSolver < Formula
   homepage "http://ceres-solver.org/"
   license "BSD-3-Clause"
   revision 6
+  compatibility_version 1
 
   stable do
     url "https://distfiles.macports.org/ceres-solver/ceres-solver-2.2.0.tar.gz"
@@ -24,8 +25,6 @@ class CeresSolver < Formula
     url "http://ceres-solver.org/installation.html"
     regex(/href=.*?ceres-solver[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "8bca5dac2f24d423391151bf8fb69c53b119eb94e5ba899f95fe961cac036ee7"

@@ -1,14 +1,15 @@
 class MlxC < Formula
   desc "C API for MLX"
-  homepage "https://ml-explore.github.io/mlx-c"
-  url "https://github.com/ml-explore/mlx-c/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "e22b51b810b9c3bdce8c0df0d6112ca8e8a49ce0ea78b504e1bdbb59d731f5d8"
+  homepage "https://ml-explore.github.io/mlx-c/build/html/index.html"
+  url "https://github.com/ml-explore/mlx-c/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "6ec2eab86ed3ce661c0d9b834027870651546138b7b4470fa8ef5533498c79aa"
   license "MIT"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "252a76effb17e213664f0cddb0b0c28496fa1bdad146ef806416ada91f84e584"
-    sha256 cellar: :any, arm64_sequoia: "793a81852a0b4898941e7deb9613aa200025faf65550c29d3d2dd7cd130525aa"
-    sha256 cellar: :any, arm64_sonoma:  "06a4da8e44d45deb666ed5a92f32b551202b114c485c54e1817e327ecffb7601"
+    sha256 cellar: :any, arm64_tahoe:   "99a5c7e3ef0c954f183a4d50b47f80654cfa5befd4f08616f8be47c0c5cb3094"
+    sha256 cellar: :any, arm64_sequoia: "b28ea774761c31eb6b0116ba146952d5fd6a3a8ae6e7b8381d3fca0b4af87e01"
+    sha256 cellar: :any, arm64_sonoma:  "70c199289ebbc065bc1d287f7e26d4be4bdc0f50146baaadce3f75137cbb7772"
   end
 
   depends_on "cmake" => :build
@@ -16,12 +17,23 @@ class MlxC < Formula
   depends_on :macos
   depends_on "mlx"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+  end
+
+  fails_with :clang do
+    build 1500
+    cause "Requires C++20 support"
+  end
+
   def install
     args = %w[
+      -DCMAKE_CXX_STANDARD=20
       -DBUILD_SHARED_LIBS=ON
       -DMLX_C_BUILD_EXAMPLES=OFF
       -DMLX_C_USE_SYSTEM_MLX=ON
     ]
+
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

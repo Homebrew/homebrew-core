@@ -1,8 +1,8 @@
 class Pjproject < Formula
   desc "C library for multimedia protocols such as SIP, SDP, RTP and more"
   homepage "https://www.pjsip.org/"
-  url "https://github.com/pjsip/pjproject/archive/refs/tags/2.16.tar.gz"
-  sha256 "3af2e481d51aaa095897820fa2ee26c30e530590c6ca56d23e4133bbdad369eb"
+  url "https://github.com/pjsip/pjproject/archive/refs/tags/2.17.tar.gz"
+  sha256 "065fe06c06788d97c35f563796d59f00ce52fe9558a52d7b490a042a966facce"
   license "GPL-2.0-or-later"
   head "https://github.com/pjsip/pjproject.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Pjproject < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a4f4759b98ee06a57828e8856cff7b36aa4b0e0652fd55d9eb78767ca9ec5c2b"
-    sha256 cellar: :any,                 arm64_sequoia: "6a226b89651d7e80ed814feb9dad408d152d929bb9f60464a0135c003bf28374"
-    sha256 cellar: :any,                 arm64_sonoma:  "9e2fc597965b890617e1a7c62d3b60c2fe6edfb4e8cab9a0556f6b6012cfe230"
-    sha256 cellar: :any,                 sonoma:        "249cc452f8cb427f81dd8061bd197cc8c4ffd2cd13e68d603341c73140f1f5c3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3fa832c7c13f2c63052af9cff12041dd64f1bdb881fe8fdaee7af3a7e1962512"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1196e71656f577d3126a134beb06b1b6bbecff6806238165773a295c95fb5385"
+    sha256 cellar: :any,                 arm64_tahoe:   "5fdef5384f4e3db814cae94a37968c1d810bd812cc6a668deabaf1fb990093a8"
+    sha256 cellar: :any,                 arm64_sequoia: "8690f319a94b509377c6db22129ff83c2d3b57f5ec53fd37018b5305e6aeef2f"
+    sha256 cellar: :any,                 arm64_sonoma:  "f523ac7277ea7f684101442c7fe95ca5cc499f98ede177082d5d9cf25e02b49f"
+    sha256 cellar: :any,                 sonoma:        "1881b7372626c5072e5ed4522d4af2c80786cd7a74eaa38822340367c17a01ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa85819b1c60679b5fe35d3a6bfc5c6150219ad18ddd188ee5664128f32550f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75b740db8f890d9877cbae6441375d9c960f971252ca2b2331396b412fbad3d2"
   end
 
   depends_on "openssl@3"

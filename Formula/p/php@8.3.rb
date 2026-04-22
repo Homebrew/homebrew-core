@@ -35,12 +35,13 @@ class PhpAT83 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "d1f5a25762883bb6430412c4985a8e196d9b59b2c18519ba9776866e4e78bea1"
-    sha256 arm64_sequoia: "84654c911799653e0dc10ddd4c53dc89949559e8c9aae436ced19fb507b29a05"
-    sha256 arm64_sonoma:  "71f92454efe678cb3a58cf324606c5140e0fe710f2f0b52734ecf969c6aa86e2"
-    sha256 sonoma:        "26cb3b3b5c03d6eeb3f857a3057d1f1744c6c1fb6fdf4e968d406d43427ea711"
-    sha256 arm64_linux:   "c2a4a6d9fcf5c5c6992d6b5f8f3a11a40817a162034153a73c942c9d9398bd73"
-    sha256 x86_64_linux:  "d76ecadb991dc61601793f2c2ceb5ebefcb75c88ff4950f500a12e6360b79a3a"
+    rebuild 1
+    sha256 arm64_tahoe:   "428cc87a873d0d72f715bab9737db2abb2bb14a1984120d7222391b9673c96fa"
+    sha256 arm64_sequoia: "014108ee27c54d5fb73ba2938cdc7d97d877b79cf9f73950e977efe75727ffd1"
+    sha256 arm64_sonoma:  "f231e36a6eefe4a03c4cf7d2ef216f03a9302218f84ffa268420721bf7ecb990"
+    sha256 sonoma:        "dfb3dfd6cf4d89c6294c4bb62394671e501e82890a360f86ebf70424faf4d101"
+    sha256 arm64_linux:   "cd2cc686e494e44ab3b001e64c601d64df344107e4d7a64125569a22d16278c8"
+    sha256 x86_64_linux:  "d78900332282c2a54ba363fa794e9edf3b4686de39115a9126157389b4dd76b9"
   end
 
   keg_only :versioned_formula
@@ -79,13 +80,16 @@ class PhpAT83 < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
     # PHP build system incorrectly links system libraries
     # see https://github.com/php/php-src/issues/10680
     patch :DATA
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

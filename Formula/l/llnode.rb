@@ -5,8 +5,6 @@ class Llnode < Formula
   sha256 "abc295c077443f823444faffb165ada4c6ca377f2b1af4c002e8a9eea0f30135"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "587328e971d8e18f42e15a58c9d1c94efe7cc2e48663d34de95e19a2921f7179"
     sha256 cellar: :any,                 arm64_sequoia:  "33bb56546706b569104a07631b10c2b57fd0c6a95ddb5cfc8fed017856e2f57a"

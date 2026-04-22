@@ -1,18 +1,19 @@
 class Wasmer < Formula
   desc "Universal WebAssembly Runtime"
   homepage "https://wasmer.io"
-  url "https://github.com/wasmerio/wasmer/archive/refs/tags/v7.0.1.tar.gz"
-  sha256 "1cd67765b834dd509d29fd7420819af37af852b877bc32b31c07bf92d27ffd31"
+  url "https://github.com/wasmerio/wasmer.git",
+    tag:      "v7.1.0",
+    revision: "7a01a2680beba20eb2e719732973ed49a3763636"
   license "MIT"
   head "https://github.com/wasmerio/wasmer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "01ca5aa4e2349a5cef9b277ccbd3040b7b57dddbaee41788e2734a597af44ab6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52ec552035a8edd72cd462a1ef4e991e2f8a174f0f483d506c172db54d186bd0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a4ed4dc185c00a0cde9966c9122aa0abb3e6d5def3b1358a6a997eb4ff753c63"
-    sha256 cellar: :any_skip_relocation, sonoma:        "af8c5da656d665fce998bfbb1fd59c4874270183a5592f45bcefa34c922a9207"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "851013b1f02a3bd26e55eb35e84bb8b387504cabfb8dc858c45d4e854d15e787"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "976886b95d606f2b1cd6eb45f35fad3b36a6039af6a2153dfd8d4125ea5cf8fb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7448b61cd72d3982351d36bb511ef5faa9c8534addc6f09ccee15f0fa4820502"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3840fca3ecfce9f5ca3b44545547447deae1bb8615592ad8e1c76c2a695d9cb9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52158a8b0febc9f09cc81a9d0545ec600d938ae1599b99254335cddb2d357f5d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b430acb5ef9f87b9712ece4fd903305ce7c27c4fe6e728ccbf04c8f2cf11d52b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e7bb3f5d6de27ac7e83a3c1c2c864d13e8420ece00da547978ebdd0737e852e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3915150f773d17ab813b713ce177b6047cc1a94eaea101d6eeb950b2ce58bc1e"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,7 @@ class Wasmer < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "cranelift", *std_cargo_args(path: "lib/cli")
+    system "cargo", "install", *std_cargo_args(path: "lib/cli", features: "cranelift")
 
     generate_completions_from_executable(bin/"wasmer", "gen-completions")
   end

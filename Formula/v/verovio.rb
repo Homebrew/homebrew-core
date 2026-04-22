@@ -1,18 +1,18 @@
 class Verovio < Formula
   desc "Command-line MEI music notation engraver"
   homepage "https://www.verovio.org"
-  url "https://github.com/rism-digital/verovio/archive/refs/tags/version-6.0.1.tar.gz"
-  sha256 "e2025eb4ea4462db8a71d79e10ea5bd3ebc4c148e8f95d711505c52a73ad76e9"
+  url "https://github.com/rism-digital/verovio/archive/refs/tags/version-6.1.1.tar.gz"
+  sha256 "4ac970d31d984f397d40cd8ed35ff1731b694594d93e323f98584135df256560"
   license "LGPL-3.0-only"
   head "https://github.com/rism-digital/verovio.git", branch: "develop"
 
   bottle do
-    sha256 arm64_tahoe:   "aadb6c87539d12cbfd0959b6b8c1cdb4be64581b5f4e87da1acc25e2b661c679"
-    sha256 arm64_sequoia: "1c1f9238ec331a087f09a86e1cd2e0cfe1cd69990040bb289008ef12145350e7"
-    sha256 arm64_sonoma:  "f46081962ef0228b4c675dbda330b3f65c733dde801b201358d9f9cd1fd803ed"
-    sha256 sonoma:        "112664273a397282700ecdd0890fa324b0b5e6c0fc49f7622fd7bc0e25d63c8c"
-    sha256 arm64_linux:   "98f983780f1265952a2659327ef681f764cf9000eaba91eb28c2571d8e8fe61c"
-    sha256 x86_64_linux:  "4c098961e5702827cf587d776504261e364b4b7e7f11ee735e20ded7ebff48be"
+    sha256 arm64_tahoe:   "d8fb955b157de20cfb4504372294a105569aaafdffe411d94abc4fd7e932304c"
+    sha256 arm64_sequoia: "d035d1d373717865bd2d6af9904bc973b2bc6ba83b3dd1aa33d00dcd9df61ee8"
+    sha256 arm64_sonoma:  "91819ad244d3fbe1f4387cee1d4cc1b610dd0df0becb136ef697ac1a278c34e3"
+    sha256 sonoma:        "517f2d070ec72ff73244288fa159fb4567bf21d6172d40698663c5472b26cc0d"
+    sha256 arm64_linux:   "39b3eb83c8cfe8e4bc2435b6512a3ec5446c1a0ebccfaa1a883edff7f4563799"
+    sha256 x86_64_linux:  "1aa461cefc12b12a223c979d5a568ca0c57d0ef00df888fdfb6c95e266e76d9f"
   end
 
   depends_on "cmake" => :build

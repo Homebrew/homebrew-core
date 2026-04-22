@@ -3,10 +3,10 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2025.4.1.tar.gz"
-  sha256 "9926c8a8188d0baa9730623efaeb9f0bccf7059f5e4e957a8d238c3226c2b19b"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2026.1.0.tar.gz"
+  sha256 "8810fcf950c891ed4541e3fa1153f58cd8390a459a87e5fee509cd5ffe64e974"
   license "Apache-2.0"
-  revision 3
+  compatibility_version 2
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
   livecheck do
@@ -15,18 +15,17 @@ class Openvino < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b7895df6f9ee49841183ca7abee864afd873a0551f8ce670c63fd5a2233721cb"
-    sha256 cellar: :any, arm64_sequoia: "7c35f852dd76bb733c65c0cdd03697e4d15302d26a06d3bf3a26076c7fe06383"
-    sha256 cellar: :any, arm64_sonoma:  "c77e0be7587b288bf16e5c16841d7a9596f6df42ce25b05b04d12ff42759c221"
-    sha256 cellar: :any, sonoma:        "6cb024e7254ef5c1d8e8383a886bf6b08f46d18baf1a16141f46d3fe86e63f2c"
-    sha256               arm64_linux:   "d92af382c49e55fb26cb62dc75e5d83b7b4acc88def02fbe24ddc10a72e1a06c"
-    sha256               x86_64_linux:  "bc3a2cfc540d30861b2d4a0979c7c4dfd975490ca091c87c0a807582141e4643"
+    sha256 cellar: :any, arm64_tahoe:   "5f74efc0803c3346542baf83ab84f044f7300b2c03ce6af38c41368f9137c50f"
+    sha256 cellar: :any, arm64_sequoia: "24b49782b71130cb7a660584dbdbab8fe4a7b9ff795a6491967863ba7315b3f9"
+    sha256 cellar: :any, arm64_sonoma:  "25980f33dc5faeb376bd170f4bb0a3a1a33316f6aea72627fd236b483b6bb118"
+    sha256 cellar: :any, sonoma:        "202680f57e114e60048f32c711b5e58db7ce00655514a7bcc88665ec4e8f7e35"
+    sha256               arm64_linux:   "c5516b1e90ad77a91831ce2fbc916fac8554e690ee4a1f609fff8358f759c7a0"
+    sha256               x86_64_linux:  "d57e06366e4515ac159816bfeb8b0fc8e77391633143e31f1b66607b9df5af16"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "flatbuffers" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "pybind11" => :build
   depends_on "python@3.14" => [:build, :test]
   depends_on "abseil"
   depends_on "nlohmann-json"
@@ -46,8 +45,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/uxlfoundation/oneDNN/archive/29d64fe0ec0f1f20d7f80aa76630d58a6011a869.tar.gz"
-      sha256 "90139a1193b9773f94ff3310cd6118d3b6ccf1adb24461c84aa87890caa5ee77"
+      url "https://github.com/uxlfoundation/oneDNN/archive/470e87eb07bdc805937a9f6d45d5c3a0fe4d27e7.tar.gz"
+      sha256 "4181ad0fd5ddfe63084fce39a1cd4e0f3656f75e84f32e688e902b2d3a79b537"
     end
   end
 
@@ -55,13 +54,23 @@ class Openvino < Formula
     depends_on "scons" => :build
 
     resource "arm_compute" do
-      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v25.03.tar.gz"
-      sha256 "30f83cea6d338a0e33495c33c547b7b720027baff4c3eea66014709fdd52aaac"
+      url "https://github.com/ARM-software/ComputeLibrary/archive/cffb5d67ad74e6ed924c708d4981ba15b644bc05.tar.gz"
+      sha256 "f44127ef2cb2ecaa863921d96801c27a59331c3a4617a3acdf453c76d5424a72"
     end
     resource "arm_kleidiai" do
-      url "https://github.com/ARM-software/kleidiai/archive/eaf63a6ae9a903fb4fa8a4d004a974995011f444.tar.gz"
-      sha256 "756fa3040ff23f78a4c3f4c1984a3814d78d302b0b5dc3f0b255322368aefc58"
+      url "https://github.com/ARM-software/kleidiai/archive/7d82645ca2f3c3d58a5c0b1a96905e53916c8ff8.tar.gz"
+      sha256 "7f6dc8992d229d5a0be8c2dec09011bab7c45201ed06ae60fbcd3c9343d09368"
     end
+  end
+
+  # FIXME: depends_on "pybind11" => :build
+  #
+  # error: static assertion failed due to requirement '0 == detail::constexpr_sum(
+  # detail::is_instantiation<pybind11::call_guard, pybind11::is_method>::value, ...)':
+  # def_property family does not currently support call_guard. Use a py::cpp_function instead
+  resource "pybind11" do
+    url "https://github.com/pybind/pybind11/archive/refs/tags/v3.0.1.tar.gz"
+    sha256 "741633da746b7c738bb71f1854f957b9da660bcd2dce68d71949037f0969d0ca"
   end
 
   # FIXME: depends_on "xbyak" => :build
@@ -82,8 +91,8 @@ class Openvino < Formula
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/a4ed4a789b6e0869e4f651bbfeff6878e91d388e.tar.gz"
-    sha256 "6fe2fa4edd68b5f3448d80eaaf7d5d9d329d679d7d25f80d3800a4f199e86dae"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/6b6492b1ea9ef5ca9ff3c5c59ed71dcca683a446.tar.gz"
+    sha256 "c12ff448213e873b0096d62a103447cf2686402d41a507d8cd4fcdac754ca5d1"
   end
 
   resource "openvino-telemetry" do
@@ -91,35 +100,22 @@ class Openvino < Formula
     sha256 "8bf8127218e51e99547bf38b8fb85a8b31c9bf96e6f3a82eb0b3b6a34155977c"
   end
 
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
-  end
-
   def python3
     "python3.14"
   end
 
-  # Fix to initialize HWCAP2_I8MM properly
-  # Remove patch when available in release.
+  # Fix to add Level-Zero to compilation only when it's needed
+  # Remove patch when available in 2026.2.0 release.
   patch do
-    url "https://github.com/openvinotoolkit/openvino/commit/168316c62b6022251dd11f4c5b9c0f85da3e425a.patch?full_index=1"
-    sha256 "d905df259b708851651f9544e2f43b9339ec1174c0dfa9879817279534fc702d"
+    url "https://github.com/openvinotoolkit/openvino/commit/b90c26de0ccab964c55fac8519827ecc1b79f473.patch?full_index=1"
+    sha256 "d9110eb566e7404dfebd6d4eb68f87818b392f8391151c543d7b4d2c85089303"
   end
 
   def install
+    odie "Remove Level-Zero patch" if build.stable? && version >= "2026.2.0"
     # Work around for Protobuf C++ 6.x until OpenVINO adds support
     inreplace "thirdparty/dependencies.cmake", "find_package(Protobuf 5.26.0 ",
-                                               "find_package(Protobuf 6.30.0 "
-
-    # cmake 4 build patch for third parties
-    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
-
-    # FIXME: workaround for
-    #   CMake Error at cmake/developer_package/version.cmake:102 (message):
-    # OpenVINO_VERSION_MAJOR parsed from CI_BUILD_NUMBER () and from
-    # openvino/core/version.hpp (2025) are different
-    ENV["CI_BUILD_NUMBER"] = "#{version}-#{revision}-"
+                                               "find_package(Protobuf 7.34.0 "
 
     # Remove git cloned 3rd party to make sure formula dependencies are used
     dependencies = %w[thirdparty/ocl
@@ -137,6 +133,7 @@ class Openvino < Formula
     resource("mlas").stage buildpath/"src/plugins/intel_cpu/thirdparty/mlas"
     resource("onednn_cpu").stage buildpath/"src/plugins/intel_cpu/thirdparty/onednn"
     resource("onednn_gpu").stage buildpath/"src/plugins/intel_gpu/thirdparty/onednn_gpu" if OS.linux?
+    resource("pybind11").stage buildpath/"src/bindings/python/thirdparty/pybind11"
 
     if Hardware::CPU.arm?
       resource("arm_compute").stage buildpath/"src/plugins/intel_cpu/thirdparty/ComputeLibrary"
@@ -151,6 +148,7 @@ class Openvino < Formula
       -DENABLE_CLANG_FORMAT=OFF
       -DENABLE_NCC_STYLE=OFF
       -DENABLE_OV_JAX_FRONTEND=OFF
+      -DENABLE_OV_ZERO_LOADER=OFF
       -DENABLE_PROFILING_ITT=OFF
       -DENABLE_JS=OFF
       -DENABLE_TEMPLATE=OFF
@@ -171,16 +169,15 @@ class Openvino < Formula
       ENV["MACOSX_DEPLOYMENT_TARGET"] = "#{MacOS.version}.0"
     end
 
-    # Fix linking failure of certain binaries.
+    # Fix linking failure of certain binaries as Scons disables superenv
     cmake_args << "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib" if OS.linux? && Hardware::CPU.arm?
 
-    openvino_binary_dir = "#{buildpath}/build"
-    system "cmake", "-S", ".", "-B", openvino_binary_dir, *cmake_args, *std_cmake_args
-    system "cmake", "--build", openvino_binary_dir
-    system "cmake", "--install", openvino_binary_dir
+    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # build & install python bindings
-    ENV["OPENVINO_BINARY_DIR"] = openvino_binary_dir
+    ENV["OPENVINO_BINARY_DIR"] = buildpath/"build"
     ENV["PY_PACKAGES_DIR"] = site_packages = Language::Python.site_packages(python3)
     ENV["WHEEL_VERSION"] = version
     ENV["SKIP_RPATH"] = "1"
@@ -190,7 +187,7 @@ class Openvino < Formula
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(source: libexec/site_packages/"openvino/frontend/onnx")}"
 
     # Allow our newer `numpy`
-    inreplace "pyproject.toml", "numpy>=1.16.6,<2.4.0", "numpy>=1.16.6"
+    inreplace "pyproject.toml", "numpy>=1.16.6,<2.5.0", "numpy>=1.16.6"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources.select { |r| r.url.start_with?("https://files.pythonhosted.org/") }
     venv.pip_install_and_link "."
@@ -257,8 +254,9 @@ class Openvino < Formula
     assert_equal "6", shell_output(testpath/"openvino_frontends_test").strip
 
     system python3, "-c", <<~PYTHON
-      import openvino.runtime as ov
+      import openvino as ov
       assert '#{version}' in ov.__version__
+      ov.Core()
     PYTHON
   end
 end

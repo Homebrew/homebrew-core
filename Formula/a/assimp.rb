@@ -12,21 +12,25 @@ class Assimp < Formula
     "Unlicense", # contrib/zip
     "Zlib",      # contrib/unzip
   ]
+  revision 1
+  compatibility_version 1
   head "https://github.com/assimp/assimp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4fb93e11d0dbc91e5f60c420b1c9f1ddd83c0f41a5b9e4f3ec487e6d899314d8"
-    sha256 cellar: :any,                 arm64_sequoia: "3b3010df5e86ee71ed540a702249bd592d7de657fbd9211cb218256616c10479"
-    sha256 cellar: :any,                 arm64_sonoma:  "17f3e415cf49f3efa93f8fe69f17b260a3f22426ff92e96fd4c8395d5e4513c9"
-    sha256 cellar: :any,                 sonoma:        "ec56e5465d0c69ce620d89ffd84c758b791efebcf2b5466ee59b1ccf6018886b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "889fe27d780890620a6eab60cc3298ecc18642a138db9b47a8cc12663c7ff5fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b4441a7429f787b6874ec574968e08a7328739dfb707881d1ccbc19630ab5f3"
+    sha256 cellar: :any,                 arm64_tahoe:   "0930951bcd9774b987699ee7add5fda6ac3b00e2673acce808c184aa7b61760a"
+    sha256 cellar: :any,                 arm64_sequoia: "a4e025c0806ce486f8a80f29181ac4f3d32f3d123e8a053da8be874ff99382a2"
+    sha256 cellar: :any,                 arm64_sonoma:  "18d6b231e7f26e98a0487a3b99870cae734df4beda140ad9e64ab9bdd28f089f"
+    sha256 cellar: :any,                 sonoma:        "def0ed8dc8400652de3695f530a6ac4c21c986cd0b111814d839f28ac7664f1f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c098bc898a711aff23c8c697e0689a1856f661d74b81c94f9ba50be348d0d81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3524d1c82108896fb32b8ef1fc81cf252b4c59c0669dbf3c394c0a90c846dc34"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Ignore error on older GCC

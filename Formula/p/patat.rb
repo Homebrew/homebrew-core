@@ -16,13 +16,13 @@ class Patat < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "121879456dcdc6371f30ab0c8aa67d78427606a0ad9fcbdc9ad45328a347a33b"
-    sha256 cellar: :any,                 arm64_sequoia: "a65793c6e5498bf09af0c891b2869a9f02a320a128d578047210936fbf50fe8e"
-    sha256 cellar: :any,                 arm64_sonoma:  "2b1564b33b1bdfee78317be1d9a03b308be08a8aaf5dd749245e36648d73f71c"
-    sha256 cellar: :any,                 sonoma:        "1bafa7b9f646a6a07cc551f7054fa948edf4cc002de6c4422921018048a6a3a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "069483cb58b0ec25eeba1b59d13ad79df363382279da79a586c787fa94a9b17c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f28f2e70c2267cff776985a30da56bfb00384168ed904d405003ac606fe3d83"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "5078a6ef677ef802f2f78ca950c5e0d756ec8058a00ac43c990af4cc42b641e5"
+    sha256 cellar: :any,                 arm64_sequoia: "a959da2b101e50e8066aa852735b17ef36976a7d72bcd6af8c8e069e02352b79"
+    sha256 cellar: :any,                 arm64_sonoma:  "bb22958819bdc12b2d484ebfd732513d7f370f096d460f5010bdd029967a7d3c"
+    sha256 cellar: :any,                 sonoma:        "027fcd9e810e61b16f996ba16d4406b56c77f0928db0001eea1c2a1904e40fcd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bddf7b47c06f8906f627ef84ff4105e87e75777f4e6d6cdc3f834804e5702813"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb2810208b1abbb9b541d3eb0d576bce58c57e4af2c0b1ddad3dd465138dc962"
   end
 
   depends_on "cabal-install" => :build
@@ -32,7 +32,10 @@ class Patat < Formula
   depends_on "gmp"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155

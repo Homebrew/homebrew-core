@@ -11,18 +11,20 @@ class Exempi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4ba66f9277e4e65f24a3ae2c88124b47022bbdcb79c26643ea5d1b334afb3486"
-    sha256 cellar: :any,                 arm64_sequoia: "b77fbb41fbb1dc44fb16bbf0219b73ee64f7007fda3218fcac57798b49958f74"
-    sha256 cellar: :any,                 arm64_sonoma:  "366a3c2192d027bf4678769b949d8d8c61881545a70fd10a5770c426428a92ad"
-    sha256 cellar: :any,                 arm64_ventura: "f0ea275a48137990d39787f8d82f679170ee2d2d6fb01087e16f324c85c90874"
-    sha256 cellar: :any,                 sonoma:        "5a556039d50589667e0571a46c0256821017e746512fd25b60de182259b61b54"
-    sha256 cellar: :any,                 ventura:       "403e67b569a604c3df1c1e16e6be47d5e347716ba63da67107473be8b19dd124"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3387fd15ebd91d6cd96671c317bf76ef49e3d98b163e70c58813eb0e4e04d426"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9784c25d2ff756cf7dc147211e48a7ea321803cd9e8e6747709fd000488aaf66"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f9404d65e273a1db86e861cf3cec91b90d84e6f9cf730b16be039e7e9e9fd9f7"
+    sha256 cellar: :any,                 arm64_sequoia: "119f156a24d54cf6fd5ebfea60608d8adadf7d9631e6b98d32d281279fb75331"
+    sha256 cellar: :any,                 arm64_sonoma:  "241cb93b16ae12e70f8a584a492e8cb3f521fa73187065dc2e66b097d46ff073"
+    sha256 cellar: :any,                 sonoma:        "65bc8dfd34b2c7b532169e0fbb76a26b336a4f1df99047c9ecfb1c2d25807c3f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1fb6ef14d4db41974af4a667624c9222ac33f7fbb7c046d636fc324da4d2aff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6abf2c8aca5a4756a7fa4514260d7fbe7efc715550ea806eaf9c1290cde06f73"
   end
 
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--disable-silent-rules", "--disable-unittest", *std_configure_args

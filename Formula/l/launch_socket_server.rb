@@ -6,8 +6,6 @@ class LaunchSocketServer < Formula
   license "MIT"
   head "https://github.com/mistydemeo/launch_socket_server.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cd7f62d360a2d0e3ccbc0d127e6c93cf7b04341547a0cc47712e9cc30bfada44"

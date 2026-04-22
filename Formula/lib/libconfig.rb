@@ -4,6 +4,7 @@ class Libconfig < Formula
   url "https://github.com/hyperrealm/libconfig/archive/refs/tags/v1.8.2.tar.gz"
   sha256 "8e71983761b08c65b15b769b3ec1d980036c461fdfd415c7183378a4b3eac8f4"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
   head "https://github.com/hyperrealm/libconfig.git", branch: "master"
 
   bottle do

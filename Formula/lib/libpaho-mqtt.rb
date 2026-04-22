@@ -1,26 +1,30 @@
 class LibpahoMqtt < Formula
   desc "Eclipse Paho C client library for MQTT"
   homepage "https://eclipse-paho.github.io/paho.mqtt.c/MQTTClient/html/"
-  url "https://github.com/eclipse-paho/paho.mqtt.c/archive/refs/tags/v1.3.15.tar.gz"
-  sha256 "60ce2cfdc146fcb81c621cb8b45874d2eb1d4693105d048f60e31b8f3468be90"
+  url "https://github.com/eclipse-paho/paho.mqtt.c/archive/refs/tags/v1.3.16.tar.gz"
+  sha256 "8b960f51edc7e03507637d987882bc486d8f4be6e79431bf99e2763344fd14c5"
   license "EPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "301d603ff946f350a2f8848a4bb21b94c52bf15b635c04be9ab5c163aa9ab1fc"
-    sha256 cellar: :any,                 arm64_sequoia: "25f1526acb75aafdb1683ec76af1fd090f28dd20d768fac47a237750dffba2ff"
-    sha256 cellar: :any,                 arm64_sonoma:  "d6fa44e3412e34e1cc816c765f88bc8e67cdbd890d6333db3e086a1e2119e2ae"
-    sha256 cellar: :any,                 arm64_ventura: "647a8fa2a445366592e13dac591fe43b68e201258ab9a70bf363afabd09f6052"
-    sha256 cellar: :any,                 sonoma:        "1ddaf0f68b03cc24301019f417d22afffca599d021255b27214dfa790a07f925"
-    sha256 cellar: :any,                 ventura:       "a45411db7ed423d58d23a90dda2f152bef568d869dcfb80a1c5a6eac249f6d7d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b3b51057342e302d15ac08dbe235e5c008c3a98f7d27c114d2c7eb326f2cb8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b2abc8010ccfff54bad2bf246217ae54dce4b22f486927ba4b5c4b8583bbe16"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "eeeb71c665576f02cc774b84e777eddda3969b2e63ccae7f66f7c5dc1638f999"
+    sha256 cellar: :any,                 arm64_sequoia: "c0a8cb599d043492514a8412746d4b281215aa5aeda8db1fd12954a40237b138"
+    sha256 cellar: :any,                 arm64_sonoma:  "4320aa4be856759a55293101979436f7a79382d8528b3e8b935068ab5edf0886"
+    sha256 cellar: :any,                 sonoma:        "8a3054d689f09b17faa7392f37ecd140fe2e0358b18b472db84f74f7c7556c50"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f091e548e02bf60eee30c26f4451aeda7fa77a3f54452349cc98f5568404aed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71be99abeb74ab2fada683b2b0fcae74c3ec65c062d3b273ac033697f08342e5"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@3"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", "-DPAHO_WITH_SSL=ON", *std_cmake_args
+    args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DPAHO_WITH_SSL=ON
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

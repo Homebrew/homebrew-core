@@ -1,20 +1,10 @@
 class Gpa < Formula
   desc "Graphical user interface for the GnuPG"
   homepage "https://www.gnupg.org/related_software/gpa/"
+  url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.11.1.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.11.1.orig.tar.bz2"
+  sha256 "0bc5b2cd3e0641d07a2d8af372a09659decd918bee22fdfbefd2133d7c4d5d0b"
   license "GPL-3.0-or-later"
-  revision 1
-
-  stable do
-    url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.11.0.tar.bz2"
-    mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.11.0.orig.tar.bz2"
-    sha256 "26a8fa5bf70541cb741f0c71b7cfe291b1ea56eab68eeb07aa962cef5cdf33cc"
-
-    # Fix for `gpgme` >= 2.0.0 compatibility
-    patch do
-      url "https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gpa.git;a=patch;h=b6ba8bcc6db7765667cd6c49b7edc9a2073bc74f"
-      sha256 "3aab76d3d79cad0c756f9c73cc237b8632ae9e7f68d5f7715c3ca58e2c633bc5"
-    end
-  end
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpa/"
@@ -22,14 +12,12 @@ class Gpa < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "dadbb049d9885447f60ee0cfcada2faf0da3251d49182f8879a0bba60df16f18"
-    sha256 arm64_sequoia: "69c538278add61a01e2a4cf2322c4fd36889105a1616c6a1121a42ef236046b8"
-    sha256 arm64_sonoma:  "6d33523eedf82d824372a0aa44d7f645fba618b5962b353a19852a3af16826e2"
-    sha256 arm64_ventura: "58999f0449db4ac31542005cfa3ba5b9be8f2e0c5387c1c6f5e45af0efa3bcd4"
-    sha256 sonoma:        "19b85e51fb483e11137526bc86ad6b679693e1e310fbfa14e72d5e69f04517ed"
-    sha256 ventura:       "03c2514f40f78da208b4b4f083f474a115b3014b3b4202d219502f445d058179"
-    sha256 arm64_linux:   "26b0ad5264410984e466e2687240c3a8df1a6f024708106dd80f2cb6c46aa966"
-    sha256 x86_64_linux:  "e2d2919e86ab3b341bb4552c4ff84e81a46912136ce4d55a28609780d066de03"
+    sha256 arm64_tahoe:   "3a82b91a089610dccf3f303827932bc3392cd4024d0ff62efec8392f5930aeab"
+    sha256 arm64_sequoia: "2a4266a3cbad43f2f54cadb15eb3ddb790b2d2db2780604df6b42b94bf9b1afa"
+    sha256 arm64_sonoma:  "8af83db187a7f1f5e3754451774d829fa3d6e42ccc7c2e5e5a81f3188dd9fab1"
+    sha256 sonoma:        "47b09b31877384921bc68ed46e530ab9ac5bab39be5ede50f74094033bd0ecb1"
+    sha256 arm64_linux:   "2c38b595e2e3aa802f989d8b45feb610d783c0009433f8bdc28855fd3ed4765f"
+    sha256 x86_64_linux:  "d92aa141bfd3900387f1862202f6f7e7bc8d958001b5db3c68251033a572140a"
   end
 
   head do
@@ -49,14 +37,16 @@ class Gpa < Formula
   depends_on "libassuan"
   depends_on "libgpg-error"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "at-spi2-core"
     depends_on "cairo"
     depends_on "gettext"
     depends_on "harfbuzz"
     depends_on "pango"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

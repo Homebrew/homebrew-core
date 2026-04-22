@@ -15,6 +15,12 @@ class Vineyard < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "898b18380f4cc4dd14a07b242a0764379d41f4b412c3c4b843b4f685d7aa46de"
   end
 
+  # Multiple workarounds needed to build. No response to upstream issues/PRs:
+  # - https://github.com/v6d-io/v6d/issues/2041
+  # - https://github.com/v6d-io/v6d/pull/2066
+  deprecate! date: "2026-02-13", because: :unsupported
+  disable! date: "2027-02-13", because: :unsupported
+
   depends_on "cmake" => [:build, :test]
   depends_on "llvm" => :build # for clang Python bindings
   depends_on "openssl@3" => :build # indirect (not linked) but CMakeLists.txt checks for it

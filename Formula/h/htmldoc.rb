@@ -7,12 +7,13 @@ class Htmldoc < Formula
   head "https://github.com/michaelrsweet/htmldoc.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "b70afc8fea7f1dae9f701126342b2f6d0e9f14a2ddbc23f6e2af4d3e27203ee9"
-    sha256 arm64_sequoia: "34ec6b59478d71030efe78a378324729c07f80793fbe85bb10a60f4cff53a7e5"
-    sha256 arm64_sonoma:  "50983ac64886dc78c2d8d9bcb7db59443077734ffe3d95d8d7a3dfcacf23dccd"
-    sha256 sonoma:        "6d9387725fb117bac2c1b1fad87198d07dc1d457348424f2de50ba0f90273a4c"
-    sha256 arm64_linux:   "c66c45d948eddc8faa1b1b4db79a473994ff799d5eccffcee010f066bb00812e"
-    sha256 x86_64_linux:  "02036033fe6c031041822eae46a0c67fe785def16c084cd710167bda9a5e5dc6"
+    rebuild 1
+    sha256 arm64_tahoe:   "a65465e42cb84f558378c966a77ae8b7ca0409bc8686f89c62b4fc45d55bd18a"
+    sha256 arm64_sequoia: "f1e6b353bd87fbe41d903d7580d4710d709597c2409b519ea0aaef820a369034"
+    sha256 arm64_sonoma:  "738c308de152b3f2f9df6bbe41b8ba2b6e120759549f49281820693794384e11"
+    sha256 sonoma:        "25ade32fb291157a367cb4900027b04baeb229a21aac12516ede7caa86b1a583"
+    sha256 arm64_linux:   "85a884b0c94907488539fcd47a78530fe1102045e052dd14647bdcbcb4de4556"
+    sha256 x86_64_linux:  "9bc6c13c652f278395d6a156d10b1f5cc9afccae9a123fb465b840d0eb9446be"
   end
 
   depends_on "pkgconf" => :build
@@ -20,10 +21,10 @@ class Htmldoc < Formula
   depends_on "libpng"
 
   uses_from_macos "cups"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "gnutls"
+    depends_on "zlib-ng-compat"
   end
 
   def install

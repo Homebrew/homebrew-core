@@ -4,6 +4,7 @@ class Rnp < Formula
   url "https://github.com/rnpgp/rnp/releases/download/v0.18.1/rnp-v0.18.1.tar.gz"
   sha256 "423c8e32e1e591462f759adf8441b1c44bca96d9f5daff13b82e81a79f18ecfd"
   license all_of: ["MIT", "BSD-2-Clause", "BSD-3-Clause"]
+  revision 1
   head "https://github.com/rnpgp/rnp.git", branch: "main"
 
   livecheck do
@@ -12,18 +13,28 @@ class Rnp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8f190c867fe3cd8c3d0b84f20952bfb285a53cda7cdf6336b0c6ad31869a12b2"
-    sha256 cellar: :any,                 arm64_sequoia: "d68ff5a9c1adccacd1c5cebe16c82d480241731a7de389155dcb5ca19ee4868b"
-    sha256 cellar: :any,                 arm64_sonoma:  "e9091cef22ec6032cfe05f5e3001ee59e940f4c86da85785fe822feb1c81b86c"
-    sha256 cellar: :any,                 sonoma:        "9e01532ff416c56e67487de414d1aa63a40fff591a4b08bdc91da43edb9103fb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e69e17ff598efdd28cf3880559fd999cef9ff702c655fae14c52c93c1f9020f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e48671491ac5bae9fb7971d448eb04399b8a46314ca87aa8ce2ec958dc54434c"
+    sha256 cellar: :any,                 arm64_tahoe:   "47196b99e7ce95c4321785266f05084c18f935efcab165b7d78612c6556c6332"
+    sha256 cellar: :any,                 arm64_sequoia: "fc1b11f0ac1e476f6fbe0f19637b1a301f0090455148bb2441f0add820a0a548"
+    sha256 cellar: :any,                 arm64_sonoma:  "7b942b2d37b54d5252440ba931502a312c676c35b5ed52b6452464687162693b"
+    sha256 cellar: :any,                 sonoma:        "dc917f41e573c19a3255a8649f24957bbd8717dcd80417ee475214da896e5505"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "64ebe0a2a1390be568fbe20ae76808f1853353af20cf2f63b3687c93b152a8c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bdd2d6cae58daf0287d95bbc2ef321976091e628fcfba2b9eff2356e13109a9"
   end
+
   depends_on "cmake" => :build
   depends_on "botan"
   depends_on "json-c"
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
+
+  # Backport upstream fix for the missing standard header with Botan 3.11. upstream pr ref, https://github.com/rnpgp/rnp/pull/2382
+  patch do
+    url "https://github.com/chenrui333/rnp/commit/29758631b5dde64b0059abe226c86c24ea08c3ce.patch?full_index=1"
+    sha256 "f8903db07fd136c54932c088da92ef87e1c8091936c9301f416361d04c1d31e8"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

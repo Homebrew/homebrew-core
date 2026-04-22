@@ -6,7 +6,7 @@ class FfmpegAT7 < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
+  revision 3
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -14,12 +14,12 @@ class FfmpegAT7 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "34ee1214f887598dccac2dc4560040391a9149f3151a9ce482815baa8db6740f"
-    sha256 arm64_sequoia: "ead94fe59c517ed4c2ad679a7a9c7bed1385f118a7bc57d1bd67c548b9372d28"
-    sha256 arm64_sonoma:  "d4691b1e03ec6799b521f52e7909931de25ed6599788b3dc8c67aca486dd1611"
-    sha256 sonoma:        "1d42053b19ef4dbe3461cedcde787b063e4097d51af5c63a4a66fcc0b88e2309"
-    sha256 arm64_linux:   "90315b8a449233bf4ea284eeed22df4da7755716c110d7e53702faab1b06d5ae"
-    sha256 x86_64_linux:  "4c5545de4bb151a83a6d58af0af50bf53035fcaf62d74318ab2dba4319670535"
+    sha256 arm64_tahoe:   "c8270cc87439a1772cc8109ae7eef90a04b4775382e99e94de1fd01f19c70dae"
+    sha256 arm64_sequoia: "3189e1d653ead8666495645b7c3c5276f074bd733dc1624071a6deef43208236"
+    sha256 arm64_sonoma:  "f7870ccdc649cffde6c83b40bbdf954e39da9c4079dc9d0f383236ba722fbc7e"
+    sha256 sonoma:        "7c84ecca7a7c56a08c92a7056a88164ee9403a735791f58a6a29faae997ddb9e"
+    sha256 arm64_linux:   "51fdca1017ab1fc4a5891a3bb59cd85dbf2ea95f9544d443246bdc823bdb49eb"
+    sha256 x86_64_linux:  "7c04fcda753e438c9ca7593e1241dc74b85ea13aa407a31b77fb7ddff004cace"
   end
 
   keg_only :versioned_formula
@@ -68,7 +68,6 @@ class FfmpegAT7 < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libarchive"
@@ -80,17 +79,11 @@ class FfmpegAT7 < Formula
     depends_on "alsa-lib"
     depends_on "libxext"
     depends_on "libxv"
+    depends_on "zlib-ng-compat"
   end
 
   on_intel do
     depends_on "nasm" => :build
-  end
-
-  # Fix for QtWebEngine, do not remove
-  # https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=270209
-  patch do
-    url "https://gitlab.archlinux.org/archlinux/packaging/packages/ffmpeg/-/raw/5670ccd86d3b816f49ebc18cab878125eca2f81f/add-av_stream_get_first_dts-for-chromium.patch"
-    sha256 "57e26caced5a1382cb639235f9555fc50e45e7bf8333f7c9ae3d49b3241d3f77"
   end
 
   # Backport support for svt-av1 4.x

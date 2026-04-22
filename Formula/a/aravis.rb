@@ -12,12 +12,13 @@ class Aravis < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "7fe8be556a8f02a85766e1a148332a4e3678a43ef0cd7c06c868586c3c8b9c07"
-    sha256 arm64_sequoia: "b6b5d59f63c6bfed5c8f866727a7ccac618f5b92f72f473907131a959edc23a8"
-    sha256 arm64_sonoma:  "4084af3b77b0bbc55f57af732268f933564cbff334c57c0c998b1ccf7118e320"
-    sha256 sonoma:        "94645a9618b5671491ffa808933288e6d834284b3f045013037c9bc2cb0bff6b"
-    sha256 arm64_linux:   "e90055c1c55ea0595360ffbb6e3f8c03ed2db4486f435ecee2775b26ebb29d19"
-    sha256 x86_64_linux:  "86e3711d972075a1494aa2f8e86b1c9a71c85045a43cf4459fd84d02b00e66e5"
+    rebuild 1
+    sha256 arm64_tahoe:   "492161d546798277f669e70c6f78ac95077a13c894763f8c065659ef74d13084"
+    sha256 arm64_sequoia: "cb3a147a799c2cdb9b63908ea49e2c4ffd0bf104b0d0ef4bf19f6bc8881c7efc"
+    sha256 arm64_sonoma:  "07bd55beb08861d9fdec88a7dc05a036a296803f9ec6641b24b3a3f6751edf75"
+    sha256 sonoma:        "a7186ae6439613f44eda3f24a922aec342fd2698a54106b1e83ebee24452e7c1"
+    sha256 arm64_linux:   "940d5509ecceedb89321147d1ead8f983fc2da277f9942dde3ba1e4e262781e3"
+    sha256 x86_64_linux:  "514c289ee6432c01ea54e3577ac3ea47849389e1ea848549cc99b29037619e9f"
   end
 
   depends_on "gettext" => :build
@@ -36,7 +37,6 @@ class Aravis < Formula
   depends_on "libusb"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "at-spi2-core"
@@ -45,6 +45,10 @@ class Aravis < Formula
     depends_on "gettext"
     depends_on "harfbuzz"
     depends_on "pango"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

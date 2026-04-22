@@ -12,8 +12,6 @@ class Pipebench < Formula
     regex(/href=.*?pipebench[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d072d62376b997ef53206ada73eb8eb22c9ad10b04f5c4c53ebbf77f92706b8a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4e0843adb8181028ccf82ae98d94804996f5ca6f13bb2499049748de186c454c"

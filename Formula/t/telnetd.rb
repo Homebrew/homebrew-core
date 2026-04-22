@@ -1,17 +1,15 @@
 class Telnetd < Formula
   desc "TELNET server"
   homepage "https://opensource.apple.com/"
-  url "https://github.com/apple-oss-distributions/remote_cmds/archive/refs/tags/remote_cmds-306.tar.gz"
-  sha256 "7f014f7eebb115460ea782e6bcade6d16effa56da17ee30f00012af07bc96c36"
+  url "https://github.com/apple-oss-distributions/remote_cmds/archive/refs/tags/remote_cmds-308.tar.gz"
+  sha256 "cd4fb9d239a4db871c1e82416c42f8862fab26b9f32e292bcf61151a67174168"
   license all_of: ["BSD-4-Clause-UC", "BSD-3-Clause"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "352b9a21a62d85b6636369978ad5b6bffa79323abbd985371f663d6da0c16e30"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07bf8f40affa2499a35c1d4721d0f037e12081c299a43df1c11a0a51ebf15ac0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed85960517cbb617e9b60788b809d4909266b9a377d28d714f9a713858fd57da"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "02ad1e6f02dcf3316ecb981540fcac0ebf600ffe5f24250a830704464742185c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7fea7f6cc2ea119744bfa263e2c2a67766d169fb9ed0f73a97a6de8c00a0e06e"
-    sha256 cellar: :any_skip_relocation, ventura:       "447534356a8a29764410dcf44c188300ce42e57487f9c8145d81b19d1b0868b4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c105baed35a24dd47445623e2311182421089a4dec205138b73b763420895631"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d06771bdf55dc0ad645128f4f840b5e289b58de6c00ded464bb936f33f0c628"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2baf1b012d677c75baf0893dd502d7d0bc112b590376cea9f25b5fdb88324f68"
+    sha256 cellar: :any_skip_relocation, sonoma:        "89af5018ee8282b1ddf26227227034578112802aeb0bbfaf109e741706567ee7"
   end
 
   depends_on xcode: :build

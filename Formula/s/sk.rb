@@ -1,8 +1,8 @@
 class Sk < Formula
   desc "Fuzzy Finder in rust!"
   homepage "https://github.com/skim-rs/skim"
-  url "https://github.com/skim-rs/skim/archive/refs/tags/v2.0.2.tar.gz"
-  sha256 "0a174ce2fadac28ddbbeb7eb3fe3aec8a4aea4b3c7b830e270a67e612a358407"
+  url "https://github.com/skim-rs/skim/archive/refs/tags/v4.6.0.tar.gz"
+  sha256 "934127f04a01ac0daaad0c273fe7e705fc01135a27dffe068c156528849f223e"
   license "MIT"
   head "https://github.com/skim-rs/skim.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Sk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "99337aaec1ed9cd73c692279c407e71d418fd04d9a6e989a015d8839a2df0145"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a4787af4e9d23ae4fc8b59e793ee279a29995264b65f661c543870034188daa8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c337610c0406a11d5bd56112af2d5db24aca7a7825bb89be97d7da489238c95a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "25151b0eb64981dde570d99194a8fbc368e548974f8cd318f23ef437ef20721c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09633f198351f705a0826319e3d2615de38b9da31cca4aa2e51ed6287b12a87d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d41480fe3bb673849e4012fb0ab1d2ac03d56fc8528e9d4edff6d3492e54f6b0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ceb2f32141dba4f3757c2aa3d540d2b0c34f8077f9b0d01e1f954721adb493ff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cba1e488526c8d68ec4764c706f4c11ab5881b2e77a0e534854d058e101c5921"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78add48cd38c4e6d8b079719354b163315c83a8f3c01e85b22019282de66a67c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5a619a726cc7380d98f20f586da9651a46e18ad771328b798e13fa1902611d49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae464577b29fd6fe38c0e672cb7a039937259476fb12b27a7bbf0fb09b7692b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2eadbcfa2e6fc1d7550bf1d56b482f8f048b8affe55c3882c9526358a5fa3576"
   end
 
   depends_on "rust" => :build
@@ -25,7 +25,7 @@ class Sk < Formula
   def install
     # Restore default features when frizbee supports stable Rust
     # Issue ref: https://github.com/skim-rs/skim/issues/905
-    system "cargo", "install", "--no-default-features", "--features", "cli", *std_cargo_args
+    system "cargo", "install", "--no-default-features", *std_cargo_args(features: "cli")
 
     generate_completions_from_executable(bin/"sk", "--shell")
     bash_completion.install "shell/key-bindings.bash"

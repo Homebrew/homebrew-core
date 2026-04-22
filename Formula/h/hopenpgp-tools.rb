@@ -8,15 +8,13 @@ class HopenpgpTools < Formula
   head "https://salsa.debian.org/clint/hOpenPGP.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "47af189fdfbcc2b7ab692127e4352f6eb5bdc5573f64918b6ac7abb13215079e"
-    sha256 cellar: :any,                 arm64_sequoia: "0abaf700294d6bcc8ec68b211e3705115ffc75d7de6ca66003c327f65fead083"
-    sha256 cellar: :any,                 arm64_sonoma:  "cc66eb8cd7c9041526829cf42d7165911a5133efba6a15bba72c4ed62842a695"
-    sha256 cellar: :any,                 arm64_ventura: "168109c37c5ddce6e572cb5eee589a63a1e8e3cc7aad18f2f4723614bfc2b13f"
-    sha256 cellar: :any,                 sonoma:        "b6f9cc17771af94ce8162032631085e983baccf90e6b5d49b3726da81e7713fd"
-    sha256 cellar: :any,                 ventura:       "e3097679dde5250ab36974a7ec5adc805dbbb7bf7baee726455616287dd8af3c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "50fd1b8792416bb2dbce9353490738993b00a89e30a064b8f39dc08e6ab940c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c20f007e3cebed6ad6dc14cbaf3db6f1fe05dc0a98cb6a491e6174a531594a2a"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "6e1b1eccc7a834a587e44a3d72443034942527f06b6b871a9c44698c1cb21e58"
+    sha256 cellar: :any,                 arm64_sequoia: "1cd126b1a338333e61bc6d5ff086511af4470c9a05764d5250417469a15669d4"
+    sha256 cellar: :any,                 arm64_sonoma:  "089e8a318331d55e8dae0760ae8df764ca9e252c59dd1640f6f9b10ba56ce219"
+    sha256 cellar: :any,                 sonoma:        "4556fef4e991d2e8dd07835f16b92f18d8c8151c1fb9043fa903a7ce0acc90c9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "10da1dd06cad90211489d231be6b4ddec80304bea1e57aa342c9c4cd2258fc91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a783536238023b381f195e111f0430f9d7931bea24fd9d31849675e00c29f639"
   end
 
   depends_on "cabal-install" => :build
@@ -27,7 +25,10 @@ class HopenpgpTools < Formula
   depends_on "nettle"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # TODO: Remove resource once new release ixset-typed release is available
   resource "ixset-typed" do

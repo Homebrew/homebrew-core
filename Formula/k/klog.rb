@@ -1,18 +1,18 @@
 class Klog < Formula
   desc "Command-line tool for time tracking in a human-readable, plain-text file format"
   homepage "https://klog.jotaen.net"
-  url "https://github.com/jotaen/klog/archive/refs/tags/v6.6.tar.gz"
-  sha256 "78579e2686de8973fba005fcf510e6c382b80c674527ca55c362ed4317897b3d"
+  url "https://github.com/jotaen/klog/archive/refs/tags/v7.1.tar.gz"
+  sha256 "3cd6eee1adc16c2105713718e23b67d9607ac9872a0dbc31689c6051d0176ea6"
   license "MIT"
   head "https://github.com/jotaen/klog.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7ab3b48dba0abb8cdfd6c3b28e2c83caa69ffa2623a715612a3ebcc5efcbf52c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ab3b48dba0abb8cdfd6c3b28e2c83caa69ffa2623a715612a3ebcc5efcbf52c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ab3b48dba0abb8cdfd6c3b28e2c83caa69ffa2623a715612a3ebcc5efcbf52c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c03caffc30d0419f6ce2c531cad8cf66715e71631aeee6457a4e6a3c0c0bbb01"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9587564b1ec293057890feaaf927631b6304a19fdde4c8d6bc37bbfa385410f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b828b967c16475108e80dc579901550a8584b8833a523e61f8df051db48231fc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9f04bf8b78d72c92f0c708f48d5f9cb11c85b7266fc845874a08ef1d1c566fd3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f04bf8b78d72c92f0c708f48d5f9cb11c85b7266fc845874a08ef1d1c566fd3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f04bf8b78d72c92f0c708f48d5f9cb11c85b7266fc845874a08ef1d1c566fd3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c9685c77feb099c5a57f84e4f7ebbfe675354bd9a53b4680bfc20b280a56117e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "085936825f08a8df46e9be28d676e676000c1035e24dadadcf3c7b1a908d82a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6fb17a890a85adbc8829818930bed2aa5910cd8c72b61bc6aebefac7f06817d"
   end
 
   depends_on "go" => :build

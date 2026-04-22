@@ -49,6 +49,16 @@ class Creduce < Formula
       url "https://github.com/csmith-project/creduce/commit/98baa64699aedb943520f175a5e731582df2806f.patch?full_index=1"
       sha256 "7a5a04ed394de464c09174997020a6cca0cc05154f58a3e855f20c8423fc8865"
     end
+
+    # More backports needed for updating LLVM
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/4371cc2d77c771b8b88ded79b95176bac8dfbf09.patch?full_index=1"
+      sha256 "f7e88a13deb1db21933d0a81dfe328982beed283d49a66a59e6ef9c2220b1144"
+    end
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/dff59dae1fc2d62cc1cd240761492587bab364be.patch?full_index=1"
+      sha256 "e4c531c73a8cd26cbf9175fa6f094f46a12cda00e5de3ac40e5c13aaf22c0b77"
+    end
   end
 
   livecheck do
@@ -56,21 +66,18 @@ class Creduce < Formula
     regex(/^(?:creduce[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ef5fc676679f474e69748993a5a795c53eb1eabea3ac94e8901002cfb43475df"
-    sha256 cellar: :any,                 arm64_sequoia: "752bcd060b5ab5d04efc96dfd67d9128e6fd66a2d9b14b5e59735ba758d2d61b"
-    sha256 cellar: :any,                 arm64_sonoma:  "c489f889cd95d689d226e4965582120a96b1119eb4fb2902c481c6b9338122aa"
-    sha256 cellar: :any,                 arm64_ventura: "56cd23ed4e8cdf7a2928f740332b07eed6f3d5b8a22416cf30ab746fbecbe0a7"
-    sha256 cellar: :any,                 sonoma:        "487aebd04b8609040875fb262122692867f20507b7c71e25a8914a920521242d"
-    sha256 cellar: :any,                 ventura:       "937ef76ad140358b5458b394b8376746972ce80915e3fa91fc7b6065a94bc5ef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7355a04a779fd118356fba1c777127451b6ef219c6d89797db1b379b5eebb977"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "299566ba27c179eb7e3aa48dfc766b6b3bfe6a4892a929b5777aede0b4e54a05"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "94b893aac362ceca74c7d09acf19335865abf17e3f638db16167adf56865cd5e"
+    sha256 cellar: :any,                 arm64_sequoia: "5fadf5c8c719a221bb924142eae5abffe40dff151033a6166e5e02b2a61980f8"
+    sha256 cellar: :any,                 arm64_sonoma:  "70f95a86f0cada743b96616b58e8a55c6747c831af695947d02dc1a07132cd8b"
+    sha256 cellar: :any,                 sonoma:        "49319eb927f3b1f423b4176c525f89c4e3e55da53441c63ee4812cc3aece5c45"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a75cd23590bf3bb096a62046b47589e1b03879cc7f98c354b469704083b89a71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6792f620f4a932cbbb518201e715cf09e9f90208a651e317aad521a6b8cd2a9f"
   end
 
   depends_on "astyle"
-  depends_on "llvm@18" # LLVM 19 issue: https://github.com/csmith-project/creduce/issues/276
+  depends_on "llvm@20"
 
   uses_from_macos "flex" => :build
   uses_from_macos "perl"
@@ -102,6 +109,20 @@ class Creduce < Formula
     end
   end
 
+  # Apply open PR to support LLVM 19
+  # PR ref: https://github.com/csmith-project/creduce/pull/285
+  patch do
+    url "https://github.com/csmith-project/creduce/commit/30d433e5e49c6b5864e5ca7d8aa7cf30cf3191e2.patch?full_index=1"
+    sha256 "f0de5d3cf8a17405f4fce908a498feed3aa0d8594092bb3096624dba1ca5b74f"
+  end
+
+  # Apply open PR to support LLVM 20
+  # PR ref: https://github.com/csmith-project/creduce/pull/287
+  patch do
+    url "https://github.com/csmith-project/creduce/commit/62bd78d6d621faca246a1b2b659b75bf721aa184.patch?full_index=1"
+    sha256 "fe476690a81b3a6d9cda06058515fc49a250f1a0b6d9ecf30a9a9dc68ab7987d"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
@@ -118,17 +139,9 @@ class Creduce < Formula
       end
     end
 
-    # Work around build failure seen on Apple Clang 13.1.6 by using LLVM Clang
-    # Undefined symbols for architecture x86_64:
-    #   "std::__1::basic_stringbuf<char, std::__1::char_traits<char>, ...
-    if DevelopmentTools.clang_build_version == 1316
-      ENV["CC"] = llvm.opt_bin/"clang"
-      ENV["CXX"] = llvm.opt_bin/"clang++"
-    end
-
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--bindir=#{libexec}"
+    system "./configure", "--disable-silent-rules",
+                          "--bindir=#{libexec}",
+                          *std_configure_args
     system "make"
     system "make", "install"
 

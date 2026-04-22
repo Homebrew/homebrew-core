@@ -5,8 +5,6 @@ class Daemonlogger < Formula
   sha256 "79fcd34d815e9c671ffa1ea3c7d7d50f895bb7a79b4448c4fd1c37857cf44a0b"
   license "GPL-2.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "0ced73ca63e8d048dbc4692cbadf68f13d834fb8e5bf642be31d4573d58d17bb"

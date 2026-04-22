@@ -11,15 +11,14 @@ class Libabw < Formula
     regex(/href=.*?libabw[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c5e554c8eaac91a2116320a12ed9700f5043d7ee1649ff12ac6bf100f592d85e"
-    sha256 cellar: :any,                 arm64_sequoia: "1929be6ef60ca2ff2bef046ee353ad20cf7341d63d3eac43f7b7f5bbd386ee25"
-    sha256 cellar: :any,                 arm64_sonoma:  "d4eeb055aa536796728ac58c6ffb974b2edde14dac3c02ced2e2f26752b797d9"
-    sha256 cellar: :any,                 sonoma:        "eb91f348d176eaa3ea84d170a3ffc43debad1cfa66f6d8ac7f6a286af97d8bec"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a03e3ba5c5b3783867148421e68b9f6dcefd078bde39158781d60b33f42bf7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e0f203da1524d6ff7b2df39cc4585bca3e16c923a4a21dca9633161a288c706"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "94f750ee7bbbf84e58e7673ab8c00d6f5ac7805e3866887ef3a598f10465d555"
+    sha256 cellar: :any,                 arm64_sequoia: "615103d929d3d41b86505ec51bca88f383c9a890588bd6cfa1ac17de264e2575"
+    sha256 cellar: :any,                 arm64_sonoma:  "36fd000ef3d1a511d89e6f050465b3dbdc6ced760615222779812ea836df25d9"
+    sha256 cellar: :any,                 sonoma:        "5874a09fd09d99442394994ce591cdde79b201131e1f33c5268ebef8b0f3d02f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d5c1ad4d34c3dbab41b53d369abbe5bda59801caed9e238de74a12a04d18bb5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e3863e042c26afed865f3857ae6b63054bd082b829bdf7f9ea6118aa8a1ae94"
   end
 
   depends_on "boost" => :build
@@ -28,7 +27,10 @@ class Libabw < Formula
 
   uses_from_macos "gperf" => :build
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--disable-silent-rules", "--without-docs", *std_configure_args

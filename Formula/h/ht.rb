@@ -5,8 +5,6 @@ class Ht < Formula
   sha256 "31f5e8e2ca7f85d40bb18ef518bf1a105a6f602918a0755bc649f3f407b75d70"
   license "GPL-2.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_tahoe:    "24189de18e537de36a5368d5e5a9e1017f07b25e16147467763496ff865e4a1b"

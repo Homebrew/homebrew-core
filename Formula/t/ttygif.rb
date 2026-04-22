@@ -5,8 +5,6 @@ class Ttygif < Formula
   sha256 "050b9e86f98fb790a2925cea6148f82f95808d707735b2650f3856cb6f53e0ae"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d5fce5ba582f5b18009dc239f63010c981ebf1181a5f34072d6550f73f2e8053"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b6e237ea0e9b4a23fd56ec73b8946859eebcc2b4fb732c6268a9ce942db6ad8e"

@@ -19,10 +19,6 @@ class Bacon < Formula
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
-  on_linux do
-    depends_on "alsa-lib"
-  end
-
   def install
     system "cargo", "install", *std_cargo_args
   end

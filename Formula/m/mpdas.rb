@@ -11,8 +11,6 @@ class Mpdas < Formula
     regex(/href=.*?mpdas[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:    "42aa6fe164c3cd7c89bff4e7cbbe3b6488a6588067997a33b05b8e8b2f3673dc"

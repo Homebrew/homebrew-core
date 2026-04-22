@@ -6,22 +6,23 @@ class Pgcli < Formula
   url "https://files.pythonhosted.org/packages/98/9d/193acc7d3236e5941c02044787bd33afb668d33f72375d1ba3b4f5e92128/pgcli-4.4.0.tar.gz"
   sha256 "bd5f8d68af28fd69551a3cb48a2849cad5f6854aa48022e9d98c6236d109eeae"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "004f815714f5c5de83aa18d28df0e8217d8b3a0ea4a242f93e279faaa518e1c7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3a22d56e459b6d8e2d39b8551771fb62bcc0bd2a4a1dc591231e07655f650ae"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "108013e4b16fd2e411564138fec9f11e5de4f17233d2823ec2f8245313bf1867"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1fb49c84a1e4eb67b1ea78a24113e1648c4236dd8ec26ba7f9506f20c97b735e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9f1d47b9524844576959e612345de92b48d823771aebf80d0fce5cfc843be5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5bcb06cabe91976eac46824f0c837954d1f62f73755a9de9bc7d4ce7078c395"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "21497c1cc9dab6467ec1626493e20ec9d125ae131137d14169322ed241711623"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2730c5acf8b4d6ab516cc4e009b62226a72db8ce6efa80e5c025a580437f9c40"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2d4a6109c09a0d6e84d62c07f0879112843c526352ac73385fbf31f135b61ed"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ec716c423c5c6600be75653bf73d1f771f7f64f5aab84d64ac499aa677404ab3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7491c1ae2d418107138a85b53904388a4cc00c9e1da5659bf67a0c7c0cbb3c2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93e80655202fa910c69e7ba8bf388eae479d0ad3e467dcb050a31b31484fbb80"
   end
 
   depends_on "libpq"
   depends_on "python@3.14"
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/5a/e6/51b043e8c4ae390af61af35f73a9c2a69a26ea9cf4d061ab45c59f8e20f4/cli_helpers-2.7.0.tar.gz"
-    sha256 "62d11710dbebc2fc460003de1215688325d8636859056d688b38419bd4048bc0"
+    url "https://files.pythonhosted.org/packages/c6/fd/b2ac313fa77176cf784ef27cdfc041c691a2f166b2af28a6f9182e556e5b/cli_helpers-2.12.0.tar.gz"
+    sha256 "599dd10b2bdca3f50e272c3d265eefada78659f22559d2304461ee8ab400d490"
   end
 
   resource "click" do
@@ -45,13 +46,13 @@ class Pgcli < Formula
   end
 
   resource "psycopg" do
-    url "https://files.pythonhosted.org/packages/e0/1a/7d9ef4fdc13ef7f15b934c393edc97a35c281bb7d3c3329fbfcbe915a7c2/psycopg-3.3.2.tar.gz"
-    sha256 "707a67975ee214d200511177a6a80e56e654754c9afca06a7194ea6bbfde9ca7"
+    url "https://files.pythonhosted.org/packages/d3/b6/379d0a960f8f435ec78720462fd94c4863e7a31237cf81bf76d0af5883bf/psycopg-3.3.3.tar.gz"
+    sha256 "5e9a47458b3c1583326513b2556a2a9473a1001a56c9efe9e587245b43148dd9"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "setproctitle" do
@@ -65,8 +66,8 @@ class Pgcli < Formula
   end
 
   resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
-    sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
+    url "https://files.pythonhosted.org/packages/46/58/8c37dea7bbf769b20d58e7ace7e5edfe65b849442b00ffcdd56be88697c6/tabulate-0.10.0.tar.gz"
+    sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
   end
 
   resource "tzlocal" do
@@ -75,8 +76,8 @@ class Pgcli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
-    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   def install

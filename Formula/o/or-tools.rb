@@ -4,7 +4,7 @@ class OrTools < Formula
   url "https://github.com/google/or-tools/archive/refs/tags/v9.15.tar.gz"
   sha256 "6395a00a97ff30af878ee8d7fd5ad0ab1c7844f7219182c6d71acbee1b5f3026"
   license "Apache-2.0"
-  revision 1
+  revision 6
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -13,12 +13,12 @@ class OrTools < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "9c3cc109d46a3dc4f1ae6a697a99bfe322167539356f46ae990357c5baf97c0f"
-    sha256               arm64_sequoia: "88cb06ff67a8a2caf5882adee792002d5a23518b1d9e3cc4b23a3b719f675639"
-    sha256               arm64_sonoma:  "3e55dd22f89bbac78628f0fec9a4ee6d33ac41b116a7431d98407c8ef816711a"
-    sha256 cellar: :any, sonoma:        "6823930eb1d6668addf7aee9f12e954dad4efb7cfc6ebdf600e7730305b29cd3"
-    sha256               arm64_linux:   "ddc04ee4637e77f7a3e124fcb454d0e3fed1080cac096382c36ade30fea48579"
-    sha256               x86_64_linux:  "c6d08089e22c69669185123d0469971f98bb99e189ed786a7a7a7223b552ed9c"
+    sha256               arm64_tahoe:   "dc4178f64f64df446e4ba2cc9dba8369d3dd33852c7b53c4d8d73ab7ba97abaa"
+    sha256               arm64_sequoia: "52b551f0f7e74423ade1744e17cff6102338e49be0afb83d7e207b97fa6a27aa"
+    sha256               arm64_sonoma:  "6bed3aae7b6052850dddb606fcc2c808253914f822f20665bfd7b7a3f9baadba"
+    sha256 cellar: :any, sonoma:        "9ee900400ea29427100ee197198ef34f377c2ac1fcf74bde3b4161ff830aaf72"
+    sha256               arm64_linux:   "979b3b1df3b1f3bc94c957f2f6b316988a72fa1f0fd32557981a376898357b5a"
+    sha256               x86_64_linux:  "9d6065f782de6a4cfb5ff8e629372b0f2e193222e3b1a17d227e3bd6196aa310"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -34,7 +34,6 @@ class OrTools < Formula
   depends_on "scip"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "cgl"
@@ -42,6 +41,10 @@ class OrTools < Formula
     depends_on "mpfr"
     depends_on "openblas"
     depends_on "osi"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

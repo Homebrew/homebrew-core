@@ -7,18 +7,21 @@ class RonnNg < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6d1331b7762f2c22aa293706c8bf47a61dfdf219478c277f5dec6d5c2fce9a44"
-    sha256 cellar: :any,                 arm64_sequoia: "0734fb103f97545655590bd5778f7c4c64a984d7ef200580f6ac306cb7dbec23"
-    sha256 cellar: :any,                 arm64_sonoma:  "9b09b583821984dd3b095fd8762d84de2a6a95a66b1bfce30e3ec765031e5b53"
-    sha256 cellar: :any,                 sonoma:        "a38e92d2f695af08219c18c263275f1ec162588dbf17a41f4d374858cb435a1c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8a0040cdec456e90c21efae66d299b5a18650ee4eda8c9ff5a35e2bee4d1146"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdb2b1badb882a826f007c77a793d8ca6f7099c30843e9681766a964f6464367"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cde2a1921cd09603374d28ee44d9c470f0b187add7b9d9eb0b526d7dbe5a3305"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cde2a1921cd09603374d28ee44d9c470f0b187add7b9d9eb0b526d7dbe5a3305"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cde2a1921cd09603374d28ee44d9c470f0b187add7b9d9eb0b526d7dbe5a3305"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e81143c3c8d224765b7db5c39a07caa7c2d7d2c9a291064f99186a1b6a7578d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "43cce7ff99b681bb070ad22d1b9ee17a4c2093c79921cd5211095242a05222a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4fd9f3b447f24382a9d97e7a1aa2cfdda53eed5ad75f19b0e6d2ae6e210938e"
   end
 
   depends_on "ruby"
   depends_on "xz"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "ronn", because: "both install `ronn` binaries"
 

@@ -6,8 +6,6 @@ class Xplanet < Formula
   license "GPL-2.0-or-later"
   revision 6
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256                               arm64_tahoe:    "7496e485b462de4b286f4128d145dfc58aaba93237aafc36ec1c0138a740be46"
     sha256                               arm64_sequoia:  "1c5fb1f5235c56e1aa7f84415b49428ed1c92532b47697800982f01dcfb4d842"

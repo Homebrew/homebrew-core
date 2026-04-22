@@ -1,25 +1,27 @@
 class ForgejoCli < Formula
   desc "CLI tool for interacting with Forgejo"
   homepage "https://codeberg.org/forgejo-contrib/forgejo-cli"
-  url "https://codeberg.org/forgejo-contrib/forgejo-cli/archive/v0.4.0.tar.gz"
-  sha256 "3dd84c58c8c5d5fc22b8456d9a4f35323e0386547743c6b24295a3dbc6a56fb7"
+  url "https://codeberg.org/forgejo-contrib/forgejo-cli/archive/v0.5.0.tar.gz"
+  sha256 "028ebcbd744301fbfd144cd9bc5ff0a27e02d99b02c8abafb20742299715c556"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://codeberg.org/forgejo-contrib/forgejo-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "45379a91b70c0b9ea6217a81f4c5b4e180b3c38758eed9dcfd08e730aa2f3df2"
-    sha256 cellar: :any,                 arm64_sequoia: "6e4acdc5869b8889fd0db031f63dfba57c7de45bd218e60474d3b674dc8c87ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "edf8b40748b1c7c5a1a8fd45f88c106314a16c3be9b38a62ac1fea924a841ca0"
-    sha256 cellar: :any,                 sonoma:        "26f05774cf28bc8e35005ca1191eaa7e9180b9cbdc1a1324e04f7cf9a4b7ebc3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "55b14093f304fc7b12b1289c88a6b62e3a8ef5a6ec279b745acc1dada5aa5e71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "150dee1c8434afe85934ef1c9d06e8e2c4913f288e4c35b2fcc595eec6f70041"
+    sha256 cellar: :any,                 arm64_tahoe:   "da03e5e9283bacfecb9085684ba35701932a95254486a5d25b841f898715bcc5"
+    sha256 cellar: :any,                 arm64_sequoia: "50ef4d22fdd29d0144769db602da1a46098c6649959f702c7193a6ce55a474af"
+    sha256 cellar: :any,                 arm64_sonoma:  "b1d585c8520c57d6cb8a2309e3ea1ca71cdc278e371b3ed35d58645b1ea6af54"
+    sha256 cellar: :any,                 sonoma:        "90fdf8e55f03114a11c912f20ea1eeb60c09f26a69628ce94c6e1a5d9066076b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dee5a25bc9af4873f25cadd9152a7b43a7fe9f281694cc617d9b7c5a181ee4e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bd9495f4637a8392608b9dfb0cb76c9b1e4a6fac326e5ef29008ee232d1f218"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

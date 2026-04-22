@@ -1,9 +1,10 @@
 class Icu4cAT78 < Formula
   desc "C/C++ and Java libraries for Unicode and globalization"
   homepage "https://icu.unicode.org/home"
-  url "https://github.com/unicode-org/icu/releases/download/release-78.2/icu4c-78.2-sources.tgz"
-  sha256 "3e99687b5c435d4b209630e2d2ebb79906c984685e78635078b672e03c89df35"
+  url "https://github.com/unicode-org/icu/releases/download/release-78.3/icu4c-78.3-sources.tgz"
+  sha256 "3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0"
   license "ICU"
+  compatibility_version 1
 
   # We allow the livecheck to detect new `icu4c` major versions in order to
   # automate version bumps. To make sure PRs are created correctly, we output
@@ -17,12 +18,12 @@ class Icu4cAT78 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "dd21a03a000575112907785abf94f853facdf981442d0637605aa890a74c8181"
-    sha256 cellar: :any,                 arm64_sequoia: "f153ba0774789f39daed4e3546ec6b2575ad742f7c71cf79ecb845f89bf9e70e"
-    sha256 cellar: :any,                 arm64_sonoma:  "89115911782060dd1f716f987cd81be17dd6effc9f747b83c25d6f509ebce479"
-    sha256 cellar: :any,                 sonoma:        "c07ff4225a3f67025780fc7c5bf2802a67897ae147b8d51d7e53531bc6d05b2d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f52ad3ea43bfa3c16aac234217f0c0d6acc1787f5083d05c49213f12d5c097e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7aa8dc4368de2e9cd560ce809722ba32ad2292a0fe8459d3932f46325ce53427"
+    sha256 cellar: :any,                 arm64_tahoe:   "0476be299494b97e50a48b0ba08811255300228aef664058e555480d6aee4fb5"
+    sha256 cellar: :any,                 arm64_sequoia: "d1206febbce23e5014f51b631afd7129b2a247ee18a9f97226cd5889e66c1686"
+    sha256 cellar: :any,                 arm64_sonoma:  "e15b43778ccf194d2ebef8122ff654899825df30aa339ad39578c66500eaa6d8"
+    sha256 cellar: :any,                 sonoma:        "100ba33fb4652a045e921b19e0e52a8c7aa20a3e90adcdeaae58e53d4a43d39a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "76dae2c62a79c94411f88eb7c8c702429d15ad8d5d6df17bfa855539df3497a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b152f4b6f581af753a52bf6dc5b7a113cd9f77088dcc94deaf6c321109aa43c2"
   end
 
   keg_only :shadowed_by_macos, "macOS provides libicucore.dylib (but nothing else)"
@@ -42,6 +43,8 @@ class Icu4cAT78 < Formula
       system "make"
       system "make", "install"
     end
+
+    inreplace [bin/"icu-config", *lib.glob("pkgconfig/icu-*.pc")], prefix, opt_prefix
   end
 
   test do

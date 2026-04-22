@@ -1,18 +1,18 @@
 class CargoOutdated < Formula
   desc "Cargo subcommand for displaying when Rust dependencies are out of date"
   homepage "https://github.com/kbknapp/cargo-outdated"
-  url "https://github.com/kbknapp/cargo-outdated/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "a0acb73eca2cc65915db426e49a0b834d20ef2cb302bd2ce21c1d59f3cb1894b"
+  url "https://github.com/kbknapp/cargo-outdated/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "ea6592c08d4e8ea53aa0251cbbfbf8ad2b2167f794cb9599715eecb3653507f2"
   license "MIT"
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7aa16f918979213758af38c2f285cd5805574bbce7bbf2f05652137bd1975ca2"
-    sha256 cellar: :any,                 arm64_sequoia: "ab7387ccf1d8ebcd8e4c59c41dea28364316b5d03f99d47f8c4ef812879a2b36"
-    sha256 cellar: :any,                 arm64_sonoma:  "e1ca3f3386b589beb3af60ffd8ffe53aa975a273d575066c97281479e1182f59"
-    sha256 cellar: :any,                 sonoma:        "d701232c35a2768f0a1a8ac96c68bb16d4aa6353c96725d0339ba467b62fa057"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8cf595c0dd40841f29b17e81855161d5f03c5998ad482bb5f4ab054d112cdae8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dedf4524e646d5747c1061b9c84eac2378dde63de3b3f01c3d618c04496094cf"
+    sha256 cellar: :any,                 arm64_tahoe:   "6174085b6cd0d46cd1be2c6dda1a24a0f7bcd4e98c362808c63e09d0c11bf3bc"
+    sha256 cellar: :any,                 arm64_sequoia: "57f2a20781ae0cbfcf3e279725f528d12d808d008876e0bcccf5cda173eafc1f"
+    sha256 cellar: :any,                 arm64_sonoma:  "c77702c3d4da76762864ace24b8b25318bd732b95019471c061b6188892c38bd"
+    sha256 cellar: :any,                 sonoma:        "6afd5d52a700fd64b1f613980c399f08a05ccfe5f38072f42bfc438bd89a826f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1f4b8afc5760e243f583e60f81e11cd92a9819a14d6d00bfdc7125fcede1b035"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d8f21cc13aba011e544f746cb9096799337c335ff8796586c23163bab069f1c"
   end
 
   depends_on "pkgconf" => :build
@@ -21,7 +21,9 @@ class CargoOutdated < Formula
   depends_on "libgit2"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"

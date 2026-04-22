@@ -1,18 +1,19 @@
 class Resvg < Formula
   desc "SVG rendering tool and library"
   homepage "https://github.com/linebender/resvg"
-  url "https://github.com/linebender/resvg/archive/refs/tags/v0.46.0.tar.gz"
-  sha256 "81a82a8de33da0fcf13fd18532d653bbd0b50b146d82c319dd0ce7294562c7c5"
+  url "https://github.com/linebender/resvg/archive/refs/tags/v0.47.0.tar.gz"
+  sha256 "7869119fd822983b0a0bc2469bc94d59e7908fc12165fa67a105a4fa25087f9a"
   license "MPL-2.0"
+  compatibility_version 1
   head "https://github.com/linebender/resvg.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "eeefb58f87c2e4eaabc68fb25a4983b08d671330f4fab4f4167d28c22525b3e7"
-    sha256 cellar: :any,                 arm64_sequoia: "e66c608cee33495f3639b3083083aaa8bb22b3f3f8573bad573488f2af8df652"
-    sha256 cellar: :any,                 arm64_sonoma:  "a5e28f71e73c113f16aab3f9895c1eb2fcde4dbb0ea601adfce9cf846a67cf79"
-    sha256 cellar: :any,                 sonoma:        "fdb9d9d3d1f988caf540bd3293f71a2da872acfebb2378e94168f7cf252069e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d1b0293f6452ee8d17b239ec47d31a0194cc9e1389cec99dc021cbe5beb46d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99e532b6cac7b885974e04a7ec1dc52990bfcf0f8b34a3d1d5122b84cb2d6a26"
+    sha256 cellar: :any,                 arm64_tahoe:   "2f90089fe3e4247ad113c2b84a711dc2dd811e359a6ebfebae1d24c8f80634a6"
+    sha256 cellar: :any,                 arm64_sequoia: "aaa0dae4ff75ecfc4d0d2339b0f6a14ac59432b8eafeca39f8724448e0cb2a56"
+    sha256 cellar: :any,                 arm64_sonoma:  "111ece6bf433eb6efc157c33b0de64d1819e881d30792219a0564eb400fb41e6"
+    sha256 cellar: :any,                 sonoma:        "268d40b77503bb41c303c1a5f4f2b2d5a37030d953b90888191d638333b5b2da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e95a9b431a196ed36a1d2e9e278d71286aab6cf96b67e531283a749b88f0d7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9856e51fa8670f7a16ee58fc8e255e0033278800a42f7ce34672624ba78728a6"
   end
 
   depends_on "cargo-c" => :build

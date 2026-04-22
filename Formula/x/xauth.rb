@@ -4,6 +4,7 @@ class Xauth < Formula
   url "https://www.x.org/pub/individual/app/xauth-1.1.5.tar.xz"
   sha256 "a4000e2f441facebf569026bedecc23ba262cc6927be52070abe0002625cfbe0"
   license "MIT-open-group"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c41ec4cab2cf6579ed12863a167d2c8cd5d9ee442f75e59687c616094960a6cc"

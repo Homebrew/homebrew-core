@@ -1,18 +1,18 @@
 class Garage < Formula
   desc "S3 object store so reliable you can run it outside datacenters"
   homepage "https://garagehq.deuxfleurs.fr/"
-  url "https://git.deuxfleurs.fr/Deuxfleurs/garage/archive/v2.2.0.tar.gz"
-  sha256 "e68b05d4358008e8b29a0ac235f73e3a12d97d9c6388c330b87282db774c04dc"
+  url "https://git.deuxfleurs.fr/Deuxfleurs/garage/archive/v2.3.0.tar.gz"
+  sha256 "b83a981677676b35400bbbaf20974c396f32da31c7c7630ce55fc3e62c0e2e01"
   license "AGPL-3.0-or-later"
   head "https://git.deuxfleurs.fr/Deuxfleurs/garage.git", branch: "main-v2"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aaea47f576bc097b48ebc69ac3969fbe1384b50a6db452b898b41e0455436e40"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4c22777b9e6848a776f2058a9905966bc696527a9c4395d069522d960d99e89"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53b8c38aa92d1f51778217b4852b3171252eb3b8717260fc3ec5ebcf988a0360"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e5cb293d845e1b4c2da8945b31f72c5ea0b6d7191ec58f923736abdf14b3cb10"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3fc38f9d7826707a74b5577e794d1b69ae3522f4b523cf0e4392310c9261885f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da02dc0dfd278772fd1d528b5474605f0981d40cd679cd3ae6ada4d662579c0f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ce66d3ad9ebe1048f0204180cf99b5412b8df4d0bc0f20e90005d774779b402"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3159b0141b055b1db39db05a31e82ed49ef890dca34483c409ca2b7fccf74ef2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a5e6402a6dedd2ea5d1cdca4821be2619a4abf46b6ce758cbaf34c7015d618f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b444c9a1cb4692a260c5e4e71a8071c0474ab0470d09d307a408f48b3ac30bcb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ff5c34f181cdf64ec1cd1d79e1804419a45b38eb6df6cac5e8aa99c7ebc6e89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a68e2ff3276a10d859a9ddaa7c900e01f2068324954f41b94e1fa04efbf3a951"
   end
 
   depends_on "rust" => :build

@@ -5,8 +5,6 @@ class Libilbc < Formula
   sha256 "6820081a5fc58f86c119890f62cac53f957adb40d580761947a0871cea5e728f"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "b55c9c6554101b871be2016309c318fdc796dfa89addd0df918179fd048e80a0"
     sha256 cellar: :any,                 arm64_sequoia:  "3e5872934eb657baeb5b1a02dd4f1d41fccb539aa8470718644305bb5ab3cd28"

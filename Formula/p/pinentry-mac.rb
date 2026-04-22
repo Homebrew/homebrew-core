@@ -6,8 +6,6 @@ class PinentryMac < Formula
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
   head "https://github.com/GPGTools/pinentry.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "784844f7e5ccb8be3b5eeb567318c8948f492c57e70289189a296dcdaa31cb7d"
     sha256 cellar: :any, arm64_sequoia: "f0cacdc9497edf7391983fe84573ddfd826d0315680847a3f78ec020b6d145e5"

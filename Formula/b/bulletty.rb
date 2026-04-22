@@ -1,18 +1,18 @@
 class Bulletty < Formula
   desc "Pretty feed reader (ATOM/RSS) that stores articles in Markdown files"
   homepage "https://bulletty.croci.dev/"
-  url "https://github.com/CrociDB/bulletty/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "5c5cc4065e2b9529a7ac2262d4fbc7355065ae3d632dead7dcfa7e3ed385c304"
+  url "https://github.com/CrociDB/bulletty/archive/refs/tags/v0.2.2.tar.gz"
+  sha256 "e13b5743ee66a1d62c87f1ffa791a0c290d031fbb5d9363ce2c1e81cda25682d"
   license "MIT"
   head "https://github.com/CrociDB/bulletty.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f6482ba9398289b737fb63caff2c98d8e5a9218ea1ec47bb171e96006bdef306"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e3dd174afb745d6a6367a298015213f487e769b4a637d5e8beb7c8d3dac2d676"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba64d062ba66d67f672a62e38bdc7f51d35421bf1a3014361c8cc3835ff8c875"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b10f61ac10ac7d72e0414f94d86b8c130c4cccdbd116fe8bfb5703d1d7c7114"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f05f5bf8ad1d346fdafbe490c0127e58f264fbc476eb1820ddb477bdc5d35abf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d1a01b886f05e1f9278518ec2809b2fe2ca150d011982dc3eab48ebb5ea1dff"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb415a2b4039680c6eace43e6af4763fefb71b437d9bce4d0bad199b39d087f9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7733c11190f982f7976df718bfef07ffbf3c53dd8a1311c0076abe92e0130a69"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b907e4c02067b76d345c62fa0010ac8aead5c49744e6d5dde259cb17025d3953"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f2546aad4f98d0099aee5da1ae230d38f75dcd89ed5624283bf4cedd86ef9cda"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "687efab8b3c8b790dc9a8633ec163e8b6ab0dd9352f54b878a5ac461b2677b50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b338b398b9111ad128704e0f5945fd9e7bac34b89e325ea0b902c26cf01402a5"
   end
 
   depends_on "pkgconf" => :build

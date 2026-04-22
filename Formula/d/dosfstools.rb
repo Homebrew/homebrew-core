@@ -16,8 +16,6 @@ class Dosfstools < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d54a1407f985fc34279f07ead09aa53ae0cbe1a24b8a7328d4cbcb8fb24d9c49"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a865f34d1361ac215e3ec359fd524e4ee92ea63cac75ccaac99298c871aa4b28"

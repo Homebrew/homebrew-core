@@ -27,7 +27,8 @@ class CrunchyCli < Formula
   depends_on "openssl@3"
 
   def install
-    system "cargo", "install", "--no-default-features", "--features", "openssl-tls", *std_cargo_args
+    system "cargo", "install", "--no-default-features", *std_cargo_args(features: "openssl-tls")
+
     man1.install Dir["target/release/manpages/*"]
     bash_completion.install "target/release/completions/crunchy-cli.bash"
     fish_completion.install "target/release/completions/crunchy-cli.fish"

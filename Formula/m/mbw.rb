@@ -5,8 +5,6 @@ class Mbw < Formula
   sha256 "557f670e13ff663086fe239e4184d8ca6154b004bd5fde2b0a748e5aa543c87f"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1c8c88e772ba5c6cc57af7b79c0520750566523f94d643c00f5355333d176836"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5d07a9cad29f80e14aa0abab7e8b5519729e401d876e84b59b400f5413a85a3a"

@@ -1,8 +1,8 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/src/tarantool-3.6.1.tar.gz"
-  sha256 "2dd50c09b6fcb541b543d9c9d8eb7f09ddc4462627d1df073ff8da8b91fee078"
+  url "https://download.tarantool.org/tarantool/src/tarantool-3.6.2.tar.gz"
+  sha256 "20759ba83cb635532ace908313d418daaa9161fa8bf5836545dc9c9a41759a59"
   license "BSD-2-Clause"
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
@@ -15,22 +15,22 @@ class Tarantool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9f8b37daab5c827d4faf0662adde670764d6bc3d50d967408ba1ec540c7c384b"
-    sha256 cellar: :any,                 arm64_sequoia: "31ffaeb90022fdc701d19bda4ea4d8da22732878f265a9018473fc91ee548e1e"
-    sha256 cellar: :any,                 arm64_sonoma:  "5980e133b0568279b45006ed286a0596a474f70687a32e29bebc2b825e90cb48"
-    sha256 cellar: :any,                 sonoma:        "8a9397a5c1f411ba3e1fd447c577d815fc80e25ddc987dce6e60abfeea0fd146"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "23a46520d8850b3393a28f7de94f4a966fbf92c171fa22fe2430cdfc8ea14770"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a474d4214693c38e05d44d6a49a07b5f5ce82dbda47f6e1893eed33d4552dfce"
+    sha256 cellar: :any,                 arm64_tahoe:   "1c2347f82df86f84d570b975d2d5ad55160a1840583b70019f69211361a6d4bc"
+    sha256 cellar: :any,                 arm64_sequoia: "f983e673bc4d5dda9a91fe64a85e44d81a5ff67af8e981d300d417840b213057"
+    sha256 cellar: :any,                 arm64_sonoma:  "c3a4a8d067a2366a72c9e201ed23baa3072612466cdb0976a0aa98e92b42959d"
+    sha256 cellar: :any,                 sonoma:        "805fc0af3f0df03cab242970d3933136f0514dc22dfe7156e09018178a7d66e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c244bc5235b092aab6a807de1fe7d32c9b0f81b86a95897314eafcf7a624118b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63b6a3b25c08ad62a323bf867183d10d5bc985ac1ce5dd58683139e4993ab3c0"
   end
 
   depends_on "cmake" => :build
-  depends_on "curl" # curl 8.4.0+
   depends_on "icu4c@78"
   depends_on "libyaml"
   depends_on "openssl@3"
   depends_on "readline"
   depends_on "zstd"
 
+  uses_from_macos "curl", since: :sonoma # curl 8.4.0+
   uses_from_macos "ncurses"
 
   on_linux do
@@ -44,8 +44,6 @@ class Tarantool < Formula
       -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       -DENABLE_DIST=ON
-      -DCURL_ROOT=#{Formula["curl"].opt_prefix}
-      -DCURL_ROOT_DIR=#{Formula["curl"].opt_prefix}
       -DICU_ROOT=#{icu4c.opt_prefix}
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
       -DREADLINE_ROOT=#{Formula["readline"].opt_prefix}
@@ -55,6 +53,7 @@ class Tarantool < Formula
       -DENABLE_BUNDLED_ZSTD=OFF
       -DLUAJIT_NO_UNWIND=ON
     ]
+    args << "-DCURL_ROOT_DIR=#{MacOS.sdk_for_formula(self).path}/usr" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

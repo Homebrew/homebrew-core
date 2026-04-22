@@ -1,9 +1,9 @@
 class X8664LinuxGnuBinutils < Formula
   desc "GNU Binutils for x86_64-linux-gnu cross development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.45.1.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.45.1.tar.bz2"
-  sha256 "860daddec9085cb4011279136fc8ad29eb533e9446d7524af7f517dd18f00224"
+  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.46.0.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.46.0.tar.bz2"
+  sha256 "0f3152632a2a9ce066f20963e9bb40af7cf85b9b6c409ed892fd0676e84ecd12"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class X8664LinuxGnuBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6eeeaf18ed0b9b7de6b4434860c4e3fde345d644ba355576376001c5df2dc7c9"
-    sha256 arm64_sequoia: "56d4c8cab30bbdadb17e1bbb9161967e6fdf0e8d93f259a470fde21852cd3332"
-    sha256 arm64_sonoma:  "3baa77d451f0a0ad0dec60030f24a298728169fed6baa842a305758f24487f80"
-    sha256 sonoma:        "7a2a3b16806b738f6bcfc8a6ad04e160e7c7bc6b10ef4fff7c34fa775a3e9702"
-    sha256 arm64_linux:   "77ea2c44e471fcda177c214b51f9bc3d6faec4ea48eebf8e075e9dd7563ef203"
-    sha256 x86_64_linux:  "1f5bc4d066a4613ea870a44754c887a8d471df143fe357fc9099678ae9746e48"
+    sha256 arm64_tahoe:   "4f58064b025ddecddc2dacd109938bc8244094c91cc470ee4827305a7c99e359"
+    sha256 arm64_sequoia: "ee18b9ef6b84ecfdded7b50afb9f76da71fd77c883a392cbc6dc80b7df2904e7"
+    sha256 arm64_sonoma:  "d7ebf4f5b6643f7d1b4230c04b0f2412f474621af3e7135b244baccf20e047ca"
+    sha256 sonoma:        "20d4ba1bbf773fe8f27cb82468f7153257ae0d9d8b924c8d632007f30d5d6d79"
+    sha256 arm64_linux:   "bd4156b92615d63e867a9a8961dfce36f81434351cf0cd6d525cb8dfe9440006"
+    sha256 x86_64_linux:  "5ed5a806e0754c61b134dd5e3845a1b88e40ad0dbd77e2633dc52541a65895ce"
   end
 
   depends_on "pkgconf" => :build
@@ -26,13 +26,14 @@ class X8664LinuxGnuBinutils < Formula
   depends_on "zstd"
 
   uses_from_macos "llvm" => :test
-  uses_from_macos "zlib"
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
   end
 
   on_linux do
+    depends_on "zlib-ng-compat"
+
     on_intel do
       keg_only "it conflicts with `binutils`"
     end

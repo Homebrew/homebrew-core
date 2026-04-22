@@ -1,17 +1,17 @@
 class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
-  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/3.4.0.tar.gz"
-  sha256 "04f51a656a19c5831759abec75306d7fd501d9fb5a990bd71fdd1a95a236a3ea"
+  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/3.6.0.tar.gz"
+  sha256 "49dc7d3f7f9099d242ac4594d621a011f405a1af12c294dd87ec4fa3a9c460ac"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "756554f32172472f177f4247ccf4cbd3f97fe867f4a4abc7c1c5a1b86b2713f1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "377e322396929af6a1baf814ccab6a1fc9fea4873ecefb1db5deeeab7ae9dc9e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c26f89b151abdaea46ecb84c289ee9902164e8c10738af02cd4f9d001f052b17"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ec5100c664980a09408981362ccc128e2e9c44cc1045bc016cc22cef194d2fd3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e01e673705f84ebdd6a9b73cf255fe1a3d7c08dfee81321f8140001f1774fdfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2744b64a839465006ee91c8b871bc466b1b6c553220c96c2196a485039c7ee22"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e2b4ffa56f728434614e4901b8adf4bed8880cbda8d16fd4c03103d245533e00"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64791ce59b1a41e7595585d9e85919b78c20272bdb9c4ca071870af32f3f190d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "64128a112b0f12acf15f16a793c2647ad443b7fad40952a29f7c4a217613e21d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ebb460cecc8c4b5a9f898d179410b181d2a419c373054125ef13e9ac7acefcec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a408aeea3f6c87e7f71e7f2c748faf2f0363370aff5678be88d41a247be292b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28bbece552585e399068fba5f6bdc2133a974b4f632bdb264dc9749dce0e5326"
   end
 
   depends_on "gradle@8" => :build

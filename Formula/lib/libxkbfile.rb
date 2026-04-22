@@ -4,6 +4,7 @@ class Libxkbfile < Formula
   url "https://www.x.org/archive/individual/lib/libxkbfile-1.2.0.tar.xz"
   sha256 "7f71884e5faf56fb0e823f3848599cf9b5a9afce51c90982baeb64f635233ebf"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "d232816434655702f1c58d0d1039355d200d8285ebcc02b0680942b4747f4015"

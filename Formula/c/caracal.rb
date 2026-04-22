@@ -6,8 +6,6 @@ class Caracal < Formula
   license "AGPL-3.0-only"
   head "https://github.com/crytic/caracal.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "736248b14af4194e38b8d5d8103f2f649cc1293391d0ca147f1ead5529e2d3d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b8b9b99080c463030eb02044b0db946992bba13ef79f693498b6f154a41d5407"

@@ -1,17 +1,17 @@
 class AtomicQueue < Formula
   desc "C++14 lock-free queues"
   homepage "https://github.com/max0x7ba/atomic_queue"
-  url "https://github.com/max0x7ba/atomic_queue/archive/refs/tags/v1.7.1.tar.gz"
-  sha256 "6eeff578f8b0499717bf890d90e2c58106ac2b8076084b73f2183a631742b4ab"
+  url "https://github.com/max0x7ba/atomic_queue/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "57880b536f81c12903dfdc5aa25e3187e67cd56657f005f0be75084a00614958"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b1149a3911cea1bd45fb204530cedb7f6ff684dc73aff53fac24fbbcfab88861"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b1149a3911cea1bd45fb204530cedb7f6ff684dc73aff53fac24fbbcfab88861"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1149a3911cea1bd45fb204530cedb7f6ff684dc73aff53fac24fbbcfab88861"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b1149a3911cea1bd45fb204530cedb7f6ff684dc73aff53fac24fbbcfab88861"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1bc3490122a06d18acb763f3bd9a76d098380aaf2d4e753a75771d714e5a228b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bc3490122a06d18acb763f3bd9a76d098380aaf2d4e753a75771d714e5a228b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "08b52539483c0ae231cf5348d12141bd8bb9696b3db839ec4d5edcb2bfdc380e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08b52539483c0ae231cf5348d12141bd8bb9696b3db839ec4d5edcb2bfdc380e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08b52539483c0ae231cf5348d12141bd8bb9696b3db839ec4d5edcb2bfdc380e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "08b52539483c0ae231cf5348d12141bd8bb9696b3db839ec4d5edcb2bfdc380e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "163b953e704f5d42ad66a3f9b0f6d52ffed41b7e2ad98ff0e165d344e394738e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "163b953e704f5d42ad66a3f9b0f6d52ffed41b7e2ad98ff0e165d344e394738e"
   end
 
   depends_on "meson" => :build

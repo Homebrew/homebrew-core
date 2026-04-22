@@ -12,8 +12,6 @@ class BrigadeCli < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "93938d159d0b3a5255a4bba8897a6e964ca40463210957612ab294e7deebcf27"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "297bad8cabf257b37796f62ce59aad4819642e6953fbf75aeedd5841b9ea0da1"

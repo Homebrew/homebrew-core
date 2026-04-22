@@ -10,26 +10,24 @@ class Sqliteodbc < Formula
     regex(/href=.*?sqliteodbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "80cc2b8469f6718e6228b4465bdec52fa66d37731c6e80db40f2bfad339ccc70"
-    sha256 cellar: :any,                 arm64_sequoia:  "61de52252306e865b3c14e8ef775b1c4ccd22da7c7e5ea2b0f91c54c7877e08c"
-    sha256 cellar: :any,                 arm64_sonoma:   "015eee63671fc01c778e6e663529ace8d63a7d71f2654be9b9556ccd9e29154f"
-    sha256 cellar: :any,                 arm64_ventura:  "dd59b3db3e696d538dea72e84c5602c17f24fe119104a705a0662adee36547e0"
-    sha256 cellar: :any,                 arm64_monterey: "8ed399c5e2eb6497973a1f8576febd0a60c4470fbb16e29b2b919aa875bf3565"
-    sha256 cellar: :any,                 sonoma:         "8512cd23bae8277c72c3b432749364595234724a8b20f201a98f61497edb2f3c"
-    sha256 cellar: :any,                 ventura:        "3aae3791f2bceb04e3d9261ebbcb2c639491c530628ac2632c2a9cf64c2c7b1a"
-    sha256 cellar: :any,                 monterey:       "1d3e62b967aa75bb3ea2f4db75e350dd920d2210edc4c268600313311d255476"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "f3105e72f81fb1c85b2cd028b0063e6e413549706f4a7e4286f48fb9fa420144"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a61acd439d7530e91d25824689b621be04831e3f28aa00f28cb0d7d810a5afb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ef7576d687d514cf3e6691537bee8e66eaca106ef598ad5cf07c4e20d520aecb"
+    sha256 cellar: :any,                 arm64_sequoia: "9bc67271da98897902daddd9417ae566a904f20d4b418472b482588a9fb77e17"
+    sha256 cellar: :any,                 arm64_sonoma:  "c26a1c42c2b747053113d927ae7c2e231163b4d9f8c695ecec1dc05bf3e041ac"
+    sha256 cellar: :any,                 sonoma:        "1a219550850f7e7aba34e7695ffd1768141bb8ee469a0ab81f19c66292c33fec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f2c84110c49b8b78f0c9cba7c38a4164f42e6d7ec370b8ac7deb83e70d978ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c3e2942b9b3d486a777ca95d5303fc556ae08435e60a2fa0f099a21d3db473b"
   end
 
   depends_on "sqlite"
   depends_on "unixodbc"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   on_arm do
     # Added automake as a build dependency to update config files for ARM support.

@@ -9,8 +9,6 @@ class SpeedtestCli < Formula
   revision 2
   head "https://github.com/sivel/speedtest-cli.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "93487be757c9b3763deeb1b1415ee8ad10c5a80fcc9ebaeacbb8fbac3e9b9474"

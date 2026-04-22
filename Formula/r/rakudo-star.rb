@@ -1,8 +1,8 @@
 class RakudoStar < Formula
   desc "Rakudo compiler and commonly used packages"
   homepage "https://rakudo.org/"
-  url "https://github.com/rakudo/star/releases/download/2025.11/rakudo-star-2025.11.tar.gz"
-  sha256 "d013513cca2fd92c67e87d1cc67204d249d912cd8de29ed60773ce8a1bc2d627"
+  url "https://github.com/rakudo/star/releases/download/2026.03/rakudo-star-2026.03.tar.gz"
+  sha256 "e68a7c697c27ada1b9f4f2f8038a9d446fb5b1e32ad8aa290c22c6c85b3ec25e"
   license "Artistic-2.0"
 
   livecheck do
@@ -11,22 +11,20 @@ class RakudoStar < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "51305175e473f0cf6c94f22da5833c252b04a2a252da91afc5398707156eb873"
-    sha256 arm64_sequoia: "6050dffa40fb9cf5f02b3b455aa89eedd09390658d889445b696ff48086df363"
-    sha256 arm64_sonoma:  "35eda1764a976ae1edecfc045a045ff4e40dd5e456a8334ebbc73455313c646f"
-    sha256 sonoma:        "32ffe16f63d82a1facfbc98a47b6a34250157fcaf8c653bd02c269db0f40ab76"
-    sha256 arm64_linux:   "ba8bf557b672dd2ed2b3b0f93bc2f2279c7f6c092d1dc972400b06df10f3a83f"
-    sha256 x86_64_linux:  "dae805ddac85ce4b335457e5868ff7bd5ebbcf270b79653b5d39d78c0712b522"
+    sha256 arm64_tahoe:   "8837e4d7da49087c2a3c5d66fba3d3cfa61768333bef3f369cc705a4cc086934"
+    sha256 arm64_sequoia: "5600c5465c089800c856d8b942e81231c81ab109a424586bdb22c643c43e97a2"
+    sha256 arm64_sonoma:  "db0b17b33d278f55b0994621e469fefa3eb9a392ef11dc23eb197cc80b83c293"
+    sha256 sonoma:        "2e715541a6771fa72c1a46e014b9046ecf1caf50683d724e734bc5ffaf9be20f"
+    sha256 arm64_linux:   "f0f21555a39118b60750dafb4a2743214b7f7a0180eca932201d9277541d55b8"
+    sha256 x86_64_linux:  "0fff45c9f086cfe22bb581101a788be116525eb06cd227c93325c35f243be371"
   end
 
-  depends_on "bash" => :build
   depends_on "pkgconf" => :build
   depends_on "sqlite" => [:build, :test]
   depends_on "libtommath"
   depends_on "mimalloc"
-  depends_on "openssl@3" # for OpenSSL module, loaded by path
-  depends_on "readline" # for Readline module, loaded by path
+  depends_on "openssl@3" => :no_linkage # for OpenSSL module, loaded by path
+  depends_on "readline" => :no_linkage # for Readline module, loaded by path
   depends_on "zstd"
 
   uses_from_macos "perl" => :build
@@ -34,6 +32,7 @@ class RakudoStar < Formula
   uses_from_macos "libxml2"
 
   on_macos do
+    depends_on "bash" => :build
     depends_on "libuv"
   end
 
@@ -65,6 +64,11 @@ class RakudoStar < Formula
       rm_r(moarvm_3rdparty/"libuv")
     end
     inreplace "lib/actions/install.bash", "@@MOARVM_CONFIGURE_ARGS@@", moarvm_configure_args.join(" ")
+
+    # Workaround for https://github.com/rakudo/star/issues/217
+    inreplace "src/rakudo-star-modules/DBIish/t/01-Basic.rakutest",
+              "::('X::DBIish::DriverNotFound')",
+              "::X::DBIish::DriverNotFound"
 
     # Help Readline module find brew `readline` on Linux
     inreplace "src/rakudo-star-modules/Readline/lib/Readline.pm",

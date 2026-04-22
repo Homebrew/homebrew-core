@@ -4,6 +4,7 @@ class Libwapcaplet < Formula
   url "https://download.netsurf-browser.org/libs/releases/libwapcaplet-0.4.3-src.tar.gz"
   sha256 "9b2aa1dd6d6645f8e992b3697fdbd87f0c0e1da5721fa54ed29b484d13160c5c"
   license "MIT"
+  compatibility_version 1
   head "git://git.netsurf-browser.org/libwapcaplet.git", branch: "master"
 
   livecheck do

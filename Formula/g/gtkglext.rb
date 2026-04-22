@@ -6,8 +6,6 @@ class Gtkglext < Formula
   license "LGPL-2.1-or-later"
   revision 4
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "764e97c887571389641f45ef171ca06af71ac4bc5fcaaff56e85c9d663cad92a"
     sha256 cellar: :any,                 arm64_sequoia:  "c7d1eb4cd50853e471d11db5256550eb6eea8d0b66424e66bf4662f54bbcfc64"
@@ -20,6 +18,9 @@ class Gtkglext < Formula
     sha256                               arm64_linux:    "8111b6fa90b879f9572ff71ebec5ff279bc5b4532c19f52331286f39783c04ab"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bea86597c739ebbf55d551970dee174085bfc3d0c4d70f06f0cce969979ef2af"
   end
+
+  deprecate! date: "2026-03-14", because: :repo_archived
+  disable! date: "2027-03-14", because: :repo_archived
 
   depends_on "pkgconf" => [:build, :test]
   depends_on "glib"

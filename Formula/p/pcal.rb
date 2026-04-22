@@ -5,8 +5,6 @@ class Pcal < Formula
   sha256 "8406190e7912082719262b71b63ee31a98face49aa52297db96cc0c970f8d207"
   license :cannot_represent
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f1e0e7b42a908bec8dcf41782a3e4b9397955a95a9c0781ef8e21fbf2ef8a327"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e9cb1a02b94bf537f5f1aab6ee035a1ade559ce499f53afabff16e0795b21868"

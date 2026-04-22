@@ -2,10 +2,11 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
+  compatibility_version 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.19.1.tar.gz"
-    sha256 "2f9cfaa6bdc872f6e89d483cfe474f35232e5dd4a33dcc05ec69e5fadb2b0257"
+    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.20.0.tar.gz"
+    sha256 "2eb511167d9545331e472920c1ec89c4ab6807aadc74afddb020b2630843cf2d"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.20.0.tar.gz"
@@ -19,12 +20,12 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "28eba8c046a2bb6c1f2bfa252f99dcd67eaad3428acd3a04382e89b9fd809cde"
-    sha256 cellar: :any,                 arm64_sequoia: "285222d936413178369b5686322c1aa9d421258619f5859820a1e35841163a75"
-    sha256 cellar: :any,                 arm64_sonoma:  "13727a6d440a2f01376bd769a7aac299bc1887ead824c66980244377068ce499"
-    sha256 cellar: :any,                 sonoma:        "d0148d76dbac3e08745fb5e5efc16f538867e485f8ef98a054aa9cbc878b5250"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1105dfd02063ba433d5820eb75ba652c06c89775896d5a55b282033113320a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f86b5e9d76756f4f3c28994d00f4038f4212cb984ee501757bc59e56241df628"
+    sha256 cellar: :any,                 arm64_tahoe:   "8a69ac9c9cfc44cbb0ff06492ec14aded26a1047ab4195f6abc4ae3015052166"
+    sha256 cellar: :any,                 arm64_sequoia: "a4c3b04d4b4da0c7e36f67fee98a82bcc5d3abe3360d687e80e54b70181b4459"
+    sha256 cellar: :any,                 arm64_sonoma:  "610912667b1569068e82a105d732ca9d55b9240fe44b992d6e4f26964f3923fd"
+    sha256 cellar: :any,                 sonoma:        "fa4cbe339be9e774fb66ddad0ae337d7b433982e4f440e4a1c921fc3703ebd00"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "244fe822c9711953f0bbdc5bd434c5494208e76da67857dee8fe73646f5eb0f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "329e86ab33c1ce5dc9e9e05b873ca79fa5a79b50d84aaeebdc87ca3a9bf47423"
   end
 
   head do
@@ -37,12 +38,17 @@ class Crystal < Formula
 
   depends_on "bdw-gc"
   depends_on "gmp" => :no_linkage # std uses it but it's not linked
-  depends_on "libffi" # for the interpreter
   depends_on "libyaml"
   depends_on "llvm"
   depends_on "openssl@3" # std uses it but it's not linked
   depends_on "pcre2"
   depends_on "pkgconf" # @[Link] will use pkg-config if available
+
+  uses_from_macos "libffi" # for the interpreter
+
+  on_intel do
+    depends_on "libffi"
+  end
 
   # It used to be the case that every new crystal release was built from a
   # previous release, except patches. Crystal is updating its policy to

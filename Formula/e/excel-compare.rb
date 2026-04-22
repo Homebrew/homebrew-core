@@ -5,8 +5,6 @@ class ExcelCompare < Formula
   sha256 "bf5709fc7c86a59f6f535685b0e08a7c8bcb73c48c4c03e4d54b1fd816c90825"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "a711cca888cc9038f1b3d57586bd777495e17e849ff0fc5577d10cfca5bd329a"

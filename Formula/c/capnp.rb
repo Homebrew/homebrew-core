@@ -4,6 +4,7 @@ class Capnp < Formula
   url "https://github.com/capnproto/capnproto/archive/refs/tags/v1.3.0.tar.gz"
   sha256 "01ab2ba7f52fcc3c51a10e22935aae56f3bc5e99b726b7e507fe6700cb12147d"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/capnproto/capnproto.git", branch: "v2"
 
   livecheck do
@@ -12,20 +13,20 @@ class Capnp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "830c585121ebefe42e7fd8687dc6c4a16791709ddc82400531e426decbbaf579"
-    sha256 arm64_sequoia: "0b22246ef1430b58434c29e1060ebee51bfbc29d388ab0e97b3a7b6ea347aa93"
-    sha256 arm64_sonoma:  "933447a496eb80984f2fede5b6483a77b9146e146473cdc4d18b24b90ccd0ca1"
-    sha256 sonoma:        "020c95a5ec0a2aec01133ae4bd2571c6bd196ef705a4fbca5f27f365ed1b9580"
-    sha256 arm64_linux:   "17188a4772e30b20fb5563630136e090ade04e78d2494598b2099431e714152f"
-    sha256 x86_64_linux:  "1516426871f805f99d241f9a5b0d4d73c6c76ca698d232d85339fd9bbf2d4a14"
+    rebuild 2
+    sha256 arm64_tahoe:   "7cc44347381c8fe4c691bb7684f1664ebc47c3f5ded704604e9f5ddf09445754"
+    sha256 arm64_sequoia: "3127500be3b5b7ec1dc964ceb15cf49911a22e47295c622299114e25ba45cbf5"
+    sha256 arm64_sonoma:  "820d5befe53e826fb307ecac9cc045c9e6391019bcb715d55a7a7180f6f156b9"
+    sha256 sonoma:        "607ed6bed655af9a7dd6b13a4941bcd3ce36342254dddeda7a442c9f9ba545cc"
+    sha256 arm64_linux:   "fa02acb983940b8eb6354198371ee5533b4a2144e0a0699e9c4ec11e5cc1aa92"
+    sha256 x86_64_linux:  "15fa47fde394d8b2b443338a89bc5893539dc79da5aa593e24c9cfab433b0939"
   end
 
   depends_on "cmake" => :build
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@3"
+    depends_on "zlib-ng-compat"
   end
 
   def install

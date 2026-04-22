@@ -7,46 +7,28 @@ class Serveit < Formula
   revision 1
   head "https://github.com/garybernhardt/serveit.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5f667f37bc21e896dc225f76ca5755aa0c47d994928cc2a09ed06534fa3acc6a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
-    sha256 cellar: :any_skip_relocation, ventura:        "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
-    sha256 cellar: :any_skip_relocation, monterey:       "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "00ccf2f05dfd700cf0f862c6b9c1c250327d9d303fb6062f83133ff307c95197"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e33ce3c0dbb5df24170e177bf1f0246d923e061304e201b54ed3f78051687a2d"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "3cd9f9b37e4a1bfff7bd9e9731af43ea6c6b9a07698eecc1f53d1725a6d2f9ef"
   end
 
-  uses_from_macos "ruby"
+  depends_on "ruby"
 
   # webrick is needed for ruby 3.0+ (as it is not part of the default gems)
   # upstream report, https://github.com/garybernhardt/serveit/issues/13
   resource "webrick" do
-    on_linux do
-      url "https://rubygems.org/downloads/webrick-1.8.1.gem"
-      sha256 "19411ec6912911fd3df13559110127ea2badd0c035f7762873f58afc803e158f"
-    end
+    url "https://rubygems.org/downloads/webrick-1.8.1.gem"
+    sha256 "19411ec6912911fd3df13559110127ea2badd0c035f7762873f58afc803e158f"
   end
 
   def install
-    bin.install "serveit"
-
-    if OS.linux?
-      ENV["GEM_HOME"] = libexec
-      resources.each do |r|
-        r.fetch
-        system "gem", "install", r.cached_download, "--no-document",
-                      "--install-dir", libexec
-      end
-
-      bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
+    ENV["GEM_HOME"] = libexec
+    resources.each do |r|
+      system "gem", "install", r.cached_download, "--ignore-dependencies",
+                    "--no-document", "--install-dir", libexec
     end
+    bin.install "serveit"
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
   test do

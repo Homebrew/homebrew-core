@@ -11,7 +11,7 @@ class SvtVp9 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "yasm" => :build
+  depends_on "nasm" => :build
 
   depends_on arch: :x86_64
   depends_on :linux

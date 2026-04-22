@@ -13,7 +13,7 @@ class Fuego < Formula
     regex(%r{url=.*?/fuego[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256                               arm64_tahoe:   "3985560eb7b1c53182f39df987972bbcd06bd8bcd6c16eb609623a43eb19de2f"

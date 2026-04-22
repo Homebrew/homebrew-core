@@ -6,8 +6,6 @@ class Truecrack < Formula
   sha256 "25bf270fa3bc3591c3d795e5a4b0842f6581f76c0b5d17c0aef260246fe726b3"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "fa006f2b40a1844949c625ee3ded3b0626420c1969b7595b5081ba471a8ce234"

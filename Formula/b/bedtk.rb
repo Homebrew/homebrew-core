@@ -6,15 +6,18 @@ class Bedtk < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "495953151b05090bee059581e5a872112a6621265f86c8be00d6a43fdec0d25a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7353b0431b57bfc23ffcdf490681771bab0f608a1c590ae24ca0e8f437613809"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7a58dd66680c40dbd672a148a9640784c434f6d520bb88f6696c04cc31683a15"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ebad975371a395fab0ef08706244c491def00e494e657b15463da7cbe288893f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d359cee1ad085e9a9fc2e36e63fde511e47fb12103526b843efccc8dfb19821f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9dec9cdbe36442a536160a54b14e5d07eaa1a7f6e59dcd73d0cb154854211562"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cd6687dd9bad59b278142fd479824d407c6a905c24626b97f1539ad7eeb5caa9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "74a65feea27bbbde2c15445ad3f9c3c2b2a519b3128e789356daf7ed0700ebeb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "662b0278c4f58613e36036346bf93855ae5ddc59659bad93b6eea2e8dcd67083"
+    sha256 cellar: :any_skip_relocation, sonoma:        "149a91b7c3a8bff8b66d0cf23407ea2c1b9acb261cadb85e73ab887b7426d6e6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "634e3fce5cdedd155c531a2d98e327bc7312d9553236fbefa771eb05499c8d48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96e41ae22f6efd0be9dd6f7b8facec49bcef5f9f563dc73420ca7631904850a2"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "make"

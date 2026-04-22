@@ -31,6 +31,7 @@ class Pcb < Formula
   # > WARNING: the gEDA/pcb project is not actively developed anymore.
   # > You may want to switch to the Ringdove EDA project which is similar in spirit but is active.
   deprecate! date: "2025-09-06", because: :unmaintained # TODO: replacement_formula: "pcb-rnd"
+  disable! date: "2026-09-06", because: :unmaintained # TODO: replacement_formula: "pcb-rnd"
 
   depends_on "intltool" => :build
   depends_on "pkgconf" => :build

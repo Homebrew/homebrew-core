@@ -4,6 +4,7 @@ class Micromamba < Formula
   url "https://github.com/mamba-org/mamba/archive/refs/tags/2.5.0.tar.gz"
   sha256 "2d8761e423275b2e2b46352c99bdedc062ca22b98871ffa82e044d2be74b350f"
   license "BSD-3-Clause"
+  revision 4
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
   livecheck do
@@ -14,12 +15,12 @@ class Micromamba < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f29a2aef292188acc0fdff5ec645117f60a06795a0a950d94c681847eb8e9620"
-    sha256 cellar: :any,                 arm64_sequoia: "ec435f3a4ca58fc2874a1f2d30ad56012a59e758167e854c7e2277998caca1eb"
-    sha256 cellar: :any,                 arm64_sonoma:  "bcd976b92c837edceca899dc97281679662185faabf05abbc06a2fab73982f48"
-    sha256 cellar: :any,                 sonoma:        "e0a5b4755a90a47b8c0401906a3789e046a19e454c1e52067ace687e4ecf2da3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "256a600336abdd6e1619c47733ef896acd98a980b16a5b4bb00ae2bbcde1419c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65e0a9d6db0d56d8f0836f84a13db4af43b3fa4978b09ca7c38e78518d69cf3e"
+    sha256 cellar: :any,                 arm64_tahoe:   "82c2d3f7c9d2228eeae2f9dbec041258c057fcec87a786cf0de47db322b8bae1"
+    sha256 cellar: :any,                 arm64_sequoia: "ce6dd3de723d5a90cfdd2c02ccf3b9359c19923630dff1f132decda1d5ae0b38"
+    sha256 cellar: :any,                 arm64_sonoma:  "38f23c49c675d09a42100fc8dbfe5cfd2cf4223c5b3a49128b0ef71eed819a32"
+    sha256 cellar: :any,                 sonoma:        "c2318ce5ea9d5b6fd47d96b4ada82314d72d017ff867b4e4f1159bb39cca539e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aaf380dc9975012d53b5bc32a101723fb2fa80729f4c43a3484338259724524a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "332084d85a8f0b08e3b3ffb3a28251fda2dbafc7d6ca9d3b45ee63d425b26dff"
   end
 
   depends_on "cli11" => :build
@@ -44,10 +45,13 @@ class Micromamba < Formula
   uses_from_macos "bzip2"
   uses_from_macos "curl", since: :ventura # uses curl_url_strerror, available since curl 7.80.0
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1600
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do

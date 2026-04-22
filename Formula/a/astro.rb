@@ -1,8 +1,8 @@
 class Astro < Formula
   desc "To build and run Airflow DAGs locally and interact with the Astronomer API"
   homepage "https://www.astronomer.io/"
-  url "https://github.com/astronomer/astro-cli/archive/refs/tags/v1.38.1.tar.gz"
-  sha256 "771aec85b9b3d4358bec42efb52e81043d6a848d126530d0324d4a5dbcb43407"
+  url "https://github.com/astronomer/astro-cli/archive/refs/tags/v1.41.0.tar.gz"
+  sha256 "3db384e9a223d667543d5d9583cb916b0667256ad488c4027a7b214c8a59179f"
   license "Apache-2.0"
   head "https://github.com/astronomer/astro-cli.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Astro < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52cf9f98b753a5d77c80154e580a1d15fff8c19b6d14ca4b1ba2d62941450b89"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c6a6c6aec2dc84451f0b3ef6d8d008adf8a741d8214b8679e25cb9f22f91211"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a160813271c87340b72c5a935bfcc517b38c9e65a65d7871dd95db42242b55b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "390f668a975e78ca27b781740080a0ec5b5317cd3837c6d3d61f5640210c686f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9db86243eeb517eff3c92d86429abd14793acbb51654bcb8aa703a9514f3c297"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59e2d7ad73bbd7622cec1cf82d23a65e0dcd129d60cc4008772efd240ee5565f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bbe69706cd3988b9713567a5b8b4a5f98085d6fadd0340c3536e1c0b466696ea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cfed0738dd1adf7da615901c074080b5152fe1970def6c18a2c13dc30cacdfb9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2201fc6dcba0508aa96e1db14665c7db56ee3a3cb077f01d8602db5b2fec18d9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fc6c3e50fc44c4375d8b02b1ed3562ae52f12c2358a4baaac31d3aa1eb19485b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d3ccf9f9a8275ab19f662ece013b58090d791ab0b0eebc4222cebac3ee6eb7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0be64d5de33f36116f812e161fdebd9049409c85a8dfa8e7c26d4fd85d396c0"
   end
 
   depends_on "go" => :build

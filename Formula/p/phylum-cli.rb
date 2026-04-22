@@ -7,20 +7,21 @@ class PhylumCli < Formula
   head "https://github.com/phylum-dev/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4841aa81f69b6ea50733d63e23c7528536343221248c81cd98945d3bf4883b20"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0528cf65555a5f86e2f3a9db038dc40eb019d147df4aee9b6a53e873c05db0ba"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7717c20f5063a9e25a9b4c63a1aaa099623f16403803d24d86d9b3cd77822ca3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bb9bcd54edc2c2a31f817c71a5ce5b5b2bccc818b8cd2ba1f71aedbc35465588"
-    sha256 cellar: :any_skip_relocation, sonoma:        "13b94a26a75cf78a3fe90e5fe425f0f69d82894785c65257b14656e6ab74cc39"
-    sha256 cellar: :any_skip_relocation, ventura:       "9f842fa99341dcbe43ec4cfdce8c31f0be8545ae73cff012919728545d1e8a02"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e9136f95e0097a22555e606e1b6c751012f740482b85c4c5677b3ad3b9b02fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e55839055bb0e1849b304b2f4c7e1395b5f6d0c00abb16b7167f7b2b2771738c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a5c41404363af5e2bb318cad8f06e8cd609343c3b4efaeca80516e070c5b26b6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "953504f633a2d23202b0e33a9ba472be2b6a181c9c2987998b4e3eb3de1028e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ff9f5c763d8accf8b1b12d99de451c6ac96d5bbdef58853f91fc4668c476e741"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3bd8a1e2cb8065e893c93345403ef305ee324629f02269268325899f15101d46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b5b7d147df44d98eae7c21b1eb90a6529a81209a11b197068c8da2172da8bd8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "feac0ee8c27d884b9a2f4a04a1c240878b498abb40b0d050329b42b69a6d5bb0"
   end
 
   depends_on "protobuf" => :build
   depends_on "rust" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "cli")

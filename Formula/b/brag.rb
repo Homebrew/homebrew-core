@@ -6,11 +6,13 @@ class Brag < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "112ddb2485aa0730c63d109081ccf086ca5c83c0de724cb1914722f63e4ea8ad"
   end
+
+  # Last release on 2004-03-20, unlikely to get TCL 9 support and low installs
+  deprecate! date: "2026-02-04", because: :unmaintained
+  disable! date: "2027-02-04", because: :unmaintained
 
   depends_on "uudeview"
 

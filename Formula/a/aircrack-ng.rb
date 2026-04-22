@@ -15,16 +15,14 @@ class AircrackNg < Formula
     regex(/href=.*?aircrack-ng[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256                               arm64_tahoe:   "dfe73bf5765f920026fce1001ddd0ed9febf365f91f32d4e8f28f70b469716ff"
-    sha256                               arm64_sequoia: "3d5953610f1bc220d0780c7b1d47b1a95b0cdfd702a08862eec388b9031b9845"
-    sha256                               arm64_sonoma:  "511f7dc5330c2bcf5d5928aeead9eedac501d3864c1db05bd0f68dafc8a414ea"
-    sha256                               sonoma:        "a550e9d1a135c2845433ff4cbbca48b1744688679f45e6ca9d0f6d139a4a8c3f"
-    sha256                               arm64_linux:   "a2a0d2ee105376e50383c4cc2b7edd45847ddcb95524d8720ea2b316d4ee5a09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "546f002883a4dbf8405b9fcf82b73bceea7dd5ef61b318b4fa0f4c3e4764a1a6"
+    rebuild 3
+    sha256                               arm64_tahoe:   "c1461024ee7d85a1f0024b7e79aee529a2ffc577b4e7f55df1b93bce01a4a9c0"
+    sha256                               arm64_sequoia: "240101a996380066deb81a5f2baa3df5c940231082f13bb5f6955ba815a760eb"
+    sha256                               arm64_sonoma:  "8e0f9fda43350ce0365407b05c02bbbe59edb719612e7522e431bfa12de6a83b"
+    sha256                               sonoma:        "e5e3a8ae160dcdca43edb6382efc2873748e6a02f537cbcb27003b2321e7c44d"
+    sha256                               arm64_linux:   "73fe80cec55d4e7058ed7d3bf9fc5a57e30d39941fd665714ed90d74c63d2ab5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4aa4f09ec6d620ea76c8a799abebea56382ed5c055b4a4aed414a6339a7a3591"
   end
 
   depends_on "autoconf" => :build
@@ -36,7 +34,10 @@ class AircrackNg < Formula
   depends_on "sqlite"
 
   uses_from_macos "libpcap"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Backport support for PCRE2
   patch do

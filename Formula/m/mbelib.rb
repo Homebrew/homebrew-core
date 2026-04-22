@@ -6,8 +6,6 @@ class Mbelib < Formula
   license "ISC"
   head "https://github.com/szechyjs/mbelib.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "fb72e50f6461676e8b9f0bc61ac16133652bc92e84a139f8db55db0f39952291"
     sha256 cellar: :any,                 arm64_sequoia:  "4303b80f4b00f9a5ba52109c0995c196d0d54b19f9d105520379206eb50b373c"

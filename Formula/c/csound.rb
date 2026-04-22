@@ -36,15 +36,14 @@ class Csound < Formula
     strategy :github_releases
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_tahoe:   "2ef1ffa712525becf000f54cbf08bb1f9782a77a8f55e9f63321150f513f9324"
-    sha256 arm64_sequoia: "4a6cbada524610b7fdf87a49a748ac378fa267d60a92dd70de83b34203d0bffd"
-    sha256 arm64_sonoma:  "6128921345de82eb485d31ddaf23fe06240b578ed11feef52a3f266c80ac4981"
-    sha256 sonoma:        "1dd368f23f9dd0e85a9f41fde12775b2e1f002017c2e62d109ecdccbab4d258a"
-    sha256 arm64_linux:   "34d2ed060ba6cbcd7badf896c3e3039a8d50a396bbb446c3c85c56b8bc75c2cf"
-    sha256 x86_64_linux:  "6e82155a509d446a6ef67b92a3a6657989b3a195de2862ab35fccd7321d0ca9c"
+    rebuild 1
+    sha256 arm64_tahoe:   "ab2e032068bcb6eb84a7d800801f07f692e71098c85f07c210f1099a5eb9a2c5"
+    sha256 arm64_sequoia: "a3edba10cdd780018153558ffe5dffbed7263e816893d9da6eb6bb3e89efb703"
+    sha256 arm64_sonoma:  "6671ef9e52fcfd4d56f91d69a59f8976bbda0e7e59747960215662d1e44b6d64"
+    sha256 sonoma:        "efe809093c9c64f6c6138fdb6a9d798f84ab50608375b98b19e1d023e69c3edc"
+    sha256 arm64_linux:   "842704687c6bac3621aa2982b5c12bb0f8f15196648f6e3d12c2d847fae8307d"
+    sha256 x86_64_linux:  "1b214b5db904191d97bed11533e7e1da53528a9ca8f2ac3fb9394da683315cf6"
   end
 
   depends_on "asio" => :build
@@ -75,11 +74,11 @@ class Csound < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
     depends_on "libx11"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "libextractor", because: "both install `extract` binaries"

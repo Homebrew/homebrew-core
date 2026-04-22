@@ -6,18 +6,20 @@ class Tldx < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0c9d62b0c89a31f5a17ac6f6ce36c7c74fce59eb5e3819d6f792eaf768e3d826"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c9d62b0c89a31f5a17ac6f6ce36c7c74fce59eb5e3819d6f792eaf768e3d826"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0c9d62b0c89a31f5a17ac6f6ce36c7c74fce59eb5e3819d6f792eaf768e3d826"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c42432ee30a7319e322d1ebb760961dee55f35e8257f9ba5bc483eff8f1c2361"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e17c2a89ba7251add592ea67332c33c4d1e786ba46ec90a8551aa3a0584c48d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2790ada80cef3c9b7b3d04c5d6395f4de6cb85233e340510dcc058f5ae4faeb8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dee3f3737f626b5d4067b6f6dcaab5b701de0e9b4a778ea6c2fc1333e585fbb3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dee3f3737f626b5d4067b6f6dcaab5b701de0e9b4a778ea6c2fc1333e585fbb3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dee3f3737f626b5d4067b6f6dcaab5b701de0e9b4a778ea6c2fc1333e585fbb3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3c8ee3db8e9a3207acc6b7658ed5fc9618d5b88a772bd55f96c1796f6e7b34e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "918916d3f78b5f9c0743f09d40f7eb6f5ceff45263b28a74758baf4d22dd4a64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eea163e27018a816ff5291c76f79d4358e822bc79607c060ead16428f9a3afb6"
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/brandonyoungdev/tldx/cmd.Version=#{version}")
+    generate_completions_from_executable(bin/"tldx", shell_parameter_format: :cobra)
   end
 
   test do

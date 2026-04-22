@@ -1,13 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream select audio and video codecs"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-8.0.1.tar.xz"
-  sha256 "05ee0b03119b45c0bdb4df654b96802e909e0a752f72e4fe3794f487229e5a41"
+  url "https://ffmpeg.org/releases/ffmpeg-8.1.tar.xz"
+  sha256 "b072aed6871998cce9b36e7774033105ca29e33632be5b6347f3206898e0756a"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
-  license "GPL-2.0-or-later"
-  revision 2
-  compatibility_version 1
+  # Passing `--enable-version3` changes the license to GPL v3+.
+  license "GPL-3.0-or-later"
+  revision 1
+  compatibility_version 2
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -16,25 +17,26 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "fb2b2a50ba2d9eefb9822c0e7646514969d08ba7473e737670ddf9d5eac1f796"
-    sha256 arm64_sequoia: "7df375d52affc45239296f48813d0071fc04496f93ae3513671d0dde21445d27"
-    sha256 arm64_sonoma:  "ba0049a210c51007eeba1027b7024cc12c18d8b995f6630d2dd1e13a3ab50c74"
-    sha256 sonoma:        "1cdc91e9deb9e4ee25d7ceffb30012010949373fdc571c4ec0c57ae51bdd6f43"
-    sha256 arm64_linux:   "fa02e94a429716f2d13658f6a20dceed38764bb758fb54e043d208ce53a8a30f"
-    sha256 x86_64_linux:  "cfb357e4347d6d3e75198b3302280f9281d1b08214fd338f0ae1e30ab4c86fd5"
+    sha256 arm64_tahoe:   "21294dbab3779ead5719f79f8b8873754085d812ac82538be55f870ed4919df1"
+    sha256 arm64_sequoia: "b416d590189f74f3f1abc2a5aef1edff0e1dbefd29f8b06f30f906c7b5aa1cde"
+    sha256 arm64_sonoma:  "4ce3e874e6497af366f395148dd8022510444b9a2c9c991a13f482fd6a39b425"
+    sha256 sonoma:        "8617e97bb81b99d89cdfc687aa275e40f967f2ec275ea2fbe5e063c129a02d8f"
+    sha256 arm64_linux:   "5a0bd5ee4b0c8ee75e87d7e0d41ca8c42866836dddbeef83a091410f7cf0eb10"
+    sha256 x86_64_linux:  "94a374c1a3ce42d07f8fd0d8abc0851f184eb7e0fb7b0af7062168cb08cbee36"
   end
 
   depends_on "pkgconf" => :build
 
   # Only add dependencies required for dependents in homebrew-core
   # or INCREDIBLY widely used and light codecs in the current year (2026).
-  # Add other dependencies to ffmpeg-full formula or consider making
-  # formulae dependent on ffmpeg-full.
+  # Add other dependencies to ffmpeg-full formula.
   # We should expect to remove e.g. x264 eventually (>=2027) when usage of it is
   # negligible and has all moved to e.g. x265 instead.
   depends_on "dav1d"
   depends_on "lame"
+  depends_on "libvmaf" # dependent: ab-av1
   depends_on "libvpx"
+  depends_on "openssl@3"
   depends_on "opus"
   depends_on "sdl2"
   depends_on "svt-av1"
@@ -43,29 +45,16 @@ class Ffmpeg < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
     depends_on "libxcb"
     depends_on "xz"
+    depends_on "zlib-ng-compat"
   end
 
   on_intel do
     depends_on "nasm" => :build
-  end
-
-  # Fix for QtWebEngine, do not remove
-  # https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=270209
-  patch do
-    url "https://gitlab.archlinux.org/archlinux/packaging/packages/ffmpeg/-/raw/5670ccd86d3b816f49ebc18cab878125eca2f81f/add-av_stream_get_first_dts-for-chromium.patch"
-    sha256 "57e26caced5a1382cb639235f9555fc50e45e7bf8333f7c9ae3d49b3241d3f77"
-  end
-
-  # Add svt-av1 4.x support
-  patch do
-    url "https://git.ffmpeg.org/gitweb/ffmpeg.git/patch/a5d4c398b411a00ac09d8fe3b66117222323844c"
-    sha256 "1dbbc1a4cf9834b3902236abc27fefe982da03a14bcaa89fb90c7c8bd10a1664"
   end
 
   def install
@@ -88,8 +77,10 @@ class Ffmpeg < Formula
       --enable-libx264
       --enable-libmp3lame
       --enable-libdav1d
+      --enable-libvmaf
       --enable-libvpx
       --enable-libx265
+      --enable-openssl
     ]
 
     # Needs corefoundation, coremedia, corevideo

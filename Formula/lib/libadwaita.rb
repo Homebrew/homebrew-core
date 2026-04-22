@@ -1,9 +1,10 @@
 class Libadwaita < Formula
   desc "Building blocks for modern adaptive GNOME applications"
   homepage "https://gnome.pages.gitlab.gnome.org/libadwaita/"
-  url "https://download.gnome.org/sources/libadwaita/1.8/libadwaita-1.8.4.tar.xz"
-  sha256 "d02bb77b6f0ff1055002d299898c487cb2d83dbf940d9edf59f6fdf2572a921c"
+  url "https://download.gnome.org/sources/libadwaita/1.9/libadwaita-1.9.0.tar.xz"
+  sha256 "817837bf06363db5bbfce66085136eff1436af6625dfabff3ca08b87bfca1b6b"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
   head "https://gitlab.gnome.org/GNOME/libadwaita.git", branch: "main"
 
   # libadwaita doesn't use GNOME's "even-numbered minor is stable" version
@@ -15,20 +16,21 @@ class Libadwaita < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "4cd2ac3fbc9168f9555d8ad4fcaafe53cc40a2de410c9fe8ca123d37a6c161f7"
-    sha256 arm64_sequoia: "d63d098dc8c666e4e29fc5cc774fab207bb58cc97b2d9325db6e37abff6156fa"
-    sha256 arm64_sonoma:  "fbb4daa00fc390876d806615a9ee917e5ad3a33d9fc1d86e8babe1438930f5e6"
-    sha256 sonoma:        "eebf0875e60949d43c7cf4ded9cc549d9669f64565a0af4fb0a5e09e894cce01"
-    sha256 arm64_linux:   "4d5bffba28cab52832a8f02ee841bfbd2794490eee813c0fd0104f04e01d25e6"
-    sha256 x86_64_linux:  "6c2b9a7a44b8d61d33519f2bf2048117ef6d2d421cc4bc146a42bcb95b347b16"
+    rebuild 1
+    sha256 arm64_tahoe:   "881a99482118b9c5d55e837dd18d30deb5437d72b324811a0640a8503c782308"
+    sha256 arm64_sequoia: "8dd8ff82c9cffee0d1fa58f4e6e8e545b663006dc28dd1978e33490cf26de70c"
+    sha256 arm64_sonoma:  "3a60b46ebe1d02f32d5c0ee9e470947b1483c6685d03af04f2dbfd7cc6a1707d"
+    sha256 sonoma:        "3551f415600001e6fa2c2a1817c5922c94bf9fb566ea8aeffe411d183845c4f5"
+    sha256 arm64_linux:   "180e9facf4cc6736ce704e76437ba47d6e060f99024739017d29ceaaeead8b85"
+    sha256 x86_64_linux:  "af35c9ad4b433af1531f9e9a8376a2a29295357f3a8f3aa50ebccdb7042c5d9d"
   end
 
+  depends_on "dart-sass" => :build
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "sassc" => :build
   depends_on "vala" => :build
 
   depends_on "appstream"
@@ -36,7 +38,6 @@ class Libadwaita < Formula
   depends_on "glib"
   depends_on "graphene"
   depends_on "gtk4"
-  depends_on "libsass"
   depends_on "pango"
 
   uses_from_macos "python" => :build
@@ -45,7 +46,19 @@ class Libadwaita < Formula
     depends_on "gettext"
   end
 
+  # Fix style without closed parentheses
+  patch do
+    url "https://gitlab.gnome.org/GNOME/libadwaita/-/commit/ad0214cd1f6fb79d743b252d35f2657f875480e8.diff"
+    sha256 "b7d8c4920805bf62253738e4d2a7e56bd8c9f4468f082b7c7f8819132a333ea5"
+  end
+
   def install
+    # Replace deprecated `sassc` with `sass` in the meson build file
+    inreplace "src/stylesheet/meson.build" do |s|
+      s.gsub! "'sassc'", "'sass'"
+      s.gsub! "'-a', '-M', '-t', 'compact'", "'--style', 'compressed'"
+    end
+
     system "meson", "setup", "build", "-Dtests=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"

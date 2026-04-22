@@ -11,8 +11,6 @@ class Rancid < Formula
     regex(/href=.*?rancid[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f5978661df2baf3b746206d0b2498d27ca0adfcc840b296abe9eabfd9e9a587a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc4630246c5362304dd3550870b72f634cac5b614bb06c3a78e5b023e34397c7"

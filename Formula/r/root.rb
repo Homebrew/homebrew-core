@@ -1,19 +1,11 @@
 class Root < Formula
   desc "Analyzing petabytes of data, scientifically"
   homepage "https://root.cern"
+  url "https://root.cern/download/root_v6.38.04.source.tar.gz"
+  sha256 "1ca561d03b3addae00cb76af57f8c75d3c229e8bd6939bdd408ec33fda9d3487"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
-
-  stable do
-    url "https://root.cern/download/root_v6.38.00.source.tar.gz"
-    sha256 "a4429422c460f832cde514a580dd202b1d3c96e8919c24363c3d42f8cf5accdc"
-
-    # Backport fix for RPATHs
-    patch do
-      url "https://github.com/root-project/root/commit/f646e520a5dc0b2e50b708c3d757bcf2abe618fd.patch?full_index=1"
-      sha256 "aa08b4dfe0274fd2b163d1b5eeb617864452337ff63d571264d17fe7f5d05f70"
-    end
-  end
 
   livecheck do
     url "https://root.cern/install/all_releases/"
@@ -24,12 +16,12 @@ class Root < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5a992f54d975118772cc746423cc7f8dab276da8536875c264b5b5d1782d0275"
-    sha256 arm64_sequoia: "b4b12afa8c917a556448a0c18800b1fbf8474266dff2e71a36eb5a366fbf9503"
-    sha256 arm64_sonoma:  "f860cb8f0d403d27c55272959d6474ea5d86690b1a22054c25a287a05e5dc7a3"
-    sha256 sonoma:        "6553143bd8a1a836400bd7faccada821f9969f07889dc2e315ce1cc393e748ba"
-    sha256 arm64_linux:   "4c478faefa2c52cb52dcfea1752abeb86cdc55d2dea6b3faa15930ac194a2432"
-    sha256 x86_64_linux:  "e7e25242a663c9b1ee9dabfcb2e20aa63f3d33fbf1f70cea38e864d8cb1cfe08"
+    sha256 arm64_tahoe:   "6ceaf02daa812fbc69cbb21b7bb0162cc905a6865bfeb90997aea9dbda1869a1"
+    sha256 arm64_sequoia: "e74156291db7fc389bd8b8eedf92407fe4ff03b069cc64c6e62496884d778ebc"
+    sha256 arm64_sonoma:  "902f2c11e84d285ca11200afc614ae59cf94ca330fa1676e6bb30c67f8ef01e5"
+    sha256 sonoma:        "e60596a2ca193e536d6517a88fa4a288f3e1b0bc63b997ea15ad1da325dd8dd2"
+    sha256 arm64_linux:   "535f3dcfdaae5c27d4d9ca501623cf06818552c7f49ca9a160c2e72c1d3e2e67"
+    sha256 x86_64_linux:  "ee690216a88f9f156c180c068346742f32dd07f2cc42f4ce8f197aefe8dc252a"
   end
 
   depends_on "cmake" => :build
@@ -66,7 +58,6 @@ class Root < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   on_ventura :or_older do
     depends_on :xcode
@@ -79,6 +70,7 @@ class Root < Formula
     depends_on "libxpm"
     depends_on "mesa"
     depends_on "mesa-glu"
+    depends_on "zlib-ng-compat"
   end
 
   skip_clean "bin"

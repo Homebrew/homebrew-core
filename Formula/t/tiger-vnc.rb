@@ -1,8 +1,8 @@
 class TigerVnc < Formula
   desc "High-performance, platform-neutral implementation of VNC"
   homepage "https://tigervnc.org/"
-  url "https://github.com/TigerVNC/tigervnc/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "10512fc0254ae3bde41c19d18c15f7ebd8cd476261afe0611c41965d635d46e8"
+  url "https://github.com/TigerVNC/tigervnc/archive/refs/tags/v1.16.2.tar.gz"
+  sha256 "b107c0c8b8a962594281690366c24186e95c2ea4a169acbc0076aa62ed01f467"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class TigerVnc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "8db6b19fae3c874b8c4fd1cb1c1a30691feaa3a85fde9f5c83347a9e67fef45a"
-    sha256 cellar: :any, arm64_sequoia: "9ab2f892c5b11e6fcb9adeeca3f450c617bca800bb4d1e37328636731124871d"
-    sha256 cellar: :any, arm64_sonoma:  "c085c867fad3f61d7b6ebde6dcaf621573917bbb1b92b47d5e89f7167598ec26"
-    sha256 cellar: :any, sonoma:        "6fb4e06ae703bf7d04a7ce6289d268367261e07208b9a464bd72a38e46a64fd1"
-    sha256               arm64_linux:   "b2ec5f88e5d51eec6bcbbc662a4631d290e4f974e66377685ecfcbb36dc4a778"
-    sha256               x86_64_linux:  "e002e20fcb339a14997b6cbfc745dfa9b6c6c214bc09fabef07f3a3c97e288e8"
+    sha256 cellar: :any, arm64_tahoe:   "5e954d7bea96364530c4b075f7dec0f12a37c32ee077ed754d8064ad50bb870b"
+    sha256 cellar: :any, arm64_sequoia: "70cbb58dd9e57fb894a63ccaa2f5c59eac87556f8ad7e9a8e9e1eed5d05561e6"
+    sha256 cellar: :any, arm64_sonoma:  "385f5bc6e2df05e003aab535f4176dd58ad78055a1486ba2aa975879b1a649d8"
+    sha256 cellar: :any, sonoma:        "ff39dfdbe929fcddb28ccc42a06a625a781c623835ad2c0dcfa99d75161c1d4c"
+    sha256               arm64_linux:   "6d491ccec6f4b1c5303e29f229bf8eb949c64b4b46b0600c1323a48106e186ee"
+    sha256               x86_64_linux:  "37e411a0aea25ffb7dec3c7bd4f1fa4576bb13bbe2320568e645af88ffcc6c3f"
   end
 
   depends_on "cmake" => :build
@@ -27,8 +27,6 @@ class TigerVnc < Formula
   depends_on "jpeg-turbo"
   depends_on "nettle"
   depends_on "pixman"
-
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -47,6 +45,7 @@ class TigerVnc < Formula
     depends_on "libxrender"
     depends_on "libxtst"
     depends_on "linux-pam"
+    depends_on "zlib-ng-compat"
   end
 
   def install

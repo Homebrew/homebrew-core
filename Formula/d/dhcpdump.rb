@@ -1,8 +1,8 @@
 class Dhcpdump < Formula
   desc "Monitor DHCP traffic for debugging purposes"
   homepage "https://github.com/bbonev/dhcpdump"
-  url "https://github.com/bbonev/dhcpdump/releases/download/v1.9/dhcpdump-1.9.tar.xz"
-  sha256 "3658ac21cc33e79e72bed070454e49c543017991cb6c37f4253c85e9176869d1"
+  url "https://github.com/bbonev/dhcpdump/releases/download/v1.10/dhcpdump-1.10.tar.xz"
+  sha256 "939bbf429cf46425cdd912486d0c2e25041ca4e7b6bd5bcf0f839e61a43a8604"
   license "BSD-2-Clause"
 
   livecheck do
@@ -10,19 +10,13 @@ class Dhcpdump < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "dd3ff5ab36269152b952ca60340648484b5faa2c991ae488647f64321234d831"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "388478d6f5fa4261e7adb8c0ba1718d9a5bc50b25d50b7e30d7588bb290af79e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab4719be570abc658b8f8f46de37bad273e2b2389b0d1816bf38b7f1e28c0f47"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e6e61cb0d3acc83a1c2c2ffc1f754b8017c05be420a7844e19fb17a5326365d1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "41867afb73da85099eb1560fbea4872835ed2dc6117af80932cfb2e2a7460276"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b28f0b506d481178f9cd43f93b6ef13457b00d75a110424e1f1745c3de14c57d"
-    sha256 cellar: :any_skip_relocation, ventura:        "72f552b14bfaec81d3210ae49740a90bac27dbb2fdc1e262113e5a39588bb475"
-    sha256 cellar: :any_skip_relocation, monterey:       "e43375872f07ce0af9ac1eb2e8a32e2adc40167ca60a7f1f0ebcc627d6e06d1c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "e2135302ac321b225f8804429896d25dda7ed4458fec6c879aca9c1465dc877b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f3b1f52c2fff495c9471cd218859780da46406aaea23d148b34220d8833e5bd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "39614d4823ce76fbc86945ccc49f928fafe40feb69db968be35e344277e56238"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64423f71b7329c84e68c15c5bcfafffd2320c1e162217fcc64708f2fed3a8c5c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37c3d73c5be91e2e18e83f167978b9df24a909967ddc428e22377a969e8a2cf2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "64a003cda0caa278f470e4372026370677e51d0fbd7fe480007b63057704e0b0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "db8fb7e6d259eafa1889dab5548fa25fa4daf47518d4e3eb9eefe7dce61d93b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "088e0cfb92a8985ce563e6ec7c95df6eb39c3f7b1a18acd45464ec136a161cbd"
   end
 
   uses_from_macos "libpcap"

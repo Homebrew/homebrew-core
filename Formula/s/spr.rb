@@ -7,23 +7,21 @@ class Spr < Formula
   head "https://github.com/spacedentist/spr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "45b808f91f099a130b9e5d835600cc61a995590525ced37b59abeee7aa0fc58b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8679f71d4efb65c1784f2b20c2339ca5032ada6a676e9a082f3720d51b9973ed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93212861ef027cc18853c3e18c81f1b68640deb9af7955912fc84549d91e93ae"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0622a60bd0c8162d2e28d2c85cf6ece553f2e9851913bfcbc64ec3f3376dc429"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5e8a7f79f2e9518b1516c8ec695067a3abe5e579428964719f941390176da2f8"
-    sha256 cellar: :any_skip_relocation, ventura:       "30a12a3e0c4d6db8deb8c30aab2d12380cd9cf1fe867cb59620a98355d008312"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1004ec8ee05fae9e9b5f59ce37a11006c0433f4738fbeffc192b158d1dbe498f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93414490bf24e6c0a341225a106c4051182c553f5eb7419ea2ebd5cd959198fe"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "77939b958880db3631587b135834ebd6a52733fa5800b68dc8132effe1167202"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fda7b7bd81ba976da928a79e3579874e455548bf25c954a227748041b8145254"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d053d2d87b8b5a46d075854071795c126d3b751f5a58b4a6067952eb2c3dd9c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8859772520af8cd0c3f23cd98da54cd1196164ee4f6295cf4efe204c1e03bca6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1a84d4a3c5e1be826286e82449f3859ca243077fa8c3ae3c74f663090b0062b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff79ed181ff54c4d3dfe9235d356c632d7b1524cb91fdb59e08dbf4ddf73837d"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "openssl@3"
+    depends_on "zlib-ng-compat"
   end
 
   def install

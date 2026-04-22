@@ -26,10 +26,11 @@ class BashCompletionAT2 < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "bash"
+  on_macos do
+    depends_on "bash"
+  end
 
-  conflicts_with "bash-completion",
-    because: "each are different versions of the same formula"
+  conflicts_with "bash-completion", because: "each are different versions of the same formula"
 
   def install
     inreplace "bash_completion" do |s|

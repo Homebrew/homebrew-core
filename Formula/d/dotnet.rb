@@ -3,17 +3,17 @@ class Dotnet < Formula
   homepage "https://dotnet.microsoft.com/"
   license "MIT"
   version_scheme 1
+  compatibility_version 2
   head "https://github.com/dotnet/dotnet.git", branch: "main"
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.102-sb1.tar.gz"
-    version "10.0.102"
-    sha256 "cc544f357e3674f3f4d170c82f781f6f9406760e8badbe1fbcaf04657e1554d4"
+    url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.107.tar.gz"
+    sha256 "ad1174dec435a27c2528889bae80838ced784a2968003608ecafde3e2a1daddd"
 
     resource "release.json" do
-      url "https://github.com/dotnet/dotnet/releases/download/v10.0.102-sb1/release.json"
-      sha256 "f22c317a69e38fbd5f1b0cf482065c8cc40dddedb4c3dc7f659c07b3603c46ed"
+      url "https://github.com/dotnet/dotnet/releases/download/v10.0.107/release.json"
+      sha256 "6fdd89a8793dabe5edcc273037e38ccc73c273ca4c937bde79f0b6563528eea1"
 
       livecheck do
         formula :parent
@@ -21,18 +21,22 @@ class Dotnet < Formula
     end
   end
 
+  # Upstream has unstable tags that use the same scheme as release tags so we cannot use git strategy.
+  # Also, we currently only support building 1xx band since 2xx/3xx/4xx bands require additional work:
+  # https://github.com/dotnet/source-build/blob/main/Documentation/feature-band-source-building.md
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(\d+\.\d+\.1\d\d)$/i)
+    strategy :github_releases
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a9deaed142a3b459cd2ef0bdcef80e35ebc969e23829bd67cf27d8d70f5f4847"
-    sha256 cellar: :any,                 arm64_sequoia: "f493923c039918e9ffb6df9a0aecc99d6dc41a2d739ebb4d0ff0df5e6c438dc4"
-    sha256 cellar: :any,                 arm64_sonoma:  "0bb256b07f545fae407a2b113ab836bc39cc26184d9ce56176e5f27de94ec7ff"
-    sha256 cellar: :any,                 sonoma:        "a367371bb8c135d7383fa3b9c57052b4faaf18a336e1125bf2d8d5afb9521406"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3df0c663104332af2706dab8a7806f58937be0426e401e31efe8e9918093c85"
-    sha256                               x86_64_linux:  "8e8217be0316b539ecf9e345e3edd2c58762af31deaee9ff4e992f4292232f06"
+    sha256 cellar: :any,                 arm64_tahoe:   "fd3cb729b7f8b59a0c618ed5443aaf4ba3dff7948e22b5d0b89155fa9c6e13a1"
+    sha256 cellar: :any,                 arm64_sequoia: "146e28f7f6f63e0c767699700d44479d14572085ea404818e76c8e82c2a228c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "ece8b10dd7b355c2ae1a1ad651905968771e1bddb5ea50144934c2f0bd343f88"
+    sha256 cellar: :any,                 sonoma:        "cc48dbb77ef6b7841009c6a9f28ce4082325ea45d18ca67071c2af752821548b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b53a2b17af6a998cef5ef4e631bae557038f31243c28b27cef9728309e6446b"
+    sha256                               x86_64_linux:  "e1874b2b708cf89c3047144470e6220b447555013bd1d96b2fb2aa2285e071f3"
   end
 
   depends_on "cmake" => :build
@@ -44,16 +48,15 @@ class Dotnet < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
-    depends_on "bash" => :build
     depends_on "grep" => :build # grep: invalid option -- P
   end
 
   on_linux do
     depends_on "libunwind"
     depends_on "lttng-ust"
+    depends_on "zlib-ng-compat"
 
     on_intel do
       depends_on "llvm" => :build
@@ -107,18 +110,17 @@ class Dotnet < Formula
     end
 
     args = %w[
-      --branding release
       --clean-while-building
       --source-build
       --with-system-libs all
     ]
     if build.stable?
-      args += ["--release-manifest", "release.json"]
+      args += %w[--release-manifest release.json]
       odie "Update release.json resource!" if resource("release.json").version != version
       buildpath.install resource("release.json")
     end
 
-    system "./prep-source-build.sh"
+    system "./prep-source-build.sh", "--"
     system "./build.sh", *args
 
     libexec.mkpath

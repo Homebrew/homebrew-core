@@ -1,10 +1,10 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.gtk.org/docs/architecture/pango"
-  url "https://download.gnome.org/sources/pango/1.57/pango-1.57.0.tar.xz"
-  sha256 "890640c841dae77d3ae3d8fe8953784b930fa241b17423e6120c7bfdf8b891e7"
+  url "https://download.gnome.org/sources/pango/1.57/pango-1.57.1.tar.xz"
+  sha256 "e65d6d117080dc3aeeb7d8b4b3b518f7383aa2e6cfce23117c623cd624764c2f"
   license "LGPL-2.0-or-later"
-  revision 2
+  compatibility_version 1
   head "https://gitlab.gnome.org/GNOME/pango.git", branch: "main"
 
   # Pango doesn't follow GNOME's "even-numbered minor is stable" version
@@ -16,12 +16,12 @@ class Pango < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "666e399270228506a57d243de5c340c42de149abc9c3a75b01044417f8db6222"
-    sha256 cellar: :any, arm64_sequoia: "e5e1310e53ccc4258f523df667f092dcf694f01e9a700883f15121ca23fb1714"
-    sha256 cellar: :any, arm64_sonoma:  "e346d0be5c3608d82e370e02cac4e0b8112a925cafe733d5f8219f593c02cf92"
-    sha256 cellar: :any, sonoma:        "0da3e9d5b786f46857fa9372b8644da690f3902421f5996e9bb058525cdf6d67"
-    sha256               arm64_linux:   "c3e8f72ff6a5385bd5f24ec2bf7ec1f656c11bdb6ad57cc912a35d21db6ee3cd"
-    sha256               x86_64_linux:  "da9d2d48f51a6364f7e3edac502478231ccffab76ad8775ca3555ce87d39f524"
+    sha256 cellar: :any, arm64_tahoe:   "5b77d8e0844bbfd23f6942aee1a1ad6caa380b5b49f01cddbb3240565f955c8a"
+    sha256 cellar: :any, arm64_sequoia: "f079f30f49b58e5be5932904e3bf303c3394d2029bd87cb44189cb816eb1b3a6"
+    sha256 cellar: :any, arm64_sonoma:  "1025ba606d675f9421b8b9faa6f32a6ef7e25e199cb53014a06a936e79202381"
+    sha256 cellar: :any, sonoma:        "65de49a9b1973a600d0c273da3a557b91d166e4d721f31a7a03bca4967b85fc4"
+    sha256               arm64_linux:   "7890c0f7859c0a9ac1c3de79f2d34b59159117f1d7ba2a638e0ada8636ff6f20"
+    sha256               x86_64_linux:  "b2261ea43e6c3e1716dbfdad810cc34e6ac60ab0eb8b57959fd80f4097db3dc2"
   end
 
   depends_on "gobject-introspection" => :build
@@ -35,12 +35,6 @@ class Pango < Formula
   depends_on "glib"
   depends_on "harfbuzz"
   depends_on "libthai"
-
-  # PR ref: https://gitlab.gnome.org/GNOME/pango/-/merge_requests/891
-  patch do
-    url "https://gitlab.gnome.org/GNOME/pango/-/commit/4403954455f2b4a815b32e11c44f79b2e665e94c.diff"
-    sha256 "f674089884839f64b5c04032325c2230f19049759a94dcb1daf82f832ff70e33"
-  end
 
   def install
     args = %w[

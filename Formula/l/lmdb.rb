@@ -5,6 +5,7 @@ class Lmdb < Formula
   sha256 "98e28ab0a5c23fb2eb8ad12c12d7ad5fc5e4c3563f41d0b91e9420a075974d6f"
   license "OLDAP-2.8"
   version_scheme 1
+  compatibility_version 1
   head "https://git.openldap.org/openldap/openldap.git", branch: "mdb.master"
 
   livecheck do

@@ -11,8 +11,6 @@ class Ncompress < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "fb300d3e1ef4dc25fab6344cc7e6010bd55f0fa66403c3371f8d6b3f449d7645"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f7e39b3e6471d9335023fcc1434352de41fe4521adff432f237c4167c7de71fc"

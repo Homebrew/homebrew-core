@@ -1,20 +1,18 @@
 class TfSummarize < Formula
   desc "CLI to print the summary of the terraform plan"
   homepage "https://github.com/dineshba/tf-summarize"
-  url "https://github.com/dineshba/tf-summarize/archive/refs/tags/v0.3.14.tar.gz"
-  sha256 "c4ea4825aef3bb393917aaa97beec66a07e58890229bd4832f719b1dad4f449e"
+  url "https://github.com/dineshba/tf-summarize/archive/refs/tags/v0.3.20.tar.gz"
+  sha256 "e2e6d173581109e155e86690738a85780947d886c7c3236187467ff2174f62b1"
   license "MIT"
   head "https://github.com/dineshba/tf-summarize.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8b4f564bd9474540f43c55132f62fe1c77030303ff0c96c2f89f95d5ba1165ab"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "49d532560bc3caf6e781226c2f9559532f8f73bf1132664b36b97883f2573ad5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49d532560bc3caf6e781226c2f9559532f8f73bf1132664b36b97883f2573ad5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "49d532560bc3caf6e781226c2f9559532f8f73bf1132664b36b97883f2573ad5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b6850383b616f89461bf37cd0389bd0fc9bf2d79f41cd490e3e19166b1c09171"
-    sha256 cellar: :any_skip_relocation, ventura:       "b6850383b616f89461bf37cd0389bd0fc9bf2d79f41cd490e3e19166b1c09171"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "50127b7d075bc6873c2802e2882c1e4c4b87802f7e9faa464e188c97d4ad2361"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7984edfb50bba79f2729f8d566314c0cdf95f3d648d63472738210773f6c0c89"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2334652999366aa46838b87e1f3f5f2a07130a26268707f29898fe216e4bbef6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2334652999366aa46838b87e1f3f5f2a07130a26268707f29898fe216e4bbef6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2334652999366aa46838b87e1f3f5f2a07130a26268707f29898fe216e4bbef6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58861206aaff1656dcf4ce76441d734c233ad6a30742edc2e4eb39b001a5fd04"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "748e71928987b8a3dc5a2bb6917de52ad01637b66eb08a748f2565f0b249721f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e06d54a3fa8a91d5a9e3e006ec589d0f2fb9c8be2236b5ca39a7c713ee20dccc"
   end
 
   depends_on "go" => :build

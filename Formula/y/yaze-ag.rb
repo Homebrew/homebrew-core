@@ -10,8 +10,6 @@ class YazeAg < Formula
     regex(/href=.*?yaze-ag[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "6e9592d8cca859c7bf9b18bb4adb4a00a24a9476091bb813739b4234897a6edd"
     sha256 arm64_sequoia:  "bfd9c7701ebbea4917f2874690b38b6c1cf129bc228305dfd64d5e56222d69e3"

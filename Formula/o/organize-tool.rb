@@ -6,16 +6,16 @@ class OrganizeTool < Formula
   url "https://files.pythonhosted.org/packages/3c/bd/1b4217217aadce0d46e28042c0e06bb28863bfdfb383ce7afb18f69a1553/organize_tool-3.3.0.tar.gz"
   sha256 "034fdcf9ffeb23d21b495e038665278e589fa04dc7c0c0a01a4a3b30a06c539f"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/tfeldmann/organize.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "383ee565ecc3c645f914dc9f499316b03fe1d2569102138de0028c39415e5a53"
-    sha256 cellar: :any,                 arm64_sequoia: "fca1b4049ed4f4f71929f480c4dca59e839135af2295e738721439fde44b172c"
-    sha256 cellar: :any,                 arm64_sonoma:  "38011718894115eb91cd1e8d05956fd633ae9d4b2484c7745bf71aa05f8a899b"
-    sha256 cellar: :any,                 sonoma:        "6eda0ab7df7cd94393a2bb97c7044a4176963b8d24e35bdf6c6c1dd69d23825a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e152ff516d766bee554f13f60ecd6a9d265e9226f5577c6d2add6e197b0f754"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4925b1d0d3dc26871a474d90c00ffac3034dbdf39525f83d05d1de5ccd72e062"
+    sha256 cellar: :any,                 arm64_tahoe:   "f4fc6f95460633e52c4e265f854ce333aaf65e74d5c4a98f0fd78eb8db8a31e3"
+    sha256 cellar: :any,                 arm64_sequoia: "eac4e592f97b493a06050052e9093c4e415df090e1c2f81f05253e732a0c5874"
+    sha256 cellar: :any,                 arm64_sonoma:  "686d218c4601ab46d16c275a2e07ddc08441463b98ad0c31c1517ff2331ed443"
+    sha256 cellar: :any,                 sonoma:        "7e0245cc071bf7a39149d8186d0394abfdbc63b356d6f570f9057d6397cbf0f1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ea5598318b04a6fee04bd6f92804393c55a69ef8f8f2754ad90aef39ae4152c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0956d76e28b12b6a1cebcacc74c6f0844baafdfdf8f769fabe4cdeedfd3012f"
   end
 
   depends_on "cmake" => :build
@@ -32,6 +32,11 @@ class OrganizeTool < Formula
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
   end
 
+  fails_with :clang do
+    build 1699
+    cause "pyobjc-core uses `-fdisable-block-signature-string`"
+  end
+
   pypi_packages exclude_packages: ["cryptography", "pydantic"],
                 extra_packages:   "pyobjc-framework-cocoa"
 
@@ -41,8 +46,8 @@ class OrganizeTool < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
+    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
   end
 
   resource "docopt-ng" do
@@ -101,13 +106,13 @@ class OrganizeTool < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cf/86/0248f086a84f01b37aaec0fa567b397df1a119f73c16f6c7a9aac73ea309/platformdirs-4.5.1.tar.gz"
-    sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
+    url "https://files.pythonhosted.org/packages/19/56/8d4c30c8a1d07013911a8fdbd8f89440ef9f08d07a1b50ab8ca8be5a20f9/platformdirs-4.9.4.tar.gz"
+    sha256 "1ec356301b7dc906d83f371c8f487070e99d3ccf9e501686456394622a01a934"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "pyobjc-core" do
@@ -164,8 +169,6 @@ class OrganizeTool < Formula
     if OS.mac?
       # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
       ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}"
-      # pyobjc-core uses "-fdisable-block-signature-string" introduced in clang 17
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1699
     else
       # `macos-tags` and `pyobjc-framework-cocoa` + dependencies are only needed on macOS
       # TODO: Currently requires manual check to confirm PyPI dependency tree

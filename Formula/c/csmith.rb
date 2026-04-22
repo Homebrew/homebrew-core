@@ -11,8 +11,6 @@ class Csmith < Formula
     regex(/^(?:csmith[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "5dd099418eb9b36019dfabac7bad13d6d2c0eb6d01700c57fbb6323b6c8331d2"
     sha256 cellar: :any,                 arm64_sequoia:  "8da68f418cb134b12223efaea3b1a32c75d51a975458ec0b95ea5cfb90b2810a"

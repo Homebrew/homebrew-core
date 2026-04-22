@@ -1,19 +1,18 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.68.0/nghttp2-1.68.0.tar.gz"
-  mirror "http://fresh-center.net/linux/www/nghttp2-1.68.0.tar.gz"
-  sha256 "2c16ffc588ad3f9e2613c3fad72db48ecb5ce15bc362fcc85b342e48daf51013"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.69.0/nghttp2-1.69.0.tar.gz"
+  mirror "http://fresh-center.net/linux/www/nghttp2-1.69.0.tar.gz"
+  sha256 "c866b7477cbb7512ab6863a685027adbb1bb8da8fc3bab7429ed43d3281d5aa9"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "edc3918d4f7eaae2e0139b23d0726cf2366bd40b9ca42b588c5db31f6d5862bd"
-    sha256 cellar: :any,                 arm64_sequoia: "65693fd8c12755bd248de72d054bdb2fa40c08b07504063ccff35a0b7c96cdab"
-    sha256 cellar: :any,                 arm64_sonoma:  "c14f803178054a097d5ad7e77cf456d85657454059fab94140053ea6917a00a7"
-    sha256 cellar: :any,                 sonoma:        "91481ad34cfda34a8c04c246b6f295c656d3b0d2eb36c7040e50f27ef3755373"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b970fea49cc1fe0648d53440996bec54d5f49d6533b61a18b1f6842f509094ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aae534df297851aa9ab15c0a9fe088435d1cff39d1290acab7649ff778629fea"
+    sha256 cellar: :any,                 arm64_tahoe:   "b2e05c11cc4a132f3b38c5cc1a724f3c7db34fb28f99f0ed5220c849d815119e"
+    sha256 cellar: :any,                 arm64_sequoia: "4cb7547b401741b6f3d908f3e8cd15546ad6f79bd08c30682eba5a7a775e8a53"
+    sha256 cellar: :any,                 arm64_sonoma:  "69224a4a6f324e65af2d5ff259af6ec30702ad1e1abd61c1f9489d6d6f91c26b"
+    sha256 cellar: :any,                 sonoma:        "7a700d492e5f10c3af5fdc8231000247095b9c24a889de40f772744b6835123c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebf951646a2bf3ae5357eb28b1eff1814557ca1eb05f33533846d4032127af8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "888926049373d180eedbad78d96728728d3a9901b8750de8bec18240c4c5e4f6"
   end
 
   head do
@@ -33,10 +32,13 @@ class Nghttp2 < Formula
   depends_on "openssl@3"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do

@@ -1,8 +1,8 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/9.0/racket-minimal-9.0-src.tgz"
-  sha256 "2c9dc012acbd980e10c60db5071e1e4597e6d12469832a80a44beab2b62ec3fe"
+  url "https://mirror.racket-lang.org/installers/9.1/racket-minimal-9.1-src.tgz"
+  sha256 "d68e7f392cc842cf29daee2a8a9297a52881ba280c6a4c6108c02ae8c77357d5"
   license any_of: ["MIT", "Apache-2.0"]
 
   # File links on the download page are created using JavaScript, so we parse
@@ -15,18 +15,21 @@ class MinimalRacket < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "1003ef249f291fc8fa855c1aa7e9002bc80e397d71fdec631f024c41963d297a"
-    sha256 arm64_sequoia: "8e44fa1b6cc62cf8ec66aec8167c907a7ada07f96254b2e06d0300f18d4b6267"
-    sha256 arm64_sonoma:  "16ee187404f463397c70338de0468adc7d3cea752e60a809a1cb767ed8daf76d"
-    sha256 sonoma:        "3a9b6f84bbf6db1c8508243b6c95f156f5c3f8c7fb39b9403a14b04bbf37614d"
-    sha256 arm64_linux:   "e76236c2f1d56fb9b168e311f22e0796ee586a310978e1dbc31434acc2e2c830"
-    sha256 x86_64_linux:  "242bfdb4e18fbcc3197c6201d5e4d8c62ab27431d5ba298d103341600d74f1a2"
+    sha256 arm64_tahoe:   "f8e3cfee531b50c4bb5dd5b92566061d9bdf7fabd5d2848e7578d7d416194d63"
+    sha256 arm64_sequoia: "9dcc416b1c09fbafc4f5d6f6e8e516a02ee4885031aff19bb039cb7251c964d5"
+    sha256 arm64_sonoma:  "876c55172ce1fdab9d892b490c74e240dcf4d52c1c61fea6305031a4548ca473"
+    sha256 sonoma:        "49360583f8d75102cd8d3ccf3e810f5bccf81c867939f373f76f10c058284ee8"
+    sha256 arm64_linux:   "6bc1bbf57d83f01e4e77ae53476225c4f1b2b7df61ca0bdb56d17daff6193d7b"
+    sha256 x86_64_linux:  "9f5b9e82168584e00339df5624df392ea5005a1d2f5e87faa69d035e22cd661e"
   end
 
   depends_on "openssl@3"
 
   uses_from_macos "libffi"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # these two files are amended when (un)installing packages
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"

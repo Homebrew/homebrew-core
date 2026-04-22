@@ -1,26 +1,27 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/refs/tags/20260105.tar.gz"
-  sha256 "a78e55a0df62b7f98566676d0ab9041aad89b2384bb5c6f3a96302a5cf49968d"
+  url "https://github.com/neomutt/neomutt/archive/refs/tags/20260406.tar.gz"
+  sha256 "bd6ef5aa0d53ee23ce15b0f8624a6450d119623931708df998c6ebee7e528d17"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/neomutt/neomutt.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "ae40f7fe4d717d8f2ea1567c77a3ea7bbd6c5ce126e06a76d816ccbf49dfae2b"
-    sha256 arm64_sequoia: "daa57699dd78f7016360cf181bc5cd497bf19ad7c98339eb4b6cac7e521fe84c"
-    sha256 arm64_sonoma:  "5c1b3c7178751668b687fed01bd6667cd4821e0757f79c6f97f145af61b0f8f8"
-    sha256 sonoma:        "d937f33c75e4c2d2ad271e537ce3d555e481836284eb31f0ea1c9f219b8e31bb"
-    sha256 arm64_linux:   "a573bf0d996f6e4fca4c70e6f162183c122f276e96611e31594ab801ce9d5c6b"
-    sha256 x86_64_linux:  "98ebcb577ab3346242635d4ffb7f08d67ba28e7c7c8f7e1e9d1a46f5fc07452a"
+    rebuild 1
+    sha256 arm64_tahoe:   "7501350f322f933d19aa4d56bcf70078142bf6ab9129e5e90d6ac15394c783f8"
+    sha256 arm64_sequoia: "509e9d89e22a19388182017a82ffff59fe3532498a9c01097a574193fdeda025"
+    sha256 arm64_sonoma:  "72ec6ac5d9734656b79251ad9c0e2d2a13e983ed7074e068b60b5fb7b4c10fc0"
+    sha256 sonoma:        "f6872649f86357c7c47af0b83c2efba848a5b27ed3d67db4af8ef269970664a8"
+    sha256 arm64_linux:   "abf8b127d94dd2730fadc2c676d38a9a2b4bb74d8d70c82105d36745e56ef4af"
+    sha256 x86_64_linux:  "1116af9e321ad35bbce757764c101b46ccff5fc285950850bc682c8327072a10"
   end
 
   depends_on "docbook-xsl" => :build
+  depends_on "gettext" => :build
   depends_on "pkgconf" => :build
   # The build breaks when it tries to use system `tclsh`.
   depends_on "tcl-tk" => :build
-  depends_on "gettext"
   depends_on "gpgme"
   depends_on "libidn2"
   depends_on "lmdb"
@@ -30,18 +31,22 @@ class Neomutt < Formula
   depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "sqlite"
-  depends_on "tokyo-cabinet"
 
+  uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build # for xsltproc
   uses_from_macos "cyrus-sasl"
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
 
   on_macos do
+    depends_on "gettext"
     depends_on "libgpg-error"
     # Build again libiconv for now on,
     # but reconsider when macOS 14.2 is released
     depends_on "libiconv"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -59,7 +64,6 @@ class Neomutt < Formula
       --pcre2
       --sasl
       --sqlite
-      --tokyocabinet
       --zlib
       --with-idn2=#{Formula["libidn2"].opt_prefix}
       --with-lua=#{Formula["lua"].opt_prefix}

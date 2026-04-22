@@ -10,8 +10,6 @@ class Bas55 < Formula
     regex(/href=.*?bas55[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4ee22532aeb40b552f0bcdad959ea9790db7a1256a562d032ea17ec3abf5774c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "478a5356e46bd76319db391d95aff282e41a3864225cede8f1da17a18eeeb055"

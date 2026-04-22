@@ -5,24 +5,19 @@ class Run < Formula
   sha256 "942427701caa99a9a3a6458a121b5c80b424752ea8701b26083841de5ae43ff6"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c7170ed0911890c685fc627f44c00b89796c210945166670760d50d6f30de156"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "559da124641b371439fa38a4c23ec8c3f4edeb32bc2e7003d560b32808219004"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac7325643156aa96a729b67c7331bf0567ad3a37681093e79d9b090644de3469"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9047620f1da5c223c4c7aa7ea33861ca346fd33335515a553fb11aa12f9505f2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9047620f1da5c223c4c7aa7ea33861ca346fd33335515a553fb11aa12f9505f2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9047620f1da5c223c4c7aa7ea33861ca346fd33335515a553fb11aa12f9505f2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c81056e1cf59a6c42ea6e393dc4e146a19a042bb7c0c488bcd6f26dd3f9c9194"
-    sha256 cellar: :any_skip_relocation, ventura:        "7b9ad23183cb19b835add35b5e65768ea6bd5295181c03d9ab1372996ff75fcb"
-    sha256 cellar: :any_skip_relocation, monterey:       "7b9ad23183cb19b835add35b5e65768ea6bd5295181c03d9ab1372996ff75fcb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7b9ad23183cb19b835add35b5e65768ea6bd5295181c03d9ab1372996ff75fcb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b2634ba0c62d494f9f77983a80f8e0248c2bfdbb729c49915a52e4f3676b48a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab579ac93d7c9474a761d9b51e1fb347119b8f990af87d0bcd03043aa388dbe8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "494136cea6aa2305a857c2a9091558c37516fbe4cbfe1466089cb041c56ef64a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "494136cea6aa2305a857c2a9091558c37516fbe4cbfe1466089cb041c56ef64a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "494136cea6aa2305a857c2a9091558c37516fbe4cbfe1466089cb041c56ef64a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f2540f33549ba66fc0db57e7ac1d33c9b94abad914d5134a8946aff8c04bece3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2129b6933244680b5e70c3a1636988ee5d2e1800a0dd8d2f3aed397453d015d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d07a3ae592c55324e85305316310fad9c8d78d897a3705739071d0275fe5f472"
   end
 
   depends_on "go" => :build
+
+  conflicts_with "run-kit", because: "both install a `run` binary"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

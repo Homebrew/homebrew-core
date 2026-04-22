@@ -1,10 +1,15 @@
 class Duc < Formula
   desc "Suite of tools for inspecting disk usage"
   homepage "https://github.com/zevv/duc"
-  url "https://github.com/zevv/duc/releases/download/1.4.6/duc-1.4.6.tar.gz"
-  sha256 "e91592e367f3f8be671899660756b25e2c37f316c42ebd2a36dd684be3e2f25a"
   license "LGPL-3.0-only"
-  head "https://github.com/zevv/duc.git", branch: "master"
+
+  stable do
+    # TODO: Switch to tkrzw in 1.5.0. All other backends have been deprecated
+    url "https://github.com/zevv/duc/releases/download/1.4.6/duc-1.4.6.tar.gz"
+    sha256 "e91592e367f3f8be671899660756b25e2c37f316c42ebd2a36dd684be3e2f25a"
+
+    depends_on "tokyo-cabinet"
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "9bb01ec4d71dab368193198a600df30283f0e4ebb59bb92b5fee3640d2de14c7"
@@ -15,13 +20,20 @@ class Duc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fc33d230b1c8a087e12c7a81c85e9723f58e2e90bba7cdc33f0876f845a9ca1"
   end
 
+  head do
+    url "https://github.com/zevv/duc.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "tkrzw"
+  end
+
   depends_on "pkgconf" => :build
 
   depends_on "cairo"
   depends_on "glfw"
   depends_on "glib"
   depends_on "pango"
-  depends_on "tokyo-cabinet"
 
   uses_from_macos "ncurses"
 
@@ -31,6 +43,7 @@ class Duc < Formula
   end
 
   def install
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--disable-x11",
                           "--enable-opengl",

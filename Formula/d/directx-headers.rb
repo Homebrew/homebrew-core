@@ -1,17 +1,18 @@
 class DirectxHeaders < Formula
   desc "Official DirectX headers available under an open source license"
   homepage "https://devblogs.microsoft.com/directx/"
-  url "https://github.com/microsoft/DirectX-Headers/archive/refs/tags/v1.618.2.tar.gz"
-  sha256 "62004f45e2ab00cbb5c7f03c47262632c22fbce0a237383fc458d9324c44cf36"
+  url "https://github.com/microsoft/DirectX-Headers/archive/refs/tags/v1.619.1.tar.gz"
+  sha256 "6193774904c940eebb9b0c51b816b93dd776cfeb25a951f0f4a58f22387e5008"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e3c57c3ddbad669a195eea6cad3f154be704a12b63273d389b21ccd687bf0936"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b9f8af56620ed8e01e583ff79d21fcffb85c8a0734e4b41bb1d1e3d377bacaf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b41f82cd50733cec1f3664747501b40d632ef657f62d849943e49699fbe264f5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "88f4a31d82896f56c9a2b16cded6bee0efb76cf66f2ab4ce5f1662bd0c652915"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c85e5b126134c36c124d6ca195ccf6cb846cf7c5d6faff623d6c6b903bda7393"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ec5332819c79bc05557054b05aefa21468731551a75588df9efa10cb2d2692a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4d7a71f9e4416bf63af6b7ed1c2c7dca98f34c6b0e1917e8926a0ae35b01692b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e1e0731354dba0d68e1f640c37340f20723cbded2bcbf4e6c16f399133c4791"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c56d31b978252ef14fd576b2dc8f38e15027f3e5f12454467e5e1ef297a544cc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e283ac8535f3fb1c0ad04aff821ecac92f253d0c99e207b4f926ce2031326db4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bd9e83fbb2e810a14db26e48785dcfcc25fb541abf10c847635057c06b7c2a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f351534f4c948743491df1005f554a6518c89b8fd36b2b76d1c57c676356555"
   end
 
   depends_on "meson" => :build

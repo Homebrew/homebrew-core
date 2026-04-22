@@ -1,21 +1,18 @@
 class Gibo < Formula
   desc "Access GitHub's .gitignore boilerplates"
   homepage "https://github.com/simonwhitaker/gibo"
-  url "https://github.com/simonwhitaker/gibo/archive/refs/tags/v3.0.16.tar.gz"
-  sha256 "a3977f96d80cae64b37d439f6d40691cf70be013019a7363736530a613f8cbcc"
+  url "https://github.com/simonwhitaker/gibo/archive/refs/tags/v3.0.21.tar.gz"
+  sha256 "83cb600518aba65c0b3d7a7393df02374da238d2e91c45123fc1ab204e0d80d7"
   license "Unlicense"
   head "https://github.com/simonwhitaker/gibo.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a67d83a8d370d32de6f47fa97210e972c0949caaf232cd98a15fe3a1e4249318"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a67d83a8d370d32de6f47fa97210e972c0949caaf232cd98a15fe3a1e4249318"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a67d83a8d370d32de6f47fa97210e972c0949caaf232cd98a15fe3a1e4249318"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f14c1c1fe00324fc685cc4f17e70891aad5bd2f3853f5b1eff5d90e2c9c74935"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ca9b9ae7f8c4c0a15a67756b37b45e94fa35a3fa5329238bde15d9d45eb4da5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "875cae4046adca98f41f232a963e59b59d05c4140267f08472d74c5cf9dde56c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "745b710d3b23c34731a129042e1e413b0af93d58a18002bebd14c124a5e423ab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "745b710d3b23c34731a129042e1e413b0af93d58a18002bebd14c124a5e423ab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "745b710d3b23c34731a129042e1e413b0af93d58a18002bebd14c124a5e423ab"
+    sha256 cellar: :any_skip_relocation, sonoma:        "09744abc9c5ab012bea4f2884531b8638d1bdcf5662bc8acdb2b0bcfe20a0749"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e5eb7ac542dc3e6e4958d12832af4d2daa7d778fb29b028e31fa6e5c6b338b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f37f7e5c7c05e8b46764cb902450672bedbbaa4b0fac8d6f1d273d23968b2024"
   end
 
   depends_on "go" => :build

@@ -3,10 +3,11 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.net/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "5157"
-  version "11.02.21"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "5175"
+  version "11.02.23"
   license "GPL-3.0-or-later"
   version_scheme 1
+  compatibility_version 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
   livecheck do
@@ -18,12 +19,12 @@ class Netpbm < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "2d1e7ab95ba535775b40757726893724e597b28b358020749b89ed624904e800"
-    sha256 arm64_sequoia: "6b425ffe48a567eccc8f00f1cc8ece83bcb8c3258752b103b55784971dc04ca7"
-    sha256 arm64_sonoma:  "7a2116c429236cb7f74d4b227704edd921e23a8e684028d8e2ecc554a05cac51"
-    sha256 sonoma:        "e9a275886685a4712032390b3da6ebd582b0e755e07ef452f090a3f0fb26fc2c"
-    sha256 arm64_linux:   "2de9919a88df5d9bf5f564368eb494d94b5b625aa39f55dccc15485b0a11b856"
-    sha256 x86_64_linux:  "3279ed5ddfb891c0cd2e86bd66da95d30a78d464e4b659d9efb200ceeda73f5b"
+    sha256 arm64_tahoe:   "9e1d26b1727bc4ebae91c3548b6c86c7834147816f9d57365262dd9b6d088ec7"
+    sha256 arm64_sequoia: "52ae7ab2ca13d4aa982c4d0967266a4fe2ea80d591147fc2eb5e22db379139a5"
+    sha256 arm64_sonoma:  "66056550ea849f60574e93ea65b4d3bcbda942e5c0fdfa8968ed9e74ce77f87f"
+    sha256 sonoma:        "85941e1440bb2be9ef240d164b5f2e5161daef73a4ecb6f277e88bd78bc49487"
+    sha256 arm64_linux:   "ef62b175b3168a6a263a6b366e1a2dcc2a5cebe7568d75aba59bcc7da058d797"
+    sha256 x86_64_linux:  "4a74682213e8d51885fd91fa2b107669ebbe06ee3f872ccd9d92208571457992"
   end
 
   depends_on "pkgconf" => :build
@@ -35,15 +36,18 @@ class Netpbm < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "python" => :build
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "jbigkit", because: "both install `pbm.5` and `pgm.5` files"
 
   resource "html" do
     # Rolling release, latest revision also documents previous software versions
     # NOTE: Keep "revision" and "version" in sync
-    url "https://svn.code.sf.net/p/netpbm/code/userguide", revision: "5152"
-    version "5143"
+    url "https://svn.code.sf.net/p/netpbm/code/userguide", revision: "5177"
+    version "5177"
 
     livecheck do
       url "https://sourceforge.net/p/netpbm/code/HEAD/log/?path=/userguide"

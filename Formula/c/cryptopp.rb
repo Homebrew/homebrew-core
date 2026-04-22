@@ -16,8 +16,6 @@ class Cryptopp < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:   "53bc84217451c7ae2716346f62519e9b100409180949df14259c0159c04166e5"

@@ -12,8 +12,6 @@ class Autogen < Formula
     regex(%r{href=.*?rel(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "11f0bdd04ae3db9ab2d6f2e12d2554db59111391ded8f941cd2bf08f79475f8a"
     sha256 arm64_sequoia: "4d986c1d9d478a402348836169d0a35f56a6fc9f7ad7f5d14acfd1bcd101b9c9"

@@ -4,9 +4,8 @@ class Glog < Formula
   url "https://github.com/google/glog/archive/refs/tags/v0.7.1.tar.gz"
   sha256 "00e4a87e87b7e7612f519a41e491f16623b12423620006f59f5688bfd8d13b08"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://github.com/google/glog.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "15bf109a841f9381cd9086d7aecefc7d782670c90a5142bbf9f281604deff968"

@@ -6,13 +6,12 @@ class SourceHighlight < Formula
   sha256 "3a7fd28378cb5416f8de2c9e77196ec915145d44e30ff4e0ee8beb3fe6211c91"
   license "GPL-3.0-or-later"
   revision 6
+  compatibility_version 1
 
   livecheck do
     url :stable
     regex(/href=.*?source-highlight[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 arm64_tahoe:   "e05f56b94a75e09f12a5653c3b48a960a72efba4f4c449e8f00967208f271e93"

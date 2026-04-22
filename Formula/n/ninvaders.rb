@@ -5,8 +5,6 @@ class Ninvaders < Formula
   sha256 "bfbc5c378704d9cf5e7fed288dac88859149bee5ed0850175759d310b61fd30b"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "67f7a9ab2212b5b2ddd49e6bf8cbe915606186a4b1d0ff2523d23bd87ad59372"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "89cd69d1df23bd848757897116b0dbbb8a0535d65264cf8956e5323bae0fac4e"

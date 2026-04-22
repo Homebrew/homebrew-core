@@ -5,8 +5,6 @@ class AdrTools < Formula
   sha256 "9490f31a457c253c4113313ed6352efcbf8f924970a309a08488833b9c325d7c"
   license "CC-BY-4.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "893bca3baa1fdb9dfad37f81cc58ccc5d6e3c3b7b9c03336d5ac365700eeec10"

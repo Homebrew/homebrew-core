@@ -1,11 +1,9 @@
 class Twm < Formula
   desc "Tab Window Manager for X Window System"
-  homepage "https://www.x.org/"
+  homepage "https://gitlab.freedesktop.org/xorg/app/twm"
   url "https://www.x.org/releases/individual/app/twm-1.0.13.1.tar.xz"
   sha256 "a52534755aa8b492c884e52fa988bac84ab4d54641954679b9aaf08e323df2c5"
   license "X11"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 arm64_tahoe:   "10c97cb0c9229ad2c77532f6c83736b5e31eb33dc08fe84cd2bd8f7545c56c64"
@@ -19,6 +17,7 @@ class Twm < Formula
   end
 
   depends_on "pkgconf" => :build
+  depends_on "xorg-server" => :test
 
   depends_on "libice"
   depends_on "libsm"
@@ -37,13 +36,12 @@ class Twm < Formula
   end
 
   test do
-    fork do
-      exec Formula["xorg-server"].bin/"Xvfb", ":1"
-    end
+    spawn Formula["xorg-server"].bin/"Xvfb", ":1"
     ENV["DISPLAY"] = ":1"
     sleep 10
-    fork do
-      exec bin/"twm"
-    end
+    sleep 10 if OS.mac? && Hardware::CPU.intel?
+    twn_pid = spawn bin/"twm"
+    sleep 5
+    system "kill", "-0", twn_pid
   end
 end

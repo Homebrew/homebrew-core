@@ -1,9 +1,10 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.42.0.tar.xz"
-  sha256 "73cf6cc1ea2b2b1c110a18c14bbbc73a362073003893ffcedc26d22ebdbdd0c3"
+  url "https://www.cpan.org/src/5.0/perl-5.42.2.tar.xz"
+  sha256 "0a585eeb9e363c0f80482ddb3571625250c2c86aeb408853e8ea50805cfb14bb"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  compatibility_version 1
   head "https://github.com/perl/perl5.git", branch: "blead"
 
   livecheck do
@@ -12,18 +13,17 @@ class Perl < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ada9d51dfe97ea70568c95793a3e47802b14474483b28a74de7ac04fcf9aad24"
-    sha256 arm64_sequoia: "a331732353fc59878e1dff54a6dff146ffe37bfce7a66d4cf13ecea8172881fa"
-    sha256 arm64_sonoma:  "aca1ad358a7d11cd7e87cdb3863246c7bc46556f89d5bd74aa812a23997c0799"
-    sha256 sonoma:        "666f349bcc58a6f431d39e4332dbefbb3f5a81c7fe945286e0fc3cfa25886b30"
-    sha256 arm64_linux:   "f7fa9e1db53cb62a4c77f2c1b4a694344af2ccde2edb4e6128dcc16fbb13b878"
-    sha256 x86_64_linux:  "d787972ec3fa6de4a80d180e73cc92f6a7b5509db278c95f1a09e6c558d5d26e"
+    rebuild 1
+    sha256 arm64_tahoe:   "11266b9a2528911df242d82ec041ee91a50c3374d03c9401b558e521b5569916"
+    sha256 arm64_sequoia: "055da0dbe11d31788f13154fb01f7b5596e8450705bd4a1e54e799977d7bddaa"
+    sha256 arm64_sonoma:  "e9270cae03ec248b9910b33924cd522773d4494ed1da07a4fbc8bc70c48eeddd"
+    sha256 sonoma:        "78ee0a26f6650a15d49bc1e6586b91f9716981207059d511704d15f30882c63a"
+    sha256 arm64_linux:   "a2adf29ff516a10c5851c1da904cb033cb92f89c5ea8efee5600065d06f3d989"
+    sha256 x86_64_linux:  "036d3e8899b33c3c4f7dd9b69057f5dd522184a72750b212376d8fd5fc7d120f"
   end
 
-  depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL-3.0 restrictions
   depends_on "gdbm"
 
-  uses_from_macos "expat"
   uses_from_macos "libxcrypt"
 
   # Prevent site_perl directories from being removed
@@ -38,6 +38,8 @@ class Perl < Formula
       -Dprivlib=#{opt_lib}/perl5/#{version.major_minor}
       -Dsitelib=#{opt_lib}/perl5/site_perl/#{version.major_minor}
       -Dotherlibdirs=#{HOMEBREW_PREFIX}/lib/perl5/site_perl/#{version.major_minor}
+      -Dvendorlib=#{HOMEBREW_PREFIX}/lib/perl5/vendor_perl/#{version.major_minor}
+      -Dvendorprefix=#{HOMEBREW_PREFIX}
       -Dperlpath=#{opt_bin}/perl
       -Dstartperl=#!#{opt_bin}/perl
       -Dman1dir=#{opt_share}/man/man1
@@ -48,28 +50,18 @@ class Perl < Formula
     ]
     args << "-Dusedevel" if build.head?
 
+    # On macOS, we can use Apple's system library to support DB_File module.
+    # On Linux, we explicitly exclude bundled DB_File to avoid opportunistic
+    # linkage to Berkeley DB. Dependents and users can install it from CPAN.
+    args << "-Ui_db" unless OS.mac?
+
     system "./Configure", *args
     system "make"
     system "make", "install"
   end
 
-  def post_install
-    if OS.linux?
-      perl_archlib = Utils.safe_popen_read(bin/"perl", "-MConfig", "-e", "print $Config{archlib}")
-      perl_core = Pathname.new(perl_archlib)/"CORE"
-      if File.readlines("#{perl_core}/perl.h").grep(/include <xlocale.h>/).any? &&
-         (OS::Linux::Glibc.system_version >= "2.26" ||
-         (Formula["glibc"].any_version_installed? && Formula["glibc"].version >= "2.26"))
-        # Glibc does not provide the xlocale.h file since version 2.26
-        # Patch the perl.h file to be able to use perl on newer versions.
-        # locale.h includes xlocale.h if the latter one exists
-        inreplace "#{perl_core}/perl.h", "include <xlocale.h>", "include <locale.h>"
-      end
-    end
-  end
-
   def caveats
-    <<~EOS
+    s = <<~EOS
       By default non-brewed cpan modules are installed to the Cellar. If you wish
       for your modules to persist across updates we recommend using `local::lib`.
 
@@ -78,6 +70,13 @@ class Perl < Formula
       And add the following to your shell profile e.g. ~/.profile or ~/.zshrc
         eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
     EOS
+    on_linux do
+      s += <<~EOS
+
+        Bundled DB_File module was not installed. If needed, you can install it from CPAN.
+      EOS
+    end
+    s
   end
 
   test do

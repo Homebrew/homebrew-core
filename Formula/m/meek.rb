@@ -6,8 +6,6 @@ class Meek < Formula
   license "CC0-1.0"
   head "https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/meek.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6d41beffa2dbd3d1b66ba353e51e329fa491d6413dc526c0f9993d41f06adabb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c939314234b6926d31c68588a3b6c6f044daf7012ba72d567166402de563747e"

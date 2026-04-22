@@ -4,6 +4,7 @@ class Task < Formula
   url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v3.4.2/task-3.4.2.tar.gz"
   sha256 "d302761fcd1268e4a5a545613a2b68c61abd50c0bcaade3b3e68d728dd02e716"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "develop"
 
   livecheck do

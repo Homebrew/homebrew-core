@@ -12,24 +12,22 @@ class ManDb < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "3b4ff986ec8efa0309117b956361b967a7d0d62bcd3489ddc6e1f50424264883"
-    sha256 arm64_sequoia: "814476e3056aff5c88da27acca3153f44e60cd64ec964689998728ec86f074bf"
-    sha256 arm64_sonoma:  "4cdc0506f77895a91bbd2bb3e66841a00ac8fe05826eff469e63e8f73a89cacb"
-    sha256 arm64_ventura: "80dccecdde51608a0007a5b55a68ad152d9df01edb4d20943bdee1d25d59cf07"
-    sha256 sonoma:        "f6c8b05ccbaf7c5834bd1aa3d30b55d5e51d6de8864e829555c060823e09aaea"
-    sha256 ventura:       "da8b0c64287f926108f16d8d41e037af06f01f26778fabf25c531f7aa872e58d"
-    sha256 arm64_linux:   "6bc4fa308acf12f0365268ade917e6dc496b0d75b8a4ffc5ebc80bcfcfb0fd29"
-    sha256 x86_64_linux:  "d337092513af299c568743a128b5ab5aad480e9c42b122cec9f507b00938809f"
+    rebuild 1
+    sha256 arm64_tahoe:   "7dc229cef4b93ffab9ab1e0915128e0f82bfc97e07f5b2db18d0e97125b7ceb7"
+    sha256 arm64_sequoia: "20328186ff7f4a29fd029d966fb8bb7ab57e3878023a480f362e6821bb035eba"
+    sha256 arm64_sonoma:  "3d091053cb022d2aec755c6820db73d90cfee5cee8e87c554c05ce15d940f495"
+    sha256 sonoma:        "7ab7d61c5d34832f182a5d43814aedafc83ee39935515dea044914b5fe9e914b"
+    sha256 arm64_linux:   "89bb5bab792be06d435eecaa9f485283fd4dcca1881992eec2d3b492fe238862"
+    sha256 x86_64_linux:  "381c521219f42b0b19f06ccfef76cfd89ce762cac6d30ddccb696b9219748135"
   end
 
   depends_on "pkgconf" => :build
   depends_on "groff"
   depends_on "libpipeline"
 
-  uses_from_macos "zlib"
-
   on_linux do
     depends_on "gdbm"
+    depends_on "zlib-ng-compat"
   end
 
   def install

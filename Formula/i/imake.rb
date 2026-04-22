@@ -10,8 +10,6 @@ class Imake < Formula
     regex(/href=.*?imake[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:   "e00d84afa586ef13b9a3839fb78191004c4bb76953057ccda30f602cc274565d"
     sha256 arm64_sequoia: "16145a844d8aaf431a839bc9d6c8ecc3ce22738e61536a1edfca0888ac8b9c20"

@@ -3,24 +3,24 @@ class Pytorch < Formula
 
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
-  url "https://github.com/pytorch/pytorch/releases/download/v2.10.0/pytorch-v2.10.0.tar.gz"
-  sha256 "fa8ccbe87f83f48735505371c1c313b4aa6db400b0ae4f8a02844d1e150c695f"
+  # TODO: Restore pybind11 dependency after https://github.com/pytorch/pytorch/pull/175115
+  url "https://github.com/pytorch/pytorch/releases/download/v2.11.0/pytorch-v2.11.0.tar.gz"
+  sha256 "ab3fde9e7e382f45ac942be6ea2c2ef362c5ccd6f55ed6d5f35e6ea81d3ab88e"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "1fdb982bd44569c59eee93c00b077f176faf85fc34c5d6ff139a3619c843fce9"
-    sha256 cellar: :any, arm64_sequoia: "e35118ea4fd3d74157f5aa9572809e3129c79cec5f3220294893891a9612189c"
-    sha256 cellar: :any, arm64_sonoma:  "7ae1f37acbb2c43e1b8f21eb8325f4bd68bbdca58ce5d9a51bbe5372138ef8c2"
-    sha256 cellar: :any, sonoma:        "619c5aabd0994910640f9657de0c3be693af529081db9fcb578e157b8654ce8a"
-    sha256               arm64_linux:   "b2d6d3495d201287fa31984f4b2c5b0f7413b9edbcc26f860051216707be41f8"
-    sha256               x86_64_linux:  "b14466e5f1aa3de2b11cc726556472d49edb3085a8dd8b6158f95881b36abc95"
+    sha256 cellar: :any,                 arm64_tahoe:   "b0ead97b9270dc567c5d4aef3a1493d0897631fffad804c319ef880faefb1311"
+    sha256 cellar: :any,                 arm64_sequoia: "5743750f216c27a55a8032fd3cfa773790b08c713c99bf54f090609e556a1460"
+    sha256 cellar: :any,                 arm64_sonoma:  "d68dfbdf750be02e24fd5c2df3b98a82908f3b6c8dfe72f37bbc822ee56da9a7"
+    sha256 cellar: :any,                 sonoma:        "515e13b08da9e3dd39091446fae2d2b00393dc13cd4ddcaf273d3e83f3900367"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfbbcb7b690a0b55c2a5e871cd9d1b31c8a838b8c4d8a41a0c9d5f1936abef6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66632f38d6e1092c2a1f893e0dd4187cab4e79024beb5275cf89288091551ac8"
   end
 
   depends_on "cmake" => :build
@@ -33,9 +33,10 @@ class Pytorch < Formula
   depends_on "libyaml"
   depends_on macos: :monterey # MPS backend only supports 12.3 and above
   depends_on "numpy"
+  depends_on "onnx"
   depends_on "openblas"
   depends_on "protobuf"
-  depends_on "pybind11"
+  # TODO: depends_on "pybind11"
   depends_on "sleef"
 
   on_macos do
@@ -47,13 +48,13 @@ class Pytorch < Formula
                 exclude_packages: "numpy"
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/1d/65/ce7f1b70157833bf3cb851b556a37d4547ceafc158aa9b34b36782f23696/filelock-3.20.3.tar.gz"
-    sha256 "18c57ee915c7ec61cff0ecf7f0f869936c7c30191bb0cf406f1341778d0834e1"
+    url "https://files.pythonhosted.org/packages/94/b8/00651a0f559862f3bb7d6f7477b192afe3f583cc5e26403b44e59a55ab34/filelock-3.25.2.tar.gz"
+    sha256 "b64ece2b38f4ca29dd3e810287aa8c48182bbecd1ae6e9ae126c9b35f1382694"
   end
 
   resource "fsspec" do
-    url "https://files.pythonhosted.org/packages/d5/7d/5df2650c57d47c57232af5ef4b4fdbff182070421e405e0d62c6cdbfaa87/fsspec-2026.1.0.tar.gz"
-    sha256 "e987cb0496a0d81bba3a9d1cee62922fb395e7d4c3b575e57f547953334fe07b"
+    url "https://files.pythonhosted.org/packages/51/7c/f60c259dcbf4f0c47cc4ddb8f7720d2dcdc8888c8e5ad84c73ea4531cc5b/fsspec-2026.2.0.tar.gz"
+    sha256 "6544e34b16869f5aacd5b90bdf1a71acb37792ea3ddf6125ee69a22a53fb8bff"
   end
 
   resource "jinja2" do
@@ -92,8 +93,8 @@ class Pytorch < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/86/ff/f75651350db3cf2ef767371307eb163f3cc1ac03e16fdf3ac347607f7edb/setuptools-80.10.1.tar.gz"
-    sha256 "bf2e513eb8144c3298a3bd28ab1a5edb739131ec5c22e045ff93cd7f5319703a"
+    url "https://files.pythonhosted.org/packages/0d/1c/73e719955c59b8e424d015ab450f51c0af856ae46ea2da83eba51cc88de1/setuptools-81.0.0.tar.gz"
+    sha256 "487b53915f52501f0a79ccfd0c02c165ffe06631443a886740b91af4b7a5845a"
   end
 
   resource "sympy" do
@@ -136,7 +137,8 @@ class Pytorch < Formula
     ENV["USE_NNPACK"] = "OFF"
     ENV["USE_OPENMP"] = "ON"
     ENV["USE_SYSTEM_EIGEN_INSTALL"] = "ON"
-    ENV["USE_SYSTEM_PYBIND11"] = "ON"
+    ENV["USE_SYSTEM_ONNX"] = "ON"
+    ENV["USE_SYSTEM_PYBIND11"] = "OFF"
     ENV["USE_SYSTEM_SLEEF"] = "ON"
     ENV["USE_MPS"] = "ON" if OS.mac?
     ENV["USE_KLEIDIAI"] = "OFF"
@@ -158,7 +160,7 @@ class Pytorch < Formula
 
     # Expose C++ API
     torch = venv.site_packages/"torch"
-    include.install_symlink ((torch/"include").children - [torch/"include/fmt"])
+    include.install_symlink ((torch/"include").children - [torch/"include/fmt", torch/"include/pybind11"])
     lib.install_symlink (torch/"lib").children
     (share/"cmake").install_symlink (torch/"share/cmake").children
   end

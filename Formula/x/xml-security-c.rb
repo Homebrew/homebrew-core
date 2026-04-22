@@ -10,8 +10,6 @@ class XmlSecurityC < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "da245352f56c05ef6603edff2f3ce8cd0831aeac2fe02b38ce11e56523fff2e9"
     sha256 cellar: :any,                 arm64_sequoia: "7f42a4e63dc531c44888737938b0e97780bb25053f42f5cd35671294251a9f6d"

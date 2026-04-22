@@ -1,17 +1,17 @@
 class Termshot < Formula
   desc "Creates screenshots based on terminal command output"
   homepage "https://github.com/homeport/termshot"
-  url "https://github.com/homeport/termshot/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "61acbacbed1d761965a46f379dbaf81c459e4c310d5b85972737b891b0a5aa09"
+  url "https://github.com/homeport/termshot/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "40abea3c9ae604f3c2cdc7e2a623bf6063c6b1c504a70c5e3a1b8457dbdd2fbc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2b554f5ee4c06d23ecb91fb30c2af1a732c0abfb83ac9103b740ad675744b47d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b554f5ee4c06d23ecb91fb30c2af1a732c0abfb83ac9103b740ad675744b47d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b554f5ee4c06d23ecb91fb30c2af1a732c0abfb83ac9103b740ad675744b47d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "53a4df99f413053ae921baca6a74d69b6130e329fe244c6cc9a52621a5872d38"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e099cc1869a8d7776e05a442a50b4032f16dd043a80864289a9a5f1cce1d1c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "adcb922c10f4e10cbfa64393ffcddc8f2e84690f4ac9b3c3126c637448b2efbf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e9e84923bf4300c54e04efee620db1bde1ea367dcc0f2dfafba0c46b92dbaa4a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9e84923bf4300c54e04efee620db1bde1ea367dcc0f2dfafba0c46b92dbaa4a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9e84923bf4300c54e04efee620db1bde1ea367dcc0f2dfafba0c46b92dbaa4a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "788fe895144017fafd44bb3df8973655f6ce930f28f814e677a06d9c2fd76c99"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e7a5aa03dfbc7a006bf75306ef8439d46d2f127437fee9498c0ab364234efe5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3d0eb5a80ad7724cc0f400cf54403ecd7a0fd7cb5a3ca11442465b3eb83352a"
   end
 
   depends_on "go" => :build

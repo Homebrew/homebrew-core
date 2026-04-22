@@ -1,8 +1,8 @@
 class Certigo < Formula
   desc "Utility to examine and validate certificates in a variety of formats"
   homepage "https://github.com/square/certigo"
-  url "https://github.com/square/certigo/archive/refs/tags/v1.17.1.tar.gz"
-  sha256 "4ac183d25d89246519cce0c7d3ed3e3be261ac72f4ed3b15b9e0690c91778ed4"
+  url "https://github.com/square/certigo/archive/refs/tags/v1.18.0.tar.gz"
+  sha256 "f532bc215b8f57af6bd823d16b6ef2d57499a24f949722d06a2d1c8ea64df225"
   license "Apache-2.0"
   head "https://github.com/square/certigo.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Certigo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8ac461d690d136c9732b38b3aed77b6ee45044facc3bff02c8c1ab10c9da38d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "178bf6b7f2d571b80251d754e9d1103940ece8b33cb89660973bbae84d0e376c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e8007c62003b39a369bb73c7768c22d92b66ff8615ea03218db7cd7b513ee25"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "90657fc29a0515bac14c9386da4f44941322a733c99d39553cb70679246e561a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "af2deb051e563fb696a4d9eabbb2b048264d0039502f3b06497d374031205e9a"
-    sha256 cellar: :any_skip_relocation, ventura:       "0d9f5fa9aa9d3f134bb7fc49847e3527f5d3cdc256b8a6aefe6f004e183e6693"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4386ccf3e4676d87da7bf027d5eadc56eb40bf7fe9bfd000643b442a14235b9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6cd101ccf0fc12278a68a8c7de6fb9d0f24b7230bc9a4b81a5f5e642cc8f245"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "44862825248945f87685110c1d1f17c8747c1ea7324291851092ce1c305cb420"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b90746920cb04d611b1f63ffd5a21a90402a256d0a4b5dbdb2cd44f7fc41bbb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3dd0367a4272f7ed14fdd728a6c662702976bf2a5033c1a433b91ae53e69b819"
+    sha256 cellar: :any_skip_relocation, sonoma:        "18d5ebad42f5b96207b884102cfc401c086848f002645413216ac512a3134152"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a01187764b521a5ecebb086618c825f08fe2657fec32067ecb0f7f4a028e7b0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6870ecd9f505c65d452c8b3a9450077a204eaeeeaf88300b4ada945d312a87ad"
   end
 
   depends_on "go" => :build

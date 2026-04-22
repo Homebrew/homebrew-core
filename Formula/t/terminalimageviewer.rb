@@ -6,8 +6,6 @@ class Terminalimageviewer < Formula
   license "Apache-2.0"
   head "https://github.com/stefanhaustein/TerminalImageViewer.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d15318b665e2ca76d7d9f1c2c7f6d6fddef75446202fbd6dc7444a97c14b58d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6ee22b5d19739497f5fd9a9e082da1106cca1ebe64d1307ddb436ba7c435671a"

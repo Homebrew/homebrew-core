@@ -5,6 +5,8 @@ class Libtiff < Formula
   mirror "https://fossies.org/linux/misc/tiff-4.7.1.tar.gz"
   sha256 "f698d94f3103da8ca7438d84e0344e453fe0ba3b7486e04c5bf7a9a3fabe9b69"
   license "libtiff"
+  revision 1
+  compatibility_version 1
 
   livecheck do
     url "https://download.osgeo.org/libtiff/"
@@ -12,23 +14,24 @@ class Libtiff < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5e387e46027338151f69315d0931c014689ab019f1ce3c3bb16d4a395925bb04"
-    sha256 cellar: :any,                 arm64_sequoia: "e32b6017d70bb365933cc84df9b2db416ea6e3bcc1c57fad4903f7392b13c1a7"
-    sha256 cellar: :any,                 arm64_sonoma:  "66b69d6252e56fbaf1e1e6e67316c4911cdd24838a924ec63e32628058d332ee"
-    sha256 cellar: :any,                 sonoma:        "7291204d8680bf0bb9e484025e5d1bef48c696b9eb81a0b59476f6edb25f7f55"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "82c21a78de8644c3ef816838a96fb892b91cb86cfcec1800fa120d68048f7f82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e563c83e94f568b644a41aae12c07439b1591d4cd9e6102c5062042b8ae2c9b1"
+    sha256 cellar: :any,                 arm64_tahoe:   "e93670ed1f7f484d164a8755767cd55741559db7c402d7d55d1bdf6da87d5f67"
+    sha256 cellar: :any,                 arm64_sequoia: "68bf2bc8fa5ce10a32b70b2b402245c89dcc875413ed92981a024c8510d3cb9a"
+    sha256 cellar: :any,                 arm64_sonoma:  "c4458243f3615e82755fdec34041ccef27b13d20df1d867f99d876d34e7a627a"
+    sha256 cellar: :any,                 sonoma:        "9061b4453709aa2144d6c84bad4dbf0846d507eaa52a3016079822855078ba3c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c1b199256ee763eaf5bbf47376900c08d37480472aa5456294bfb3b1e967bd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2548f1c935d423641faded7ab2539f04756dd7765de31e179854d2dcf84093b"
   end
 
   depends_on "jpeg-turbo"
   depends_on "xz"
   depends_on "zstd"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
       --disable-libdeflate
       --disable-webp
       --enable-zstd
@@ -37,7 +40,7 @@ class Libtiff < Formula
       --with-jpeg-lib-dir=#{Formula["jpeg-turbo"].opt_lib}
       --without-x
     ]
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
 
     # Avoid rebuilding dependents that hard-code the prefix.

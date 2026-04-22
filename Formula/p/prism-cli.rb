@@ -1,27 +1,19 @@
 class PrismCli < Formula
   desc "Set of packages for API mocking and contract testing"
   homepage "https://stoplight.io/open-source/prism"
-  url "https://registry.npmjs.org/@stoplight/prism-cli/-/prism-cli-5.14.2.tgz"
-  sha256 "61a3b45fbb0325b85fbe94baf836588de676c0db91c3b1f191738070c2f7410f"
+  url "https://registry.npmjs.org/@stoplight/prism-cli/-/prism-cli-5.15.10.tgz"
+  sha256 "280e3ffc4ffd9fe23c2cbdf911221fe1b5c745486746191d7ca724248ac9ac08"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "7800a83ca6cb47e11df9264d4ff6e06d6ee0a5d5e6cba2456c98198c4f50046a"
+    sha256 cellar: :any_skip_relocation, all: "074332404299443f6edaeebaeb0451584e2909da9d406c692ca10e4a6d697dbc"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *std_npm_args
+    system "npm", "install", *std_npm_args(ignore_scripts: false)
     bin.install_symlink libexec.glob("bin/*")
-
-    # Backport https://github.com/stoplightio/json-schema-ref-parser/commit/ab6ad5a312672c37fd5936d3cef78fbf0ad85234
-    node_modules = libexec/"lib/node_modules/@stoplight/prism-cli/node_modules"
-    inreplace node_modules/"@stoplight/json-schema-ref-parser/lib/resolvers/http.js",
-      'const { AbortController } = require("node-abort-controller");',
-      ""
   end
 
   test do

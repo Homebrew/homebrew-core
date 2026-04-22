@@ -4,13 +4,12 @@ class Libretls < Formula
   url "https://causal.agency/libretls/libretls-3.8.1.tar.gz"
   sha256 "3bc9fc0e61827ee2f608e5e44993a8fda6d610b80a1e01a9c75610cc292997b5"
   license "ISC"
+  compatibility_version 1
 
   livecheck do
     url "https://causal.agency/libretls/"
     regex(/href=.*?libretls[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "38becb1d91ff6265dd0127e0396ed3e4a67802772e2a389761c2415a51a146b8"

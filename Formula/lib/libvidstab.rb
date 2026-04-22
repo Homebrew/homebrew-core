@@ -4,8 +4,7 @@ class Libvidstab < Formula
   url "https://github.com/georgmartius/vid.stab/archive/refs/tags/v1.1.1.tar.gz"
   sha256 "9001b6df73933555e56deac19a0f225aae152abbc0e97dc70034814a1943f3d4"
   license "GPL-2.0-or-later"
-
-  no_autobump! because: :requires_manual_review
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "92e26eba0998b49ac6c3e2b5111e59007df158ffe697af89ed427c1f1fe7be0c"

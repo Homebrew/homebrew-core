@@ -17,8 +17,6 @@ class Mkvdts2ac3 < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "a5a856ffc05eeb709725402da52d138058873ba0876d66b95106ac95e47489eb"

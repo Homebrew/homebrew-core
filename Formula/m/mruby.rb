@@ -1,20 +1,18 @@
 class Mruby < Formula
   desc "Lightweight implementation of the Ruby language"
   homepage "https://mruby.org/"
-  url "https://github.com/mruby/mruby/archive/refs/tags/3.4.0.tar.gz"
-  sha256 "183711c7a26d932b5342e64860d16953f1cc6518d07b2c30a02937fb362563f8"
+  url "https://github.com/mruby/mruby/archive/refs/tags/4.0.0.tar.gz"
+  sha256 "e2ea271dbed14e9f2b33df773ae447b747dbc242ce2675022c0a57efea85a7b4"
   license "MIT"
   head "https://github.com/mruby/mruby.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b02685c5cee6b7c01b11864e751fcfdc66112bdecd861e978b3aefc0e888270f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e76e20320c6a2d04d0af8785e59a94aa7e7d992a5db9a50ffbb34cb068a9b44"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d711085007c9d6fbc59688e73419eab05b717ebf53fdc1a42f870453d2e4b3d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cf53080c3b6edbf118092341d45846ae988fddcc6fc2cd7f24e779791e4fac2a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0e7d861057336fa23be40003127441e00bfb534586bc8e7baca92366d92746a2"
-    sha256 cellar: :any_skip_relocation, ventura:       "9077c5d17dc2af732e8ef342a2ec492a16ed52277d7e17c2c9dfbf05d3da20c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf4078077027b1b33897a8305b00e1f2e766b005d856054b0a92b5842677f75b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87a0bfa8d4eeb79c615799174ba0be1e3fcd87deabc6d92267d1e708b951759a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d0a3d3a3f842a842d9cec36a08cdaff6161887ed1c2c222098f0e063c55863ec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "99b8781738cb0864ef63b328b02f4fad6588b80d3c58728a2d5274129dc40f68"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71deb7d31b3334da2c773093bba951513cce8c42a044dcd88b672a031b21ac6a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d2d49d516e0ab05213fc902be1b1fe6f8c47d2aa7c8f42304643fb8416e8a96e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "72df680f25d3bf7b427eaf8cbad7688896f22736c5a33f680d697a906b3aeccb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9d7f08b13bbe8f0db66ec128ba959cf3555e5929c9643fd46c8aabe385efca7"
   end
 
   depends_on "bison" => :build

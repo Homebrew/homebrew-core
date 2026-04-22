@@ -10,8 +10,6 @@ class Align < Formula
     regex(/href=.*?align[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "8322889bf3e340cda1b21c32ff73ad718bde32ead186bf7b4b69f0f88f280066"

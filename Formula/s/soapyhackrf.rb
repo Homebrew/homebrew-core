@@ -5,8 +5,6 @@ class Soapyhackrf < Formula
   sha256 "c7a1b8aee7af9d9e11e42aa436eae8508f19775cdc8bc52e565a5d7f2e2e43ed"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "9c90ca14cff4f27d529309b308ab277e65d808dc90500641162c395784efbb9e"
     sha256 cellar: :any,                 arm64_sequoia:  "8be1e7bcc5b9e130dab78d35843ae04e015dd65417fa15fc61206303605aaed4"

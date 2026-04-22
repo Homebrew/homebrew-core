@@ -1,18 +1,18 @@
 class Kbld < Formula
   desc "Tool for building and pushing container images in development workflows"
   homepage "https://carvel.dev/kbld/"
-  url "https://github.com/carvel-dev/kbld/archive/refs/tags/v0.47.1.tar.gz"
-  sha256 "a899543fd5ab5b54a10d6c81735606d2e8c90040ceda483a27ce5f6212022691"
+  url "https://github.com/carvel-dev/kbld/archive/refs/tags/v0.47.3.tar.gz"
+  sha256 "bd9283b80ff490999476bae87931bb8f2b68b045e2bf951e732c72303df612f8"
   license "Apache-2.0"
   head "https://github.com/carvel-dev/kbld.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9344c68734e9f252b577de9aab9b5861f52119a107a088607dec9ce1811511bd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9344c68734e9f252b577de9aab9b5861f52119a107a088607dec9ce1811511bd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9344c68734e9f252b577de9aab9b5861f52119a107a088607dec9ce1811511bd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4363c9e988651d3e6d6fdf8eff70f22729d88da79d0bb5a039f10e1d1bfc3b4f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "58178c062544d9478031df278a8e5d93f2e0bddc985048b5e7b0a430537746f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a55a860f2510f5544926e51334089846717eb7f1fc4465da006b511c8f5cbfa0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7f094081e4299c32c850ac74a653430875eba29ace732f90913b593daae97979"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f094081e4299c32c850ac74a653430875eba29ace732f90913b593daae97979"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7f094081e4299c32c850ac74a653430875eba29ace732f90913b593daae97979"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ef12606efe55f02c73c2624d2742edca23335892f30c62f56c93061165a0c250"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "548e25667e2a156b9f525131480d41fce5b6bd826bd4e23480cd1c514b8f30e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f23654f955d3046392c5d51ce6e14cd3e4f7d72a34fab1d2163cdb5e1d6a149d"
   end
 
   depends_on "go" => :build

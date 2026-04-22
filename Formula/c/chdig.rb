@@ -1,18 +1,18 @@
 class Chdig < Formula
   desc "Dig into ClickHouse with TUI interface"
   homepage "https://github.com/azat/chdig"
-  url "https://github.com/azat/chdig/archive/refs/tags/v26.1.1.tar.gz"
-  sha256 "8c4c8af3e7f029b3963c1a41066fefaf31934c377d7bfb9daa81823517bb2e5f"
+  url "https://github.com/azat/chdig/archive/refs/tags/v26.4.3.tar.gz"
+  sha256 "73395ded1179edd960439d72f18c50abe93a4cbc3bdf0fc976371378ebc0fc76"
   license "MIT"
   head "https://github.com/azat/chdig.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd5a68edbfea9e5ce0b4746b39c255978e4593542af9ab1d36bf8703ebed5602"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d44f2d67dadb32c29ac4832f2987d4758683821d324a639463bb2dabaf90800"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0de2ce3cbe96a69d59d153ce3aac96b9efdc39cc1d9729bda589f410c4904cd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "560633cb631e33315679a9230871a10135732b29576dc6363a834219d93e1ea9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "831ac75362d44ab8896f50f687ed9fca976a8c4f8c20d3413b80c1124153a36c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2bffbe899b0c57316d84129f290a15fdb5593bc4b07d393d2864b8b14a5ac25"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "211db455b144b682d3a0c53dbc6c7f2fbd9d75a6df1650aff163be829af8ca87"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dadf53a3185e4a7bc225a06c8ca2c59aa5e3a60609d0040ade2821fd76af5f6e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4fb3655624236a7b217b595083e7d3338e6a3278ec84c08c12aadd5beed7c23c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "66bbbea7b4e2cbc70d087a2732aff43a8f389623e4ef874d6b9d2e482efec892"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "52ac760737cf3057274b17dd962abf98bec9c3279bb3362dcf9dbd334fc7d3b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c97b29ea545ddf5ca5eb23dd6600353409dda886cac41e4f0b38f57acd3d17f5"
   end
 
   depends_on "rust" => :build

@@ -12,14 +12,13 @@ class Libvncserver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "80e5ade9dc3708e05dbc026946bf865042b7cd630846beec5bf73aa47d6c6b48"
-    sha256 cellar: :any,                 arm64_sequoia: "8dc88d75ffe2cf292dd44b3207f9c9fae289066c9dc5f4a004c8e86671ca4d06"
-    sha256 cellar: :any,                 arm64_sonoma:  "e295b31d29e37617212cf0d69dbdf3ee07ccfa30e2f2610b8d1704a7e0847656"
-    sha256 cellar: :any,                 arm64_ventura: "6cd487a3c48729af0d6be975995826b830d81ebf7d32b9a64e6d50d6ba59245b"
-    sha256 cellar: :any,                 sonoma:        "c26cb98d88424e0a498ceee1eeb5009b9b11b55db0df0826c9d7e7da94e1c317"
-    sha256 cellar: :any,                 ventura:       "c6f5a152415c9036c91cff25c3ff2f0d0cf78de4bf09c4af260cd3ef5bb8f640"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0297b512315813159854b8450fdad94fb8f6db1d7bceb4de3d0e236331c75c7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c1f651bd1e6e13695746043eaaba56b733f8ed4541bef2cc3f259ae99d02c10"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ce1472b68ae1ac5412007a81f99ddec58cec02d3d13b4e9cceb1fe90202ab912"
+    sha256 cellar: :any,                 arm64_sequoia: "4a3d1fee5603436a04b846cb9502e70fbee34a787d6a5201e1888845242de4f2"
+    sha256 cellar: :any,                 arm64_sonoma:  "30629338dbd5ba92cb3726419a559cb9dfa0e7f39cce27976ce3967c1d0d4075"
+    sha256 cellar: :any,                 sonoma:        "b7e7461e4689b9265688597301f7a15ac6b49f77a6a97ae8a5748c8ea6fffcfc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8cb88d51bf4a691357fe3020a78e367687b6329db0394eff5de2af46c439fed6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e4f2fb7d81aa49887b2c26579ca48af09812947fedca499f70d832e269cd516"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +27,9 @@ class Libvncserver < Formula
   depends_on "libpng"
   depends_on "openssl@3"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

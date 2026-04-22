@@ -11,8 +11,6 @@ class Grace < Formula
     regex(/href=.*?grace[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "f930e961b7d6dd7d104e8f786247a044113ff0b7e58be16061d5a04ff4365188"
     sha256 arm64_sequoia:  "61fed352c42b6211971448d69512dd09726ef1daa1fab3f52d3ceeec048ad6d9"

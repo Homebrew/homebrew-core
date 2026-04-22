@@ -11,17 +11,18 @@ class Minimap2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "106a141d81ca4146eb67910656304caab34900a21bad667eda801f3181b397c3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15a95a85343975c72953717d6aefcca9ee2e04f1f0a0b0403819d053c722368a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cfb5b7c1bc6595db98264d150b10cb4b1f17efcedd60a087a8f3540861679fe0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e71e6111743b87d5005094bbaa9813116922d397b7dbce5f8a7e34bba6e78ef2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f29c0dadd3b8a0ac0eabb51593e2c55f9bb57a65ebea6dc5822d141e9d4b94ce"
-    sha256 cellar: :any_skip_relocation, ventura:       "16e71c8e195454cc5809b874ac3ff3cbaabe4ac8cf329c17fe5c9b5cc732af8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ab2307d37cca517d00b5c6b2622d332c90bae19e880f3d6749b5182401f5d35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f28f740a2280da6423e032afba5109e2253f57286f779add8f2c0c52f783fff8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bab9ae8b3c6ebe68b4cc6ec84c04cefd0a9ed544d474d0b97b3edde63613c029"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc2e9667c941db62f475850288cc477af72e76f3f2d601dc5504b33a25054bc0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dea2a7c77af4d26e3121377eaa17fe9f8fda9b195a729f30b0c2b031e71cb79c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9697c3492313510140bb1d4290f854db37f419988e0e141d8c98cd8152e24e4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b66bf9449ae3f6d95f0fd33af2b2df9c1f556a59e6b1eb53754d5d39bbc3aa80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84a23620b041f878b15b147f1eee02ab87b73c26ff1afd8b40bef05503aa141a"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     if Hardware::CPU.arm?

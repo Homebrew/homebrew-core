@@ -1,15 +1,14 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/15.1.0.tar.gz"
-  sha256 "2f654c8ee52e0cd47b0d665d5aafe39a5641f4d6e81bb16e6bad008b72023a6c"
+  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/25.0.0.tar.gz"
+  sha256 "9ee49b6a876ece2058c848aa5a2e87d2a4db8ebbcc925836fc760962a84fb0fb"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-2.0-only", # wsrep
     { "GPL-2.0-only" => { with: "x11vnc-openssl-exception" } }, # galera
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
-  revision 1
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
@@ -22,12 +21,12 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "21dc5c9692aab9f60a81b5dd65d68bbda1f1660c992c2367783d3875fff4b78d"
-    sha256 arm64_sequoia: "880b1636f705bf35547eb042e33017db4acd5693718343a1b3b3b730cc7b78a1"
-    sha256 arm64_sonoma:  "9606e7f9557cc3c8d79bcd62a91a82d59563ba38be25420bb55f61144279416f"
-    sha256 sonoma:        "2d9bf9d56e44d262030e911c962391d386c090fc0d804cf2c100f951fd440a18"
-    sha256 arm64_linux:   "73d89c31b7c7ae62be926b46b6134c6166fed9cde4652924b04a01b4e08fe4d0"
-    sha256 x86_64_linux:  "9d3b2dee5f420ecfbafe599c8303c195823ce402e9ac3a586967c422ca257b87"
+    sha256 arm64_tahoe:   "67c2e79378210fdbd67a2e88ae51b043758a20c163653e59640e3faf387580ff"
+    sha256 arm64_sequoia: "8a505dfeba395d354ca33d866a62193bb573e4f1a88a7b148e66052a351426c9"
+    sha256 arm64_sonoma:  "8eaa016cb689a4b83a3d1c4f446f8a9b94cc6b83d491954669b9e15f8c2e31f8"
+    sha256 sonoma:        "b48c4066eef4c604caf32da79a9c4f2e92fb50aab483a17adb6180f8a050b860"
+    sha256 arm64_linux:   "8bd546d39cee024ff23644152d5bed12200d92a289ddf123e4731901293734fa"
+    sha256 x86_64_linux:  "831cec3202e72a4c5c09055d18066d93de1ca954bae902bfda833ffc86c5d87b"
   end
 
   depends_on "cmake" => :build
@@ -49,7 +48,10 @@ class Manticoresearch < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "expat"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Workaround for Boost 1.89.0 until fixed upstream.
   # Issue ref: https://github.com/manticoresoftware/manticoresearch/issues/3673

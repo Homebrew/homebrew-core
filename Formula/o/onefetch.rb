@@ -1,20 +1,18 @@
 class Onefetch < Formula
   desc "Command-line Git information tool"
   homepage "https://onefetch.dev/"
-  url "https://github.com/o2sh/onefetch/archive/refs/tags/2.26.1.tar.gz"
-  sha256 "ff43255d7c138c448cfdd1abacb01c6abe0c3e3886024e98ff077b28d4dc0ddc"
+  url "https://github.com/o2sh/onefetch/archive/refs/tags/2.27.1.tar.gz"
+  sha256 "3a6f82d3da4da62b2e5406bbe307b0afc73cd8fcc4855534886d80ea0121cc03"
   license "MIT"
   head "https://github.com/o2sh/onefetch.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6482c4a3bd1c2bf1202e23e62b055cb9b3266d5031a7a67931a1e8b3a6235eb7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "042ce885bb36b8792cf2abc76f8e29e0a6015b7643792431abb58210d1da9eba"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "baeff95826c174e63cb9cc28c9209db27b32c89c821935be44b08ed7eac561d0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2fdbba646b655d06432d22b2fc52ad427e62fb5a7f160cc901f50fc39678919d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ef1575b493a1fefa0a1b46c99362a6404c5821cc51772a8f0ce7e2c02f27b2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "788376164e7dbab1edf623e7793e1c71aa662d6251e4489a630803ba3bb78813"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c7174811d0436635d569643460e7889adcb850d081bab4ee6aa0797352a5feb3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9dd2f247d1ff848588741a9c42da623f6420f105268eac01d8bd02b60d83f8c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a894a3270ecc1cf41395ffd576dc96c1f49c6b9f66f8105281204b9d9128a2e0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0d1b3c6d8e0dc7afc0e8fdf6df66ceba1267c4edf8e20bc1ace82def27e9d544"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fc8085b10b26c6ebd78a94d5847b9acc95f5286afce0d64c2fd091a119d14cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d0a81bed500193cd8580c3acbc28826352f9613735efa5c4f53bc5c2ba8d18d"
   end
 
   # `cmake` is used to build `zlib`.

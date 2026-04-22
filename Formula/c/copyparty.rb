@@ -3,22 +3,26 @@ class Copyparty < Formula
 
   desc "Portable file server"
   homepage "https://github.com/9001/copyparty"
-  url "https://files.pythonhosted.org/packages/83/b9/15b2c3f9ab5d0843d9ad3bd827ce389eaa272a2fd8c095e46f1ed96abaf2/copyparty-1.20.6.tar.gz"
-  sha256 "1fc00d302505f56df2568193b8e224778eacfddfc70ffaa276c3be1a642df98e"
+  url "https://files.pythonhosted.org/packages/8d/8c/15e6df5f3bbfc329c698d15b891750c55e356c7438d399f47e69218abc9e/copyparty-1.20.13.tar.gz"
+  sha256 "4481a1f4160d688d60c277eb8fe13607a2898af0cc8438e368f7f9d85eba70cc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "511a544d44af87ea9d4fcf3b58a7d245e80eb9ee99c134770a8a3c742164c261"
-    sha256 cellar: :any,                 arm64_sequoia: "ec2bce74c7bdd10d262fb2886ffa94195e0fc25ec0dd6b76d396bf1c2b402309"
-    sha256 cellar: :any,                 arm64_sonoma:  "bc6c22e26e08d2d6251d3edb94c63031854ac406360035c48be043626ed6ee1c"
-    sha256 cellar: :any,                 sonoma:        "de87bc17293154dbff3a0e2d03ffc822c98eb4f3c0bed3d65d048e8ee99197ad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7ea9568a1e0b6bc32450e6a8d2d9fa17950c91cb8ca9b18daa6137d3454b76a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f89b29aecd65a3e44df6ed1742f7afe7b91ea44e3dce37a97d8651ea7beff0de"
+    sha256 cellar: :any,                 arm64_tahoe:   "1453c5c11ae2eca31a28d711cdf58376a8e64c915ffa7692b94fce2e0dbaf5d6"
+    sha256 cellar: :any,                 arm64_sequoia: "9bada5dd0c7c3d2ec4266253ea5d79f1bd08d3715660e21ced0e7d376d62d610"
+    sha256 cellar: :any,                 arm64_sonoma:  "c1a3769b706e72466aea9371284f6521169368317ef1ee659876f6f531cc50d5"
+    sha256 cellar: :any,                 sonoma:        "4fb4bf7802f364d90e74f6d1722196775c7833509370e1a430af2d581bc74639"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7e540b4fb230d34812d3b89742aa62e224dc0093e0906f63602a5111fe43f260"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0af848219a0f58ced0960b59492f7d1b9555a0fe5b0481598602b3849272e019"
   end
 
+  # `pkgconf` and `rust` are for bcrypt
   depends_on "cmake" => :build
   depends_on "ninja" => :build
+  depends_on "pkgconf" => :build
+  depends_on "rust" => :build
   depends_on "cryptography" => :no_linkage
+  depends_on "libsodium"
   depends_on "pillow" => :no_linkage
   depends_on "python@3.14"
   depends_on "zeromq"
@@ -27,7 +31,9 @@ class Copyparty < Formula
     depends_on "gettext"
   end
 
-  pypi_packages package_name:     "copyparty[thumbnails,audiotags,ftpd,ftps,tftpd,pwhash,zeromq]",
+  # "all" intentionally excludes features that ffmpeg can provide:
+  # https://github.com/9001/copyparty/issues/398#issuecomment-3145365906
+  pypi_packages package_name:     "copyparty[all]",
                 exclude_packages: %w[cffi cryptography pillow pycparser]
 
   resource "argon2-cffi" do
@@ -40,6 +46,16 @@ class Copyparty < Formula
     sha256 "b957f3e6ea4d55d820e40ff76f450952807013d361a65d7f28acc0acbf29229d"
   end
 
+  resource "bcrypt" do
+    url "https://files.pythonhosted.org/packages/d4/36/3329e2518d70ad8e2e5817d5a4cac6bba05a47767ec416c7d020a965f408/bcrypt-5.0.0.tar.gz"
+    sha256 "f748f7c2d6fd375cc93d3fba7ef4a9e3a092421b8dbf34d8d4dc06be9492dfdd"
+  end
+
+  resource "invoke" do
+    url "https://files.pythonhosted.org/packages/de/bd/b461d3424a24c80490313fd77feeb666ca4f6a28c7e72713e3d9095719b4/invoke-2.2.1.tar.gz"
+    sha256 "515bf49b4a48932b79b024590348da22f39c4942dff991ad1fb8b8baea1be707"
+  end
+
   resource "jinja2" do
     url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
     sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
@@ -50,9 +66,9 @@ class Copyparty < Formula
     sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
-  resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/81/e6/64bc71b74eef4b68e61eb921dcf72dabd9e4ec4af1e11891bbd312ccbb77/mutagen-1.47.0.tar.gz"
-    sha256 "719fadef0a978c31b4cf3c956261b3c58b6948b32023078a2117b1de09f0fc99"
+  resource "paramiko" do
+    url "https://files.pythonhosted.org/packages/1f/e7/81fdcbc7f190cdb058cffc9431587eb289833bdd633e2002455ca9bb13d4/paramiko-4.0.0.tar.gz"
+    sha256 "6a25f07b380cc9c9a88d2b920ad37167ac4667f8d9886ccebd8f90f654b5d69f"
   end
 
   resource "partftpy" do
@@ -71,13 +87,18 @@ class Copyparty < Formula
   end
 
   resource "pyftpdlib" do
-    url "https://files.pythonhosted.org/packages/fc/67/3299ce20585601d21e05153eb9275cb799ae408fe15ab93e48e4582ea9fe/pyftpdlib-2.1.0.tar.gz"
-    sha256 "5e92e7ba37c3e458ec458e5c201e2deb992cb6011c963e6a8512a634d8d80116"
+    url "https://files.pythonhosted.org/packages/f9/42/8751c5f58ae59b09e070da4fa322ae9693a340d2cc456b5a380b2c1ee47a/pyftpdlib-2.2.0.tar.gz"
+    sha256 "4ba0642078792df63dd3b2e9c8f838f2a3ecf428c7518d5921c0530d53512acf"
+  end
+
+  resource "pynacl" do
+    url "https://files.pythonhosted.org/packages/d9/9a/4019b524b03a13438637b11538c82781a5eda427394380381af8f04f467a/pynacl-1.6.2.tar.gz"
+    sha256 "018494d6d696ae03c7e656e5e74cdfd8ea1326962cc401bcf018f1ed8436811c"
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/80/be/97b83a464498a79103036bc74d1038df4a7ef0e402cfaf4d5e113fb14759/pyopenssl-25.3.0.tar.gz"
-    sha256 "c981cb0a3fd84e8602d7afc209522773b94c1c2446a3c710a75b06fe1beae329"
+    url "https://files.pythonhosted.org/packages/8e/11/a62e1d33b373da2b2c2cd9eb508147871c80f12b1cacde3c5d314922afdd/pyopenssl-26.0.0.tar.gz"
+    sha256 "f293934e52936f2e3413b89c6ce36df66a0b34ae1ea3a053b8c5020ff2f513fc"
   end
 
   resource "pyzmq" do
@@ -101,19 +122,20 @@ class Copyparty < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/copyparty --version")
 
-    require "pty"
-
+    (testpath/"testfile").write "homebrew"
+    logfile = testpath/"log.txt"
     port = free_port
-    PTY.spawn(bin/"copyparty", "-q", "-p", port.to_s, "-lo", testpath/"log.txt") do |_r, w, pid|
-      sleep 3
-      w.close
+    pid = spawn(bin/"copyparty", "-q", "-p", port.to_s, "-lo", logfile)
+
+    begin
+      output = shell_output("curl --silent --retry 5 --retry-connrefused 'localhost:#{port}?ls=t'")
+      assert_match " 8  testfile", output
     ensure
       Process.kill "TERM", pid
       Process.wait pid
     end
 
-    assert_path_exists testpath/"log.txt"
-    output = File.read(testpath/"log.txt")
-    assert_match "listening @ [::]:#{port}", output
+    assert_path_exists logfile
+    assert_match "listening @ [::]:#{port}", logfile.read
   end
 end

@@ -4,6 +4,8 @@ class Boost < Formula
   url "https://github.com/boostorg/boost/releases/download/boost-1.90.0/boost-1.90.0-b2-nodocs.tar.xz"
   sha256 "9e6bee9ab529fb2b0733049692d57d10a72202af085e553539a05b4204211a6f"
   license "BSL-1.0"
+  revision 1
+  compatibility_version 1
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
@@ -15,12 +17,12 @@ class Boost < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "495170d683a37749c1d436ee63ee5790a11a8f85695997dada79eb7bfc5c3341"
-    sha256                               arm64_sequoia: "5ea7814760c6eb4bc62db04685931f17f974fc2a82dc385ff75706860cbbf313"
-    sha256                               arm64_sonoma:  "3a3f2620213f97cccb650f05fa66b042c29621076d7b786d0a7136ca623d0b64"
-    sha256 cellar: :any,                 sonoma:        "c0a827c85fe689dc9db03b31b152ce78868928f020757ef7b0b85b3f81489d67"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d154efec46278e4d3dc8f3aa9aa73205f4b10f821725cc6217b525f104d0c4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1e65c2f173ce34d451025547d72db68956d69123c94b636c48901a36a83a0c6"
+    sha256                               arm64_tahoe:   "47ceccf6792941c223a6464f974b6ac56e1d3457e6d72e1f71b4fdb742cef1d0"
+    sha256                               arm64_sequoia: "48b32cf2c35011a4b7e9b6ac8a68247aebb872b39f4629dbfc3f343d9f6a2b2d"
+    sha256                               arm64_sonoma:  "900f3a5db294a038351027a97e5de0c72d3f3fb754b081294dbea4267b69963d"
+    sha256 cellar: :any,                 sonoma:        "29e1095cff0cab11964d27ad12ca18556ff9715f2c6b3216f0deb389ffdba653"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "533706af6bd0f1e62589e7421f190466451755f4e7bc91937661e3b2a13560c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "175119f6f95179930c676c24615133249fea40b9bd86e1f37340c1544c18f9bc"
   end
 
   depends_on "icu4c@78"
@@ -28,7 +30,10 @@ class Boost < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # Fix for `ncmpcpp`, pr ref: https://github.com/boostorg/range/pull/157
   patch :p3 do

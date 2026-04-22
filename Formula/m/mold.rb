@@ -1,8 +1,8 @@
 class Mold < Formula
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
-  url "https://github.com/rui314/mold/archive/refs/tags/v2.40.4.tar.gz"
-  sha256 "69414c702ec1084e1fa8ca16da24f167f549e5e11e9ecd5d70a8dcda6f08c249"
+  url "https://github.com/rui314/mold/archive/refs/tags/v2.41.0.tar.gz"
+  sha256 "0a61abac85d818437b425df856822e9d6e9982baeae5a93bcb02fe6c0060c61a"
   license "MIT"
   head "https://github.com/rui314/mold.git", branch: "main"
 
@@ -15,21 +15,18 @@ class Mold < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8b40b6a652877ed7299df4e1c32b201a515a4764c96689a4609c895185d2d71e"
-    sha256 cellar: :any,                 arm64_sequoia: "1ed3cd743c1033ecb3b070817e4e5ca54815d8d3c1bad920f3224aafa5267a41"
-    sha256 cellar: :any,                 arm64_sonoma:  "c0622583fa23153d640b8e720f5a4d14dd5e969be7d610626a0ad55460bfbdc7"
-    sha256 cellar: :any,                 arm64_ventura: "f4df41bb25c00b851e508249a377fdf394f441850c325fa67089b9e036af2b8f"
-    sha256 cellar: :any,                 sonoma:        "2a0189bf5a1b37efd61a2a2233e99d2e216ec83dc616d7811bd35ce84a09a400"
-    sha256 cellar: :any,                 ventura:       "96ad94c18f4f7eb591f9f560a40b8db685634b024190d255e5b91a41d61f7a4f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "03951e11bace13df037bc73fed74c04773da11c2ca74d3f3285a250f749c5ce4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a456faee04d75649d33d7cea036b12bab85d35fa1fc079e687c895d1945966d2"
+    sha256 cellar: :any,                 arm64_tahoe:   "35d236bd637fc1d244b9fc57d4813829dfa9013148d7fe0f42a829fcf0e99637"
+    sha256 cellar: :any,                 arm64_sequoia: "6b55e967cf616f017ed6b8a518783d65714f9b70a21b9289f2f49f2bc4e95876"
+    sha256 cellar: :any,                 arm64_sonoma:  "87addb4013852f6523584023085f3541402234ab13cb58c893edfbafbe93875b"
+    sha256 cellar: :any,                 sonoma:        "df2b0b7c591195a19e68244ddee0c6e0d50a51c5fc6ada23d06c51468b8e2531"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "23bce5ee171d327c402a9d42937ad6cc682e2bcee3ee658305b552a04d3ea1a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aeffa1693a6e26ffc350c89c46c7e19b60170f691293b35c362be433c0488373"
   end
 
   depends_on "cmake" => :build
   depends_on "blake3"
   depends_on "tbb"
   depends_on "zstd"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
@@ -37,6 +34,7 @@ class Mold < Formula
 
   on_linux do
     depends_on "mimalloc"
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do

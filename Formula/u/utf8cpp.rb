@@ -5,6 +5,7 @@ class Utf8cpp < Formula
   sha256 "397a9a2a6ed5238f854f490b0177b840abc6b62571ec3e07baa0bb94d3f14d5a"
   license "BSL-1.0"
   version_scheme 1
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "5e326ac5dcf874a01fe9feab70c26db351f7cf272b07c127f8af2aca5dd98e72"

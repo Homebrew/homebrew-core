@@ -2,6 +2,7 @@ class OpenalSoft < Formula
   desc "Implementation of the OpenAL 3D audio API"
   homepage "https://openal-soft.org/"
   license "LGPL-2.0-or-later"
+  compatibility_version 1
   head "https://github.com/kcat/openal-soft.git", branch: "master"
 
   stable do

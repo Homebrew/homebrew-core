@@ -10,6 +10,7 @@ class Fontconfig < Formula
     "MIT",                # src/fcfoundry.h
     :public_domain,       # src/fcmd5.h, src/ftglue.[ch]
   ]
+  compatibility_version 1
   head "https://gitlab.freedesktop.org/fontconfig/fontconfig.git", branch: "main"
 
   livecheck do

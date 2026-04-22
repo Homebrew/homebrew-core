@@ -2,8 +2,8 @@ class Flux < Formula
   desc "Lightweight scripting language for querying databases"
   homepage "https://www.influxdata.com/products/flux/"
   url "https://github.com/influxdata/flux.git",
-      tag:      "v0.199.0",
-      revision: "4d5be8002de15b192ec7781b3f3b0815235ec316"
+      tag:      "v0.200.0",
+      revision: "b03b6bce7c27b8accc0cd00b12e32439a8fe19c3"
   license "MIT"
   head "https://github.com/influxdata/flux.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Flux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "92439376ca69ff4f1cc6fbf9e2919df9922b9400808767cc5a4701e5a14f32d3"
-    sha256 cellar: :any,                 arm64_sequoia: "1c70e2977faecab1dbe544923c40a2f481379b5d30a81cabda8fbd1f99e92c78"
-    sha256 cellar: :any,                 arm64_sonoma:  "5be0260655c59d573c2ed3d7c902e37991626e64106c1634fb3cb35ebe7210e5"
-    sha256 cellar: :any,                 sonoma:        "25b8f043f3f68a1e15ee41a42c1ac267d760c183b1affc0c9b902383774dac6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9897e2edab7c9c303704b04de67807b82e062b7256d6d13249c1908ff07b6c86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19eca4bdb796d7924eefdebf3a06f60f10aa8a1e8a5e59a87794b5aaed239f6e"
+    sha256 cellar: :any,                 arm64_tahoe:   "ae45dfd6ac38b80d0a51f54238e8f30fd083c8788dbef6af6982581e25adf3ce"
+    sha256 cellar: :any,                 arm64_sequoia: "46437c7561cdcf643a25338ac1868336806a0a47b6660187609cb930e1ee2ac4"
+    sha256 cellar: :any,                 arm64_sonoma:  "f1e1c93f2ef4ec60b670eac5f059c7d5aaf634d16be1f5e71402c2a8d348d063"
+    sha256 cellar: :any,                 sonoma:        "52d9852ab4ceb510ab4b73d0cfbdf3989d8cc90a19ef1881abf7eb3da4984287"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea06fb7ce18ad159293ee47f766b863f67484380ef109de4fdadcc680891f114"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14c58ee6001c00ef501130b2ce2f65b61b96f93d62b143ae4f58de3485f88792"
   end
 
   depends_on "go" => :build

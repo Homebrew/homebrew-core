@@ -1,17 +1,18 @@
 class Blake3 < Formula
   desc "C implementation of the BLAKE3 cryptographic hash function"
   homepage "https://github.com/BLAKE3-team/BLAKE3"
-  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.8.3.tar.gz"
-  sha256 "5a11e3f834719b6c1cae7aced1e848a37013f6f10f97272e7849aa0da769f295"
+  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.8.4.tar.gz"
+  sha256 "b5ee5f5c5e025eb2733ae3af8d4c0e53bb66dff35095decfd377f1083e8ac9be"
   license any_of: ["CC0-1.0", "Apache-2.0"]
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d03ff32973f9c9bd2d13bf2e6f9f3dd8a202aeb15adece0f3c68aabb4fb192ac"
-    sha256 cellar: :any,                 arm64_sequoia: "e93d74df84bc4730e302bab4a5a2278ee63968850978355fcfeda870cc92a82a"
-    sha256 cellar: :any,                 arm64_sonoma:  "184c47e40d55751ceaa51d9e4d95db25b87a33f702a48f7079bf714ca2bdfc69"
-    sha256 cellar: :any,                 sonoma:        "3eb62e0891d816fa1fc1c499887a5af2faee41462a9e26986c7fb69933332531"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "31e0a06ff7300cfceeaaa677739bced2f2deb9ff860aaedfb14e0ca423288e50"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b93a8cb77d2f071fcf5d2dfea6b6191d291ebf38af76e5bc8c4eac4a8cf185e4"
+    sha256 cellar: :any,                 arm64_tahoe:   "e837d3aa36fb1e776dddc4aec4a0d74ae0dff19f58367a5d704db4953708c82c"
+    sha256 cellar: :any,                 arm64_sequoia: "06bea5c3e886103bc8dc8e8175c23f2e19266ef437bbde9ea561f96c2ae3f31b"
+    sha256 cellar: :any,                 arm64_sonoma:  "80cf11c7cb7e014b5506c3ca3b196d32ef65aa5b33a23818cc831baaebe59601"
+    sha256 cellar: :any,                 sonoma:        "a3a0bb10da7efcd93ff9a7c6fc48a6baa647bd187d353f235a22c63e88a55387"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "177bef680538a691f70199802fd6ce9f42541daaec879b7870eef0905ce883ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "873eca1bee8c7c5081b4e0dfb7d27e5fbd5922b8bd668bd3b3af43dc7ecec634"
   end
 
   depends_on "cmake" => :build

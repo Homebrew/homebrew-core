@@ -1,18 +1,18 @@
 class Nagios < Formula
   desc "Network monitoring and management system"
   homepage "https://www.nagios.org/"
-  url "https://github.com/NagiosEnterprises/nagioscore/releases/download/nagios-4.5.11/nagios-4.5.11.tar.gz"
-  sha256 "1bf85d6704a75e6b89a09844836f68b1cfc61ab1ef005574041e36e73fdb797a"
+  url "https://github.com/NagiosEnterprises/nagioscore/releases/download/nagios-4.5.12/nagios-4.5.12.tar.gz"
+  sha256 "9a9fd281ea6ab3d55611efda036ffb9fe76c98423083440900e28012248d5961"
   license "GPL-2.0-only"
   head "https://github.com/NagiosEnterprises/nagioscore.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "cf495efaf03c9bf44e11de31ff88efee563d783133903657be21a10cdd9a421d"
-    sha256 arm64_sequoia: "f4513efe57237dd6f4e62bbab3e1ee7cca5f2df6fb880a2e69638e3e84d0dcb3"
-    sha256 arm64_sonoma:  "0e2432c3152f6e8cfb5d8cbb50688280358e36cacf4d2264ab6017280c54ad84"
-    sha256 sonoma:        "e8eb8ff69b92c0bdb715caf103bde96054be45b270c90b1967d4f572dd871b49"
-    sha256 arm64_linux:   "b0e8d4749df2e3da474b03d2065526ef728871ec52532520c5d9976d5ec455b2"
-    sha256 x86_64_linux:  "38262137b8017e82bdc3f3c07a6edf0ee4e211233ffd4b0479809dc4c6c0e885"
+    sha256 arm64_tahoe:   "fd9b0465056e5aa9a2f5d27f6183d56899411c6b4c05266f633df22830cbc16e"
+    sha256 arm64_sequoia: "5b3cbec5507c3a164b615e839871fa67ecd617964aaad979b1ce4dfc60f8f728"
+    sha256 arm64_sonoma:  "e07a409b21a2a28beb5991075c90b90f4572d9c0c8a86936480b75d6bba146a7"
+    sha256 sonoma:        "d12a87c4482a47df4559d3a4315bbe38fb6c6cebac5e4d475b085448dcca80f1"
+    sha256 arm64_linux:   "95c81b3bc5f53b11bc87b85c60ef7a096f4595df6a893367047175df3e1ebb89"
+    sha256 x86_64_linux:  "cf7fce8e9eed42768e9e2157fb8ce7f06ddd0408836ba11f276646dfc6616222"
   end
 
   depends_on xcode: :build
@@ -24,12 +24,6 @@ class Nagios < Formula
 
   on_macos do
     depends_on "jpeg-turbo"
-  end
-
-  # Fix compilation error on in lib/runcmd.c; https://github.com/NagiosEnterprises/nagioscore/pull/1048
-  patch do
-    url "https://github.com/NagiosEnterprises/nagioscore/commit/874a7688fca646f14eef17abf744d8561c60c0c2.patch?full_index=1"
-    sha256 "c7d3a4a6d5f918a67a7b49f9cd30af45234510ad1697745313dbcfa4ff767ad0"
   end
 
   def nagios_sbin

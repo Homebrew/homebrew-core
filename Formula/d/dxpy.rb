@@ -3,17 +3,17 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/e0/b0/a24759b3b7c075a7f571693082e2964bd8dc62a67afe4c82bdc3ddd86b7a/dxpy-0.403.0.tar.gz"
-  sha256 "9d251c0d91fa7b5002bc8d1945fc7528de4d409b58ee719c52b37d1ed04e9311"
+  url "https://files.pythonhosted.org/packages/0f/c9/adbd07666a6ca61f88a33ce914a804f6fb80c082fb7b9c1e4ee8e880be29/dxpy-0.408.2.tar.gz"
+  sha256 "a7d7acef13596f63243a36243bc1d499b82d49e49a32795098b5018c545e47bb"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3360f4a04df4f3e62b9965a994daf9cb783a7a2845f86d5e72212fd1f85838a0"
-    sha256 cellar: :any,                 arm64_sequoia: "3ab5853b60058d6064387b4e471ec7aae540e7cb32808c59c63352ed451d28c1"
-    sha256 cellar: :any,                 arm64_sonoma:  "c645be06805c2449a34f994742fd5fec21aa8f03fa86bca859b7a880d4ac5efc"
-    sha256 cellar: :any,                 sonoma:        "85bc47a5fceefefd777b75bbd52c22cda50d1b858c3f651d96b310bf08b5a908"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfc6cae58b9a82f60af544cc9d2f093f37856ec246368ebff6dfc59bb500a9ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a19618e0efd10d71274a920c80a19053cc8a9865acfecb4111beeb86ae8ff465"
+    sha256 cellar: :any,                 arm64_tahoe:   "f3a5e3cf7c20cdb0a38e80e637b20cc37205a5b4b9916bee92c06ff38a14d409"
+    sha256 cellar: :any,                 arm64_sequoia: "30331680e60744ca24e9323f8638ca8b34a0159c9773ebcc4a219c7ee5ffe069"
+    sha256 cellar: :any,                 arm64_sonoma:  "d871f90635fe7771f8962150b4e7b30af3fba10a87df39fcfd95aed51e3bac58"
+    sha256 cellar: :any,                 sonoma:        "e345a969e2acfb30f432d8824cff2a95b900d4ab2a45f19511a8bbe32aedf8ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0cc8ac24ca77841503eb265adb92cdebf7a2c053f51ea15698ad4586acb7d66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfc7cf9b4ac97b9ebd81cd7355eb044d03e7244b121e47171370ba60470d00e9"
   end
 
   depends_on "cmake" => :build # for awscrt
@@ -44,7 +44,9 @@ class Dxpy < Formula
     depends_on "s2n"
   end
 
-  pypi_packages exclude_packages: %w[cryptography certifi]
+  conflicts_with "deno", because: "both install `dx` binaries"
+
+  pypi_packages exclude_packages: %w[cryptography certifi websocket-client]
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/38/61/0b9ae6399dd4a58d8c1b1dc5a27d6f2808023d0b5dd3104bb99f45a33ff6/argcomplete-3.6.3.tar.gz"
@@ -52,8 +54,8 @@ class Dxpy < Formula
   end
 
   resource "awscrt" do
-    url "https://files.pythonhosted.org/packages/35/c9/8e397a679f43c53cb51b338bda2645e8a474c9a4dd5606d0ee365b7b5fbc/awscrt-0.31.1.tar.gz"
-    sha256 "abb64768d25bf563da8e2165d477a491cba18bc22c4ec8db7acbdae94e59ebc4"
+    url "https://files.pythonhosted.org/packages/4d/4d/c2aece4af7b5537c855548f53ee077d01216a1a4adbf0fd24f23dbac52bf/awscrt-0.32.0.tar.gz"
+    sha256 "92e749fce6c61da8db1af0baa6b7e96f7acf8a5574760b3d7880d190cedee8a0"
   end
 
   resource "crc32c" do
@@ -62,8 +64,8 @@ class Dxpy < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/73/cb/09e5184fb5fc0358d110fc3ca7f6b1d033800734d34cac10f4136cfac10e/psutil-7.2.1.tar.gz"
-    sha256 "f7583aec590485b43ca601dd9cea0dcd65bd7bb21d30ef4ddbf4ea6b5ed1bdd3"
+    url "https://files.pythonhosted.org/packages/aa/c6/d1ddf4abb55e93cebc4f2ed8b5d6dbad109ecb8d63748dd2b20ab5e57ebe/psutil-7.2.2.tar.gz"
+    sha256 "0746f5f8d406af344fd547f1c8daa5f5c33dbc293bb8d6a16d80b4bb88f59372"
   end
 
   resource "python-dateutil" do
@@ -77,13 +79,18 @@ class Dxpy < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
+    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
   end
 
+  # Issue ref: https://github.com/dnanexus/dx-toolkit/pull/1530
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/20/07/2a94288afc0f6c9434d6709c5320ee21eaedb2f463ede25ed9cf6feff330/websocket-client-1.7.0.tar.gz"
-    sha256 "10e511ea3a8c744631d3bd77e61eb17ed09304c413ad42cf6ddfa4c7787e8fe6"
+    url "https://files.pythonhosted.org/packages/2c/41/aa4bf9664e4cda14c3b39865b12251e8e7d239f4cd0e3cc1b6c2ccde25c1/websocket_client-1.9.0.tar.gz"
+    sha256 "9e813624b6eb619999a97dc7958469217c3176312b3a16a4bd1bc7e08a46ec98"
+
+    livecheck do
+      skip "Skip until new release with v1.9.0+"
+    end
   end
 
   def install

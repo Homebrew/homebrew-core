@@ -1,10 +1,10 @@
 class JpegXl < Formula
   desc "New file format for still image compression"
   homepage "https://jpeg.org/jpegxl/index.html"
-  url "https://github.com/libjxl/libjxl/archive/refs/tags/v0.11.1.tar.gz"
-  sha256 "1492dfef8dd6c3036446ac3b340005d92ab92f7d48ee3271b5dac1d36945d3d9"
+  url "https://github.com/libjxl/libjxl/archive/refs/tags/v0.11.2.tar.gz"
+  sha256 "ab38928f7f6248e2a98cc184956021acb927b16a0dee71b4d260dc040a4320ea"
   license "BSD-3-Clause"
-  revision 3
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -12,14 +12,12 @@ class JpegXl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f2c0ca06fd06dc92da7e195f0aaa729f4571ea2a9af3f2d60e51da78139888aa"
-    sha256 cellar: :any,                 arm64_sequoia: "73de0c3b5ca045185ff1dd02c030060c19be06679b3f5be7c1863ddcf82461df"
-    sha256 cellar: :any,                 arm64_sonoma:  "da29a81d0b58caeed58e8988e7a90ec57e40760b2e26767e0dc5e0755ee4f97d"
-    sha256 cellar: :any,                 arm64_ventura: "565bc7b3c96e8f5e39f4cb0fa197071448eb57ead24ee953455d425b0996345f"
-    sha256 cellar: :any,                 sonoma:        "1aeb4fc9fb480313485f8681f532fe2c511de1deab15383c57b28769a32148f6"
-    sha256 cellar: :any,                 ventura:       "6833f6747b3593cc25c952847208aad213f602dbe607812f83e8c555750cadc3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb085aec6b29e8cd401ba77b5ba655cbcd3041fce47ac51458717f3b1210abc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9c5316dbb34c75942763b74b129daf0a49661b0e3b0f1687fef9de566eb3c91"
+    sha256 cellar: :any,                 arm64_tahoe:   "964f9e0ed13c844e1fb2675008a6b0dfe247dce7765951052031c67f6ffd39de"
+    sha256 cellar: :any,                 arm64_sequoia: "2236d40860aec925d6147e5b4f1a962d3a4d664e77aa7eb34773fe4fca70917f"
+    sha256 cellar: :any,                 arm64_sonoma:  "3c55d4e64f4287188f3289178528f67573d2df7b12f6f78732cb35df13c09bc2"
+    sha256 cellar: :any,                 sonoma:        "8e44a6091c85772b58897b35ff3a3ab2f4b0441c53f5b0051baa5a45dca058be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d92c9a8b9c80a3c3d9a0ecf042510f867913df111846cfff843f77ee6719cb2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "529152dc60c01bd380e99aa66798857db83932ddb45cfd908447ec1e7fe8d1fb"
   end
 
   depends_on "asciidoc" => :build
@@ -45,7 +43,13 @@ class JpegXl < Formula
   # https://github.com/libjxl/libjxl/tree/v#{version}/third_party
   resource "sjpeg" do
     url "https://github.com/webmproject/sjpeg/archive/94e0df6d0f8b44228de5be0ff35efb9f946a13c9.tar.gz"
+    version "94e0df6d0f8b44228de5be0ff35efb9f946a13c9"
     sha256 "ac94917fe745a674eabf1e044f23ec55cd5a548c9869c06ec4b19da14ee0227d"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/libjxl/libjxl/refs/tags/v#{LATEST_VERSION}/deps.sh"
+      regex(/THIRD_PARTY_SJPEG="(\h+)"/i)
+    end
   end
 
   def install

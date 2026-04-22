@@ -11,14 +11,13 @@ class Silk < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f5c12c20f91441e12dd6eb5acbb82bfebe2fb02a7b55439b46771671b12b679e"
-    sha256 arm64_sequoia: "f80f816542d3df0d4c3b0e878eec959bcc568b40c4252e84bfde847046629ff2"
-    sha256 arm64_sonoma:  "6c0999ed8b38a973542d47d7481ae0007d3241e4ed8e219b58bb10c644428f96"
-    sha256 arm64_ventura: "be0e97681f03a557f16902466621eba29811467fb5e973d62a4ce5fdfcc2c4e9"
-    sha256 sonoma:        "0c7093ddc5b13575c291fbad36c456f99a838471e72042d8646c6ec5e00722b4"
-    sha256 ventura:       "877a85d27e621f0fa2c5065912321380699fe3d8b4c2a5f429f6d9f8bcf49239"
-    sha256 arm64_linux:   "451b975475964804e7ae109fb016c993dcf877443830424f4bc0b3dab0568ebb"
-    sha256 x86_64_linux:  "f60f3e2ff207a72229d680c49100a12047c4070c0e06d11dd60a60a3c3d86d20"
+    rebuild 1
+    sha256 arm64_tahoe:   "62c5e375b47fcb9a747c75df78726a7af448ed64351b7fe05a9366edf12a5417"
+    sha256 arm64_sequoia: "b8104aeb3b0fdc9c27b9fb77c2571db56ae8321e19809429ff63b72d65e06925"
+    sha256 arm64_sonoma:  "b4e5dccbdeb34cb2e583c3a725c62fdc0157524e9b2e5235628c13c08e6c1bda"
+    sha256 sonoma:        "08fea9effd361b4ccedb1326cfcaf89dbf0d749be5a7da9eb13c6f5c5ff7e635"
+    sha256 arm64_linux:   "79817e939510b3a190a5bbe060f485db4a8a3407ffe9c6dd697ad3810af601d3"
+    sha256 x86_64_linux:  "aa66713652c68c56a72f918a90839498f9f04a197fe8ad9384c207bb73552601"
   end
 
   depends_on "pkgconf" => :build
@@ -28,11 +27,14 @@ class Silk < Formula
   depends_on "yaf"
 
   uses_from_macos "libpcap"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
     depends_on "openssl@3"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

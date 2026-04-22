@@ -10,25 +10,19 @@ class Potrace < Formula
     regex(/href=.*?potrace[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "0a89d78a0b5fc305c6f8bf0067c3c87069b515578066c8ec151b42cf6828d392"
-    sha256 cellar: :any,                 arm64_sequoia:  "dec55e697af533180d68158fd557f596e65887a1e5043214dc0532464aa6ef27"
-    sha256 cellar: :any,                 arm64_sonoma:   "003f7041bd6b4ea6de5ac2c8fbe9e2537a6a6dbd169f0c872627c5e2daa00afa"
-    sha256 cellar: :any,                 arm64_ventura:  "a7201a2a7bc8af588056ef0319281dab31dd376af60a379430edc495eea29041"
-    sha256 cellar: :any,                 arm64_monterey: "cc774c2a6d82a036c9ccf80ed467aabbf39697e8a36ef210cb5b793fb4b6be05"
-    sha256 cellar: :any,                 arm64_big_sur:  "80d3d0256f9b7add7d3835f6c84f30afec6a4893f2fcd2aa44b07ebe95876c7f"
-    sha256 cellar: :any,                 sonoma:         "84bb1788a245f7bbd5c2bb8adb2f4693c5ff4ca7a97dda75235be2d5a590106c"
-    sha256 cellar: :any,                 ventura:        "a79629c4ae550b6894ce39a3afd6ed75063c885155bf44365feaa551c346e2ca"
-    sha256 cellar: :any,                 monterey:       "2e65796f5e50c82a6b11475034b04f6a0647f044c5c81a819bb6b3e8f0d5e6cc"
-    sha256 cellar: :any,                 big_sur:        "3b5294deed86179a4e496236fb882eb0b7ad3c020741e2a1398861b545062712"
-    sha256 cellar: :any,                 catalina:       "c3f357a8bd6460384400acd00dab0d8571ad0b1543a81e5b9d5ff49d1ece4fa1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "1226c34ff1e1baf0622e69e59d69bf515aa1d6a8a6381b7c82349c4d578447d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d47c98611b15465f29e55972018135927d42929e5901153ad99c6579de32863c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f60557ba39e1e0bb436b79900bec393061141e8e73aa8b20cec3f3b95db69166"
+    sha256 cellar: :any,                 arm64_sequoia: "c2ff921aca3ef95cfe62c72c080e78e5cf3628c13797391472aae7dd51e0d445"
+    sha256 cellar: :any,                 arm64_sonoma:  "a7ff4e43e5e8772b091688b83e6c8d859a78b1e491161e022f49f90fcee1af58"
+    sha256 cellar: :any,                 sonoma:        "d029f0be5c3488ee0505ab9007c421d7028da1cd92ef677c9526323594f9e7e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8fa204329840a3d30ac7b01a350675dfc3fb3d35b63e49fe4066c086d0aaf19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ae69c21ad7fef2bac8e10969569948da925bf7266e3939ed02349fd85ae7f42"
   end
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "head.pbm" do
     url "https://potrace.sourceforge.net/img/head.pbm"
@@ -36,10 +30,9 @@ class Potrace < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--with-libpotrace"
+    system "./configure", "--mandir=#{man}",
+                          "--with-libpotrace",
+                          *std_configure_args
     system "make", "install"
   end
 

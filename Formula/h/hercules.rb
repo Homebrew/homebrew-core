@@ -7,12 +7,13 @@ class Hercules < Formula
   head "https://github.com/SDL-Hercules-390/hyperion.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "501fd29e1b21f48b93838f3e63050829f5c05976dd25a5ede8ef9495a4fd7a35"
-    sha256 arm64_sequoia: "9be7692f938e9a54f509ae277db0504801f4e881979f2dff5ba1a77f0b397a9b"
-    sha256 arm64_sonoma:  "964f888366459493699661eaa85e2f15996801887cd0fdadef62b1db55c4687a"
-    sha256 sonoma:        "c900b53e6d225029fc0391424ac0cc54d3426c38b69bd38f773f3731b2c81f04"
-    sha256 arm64_linux:   "6556187776bdcaf42a61b6039ab89ed35d4565de2e2e9e46164b6aa95767b99b"
-    sha256 x86_64_linux:  "43e30392e41b40878e28ee3a9dfdabc946486189d201c2eee063164185166a2b"
+    rebuild 1
+    sha256 arm64_tahoe:   "c39ccead16433acc00edfe54721fc9354225596901556828b5771ba04dfb0826"
+    sha256 arm64_sequoia: "d6bf59da64af8e0c785e00a0dd9650079d6a947889a2a6ad11f0db47c095187e"
+    sha256 arm64_sonoma:  "2cb5be7faa77bc9a7f76f183af1c091fac9a34cb062dbf17a17295ecf9c3fd2a"
+    sha256 sonoma:        "50c7c08f9bb643baed46c414771177597cdb56bffccc4c1f9530a0f04bd17092"
+    sha256 arm64_linux:   "7a503644a4ecf23cbf89b23b5fdecd14bff658578b4c86c8dfa302e7752cccdc"
+    sha256 x86_64_linux:  "4d13a5a101f408a41ea50a649a38cf8bf768050dc563f6006a26e3fa971cd8ee"
   end
 
   depends_on "autoconf" => :build
@@ -21,7 +22,9 @@ class Hercules < Formula
   depends_on "gnu-sed" => :build
   depends_on "libtool" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "crypto" do
     url "https://github.com/SDL-Hercules-390/crypto/archive/a5096e5dd79f46b568806240c0824cd8cb2fcda2.tar.gz"

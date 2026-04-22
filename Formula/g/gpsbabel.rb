@@ -8,18 +8,19 @@ class Gpsbabel < Formula
   livecheck do
     url :stable
     regex(/^gpsbabel[._-]v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "55f4f88923d7cbb34b1c2223ebfa426677a1bdd85b6be4bf42b05fc687919396"
-    sha256 cellar: :any,                 arm64_sequoia: "66058dc38c5902bd1a59b7bdb11493579835ce31b6dc25aa44365577c399ec32"
-    sha256 cellar: :any,                 arm64_sonoma:  "72aa587f29e407f608aa159d6a9aee1e243e03f8b27617d431a4a8ae8a9128e1"
-    sha256 cellar: :any,                 sonoma:        "acb1258de4988f5b763c54576a278891c9e17b2a084d39b7cb4fa9b928d392c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a41e982d6c60f6e340f94958ca05d1a013e1de3a6a89d20de5da82296a79edc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b51c2fb69789bbf16c93d0afc525c153855b67365a8a2088a62c07b5ef8f467"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "f5a6e165e7d310ead14a3f4eba01ea1d7367fe5feb7e0736cdbe1291e25cf9f1"
+    sha256 cellar: :any,                 arm64_sequoia: "ee0edd5748373bc587c31d0d97064f2b23058e2c8cd2627ed49e5e14cbe0b23a"
+    sha256 cellar: :any,                 arm64_sonoma:  "224cc493bf2f416e2f4b9da7237ec75d53a2dbdcbdb031795982747070b60ab9"
+    sha256 cellar: :any,                 sonoma:        "5ccb88102bb1902e6ab6f9ff5cd275fc966be2f2b2082b0aa94ab83419f0ef9c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d9644f2f53d57333345dc3b75d93d05443072654d5600d92e87cc7732b3fd3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5008e8faffe2128519d5fdd5ebfc432f74f021a3b2937763b3a0b6cb54f68ff"
   end
 
   depends_on "cmake" => :build
@@ -30,7 +31,9 @@ class Gpsbabel < Formula
   depends_on "qtbase"
   depends_on "shapelib"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV.cxx11

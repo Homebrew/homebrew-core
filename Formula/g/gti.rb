@@ -6,8 +6,6 @@ class Gti < Formula
   license "MIT"
   head "https://github.com/rwos/gti.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "92eaaa595256c1a44b2c7b239d5569a9f023dfde904a9ba74ce9a0da44395a9f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3f8050edc162e75b939fece0bc60b6aecfca2c5e38e0259085731a8a69e6ac13"

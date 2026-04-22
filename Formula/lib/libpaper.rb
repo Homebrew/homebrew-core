@@ -4,6 +4,7 @@ class Libpaper < Formula
   url "https://github.com/rrthomas/libpaper/releases/download/v2.2.7/libpaper-2.2.7.tar.gz"
   sha256 "3925401edf1eda596277bc2485e050b704fd7f364f257c874b0c40ac5aa627c0"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   bottle do
     sha256               arm64_tahoe:   "9237f117ff7639ec37411bc1186b1c857d83460a4c4309ec4cbdce0286c829ff"

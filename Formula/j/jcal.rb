@@ -10,8 +10,6 @@ class Jcal < Formula
     regex(/href=.*?jcal[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "aba60dbce990bacb3f58d4a08e1a5251e74d2d3f57965eb206f2bc15a7bd2390"
     sha256 cellar: :any,                 arm64_sequoia:  "31377fb6a087e5e70e9ae8a1bc7ac390db8efa860f7a956a759b27e710fe21e2"

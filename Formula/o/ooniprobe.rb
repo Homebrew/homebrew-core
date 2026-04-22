@@ -1,8 +1,8 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.org/"
-  url "https://github.com/ooni/probe-cli/archive/refs/tags/v3.28.0.tar.gz"
-  sha256 "62d9b51d0a9798b4c1b15641ab31d661b687dedd959945272c9bf6b7112476ab"
+  url "https://github.com/ooni/probe-cli/archive/refs/tags/v3.29.0.tar.gz"
+  sha256 "5c5fd7aac8875f6e825b615d99b0890e6a9856b8647702318c32b1e43a6a1149"
   license "GPL-3.0-or-later"
   head "https://github.com/ooni/probe-cli.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Ooniprobe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b8930c4e63a084ed287411b3a93826983fa5be2548ee3ad4b94cae178e7988ac"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20bfa2594793942bc840c0a63bd2ced1b2bdc0df678bda149dd1a5fff22231a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae0ad499ac54e83a2198814bc42d79455905a525c372846db37c02769bc85eb9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f5b3ff799d514c9eb26eba7840c570041e125205cf93d5e9d7199c04aecc07e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "75405d487440a281a8e9bd17a42ca0f95f1100c3633b4187dd33187a95d5a676"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b310df82bff79b20ae770073631a5e5e3eec9ad97044bd1e42160a8e02c60cc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "132117e055ba6054b4a0791a5c59ca80b094bc0e68910111aa753ca31a2b1d95"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d35b9e61dfc02ba4173b1303f673db3acc23fb7872af94253c15d76568f0461"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a93e0aa92e8bf9a26cfb80ac141087c824665a5770d67b063893f07d831a6c3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb606d21d089fdda86cfc0e3eef4b5c671f1156a395b8c318c9998d1337585e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "81ad7442bbc972fe3c8a5c4be4c891f226089f6518a09eb6209a14fb6f53a5da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "414a8e8fa70fb813587b2464c8c7b4fafab381fbdce587fa4068cc33095519f5"
   end
 
   depends_on "go" => :build

@@ -16,10 +16,10 @@ tap_migrations.json               @Homebrew/lead-maintainers @MikeMcQuaid
 LICENSE.txt                       @Homebrew/lead-maintainers @MikeMcQuaid
 .github/workflows/                @Homebrew/core @MikeMcQuaid
 .github/workflows/triage.yml      @Homebrew/lead-maintainers
-Formula/f/ffmpeg.rb               @MikeMcQuaid
-Formula/f/ffmpeg-full.rb          @MikeMcQuaid
-Formula/i/imagemagick.rb          @MikeMcQuaid
-Formula/i/imagemagick-full.rb     @MikeMcQuaid
+Formula/f/ffmpeg.rb               @Homebrew/lead-maintainers @MikeMcQuaid
+Formula/f/ffmpeg-full.rb          @Homebrew/lead-maintainers @MikeMcQuaid
+Formula/i/imagemagick.rb          @Homebrew/lead-maintainers @MikeMcQuaid
+Formula/i/imagemagick-full.rb     @Homebrew/lead-maintainers @MikeMcQuaid
 
 audit_exceptions/linux_only_gcc_dependency_allowlist.json               @Homebrew/lead-maintainers
 audit_exceptions/permitted_formula_license_mismatches.json              @Homebrew/lead-maintainers @MikeMcQuaid

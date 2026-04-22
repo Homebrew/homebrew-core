@@ -1,8 +1,8 @@
 class Sdl3Image < Formula
   desc "Library for loading images as SDL surfaces and textures"
   homepage "https://github.com/libsdl-org/SDL_image"
-  url "https://github.com/libsdl-org/SDL_image/releases/download/release-3.4.0/SDL3_image-3.4.0.tar.gz"
-  sha256 "2ceb75eab4235c2c7e93dafc3ef3268ad368ca5de40892bf8cffdd510f29d9d8"
+  url "https://github.com/libsdl-org/SDL_image/releases/download/release-3.4.2/SDL3_image-3.4.2.tar.gz"
+  sha256 "82fdb88cf1a9cbdc1c77797aaa3292e6d22ce12586be718c8ea43530df1536b4"
   license "Zlib"
   head "https://github.com/libsdl-org/SDL_image.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Sdl3Image < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "747ea7edb3b3be0c4b68e2d7a5596ff506aecc5c747f23d707c8096bf76d1823"
-    sha256 cellar: :any,                 arm64_sequoia: "8fb4937c21da8ae59022692ecb8a98cb9ea78edcd07c24d58c9aefb479f4487c"
-    sha256 cellar: :any,                 arm64_sonoma:  "f0ca74255314552aeb66991fedd4653879e9a5c274a95e95ff3221865683df49"
-    sha256 cellar: :any,                 sonoma:        "ade19831bd658d85858ba693fa23863ed07d6a889a2cb7202610137671da8e2f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3a426057a80eed6a63bf4c1ade0126fd2c4cf5b3c40a50a89163fc14dd7aef80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20ea7ba27dcefae4c2f4d6d20e272faaa299d6c2407965d148d2ddc81c18277f"
+    sha256 cellar: :any,                 arm64_tahoe:   "b9883391401d35d5471b07e31623879871329e8c08e81bfbdd8869ffc008c75d"
+    sha256 cellar: :any,                 arm64_sequoia: "1f05cc7bb284351d96b63be2361d2aecdea095c99c321eda0d8efaa9249ea38b"
+    sha256 cellar: :any,                 arm64_sonoma:  "a4e25e07df701311160537997c234eb773d8077e8870bd3e8b6287a807848d0e"
+    sha256 cellar: :any,                 sonoma:        "0589ddd15e5c615aab40ac2001f25d4142777a2e20aba8a2970b4e21f3a06f02"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "08f158a53fa035fdc318f519739654b79668f3638754ee1b51501274579d2cd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e40ce6571044b5653f735f7c5615e2b8233b8499c9d7f7f09a884a1c136fff42"
   end
 
   depends_on "cmake" => :build

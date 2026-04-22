@@ -5,6 +5,7 @@ class Sfcgal < Formula
   sha256 "bb6bb77ddb58523d8c229764de23699f99c1a7011d873419afd2a67df85602a2"
   license "LGPL-2.0-or-later"
   revision 2
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "e9c0f30ae28d7d8ef18675126864cc80f7806ecf8fefa079f29e9215c2c319c4"

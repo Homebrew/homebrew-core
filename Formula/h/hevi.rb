@@ -16,7 +16,7 @@ class Hevi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "98a58cbce9389c32d13ddf68be6a62b89113000d5ae6f82711174b90cf63174e"
   end
 
-  depends_on "zig" => :build
+  depends_on "zig@0.15" => :build
 
   # Backport support for Zig 0.14
   patch do
@@ -49,10 +49,10 @@ class Hevi < Formula
 
     # Fix illegal instruction errors when using bottles on older CPUs.
     # https://github.com/Homebrew/homebrew-core/issues/92282
-    cpu = case Hardware.oldest_cpu
+    cpu = case ENV.effective_arch
     when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
     when :armv8 then "xgene1" # Closest to `-march=armv8-a`
-    else Hardware.oldest_cpu
+    else ENV.effective_arch
     end
 
     args = []

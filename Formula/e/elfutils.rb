@@ -1,9 +1,10 @@
 class Elfutils < Formula
   desc "Libraries and utilities for handling ELF objects"
   homepage "https://fedorahosted.org/elfutils/"
-  url "https://sourceware.org/elfutils/ftp/0.194/elfutils-0.194.tar.bz2"
-  sha256 "09e2ff033d39baa8b388a2d7fbc5390bfde99ae3b7c67c7daaf7433fbcf0f01e"
+  url "https://sourceware.org/elfutils/ftp/0.195/elfutils-0.195.tar.bz2"
+  sha256 "37629fdf7f1f3dc2818e138fca2b8094177d6c2d0f701d3bb650a561218dc026"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-only"]
+  compatibility_version 1
 
   livecheck do
     url "https://sourceware.org/elfutils/ftp/"
@@ -11,8 +12,8 @@ class Elfutils < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "394b00038ecf94f5c437c0ef1b19d6caa85ff75a3210d5871179e4105f05195d"
-    sha256 x86_64_linux: "09e305d7db3a75aa81ad2bf7b35485ab58ccaa64c7f02fb584764b28b8915089"
+    sha256 arm64_linux:  "463f09ff4d31b7cd73e99b42437071126849962fde8ab8b0c96a64105f7afa06"
+    sha256 x86_64_linux: "c465671b13a19bdf9eb686ed3f6a42fe4c404a05ae46b1be58db8da25166a5a8"
   end
 
   depends_on "m4" => :build
@@ -20,20 +21,21 @@ class Elfutils < Formula
   depends_on "bzip2"
   depends_on :linux
   depends_on "xz"
-  depends_on "zlib"
+  depends_on "zlib-ng-compat"
   depends_on "zstd"
 
   def install
-    system "./configure",
-           *std_configure_args,
-           "--disable-silent-rules",
-           "--disable-libdebuginfod",
-           "--disable-debuginfod",
-           "--program-prefix=elfutils-",
-           "--with-bzlib",
-           "--with-lzma",
-           "--with-zlib",
-           "--with-zstd"
+    args = %w[
+      --disable-silent-rules
+      --disable-libdebuginfod
+      --disable-debuginfod
+      --program-prefix=elfutils-
+      --with-bzlib
+      --with-lzma
+      --with-zlib
+      --with-zstd
+    ]
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

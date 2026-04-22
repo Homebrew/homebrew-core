@@ -10,8 +10,6 @@ class IpRelay < Formula
     regex(/href=.*?ip_relay[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "ea932a50ad3b1643e87dab5b41be2a75c2ac1f22392930e1cf3f05e85beef8ed"

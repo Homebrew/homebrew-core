@@ -5,22 +5,20 @@ class Hunspell < Formula
   sha256 "11ddfa39afe28c28539fe65fc4f1592d410c1e9b6dd7d8a91ca25d85e9ec65b8"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "d2821926f2ded88b146f72f281ad7144485140429a432a21bf187eb90558d57f"
-    sha256 cellar: :any,                 arm64_sequoia:  "98c354c4b2d30399b17d20622cddfbbbc27a2a33fbde6c53a9445375ab4d6c61"
-    sha256 cellar: :any,                 arm64_sonoma:   "7c5fef61ba38c643c6e29cdb3e835875011411edf1f421a7f0329e1723c6e397"
-    sha256 cellar: :any,                 arm64_ventura:  "97e8e1bbf7cbad6fa97efd96711e0ff25d46cd98bd19c75dab4d1160c00b591d"
-    sha256 cellar: :any,                 arm64_monterey: "0077d77fd9cc1a47eb3b0e78818c91735899879fab8373acbc41bccf74cbd2cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "1f0389abc127deb93d7230497181af1d2cbc18a354127b98f7aa1a7a47e56279"
-    sha256 cellar: :any,                 sonoma:         "824cc2f1c917cc1a43872bbf9b36fba99072458de10b41631097dcf62e0d82f2"
-    sha256 cellar: :any,                 ventura:        "c0770e77b09220da99d9dc5f169a5a815b08b77350a7396ef1017d131fc2a800"
-    sha256 cellar: :any,                 monterey:       "a4f7164470263a3d9b5511136680475f91c5f4498b6d58097f18a8ee496cc3da"
-    sha256 cellar: :any,                 big_sur:        "9d58f7687ab71647524ada2ab980193d7083357072b15510d756e6f90a769830"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "cfbe072b957d6e8dcc23af726175c10452cd2069e0ff9e0e54c3ce064fe626e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09ba93523c0b255617dd5c9771da092b73a9e9f40f0e7f5c727b7b181f6c8248"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d8f2e9708570919c8e043e60ec23e98072be9f23e47924077c233fc7ed389fa3"
+    sha256 cellar: :any,                 arm64_sequoia: "26f11affce6b4d0e653103c0b88f3ec6e16b357f2c171f0253c8553c62cbe255"
+    sha256 cellar: :any,                 arm64_sonoma:  "7e63672012544da3b91997e8cc9e23975fa126e4c938b5ec7966dd260771c84a"
+    sha256 cellar: :any,                 sonoma:        "fa7adc42070e6857705a43f4cf57b5999611c37de739b6706599d9da55bac05b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfa788550dae98243a9bb43ad1ae0e2cb5cd2d443bf02b01e0e4ac3412a8732c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42fdde6e88f4fec0bdf4c8fcb259bb2cff651aaeaca575faaa147d0f22a18239"
   end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gettext" => :build
+  depends_on "libtool" => :build
 
   depends_on "readline"
 
@@ -32,14 +30,29 @@ class Hunspell < Formula
 
   conflicts_with "freeling", because: "both install 'analyze' binary"
 
+  skip_clean "share/hunspell"
+
+  # Backport support for searching hunspell dictionaries in pkgshare
+  patch do
+    url "https://github.com/hunspell/hunspell/commit/874abbbe65e228df525023afe176b42df34a7a4f.patch?full_index=1"
+    sha256 "b1b59cc11e720a047302b72ce1870712f29ca22f3023726c576ffd6f713d2841"
+  end
+
   def install
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
+    # Regenerate configure to use patch
+    odie "Remove autoreconf and build dependencies!" if version > "1.7.2"
+    system "autoreconf", "--force", "--install", "--verbose"
+
+    system "./configure", "--disable-silent-rules",
                           "--with-ui",
-                          "--with-readline"
+                          "--with-readline",
+                          *std_configure_args
     system "make"
     system "make", "check"
     system "make", "install"
+
+    # Find dictionaries installed by other formulae
+    share.install_symlink HOMEBREW_PREFIX/"share/hunspell"
   end
 
   def caveats

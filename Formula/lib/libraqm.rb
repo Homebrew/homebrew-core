@@ -1,19 +1,18 @@
 class Libraqm < Formula
   desc "Library for complex text layout"
   homepage "https://github.com/HOST-Oman/libraqm"
-  url "https://github.com/HOST-Oman/libraqm/archive/refs/tags/v0.10.3.tar.gz"
-  sha256 "fe1fe28b32f97ef97b325ca5d2defb0704da1ef048372ec20e85e1f587e20965"
+  url "https://github.com/HOST-Oman/libraqm/archive/refs/tags/v0.10.5.tar.gz"
+  sha256 "7f3dd21b4b3bd28a36f2c911d31d91a9d69341697713923ef1aac65d56ebcafd"
   license "MIT"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "8b4e6daa401ad46e0f19d5872ad6d352a111cca2e5b9c8934dae408732e0e3d3"
-    sha256 cellar: :any, arm64_sequoia: "d48b90b620edcc740cc7bc4e376aebe72185801e12a23163c9c0cc16cab52b2a"
-    sha256 cellar: :any, arm64_sonoma:  "32a7ca5337c00b6548d3ae5fe739c42322b70484ef946069d980aad9972180a3"
-    sha256 cellar: :any, arm64_ventura: "6d8ea3c293a66a5033b2987d893c846aee131e7dae8c84a946b6d45e13f2367c"
-    sha256 cellar: :any, sonoma:        "87951b1179b73a36a04ddef262ff7430ecb5375822b301d85e115f2dd7497a72"
-    sha256 cellar: :any, ventura:       "383bff2859b129387ca4c9070b9416198648e45f62612220303cdb2ac8fba572"
-    sha256               arm64_linux:   "5bccc8b128378b32f5997841801029716a7a992084eba6ff6c338d2b6e81c681"
-    sha256               x86_64_linux:  "07499ccd1d6adce0995710a701155641ed5aec19e0ba7c006bf70568fa4f7883"
+    sha256 cellar: :any, arm64_tahoe:   "2b1117c8508549d57157890bf3acfacbc2d45de6197d188bf83474f30fd0f572"
+    sha256 cellar: :any, arm64_sequoia: "4259ac8ccfb1e30bf67bac2188e12479af6e884a863d33b4c631edb42fa58aa0"
+    sha256 cellar: :any, arm64_sonoma:  "0450f2947a22391458c06eb305ba09679689ad83642f0e9de65dfd99a7d2e414"
+    sha256 cellar: :any, sonoma:        "f2a956bafe35455da4e6fa01f5ca1f65f32357935c731e5ac46ab4b7ff728290"
+    sha256               arm64_linux:   "05ca1326319450ae29ab912a8bb707eb68361212a9f990ed74216007caef6a6c"
+    sha256               x86_64_linux:  "bf1b6e9c25a735b6524a1b54fe5d7ae39c49c28867c774a2ea83d887e51bee3a"
   end
 
   depends_on "meson" => :build

@@ -7,19 +7,20 @@ class Lstr < Formula
   head "https://github.com/bgreenwell/lstr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f7c699e99285692954f204125203db1ce1a7cc27ce44c55208350acc68e33599"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "79d30cf2306caa9b4273aca9c291be8f69fed25406b34b8a6bb48939d285db51"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f14c9dd2c7c9ef328fac5e7646577d90e6da075e98cb1ff8937ac13793e2836"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "708b6ccf89c96dcd8b10d8d8f2f2ae578766bd517a57371df64485e21411bcb4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fe3a12769fa0386262c7b216cfe035271d40d0483925ecb73f627416b90dfc75"
-    sha256 cellar: :any_skip_relocation, ventura:       "6b7a5f8ab810e3697d9a3cbaf5bc68ccc3ace4c1c089810ec1dc6d0761d6c26d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "201f62fce40df3217ae185a6c330cd3e736d94c91e78e7a1d3f53de2c34a50b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38a3acf97aa159c764fd9bf1e80eaeb59d5f3333b4931ee27a7668cced6360aa"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a145541e3eb562c02740fd457f3cd5a603b77718ffd570571ff2ea5fbb047e4a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96fdc1f49bacf56b1caef9a24869aa968240b58f1ee3c67101d77de66987e55c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c459cdc51f312f8dc5848af81d469484b43d7f9eb9501836f0ea3723c03f400"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fa3ae1d10d7ca531c029c10588c96e8cd0a02d308cd0b3c77112f45843481397"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60eff494111d095ffee7343cba34dfb34a26e6aac7bb3fa7bf1108d2b4b0cd13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02ce861934304a640142f38b36bc5c1e523f4235766579e6cbac10bc17793b55"
   end
 
   depends_on "rust" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

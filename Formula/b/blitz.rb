@@ -6,8 +6,6 @@ class Blitz < Formula
   license "Artistic-2.0"
   head "https://github.com/blitzpp/blitz.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "0980f40ce384ebf7abbb720f1761764fbfd3118085b50ecefe1fcdc740418f88"
     sha256 cellar: :any,                 arm64_sequoia:  "f5c76acfde9f6b4ff49baaaddad03106654788518afcebd6e15b1511c965fe92"

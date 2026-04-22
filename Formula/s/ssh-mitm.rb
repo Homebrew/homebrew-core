@@ -6,19 +6,21 @@ class SshMitm < Formula
   url "https://files.pythonhosted.org/packages/f0/4e/c804d08c336bcff29fd665fdc3ff9d3698d529b1d75462b89bc53527862a/ssh_mitm-5.0.1.tar.gz"
   sha256 "221dafeed602c4cca7a3c7fb2eee55eb9725ea11d19a75fd13c9bc3a1cf274ed"
   license "GPL-3.0-only"
-  revision 2
+  revision 4
   head "https://github.com/ssh-mitm/ssh-mitm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9aacf02b8edaac0d51db1761c733149853ab1767a92444bfd9ca0ef1fcda32b7"
-    sha256 cellar: :any,                 arm64_sequoia: "fb2a77d504d881511a270440f0491152fcb6cdb6f7d7b267d30d397db3d548ee"
-    sha256 cellar: :any,                 arm64_sonoma:  "9ff87606e5c61c27a5f67767c6d055f4bff18e215e7e190c4f62cb56d161e0db"
-    sha256 cellar: :any,                 sonoma:        "51bad8720276750080843a272e394aca10bae95411b7bb601b04abec2a8d65b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8553cf164c140040c777c54d9473200d9685c6589df7f676ca3e1ce5c2e6ba2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c788d3f37a0a03db875b307a9805b384d92efda60a2629769fcd80486f0ec4dd"
+    sha256 cellar: :any,                 arm64_tahoe:   "9c47168626264fd7dd4e2a8e8be9f508903b9f11e1d58dd22a17ff5c3d154e47"
+    sha256 cellar: :any,                 arm64_sequoia: "d8e828e68b2567ab0262ba97441d3d7aa1c8a68d02c3d74a038279f0b90ce4f0"
+    sha256 cellar: :any,                 arm64_sonoma:  "0e2229eb743ddeb1c860f86a556c67a2b4c6f8bdcd553c359187fd726fcaa814"
+    sha256 cellar: :any,                 sonoma:        "1eb64b823f927f57e6fd1451f5fa47b54a90bd1763e27febe8e756944c2b1742"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04cf23960d1f2c03bc8974c1a861777bf6755056389ffef98f1f8832f39dab0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62568cc83db749cddd48ecb685595c087b73c18cca87e864507654ca2d18252d"
   end
 
-  depends_on "rust" => :build # for bcrypt
+  # `pkgconf` and `rust` are for bcrypt
+  depends_on "pkgconf" => :build
+  depends_on "rust" => :build
   depends_on "cryptography" => :no_linkage
   depends_on "libsodium" # for pynacl
   depends_on "libyaml"
@@ -42,13 +44,13 @@ class SshMitm < Formula
   end
 
   resource "colored" do
-    url "https://files.pythonhosted.org/packages/4a/32/b772def12071faf780dd14e8a95ec8eba4bf5934f302de3a3780b919859a/colored-2.3.1.tar.gz"
-    sha256 "fe6e888e12dc16643daa0b108f785df6d0b48420084b5d0a567de27bb09a14d8"
+    url "https://files.pythonhosted.org/packages/7a/b6/c07f766b24cc3c92e3e24339ccacbc949d004f0fde759cdf24727c5c02bd/colored-2.3.2.tar.gz"
+    sha256 "d6b7f0737a732c54c92b271f2932c91e386238c8b6ded49d4180eed44eb50684"
   end
 
   resource "ecdsa" do
-    url "https://files.pythonhosted.org/packages/c0/1f/924e3caae75f471eae4b26bd13b698f6af2c44279f67af317439c2f4c46a/ecdsa-0.19.1.tar.gz"
-    sha256 "478cba7b62555866fcb3bb3fe985e06decbdb68ef55713c4e5ab98c57d508e61"
+    url "https://files.pythonhosted.org/packages/25/ca/8de7744cb3bc966c85430ca2d0fcaeea872507c6a4cf6e007f7fe269ed9d/ecdsa-0.19.2.tar.gz"
+    sha256 "62635b0ac1ca2e027f82122b5b81cb706edc38cd91c63dda28e4f3455a2bf930"
   end
 
   resource "markdown-it-py" do
@@ -62,8 +64,8 @@ class SshMitm < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
   resource "paramiko" do
@@ -72,8 +74,8 @@ class SshMitm < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "pynacl" do
@@ -82,13 +84,13 @@ class SshMitm < Formula
   end
 
   resource "python-json-logger" do
-    url "https://files.pythonhosted.org/packages/29/bf/eca6a3d43db1dae7070f70e160ab20b807627ba953663ba07928cdd3dc58/python_json_logger-4.0.0.tar.gz"
-    sha256 "f58e68eb46e1faed27e0f574a55a0455eecd7b8a5b88b85a784519ba3cff047f"
+    url "https://files.pythonhosted.org/packages/f7/ff/3cc9165fd44106973cd7ac9facb674a65ed853494592541d339bdc9a30eb/python_json_logger-4.1.0.tar.gz"
+    sha256 "b396b9e3ed782b09ff9d6e4f1683d46c83ad0d35d2e407c09a9ebbf038f88195"
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f8/bf/abbd3cdfb8fbc7fb3d4d38d320f2441b1e7cbe29be4f23797b4a2b5d8aac/pytz-2025.2.tar.gz"
-    sha256 "360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3"
+    url "https://files.pythonhosted.org/packages/56/db/b8721d71d945e6a8ac63c0fc900b2067181dbb50805958d4d4661cf7d277/pytz-2026.1.post1.tar.gz"
+    sha256 "3378dde6a0c3d26719182142c56e60c7f9af7e968076f31aae569d72a0358ee1"
   end
 
   resource "pyyaml" do
@@ -97,8 +99,8 @@ class SshMitm < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "six" do
@@ -112,8 +114,8 @@ class SshMitm < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/49/2a/6de8a50cb435b7f42c46126cf1a54b2aab81784e74c8595c8e025e8f36d3/wrapt-2.0.1.tar.gz"
-    sha256 "9c9c635e78497cacb81e84f8b11b23e0aacac7a136e73b8e5b2109a1d9fc468f"
+    url "https://files.pythonhosted.org/packages/2e/64/925f213fdcbb9baeb1530449ac71a4d57fc361c053d06bf78d0c5c7cd80c/wrapt-2.1.2.tar.gz"
+    sha256 "3996a67eecc2c68fd47b4e3c564405a5777367adfd9b8abb58387b63ee83b21e"
   end
 
   def install

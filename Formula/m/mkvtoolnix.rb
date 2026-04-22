@@ -1,10 +1,11 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-97.0.tar.xz"
-  mirror "https://fossies.org/linux/misc/mkvtoolnix-97.0.tar.xz"
-  sha256 "5d43bf66e011ff5af09516a2dba2fb717b1631791a3a7498fcf74849a86929d3"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-98.0.tar.xz"
+  mirror "https://fossies.org/linux/misc/mkvtoolnix-98.0.tar.xz"
+  sha256 "1600f4a768ede6356e70785393f02f34dd54fbb5f661ffe6e7e8bc0f40229b79"
   license "GPL-2.0-or-later"
+  compatibility_version 1
 
   livecheck do
     url "https://mkvtoolnix.download/sources/"
@@ -12,12 +13,12 @@ class Mkvtoolnix < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "e453841cd51b3cddf8a548f5fba0b4fd4c0f6833b0173b0e6171572a3ef8c502"
-    sha256 cellar: :any, arm64_sequoia: "743a06fea2874eef6c51eaeb03c9253e669e3565af52e695439a20b411a861f8"
-    sha256 cellar: :any, arm64_sonoma:  "3b97f5cbea5e445b61880d0eebd5b7949c8d52c7d98958c9d989b35eba2dacc4"
-    sha256 cellar: :any, sonoma:        "bb1e89c8b2cd654b62676c2049238fb2f2e0d0249ecaa5568e1a75462d48aa1d"
-    sha256               arm64_linux:   "5a6a57905e880e317182176d731dcef803314e88992225ececd7025b11fab8f0"
-    sha256               x86_64_linux:  "e415dc4e60a4c40bd85914743d281420c44c557942bcea5cc9a531ea9d629de4"
+    sha256 cellar: :any, arm64_tahoe:   "3a38a050337dc7faa76830aeff9d5964061891af134b1d9249553ec40d010842"
+    sha256 cellar: :any, arm64_sequoia: "8e0fc353f395d122454d523b78c22464dc519aa9af689aaa3b67901f3f94fa3f"
+    sha256 cellar: :any, arm64_sonoma:  "63b03a7709422bbbad026fbbe259b1cd2fd6ace8114254563d807c70ed0044ea"
+    sha256 cellar: :any, sonoma:        "a5cda12c9468959d6d750d1ed519802665a543889d137fa00279ea866804d260"
+    sha256               arm64_linux:   "a0f5717dd023017fb4f3f6cfe3f18b93cc3634ec577c946f85888f189188c13c"
+    sha256               x86_64_linux:  "cc4415d56004b7cce11db02244b1ee926041e56d6c9c6f0527f19578d036d8e1"
   end
 
   head do
@@ -45,10 +46,13 @@ class Mkvtoolnix < Formula
 
   uses_from_macos "libxslt" => :build
   uses_from_macos "ruby" => :build
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with cask: "mkvtoolnix-app"

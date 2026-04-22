@@ -8,10 +8,10 @@ class Wal2json < Formula
   livecheck do
     url :stable
     regex(/(?:wal2json[._-])?v?(\d+(?:[._]\d+)+)/i)
-    strategy :github_latest
+    strategy :github_latest do |json, regex|
+      json["tag_name"]&.scan(regex)&.map { |match| match[0].tr("_", ".") }
+    end
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 2

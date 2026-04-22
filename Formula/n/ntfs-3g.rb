@@ -1,8 +1,8 @@
 class Ntfs3g < Formula
   desc "Read-write NTFS driver for FUSE"
   homepage "https://www.tuxera.com/community/open-source-ntfs-3g/"
-  url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2022.10.3.tgz"
-  sha256 "f20e36ee68074b845e3629e6bced4706ad053804cbaf062fbae60738f854170c"
+  url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2026.2.25.tgz"
+  sha256 "7754f3b32e8baf9c472459b4e9c981e3ae0f5039107cdd8d8201aed0a949008a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
   # GitHub release descriptions contain a link to the `stable` tarball.
@@ -11,12 +11,9 @@ class Ntfs3g < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "13c0f887f2cef53978d28dfcb8c1a3f69f8c70407bf2267ad6033eef0b5cfc2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3fe3041e69391706e917d335a8d6bebd1dd502126e5d19e4b0fabded9a3e40f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "643403c977e03a706ed801af78100dcfb20c17d05bdcef97547919610a4f5fce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "da5a885ce0f084bf17f9ee5247babadd7f5330d66c6826721096c9afabc7a3f5"
   end
 
   head do

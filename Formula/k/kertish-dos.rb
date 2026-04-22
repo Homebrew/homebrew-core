@@ -7,8 +7,6 @@ class KertishDos < Formula
   license "GPL-3.0-only"
   head "https://github.com/freakmaxi/kertish-dos.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bce3b8645b27f84f8c8452740dfd4494c747fbee848d8d667148fd1e0cc19db8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b3abc8c569185063a1ba3d2e6d634c446cad8ee07d4ae36c31221aa875dd6bd"

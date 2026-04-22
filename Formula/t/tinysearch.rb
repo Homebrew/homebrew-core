@@ -23,7 +23,7 @@ class Tinysearch < Formula
   depends_on "wasm-pack"
 
   def install
-    system "cargo", "install", "--features", "bin", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "bin")
     pkgshare.install "fixtures"
   end
 

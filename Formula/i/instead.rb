@@ -6,16 +6,13 @@ class Instead < Formula
   license "MIT"
 
   bottle do
-    sha256 arm64_tahoe:    "53f279e0d364f5217e47b9da552243cf46ab2d21e9ec606d180b69e9b82ff7b3"
-    sha256 arm64_sequoia:  "b27debf30bd17c51b94f24b9aed4d2a5be840d0af7a177bf32b6ad9e65221f6c"
-    sha256 arm64_sonoma:   "1387c5811cd5a12673f7c9ad9e0e53f1805cd4510112b4a348912d711f07d745"
-    sha256 arm64_ventura:  "a787fd3c5152c2c083ac5a5ecf474649d6e84ed5b49f8b4ea02681161ad57676"
-    sha256 arm64_monterey: "66f51dc5e4e785ea0c15e11a7ff63a0bd42bd9fbde2113cb8eb31100147b86e9"
-    sha256 sonoma:         "b923b24f39f86b55e4ea5e85570c83927dbc0fa96fa0edab5a2fcf0ca77c3c9a"
-    sha256 ventura:        "33d4f677954750c9bb4f4bf48cd36720bc80ae91e9a1be16c766cc1d9629f3b6"
-    sha256 monterey:       "b3bd5654c3d4e24858569437b6aad9dea3c568bf014abb94202e2f4e73f0d9dd"
-    sha256 arm64_linux:    "88fcd069cad40be6a02b4b34c859f9132bc5961fcbf22e522aeac5017b412cf6"
-    sha256 x86_64_linux:   "06bea67b1d7d82de33cf429134b9f001bfd1a788ad10bbf61d666f10a1a18e1f"
+    rebuild 1
+    sha256 arm64_tahoe:   "c2466f19712599960fdf617de00a5c87e31419ce1ab9e83a28fc67ea433a0956"
+    sha256 arm64_sequoia: "a30498f22007194b3d1fde6afb2b2e3ad5a5cef5a7a763f477c26cc625a44fba"
+    sha256 arm64_sonoma:  "631b5131f25ddaf10acbf42922cddf3996561d00e53ec60eafb2f782683a6834"
+    sha256 sonoma:        "055fa879171dbd50e4234937229b42b16073c1bd4e85ea0be5287735f30eb4b3"
+    sha256 arm64_linux:   "37c0dbb0fad67fe9883639294c3b63c150900e8d7af0d36277c021f10af1c8b3"
+    sha256 x86_64_linux:  "e188ffae06055d161cb807e5a814a2fe2a60604964436b2e4efd835d7e68b747"
   end
 
   depends_on "cmake" => :build
@@ -29,14 +26,16 @@ class Instead < Formula
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "at-spi2-core"
     depends_on "cairo"
     depends_on "gettext"
     depends_on "harfbuzz"
     depends_on "pango"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

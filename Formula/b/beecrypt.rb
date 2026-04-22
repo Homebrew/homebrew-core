@@ -6,8 +6,6 @@ class Beecrypt < Formula
   license "LGPL-2.1-or-later"
   revision 7
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "19bbdbe37b8f9c59abd5ed8ce3a6c5c0fa4ac50734b445bc9f6a8bb05666c890"
     sha256 cellar: :any,                 arm64_sequoia:  "9d436aea574fc90b56ebdd14da2f08d7484209ddc553ad9a9928bb1b0e2ec28e"

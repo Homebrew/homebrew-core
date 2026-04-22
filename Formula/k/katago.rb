@@ -16,25 +16,29 @@ class Katago < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7c13e987178ad35bd6e56312a3f472697b8d993488975eb41fa8db7c1e392970"
-    sha256 cellar: :any,                 arm64_sequoia: "65eea9eb2209570606294c979ddf33d329b1898e5f5764ef3585a0b88a7ea9d9"
-    sha256 cellar: :any,                 arm64_sonoma:  "1ec6ab9dc1aa73c2956b42f19be09ffa2df410c5fb5876e635d2e89e2d63203d"
-    sha256 cellar: :any,                 sonoma:        "2de2a50d110cb15175dd881d703ef7ea97549ff93c1aefc4b90a8eb53141170f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0215b8f515978ffba7ef2d5c984baef1ddf9c73b591129e5072c7b91ccc45230"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "520727c652970dbe2e280c4b93cf3d617e8357a7d330b49ceb428719fb79f626"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9a745eb869cb6483a6874ef3461d1783182d1baed31516306165658f8d93f4bf"
+    sha256 cellar: :any,                 arm64_sequoia: "22d43916ce8a2c5881b7065d7aa74b8ad2a91e0254484c08b3dbe0e8379041c9"
+    sha256 cellar: :any,                 arm64_sonoma:  "b5c8c0a2f05134e7b9c04ffee2f31c5758011648fd87be94084f0fdfed0089c1"
+    sha256 cellar: :any,                 sonoma:        "77c6344b5729fe74169718809c61a81aa241e9dd8810035a18f5126f1b53a922"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "505e647b8eb34d86230447b9a6099247c2688451c7eb7477c746eed34d70e4fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e3f0a950c6729864b6fc2c91e2930d53c2691ce05fccb60eedd5671c71c0f64"
   end
 
   depends_on "cmake" => :build
   depends_on "libzip"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "ninja" => :build
   end
 
+  on_sequoia do
+    depends_on xcode: :build # to avoid build getting stuck
+  end
+
   on_linux do
     depends_on "eigen" => :build
+    depends_on "zlib-ng-compat"
   end
 
   # Using most recent b18c384nbt rather than strongest as it is easier to track
@@ -73,7 +77,7 @@ class Katago < Formula
     args += if OS.mac?
       ["-DUSE_BACKEND=METAL", "-GNinja"]
     else
-      ["-DUSE_BACKEND=EIGEN"]
+      ["-DUSE_BACKEND=EIGEN", "-DEIGEN3_INCLUDE_DIRS=#{Formula["eigen"].opt_include}/eigen3"]
     end
 
     system "cmake", "-S", "cpp", "-B", "build", *args, *std_cmake_args

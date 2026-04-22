@@ -1,8 +1,8 @@
 class Iperf3 < Formula
   desc "Update of iperf: measures TCP, UDP, and SCTP bandwidth"
   homepage "https://github.com/esnet/iperf"
-  url "https://downloads.es.net/pub/iperf/iperf-3.20.tar.gz"
-  sha256 "3acc572d1ecca4e0b20359c7bf0132ddc80d982efeee20c86f6726a9a6094388"
+  url "https://downloads.es.net/pub/iperf/iperf-3.21.tar.gz"
+  sha256 "656e4405ebd620121de7ceca3eaf43a88f79ea1b857d041a6a0b1314801acdd8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Iperf3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "21d104a64ab9a03149a6a68621fe7c34113107d7c241aae10b30f7f54fc63278"
-    sha256 cellar: :any,                 arm64_sequoia: "da658d9fe13ab8492eb7a6b73312990099c6a9da7a91c97653c977e183f1afce"
-    sha256 cellar: :any,                 arm64_sonoma:  "df35cee97da6db01620d52d7ca55c882fa7282add347822150412e23037877cd"
-    sha256 cellar: :any,                 sonoma:        "7b8079f6dc2f72de7a70d62aec60312220fe395646f9b6d1307d9e8fafd82ade"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0ae4a5324a6eae284b7863f6ca0d94fde6b0bc53dea043093533953a1c1bccb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b2515f7071e158cb4c44bdc26a5ca183e81cb00565b4e1f2fbb7393d5cc7183"
+    sha256 cellar: :any,                 arm64_tahoe:   "faf851fbea9c2a60d2c15a6dfa8d7a040084b886fa1e68caa6f59d51e0242471"
+    sha256 cellar: :any,                 arm64_sequoia: "cf21e3a0261d13279ff1be54f3875d3f005d266e8148a1d0e42e6b54a024ea39"
+    sha256 cellar: :any,                 arm64_sonoma:  "096c1c7ab82adc94e86f22c0a1237ced17cc6fe3488a575229d58f65dd21a3f2"
+    sha256 cellar: :any,                 sonoma:        "6d3e55b3f30523a32bd346378c3692269ee59aa1c0747a1c68445f167ca7c93a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b199341bf7cb3caa6229e077980e57ade60851de489c34470e0c56535b43a71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "306ca27c214fa39d10756e3d0802ea2912e2636ac6bf454aa00f0cdfc9fff8c7"
   end
 
   head do

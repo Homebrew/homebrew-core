@@ -1,8 +1,8 @@
 class Goctl < Formula
   desc "Generates server-side and client-side code for web and RPC services"
   homepage "https://go-zero.dev"
-  url "https://github.com/zeromicro/go-zero/archive/refs/tags/tools/goctl/v1.9.2.tar.gz"
-  sha256 "457383a21822a3cab1ad78f6fdfb9435bf4dc00217b018ff1b66fa4b0715d6b6"
+  url "https://github.com/zeromicro/go-zero/archive/refs/tags/tools/goctl/v1.10.1.tar.gz"
+  sha256 "b8889573a26b24306dccc4d7e991e0321780e19ad4d247f814a4f65e11f07c69"
   license "MIT"
   head "https://github.com/zeromicro/go-zero.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Goctl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f92baefb245bc91e0969717c9287bd7232dc0e462e1cb1e9aa1d73ac4fc678a5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "189cc40e086e1b53c2d55ba333e64cd1635505f7685121f8e40afb7b9f8aa7be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85fbf31610463cee666590d696d65e7c248c3d9c5ce2fcbddaa88b51808fd75a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6e385d6f6556e5b1ab81d604dd9eeae09d155efb9648a0ce138c698f729ab05d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dd434282a87ae5f1cf26ed71d5bdc6a62b43f99e2112469aedcbd1d70d9e414"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86f49e389dc0ca241113685d8b465fd3b392601624efbcdffcd585d459a2988b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "559dc79f895ef231894d6ad061ffded217c784eda9598e497756b3427e756cfc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb712c36fad7e43668ce9f367dbc9d517e1f7bca07df0a1b5afe074997916dbe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b12bd097a7940f2606023d2631b4b60a7e92d3b2f8025fc4646a3e5f9fe808b6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0976ece45058588058d5f00d0b8007c999f7e8cba9605f696916e13c0476a8e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa77776ac70c099fff460ccc6d99f5dc1f2a294bd31df0948cf6897c45672dae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a69a66e3f9081d4cb410e11d55f89f24f193957ad26afc6b8a0321fd4f26847"
   end
 
   depends_on "go" => :build

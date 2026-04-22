@@ -1,18 +1,18 @@
 class Render < Formula
   desc "Command-line interface for Render"
   homepage "https://render.com/docs/cli"
-  url "https://github.com/render-oss/cli/archive/refs/tags/v2.7.1.tar.gz"
-  sha256 "ce53d977dbdfd69843723796470c224fd39182fac3932cb099e3b89d2e352519"
+  url "https://github.com/render-oss/cli/archive/refs/tags/v2.15.1.tar.gz"
+  sha256 "5a4df37603d66879a03cf733ea250d8f3470eaf2bd2d25c6c82a15d4e60ee0e8"
   license "Apache-2.0"
   head "https://github.com/render-oss/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "36280e1230aa803f1ce0f4ecef4eb54b055f254aff5c12b5599daad19e399944"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36280e1230aa803f1ce0f4ecef4eb54b055f254aff5c12b5599daad19e399944"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36280e1230aa803f1ce0f4ecef4eb54b055f254aff5c12b5599daad19e399944"
-    sha256 cellar: :any_skip_relocation, sonoma:        "79ac24c7cdcc9ff2751dd62ad7135c8a08833850ed4139adf80846956ea80f90"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b7198f5f4f87b85942fac1035547d8aac8a383b5e61e5c269c23ceda076409d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50ea45ee7314adc021960da56a3ad6fba72a14d3160b347a8c169cf8abfe4be6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "229088bed1a32adba3703173f60d6d809d2f085971d81de62a8f0ce60d6e8d7e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "229088bed1a32adba3703173f60d6d809d2f085971d81de62a8f0ce60d6e8d7e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "229088bed1a32adba3703173f60d6d809d2f085971d81de62a8f0ce60d6e8d7e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0acf025eff4974ad729f1ae573fd76a63e81cfd52658ff48cc5b819d73c28d52"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "11f1a3fa3d9d7eca68c27b4725901e613d31a6cc41a17f79828dc1a01c64fc9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14721e2d19c9004ad38600862864993989fdb33be45a958abdbfcfb0a2d634d7"
   end
 
   depends_on "go" => :build

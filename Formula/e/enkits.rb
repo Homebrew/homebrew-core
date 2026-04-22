@@ -5,8 +5,6 @@ class Enkits < Formula
   sha256 "b57a782a6a68146169d29d180d3553bfecb9f1a0e87a5159082331920e7d297e"
   license "Zlib"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "994e77e132e38c13f2fc03c20f2e8d27b0cdce0ce9e46becec51ae93d079a05a"
     sha256 cellar: :any,                 arm64_sequoia:  "fb8f0de48f38276feca170ec6d67751843fb86cd993ed8d0009e7a93cfe4d078"

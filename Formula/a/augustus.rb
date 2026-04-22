@@ -7,15 +7,14 @@ class Augustus < Formula
   revision 12
   head "https://github.com/Gaius-Augustus/Augustus.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "37b6c5e9db4fc38db3bf8dff72b238cd388fba69cbb211029c00b8151804a4c2"
-    sha256 cellar: :any,                 arm64_sequoia: "5eaa20a0da31dc5302a037b97d4fc7352f1c472bbf7c6cacdba3d3e1a71f3870"
-    sha256 cellar: :any,                 arm64_sonoma:  "2875927008e0b17e9c32eea6d26b26f7606ad893de52ef2a5a754bb22add5c10"
-    sha256 cellar: :any,                 sonoma:        "c09115f022d8ad9952f269b59bcd946269807ef05fa407a116af1f6d9cc4c06e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "84e4b9c2e13bc28952f62fdd7520a8509dd5cab52505ab8d4ca0c5a9e7220ac1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1ca30efe1c2355ba17fe67e9924c8311e7ee0aa2fd9b652f1bf84e453b727b5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6fb256fa27a7d7406a7c9d24c4430f62195b2ecaf6af40a0d0169457368d315e"
+    sha256 cellar: :any,                 arm64_sequoia: "7d3013ce2953816508ecacd0c17c4de3b4e82dc5446065261e6102be55ec40cd"
+    sha256 cellar: :any,                 arm64_sonoma:  "1edf24cdb462f94ca203a06f647528dcf751b2cc9df3d7a7ff1e9218d4a895f4"
+    sha256 cellar: :any,                 sonoma:        "5f447d39caacea7d384d9eba20dcfeeb1b860d0a7547e66d1a85f7956b924631"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "49800030d9a1c940f8e41aab80d1710bcb11805d26083bc72782e2b69f414629"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "473fb7831cc994c642bd11d7b873ac7e46e9b0640784ecae596dd5020c1762d4"
   end
 
   depends_on "bamtools"
@@ -23,7 +22,10 @@ class Augustus < Formula
   depends_on "htslib"
 
   uses_from_macos "python" => :build
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Compile executables for macOS. Tarball ships with executables for Linux.

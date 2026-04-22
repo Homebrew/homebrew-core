@@ -4,18 +4,15 @@ class Spek < Formula
   url "https://github.com/alexkay/spek/releases/download/v0.8.5/spek-0.8.5.tar.xz"
   sha256 "1bccf85a14a01af8f2f30476cbad004e8bf6031f500e562bbe5bbd1e5eb16c59"
   license "GPL-3.0-or-later"
-  revision 5
-
-  no_autobump! because: :requires_manual_review
+  revision 6
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "b34b86506ec485c0484cbbe9dcfe85ad038197d3105fb675dc77e0e96b695d33"
-    sha256 cellar: :any,                 arm64_sequoia: "df8fa85d5512e450ccc2926781aec5008481653cfecdaddac231f8c86bd7b42f"
-    sha256 cellar: :any,                 arm64_sonoma:  "c57e32cbbce35e350cb366266e1772720f1abb2ba53c555b3d6d46c0f8cc8a53"
-    sha256 cellar: :any,                 sonoma:        "4b2bcddb3709a988d2c1d4390801c45bc15e7e186e53b4ae18e5928cd0c4c02e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "42e2043889ce46cf7176e1ad1da7eac5919ff7d3c17fe8d9fe514520d439f22e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ced6196710aeedae773b3edcbb4dd104e3ca6c50de51a29586b5365863dc70c"
+    sha256 cellar: :any,                 arm64_tahoe:   "35bf9a140676a8e6205c91c540decde724994782b3159cfae796d354e976e20f"
+    sha256 cellar: :any,                 arm64_sequoia: "ffc78727f112cb7bfabfa57acdf7ea1355a7df9047e989baec54a0afef6d5576"
+    sha256 cellar: :any,                 arm64_sonoma:  "48c21438781605fb9f76fe35029e0beaee74eb9ed07bb99ff742f9fa9abc5dfe"
+    sha256 cellar: :any,                 sonoma:        "b68f5b7d147ba25ff5e4026ab742c8e943f7b03df35cc79531ddced4fb01eeed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a810d0852931abf03233d899d3c3f96378dc103ed9383e9a1069de52cbdd1a42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96c2ca54ed0606804bca9e037600403fb578443640dcd447d6141cb6f5ece99c"
   end
 
   depends_on "gettext" => :build

@@ -5,8 +5,6 @@ class Confuse < Formula
   sha256 "1dd50a0320e135a55025b23fcdbb3f0a81913b6d0b0a9df8cc2fdf3b3dc67010"
   license "ISC"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "8c9faf9f2e1e5d1d0745acf79b46347b499053b9bcba4e4f4f89296bd5f8aad3"
     sha256 cellar: :any, arm64_sequoia:  "4a559294bf3ec51132b479ee9b90c5e90dea6183c11707471b89a4d06b0ab371"

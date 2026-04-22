@@ -6,11 +6,9 @@ class Pax < Formula
   license "MirOS"
 
   livecheck do
-    url :homepage
+    url "https://mbsd.evolvis.org/MirOS/dist/mir/cpio"
     regex(/href=.*?paxmirabilis[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d22fadfbcbb47721a7e9730f8ce344c3c2cfc235f6387dfaf12be14b24039829"

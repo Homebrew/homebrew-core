@@ -1,29 +1,29 @@
 class Makensis < Formula
   desc "System to create Windows installers"
   homepage "https://nsis.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.11/nsis-3.11-src.tar.bz2"
-  sha256 "19e72062676ebdc67c11dc032ba80b979cdbffd3886c60b04bb442cdd401ff4b"
+  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.12/nsis-3.12-src.tar.bz2"
+  sha256 "f3ed7a8e4aa2cf4e8cf47d3b563a02559e0cb4934db2662b2f9661b824e2b186"
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2977f4bff74d9073ff6a05a8a072f30b8263137b39fa51094ef816d6b58c6a00"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "edd2d0dcc5ca368334522b123210e7d9d3336efc5e0091f12500fa02a8e304d8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "065f088b4c9681f571c8e73b76bcd730ac34b5ab86ac011707d31b28479b8533"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "71dd1af5b0c2c9a040bac2d58965ba3141dbb2c23a95f36d7ad7fb2b2e1b40fa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "985171f35c2c617499f333b4926367ee656660b85e9a83c045a691633e1af9d1"
-    sha256 cellar: :any_skip_relocation, ventura:       "b41b708bb2a20b5f006d3123070d7a9d16c02796201a86fa5456b7673a299994"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "232ea0628f6282522669f5d4763bfe740ce920696e1f4fb0e5c68f4eabc186c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c8e1672901d8376fcbcc0579302f0338629852fde0a262cdab694613fe89785"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e30fc5559f2153e11198181be077df17ea503b3f8366c750e935c09aa8f983fd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd3e48a17b246308fd5e7e9b7c0dc2c3767f7c6f993f9ad58c649aab73b5387d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3829f573ed0d00e8313b859b3d9ee09ad705867921c24e44448deb192ebe206b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa6e3c1f949304b272071b24390acc89f5a1d6cdaaaa45cc5dd7922f9a79eee6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d35d398b17e39668b091b993d9ec1f787e636ade0be83870dd489ad42bcee3ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7366e169187d7d5b925e223e9d6d705980f7085910ea2efe876ca7184685bef6"
   end
 
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "nsis" do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.11/nsis-3.11.zip"
-    sha256 "c7d27f780ddb6cffb4730138cd1591e841f4b7edb155856901cdf5f214394fa1"
+    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.12/nsis-3.12.zip"
+    sha256 "56581f90db321581c5381193d796fffcf2d24b2f8fed2160a6c6a3baa67f2c4f"
 
     livecheck do
       formula :parent
@@ -32,7 +32,7 @@ class Makensis < Formula
 
   def install
     if OS.linux?
-      ENV.append_to_cflags "-I#{Formula["zlib"].opt_include}"
+      ENV.append_to_cflags "-I#{Formula["zlib-ng-compat"].opt_include}"
       ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
     end
 

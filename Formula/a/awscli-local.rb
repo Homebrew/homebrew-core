@@ -13,7 +13,6 @@ class AwscliLocal < Formula
   end
 
   depends_on "awscli" => :test # awscli-local can work with any version of awscli
-  depends_on "localstack"
   depends_on "python@3.14"
 
   resource "boto3" do

@@ -3,7 +3,10 @@ class Tdb < Formula
   homepage "https://tdb.samba.org/"
   url "https://www.samba.org/ftp/tdb/tdb-1.4.15.tar.gz"
   sha256 "fba09d8df1f1b9072aeae8e78b2bd43c5afef20b2f6deefa633aa14a377a8dd2"
-  license "GPL-3.0-or-later"
+  license all_of: [
+    "LGPL-3.0-or-later",
+    "GPL-3.0-or-later", # tools/
+  ]
 
   livecheck do
     url "https://www.samba.org/ftp/tdb/"

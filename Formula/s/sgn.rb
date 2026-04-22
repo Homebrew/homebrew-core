@@ -6,8 +6,6 @@ class Sgn < Formula
   license "MIT"
   head "https://github.com/EgeBalci/sgn.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d25705bb70e377ddb7415dcbff3d61567a70f21df885d80d8ffed77253ef555d"

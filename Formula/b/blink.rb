@@ -6,23 +6,25 @@ class Blink < Formula
   license "ISC"
   head "https://github.com/jart/blink.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f2fd0aa42196ee52060b934e6a3be257ad1326c062c8fa83bc6bf3888f38aec"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bcc500f8fe348d17be88e78813f689ad5f27a065db6112f5fa7e867e7c7f0139"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3682378ea5beb74906a12760147ddcae882095aa4a183f4fb328994ef9f8bb64"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cd18d0ceff9589f1ad6ea1dc5183c5c61f0234705d7789f6b26df8a47d830d94"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bcca9fdf32d372f26ef410994a397e00d2c0ad337b32bfc397dffb5d8e9c831d"
-    sha256 cellar: :any_skip_relocation, ventura:       "c6bf3d3adff77c984c9966cee9df01f2962fa1781d591dbe0de0a81666762812"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ceddcd34e8f3929aacd7c139f86ca385e3a758417989d865b34a61437fbfc2ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae5240313e012eedfe56836839f4becd32fa8e3d22b690d1728aae141bb40025"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe96f01e4cb3db83a0d8fe235ce54e5a00ff81d82da4872ac75772d93b49fe02"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "728a23165b6adb6121ef66bf6b0ef9b9e68d863eb66b33bf40814d19bda11134"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ce2f125a8c3ce801bd477453488423c476a1768310bc6da2134a1e79f5edef6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fbbe63a33126b154702707e358e10da2d4adaf9d9fe53db3cad1ed78f9223dac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "53e2fc3a0987c15b8d8062fd564c33e2a2ed9718ae642480ccbad551b8076922"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd87330b12e6d29f51065b58eeef882b7509537e145218f5d49b3102caf6e53e"
   end
 
-  depends_on "make" => :build # Needs Make 4.0+
   depends_on "pkgconf" => :build
-  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "make" => :build # Needs Make 4.0+
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # newer linker cause issue as `pointer not aligned at _kWhence+0x4`

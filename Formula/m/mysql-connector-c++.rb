@@ -1,8 +1,8 @@
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
   homepage "https://github.com/mysql/mysql-connector-cpp"
-  url "https://cdn.mysql.com/Downloads/Connector-C++/mysql-connector-c++-9.6.0-src.tar.gz"
-  sha256 "b25a9a139855da9713c863b5a64c7f10c52eded76b2c04a2fb2deb9aab456b3d"
+  url "https://cdn.mysql.com/Downloads/Connector-C++/mysql-connector-c++-9.7.0-src.tar.gz"
+  sha256 "9a3dd4fe441a8191f761192ecdc717c18a58a1cbb6e39623debb7196c3075b0e"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -11,20 +11,23 @@ class MysqlConnectorCxx < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "85b33ab13724c520b2e241bf9aa0e56f879a3193c9f6c79d713db38cabd6c739"
-    sha256 cellar: :any,                 arm64_sequoia: "3bf252190f11a80e20ef18227f1e4543d1aee5ddf0eebb04aab0b3f972651b0f"
-    sha256 cellar: :any,                 arm64_sonoma:  "b265e7438cae35b9db981b4b1118393d53d193767d8cbc0a1956e8526d269748"
-    sha256 cellar: :any,                 sonoma:        "9cacb7778940c1334fde91c6fd687b33079124a87ec67c38cce336e82717e5bf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f00730d63bad1ca79b7d25b0ff268555e0c6377bea52eefb1dafc44dd17537f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f7596409d95470a6887c2fb465d79fa04a3b429ae5436ac04129c00f3065dd7"
+    sha256 cellar: :any,                 arm64_tahoe:   "c34a38e56f88a827a0cb055f1ebb7eef5c40d023939263b3d01925ea3fa2dfd7"
+    sha256 cellar: :any,                 arm64_sequoia: "918d30529748406b9c8dc644ebde019254e20831c497c9aca189285d6b7a0715"
+    sha256 cellar: :any,                 arm64_sonoma:  "b286bbb2e65e9721c07f3cf5cd3aa4c75d098243f8061daae02796fe12ad9637"
+    sha256 cellar: :any,                 sonoma:        "429f3910a8be9342d72e5dc636a08634bbfbeebf1a457bec1bd37ba5492b7809"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "856d401321de0183a238b1e15c1553ec54a8bfb787412cd36771cab53fa0c910"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "859e9cdcba99f01d1a7e1296ad8a8518a2523734e28efb894ee701cc89cd42f6"
   end
 
   depends_on "cmake" => :build
   depends_on "rapidjson" => :build
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "zlib"
   depends_on "zstd"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"

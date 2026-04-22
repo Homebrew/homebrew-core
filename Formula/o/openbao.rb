@@ -2,8 +2,8 @@ class Openbao < Formula
   desc "Provides a software solution to manage, store, and distribute sensitive data"
   homepage "https://openbao.org/"
   url "https://github.com/openbao/openbao.git",
-      tag:      "v2.4.4",
-      revision: "4bfd70723d4f9b82be00e87b8c018ac661dd9b99"
+      tag:      "v2.5.3",
+      revision: "988c88d7ef54b4d4581629b229488dfba5e085ba"
   license "MPL-2.0"
   head "https://github.com/openbao/openbao.git", branch: "main"
 
@@ -13,13 +13,12 @@ class Openbao < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8999fa214ae6d762b4a220a4f50962446163fe41b1fee27b219a24654efa5397"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f68a8e8b14b413aa61647add948f8012222f7b11a33be605bfaf62c1610fac79"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82e7b1d677857025887ba8d7e27295705b53589927a88b1cfcd671ca5d064d1c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "170749bba9981bcee3d88ce4e73fc6a4edbcd22c0d0abccc580d548e2f44b99e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e16e7abfa3a9107c25dd26b0d5d0361bd1e25278f75e5ab96a1235d012338c29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fde949f5478f711a4a67dfaf406e3081b6cec60f42e789f53fdf1cb1cad779f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "709265cbcdd2462b8b6f57db4dc89e1cfbf0e5e1575c19147799f0742729cdcd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed8a81d806011ffd841afbe2caf3995940274fa62a70a145ed8fd4ac3eb74839"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec80436ad0a759e580a0e3bef72ed3a1ea4da8699ca5aaade861ec3ca12894e0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "39c7431935277b1f25de0ade7d9a274de2c75da187e5cc953dfe99cb1d7e3294"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e566c6ffa6c68658a0bfc820721d426e0bc479cb96cc608be396f95c4eed85a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6af60975b48e1ebec828394da43406d3e63cd275318e97d25a7d9036c51c74e"
   end
 
   depends_on "go" => :build

@@ -6,8 +6,6 @@ class Kustomizer < Formula
   license "Apache-2.0"
   head "https://github.com/stefanprodan/kustomizer.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "adbdf2f47318e66addd680e6528bb80c8891bc65baa74cbc91223c16587a4339"

@@ -1,20 +1,18 @@
 class Moe < Formula
   desc "Console text editor for ISO-8859 and ASCII"
   homepage "https://www.gnu.org/software/moe/moe.html"
-  url "https://ftpmirror.gnu.org/gnu/moe/moe-1.15.tar.lz"
-  mirror "https://ftp.gnu.org/gnu/moe/moe-1.15.tar.lz"
-  sha256 "41f8c8b099ce3047945ca4e097a60d9243e9c73fbb268c194a12da8b0d9f0a66"
+  url "https://ftpmirror.gnu.org/gnu/moe/moe-1.16.tar.lz"
+  mirror "https://ftp.gnu.org/gnu/moe/moe-1.16.tar.lz"
+  sha256 "4c25cd78919272aebec0a7f8c126011bb5a4b5d87422807a3423216f0a17a868"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "5c20e2b669488844badcd5e9930273169528983a1d7f6c7814b6e1af438683d0"
-    sha256 arm64_sequoia: "0d2e867872c06762566dec24fc623e2fadb8fd67ad80d50340f44a5e6fd39ae9"
-    sha256 arm64_sonoma:  "028de034fd8e2a0b5543c925900e16b806d7d01ab49b77e61342641ace78c50a"
-    sha256 arm64_ventura: "70dc3b3b0c9337c7efab45da9db577c7aa2554e0c50d2668d754cbd38f6b752d"
-    sha256 sonoma:        "324720fab1db409bc494db46c0ccb9e2ed161c4168fc74197719ef0fba991094"
-    sha256 ventura:       "dc04a4a8eb7b4c07651af6f21bf6aece52348a65c7255b7fd319ba7ebfe31949"
-    sha256 arm64_linux:   "3ec690416ba55579babc7dd64f3a5ff9b2b1edaada6dbdcf0b8c6e6a7552a782"
-    sha256 x86_64_linux:  "bf9f6ae698842d4b0b673c761e5bf77292a33bc2b88c19ecde04d923eadbff0c"
+    sha256 arm64_tahoe:   "cba173e0b7d9ed39604cf1b1b477e5ad68b226a32407e4baca66852d4dce833e"
+    sha256 arm64_sequoia: "d9ed67a513eccbbd3034f9013bd36e5703646f92ff1ae81bda02401faefe2604"
+    sha256 arm64_sonoma:  "206e78c90a994c5524c93e9df8e399bdcb0c33b0b50cffea0aa501d68cecbe7d"
+    sha256 sonoma:        "d3b0b5f33f579a8819e51d46fec8e4b78d8895bef4769eb3e7e801bb250d95c2"
+    sha256 arm64_linux:   "108e1f0811bc70ac2310974ef0a996b1b64a3ce21f63d0e497d1a4981ddd8ce4"
+    sha256 x86_64_linux:  "6202103a226c7d048c94b241a67b551f1d7bbc09954f21db0672a3b11ce11d50"
   end
 
   uses_from_macos "ncurses"

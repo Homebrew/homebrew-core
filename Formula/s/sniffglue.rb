@@ -1,20 +1,17 @@
 class Sniffglue < Formula
   desc "Secure multithreaded packet sniffer"
   homepage "https://github.com/kpcyrd/sniffglue"
-  url "https://github.com/kpcyrd/sniffglue/archive/refs/tags/v0.16.1.tar.gz"
-  sha256 "f30b31861b07160b4efe23eda996491aaf885037d6907227d2230cd0e7db3265"
+  url "https://github.com/kpcyrd/sniffglue/archive/refs/tags/v0.16.2.tar.gz"
+  sha256 "54d98ebf5cf947f9d833fbb0457f6b5ccd7e96f356bc4cfdd1711a3526e785bc"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2b45c1ef8b0dd3da8de07cb373db7d60a8963466af4fe2c1998301aa121c1c3b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d817e24ad305538cbcca6238e2107669e9491537211b9ecf57c85056d93a6755"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1a2a6038c16babfddc8abffe98bab38620bb7f94a1cb156992d4ab667a16313"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "56da20d0f884e5d65f47710f07b161811f899e914a02444f25013de4318280dc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3e384b4c3f1cec37f8bfc05895374176b0653d23da223e32fe8911c896509736"
-    sha256 cellar: :any_skip_relocation, ventura:       "c02d4c036be412e02824d1fd6dececfab12e47b70e0030aca18a26ebac05d31d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2c11e8addb595af6b63ed633911aaeaddf6f373bb4ad43870fc0c1739858d34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "975e2e1aa4e743d501b15ab83d7af6360d5d0ec2335051d2719ad817c56c6ac6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ab915b01590ea26dea46acf68837eb664a37c9e337baaec569f62bc20e6ed831"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7840aa9f1f1502861724660bb225c7dc26a732e285b1b18d05fa6885485d200"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb9cde1c9761af50d50c22aa20d961a46b0f2fbd712eb4de52449344e62d7875"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3184c2a0a537be7be59964355aab93b4572466b75c2e4ec5081a5baae6abc02e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e277bca75e8ebed4e47c23168ecd19cad9f78ff5d581dac6d67f87f6db21f4ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "190d1e3f26259cf4cda05932b8077aa03b3d352e8e67ef1f01709189c11739d7"
   end
 
   depends_on "rust" => :build

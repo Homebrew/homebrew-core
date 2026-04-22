@@ -9,7 +9,9 @@ class Semtag < Formula
     sha256 cellar: :any_skip_relocation, all: "604f7f8fae481b73da08c4c4465852d2b955954df5401961bd4a2c16ad7918af"
   end
 
-  depends_on "bash" # Needs Bash 4.x>
+  on_macos do
+    depends_on "bash" # Needs Bash 4.x>
+  end
 
   def install
     bin.install "semtag"

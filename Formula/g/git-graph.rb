@@ -6,20 +6,21 @@ class GitGraph < Formula
   license "MIT"
   head "https://github.com/mlange-42/git-graph.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ffb5b63fd57b8d6c42b411b798a1ed26701d83c83f5f2765ae4747d30ac55075"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87d6c08af20fb91b65ed8ee52339e0f6d1084d0c59ac39100b083c353dc40ae5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b30d7039751657bd5b2eef0ab77af8b71d8b5f4819740a41ff453af7a4b45d5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "741d421232f892435a536b536d6830317ed260a3af9ef63c8307df49c3abcf5f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "89682f79371c557999cd19bc52d5e97fef81037741a7c0a25dcbc3d848058d69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d135f24b19fc8d89d1556fd3f8d6d6e0f1c01783339de4cd6a31848fd55cd99d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1048c932a8deab74c8eb90e4cdae3a4a4b63fd73f945607a85ae507fcc89a043"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17350cc0ec47ea241a5c3a99448f0aa6960615cefb7bf83c639fe17a8a4f423e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43198bde0bdccff80d898f21481970b18ebf67073982e9c5eb1d1ddbd7ee3b83"
+    sha256 cellar: :any_skip_relocation, sonoma:        "138badaf5ce366f4c77866725e3b367eb706ba8d6a1d309c5e8d58c4ced62f2c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "62c0d6fd0d897f0ae8825a34463d50c764f5942c80c8106a255c5ae9b879261e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b7173c050dfb74dd21608c3fd490921e68219491015baa161cf66153dea32ae"
   end
 
   depends_on "rust" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

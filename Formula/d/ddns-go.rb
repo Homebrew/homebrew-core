@@ -1,18 +1,18 @@
 class DdnsGo < Formula
   desc "Simple and easy-to-use DDNS"
   homepage "https://github.com/jeessy2/ddns-go"
-  url "https://github.com/jeessy2/ddns-go/archive/refs/tags/v6.15.0.tar.gz"
-  sha256 "f4443c44c7247fee49bfbd8e06b7c03b2f59cb99968e685b5655017cbd8dabf8"
+  url "https://github.com/jeessy2/ddns-go/archive/refs/tags/v6.16.10.tar.gz"
+  sha256 "0af625f11d396d3839486b5d985b58edf7e0712267da0e2a8e1a1f52cc7329ef"
   license "MIT"
   head "https://github.com/jeessy2/ddns-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c45e9ebe59496971e513fca7599a45c2e70e3d6d2fe38f7d85ae9bdfe98ad7d0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c45e9ebe59496971e513fca7599a45c2e70e3d6d2fe38f7d85ae9bdfe98ad7d0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c45e9ebe59496971e513fca7599a45c2e70e3d6d2fe38f7d85ae9bdfe98ad7d0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7d7f1d5f8c6b430062170e1d91252a85e03bfd97a6790568d95e7f220fed9194"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7148a47ac865a65eb1dbea0ab3cad735374f7536663fb9d30a8bb116a2fd01eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c829999be69ff3b5ca2b7531e32e8aa1ce3e9606c4bdfa36ab063d400b4b27a7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "14d50191642893a4b0620a43f398df8342cbc97ad81c7493698e012b66db3e65"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14d50191642893a4b0620a43f398df8342cbc97ad81c7493698e012b66db3e65"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14d50191642893a4b0620a43f398df8342cbc97ad81c7493698e012b66db3e65"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9f5259f42450e7d816f3e00d9c7b31f5e31254c83a8f2dd21c7a9cb3f1ef2e5c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1f3034005cbd66ebfe7356d41be52a97f543c7d2de1dff9a69ed30a0d682033e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c4387af95c0c173faff6174708011bcd39907d9c5b80f28411d2129ff0cf2bb"
   end
 
   depends_on "go" => :build

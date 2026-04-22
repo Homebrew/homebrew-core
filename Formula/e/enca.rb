@@ -1,18 +1,18 @@
 class Enca < Formula
   desc "Charset analyzer and converter"
   homepage "https://cihar.com/software/enca/"
-  url "https://github.com/Project-OSS-Revival/enca/releases/download/1.21/enca-1.21.tar.xz"
-  sha256 "8b24e8a3a84288733b78addd24afdea1a3a5e6c61dc0ca8ca1d3702e481bc5ed"
+  url "https://github.com/Project-OSS-Revival/enca/releases/download/1.22/enca-1.22.tar.xz"
+  sha256 "95a70dd21198e6427d77a1d79721f4f87dd8bd07fdefe71a2062c6f41eee39da"
   license "GPL-2.0-only"
   head "https://github.com/Project-OSS-Revival/enca.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "6f6a06988c26f7bceecbf3e76066b15571b3266fba0e1d41293e06819de8712f"
-    sha256 arm64_sequoia: "478ae91ea4e91813360d353e1b74065497d6d26f81bd77fd3b8ae89466168eb4"
-    sha256 arm64_sonoma:  "7cebda3233985f2f377803b5005238d90e0ea138dc7f72f757ec14ff4a30e193"
-    sha256 sonoma:        "1f570881b34f66ebf16c3e7ccb0985297ad3e88fece0ca639d07d4a87eb404e9"
-    sha256 arm64_linux:   "6e960f169f476284e8e65a6a5de5cffa5b717e372b31e4db5f859a09600de2c4"
-    sha256 x86_64_linux:  "50e7ce46effe269c43ed8352e67d5c8f785baa1e96b50796d02c5b10158de5a0"
+    sha256 arm64_tahoe:   "186d5551a3f3b293b464cb9d8b2f00f9a8d23d8c7488593cfb301133fe7c47d2"
+    sha256 arm64_sequoia: "b6d87405f58557daf9bb694f39de18da6cfb4364980cea4bc6514dfeb83a948e"
+    sha256 arm64_sonoma:  "b12040e349cb6a5db5042b4cca7b8fa10b6302a4d55fe80bfb09fe3dbc271cd2"
+    sha256 sonoma:        "0756a5511840591047a2b8f81c2c77bafe9c65c73d82195a43fe22e5c0213cf0"
+    sha256 arm64_linux:   "cdc368ac529c459ac9453ecd1789ea7ab70911415a1a73b247323e8036a6bafe"
+    sha256 x86_64_linux:  "4ee249a13bafbc6ac78d69fbfd642546b73b68757a89d7e21d54ecd9172eec4a"
   end
 
   def install

@@ -4,6 +4,7 @@ class Libxdmcp < Formula
   url "https://www.x.org/archive/individual/lib/libXdmcp-1.1.5.tar.xz"
   sha256 "d8a5222828c3adab70adf69a5583f1d32eb5ece04304f7f8392b6a353aa2228c"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "34ca0da1c319eeea93ce31badfb5c29c8876cea644754279e93f6cf032ab5cb1"

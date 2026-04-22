@@ -1,22 +1,24 @@
 class WxwidgetsAT32 < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.9/wxWidgets-3.2.9.tar.bz2"
-  sha256 "fb90f9538bffd6a02edbf80037a0c14c2baf9f509feac8f76ab2a5e4321f112b"
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.10/wxWidgets-3.2.10.tar.bz2"
+  sha256 "d66e929569947a4a5920699539089a9bda83a93e5f4917fb313a61f0c344b896"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
+  compatibility_version 1
 
   livecheck do
     url :stable
     regex(/^v?(3\.2(?:\.\d+)+)$/i)
+    strategy :github_releases
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a3233bdeaa30398c7482d2e14e3a2531ff6395fb4934064ac5f805e16337059c"
-    sha256 cellar: :any,                 arm64_sequoia: "ab5cea380351b431a86f56b102e68016c4db214520fe89fddbfc52938d40e5f9"
-    sha256 cellar: :any,                 arm64_sonoma:  "7e0292d903f5846f7bf5c1d93aab4c72ed4a937a73947908f1d071d6fd57691e"
-    sha256 cellar: :any,                 sonoma:        "fe0dfdb6b51003c0da529837466f9618ad2cffa3031bdba7074320a8ab94c5db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b2e1c63b7cbf906afd606c8d4808f2a15bf34f186e68c7c855ec66df480c567"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9003d26f9a6c11d1aadcb99bd8c35acff4e63bbb034d6a5039d1f737760eaf9"
+    sha256 cellar: :any,                 arm64_tahoe:   "74d1a1c9bcf676f71f37091d5dc8070c0582dee03507d0d8cb49a7be43cbd225"
+    sha256 cellar: :any,                 arm64_sequoia: "087534b47e6145c177e14b283e4aa481275e24cd5434d373fa7568560862ce6f"
+    sha256 cellar: :any,                 arm64_sonoma:  "2496f42ac6c200388af114193b96d61f47b911460bee0c1a273ebdcd166e543a"
+    sha256 cellar: :any,                 sonoma:        "6fdcb464921d5f8c6e6970af6cc0cecfce808492b5ee527162f1c155593d873c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d37fc9e718dc139fdc289f4bd24d496d857f92c93195cfb82ca0a625e6e5317"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77e184af60c727675b07335acaa9aaaaa2c2029512c62a56026592faffe6d74e"
   end
 
   depends_on "pkgconf" => :build
@@ -26,7 +28,6 @@ class WxwidgetsAT32 < Formula
   depends_on "pcre2"
 
   uses_from_macos "expat"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "cairo"
@@ -43,6 +44,7 @@ class WxwidgetsAT32 < Formula
     depends_on "mesa-glu"
     depends_on "pango"
     depends_on "wayland"
+    depends_on "zlib-ng-compat"
   end
 
   def install

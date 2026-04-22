@@ -20,8 +20,6 @@ class R3 < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "ee6d57c13ed2ec24283ad9837f731a7964943070535d903206e8b7481a73dfad"

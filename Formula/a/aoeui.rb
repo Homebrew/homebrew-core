@@ -5,8 +5,6 @@ class Aoeui < Formula
   sha256 "0655c3ca945b75b1204c5f25722ac0a07e89dd44bbf33aca068e918e9ef2a825"
   license "GPL-2.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5db4e6bc86d61cb543bba6cfc8f46bb1db2dd51314701866c881c50b09e4aab8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d884318d049fd6851389c8c37f7c0eb1042fbeb00c7cf7d0829ce6ab3d45d81d"
@@ -27,5 +25,23 @@ class Aoeui < Formula
 
   def install
     system "make", "INST_DIR=#{prefix}", "install"
+  end
+
+  test do
+    require "pty"
+    PTY.spawn(bin/"aoeui", "test.txt") do |r, w, _pid|
+      r.winsize = [80, 43]
+      sleep 1
+      w.write "brew"
+      sleep 1
+      w.write "\x00\x11"
+      begin
+        r.read
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+    end
+    assert_path_exists testpath/"test.txt"
+    assert_match "brew", File.read("test.txt")
   end
 end

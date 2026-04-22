@@ -1,35 +1,19 @@
 class Scalapack < Formula
   desc "High-performance linear algebra for distributed memory machines"
   homepage "https://netlib.org/scalapack/"
+  url "https://github.com/Reference-ScaLAPACK/scalapack/archive/refs/tags/v2.2.3.tar.gz"
+  sha256 "5d93701eca663925e98010dd8d0f45fd79b2191d74e5afa5711d587370a8b9dd"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://github.com/Reference-ScaLAPACK/scalapack.git", branch: "master"
 
-  stable do
-    url "https://github.com/Reference-ScaLAPACK/scalapack/archive/refs/tags/v2.2.2.tar.gz"
-    sha256 "a2f0c9180a210bf7ffe126c9cb81099cf337da1a7120ddb4cbe4894eb7b7d022"
-
-    # Backport commit for correct version number
-    patch do
-      url "https://github.com/Reference-ScaLAPACK/scalapack/commit/a23c2cdc6586c427686f6097ae66bb54ef693571.patch?full_index=1"
-      sha256 "1a2c187595234c4c15007c4b1b847337a94c0a55bd807165743404942e6c5634"
-    end
-
-    # Backport support for CMake 4
-    patch do
-      url "https://github.com/Reference-ScaLAPACK/scalapack/commit/41ac62c28fab33cd9ccc1b010c9c215b5f05201b.patch?full_index=1"
-      sha256 "930429e8fb118e58955a56f5f6bb82e797927cb31a83a8bb0190b7324f2d26f5"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "95c2d6bfcad2cde73d0fab3e497efca73490469397f2c4e7961e7e2a34c76168"
-    sha256 cellar: :any,                 arm64_sequoia: "dc18849ba919f1b668d9367aa6b3c33de0c5da835880a6cff52a0cec5e959480"
-    sha256 cellar: :any,                 arm64_sonoma:  "04781e79d6a399a6b78be71b07b4f1ff77c52763637607b3784d9eed0a9d5871"
-    sha256 cellar: :any,                 arm64_ventura: "cab596587baa484ed8304b5075f192dbbb867ea1794583937812d2e8b08f43e9"
-    sha256 cellar: :any,                 sonoma:        "08ed075c53763c8c8bab09b40dcf7e20eb4931e4191d67d295587f7caacacbb5"
-    sha256 cellar: :any,                 ventura:       "fed1f3d1a4eeca5c906e7c1bd84859631518e3901943fc5abce91823b8efdf91"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72cefa05bf73039be8175869dd4d87edfd0fdd5b1c88d83e11b8e03fb77affdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ce59c95648217335fa463f14c0e3d2f87581f66ad82bdc5c0c60bda88b00048"
+    sha256 cellar: :any,                 arm64_tahoe:   "ea0aacd209ff09443ac7fd62e5782b6aa5708b6cf3d9d25e651a95532522e0a9"
+    sha256 cellar: :any,                 arm64_sequoia: "0a7ab3a13e290659080c05f2550e282039f316eb9a11741905ac40842f301df4"
+    sha256 cellar: :any,                 arm64_sonoma:  "39ff3f7f5f335b43fa3216ac699c7408f441a8b927075ff8e3edf53186149ec9"
+    sha256 cellar: :any,                 sonoma:        "afe7500c3c7c76d21879fb8a76d5cb3d6b8aa66a46b30311fc1196b7d5304e35"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e46a44670c4655f65121281ae8325b26e53730fc1fabdfdee24f7baa1408a276"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b120c99f85e37c43d20ae4775cb1d9953e35ad07c8afec88d5966ab6f6d0dcdb"
   end
 
   depends_on "cmake" => :build

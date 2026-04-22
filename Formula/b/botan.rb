@@ -1,9 +1,10 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-3.10.0.tar.xz"
-  sha256 "fde194236f6d5434f136ea0a0627f6cc9d26af8b96e9f1e1c7d8c82cd90f4f24"
+  url "https://botan.randombit.net/releases/Botan-3.11.1.tar.xz"
+  sha256 "c1cd7152519f4188591fa4f6ddeb116bc1004491f5f3c58aa99b00582eb8a137"
   license "BSD-2-Clause"
+  compatibility_version 1
   head "https://github.com/randombit/botan.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Botan < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "caa17b3e22c246e36df507be44434ac7371e5301191d15d91742312358da9163"
-    sha256 arm64_sequoia: "48c59b05de2d484662de39f1bf8f0fe7d129060a55a01bbeaaad26b28ea9abae"
-    sha256 arm64_sonoma:  "271bdde1e30dd9eb25b2b1686a678a3cf54146dc23918717fb6aa9b059e79dd3"
-    sha256 sonoma:        "d402b6fdc08d1d6559e4265cbcb334d03683687fe97d70614da4046f79e4e63c"
-    sha256 arm64_linux:   "343cecee5bf20718147ac5ca563034ebe2e311cd9e8f40c1094ed90e37e90794"
-    sha256 x86_64_linux:  "ccaba762b00a0ed569fad4dfd5312b63110c00e6fbe7b97af13accf64c77ab8b"
+    sha256 arm64_tahoe:   "6b90bc729b4a604182ed5ca63814c04e70e9a4e4b8a587005d621439f2a3a8a5"
+    sha256 arm64_sequoia: "0e8c8aaf4c276db328923f58c1b1f836678ec862273290186b39202dd16a3842"
+    sha256 arm64_sonoma:  "55dbc01236f1e41b102d2802592327abf96e89b7ab1d0e8d4b9b8a3594034dfe"
+    sha256 sonoma:        "54bed3cca5c2cc1957230cb61f8d6b02bf12117357f9cdcf62c5da423066b3fc"
+    sha256 arm64_linux:   "e0825144c9c45f897a22da0f2402252798fa03a1b709c5cec204457b38ed712f"
+    sha256 x86_64_linux:  "4754e894c18796433fa57f4fa945b0a60143cf55cc9f4df8aa918da500048214"
   end
 
   depends_on "pkgconf" => :build
@@ -26,10 +27,13 @@ class Botan < Formula
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do

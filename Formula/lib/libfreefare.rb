@@ -6,8 +6,6 @@ class Libfreefare < Formula
   license "LGPL-3.0-or-later"
   revision 4
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "9db2e4002368c2b87fb707952d9272b740078176b456920a5d5181019617b2dd"
     sha256 cellar: :any,                 arm64_sequoia:  "2a601550aaba3113176cbb9c284f263faab1cacdadaa841ca48ffac4cc36ea70"

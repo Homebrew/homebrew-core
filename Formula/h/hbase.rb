@@ -1,20 +1,19 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.6.4/hbase-2.6.4-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hbase/2.6.4/hbase-2.6.4-bin.tar.gz"
-  sha256 "97e3d07ca9fa1f28f12597662e2eb4e3341fad1521314e3c6c5a26f3b2a27b0e"
+  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.6.5/hbase-2.6.5-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hbase/2.6.5/hbase-2.6.5-bin.tar.gz"
+  sha256 "f9aa75ca683ddb942f33a5032ab7397509fe4a8bb851f5078176a66a5832fc21"
   # We bundle hadoop-lzo which is GPL-3.0-or-later
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "65045300f54b57ee162251465c51580d32ff03d31f02ac60554919672f770d14"
-    sha256 arm64_sequoia: "9a0ffe45b7478045b48c80f86d955351b37db39ae17715f57ba322d95a9f844b"
-    sha256 arm64_sonoma:  "9f8675ca9d26afbc1b3c4c5c636224d63e7f80aa6e6ec0c2bd227a420d5d3ead"
-    sha256 sonoma:        "dac9cc595749907be623745468ac7a3d541e458ff8320d66d7435c2d5d97976a"
-    sha256 arm64_linux:   "901723f520445cfcd248a70bb9ed5e2936e6130320cf85253c1c730f6f84b668"
-    sha256 x86_64_linux:  "414d6d6b72366b325683087855608f4d31fb3005a1e4ed42e149785022bd6382"
+    sha256 arm64_tahoe:   "add59c179ca1a52eda188727acbad545289cb0b7279d5667f205a745432bd395"
+    sha256 arm64_sequoia: "81c98b4253fcf7864192aec69b4b9bd50e44aba8654d9264dd86dc3147042e18"
+    sha256 arm64_sonoma:  "94e793b80b2a29c52db274322cb20d8c764ebf0fd624e42632a4b84504a5195c"
+    sha256 sonoma:        "246ede87a8ca8b624da273d08de57400a72b989c84c92d0b44553cb1bd61c5ef"
+    sha256 arm64_linux:   "c0e4e633a550eceac6fd8f0aa86a79789519208b57cf7f87eee2e79b30da8077"
+    sha256 x86_64_linux:  "ca2ccf74243eb40d117b1ec7209c0089b1f9824b3f2dde1a5f0347ac926aba9c"
   end
 
   depends_on "ant" => :build

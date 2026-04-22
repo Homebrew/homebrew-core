@@ -1,8 +1,8 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
-  url "https://www.argyllcms.com/Argyll_V3.4.1_src.zip"
-  sha256 "41ad51e02a3ec6981611be473221a3877fd359d3c1fa2172b4265dbe55f8b746"
+  url "https://www.argyllcms.com/Argyll_V3.5.0_src.zip"
+  sha256 "f8576ce5589fd15620abb73ff049ea31f55ddbd1bba6d1ffa87452658e7bc85f"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -11,22 +11,19 @@ class ArgyllCms < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "ae9c7d99adca2b6382b1fbd34f36db5b5fca42d18d362408b8095acb10cb04e4"
-    sha256 cellar: :any, arm64_sequoia: "f16dded9bf615eb33b11a9533524d2020498e7aab4766eb7c4de993e83cc8719"
-    sha256 cellar: :any, arm64_sonoma:  "0e15bf67bbbf98bf5cc480af3a90a0ac900616fd96dccf9cb1a53493e9ea6a0d"
-    sha256 cellar: :any, arm64_ventura: "b39ba95474701b963dadfddeca4bea00b037bb1baa766382e1108a879c50f84b"
-    sha256 cellar: :any, sonoma:        "52ec759d47c3d4925f111e492be5f52417bca86187e1aaf212b9a834729ccdb5"
-    sha256 cellar: :any, ventura:       "f8bc593f16e7c88c7c9ff5b852269223166f40d2de1dc68ea8957d0bc02c21d9"
-    sha256               arm64_linux:   "6e40aab9550ed5d4df52fb6bd054e352d0f6fdbccb5d02f412b2294c40f49332"
-    sha256               x86_64_linux:  "3d62059d60adbb6c0483ff303014de71bd9b2d4dd29b67d1b5122e8f5c817a72"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "ad024d41761298dfa2f61e8f233fb7601562ad3171586b572bd6592e9ef59641"
+    sha256 cellar: :any, arm64_sequoia: "ec9dc920b963d51b861d30f1bac076b2af27fa5f5b8ab7dddea552e4ba718c14"
+    sha256 cellar: :any, arm64_sonoma:  "5d8283a588d6646c5e1cefe0b1aaabb7939786d09c6e568569e7679887e1af1c"
+    sha256 cellar: :any, sonoma:        "34f854d137000aa8be85754b576214963f1f1afa01336495854ab8b300e78c1f"
+    sha256               arm64_linux:   "2125b4c16e24180474d11d494a7883c492c0e5473acd7c7838ce2b17e7f8508d"
+    sha256               x86_64_linux:  "c38a332aa8e7a21574b3144a645676b01201718e1bd9df1266b7063df6f034cb"
   end
 
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openssl@3"
-
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libx11"
@@ -36,6 +33,7 @@ class ArgyllCms < Formula
     depends_on "libxscrnsaver"
     depends_on "libxxf86vm"
     depends_on "xorgproto"
+    depends_on "zlib-ng-compat"
   end
 
   conflicts_with "num-utils", because: "both install `average` binaries"

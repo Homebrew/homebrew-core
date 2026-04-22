@@ -29,7 +29,7 @@ class Duckscript < Formula
   conflicts_with "duck", because: "both install `duck` binaries"
 
   def install
-    system "cargo", "install", "--features", "tls-native", *std_cargo_args(path: "duckscript_cli")
+    system "cargo", "install", *std_cargo_args(path: "duckscript_cli", features: "tls-native")
   end
 
   test do

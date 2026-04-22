@@ -5,6 +5,7 @@ class Re2 < Formula
   sha256 "87f6029d2f6de8aa023654240a03ada90e876ce9a4676e258dd01ea4c26ffd67"
   license "BSD-3-Clause"
   version_scheme 1
+  compatibility_version 1
   head "https://github.com/google/re2.git", branch: "main"
 
   livecheck do

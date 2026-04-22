@@ -24,12 +24,13 @@ class Audacious < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "43dddbdc3339e46dd9f16ed25f934a8e3b7840275e34d012ab400d51214afc72"
-    sha256 arm64_sequoia: "6152a1ffc0685fe363561de8be7a1d0e48ff715b4ff84280572ae73f5d0fcdf7"
-    sha256 arm64_sonoma:  "4d50ad67057b8518b2afe81968b8b439a041807439a38282dede9405fc1e945f"
-    sha256 sonoma:        "aa642b6fb11f90296a049298ac3671e7adc0ca1d8f80f3fe57637abf4732c4ea"
-    sha256 arm64_linux:   "277e4522ad10fdac7ad7930b41b423a7ac5e895334b9b916c75c96d7bcf60967"
-    sha256 x86_64_linux:  "d29b3426f41034f8d0a4874777953e56911d5261d21fa2f83d32b2da3bc722a8"
+    rebuild 2
+    sha256 arm64_tahoe:   "7a7f67bf4b64394d870e919adb218d6219d283519a371afd36a69ad6b5947364"
+    sha256 arm64_sequoia: "25325221b0c81275a2478a21a0952909599a5e1cd0988cc8e5b78506109ebbf4"
+    sha256 arm64_sonoma:  "7fb011f4a7c3c96d1106eb743b6d2b7cffbe37b07c7e66285a493b488823f579"
+    sha256 sonoma:        "55ccec676cdba4f7485c508722e24978c5d8b010b491feb6e4bb44ffcf1a1159"
+    sha256 arm64_linux:   "70eb9d875b483b0b76c50fb2f1eaec07891d721d771304d03f3e9cb698a44dc5"
+    sha256 x86_64_linux:  "b78c9ab9812b2e5a5f49837ce1922dc00b2ad4d2ae7215d7f6b1ed30873f4e8e"
   end
 
   head do
@@ -70,11 +71,10 @@ class Audacious < Formula
   depends_on "qtimageformats" => :no_linkage # for webp album covers
   depends_on "qtmultimedia"
   depends_on "qtsvg" => :no_linkage # for svg icons
-  depends_on "sdl2"
+  depends_on "sdl3"
   depends_on "wavpack"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -85,7 +85,9 @@ class Audacious < Formula
     depends_on "jack"
     depends_on "libx11"
     depends_on "libxml2"
+    depends_on "pipewire"
     depends_on "pulseaudio"
+    depends_on "zlib-ng-compat"
   end
 
   def install

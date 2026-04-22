@@ -11,8 +11,6 @@ class Pass < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "98bd9949756576685149b0bba825a0d4a12efc5f256d703236a09e24fb6ab2b9"

@@ -11,16 +11,20 @@ class Dug < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "23787c7d97ce2261c401cf7ea9e6634ac219c734a601860bc8569ad42422dd05"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "62abd150e0fbc780d10467802dd4bc25c82a20355835ee99dcebbbf48d841622"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6696bc5560f48ab96bc2fe25b6006f6e0c30b7642e158dbda41dc3245a774683"
-    sha256 cellar: :any_skip_relocation, sonoma:        "99a8effa57c0eab19d80a0ba2b072306a108d475b685e076a2c94a339f373a68"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f5de054a2a7a81e6dd3e48db5ef8762d8fd8b30b752e60d5bdf394d9df55f67a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a31afdee8e8f9deedbad4fd048e026814f6bb8a5dee2a307e05ec374cab9d01d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "68651322918983c7b3e0e1c1131fd2dfaf18bcc54410dd3a088b14aaac890dc8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8a09c77a720e84d5977a0a2a6e7d5362d915adbb23a77df37ced1e3a74423a3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9791a61fc43b2d7d38d0b25ec810263b76fbaf541fb964c26d6766e9c10a38b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9450c5733e42eacaf2a929ab39d89d6218146245aa6618e9b1ebaf856e314816"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9c006bc67d14e2e367b1d1783cc842571ecd099850e73ba3cf84ad1cb7b353c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da85a1f5e058349b15af0b48d9dd17b2ae3e8654f2f5f4170959cf3657c3e4d9"
   end
 
   depends_on "dotnet"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"

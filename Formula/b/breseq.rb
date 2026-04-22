@@ -1,22 +1,18 @@
 class Breseq < Formula
   desc "Computational pipeline for finding mutations in short-read DNA resequencing data"
   homepage "https://barricklab.org/breseq"
-  url "https://github.com/barricklab/breseq/archive/refs/tags/v0.39.0.tar.gz"
-  sha256 "5aa1bd9af71899e1358cfb9b8440c16cc908f185d9178a401a5a4d3f0c7ee861"
+  url "https://github.com/barricklab/breseq/archive/refs/tags/v0.40.0.tar.gz"
+  sha256 "1728515bea394dd0876ca5dedc78c724b836c370bb201bda1d585cb6fa058a52"
   license all_of: ["GPL-2.0-or-later", "MIT", "BSD-3-Clause"]
   head "https://github.com/barricklab/breseq.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9033acd95cad3f4b965f8baeacf9633bda0320067c79637a1322fe37673356c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f22120bae403eb392bec70333093e7176e565853bf5108b51ed37b82a8b39d54"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5d0b6591968d4b5747cf81d8f377560da5e8b2633d401d5e60f36e954655e49"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "251cb721ac1cedfb266a35557af31efc3964d9265c302c21186173c4089c5a3e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f071fdaf4fb3b7b454b94674075cabe7bed6bbc630b5e3979971f62a35de4401"
-    sha256 cellar: :any_skip_relocation, ventura:       "a7c5e18cc7968fd3e50450807eb1d84d2e1074b920e5a89011033c017621d248"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "987988b2b8ade6641d0559570e3bb0b42dc96ab16e89d0a8fe6de973ae5f4ccc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fecf53100efc095e8c48e3be539d2d40d12f285983ba02d64333326b3acc4040"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c3d40182dbf71cddc316bd1349d70fa7c2aa5a262324bba93a0090e6225bfc70"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1654a72c4ba499ff47f755911bc21cfa86268b5d825c9099dcf567b1ccad3afd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "247f05cb7334de6abb903f2e9bef85d086c9c11f9e4138b8f4d9fbbdbc3ccf54"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d8b18f44c48e8610c9ba5ab84e6a8954649b2fc8883409fe32088a8f5980f7b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c49d20b3be67929b921d1174fb5d2702f786ca6d6563ec63af7110b9a2f9a59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61129433de0f2142a2b0c6c8ba4bb7282f2c5da0220d097976c15016f8eb1cce"
   end
 
   depends_on "autoconf" => :build
@@ -25,12 +21,23 @@ class Breseq < Formula
   depends_on "bowtie2"
   depends_on "r"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+
+    # Backport of https://github.com/samtools/htslib/commit/515f6df8ff7dab6c80d0e7aede6e60826ef5374
+    # Currently not possible to easily unbundle htslib: https://github.com/barricklab/breseq/issues/399
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/acbb0d0473a8bbb75ea7fbb471457a2127ef2c2d/Patches/breseq/zlib-ng.patch"
+      sha256 "a15fd02db51bebb26cfa96c642d76959887cbf200edeb3a92b354bc00f269a5a"
+    end
+  end
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
+    # Remove hardcoded static zlib option
+    inreplace "configure.ac", "with_static_libz=\"$WITH_STATIC_LIBZ\"", ""
+
+    system "./bootstrap.sh"
     system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make"
     system "make", "install"
   end
 

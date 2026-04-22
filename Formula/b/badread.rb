@@ -3,18 +3,17 @@ class Badread < Formula
 
   desc "Long read simulator that can imitate many types of read problems"
   homepage "https://github.com/rrwick/Badread"
-  url "https://github.com/rrwick/Badread/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "236dee5ac99b8d0c1997c482df5b805908b0c34f75277ef706e897af71db1f9a"
+  url "https://github.com/rrwick/Badread/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "488ee2c4b87c064904e2ea1ef24ef833c2f5932aa4c1f03e361e2e4061692baf"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cb61116ebca8bec9b22139071f9845635e88840e9911141661bd731c150e8027"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f79260fe61facfce61ea9af35c21fcf5398a5e372193dbaa800cb2a755d3502"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cef938bdf102e7b9c6b4aa11a50cffdfc572044de21a54b7fbac677d9718adcc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fb8cca5eec6cb16e79912f2ac38c4721461dd8e6278be9517fb9001311c33d7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff8895a97c93ecbf53bf382cb0d77e6b588e559beb05332da4877fb032c99916"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9677618080b71fbe762f03a62173688539a4a56166f2f5b549e13a7aeffd586"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "042371e9220506883e1d344f62ab2c7a2beca38c5d4359219893ba9a517e1a20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87c8e760d6d86ae2238545fe656ac46d5f1ebae4529f6d0eda0a110a0b513d37"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7ca617c2e12300fba81a3b52bd31805766c17fbd9de2ec40a948353092b3b4a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e88eedc375f0f23edb10028f857b875ff32a69e558ee8c5bfd05b6c2e27366df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e2b062e71fcedb714e622bdf5305cb2fdb8c8ad63e78f774255d0f0694e5bf9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2d717a9b91d6b2dd37f3bcdb945a7446a0bdc5726725dc0fbe589e19e5b410d"
   end
 
   depends_on "numpy"

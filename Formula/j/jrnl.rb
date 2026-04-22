@@ -3,19 +3,19 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/en/stable/"
-  url "https://files.pythonhosted.org/packages/d6/b4/00ce3af0d836cd17fe869639fe31ee325038d38ac3ef403e378b1eae1a1f/jrnl-4.2.1.tar.gz"
-  sha256 "5d1edca3e3c48cf2929eb0c51f8fad2887b747fe3267a24d8faa0b02d6fbc1dd"
+  url "https://files.pythonhosted.org/packages/06/50/c1925fbf8472667b6cee6c211645fdc82a550d120ebe50536645252e4e64/jrnl-4.3.tar.gz"
+  sha256 "19ee865bf289b12bf412723874bd5876e25c2b6fbef7a226ea975fa3fcf0920f"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/jrnl-org/jrnl.git", branch: "develop"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa4562748012a42ee8666c34e8f958cabb5673c484210ae7a9adf176cc952530"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5b02079d5e5e3dec94d6985b5a7868ec61ac4acb86714c64df6d6bc19fb572f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb23b46a68196e8735929c19b70a1ad2f4f95b0e29bd323926540d47cf721d46"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d3ff4e0060dff57b2c7aca339e44f8a636dc65f027463ce27cf6fbc3703bbeb3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fe81340363950af8a223846e6e25e5774f4bab14a5cc193dc64861c0663daea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5af7f46e0f51c2b377ff67fc8b88d4949fcfede069a156891e0fedf46f7f3acc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2275dc57689de2ce991e8a344dec4f3feef18a7494fd3875c2d3975a97fc79e9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ae1d9b3836d12b1d08811937382151708bd2a75eb0ba4b7b0661f4de261aeda"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52f4523eda1fdb6c77beb98721d912b25dd140113e044631581e92c0d62cd2e7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "265bc76d88c124e443686cdec1ca720fcdfa29fe684f8b7e8d4a1e52c6d10135"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "24a46665b921592e20b48d48bffecd98122c40b5d09ccebac04bb8140af2cfdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "928eda5a4a094e449464230a5f56c2d69382cb639571a3d61032cad2711524f9"
   end
 
   depends_on "cryptography" => :no_linkage
@@ -36,13 +36,13 @@ class Jrnl < Formula
   end
 
   resource "jaraco-context" do
-    url "https://files.pythonhosted.org/packages/df/ad/f3777b81bf0b6e7bc7514a1656d3e637b2e8e15fab2ce3235730b3e7a4e6/jaraco_context-6.0.1.tar.gz"
-    sha256 "9bae4ea555cf0b14938dc0aee7c9f32ed303aa20a3b73e7dc80111628792d1b3"
+    url "https://files.pythonhosted.org/packages/af/50/4763cd07e722bb6285316d390a164bc7e479db9d90daa769f22578f698b4/jaraco_context-6.1.2.tar.gz"
+    sha256 "f1a6c9d391e661cc5b8d39861ff077a7dc24dc23833ccee564b234b81c82dfe3"
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/f7/ed/1aa2d585304ec07262e1a83a9889880701079dde796ac7b1d1826f40c63d/jaraco_functools-4.3.0.tar.gz"
-    sha256 "cfd13ad0dd2c47a3600b439ef72d8615d482cedcff1632930d6f28924d92f294"
+    url "https://files.pythonhosted.org/packages/0f/27/056e0638a86749374d6f57d0b0db39f29509cce9313cf91bdc0ac4d91084/jaraco_functools-4.4.0.tar.gz"
+    sha256 "da21933b0417b89515562656547a77b4931f98176eb173644c0d35032a33d6bb"
   end
 
   resource "jeepney" do
@@ -76,8 +76,8 @@ class Jrnl < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "python-dateutil" do
@@ -91,13 +91,13 @@ class Jrnl < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
-    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/9f/c7/ee630b29e04a672ecfc9b63227c87fd7a37eb67c1bf30fe95376437f897c/ruamel.yaml-0.18.16.tar.gz"
-    sha256 "a6e587512f3c998b2225d68aa1f35111c29fad14aed561a26e73fab729ec5e5a"
+    url "https://files.pythonhosted.org/packages/c7/3b/ebda527b56beb90cb7652cb1c7e4f91f48649fbcd8d2eb2fb6e77cd3329b/ruamel_yaml-0.19.1.tar.gz"
+    sha256 "53eb66cd27849eff968ebf8f0bf61f46cdac2da1d1f3576dd4ccee9b25c31993"
   end
 
   resource "ruamel-yaml-clib" do
@@ -121,14 +121,6 @@ class Jrnl < Formula
   end
 
   def install
-    # Unpin python for 3.14
-    # PR ref: https://github.com/jrnl-org/jrnl/pull/2015
-    inreplace "pyproject.toml", 'python = ">=3.10.0, <3.14"', 'python = ">=3.10.0"'
-
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     without = %w[jeepney secretstorage] unless OS.linux?
     virtualenv_install_with_resources(without:)
   end

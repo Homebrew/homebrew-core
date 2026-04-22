@@ -1,8 +1,8 @@
 class Joe < Formula
   desc "Full featured terminal-based screen editor"
   homepage "https://joe-editor.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/joe-editor/JOE%20sources/joe-4.6/joe-4.6.tar.gz"
-  sha256 "495a0a61f26404070fe8a719d80406dc7f337623788e445b92a9f6de512ab9de"
+  url "https://downloads.sourceforge.net/project/joe-editor/JOE%20sources/joe-4.7/joe-4.7.tar.gz"
+  sha256 "712b23a83a3757a93d2b4a76325b9dabba554c182b209d2675537c272867fcba"
   license "GPL-1.0-or-later"
 
   livecheck do
@@ -10,23 +10,13 @@ class Joe < Formula
     regex(%r{url=.*?/joe[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "d75751dfb61cb1bdfee67fddef1a388620fcd01b46e17c1bbca7efd0dfd00159"
-    sha256 arm64_sequoia:  "f38fa4459c7448db87ddfa85c7baeb98202c4e8b64b189607606f1fce906bef5"
-    sha256 arm64_sonoma:   "3ec4da98c72ff269ce6a608524a8463ec43ed55c081b859f0b172cb44ad1dad2"
-    sha256 arm64_ventura:  "5e8ac5942ca4dd172e198fe4f756d9b8bfb7f614766485dbf361aa77c6843c42"
-    sha256 arm64_monterey: "affefc197630adfb4ae357d8e144dabd0920022d9b9a9e4a3cad537629c3048b"
-    sha256 arm64_big_sur:  "24bd1c0ba2e1f70bf85d2cf403612dfefed70fa1d1441121e560184146b8a036"
-    sha256 sonoma:         "80843ad7715fd67b88449dfcf1db5e28b2f99ebb953503d11353c179b5b835de"
-    sha256 ventura:        "910933a1873d8f2debe547b5f6f2ff67726938e73d2dd79a060088637cf34b69"
-    sha256 monterey:       "4eca39a7205e80d0be7c9eacad34c1af5c2b2f7ac062b803a7245762efec9498"
-    sha256 big_sur:        "f108312e44e035b6475a7dc91096eb65cea4567cf00a9ad9b21f69da06af65ec"
-    sha256 catalina:       "ec0e97a7a7ce9b63775dcc978f23efe2780a7319f1746246b092378f04e2caf6"
-    sha256 arm64_linux:    "4b9a2c586152f8f8b238b0ea531b5dc7982eeb2b5cc7e3bb76d7ce32c87cc96d"
-    sha256 x86_64_linux:   "ca9c9790b7d1c6b64cec4974c90d6855bd2e977b80399a7240d2a3392551a874"
+    sha256 arm64_tahoe:   "d1c7b5584cac5808c35360d93715a1213eaac29acad6620404c14e9c05cecd69"
+    sha256 arm64_sequoia: "47383d58059171652e3bc640430f7ed0315889e2335da8e5eca24d37d38acce9"
+    sha256 arm64_sonoma:  "7cd44608926719abfc378287733307637efbdf065df213a7176b3156cbff5e59"
+    sha256 sonoma:        "d25c35b7caf21b3980f97ac39e4d5ff1b9a754a3c462dc717d39de9269a17ac8"
+    sha256 arm64_linux:   "9ff0f191b7bc1b1c83d08f1c35d23e271c950275a8eb753b4d32b42ce172698c"
+    sha256 x86_64_linux:  "5dfe1e49be8d02bdc6a2b2edda542344610182c2ef59b8685a2d6667475c1cc5"
   end
 
   conflicts_with "jupp", because: "both install the same binaries"

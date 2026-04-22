@@ -1,17 +1,17 @@
 class Dumbpipe < Formula
   desc "Unix pipes between devices"
   homepage "https://dumbpipe.dev"
-  url "https://github.com/n0-computer/dumbpipe/archive/refs/tags/v0.34.0.tar.gz"
-  sha256 "3423d6c7df6ff7c9579511a4d0523da3913cd242a4fa888cffced5932c020061"
+  url "https://github.com/n0-computer/dumbpipe/archive/refs/tags/v0.36.0.tar.gz"
+  sha256 "88088e77da5dc4c805f27d5b36cd8b3ea38626eddaf8dda7a0a3d5f4cb55da86"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "29ef54d4a9703603180e98e0090d1586a04e75e3b6099353d9da547072843ac5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64a0463bdcff85bf942ca5c2cb7749bdf6ec883251302be5711e040feef834cc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "811b5a4e652b0de6e52384fbd05c972c64ba3cc7a3aca5f668024cde8d82b096"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e6ebc423c9924372dc5d2e3f872e78870580782071246e2eb7a689e4a7dc15ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "59e9cfb5ed8d37f7c29777de417e0669ea45832612a3aadb454608de9ed477ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0549e78b9a59a4311c16fdca9159d6aff5aa3046cdb541fa1178d49af8a77958"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4bc114d3afa2e9dada5cab84c5118d3c08824d5a8690dbb1334c0781e12f4a5e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5bfabe3043deadc7b65609096ab779a8b83499fc3bdc02936a96e20d2957f6f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44c43cbe2d59c3c8e691c136a2cd4c74e75aadfc57d5c0d5adc67db08784f9fa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2ab236c97ce1851fb916380677fe9965aba57d337c81de1a5ac4d71bd6c2ff22"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "23f682183fb6011babbd6952d7127056a22de428256a6f1275f53575ef2d1ab4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14728b2fabedb44b0d3d59e9b0ed94ee66d513e0d186daf1c137e20b8b06a3ed"
   end
 
   depends_on "rust" => :build

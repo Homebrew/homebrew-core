@@ -1,19 +1,18 @@
 class Leetgo < Formula
   desc "CLI tool for LeetCode"
   homepage "https://github.com/j178/leetgo"
-  url "https://github.com/j178/leetgo/archive/refs/tags/v1.4.16.tar.gz"
-  sha256 "56d733633e0632469f71d6d43893d7698bb768403f498511f01b3ef2b6108d3f"
+  url "https://github.com/j178/leetgo/archive/refs/tags/v1.4.17.tar.gz"
+  sha256 "e5319326ad10bd0de452e5ec027e2c8f83ac05eea25662ca3e98658cc4798c16"
   license "MIT"
   head "https://github.com/j178/leetgo.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a9c98a584d406afc2ca320717eba6d9346acdee631615efd12ac4970667b3a3d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94028e3758ef790b62bce097247c1416f7cc194fbbe933db314de8c6dcbf9da3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a144999c0cc08d53ade161ba6b3a1cf4f92fe490b1ef6e96b1589e50a5e0851"
-    sha256 cellar: :any_skip_relocation, sonoma:        "63a4e37692d5d54314a46aa9bd34df6a9c0d02d34174d4fa47a5bc1b30504ca7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "76ecaf32b6e59b80998383b7f64daead8dbccf9fd42fea405e4f3425936bd863"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f3f52df626997cceb49fe191f85f522217f84b721a1c45789e65679ed5aecae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d513da08f10a465c62eea61bd9cf0c770d3b82a8310ab8c788d2ee4ac88d20ea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "11a62fd439fe559d59c0de6f4fcc270bd024d897fd33ac804d396869f81a752f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9c731806de9feb62d6db878df5da632a27980c58274a39c6a92ed740d50653d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "82101eda9995fdd25417518c5ba71ad0180b70d098cf3737bc1d4913a24c80d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3457c3699d9f33385fa0359a4e809b44287a1fa6f65c1065ac28fe84798b8174"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "510997fbadc32f9759af0046a52029e2a7f02fb74519a67429bc2d68f7e8de28"
   end
 
   depends_on "go" => :build

@@ -6,8 +6,6 @@ class Asroute < Formula
   license "MIT"
   head "https://github.com/stevenpack/asroute.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c6742a4381bdb0de6f208dfcaba3e95ca02ffa9c7ff2263ed492ac082af55d24"

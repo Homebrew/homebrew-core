@@ -1,8 +1,8 @@
 class Gkrellm < Formula
   desc "Extensible GTK system monitoring application"
   homepage "https://billw2.github.io/gkrellm/gkrellm.html"
-  url "https://gkrellm.srcbox.net/releases/gkrellm-2.5.0.tar.bz2"
-  sha256 "68c75a03a06b935afa93d3331ca1c2d862c1d50c3e9df19d9a8d48970d766b55"
+  url "https://gkrellm.srcbox.net/releases/gkrellm-2.5.1.tar.bz2"
+  sha256 "089e3c1ed398482e682c9900b504ea166a6144a6c9fa041e70c5bbca6b177e63"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Gkrellm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "5886c2e585d5d4b19190a4576997d7354971489ea3d9ecc4052fcbe62434848f"
-    sha256 cellar: :any, arm64_sequoia: "1dcbb331cd8c384c23a424e587bdf160ae07d0781c2fba9f56a48fbaa7d8041e"
-    sha256 cellar: :any, arm64_sonoma:  "c0694f7dc9fd6bdb71296d1daec0884b56e7bb366d75e026157bd7c669117130"
-    sha256 cellar: :any, sonoma:        "49c0749dd03fd3b8b4f939bc54292f7fc72b5288993ef32b2e8b29dbd74d4812"
-    sha256               arm64_linux:   "6c7aef96343821bc870a4aa91e40c2f05dc440f77c8c857764abcee9e63b20be"
-    sha256               x86_64_linux:  "bf71285bb443e61a5a7c4ef900a07e21799131b0a342eda2c0c7ffd205e3240f"
+    sha256 arm64_tahoe:   "936a8c81763c7bec55bff88e4191b3c550629ea638728b94924ad7548a52f663"
+    sha256 arm64_sequoia: "cf13c52a8564497ea6b470048141efec9afad5fe0173982a1a8e8d7f6e6211eb"
+    sha256 arm64_sonoma:  "c2113a61b119137b16dcc32073cfbca1851e8def91cf7a7588628e01cb29d5b6"
+    sha256 sonoma:        "5580325f07672b8271d4dfd69a7018e9d6b242a695fc4f62903479cd83ab120b"
+    sha256 arm64_linux:   "29063e4bc0c06e3e6c1328fad75f9f1a5061a1d66d41bfcbe16a7faa91136817"
+    sha256 x86_64_linux:  "f3d9b23caf99e6749de17b505878868a235bb4e7cca6143470c32335a6a1fe7a"
   end
 
   depends_on "gettext" => :build

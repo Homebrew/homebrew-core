@@ -15,8 +15,6 @@ class Tundra < Formula
     strategy :github_releases
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e1bb8df7048132f46b74c03364a0b546e27f608eb9868ddfe780678001ab5b2"
@@ -28,6 +26,9 @@ class Tundra < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:   "498d5c53b38c42f02714f86ad03052b2a901189cb92e0731c5ba7074488e1cca"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fad1cea39ec00029ac59d256942a16e6e1d7fca077ad817e312257335bf32858"
   end
+
+  deprecate! date: "2026-02-17", because: :repo_archived
+  disable! date: "2027-02-17", because: :repo_archived
 
   depends_on "googletest" => :build
 

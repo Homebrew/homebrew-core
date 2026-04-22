@@ -15,7 +15,7 @@ class Minizign < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc703647a481bb360cd6413e1e926898dcc6b7cad9bcf8ae02f139b3afee7f1e"
   end
 
-  depends_on "zig" => :build
+  depends_on "zig@0.15" => :build
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.

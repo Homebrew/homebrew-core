@@ -4,6 +4,7 @@ class Libdicom < Formula
   url "https://github.com/ImagingDataCommons/libdicom/releases/download/v1.2.0/libdicom-1.2.0.tar.xz"
   sha256 "3b8c05ceb6bf667fed997f23b476dd32c3dc6380eee1998185c211d86a7b4918"
   license "MIT"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "edf1ef90081de45407247c6f2c62dfa5f25ec6e449c77fd817587e4e7947bdd5"

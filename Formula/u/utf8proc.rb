@@ -4,6 +4,7 @@ class Utf8proc < Formula
   url "https://github.com/JuliaStrings/utf8proc/archive/refs/tags/v2.11.3.tar.gz"
   sha256 "abfed50b6d4da51345713661370290f4f4747263ee73dc90356299dfc7990c78"
   license all_of: ["MIT", "Unicode-DFS-2015"]
+  compatibility_version 1
   head "https://github.com/JuliaStrings/utf8proc.git", branch: "master"
 
   bottle do

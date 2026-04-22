@@ -1,8 +1,8 @@
 class OpensslAT30 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl-library.org"
-  url "https://github.com/openssl/openssl/releases/download/openssl-3.0.19/openssl-3.0.19.tar.gz"
-  sha256 "fa5a4143b8aae18be53ef2f3caf29a2e0747430b8bc74d32d88335b94ab63072"
+  url "https://github.com/openssl/openssl/releases/download/openssl-3.0.20/openssl-3.0.20.tar.gz"
+  sha256 "c80a01dfc70ece4dc21168932c37739042d404d46ccc81a5986dd75314ecda6f"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class OpensslAT30 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "9619d2fb3b6919841f21b2cb093ef88109985755dcb84ea6498a0930ad49684a"
-    sha256 arm64_sequoia: "32fb5993fed07584ba005b8d639d7b632e517af3f6cc1a40d02295f4e924fbef"
-    sha256 arm64_sonoma:  "4a27401ee1913548c813f4449257ab3775590abdba2147f1e4f0b41b0022da33"
-    sha256 sonoma:        "1e9402edf1c94163731358634f313fb0daac05a22e612ae94f16878afcd0cde7"
-    sha256 arm64_linux:   "0b944da57f0fe0cba86f617ce0d570876dc5cf5925f58ae3b2a5844e6ceb41a6"
-    sha256 x86_64_linux:  "4be61c87690ed707e71ee39dfe6147d02bc9d598760b93807cc46b8785a0463a"
+    sha256 arm64_tahoe:   "b8a380a3864e98d8ae749cfda14813b2c296b70533a5f9b1b75223924112b468"
+    sha256 arm64_sequoia: "f58cd6179750dc99c3935d0823cfd6bd0a53de5a23adc84a324ef72e6edeb9d2"
+    sha256 arm64_sonoma:  "3b8a464437763b651865abf5e787efd15c3314aab851b9d330eeecf039a80e7b"
+    sha256 sonoma:        "ccd9bd883269a12072a20d80c4b5809e3f98fc7c1b2dc5127f15cfff7dacdd5a"
+    sha256 arm64_linux:   "3face5a84d70241e52541b3394693a663f02603739f644056d7dddd71701caad"
+    sha256 x86_64_linux:  "1c53d69926adb8f609a01fe4b5e7be7339213a55e1176338bbe293a90fceaf2f"
   end
 
   keg_only :versioned_formula
@@ -40,9 +40,9 @@ class OpensslAT30 < Formula
     end
 
     resource "ExtUtils::MakeMaker" do
-      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.76.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.76.tar.gz"
-      sha256 "30bcfd75fec4d512e9081c792f7cb590009d9de2fe285ffa8eec1be35a5ae7ca"
+      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.78.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.78.tar.gz"
+      sha256 "43b33c20f8d82dba7cc48f8cd702f8fc9811e9d07880886dfd31b7077bd4a3a6"
     end
   end
 

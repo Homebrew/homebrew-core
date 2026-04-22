@@ -3,18 +3,18 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/b5/6c/373401c521611312aea4d199140034337aedd8fe3d4b038a72944503183a/commitizen-4.13.0.tar.gz"
-  sha256 "4d6c90c1e43d83a71b396ca6e65ef3d2e62bfc1961ad3ae7cd8a257478243455"
+  url "https://files.pythonhosted.org/packages/37/95/da2c71ed6a1c06836cdd4eb60a8b9e1bf05f4ce7029ab508081745171be9/commitizen-4.13.10.tar.gz"
+  sha256 "402b5bcd466be69ba79a3f380be6ba5b55ac658c7d2a93e82fc99668a6eb2673"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3d5a43f74c4c00c587f1873927c5d616fe5b4ba674109498c491dc918ccb4977"
-    sha256 cellar: :any,                 arm64_sequoia: "d1932aec21a8c01e7e6029db32b6e32e6c15dfd02c8a5296b93508eaab878cb6"
-    sha256 cellar: :any,                 arm64_sonoma:  "b380e99afc6aa761d219ce9032b24e2982146e56eabffc60b88486af1ba3366d"
-    sha256 cellar: :any,                 sonoma:        "7aa20e0cc4630f8c0dc0482d668be5236d165260d6ad3e021874bb1fcd331008"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "87ca9865f245d39a19cb406ac6f0a6fe4c84483b6fedd2fb8bda63131659205c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5429ed6be219e317d4ccb4b11d7f84661f11aae45d4662f2ddc7fa13577c8e6f"
+    sha256 cellar: :any,                 arm64_tahoe:   "203ac9e107e231dd71c39d0682883dd5c069d6cb701bdb2af8631b2566d9d979"
+    sha256 cellar: :any,                 arm64_sequoia: "b8d4ec3b823c07e2a644672398cc0719b576d3fa16cdd9f16c1288ab50158bc1"
+    sha256 cellar: :any,                 arm64_sonoma:  "4b8369bcfed4ecb341b1da78dd369ae9d1e28a09bc6f49db3aaae801d7793650"
+    sha256 cellar: :any,                 sonoma:        "dd3e931b574390eeef5ebe8e404e4933890a352febca03910c150215024cd467"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5869e5c607574f92612c0a4b0ae7d504de0ff99c5621c3cd84d45470a149ba0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb5debb5892de0c26d1c1e2d1de8865887523726c4b8f4ba021fbaeb73eb0c39"
   end
 
   depends_on "maturin" => :build
@@ -28,8 +28,8 @@ class Commitizen < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "colorama" do
@@ -88,20 +88,16 @@ class Commitizen < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/c2/62/a7c072fbfefb2980a00f99ca994279cb9ecf310cb2e6b2a4d2a28fe192b3/wcwidth-0.5.3.tar.gz"
-    sha256 "53123b7af053c74e9fe2e92ac810301f6139e64379031f7124574212fb3b4091"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/86/31/afb4cf08b9892430ec419a3f0f469fb978cb013f4432e0edb9c2cf06f081/wrapt-2.1.0.tar.gz"
-    sha256 "757ff1de7e1d8db1839846672aaecf4978af433cc57e808255b83980e9651914"
+    url "https://files.pythonhosted.org/packages/2e/64/925f213fdcbb9baeb1530449ac71a4d57fc361c053d06bf78d0c5c7cd80c/wrapt-2.1.2.tar.gz"
+    sha256 "3996a67eecc2c68fd47b4e3c564405a5777367adfd9b8abb58387b63ee83b21e"
   end
 
   def install
-    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
-    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
-    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
-
     virtualenv_install_with_resources
 
     generate_completions_from_executable(

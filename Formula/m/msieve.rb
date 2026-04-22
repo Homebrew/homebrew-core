@@ -10,24 +10,23 @@ class Msieve < Formula
     regex(%r{url=.*?/Msieve%20v?(\d+(?:\.\d+)+)/}i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "2b65b15dd3dc23b5ce6b836922bb640e0d8025a718660ba6dc8cc2f7f32e3d53"
-    sha256 cellar: :any,                 arm64_sequoia:  "2260d591d00ad9854b38b43ccacae829d03ca030b0f5e50ec5989d7ce2b3e616"
-    sha256 cellar: :any,                 arm64_sonoma:   "e2048a031203ed1bb7bb3ee4becb928faa9f6d40b96ce62d3718873dd25bc83e"
-    sha256 cellar: :any,                 arm64_ventura:  "b5fd08185a6cccac73b0cbdbc912880cababcee826bf5dbd3a07a6b6a590b53d"
-    sha256 cellar: :any,                 arm64_monterey: "58f7c8472236d7c6213d11a6160e9b58a07de88dd07f0cb2c6281d3d800ce942"
-    sha256 cellar: :any,                 sonoma:         "0be196c24813acf765158fe9fc3c525daf39627c52b762e6dcb54e99dad4fd6f"
-    sha256 cellar: :any,                 ventura:        "712fbadc3fd1dca26ddb4c0d578c9d067e3c246c8fb56ef27eaa611ca5a60cea"
-    sha256 cellar: :any,                 monterey:       "5d992af057d4b06b7f0898fbdd560410efeca4d336a4e562a916af392fe21019"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "d16fedefd47cb5e83d6e171e47d9d347494a65d957e900a103c73d7d93f1e2fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8580e27cfae573df3fd975a42ceea4967f1397e566523189f385ce7a128148e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7e5d447bbc245a2b91d8993937c87c8e559678ebd68f972905d6c11e0d2b29bf"
+    sha256 cellar: :any,                 arm64_sequoia: "73413cbe23c21e464017e6abe5b7b10bf2e3e384e2e23f51dceef0be7bddc051"
+    sha256 cellar: :any,                 arm64_sonoma:  "b35f5ce318727e40a0c2d540707475a883853effa8ea4c5214dec80f776b15ed"
+    sha256 cellar: :any,                 sonoma:        "ca06f592fd7bc5ab600f422c05facec833296457fc5b9f511d80eae85b9537f3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f469949e04536f662b6f3d7f8a4afdded9af65d7f4feefcb7fd9670dd92f3e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00366a1231d99d1ecb28d24e714467b1a5f4437504934d882fcb64fc35338ee5"
   end
 
   depends_on "gmp"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV.append "MACHINE_FLAGS", "-include sys/time.h"

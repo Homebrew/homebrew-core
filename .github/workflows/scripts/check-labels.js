@@ -146,6 +146,13 @@ module.exports = async ({github, context, core}, formulae_detect, dependent_test
       console.log('No CI-skip-new-formulae-strict label found. Not passing --skip-new-strict to brew test-bot.')
     }
 
+    if (label_names.includes('CI-skip-online-checks')) {
+      console.log('CI-skip-online-checks label found. Passing --skip-online-checks to brew test-bot.')
+      test_bot_formulae_args.push('--skip-online-checks')
+    } else {
+      console.log('No CI-skip-online-checks label found. Not passing --skip-online-checks to brew test-bot.')
+    }
+
     core.setOutput('test-bot-formulae-args', test_bot_formulae_args.join(" "))
     core.setOutput('test-bot-dependents-args', test_bot_dependents_args.join(" "))
 }

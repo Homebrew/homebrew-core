@@ -7,21 +7,22 @@ class Bamtools < Formula
   head "https://github.com/pezmaster31/bamtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "de2b4d556e28fa243f1ffed7caa5a587d02a6ea23bfd11e9b977d6c4808c57d2"
-    sha256 cellar: :any,                 arm64_sequoia: "3373086bf64dc373555ebe29e0d83b7717e9753c2568f6e28aa1bda00f03c8cc"
-    sha256 cellar: :any,                 arm64_sonoma:  "1bb2f639770d64612d2a90faf8409396a4ca9c8d07ac57c49ea34605110cb8e9"
-    sha256 cellar: :any,                 arm64_ventura: "f3ba5ba2ba5277012456cfbcfb26c4dbd7a1a5c7d5eb59034ff0ec3d10b08409"
-    sha256 cellar: :any,                 sonoma:        "d47d47a532624911149aeed6ce5f3774d040bc589c188f8699f43025920ac3d6"
-    sha256 cellar: :any,                 ventura:       "1b1ed182544cc5cb37a5706c1246f4bf0df3f14bf199ebc2c46c60e55e40f7a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc7464d2e563ff3573d4d1754e543ce554efc1af87cd361301e65b7ca0d3b0ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1338babe6eccee20e6d23f405db8267025fe19f221e0ddd9d7cb2cd02654c48"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7f678e35ee8bbd84f50d0bc33a6ebeb840754b2581599be380d6bbd823f9b70e"
+    sha256 cellar: :any,                 arm64_sequoia: "b0af491c561150a59e610140388f05e9d61eaac14806f6e1aee5069413b4c2c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "7a331a56657ba146a719fbe8911bb43e7b9155c824a6c4f33ecc88931800a53e"
+    sha256 cellar: :any,                 sonoma:        "83b46fc21dd8d03010235b022abe2d98bff4219707b5ff6fbad3c7735609286f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0575567ce67f57826e323b0f26aa06f5b0d4f23db128c45b659bd4f1243fd903"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "464bbce0fe1f5f7e302f4274e4e5bfb1153083f95b7e5d754b70690b8cc0748a"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "jsoncpp"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     # Delete bundled jsoncpp to avoid fallback

@@ -1,18 +1,18 @@
 class CargoRelease < Formula
   desc "Cargo subcommand `release`: everything about releasing a rust crate"
   homepage "https://github.com/crate-ci/cargo-release"
-  url "https://github.com/crate-ci/cargo-release/archive/refs/tags/v0.25.22.tar.gz"
-  sha256 "ba7b6d126d4042f709453106bdb5392bf6aa88f1be25c028bf47f5f1da8a2b97"
+  url "https://github.com/crate-ci/cargo-release/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "7121921bfd2bb03ef99e70296d672d2d6838b32c7407d50f9915c5d4ee28461a"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/crate-ci/cargo-release.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "11e04e92d65adb9abcf892b35fd83c6d1364d2680f44e22e237f51bb60dd8222"
-    sha256 cellar: :any,                 arm64_sequoia: "412f78929909c97ed6c1d7b7da3f478bd8302f1511da5a93d7049aebb2650c3b"
-    sha256 cellar: :any,                 arm64_sonoma:  "6116b41b83dc38ffbdb85d6544781d71c87d37552d0949c1b89d0bb387f317d5"
-    sha256 cellar: :any,                 sonoma:        "c10784d991e5aedb06b7e1869a2b47ebe2c14322edc6ebc7dcc866a40b63bc94"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d40881fc836c6d7c3c4d5533bc6465b53646833d835edb3bedd5d3fdd9ffa1e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "724a3edeaa30bc7973e584dbcee23f40501191b850b96f959a730c2e2f38f0e4"
+    sha256 cellar: :any,                 arm64_tahoe:   "c834f40c75a5bb29d2f0abd1ade85f9bf28bef15aadf7a3f38e95404f3f1fe9f"
+    sha256 cellar: :any,                 arm64_sequoia: "d7d6c2b6e9e1d0ee610d5be134adbbdeb27f574abf803083d163d5267ca7e94d"
+    sha256 cellar: :any,                 arm64_sonoma:  "8da7ca9e8d700f761590f6a5b53d50219f871801d2fadc4903a0f349b422a748"
+    sha256 cellar: :any,                 sonoma:        "9155960fc4db70389d95227247e5a67bbf9937b3209b78350895a36208b19fe8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "17a1f513fe5f9c04cc2941ed39e17646458f0a12ba9671f9aa59cd8f04de3710"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94364844f0438fc1e0fd8a031780a0f662a79bf4fd1b1ccb52dcfa7fb9c8bd43"
   end
 
   depends_on "pkgconf" => :build

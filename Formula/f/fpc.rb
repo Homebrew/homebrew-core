@@ -14,8 +14,6 @@ class Fpc < Formula
     strategy :page_match
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "2a9bc7750dd16814a483d10f1dfd4827c6f89569ccc1b46a6b0b0d60f1c1b792"
     sha256 cellar: :any,                 arm64_sequoia:  "075f0b14b19da5236d2bb421450d1b86fb816bc62a9bb0adaf97404662f9ab02"

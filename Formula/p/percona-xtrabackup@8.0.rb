@@ -4,6 +4,7 @@ class PerconaXtrabackupAT80 < Formula
   url "https://downloads.percona.com/downloads/Percona-XtraBackup-8.0/Percona-XtraBackup-8.0.35-35/source/tarball/percona-xtrabackup-8.0.35-35.tar.gz"
   sha256 "012aa40e35d7186da1d0c4ccd20d703b2b56a69dc0d750056d969245226a3d67"
   license "GPL-2.0-only"
+  revision 2
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
@@ -20,12 +21,12 @@ class PerconaXtrabackupAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5baac7ce55ea30ca98e9696f1a76924b40106b55006a24a956de0899f4c1d3dd"
-    sha256 arm64_sequoia: "b9ddf43cdca247b4dcf1f17c3e7fc572875bad1cbdf271a35a0e0713b537cdd5"
-    sha256 arm64_sonoma:  "24f46d69039a9695f07bf12d490e368e9aa5501f03a8b3d71f0c3daa671d1071"
-    sha256 sonoma:        "fc28ce5443261b2855828753d0bb4363995314a8a05dd56d8d5911e29e64025e"
-    sha256 arm64_linux:   "ed6c4af9b187246f1595290b3d102f70158ace4250bd6283c3f254412df3ff9c"
-    sha256 x86_64_linux:  "7df6427067e245c068af7c80de9ed38a10099928e7a2f018e45aae4650f7a243"
+    sha256 arm64_tahoe:   "72eee77f7688e5de0bf0e764be5e97dddd3165a4e41c319701c836926f121ec0"
+    sha256 arm64_sequoia: "55d0f8f7db2dd57ead261cb61d2448d16b4fa88b445b6820431171d0f27e9b23"
+    sha256 arm64_sonoma:  "e56df1eb586af4e081c13f61bc18ee8cb7067acedde77da0f9ebd57ef000fd12"
+    sha256 sonoma:        "ca80a4753acd84f1049d323ec265cb0aecfdfb4832d46ae23775727b0d6a6fc7"
+    sha256 arm64_linux:   "7672234c18aeec98280de56e0c4462857c4d22c7cd91a7ad2138fa7a66e1cfc7"
+    sha256 x86_64_linux:  "e602eddd787f87fc0d7e930816cc929f1bd6b86c0e203334a14a4f39d40e9ca0"
   end
 
   keg_only :versioned_formula
@@ -46,7 +47,7 @@ class PerconaXtrabackupAT80 < Formula
   depends_on "openssl@3"
   depends_on "perl-dbd-mysql"
   depends_on "protobuf"
-  depends_on "zlib"
+  depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
   uses_from_macos "cyrus-sasl" => :build

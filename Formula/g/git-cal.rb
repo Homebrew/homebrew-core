@@ -12,8 +12,6 @@ class GitCal < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "b2ae266c7357f258b1daf368b5f744e3ad785f368eb1231d8db232be05e59389"

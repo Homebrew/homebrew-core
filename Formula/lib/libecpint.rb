@@ -6,8 +6,6 @@ class Libecpint < Formula
   license "MIT"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "a5d5b23e49813b83e94c2db21f568761f730637fb53dd094b44a4d5ebc66300b"
     sha256 cellar: :any,                 arm64_sequoia: "c52edb64ef2f58d2917ed6c23b673ba7a91e235d5f484dd33f5b09aa667d165a"

@@ -4,6 +4,7 @@ class Imath < Formula
   url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.2.2.tar.gz"
   sha256 "b4275d83fb95521510e389b8d13af10298ed5bed1c8e13efd961d91b1105e462"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "ce46ad834b2daf8d6e85f8f2ffa5ee5bb0ef241d8f55effedf54bba69e8a6437"

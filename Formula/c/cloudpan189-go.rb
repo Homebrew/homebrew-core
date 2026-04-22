@@ -6,8 +6,6 @@ class Cloudpan189Go < Formula
   license "Apache-2.0"
   head "https://github.com/tickstep/cloudpan189-go.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d292a2bd969d609f7f5f005b2f8e59a4a3807dfd6271d2e01d1b0d5807d1bae4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "793542588a08328d55060fc0faeb3808bde9656eee00e8df0b9ca98ad70ed9b0"
@@ -22,6 +20,9 @@ class Cloudpan189Go < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "42247f05683ad756a121dfabe4afd9074ad416ea13d681670e686dfb1b4cb68f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "21c193bc56690eef410bdbbce6d6b774fcf658f16b114ea0222afee18591d361"
   end
+
+  deprecate! date: "2026-03-22", because: :repo_archived
+  disable! date: "2027-03-22", because: :repo_archived
 
   depends_on "go" => :build
 

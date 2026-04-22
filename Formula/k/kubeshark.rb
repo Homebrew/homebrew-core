@@ -1,8 +1,8 @@
 class Kubeshark < Formula
   desc "API Traffic Analyzer providing real-time visibility into Kubernetes network"
   homepage "https://kubeshark.com"
-  url "https://github.com/kubeshark/kubeshark/archive/refs/tags/v52.12.0.tar.gz"
-  sha256 "7afffa42fa13164e6048de97ca522d4751c6f337048aa7fb423f7840d46bba2c"
+  url "https://github.com/kubeshark/kubeshark/archive/refs/tags/v53.2.3.tar.gz"
+  sha256 "c02a61a4d5d773712526230ef0d39f691d0253564ff56d2671685ea9d35e110b"
   license "Apache-2.0"
   head "https://github.com/kubeshark/kubeshark.git", branch: "master"
 
@@ -15,12 +15,12 @@ class Kubeshark < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e03a4dfeaed44c08d9b1d2402497ec79cf0b3cc45c853f4bba248d2be8d2b821"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "27781e4d38ec45292834af4a138f907852800f841f20860693863f6b78ad2184"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "61f0f27fbc553f559ab61213befd11fd9df71972f7c9210ee99932695643a8f2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bfa92b6355b103d1048802216bf7e40ac2c488943d5267a7950b73557b33b5de"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2029dc15222bd233f2e3a08aa84fe2f0eef152b454a5df37fb9ae7e881ae4fbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c0a5ea2be05890a741aac761f0d6d74404852fdebb06f14e94f3a1b3bc5ac1d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "85a62db327208fbdc646cb0886339fb3cbf0ea05c2d099814a0686604863021f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "61c7da4d2c2c7b20f154e4d9563f39dd79707aa9dbc6f5b51b4abb9d3465b0af"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "350d51b46a973629daee8f8157cc68cdcedb8b332de7c3296b9db51d0bc5e195"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4206eb1da1ed99a25c90a7e687dcaa1e0e8cfc786d0b784a6bf27e00e60088f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e07ce21ef99602e20d7ba07dc7d9b3347a6174ad9b39be6a71a33db29bed591a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8f0e8ebe3f59bb66d85c34f478f495e6236750c636a015c570abb922b0a966b"
   end
 
   depends_on "go" => :build

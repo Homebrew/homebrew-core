@@ -1,8 +1,8 @@
 class Entr < Formula
   desc "Run arbitrary commands when files change"
   homepage "https://eradman.com/entrproject/"
-  url "https://eradman.com/entrproject/code/entr-5.7.tar.gz"
-  sha256 "90c5d943820c70cef37eb41a382a6ea4f5dd7fd95efef13b2b5520d320f5d067"
+  url "https://eradman.com/entrproject/code/entr-5.8.tar.gz"
+  sha256 "dc9a2bdc556b2be900c1d8cdf432de26492de5af3ffade000d4bfd97f3122bfb"
   license "ISC"
   head "https://github.com/eradman/entr.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Entr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b8841519d0ce82f1a8c52246050ed758c7be32e84e86bf7b93f6d57d1683121"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa513900e241782d8d90998fc2c5e7a817f04e33120aeb1ca2db659120f3b4b1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "802982cec1f0f4ca2123e5afe40aaf2709ef11de882a54516a0c435dbda233f1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "badd684160fe6618cae3938877a687d10951cea937fb4ed9dffb2c121a20317e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bf673e248b9ecff9457c892d56142fe10bd6dc4136929105e65a5fc081b11b2f"
-    sha256 cellar: :any_skip_relocation, ventura:       "79f31d0171888953a7dca0685b335eec0983ef12a473458f81be0a07d10a2108"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6a4062b80d77c0c7ea22591b2bea9496842c92b989b435554225a3c16f7d827"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e44cb7f98f576a76445eaaf449da0b730302b127e072f7ddfd6e01c85a3fef7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "838218c42fb25f73f78c0a68631333ebc9372cb2b5fc21c4facbee3d94639596"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1df251e5b118f90f573327376353af95ffebdd858f411074edc70d57fbe49667"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "609efce32b36a2faac1a8bf25a003517513ec3cbca5d79cabdefa676f0039b95"
+    sha256 cellar: :any_skip_relocation, sonoma:        "310c5ae14c62db4d53d5e1c007e7e02b1c723c4098946bcc88ea6b42ab6523b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2770c4fdd3add4a0c511fa16018883398c60398675f33c0865b886a20ce49ddf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be565d82b4b77bda77413c369cce336b188cb752a74c21a75ac87a227b8fb60a"
   end
 
   def install

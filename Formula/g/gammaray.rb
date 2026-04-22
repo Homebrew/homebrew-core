@@ -1,19 +1,18 @@
 class Gammaray < Formula
   desc "Examine and manipulate Qt application internals at runtime"
   homepage "https://www.kdab.com/software-technologies/developer-tools/gammaray/"
-  url "https://github.com/KDAB/GammaRay/releases/download/v3.3.1/gammaray-3.3.1.tar.gz"
-  sha256 "270b35239f2473f9c9cded13498ddb8af82d589bf6518db776d837a73c9441d8"
+  url "https://github.com/KDAB/GammaRay/releases/download/v3.4.0/gammaray-3.4.0.tar.gz"
+  sha256 "bcac8aa24671bcfd563213f5cfd9e61cf555b22ee3896e8111a5c3a588aacadf"
   license "GPL-2.0-or-later"
   head "https://github.com/KDAB/GammaRay.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "548f1b1234dffac56c3fade64c058b10211bd3fe6233c0d5b943a434fc0a892e"
-    sha256 cellar: :any,                 arm64_sequoia: "15787896f62185c08e7baea63a43f3620e4228bb7582cca8c76e2315c9663e66"
-    sha256 cellar: :any,                 arm64_sonoma:  "72a180b812ae7beb9aed13751ace665085ac0ecca3b6d294800c73f524254248"
-    sha256 cellar: :any,                 sonoma:        "8aa40d7ff44dd50ca11862f7c158433f994f005e7f37ddddedfd39af0ec24511"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "856a70289b82714039cbc47a75ba66f657a0a70e290d00b9a4a80110bfedea4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "686dcbd9dd392b9405eb9d41dde205cd4a53889435f580d8d97cead1c033b235"
+    sha256 cellar: :any,                 arm64_tahoe:   "c19a1b68812e0bb1532fcc58c22e807e6aa20a019b8d1a7fe8ca272a7275b340"
+    sha256 cellar: :any,                 arm64_sequoia: "92ad089dc006f9eacf961c93fffb74dbf5d21a11622b965aeef3dccbd9cfd665"
+    sha256 cellar: :any,                 arm64_sonoma:  "a606aa3274d822ab188c0e4f1a5a30438bd11fba03212928bc688bcf23821bf5"
+    sha256 cellar: :any,                 sonoma:        "9ee8b02c93141d665fef7bd26941d4669faaf7bc6c150cf36d32152bfd4bcf8b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b30b250ba0d8004020e2c2f11ccc4f530eb8a95e1985e4e4b1f3638920280007"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28019d16d212ca777431dbd65d214ecdeec0e10d92173f469db2e46c94946027"
   end
 
   depends_on "cmake" => :build

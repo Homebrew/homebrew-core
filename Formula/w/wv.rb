@@ -12,12 +12,13 @@ class Wv < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0ea610b3af0db757bd189bab60fd9f0ce33d58ae8aa7fce209aa4e375a22e26d"
-    sha256 arm64_sequoia: "a1fe23b7dbd8951b5031eee67dc408932e51c395d444f53ef1ce29cd8948551f"
-    sha256 arm64_sonoma:  "3b3b70ab46313696e589a386a1a9e76c967dc0e95ca720198e0210be7ee90d07"
-    sha256 sonoma:        "d917a7034103f2cef93248e3247728dac9647b9de7704a26e9ce0aaa1a887a2e"
-    sha256 arm64_linux:   "c302b804a122226813a871e29f03c119be83a7992e136970c8852ef24866b913"
-    sha256 x86_64_linux:  "4a0749df38aa92f298e0c7250ed55fe1cdff9976d2c1a738c77850df61815a2e"
+    rebuild 1
+    sha256 arm64_tahoe:   "0b1a7b66a5369c2e739d1b1b39315a0813672e1e3a314e9656d4e3be6bf4dece"
+    sha256 arm64_sequoia: "c0ae3245bfab0575b61cd15afeb41080e5e8de9c0c032855b882e2186faec7ac"
+    sha256 arm64_sonoma:  "e1a3352d9798bbd49a719cf55050f1f68982b6e57b361bc380dd7ef1545079ec"
+    sha256 sonoma:        "708f70cc17691035a34e92db0885c6e868f44ce29a6f224f5630ca10cad1b42a"
+    sha256 arm64_linux:   "ff673a4f8e3c22e69aa7c4692145d0a5a48bc60a32eced373d875dcde0a045c1"
+    sha256 x86_64_linux:  "6f66b42660930fafb95f88fde932773f48f9742b8dfb94c2a5a96e78a89fe7a8"
   end
 
   depends_on "pkgconf" => :build
@@ -27,10 +28,13 @@ class Wv < Formula
   depends_on "libwmf"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -41,7 +45,7 @@ class Wv < Formula
 
     args = ["--mandir=#{man}"]
     # Help old config scripts identify arm64 linux
-    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
 
     system "./configure", *args, *std_configure_args
     system "make"

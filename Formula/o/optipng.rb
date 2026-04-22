@@ -7,19 +7,20 @@ class Optipng < Formula
   head "https://git.code.sf.net/p/optipng/code.git", branch: "tmp/main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c84699200d7b820ddfa07875d5f5be83cf6e4dd3497385919c46e748a4a8fdd8"
-    sha256 cellar: :any,                 arm64_sequoia: "c2d204ed132d5c5268baf7b464e862e8201a5f80e0d3aa5891204ccccbdca28a"
-    sha256 cellar: :any,                 arm64_sonoma:  "789d6ad60ed2c65a9c40850dc8401afd8c1c47239839a0b029bb1439f90bb3b7"
-    sha256 cellar: :any,                 arm64_ventura: "ff5edc78c0cc6a0541b1d1b5fe095df0bd0d577dd01e490e9552ed2af60bd967"
-    sha256 cellar: :any,                 sonoma:        "8499bb0e6d795f1c3f52af1da26a10a67b97b75dd6b25a976d965e89d53ce549"
-    sha256 cellar: :any,                 ventura:       "df8d6959a9682204ddcdef2c02a74c4267f6ff65940fcf330d23e5ccfdb633fd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "babd33fb7d35adccc72a42b31dd796df7be85815b674bb2db204e3acce18fdb3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd98dd54abf31da17c715505cd41351ceceb394a01b9927fc9454f08463e9aa6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7bc1a16e16342def4b3cb3264737beaa1319d6487d812066d341b2d7e7652512"
+    sha256 cellar: :any,                 arm64_sequoia: "04c60466375077fc2707c4b663c4557f684c2a5a0ad6492f16e6b20faa8c02f9"
+    sha256 cellar: :any,                 arm64_sonoma:  "24a250dca1b1322b7f7bd3057752f92e5d77c232342c8e3649b10fbe1eb617f9"
+    sha256 cellar: :any,                 sonoma:        "fce585cdebd10bee1694e8b44078da666cd5d1459634f8ac22a8202711254a55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad4fcb25fbeaa03ff1a1f53a22c4660ab127f14a6e2370814135bd645692500e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0d382808f584669781d2c1bdc4db551cad72e10408669a4618db0f2e3532a67"
   end
 
   depends_on "libpng"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "./configure", "--with-system-zlib",

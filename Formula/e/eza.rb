@@ -4,6 +4,7 @@ class Eza < Formula
   url "https://github.com/eza-community/eza/archive/refs/tags/v0.23.4.tar.gz"
   sha256 "9fbcad518b8a2095206ac385329ca62d216bf9fdc652dde2d082fcb37c309635"
   license "EUPL-1.2"
+  head "https://github.com/eza-community/eza.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "41991ad81cb8fd691125d28eda4bbfa0ebb14c6f902767402dc2ea8763ecf196"

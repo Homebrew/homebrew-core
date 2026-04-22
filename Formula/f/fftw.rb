@@ -1,10 +1,10 @@
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
   homepage "https://fftw.org"
-  url "https://fftw.org/fftw-3.3.10.tar.gz"
-  sha256 "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467"
+  url "https://fftw.org/fftw-3.3.11.tar.gz"
+  sha256 "5630c24cdeb33b131612f7eb4b1a9934234754f9f388ff8617458d0be6f239a1"
   license all_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
-  revision 3
+  compatibility_version 1
 
   livecheck do
     url :homepage
@@ -12,24 +12,18 @@ class Fftw < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5cd394c2c385450a83f767935d5d6678aa5a8fb1eb6c687b26477370a881cb5f"
-    sha256 cellar: :any,                 arm64_sequoia: "09266ec049017eb0e54ee29249d66e44bde84081f7379a683acaba378c2834e8"
-    sha256 cellar: :any,                 arm64_sonoma:  "fffda09169aeed7f83343d88e8d7abe0f33c436fa3aa34a18c59093009aba067"
-    sha256 cellar: :any,                 sonoma:        "01d05e976e388312e41888856168f914c0c0e0fd4fd628cdc4159dbb25a614db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0518314dfcdfbc7926812980da07121706708ffda83cf0f600df909945d4a4f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "062535068e14404ec86b816c0c1987d9d90213d05c27cfaaa9767c22c7c8b636"
+    sha256 cellar: :any,                 arm64_tahoe:   "76838ae9996012873472e19281919700cbaf2bd8f5b46ea45ba85218c96a7b77"
+    sha256 cellar: :any,                 arm64_sequoia: "7aa76fc0dc0dd1b8941fb7361283bcd229df8a13628b9650507a910087138cf2"
+    sha256 cellar: :any,                 arm64_sonoma:  "cbdd5509d08feeff849bdd6d90c49d6642b5b220dbe9cd9a1a37b6c26f69ed9b"
+    sha256 cellar: :any,                 sonoma:        "bbc86b777f3063efa36b782b069e8e6f127200db166c6d2f653dcf0ab2a41ac5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dac07bfe77864228d8801f384e37dc1168fdc2f62ff45015b319f48383a40227"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d448cd3ad0665f06e396c14abcdc2bdbec2e9d8fcf8610085584200c152c73f3"
   end
 
   depends_on "open-mpi" => :build
 
   on_macos do
     depends_on "libomp"
-  end
-
-  # Fix the cmake config file when configured with autotools, upstream pr ref, https://github.com/FFTW/fftw3/pull/338
-  patch do
-    url "https://github.com/FFTW/fftw3/commit/394fa85ab5f8914b82b3404844444c53f5c7f095.patch?full_index=1"
-    sha256 "2f3c719ad965b3733e5b783a1512af9c2bd9731bb5109879fbce5a76fa62eb14"
   end
 
   def install

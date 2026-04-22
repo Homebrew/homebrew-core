@@ -3,25 +3,25 @@ class Mypy < Formula
 
   desc "Experimental optional static type checker for Python"
   homepage "https://www.mypy-lang.org/"
-  url "https://files.pythonhosted.org/packages/f5/db/4efed9504bc01309ab9c2da7e352cc223569f05478012b5d9ece38fd44d2/mypy-1.19.1.tar.gz"
-  sha256 "19d88bb05303fe63f71dd2c6270daca27cb9401c4ca8255fe50d1d920e0eb9ba"
+  url "https://files.pythonhosted.org/packages/0b/3d/5b373635b3146264eb7a68d09e5ca11c305bbb058dfffbb47c47daf4f632/mypy-1.20.1.tar.gz"
+  sha256 "6fc3f4ecd52de81648fed1945498bf42fa2993ddfad67c9056df36ae5757f804"
   license "MIT"
   head "https://github.com/python/mypy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3875d2fb32d436f8f678fdfa05314b505ac15d271e421b81672b35ee1c528a0c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "102f98f96062193f74584db037ff5b902276e7e827cc1fcf9912f6c431f554cb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc4f0f17ed1e3f8bb52c84914a3577f189f669a81c73eb836bec4bb40b501363"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c4a02386b625de7c50c1a97d6f2ddbf6d8b150768c589d82e9d8ef5a049af854"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b2d4c49ec804c1c1dafe2a905ec331944b7a770dc1dce26175dc8ed33e8a412"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97b121d058c43255715d92b58044ea0e6bd0d6cfe77d79417067387fc5032656"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f02eb40ade070ca43b046f5e876f284c67f5e3fd74c149531eb76e251e08d6ae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "638406801372ef5b7dc41667bfbd602df2b47b33b1d74e1c25cfa9ec2de72c95"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe26aa74c41eeb2f728098bc8e74b9473c98b3694673f3b3b43ceceaa31c59f1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b2971b2e5fbc53fe16ff9e2ae029cb40c1c5c070ba9a92f72a65afc0886597fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "37a9e099d22bafe41dfdf38cb1faada42809d2e1b47e52bc89dc9ab270c6c2a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ba5442f736ae9aeda056602ad8d3d5911177f82278d27b55ab2782eb091f735"
   end
 
   depends_on "python@3.14"
 
   resource "librt" do
-    url "https://files.pythonhosted.org/packages/b3/d9/6f3d3fcf5e5543ed8a60cc70fa7d50508ed60b8a10e9af6d2058159ab54e/librt-0.7.3.tar.gz"
-    sha256 "3ec50cf65235ff5c02c5b747748d9222e564ad48597122a361269dd3aa808798"
+    url "https://files.pythonhosted.org/packages/eb/6b/3d5c13fb3e3c4f43206c8f9dfed13778c2ed4f000bacaa0b7ce3c402a265/librt-0.9.0.tar.gz"
+    sha256 "a0951822531e7aee6e0dfb556b30d5ee36bbe234faf60c20a16c01be3530869d"
   end
 
   resource "mypy-extensions" do
@@ -30,8 +30,8 @@ class Mypy < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz"
-    sha256 "a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"
+    url "https://files.pythonhosted.org/packages/fa/36/e27608899f9b8d4dff0617b2d9ab17ca5608956ca44461ac14ac48b44015/pathspec-1.0.4.tar.gz"
+    sha256 "0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645"
   end
 
   resource "typing-extensions" do

@@ -1,17 +1,17 @@
 class Quantlib < Formula
   desc "Library for quantitative finance"
   homepage "https://www.quantlib.org/"
-  url "https://github.com/lballabio/QuantLib/releases/download/v1.41/QuantLib-1.41.tar.gz"
-  sha256 "c5e9a30fce129660932e643647eb9a14e19ec24344d6b813c57c054187b03bdd"
+  url "https://github.com/lballabio/QuantLib/releases/download/v1.42.1/QuantLib-1.42.1.tar.gz"
+  sha256 "125a1eb5364c87a3d9df386608557bda235b31429bf9fd1e8dce734817e2997f"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3928aa0f4834d8aabc97762d5fbc4198e5e43ae3e2ec80bde053b094fbc575d2"
-    sha256 cellar: :any,                 arm64_sequoia: "232bbfca61db5a8beda3c39c540e25dd4c5115690c4e68bb3f4b6ebc27c01614"
-    sha256 cellar: :any,                 arm64_sonoma:  "8243380d2f1efc805c3927a2d67f1e710de7339cf8bb3727b9748db930bbe402"
-    sha256 cellar: :any,                 sonoma:        "02f6a2fcfe39e7ab28a6b347ff22c5d80987dbebb87332f9a614f0fbcd47d87e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a071b78ff0ecf0971d9460b456beeddf5484af56dcf07a5ce16720497967d32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84189c896b25208c88447848bfc8381c33471514d85e316a3e4117bd9662e9d7"
+    sha256 cellar: :any,                 arm64_tahoe:   "54fb1f938b6a95edd5927bd4ed7e596a9ea3db9d9d5642b67c068962efd86fb9"
+    sha256 cellar: :any,                 arm64_sequoia: "05a993ecbedd10babf8192532f5ab026d73664cb63fa9bbbd04b2aa9f1fdbef5"
+    sha256 cellar: :any,                 arm64_sonoma:  "9c8c5da94ebf99bb0335905ee79638c0f1148ff853dffb0bb25b32af8c363c0e"
+    sha256 cellar: :any,                 sonoma:        "962ffb7b8842fad8ea438dd977b69261e7750417771f0b07f930d9e0d0462563"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75640eebacace4dc327f579e0b8c6889b059dd0b11c8c85d34507e32c5989bf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43acc0a86b38fb696cc8a6b0fd7af9cc05ecd536d903bec22a7beec220c49881"
   end
 
   head do

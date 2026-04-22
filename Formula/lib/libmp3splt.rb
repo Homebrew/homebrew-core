@@ -14,8 +14,6 @@ class Libmp3splt < Formula
     strategy :page_match
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 arm64_tahoe:   "71e27509f2f5051c193c6dde207ea520cbd24d1f3d7a90664cd67befce73adb1"

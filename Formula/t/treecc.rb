@@ -10,8 +10,6 @@ class Treecc < Formula
     regex(/href=.*?treecc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f2b78957fb3111f30628833a2f8de46fbb1e2b603fce6edefdee88936759372d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9d079ee6685d1432e363a820725469f633d8d649e235e7bf95a549d8a34b7789"

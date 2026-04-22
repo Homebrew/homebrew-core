@@ -4,6 +4,7 @@ class TreeSitterAT025 < Formula
   url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.25.10.tar.gz"
   sha256 "ad5040537537012b16ef6e1210a572b927c7cdc2b99d1ee88d44a7dcdc3ff44c"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url :stable

@@ -6,7 +6,7 @@ class Uhd < Formula
   url "https://github.com/EttusResearch/uhd/archive/refs/tags/v4.9.0.1.tar.gz"
   sha256 "0be26a139f23041c1fb6e9666d84cba839460e3c756057dc48dc067cc356a7bc"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 1
+  revision 2
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
   livecheck do
@@ -15,12 +15,12 @@ class Uhd < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "261b880284b0af7ee4fedeb3134ecd8650705ef53640091f057cf154be874d74"
-    sha256                               arm64_sequoia: "9a1bf679d3a4cb9b77b1fdb8df6ed88f642f67fe2f44f739db1a9887733e6092"
-    sha256                               arm64_sonoma:  "4118498bcec6d6fc7f58be464dba95c87f23539d762d5c11b51e303e3f747ca7"
-    sha256                               sonoma:        "2111c2fd0c29de1e19977e5908c3be0bf4d6127e1168a3dca696e194fdba38c2"
-    sha256                               arm64_linux:   "13a26ca46463c3c1e3656d25964804717fad9d64ab447f4df47dc36686acb58d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43c13c228c82b67efe6e41031441f501faef05b9efcb7c9fc47baee7b43abc4a"
+    sha256                               arm64_tahoe:   "c571d569fab53e1ca24a0b4b391bb63dd5f5c0d5d5f35c3e12de533c2fb18a27"
+    sha256                               arm64_sequoia: "d6357d7c65b86a6060348e2b3e109b12627cd23cf95871365cc4176db29da3f2"
+    sha256                               arm64_sonoma:  "90d76349a3e1ee02118419e5bc7608cf6022501dde60b989bfe3463a9dc0b22e"
+    sha256                               sonoma:        "5cf536d223fcaed31cb4bcfbad8ca906e447054411c350d366ae507097a9838c"
+    sha256                               arm64_linux:   "853774c5012b7ae12fff00b8aa0fc98471c5a3c1d728636b465230a23bc832e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b7d5afac326a53d266329f8205c6a5ea1c87efca8d64613b2c5e7fbc60936a3"
   end
 
   depends_on "cmake" => :build
@@ -34,14 +34,17 @@ class Uhd < Formula
     depends_on "ncurses"
   end
 
+  pypi_packages package_name:   "",
+                extra_packages: "mako"
+
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
-    sha256 "99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28"
+    url "https://files.pythonhosted.org/packages/59/8a/805404d0c0b9f3d7a326475ca008db57aea9c5c9f2e1e39ed0faa335571c/mako-1.3.11.tar.gz"
+    sha256 "071eb4ab4c5010443152255d77db7faa6ce5916f35226eb02dc34479b6858069"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   def python3

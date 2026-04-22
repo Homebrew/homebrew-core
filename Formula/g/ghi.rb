@@ -6,22 +6,14 @@ class Ghi < Formula
   license "MIT"
   head "https://github.com/drazisil/ghi.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c31e5e12021d905122622c14313d48e875776f8c8b85375a7705a423bc15b915"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0574be1c2bb4fe60f4c7e9add399b4c90cb65ea4f822aeddd6233213f83ee10a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d1a0a48ba1c295cef475eb7ebfdb13ab669619f53374a80abcf405bca5db766"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "43ccd9845bf6f7e2a99d4ced9f23ee0f9e859d15af547ce115d61c149ef12f4c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "43ccd9845bf6f7e2a99d4ced9f23ee0f9e859d15af547ce115d61c149ef12f4c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c96d29c0f571a6444c7472f9b607ceb76d21ca1d05eb5152d97d4d4b7549a8f3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8d1a0a48ba1c295cef475eb7ebfdb13ab669619f53374a80abcf405bca5db766"
-    sha256 cellar: :any_skip_relocation, ventura:        "43ccd9845bf6f7e2a99d4ced9f23ee0f9e859d15af547ce115d61c149ef12f4c"
-    sha256 cellar: :any_skip_relocation, monterey:       "43ccd9845bf6f7e2a99d4ced9f23ee0f9e859d15af547ce115d61c149ef12f4c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c96d29c0f571a6444c7472f9b607ceb76d21ca1d05eb5152d97d4d4b7549a8f3"
-    sha256 cellar: :any_skip_relocation, catalina:       "c96d29c0f571a6444c7472f9b607ceb76d21ca1d05eb5152d97d4d4b7549a8f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "c85b10edecd94e2d70e0ffe950da8045a17ef9cbf5ede17bc9d1862a48e6ce75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ed8ec4aa3e0a7ce79f81e4581d07700c1cc1cc2b6bfbfd59086de317f020340"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1aae6d56ac822129634f25eb1d4c79c36f4ca5c1995262571d32eb9011bb329"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1aae6d56ac822129634f25eb1d4c79c36f4ca5c1995262571d32eb9011bb329"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a1aae6d56ac822129634f25eb1d4c79c36f4ca5c1995262571d32eb9011bb329"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a1aae6d56ac822129634f25eb1d4c79c36f4ca5c1995262571d32eb9011bb329"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d0df5f7842e1c23c55436dfb9943aa7ee93679f7ce59910a2f5d370f9e29e7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d0df5f7842e1c23c55436dfb9943aa7ee93679f7ce59910a2f5d370f9e29e7e"
   end
 
   uses_from_macos "ruby"
@@ -34,9 +26,8 @@ class Ghi < Formula
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
-      r.fetch
-      system "gem", "install", r.cached_download, "--no-document",
-                    "--install-dir", libexec
+      system "gem", "install", r.cached_download, "--ignore-dependencies",
+                    "--no-document", "--install-dir", libexec
     end
     bin.install "ghi"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])

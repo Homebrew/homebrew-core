@@ -2,7 +2,7 @@ class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
   license "MPL-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/mgba-emu/mgba/archive/refs/tags/0.10.5.tar.gz"
@@ -16,15 +16,12 @@ class Mgba < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "06db0999e64a0a60335fcc7104da11ddbc37efc467f983794fcbe21a6f4a96e1"
-    sha256 arm64_sequoia: "0b47b22819b56f4f974b3bc13229329cbef0fc1df0474a2d2ffba3ced580b2e5"
-    sha256 arm64_sonoma:  "038e56d90cd6ded9ac8150847bc86c43dc57c2441496916c2a0f3b232608927c"
-    sha256 arm64_ventura: "0e89003774f3a0164c890f1732242969cc013b269b037bd01d8b97a3ae4bf4a7"
-    sha256 sonoma:        "d56566a7d206c7850126abbcb2c85ea659f995c30efce5886344e27aeca427e7"
-    sha256 ventura:       "d90396f1c7b48efb28edfd391a82fc0a6bb83a9dd3046398f8b5a16b66a4eea3"
-    sha256 arm64_linux:   "4010cdf78831d4f4c5a0be25eb02f7acfa31b6e5d7d74dde4bd00247e1d9cb5b"
-    sha256 x86_64_linux:  "4ef9822d552b0d2ac6d038f63539af007285ed9132e0098594ebb49ef10278c1"
+    sha256 arm64_tahoe:   "8411364c77931ae04e12dd3b53f2774340b1b57bf38a13feb4f3698d629acf31"
+    sha256 arm64_sequoia: "4159fa434f32672ec81962e42b2d19793b4a7f0cb785e9813efd365edec522a9"
+    sha256 arm64_sonoma:  "d18b171103b78bc18a6f6e20e70bd5fdfc57b222b75d9f7134fa029dd211b712"
+    sha256 sonoma:        "b6f194de7413b6116a40547f1f1b704c459f92077a825a4c448748bd6d249bdb"
+    sha256 arm64_linux:   "5fa6abdc364db3f23966f56256075cd45285a43af359c70b8734ca37e53978b4"
+    sha256 x86_64_linux:  "222d1ca423303f2566862188a3ad8cfbf5494b812e6191b0c7ccccc7b8555e84"
   end
 
   head do
@@ -48,7 +45,6 @@ class Mgba < Formula
   depends_on "sqlite"
 
   uses_from_macos "libedit"
-  uses_from_macos "zlib"
 
   on_macos do
     # https://github.com/mgba-emu/mgba/issues/3129
@@ -58,6 +54,7 @@ class Mgba < Formula
   on_linux do
     depends_on "elfutils"
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   def install

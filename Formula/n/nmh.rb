@@ -12,8 +12,6 @@ class Nmh < Formula
     regex(/href=.*?nmh[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_tahoe:    "a5e47512714ba643f7419b066b01383a222d550272e0cd7e01274302f1b1f492"
     sha256 arm64_sequoia:  "60f74fdf361c84ce1aad906bb3e44be7d08c7553c8862646e2790eff719df9c3"

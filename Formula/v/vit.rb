@@ -3,14 +3,13 @@ class Vit < Formula
 
   desc "Full-screen terminal interface for Taskwarrior"
   homepage "https://github.com/vit-project/vit"
-  url "https://files.pythonhosted.org/packages/83/91/ff4440f0c87ffe8ff73176bf165925e364b938729ba9eb7a9090ae229129/vit-2.3.3.tar.gz"
-  sha256 "fa5ad719f868078cf92169094d73089b718654f7cd18ef65501dee153c7c8436"
+  url "https://files.pythonhosted.org/packages/1c/11/5a62bb49c3f5086d0e3eb85cb66eae9c2cc49123b9eb9dadfa032ea9c67a/vit-2.3.4.tar.gz"
+  sha256 "346a210aa0de754cf7adaf73723bf7d2cc8ee754eeb785eb18370d33f74e5ce2"
   license "MIT"
   head "https://github.com/vit-project/vit.git", branch: "2.x"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "e690473bf1990d4aa5181c8e9e4a7656b3d6c83dbc1572c79f84b039655095a5"
+    sha256 cellar: :any_skip_relocation, all: "56250211c7aa958b772115443fed096ec4ce0ac2383a511ea7145d5c6e8f6666"
   end
 
   depends_on "python@3.14"
@@ -22,13 +21,13 @@ class Vit < Formula
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/bb/d3/09683323e2290732a39dc92ca5031d5e5ddda56f8d236f885a400535b29a/urwid-3.0.3.tar.gz"
-    sha256 "300804dd568cda5aa1c5b204227bd0cfe7a62cef2d00987c5eb2e4e64294ed9b"
+    url "https://files.pythonhosted.org/packages/b1/59/67cd42db7c549c0c106d2b56d2d2ec1915c459e0a92722029efc5359e871/urwid-3.0.5.tar.gz"
+    sha256 "24be27ffafdb68c09cd95dc21b60ccfd02843320b25ce5feee1708b34fad5a23"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
-    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
+    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
+    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
   end
 
   def install

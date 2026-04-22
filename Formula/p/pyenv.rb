@@ -1,10 +1,11 @@
 class Pyenv < Formula
   desc "Python version management"
   homepage "https://github.com/pyenv/pyenv"
-  url "https://github.com/pyenv/pyenv/archive/refs/tags/v2.6.20.tar.gz"
-  sha256 "2fbca4ce6dff65b4945bdb7bdcdaf2ca7dd51fe2308cff256d9afb9a954b3000"
+  url "https://github.com/pyenv/pyenv/archive/refs/tags/v2.6.27.tar.gz"
+  sha256 "52c0934540d2fc7e5da03f4de92170c6a33d03b5f00cd191e4dd281fe2d0ea8b"
   license "MIT"
   version_scheme 1
+  compatibility_version 1
   head "https://github.com/pyenv/pyenv.git", branch: "master"
 
   livecheck do
@@ -13,12 +14,14 @@ class Pyenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "15607a48b795cf658f384e528358c3618ab14777ceb70c4dc2fc7209b38aeb6e"
-    sha256 cellar: :any,                 arm64_sequoia: "20d092ef42384eaad655a7969fa5da02087aeae3e06aea16806f4dd785bcabf5"
-    sha256 cellar: :any,                 arm64_sonoma:  "f11fe73c1da0b38b934df58ca658cfc258ec5d04cf2566432614fe67a7af57b9"
-    sha256 cellar: :any,                 sonoma:        "737b679d269cc3b3269d462eafb4b9392496d554faabd04eb128ce9f289479d8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a39807ed42aacb1765acb3739175c850df26ec7d3480ca8d87a8201073aa1ed4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2258de79469ffdc32b11def89dcb83a366b69b15c48d36395bd79fbc75f2269a"
+    sha256 cellar: :any,                 arm64_tahoe:   "4285c5f570424b50b4b1bb8660737c4edc4e2e393b6e6ed808b8faa1f9adbd16"
+    sha256 cellar: :any,                 arm64_sequoia: "8ba74da7479b83b6c0ed691eadacfb323add2e73dfdab7852f9081a92b739740"
+    sha256 cellar: :any,                 arm64_sonoma:  "2000e4f4ae830013fccab645d3b31e2bb9350c7189b1abda63b3bc4c15b57b7f"
+    sha256 cellar: :any,                 tahoe:         "04770105248da8ac2b5cbb8bedc3f464e839a4a838c34d936e73be314250d292"
+    sha256 cellar: :any,                 sequoia:       "838bc9c4ee3439f72e41c230ffd10b55524e6ab282e2c14e4de0d2e07236c778"
+    sha256 cellar: :any,                 sonoma:        "825861d25a642aed651036e2c77cb5b912d50840c907c24ace32ec4ab9da4b85"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "104426a1662e1947a66ca4342d3de95c3b5882ae7fc66c209ce0f7b185233937"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72684fd143faff092c6b839f26fec47bcc26b0c4ef7e568b8512143680297c38"
   end
 
   depends_on "autoconf"
@@ -31,7 +34,10 @@ class Pyenv < Formula
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "xz"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     inreplace "libexec/pyenv", "/usr/local", HOMEBREW_PREFIX

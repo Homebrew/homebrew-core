@@ -5,8 +5,6 @@ class DfuUtil < Formula
   sha256 "b4b53ba21a82ef7e3d4c47df2952adf5fa494f499b6b0b57c58c5d04ae8ff19e"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "53e343420fcab5133dd295cf75d8a74b5933fabfbb53c90c3ef798735b5f9445"
     sha256 cellar: :any,                 arm64_sequoia:  "5cfdae94eea7b66aae31b16dd689bd8078d7aa685786dcf45f9f9324db12727d"

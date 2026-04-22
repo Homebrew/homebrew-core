@@ -4,6 +4,7 @@ class Yyjson < Formula
   url "https://github.com/ibireme/yyjson/archive/refs/tags/0.12.0.tar.gz"
   sha256 "b16246f617b2a136c78d73e5e2647c6f1de1313e46678062985bdcf1f40bb75d"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/ibireme/yyjson.git", branch: "master"
 
   bottle do

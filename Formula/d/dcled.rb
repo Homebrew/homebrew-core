@@ -10,8 +10,6 @@ class Dcled < Formula
     regex(/href=.*?dcled[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "5369329587a6c3ec28976ebbd89fc4f8361b2472e38ee6518ebdf95dc04cddd1"
     sha256 cellar: :any,                 arm64_sequoia:  "1e3b757bcbd17baa0865903e7639f2bdeede51da0e38b5859047810ec34ae39b"

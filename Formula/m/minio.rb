@@ -24,6 +24,9 @@ class Minio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4eec0924999ec02512516b58be63a3c29dc75a2d9e46494d4f6197d457d7846a"
   end
 
+  deprecate! date: "2026-02-17", because: :repo_archived
+  disable! date: "2027-02-17", because: :repo_archived
+
   depends_on "go" => :build
 
   def install

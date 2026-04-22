@@ -5,8 +5,6 @@ class Libkate < Formula
   sha256 "96827ca136ad496b4e34ff3ed2434a8e76ad83b1e6962b5df06ad24cbbfeebaf"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "a920e83dd38ef5cd401c635c08f65dfe0cd6c4b5b79e5edfb4761a76ca729028"
     sha256 cellar: :any,                 arm64_sequoia: "1cc9e076187d3fe58ab436f4729c43fc596c181cf9e5a12125836b676373f0cc"

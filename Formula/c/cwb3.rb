@@ -21,8 +21,6 @@ class Cwb3 < Formula
     regex(%r{url=.*?/cwb[._-]v?(\d+(?:\.\d+)+)-src\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "29bea0c252b17882c4f5b6bd3dbc8f754ba28f49b65ea07b2635ee9b8f1d8723"

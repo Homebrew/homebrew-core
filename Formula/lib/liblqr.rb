@@ -2,6 +2,7 @@ class Liblqr < Formula
   desc "C/C++ seam carving library"
   homepage "https://liblqr.wikidot.com/"
   license "LGPL-3.0-only"
+  compatibility_version 1
   head "https://github.com/carlobaldassi/liblqr.git", branch: "master"
 
   stable do

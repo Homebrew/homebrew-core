@@ -19,7 +19,10 @@ class LdidProcursus < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+-procursus\d+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "55c501cd347ca47bb11659cb01050f8a48423c205737c2108f3bc46a19b27afc"

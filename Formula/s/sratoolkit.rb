@@ -4,12 +4,12 @@ class Sratoolkit < Formula
   license all_of: [:public_domain, "GPL-3.0-or-later", "MIT"]
 
   stable do
-    url "https://github.com/ncbi/sra-tools/archive/refs/tags/3.2.1.tar.gz"
-    sha256 "2558683c217ad2318833ab7731939617ed91dc79a6b1dee92bf88b56a1dc142a"
+    url "https://github.com/ncbi/sra-tools/archive/refs/tags/3.4.1.tar.gz"
+    sha256 "874dcbb28b7ebffb5554839254e777b1137b0f0430815bab175068decfe96e98"
 
     resource "ncbi-vdb" do
-      url "https://github.com/ncbi/ncbi-vdb/archive/refs/tags/3.2.1.tar.gz"
-      sha256 "535511984928ec5bac02a61fc6b4d1ca72a5b69c742f4882eabd32ed3a97621c"
+      url "https://github.com/ncbi/ncbi-vdb/archive/refs/tags/3.4.1.tar.gz"
+      sha256 "2fa0919b2842641ead93eeeb45047e87ca480a543b6e4eda15f94d5187e91c85"
 
       livecheck do
         formula :parent
@@ -23,14 +23,12 @@ class Sratoolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3915f52ef559a82d3b6947c64ea62793ce0089a29ba79ad032c87c602abc4ceb"
-    sha256 cellar: :any,                 arm64_sequoia: "3f638492e68e21c284a4aeee221d5e169b1984a75adf1648fa33d8481dd354f9"
-    sha256 cellar: :any,                 arm64_sonoma:  "5eb9c8506a1ad99e5f5b929314e807018e7e0ad2562cee2bfe55f6fe3a9f49f7"
-    sha256 cellar: :any,                 arm64_ventura: "111636d770e9da3b1b0cd652f0cb46b7fb48e283e553859fb04aebc6078d7b3f"
-    sha256 cellar: :any,                 sonoma:        "f6b0a3c7e7ea88755d2cb2f33a58c8b93565f8ed8024f9b3a3709425775cbe8b"
-    sha256 cellar: :any,                 ventura:       "4d6f5a48ea2ce178703d4ec93bbaa589a3e3c86751a9a8eaf95dd6faac75590a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "244c56dd90cfa2a51e4c55065a58dfee0f39a82a06f5547815d412a339111965"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "580d70086da44a3bab3152314fe4af79a710f04dc140bb032c13ee26b5323211"
+    sha256 cellar: :any,                 arm64_tahoe:   "ea15253c72d8bfbac1caaefac0cf90bc48d6a215af38d5d0b8af0cae50be524d"
+    sha256 cellar: :any,                 arm64_sequoia: "2eb1898cc5afb9fb2e81c1f56a25cdea78385d8a1236721723f36a2223a59c66"
+    sha256 cellar: :any,                 arm64_sonoma:  "a00bdef100d52e2bc4729002a8d2c30d343459fd07890218e207f62e170b47f0"
+    sha256 cellar: :any,                 sonoma:        "df6fe9a10e35c77e8b86c2c27a84e9e05c671b3b3b6e55860c3c65724960715c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7dc648d79584227003885181424d9b4abd21ffdbce665db892be297b1ef56b4e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c32d0758c0d31c4e0af88ec49ef06be34745391f6ad804325c1fd40967e6c7a"
   end
 
   head do
@@ -50,18 +48,6 @@ class Sratoolkit < Formula
     odie "ncbi-vdb resource needs to be updated" if build.stable? && version != resource("ncbi-vdb").version
 
     (buildpath/"ncbi-vdb-source").install resource("ncbi-vdb")
-
-    # Issue ref: https://github.com/ncbi/sra-tools/issues/1096
-    if OS.mac? && DevelopmentTools.clang_build_version >= 1700
-      # Fix to error: static declaration of 'strchrnul' follows non-static declaration
-      inreplace "ncbi-vdb-source/interfaces/os/mac/os-native.h",
-                /^(\s*#\s*include\s*<.*>\s*)+/,
-                "\\0\n#include <string.h>\n#define strchrnul sratk_strchrnul\n"
-      # Fix to avoid fdopen() redefinition for vendored `zlib`
-      inreplace "ncbi-vdb-source/libs/ext/zlib/zutil.h",
-                "#        define fdopen(fd,mode) NULL /* No fdopen() */",
-                ""
-    end
 
     # Need to use HDF 1.10 API: error: too few arguments to function call, expected 5, have 4
     # herr_t h5e = H5Oget_info_by_name( self->hdf5_handle, buffer, &obj_info, H5P_DEFAULT );

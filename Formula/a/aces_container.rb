@@ -5,8 +5,6 @@ class AcesContainer < Formula
   sha256 "cbbba395d2425251263e4ae05c4829319a3e399a0aee70df2eb9efb6a8afdbae"
   license "AMPAS"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "99edd15fca4a15e40dfac78586b15c5c86fb13ae9d05024f837fc7b28aa7abde"
     sha256 cellar: :any,                 arm64_sequoia:  "470a323cfa40f185682a38aa7ecb04256cebf17b0b854e444cb89d02c09c7d0c"
