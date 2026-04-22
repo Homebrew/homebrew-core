@@ -1,10 +1,9 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/releases/download/v7.36.1/mlt-7.36.1.tar.gz"
-  sha256 "0d2b956864ba2ff58bb4e2b2779aa36870bd2a3a835e2dbfda33faa5fc6f4d3a"
+  url "https://github.com/mltframework/mlt/releases/download/v7.38.0/mlt-7.38.0.tar.gz"
+  sha256 "b8f0a23c89e9250edc5038d745537c382367bf2ad3dad5d5c7cd13b0fe1c4144"
   license "LGPL-2.1-only"
-  revision 1
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
