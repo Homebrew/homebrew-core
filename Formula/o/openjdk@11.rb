@@ -1,8 +1,8 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.30-ga.tar.gz"
-  sha256 "5357c80e529dc131cbd8eb1121fa1e54bae7aaa53c038391ea053281266c1718"
+  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.31-ga.tar.gz"
+  sha256 "11c04910fb30a26a807b0847c9cccb8fc72e0b4d0e9db54e31957f27c7f03fd9"
   license "GPL-2.0-only"
   compatibility_version 1
 
@@ -54,8 +54,8 @@ class OpenjdkAT11 < Formula
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://cdn.azul.com/zulu/bin/zulu11.84.17-ca-jdk11.0.29-macosx_aarch64.tar.gz"
-        sha256 "09ed1734c2d88fadcb75fdbec1ba5467d32e7fa2b10894541aa8e3d3ce78dc2d"
+        url "https://cdn.azul.com/zulu/bin/zulu11.88.17-ca-jdk11.0.31-macosx_aarch64.tar.gz"
+        sha256 "fe756215bc360cab0703c9c851f7e46d4762591dff33011420a710d4950e79b1"
       end
       on_intel do
         url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz"
@@ -64,8 +64,8 @@ class OpenjdkAT11 < Formula
     end
     on_linux do
       on_arm do
-        url "https://cdn.azul.com/zulu/bin/zulu11.84.17-ca-jdk11.0.29-linux_aarch64.tar.gz"
-        sha256 "5a225a0fe0a92bc6c04c8c5aeb03c697c6fd114465829f23e494a2ad44fa1cc0"
+        url "https://cdn.azul.com/zulu/bin/zulu11.88.17-ca-jdk11.0.31-linux_aarch64.tar.gz"
+        sha256 "8fa22d2c45355b7db381f932f8cda60f959299e2836167d79f0ccb3b1465f0fb"
       end
       on_intel do
         url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz"
@@ -77,7 +77,7 @@ class OpenjdkAT11 < Formula
   def install
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
-    boot_jdk /= "Contents/Home" if OS.mac? && !Hardware::CPU.arm?
+    boot_jdk /= "Contents/Home" if OS.mac?
     java_options = ENV.delete("_JAVA_OPTIONS")
 
     args = %W[
