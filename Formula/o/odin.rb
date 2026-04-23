@@ -6,6 +6,7 @@ class Odin < Formula
       revision: "ea5175d865c2034b033ebf5653d83638f10bba54"
   version "2026-05"
   license "Zlib"
+  revision 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
@@ -75,7 +76,7 @@ class Odin < Formula
 
     ln_s Formula["raylib"].lib/"libraylib.a", buildpath/raylib_installpath/"libraylib.a"
     # In order to match the version 500 used in odin
-    ln_s Formula["raylib"].lib/shared_library("libraylib", "5.5.0"),
+    ln_s Formula["raylib"].lib/shared_library("libraylib", "6.0.0"),
       buildpath/raylib_installpath/shared_library("libraylib", "550")
 
     resource("raygui").stage do
