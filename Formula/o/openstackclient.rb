@@ -317,6 +317,11 @@ class Openstackclient < Formula
     sha256 "6169ef9ddf3f473628060545125c6ccfd7ea088e109af48c14acc5ba82459f8b"
   end
 
+  resource "python-neutronclient" do
+    url "https://files.pythonhosted.org/packages/a1/ca/05ff993200a8b957bc66d565baada59f7e612aef1992e5b85bbeb2fa384d/python_neutronclient-11.8.0.tar.gz"
+    sha256 "6ea711eb88fcde47523250ac829cb9b9da8bc0bf2dd0205add4e1c9a4cce0515"
+  end
+
   resource "python-octaviaclient" do
     url "https://files.pythonhosted.org/packages/40/08/77aba1966d6f485fb7d94b60f0126bd7cbbfcfa96785fb3ad1f4986a0ffc/python_octaviaclient-3.13.0.tar.gz"
     sha256 "22ad537573140eaac4df757eca1f07ef260f216d3535511ae9c3ea14fab862fe"
@@ -420,6 +425,7 @@ class Openstackclient < Formula
       "workflow list", # python-mistralclient
       "coe cluster list", # python-magnumclient
       "baremetal node list", # python-ironicclient
+      "vpn ike policy list", # python-neutronclient
     ]
     openstack_subcommands.each do |subcommand|
       output = shell_output("#{bin}/openstack #{subcommand} 2>&1", 1)
