@@ -3,8 +3,9 @@ class Mlx < Formula
 
   desc "Array framework for Apple silicon"
   homepage "https://ml-explore.github.io/mlx/build/html/index.html"
-  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.31.2.tar.gz"
-  sha256 "bdb9b619f80962dd00c0bffb65e59c53f565c2b550f189a1467f8bc6089401ab"
+  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.31.2-temp-tag-for-publishing-mlx-cuda.tar.gz"
+  version "0.31.2-temp-tag-for-publishing-mlx-cuda"
+  sha256 "491ed815e5874a8b703a35e5af74bd78a58e0a50601c298912f68dece82b6884"
   license all_of: [
     "MIT", # main license
     "Apache-2.0", # metal-cpp resource
