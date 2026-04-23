@@ -1,9 +1,10 @@
 class Raylib < Formula
   desc "Simple and easy-to-use library to learn videogames programming"
   homepage "https://www.raylib.com/"
-  url "https://github.com/raysan5/raylib/archive/refs/tags/5.5.tar.gz"
-  sha256 "aea98ecf5bc5c5e0b789a76de0083a21a70457050ea4cc2aec7566935f5e258e"
+  url "https://github.com/raysan5/raylib/archive/refs/tags/6.0.tar.gz"
+  sha256 "2b3ee1e2120c7a0796b33062c7e9a694dd8a8caa56a96319ac8c8ecf54a90d0b"
   license "Zlib"
+  compatibility_version 1
   head "https://github.com/raysan5/raylib.git", branch: "master"
 
   bottle do
