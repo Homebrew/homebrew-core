@@ -4,6 +4,7 @@ class Websocat < Formula
   url "https://github.com/vi/websocat/archive/refs/tags/v1.14.1.tar.gz"
   sha256 "5c976c535800ca635b72839fe49d0fe4ad2479db8744c5a00f0cf911e4832e2d"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,7 @@ class Websocat < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
