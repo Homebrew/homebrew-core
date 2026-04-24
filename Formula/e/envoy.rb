@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.37.2.tar.gz"
-  sha256 "0726567912f7ef46d48a9bb63cccb84c7617a8ba1cccc409d840d324667ea7af"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.38.0.tar.gz"
+  sha256 "dfc86489802788f053956d9d1ad5c1fef5d982eddf7a9df69a0184a3a1ac4184"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -26,7 +26,6 @@ class Envoy < Formula
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "libtool" => :build
-  depends_on "llvm@18" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "wget" => :build
@@ -50,16 +49,9 @@ class Envoy < Formula
     Formula["bazelisk"].opt_bin/"bazelisk"
   end
 
-  def llvm_formula
-    Formula["llvm@18"]
-  end
-
   def install
     ENV.remove "PATH", "#{Superenv.shims_path}:"
 
-    # rules_foreign_cc CMake try-compile can pick GNU ld from PATH and fail to link
-    # against Envoy's configured sysroot/toolchain. Keep clang/llvm tools but drop binutils.
-    ENV.remove "PATH", ":#{Formula["binutils"].opt_bin}" if OS.linux?
     env_path = ENV["PATH"]
 
     args = %W[
@@ -82,7 +74,6 @@ class Envoy < Formula
     if OS.linux?
       args.push(
         "--config=clang-local",
-        "--repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1",
         "--copt=-Wno-deprecated-literal-operator",
         "--copt=-Wno-unknown-warning-option",
         "--copt=-Wno-nontrivial-memcall",
@@ -98,34 +89,9 @@ class Envoy < Formula
     # Workaround to build with Xcode 16.3 / Clang 19.
     args << "--copt=-Wno-nullability-completeness" if OS.linux? || DevelopmentTools.clang_build_version >= 1700
 
-    # Envoy v1.37.0 expects a specific LLVM layout and tools, but Homebrew paths differ.
-    # Stage a local toolchain root matching upstream expectations.
-    llvm_path = buildpath/"llvm-toolchain"
-    llvm = llvm_formula.opt_prefix
-    (llvm_path/"bin").mkpath
-    (llvm_path/"lib").mkpath
-    (llvm/"bin").children.each { |path| ln_sf path, llvm_path/"bin"/path.basename }
-    (llvm/"lib").children.each { |path| ln_sf path, llvm_path/"lib"/path.basename }
-    ln_sf llvm/"include", llvm_path/"include"
-    ln_sf llvm/"libexec", llvm_path/"libexec"
-    ln_sf llvm/"share", llvm_path/"share"
-
-    if OS.mac?
-      # rules_foreign_cc expects "libtool" for AR on Darwin.
-      ln_sf which("libtool"), llvm_path/"bin/libtool"
-    end
-    ln_sf Formula["libtool"].opt_bin/"glibtool", llvm_path/"bin/glibtool"
-    ENV["BAZEL_LLVM_PATH"] = llvm_path
-
-    # clang-common links these archives in foreign_cc bootstrap; provide them from brewed llvm.
-    if OS.linux?
-      libdir = llvm_formula.opt_lib
-      ln_sf libdir/"libc++.a", llvm_path/"lib/libc++.a" if (libdir/"libc++.a").exist?
-      ln_sf libdir/"libc++abi.a", llvm_path/"lib/libc++abi.a" if (libdir/"libc++abi.a").exist?
-
-      args << "--linkopt=-L#{llvm_path}/lib"
-      args << "--host_linkopt=-L#{llvm_path}/lib"
-    end
+    # toolchains_llvm v1.7.0 does not ship LLVM 18.1.8 binaries for darwin-x86_64.
+    inreplace "bazel/toolchains.bzl",
+              'llvm_version = "18.1.8",', 'llvm_version = "19.1.7",'
 
     output_base = Utils.safe_popen_read(
       bazelisk, *bazel_args, "info", "output_base"
