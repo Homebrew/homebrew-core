@@ -1,8 +1,8 @@
 class Magika < Formula
   desc "Fast and accurate AI powered file content types detection"
   homepage "https://securityresearch.google/magika/"
-  url "https://github.com/google/magika/archive/refs/tags/cli/v1.0.2.tar.gz"
-  sha256 "bae42b31c8f419f34043cc2cf26fa42d2ade7f7c91e2fb54919914432f799699"
+  url "https://github.com/google/magika/archive/refs/tags/cli/v1.1.0.tar.gz"
+  sha256 "87fd85f33d2c644d657de024b83cdc36bbdcf4a2961be5e93fe74e081477076c"
   license "Apache-2.0"
 
   head "https://github.com/google/magika.git", branch: "main"
@@ -24,13 +24,6 @@ class Magika < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
-
-  # Fix x86_64 build compatibility for ort/ndarray, upstream PR ref,
-  # https://github.com/google/magika/pull/1312
-  patch do
-    url "https://github.com/chenrui333/magika/commit/f56ab8a0806c67a2ae87edc6cd032684d592b978.patch?full_index=1"
-    sha256 "7a3f701733c4df5ef0aceba3b7854f1d8e0f2a23c4fda95804911b0fa5e6ab9c"
-  end
 
   def install
     ENV["OPENSSL_NO_VENDOR"] = "1"
