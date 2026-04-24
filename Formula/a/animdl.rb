@@ -7,7 +7,7 @@ class Animdl < Formula
   url "https://files.pythonhosted.org/packages/5b/79/4be6ac2caca32dea6fe500e5f5df9d74a3a5ce1d500175c3a7b69500bb3f/animdl-1.7.27.tar.gz"
   sha256 "fd97b278da4c82da88759993eaf6d8ad6fc3660d0f03de5b2151279c4ebd8370"
   license "GPL-3.0-only"
-  revision 5
+  revision 6
   head "https://github.com/justfoolingaround/animdl.git", branch: "master"
 
   bottle do
@@ -74,13 +74,13 @@ class Animdl < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/22/12/2948fbe5513d062169bd91f7d7b1cd97bc8894f32946b71fa39f6e63ca0c/idna-3.12.tar.gz"
-    sha256 "724e9952cc9e2bd7550ea784adb098d837ab5267ef67a1ab9cf7846bdbdd8254"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/ef/f6/c15ca8e5646e937c148e147244817672cf920b56ac0bf2cc1512ae674be8/lxml-5.3.1.tar.gz"
-    sha256 "106b7b5d2977b339f1e97efe2778e2ab20e99994cbb0ec5e55771ed0795920c8"
+    url "https://files.pythonhosted.org/packages/70/bb/7a2c7b4f8f434aa1ee801704bf08f1e53d7b5feba3d5313ab17003477808/lxml-4.9.1.tar.gz"
+    sha256 "fe749b052bb7233fe5d072fcb549221a8cb1a16725c47c37e42b0b9cb3ff2c3f"
   end
 
   resource "markdown-it-py" do
@@ -149,8 +149,8 @@ class Animdl < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/1e/87/6d71456eabebf614e0cac4387c27116a0bff9decf00a70c362fe7db9394e/yarl-1.9.11.tar.gz"
-    sha256 "c7548a90cb72b67652e2cd6ae80e2683ee08fde663104528ac7df12d8ef271d2"
+    url "https://files.pythonhosted.org/packages/c4/1e/1b204050c601d5cd82b45d5c8f439cb6f744a2ce0c0a6f83be0ddf0dc7b2/yarl-1.8.2.tar.gz"
+    sha256 "49d43402c6e3013ad0978602bf6bf5328535c48d192304b91b97a3c6790b1562"
   end
 
   # Multiple resources are too old to build on recent Xcode/macOS,
