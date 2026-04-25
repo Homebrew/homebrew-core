@@ -1,8 +1,8 @@
 class Periphery < Formula
   desc "Identify unused code in Swift projects"
   homepage "https://github.com/peripheryapp/periphery"
-  url "https://github.com/peripheryapp/periphery/archive/refs/tags/3.7.2.tar.gz"
-  sha256 "1825891157144c2d61bedeeb6f4058c1ca071156a485fe07368d14aa98091011"
+  url "https://github.com/peripheryapp/periphery/archive/refs/tags/3.7.3.tar.gz"
+  sha256 "481dbd108f1222ac7afe6b67cea729132466613bada02314c4ddb4d5d338498d"
   license "MIT"
   head "https://github.com/peripheryapp/periphery.git", branch: "master"
 
@@ -15,78 +15,45 @@ class Periphery < Formula
 
   depends_on xcode: ["16.4", :build]
 
-  uses_from_macos "swift" => [:build, :test]
   uses_from_macos "curl"
   uses_from_macos "libxml2"
+  uses_from_macos "swift"
 
-  on_linux do
-    depends_on "patchelf" => :build
-    depends_on "zlib-ng-compat"
-    depends_on "zstd"
+  # Update to commit referenced in https://github.com/peripheryapp/periphery/blob/<version>/Package.swift
+  resource "swift-index-store" do
+    on_linux do
+      url "https://github.com/MobileNativeFoundation/swift-index-store/archive/7edb9a64e084ed64f83b84fb9269d3d1a20c0687.tar.gz"
+      sha256 "caa6aaf989d7a886bf3a7d8c72128d83a1cab5bf15480eec347dda5a87d2216b"
+    end
   end
 
   def install
     args = if OS.mac?
       ["--disable-sandbox"]
     else
+      swift_lib = Formula["swift"].opt_libexec/"lib"
+
+      resource("swift-index-store").stage buildpath/"swift-index-store"
+
+      inreplace buildpath/"swift-index-store/Package.swift" do |s|
+        # The `swift-index-store` package adds an rpath to the location of `swiftc` plus /lib.
+        # This approach can lead to issues in Homebrew build, as the location is a supershim,
+        # resulting in supershim path beeing an rpath inside the binary
+        s.gsub!(
+          /let\s+toolchainLibDir\s*=\s*URL\(fileURLWithPath:\s*swiftcBin\)\.resolvingSymlinksInPath\(\)\s*
+            \.deletingLastPathComponent\(\)\.deletingLastPathComponent\(\)\.appendingPathComponent\("lib"\)\.path/mx,
+           "let toolchainLibDir = \"#{swift_lib}\"",
+        )
+      end
+
+      # Use the patched `swift-index-store` package
+      system "swift", "package", "edit", "swift-index-store", "--path", buildpath/"swift-index-store"
+
       ["--static-swift-stdlib", "-Xswiftc", "-use-ld=ld"]
     end
+
     system "swift", "build", *args, "--configuration", "release", "--product", "periphery"
     bin.install ".build/release/periphery"
-
-    if OS.mac?
-      toolchain_lib = Pathname(
-        Utils.safe_popen_read("/usr/bin/xcode-select", "-p").strip,
-      )/"Toolchains/XcodeDefault.xctoolchain/usr/lib"
-      indexstore = toolchain_lib/"libIndexStore.dylib"
-      odie "Missing libIndexStore in #{toolchain_lib}" unless indexstore.exist?
-      lib.mkpath
-      cp indexstore, lib/"libIndexStore.dylib"
-
-      # The binary inherits an absolute Xcode toolchain rpath from the build environment.
-      # Replace it with a loader-relative path so the bundled lib is used instead.
-      toolchain_rpaths = []
-      inside_rpath_command = false
-      Utils.safe_popen_read("/usr/bin/otool", "-l", bin/"periphery").each_line do |line|
-        if line.include?("cmd LC_RPATH")
-          inside_rpath_command = true
-          next
-        end
-
-        next unless inside_rpath_command
-        next unless line.lstrip.start_with?("path ")
-
-        path = line.split[1]
-        toolchain_rpaths << path if path == toolchain_lib.to_s || path.start_with?("#{toolchain_lib}/")
-        inside_rpath_command = false
-      end
-      system "/usr/bin/install_name_tool", "-add_rpath", "@loader_path/../lib", bin/"periphery"
-      toolchain_rpaths.uniq.each do |path|
-        system "/usr/bin/install_name_tool", "-delete_rpath", path, bin/"periphery"
-      end
-    else
-      swift_libexec_lib = Formula["swift"].opt_libexec/"lib"
-      indexstore = Dir[swift_libexec_lib/"libIndexStore.so*"].map { |path| Pathname(path) }
-      odie "Missing libIndexStore in #{swift_libexec_lib}" if indexstore.empty?
-      indexstore.each do |path|
-        lib.install path
-      end
-
-      # The binary inherits an absolute Swift toolchain rpath from the build environment.
-      # Replace it with a loader-relative path so the bundled lib is used instead.
-      swift_cellar_libexec_lib = Formula["swift"].libexec/"lib"
-      swift_toolchain_rpaths = [swift_libexec_lib, swift_cellar_libexec_lib]
-      swift_toolchain_rpaths << swift_libexec_lib.realpath if swift_libexec_lib.exist?
-      swift_toolchain_rpaths << swift_cellar_libexec_lib.realpath if swift_cellar_libexec_lib.exist?
-      existing_rpath = Utils.safe_popen_read(
-        Formula["patchelf"].opt_bin/"patchelf", "--print-rpath", bin/"periphery"
-      ).strip
-      rpaths = existing_rpath.split(":").reject do |path|
-        path == lib.to_s || swift_toolchain_rpaths.map(&:to_s).include?(path)
-      end
-      rpaths.unshift("$ORIGIN/../lib")
-      system Formula["patchelf"].opt_bin/"patchelf", "--set-rpath", rpaths.uniq.join(":"), bin/"periphery"
-    end
 
     generate_completions_from_executable(bin/"periphery", "--generate-completion-script")
   end
