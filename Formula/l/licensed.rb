@@ -6,6 +6,11 @@ class Licensed < Formula
       revision: "30a7f6abb2b1ba6d960f2878233009766430e085"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c88684d9683431a42b1fab8b4be83c95b5699cb571383d58e44c295342b56ae9"
     sha256 cellar: :any,                 arm64_sequoia: "ad97635e2a83084e400112444db2f5674af5ce2f3c91ca2bb9f235147858756a"
