@@ -23,5 +23,6 @@ class Chocolatey < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/choco --version")
     assert_match "Chocolatey", shell_output("#{bin}/choco --help")
+    assert_match "chocolatey - https://community.chocolatey.org", shell_output("#{bin}/choco source list")
   end
 end
