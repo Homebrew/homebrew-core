@@ -1,9 +1,9 @@
 class Sevenzip < Formula
   desc "7-Zip is a file archiver with a high compression ratio"
   homepage "https://7-zip.org"
-  url "https://7-zip.org/a/7z2600-src.tar.xz"
-  version "26.00"
-  sha256 "3e596155744af055a77fc433c703d54e3ea9212246287b5b1436a6beac060f16"
+  url "https://7-zip.org/a/7z2601-src.tar.xz"
+  version "26.01"
+  sha256 "b2389e0e930b2f9a348cf0fe7d9870a46482a8ec044ee0bdf42e2136db31c3d6"
   license all_of: ["LGPL-2.1-or-later", "BSD-3-Clause"]
   compatibility_version 1
   head "https://github.com/ip7z/7zip.git", branch: "main"
@@ -16,12 +16,12 @@ class Sevenzip < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b57c0f8f5f4caea6aa212b4e6020a6e133d60020c707b37fbf6b541298bad869"
-    sha256 cellar: :any,                 arm64_sequoia: "6b9e6ef14d5d87a1761498289a5f92fca1750f8868d49ad0682a97f2d69062e8"
-    sha256 cellar: :any,                 arm64_sonoma:  "00123fb47a84dc1c7f7d24cf81855cbb9c39b624c3a1b79c31d7b71b47c51a5f"
-    sha256 cellar: :any,                 sonoma:        "d569733581c4b7b1e3fb53d91713e0d1f04ca40e2f895a6f7f932bef8aca9336"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e7ad36bed9fb936409523c18a6ed46aa1025b64c8a8db0182cbd20188a400ed3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d55e8686adb08a769e36501df2303a21f02886f0c0e77275d65ceb83c9afbec3"
+    sha256 cellar: :any,                 arm64_tahoe:   "6f0c24927488f6cff80f71a4127c89c967d70700002df0ae7dd8248bc77167a4"
+    sha256 cellar: :any,                 arm64_sequoia: "3d6255d3267e6614f8353d9acb074ec56da23069fc0730e1faa97b4b147c6b3d"
+    sha256 cellar: :any,                 arm64_sonoma:  "87f99d0cc42d909e43c57b8ed45735a479b27c5e247f3942e86148b51737d94e"
+    sha256 cellar: :any,                 sonoma:        "d846411ffedeef2f643a3aaea33233c6b038d4c166f3f46ee9542f559b1130c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9054ee68ffc6d140ffdfb7f7b665755c74f2cbbe9e109bdeec5ea6640ec0321"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23143ae518a247b5b5ababcaf4e149c45cf92c4fb98e3019acc06bdd348bf609"
   end
 
   def install

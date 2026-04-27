@@ -3,10 +3,9 @@ class KnotResolver < Formula
 
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-6.2.0.tar.xz"
-  sha256 "b44633bc843180c0bc7c77cf7b15fe571243ae992b4ddb74afdee4cfa803701b"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-6.3.0.tar.xz"
+  sha256 "b87306197f7436b49079c633364bc5df71a393236fb25e9fce7d04480bc7518e"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git", branch: "master"
 
   livecheck do
@@ -15,12 +14,12 @@ class KnotResolver < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "82d6728ce113b2c1920da5f911265dc4ea3342f49562f2f0063da484795befb1"
-    sha256 arm64_sequoia: "7b424dfc4867b8585383cb14bf20daf1d72b0747c4e8e4dd25cdf25e6a0162de"
-    sha256 arm64_sonoma:  "b434cd54a4882be950d39998dbc3fe711b969d97144874faae5b0723be5ed5ba"
-    sha256 sonoma:        "5998f4f6acca4d50f4904abe4f40606245c089fb8184bbcc4b18bcb3b32560f9"
-    sha256 arm64_linux:   "c25848209811b8ea5a07d9d88fbef96a4b61354ae4b76fc4a3907f5061e39653"
-    sha256 x86_64_linux:  "3674f154eca1f62135b1487fe875c9ad409c9d85b984ecaeafb9aa41c62541c1"
+    sha256 arm64_tahoe:   "f1fd52d337afe9aca1610dfbd0c6cb99e97baab56d6c0646e4de2a7a6b31e18b"
+    sha256 arm64_sequoia: "1e8451ffdd19fed73a06ef06dc7765b46a2301e8efef2f8478a19a16ce52f1f2"
+    sha256 arm64_sonoma:  "baee416c5509faf5facad958749aba9a9aec61b91a016b987d1ee5421ac27f36"
+    sha256 sonoma:        "0eb382b2809cc20eb1cf36fa4c1a3103fcf4164a75c276f93974f4dab30cb716"
+    sha256 arm64_linux:   "2a133f172581f8b1b0c6d523c775fbc11242bba0f7134d281c947bc0fb468c7d"
+    sha256 x86_64_linux:  "ad36b3192b33b7b89dc95550ce3eab75e062fab072db163a2f408ed346951880"
   end
 
   depends_on "meson" => :build
@@ -74,8 +73,8 @@ class KnotResolver < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "jinja2" do
@@ -94,8 +93,8 @@ class KnotResolver < Formula
   end
 
   resource "prometheus-client" do
-    url "https://files.pythonhosted.org/packages/f0/58/a794d23feb6b00fc0c72787d7e87d872a6730dd9ed7c7b3e954637d8f280/prometheus_client-0.24.1.tar.gz"
-    sha256 "7e0ced7fbbd40f7b84962d5d2ab6f17ef88a72504dcf7c0b40737b43b2a461f9"
+    url "https://files.pythonhosted.org/packages/1b/fb/d9aa83ffe43ce1f19e557c0971d04b90561b0cfd50762aafb01968285553/prometheus_client-0.25.0.tar.gz"
+    sha256 "5e373b75c31afb3c86f1a52fa1ad470c9aace18082d39ec0d2f918d11cc9ba28"
   end
 
   resource "propcache" do

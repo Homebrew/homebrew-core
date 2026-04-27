@@ -4,8 +4,8 @@ class Shaderc < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/google/shaderc/archive/refs/tags/v2026.1.tar.gz"
-    sha256 "245002feccbe7f8361b223545a5654cea69780745886872d7efff50a38d96c66"
+    url "https://github.com/google/shaderc/archive/refs/tags/v2026.2.tar.gz"
+    sha256 "f924178e75e3293082481b25ed64d5e48a795b479dac3bd3c83d23070855df42"
 
     resource "glslang" do
       # https://github.com/google/shaderc/blob/DEPS
@@ -45,12 +45,12 @@ class Shaderc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d7ddacc721d7007b1f2c19485b1c938f41cd579f574b340390d66d320dbc20c1"
-    sha256 cellar: :any,                 arm64_sequoia: "a13c345a193efe0785b209c98711d0283a777e153089273d5d0960aa3b53001a"
-    sha256 cellar: :any,                 arm64_sonoma:  "194d5bb48ba609fb62adda23c7943cb18d170cac7f82223770250a859dc47d05"
-    sha256 cellar: :any,                 sonoma:        "2295c30040b559918297da800c7ed9c4ee3df77295a4ac3845852435741b0507"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8c26769453214cc7c2e4dbc150cb62d0a1797f0e02aa1934aabc0c9e9cb5fa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "976b47b7844c989741ee3a3f6dbdb03ed0a524cb230f9bda8d1bf5b19d2e7a81"
+    sha256 cellar: :any,                 arm64_tahoe:   "58c46665bd5ca59061486e1a79320a0d2d210be57171717adcc582176ba4078b"
+    sha256 cellar: :any,                 arm64_sequoia: "fd12de6d9d6737f8dceaa09626a4371dbfcacfc2babde0dfc3ec83ae2c133f88"
+    sha256 cellar: :any,                 arm64_sonoma:  "99858aa675ccd198590e2db7049623ee1f5e01c67c78cf8897f682e731030b58"
+    sha256 cellar: :any,                 sonoma:        "cee5a5fce9e3a1aa9f437f347ad7199b0b3dc264b98ce88fd090060c4810ff60"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdc97b4b126ffdc619e1f52023477a2ad76115766941dc96e775f65d7ff45431"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69fb73faf29219169359889183db1a19ed18610d549752c91cb0b5526ee86f6c"
   end
 
   head do
