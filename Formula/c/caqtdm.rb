@@ -17,6 +17,7 @@ class Caqtdm < Formula
   depends_on "qwt"
   depends_on "python"
   depends_on "zeromq"
+  depends_on "open62541"
   depends_on "openssl@3"
   
 
