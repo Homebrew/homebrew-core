@@ -3,14 +3,18 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/3a/73/7114f80a8f9cabdb13c27732dce24af945b2923dcab80723602f7c8bc2d8/ipython-9.12.0.tar.gz"
-  sha256 "01daa83f504b693ba523b5a407246cabde4eb4513285a3c6acaff11a66735ee4"
+  url "https://files.pythonhosted.org/packages/cd/c4/87cda5842cf5c31837c06ddb588e11c3c35d8ece89b7a0108c06b8c9b00a/ipython-9.13.0.tar.gz"
+  sha256 "7e834b6afc99f020e3f05966ced34792f40267d64cb1ea9043886dab0dde5967"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/ipython/ipython.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b715dede0843ec065396cc1de8e25ddf092c9588d508352085e14c3214f703ab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b5e1a11417fd2b5e5eaba258e43083142635e1ce5d9a5c88ab0bd07dd771a6cc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a60a4510ce5aafdd08d2c572c80b5c4f43fa7bc6ebe9d334eb7fb4e9839972d4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4bc147746bac291e1fdda7e42513e0e63e50b10390903abc352ffb510f98a41f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e4d720ae858b4fe6a745060bb0064339cd5bdff079414eb3acbabc14a8088d9e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "580194a7ad991568364fa4cac8b0c4149f5a093b93eef42802b96dbbe25f2388"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff3499eb1ed989d66a1a47399a0e5754ace9014f98073043570cb26fb0d053ec"
   end
 
   depends_on "python@3.14"
@@ -58,6 +62,11 @@ class Ipython < Formula
   resource "prompt-toolkit" do
     url "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz"
     sha256 "28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855"
+  end
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/aa/c6/d1ddf4abb55e93cebc4f2ed8b5d6dbad109ecb8d63748dd2b20ab5e57ebe/psutil-7.2.2.tar.gz"
+    sha256 "0746f5f8d406af344fd547f1c8daa5f5c33dbc293bb8d6a16d80b4bb88f59372"
   end
 
   resource "ptyprocess" do

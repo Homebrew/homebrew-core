@@ -3,8 +3,8 @@ class LittleCms2 < Formula
   homepage "https://www.littlecms.com/"
   # Ensure release is announced at https://www.littlecms.com/categories/releases/
   # (or https://www.littlecms.com/blog/)
-  url "https://downloads.sourceforge.net/project/lcms/lcms/2.18/lcms2-2.18.tar.gz"
-  sha256 "ee67be3566f459362c1ee094fde2c159d33fa0390aa4ed5f5af676f9e5004347"
+  url "https://downloads.sourceforge.net/project/lcms/lcms/2.19/lcms2-2.19.tar.gz"
+  sha256 "49e7e134e4299733dd0eda434fa468997a28ab3d33fa397c642b03644f552216"
   license "MIT"
   version_scheme 1
   compatibility_version 1
@@ -19,12 +19,12 @@ class LittleCms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ea51fe72839acbeb85a14cbc5f758fcfd6c10704bf301511b67b80d1eb437e25"
-    sha256 cellar: :any,                 arm64_sequoia: "ef0bc9dde8d758c481c8ef9f7ac032776f0c67de87b2bc453e0bdbb037914cba"
-    sha256 cellar: :any,                 arm64_sonoma:  "a3b6b7e04b11587086a64a17b6c8880cf20bab9d92d00cad8f6d71cc0d347289"
-    sha256 cellar: :any,                 sonoma:        "b4c863e6eb564449490359a59c6fbfa8b72e305f6f81bb81c17eb24c21388a19"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "58e39623413e57b7ae9a3a34aad0aebce5564264f3af4b3388570860d04b54be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f004716c38223986c27a7f6b545f169616d6ee060d3b652b5f936a28d9725ae6"
+    sha256 cellar: :any,                 arm64_tahoe:   "09a863e549255993de3f73d705328b1202417dff324edd30c703b77fcee09b01"
+    sha256 cellar: :any,                 arm64_sequoia: "be9135a585a60f84ec283d97e7a89bec9338e525679b637b171092338c5c28a0"
+    sha256 cellar: :any,                 arm64_sonoma:  "27689360239a2d3e1b69f14d2f981852c7cacc3bbd1fbdfba499a059cf69b551"
+    sha256 cellar: :any,                 sonoma:        "213896d19f9b7a0baad9c5a0b5daebe4f3d901a93c85de24f299c01ab1dadede"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6db1e7a93012fc49569cedc5772f9a2cab3ed4411c7f1015652b3b5d132740b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8df57239d5b52a119832c5b042c5a9fda56caf1692ac1377d517cb6bfc578ed8"
   end
 
   depends_on "jpeg-turbo"

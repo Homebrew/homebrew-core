@@ -1,8 +1,8 @@
 class Inframap < Formula
   desc "Read your tfstate or HCL to generate a graph"
   homepage "https://github.com/cycloidio/inframap"
-  url "https://github.com/cycloidio/inframap/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "f0e3d2a5f51339549802f8ad1650850ddfe81650ceb72ac9ea86fdd95ab2bfb8"
+  url "https://github.com/cycloidio/inframap/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "c846977a1b445737e199b1565f09f17f4d9f53d4ef585fd39627b149f17e3a8a"
   license "MIT"
   head "https://github.com/cycloidio/inframap.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Inframap < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "35238fd6006c1e1292640c56f85a7f36c2794851727b2ea8ea91a28ecd3b5056"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "35238fd6006c1e1292640c56f85a7f36c2794851727b2ea8ea91a28ecd3b5056"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35238fd6006c1e1292640c56f85a7f36c2794851727b2ea8ea91a28ecd3b5056"
-    sha256 cellar: :any_skip_relocation, sonoma:        "869a30f97467cc4df989f532fd8e587e600bbcea1e32b7ae1ecb54ef7f545122"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "34b08303d1e7bf81b263e4c775e3fca3900eb31d1e951667255a3cc5e6dc7ad0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "373101f264996d311db6bf6fdb35db1f53d1f0099ec8964bfd5168cdab64f1da"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae31ec0395129162af3fedc9c3adb493f972383c7dac5ae7178e2011a6e05911"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ae31ec0395129162af3fedc9c3adb493f972383c7dac5ae7178e2011a6e05911"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae31ec0395129162af3fedc9c3adb493f972383c7dac5ae7178e2011a6e05911"
+    sha256 cellar: :any_skip_relocation, sonoma:        "054b764bacd6b64cb5be9f36e6aa476960ac460b06a855931cd6e0c84df7b4b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "53149571561b0510d710bd714d0cf079523707b114857e9035b635067151741f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9a3d670fbb4a76b880ebb96533df86e6fce39494e85be60e7ce13f778a7c7ba"
   end
 
   depends_on "go" => :build

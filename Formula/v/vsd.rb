@@ -32,7 +32,6 @@ class Vsd < Formula
 
   def install
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     inreplace "vsd/Cargo.toml" do |s|
       s.gsub! ", path = \"../mp4decrypt\"", ""

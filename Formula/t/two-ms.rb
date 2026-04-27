@@ -12,12 +12,13 @@ class TwoMs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa9abb90b0d00a92f0b1905b15e78183e5c1d432b1502330ef7eec4ea032713b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2051bef9fee36a578f98b411ac7450a874a422b6578abd16887e9ddb1c820c37"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79a9be50d82a56654f822e5bb8f1e71623e24c9c517401675a19218402defbbb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7ee6e5ab29b7a24ed75985ca5759c587485ddf089258a0703e675093180fee17"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "131128b771efd591cd02b83d91b55f760b8726c7169fb5a2d433f250659991d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e026112604a84d3c576217741e008d9a4090d13a00f4ac9b6c407e2c8682efe5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7b261e974568daf603b5a53d5ae2a1ffae13e9874f002e2f2e587d941752052"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ad96916091d4fdbbee79de81f654faba76c1e8bc878ed95e7150419d3ba460d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30d1a6c6d052262349dbdfd86b55b7b1402ffab7cad9ad4b3794db7097e81e72"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c4a8f42db758a4b54215f61d4661cebbb0b39b239cf1ddd91996cedc81ffed37"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd5681714e01e3a7266265054982ac57c71b9e6c5260445953dad3728eeb1168"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37ab46e55dd59bd36e147c7f5a88c2ca1ab0aa3ae84a017b5282d36fb11bec19"
   end
 
   depends_on "go" => :build
@@ -25,6 +26,7 @@ class TwoMs < Formula
   def install
     ldflags = "-s -w -X github.com/checkmarx/2ms/v#{version.major}/cmd.Version=v#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"2ms"), "main.go"
+    generate_completions_from_executable(bin/"2ms", shell_parameter_format: :cobra)
   end
 
   test do

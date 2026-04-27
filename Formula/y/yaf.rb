@@ -1,8 +1,8 @@
 class Yaf < Formula
   desc "Yet another flowmeter: processes packet data from pcap(3)"
   homepage "https://tools.netsa.cert.org/yaf/"
-  url "https://tools.netsa.cert.org/releases/yaf-2.18.3.tar.gz"
-  sha256 "4cee46b11371fc5b7b76044c7efadb1e30043e699eb0d8d1aa4f1ca6436e8cdd"
+  url "https://tools.netsa.cert.org/releases/yaf-2.19.1.tar.gz"
+  sha256 "d2bab3eab2a227eaeedc8624c69dfb77a7ba314d02c3f050cbb829e7ccf66271"
   license "GPL-2.0-only"
 
   # NOTE: This should be updated to check the main `/yaf/download.html`
@@ -13,13 +13,12 @@ class Yaf < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "3b7251cb48fe4163d5ceaf8c494d08f515f36969cbd11b663111828f9f9bb726"
-    sha256 cellar: :any,                 arm64_sequoia: "7cad8b87c9095aa1109b7a9d2aef1959d4f8a22212bd06935f81354e0b0e6257"
-    sha256 cellar: :any,                 arm64_sonoma:  "e918c459b53d43fe9c5e81fd34cce202a2837c0b9965dceab37dd80c78dd5ff1"
-    sha256 cellar: :any,                 sonoma:        "42791e849b3a3d5b6fef29e72eb312d002a522795d75ab10f1eb1a343f9cff61"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a94b4b5ad8a62f6cb5303609324034aebc094f1b33c05a10013197a90104cdc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9df057a2865d4c4752a5f54c7d6b86bc91e92cc0343998821ed7dd6cbd47ba7e"
+    sha256 cellar: :any,                 arm64_tahoe:   "56f4ea440bca04278fdf50b593f09635f3d7891ae9ac15ccda90869ea51656e4"
+    sha256 cellar: :any,                 arm64_sequoia: "f837ebb2dd639231481cbce06f1ec41655be39c2c1f7ac35de0b77810e9a4377"
+    sha256 cellar: :any,                 arm64_sonoma:  "1619cea677b13c42f8f7141a643d4d75ab6a9a08d98477070bbde7b3caa8f9de"
+    sha256 cellar: :any,                 sonoma:        "da8bf37261b856a80f336bac36015205d3d57fcc389ce1485dd657946cac0e98"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2f39712dc5237abf10883d2c4ebae68793fa8e378e57460f0a936c571959989"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91cde7336e0c16efa7188fe16570ed567bf0735caa2ad1fbba42f7550e7f4603"
   end
 
   depends_on "pkgconf" => :build
@@ -31,6 +30,7 @@ class Yaf < Formula
 
   on_macos do
     depends_on "gettext"
+    depends_on "pcre2"
   end
 
   on_linux do
@@ -46,11 +46,12 @@ class Yaf < Formula
   end
 
   test do
-    input = test_fixtures("test.pcap")
-    output = pipe_output("#{bin}/yafscii", shell_output("#{bin}/yaf --in #{input}"), 0)
+    # FIXME: yafscii 2.19.1 segfaults when reading stdin or writing stdout
+    system bin/"yaf", "--in", test_fixtures("test.pcap"), "--out", testpath/"flow.ipfix"
+    system bin/"yafscii", "--in", testpath/"flow.ipfix", "--out", testpath/"flow.txt"
     expected = "2014-10-02 10:29:06.168497 - 10:29:06.169875 (0.001378 sec) tcp " \
                "192.168.1.115:51613 => 192.168.1.118:80 71487608:98fc8ced " \
                "S/APF:AS/APF (7/453 <-> 5/578) rtt 451 us"
-    assert_equal expected, output.strip
+    assert_equal expected, (testpath/"flow.txt").read.strip
   end
 end

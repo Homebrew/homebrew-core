@@ -13,14 +13,16 @@ class Gtk4 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ba475195ce1f29e3934dc56d39f33ef1ca95b6c39c533624289aadfd3687e0dd"
-    sha256 arm64_sequoia: "4f4c3dafeb2bff8137275f16d4a19bed220bcfd426f607e7d75a0847f0a99b67"
-    sha256 arm64_sonoma:  "66b13d499b80b7aed3ad0b2a0c43867d73d88505b1fbdbddfb72837c486bdafe"
-    sha256 sonoma:        "e0a95a53507828a1bfad552a5c680a7a85943fce0b16fb373df9ca281bb30a22"
-    sha256 arm64_linux:   "3ede8222dfb636c5566cd76ae91d52875e40662e3c56e15fa0a1875189b169d6"
-    sha256 x86_64_linux:  "f95e4874d4f6968f6d4debbf4a01e0448c1fc6309f67cafc984a43f155791b5a"
+    rebuild 1
+    sha256 arm64_tahoe:   "eb7dbd2b613a53a653f36eeb9766f4733cbc909c7d035ce4a14d96ee6ea970e1"
+    sha256 arm64_sequoia: "5702eb9e38556d1e0e33440ede3ede31e979b0fe7ce1e0daea2fbd97068d1e32"
+    sha256 arm64_sonoma:  "6095a720aa01d9124076c73d05a1cac2c47760c4dce249516fa186e2e1cbbbe3"
+    sha256 sonoma:        "ec9cff3469cc82f7509dbfe61ae4c41f751e958e009648e237da5ce2f9a5a27e"
+    sha256 arm64_linux:   "49f092aa49faf40c7432176278c5b4444ac6d50359c04594690bd452c18fa22a"
+    sha256 x86_64_linux:  "3782c1e4d3d9fc4686fba2ea5688a28227c598e2b79902fb4b862e1683fbd8ff"
   end
 
+  depends_on "dart-sass" => :build
   depends_on "docbook" => :build
   depends_on "docbook-xsl" => :build
   depends_on "docutils" => :build
@@ -66,6 +68,13 @@ class Gtk4 < Formula
   end
 
   def install
+    # Replace deprecated `sassc` with `sass` in the meson build file
+    inreplace "gtk/meson.build" do |s|
+      s.gsub! "'sassc'", "'sass'"
+      s.gsub! "'-a', '-M', '-t', 'compact'", "'--style', 'compressed'"
+    end
+    inreplace "build-aux/meson/dist-data.py", "'-a', '-M', '-t', 'compact'", "'--style', 'compressed'"
+
     args = %w[
       -Dbuild-examples=false
       -Dbuild-tests=false

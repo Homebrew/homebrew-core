@@ -1,18 +1,17 @@
 class FontUtil < Formula
   desc "X.Org: Font package creation/installation utilities"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/font/font-util-1.4.1.tar.xz"
-  sha256 "5c9f64123c194b150fee89049991687386e6ff36ef2af7b80ba53efaf368cc95"
+  url "https://www.x.org/archive/individual/font/font-util-1.4.2.tar.xz"
+  sha256 "02e4f8afdcf03cc8372ca9c37aa104b1e36b47722dbc79531be08f0a4c622999"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1e81859b3665bc1d739ed7a6d7844fb00408b423a1a974dba3f4d53afcfdb15f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1e8982b1136f3b7dc2667de6eda27c7a8f90b6203907996c17e3afff344ca17"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07818746685ef7ff1be5495b2864c494bcb1cecca807748f5d54ddd349bc363d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4a762c78c7117532ef466b0f92cb9afe68067fdebecf6a702281f7daac8273be"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aab35c752e837191fc9ae9aa898844651080a4ad9cf97e0b8047331671f04510"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59a413b8a4634f05af50fa9f6be3ff29f872314bc644701ab17e5aaffe3d0361"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c36ca76580fb353bdfe1380fd2f21bda85acccd1a877a231af3053752e4c48c7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e57594b7b9b844d9ca329f6a0a5e579ea4d7ca1f62cd3815d98a3fe19ff2f6f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c409f69f033ad5a336b146d8af4a884c941dc6f02840dfd2f38b63e0b3476bf0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2ff16d09fbc8f9efdf1ffb3c3cb6dcb1f01c3e39042c75d572a8f7ae3f84b21f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6dcbba120003015b76776467dc9354131b9889e8feb84be4f24fddb181aa1ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9586086bb39cbbd36fa3e2846e7ac568e435e50e43ac1adda639642ad509e05"
   end
 
   depends_on "pkgconf" => [:build, :test]

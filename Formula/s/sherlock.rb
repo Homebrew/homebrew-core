@@ -2,8 +2,7 @@ class Sherlock < Formula
   include Language::Python::Virtualenv
 
   desc "Hunt down social media accounts by username"
-  # TODO: check the original homepage "https://sherlockproject.xyz/" is back online
-  homepage "https://github.com/sherlock-project/sherlock"
+  homepage "https://sherlockproject.xyz/"
   url "https://files.pythonhosted.org/packages/76/17/d29f35df6ec6424ec15f273a31ad54ad314d1f9056321fb824bed4eda128/sherlock_project-0.16.0.tar.gz"
   sha256 "fcc8f05fb6f55de30938cce5727249f70917b226918a71f6ed3f50d8a6467610"
   license "MIT"
@@ -58,6 +57,12 @@ class Sherlock < Formula
   resource "pandas" do
     url "https://files.pythonhosted.org/packages/33/01/d40b85317f86cf08d853a4f495195c73815fdf205eef3993821720274518/pandas-2.3.3.tar.gz"
     sha256 "e05e1af93b977f7eafa636d043f9f94c7ee3ac81af99c13508215942e64c993b"
+
+    # Workaround for meson 1.11+, deps type error
+    patch do
+      url "https://github.com/pandas-dev/pandas/commit/0e978b68ba68e0f3b1f8b9f6b5a38072948638f0.patch?full_index=1"
+      sha256 "6d182353395464070bf683048dd3b7e79e11f66b4f38e053d2c49d1d060cbb99"
+    end
   end
 
   resource "pysocks" do
@@ -112,6 +117,8 @@ class Sherlock < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/sherlock --version")
 
-    assert_match "Search completed with 1 results", shell_output("#{bin}/sherlock --site github homebrew")
+    output = shell_output("#{bin}/sherlock --local --site GitHub homebrew")
+    assert_match "GitHub: https://www.github.com/homebrew", output
+    assert_match "Search completed with 1 results", output
   end
 end

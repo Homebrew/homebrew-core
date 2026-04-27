@@ -2,17 +2,17 @@ class RaxmlNg < Formula
   desc "RAxML Next Generation: faster, easier-to-use and more flexible"
   homepage "https://cme.h-its.org/exelixis/web/software/raxml/"
   url "https://github.com/amkozlov/raxml-ng.git",
-      tag:      "2.0.0",
-      revision: "e995a54dda83e440ee15e890093c5b2718787043"
+      tag:      "2.0.1",
+      revision: "a7d61b56d2e0e6e263e4686bcbd0017659b37711"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "23abe5b75f51e9b192e090d5d0be80e45ad5c19c5aa1ec54f7ff0a6113d81e22"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c06b5319a7877e62e01d672e18ca8abdedf402f1eafce1a8d3fcd26bd9ba85e2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb756e6e32e613f364dbc9c72b6be954cd98935c6faf99162172a5e2dab84211"
-    sha256 cellar: :any_skip_relocation, sonoma:        "285955dfad46130dd32556aa964f7edb2e6a1f1fbed29ecc58347d3eebb58ec3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d549b9dfd0c03f3c39a19a1aa640da905b0ed71360d69cbee11f14a9ebc4e1c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e73be7c74afaab314353cc6bcc1e2fa5a76a7f1347ca789f4cde39efe260b34e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5a448506aeb79b7723b901babc8957c55ccd8f7140ed2cea884056b7c0cbaa41"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7d87c78f2854133816e3df16ea36882138413ccab5c36933fa530c7897f9677"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3cf4a28e7921d618f72ef37ec17b9a22f159921468544873686b7656fa4091da"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e3cb8b87825f9482378ea6448b11c712bff87b5739428605b66ca2586ab1f2df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a03b4f5f5f3df34d530934a4e3bd3e2097e73c76030c5c9fbc902d546340f822"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3df42702cd7ab6b0f56fa527b8c88e6431a9194261d779da62c7e6b707f7ffb0"
   end
 
   depends_on "bison" => :build # fix syntax error with `parse_utree.y`

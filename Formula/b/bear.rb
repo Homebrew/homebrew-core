@@ -1,18 +1,18 @@
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/refs/tags/4.1.1.tar.gz"
-  sha256 "58665614e59f3b7f7127e6a6fe4c94ddc64b81e80a4c160ecbd7e44b9171308f"
+  url "https://github.com/rizsotto/Bear/archive/refs/tags/4.1.2.tar.gz"
+  sha256 "34e20693d9f3f6820bf330d5dc426eeafb33092c24208f25954d401a92083673"
   license "GPL-3.0-or-later"
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "303b147afe71ec87067b48a1ac5f4e34add746abe5f60061c6c3f5066a13414e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c64e2d1bc0fe311705b1f2edc96500eec2dda1d8f4518e0fb475200ed1764517"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6104e5b2d2afb61371e607b70466fc3f3e2d72035b63449676bf072e1cacb7bd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "43fd5a936bba402659fb5a021d3ad9907a76e31d160a2034b47508a46755bba3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "246c58d533db6b18c339211ffdb8bdfff029b1777ca8db73ba012429d6e83894"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5512f8683b3348cc16d17c235b47b860ea29eb3e6df09c6e3dcede312045a5d2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "360d8afdbbabb9ce4bf252f98492770ecc35881fe9b8b2d5c0da1b80ae3045ca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c1886863af5933ab1d9c11838e3bf4fadffd24625316be805521d5461dd8873"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0c8421b477a0b47c86d419643b83eec07d3cdb013ca0f53ac6cf222ddd5956d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "597f5e3140145992d533c359411514bf68b2df5b52b8387be6a0b96eeaf08802"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "218194a82804ed5d96945599baec733ff3fb21812b36898fea14eb9b5ec03874"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3da0d1eb47b6903a219b8eb28debb16e1380da5df1d81d3d4a3c769008a8e434"
   end
 
   depends_on "pkgconf" => :build

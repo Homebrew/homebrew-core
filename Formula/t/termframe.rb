@@ -1,18 +1,18 @@
 class Termframe < Formula
   desc "Terminal output SVG screenshot tool"
   homepage "https://github.com/pamburus/termframe"
-  url "https://github.com/pamburus/termframe/archive/refs/tags/v0.8.3.tar.gz"
-  sha256 "91fd9496ddf27c573f742150a8966cb026240ba789e398a7b7ae7ca7f703b7b1"
+  url "https://github.com/pamburus/termframe/archive/refs/tags/v0.8.4.tar.gz"
+  sha256 "a78e944cb0c40068b1491d651bff44df4e6bfe0a66a13e82d7042f8cae118d8e"
   license "MIT"
   head "https://github.com/pamburus/termframe.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e3d3911175f7255ff09163996d38e983e3452f405b2378656109208f4abb7da3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9b2c17a6c5cddcd6d7bd1427ef736b1596cc45b60c10d720169e52fb39183a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e6d44083ee63af594a5f229e818f0a81973b59c7241fbe08ba87f0614d8ce1ec"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dd9940d4ecdeb8d55162c392c68a289d7ab9eef575a72676b428bff3ca4c8417"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f83d8e7dd12c02674894f034bb44583bdb4efc5894058345ffc2fc9268e616bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dba0c6986599c02ddc6978a3cc033996eb9eddc42443e93df81e33a23d8d5347"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9ff27826bfcea033e25ec06f9d18c3631b8a1dd49de0d0b57b682c4f65f7480e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e7aae787eab99b9efd46b327b1dd35bc23a9f2cd2f44844d89902896de5f3ef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9d162e5455f2cb3f0cc6b857628d9627679bb7340ae8a23ae3565479c823088"
+    sha256 cellar: :any_skip_relocation, sonoma:        "866c5b96021b868efa6083cfcd958f48cf85094abfacd5f02a51c27dbe2231bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ab6bddfa5da97711d407daa5d0ca7ac63a7928ef5d24338696bd48eefd27a1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d355b7b49e618d28414b1d5115aef0670f1bdfff9cc9ce0f5b17f14148c1ba25"
   end
 
   depends_on "rust" => :build

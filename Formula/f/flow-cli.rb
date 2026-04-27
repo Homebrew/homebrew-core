@@ -32,6 +32,8 @@ class FlowCli < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/flow version")
+
     (testpath/"hello.cdc").write <<~EOS
       access(all) fun main() {
         log("Hello, world!")

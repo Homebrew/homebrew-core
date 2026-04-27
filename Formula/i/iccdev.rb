@@ -1,8 +1,8 @@
 class Iccdev < Formula
   desc "Developer tools for interacting with and manipulating ICC profiles"
   homepage "https://github.com/InternationalColorConsortium/iccDEV"
-  url "https://github.com/InternationalColorConsortium/iccDEV/archive/refs/tags/v2.3.1.7.tar.gz"
-  sha256 "56bda64c8a88967087d5a11ab6a86c23dc27f32c9c084df0f623d7a7f06fe84f"
+  url "https://github.com/InternationalColorConsortium/iccDEV/archive/refs/tags/v2.3.1.8.tar.gz"
+  sha256 "da54ce760c4eb18d743279f001b17b1a28b23b35896e4bf7fbd9bf979e23b1c6"
   license "BSD-3-Clause"
 
   # Skip `wasm-` tags
@@ -12,12 +12,12 @@ class Iccdev < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "608cd6ba68569458838f907e3e0e05905f07614f9b7e310d7ef7ea8a1e9e2796"
-    sha256 cellar: :any,                 arm64_sequoia: "5127db1a30cfdcaff7f28d9ab2f2e173bcb1eebbcd222c141923d9b09814f46a"
-    sha256 cellar: :any,                 arm64_sonoma:  "5035a6805d4fcfdf4ec851710b1960110d12c564c974eb8cab4ddee0207f76f4"
-    sha256 cellar: :any,                 sonoma:        "78fb28f6cc085ef82f9737a0bba580870226cb247b551ecf7a075cecb69d09c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1c85d71ea4d3d4261bb01d4dd3bd6bce90f0751f0aa8916d375db2c8023e21a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fa9d1c811c0e54d3af2208031048de9c4a6f5026164050dfed5d073a7104d8a"
+    sha256 cellar: :any,                 arm64_tahoe:   "7f98ce4d01086f9e94ca92820d7f63d488c85569fff05847aa096de009d4c821"
+    sha256 cellar: :any,                 arm64_sequoia: "48e1f344a9344a552a3542f0343d23b4c4bc4f7fb9e21df451a8fd220cb44990"
+    sha256 cellar: :any,                 arm64_sonoma:  "12eae541a244e93532dc80e68390578b442a934df89f2a5ed5d6c1742140b21d"
+    sha256 cellar: :any,                 sonoma:        "5f8624429e189a90f6659123874820e337cf384f6c6cb59b0d6af737a9150efb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "46df5b83e288d9d2bb9806b0a11889bfb8405dbc37f3c9ca1d0074fc8c301699"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "072a245a08abe5eaa581c09cefbf114b2d058b6bcf57b40f929a9e79876118a8"
   end
 
   depends_on "cmake" => :build

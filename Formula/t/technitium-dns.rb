@@ -1,21 +1,20 @@
 class TechnitiumDns < Formula
   desc "Self host a DNS server for privacy & security"
   homepage "https://technitium.com/dns/"
-  # Try upgrade to latest `dotnet` on version bump
-  url "https://github.com/TechnitiumSoftware/DnsServer/archive/refs/tags/v14.3.0.tar.gz"
-  sha256 "5f71c0661d22a5dd75374a9888bbd67469d1ba0b6b9947df770ec4833b7f36c3"
+  url "https://github.com/TechnitiumSoftware/DnsServer/archive/refs/tags/v15.0.1.tar.gz"
+  sha256 "7ef5b2725e6565016db0171c70abeb5acd9609c681a1f8cce4c80c062b6ff39f"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "985294f14499dc8b8bf5e88b5864fd63c2f6d0faf4c84694bc80fc6933139788"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ed3b7b6ac909a94f18d4f85f31448a741523b4b09d2f9d62baec3c02e572df1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "082f392340bfc89f4e507b023db57a75b8cc72b6fe105b9e7a798a0eabd5a0dc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4716ff2acfe129a9ec49b55f6b8bcc025276a8c0ba548b32361aa27f932991f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b95454ad1fa1891156fec79b9c0ef3fe515e218df1823319591837524a69799"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6a10199b11b92e68b8fdf3a2d867162a969cec6db7ffb401e64f437746c73b55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4c08162e5f6a01d87e6cde7a2b73c3da7b52e9f8242f272d70400477f65bae8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a6101a7456c9973a91bec6e2aaa9b2ce4b59da79aa54a768733660c6df5a2f53"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9f10fd48f9ce8b71f1de380b98150b5a35ad4d01ff9efbedb239fa4a44830e82"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "74355202591305ec2711270aa7bcaeb45a995e57be56c497f43f4ae4f15f9f29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5215174988d9c1fa13eea80fc5bc237aec2a1ae24f1e5eeb944dd9997ce7f55"
   end
 
-  depends_on "dotnet@9"
+  depends_on "dotnet"
   depends_on "libmsquic"
   depends_on "technitium-library"
 
@@ -26,7 +25,7 @@ class TechnitiumDns < Formula
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
 
-    dotnet = Formula["dotnet@9"]
+    dotnet = Formula["dotnet"]
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
@@ -55,19 +54,21 @@ class TechnitiumDns < Formula
     error_log_path var/"log/technitium-dns.log"
     log_path var/"log/technitium-dns.log"
     working_dir var
+    environment_variables DNS_SERVER_LOG_FOLDER_PATH: var/"log"
   end
 
   test do
-    dotnet = Formula["dotnet@9"]
+    dotnet = Formula["dotnet"]
     tmpdir = Pathname.new(Dir.mktmpdir)
     # Start the DNS server
     require "pty"
-    PTY.spawn("#{dotnet.opt_libexec}/dotnet #{libexec}/DnsServerApp.dll #{tmpdir}") do |r, _w, pid|
+    dns_cmd = "#{dotnet.opt_libexec}/dotnet #{libexec}/DnsServerApp.dll #{tmpdir}"
+    PTY.spawn({ "DNS_SERVER_LOG_FOLDER_PATH" => tmpdir }, dns_cmd) do |r, _w, pid|
       # Give the server time to start
       sleep 2
       # Use `dig` to resolve "localhost"
       assert_match "Server was started successfully", r.gets
-      output = shell_output("dig @127.0.0.1 localhost 2>&1")
+      output = shell_output("dig @127.0.0.1 localhost +tcp 2>&1")
       assert_match "ANSWER SECTION", output
       assert_match "localhost.", output
     ensure

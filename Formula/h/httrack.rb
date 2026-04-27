@@ -6,7 +6,7 @@ class Httrack < Formula
   url "https://mirror.httrack.com/historical/httrack-3.49.2.tar.gz"
   sha256 "3477a0e5568e241c63c9899accbfcdb6aadef2812fcce0173688567b4c7d4025"
   license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
-  revision 1
+  revision 2
 
   livecheck do
     url "https://mirror.httrack.com/historical/"
@@ -14,16 +14,15 @@ class Httrack < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "9b8bc548b4e0708efd7b6f777f8b6b846d8322c1ba96266f435ac88b376a858d"
-    sha256 arm64_sequoia: "59e6bfe01422fe49d1e1bca05c5074a243e53c99bee036b2fce99b8497860b8a"
-    sha256 arm64_sonoma:  "95a7011456d25c7d3bb2c2c1fbf2f2ef07798168e57ebac55f0e935a71210918"
-    sha256 sonoma:        "5b17229775834bfbeccbf828c4f502ee76c4158e5362226a885c8b32c7a5136f"
-    sha256 arm64_linux:   "5ab4f3d92a85acb8991909cae49edcfa1381941d92708632d871afda9e154c90"
-    sha256 x86_64_linux:  "8d0665d92f867729256ebc7c6877e4fabe66d99aa2dcbff3f6cb4c3160f419d7"
+    sha256 arm64_tahoe:   "b32f52b8a3d7c29bc4ef8786a5d7442b989d007c92ed205bd8e2fce3d7d9e7c3"
+    sha256 arm64_sequoia: "c490f41b189c3f0627d2430c16657c2789ef61fe533d90ed72ab5c5e0869fd9e"
+    sha256 arm64_sonoma:  "896935f765df6afd7676c0b3e582ae66ce4052a097b20e78200aadef15be4268"
+    sha256 sonoma:        "58af4297d8cdebb0c20de947610b3f473f5081ac81fbd75a253c27c570362c2c"
+    sha256 arm64_linux:   "548edf68271f1856edf0f9c34153043ece5575d8b97f1e3373cbabde82f93cff"
+    sha256 x86_64_linux:  "4425d23c7e0fc3fbae36a0201b1519e4fb2ad3f6789caa4cf1b58b43e8c826cc"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"

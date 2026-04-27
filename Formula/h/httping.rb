@@ -4,7 +4,7 @@ class Httping < Formula
   url "https://github.com/folkertvanheusden/HTTPing/archive/refs/tags/v4.4.0.tar.gz"
   sha256 "87fa2da5ac83c4a0edf4086161815a632df38e1cc230e1e8a24a8114c09da8fd"
   license "AGPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/folkertvanheusden/HTTPing.git", branch: "master"
 
   # There can be a notable gap between when a version is tagged and a
@@ -16,19 +16,19 @@ class Httping < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "071348d10108c95a9cd23e105942b81e63fbd1caea8f2367427a554f406b68e4"
-    sha256 arm64_sequoia: "b6188bb2590af36f19f4f7d2fdee0004bc740cca357770f823eace71fd576195"
-    sha256 arm64_sonoma:  "194a46abe5b4fd668eac0dbdc42d94e72b84dc7abb6fb75b180cec07f03dfda7"
-    sha256 sonoma:        "aab01cd51be36a661adb1fab505740b3cdf0b156e13d96ba6886e1389761bf1a"
-    sha256 arm64_linux:   "3dfe264e40fbf0b9759dbb72b968bc9b3a87fe01f8acb603dfab8d285880f509"
-    sha256 x86_64_linux:  "51e8dc57762f328e29329501734ca6e2b9437a69613abcc68830cc4fcf13bbd7"
+    sha256 arm64_tahoe:   "7c3aa6d130bc657c32526f90b94cac8847c38d58e0bee1de4efa0e61926afe88"
+    sha256 arm64_sequoia: "097832cdd90f95bd5223ae4f8d0be9e358dc9426f9c19a50da8ab9961e9b2687"
+    sha256 arm64_sonoma:  "f48b8ef6384fbfb22e1b280d7b58752c460c7c64957d5c1d6bc812d732bf3993"
+    sha256 sonoma:        "61a7c0088454490720268cf9899bc187fb60e7efef09c2df902e332f001d6eff"
+    sha256 arm64_linux:   "c95e3c70266f25435d4c4a57c42667da305bb123b2fdbcd62662f830cb88e34b"
+    sha256 x86_64_linux:  "9bf1087b86efa6a82d2d625782eec4c6b8d0baa81075d0afd1e9dd9c08a575fa"
   end
 
   depends_on "cmake" => :build
   depends_on "gettext" => :build # for msgfmt
   depends_on "pkgconf" => :build
   depends_on "fftw"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "ncurses"
 

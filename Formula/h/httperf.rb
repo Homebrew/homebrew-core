@@ -2,7 +2,7 @@ class Httperf < Formula
   desc "Tool for measuring webserver performance"
   homepage "https://github.com/httperf/httperf"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   stable do
     url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/httperf/httperf-0.9.0.tar.gz"
@@ -23,19 +23,12 @@ class Httperf < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "71e96d3ce855016759a6c5004a232db5f8d63883bc1760356566a0b8484d6a4d"
-    sha256 cellar: :any,                 arm64_sequoia:  "777ac05c7372517913a1dc06a7cfa1499480ed89708baf56d57749bfaf9b3375"
-    sha256 cellar: :any,                 arm64_sonoma:   "4f3dbaee84b9ecec246b11f1da959850d5ec283d28dd0ec11e40c7d93975734e"
-    sha256 cellar: :any,                 arm64_ventura:  "cf626f3e9d749e395728ce1ca02b1441be6321989841a0b1135baef10455b739"
-    sha256 cellar: :any,                 arm64_monterey: "a6976f04d98a5195075909f77587f0c113ed94389a49ab1ff4ddfc263c14c3ea"
-    sha256 cellar: :any,                 arm64_big_sur:  "e8a25cd3891631f61aaaf69682a952ceaa5e680559defd48a0de3eaebe1f1519"
-    sha256 cellar: :any,                 sonoma:         "3ca6eec51c2712c64eb58bab12064953826af672d843171672f6d60fb034df0c"
-    sha256 cellar: :any,                 ventura:        "3f61658586cbdac24c810c9b201d8054f9f800046a7ec1b6754e82e49be64244"
-    sha256 cellar: :any,                 monterey:       "72bdd969d2e88750ea3827860143f05756fb0da35f9ce04d185ed9de0f42791f"
-    sha256 cellar: :any,                 big_sur:        "a77143c2960957c7b998ef8259f23f7252264e297c1f8a7f812c7712eec756f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "1b14593cb779357511b91b27d4de352324c2eafa8390353cdc7e8332ca230443"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da0a7ad0ca9b357505cc3c26fa174dd7c4f289e2054e654eb82e2678aad8dc74"
+    sha256 cellar: :any,                 arm64_tahoe:   "7058120f2bc830d162abe7e7f1732bd35a69a9b1467e9ba159457f91aba5eba5"
+    sha256 cellar: :any,                 arm64_sequoia: "efe2209f501fece87251e41daa112b47530b39045e957fb0e8e443e883ba465b"
+    sha256 cellar: :any,                 arm64_sonoma:  "128020ec8910a993fd4253aaaf848fdc7bed1234ef0a7a3639585c20f94cd9f9"
+    sha256 cellar: :any,                 sonoma:        "da89b4e50527278fc0af4c2aaa3290003f977c22672b7e673e2b03dcb256964a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ecbd4326f2fd13255046d1e1b6abbb57a6d8f63422bb117c71793208990f8cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abd5a6cf1f8ca58e2d76742f0a9907c0110b7ebf90bc72c59a528b8eaf49b931"
   end
 
   head do
@@ -46,7 +39,7 @@ class Httperf < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?

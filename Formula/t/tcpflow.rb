@@ -4,6 +4,7 @@ class Tcpflow < Formula
   url "https://corp.digitalcorpora.org/downloads/tcpflow/tcpflow-1.6.1.tar.gz"
   sha256 "436f93b1141be0abe593710947307d8f91129a5353c3a8c3c29e2ba0355e171e"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url "https://digitalcorpora.s3.us-west-2.amazonaws.com/?list-type=2&delimiter=%2F&prefix=downloads%2Ftcpflow%2F"
@@ -16,24 +17,23 @@ class Tcpflow < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "dad7f4b569f0c8e74af53589c23537d577f58717c07662496902d2feb152638c"
-    sha256 cellar: :any,                 arm64_sequoia: "00cefb494be45f397ef8ccd5dde9714f40b68afbffde7bfc00cb6ee150c8d5a5"
-    sha256 cellar: :any,                 arm64_sonoma:  "84a6e56139366b507d9aab6c69ba2a6b7baef90062d2d195b5b61edabae7b6d9"
-    sha256 cellar: :any,                 sonoma:        "0921dda7fcdf893d64b1bd807d3e6a8cbc716105c49f12a2ae27019c173d77e8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f03cf13378d36ad9c60f50f3938054efd612de7be28bfc59a1a78c3ec11fd1df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b23f8c43c21e3857d31fdee5007f650bc79fc06d2205028bd0a1c613f5b5aba"
+    sha256 cellar: :any,                 arm64_tahoe:   "ca1a18ffad5f2de19a52597725a0b8d2486dd77506d46afd7478c839750fd448"
+    sha256 cellar: :any,                 arm64_sequoia: "8487cadd6630cded0a87ad961533fbd103970672b9cbb7408f8e6ab6fb464e7d"
+    sha256 cellar: :any,                 arm64_sonoma:  "956ad859fc371561dc378e92509e92d2ef262c96a3b83971c2a53edfdc51bda2"
+    sha256 cellar: :any,                 sonoma:        "bdf6869cace46de5693b2b18286aa4367811f3dfc6ca4037945c0c7e95533bb4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d054124af47e0f4312fc3aedb46fd7e37337ee2255efc714587700999eb9620"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff05bce1f7eba15bf1490094edeefd6ebce7bfb8e0285bdea1068820d72b49aa"
   end
 
   head do
-    url "https://github.com/simsong/tcpflow.git", branch: "master"
+    url "https://github.com/simsong/tcpflow.git", branch: "main"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "boost" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bzip2"
   uses_from_macos "libpcap"

@@ -257,7 +257,6 @@ class Btcli < Formula
   def install
     ENV.O0
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
     # required to declare scalecodec's version, issue opened at https://github.com/JAMdotTech/py-scale-codec/issues/130
     ENV["TRAVIS_TAG"] = resource("scalecodec").version.to_s
     virtualenv_install_with_resources

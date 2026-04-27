@@ -21,7 +21,6 @@ class Gitnr < Formula
 
   def install
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
     system "cargo", "install", *std_cargo_args
   end
 

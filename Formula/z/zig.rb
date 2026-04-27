@@ -4,6 +4,7 @@ class Zig < Formula
   url "https://ziglang.org/download/0.16.0/zig-0.16.0.tar.xz"
   sha256 "43186959edc87d5c7a1be7b7d2a25efffd22ce5807c7af99067f86f99641bfdf"
   license "MIT"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,12 +13,12 @@ class Zig < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "285c01c2d303f0cfbae35d3b707e1a82450cd006b5c864733a3d29252d760302"
-    sha256 cellar: :any,                 arm64_sequoia: "b1ed200983aaa1ca2792a396e5f422a6526355c5d1ff3aa0f93a15865e1b7fc6"
-    sha256 cellar: :any,                 arm64_sonoma:  "8f023cdd84a92e2fff016a77fba8f46bbf6edbe8cbc86315ee682243ed882c5d"
-    sha256 cellar: :any,                 sonoma:        "4a0c5f8df1c9bf09ca878d48d331024be0f9825dedfd7ab384cba59c8bd635c4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d62d2273b6a17df3cf186b54a9b3d38c100467542baac7632a65b32f090a8586"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ddf7309e8758187fd2f7dd6c9aff47a329dbe2398c9687f2f376769565758b5"
+    sha256 cellar: :any,                 arm64_tahoe:   "522ec6fc3cd13d1c731b4677234054a4f9207d1f7e208f0a1313fd21835bd16b"
+    sha256 cellar: :any,                 arm64_sequoia: "12b55d2efffbc6fc65f471ff989703934fee7f55e60887e400c8c18abd1b3baf"
+    sha256 cellar: :any,                 arm64_sonoma:  "90f1fb24a01715a36a48878969a16e29b341039a1c97a82fc134db09a00cd888"
+    sha256 cellar: :any,                 sonoma:        "22035d0f3aa03f82192326b77dad535ea14acd5689a04a2c18df9b077b2d53e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dec0d9355b49eea00ae882bd407bbceb48b27c206a6f0e823ac63635b74d5c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9657f0322225292cb4a9c158d2305f62520524467b5b57daf545a327c492cd37"
   end
 
   depends_on "cmake" => :build
@@ -34,6 +35,13 @@ class Zig < Formula
 
   # https://github.com/Homebrew/homebrew-core/issues/209483
   skip_clean "lib/zig/libc/darwin/libSystem.tbd"
+
+  # Force Zig to use the system libc++ on Darwin. Without this, the vendored
+  # libc++ gives `zig` a private std::error_code category that disagrees with
+  # libLLVM.dylib's, breaking comparisons across the boundary — e.g. `zig ar`
+  # can't create new archives with ZIG_SHARED_LLVM=ON.
+  # https://github.com/Homebrew/homebrew-core/issues/278849
+  patch :DATA
 
   def install
     # Reduce max_rss to build on CI with less than 8GB memory available
@@ -113,5 +121,42 @@ class Zig < Formula
     C
     system bin/"zig", "cc", "hello.c", "-o", "hello-c"
     assert_equal "Hello, world!", shell_output("./hello-c")
+
+    # Regression test for `zig ar` creating a new archive.
+    # https://github.com/Homebrew/homebrew-core/issues/278849
+    system bin/"zig", "cc", "-c", "hello.c", "-o", "hello.o"
+    system bin/"zig", "ar", "rcs", "test.a", "hello.o"
+    assert_path_exists testpath/"test.a"
+
+    return unless OS.mac?
+
+    # Guards against `zig` vendoring its own libc++. Before removing,
+    # confirm the binary has no private libc++ of its own.
+    # https://github.com/Homebrew/homebrew-core/issues/278849
+    require "utils/linkage"
+    library = "/usr/lib/libc++.1.dylib"
+    assert Utils.binary_linked_to_library?(bin/"zig", library), "No linkage with #{library}!"
   end
 end
+
+__END__
+diff --git a/build.zig b/build.zig
+--- a/build.zig
++++ b/build.zig
+@@ -859,7 +859,15 @@
+                 mod.linkSystemLibrary("unwind", .{});
+             },
+             .driverkit, .ios, .maccatalyst, .macos, .tvos, .visionos, .watchos => {
+-                mod.link_libcpp = true;
++                const io = b.graph.io;
++                if (static or !std.zig.system.darwin.isSdkInstalled(b.allocator, io)) {
++                    mod.link_libcpp = true;
++                } else {
++                    const sdk = std.zig.system.darwin.getSdk(b.allocator, io, target) orelse
++                        return error.SdkDetectFailed;
++                    const libcpp_tbd = b.pathJoin(&.{ sdk, "usr/lib/libc++.tbd" });
++                    mod.addObjectFile(.{ .cwd_relative = libcpp_tbd });
++                }
+             },
+             .windows => {
+                 if (target.abi != .msvc) mod.link_libcpp = true;

@@ -29,7 +29,6 @@ class Rqbit < Formula
     # Ensure the declared `openssl@3` dependency will be picked up.
     # https://docs.rs/openssl/latest/openssl/#manual
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     system "cargo", "install", *std_cargo_args(path: "crates/rqbit")
 

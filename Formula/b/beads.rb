@@ -1,19 +1,19 @@
 class Beads < Formula
   desc "Memory upgrade for your coding agent"
   homepage "https://github.com/steveyegge/beads"
-  url "https://github.com/steveyegge/beads/archive/refs/tags/v1.0.2.tar.gz"
-  sha256 "21f6170bd039ab0fefc7ee686f391a7b0c919690074d056bfb0636d3233b1914"
+  url "https://github.com/steveyegge/beads/archive/refs/tags/v1.0.3.tar.gz"
+  sha256 "6cbc05b2166a3c349e10a5bf651a875a654e50c33f530687cf7c8717c6560835"
   license "MIT"
   compatibility_version 1
-  head "https://github.com/steveyegge/beads.git", branch: "main"
+  head "https://github.com/gastownhall/beads.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "adad56fd7f1c4a793b273867b481d482511a9ad5b45176fcc70f6570d2fd6156"
-    sha256 cellar: :any,                 arm64_sequoia: "9d98ac98cfe7962a69de01660bff97b092dcf7f7887f728c38def9e3dc035eb9"
-    sha256 cellar: :any,                 arm64_sonoma:  "14b40b54c48b270187f0c381354abfb8a9b3d5e096d93c153a9e3aa04d029273"
-    sha256 cellar: :any,                 sonoma:        "fb96949d8bfd34120d855a53f8456c9648321a7f460c982764866ee4e92c3063"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de5b1406b518ac2cf765e0d7cda2a8077fb52893415479ec2684fe55e0e8528c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b48478656caf592d1bb3104c1d345c87fc546bed7ca9b2698a382ddab0046166"
+    sha256 cellar: :any,                 arm64_tahoe:   "5d7cf0371796eaa0d2f923ba419c3cd84ada937c523ce1791809d38aacaab475"
+    sha256 cellar: :any,                 arm64_sequoia: "1350aa5c7b5ca9d86c1b06e61a7eddb2a992b7e6ca6aa3dbb472f2298e554d4b"
+    sha256 cellar: :any,                 arm64_sonoma:  "90bfbcf0faa5d41917d2c1c168da33b73e29b32a9ad4e5bcd49a77d442fe9577"
+    sha256 cellar: :any,                 sonoma:        "fa6f3f51a997fc0712f4476374781e4b00d570e5861977d43fcf60897105bae4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8642d75a6e1ff2ddbf41baf58f4af6388ff1e3790c395135b65eec17862e17f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5820a995d4c3e50913663af01c225d9f400a42e9ee1268f815955503282ae9e4"
   end
 
   depends_on "go" => :build

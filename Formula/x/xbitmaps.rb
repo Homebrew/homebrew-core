@@ -1,13 +1,12 @@
 class Xbitmaps < Formula
   desc "Bitmap images used by multiple X11 applications"
   homepage "https://xcb.freedesktop.org"
-  url "https://xorg.freedesktop.org/archive/individual/data/xbitmaps-1.1.3.tar.xz"
-  sha256 "ad6cad54887832a17d86c2ccfc5e52a1dfab090f8307b152c78b0e1529cd0f7a"
+  url "https://xorg.freedesktop.org/archive/individual/data/xbitmaps-1.1.4.tar.xz"
+  sha256 "895722f136e21e728c52f2d99fd2dae95018b9ddad1bac1f29d61bcd6593721d"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "a2d50475647c9d98e3822fbbf383231d0757fcbfd429d6999ad263ff692dcfb2"
+    sha256 cellar: :any_skip_relocation, all: "db41d221049abcd7de13f3cb4adc6f6d78c7f2db6a154985d188cb362ca3d171"
   end
 
   depends_on "pkgconf" => :build

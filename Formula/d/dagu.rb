@@ -1,18 +1,18 @@
 class Dagu < Formula
   desc "Lightweight and powerful workflow engine"
   homepage "https://dagu.sh"
-  url "https://github.com/dagu-org/dagu/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "0f5a35ac86dd5214040bf572648be9db8a44b1f20afcea6853fd34a08523786c"
+  url "https://github.com/dagu-org/dagu/archive/refs/tags/v2.6.1.tar.gz"
+  sha256 "e72106d6965e55b50398720775551678ee437f701021b3daf25037664929a171"
   license "GPL-3.0-only"
   head "https://github.com/dagu-org/dagu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "92b5ddb63b29a813a3953b8eada744f02740f036bac374b955aec3b9762cf85a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dce30bf9f14c462a5904ea640c9937f0fce62f36d2ea817cfc54cd6010b0bf30"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b21bbebe13040ad33933bd795180ffaba16d8b289acd7a5dea84f1dc2436ef9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a77c982803c637c17d3a497a8ddad80a95566a8ea8b63bcd54b4df04fb6b3f7d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3cc46a8355328b8387ff3f94617f1ac1660ef1f5d142fcabdb07db6bf8989926"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c934ad02e36dad27b87d5da00460fe388571438ff589a95874cf2b62e06c5b4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c9b3ef137f78e8e8855b6e9007908c61b0195e75ff7be6dd2e5c0c5fdfd86b4f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd56a98d9682ca745bbfa8294a1b90c641a9a227db5aedb908989009395dd570"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "069d9aa037e6e7baaa5da7266db5b0f554824fb175a5c4ab23db9ae1b02a1a3c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "273001a4733fcc4f37f6448cf8e8321b73fc0a21d98262053993e57010424e8a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "63feb5ea8ab5b18ceadb9589b84e963e1068b2a68d8e235006a29eebb79b14ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e00a4808327e0aa7daddbc9a8a9899fd85ca6d04389dd0e039b830e126a43cc5"
   end
 
   depends_on "go" => :build

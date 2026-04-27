@@ -4,18 +4,19 @@ class Sqlcipher < Formula
   url "https://github.com/sqlcipher/sqlcipher/archive/refs/tags/v4.14.0.tar.gz"
   sha256 "67fb27e967a4a6968c0905691c89c908e7250dddc581b887c19ef981c737e473"
   license all_of: ["BSD-3-Clause", "blessing"]
+  revision 1
   head "https://github.com/sqlcipher/sqlcipher.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bac5dae45687c1febf9bee4a71aa7607ef4fd41ab28454591cb2023f0a6d2eac"
-    sha256 cellar: :any,                 arm64_sequoia: "cebc1660f1cb2fafd00fa8f085ed99bf716f9ff2279375dcf4312fcb019ae74b"
-    sha256 cellar: :any,                 arm64_sonoma:  "3c2f8346fd3c76e6417ff122cb8457a16cf215c05b934cd88383c6fb16edba3a"
-    sha256 cellar: :any,                 sonoma:        "95bedc9128368ad0125e41d7eb2f4ef2d7b29d2dd700e0317f65442a31f8d45d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6fe18269d80fc03021ad3fc67d563200ea1b3cf18c6dab6b7c08153d9644a3f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02c58fd88765f08711351013792636ac385c0e6dac7ba229cf6ee0aba6b9b50a"
+    sha256 cellar: :any,                 arm64_tahoe:   "8a9ce5392427319186fcefd6d35be75cf869b8575d99736e74bfec9793617f23"
+    sha256 cellar: :any,                 arm64_sequoia: "29f75862a32e0ded62b2dd5482c2ff775d17dfa919ad2237d5b8764f99ecafb4"
+    sha256 cellar: :any,                 arm64_sonoma:  "7bc4be6370d3a6945cd31b1a16aa906d38af4433f727afbba4c9b36aed07bd41"
+    sha256 cellar: :any,                 sonoma:        "99344c9dcc011eaffc73fb86c0b041d3ca6373c37f93d5708a8f8b76a75d3903"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b319879b12eb71ae4b5f2c330ffa2df3fe3c754a84edaa940ed0acdfae617ae0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52527b153b49ec7bd9e6f63cb8cab3ae0b218699df0751ab160d171c383124ff"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   # Build scripts require tclsh. `--disable-tcl` only skips building extension
   uses_from_macos "tcl-tk" => :build

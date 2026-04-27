@@ -1,12 +1,12 @@
 class Commitlint < Formula
   desc "Lint commit messages according to a commit convention"
   homepage "https://commitlint.js.org/#/"
-  url "https://registry.npmjs.org/commitlint/-/commitlint-20.5.0.tgz"
-  sha256 "311d285f00d94f0abbfa8bcd7e22201ee97b9212730903ebc3d1f2ab210518b6"
+  url "https://registry.npmjs.org/commitlint/-/commitlint-20.5.2.tgz"
+  sha256 "dc90670a929b6bb8dd1e80b2750a330f5770710f70869ebd7ce4c035097ecd75"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4182636d19960edad5ce722801cfac2a6b48128c2c8f7a5cecf7e8653665d48d"
+    sha256 cellar: :any_skip_relocation, all: "ca47c7d0aa430e56d94cc3f7c6324840bb6590a638857884f6154f59d99ab15d"
   end
 
   depends_on "node"
@@ -14,6 +14,10 @@ class Commitlint < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
+
+    # Remove comment to build :all bottle
+    node_modules = libexec/"lib/node_modules/commitlint/node_modules"
+    inreplace node_modules/"global-directory/index.js", "/opt/homebrew", "HOMEBREW_PREFIX"
   end
 
   test do

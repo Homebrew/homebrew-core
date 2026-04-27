@@ -3,19 +3,24 @@ class Mlx < Formula
 
   desc "Array framework for Apple silicon"
   homepage "https://ml-explore.github.io/mlx/build/html/index.html"
-  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.31.1.tar.gz"
-  sha256 "37e2a585a2bb28bcd3432af1c45d5c1ba8d560704ae285c3f9fd22a041e37004"
+  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.31.2.tar.gz"
+  sha256 "bdb9b619f80962dd00c0bffb65e59c53f565c2b550f189a1467f8bc6089401ab"
   license all_of: [
     "MIT", # main license
     "Apache-2.0", # metal-cpp resource
   ]
-  compatibility_version 2
+  compatibility_version 3
   head "https://github.com/ml-explore/mlx.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "3edc4fe17b5ac1ed2298d135ae4a3d92ce3e95cb777dd5cb9f97df141ed0183b"
-    sha256 cellar: :any, arm64_sequoia: "94ad9fc96bad27b1f2409550f21b214b02326cc3bc20ee997478b95abe9558cf"
-    sha256 cellar: :any, arm64_sonoma:  "694e1ef8bcc9e3dfdb1a954bc9e2e7353c3622c0405ae72f8e824f0b871a8b6f"
+    sha256 cellar: :any, arm64_tahoe:   "def8a7ae1e6a6506eed4dea45bf52b55be0f52f8364f8a928da6e65b1204a371"
+    sha256 cellar: :any, arm64_sequoia: "79e643d23e3f55a315461919d69d1ef7b3ba103405fe4ccc0645229c049a6b4e"
+    sha256 cellar: :any, arm64_sonoma:  "76e09c7c3393af4a4d171c4dee580efcd945c83b702e60f12c7ed9ebd647fc0b"
   end
 
   depends_on "cmake" => :build
@@ -59,9 +64,11 @@ class Mlx < Formula
     # which redirects FetchContent_Declare() to find_package() and helps find our `fmt`.
     # To re-block fetches, we use the not-recommended `FETCHCONTENT_FULLY_DISCONNECTED`.
     args = %W[
-      -DCMAKE_MODULE_LINKER_FLAGS=-Wl,-rpath,#{rpath(source: mlx_python_dir)}
+      -DUSE_SYSTEM_FMT=ON
       -DHOMEBREW_ALLOW_FETCHCONTENT=ON
       -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+      -DCMAKE_MODULE_LINKER_FLAGS=-Wl,-rpath,#{rpath(source: mlx_python_dir)},-rpath,#{lib}
+      -DCMAKE_INSTALL_RPATH=#{rpath}
       -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
       -DFETCHCONTENT_SOURCE_DIR_GGUFLIB=#{buildpath}/gguflib
     ]

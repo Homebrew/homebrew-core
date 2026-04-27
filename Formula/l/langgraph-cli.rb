@@ -3,17 +3,17 @@ class LanggraphCli < Formula
 
   desc "Command-line interface for deploying apps to the LangGraph platform"
   homepage "https://www.github.com/langchain-ai/langgraph"
-  url "https://files.pythonhosted.org/packages/4d/f0/f987c13cf35214bbe1a6f6f911b3e61afaa071b7bb3d7b2a94ffd2cff921/langgraph_cli-0.4.23.tar.gz"
-  sha256 "620d2fe7506580d57e90384ae42495af7f6092e8f7c6c11f8e010a8e57177075"
+  url "https://files.pythonhosted.org/packages/1c/77/34ebed84736dacbf164617794c15cd9271c18773cf32eeb7086c8b7b6dfd/langgraph_cli-0.4.24.tar.gz"
+  sha256 "8f05f0aec38a5da3cb0e7250123530e83c0179d74be0021050bc5cd36ac0dafb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3cd97b0281fd7ae7d6c0a401811a6ed57c19bea38fc1203e5f718a8be3e442eb"
-    sha256 cellar: :any,                 arm64_sequoia: "7221ce43d08f44bac795d75a8b48b4d217800223091cbdb624a7b5c0f02f9132"
-    sha256 cellar: :any,                 arm64_sonoma:  "72751e438f9dd02c59d14c3ed66f566919e6e06265dab211c77b86104774bec2"
-    sha256 cellar: :any,                 sonoma:        "30857d912d4614da2aa3c0cd7bde5e75414c1b1d4aed35de7d75426c4e22251c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b144129ee392b163734ddf554c28ac9a526da4f8b44f53434d94e7f12323e1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3f9ee4faa873363c13b8215d6709ada41f6488112478d7dbffdbfeea121c7c9"
+    sha256 cellar: :any,                 arm64_tahoe:   "38fbb0baae920cd95a32f8b98bd6777010b9cd0c0aaf7eb0950a65d2ace306d8"
+    sha256 cellar: :any,                 arm64_sequoia: "defbaec567de84e5c1298b287e9a8a8ecbf0c0237cac76bf6a17eac6c4a6a750"
+    sha256 cellar: :any,                 arm64_sonoma:  "e7f6bd69c66d2eaadaa844611eae12dd18bdd5bc74272b4d9ea7d1172bd7b9a5"
+    sha256 cellar: :any,                 sonoma:        "9c5926d4e7883960d1358b5e9f697c14d19514d34be9c9f9d5fe4bef682ad98a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6c38a76e22348fedb1d645380960e72f067829683b9ed87581bfa8cfa232f39d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36202e04ee85a6a47157abf95595ab8cae5c868d89effb396623d97d827f8f17"
   end
 
   depends_on "rust" => :build # for orjson
@@ -29,8 +29,8 @@ class LanggraphCli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "h11" do
@@ -49,8 +49,8 @@ class LanggraphCli < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "langgraph-sdk" do
@@ -61,6 +61,9 @@ class LanggraphCli < Formula
   resource "orjson" do
     url "https://files.pythonhosted.org/packages/9d/1b/2024d06792d0779f9dbc51531b61c24f76c75b9f4ce05e6f3377a1814cea/orjson-3.11.8.tar.gz"
     sha256 "96163d9cdc5a202703e9ad1b9ae757d5f0ca62f4fa0cc93d1f27b0e180cc404e"
+
+    # Remove nightly feature flag, Rust 1.95 is now stable
+    patch :DATA
   end
 
   resource "pathspec" do
@@ -109,3 +112,15 @@ class LanggraphCli < Formula
     assert_match "FROM", dockerfile_content, "DOCKERFILE should contain 'FROM'"
   end
 end
+
+__END__
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -1,7 +1,6 @@
+ // SPDX-License-Identifier: MPL-2.0
+ // Copyright ijl (2018-2026)
+ 
+-#![cfg_attr(feature = "cold_path", feature(cold_path))]
+ #![cfg_attr(feature = "generic_simd", feature(portable_simd))]
+ #![cfg_attr(feature = "optimize", feature(optimize_attribute))]
+ #![allow(unused_features)] // portable_simd on universal2 cross-compile

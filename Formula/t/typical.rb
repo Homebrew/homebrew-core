@@ -1,17 +1,17 @@
 class Typical < Formula
   desc "Data interchange with algebraic data types"
   homepage "https://github.com/stepchowfun/typical"
-  url "https://github.com/stepchowfun/typical/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "4185ada4aa1bffff60ef5acba8d99fb982cbb5b192223ea3828ba68661d9d379"
+  url "https://github.com/stepchowfun/typical/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "f8d6889b6be5e6883c93732763b832147c9986539585435d64f8214d5a97e45f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "93ac06300c95e668a63b94d092227e8cd8c1983e026450d153511f935488f4b5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2ff1a99b425ce6fc5ca8aebaa5a8e4a1148cd29f01c878cd9cde7b98ae5eeba1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eae436384fbc321046f9d846e198d7042b63f994450a2d123e48d00b55210e5a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad7a4c06eefc785c785257c236a015bbd67a56e662b796f670a14b1ccebfbbe9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f7df98443fc9815c9733b412b58394f2f8f15a21712089182a1f78169b6584b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0d769b5fcc0f2b907f88f79197d4d3bbabae6953fc58d34eb648176437e0a30"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96a6c3d8757be39a816f834f932c449d4c16bd03a4a995b385f5f5e7b68d8b2e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "963c1fdd423d3979ea8f09fe370f2e38be8bcb1e2b2436ba8280c790c530ac8e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a47a173204b0f50846a34722a6d2accc2fd71bff40fccf34b549305a5a56902b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "643ddaceba6215b9c64ca6093498eac63a5f3eeb0ad8c59aebec5d1709d7766e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "177f01578c6b31bc28eee6054139bfad1242302ae6ae06fbd32d38820cfa421b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7450e460e45f466523910f331b7f70e71d910e5fdeb9a63914b5cb38a021d757"
   end
 
   depends_on "rust" => :build

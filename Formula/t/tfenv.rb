@@ -1,8 +1,8 @@
 class Tfenv < Formula
   desc "Terraform version manager inspired by rbenv"
   homepage "https://github.com/tfutils/tfenv"
-  url "https://github.com/tfutils/tfenv/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "463132e45a211fa3faf85e62fdfaa9bb746343ff1954ccbad91cae743df3b648"
+  url "https://github.com/tfutils/tfenv/archive/refs/tags/v3.2.0.tar.gz"
+  sha256 "19c1c2d9d86338ca8db3740d94e1a559d26103035fb7dd29ef667cf6d543e436"
   license "MIT"
   head "https://github.com/tfutils/tfenv.git", branch: "master"
 
@@ -12,8 +12,7 @@ class Tfenv < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "3116d62535390452009656099a9b90cd687a2c1b1ad0fd9eb26dd3300daf1a4d"
+    sha256 cellar: :any_skip_relocation, all: "8e7ea6e668a2f87659acdb75754ddcf6d2206549caf833c2dd00be493a0f2d83"
   end
 
   uses_from_macos "unzip"

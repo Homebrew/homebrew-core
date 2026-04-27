@@ -3,18 +3,18 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/d2/af/a8a16fcffa280c9523e55be8dd0183eb717a1032b976ae42343f5c58f94f/prowler-5.24.1.tar.gz"
-  sha256 "07a2688edab64e4a7bb7054e0a2b43e9885dd22c1ed9c18340a99e421e7e8ad3"
+  url "https://files.pythonhosted.org/packages/38/77/df5e0fec30c6f1b31816a4f2577e2eb4d90846d01115e3d214ede6bf990c/prowler-5.24.4.tar.gz"
+  sha256 "57190a305d0b8d63e4dfe3138e597f6c07dc748cb4f7630fef618c8338583944"
   license "Apache-2.0"
   head "https://github.com/prowler-cloud/prowler.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "933e7dedc405223a00cdf778490a76e6b5aa0b0f6861e78e8899298cea637e7b"
-    sha256 cellar: :any,                 arm64_sequoia: "3591681af840584a3db93c404eb50c60a566f626a30ca2da5e8c6d2fbbb6b202"
-    sha256 cellar: :any,                 arm64_sonoma:  "bc899de1ad45202fb3f63519212f13e26aa82b74296ac148379301ab95ead7a4"
-    sha256 cellar: :any,                 sonoma:        "f0cd007fd6ff418792f0e8988541233d9b8bfa45d358605f410dd1cc2b5d8ae4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e02c7a1c9c660450fb12314f896de74ec697d76b4eca60a65bac041dcb744b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "050b1edb289c9023f91e1bec74b4fdff1c2f8db7d41f6715fb6b15a0211c9e08"
+    sha256 cellar: :any,                 arm64_tahoe:   "d1828ba8d0c8dd0858ee483cc90452ec171c339c6277cd0d05796eb18bbecbdf"
+    sha256 cellar: :any,                 arm64_sequoia: "dcd6338af3e92ca983e51b968397b7acee6673d9756fdaed075ac39f40bf7cce"
+    sha256 cellar: :any,                 arm64_sonoma:  "7ed04267357cc6556b2f247b13469abe4c17b87e55e1e9d41ec5914550ffcacf"
+    sha256 cellar: :any,                 sonoma:        "4d75f8d607cc14b92a9bfddf34b98a20abbb4866ac1776e302e1620839d27b4a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0dbe31b78fa30712f992db3d68c0dcea711efadc7099afab499006a50b31fb36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c54ce8323d028caca95177b64a679a9d7008f7c6675e41429372a01783e3de5"
   end
 
   depends_on "cmake" => :build
@@ -429,8 +429,8 @@ class Prowler < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "click-plugins" do
@@ -599,13 +599,13 @@ class Prowler < Formula
   end
 
   resource "iamdata" do
-    url "https://files.pythonhosted.org/packages/a8/13/dbbb4cc895a25ce0c69e403cfcdb7a5af29889f465ec778fb154e157f9cb/iamdata-0.1.202604201.tar.gz"
-    sha256 "8f25c20bdc2d3fa6ffbf1fdeb80733ee5f5c476b04c0fe4238e519a72a264fb3"
+    url "https://files.pythonhosted.org/packages/13/3e/21f82b28c71d18dfefa08af4c1c9d4e00f7887fc7e9953dc7153b01ff29b/iamdata-0.1.202604241.tar.gz"
+    sha256 "0e81a6c7c1c249d8234465506f6a05aeb40e913dcd41b085ef8a06a02060c4bf"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "importlib-metadata" do

@@ -9,12 +9,13 @@ class Watchman < Formula
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a58faf1e15bb54bac54fc554ac915e3057fa1ea3dd4e04d30482a8e37b2cddca"
-    sha256 cellar: :any,                 arm64_sequoia: "d477ea28bae6e0fc725402d691eecac41a3b4f5c96380a77d6dcbde49691abda"
-    sha256 cellar: :any,                 arm64_sonoma:  "f128a37a0f5809a80793a02668761e9bea501dcf2c9cb53ec3ccd8e8ea39ae47"
-    sha256 cellar: :any,                 sonoma:        "e79f3f61f8909ec02865ca81722b53420e77b9ddf3f51544dee943ee87a1a853"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "87580ad9d38d16a6a3436f3a16341426c6d933f06177bd560b68fe4892528a84"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7fdf34946f1a43c218f99ecd54bf9adb7153e184ae125e18a82fad6153cbabb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "c1a685fc62c6e9975a06ad8c05f836cff475da12af2c939d722fd4f780512962"
+    sha256 cellar: :any,                 arm64_sequoia: "6008dc0617f62933f019f3c78750bc29e9a0ed9215c9c2694b9dcf85b54f901a"
+    sha256 cellar: :any,                 arm64_sonoma:  "24697dab394a6dfcaf9492cb433e589b901278903bec07fc312f30b943f5c4e3"
+    sha256 cellar: :any,                 sonoma:        "3859ce650a5a26363c564a0ec254869e332e8ced83c28921042a865733e5d05b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "53384dab941dfc3c92387216925ea7cb4891172c633ba096c0db9f65a011d587"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc747812d7be45e744cb2bdb0acdea0d8422011b0f3419d6d1695c66917f5c3f"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +24,7 @@ class Watchman < Formula
   depends_on "googletest" => :build
   depends_on "libevent" => :build
   depends_on "mvfst" => :build
-  depends_on "openssl@3" => :build
+  depends_on "openssl@4" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
   depends_on "rust" => :build
@@ -39,7 +40,7 @@ class Watchman < Formula
   on_linux do
     depends_on "boost"
     depends_on "libunwind"
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install

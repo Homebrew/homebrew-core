@@ -2,18 +2,16 @@ class MediaControl < Formula
   desc "Control and observe media playback from the command-line"
   homepage "https://github.com/ungive/media-control"
   url "https://github.com/ungive/media-control.git",
-      tag:      "v0.7.2",
-      revision: "7f2b6107eab208ac6f7dd206232c7a8eb5c34aca"
+      tag:      "v0.7.3",
+      revision: "94d3bdbddeac5539ad6bb04a268126d3f58105a5"
   license "BSD-3-Clause"
   head "https://github.com/ungive/media-control.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "5d30162759b982c646ca3223f2edd5891e28dc73debfe336e0ae8307c81eec05"
-    sha256 cellar: :any, arm64_sequoia: "b19b1fb4cabe60ff109d6cda49c4e672cc4dd6cebdda68b058360ca613c22adf"
-    sha256 cellar: :any, arm64_sonoma:  "74a0f658133dc87eb38de4622fd6492da586914aa4d7a91db9777b2826d23523"
-    sha256 cellar: :any, arm64_ventura: "c66d4d35ce48365ad154df1549ac24a5a51ad01e7410357dae2f4e4afea46c79"
-    sha256 cellar: :any, sonoma:        "302a37ed8cd23fd9e78546f31247b25cf87460c49ce8e87d9966be4966e835c9"
-    sha256 cellar: :any, ventura:       "0ad7f71a81a3fb6956bec6974aa83413982410b1e74400192499126a78801975"
+    sha256 cellar: :any, arm64_tahoe:   "9ef2229132469cf85dc9abcdba34f1abc3fc06db346a2b1a424571ad550d5517"
+    sha256 cellar: :any, arm64_sequoia: "669af685cd364c0a9689b66f2e825d46f23b468eb267f94c00fcc55ced18bdbe"
+    sha256 cellar: :any, arm64_sonoma:  "d7ea143ff7150d84b42c6a02fffebddd6d6045a33ace9228f4fdfd1cb4278471"
+    sha256 cellar: :any, sonoma:        "73484e6d937f02cad94a36303ad72570748e5c44a8164904ea2a219e3f0ce89f"
   end
 
   depends_on "cmake" => :build

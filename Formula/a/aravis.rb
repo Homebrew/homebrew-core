@@ -1,10 +1,9 @@
 class Aravis < Formula
   desc "Vision library for genicam based cameras"
   homepage "https://github.com/AravisProject/aravis"
-  url "https://github.com/AravisProject/aravis/releases/download/0.8.35/aravis-0.8.35.tar.xz"
-  sha256 "8089af991fc3a2644ab04b2ddf82623cd663d80c7ebbdefa93ddbc17ea702ddb"
+  url "https://github.com/AravisProject/aravis/releases/download/0.8.36/aravis-0.8.36.tar.xz"
+  sha256 "246deaa0042a387ff1bc00332d0fb80537ce14abde2c28d1a54c91f17adc51bf"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +11,12 @@ class Aravis < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "492161d546798277f669e70c6f78ac95077a13c894763f8c065659ef74d13084"
-    sha256 arm64_sequoia: "cb3a147a799c2cdb9b63908ea49e2c4ffd0bf104b0d0ef4bf19f6bc8881c7efc"
-    sha256 arm64_sonoma:  "07bd55beb08861d9fdec88a7dc05a036a296803f9ec6641b24b3a3f6751edf75"
-    sha256 sonoma:        "a7186ae6439613f44eda3f24a922aec342fd2698a54106b1e83ebee24452e7c1"
-    sha256 arm64_linux:   "940d5509ecceedb89321147d1ead8f983fc2da277f9942dde3ba1e4e262781e3"
-    sha256 x86_64_linux:  "514c289ee6432c01ea54e3577ac3ea47849389e1ea848549cc99b29037619e9f"
+    sha256 arm64_tahoe:   "ec4e6e6006fd2bd55fc2c88a2318fccafdea3ada23f6d7e4e4b1ebb4465b660f"
+    sha256 arm64_sequoia: "a8d4bd460bfa0d913b71792959d5e5a95ccc5794264b1171e67eb90f1c80b18e"
+    sha256 arm64_sonoma:  "0339abdd5f408a8eba88430494a3ebaa40e72e8877cc710be6c8cc1282430e9f"
+    sha256 sonoma:        "e019edb2783c6d1ccaa2ba4d9ebc36697565bafbfba45caf6b936f13d69b0f40"
+    sha256 arm64_linux:   "60c037bfb1d513b7120abb53716abc1a05d59ee7c91662cb2cfa5486caf29321"
+    sha256 x86_64_linux:  "bfca87730aad222743588257dd29c5a17d8d86f88540bd69f175cc0ef704baa6"
   end
 
   depends_on "gettext" => :build

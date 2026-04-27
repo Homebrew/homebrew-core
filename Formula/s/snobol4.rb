@@ -1,8 +1,8 @@
 class Snobol4 < Formula
   desc "String oriented and symbolic programming language"
   homepage "https://www.regressive.org/snobol4/"
-  url "https://ftp.regressive.org/snobol/snobol4-2.3.3.tar.gz"
-  sha256 "bfd53071d69283776f5b2764f7865d354b89d372569854a18878e59f57388ed2"
+  url "https://ftp.regressive.org/snobol/snobol4-2.3.4.tar.gz"
+  sha256 "702f73b4107438bd251ebc253d335994f37bb40379242360d876e2de6dc03f78"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,13 +11,12 @@ class Snobol4 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "386f57258d19733bba9f79839743634ccdc0902fffe86afa9e0e8bf37b7fd035"
-    sha256 arm64_sequoia: "be80dab2b55d9f5cdfe7048659aa67ed87b0e64819d2d8c213db3a897b7f8651"
-    sha256 arm64_sonoma:  "8d6f1601dec1dd71250698920a2f3f51a4029da00408233459ce2dde4001fff5"
-    sha256 sonoma:        "4afab736c1e01614e1d6d305fc65c9d17e2352cd50cb99473f0b8a573f428360"
-    sha256 arm64_linux:   "5b19a3df62c11519f9fa0f4100fb82cfb9d97445f881f786de15764b3de37e60"
-    sha256 x86_64_linux:  "04420e3ce73484c4ca3ee3115d30b9db317def98bf1ec831188385639f49d445"
+    sha256 arm64_tahoe:   "d4705fd2288b5ccba0db75e7591f830fc8bc2babe97ecdf69a02f6f63d40ba61"
+    sha256 arm64_sequoia: "4007a100e7b4d9b64f9db697af1945e112328147e5e8266d04cd886eac8ae244"
+    sha256 arm64_sonoma:  "894a4a4941fdd854b231a3d5ffb204d939f4c5b1762839bcbd81ceb8051a3a82"
+    sha256 sonoma:        "4eba9e8ee63ac75e239471017f83795c37b762d9e7c657172643179d611f19c4"
+    sha256 arm64_linux:   "92192ac1c1040101f2f7725f49bdd4e48ca77f33c9b947378db747e0308ea13f"
+    sha256 x86_64_linux:  "bae8485b664f3c999e1eee9ec0c87cae6283e414b2606fb172b516284176311f"
   end
 
   depends_on "openssl@3"

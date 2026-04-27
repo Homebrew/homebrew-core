@@ -1,18 +1,18 @@
 class CargoZigbuild < Formula
   desc "Compile Cargo project with zig as linker"
   homepage "https://github.com/rust-cross/cargo-zigbuild"
-  url "https://github.com/rust-cross/cargo-zigbuild/archive/refs/tags/v0.22.2.tar.gz"
-  sha256 "4983fa480a6446e153543bb2b1de00c26098f3361aa6a6a021586915c1c6dcbb"
+  url "https://github.com/rust-cross/cargo-zigbuild/archive/refs/tags/v0.22.3.tar.gz"
+  sha256 "95aee6c02f3d9ca7472cb82607fc0469173dc66749208e725ff05f1c4c04d4d0"
   license "MIT"
   head "https://github.com/rust-cross/cargo-zigbuild.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "91a61ce8596ad58c59338cadf8e0c670dba4b695dd1100c3454aabe4e7b4629d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e7bb60a569c4c78e52c4ebe62cd5746d23227ce9e7f0b8c597b2c3e0fd9a037"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9f140cbf8a21c999f33027fa3049946e81fa56a87c8cab4ec3095f9fa1e14ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9ca17d99e4a047ba906292c3b6c68d16391f69d57e8ccf9622c349ac8ef7fbb3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "060aab76fd3a03a3174ac766b53cab73e9efc975a80bb97a9ca52643a0405008"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1be7772df41f6710f8a4e06a4f67f7afd831a0fb30a1b4b4e69c81a2f77dbd71"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2b37a2abc6ede87d1a6b3cb514cfb0f487fe5459a2de8facf6390fce74566133"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "635f6d346227e0a4bc3db6b4074c04a79b548f57ce6c78cb584149f1521e0809"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c335fdbf508295a9d582dfd4cdb7985b963644debedf940bcfc8bc56e2dad61e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "14b11d8c9bca57d7ef8ea9deb3d89ad399d4ec740fb27d3c46a6150eebc4915e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "65d24e6beeab313aff3d22ddba04012e44dc534cf9e842da26958bb057f89b2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffeb2e5f6b0253f0671e9cacb5eae2f2ece1fb3b40707579d721530571254c9d"
   end
 
   depends_on "rust" => :build

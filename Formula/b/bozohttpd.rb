@@ -4,6 +4,7 @@ class Bozohttpd < Formula
   url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/LOCAL_PORTS/bozohttpd-20240126.tar.bz2"
   sha256 "576267bc5681c52b650294c3f2a85b8c8d8c239e75e71aaba7973771f852b56d"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/"
@@ -11,17 +12,15 @@ class Bozohttpd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f071d5d2e28bc3a4ccef5b81d780fbd3995a5cca9d508356ffa860ede9737bf6"
-    sha256 cellar: :any,                 arm64_sequoia: "f91adb497f96847759c3427e7b14b81889547273bc078266abdcc0087e6f1c8f"
-    sha256 cellar: :any,                 arm64_sonoma:  "ad727b862019134b028cc9d5ee6893755dc001ab87ebc3625eca39779be2d65a"
-    sha256 cellar: :any,                 arm64_ventura: "5269de6704ed5507508a2bfba45dfb714d0a077bb86682cc013762a3e05dbaba"
-    sha256 cellar: :any,                 sonoma:        "58b534558d746a783487067bcb393d6908c9961f1e8e82e2c8ff0e2790e5c7aa"
-    sha256 cellar: :any,                 ventura:       "282ae1e2332c2dc426187b193fc943141bfd838b00818aa867da2eac281144c0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ddfe6c1eedfc12b72ce6175e8bb8621d3c5b2cd946d5f35de76cf555c1dcd5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8f662a5761fcd610221da12ac4476496fe39bb5254c0192a05e6170b495c988"
+    sha256 cellar: :any,                 arm64_tahoe:   "08add554b4f9e6039d3ff57f273abb1ed60e8d691c5029eb4d24a693b28f1182"
+    sha256 cellar: :any,                 arm64_sequoia: "647389ce4b7541386a18139d7aaf53836a970a740cbe975a559448d9d016ad3d"
+    sha256 cellar: :any,                 arm64_sonoma:  "6644d9378c0d0f1b8ae2c895c211dfb4424d35a67fb0f413c1f1ac1c34615d36"
+    sha256 cellar: :any,                 sonoma:        "18b2b7b64fc29b2dfb7bf187e3548b49aa4600379f3e2d3e3391955978b85bc9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7e4732ae790f55b727b93df73c83712490db2eed6cdd7c2f6c17c69544538409"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8b06ea44de6ededf75e8233f192670cfc33163d80487719b505cd185ceb228a"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "make", "-f", "Makefile.boot", "CC=#{ENV.cc}"

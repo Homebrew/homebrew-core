@@ -4,14 +4,15 @@ class Snapcast < Formula
   url "https://github.com/snapcast/snapcast/archive/refs/tags/v0.35.0.tar.gz"
   sha256 "cb75a71479bf52910bf5f47ae8120ec41c89459b0d77d7cd560e674e437ef050"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d61c8d4bfd965dd2ddcbc77eb73e12a59aef21dd2835bbca7e8b246b110750f4"
-    sha256 cellar: :any,                 arm64_sequoia: "dacaa2ae4beec81fafada1b9549b04b8bba3d6276827b7988844b1a6810e05f8"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9613d42b9eeafb28a03889f260adbc225865dca3715ddf8023a903e6fcbc807"
-    sha256 cellar: :any,                 sonoma:        "14aa0fbaf99749b161e79b1f216d1e4396f550d8ed242733bc058e7eacb4528a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7e40d4b536ed307ff8f8982fbb660ef400444c5096f894834470c3596fcf4593"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf3c9e17907d2351ada549641c22b570b970d35b46d41d6fc1e045dc50acf1f2"
+    sha256 cellar: :any,                 arm64_tahoe:   "ff3736ac6d060aa12bb5f20c9bdff44eddf1599e4dbfae99cb62ca5d58cbecd0"
+    sha256 cellar: :any,                 arm64_sequoia: "f029d457826ddc09f04d6a68a07ed0c7e08d2d19ec7afa1068b23ba824bc5d73"
+    sha256 cellar: :any,                 arm64_sonoma:  "206de0dd3393237be71d89125b131f11797606aea872e413ed5c1877fe6508c6"
+    sha256 cellar: :any,                 sonoma:        "5603fec33ba9ba3e83fb16d10423579f8b589f5c82290ae6e29097b70fe6e723"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ace3d2ab530a6c0312a13d815086d2b67c1230b01100119aef106102f8eb8427"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6037bb300c6c03217793eb4910b336939d3c5c27a0dbf1ee05b994308f42327c"
   end
 
   depends_on "boost" => :build
@@ -22,7 +23,7 @@ class Snapcast < Formula
   depends_on "libogg"
   depends_on "libsoxr"
   depends_on "libvorbis"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "opus"
 
   uses_from_macos "expat"

@@ -3,20 +3,20 @@ class KimiCli < Formula
 
   desc "CLI agent for MoonshotAI Kimi platform"
   homepage "https://github.com/MoonshotAI/kimi-cli"
-  url "https://files.pythonhosted.org/packages/a5/72/2c0097cdaa809b08193bebb81a06ae578a7d21d8e64938755a5d08e68961/kimi_cli-1.37.0.tar.gz"
-  sha256 "ce3258cbb6086f5759b71b24ce035013644bdf4f68a3b7e0d83e6074718211fb"
+  url "https://files.pythonhosted.org/packages/12/95/0c9934e3d957fd93cee051142d293d4929686071b5833934f6fd96140080/kimi_cli-1.39.0.tar.gz"
+  sha256 "b2b74506ada709ebe7e248d4315c7e7998f3ef274795e887ede806ea5d295389"
   license "Apache-2.0"
   head "https://github.com/MoonshotAI/kimi-cli.git", branch: "main"
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7a3b4bc5bb139ac33ba3afc93f1afcf395eb909f9b99815e0dcf43d7c52841a4"
-    sha256 cellar: :any,                 arm64_sequoia: "b8d7d7fd8670a0598321fd92487e9a39251d5d10e6b1e3d77aa6885e24bb630b"
-    sha256 cellar: :any,                 arm64_sonoma:  "d63f32cb7aa7bee940133ef2c7d537e3439498d5304a904935b146e246b2625d"
-    sha256 cellar: :any,                 sonoma:        "71330ceddef3fece248fd3b2ab6381ab97684c5d0051daa30f3f2eb7fec134c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9aaa3b00f204d00635abc92a0d0aebc7f7845253faec5c6d261071ecdb69f788"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c03ff183cb90648b72be112bb03289a15bae2cf792364bdede05b13148582f1c"
+    sha256 cellar: :any,                 arm64_tahoe:   "37f6c15a74d78c137c5e6a3b7ac76a4bc05ad22e2884eccea8f87497ee258524"
+    sha256 cellar: :any,                 arm64_sequoia: "d2af31527bda670b8d20253edd65a37dd6518e3e5821a978e7934be7e04b8e97"
+    sha256 cellar: :any,                 arm64_sonoma:  "97a1abcf483953dddda711508d89a52b17fde54b8946554d68892f452dac8584"
+    sha256 cellar: :any,                 sonoma:        "85c857f60965e2cf07507ae7648f716f9d3774124ab4ecde7c7e72928d29f299"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75cde8ea792094c454af6e82247e43b3bb0c54a95660f63624c1d01e1aa22940"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2512c5110de11e644f09d374c976d0913bbe5aad2af6913a43953e573e79cb8e"
   end
 
   depends_on "pkgconf" => :build
@@ -83,8 +83,8 @@ class KimiCli < Formula
   end
 
   resource "anthropic" do
-    url "https://files.pythonhosted.org/packages/b9/7e/672f533dee813028d2c699bfd2a7f52c9118d7353680d9aa44b9e23f717f/anthropic-0.96.0.tar.gz"
-    sha256 "9de947b737f39452f68aa520f1c2239d44119c9b73b0fb6d4e6ca80f00279ee6"
+    url "https://files.pythonhosted.org/packages/14/93/f66ea8bfe39f2e6bb9da8e27fa5457ad2520e8f7612dfc547b17fad55c4d/anthropic-0.97.0.tar.gz"
+    sha256 "021e79fd8e21e90ad94dc5ba2bbbd8b1599f424f5b1fab6c06204009cab764be"
   end
 
   resource "anyio" do
@@ -128,8 +128,8 @@ class KimiCli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "courlan" do
@@ -138,8 +138,8 @@ class KimiCli < Formula
   end
 
   resource "cyclopts" do
-    url "https://files.pythonhosted.org/packages/66/2c/fced34890f6e5a93a4b7afb2c71e8eee2a0719fb26193a0abf159ecb714d/cyclopts-4.10.2.tar.gz"
-    sha256 "d7b950457ef2563596d56331f80cbbbf86a2772535fb8b315c4f03bc7e6127f1"
+    url "https://files.pythonhosted.org/packages/f9/fa/eff8f1abae783bade9b5e9bafafd0040d4dbf51988f9384bfdc0326ba1fc/cyclopts-4.11.0.tar.gz"
+    sha256 "1ffcb9990dbd56b90da19980d31596de9e99019980a215a5d76cf88fe452e94d"
   end
 
   resource "dateparser" do
@@ -178,8 +178,8 @@ class KimiCli < Formula
   end
 
   resource "fastapi" do
-    url "https://files.pythonhosted.org/packages/4e/d9/e66315807e41e69e7f6a1b42a162dada2f249c5f06ad3f1a95f84ab336ef/fastapi-0.136.0.tar.gz"
-    sha256 "cf08e067cc66e106e102d9ba659463abfac245200752f8a5b7b1e813de4ff73e"
+    url "https://files.pythonhosted.org/packages/5d/45/c130091c2dfa061bbfe3150f2a5091ef1adf149f2a8d2ae769ecaf6e99a2/fastapi-0.136.1.tar.gz"
+    sha256 "7af665ad7acfa0a3baf8983d393b6b471b9da10ede59c60045f49fbc89a0fa7f"
   end
 
   resource "fastmcp" do
@@ -198,8 +198,8 @@ class KimiCli < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/df/b5/59d16470a1f0dfe8c793f9ef56fd3826093fc52b3bd96d6b9d6c26c7e27b/gitpython-3.1.46.tar.gz"
-    sha256 "400124c7d0ef4ea03f7310ac2fbf7151e09ff97f2a3288d64a440c584a29c37f"
+    url "https://files.pythonhosted.org/packages/c1/bd/50db468e9b1310529a19fce651b3b0e753b5c07954d486cba31bbee9a5d5/gitpython-3.1.47.tar.gz"
+    sha256 "dba27f922bd2b42cb54c87a8ab3cb6beb6bf07f3d564e21ac848913a05a8a3cd"
   end
 
   resource "google-auth" do
@@ -248,8 +248,8 @@ class KimiCli < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "isodate" do
@@ -318,8 +318,8 @@ class KimiCli < Formula
   end
 
   resource "kosong" do
-    url "https://files.pythonhosted.org/packages/99/95/7629f882b6ebb276531fc5c45a9f3a39d585b90818c33ebce9a5aee6132c/kosong-0.50.0.tar.gz"
-    sha256 "bf111ad817d93e55d57f42c89d63f6954516ce02190cf308a1a54c41ffef5618"
+    url "https://files.pythonhosted.org/packages/d5/2a/7d705400e31b7a677855afa26a71214a4caa252bbe82866598131f4b1d2f/kosong-0.52.0.tar.gz"
+    sha256 "04ee61fbf581ea99270070bf1b25f75ef364fa25d941655af4624cfe05c972d2"
   end
 
   resource "lazy-object-proxy" do
@@ -423,8 +423,8 @@ class KimiCli < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/fa/36/e27608899f9b8d4dff0617b2d9ab17ca5608956ca44461ac14ac48b44015/pathspec-1.0.4.tar.gz"
-    sha256 "0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645"
+    url "https://files.pythonhosted.org/packages/2e/17/9c3094b822982b9f1ea666d8580ce59000f61f87c1663556fb72031ad9ec/pathspec-1.1.0.tar.gz"
+    sha256 "f5d7c555da02fd8dde3e4a2354b6aba817a89112fa8f333f7917a2a4834dd080"
   end
 
   resource "platformdirs" do
@@ -749,8 +749,8 @@ class KimiCli < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/eb/2e/62b0d9a2cfc8b4de6771322dae30f2db76c66dae9ec32e94e176a44ad563/uvicorn-0.45.0.tar.gz"
-    sha256 "3fe650df136c5bd2b9b06efc5980636344a2fbb840e9ddd86437d53144fa335d"
+    url "https://files.pythonhosted.org/packages/1f/93/041fca8274050e40e6791f267d82e0e2e27dd165627bd640d3e0e378d877/uvicorn-0.46.0.tar.gz"
+    sha256 "fb9da0926999cc6cb22dc7cd71a94a632f078e6ae47ff683c5c420750fb7413d"
   end
 
   resource "uvloop" do

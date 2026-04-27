@@ -38,6 +38,9 @@ class HttpLoad < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5172c491fea4e76a68983d8fe6563a97e2ed2bef73b6bb0c95f5290282343116"
   end
 
+  # Upstream repo url is only available via http.
+  disable! date: "2026-07-24", because: :repo_removed
+
   depends_on "openssl@3"
 
   def install

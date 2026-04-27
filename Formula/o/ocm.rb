@@ -1,18 +1,18 @@
 class Ocm < Formula
   desc "CLI for the Red Hat OpenShift Cluster Manager"
   homepage "https://www.openshift.com/"
-  url "https://github.com/openshift-online/ocm-cli/archive/refs/tags/v1.0.13.tar.gz"
-  sha256 "7ac0158b6a53ff56159c18decb0b8cc43739b7421120d4d88da0c6c721a25310"
+  url "https://github.com/openshift-online/ocm-cli/archive/refs/tags/v1.0.14.tar.gz"
+  sha256 "42f1777ca8ca052331141b50f4d40da5c64accb1306c50d6a768c2c6978aa2ad"
   license "Apache-2.0"
   head "https://github.com/openshift-online/ocm-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da3bb72fb8ba7464f1cc46b04acae51703a1fe77d1ed3d64a430bf2146491fe3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "359d8fe5e47d93151bb05bed9c71ff241eea4dd396bc2637eb5b99876455f665"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "80691cafee10deb46f025c35740f1e39ea50e7a2c45c9dcae38019a70cc27f9a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c904d308cd0efaf6ef0b9d09364ec7eed0a3c4097f3485fa05ae417af598baee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff1a75d7df9bc7ad5ca21d2272ef4eac9c54b013fa580ca8edfada8d2340154d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a22117289214bd859fe7fec61611a6631d1382e2f538d29c1d57af93969cb1fe"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ac7831e4992bbadbaa36c10c5a7aea566c8d4fce9612dc98480254f7e6bc5c20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "feb00828135901e08a9dd7cd430e95fdd685b56ce1ab197178cbbcccc23afecc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a24d15c5897240c606cdc1f66b565ee9d1128fbe28ed774aef3356046daa5733"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3c607c66befef2b238ebe29f3e028f343d7f1caa7571ebfe925e489b388042f5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2242b9ad91d0241debc1cdf536bf646af02c97eaf1fb203afe3be99c0236d679"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e6ee17e3ecf4e43980e8577abbb25c80c3a28d7985d3d504e9a012c55071a4c"
   end
 
   depends_on "go" => :build

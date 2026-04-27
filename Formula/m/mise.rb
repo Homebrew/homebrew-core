@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2026.4.18.tar.gz"
-  sha256 "195d91364319e0e09051350810ffe3f40f9354d92e801fa81bf52a3fd14d9f3c"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2026.4.23.tar.gz"
+  sha256 "8a2ef260b61f310f402fc8a14112973d3f5108afe33cd3102ff78d8bd5f1be7a"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Mise < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "647934b9c92a174311daacbf144ec5828ad5c69e9e0cb0afcdf5ad35690c5b3d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7cb0bdfa5189f966c18d94101a7b3946852f8b4028ef65bd05515d29e632772"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "650ffe4856c7fd48c7e675d4900f81efd471fc4744ff8bcd691ba778faa5cf20"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c82f607e2f26315ef11557a6a14ac9244f986b6214f73ffc6bf0d7b2cbf5a11f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5aad522a7d69a0a50d87b7ecf9449fedd505cdb7191831ed7f3063347c608e9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4283f9a5f5b36fb5f15d474028f2ab7d428203b6274f2c0bb8d06b74b5a0c52e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de420e6e1f21782e763090e4d409fa0121e7cbb5408b08ad9fbe5ac81c4bec5b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d895d16b021eba0d753e070eb7e63addbbd6a1a0fe97ca79077c3739dc44c60"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c8c7a212a2cbe00679cb591e20944be8d6b03ffecd615dee7045c357f6cf976"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20f320635dee45dfa56ac956f70b1652bc1807b74a757887fbd765b9582a1edf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "83de3ef6572ccf09d1d8eab25717008005fb89f729a0ea676b96df81311e237c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3740be8137b7d28b439bf3ef8893eb563a541c293d5345eb55e85edc3966e850"
   end
 
   depends_on "cmake" => :build
@@ -36,7 +36,6 @@ class Mise < Formula
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     system "cargo", "install", *std_cargo_args
     man1.install "man/man1/mise.1"

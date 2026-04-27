@@ -4,6 +4,7 @@ class Pdal < Formula
   url "https://github.com/PDAL/PDAL/releases/download/2.10.1/PDAL-2.10.1-src.tar.bz2"
   sha256 "78765f1d06584c8e9b3b4a5b58c0ebea478d42ad21f1432717b31c20def05522"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
@@ -13,12 +14,12 @@ class Pdal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "514334b718dfa268bccc32a0e0a9746f30c70723cdc8d2c88f8be9eb14b40cd2"
-    sha256 cellar: :any,                 arm64_sequoia: "5021ad771b3d7391924fb5e756c553d8411e3e7eba0052ea27f5f0ffd045490c"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9814e248ace650336500ae1d02a1e0716d3acc64253a332262e363000e4efd8"
-    sha256 cellar: :any,                 sonoma:        "a2d04e5af7925d00d5b00f2f4719e8c6eef140d62f467449c3e80d63e5e08907"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "11aeea44e1318ae538bb09b92ada6ac9dd64d1f70c521e9241180884e14b7caf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f423839c855b2c0fe0d43a303d4f828080aed7d8488379e6cb82d551508ee5f3"
+    sha256 cellar: :any,                 arm64_tahoe:   "13320c43a9053593a7bfededfe94fcb0962ab0df1548bf37ec7d79f3f9a5d6b1"
+    sha256 cellar: :any,                 arm64_sequoia: "57868aa56026dd8ad70cead0ae45cc220e8f9b74700db2d1e12e46c04e0ab8d6"
+    sha256 cellar: :any,                 arm64_sonoma:  "adc7ca68e794337bc7e2fdde93901c71ac1d7820c64392ed138cf2af289edc76"
+    sha256 cellar: :any,                 sonoma:        "dac71a7ed9a5b45661f561a12b67d6171b33eda715e15a394769ab70a19cd4de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bba70f9f78601d5b0b31c06b51f654ce3c9812c5cd9b5e8dcade8efa78ae2526"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19de87c23362ea932388228f2ef2a00f4c45f8ee9ed9b9653fb5188d981e0edf"
   end
 
   depends_on "cmake" => :build

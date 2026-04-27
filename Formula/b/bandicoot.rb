@@ -1,17 +1,17 @@
 class Bandicoot < Formula
   desc "C++ library for GPU accelerated linear algebra"
   homepage "https://coot.sourceforge.io/"
-  url "https://gitlab.com/bandicoot-lib/bandicoot-code/-/archive/3.1.0/bandicoot-code-3.1.0.tar.bz2"
-  sha256 "27c8c6d36e6bbc64f4de0cfde89221f6d80a7d59de08c47666afeeacc806d1a5"
+  url "https://gitlab.com/bandicoot-lib/bandicoot-code/-/archive/4.0.0/bandicoot-code-4.0.0.tar.bz2"
+  sha256 "b4836bcb332e6d87c3fa4e1438bf6d8f6ab4c1d459db5b52c4260642fdbc7598"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5d67e6aed2699f62ee9f37b3bd2228349b82b826c6ccce2cff52ab5be84c3b2b"
-    sha256 cellar: :any,                 arm64_sequoia: "98187deca3fd6cbed9bd4ad68fc48e05198e3c78aa5cd7166e14b0b538aee923"
-    sha256 cellar: :any,                 arm64_sonoma:  "d6f10f687b2d75a0b5a832e2cd8b5b507aa8d5d75c3e2fe5e3d99945b656e86f"
-    sha256 cellar: :any,                 sonoma:        "74c3eb05ae46f65f349e278a1ba74f39a301f66ddcc8d61e94efef7f91e220ff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bbbe98b28fa63bc236bd1cf7ccfb644e2f047a9863d41d2cc1070af4b0e152cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e30826e78801be597bb8e6c8a7da8c0f468ee427c7942ac373e4596ab0372ff"
+    sha256 cellar: :any,                 arm64_tahoe:   "c135aee940cff60836d85396cb67674f616606e7107d15ad84780d2b2c6dd207"
+    sha256 cellar: :any,                 arm64_sequoia: "432c737123e9453dce95a5304e04a3875f64ae7bfaa9837dc21a01f2afa29b83"
+    sha256 cellar: :any,                 arm64_sonoma:  "40154e36817bcbfdcc7ac5c23825fd2243f1f30d5209c7e389791beb59cdd6a7"
+    sha256 cellar: :any,                 sonoma:        "c65e16e2a18237bb451051249a1bf4e2ecb2da68dd16b89f7697278bee2fe2cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee3cd7e28c7036510fb717974c02209e6b8328f0aa1cf373cfed1cf92e82a354"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ff7f8a5172dbf09a40fca89f9c822aced487d1abc5c244a52d418ba69554d8e"
   end
 
   depends_on "cmake" => :build
@@ -46,7 +46,7 @@ class Bandicoot < Formula
         std::cout << coot::coot_version::as_string() << std::endl;
       }
     CPP
-    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}", "-lbandicoot", "-o", "test"
+    system ENV.cxx, "-std=c++17", "test.cpp", "-I#{include}", "-L#{lib}", "-lbandicoot", "-o", "test"
 
     # Check that the coot version matches with the formula version
     assert_equal version.to_s.to_i, shell_output("./test").to_i

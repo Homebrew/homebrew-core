@@ -1,8 +1,8 @@
 class Libupnp < Formula
   desc "Portable UPnP development kit"
   homepage "https://pupnp.sourceforge.io/"
-  url "https://github.com/pupnp/pupnp/releases/download/release-1.18.4/libupnp-1.18.4.tar.bz2"
-  sha256 "158b798734412ac3406a950949dc9b0739cea8c315eb63aa760769d25621ec39"
+  url "https://github.com/pupnp/pupnp/releases/download/release-1.18.5/libupnp-1.18.5.tar.bz2"
+  sha256 "fe17522c605752f9f522d8cceab2a4601d75c2b701288a3bdbd9926e1bd9a9a1"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libupnp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "50cfa2bd223351ba0170fbbc02fea0b7223132279c7a9077b75d2cd82c29a4fd"
-    sha256 cellar: :any,                 arm64_sequoia: "40e5bc6d5a845d9363e9369e7604b2f9806012202426f523ee80fdbe83b3a9f2"
-    sha256 cellar: :any,                 arm64_sonoma:  "d081b193b3a10f4a3da27d83d4794166425b8449b46631103a8cbdd18447e65e"
-    sha256 cellar: :any,                 sonoma:        "9a1473138b1a25848f4519a577c17aa073060b9497318e244aeffd69d8a62e0f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e993fa1421b04db685b4985120216fd86ffca2a82eaea815d17d02cc44d1d29c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a716924d2d93e7c1e00197593f38a3977bf6da1de3c3bf5f46400bfe69ebc291"
+    sha256 cellar: :any,                 arm64_tahoe:   "30b918b8cd888c12902dbcdd0e319144a9266b8d872ce9b11537cc765aac1128"
+    sha256 cellar: :any,                 arm64_sequoia: "529a307bcde0f98cfb407dc7387946793cd95ff4cee2d8c7def931727f29a0ea"
+    sha256 cellar: :any,                 arm64_sonoma:  "0ee2e57bba5d8ee8470f510acbf6680b8999d932362e97b9e6ee7d5f3134e94c"
+    sha256 cellar: :any,                 sonoma:        "d96216f345b05655855840b6550aed30b122affdfae72ac8f681b19cf9170044"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "945e39e6484fd9e2c0d73091e5e5b61873d9b25712e77e0d1183523b9e32c186"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b733a51a72820a6d9a3f47b32b4fe718bbfbf43ff3291a38c79e39d1d7e9939"
   end
 
   def install

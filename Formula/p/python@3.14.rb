@@ -12,14 +12,15 @@ class PythonAT314 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "a57709f67ff38ea12b02cad10719afd42de03f8fc0a25fca857786e3c45b52f1"
-    sha256 arm64_sequoia: "a662a7f23fc2eeb0106eab7196080a446cc9a9557db1f863f7f902fd3640dd21"
-    sha256 arm64_sonoma:  "12d5adefd8d0a3f818501d9d33f79f3af2866655e3ef8d1f54955247b7c48298"
-    sha256 tahoe:         "7c11c07a27ba1f4cba5b5799c202e670814d9da719841ec2661f29061653a072"
-    sha256 sequoia:       "7e929fa45eeb65b5740d97f9fdaf7a3def6d30ac3c82069ef5d778b1d55f3fd5"
-    sha256 sonoma:        "24065e90fbd5a9b19f8f17516f0f9fa53aca0849463f8f7cb66b606fd154d6a5"
-    sha256 arm64_linux:   "f40a490b9277e2dca9aae2a1b6524780a57719235ebadf1fe8ec617df5a46057"
-    sha256 x86_64_linux:  "963a5b405bb22f47c659f7258da9d55677474ac1c21916ba9197655186cf4c66"
+    rebuild 1
+    sha256 arm64_tahoe:   "e6aad7f3013cf39f3ba0de702d6ffdb934ec28549fcffb580f91ec8d8685ffde"
+    sha256 arm64_sequoia: "dcbf428d7f9e448ee88d51c867a29d60e4ee48c69cb537ffa43154c6054951e8"
+    sha256 arm64_sonoma:  "16f997d2727745edc4ac87df52de2517711ba0cb7c298a97f2b14e1150a926cb"
+    sha256 tahoe:         "7498a873e826498cd2302e00f2c4a2bed207b2e3c97b06272c794d3d47662e14"
+    sha256 sequoia:       "c3a2c539efcfaedaa4330fd7bb2abf436435f0320c9acb364bb73de970623750"
+    sha256 sonoma:        "33ecbabc155041ef656a9572d0223a4d3412d14d763a2fdb1a963a9aacfc29c3"
+    sha256 arm64_linux:   "b351cac4da326df26d1b72878493b2ce038e990d3770bec75db1cfd849e6c561"
+    sha256 x86_64_linux:  "115dbf56f954ad54380ccac97205956e50c32ecd8b1bf54dbd509fef07423a79"
   end
 
   depends_on "pkgconf" => :build
@@ -37,7 +38,6 @@ class PythonAT314 < Formula
   uses_from_macos "unzip"
 
   on_linux do
-    depends_on "berkeley-db@5"
     depends_on "zlib-ng-compat"
   end
 
@@ -163,7 +163,7 @@ class PythonAT314 < Formula
       args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     else
       args << "--enable-shared"
-      args << "--with-dbmliborder=bdb"
+      args << "--with-dbmliborder="
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
@@ -492,7 +492,8 @@ class PythonAT314 < Formula
     assert_match "ModuleNotFoundError: No module named '_gdbm'",
                  shell_output("#{python3} -Sc 'import dbm.gnu' 2>&1", 1)
 
-    # Verify that the selected DBM interface works
+    # Verify that the selected DBM interface works on macOS.
+    # Linux requires installing python-gdbm formula
     (testpath/"dbm_test.py").write <<~PYTHON
       import dbm
 
@@ -503,7 +504,7 @@ class PythonAT314 < Formula
           assert b"foo \\xbd" in db
           assert db[b"foo \\xbd"] == b"bar \\xbd"
     PYTHON
-    system python3, "dbm_test.py"
+    system python3, "dbm_test.py" if OS.mac?
 
     system bin/"pip#{version.major_minor}", "list", "--format=columns"
 

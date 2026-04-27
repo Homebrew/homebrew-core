@@ -3,18 +3,17 @@ class Gamdl < Formula
 
   desc "Python CLI app for downloading Apple Music songs, music videos and post videos"
   homepage "https://github.com/glomatico/gamdl"
-  url "https://files.pythonhosted.org/packages/76/62/28429c8edd8667ba9012678d3c467304907e12d793e16e8d454b89c44f3f/gamdl-2.9.3.tar.gz"
-  sha256 "a053d0801103df676af6effd348f068f2bdca51ab85551fc6aa56b684e5ffdd3"
+  url "https://files.pythonhosted.org/packages/f4/3c/d299e790dcfcc846dcfcb93af457a311f2f4f661f5274688b3ae33973bbc/gamdl-3.3.tar.gz"
+  sha256 "269cde0d0a555a3fb9b70c7e6853fb38a8ba0438fce692cf8839eb009d7885dc"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "63826ade74a3dc25327d8adcf8129fc2b55cdc0c57c07fce82ee209ff09c18b6"
-    sha256 cellar: :any,                 arm64_sequoia: "6302e1cde9279c6e9bcf008435e2a18fefe12056cee55851622e316fcdfe12da"
-    sha256 cellar: :any,                 arm64_sonoma:  "d959843a520b2a809670b3268ea7e56d4737c7eb7f48fe5cf77287e27d5d162b"
-    sha256 cellar: :any,                 sonoma:        "0343baae465e38158997959707b78146f9c7f668843da70f97618454622355ab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "21eee5303c64c5b85d97e5c9c0b69c8a99ff9790b37db00d131b4b0e287c019e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55cc24be484e645068d2f95cbc8e2be2d911a7b7a19a2a60c9c5d9c18f3b38ba"
+    sha256 cellar: :any,                 arm64_tahoe:   "1ac8a9fd721133cd3036b7144380358ef279c08e076c02a72594917354c53029"
+    sha256 cellar: :any,                 arm64_sequoia: "d9be4af13fa677e69108ed1a729350aba0c3b6cdd482e1be9ac496b90a2a8256"
+    sha256 cellar: :any,                 arm64_sonoma:  "64df7e7a0c352ac2c1914cd2083a4010d6a78fc8a2e137f446ec1f38f33eb35b"
+    sha256 cellar: :any,                 sonoma:        "cf1f3216d8b1cc72161038edb752482394c2eabe19c4d575af3f30a0ff293f87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "16422aa082677afbeddf80bb452f1d30eb68494d30a6b193dfd08a23324182ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4eaa804168c4c0c41a75544fa45f3656b512320b658ae0cd04445c9e687512db"
   end
 
   depends_on "certifi" => :no_linkage
@@ -35,13 +34,13 @@ class Gamdl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
-    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "colorama" do
@@ -74,9 +73,14 @@ class Gamdl < Formula
     sha256 "75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"
   end
 
+  resource "httpx-retries" do
+    url "https://files.pythonhosted.org/packages/fb/f5/046cac13877ce9b55aebdbb3999e0e45b19b989a95c5fd1040fa04bd1f92/httpx_retries-0.5.0.tar.gz"
+    sha256 "d8c8e1e0852d84be3837aba0bcf78aeb89a4b77db95e8cc988c8c058830b3044"
+  end
+
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "inquirerpy" do
@@ -130,8 +134,13 @@ class Gamdl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
-    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
+    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
+    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
+  end
+
+  resource "structlog" do
+    url "https://files.pythonhosted.org/packages/ef/52/9ba0f43b686e7f3ddfeaa78ac3af750292662284b3661e91ad5494f21dbc/structlog-25.5.0.tar.gz"
+    sha256 "098522a3bebed9153d4570c6d0288abf80a031dfdb2048d59a49e9dc2190fc98"
   end
 
   resource "unidecode" do

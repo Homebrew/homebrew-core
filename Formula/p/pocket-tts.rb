@@ -3,19 +3,18 @@ class PocketTts < Formula
 
   desc "Text-to-speech application designed to run efficiently on CPUs"
   homepage "https://github.com/kyutai-labs/pocket-tts"
-  url "https://files.pythonhosted.org/packages/ab/3e/2f15ee05b3dcf6ec08251f5030a3deb4643d2ecd55e17a4ca8998888c1df/pocket_tts-1.1.1.tar.gz"
-  sha256 "cdd234e49299e8fe927bd0b93c164c7785bdd83bed302622e218bcda3944f603"
+  url "https://files.pythonhosted.org/packages/b2/4c/2d974017bafdd9a2728deade38b3fae88876e22c13961c4378e5c050a386/pocket_tts-2.0.0.tar.gz"
+  sha256 "66af8f5b2b25b5be6bd29ec12242aa56f90b6aad381234d1664fa4fc803d1ff2"
   license "MIT"
-  revision 3
   head "https://github.com/kyutai-labs/pocket-tts.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ce835cc947ae341ea8c9a5d1386736258123371cfc0b683dee864d151daeae59"
-    sha256 cellar: :any,                 arm64_sequoia: "d2e5bf477b7103caa528e0590eea49e67470a0775347dac5e39ebac5d5dd9adb"
-    sha256 cellar: :any,                 arm64_sonoma:  "e63d984cb0341c8df72cad6c9cb1ec24756655e920f8f49d8a865e051fb64091"
-    sha256 cellar: :any,                 sonoma:        "453cab49b737d520b71fc2decdd7bdf7a5dcb4ba3e51de7758181983b2f29836"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7afb4476fec60b79fd8850c5529af32cd34b78610d8425e1323e5e3f7fcd7bc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9770103a1cd39676b978633c65063dcd7b23e1e57074d7c2e2eaec8034975989"
+    sha256 cellar: :any,                 arm64_tahoe:   "187a649ba2d75c0feb86ae6d0afbbeeca99c845a28643b5ae8a15a4d93e072b5"
+    sha256 cellar: :any,                 arm64_sequoia: "4c0a67b71d0bd7fb9451b2b575438a8ca58615abb0bffa037d20293698a5298a"
+    sha256 cellar: :any,                 arm64_sonoma:  "075a90d46845d9d37602ea34dba9265f24cfa68dfab9ed0fdb164585376001a5"
+    sha256 cellar: :any,                 sonoma:        "68fd096f0f3a8b7dd4e033ce45119b37d101130b041fad97dda92f402ecfa068"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e29d2ded63ad5a23a8f4cebaf04dcc13b529ce2cc662ae9b1c99b6c2c3f4041c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "857cf21065536d9fa4a3110401ec2a8c3376520b1a56ddce802acb67ff5b2411"
   end
 
   depends_on "cmake" => :build
@@ -65,8 +64,8 @@ class PocketTts < Formula
   end
 
   resource "fastapi" do
-    url "https://files.pythonhosted.org/packages/f7/e6/7adb4c5fa231e82c35b8f5741a9f2d055f520c29af5546fd70d3e8e1cd2e/fastapi-0.135.3.tar.gz"
-    sha256 "bd6d7caf1a2bdd8d676843cdcd2287729572a1ef524fc4d65c17ae002a1be654"
+    url "https://files.pythonhosted.org/packages/4e/d9/e66315807e41e69e7f6a1b42a162dada2f249c5f06ad3f1a95f84ab336ef/fastapi-0.136.0.tar.gz"
+    sha256 "cf08e067cc66e106e102d9ba659463abfac245200752f8a5b7b1e813de4ff73e"
   end
 
   resource "h11" do
@@ -90,8 +89,8 @@ class PocketTts < Formula
   end
 
   resource "huggingface-hub" do
-    url "https://files.pythonhosted.org/packages/0c/4d/00734890c7fcfe2c7ff04f1c1a167186c42b19e370a2dd8cfd8c34fc92c4/huggingface_hub-1.10.2.tar.gz"
-    sha256 "4b276f820483b709dc86a53bcb8183ea496b8d8447c9f7f88a115a12b498a95f"
+    url "https://files.pythonhosted.org/packages/dc/89/e7aa12d8a6b9259bed10671abb25ae6fa437c0f88a86ecbf59617bae7759/huggingface_hub-1.11.0.tar.gz"
+    sha256 "15fb3713c7f9cdff7b808a94fd91664f661ab142796bb48c9cd9493e8d166278"
   end
 
   resource "idna" do
@@ -175,8 +174,8 @@ class PocketTts < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/5e/da/6eee1ff8b6cbeed47eeb5229749168e81eb4b7b999a1a15a7176e51410c9/uvicorn-0.44.0.tar.gz"
-    sha256 "6c942071b68f07e178264b9152f1f16dfac5da85880c4ce06366a96d70d4f31e"
+    url "https://files.pythonhosted.org/packages/eb/2e/62b0d9a2cfc8b4de6771322dae30f2db76c66dae9ec32e94e176a44ad563/uvicorn-0.45.0.tar.gz"
+    sha256 "3fe650df136c5bd2b9b06efc5980636344a2fbb840e9ddd86437d53144fa335d"
   end
 
   def install

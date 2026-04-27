@@ -3,17 +3,17 @@ class Tmt < Formula
 
   desc "Test Management Tool"
   homepage "https://tmt.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/db/ee/46bf6021e632440e5d3098612cc00f077b8625517aadd02e20f41a17e40d/tmt-1.71.0.tar.gz"
-  sha256 "50ae9a2e8d4a24f16e2e7f3d439a39632e8ede58111da35d79c32619bf672469"
+  url "https://files.pythonhosted.org/packages/e9/e8/24ef461321e9d77e30d87bb9abac92deca20a91395eeb54f1f28a1634b8b/tmt-1.72.0.tar.gz"
+  sha256 "df9b33cc10aae202b679b44933661dd34447ba248df8f02b5b6579334134958a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cfc80f9b5cd0b9bf8f7719501e25e46045fd7fe4959d5c381392d484ae7ee7c7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab5675ce28bdf0346d8e48f7cb612b2f683e4725bfd9fb52179bb7bd1fb443cf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16064a95b83e7f733bc4826288cc29a8d7dcf5f600a2cff9dade90f87f2ae3f5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d2a3c820dd664f2718599756f5c5e58a119daf6bbfceb206105f7e1d53f98f77"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6862760b102d3bede6f6e8a01eac7e9b2d481b27924fc0485ed62cb945f5fbb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba1ab71cb9a6019d95dfdb17913d30dd530c39a367d1e68c94140cbec620c8b8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "93a63703ed0a9deb13a257d0f322fa491f85652f656684c08f3ddd01d0f6a7b9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e537762777b23c5f3c211ac9bf7c81df3a50ceeb928681668b45fb160fa84b96"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81b716b9c3ef8a033b5492992ff134c7cd0b0a3bbf4152e41e896c569e14b8dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b204c7f90b2f395aa280a76cba31480b4d9f8c01c22d10a443f3e06b356b3790"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "beab7dfa73064f9fd2aaf6a696df2553a9af7404d132b2b578d17f2e273d1c62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d832c7474ea9fda6afd1390d6940aa77840ef517331ce3f878fa0af34c21155"
   end
 
   depends_on "beakerlib"
@@ -35,8 +35,8 @@ class Tmt < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "docutils" do
@@ -45,8 +45,8 @@ class Tmt < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/94/b8/00651a0f559862f3bb7d6f7477b192afe3f583cc5e26403b44e59a55ab34/filelock-3.25.2.tar.gz"
-    sha256 "b64ece2b38f4ca29dd3e810287aa8c48182bbecd1ae6e9ae126c9b35f1382694"
+    url "https://files.pythonhosted.org/packages/b5/fe/997687a931ab51049acce6fa1f23e8f01216374ea81374ddee763c493db5/filelock-3.29.0.tar.gz"
+    sha256 "69974355e960702e789734cb4871f884ea6fe50bd8404051a3530bc07809cf90"
   end
 
   resource "flexcache" do
@@ -65,8 +65,8 @@ class Tmt < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "jinja2" do
@@ -90,8 +90,8 @@ class Tmt < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
-    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+    url "https://files.pythonhosted.org/packages/df/de/0d2b39fb4af88a0258f3bac87dfcbb48e73fbdea4a2ed0e2213f9a4c2f9a/packaging-26.1.tar.gz"
+    sha256 "f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de"
   end
 
   resource "pint" do
@@ -124,6 +124,11 @@ class Tmt < Formula
     sha256 "53eb66cd27849eff968ebf8f0bf61f46cdac2da1d1f3576dd4ccee9b25c31993"
   end
 
+  resource "ruamel-yaml-clib" do
+    url "https://files.pythonhosted.org/packages/ea/97/60fda20e2fb54b83a61ae14648b0817c8f5d84a3821e40bfbdae1437026a/ruamel_yaml_clib-0.2.15.tar.gz"
+    sha256 "46e4cc8c43ef6a94885f72512094e482114a8a706d3c555a34ed4b0d20200600"
+  end
+
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
     sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
@@ -139,10 +144,10 @@ class Tmt < Formula
     output = shell_output("#{bin}/tmt init --template mini")
     assert_match "Applying template 'mini'", output
     assert_match <<~YAML, (testpath/"plans/example.fmf").read
-      summary: Basic smoke test
       execute:
-          how: tmt
-          script: tmt --help
+        how: tmt
+        script: tmt --help
+      summary: Basic smoke test
     YAML
 
     assert_match version.to_s, pipe_output("#{bin}/tmt --version")

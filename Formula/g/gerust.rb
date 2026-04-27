@@ -25,7 +25,6 @@ class Gerust < Formula
   end
 
   def install
-    ENV["OPENSSL_NO_VENDOR"] = "1"
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
 
     system "cargo", "install", *std_cargo_args

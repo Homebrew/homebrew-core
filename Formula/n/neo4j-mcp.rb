@@ -1,18 +1,18 @@
 class Neo4jMcp < Formula
   desc "Neo4j official Model Context Protocol server for AI tools"
   homepage "https://neo4j.com/docs/mcp/current/"
-  url "https://github.com/neo4j/mcp/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "fa0505c084927210236a6b9f732b01f5143ba09c602d9285fcdcde9cc15edb61"
+  url "https://github.com/neo4j/mcp/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "c31dfc4f2c63af446d1e27346d94b5fe93d758486b39510a032b74023568b365"
   license "GPL-3.0-or-later"
   head "https://github.com/neo4j/mcp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "324f4daa4a3e0fc6fd28860a9adc12302a94daae672151bf0ca2cca4e9f6859d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "324f4daa4a3e0fc6fd28860a9adc12302a94daae672151bf0ca2cca4e9f6859d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "324f4daa4a3e0fc6fd28860a9adc12302a94daae672151bf0ca2cca4e9f6859d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ef8bb5e086f111f4ed41016ce1c8d6b638439aeef1ce95cdd7aac8ffdf69a33b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1834a3bac323916c3c028a266d5689a7a6c73b78fdf7f73b7c2c788ed2b811f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f1b7ef522c24faa45f0193e8c8ab15760427fc014c0d2dcd30006ebd24d9e61"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9ca122f8f83a3298cc4044f12ff69bfd10cd5952b82c15940f89eedbba08b119"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ca122f8f83a3298cc4044f12ff69bfd10cd5952b82c15940f89eedbba08b119"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ca122f8f83a3298cc4044f12ff69bfd10cd5952b82c15940f89eedbba08b119"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cc8e395dd54f5e17af2bd2658c121cf2c9ea3e9ed680dfcdd01d496e837d1aef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2223a7c55da23a2bc4e2e831ba2b034b6ebe5ff3d1bb35feedf92dfebfdb9fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "196f28f7c1151928f68551757e5bff0d217c434bece5546bc53baf9745911fca"
   end
 
   depends_on "go" => :build

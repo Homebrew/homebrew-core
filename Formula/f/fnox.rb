@@ -1,18 +1,18 @@
 class Fnox < Formula
   desc "Fort Knox for your secrets - flexible secret management tool"
   homepage "https://fnox.jdx.dev/"
-  url "https://github.com/jdx/fnox/archive/refs/tags/v1.21.0.tar.gz"
-  sha256 "0e9fe150758c28ddf17cd59ace609c59b471455a0550f7a75335ff71f9baff1a"
+  url "https://github.com/jdx/fnox/archive/refs/tags/v1.23.0.tar.gz"
+  sha256 "dd0c26925dc439b187aa38613e564f455c01f3122e6a6f7c5bf24ed9fd05efbc"
   license "MIT"
   head "https://github.com/jdx/fnox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3b171ba1ff3c6dfeb48043c04d8d50412721e6781f2864e8548e15446fa9671f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f597f20817acb0b6af7f0e427b0f8b3bff8c3030ae95f1cce7f8032c35d4552"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "475fbf7735b8b29c08f100e4e1be70dc58644dfa3f05740323af292972356db2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dbb83dcc0f7cdc47d25cc58ffede7f4d875003ee85b57ebf517803a4e5607302"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c0d3143bd5344a45c6fa81b5f33cc31a4fdc6dd305fe5f29b119c859b533fc25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "722bbd7ffdf70b0453a701500044e74a41940ed50377d0c669d734c9ae1d1a8d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "906d4c14e881faa88e0cff07577975713f686e244eceab503fcb9bad5b2ebb28"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43e4818d9ff7cc8e3c1bec41c6964fea17f17f79165bdb2e243aaf3b0960e542"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f004ec3bd2adaf1313ee3ab77e0a27d62a9c5a90f8ef8f2db8f15045a18c65c7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f9cb3b79db78811172b0b9bb92aae13bff06a9b3cf3403ed95e6cb6248f25fdd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cab10d4da15386f19c013597235226d2cbbdf692dab2833ad41d3d664b56ae8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4673e7bdb9a3bbf138d2491d35db94dfaee9aec906b767e0ef4514f3b151ef23"
   end
 
   depends_on "pkgconf" => :build
@@ -28,7 +28,6 @@ class Fnox < Formula
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     system "cargo", "install", *std_cargo_args
 

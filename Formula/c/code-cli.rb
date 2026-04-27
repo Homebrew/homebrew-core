@@ -34,7 +34,6 @@ class CodeCli < Formula
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     ENV["VSCODE_CLI_NAME_LONG"] = "Code OSS"
     ENV["VSCODE_CLI_VERSION"] = version

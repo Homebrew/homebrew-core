@@ -3,17 +3,17 @@ class Dstack < Formula
 
   desc "ML workflow orchestration system designed for reproducibility and collaboration"
   homepage "https://dstack.ai/"
-  url "https://files.pythonhosted.org/packages/29/39/e71435c4575e009f44f45d9980fec615eaf5914c84bfe935a130c579624a/dstack-0.20.17.tar.gz"
-  sha256 "c78dc52a2e534a49ce2c841a0b9ac824e18275bff85c75bff2c5d401c8906d05"
+  url "https://files.pythonhosted.org/packages/89/71/c22846378fbe5587befa60ee00df027ebff0339b652371b208ce4717f3d6/dstack-0.20.18.tar.gz"
+  sha256 "b535b0e93530f9e1ffa9eca5a48e61c0ee94dedab558c250f8726cda117ba4f7"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6b6439e30254f37b390a00a6f0265379bb38493a73a7a861f75576c1d9ffcf04"
-    sha256 cellar: :any,                 arm64_sequoia: "937e092568884c1080d641515e52883f8fe94265e64fdafd5b77521c9a216101"
-    sha256 cellar: :any,                 arm64_sonoma:  "7b2f837e2b46dee3a8ac0c77f2f8d158eed7998981216dd3a37e914584c7daea"
-    sha256 cellar: :any,                 sonoma:        "30a102b1095bc9d8f13034263f43f39a91f0dfa0f4ff01951842e8063e411a86"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3afbe116fa1f9f862dee9aeef6a68d3e0f617c579e3e8ebf2928a2652b1a08b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2491ba335ddd60f013f087d6de65ee38825d2a3ff6aeb555bd7c3c7f9fffcf5c"
+    sha256 cellar: :any,                 arm64_tahoe:   "d1e64f8c648033791051bbff7f83a96627ba3e0f51c6cb534d4e0da4819422a0"
+    sha256 cellar: :any,                 arm64_sequoia: "83a2d341c1ebdd13c3b9d72cf76f29a299e743d0040cafdb6c5b61904189eee5"
+    sha256 cellar: :any,                 arm64_sonoma:  "a892df147f33680dac7485c5296043f3a929c664959139bb4550b1ab8342a7d3"
+    sha256 cellar: :any,                 sonoma:        "8d3897e8479b15bf9b4ce2e76b4fdf48aa5f5259fb42dcd319eba025395e0289"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cfb181914ece5bba7e3e5f58f5ffe4debcc3c5a15a404bed3848ec8e3cc1f1a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75fb090992a76a87d9934d33fa6aa4c586e025df1fc28b6106fba4446b3355d1"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -145,13 +145,13 @@ class Dstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/bb/0c/f7bccb22b245cabf392816baba20f9e95f78ace7dbc580fd40136e80e732/boto3-1.42.89.tar.gz"
-    sha256 "3e43aacc0801bba9bcd23a8c271c089af297a69565f783fcdd357ae0e330bf1e"
+    url "https://files.pythonhosted.org/packages/6a/6a/95302333208830de932ad1d0b69599ee13e936349a44981fb72632507861/boto3-1.42.94.tar.gz"
+    sha256 "5b6056a661c19e974aaea3cb97690ddbe30d10c31e4f887df3bff06574f34510"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/0f/cc/e6be943efa9051bd15c2ee14077c2b10d6e27c9e9385fc43a03a5c4ed8b5/botocore-1.42.89.tar.gz"
-    sha256 "95ac52f472dad29942f3088b278ab493044516c16dbf9133c975af16527baa99"
+    url "https://files.pythonhosted.org/packages/b7/90/1a4d0e81b325d38e37f81d907ceacac3b8f509ad38b495bb95086ecb609d/botocore-1.42.94.tar.gz"
+    sha256 "41c6b3b11b073221a41f52b222ba387be34459fb77cdc506e8b74cdaf24bdcce"
   end
 
   resource "cached-classproperty" do
@@ -160,8 +160,8 @@ class Dstack < Formula
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/af/dd/57fe3fdb6e65b25a5987fd2cdc7e22db0aef508b91634d2e57d22928d41b/cachetools-7.0.5.tar.gz"
-    sha256 "0cd042c24377200c1dcd225f8b7b12b0ca53cc2c961b43757e774ebe190fd990"
+    url "https://files.pythonhosted.org/packages/76/7b/1755ed2c6bfabd1d98b37ae73152f8dcf94aa40fee119d163c19ed484704/cachetools-7.0.6.tar.gz"
+    sha256 "e5d524d36d65703a87243a26ff08ad84f73352adbeafb1cde81e207b456aaf24"
   end
 
   resource "charset-normalizer" do
@@ -170,8 +170,8 @@ class Dstack < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "cursor" do
@@ -190,8 +190,8 @@ class Dstack < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/d6/17/6e8890271880903e3538660a21d63a6c1fea969ac71d0d6b608b78727fa9/filelock-3.28.0.tar.gz"
-    sha256 "4ed1010aae813c4ee8d9c660e4792475ee60c4a0ba76073ceaf862bd317e3ca6"
+    url "https://files.pythonhosted.org/packages/b5/fe/997687a931ab51049acce6fa1f23e8f01216374ea81374ddee763c493db5/filelock-3.29.0.tar.gz"
+    sha256 "69974355e960702e789734cb4871f884ea6fe50bd8404051a3530bc07809cf90"
   end
 
   resource "gitdb" do
@@ -200,8 +200,8 @@ class Dstack < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/df/b5/59d16470a1f0dfe8c793f9ef56fd3826093fc52b3bd96d6b9d6c26c7e27b/gitpython-3.1.46.tar.gz"
-    sha256 "400124c7d0ef4ea03f7310ac2fbf7151e09ff97f2a3288d64a440c584a29c37f"
+    url "https://files.pythonhosted.org/packages/c1/bd/50db468e9b1310529a19fce651b3b0e753b5c07954d486cba31bbee9a5d5/gitpython-3.1.47.tar.gz"
+    sha256 "dba27f922bd2b42cb54c87a8ab3cb6beb6bf07f3d564e21ac848913a05a8a3cd"
   end
 
   resource "google-api-core" do
@@ -280,8 +280,8 @@ class Dstack < Formula
   end
 
   resource "gpuhunt" do
-    url "https://files.pythonhosted.org/packages/0b/65/f31234645c6e86acab38ec74374df0caaa3581bb193065e89757ca0da188/gpuhunt-0.1.20.tar.gz"
-    sha256 "ed59e37ecea25e22c8914996d98e5e8e41964ae8e9368dc282f55533f01e2d54"
+    url "https://files.pythonhosted.org/packages/d8/18/0ca48a8a424b96c8600caa93a42052cf64ec9cc3a9512966f7c42824d2ac/gpuhunt-0.1.21.tar.gz"
+    sha256 "8f056de208c484ead0a55d38a88ad5054d8d77c48403257535696da7e07584ec"
   end
 
   resource "greenlet" do
@@ -330,8 +330,8 @@ class Dstack < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "ignore-python" do
@@ -422,6 +422,9 @@ class Dstack < Formula
   resource "orjson" do
     url "https://files.pythonhosted.org/packages/9d/1b/2024d06792d0779f9dbc51531b61c24f76c75b9f4ce05e6f3377a1814cea/orjson-3.11.8.tar.gz"
     sha256 "96163d9cdc5a202703e9ad1b9ae757d5f0ca62f4fa0cc93d1f27b0e180cc404e"
+
+    # Remove nightly feature flag, Rust 1.95 is now stable
+    patch :DATA
   end
 
   resource "packaging" do
@@ -560,8 +563,8 @@ class Dstack < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/05/04/74127fc843314818edfa81b5540e26dd537353b123a4edc563109d8f17dd/s3transfer-0.16.0.tar.gz"
-    sha256 "8e990f13268025792229cd52fa10cb7163744bf56e719e0b9cb925ab79abf920"
+    url "https://files.pythonhosted.org/packages/46/29/af14f4ef3c11a50435308660e2cc68761c9a7742475e0585cd4396b91777/s3transfer-0.16.1.tar.gz"
+    sha256 "8e424355754b9ccb32467bdc568edf55be82692ef2002d934b1311dbb3b9e524"
   end
 
   resource "sentry-sdk" do
@@ -620,8 +623,8 @@ class Dstack < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/5e/da/6eee1ff8b6cbeed47eeb5229749168e81eb4b7b999a1a15a7176e51410c9/uvicorn-0.44.0.tar.gz"
-    sha256 "6c942071b68f07e178264b9152f1f16dfac5da85880c4ce06366a96d70d4f31e"
+    url "https://files.pythonhosted.org/packages/1f/93/041fca8274050e40e6791f267d82e0e2e27dd165627bd640d3e0e378d877/uvicorn-0.46.0.tar.gz"
+    sha256 "fb9da0926999cc6cb22dc7cd71a94a632f078e6ae47ff683c5c420750fb7413d"
   end
 
   resource "uvloop" do
@@ -671,3 +674,15 @@ class Dstack < Formula
     assert_match expected, shell_output("#{bin}/dstack init 2>&1", 1)
   end
 end
+
+__END__
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -1,7 +1,6 @@
+ // SPDX-License-Identifier: MPL-2.0
+ // Copyright ijl (2018-2026)
+ 
+-#![cfg_attr(feature = "cold_path", feature(cold_path))]
+ #![cfg_attr(feature = "generic_simd", feature(portable_simd))]
+ #![cfg_attr(feature = "optimize", feature(optimize_attribute))]
+ #![allow(unused_features)] // portable_simd on universal2 cross-compile

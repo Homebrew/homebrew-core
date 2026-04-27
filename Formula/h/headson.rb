@@ -1,19 +1,18 @@
 class Headson < Formula
   desc "Head/tail for structured data"
   homepage "https://docs.rs/headson/latest/headson/"
-  url "https://github.com/kantord/headson/archive/refs/tags/headson-v0.16.1.tar.gz"
-  sha256 "485c221b28b361c9de2b8223f7985401d37f2c75a2870be6f59af4d83f499db7"
+  url "https://github.com/kantord/headson/archive/refs/tags/headson-v0.17.0.tar.gz"
+  sha256 "9555186f0f79a8be725aec6a3d857ae6d2b58133e060b0b7eeeeb85715284dbf"
   license "MIT"
   head "https://github.com/kantord/headson.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "854c8655b692c19690c6151da4208ac9250dd88b180e0d2054472e9dd1af4a0a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2dc83400a096d97f6dab5e950bc8d2858ad36a522921f2f79790725cc83c24f4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cdd30098b76af6ca0de0d1f54b1cd723b6771efe8c70b1475f24ad9a9af9073f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6c8f68eba88fc692027f74798faaccdde4d47968564be5139d4219f661fcdc6c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f39390eec0049ead13d96c089221ca52a7f9d2f2dfaab2a10fd45c583ab09327"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed7745c0a50256e9ab5f7d047308da959c7922116ba1785086244ebb4183dda1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d8ce3e6d998c955d7819e17e0f091dceae9fa2e5c1f541d3e4b46ae0e1a3c1e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f21f5f403200e2269de1cf4ee2b93388656d160df8f4a6cb04e3b7f64b0e0016"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1227919cf32dce3b14d1c881a51988bb520aa191bf2be90d4bd39cf518a4384"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2b8e98f972736400a8ac451b6f1d64e9ae8c40cf87cd4a14e7a439287dd4f1d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e389b41d5fa7b9e5dd88ab534eb0688e42643a50ae0bbb7166a70f4094e8fff3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2795200cf1d329878a562f93f5fb07a4c45f90b6f56d99343d143faf9a5a26c"
   end
 
   depends_on "rust" => :build

@@ -4,6 +4,7 @@ class Iperf3 < Formula
   url "https://downloads.es.net/pub/iperf/iperf-3.21.tar.gz"
   sha256 "656e4405ebd620121de7ceca3eaf43a88f79ea1b857d041a6a0b1314801acdd8"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://downloads.es.net/pub/iperf/"
@@ -11,12 +12,12 @@ class Iperf3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "faf851fbea9c2a60d2c15a6dfa8d7a040084b886fa1e68caa6f59d51e0242471"
-    sha256 cellar: :any,                 arm64_sequoia: "cf21e3a0261d13279ff1be54f3875d3f005d266e8148a1d0e42e6b54a024ea39"
-    sha256 cellar: :any,                 arm64_sonoma:  "096c1c7ab82adc94e86f22c0a1237ced17cc6fe3488a575229d58f65dd21a3f2"
-    sha256 cellar: :any,                 sonoma:        "6d3e55b3f30523a32bd346378c3692269ee59aa1c0747a1c68445f167ca7c93a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b199341bf7cb3caa6229e077980e57ade60851de489c34470e0c56535b43a71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "306ca27c214fa39d10756e3d0802ea2912e2636ac6bf454aa00f0cdfc9fff8c7"
+    sha256 cellar: :any,                 arm64_tahoe:   "4c9732362cf41e8564f33fca550a9a49356ea2b54bf5b1c021ac828038c6ae46"
+    sha256 cellar: :any,                 arm64_sequoia: "9c2798aa7042d06364caca9fec400651d5cc5ae26446b24c308827c30649a40a"
+    sha256 cellar: :any,                 arm64_sonoma:  "c63e8ff6df89f6a8f9e5bf7689d0aee545d47725f9bf9068e492b42890fdabdc"
+    sha256 cellar: :any,                 sonoma:        "27a27e6ade18fc7b85803b70c08571a6a76178a7a12c27f48a4917dc5f05646a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fcf35af72941dad9ecfc704500471dfb43bb5dc35bba09b47ad358acf25e6369"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa5c3dae2b89ab6be2a65e6c3f90a29d4a99ef5b54254c78331d970781eb82e2"
   end
 
   head do
@@ -27,13 +28,13 @@ class Iperf3 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--disable-profiling",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@4"].opt_prefix}",
                           *std_configure_args
     system "make", "clean" # there are pre-compiled files in the tarball
     system "make", "install"

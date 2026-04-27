@@ -4,6 +4,7 @@ class Links < Formula
   url "https://links.twibright.com/download/links-2.30.tar.bz2"
   sha256 "c4631c6b5a11527cdc3cb7872fc23b7f2b25c2b021d596be410dadb40315f166"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
+  revision 1
 
   livecheck do
     url "https://links.twibright.com/download.php"
@@ -11,17 +12,16 @@ class Links < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "6ee67f16e936f4ee03ed3f99c64e702dcf4475fc9ef2159f80cb1bfb41992e48"
-    sha256 cellar: :any,                 arm64_sequoia: "b93b70807720924ff7df8ec8fa54a291ed1363d2113de28ddf6b8a26e8cb6a34"
-    sha256 cellar: :any,                 arm64_sonoma:  "396cd3d372b7f3cef0e8c037cd4401331d40c924935e4faf1c6311d425bf50eb"
-    sha256 cellar: :any,                 sonoma:        "361875cdc9395d2ed97c87e0921c40c60d456ad49b4d9d0e7b8ddf78f39efacc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5428de9880c1e619b93507a3d4acb7d4ee709323b10d3339148ec1c75ff87e81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4a79dc1b18b5ef645e53246d0b13fedc1395492fef5bbaf979ae087e89f0bc2"
+    sha256 cellar: :any,                 arm64_tahoe:   "033baf6900816d9cfa21fd82ee9607a7b8863cc58586febdded445fa5144d776"
+    sha256 cellar: :any,                 arm64_sequoia: "56ea94e2f392a60f0c376e82b95dde9c38db9180460607687a9c95350d2e94b2"
+    sha256 cellar: :any,                 arm64_sonoma:  "d3bd10a8536c211e6bc5f1f07ea95f0850f3c4196ca9c1e14aafeb2d46b209f7"
+    sha256 cellar: :any,                 sonoma:        "f8ab45d54adf14d47f60c740c175022c5a8005f47dc82d34156cc8d92dfcfcf4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4de89adcd0504e2b304f0b9d83e868b84a510676b717b8f91b8a0e604a90d0b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ff5ab594bb27cf5f888d48fae1525ecfd945541a09aa549738253abdb2dffbc"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bzip2"
 
@@ -31,7 +31,7 @@ class Links < Formula
 
   def install
     system "./configure", "--mandir=#{man}",
-                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@4"].opt_prefix}",
                           "--without-lzma",
                           *std_configure_args
     system "make", "install"

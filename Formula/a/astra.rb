@@ -1,35 +1,47 @@
 class Astra < Formula
   desc "Command-Line Interface for DataStax Astra"
   homepage "https://docs.datastax.com/en/astra-cli"
-  url "https://github.com/datastax/astra-cli/releases/download/v1.0.4/astra-fat.jar"
-  sha256 "21ba898598da0ed3b57d209eea2ce18df2367f53a4b2cb549d8bb7db08cc2294"
+  url "https://github.com/datastax/astra-cli/archive/refs/tags/v1.0.4.tar.gz"
+  sha256 "809f60778dd0cab7e96642712d71d579ac0b856ed8da0abaf0970c5df23f23cb"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "63abb48bd1b0a501230708ff114e7972c10cc0b2dd052473dfae0fbc17ed8ffb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b1052e8f2c3fef0ad0a149ccadb7e97dd616902176be155515981af6ebc0f86"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6275bd6d3284f07955a4794e3e49c1df8a0a744d17ea94d9cbbf25057b69d3c6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6275bd6d3284f07955a4794e3e49c1df8a0a744d17ea94d9cbbf25057b69d3c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1320d2fcc71f6789eba8b974127bff7f0d925c9a10f1e466854f5a2e4d88b657"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a119bcef3ab863320bd967812e1c4c9d88a6c73360143ef65447558ff82ea69"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9a30fd63aeb5014493a8a3c971bd5691bed42dc85107694ed71499c6150b2fb9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "584e7be68b0d1a96d518857f5f92ea4416648b9df56fee36028ece7536125b5d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc4496618ad0dff14fa2fb9cddec5fde33d32751c5f19c077ef948aad00a1ec9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3a209a7392c4e5349fb2cf81dbbeee5970329f95675c1f4737f9cef595629cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1aee7a9558b268b9f8e716d85581d7ac32f4a546c19a113f619846171deb7d4d"
   end
 
-  depends_on "openjdk"
+  depends_on "graalvm" => :build
+  depends_on "gradle" => :build
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
-    libexec.install "astra-fat.jar"
+    ENV["JAVA_HOME"] = if OS.mac?
+      Formula["graalvm"].opt_libexec/"graalvm.jdk/Contents/Home"
+    else
+      Formula["graalvm"].opt_libexec
+    end
 
-    (bin/"astra").write_env_script Formula["openjdk"].opt_bin/"java",
-      "--enable-native-access=ALL-UNNAMED -Dcli.via-brew -jar #{libexec}/astra-fat.jar",
-      JAVA_HOME: Formula["openjdk"].opt_prefix
+    native_image_env = ENV.keys.grep(/^HOMEBREW_/).map { |key| "-E#{key}" }
+    ENV.prepend "NATIVE_IMAGE_OPTIONS", native_image_env.join(" ")
 
-    chmod "+x", bin/"astra"
+    (buildpath/"src/main/resources/static.properties").append_lines "cli.via-brew=true"
+    system "gradle", "nativeCompile", "-Pprod", "--exclude-task", "test", "--no-daemon"
+
+    bin.install "build/native/nativeCompile/astra"
 
     generate_completions_from_executable bin/"astra", "compgen", shell_parameter_format: :none, shells: [:bash, :zsh]
   end
 
   test do
     ENV["ASTRARC"] = "/a/b/c"
+    ENV["ASTRA_HOME"] = testpath
     assert_equal "/a/b/c",
       shell_output("#{bin}/astra config path -p").strip
 

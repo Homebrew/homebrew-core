@@ -1,8 +1,8 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/src/tarantool-3.6.2.tar.gz"
-  sha256 "20759ba83cb635532ace908313d418daaa9161fa8bf5836545dc9c9a41759a59"
+  url "https://download.tarantool.org/tarantool/src/tarantool-3.7.0.tar.gz"
+  sha256 "81b044c4852e33115faac851f9542b99af94ccb1d5d9e3454a6922c5d0794185"
   license "BSD-2-Clause"
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
@@ -15,12 +15,12 @@ class Tarantool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1c2347f82df86f84d570b975d2d5ad55160a1840583b70019f69211361a6d4bc"
-    sha256 cellar: :any,                 arm64_sequoia: "f983e673bc4d5dda9a91fe64a85e44d81a5ff67af8e981d300d417840b213057"
-    sha256 cellar: :any,                 arm64_sonoma:  "c3a4a8d067a2366a72c9e201ed23baa3072612466cdb0976a0aa98e92b42959d"
-    sha256 cellar: :any,                 sonoma:        "805fc0af3f0df03cab242970d3933136f0514dc22dfe7156e09018178a7d66e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c244bc5235b092aab6a807de1fe7d32c9b0f81b86a95897314eafcf7a624118b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63b6a3b25c08ad62a323bf867183d10d5bc985ac1ce5dd58683139e4993ab3c0"
+    sha256 cellar: :any,                 arm64_tahoe:   "153a61210990aaad32a5c5d6232e9d3c0a70294ec9516e20f7c9de3bbb802025"
+    sha256 cellar: :any,                 arm64_sequoia: "1c9abf2f017cae55faeb177b3e46055c8db84167fbe4f0ee84b8b1efdb2db3e9"
+    sha256 cellar: :any,                 arm64_sonoma:  "b18b48dd5540a1c61fd26490ec61deb8c201fc713a155c99d2ba34834aea9d19"
+    sha256 cellar: :any,                 sonoma:        "a80330c3819e6662351de0ddbc1a07c3798b1e29da2146b54a7415755248741d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d9077c4c7a554b59ce9fc6a25c652f394bb08c5c11c686e655a290747f9b8cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6b1304ab43fb31b60c21889f48df3b89ca989e00c6c5488c7b41e4783528771"
   end
 
   depends_on "cmake" => :build

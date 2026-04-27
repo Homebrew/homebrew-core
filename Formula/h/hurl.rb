@@ -33,7 +33,6 @@ class Hurl < Formula
   def install
     # FIXME: This formula uses the `openssl-sys` crate on Linux but does not link with our OpenSSL.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     system "cargo", "install", *std_cargo_args(path: "packages/hurl")
     system "cargo", "install", *std_cargo_args(path: "packages/hurlfmt")

@@ -1,8 +1,8 @@
 class TofuLs < Formula
   desc "OpenTofu Language Server"
   homepage "https://github.com/opentofu/tofu-ls"
-  url "https://github.com/opentofu/tofu-ls/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "b491921c707197e5bf5eb4aa7631887f8979a39e383ea14b963a170e68626923"
+  url "https://github.com/opentofu/tofu-ls/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "20a71da45069cc2e28f9f2b58f6aed9da33457760adeb037a10aef94126b77f1"
   license "MPL-2.0"
   head "https://github.com/opentofu/tofu-ls.git", branch: "main"
 
@@ -12,12 +12,12 @@ class TofuLs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc7fa752152586e7704036a6e342fb773c0c909bda028a532c26ae48baa245b9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc7fa752152586e7704036a6e342fb773c0c909bda028a532c26ae48baa245b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc7fa752152586e7704036a6e342fb773c0c909bda028a532c26ae48baa245b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4220121b5934da5766c7333d117b2585ecf81857d6c07e19078ee4aaf2bd36e0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "df3939060de992b9e1a3256ba5f365af89b36b3d666f0adac377f6d9b16fc1c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "564d414c2acca220332259f8186a74e331ae08e6465ca035b91f60565e752bb9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "376b16c5de38d88a4430a9a15306f6f3b8640a66e1624cd578fa0b639f4b6364"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "376b16c5de38d88a4430a9a15306f6f3b8640a66e1624cd578fa0b639f4b6364"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "376b16c5de38d88a4430a9a15306f6f3b8640a66e1624cd578fa0b639f4b6364"
+    sha256 cellar: :any_skip_relocation, sonoma:        "77b35bce6ef46cbe8c52fe68f6bb5575116cb66c3d4c872e3f6dbf3fb7cb94aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d0cb589bdea701fb68e9a9a0f6fc6c19c46944f9fa232cdf8901d11d928b7e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0d7c7c6a6d90bc5f603baaca626c24a5c9955734c79c06eb9b54b177136d384"
   end
 
   depends_on "go" => :build

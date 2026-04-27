@@ -1,18 +1,18 @@
 class CriTools < Formula
   desc "CLI and validation tools for Kubelet Container Runtime Interface (CRI)"
   homepage "https://github.com/kubernetes-sigs/cri-tools"
-  url "https://github.com/kubernetes-sigs/cri-tools/archive/refs/tags/v1.35.0.tar.gz"
-  sha256 "0edaa2bd4a6d44fc0406e1b4f45421e17b2ff7d49b2d76e57aba15eef25580bd"
+  url "https://github.com/kubernetes-sigs/cri-tools/archive/refs/tags/v1.36.0.tar.gz"
+  sha256 "e0433207c55e08ab9e42e2fa3b3df3769ebae7695c145b600d79878be599e08f"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/cri-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "081c6255d0a264ebcc8e7a866b5df76b0d60af736284db53c60098b7451f064f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "081c6255d0a264ebcc8e7a866b5df76b0d60af736284db53c60098b7451f064f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "081c6255d0a264ebcc8e7a866b5df76b0d60af736284db53c60098b7451f064f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "53c1383942263cc214bd212545267ca9054ddd6808f94e4d8d407c3115ce6e43"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d2c23cc4b59dda6b7f6e4f267d86adff7dcf5faa21e9368650e6ef5dbb8b0e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "779e6eac1bebe02029a5acfd586423d8a7b58428dc836780714d1bb3c6bd6a45"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "07212f7e5f0e132febab40183ec0b424d196a6dc1b9050685e2e985d8c110592"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07212f7e5f0e132febab40183ec0b424d196a6dc1b9050685e2e985d8c110592"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07212f7e5f0e132febab40183ec0b424d196a6dc1b9050685e2e985d8c110592"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2ccbaab4a765edcd24a6975db057ce018adbc022daccd7e2262d6e371afbbc9e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7924ad7948a0ae8fdded3048b15f171355aa11deb20cb8aa09a00cd55dfd8f50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b66dc2365a581595fe3c238d001b57388c7a7dc18de50a3b8ba5355f2b9006eb"
   end
 
   depends_on "go" => :build

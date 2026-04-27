@@ -31,7 +31,6 @@ class Prr < Formula
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure the correct `openssl` will be picked up.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     # Specify GEN_DIR for shell completions and manpage generation
     ENV["GEN_DIR"] = buildpath

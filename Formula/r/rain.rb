@@ -1,17 +1,17 @@
 class Rain < Formula
   desc "Command-line tool for working with AWS CloudFormation"
   homepage "https://github.com/aws-cloudformation/rain"
-  url "https://github.com/aws-cloudformation/rain/archive/refs/tags/v1.24.3.tar.gz"
-  sha256 "f56190d874985e0bcea79cc1ca233846173164d000f0c4f1d0051f2e26fee20b"
+  url "https://github.com/aws-cloudformation/rain/archive/refs/tags/v1.24.4.tar.gz"
+  sha256 "1387dd8e17160a51e8c99fc6654107bcb39dc94a137338c13e4ade30a344d3ef"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "217dc323f8bc7e9b9aa6c25bcca31c5330a40f4c32a1ee39c0fe80c833d45b56"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4dda9063b22b3a3ab22ab02b0f8a2b09e6d83d554bd884a63ddf90521e80020"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d3056de7b49e1676eb6119d81292f727459a5582c4dfebcaa65d8477faa9c717"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8614c6ffc8fda0f6bc503b52b1e6f92b2539e6a884603bc20c16dff724ea3a26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "38326eef10def213333f7d7cda09ba8da0067cd44e8f2fa1d0b077098aa54b41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afa8e98cc7e27b32e63ec2f4263b07f642ceffe585577451ca29cf1c3bf794a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4a99d3acaca2c207112e76910fb6cc54190cac115ba35ac5e7ae6d1a083499fa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc71aeefb4f73507004dc0eed7408a5ca01f2c9c39ebb9e357265a48cd93d61c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "424f86556c186e4c2f3cb540953c74c9addba4f93046478081d28e39c719c7f1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ce7bd351b138986c6e4ee4216093132e3dcaca1918fecb8b17e5e9117cda740d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b8f5ab33822bb03b9b0a365bfd2c395fee56b703187f30036085613bb9a0142"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11f6e2e191cbb1142d26a1aca6366c85860b29026edf8dc077013d48604e0f6b"
   end
 
   depends_on "go" => :build

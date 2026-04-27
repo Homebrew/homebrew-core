@@ -35,7 +35,6 @@ class Lighthouse < Formula
     ENV["PROTOC_NO_VENDOR"] = "1"
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     # fixing LLVM 22 builds, which got handled in https://github.com/sigp/xdelta3-rs/commit/fe3906605c87b6c0515bd7c8fc671f47875e3ccc
     inreplace "Cargo.toml", <<~OLD, <<~NEW

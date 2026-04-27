@@ -1,18 +1,18 @@
 class Mcat < Formula
   desc "Terminal image, video, directory, and Markdown viewer"
   homepage "https://github.com/Skardyy/mcat"
-  url "https://github.com/Skardyy/mcat/archive/refs/tags/v0.5.6.tar.gz"
-  sha256 "743fc3073328b8a35fefe9f2a72d99fe89b3c6adc2deacddcbff050fb31b0700"
+  url "https://github.com/Skardyy/mcat/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "4bd07550057d1f199e52804c5ead1314c992091176a814d79acec7245602621e"
   license "MIT"
   head "https://github.com/Skardyy/mcat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1ea16a074b30a836fc17d931b714643c1ca7d366c47a2b7f31bd107cdb7156e6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4480add1daedaeded3bc2b57a9ec87da5349e2a4f93f694201aa3365cfb7b64"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db2cc12ec4007fbdd89224c50037d34a34bb283befaa04317fa6e19688b84fad"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4f3b479ce2911234eebea83b6be319050f408514511d581ed4a0ea75eab92fce"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c54dcfbd47ca4712ee4ba89361e3f5b810bc7e2fe85a58fff2c21597fa057f57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a53788e71b1ec2c60085b3b490baa49af5a8bfa089afb2936a17f018d5f588af"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b36638ef7a7bb9b0b505e3dbb561895f65e19e2f68e0cc19a010e490a26f7fbb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a3c7eeca624c0800e54a2a582fbc3e2aeb62eca1d8cd913342d915767a13baa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea44eee876fc064ebd2aee81b2941a71982f62a8503ca4ff12f30b6686d3fd00"
+    sha256 cellar: :any_skip_relocation, sonoma:        "72394a3de2bd9901acfb071b357fac8cbadfdba63de803045d80b984040c6fee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1582400866e44cd20e19afa08f333802d839bc14b29630f33b0e352d3b87828"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b6459e308a65c58e0dc5c15e1853fe33f229c65ec22793162ca24184cb4f413"
   end
 
   depends_on "rust" => :build

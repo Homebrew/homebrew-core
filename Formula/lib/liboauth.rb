@@ -6,24 +6,18 @@ class Liboauth < Formula
   # if configured with '--enable-gpl' see COPYING.GPL and LICENSE.OpenSSL
   # otherwise read COPYING.MIT
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "a510309b244c20d084bcac6d01a80b888c0bb2e89ee67e8c7be5fdd4cdf28f84"
-    sha256 cellar: :any,                 arm64_sequoia:  "4eff11a4e53ab448c41469596fadeac63b03386c90c1f091372fc003f497562a"
-    sha256 cellar: :any,                 arm64_sonoma:   "6f8593691c180a940c09d3cdb22c5f69fb4ac7dfb8877581b5cc13a02b6088a1"
-    sha256 cellar: :any,                 arm64_ventura:  "a39ee9626caffc0652551afceb3de434b14f497d0e6f86888edfb987f0e46bfb"
-    sha256 cellar: :any,                 arm64_monterey: "14eb9710933a0f1e3974449b3451288160147295e1a941ed41720af29b62c9e2"
-    sha256 cellar: :any,                 arm64_big_sur:  "76fdd8122c46982e11d80e4416c20f95a856c6ccdab50d94be6fffed926a52e6"
-    sha256 cellar: :any,                 sonoma:         "82369227bbe96d217b653ca80bdb771a97fe5b4d2e04d581dea6a61396acc97a"
-    sha256 cellar: :any,                 ventura:        "c428f77d8ce2e3ee3517782cfffcc442d6f136a98feaf969b9f0bc589a752ec0"
-    sha256 cellar: :any,                 monterey:       "1ca737e530881673e82ccc350dfc769d1e30d6db94f5b77d2d2261216003f539"
-    sha256 cellar: :any,                 big_sur:        "2a00f8fb82450e4acfec03f1e91dc74196ecf0150047b64a4357d6ac716d279c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "d590a572f38268fe5b4a9ec90877b436030fe6ef35564681bd8af45f15a66186"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0177a7a4378d03aa25b46b4bc37bc12b777438fa177ef15b0dd16406cfad40ef"
+    sha256 cellar: :any,                 arm64_tahoe:   "6470f165d97ff5cf41531245eb4fdd67945698303e07a574974856045845abb0"
+    sha256 cellar: :any,                 arm64_sequoia: "b27df2abe1adb83de25315b4c816e960d1e1f97a9aed6a74f7d9809c069c1226"
+    sha256 cellar: :any,                 arm64_sonoma:  "a3eca48a1fdd8d432880b84983cabeff3014294335a2ea7ef7e9bd25a742a6fd"
+    sha256 cellar: :any,                 sonoma:        "197c5dc93bd36291e3bff2ec90953a65acf867848c96aa44deb8126cb293569f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "47b23d8759b2430b614d3b78f07521d360c07b5f93a6362d999afec49d889d7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c90bf4fc3799352c6d67b1db57bc29d4cd35f13afec7eac48df218ba959ae4d"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   # Patch for compatibility with OpenSSL 1.1
   patch :p0 do
@@ -42,5 +36,24 @@ class Liboauth < Formula
                           "--prefix=#{prefix}",
                           "--disable-curl"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stddef.h>
+      #include <oauth.h>
+      #include <stdlib.h>
+      #include <string.h>
+
+      int main(void) {
+        char *escaped = oauth_url_escape("hello world!");
+        int failed = !escaped || strcmp(escaped, "hello%20world%21") != 0;
+        free(escaped);
+        return failed;
+      }
+    C
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-loauth", "-o", "test"
+    system "./test"
   end
 end

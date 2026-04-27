@@ -1,25 +1,25 @@
 class CargoAbout < Formula
   desc "Cargo plugin to generate list of all licenses for a crate"
   homepage "https://github.com/EmbarkStudios/cargo-about"
-  url "https://github.com/EmbarkStudios/cargo-about/archive/refs/tags/0.8.4.tar.gz"
-  sha256 "956cea9d2170936e7d53d1a8c951242332777be89bff4b8531066bff584fbcd3"
+  url "https://github.com/EmbarkStudios/cargo-about/archive/refs/tags/0.9.0.tar.gz"
+  sha256 "7dc9b5f87d25b57c044618655a1948857bd03196e3b20cbb8700b41ad6f1614f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/EmbarkStudios/cargo-about.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "98e117bc49a0b0136e1912a2869208cc6cf10c09dd00d167bc059f5eca47fdfb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2e29cbdfe8555512c2c671485be5352884943b3d6cb4e03e817c352e6c9802f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "666cb27598069e3b82558159b3cb5bafe1cdf95528d7f02841c9ce8487aaadc6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f23c95ee75095b2215aa9fb5b7c0e36da553ca2fa3777a976a40970c7bf691ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cdf084e7ac1d3c70c6abd688c9e827b3bc2501af8c86caa7198e61cdd9a56af0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae9ab1ded1a289b0a63393feb59d98d71b7804f82bac0d660242b684a7bf7907"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "04842b326e645c0747ec5aa0c3f2036235970539066c94ccc0f5041a878d0d06"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91d57e5c3c2684f4a42136d086c6a0122014b61818103aead8ab6a1e03edaabf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0161eee173a9d531710dfb63a98eacd28edbb62445efca9684105c41a515c28f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "38a785044b6ad436c9f18611f3c5fe968bcc57425587a4f4c43ddae86b05d824"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "42514005456e43508665079e9fcfdf8407825d46ae7954647483ded47e0b9c98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7e137f847b38593df5da9f42b86ad7cc237fe6857291caf4130ec636673569d"
   end
 
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(features: "cli")
   end
 
   test do

@@ -1,18 +1,18 @@
 class Scmpuff < Formula
   desc "Numeric file selection shortcuts for common git commands"
   homepage "https://github.com/mroth/scmpuff"
-  url "https://github.com/mroth/scmpuff/archive/refs/tags/v0.6.3.tar.gz"
-  sha256 "6a889718563dd3fbcccb49684acb628a9d3edb1f0e00dcb66502e2ee76c69f60"
+  url "https://github.com/mroth/scmpuff/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "dbff8913217f6ec0915671057933eacd692e7810bf64ded25bba63e98240b789"
   license "MIT"
   head "https://github.com/mroth/scmpuff.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d061291901d6dc2590b41057db86ac0df085bac9d0e2c2b070338842e8cecd0d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d061291901d6dc2590b41057db86ac0df085bac9d0e2c2b070338842e8cecd0d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d061291901d6dc2590b41057db86ac0df085bac9d0e2c2b070338842e8cecd0d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "42790a15d7d8d2cd061e50259c72f3519ecb9399e006cd5a9f010b527f1f934e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "52e4a90f2c030af2626d5783003364c3fb19758368cb2aeaf006674265d756b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d40c99d18f64198dbb270be8f38bc1b9594c59263d49e283ecbb3269b0fe6066"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "905a460527378b663c6e4c81422eb0842a3b495e03990ac38466d14ae35387d5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "905a460527378b663c6e4c81422eb0842a3b495e03990ac38466d14ae35387d5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "905a460527378b663c6e4c81422eb0842a3b495e03990ac38466d14ae35387d5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a40113c4008e4411538f39e74c7098885f48db23def72f42523bc26a8313e86a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2c0f354dd043dda61d68a3794d73f85f32154bb3a5ac505d0f725d9b9db8876"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ae88dd75983370f296d6b715556d13dc39b937ec2e7beb653071aaf5883b7c5"
   end
 
   depends_on "go" => :build

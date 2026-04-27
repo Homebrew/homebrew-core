@@ -2,8 +2,8 @@ class Scorecard < Formula
   desc "Security health metrics for Open Source"
   homepage "https://github.com/ossf/scorecard"
   url "https://github.com/ossf/scorecard.git",
-      tag:      "v5.4.0",
-      revision: "80ee3ecfedf8b19ab8991713a9fdb2e7dcd7262e"
+      tag:      "v5.5.0",
+      revision: "c395761df6afe1a69e476bc60a013a94bcbc153f"
   license "Apache-2.0"
   head "https://github.com/ossf/scorecard.git", branch: "main"
 
@@ -16,13 +16,12 @@ class Scorecard < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2981be637900f3fda110a669805b1f0ce5860fabe1137ce5db64a615df51b3b0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "098af34d7a9cb03717cd1a09ea36a27e32f530ca42d0412439d0d38eb12b8e2d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df92a13ab3fc9674a8aeec99475568b5d36c2708c1860ac41272248b906747d9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "49c787ddb6507aaf3211e1b4b1226df37446b0f3d7eefde86b571777e17e3eaa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6473855d91617f3d1290bc2545186ad2b3929bb081afb76dfca1ced080a80f39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd9f23e1989c85a62f28a89f884496b6fb9792c42b740ea530b1370a3bda44dd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67d18c35608006abd0c078f9c98da51256ba6b159ed3fea77155bcd69b71ef8e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20a23690754ffdc36a7420865bedb257e5329ba0b628c87958823b66f7b1a994"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c540379921b421b86c879fcd8167eefaae143063ba3898a5abaedb80d7b0cf5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eedcab40b54e6de161675bd1f981715d8934400e2b206a5ee8783e410cad53fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2ce3626e278f23f9c521eba6389cacd79f81b03fc39364fea07b92d6db608dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3279aec0409aff3b2868d943fc8e9a88c201f328c29aa69b0f4d20673359155e"
   end
 
   depends_on "go" => :build

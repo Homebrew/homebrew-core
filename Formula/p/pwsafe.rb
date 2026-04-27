@@ -14,20 +14,13 @@ class Pwsafe < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "294f8a817d0eee693be29e24ea04c118f50a51d5f5d6c8531e994abf731f9041"
-    sha256 cellar: :any,                 arm64_sequoia:  "fcd7dd6ac6b4755c4f6e165e8fad94838cb260a07b47a890f1f1e54ab6d04e3d"
-    sha256 cellar: :any,                 arm64_sonoma:   "30fb31e5db711f3481af149a41ddc4dfe3957c0d94c4ee68ca7285aee57f6b19"
-    sha256 cellar: :any,                 arm64_ventura:  "f2f69ecce57634d5a3911badcea213810fb8a25b7b2a242e7f342980760703d3"
-    sha256 cellar: :any,                 arm64_monterey: "109f4ad6b786e20de525ce0006c5e6ea0c049c8977c2d82833f41a9dd534721a"
-    sha256 cellar: :any,                 arm64_big_sur:  "92fe9319e5412529ea46bbf4813b8cb009636efe05c2b1448ec7a332e4c15df5"
-    sha256 cellar: :any,                 sonoma:         "eb846550598837551cc50cf973ef55b655d385c25d47b4e7da87664963eff544"
-    sha256 cellar: :any,                 ventura:        "f955d487b5a38817af4455dae4f9324e854bc550b1384a6940f7d2b49917eb2a"
-    sha256 cellar: :any,                 monterey:       "1c773e828b7a92a8d8da681549a8cc20a9fb2dded715cc82331eb74037a98e26"
-    sha256 cellar: :any,                 big_sur:        "e7c3595ff796b678efd8aedd74dcc59e057b3a4b96908c820fae3b643d9d8e45"
-    sha256 cellar: :any,                 catalina:       "ceda65b7835ed7e72491565952827cc23c8a56f70dd2f875b269eaa8bcaf4f9c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "400819e0247e3fd2cafc708b7e53f89760fd7f10ff016ab1bc370002de59899e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8dcacc8d3f09ec672a4130e55695240788145e0159f6a606c67912d8411c2c0d"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "57e90fcf7be8f03f512d7627c4fe7ffb07704c39aa4fe07aa09d5267c1825f2d"
+    sha256 cellar: :any,                 arm64_sequoia: "5714557f1ea1dc35e1a78aef4e0efaa6c30c5d67069e2d6c9f4cf7a2da28b601"
+    sha256 cellar: :any,                 arm64_sonoma:  "e3bdbd75495def70a77297b99349106e48232ce697413b0b839b76fa2cfc2cdf"
+    sha256 cellar: :any,                 sonoma:        "e3d41ccf4c00917f6733e930c764e63aef0922cc570c6de6e525bf0d1e4249d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c9114700674d9a1857083f77d8224ffdca50d599863674dc3e283674dd730aa5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "805ba18c4f74ca0f4d1f3e0e5aca07ec73bf0d915a42cb64588a0964da2ac269"
   end
 
   head do
@@ -36,7 +29,7 @@ class Pwsafe < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "readline"
 
   # A password database for testing is provided upstream. How nice!

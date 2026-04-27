@@ -16,13 +16,13 @@ class Katago < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "9a745eb869cb6483a6874ef3461d1783182d1baed31516306165658f8d93f4bf"
-    sha256 cellar: :any,                 arm64_sequoia: "22d43916ce8a2c5881b7065d7aa74b8ad2a91e0254484c08b3dbe0e8379041c9"
-    sha256 cellar: :any,                 arm64_sonoma:  "b5c8c0a2f05134e7b9c04ffee2f31c5758011648fd87be94084f0fdfed0089c1"
-    sha256 cellar: :any,                 sonoma:        "77c6344b5729fe74169718809c61a81aa241e9dd8810035a18f5126f1b53a922"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "505e647b8eb34d86230447b9a6099247c2688451c7eb7477c746eed34d70e4fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e3f0a950c6729864b6fc2c91e2930d53c2691ce05fccb60eedd5671c71c0f64"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "ca788bdfeb3514240e1c591fcdd996aa5f55b5dc83c8454caa81532eae5f77ee"
+    sha256 cellar: :any,                 arm64_sequoia: "d2f5e090c380b977c953a151517b3e1c769bd251b1db88dff9a9bbdc0acf23e1"
+    sha256 cellar: :any,                 arm64_sonoma:  "8617afbae0ac910f2e99019073442bb4daa93b97db7b06eb51be9ac23d77db22"
+    sha256 cellar: :any,                 sonoma:        "fb01d1d449451165e36c66d243d2fd438b61899ea32971229fcc1b21a286398c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "845e10c3bcde03fb13b7f32a2c33147032df5a75cade3e7b3e9bd8a12fb184d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5f371b838c53aff816996bce34cb078be71e7487551c1f7946f2c18e40652cf"
   end
 
   depends_on "cmake" => :build
@@ -30,6 +30,10 @@ class Katago < Formula
 
   on_macos do
     depends_on "ninja" => :build
+
+    on_intel do
+      depends_on "eigen" => :build
+    end
   end
 
   on_sequoia do
@@ -74,7 +78,7 @@ class Katago < Formula
 
   def install
     args = ["-DNO_GIT_REVISION=1"]
-    args += if OS.mac?
+    args += if OS.mac? && Hardware::CPU.arm?
       ["-DUSE_BACKEND=METAL", "-GNinja"]
     else
       ["-DUSE_BACKEND=EIGEN", "-DEIGEN3_INCLUDE_DIRS=#{Formula["eigen"].opt_include}/eigen3"]

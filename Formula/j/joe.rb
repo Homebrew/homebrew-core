@@ -1,8 +1,8 @@
 class Joe < Formula
   desc "Full featured terminal-based screen editor"
   homepage "https://joe-editor.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/joe-editor/JOE%20sources/joe-4.7/joe-4.7.tar.gz"
-  sha256 "712b23a83a3757a93d2b4a76325b9dabba554c182b209d2675537c272867fcba"
+  url "https://downloads.sourceforge.net/project/joe-editor/JOE%20sources/joe-4.8/joe-4.8.tar.gz"
+  sha256 "6995b28ee20dcdbbcb5a45a4c110642dc96d67748aea27450c74cdb4dd07cc20"
   license "GPL-1.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Joe < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "d1c7b5584cac5808c35360d93715a1213eaac29acad6620404c14e9c05cecd69"
-    sha256 arm64_sequoia: "47383d58059171652e3bc640430f7ed0315889e2335da8e5eca24d37d38acce9"
-    sha256 arm64_sonoma:  "7cd44608926719abfc378287733307637efbdf065df213a7176b3156cbff5e59"
-    sha256 sonoma:        "d25c35b7caf21b3980f97ac39e4d5ff1b9a754a3c462dc717d39de9269a17ac8"
-    sha256 arm64_linux:   "9ff0f191b7bc1b1c83d08f1c35d23e271c950275a8eb753b4d32b42ce172698c"
-    sha256 x86_64_linux:  "5dfe1e49be8d02bdc6a2b2edda542344610182c2ef59b8685a2d6667475c1cc5"
+    sha256 arm64_tahoe:   "78fb6ee8e904471bb40ca0dfd1f285478219978a7f8315b819c6e982ab593ef4"
+    sha256 arm64_sequoia: "83c44e48090a8681c86cfbab4d150cbe18da6cc43b69eec5b5115f84b6c0fa14"
+    sha256 arm64_sonoma:  "10770f03ee4885b9dd4e731a4a1d100ccc14626410bbe60923febeb29090fbe6"
+    sha256 sonoma:        "a69fb2fc9b2f3dd70f26f26213fc454323279e91a49d89e73e32e81ca366bc9b"
+    sha256 arm64_linux:   "d7d843efe8f1486e22fa278628ede32b9439d26a1e9e1c219273c661d48aaece"
+    sha256 x86_64_linux:  "d734e07b2ed595252c020be04a2a36b0990936c8d15091757023e9a79fcaaed8"
   end
 
   conflicts_with "jupp", because: "both install the same binaries"

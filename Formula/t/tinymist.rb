@@ -15,13 +15,13 @@ class Tinymist < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b5ae315923a00214aa33b536f46e0f7a7dd0299928c1df2b3aeaf25dbf1b324e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14962661c5e1303769775eb737a8b75f7caab9073327e67881302c1a8ca32931"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "638aec58d38727c79265dd35fc806c9ada01625495430383dc4dfc50b38c125a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "47224320f7b30bcb8611c969d06393a69f7e6bc4b33c89559b7f931645b02dda"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "50032f40e6bd88882d1df4a529512b79c6b8c6822dd8d1304e56ca643c70a42e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85f990a50cc931dc86f527d241517b6837281feaf9ef4470398add5fb44efab9"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2e0ca08cf27e6dfbc6fa52f69dbcc9c0096979f4b03b6b02f1b745de80490118"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec6dbf0d55d8bb89e2280ea213ce836e678ba2437c0a7078ef035dada36c420e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75573a57ecc654446a01e74a2d8a47e7476d0c5af668f8404c36c5ace3ba6b90"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa8e35d07651f29fbf92c7d99447754550309d1cdc96e506601c2842605e32a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "840213b4c8897d64566894db1721ac38c83b94a91b446e19aa01f2dd0cc415ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c12af290049fde309306c2aba417c57b2954e9873b8b72e994e95102768f2b9"
   end
 
   depends_on "rust" => :build
@@ -34,28 +34,10 @@ class Tinymist < Formula
   test do
     system bin/"tinymist", "probe"
 
-    json = <<~JSON
-      {
-        "jsonrpc": "2.0",
-        "id": 1,
-        "method": "initialize",
-        "params": {
-          "rootUri": null,
-          "capabilities": {}
-        }
-      }
-    JSON
+    (testpath/"test.typ").write("= Hello from tinymist\n")
+    system bin/"tinymist", "compile", "test.typ", "test.pdf"
 
-    input = "Content-Length: #{json.size}\r\n\r\n#{json}"
-    output = IO.popen([bin/"tinymist", "lsp"], "w+") do |pipe|
-      pipe.write(input)
-      sleep 1
-      pipe.close_write
-      pipe.read
-    end
-
-    assert_match(/^Content-Length: \d+/i, output)
-    json_dump = output.lines.last.strip
-    assert_equal 1, JSON.parse(json_dump)["id"]
+    assert_path_exists testpath/"test.pdf"
+    assert_equal "%PDF-", (testpath/"test.pdf").binread(5)
   end
 end

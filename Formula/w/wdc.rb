@@ -4,23 +4,20 @@ class Wdc < Formula
   url "https://github.com/CloudPolis/webdav-client-cpp/archive/refs/tags/v1.1.5.tar.gz"
   sha256 "3c45341521da9c68328c5fa8909d838915e8a768e7652ff1bcc2fbbd46ab9f64"
   license "curl"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "6b30e7b5d8ab33c0831c6a217a4f1ec5b28745ba8f068a8fb81e714b6ca75287"
-    sha256 cellar: :any,                 arm64_sequoia: "88067ae5f0b55bc266ee7ad8b64e5d6fb4f445965cbfc6b2e212be792f9af9f9"
-    sha256 cellar: :any,                 arm64_sonoma:  "e64bd5d5a196023df1f0e99be1501a36a12261cfeafa8674af3605b5f6e0337d"
-    sha256 cellar: :any,                 arm64_ventura: "144bf99589283a042b25507aecc6b2865341a806fb9f35436b9ba4aa272476f7"
-    sha256 cellar: :any,                 sonoma:        "a5a1823e37f7aced3a355008f7b85768d1c37600c2da80cf385d2efdf5c2543d"
-    sha256 cellar: :any,                 ventura:       "253521687c9eb9ef2a8367d1bcbb193617cbce57005ba4fb75558474f2272d20"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6027f317ac27ca1e4769b2c7337215d1e81354d627d55ade164b359b1092f524"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68eb8337eee2c79f2892966a4311e56a5af9c24e32c07795f7dd8c5089474c8b"
+    sha256 cellar: :any,                 arm64_tahoe:   "7936af69dde22084ed7f8e49514403a1c9b9aa82938548ea110cb466aace40ce"
+    sha256 cellar: :any,                 arm64_sequoia: "f5f2eb2d863e95dfe16936400d38d639503fdca5d2b5130012e14237b0801a6b"
+    sha256 cellar: :any,                 arm64_sonoma:  "47ef26615ac4537bd7adc342a54ec5f44ac088dcdff80cc56a592b1a3dbd573e"
+    sha256 cellar: :any,                 sonoma:        "4731f9ad6c7028ef56322152f5806e2371a048cdd8cafb6d9e5fee41dcff3337"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ddbcb3d0568595c508fdfc4d351459bcaa751ad816407a671d88a6d5ddf8fa2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e37799dd0aaf7639a3871401f48ab30e287255eb6cf295e1fabba3331425fae"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pugixml"
 
   uses_from_macos "curl"

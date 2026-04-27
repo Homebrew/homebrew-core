@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/98/76/4020544b7cabea46e41f1d8e921b5eb471ae5671617c137837d5c3f982e0/esphome-2026.4.1.tar.gz"
-  sha256 "5fcefb77ad2a978212e6e1a59830df01338d16456f52e70e81ddf26c91330ad4"
+  url "https://files.pythonhosted.org/packages/18/5d/e1f60bb9ebeb134f5d5705c77e5709a287519988bc80a2afc4925f43788f/esphome-2026.4.2.tar.gz"
+  sha256 "7373e8e34686df32fc754c7599e8162f179f15e2ca9fa0cdbfa7c3ee73b17351"
   license "MIT"
   head "https://github.com/esphome/esphome.git", branch: "dev"
 
@@ -12,12 +12,12 @@ class Esphome < Formula
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "167a6e1f34777a2e791a5863fefdb18dbc82a4a447e89e121ccc6fba4a628d22"
-    sha256 cellar: :any,                 arm64_sequoia: "95d3d64eefbbaf582366e6f977739bf587e5f0612d95b20ebadb12ffb6d61e26"
-    sha256 cellar: :any,                 arm64_sonoma:  "1505cfd66478cf34ddbc3309cfbf9a1b2c363765f2b57f1cc304af51d684e79a"
-    sha256 cellar: :any,                 sonoma:        "c12cda4385470aea63034ff69f76100468821a8faa7feb09177a615d7161baa1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0a1370344caf30c9e3211f92dde88f9143c6beb4d16b7a9c2940d6e5604423b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0374e5bb9576890ceb721df97c41c6e1be6642728860aaab3e4c88d7f5e9bd67"
+    sha256 cellar: :any,                 arm64_tahoe:   "2376fcd62ead1878dcdabcc9201b578d342ad3bd5454ad4147c3d7f2219d1520"
+    sha256 cellar: :any,                 arm64_sequoia: "87778d5d940d95ef63baae30437a68df61995f4dbf1d50d8f117b97a8b877d9a"
+    sha256 cellar: :any,                 arm64_sonoma:  "bbb41806acd0d6d4e20b58344b1d5b87034c2fc83e2ed3389d92890fb04417ab"
+    sha256 cellar: :any,                 sonoma:        "e052c26e1b71f1ea76a1c13d3c36bd118f13bab201b34f3e3e338d0348adccf3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a24ee397c065cfdad06fad3820a7dea709c5f02c2a3ff0c33a3ee0716880669"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "928f53699bea6e16a0171577a9b2927c000f8d02b75ad08cedf8658d05e82a2f"
   end
 
   depends_on "rust" => :build
@@ -161,8 +161,8 @@ class Esphome < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "ifaddr" do

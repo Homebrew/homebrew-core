@@ -27,7 +27,6 @@ class SpotifyPlayer < Formula
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     features = ["image", "notify"]
     system "cargo", "install", *std_cargo_args(path: "spotify_player", features:)

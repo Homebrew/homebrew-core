@@ -1,18 +1,18 @@
 class Kor < Formula
   desc "CLI tool to discover unused Kubernetes resources"
   homepage "https://github.com/yonahd/kor"
-  url "https://github.com/yonahd/kor/archive/refs/tags/v0.6.7.tar.gz"
-  sha256 "f94eb2df3e3edc3d8c4b73d193507375bf9145ef08086e60a9e5cd8f0a864726"
+  url "https://github.com/yonahd/kor/archive/refs/tags/v0.6.8.tar.gz"
+  sha256 "e651f3178e8c9cc1cd522661ac129b2518ed3fc981b0a9eebdf531e9c0b17b17"
   license "MIT"
   head "https://github.com/yonahd/kor.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5b5358d4d835e927be4b46ee89295b772aac6484df308547f4704e95b957e3f9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c07af5e5bc9fba7716aa8eb0eb97c04b683388ab1a3bf480d972b2ae69b4fcce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ebea71ba90bc80f5567429116d9e9cf15a4a6c0a73f30dfd3f76aba8b926d94"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9963bf6dcfe15a3e7a7d877f09778b4ea3a4346702dd377db1192532120fcb44"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5183e05da2a8d36bad41181cbb6c968ce5be9a140292cedaa5654eb821430e33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6235a0a600627de94c6b6a8ff9061472fa56d85de6f81b2566e6cbe4eceb2b9a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "19631214ca39488de9cb9652248366b3b22dcbedb62a60c8a75c9b6b968c4d7a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "708c4f566ca41e4136dd2c4088cdb942270f716403e73bed80d4b653b9fdfa4b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6df9499ca85e87ff2b0ece0e30c7d2786df8f9bd684224025c9bb48436371126"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d288512ae7cd50e6b2fd9b488f73c03b7f09c0847e3f5aa349c62983b64ab8aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1079d82cccbba5fb6d7680ca682f6e97ff8d539363236dd764de2ae372ed2976"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77de8e7bbe0abf0cf5f3c3f7d9e42192ac5dd0b75bcc828745aa2c9a4d4dff25"
   end
 
   depends_on "go" => :build

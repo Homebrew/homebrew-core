@@ -1,10 +1,9 @@
 class S2geometry < Formula
   desc "Computational geometry and spatial indexing on the sphere"
   homepage "https://github.com/google/s2geometry"
-  url "https://github.com/google/s2geometry/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "df001f8352dce083a87b74646bcbc65fbbcd039646bda5b64adfda1e2ea32d47"
+  url "https://github.com/google/s2geometry/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "8c1f0a4b98472ed9df9807f5ec10ee57928cca388e16c13f430b652790d3ad8b"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :homepage
@@ -12,12 +11,12 @@ class S2geometry < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8f79d0c4a802ebb6534abcf48d19ff6b23e7b3dd2f00bacab751be2795b17ee5"
-    sha256 cellar: :any,                 arm64_sequoia: "97278dc633347c47bdb0ab98b766f3e0d878ddb69ab42d07deae9d28222b7c0f"
-    sha256 cellar: :any,                 arm64_sonoma:  "04808ef92b7db6eb5f653296206f4e228136db79fea36ca811ea31d7e3a3b582"
-    sha256 cellar: :any,                 sonoma:        "e619f78302f4cf5ec4a2977fc7a1d7f3a03703a7f0d64ffd15190554afaa5b26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0134241899aea80e57425a5acc31198a3d43722551e523186ef9693786ba7c3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "781a1286862396a5a038f772d972654fb61087bf9f7d1a872a6d05bcb4982bbe"
+    sha256 cellar: :any,                 arm64_tahoe:   "f1e66537c44677c6acc41f697b8209a89573008505724870efdb10a8101fd863"
+    sha256 cellar: :any,                 arm64_sequoia: "2dbce9de0564529e134fc86b1565712feb394280b1963f787b6dcd43b82c6617"
+    sha256 cellar: :any,                 arm64_sonoma:  "c791357599b318746fe242dba401fd149a5b046367fe7e28581886edf7dcbd0c"
+    sha256 cellar: :any,                 sonoma:        "04ac6f0a4272a6d7a425a8c1bde01c4ace478495dc75f41e724648737d50bbd1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8ccfdca48aec18b4bf6e5ced582b67942f052fc72f83df492575b0dc500f067"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d2994885b05afddfd60030c799d240573de7a010588bca9c4f98201b2665fc9"
   end
 
   depends_on "cmake" => [:build, :test]

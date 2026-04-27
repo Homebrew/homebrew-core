@@ -4,21 +4,22 @@ class Nagios < Formula
   url "https://github.com/NagiosEnterprises/nagioscore/releases/download/nagios-4.5.12/nagios-4.5.12.tar.gz"
   sha256 "9a9fd281ea6ab3d55611efda036ffb9fe76c98423083440900e28012248d5961"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/NagiosEnterprises/nagioscore.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "fd9b0465056e5aa9a2f5d27f6183d56899411c6b4c05266f633df22830cbc16e"
-    sha256 arm64_sequoia: "5b3cbec5507c3a164b615e839871fa67ecd617964aaad979b1ce4dfc60f8f728"
-    sha256 arm64_sonoma:  "e07a409b21a2a28beb5991075c90b90f4572d9c0c8a86936480b75d6bba146a7"
-    sha256 sonoma:        "d12a87c4482a47df4559d3a4315bbe38fb6c6cebac5e4d475b085448dcca80f1"
-    sha256 arm64_linux:   "95c81b3bc5f53b11bc87b85c60ef7a096f4595df6a893367047175df3e1ebb89"
-    sha256 x86_64_linux:  "cf7fce8e9eed42768e9e2157fb8ce7f06ddd0408836ba11f276646dfc6616222"
+    sha256 arm64_tahoe:   "1d524bcd5a8f97604396f7969ce07b562dccecbd0e2f0f4e64cc2d149fa6b0bd"
+    sha256 arm64_sequoia: "df7ba48825b6f3ff74769a763c8128621beda40bdecf3b13d259776766ed248c"
+    sha256 arm64_sonoma:  "5c65c296ff0a0f2d97593f8b4f3b0c576c177305bc8674aec44faf7f819791e1"
+    sha256 sonoma:        "d78bdc8ff14af5f05e2dcb738e99dfa5a8fb8bcacb677c13a8d3d2c2fd9616d7"
+    sha256 arm64_linux:   "edbadc0b772d969302fa4b34025732451b56eb0ef9989a39c9de3e76ee81070d"
+    sha256 x86_64_linux:  "0bcbba0785cf2f8cc846196ce8d7307d700b7502ffe7368d1b86406e906213eb"
   end
 
   depends_on xcode: :build
   depends_on "gd"
   depends_on "libpng"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "unzip"
 
@@ -63,7 +64,7 @@ class Nagios < Formula
       "--with-nagios-group='#{group}'",
       "--with-command-user=#{user}",
       "--with-httpd-conf=#{share}",
-      "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
+      "--with-ssl=#{Formula["openssl@4"].opt_prefix}",
       "--disable-libtool",
     ]
     args << "--with-command-group=_www" if OS.mac?

@@ -1,18 +1,18 @@
 class Weave < Formula
   desc "Entity-level semantic merge driver for Git using tree-sitter"
   homepage "https://github.com/Ataraxy-Labs/weave"
-  url "https://github.com/Ataraxy-Labs/weave/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "fb839fffb61588f40d0a83875371b9326b92ede6efb9c3c61adcc74e21891d3a"
+  url "https://github.com/Ataraxy-Labs/weave/archive/refs/tags/v0.3.2.tar.gz"
+  sha256 "422d7a70a9e547a6f1da49910c8fd091115f230dae2e88cb86c0c1339ff0409c"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/Ataraxy-Labs/weave.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "91f9054fda3d7da73aea7968e154184cc4e46d4af28d47780731cfe84346d4d7"
-    sha256 cellar: :any,                 arm64_sequoia: "2d735657bdbc3124ffed86c5a7d2ba7d62cf8ac78c83b9cd020f6917aaa0863f"
-    sha256 cellar: :any,                 arm64_sonoma:  "25c14a52797709415bfc8281e3c85747b0c54d01dd807c7070808ddc82c9069a"
-    sha256 cellar: :any,                 sonoma:        "2e75157f4cca649bff41bd8a9d10368ba06e178539a1f924d27fc325d9b41704"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6b6b616b27f9a241fca31687da6c576aed12c80b30a0ae14956b238d31e4a77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25a05e2bcaf97bebc2ac9687ea827a11e75c4cbde3aa866f80a5f882415e19a4"
+    sha256 cellar: :any,                 arm64_tahoe:   "c68811551a3b71e248bc343b0e6d700571a2191a55e7266fca0e746de81addb5"
+    sha256 cellar: :any,                 arm64_sequoia: "7dfaa548da67527d661b63f8a4dd2d5d1152d9f65197cd8cc25ed806bc2caf9e"
+    sha256 cellar: :any,                 arm64_sonoma:  "202b0039a70fbc773458458e094863185bac45fbb7c5e1ad01032da61afdbd1f"
+    sha256 cellar: :any,                 sonoma:        "ce5fb89985843b7b31e931762d741362190315dfe77ef2133fb5008334d189be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed8813f6d4c0ec0a822eaafed9a631a98e7b1e6234294d3cf125d95dab2b8ff1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22b0a9c1ff66ee81184f468ec798dc9b204fe4ab543e479546f1312f419bdeda"
   end
 
   depends_on "pkgconf" => :build

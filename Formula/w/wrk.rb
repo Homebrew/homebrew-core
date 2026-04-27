@@ -11,27 +11,20 @@ class Wrk < Formula
   #     distribute, whether in Source or Object form, except as required
   #     in copyright, patent, trademark, and attribution notices.
   license :cannot_represent
-  revision 1
+  revision 2
   head "https://github.com/wg/wrk.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "006efeee8686cc28a2c7a52afc6e1d21593ff274a6c5a206cc7aec60a756a097"
-    sha256 cellar: :any,                 arm64_sequoia:  "4c5610d7241ae72132fbeeebfea6b912c4f1c7d71a9cb55f523c07bef1d53ee5"
-    sha256 cellar: :any,                 arm64_sonoma:   "89a17214695f28852b9be47589b1f8788b7209201c163b2bf39b608c1ba2bacd"
-    sha256 cellar: :any,                 arm64_ventura:  "f1838e262aaea9a48cd54b0e33c25e39131a9732d5e9b9748498ef37cf468699"
-    sha256 cellar: :any,                 arm64_monterey: "dff2f475aaebf54bf90ca442ed041fb857b43249e9c8c7f4503018bb3970a4e3"
-    sha256 cellar: :any,                 arm64_big_sur:  "8a60990dd837067cc883e28fa18500ed86125cf054f2d4030098423b879b97f6"
-    sha256 cellar: :any,                 sonoma:         "11ddc1b8dfc48bd2c8bb3b2b96f4b01b5356f5b8d0702d7ee287bf56a96b3b55"
-    sha256 cellar: :any,                 ventura:        "cd319593d2f5ad2d1335cac14ebbf192af7502a63e83d4b8d1cb6e80fede99e4"
-    sha256 cellar: :any,                 monterey:       "86b756396151c118e4a2e419b692923a6c8d71a02f355f5c1390fe11659125ab"
-    sha256 cellar: :any,                 big_sur:        "fcb1b19c7ec424642d0dc7cf0a9a1dde8872a64a4e91fdf07a16f0b64ba10e4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "09305386a05c3e9f9370c7add8c05415c21593b46366db083464acdaf98a9779"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4295514a73470421b9cadc29d0f2873de383cc7b9d31523028d2310ef6e437b"
+    sha256 cellar: :any,                 arm64_tahoe:   "06fe612a3956378aa2a053a68e4193eacd2a9b4920629dce86c3c2d93f21ca63"
+    sha256 cellar: :any,                 arm64_sequoia: "169ac7e696799e9560768a27efbebd3353da1fc29be58a1b706291a3123f2600"
+    sha256 cellar: :any,                 arm64_sonoma:  "cd3c60462408a5d2a7da99ad8f6a1729e56bf740a0477a43f47e6b498d14f2d3"
+    sha256 cellar: :any,                 sonoma:        "db507aacb7511160b02eb7461dc3b2e1edcc0e17dbcb63104e76650ab68c0b1f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b621c87065df5a55e9b7ade043906a8fd81df8e524091df3a00f830f7ee2eea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "196ad088bc4aa989e6b94a26183d89197d071894b6c3bdf56ebfdba940c3826e"
   end
 
   depends_on "luajit"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     ENV.deparallelize
@@ -39,7 +32,7 @@ class Wrk < Formula
     ENV.append_to_cflags "-I#{Formula["luajit"].opt_include}/luajit-2.1"
     args = %W[
       WITH_LUAJIT=#{Formula["luajit"].opt_prefix}
-      WITH_OPENSSL=#{Formula["openssl@3"].opt_prefix}
+      WITH_OPENSSL=#{Formula["openssl@4"].opt_prefix}
     ]
     args << "VER=#{version}" if build.stable?
     system "make", *args

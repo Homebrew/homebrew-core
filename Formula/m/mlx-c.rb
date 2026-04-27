@@ -4,12 +4,13 @@ class MlxC < Formula
   url "https://github.com/ml-explore/mlx-c/archive/refs/tags/v0.6.0.tar.gz"
   sha256 "6ec2eab86ed3ce661c0d9b834027870651546138b7b4470fa8ef5533498c79aa"
   license "MIT"
+  revision 2
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "99a5c7e3ef0c954f183a4d50b47f80654cfa5befd4f08616f8be47c0c5cb3094"
-    sha256 cellar: :any, arm64_sequoia: "b28ea774761c31eb6b0116ba146952d5fd6a3a8ae6e7b8381d3fca0b4af87e01"
-    sha256 cellar: :any, arm64_sonoma:  "70c199289ebbc065bc1d287f7e26d4be4bdc0f50146baaadce3f75137cbb7772"
+    sha256 cellar: :any, arm64_tahoe:   "b30c755158db3f9d9090b69a1a74f3e05ae8e7a3969695d9f0974f1bc1d3df1b"
+    sha256 cellar: :any, arm64_sequoia: "1c912954c1d7c888c99638fc58a541d364862c3acf3b279627e5221b9bd0afa7"
+    sha256 cellar: :any, arm64_sonoma:  "b09d19e06b33a10936b006a67202a091715bbedf9fe1620b1162eb140f8af0fd"
   end
 
   depends_on "cmake" => :build
@@ -24,6 +25,30 @@ class MlxC < Formula
   fails_with :clang do
     build 1500
     cause "Requires C++20 support"
+  end
+
+  # support for mlx_distributed_group_free() (#110)
+  patch do
+    url "https://github.com/ml-explore/mlx-c/commit/1e3c24ffebfdfbeecca054c51637fc4381d98aab.patch?full_index=1"
+    sha256 "24831d5bc44b72a0fd027572a4e4eaf754ed9805ffed86185bb8dbdfb6284818"
+  end
+
+  # support for gguf (#111)
+  patch do
+    url "https://github.com/ml-explore/mlx-c/commit/89d3454ac3f46ff68668dd9f7817c6d47650e47c.patch?full_index=1"
+    sha256 "411749fd1908fdee783c3b378471603606852ce3a0ee0011ca5b66f47187b9d3"
+  end
+
+  # support for graph export (#112)
+  patch do
+    url "https://github.com/ml-explore/mlx-c/commit/782d4712862b247a094086419ce130fd82cf3c53.patch?full_index=1"
+    sha256 "4469b3ec2836efeadce98a192ae26f423cdbbd182edcd2126f4a6ef36891ce58"
+  end
+
+  # regenerate bindings for MLX 0.31.2 (#114)
+  patch do
+    url "https://github.com/ml-explore/mlx-c/commit/fba4470b89073180056c9ea46c443051375f7399.patch?full_index=1"
+    sha256 "5102eafc68ea94cbe8cabb4acaa9905e17d1c92cb6a1b8c7f0f73dc863c09609"
   end
 
   def install

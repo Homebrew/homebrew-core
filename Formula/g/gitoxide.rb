@@ -1,8 +1,8 @@
 class Gitoxide < Formula
   desc "Idiomatic, lean, fast & safe pure Rust implementation of Git"
   homepage "https://github.com/GitoxideLabs/gitoxide"
-  url "https://github.com/GitoxideLabs/gitoxide/archive/refs/tags/v0.52.0.tar.gz"
-  sha256 "8c4edd66f19e9c672040f8a4f76de5f3feafff5c443fc54554ae142a36bc10af"
+  url "https://github.com/GitoxideLabs/gitoxide/archive/refs/tags/v0.52.1.tar.gz"
+  sha256 "47eeb05374986e6a3fd174d364ca6699bdc58966f091ff8ab14792a87629c499"
   license "Apache-2.0"
   head "https://github.com/GitoxideLabs/gitoxide.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Gitoxide < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fcbc1b1f45e44cbabd0dc7e49ec38d15634fdfc010cc8e2d84efc7d4255c5896"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d62b3680fb49e321fc4bf1d5a3557347bb1f3a27e5295b50ef54ea7c2def2d4a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37172e4bbc32fafb3831a3dee1fa7c54cf4bced044cedcb227cbec63eb594de6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fe3ca99efefbf69c3f5d0fb3c7b127f2bde97a36811b225e935a548b817d3fc4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2dbeced411a62ffd597b5444bd8f0849e6e58cb090ac9a5190427e1cdb9963d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2dafac43e8540a3195e884b96ee1376c987ab57b9bf69cae9f5441c0a9346218"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6dcacdfe75f20dd268a17fe5ea6c61f0b8571d705dfb5505abeed01062e3222d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca8bc9245d58ae5c858222450956805841de712f160d4ad8dfe4d2cb16b4d0c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad6e1cd8b4249016afb8b38461e982ffc115e65af0c73a84067d00b02cd3541c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "412825658de28377ac8afc3f767d12ad15707a91b86221da58e2a13e8bc6372f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "196b53908bcd69f57f575c77d5bdfec672be914556357ebddfae3f35b12af36c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1834ae5542be6b7a9329f78cdba587c6c02bfdf41a5444e108505df4e645ca55"
   end
 
   depends_on "pkgconf" => :build

@@ -4,15 +4,16 @@ class ApacheArrowAdbcGlib < Formula
   url "https://www.apache.org/dyn/closer.lua?path=arrow/apache-arrow-adbc-23/apache-arrow-adbc-23.tar.gz"
   sha256 "c74059448355681bf306008e559238ade40af01658d6a8f230b8da34d9a40de9"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/arrow-adbc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b0e0a6425089f9ce5a55e341a62a128c87874e7a4fa99dc346b6bb73bd68a004"
-    sha256 cellar: :any, arm64_sequoia: "c0fa4af6ea213d65d62e6874533f102671a1d3547b82bdba3c04d22346cf4058"
-    sha256 cellar: :any, arm64_sonoma:  "5335d0bc8fd54bfe1235bf261a1b7c55cefe86975eed17e7c9fb59bf69635af3"
-    sha256 cellar: :any, sonoma:        "9d749ee6fb5525e738f894436155ef545dc4ee9b640bf01e6dfdbad63c37c772"
-    sha256               arm64_linux:   "b516a992eecf401b8427f66864730339611baf15b0d8df6ffd0170eafe86cdbf"
-    sha256               x86_64_linux:  "2d6ec8b6a9c9f78e78b949b7ca045bb0f92da608e56d051b0647c09d040303f6"
+    sha256 cellar: :any, arm64_tahoe:   "114e7949c37fe58e7ba48fb797f8ecc75ceafd9f6a68f199df982ee987bb5906"
+    sha256 cellar: :any, arm64_sequoia: "da7011fde10d91e0c583f2596f98dd15da544534e203d560a61d7bdcdceac0bf"
+    sha256 cellar: :any, arm64_sonoma:  "175c34e7b63d63ad1825f7ba17421ff259475c74edd155427d01368c3a1d7fe6"
+    sha256 cellar: :any, sonoma:        "e2214e642239a36b6bd352888f9f3dd5d3d20a52ab90c6b5f89d9515c5d7a0c0"
+    sha256               arm64_linux:   "bf4c1e3f733868cd3e4732e3273e40d6ce5c9e7212065d6150cf1e9af7f5a9e4"
+    sha256               x86_64_linux:  "bd7b6efc716af45d5b6e31c2e83fc7b3e82e9097d7b50d6df3c30cf8892af5f4"
   end
 
   depends_on "gobject-introspection" => :build

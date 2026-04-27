@@ -1,8 +1,8 @@
 class Tun2proxy < Formula
   desc "Tunnel (TUN) interface for SOCKS and HTTP proxies"
   homepage "https://github.com/tun2proxy/tun2proxy"
-  url "https://github.com/tun2proxy/tun2proxy/archive/refs/tags/v0.7.20.tar.gz"
-  sha256 "f53cac0aebc779bd379d5e4518163d08e6a14f4f3a4a39a0254b49746911062b"
+  url "https://github.com/tun2proxy/tun2proxy/archive/refs/tags/v0.7.21.tar.gz"
+  sha256 "5f694f31fe1bdeee8261ed61b79377f4f5fac70038d4c27c16c49da20f04b667"
   license "MIT"
   head "https://github.com/tun2proxy/tun2proxy.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Tun2proxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cf91ff8a14d0cdbeb09b7c852365ccdb34fe827f38196701518105145e415ea1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ac41e2ba5f66f598adb995ae24713a0adf3b715625a070193a0c6e8967e8fc9a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e82508e4d08e606489205d281c0893acc455ff0f936157a72833280ecd375945"
-    sha256 cellar: :any_skip_relocation, sonoma:        "98622f77f0ea6b75184f508c60b9d950cabbec23db083e7bc0c513f6218a117f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "95a2c466632dbc8d93d4779c46a30c4ba84d943282eec500e4c83eb2be9efe48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dec6538603801a874ae927bf7a8c1bb8e0bfd495cf4b024c7f9e4ed845cb464"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "605b9bd3e2122b4137b9472a5845f86141a566417823ea1f3761fd6cb633197f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c6670ab4f7f4ddaf9906c8b8ca0b4919d9b18c5a001e59f6729256b242534e13"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b5d4d8d703db49b8f6c99e08d34376a398b20ae19a0dd21c86472c5095fc617e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb8fa9814a1a28c7aaeef550ddc84ff1b699a758fb51b0f4e20d8a4840f71fd2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48f3fb8d9cf5bcb0640237b6df419ecdf461a867122a8ce19af2b684b89d64cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb9dcd14ba47f83835deeffd25e4073a8267641faf22e7e63b67c464c35ebb3b"
   end
 
   depends_on "rust" => :build

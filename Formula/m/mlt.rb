@@ -1,19 +1,18 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/releases/download/v7.36.1/mlt-7.36.1.tar.gz"
-  sha256 "0d2b956864ba2ff58bb4e2b2779aa36870bd2a3a835e2dbfda33faa5fc6f4d3a"
+  url "https://github.com/mltframework/mlt/releases/download/v7.38.0/mlt-7.38.0.tar.gz"
+  sha256 "b8f0a23c89e9250edc5038d745537c382367bf2ad3dad5d5c7cd13b0fe1c4144"
   license "LGPL-2.1-only"
-  revision 1
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "81cd06d782ba666f6a319ccd94bf54a61e7278433f721fea45a8aa07f36d386e"
-    sha256 arm64_sequoia: "1a9cf323f3916df0985fc36b579784b67ab0217a9d69f836f30c206538ebf3d7"
-    sha256 arm64_sonoma:  "8b9bdef7c268fc5387dc7803c4d4110c793d7a7ddf76e17ab3f5405c71aa7aed"
-    sha256 sonoma:        "e5c7487a7d1dc5c58cebdabacdcfa41c3818692aa89453ddc0f09bbcef9cb467"
-    sha256 arm64_linux:   "95761fd2e2174018ba5b50ae8b295d6147317a8a28ffd3155f6f5c84bb2b7de1"
-    sha256 x86_64_linux:  "752b678fe0290dcef506287baae7f4882c674c10f70bf7cd6a5bf96233792ba4"
+    sha256 arm64_tahoe:   "d0d8cdc099296f231676fe28f13b5fcd0b6428e09aed6bb0cbb0dbfefab44edc"
+    sha256 arm64_sequoia: "fd830c5b8d17a78cc6786ded35b36bd7f644ea15782bec8d3d785aa94695ea24"
+    sha256 arm64_sonoma:  "8dc4129a794787deee30182412f18e43f15df46d232f0053ecf5dc6f769e3cb4"
+    sha256 sonoma:        "a2d6002992efc17a5ca53bfd219c7645189269ee0cced1c0f33da433bc6b85c5"
+    sha256 arm64_linux:   "3f584f88115f90ca62c6c67252aa51e12ba1b0123dba520c69e633177f7091d9"
+    sha256 x86_64_linux:  "3fab7905fc5fb4ff025f2a3cde2bb9100a7741f1f24eda53ab75b44e71909294"
   end
 
   depends_on "cmake" => :build
@@ -27,6 +26,7 @@ class Mlt < Formula
   depends_on "glib"
   depends_on "libdv"
   depends_on "libexif"
+  depends_on "libomp"
   depends_on "libsamplerate"
   depends_on "libvidstab"
   depends_on "libvorbis"

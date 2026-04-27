@@ -1,18 +1,18 @@
 class Sqlc < Formula
   desc "Generate type safe Go from SQL"
   homepage "https://sqlc.dev/"
-  url "https://github.com/sqlc-dev/sqlc/archive/refs/tags/v1.31.0.tar.gz"
-  sha256 "d7fbb60926adbc69b9c6baefab3e87e8d01be14e350977fa039a7742dfdbc96d"
+  url "https://github.com/sqlc-dev/sqlc/archive/refs/tags/v1.31.1.tar.gz"
+  sha256 "de82593a200e4130dc2a0413a808f93fc30fdc7b5ecd402913ed08a8fea06c4a"
   license "MIT"
   head "https://github.com/sqlc-dev/sqlc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2cbf600a35ae939a42d4bbe98869247badf5109539058ad7015136b136bb6587"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ad1bafebea9f92edad7ff81300ffd6d16e763ae1047651cd3bc146131ff98d1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1224496a326238279872d6062eafc21cff6b0c5904e8f3954e172253def9b51"
-    sha256 cellar: :any_skip_relocation, sonoma:        "480139d8d033a7245bdddc81bde6dfce82e965ea6183ea2e84b1d31e222071fb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9ac69fbe289c20ad05e08d3a9cdfec073ab534516cec36d75b5dbf073221022"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80d1502fe45b27877e0189a5908a259f27e1b44678d8ef74632979792619dd31"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "02eec610db40876f35ccf86fc6839ef01dd3a516f862461199fd962e036dbf68"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "515840fb2acc0ff9482d3c726d7b308efc046776d3df75d46354b0c9af114f7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e219dbb7f0baf6cb74e1a256ccb3df5477d9332792094f025c682a500c96cbfc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8ca42e56eb0106560b866db7f92f462d4f14b0dc89dda0a6ca3f650d1850976a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2303ea67c6c1c2bae0fb6f251abee01e82f32be511b6acbad660f38c4ebea861"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b903545185bc743eff0378cae1744a133d675ad295b333997fd602948851512b"
   end
 
   depends_on "go" => :build

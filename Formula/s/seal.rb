@@ -1,18 +1,17 @@
 class Seal < Formula
   desc "Easy-to-use homomorphic encryption library"
   homepage "https://github.com/microsoft/SEAL"
-  url "https://github.com/microsoft/SEAL/archive/refs/tags/v4.1.2.tar.gz"
-  sha256 "acc2a1a127a85d1e1ffcca3ffd148f736e665df6d6b072df0e42fff64795a13c"
+  url "https://github.com/microsoft/SEAL/archive/refs/tags/v4.3.0.tar.gz"
+  sha256 "2c843054d795d0f36944e5cf1e9ab4b72b239af2ab427905394ed1c69c13bca3"
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "c2b43ab3584c6568ba43786b9ab734c78c86a569efff42025a07b34584d880bc"
-    sha256 cellar: :any,                 arm64_sequoia: "39ed846791c3055f424593bdeaf451b6d1623f69128827591c5cf91932d3b26b"
-    sha256 cellar: :any,                 arm64_sonoma:  "2d44b452c5332cfdf95cbd883e1247fc86b644712c85a38cf8c1a2bb68607090"
-    sha256 cellar: :any,                 sonoma:        "755f905a1b01a50e5e6e7743f4cee17ebec09936f15cc069b804b72baaf031b8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7d87708dcfef3a3c12c3d2341defb5bee81ee1a4d5eb9a51a76990bb9ac784c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "039ccc740daf1ddc76cef431eac86b73bcf385a78699eb7e247ef1bea16e4178"
+    sha256 cellar: :any,                 arm64_tahoe:   "310246ba73ca19467d57d849615901dfb226cbc853ef692a4318ec6b1bb3434a"
+    sha256 cellar: :any,                 arm64_sequoia: "0790b479d8372b06b3c33790ca3d765d4c43d02a53868ce0c4d3aec022aa4563"
+    sha256 cellar: :any,                 arm64_sonoma:  "c09da5e90916e6b613229eddd7eafcc0217d02fb864fac78a56fcca3f3f09ffa"
+    sha256 cellar: :any,                 sonoma:        "2d89ebd79f9023f7a6fa8cc707a4692def14c81edfe9455bf5cae8f64f661f77"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "95d4a668b5018d0244734827d32e22197b5ea2d34761d0ecca6ffa221370d936"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f6afd5fba812cc64ec7756a4caadb2f83def5c484c1b6aaa5e08b9483bdcc04"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -24,14 +23,15 @@ class Seal < Formula
   end
 
   resource "hexl" do
-    url "https://github.com/IntelLabs/hexl/archive/refs/tags/v1.2.5.tar.gz"
-    sha256 "3692e6e6183dbc49253e51e86c3e52e7affcac925f57db0949dbb4d34b558a9a"
+    url "https://github.com/IntelLabs/hexl/archive/refs/tags/v1.2.6.tar.gz"
+    sha256 "5035cedff6984060c10e2ce7587dab83483787ea2010e1b60d18d19bb3538f3b"
   end
 
-  # patch cmake configs, remove in next release
+  # Fix to error for package "HEXL" that is compatible with requested version "1"
+  # PR ref: https://github.com/microsoft/SEAL/pull/740
   patch do
-    url "https://github.com/microsoft/SEAL/commit/13e94ef0e01aa9874885bbfdbca1258ab380ddeb.patch?full_index=1"
-    sha256 "19e3dde5aeb78c01dbe5ee73624cf4621060d071ab1a437515eedc00b47310a1"
+    url "https://github.com/microsoft/SEAL/commit/7d449845499f64232c6870085e96e4fd7493e752.patch?full_index=1"
+    sha256 "b48c681ac957b3c7fcc7aad2ac456e3301e2320e00c464d0fec3d95225681548"
   end
 
   def install
@@ -40,7 +40,6 @@ class Seal < Formula
         hexl_args = %w[
           -DHEXL_BENCHMARK=OFF
           -DHEXL_TESTING=OFF
-          -DHEXL_EXPORT=ON
           -DCMAKE_POLICY_VERSION_MINIMUM=3.5
         ]
         system "cmake", "-S", ".", "-B", "build", *hexl_args, *std_cmake_args
@@ -55,9 +54,7 @@ class Seal < Formula
       -DSEAL_BUILD_DEPS=OFF
       -DSEAL_USE_ALIGNED_ALLOC=#{OS.mac? ? "ON" : "OFF"}
       -DSEAL_USE_INTEL_HEXL=#{Hardware::CPU.intel? ? "ON" : "OFF"}
-      -DHEXL_DIR=#{lib}/cmake
       -DCMAKE_CXX_FLAGS=-I#{include}
-      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

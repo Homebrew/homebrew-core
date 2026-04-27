@@ -1,8 +1,8 @@
 class Nexttrace < Formula
   desc "Open source visual route tracking CLI tool"
   homepage "https://www.nxtrace.org/"
-  url "https://github.com/nxtrace/NTrace-core/archive/refs/tags/v1.6.2.tar.gz"
-  sha256 "1d65e38e7d555bc165dd2b2235fa076418f2adb5c4766a91f1f44ec083298f85"
+  url "https://github.com/nxtrace/NTrace-core/archive/refs/tags/v1.6.4.tar.gz"
+  sha256 "b4baacf2dbd30248325da9280c3f360ca1162ddd1e412cb8c78748dc4b9b245b"
   license "GPL-3.0-only"
   head "https://github.com/nxtrace/NTrace-core.git", branch: "main"
 
@@ -14,12 +14,12 @@ class Nexttrace < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "22bf5df17fbb3bea2f44af68cf3b4a1e801f6ac73a86b1aca0c909f46acd2cb1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a2d0ae6fe7d68e731884fe8c18ff6ce1f73c3e03414454b4d8d44c1c6c6bac0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f70081b65f210d0f525d39c30f6d79a622c81228f6542ffe77dfdd7c2ec32e04"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6137225484cf383060ff67c0fe21204459ba8781a293b9d6da214c785688d10a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "10b55cc9246f92705367ce3423a0f0715aeb28b3f271b6a2125f6bc110e4b13a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75e22122031c6365c3b53341b78b9f8f24c9987480b78802fa7bb500ac379b2a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce4a483ea03202c6dac0be25adc6a5828f53b3ad2894577e34cc97bbac9f98c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2694ec1f4601fd62f59f0eff1bced96384afa0a868251d39a79fb9cb2ba00f9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd2806d45a06b08e095268556dfc07a999e040a970e1eb86270f9ad629ebf5c6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c4fc252f2b1d6c17087fa914bf24081e0c4817831cb28d5392f55c5c0480e1b7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8559e02d3d2c16cb0135dad34d25392d113bcb631040b00b1137aba4bd021d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62cc632dba71f3cc61237f29528083acb1e74ebab2cfade42730b90f35a06d20"
   end
 
   depends_on "go" => :build

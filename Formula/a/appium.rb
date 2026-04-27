@@ -1,18 +1,18 @@
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-3.3.0.tgz"
-  sha256 "d0d9388a9c777b511f3e2f491d72fa87c42d5572b4245ed14e11cd8ba2a3955c"
+  url "https://registry.npmjs.org/appium/-/appium-3.3.1.tgz"
+  sha256 "bbc40faf599751b424316dea59268b302f6c9e14702f4e78679ca4a1ca75ac74"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    sha256                               arm64_tahoe:   "e28a0cb2aa5c8c85511cd843de1e3631150f4eefe78f7ce6da41ba4dd249efb6"
-    sha256                               arm64_sequoia: "24849adf2f6cea668269644befe628da97daa9c708a59a6f1eec5cd031477655"
-    sha256                               arm64_sonoma:  "252d1581c08cb3a8eec9e9ac07302b022c9cf218fe8b2b69e04b52f92df9bc57"
-    sha256                               sonoma:        "c331d6370c180ca4f658d3fec95a00a79a38b4cbe459c5d542176987d3699ee0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c70a7731761252f5356b0f82009b6b8606e41eaafbac240d3e0a758f5701b475"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc75b4911f34bc538dc469cf37ca7a946b11fc6ed7f079ca8d6cef40d7131186"
+    sha256                               arm64_tahoe:   "a7fbad3b9079cac71d751aad6b42f1d89cae90a45a8f86520ee06a28257e2c7b"
+    sha256                               arm64_sequoia: "d9b9f1669affe0f7cc0468f8103f6397c8ff8837eee5f7e58757ee8c03341f0c"
+    sha256                               arm64_sonoma:  "284eba00f8277938eeefbd9f7d02a7324a3508f47e4d2a9e2c64d8175638f011"
+    sha256                               sonoma:        "d9aec8d82d9deae2e4c359a8a39c456743312f2df51d9ec8a0ab16fecf6978a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3088fa14162887536bf44375bd5a6498a4dd11e5f68ea2556601016ee8f80bd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acc2aae8201a73e49b0b9b4c9f9782f4d2ee3b31ced19429718411250c5242c3"
   end
 
   depends_on "pkgconf" => :build
@@ -32,8 +32,8 @@ class Appium < Formula
   end
 
   resource "node-gyp" do
-    url "https://registry.npmjs.org/node-gyp/-/node-gyp-12.2.0.tgz"
-    sha256 "8689bbeb45a3219dfeb5b05a08d000d3b2492e12db02d46c81af0bee5c085fec"
+    url "https://registry.npmjs.org/node-gyp/-/node-gyp-12.3.0.tgz"
+    sha256 "d209963f2b21fd5f6fad1f6341897a98fc8fd53025da36b319b92ebd497f6379"
   end
 
   def install

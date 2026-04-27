@@ -1,8 +1,8 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/wartremover/wartremover"
-  url "https://github.com/wartremover/wartremover/archive/refs/tags/v3.5.6.tar.gz"
-  sha256 "b40f76f3a14642f483c6be4ba1ed54882d1364a65481f4f892eb7900fd9c7d67"
+  url "https://github.com/wartremover/wartremover/archive/refs/tags/v3.5.7.tar.gz"
+  sha256 "ceda13f07ab4cad37e31dd73c199e803a10ab6e8f9081c3f77a3bf34e1f8f149"
   license "Apache-2.0"
   head "https://github.com/wartremover/wartremover.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Wartremover < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb0a908967673f88014a197ffe0befe02a4e1d4072e77d0d00284d69a42e5b9b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb0a908967673f88014a197ffe0befe02a4e1d4072e77d0d00284d69a42e5b9b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb0a908967673f88014a197ffe0befe02a4e1d4072e77d0d00284d69a42e5b9b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fb0a908967673f88014a197ffe0befe02a4e1d4072e77d0d00284d69a42e5b9b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0c1b467990b722c863de9af5db7993e17daa477ee8675aa38be89bc19f1a3a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0c1b467990b722c863de9af5db7993e17daa477ee8675aa38be89bc19f1a3a6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f903986fd06ecfd7f0b564381baf677233c9de93e576eab0083870578e1abd34"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f903986fd06ecfd7f0b564381baf677233c9de93e576eab0083870578e1abd34"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f903986fd06ecfd7f0b564381baf677233c9de93e576eab0083870578e1abd34"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f903986fd06ecfd7f0b564381baf677233c9de93e576eab0083870578e1abd34"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32fbe3f1b44707a358770c9293319a643be3002d777413956512ed1ee5ef98ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32fbe3f1b44707a358770c9293319a643be3002d777413956512ed1ee5ef98ab"
   end
 
   depends_on "sbt" => :build

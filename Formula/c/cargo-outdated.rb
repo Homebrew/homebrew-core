@@ -27,7 +27,6 @@ class CargoOutdated < Formula
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
-    ENV["OPENSSL_NO_VENDOR"] = "1"
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
 
     system "cargo", "install", *std_cargo_args

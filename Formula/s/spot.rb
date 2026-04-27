@@ -1,8 +1,8 @@
 class Spot < Formula
   desc "Platform for LTL and ω-automata manipulation"
   homepage "https://spot.lre.epita.fr"
-  url "https://www.lrde.epita.fr/dload/spot/spot-2.14.5.tar.gz"
-  sha256 "8703d33426eea50a8e3b7f4b984c05b8058cbff054b260863a1688980d8b8d19"
+  url "https://www.lrde.epita.fr/dload/spot/spot-2.15.1.tar.gz"
+  sha256 "65013a2edf3f314854d7619888145f52c8dd36bfd27894d9db9b272d9a16ce4b"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Spot < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8e2ae80fe051f56744bd18c1fb98c7f95da877d5be0cd0ae5abeaa7172d277d3"
-    sha256 cellar: :any,                 arm64_sequoia: "7e9253e66c7e43d9085dcd6bad09be7840034a0aac1ec10053532e0bb1cdefc4"
-    sha256 cellar: :any,                 arm64_sonoma:  "7aa52c9c2d1eacbbef5afd551871e55683373b2a830af50eec9f1bc39767e343"
-    sha256 cellar: :any,                 sonoma:        "51c5717d7b691cf3772606962d492c663bb750d4622b43f01737c07a91840250"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "31a06e35f69b57052208f0ae22f71afbbc9101ac4a275e4b21e4241e2b07c97b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31c53a6f56b6f0fdb2855302518280692bf5e50cd6ae7cdef7fa3c2029a583c7"
+    sha256 cellar: :any,                 arm64_tahoe:   "e010d364f9d17297ee1e337e93b93668170a84afcfdb160f9e87aabbeef528fb"
+    sha256 cellar: :any,                 arm64_sequoia: "1427e29e5eb6a4a0cfb3cec84d6ebcd15c5569bc905b4641950317cf0e08bd66"
+    sha256 cellar: :any,                 arm64_sonoma:  "0b1ca9fa345ef9f3e5aa2e8ccf0d71d4ff248c4ab35e8f7beaa8ecf7b0d166e1"
+    sha256 cellar: :any,                 sonoma:        "ab85af1ccfea03b126c66a0f0ae1f42c03b095ebf32f2d10898867ba0e4d6cb0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aae9243c82ee4ca4cbdd565e8c458e1b265d1892282b511792c007f76ed17996"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4754a6b50687310303b786546b8d5937ba2274f96ebe4638b8fd992e6c90796d"
   end
 
   depends_on "python@3.14" => :build
