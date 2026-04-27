@@ -1,9 +1,9 @@
 class I686ElfGrub < Formula
   desc "GNU GRUB bootloader for i686-elf"
   homepage "https://savannah.gnu.org/projects/grub"
-  url "https://ftpmirror.gnu.org/gnu/grub/grub-2.12.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/gnu/grub/grub-2.12.tar.xz"
-  sha256 "f3c97391f7c4eaa677a78e090c7e97e6dc47b16f655f04683ebd37bef7fe0faa"
+  url "https://ftpmirror.gnu.org/gnu/grub/grub-2.14.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/gnu/grub/grub-2.14.tar.xz"
+  sha256 "bc8d3c73535b8838d8c8e2654d73edc4e6ae8c8acdb45d5df5dc9a1547446d43"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -36,9 +36,22 @@ class I686ElfGrub < Formula
   end
 
   def install
-    touch buildpath/"grub-core/extra_deps.lst"
+    # KDF/sexp APIs: align with `grub_size_t` used in <grub/crypto.h>.
+    inreplace "include/grub/gcrypt/gcrypt.h", /\bsize_t\b/, "grub_size_t"
+
+    # Clang rejects implicit function declarations as error
+    ENV.append "CFLAGS", "-Wno-error=implicit-function-declaration" if OS.mac?
+
+    # Vendored gnulib's `fcntl.h` selects `rpl_fcntl`, but `fcntl.c` is missing
+    # from the build graph. Force the system `fcntl` path.
+    inreplace "grub-core/lib/gnulib/fcntl.h",
+              "#if 1\n# if 1\n#  if !(defined __cplusplus && defined GNULIB_NAMESPACE)",
+              "#if 1\n# if 0\n#  if !(defined __cplusplus && defined GNULIB_NAMESPACE)"
 
     mkdir "build" do
+      mkdir_p "grub-core"
+      touch "grub-core/extra_deps.lst"
+
       args = %W[
         --disable-werror
         --target=#{target}
