@@ -27,6 +27,8 @@ jobs:
     runs-on: ubuntu-slim
     permissions:
       packages: write
+    outputs:
+      has-changes: ${{ steps.has-changes.outputs.result }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -89,3 +91,17 @@ jobs:
           rm -f executables.txt
           oras pull ghcr.io/homebrew/command-not-found/executables:latest
           shasum --algorithm=256 --check executables.txt.sha256
+  delete-old-versions:
+    needs: update-db-entry
+    runs-on: ubuntu-slim
+    if: github.ref == 'refs/heads/main' && needs.update-db-entry.outputs.has-changes == 'true'
+    permissions:
+      packages: write
+    steps:
+      - name: Delete old versions from GitHub Packages
+        uses: actions/delete-package-versions@e5bc658cc4c965c472efe991f8beea3981499c55 # v5.0.0
+        with:
+          package-name: command-not-found/executables
+          package-type: container
+          min-versions-to-keep: 0
+          delete-only-untagged-versions: true
