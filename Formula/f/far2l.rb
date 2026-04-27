@@ -1,5 +1,5 @@
 class Far2l < Formula
-  desc "Linux port of FAR Manager v2, TTY version (includes base NetRocks support)"
+  desc "Unix TTY port of FAR Manager v2 (with NetRocks support)"
   homepage "https://github.com/elfmz/far2l"
   url "https://github.com/elfmz/far2l/archive/refs/tags/v_2.8.0.tar.gz"
   sha256 "b0fddad2e3985f245f9e691e23b90fb97f7d29d9a0b131fe686aa3cbb2e4ea01"
@@ -12,16 +12,17 @@ class Far2l < Formula
 
   depends_on "cmake" => :build
   depends_on "gperf" => :build
-  depends_on "m4" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libarchive"
   depends_on "libnfs"
   depends_on "libssh"
-  depends_on "libxml2"
   depends_on "neon"
   depends_on "openssl@3"
   depends_on "uchardet"
+
+  uses_from_macos "m4" => :build
+  uses_from_macos "libxml2"
 
   def install
     args = %w[
