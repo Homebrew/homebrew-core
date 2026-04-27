@@ -5,15 +5,14 @@ class Rpm < Formula
     "GPL-2.0-only",
     "LGPL-2.0-or-later", # rpm-sequoia
   ]
-  revision 1
   version_scheme 1
   compatibility_version 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
 
   stable do
     # Using GitHub tarball rather than ftp.osuosl.org to support autobump
-    url "https://github.com/rpm-software-management/rpm/releases/download/rpm-4.20.1-release/rpm-4.20.1.tar.bz2"
-    sha256 "52647e12638364533ab671cbc8e485c96f9f08889d93fe0ed104a6632661124f"
+    url "https://github.com/rpm-software-management/rpm/releases/download/rpm-6.0.1-release/rpm-6.0.1.tar.bz2"
+    sha256 "44fd2e1425885288ce8e8da8f18e6b85bd380332c2972554a85860af10f86d0f"
 
     # Backport commit needed to fix handling of -fhardened
     patch do
@@ -71,8 +70,8 @@ class Rpm < Formula
   conflicts_with "rpm2cpio", because: "both install `rpm2cpio` binaries"
 
   resource "rpm-sequoia" do
-    url "https://github.com/rpm-software-management/rpm-sequoia/archive/refs/tags/v1.8.0.tar.gz"
-    sha256 "a34de2923f07b2610de82baa42f664850a4caedc23c35b39df315d94cb5dc751"
+    url "https://github.com/rpm-software-management/rpm-sequoia/archive/refs/tags/v1.10.2.tar.gz"
+    sha256 "ba740c16657498bb1a5a2b04472728089992e93a83d3584f00854b112dfd45df"
 
     livecheck do
       url :url
