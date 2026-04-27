@@ -1,13 +1,13 @@
 class Pmix < Formula
   desc "Process Management Interface for HPC environments"
   homepage "https://openpmix.github.io/"
+
   license "BSD-3-Clause"
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
 
   stable do
-    url "https://github.com/openpmix/openpmix/releases/download/v5.0.10/pmix-5.0.10.tar.bz2"
-    sha256 "78663f6b932589d68e24feaf7f8a948d60be68d91965f3effbacb4cd88cf9a95"
+    url "https://github.com/openpmix/openpmix/releases/download/v6.1.0/pmix-6.1.0.tar.bz2"
+    sha256 "bb9021c8e100a376f5070ecca727f83a29b5f652dfe381793b88daa79a3b98a2"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -50,7 +50,7 @@ class Pmix < Formula
   def install
     # Avoid references to the Homebrew shims directory
     cc = OS.linux? ? "gcc" : ENV.cc
-    inreplace "src/tools/pmix_info/support.c", "PMIX_CC_ABSOLUTE", "\"#{cc}\""
+    inreplace "src/runtime/pmix_info_support.c", "PMIX_CC_ABSOLUTE", "\"#{cc}\""
 
     args = %W[
       --disable-silent-rules
@@ -83,6 +83,6 @@ class Pmix < Formula
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lpmix", "-o", "test"
     system "./test"
 
-    assert_match "PMIX: #{version}", shell_output("#{bin}/pmix_info --pretty-print")
+    assert_match "PMIx: #{version}", shell_output("#{bin}/pmix_info --pretty-print")
   end
 end
