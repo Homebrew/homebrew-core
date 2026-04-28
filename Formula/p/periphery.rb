@@ -16,21 +16,59 @@ class Periphery < Formula
 
   depends_on xcode: ["16.4", :build]
 
+  uses_from_macos "swift" => [:build, :test]
   uses_from_macos "curl"
   uses_from_macos "libxml2"
-  uses_from_macos "swift"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+    depends_on "zstd"
+  end
 
   def install
     args = if OS.mac?
       ["--disable-sandbox"]
     else
-      swift_cellar_libexec_lib = Formula["swift"].libexec/"lib"
-
-      ["--static-swift-stdlib", "-Xswiftc", "-use-ld=ld", "-Xlinker", "-L#{swift_cellar_libexec_lib}", "-Xlinker",
-       "-rpath", "-Xlinker", swift_cellar_libexec_lib.to_s]
+      ["--static-swift-stdlib", "-Xswiftc", "-use-ld=ld"]
     end
     system "swift", "build", *args, "--configuration", "release", "--product", "periphery"
     bin.install ".build/release/periphery"
+
+    if OS.mac?
+      toolchain_lib = Pathname(MacOS::CLT::PKG_PATH)/"usr/lib"
+      indexstore = toolchain_lib/"libIndexStore.dylib"
+      odie "Missing libIndexStore in #{toolchain_lib}" unless indexstore.exist?
+      lib.mkpath
+      cp indexstore, lib/"libIndexStore.dylib"
+
+      # The binary inherits an absolute Xcode toolchain rpath from the build environment.
+      # Replace it with a loader-relative path so the bundled lib is used instead.
+      MachO::Tools.add_rpath(bin/"periphery", "@loader_path/../lib")
+      MachO.open(bin/"periphery").rpaths.each do |path|
+        next if path != toolchain_lib.to_s && !path.start_with?("#{toolchain_lib}/")
+
+        MachO::Tools.delete_rpath(bin/"periphery", path)
+      end
+    else
+      swift_libexec_lib = Formula["swift"].opt_libexec/"lib"
+      indexstore = Dir[swift_libexec_lib/"libIndexStore.so*"].map { |path| Pathname(path) }
+      odie "Missing libIndexStore in #{swift_libexec_lib}" if indexstore.empty?
+      indexstore.each do |path|
+        lib.install path
+      end
+
+      # The binary inherits an absolute Swift toolchain rpath from the build environment.
+      # Replace it with a loader-relative path so the bundled lib is used instead.
+      swift_toolchain_rpaths = [swift_libexec_lib, Formula["swift"].libexec/"lib"].flat_map do |path|
+        [path.to_s, (path.realpath.to_s if path.exist?)]
+      end.compact
+      periphery = bin/"periphery"
+      rpaths = periphery.rpaths.reject do |path|
+        path == lib.to_s || swift_toolchain_rpaths.include?(path)
+      end
+      rpaths.unshift("$ORIGIN/../lib")
+      periphery.patch!(rpath: rpaths.uniq.join(":"))
+    end
 
     generate_completions_from_executable(bin/"periphery", "--generate-completion-script")
   end
