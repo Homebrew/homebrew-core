@@ -26,7 +26,7 @@ class Talosctl < Formula
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/talosctl"
 
-    generate_completions_from_executable(bin/"talosctl", "completion")
+    generate_completions_from_executable(bin/"talosctl", shell_parameter_format: :cobra)
   end
 
   test do
