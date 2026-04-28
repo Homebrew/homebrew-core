@@ -1,8 +1,8 @@
 class Martin < Formula
   desc "Blazing fast tile server, tile generation, and mbtiles tooling"
   homepage "https://martin.maplibre.org"
-  url "https://github.com/maplibre/martin/archive/refs/tags/martin-v1.6.0.tar.gz"
-  sha256 "242000c076906b5b1f82283f91182cb0b2b9a35db6b97c880282c980c43cd3e6"
+  url "https://github.com/maplibre/martin/archive/refs/tags/martin-v1.8.0.tar.gz"
+  sha256 "44002b33a7aab656d52e07700254c8370f289b9ed970f8f412d80da1ef7620c2"
   license any_of: ["Apache-2.0", "MIT"]
 
   livecheck do
@@ -20,9 +20,14 @@ class Martin < Formula
   end
 
   depends_on "node" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   uses_from_macos "sqlite" => :test
+
+  on_linux do
+    depends_on "openssl@4"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "martin")
