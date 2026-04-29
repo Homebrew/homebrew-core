@@ -19,6 +19,19 @@ class Xan < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(features: "parquet")
+    generate_completions_from_executable(bin/"xan", "completions", shells: [:bash])
+
+    (zsh_completion/"_xan").write <<~ZSH
+      #compdef xan
+
+      local -a completions
+      completions=("${(@f)$(xan compgen "$words[1]" "$words[CURRENT]" "$words[CURRENT - 1]")}")
+      if (( $#completions )); then
+        compadd -a completions
+      else
+        _default
+      fi
+    ZSH
   end
 
   test do
