@@ -31,7 +31,7 @@ class Dwarfs < Formula
   depends_on "libarchive"
   depends_on "lz4"
   depends_on "nlohmann-json"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "parallel-hashmap"
   depends_on "range-v3"
   depends_on "utf8cpp"
