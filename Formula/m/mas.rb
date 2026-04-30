@@ -2,8 +2,8 @@ class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/mas-cli/mas"
   url "https://github.com/mas-cli/mas.git",
-      tag:      "v6.0.1",
-      revision: "535562b304eb110700eb57f289317f7b5c41cb2d"
+      tag:      "v7.0.0",
+      revision: "7c70ffdfd9f71a654300a78b3b627782e6abe1b4"
   license "MIT"
   head "https://github.com/mas-cli/mas.git", branch: "main"
 
@@ -29,15 +29,17 @@ class Mas < Formula
 
   on_sonoma :or_older do
     depends_on "swift" => :build
+    depends_on "jq"
   end
 
   def install
     ENV["MAS_DIRTY_INDICATOR"] = ""
     system "Scripts/build", "homebrew/core/mas", "--disable-sandbox", "-c", "release"
-    bin.install ".build/release/mas"
+    (libexec/"bin").install ".build/release/mas"
+    bin.install "Scripts/mas"
     system "swift", "package", "--disable-sandbox", "generate-manual"
     man1.install ".build/plugins/GenerateManual/outputs/mas/mas.1"
-    bash_completion.install "contrib/completion/mas-completion.bash" => "mas"
+    bash_completion.install "contrib/completion/mas.bash" => "mas"
     fish_completion.install "contrib/completion/mas.fish"
   end
 
