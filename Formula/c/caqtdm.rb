@@ -17,8 +17,6 @@ class Caqtdm < Formula
   depends_on "qwt"
   depends_on "python"
   depends_on "zeromq"
-  depends_on "open62541"
-  depends_on "openssl@3"
   
 
   def install
@@ -33,7 +31,7 @@ class Caqtdm < Formula
     ENV["EPICSLIB"] = Formula["epicsbase"].opt_prefix
     ENV["EPICSLIB"] += "/lib/#{ENV["EPICS_HOST_ARCH"]}"
     ENV["CAQTDM_MODBUS"] = "1"
-    ENV["CAQTDM_OPCUA"] = "1"
+    
     ENV["CAQTDM_GPS"] = "1"
     ENV["PRODUCT_BUNDLE_IDENTIFIER"] = "ch.psi.caqtdm"
     ENV["QTDIR"] = Formula["qt"].opt_prefix
