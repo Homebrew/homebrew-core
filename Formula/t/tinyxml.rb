@@ -20,7 +20,6 @@ class Tinyxml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ade5525899de7063ade79d1b0dec70ceef3d0acc08e1dc1b55e937cb539ad38d"
   end
 
-
   depends_on "cmake" => :build
 
   # The first two patches are taken from the debian packaging of tinyxml.
