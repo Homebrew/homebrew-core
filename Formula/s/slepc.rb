@@ -1,8 +1,8 @@
 class Slepc < Formula
   desc "Scalable Library for Eigenvalue Problem Computations (real)"
   homepage "https://slepc.upv.es"
-  url "https://slepc.upv.es/download/distrib/slepc-3.24.3.tar.gz"
-  sha256 "3f13421f3fcd68fd720a143088506e0f91e24243844703997597eee793225452"
+  url "https://slepc.upv.es/download/distrib/slepc-3.25.1.tar.gz"
+  sha256 "906ddbe15a20774c23ddcdf13a5054889d00a26c3c37463447ee593c757d03ee"
   license "BSD-2-Clause"
 
   livecheck do
