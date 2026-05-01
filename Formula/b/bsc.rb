@@ -5,12 +5,12 @@ class Bsc < Formula
   head "https://github.com/B-Lang-org/bsc.git", branch: "main"
 
   stable do
-    url "https://github.com/B-Lang-org/bsc/archive/refs/tags/2025.07.tar.gz"
-    sha256 "5019721717ac27bf80a549ccdd0fadf57ac7fe08cfbd75b0de98569fa36780f7"
+    url "https://github.com/B-Lang-org/bsc/archive/refs/tags/2026.01.tar.gz"
+    sha256 "f9204b7d6efd6ac2b2c1b42c80b01d179319ac33575d258719eaf73be44d4ec5"
 
     resource "yices" do
-      url "https://github.com/B-Lang-org/bsc/releases/download/2025.07/yices-src-for-bsc-2025.07.tar.gz", using: :nounzip
-      sha256 "a7211d089be68303983cc644b70edaae8efab529ff63fd8670a4f20119888781"
+      url "https://github.com/B-Lang-org/bsc/releases/download/2026.01/yices-src-for-bsc-2026.01.tar.gz", using: :nounzip
+      sha256 "a5114c8f1e04a75a06598ac9763922f9186554b6f1326c1454b2e06deafd5575"
 
       livecheck do
         formula :parent
