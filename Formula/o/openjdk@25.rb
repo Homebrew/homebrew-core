@@ -13,6 +13,9 @@ class OpenjdkAT25 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2030-09-30", because: :"premier support ended"
+  disable! date: "2033-09-30", because: :"extended support ended"
+
   depends_on "autoconf" => :build
   depends_on "pkgconf" => :build
   depends_on xcode: :build # for metal
