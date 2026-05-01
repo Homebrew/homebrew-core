@@ -15,7 +15,7 @@ class Opensearch < Formula
   end
 
   depends_on "gradle@8" => :build
-  depends_on "openjdk@21" => :test
+  depends_on "openjdk@25" => :test
   depends_on "openjdk"
 
   def install
@@ -91,8 +91,8 @@ class Opensearch < Formula
   end
 
   test do
-    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
-    ENV["OPENSEARCH_JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
+    ENV["JAVA_HOME"] = Formula["openjdk@25"].opt_prefix
+    ENV["OPENSEARCH_JAVA_HOME"] = Formula["openjdk@25"].opt_prefix
 
     port = free_port
     (testpath/"data").mkdir

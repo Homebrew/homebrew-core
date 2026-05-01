@@ -15,7 +15,7 @@ class Glassfish < Formula
     sha256 cellar: :any_skip_relocation, all: "5b43ae892b1fa5ccd3ac98276a7c5788e9b1dfdade6cd918af24526811c4b643"
   end
 
-  depends_on "openjdk@21" => :test
+  depends_on "openjdk@25" => :test
   depends_on "openjdk"
 
   conflicts_with "payara", because: "both install the same scripts"
@@ -44,7 +44,7 @@ class Glassfish < Formula
   end
 
   test do
-    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
+    ENV["JAVA_HOME"] = Formula["openjdk@25"].opt_prefix
 
     port = free_port
     # `asadmin` needs this to talk to a custom port when running `asadmin version`
