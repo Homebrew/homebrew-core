@@ -10,6 +10,9 @@ class Benerator < Formula
     sha256 cellar: :any_skip_relocation, all: "f36cf8f7f24ff1551582eb0e052ea5365709c807b642c8fc38c8ef551e974e67"
   end
 
+  deprecate! date: "2026-05-02", because: :unmaintained
+  disable! date: "2027-05-02", because: :unmaintained
+
   depends_on "openjdk@11"
 
   def install
