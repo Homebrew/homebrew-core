@@ -16,6 +16,9 @@ class Hbase < Formula
     sha256 x86_64_linux:  "ca2ccf74243eb40d117b1ec7209c0089b1f9824b3f2dde1a5f0347ac926aba9c"
   end
 
+  deprecate! date: "2026-05-02", because: :unmaintained
+  disable! date: "2027-05-02", because: :unmaintained
+
   depends_on "ant" => :build
   depends_on "lzo"
   depends_on "openjdk@11"
