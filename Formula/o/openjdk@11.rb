@@ -22,6 +22,9 @@ class OpenjdkAT11 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2023-09-30", because: :unmaintained
+  disable! date: "2032-01-31", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "pkgconf" => :build
   depends_on "freetype"
