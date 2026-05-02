@@ -28,6 +28,9 @@ class CfrDecompiler < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b236e8effb84d1da66a9eec9c6b4d857d3471da8de57543ac7d029adb09b9eed"
   end
 
+  deprecate! date: "2026-05-02", because: :unmaintained
+  disable! date: "2027-05-02", because: :unmaintained
+
   depends_on "maven" => :build
   depends_on "openjdk@11"
 
