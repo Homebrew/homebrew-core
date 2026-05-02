@@ -29,11 +29,11 @@ class CfrDecompiler < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk@11"
+  depends_on "openjdk@21"
 
   def install
     # build
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
     system Formula["maven"].bin/"mvn", "package"
 
     cd "target" do
@@ -51,13 +51,13 @@ class CfrDecompiler < Formula
 
       # install library and binary
       libexec.install lib_jar
-      bin.write_jar_script libexec/lib_jar, "cfr-decompiler", java_version: "11"
+      bin.write_jar_script libexec/lib_jar, "cfr-decompiler", java_version: "21"
 
       # install library docs
       doc.install doc_jar
       mkdir doc/"javadoc"
       cd doc/"javadoc" do
-        system Formula["openjdk@11"].bin/"jar", "-xf", doc/doc_jar
+        system Formula["openjdk@21"].bin/"jar", "-xf", doc/doc_jar
         rm_r("META-INF")
       end
     end
@@ -78,7 +78,7 @@ class CfrDecompiler < Formula
       }
     JAVA
     (testpath/"T.java").write fixture
-    system Formula["openjdk@11"].bin/"javac", "T.java"
+    system Formula["openjdk@21"].bin/"javac", "T.java"
     output = pipe_output("#{bin}/cfr-decompiler --comments false T.class")
     assert_match fixture, output
   end
