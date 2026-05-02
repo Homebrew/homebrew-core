@@ -32,12 +32,11 @@ class CfrDecompiler < Formula
   depends_on "openjdk@21"
 
   def install
-    # build
     ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
+    # changing the compiler because 6 is used by upstream and openjdk no longer supports it
     system Formula["maven"].bin/"mvn", "package", "-Dmaven.compiler.source=8", "-Dmaven.compiler.target=8"
 
     cd "target" do
-      # switch on jar names
       if build.head?
         lib_jar = Dir["cfr-*-SNAPSHOT.jar"]
         doc_jar = Dir["cfr-*-SNAPSHOT-javadoc.jar"]
