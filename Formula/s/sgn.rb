@@ -1,8 +1,8 @@
 class Sgn < Formula
   desc "Shikata ga nai (仕方がない) encoder ported into go with several improvements"
   homepage "https://github.com/EgeBalci/sgn"
-  url "https://github.com/EgeBalci/sgn/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "a4ae48aa14dcf27ac8ed6850fb87fa97049062aa3152065c50a20effc0b98234"
+  url "https://github.com/EgeBalci/sgn/archive/refs/tags/v2.0.2.tar.gz"
+  sha256 "eb5d5636e7fa701e646fd321cd47adb0ded8650af1532315ddd493aff06c4c22"
   license "MIT"
   head "https://github.com/EgeBalci/sgn.git", branch: "master"
 
