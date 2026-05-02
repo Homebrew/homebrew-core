@@ -34,7 +34,7 @@ class CfrDecompiler < Formula
   def install
     # build
     ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
-    system Formula["maven"].bin/"mvn", "package"
+    system Formula["maven"].bin/"mvn", "package", "-Dmaven.compiler.source=8", "-Dmaven.compiler.target=8"
 
     cd "target" do
       # switch on jar names
