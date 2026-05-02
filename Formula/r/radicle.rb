@@ -24,9 +24,8 @@ class Radicle < Formula
   depends_on "asciidoctor" => :build
   depends_on "rust" => :build
 
-  depends_on "openssh"
-
   on_linux do
+    depends_on "openssh"
     depends_on "zlib-ng-compat"
   end
 
