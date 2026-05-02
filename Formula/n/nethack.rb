@@ -7,9 +7,9 @@ class Nethack < Formula
   head "https://github.com/NetHack/NetHack.git", branch: "NetHack-3.7"
 
   stable do
-    url "https://www.nethack.org/download/3.6.7/nethack-367-src.tgz"
-    version "3.6.7"
-    sha256 "98cf67df6debf9668a61745aa84c09bcab362e5d33f5b944ec5155d44d2aacb2"
+    url "https://nethack.org/download/5.0.0/nethack-500-src.tgz"
+    version "5.0.0"
+    sha256 "2959b7886aac76185b90aea0c9f80d14343f604de0ae96b3dd2a760f7ab3bde9"
 
     # add macos patch, upstream PR ref, https://github.com/NetHack/NetHack/pull/988
     patch do
