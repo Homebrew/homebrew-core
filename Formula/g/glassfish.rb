@@ -8,8 +8,7 @@ class Glassfish < Formula
 
   livecheck do
     url "https://download.eclipse.org/ee4j/glassfish/"
-    regex(/href=.*?glassfish[._-]v?(
-\d+(?:\.\d+)+)\.zip/i)
+    regex(/href=.*?glassfish[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
   bottle do
@@ -17,7 +16,6 @@ class Glassfish < Formula
   end
 
   depends_on "openjdk"
-  depends_on "openjdk@21" => :test
 
   conflicts_with "payara", because: "both install the same scripts"
 
@@ -45,8 +43,6 @@ class Glassfish < Formula
   end
 
   test do
-    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
-
     port = free_port
     # `asadmin` needs this to talk to a custom port when running `asadmin version`
     ENV["AS_ADMIN_PORT"] = port.to_s

@@ -23,6 +23,9 @@ class OpenjdkAT8 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2022-03-13", because: :unmaintained
+  disable! date: "2030-12-31", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "pkgconf" => :build
   depends_on "freetype"

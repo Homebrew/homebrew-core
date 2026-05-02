@@ -22,6 +22,9 @@ class OpenjdkAT17 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2026-09-30", because: :unmaintained
+  disable! date: "2029-09-30", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "pkgconf" => :build
   depends_on xcode: :build # for metal
