@@ -4,6 +4,7 @@ class Liboqs < Formula
   url "https://github.com/open-quantum-safe/liboqs/archive/refs/tags/0.15.0.tar.gz"
   sha256 "3983f7cd1247f37fb76a040e6fd684894d44a84cecdcfbdb90559b3216684b5c"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,12 +23,12 @@ class Liboqs < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "ninja" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     args = %W[
       -DOQS_USE_OPENSSL=ON
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@4"].opt_prefix}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -40,8 +41,8 @@ class Liboqs < Formula
   test do
     cp pkgshare/"tests/example_kem.c", "test.c"
     system ENV.cc, "test.c",
-                  "-I#{Formula["openssl@3"].include}", "-I#{include}",
-                  "-L#{Formula["openssl@3"].lib}", "-L#{lib}",
+                  "-I#{Formula["openssl@4"].include}", "-I#{include}",
+                  "-L#{Formula["openssl@4"].lib}", "-L#{lib}",
                   "-loqs", "-lssl", "-lcrypto", "-o", "test"
     assert_match "operations completed", shell_output("./test")
   end
