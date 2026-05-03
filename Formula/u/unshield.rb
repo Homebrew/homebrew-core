@@ -4,6 +4,7 @@ class Unshield < Formula
   url "https://github.com/twogood/unshield/archive/refs/tags/1.6.2.tar.gz"
   sha256 "a937ef596ad94d16e7ed2c8553ad7be305798dcdcfd65ae60210b1e54ab51a2f"
   license "MIT"
+  revision 1
   head "https://github.com/twogood/unshield.git", branch: "main"
 
   bottle do
@@ -17,7 +18,7 @@ class Unshield < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
