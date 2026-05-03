@@ -4,6 +4,7 @@ class Monetdb < Formula
   url "https://www.monetdb.org/downloads/sources/Dec2025-SP2/MonetDB-11.55.5.tar.xz"
   sha256 "480c921a45b54c610dee9a17147f0e89ae74c31516b9250e5c8f2371e1bd70c2"
   license "MPL-2.0"
+  revision 1
   head "https://www.monetdb.org/hg/MonetDB", using: :hg
 
   livecheck do
@@ -26,7 +27,7 @@ class Monetdb < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "readline" # Compilation fails with libedit
   depends_on "xz"
