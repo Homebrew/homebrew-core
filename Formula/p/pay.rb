@@ -1,9 +1,9 @@
 class Pay < Formula
   desc "HTTP client that automatically handles 402 Payment Required"
   homepage "https://github.com/solana-foundation/pay"
-  url "https://github.com/solana-foundation/pay/archive/refs/tags/pay-v0.12.0.tar.gz"
-  sha256 "78b0302f978ae9d6f9a9710e76d781bf9a7eee7e609eae59dfa75ca9206c4bbf"
-  license "Apache-2.0"
+  url "https://github.com/solana-foundation/pay/archive/refs/tags/pay-v0.13.0.tar.gz"
+  sha256 "bde6bea2bb39b2ba8997d8719fc7e42d10b7cc2239dd756fd29ed16601cce2df"
+  license "MIT"
   head "https://github.com/solana-foundation/pay.git", branch: "main"
 
   livecheck do
@@ -35,7 +35,7 @@ class Pay < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/pay --version")
 
-    expected = "no recognized payment protocol"
-    assert_match expected, shell_output("#{bin}/pay --output=text fetch https://httpbin.org/status/402 2>&1")
+    expected = "No pay account configured"
+    assert_match expected, shell_output("#{bin}/pay --no-dna fetch https://httpbin.org/status/402 2>&1", 1)
   end
 end
