@@ -4,6 +4,7 @@ class SagittariusScheme < Formula
   url "https://github.com/ktakashi/sagittarius-scheme/releases/download/v0.9.14/sagittarius-0.9.14.tar.gz"
   sha256 "2f464a0a249b9de59ed7e7338fcdf1f9b0873d9c35bae612749c0a1e9e2a4e79"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,7 @@ class SagittariusScheme < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "bdw-gc"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "unixodbc"
 
   uses_from_macos "libffi"
