@@ -4,6 +4,7 @@ class Libre < Formula
   url "https://github.com/baresip/re/archive/refs/tags/v4.7.0.tar.gz"
   sha256 "b9fd286e30df103b3e06be2f821503d6f21551002737c4b8f47cf8db30dd5e19"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c4849b9398137a10a5ba3ffab29c7a1a6223b84c62defb5443cf2a308082abe9"
@@ -15,10 +16,21 @@ class Libre < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # OpenSSL 4+ support:
+  # PR ref: https://github.com/baresip/re/pull/1570, https://github.com/baresip/re/pull/1572
+  patch do
+    url "https://github.com/baresip/re/commit/3fe6bd197545e800cd3e027c04d50e8ef27e6aa1.patch?full_index=1"
+    sha256 "10c98b0ca73055eeccf0e70cb7eaf1d153025acaa6774444570d15eb83a45118"
+  end
+  patch do
+    url "https://github.com/baresip/re/commit/6d9dc45866766df9f74f7371e81baa00fbc7efb5.patch?full_index=1"
+    sha256 "f259c04500bfa7afc01f23b358abe2fe9cac1ebbe6e508ad8371ffcbeaccf8c9"
   end
 
   def install
