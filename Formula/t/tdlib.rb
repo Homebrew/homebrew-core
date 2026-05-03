@@ -4,6 +4,7 @@ class Tdlib < Formula
   url "https://github.com/tdlib/td/archive/refs/tags/v1.8.0.tar.gz"
   sha256 "30d560205fe82fb811cd57a8fcbc7ac853a5b6195e9cb9e6ff142f5e2d8be217"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/tdlib/td.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Tdlib < Formula
 
   depends_on "cmake" => :build
   depends_on "gperf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "readline"
 
   on_linux do
