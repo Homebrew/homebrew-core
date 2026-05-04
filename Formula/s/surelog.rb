@@ -8,12 +8,12 @@ class Surelog < Formula
   head "https://github.com/chipsalliance/Surelog.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0978fd1dbcfe7d7bb43219ad2be34f104c1ab1a2ed0f04e1a31821bfdc7c8d12"
-    sha256 cellar: :any,                 arm64_sequoia: "12181b6b8eb393a178a5c156814b71cb16b6bbacf405b66e0f69c4940505647b"
-    sha256 cellar: :any,                 arm64_sonoma:  "ee77a01b7424f9b02d68f0dfa0d9c3f0b600276edc193e643fdaefddb2c9977c"
-    sha256 cellar: :any,                 sonoma:        "81f5930c01af25a0952ea3edbcc6638814fa2a3ea8c7d67343278470e7f541ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "baf400ac5af969702fcdc432fed2afdf7722cc2c5f8b6b1ba49f44dc5964d4dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cd2cd9d2f89d3771e7a7e1416756a9ae50f613bb189a2051c3187de09e8e8c8"
+    sha256 cellar: :any,                 arm64_tahoe:   "a9a184381e13dd4203297fc30ef4ab2b558d1928173890a5f691b408628c874e"
+    sha256 cellar: :any,                 arm64_sequoia: "f739758f803f9a0d57d4cee64bde8f1796df99d87b422a6c62698ab4fec7dab9"
+    sha256 cellar: :any,                 arm64_sonoma:  "3fead09571986e46436c02be39ffede9d21eaf6b4741a00ab2008d58531cb310"
+    sha256 cellar: :any,                 sonoma:        "eaa7d25eca0f82ec107faf3b1c76f98a7970378f5565aa1a59bbb2b5c4e1791c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf74e46e01f5fae04ccb6b23c241db056b2f337ce409ea1f58d54b2d36acf793"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e50811edef0de0103f097c6e799ba6a64472ab03d44062c64c3009cbb95a6173"
   end
 
   depends_on "antlr" => :build
