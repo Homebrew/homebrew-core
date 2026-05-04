@@ -6,6 +6,7 @@ class Openldap < Formula
   mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.13.tgz"
   sha256 "d693b49517a42efb85a1a364a310aed16a53d428d1b46c0d31ef3fba78fcb656"
   license "OLDAP-2.8"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -24,7 +25,7 @@ class Openldap < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "mandoc" => :build
   uses_from_macos "cyrus-sasl"
@@ -38,6 +39,9 @@ class Openldap < Formula
     url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
+
+  # OpenSSL 4 makes ASN1_STRING opaque.
+  patch :DATA
 
   def install
     args = %W[
@@ -97,3 +101,82 @@ class Openldap < Formula
     system sbin/"slappasswd", "-s", "test"
   end
 end
+
+__END__
+diff --git a/libraries/libldap/tls_o.c b/libraries/libldap/tls_o.c
+index 1765a6d..9f55fe0 100644
+--- a/libraries/libldap/tls_o.c
++++ b/libraries/libldap/tls_o.c
+@@ -975,6 +975,8 @@ tlso_session_chkhost( LDAP *ld, tls_session *sess, const char *name_in )
+ 		ASN1_OBJECT *obj;
+ 		ASN1_STRING *cn = NULL;
+ 		int navas;
++		const unsigned char *cn_data;
++		int cn_len;
+ 
+ 		/* find the last CN */
+ 		obj = OBJ_nid2obj( NID_commonName );
+@@ -999,35 +1001,41 @@ no_cn:
+ 			ld->ld_error = LDAP_STRDUP(
+ 				_("TLS: unable to get CN from peer certificate"));
+ 
+-		} else if ( cn->length == nlen &&
+-			strncasecmp( name, (char *) cn->data, nlen ) == 0 ) {
+-			ret = LDAP_SUCCESS;
++		} else {
++			cn_data = ASN1_STRING_get0_data( cn );
++			cn_len = ASN1_STRING_length( cn );
+ 
+-		} else if (( cn->data[0] == '*' ) && ( cn->data[1] == '.' )) {
+-			char *domain = strchr(name, '.');
+-			if( domain ) {
+-				int dlen;
++			if ( cn_data && cn_len == nlen &&
++				strncasecmp( name, (const char *) cn_data, nlen ) == 0 ) {
++				ret = LDAP_SUCCESS;
+ 
+-				dlen = nlen - (domain-name);
++			} else if ( cn_data && cn_len > 1 &&
++				( cn_data[0] == '*' ) && ( cn_data[1] == '.' )) {
++				char *domain = strchr(name, '.');
++				if( domain ) {
++					int dlen;
+ 
+-				/* Is this a wildcard match? */
+-				if ((dlen == cn->length-1) &&
+-					!strncasecmp(domain, (char *) &cn->data[1], dlen)) {
+-					ret = LDAP_SUCCESS;
++					dlen = nlen - (domain-name);
++
++					/* Is this a wildcard match? */
++					if ((dlen == cn_len-1) &&
++						!strncasecmp(domain, (const char *) &cn_data[1], dlen)) {
++						ret = LDAP_SUCCESS;
++					}
+ 				}
+ 			}
+-		}
+ 
+-		if( ret == LDAP_LOCAL_ERROR ) {
+-			Debug3( LDAP_DEBUG_ANY, "TLS: hostname (%s) does not match "
+-				"common name in certificate (%.*s).\n", 
+-				name, cn->length, cn->data );
+-			ret = LDAP_CONNECT_ERROR;
+-			if ( ld->ld_error ) {
+-				LDAP_FREE( ld->ld_error );
++			if( ret == LDAP_LOCAL_ERROR ) {
++				Debug3( LDAP_DEBUG_ANY, "TLS: hostname (%s) does not match "
++					"common name in certificate (%.*s).\n", 
++					name, cn_len, cn_data ? (char *) cn_data : "" );
++				ret = LDAP_CONNECT_ERROR;
++				if ( ld->ld_error ) {
++					LDAP_FREE( ld->ld_error );
++				}
++				ld->ld_error = LDAP_STRDUP(
++					_("TLS: hostname does not match name in peer certificate"));
+ 			}
+-			ld->ld_error = LDAP_STRDUP(
+-				_("TLS: hostname does not match name in peer certificate"));
+ 		}
+ 	}
+ done:
