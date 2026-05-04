@@ -8,6 +8,15 @@ class Cutadapt < Formula
       revision: "ef852629f667637439f28761499bb56126e390a1"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b7435a5334637e1cac9fc9682aae40a0807cb52ecc8559d4cd7f127b74e185c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6191683861ae3b20d47010fe1a76def344285fd0e53878ae76949a8b131346af"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cce57d4c939e86b80f702243984b4c74b6830c4e1d7b760255820ad1c225b6b1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a4d1fcf14494014bacfd1a6791252e6476762a071ac8332daa24dc875b61e3a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e6931901df9dc23b3858f38d1a0794052062f4e91d78cdef245ee2daac594a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65d6ebdce3764e07bb923ed83763443dd031c48e7eed780a4d683069361e0ef5"
+  end
+
   depends_on "python@3.14"
 
   on_intel do
