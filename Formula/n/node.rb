@@ -4,7 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v25.9.0/node-v25.9.0.tar.xz"
   sha256 "8f78af3ee55fb278668b5f801db58bd1a38ea161318eb5ce2128ddbc9cd813aa"
   license "MIT"
-  revision 3
+  revision 4
   compatibility_version 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -36,7 +36,7 @@ class Node < Formula
   depends_on "llhttp"
   depends_on "merve"
   depends_on "nbytes"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "simdjson"
   depends_on "sqlite" # Fails with macOS sqlite.
   depends_on "uvwasi"
@@ -122,7 +122,7 @@ class Node < Formula
       "nghttp2"       => ["nghttp2",         "libnghttp2"],
       "nghttp3"       => ["ngtcp2/nghttp3",  "libnghttp3"],
       "ngtcp2"        => ["ngtcp2",          "libngtcp2"],
-      "openssl"       => ["openssl/openssl", "openssl@3"],
+      "openssl"       => ["openssl/openssl", "openssl@4"],
       "simdjson"      => ["simdjson",        "simdjson"],
       "sqlite"        => ["sqlite",          "sqlite"],
       "uvwasi"        => ["uvwasi",          "uvwasi"],
