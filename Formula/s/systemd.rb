@@ -27,6 +27,7 @@ class Systemd < Formula
     { any_of: ["MIT", "GPL-2.0-or-later" => { with: "Linux-syscall-note" }] },
     { any_of: ["GPL-2.0-only", "BSD-2-Clause"] },
   ]
+  revision 1
   compatibility_version 1
   head "https://github.com/systemd/systemd.git", branch: "main"
 
@@ -53,7 +54,7 @@ class Systemd < Formula
   depends_on "libxcrypt"
   depends_on :linux
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "util-linux" # for libmount
   depends_on "xz"
   depends_on "zstd"
