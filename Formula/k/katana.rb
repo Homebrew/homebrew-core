@@ -1,8 +1,8 @@
 class Katana < Formula
   desc "Crawling and spidering framework"
   homepage "https://github.com/projectdiscovery/katana"
-  url "https://github.com/projectdiscovery/katana/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "ee18fd5d0bf3e8f6c73fdc77c7b874dfa993d0e4b5f8d4e475eaea2ce62d8bdb"
+  url "https://github.com/projectdiscovery/katana/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "c3518fabdc2a59e579e8286324d7be495972f71f7d672ff112f01239aa9f81ce"
   license "MIT"
   head "https://github.com/projectdiscovery/katana.git", branch: "dev"
 
@@ -18,9 +18,21 @@ class Katana < Formula
   depends_on "go" => :build
 
   def install
-    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+    ENV["CGO_ENABLED"] = "0"
 
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/katana"
+    # Replace self-update with a notice; brew manages updates.
+    inreplace "internal/runner/banner.go" do |s|
+      s.gsub! 'updateutils "github.com/projectdiscovery/utils/update"',
+              '_ "github.com/projectdiscovery/utils/update"'
+      s.gsub! 'updateutils.GetUpdateToolCallback("katana", version)()',
+              'gologger.Info().Msgf("Run `brew upgrade katana` to update.")'
+    end
+
+    ldflags = %W[
+      -s -w
+      -X github.com/projectdiscovery/katana/internal/runner.version=v#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/katana"
   end
 
   test do
