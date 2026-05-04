@@ -7,12 +7,12 @@ class Llmfit < Formula
   head "https://github.com/AlexsJones/llmfit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "23017f443c739123467ce82719bee7b34651fc33640761482a50906193f1cf6e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "00ccc476c7d6694541bdad25f912cffc57d4ffae4248f620a3f86301d22cca21"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "87ed4e571b7b114cfa69061b4ac3cacc2274a7a64863d05759e73ba2df6b51ed"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f94ba0240b6c79509e213c1c8741c643647bb87744d8ed0e812f43f0816c6440"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f3ef4b6be19b1bfaf161a77ffd2a055c527931298717623dd9c71c73130f74a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e97ed4e409dc0da07cc3642168a84315580ff7a57bca73715a9e9ab6cc5a719a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6a3badbfdd25f526cfcfd944f861d4cd0f7d0a353afe3930a6b8531d463a8079"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3dd93a88d61aa839f9ae0f6a99c74f67cd69f35b3bbfd0e269382245b8ed5c7a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bc4cf03675bc2dab16b3f3702cfa6f8f535992f7995c0f3b40e286e7f283b567"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5596a5f3302edde36a564d6dd7e3910c155f951b0e665cdcf142116f164709fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c39bd96750bac75e5bc4615a36890355f05b14a845954c6b515e17860da2972"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98cc32121af2764f59f87f7293b1cf03479d2024a730b1cf0ebd15a6db736c16"
   end
 
   depends_on "rust" => :build
