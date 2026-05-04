@@ -1,8 +1,8 @@
 class Mole < Formula
   desc "Deep clean and optimize your Mac"
   homepage "https://github.com/tw93/Mole"
-  url "https://github.com/tw93/Mole/archive/refs/tags/V1.36.3.tar.gz"
-  sha256 "0257c0a47e9c766eafb81dd6b6221f1f74f864336c26b7570fcac0e427138f53"
+  url "https://github.com/tw93/Mole/archive/refs/tags/V1.37.0.tar.gz"
+  sha256 "240c8e1791b7f1472621efb090a78ab4bf435ec6046dae9b1fae15991a11588e"
   license "MIT"
   head "https://github.com/tw93/Mole.git", branch: "main"
 
@@ -34,7 +34,7 @@ class Mole < Formula
 
     inreplace "mole", 'SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"',
                       "SCRIPT_DIR='#{libexec}'"
-    inreplace "mole", 'VERSION="1.36.2"', "VERSION=\"#{version}\""
+
     libexec.install "bin", "lib"
     bin.install "mole"
     bin.install_symlink bin/"mole" => "mo"
