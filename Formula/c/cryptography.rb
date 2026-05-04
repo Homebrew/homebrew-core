@@ -4,6 +4,7 @@ class Cryptography < Formula
   url "https://files.pythonhosted.org/packages/ef/b2/7ffa7fe8207a8c42147ffe70c3e360b228160c1d85dc3faff16aaa3244c0/cryptography-47.0.0.tar.gz"
   sha256 "9f8e55fe4e63613a5e1cc5819030f27b97742d720203a087802ce4ce9ceb52bb"
   license any_of: ["Apache-2.0", "BSD-3-Clause"]
+  revision 1
   compatibility_version 1
   head "https://github.com/pyca/cryptography.git", branch: "main"
 
@@ -23,7 +24,7 @@ class Cryptography < Formula
   depends_on "python@3.14" => [:build, :test]
   depends_on "rust" => :build
   depends_on "cffi"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   pypi_packages exclude_packages: ["cffi", "pycparser"]
 
