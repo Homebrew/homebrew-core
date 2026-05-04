@@ -4,6 +4,7 @@ class Rust < Formula
   url "https://static.rust-lang.org/dist/rustc-1.95.0-src.tar.gz"
   sha256 "ea9b82a83e46967537c3569ce9d6fa16811c043a96e651376c349e70241ca515"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   compatibility_version 1
   head "https://github.com/rust-lang/rust.git", branch: "main"
 
@@ -19,7 +20,7 @@ class Rust < Formula
   depends_on "libgit2"
   depends_on "libssh2"
   depends_on "llvm"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pkgconf"
   depends_on "zstd"
 
@@ -115,7 +116,7 @@ class Rust < Formula
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://docs.rs/openssl/latest/openssl/#manual
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@4"].opt_prefix
 
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
@@ -229,8 +230,8 @@ class Rust < Formula
       bin/"cargo" => [
         Formula["libgit2"].opt_lib/shared_library("libgit2"),
         Formula["libssh2"].opt_lib/shared_library("libssh2"),
-        Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
-        Formula["openssl@3"].opt_lib/shared_library("libssl"),
+        Formula["openssl@4"].opt_lib/shared_library("libcrypto"),
+        Formula["openssl@4"].opt_lib/shared_library("libssl"),
       ],
     }
     unless OS.mac?
