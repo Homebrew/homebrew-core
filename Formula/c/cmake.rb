@@ -6,6 +6,7 @@ class Cmake < Formula
   mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.3.2.tar.gz"
   sha256 "b0231eb39b3c3cabdc568c619df78208a7bd95ea10c9b2236d61218bac1b367d"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
@@ -31,7 +32,7 @@ class Cmake < Formula
   uses_from_macos "ncurses"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   conflicts_with cask: "cmake-app"
