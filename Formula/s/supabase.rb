@@ -12,12 +12,12 @@ class Supabase < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d223d9f4b55e6c37da042765aad1a04a59e4dbb63c9e55e955b4700aeebfc70f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a761af3ef32658f71bfef5db8d822f34d1c925c45e77d7d9a0b76620bd9cb604"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd3f9d65b0f9aab006aa2f848a50ba4cd0cd85f9a896c6161e9528739853ce5a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c6a065ec3ade18e0cf085c6cd8e646a8bd63fd86e4e7646cdfebb411ed487a69"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "32f9c6fa767f7b928f25267ee6b0462fe42ae89c25e7a7e9e30b2c493bd1bbce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac6d98c1c82ee16334981acc44a50cb91d030809c7250ebe1d35cbd2fd9dd24b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96000ecbfb9d43e29886f67b5d5b1b8a6aa3b6571d0cc264cec43e8bb95d537a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c820cd0b60fa15a3886a16e6cb8b27a1d6de09a0c8d906af5ea47d9a08d4e909"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5367af140ee49ec89185470a9dd78c0e55a8506ddbe6df3dd279f66a7ebdd6fc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2e446d289fbf6c2a9c9c43c51a3e646c34f79ada6f59639192194e376f289199"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3284f2cb9ca1297fd0d9e9ee940e61bfa00ef677dcacb83bb53ec3234dce27f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52020a97e67896ec6430eacff1b9e8609221c30cc6aa4ef675b2316db715fa3c"
   end
 
   depends_on "go" => :build
