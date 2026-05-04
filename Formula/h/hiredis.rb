@@ -4,6 +4,7 @@ class Hiredis < Formula
   url "https://github.com/redis/hiredis/archive/refs/tags/v1.3.0.tar.gz"
   sha256 "25cee4500f359cf5cad3b51ed62059aadfc0939b05150c1f19c7e2829123631c"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
   head "https://github.com/redis/hiredis.git", branch: "master"
 
@@ -18,7 +19,7 @@ class Hiredis < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0280a87a599747410042bebf2811c9c20bbe2ca577e066daa784a5ad5e1ffa31"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "USE_SSL=1"
