@@ -2,6 +2,7 @@ class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
+  revision 1
   compatibility_version 1
   head "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git", branch: "master"
 
@@ -40,7 +41,7 @@ class Pulseaudio < Formula
   depends_on "libsndfile"
   depends_on "libsoxr"
   depends_on "libtool"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "orc"
   depends_on "speexdsp"
 
