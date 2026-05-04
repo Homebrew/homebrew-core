@@ -1,8 +1,8 @@
 class Hpack < Formula
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
-  url "https://hackage.haskell.org/package/hpack-0.39.3/hpack-0.39.3.tar.gz"
-  sha256 "75c51500435219f30ef685ef53c91f56c7addeee1eac01c86e96878188f83ab2"
+  url "https://hackage.haskell.org/package/hpack-0.39.5/hpack-0.39.5.tar.gz"
+  sha256 "605e69f2ffe5974bfb6cbc4be203e998389ad79c1590bcf0faafa8d7c085a471"
   license "MIT"
   head "https://github.com/sol/hpack.git", branch: "main"
 
