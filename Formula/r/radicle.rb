@@ -13,12 +13,13 @@ class Radicle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4d208f5a25bbab7fa45a173aa7fc5d9a2110553a59edab74c64e885c1f4f7d20"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2ae0b766779e9b8869000ef68776693e0c7709c9abc40dadb0a5489d4660ede0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d0104b90ae5a07c926ead686f255078e6ea512fe4ea52e0390a904b860eecc0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f8f4631c56c352441e6000fec0a921b9655cd54e064b669bbae56474ccb09076"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e42a705b7fd6dd5203491791ea3943af98ea6b81c6da04f0dcf3bba476c8563f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "326623a7b34c86eef1c598e00f5be67fe3a0fc730ed38fdda76876512c1cdc33"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "34545b51cb33bec8fbeac1222e565be8cd15c9bbc9d9fed4204dd6e31fb5dfd9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44c502f24d3975fb3a20a97d42def993a56aba17d51d80ffa8838034583075a8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d58f5fe25736f51bbddef93b63d6cd5682f7c8a7020b4fe64c61a6a1c8d1e8b7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cb1151556ba90bdf9029a89e4811cba1a89022039aa8e0d908c5526dd1cefd85"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "033b01a508cdfebe47ba179e9d3fdda88dec6c8a4aa304943c79df87c8ebd4be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8d2086f63462492179123fcc541be069bb9aedd2fb7f1abef536b409f697161"
   end
 
   depends_on "asciidoctor" => :build
