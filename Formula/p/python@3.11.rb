@@ -4,7 +4,7 @@ class PythonAT311 < Formula
   url "https://www.python.org/ftp/python/3.11.15/Python-3.11.15.tgz"
   sha256 "f4de1b10bd6c70cbb9fa1cd71fc5038b832747a74ee59d599c69ce4846defb50"
   license "Python-2.0"
-  revision 1
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -28,7 +28,7 @@ class PythonAT311 < Formula
 
   depends_on "pkgconf" => :build
   depends_on "mpdecimal"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "sqlite"
   depends_on "xz"
 
@@ -91,6 +91,9 @@ class PythonAT311 < Formula
     sha256 "d1a29b3c9ecf8aecd65e1e54efc42fb1422b2f5d05cba0c747178f4ef8a69683"
   end
 
+  # Backport OpenSSL 4 compatibility, upstream issue python/cpython#146207.
+  patch :DATA
+
   def lib_cellar
     on_macos do
       return frameworks/"Python.framework/Versions"/version.major_minor/"lib/python#{version.major_minor}"
@@ -138,7 +141,7 @@ class PythonAT311 < Formula
       --datadir=#{share}
       --without-ensurepip
       --enable-loadable-sqlite-extensions
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
+      --with-openssl=#{Formula["openssl@4"].opt_prefix}
       --enable-optimizations
       --with-system-expat
       --with-system-libmpdec
@@ -201,7 +204,7 @@ class PythonAT311 < Formula
     # `brew install enchant && pip install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
-              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@3"].opt_lib}',"
+              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@4"].opt_lib}',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 
@@ -534,3 +537,88 @@ class PythonAT311 < Formula
     system bin/"pip#{version.major_minor}", "list", "--format=columns"
   end
 end
+
+__END__
+--- a/Modules/_ssl.c
++++ b/Modules/_ssl.c
+@@ -120,6 +120,17 @@
+ #include "_ssl_data.h"
+ #endif
+ 
++#if (OPENSSL_VERSION_NUMBER >= 0x40000000L)
++#  define OPENSSL_NO_SSL3
++#  define OPENSSL_NO_TLS1
++#  define OPENSSL_NO_TLS1_1
++#  define OPENSSL_NO_TLS1_2
++#  define OPENSSL_NO_SSL3_METHOD
++#  define OPENSSL_NO_TLS1_METHOD
++#  define OPENSSL_NO_TLS1_1_METHOD
++#  define OPENSSL_NO_TLS1_2_METHOD
++#endif
++
+ /* OpenSSL API 1.1.0+ does not include version methods */
+ #ifndef OPENSSL_NO_SSL3_METHOD
+ extern const SSL_METHOD *SSLv3_method(void);
+@@ -1346,15 +1357,15 @@
+                 }
+                 PyTuple_SET_ITEM(t, 0, v);
+ 
+-                if (name->d.ip->length == 4) {
+-                    unsigned char *p = name->d.ip->data;
++                if (ASN1_STRING_length(name->d.ip) == 4) {
++                    const unsigned char *p = ASN1_STRING_get0_data(name->d.ip);
+                     v = PyUnicode_FromFormat(
+                         "%d.%d.%d.%d",
+                         p[0], p[1], p[2], p[3]
+                     );
+-                } else if (name->d.ip->length == 16) {
++                } else if (ASN1_STRING_length(name->d.ip) == 16) {
+                     /* PyUnicode_FromFormat() does not support %X */
+-                    unsigned char *p = name->d.ip->data;
++                    const unsigned char *p = ASN1_STRING_get0_data(name->d.ip);
+                     len = sprintf(
+                         buf,
+                         "%X:%X:%X:%X:%X:%X:%X:%X",
+@@ -1487,8 +1498,9 @@
+             continue;
+         }
+         uri = ad->location->d.uniformResourceIdentifier;
+-        ostr = PyUnicode_FromStringAndSize((char *)uri->data,
+-                                           uri->length);
++        ostr = PyUnicode_FromStringAndSize(
++                   (const char *)ASN1_STRING_get0_data(uri),
++                   ASN1_STRING_length(uri));
+         if (ostr == NULL) {
+             goto fail;
+         }
+@@ -1554,8 +1566,9 @@
+                 continue;
+             }
+             uri = gn->d.uniformResourceIdentifier;
+-            ouri = PyUnicode_FromStringAndSize((char *)uri->data,
+-                                               uri->length);
++            ouri = PyUnicode_FromStringAndSize(
++                       (const char *)ASN1_STRING_get0_data(uri),
++                       ASN1_STRING_length(uri));
+             if (ouri == NULL)
+                 goto done;
+ 
+@@ -5991,12 +6004,18 @@
+                             PY_SSL_VERSION_TLS_CLIENT);
+     PyModule_AddIntConstant(m, "PROTOCOL_TLS_SERVER",
+                             PY_SSL_VERSION_TLS_SERVER);
++#ifndef OPENSSL_NO_TLS1
+     PyModule_AddIntConstant(m, "PROTOCOL_TLSv1",
+                             PY_SSL_VERSION_TLS1);
++#endif
++#ifndef OPENSSL_NO_TLS1_1
+     PyModule_AddIntConstant(m, "PROTOCOL_TLSv1_1",
+                             PY_SSL_VERSION_TLS1_1);
++#endif
++#ifndef OPENSSL_NO_TLS1_2
+     PyModule_AddIntConstant(m, "PROTOCOL_TLSv1_2",
+                             PY_SSL_VERSION_TLS1_2);
++#endif
+ 
+ #define ADD_OPTION(NAME, VALUE) if (sslmodule_add_option(m, NAME, (VALUE)) < 0) return -1
+ 
