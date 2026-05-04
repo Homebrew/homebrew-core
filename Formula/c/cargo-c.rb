@@ -4,6 +4,7 @@ class CargoC < Formula
   url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.22.tar.gz"
   sha256 "a7b00539437932f2a17a72b97d9c2142367a2d70ee20f9f1692a8b13c7255332"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,7 @@ class CargoC < Formula
   depends_on "rust" => :build
   depends_on "libgit2"
   depends_on "libssh2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   # curl-config on ventura builds do not report http2 feature,
   # this is a workaround to allow to build against system curl
@@ -38,7 +39,7 @@ class CargoC < Formula
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure the correct `openssl` will be picked up.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@4"].opt_prefix
 
     system "cargo", "install", *std_cargo_args
   end
@@ -53,8 +54,8 @@ class CargoC < Formula
     [
       Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
-      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+      Formula["openssl@4"].opt_lib/shared_library("libssl"),
+      Formula["openssl@4"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"cargo-cbuild", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
