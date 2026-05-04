@@ -9,12 +9,12 @@ class Commitizen < Formula
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "203ac9e107e231dd71c39d0682883dd5c069d6cb701bdb2af8631b2566d9d979"
-    sha256 cellar: :any,                 arm64_sequoia: "b8d4ec3b823c07e2a644672398cc0719b576d3fa16cdd9f16c1288ab50158bc1"
-    sha256 cellar: :any,                 arm64_sonoma:  "4b8369bcfed4ecb341b1da78dd369ae9d1e28a09bc6f49db3aaae801d7793650"
-    sha256 cellar: :any,                 sonoma:        "dd3e931b574390eeef5ebe8e404e4933890a352febca03910c150215024cd467"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5869e5c607574f92612c0a4b0ae7d504de0ff99c5621c3cd84d45470a149ba0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb5debb5892de0c26d1c1e2d1de8865887523726c4b8f4ba021fbaeb73eb0c39"
+    sha256 cellar: :any,                 arm64_tahoe:   "5082d9d903e65e1b849b29cdae22d3df0aea4bba17bd18ee1df66f8566c25ac9"
+    sha256 cellar: :any,                 arm64_sequoia: "212687de868ff0e838552a5e33f9e410464d32e51deb00945e89e019f60b2bd9"
+    sha256 cellar: :any,                 arm64_sonoma:  "4c758f2a2dea8dfa601a4fe1d431698d9c2ae79001ad285f1c0bf10765040341"
+    sha256 cellar: :any,                 sonoma:        "261ca345d5eb0d8d5bf4374346ef2ad578b976b61c4c0b591c0eeb527f89cc34"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0020ecbc29608f3cf83bf97b7385acb447153622cb12e57300a08914edebf2d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c75ea8b564c0e0cc20031b303b742a98990ae6571bd69e6527cdec280ada941b"
   end
 
   depends_on "maturin" => :build
