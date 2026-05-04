@@ -5,6 +5,7 @@ class Httpd < Formula
   mirror "https://downloads.apache.org/httpd/httpd-2.4.67.tar.bz2"
   sha256 "66cd206637b0d5c446fa7dabe75fe03525da8fb55855876c46288cd88b136aa4"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
 
   bottle do
@@ -20,7 +21,7 @@ class Httpd < Formula
   depends_on "apr-util"
   depends_on "brotli"
   depends_on "libnghttp2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
 
   uses_from_macos "libxcrypt"
@@ -29,6 +30,9 @@ class Httpd < Formula
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  # OpenSSL 4 makes ASN.1 string types opaque.
+  patch :DATA
 
   def install
     # fixup prefix references in favour of opt_prefix references
@@ -82,7 +86,7 @@ class Httpd < Formula
                           "--with-libxml2=#{libxml2}",
                           "--with-mpm=prefork",
                           "--with-nghttp2=#{Formula["libnghttp2"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@4"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre2"].opt_prefix}/bin/pcre2-config",
                           "--with-z=#{zlib}",
                           "--disable-lua",
@@ -181,3 +185,71 @@ class Httpd < Formula
     end
   end
 end
+
+__END__
+diff --git a/modules/ssl/ssl_engine_vars.c b/modules/ssl/ssl_engine_vars.c
+index e894222..87798f8 100644
+--- a/modules/ssl/ssl_engine_vars.c
++++ b/modules/ssl/ssl_engine_vars.c
+@@ -693,23 +693,28 @@ static char *ssl_var_lookup_ssl_cert_remain(apr_pool_t *p, ASN1_TIME *tm)
+     apr_time_exp_t exp = {0};
+     long diff;
+-    unsigned char *dp;
++    const unsigned char *dp, *tm_data;
++    int tm_length, tm_type;
+ 
+     /* Fail if the time isn't a valid ASN.1 TIME; RFC3280 mandates
+      * that the seconds digits are present even though ASN.1
+      * doesn't. */
+-    if ((tm->type == V_ASN1_UTCTIME && tm->length < 11) ||
+-        (tm->type == V_ASN1_GENERALIZEDTIME && tm->length < 13) ||
++    tm_data = ASN1_STRING_get0_data(tm);
++    tm_length = ASN1_STRING_length(tm);
++    tm_type = ASN1_STRING_type(tm);
++    if (!tm_data ||
++        (tm_type == V_ASN1_UTCTIME && tm_length < 11) ||
++        (tm_type == V_ASN1_GENERALIZEDTIME && tm_length < 13) ||
+         !ASN1_TIME_check(tm)) {
+         return apr_pstrdup(p, "0");
+     }
+ 
+-    if (tm->type == V_ASN1_UTCTIME) {
+-        exp.tm_year = DIGIT2NUM(tm->data);
++    if (tm_type == V_ASN1_UTCTIME) {
++        exp.tm_year = DIGIT2NUM(tm_data);
+         if (exp.tm_year <= 50) exp.tm_year += 100;
+-        dp = tm->data + 2;
++        dp = tm_data + 2;
+     } else {
+-        exp.tm_year = DIGIT2NUM(tm->data) * 100 + DIGIT2NUM(tm->data + 2) - 1900;
+-        dp = tm->data + 4;
++        exp.tm_year = DIGIT2NUM(tm_data) * 100 + DIGIT2NUM(tm_data + 2) - 1900;
++        dp = tm_data + 4;
+     }
+ 
+     exp.tm_mon = DIGIT2NUM(dp) - 1;
+@@ -1030,11 +1035,11 @@ static int dump_extn_value(BIO *bio, ASN1_OCTET_STRING *str)
+ {
+-    const unsigned char *pp = str->data;
++    const unsigned char *pp = ASN1_STRING_get0_data(str);
+     ASN1_STRING *ret = ASN1_STRING_new();
+     int rv = 0;
+ 
+     /* This allows UTF8String, IA5String, VisibleString, or BMPString;
+      * conversion to UTF-8 is forced. */
+-    if (d2i_DISPLAYTEXT(&ret, &pp, str->length)) {
++    if (pp && d2i_DISPLAYTEXT(&ret, &pp, ASN1_STRING_length(str))) {
+         ASN1_STRING_print_ex(bio, ret, ASN1_STRFLGS_UTF8_CONVERT);
+         rv = 1;
+     }
+diff --git a/modules/ssl/ssl_engine_ocsp.c b/modules/ssl/ssl_engine_ocsp.c
+--- a/modules/ssl/ssl_engine_ocsp.c
++++ b/modules/ssl/ssl_engine_ocsp.c
+@@ -39,7 +39,7 @@ const char *modssl_get_ocsp_responder_from_cert(apr_pool_t *pool, X509 *cert)
+             && value->location->type == GEN_URI) {
+             result = apr_pstrdup(pool,
+-                                 (char *)value->location->d.uniformResourceIdentifier->data);
++                                 (char *)ASN1_STRING_get0_data(value->location->d.uniformResourceIdentifier));
+         }
+     }
+ 
