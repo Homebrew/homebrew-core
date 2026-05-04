@@ -9,12 +9,12 @@ class Flow < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "91392835645418cd45c968d95123715d4176140c5a26fa69c80b90e402a1c8af"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7770af9e01845620163368d623df392f81d245d6efe150262eded311f6b646d6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4c859ca2772ddc871feeacf692a5edb7c1027b767176bd25fe40bff83a7f3b7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "517e8c347d37a10c979e3bbc2dd337afb92a77696095cbfcb80e00ec09918d1b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39c8f505c182cd07c798ea1237aba6eb266bcb0afe1db932dc467c1d14df0fdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "827533ab315f694ee06a5f550f83c4dffb6ed8f7c0b65a35a177d9bb98a2cf68"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "40ac2ac977d19ab6b317c37f70fd264fc16642d37cb29f308b84a5173d32fff3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7a0830d3a2449726f2ad51f1f14ebc2f107cbf93b7efc9d6f419fc033cd33cf4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "366e1d01ca9c312166ce1b16f6ccf4f67396d5ab7bcb9a7aaccb5015c487d1c9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "301f0aa73ff513d2639a8b9972b1d8123bad4283a6ec08fcaa3f07cdcd79fafc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "24b2e2d17fd72e8b712421523b74c7f81769fdbc25f6e6e5e91c4e2ec1a58fd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5e0c4a5a1c3b8b48e196a4dd809ef18a0ee85344e754e841dac7ad301397381"
   end
 
   depends_on "ocaml" => :build
