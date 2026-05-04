@@ -4,6 +4,7 @@ class Asio < Formula
   url "https://downloads.sourceforge.net/project/asio/asio/1.36.0%20%28Stable%29/asio-1.36.0.tar.bz2"
   sha256 "7bf4dbe3c1ccd9cc4c94e6e6be026dcc2110f9201d286bb9500dc85d69825524"
   license "BSL-1.0"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -28,7 +29,7 @@ class Asio < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     ENV.cxx11
@@ -40,7 +41,7 @@ class Asio < Formula
 
     system "./configure", "--disable-silent-rules",
                           "--without-boost",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@4"].opt_prefix}",
                           *std_configure_args
     system "make", "install"
     pkgshare.install "src/examples"
