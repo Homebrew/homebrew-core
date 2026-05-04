@@ -5,6 +5,15 @@ class Ginkgo < Formula
   sha256 "8052c3d5994e1c996ebabe50a169deb565965da4f1c6c02e814ff0c7146c0378"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3b9ecb1cb5b3da010d732863538fc51806e08cb58d043ed695f60143ee03f710"
+    sha256 cellar: :any,                 arm64_sequoia: "604c528e0522106a0a448c0db771ba1bfe73234fa59b16ec615c90437e3b165a"
+    sha256 cellar: :any,                 arm64_sonoma:  "0148bd93e11a249dcefccbfe80cb0d7e6d9d7093d44cc3d83898550cb063264a"
+    sha256 cellar: :any,                 sonoma:        "16542b84e2db6a5f693f21114636f03b06f94f95487a7c5cc98b690a53c3b873"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4bb3792b1a5a486c82752d2d0eb820e5115592819c2792ef5011befffb40ebb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3178e09f20b6b7c20f9e3e9ec004ec3b6a67e59b94e1a8f77990804026ca316"
+  end
+
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
   depends_on "yaml-cpp" => :build
