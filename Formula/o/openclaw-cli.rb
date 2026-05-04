@@ -1,8 +1,8 @@
 class OpenclawCli < Formula
   desc "Your own personal AI assistant"
   homepage "https://openclaw.ai/"
-  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.4.29.tgz"
-  sha256 "7b813d9ec7913d10962a4736d0bdfb9d9a7759184a5bde9ea96c984079018aab"
+  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.5.2.tgz"
+  sha256 "f0efe516eb29ac04d07985d974061f381b1ff0374ba3cfb0caf15209bbfea130"
   license "MIT"
 
   bottle do
@@ -26,10 +26,6 @@ class OpenclawCli < Formula
     # sqlite-vec falls back cleanly when the native extension is unavailable.
     # Remove macOS pre-built dylibs that fail Homebrew bottle linkage fixups.
     node_modules.glob("sqlite-vec-darwin-*").each { |dir| rm_r(dir) } if OS.mac?
-
-    # The bundled Discord plugin ships unresolved nested dependencies and a
-    # prebuilt macOS arm64 module that fails Homebrew linkage fixups.
-    rm_r libexec/"lib/node_modules/openclaw/dist/extensions/discord"
 
     # Remove incompatible pre-built @node-llama-cpp binaries (non-native
     # architectures and GPU variants requiring CUDA/Vulkan)
