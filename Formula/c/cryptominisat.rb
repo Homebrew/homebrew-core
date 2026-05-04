@@ -67,6 +67,15 @@ class Cryptominisat < Formula
     # fix audit failure with `lib/libcryptominisat5.5.7.dylib`
     inreplace "src/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
+    # Revert msoos/cryptominisat@50b87734's PRIVATE -> PUBLIC; export leaks break consumers
+    # main.cpp uses GMP directly so link it explicitly into the binary too.
+    # Issue ref: https://github.com/msoos/cryptominisat/issues/820
+    inreplace "src/CMakeLists.txt" do |s|
+      s.sub!(/^    PUBLIC\n(        Threads)/, '\1')
+      s.sub! "target_link_libraries(cryptominisat5-bin\n    PRIVATE\n        cryptominisat5\n",
+             "\\0        PkgConfig::GMP\n"
+    end
+
     resource("cadical").stage do
       system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: buildpath/"cadical")
       system "cmake", "--build", "build"
