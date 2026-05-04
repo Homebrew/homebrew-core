@@ -7,6 +7,7 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
   license "MPL-2.0"
+  revision 1
   version_scheme 1
 
   stable do
@@ -49,7 +50,7 @@ class Bind < Formula
   depends_on "libidn2"
   depends_on "libnghttp2"
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "userspace-rcu"
 
   uses_from_macos "libxml2"
@@ -58,6 +59,9 @@ class Bind < Formula
     depends_on "libcap"
     depends_on "zlib-ng-compat"
   end
+
+  # OpenSSL 4 cleanup can allocate after BIND's OpenSSL memory context is unsafe.
+  patch :DATA
 
   def install
     # Apply macOS 15+ libxml2 deprecation to all macOS versions.
@@ -80,7 +84,7 @@ class Bind < Formula
         "--localstatedir=#{var}",
         "--with-json-c",
         "--with-libidn2=#{Formula["libidn2"].opt_prefix}",
-        "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+        "--with-openssl=#{Formula["openssl@4"].opt_prefix}",
         "--without-lmdb",
       ]
 
@@ -127,3 +131,28 @@ class Bind < Formula
     system bin/"dig", "ü.cl"
   end
 end
+
+__END__
+diff --git a/lib/isc/tls.c b/lib/isc/tls.c
+--- a/lib/isc/tls.c
++++ b/lib/isc/tls.c
+@@ -80,7 +80,8 @@ static atomic_bool handle_fatal = true;
+ static atomic_bool handle_fatal = false;
+ #endif
+ 
+-#if !defined(LIBRESSL_VERSION_NUMBER) && OPENSSL_VERSION_NUMBER >= 0x30000000L
++#if !defined(LIBRESSL_VERSION_NUMBER) && OPENSSL_VERSION_NUMBER >= 0x30000000L && \
++	OPENSSL_VERSION_NUMBER < 0x40000000L
+ /*
+  * This was crippled with LibreSSL, so just skip it:
+  * https://cvsweb.openbsd.org/src/lib/libcrypto/Attic/mem.c
+@@ -154,7 +155,8 @@ isc__tls_initialize(void) {
+ 	isc_mem_setname(isc__tls_mctx, "OpenSSL");
+ 	isc_mem_setdestroycheck(isc__tls_mctx, false);
+ 
+-#if !defined(LIBRESSL_VERSION_NUMBER) && OPENSSL_VERSION_NUMBER >= 0x30000000L
++#if !defined(LIBRESSL_VERSION_NUMBER) && OPENSSL_VERSION_NUMBER >= 0x30000000L && \
++	OPENSSL_VERSION_NUMBER < 0x40000000L
+ 	/*
+ 	 * CRYPTO_set_mem_(_ex)_functions() returns 1 on success or 0 on
+ 	 * failure, which means OpenSSL already allocated some memory.  There's
