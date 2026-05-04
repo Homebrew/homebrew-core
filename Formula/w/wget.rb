@@ -4,6 +4,7 @@ class Wget < Formula
   url "https://ftpmirror.gnu.org/gnu/wget/wget-1.25.0.tar.gz"
   sha256 "766e48423e79359ea31e41db9e5c289675947a7fcf2efdcedb726ac9d0da3784"
   license "GPL-3.0-or-later"
+  revision 1
   compatibility_version 1
 
   bottle do
@@ -26,7 +27,7 @@ class Wget < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libidn2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_macos do
     depends_on "gettext"
@@ -38,12 +39,15 @@ class Wget < Formula
     depends_on "zlib-ng-compat"
   end
 
+  # OpenSSL 4 removes SSLv3_client_method.
+  patch :DATA
+
   def install
     system "./bootstrap", "--skip-po" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
-                          "--with-libssl-prefix=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-libssl-prefix=#{Formula["openssl@4"].opt_prefix}",
                           "--disable-pcre",
                           "--disable-pcre2",
                           "--without-libpsl",
@@ -55,3 +59,18 @@ class Wget < Formula
     system bin/"wget", "-O", File::NULL, "https://google.com"
   end
 end
+
+__END__
+diff --git a/src/openssl.c b/src/openssl.c
+index 7310514..6b748bf 100644
+--- a/src/openssl.c
++++ b/src/openssl.c
+@@ -226,7 +226,7 @@ ssl_init (void)
+       break;
+ 
+     case secure_protocol_sslv3:
+-#ifndef OPENSSL_NO_SSL3_METHOD
++#if !defined OPENSSL_NO_SSL3_METHOD && OPENSSL_VERSION_NUMBER < 0x40000000L
+       meth = SSLv3_client_method ();
+ #endif
+       break;
