@@ -5,6 +5,7 @@ class TclTk < Formula
   mirror "https://fossies.org/linux/misc/tcl9.0.3-src.tar.gz"
   sha256 "2537ba0c86112c8c953f7c09d33f134dd45c0fb3a71f2d7f7691fd301d2c33a6"
   license "TCL"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -23,7 +24,7 @@ class TclTk < Formula
   end
 
   depends_on "libtommath"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "freetype" => :build
@@ -64,6 +65,9 @@ class TclTk < Formula
       url "https://core.tcl-lang.org/tcltls/wiki/Download"
       regex(/href=.*?tcltls[._-]v?(\d+(?:\.\d+)+)(?:[._-]src)?\.t/i)
     end
+
+    # OpenSSL 4 makes ASN1_BIT_STRING opaque.
+    patch :DATA
   end
 
   resource "tk" do
@@ -149,7 +153,7 @@ class TclTk < Formula
     end
 
     resource("tcltls").stage do
-      system "./configure", "--with-openssl-dir=#{Formula["openssl@3"].opt_prefix}",
+      system "./configure", "--with-openssl-dir=#{Formula["openssl@4"].opt_prefix}",
                             "--prefix=#{prefix}",
                             "--with-tcl=#{lib}",
                             "--with-tclinclude=#{include}/tcl-tk",
@@ -230,3 +234,48 @@ class TclTk < Formula
     assert_equal "OK\n", pipe_output("#{bin}/wish", test_itk), "Itk test failed"
   end
 end
+
+__END__
+diff --git a/generic/tlsX509.c b/generic/tlsX509.c
+index 3d19488..56f84c0 100644
+--- a/generic/tlsX509.c
++++ b/generic/tlsX509.c
+@@ -551,7 +551,8 @@ Tcl_Obj *Tls_NewX509Obj(Tcl_Interp *interp, X509 *cert) {
+ 	sig_nid = OBJ_obj2nid(sig_alg->algorithm);
+ 	LAPPEND_STR(interp, resultObj, "signatureAlgorithm", OBJ_nid2ln(sig_nid), -1);
+ 	if (sig_nid != NID_undef) {
+-	    LAPPEND_OBJ(interp, resultObj, "signatureValue", String_to_Hex(sig->data, sig->length));
++	    LAPPEND_OBJ(interp, resultObj, "signatureValue",
++		String_to_Hex(ASN1_STRING_get0_data(sig), ASN1_STRING_length(sig)));
+ 	} else {
+ 	    LAPPEND_STR(interp, resultObj, "signatureValue", "", 0);
+ 	}
+@@ -608,7 +609,8 @@ Tcl_Obj *Tls_NewX509Obj(Tcl_Interp *interp, X509 *cert) {
+ 	LAPPEND_INT(interp, resultObj, "bits", bits); /* Effective security bits */
+ 
+ 	key = X509_get0_pubkey_bitstr(cert);
+-	LAPPEND_OBJ(interp, resultObj, "publicKey", String_to_Hex(key->data, key->length));
++	LAPPEND_OBJ(interp, resultObj, "publicKey",
++	    String_to_Hex(ASN1_STRING_get0_data(key), ASN1_STRING_length(key)));
+ 
+ 	if (X509_pubkey_digest(cert, EVP_get_digestbynid(pknid), (unsigned char *)buffer, &n)) {
+ 	    LAPPEND_OBJ(interp, resultObj, "publicKeyHash", String_to_Hex((unsigned char *)buffer, (int) n));
+@@ -647,14 +649,16 @@ Tcl_Obj *Tls_NewX509Obj(Tcl_Interp *interp, X509 *cert) {
+ 
+ 	Tcl_ListObjAppendElement(interp, resultObj, Tcl_NewStringObj("issuerUniqueId", -1));
+ 	if (iuid != NULL) {
+-	    Tcl_ListObjAppendElement(interp, resultObj, Tcl_NewByteArrayObj((const unsigned char *)iuid->data, (Tcl_Size) iuid->length));
++	    Tcl_ListObjAppendElement(interp, resultObj, Tcl_NewByteArrayObj(
++		ASN1_STRING_get0_data(iuid), (Tcl_Size) ASN1_STRING_length(iuid)));
+ 	} else {
+ 	    Tcl_ListObjAppendElement(interp, resultObj, Tcl_NewStringObj("", -1));
+ 	}
+ 
+ 	Tcl_ListObjAppendElement(interp, resultObj, Tcl_NewStringObj("subjectUniqueId", -1));
+ 	if (suid != NULL) {
+-	    Tcl_ListObjAppendElement(interp, resultObj, Tcl_NewByteArrayObj((const unsigned char *)suid->data, (Tcl_Size) suid->length));
++	    Tcl_ListObjAppendElement(interp, resultObj, Tcl_NewByteArrayObj(
++		ASN1_STRING_get0_data(suid), (Tcl_Size) ASN1_STRING_length(suid)));
+ 	} else {
+ 	    Tcl_ListObjAppendElement(interp, resultObj, Tcl_NewStringObj("", -1));
+ 	}
