@@ -4,6 +4,7 @@ class Freetds < Formula
   url "https://www.freetds.org/files/stable/freetds-1.5.17.tar.bz2"
   sha256 "6dee48026b7e3e2393d3ea3ce18f8f81a74d6a0f300e9951981ed7bf4de6bbc3"
   license "GPL-2.0-or-later"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -30,7 +31,7 @@ class Freetds < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "unixodbc"
 
   uses_from_macos "krb5"
@@ -46,7 +47,7 @@ class Freetds < Formula
       --mandir=#{man}
       --sysconfdir=#{etc}
       --with-unixodbc=#{Formula["unixodbc"].opt_prefix}
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
+      --with-openssl=#{Formula["openssl@4"].opt_prefix}
       --enable-sybase-compat
       --enable-krb5
       --enable-odbc-wide
