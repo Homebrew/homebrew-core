@@ -4,6 +4,7 @@ class TclTkAT8 < Formula
   url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.17/tcl8.6.17-src.tar.gz"
   sha256 "a3903371efcce8a405c5c245d029e9f6850258a60fa3761c4d58995610949b31"
   license "TCL"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -23,7 +24,7 @@ class TclTkAT8 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "freetype" => :build
@@ -46,6 +47,9 @@ class TclTkAT8 < Formula
   resource "tcltls" do
     url "https://core.tcl-lang.org/tcltls/uv/tcltls-1.7.22.tar.gz"
     sha256 "e84e2b7a275ec82c4aaa9d1b1f9786dbe4358c815e917539ffe7f667ff4bc3b4"
+
+    # OpenSSL 4 makes ASN1_UTCTIME opaque.
+    patch :DATA
   end
 
   resource "tk" do
@@ -117,7 +121,7 @@ class TclTkAT8 < Formula
 
     resource("tcltls").stage do
       system "./configure", "--with-ssl=openssl",
-                            "--with-openssl-dir=#{Formula["openssl@3"].opt_prefix}",
+                            "--with-openssl-dir=#{Formula["openssl@4"].opt_prefix}",
                             "--prefix=#{prefix}",
                             "--mandir=#{man}"
       system "make", "install"
@@ -191,3 +195,26 @@ class TclTkAT8 < Formula
     assert_equal "OK\n", pipe_output("#{bin}/wish", test_itk), "Itk test failed"
   end
 end
+
+__END__
+diff --git a/tlsX509.c b/tlsX509.c
+index afde377..961b1f0 100644
+--- a/tlsX509.c
++++ b/tlsX509.c
+@@ -38,11 +38,13 @@ ASN1_UTCTIME_tostr(ASN1_UTCTIME *tm)
+         "Jan","Feb","Mar","Apr","May","Jun",
+         "Jul","Aug","Sep","Oct","Nov","Dec"};
+     int i;
++    const unsigned char *data;
+     int y=0,M=0,d=0,h=0,m=0,s=0;
+     
+-    i=tm->length;
+-    v=(char *)tm->data;
+-    
++    i=ASN1_STRING_length(tm);
++    data=ASN1_STRING_get0_data(tm);
++    v=(char *)data;
++    
+     if (i < 10) goto err;
+     if (v[i-1] == 'Z') gmt=1;
+     for (i=0; i<10; i++)
