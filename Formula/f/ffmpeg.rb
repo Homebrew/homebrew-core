@@ -7,6 +7,7 @@ class Ffmpeg < Formula
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   # Passing `--enable-version3` changes the license to GPL v3+.
   license "GPL-3.0-or-later"
+  revision 1
   compatibility_version 2
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
@@ -35,7 +36,7 @@ class Ffmpeg < Formula
   depends_on "lame"
   depends_on "libvmaf" # dependent: ab-av1
   depends_on "libvpx"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "opus"
   depends_on "sdl2"
   depends_on "svt-av1"
