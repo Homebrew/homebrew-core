@@ -6,12 +6,12 @@ class Crip < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea0964d4b1ddc23e45553ef3c79cf64abe268d68a843889e6aa14d769d000667"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea0964d4b1ddc23e45553ef3c79cf64abe268d68a843889e6aa14d769d000667"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea0964d4b1ddc23e45553ef3c79cf64abe268d68a843889e6aa14d769d000667"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ea0964d4b1ddc23e45553ef3c79cf64abe268d68a843889e6aa14d769d000667"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f168b5098ac9ee43fba009ed7473dc040b97b20ff8339c704dbace009f10f2ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f168b5098ac9ee43fba009ed7473dc040b97b20ff8339c704dbace009f10f2ca"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca2b51dd1f72872c202f2a8be9358f16cd5a204de372a37ca6b32678b6fdba55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "80801324dc53446dc5bd878b47b9fd7fec99e63d007d73019ab55626e6287d2e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a35197075d7a7ac533eb5e47ace9615e19851031668871d606e01b7332e1a178"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9597c2992defaa24e79d08a1773829ef326e8ee0aac917bd36809a1713510577"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17d165d884e5f84a2e93511eae28052f881a71bd7dcbd87f6b52e4114038f048"
   end
 
   depends_on "graalvm" => :build
