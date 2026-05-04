@@ -4,7 +4,7 @@ class Libevent < Formula
   url "https://github.com/libevent/libevent/archive/refs/tags/release-2.1.12-stable.tar.gz"
   sha256 "7180a979aaa7000e1264da484f712d403fcf7679b1e9212c4e3d09f5c93efc24"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -31,7 +31,7 @@ class Libevent < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "./autogen.sh"
