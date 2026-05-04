@@ -1,8 +1,8 @@
 class Tfschema < Formula
   desc "Schema inspector for Terraform/OpenTofu providers"
   homepage "https://github.com/minamijoyo/tfschema"
-  url "https://github.com/minamijoyo/tfschema/archive/refs/tags/v0.7.9.tar.gz"
-  sha256 "094f8a3c80bac1afc8f03a979625b1334eb5318261f8b8fec9f20ebef3d3d14c"
+  url "https://github.com/minamijoyo/tfschema/archive/refs/tags/v0.7.10.tar.gz"
+  sha256 "7d028adc987d4cb7896556df1d727270396e9790a734700fbd867c2e3a62c211"
   license "MIT"
   head "https://github.com/minamijoyo/tfschema.git", branch: "master"
 
