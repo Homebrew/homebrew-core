@@ -4,6 +4,7 @@ class Librdkafka < Formula
   url "https://github.com/confluentinc/librdkafka/archive/refs/tags/v2.14.1.tar.gz"
   sha256 "bb246e754dee3560e9b42bf4e844dc05de4b146a3cae937e36301ffacdc456e7"
   license "BSD-2-Clause"
+  revision 1
   compatibility_version 1
   head "https://github.com/confluentinc/librdkafka.git", branch: "master"
 
@@ -24,7 +25,7 @@ class Librdkafka < Formula
   depends_on "pkgconf" => :build
   depends_on "lz4"
   depends_on "lzlib"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "python" => :build
