@@ -4,7 +4,7 @@ class PythonAT313 < Formula
   url "https://www.python.org/ftp/python/3.13.13/Python-3.13.13.tgz"
   sha256 "f9cde7b0e2ec8165d7326e2a0f59ea2686ce9d0c617dbbb3d66a7e54d31b74b9"
   license "Python-2.0"
-  revision 1
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -25,7 +25,7 @@ class PythonAT313 < Formula
 
   depends_on "pkgconf" => :build
   depends_on "mpdecimal"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "sqlite"
   depends_on "xz"
 
@@ -75,6 +75,12 @@ class PythonAT313 < Formula
     sha256 "9f2eae1d08720b06ac3d9ef1999c09388b9db39dfb52687fc261ff820bff20c3"
   end
 
+  # Backport OpenSSL 4 compatibility, upstream PR python/cpython#146404.
+  patch do
+    url "https://github.com/python/cpython/commit/d7b6e66e6f5f5b9d9fbeda8d9b40d77543b97933.patch?full_index=1"
+    sha256 "c9b72990f4d6458ba44bc57264f75011ef3d9f57fa122a807595236d311acbeb"
+  end
+
   def lib_cellar
     on_macos do
       return frameworks/"Python.framework/Versions"/version.major_minor/"lib/python#{version.major_minor}"
@@ -118,7 +124,7 @@ class PythonAT313 < Formula
       --datadir=#{share}
       --without-ensurepip
       --enable-loadable-sqlite-extensions
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
+      --with-openssl=#{Formula["openssl@4"].opt_prefix}
       --enable-optimizations
       --with-system-expat
       --with-system-libmpdec
@@ -157,7 +163,7 @@ class PythonAT313 < Formula
     # `brew install enchant && pip install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
-              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@3"].opt_lib}',"
+              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@4"].opt_lib}',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 
