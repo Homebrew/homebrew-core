@@ -7,6 +7,7 @@ class Qtbase < Formula
     "BSD-3-Clause", # *.cmake
     "GFDL-1.3-no-invariants-only", # *.qdoc
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtbase.git", branch: "dev"
 
@@ -21,6 +22,9 @@ class Qtbase < Formula
       url "https://github.com/qt/qtbase/commit/a76004f16fdc43e1b7af83bfdf3f1a613491b234.patch?full_index=1"
       sha256 "9cdc1d6cd9f62f79d1858588569d253eba4e96a86f3f2666304c87406fc05cbb"
     end
+
+    # OpenSSL 4 makes ASN.1 string types opaque.
+    patch :DATA
   end
 
   # The first-party website doesn't make version information readily available,
@@ -57,7 +61,7 @@ class Qtbase < Formula
   depends_on "libb2"
   depends_on "libpng"
   depends_on "md4c"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "zstd"
 
@@ -288,3 +292,53 @@ class Qtbase < Formula
     assert_equal HOMEBREW_PREFIX.to_s, shell_output("#{bin}/qmake -query QT_INSTALL_PREFIX").chomp
   end
 end
+
+__END__
+diff --git a/src/plugins/tls/openssl/qx509_openssl.cpp b/src/plugins/tls/openssl/qx509_openssl.cpp
+index 81cfeab65b..bb07e877ec 100644
+--- a/src/plugins/tls/openssl/qx509_openssl.cpp
++++ b/src/plugins/tls/openssl/qx509_openssl.cpp
+@@ -330,8 +330,9 @@ QVariant x509ExtensionToValue(X509_EXTENSION *ext)
+ 
+             // keyid
+             if (auth_key->keyid) {
+-                QByteArray keyid(reinterpret_cast<const char *>(auth_key->keyid->data),
+-                                 auth_key->keyid->length);
++                QByteArray keyid(
++                    reinterpret_cast<const char *>(q_ASN1_STRING_get0_data(auth_key->keyid)),
++                    q_ASN1_STRING_length(auth_key->keyid));
+                 result["keyid"_L1] = keyid.toHex();
+             }
+ 
+@@ -465,11 +466,13 @@ QMultiMap<QSsl::AlternativeNameEntryType, QString> X509CertificateOpenSSL::subje
+         case GEN_IPADD: {
+             QHostAddress ipAddress;
+             switch (len) {
+-            case 4: // IPv4
+-                ipAddress = QHostAddress(qFromBigEndian(*reinterpret_cast<quint32 *>(genName->d.iPAddress->data)));
++            case 4: { // IPv4
++                const auto *data = q_ASN1_STRING_get0_data(genName->d.iPAddress);
++                ipAddress = QHostAddress(qFromBigEndian(*reinterpret_cast<const quint32 *>(data)));
+                 break;
++            }
+             case 16: // IPv6
+-                ipAddress = QHostAddress(reinterpret_cast<quint8 *>(genName->d.iPAddress->data));
++                ipAddress = QHostAddress(q_ASN1_STRING_get0_data(genName->d.iPAddress));
+                 break;
+             default: // Unknown IP address format
+                 break;
+@@ -562,9 +565,11 @@ QSslCertificate X509CertificateOpenSSL::certificateFromX509(X509 *x509)
+ 
+     if (ASN1_INTEGER *serialNumber = q_X509_get_serialNumber(x509)) {
+         QByteArray hexString;
+-        hexString.reserve(serialNumber->length * 3);
+-        for (int a = 0; a < serialNumber->length; ++a) {
+-            hexString += QByteArray::number(serialNumber->data[a], 16).rightJustified(2, '0');
++        const int serialNumberLength = q_ASN1_STRING_length(serialNumber);
++        const auto *serialNumberData = q_ASN1_STRING_get0_data(serialNumber);
++        hexString.reserve(serialNumberLength * 3);
++        for (int a = 0; a < serialNumberLength; ++a) {
++            hexString += QByteArray::number(serialNumberData[a], 16).rightJustified(2, '0');
+             hexString += ':';
+         }
+         hexString.chop(1);
