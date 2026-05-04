@@ -4,6 +4,7 @@ class Unbound < Formula
   url "https://nlnetlabs.nl/downloads/unbound/unbound-1.25.0.tar.gz"
   sha256 "062a6eda723fe2f041bee4079b76981569f1d12e066bbd74800242fc1ebddec7"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
   head "https://github.com/NLnetLabs/unbound.git", branch: "master"
 
@@ -26,9 +27,12 @@ class Unbound < Formula
 
   depends_on "libevent"
   depends_on "libnghttp2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "expat"
+
+  # OpenSSL 4 makes ASN1_BIT_STRING opaque.
+  patch :DATA
 
   def install
     expat_prefix = OS.mac? ? "#{MacOS.sdk_for_formula(self).path}/usr" : Formula["expat"].opt_prefix
@@ -41,7 +45,7 @@ class Unbound < Formula
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-libexpat=#{expat_prefix}
       --with-libnghttp2=#{Formula["libnghttp2"].opt_prefix}
-      --with-ssl=#{Formula["openssl@3"].opt_prefix}
+      --with-ssl=#{Formula["openssl@4"].opt_prefix}
     ]
 
     system "./configure", *args
@@ -70,3 +74,29 @@ class Unbound < Formula
     system sbin/"unbound-control-setup", "-d", testpath
   end
 end
+
+__END__
+diff --git a/smallapp/unbound-anchor.c b/smallapp/unbound-anchor.c
+index 1e02503..d417564 100644
+--- a/smallapp/unbound-anchor.c
++++ b/smallapp/unbound-anchor.c
+@@ -1675,11 +1675,15 @@ get_usage_of_ex(X509* cert)
+ {
+ 	unsigned long val = 0;
+ 	ASN1_BIT_STRING* s;
++	const unsigned char* data;
++	int len;
+ 	if((s=X509_get_ext_d2i(cert, NID_key_usage, NULL, NULL))) {
+-		if(s->length > 0) {
+-			val = s->data[0];
+-			if(s->length > 1)
+-				val |= s->data[1] << 8;
++		data = ASN1_STRING_get0_data(s);
++		len = ASN1_STRING_length(s);
++		if(data && len > 0) {
++			val = data[0];
++			if(len > 1)
++				val |= data[1] << 8;
+ 		}
+ 		ASN1_BIT_STRING_free(s);
+ 	}
