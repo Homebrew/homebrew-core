@@ -2,6 +2,7 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   license "MIT"
+  revision 1
   version_scheme 1
   compatibility_version 2
   head "https://github.com/dotnet/dotnet.git", branch: "main"
@@ -44,7 +45,7 @@ class Dotnet < Formula
   depends_on "rapidjson" => :build
   depends_on "brotli"
   depends_on "icu4c@78"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "python" => :build
   uses_from_macos "krb5"
