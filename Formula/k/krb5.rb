@@ -33,12 +33,12 @@ class Krb5 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "2968bf9d040cd58eb2933ddf03cd004d1f9abe8b19bd7f028ea8666ad47714ab"
-    sha256 arm64_sequoia: "a9db2ba99f3e99279c4aac0277cdba955510d27f09bde6051b100e660c1a1c28"
-    sha256 arm64_sonoma:  "b63debb64f3b2d7875f0868e5cefbe3375ff635df7f0d1e4fc76f3716cdbb3a5"
-    sha256 sonoma:        "a4ab63ede148b1230e05c3002024e37d402ad3a18c98976d71a83920a879c462"
-    sha256 arm64_linux:   "1e75b209585cd4b2155eb8eebadaf3c4df5948981fecfaa5633a60e5918a78d7"
-    sha256 x86_64_linux:  "5c06477705002279f07de13c147866235a99abe1495ae4deb1eed805ec542245"
+    sha256 arm64_tahoe:   "7dfebc9f62c755f92d8ca86db895dcfad91c8b171d13faa6a079a2d7d52a2724"
+    sha256 arm64_sequoia: "7764f693b98ec76df4e5152ad8a9a8a693f2f5ecb50e9456d97a5cf3ada22bc0"
+    sha256 arm64_sonoma:  "83d4a48f7101cfa6bd5edabd913db5a178f504c39e4ecb5a98cd4890468da58b"
+    sha256 sonoma:        "0ea66222c73109a9a3b2e03bc7c928941c83bb5be2505b8e1d5e4404a407b8e7"
+    sha256 arm64_linux:   "dcb00456dfd4aa70a46648feb5fa3d003fd8d5692e408e4a51fc6aa3855ea4b1"
+    sha256 x86_64_linux:  "fdd0185dd64e685eaf3a5cab557cb3bf68ae12f0c9ffde899bd62e666c36951f"
   end
 
   keg_only :provided_by_macos
