@@ -4,6 +4,7 @@ class Aoe < Formula
   url "https://github.com/njbrake/agent-of-empires/archive/refs/tags/v1.5.1.tar.gz"
   sha256 "cdf109969f5503d0d217da62836b0619afb72e0ba2896c10f1d0c455645c8b20"
   license "MIT"
+  revision 1
   head "https://github.com/njbrake/agent-of-empires.git", branch: "main"
 
   bottle do
@@ -18,7 +19,7 @@ class Aoe < Formula
   depends_on "node" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "tmux"
 
   on_linux do
@@ -26,6 +27,12 @@ class Aoe < Formula
   end
 
   def install
+    openssl = Formula["openssl@4"]
+    ENV["OPENSSL_DIR"] = openssl.opt_prefix
+    ENV["OPENSSL_LIB_DIR"] = openssl.opt_lib
+    ENV["OPENSSL_INCLUDE_DIR"] = openssl.opt_include
+    ENV.prepend_path "PKG_CONFIG_PATH", openssl.opt_lib/"pkgconfig"
+
     system "cargo", "install", *std_cargo_args(features: "serve")
     generate_completions_from_executable(bin/"aoe", "completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
