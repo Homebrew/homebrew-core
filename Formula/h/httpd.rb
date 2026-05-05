@@ -9,12 +9,12 @@ class Httpd < Formula
   compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "1623fae82840fbb9b73c746c241ddd112f8d91be4c022fb521f0daf9f34fe789"
-    sha256 arm64_sequoia: "0b6cbcdbb78a361972b589288e5499c3eea6fee8230207857a041fe27b34fe1b"
-    sha256 arm64_sonoma:  "90809b1baec19d8f53cfb605015c34e1e86d135d8973ae340e6b0282761110e4"
-    sha256 sonoma:        "d47615974bd21b6140187635cd5448c9151520c4864a780de168c17b3f4fde84"
-    sha256 arm64_linux:   "3984a3f47c40a80abbbccb0d80a100d48d6165547dcd19d1532c56ed598ef938"
-    sha256 x86_64_linux:  "97c191c10a5c6686cc7d01166daf4b0d531c2768489b0b9ced973d9849cb9056"
+    sha256 arm64_tahoe:   "92c7fc0295bfbdfa5fafd74e2238bc085e88323cb4d2403f80e3923bbcb6e3c1"
+    sha256 arm64_sequoia: "c8da02853aee3dcb3df3f605ee6fb9fc79fabe74cd3e4e26a4fe6059d56ea9f5"
+    sha256 arm64_sonoma:  "cb9ec186e14e4638a2f4aeead3a1982fb261c616d274a68ca4852698d770731e"
+    sha256 sonoma:        "d6c4ebe501eef6d1689d7657334a02a94b2d5c328703f6843cf439d9c7ca743b"
+    sha256 arm64_linux:   "87ac386e2e874488028c6f0a14966a7b862009423f9f57f3c0d4e0bd88d002ad"
+    sha256 x86_64_linux:  "e8d640acc050b16b2804d893f1e60888f753b661488613bf86ecf36f81351845"
   end
 
   depends_on "apr"
