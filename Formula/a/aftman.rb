@@ -4,19 +4,16 @@ class Aftman < Formula
   url "https://github.com/LPGhatguy/aftman/archive/refs/tags/v0.3.0.tar.gz"
   sha256 "f75aab63cb887c63e3888a225061a1ab4e0fd0d9c3e0a1c86b8ac7ad035fdf6c"
   license "MIT"
+  revision 1
   head "https://github.com/LPGhatguy/aftman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e2b825b23c892fdf2a0067b011ccbfd4157006d27a5d5c115499331c0345c7a9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57feb860410d508174e62f9f07d467da9ca62c88b35005ea5ebcbed2ed87a71f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "79678c381bbec86c92bee17e53dd01f34355e0dcda445f5a90a1d287c4825c11"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f52a939e6d2cefc3d5e936a08ef2450b8bb0ad909af7f71adc0c1ec7bb1cfc8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3302f69a40b249f7cfa486fa479674c4373c4666e815b07042bc829e151c371e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fdf56dee4a49f7c3e0038b48b7dc2520dc94882bc7a2e5ce554bc4cc89ce2c7e"
-    sha256 cellar: :any_skip_relocation, ventura:        "707ab252c150e4208055d2398d6d7bf29ca1309d329128a2f3303ba45011717c"
-    sha256 cellar: :any_skip_relocation, monterey:       "9afea6436f083ac4beca2dd9e1321490a7768a5f0f784a0fcacd6f7a813c32a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "d9457a79cb80b1423563f8d54ffcf84e2b765189b526f029437841c2f2abe335"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e8943e04ce29ca295996d3acacb141d87504a59374aa2da2e7e15a453bbe5a9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0343817288ab09d6673a0cb3427b53d0c85d24cf1ea0be730c184a95715492c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "350c4cddca8f5c18c6ba9b75e9cffbb649a82a14ab260791bcf3596ffff516c1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c6aab1ec5368a5109250ec6174836c4fc9bb1ee5cc69cc0b5f42b3b6d2591798"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1096045e74e9332ea2e144c92fa3ba290964d6e17296f64b1c206cbb4a5d6647"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf831f645cdaa32eca888531a649f7456f46d29fa41f9a5ed28830ab873a3a95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4d16587bc51b9632792cfb31aa1f2fa3074bc932a9c7360c359b71f7d2afaf5"
   end
 
   # https://github.com/LPGhatguy/aftman?tab=readme-ov-file#%EF%B8%8F-aftman-is-no-longer-maintained-%EF%B8%8F
@@ -29,7 +26,7 @@ class Aftman < Formula
   uses_from_macos "bzip2"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
