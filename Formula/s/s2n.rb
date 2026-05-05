@@ -4,6 +4,7 @@ class S2n < Formula
   url "https://github.com/aws/s2n-tls/archive/refs/tags/v1.7.2.tar.gz"
   sha256 "3ca5361dabd2b041ba6d8c3fe73d1bc5a721dc5f62bbf71838010d1eddaa0cfd"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/aws/s2n-tls.git", branch: "main"
 
   livecheck do
@@ -21,7 +22,10 @@ class S2n < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
+
+  # ASN1_STRING_st became opaque in OpenSSL 4; use accessors.
+  patch :DATA
 
   def install
     system "cmake", "-S", ".", "-B", "build_static", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
@@ -47,3 +51,18 @@ class S2n < Formula
     system "./test"
   end
 end
+
+__END__
+--- a/crypto/s2n_certificate.c
++++ b/crypto/s2n_certificate.c
+@@ -227,8 +227,8 @@
+
+         if (san_name->type == GEN_DNS) {
+             /* Decoding isn't necessary here since a DNS SAN name is ASCII(type V_ASN1_IA5STRING) */
+-            unsigned char *san_str = san_name->d.dNSName->data;
+-            const size_t san_str_len = san_name->d.dNSName->length;
++            const unsigned char *san_str = ASN1_STRING_get0_data(san_name->d.dNSName);
++            const size_t san_str_len = ASN1_STRING_length(san_name->d.dNSName);
+             struct s2n_blob *san_blob = NULL;
+             POSIX_GUARD_RESULT(s2n_array_pushback(chain_and_key->san_names, (void **) &san_blob));
+             if (!san_blob) {
