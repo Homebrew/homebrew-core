@@ -4,6 +4,7 @@ class Asuka < Formula
   url "https://git.sr.ht/~julienxx/asuka/archive/0.8.5.tar.gz"
   sha256 "f7be2925cfc7ee6dcdfa4c30b9d4f6963f729c1b3f526ac242c7e1794bb190b1"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -33,7 +34,7 @@ class Asuka < Formula
   uses_from_macos "ncurses"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
