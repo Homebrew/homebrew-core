@@ -4,6 +4,7 @@ class Codesnap < Formula
   url "https://github.com/codesnap-rs/codesnap/archive/refs/tags/v0.13.1.tar.gz"
   sha256 "e1636f08781fdb6e380428bd54f458f59b7764702271a7f2f407ad4432753c33"
   license "MIT"
+  revision 1
   head "https://github.com/codesnap-rs/codesnap.git", branch: "main"
 
   bottle do
@@ -19,7 +20,13 @@ class Codesnap < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
+  end
+
+  # Backport openssl 4.0.0 support: https://github.com/codesnap-rs/codesnap/pull/124
+  patch do
+    url "https://github.com/codesnap-rs/codesnap/commit/536d39dbd5c027c067505bcccb87c0fa16d9771f.patch?full_index=1"
+    sha256 "653c5cbeaa032e58ee652400107b73c51583b732322321fa7b85d43e67a7e702"
   end
 
   def install
