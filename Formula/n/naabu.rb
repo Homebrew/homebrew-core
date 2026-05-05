@@ -1,8 +1,8 @@
 class Naabu < Formula
   desc "Fast port scanner"
   homepage "https://docs.projectdiscovery.io/tools/naabu/overview"
-  url "https://github.com/projectdiscovery/naabu/archive/refs/tags/v2.6.0.tar.gz"
-  sha256 "8e0981963870f0d647f6ea1e672cc0f7173faa86f230f3c4485e0b56c9c8a010"
+  url "https://github.com/projectdiscovery/naabu/archive/refs/tags/v2.6.1.tar.gz"
+  sha256 "2bf03345fd3d640624a07c6e255470a342d1e6a7c071d748c57eeb0d40955a8c"
   license "MIT"
   head "https://github.com/projectdiscovery/naabu.git", branch: "dev"
 
