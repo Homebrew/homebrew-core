@@ -13,14 +13,12 @@ class Asio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c270edee8c7f97079ae4f4cf2c6ea3f072a02e3966354fa233a72df2dff6834b"
-    sha256 cellar: :any,                 arm64_sequoia: "701828b9474caf60d19e538ae4988a86d9df9a09ce95c9cf0e2de1cc8a6cbda6"
-    sha256 cellar: :any,                 arm64_sonoma:  "acbee89e1effe0135dd01fec0bc94243cffbe5c2f5c7d5b0f7340428d9516dde"
-    sha256 cellar: :any,                 arm64_ventura: "f6758226362135efb7485211bfe170ee4c3788c46a1275dca59c477ae8c6051c"
-    sha256 cellar: :any,                 sonoma:        "6a4f0422454474b28955a8d9bb203d703bdbb7c857096dc32bd6c191fb8a0ba5"
-    sha256 cellar: :any,                 ventura:       "0e1a5a2d7537a2ef0cd946cb75edcf3e72e615f78bc610f77987b0bacaad3231"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d1cda2230726d6339c1233ea2a126525d9044aacac103fb6da0fd195698a68b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b3a5307039ebc24abeba8e99bf96fdff91577b4d2a413715c3e83ff755c4ed4"
+    sha256 cellar: :any,                 arm64_tahoe:   "c4cec14f252d40fbbc1ef0d874509be5a609f3788f78bb3ac6dcad5919f5fbaa"
+    sha256 cellar: :any,                 arm64_sequoia: "5023e595b55a6c4abd2f453de043aea03696ac9fc5b38d093c9edcf8df86383e"
+    sha256 cellar: :any,                 arm64_sonoma:  "01a303e1e836fe0d76d87ef28370a5f8c44317146d2bd7e4757e7dc9369e490e"
+    sha256 cellar: :any,                 sonoma:        "f769bb83a89a879cea0c60e873ea822900b8830546be64e4beb93a873eca12ff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b90e36ecfd0ca13d53f436ffbecf504a543bd2b5e1dd3a1e6c79826d10085201"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2366bd7dbcf813b7e7c52d6d1d1cb11c4bc9ea37f68b35a0afefa833666d870"
   end
 
   head do
