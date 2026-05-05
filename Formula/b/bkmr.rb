@@ -4,6 +4,7 @@ class Bkmr < Formula
   url "https://github.com/sysid/bkmr/archive/refs/tags/v7.6.2.tar.gz"
   sha256 "09b3f6db7675d2b036b22b9b1a4856b5ed5eead98fc9da781e5f780e2c1bd845"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/sysid/bkmr.git", branch: "main"
 
   livecheck do
@@ -22,7 +23,7 @@ class Bkmr < Formula
 
   depends_on "rust" => :build
   depends_on "onnxruntime"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "python"
 
@@ -30,7 +31,7 @@ class Bkmr < Formula
     cd "bkmr" do
       # Ensure that the `openssl` crate picks up the intended library.
       # https://docs.rs/openssl/latest/openssl/#manual
-      ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+      ENV["OPENSSL_DIR"] = Formula["openssl@4"].opt_prefix
 
       # Add Homebrew lib to rpath so dlopen("libonnxruntime.dylib") finds it at runtime
       ENV.append "RUSTFLAGS", "-C link-args=-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
