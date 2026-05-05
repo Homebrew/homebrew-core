@@ -2,6 +2,7 @@ class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
   license "Ruby"
+  revision 1
   compatibility_version 1
   head "https://github.com/ruby/ruby.git", branch: "master"
 
@@ -30,12 +31,12 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6e88e98c0d652167a8dfcce3a91eea5304d2c605b15c214b5702cb7aa8abf484"
-    sha256 arm64_sequoia: "bfe4f02396155b515ee6863c6b807783ebc45f3fe8ca8935aa96f19ba9bd1f45"
-    sha256 arm64_sonoma:  "a90fed2e018d886fa0b7b8b818479f5378f8a3835aa9bfa5752bad386702e8fb"
-    sha256 sonoma:        "e9168b75c876749ddac651c1e0d3b78ecf137decb83f2ca32c3c4eb721b65051"
-    sha256 arm64_linux:   "6236d33e1040bedcf346164b40c452435cfabc48d1221f93c132e9222b916dca"
-    sha256 x86_64_linux:  "b629268a247d24a45a3acdc90f20ceda628e143939be56c12ee9b29f4abf16e5"
+    sha256 arm64_tahoe:   "ed864472c144dd76a6b513439385e3b117f593ce1569f001ce48e6cc33f9186b"
+    sha256 arm64_sequoia: "810f61b7b0b6da1b41e85a2558e0c40335b7f11aac705d5688a94b7684088eaf"
+    sha256 arm64_sonoma:  "2cf7a52dd8dcb09b0d327fd83da6b01576c4a1a962d7e840b75be7bcba37150a"
+    sha256 sonoma:        "555c618a5df53b025cb12f7a6ebfa2833ac319ad1d258faa506fb323ea736e91"
+    sha256 arm64_linux:   "57c40da3ffe4de84f41f4bad4ea639f84e1fa9451a77155ff8d0ba6444c7ba5f"
+    sha256 x86_64_linux:  "cc2d14b3327031a98651e153b5acf1866b91318d8e778056e7d3b028b496a084"
   end
 
   keg_only :provided_by_macos
@@ -44,7 +45,7 @@ class Ruby < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "gperf"
   uses_from_macos "libffi"
@@ -53,6 +54,10 @@ class Ruby < Formula
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  # OpenSSL 4 compatibility, upstream commit:
+  # https://github.com/ruby/ruby/commit/b41b143018b5
+  patch :DATA
 
   def determine_api_version
     Utils.safe_popen_read(bin/"ruby", "-e", "print Gem.ruby_api_version")
@@ -80,7 +85,7 @@ class Ruby < Formula
   end
 
   def install
-    paths = %w[libyaml openssl@3].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@4].map { |f| Formula[f].opt_prefix }
     # Add versioned Ruby RPATH so user-installed gems can work when user is switched to versioned Ruby
     paths << versioned_opt_prefix if OS.linux? && !versioned_formula?
 
@@ -314,3 +319,88 @@ class Ruby < Formula
     assert_path_exists testpath/"bin/github-markup", "github-markup is not installed in #{testpath}/bin"
   end
 end
+
+__END__
+diff --git a/ext/openssl/ossl_asn1.c b/ext/openssl/ossl_asn1.c
+index 18fa8edeb5777e..67c03b7f98a952 100644
+--- a/ext/openssl/ossl_asn1.c
++++ b/ext/openssl/ossl_asn1.c
+@@ -228,7 +228,7 @@ obj_to_asn1int(VALUE obj)
+ }
+ 
+ static ASN1_BIT_STRING*
+-obj_to_asn1bstr(VALUE obj, long unused_bits)
++obj_to_asn1bstr(VALUE obj, int unused_bits)
+ {
+     ASN1_BIT_STRING *bstr;
+ 
+@@ -236,11 +236,11 @@ obj_to_asn1bstr(VALUE obj, long unused_bits)
+         ossl_raise(eASN1Error, "unused_bits for a bitstring value must be in "\
+                    "the range 0 to 7");
+     StringValue(obj);
+-    if(!(bstr = ASN1_BIT_STRING_new()))
+-        ossl_raise(eASN1Error, NULL);
+-    ASN1_BIT_STRING_set(bstr, (unsigned char *)RSTRING_PTR(obj), RSTRING_LENINT(obj));
+-    bstr->flags &= ~(ASN1_STRING_FLAG_BITS_LEFT|0x07); /* clear */
+-    bstr->flags |= ASN1_STRING_FLAG_BITS_LEFT | unused_bits;
++    if (!(bstr = ASN1_BIT_STRING_new()))
++        ossl_raise(eASN1Error, "ASN1_BIT_STRING_new");
++    if (!ASN1_BIT_STRING_set1(bstr, (uint8_t *)RSTRING_PTR(obj),
++                              RSTRING_LEN(obj), unused_bits))
++        ossl_raise(eASN1Error, "ASN1_BIT_STRING_set1");
+ 
+     return bstr;
+ }
+@@ -364,22 +364,25 @@ decode_int(unsigned char* der, long length)
+ }
+ 
+ static VALUE
+-decode_bstr(unsigned char* der, long length, long *unused_bits)
++decode_bstr(unsigned char* der, long length, int *unused_bits)
+ {
+     ASN1_BIT_STRING *bstr;
+     const unsigned char *p;
+-    long len;
++    size_t len;
+     VALUE ret;
++    int state;
+ 
+     p = der;
+-    if(!(bstr = d2i_ASN1_BIT_STRING(NULL, &p, length)))
+-        ossl_raise(eASN1Error, NULL);
+-    len = bstr->length;
+-    *unused_bits = 0;
+-    if(bstr->flags & ASN1_STRING_FLAG_BITS_LEFT)
+-        *unused_bits = bstr->flags & 0x07;
+-    ret = rb_str_new((const char *)bstr->data, len);
++    if (!(bstr = d2i_ASN1_BIT_STRING(NULL, &p, length)))
++        ossl_raise(eASN1Error, "d2i_ASN1_BIT_STRING");
++    if (!ASN1_BIT_STRING_get_length(bstr, &len, unused_bits)) {
++        ASN1_BIT_STRING_free(bstr);
++        ossl_raise(eASN1Error, "ASN1_BIT_STRING_get_length");
++    }
++    ret = ossl_str_new((const char *)ASN1_STRING_get0_data(bstr), len, &state);
+     ASN1_BIT_STRING_free(bstr);
++    if (state)
++        rb_jump_tag(state);
+ 
+     return ret;
+ }
+@@ -763,7 +766,7 @@ int_ossl_asn1_decode0_prim(unsigned char **pp, long length, long hlen, int tag,
+ {
+     VALUE value, asn1data;
+     unsigned char *p;
+-    long flag = 0;
++    int flag = 0;
+ 
+     p = *pp;
+ 
+@@ -820,7 +823,7 @@ int_ossl_asn1_decode0_prim(unsigned char **pp, long length, long hlen, int tag,
+         asn1data = rb_obj_alloc(klass);
+         ossl_asn1_initialize(4, args, asn1data);
+         if(tag == V_ASN1_BIT_STRING){
+-            rb_ivar_set(asn1data, sivUNUSED_BITS, LONG2NUM(flag));
++            rb_ivar_set(asn1data, sivUNUSED_BITS, INT2NUM(flag));
+         }
+     }
+     else {
