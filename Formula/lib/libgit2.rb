@@ -14,12 +14,12 @@ class Libgit2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "53c58d492ddab149c2cc76b2cba6717935cff08348dcb250762e5ecc94793099"
-    sha256 cellar: :any,                 arm64_sequoia: "3a612eb2cf9a5f6f872baffa1b43643969ee4ba8901dfe070ff1ea7baf6b204c"
-    sha256 cellar: :any,                 arm64_sonoma:  "fbb917ea9623578572bf97f36e86a57a7a0983c0069d167bef40224f4e98795c"
-    sha256 cellar: :any,                 sonoma:        "df45947e30998e47ae6c547dbb9550b63a2a822e542d6221f6c6681ea6eaf7c0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fbe8631b467e0add62e8e4e3261b9410b6f0939946f92b31ff86f6596fa66051"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fec5a8fac2d572a4ef28949f760046054dbe82f71a2c610e91cf62da7de1d02d"
+    sha256 cellar: :any,                 arm64_tahoe:   "6c1084dcac57f71921963d974a7c8770d6a688234f06b71daad1693d0433fbc6"
+    sha256 cellar: :any,                 arm64_sequoia: "86f44dfd669fe9ef3fd7469c06c9720201343443ab16d4a699cce117cd8647ba"
+    sha256 cellar: :any,                 arm64_sonoma:  "f0245d6be18504b3d3f4fc910468418438e604e382507490bec0ae22bf73d11d"
+    sha256 cellar: :any,                 sonoma:        "cee518a1118db4114dbc450f61428c269fd9143a6ace26ff6dbefe930856d6f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a11437ebfc7f063ee9a250ac83eb2951fd8e88c9f8bc1bccf0090b0cd225501"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9dcd35b71f15be94426e83f25169e9bf653b4e3f6ce67d1b63ba48ece9300e9"
   end
 
   depends_on "cmake" => :build
