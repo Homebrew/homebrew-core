@@ -4,6 +4,7 @@ class Apkeep < Formula
   url "https://github.com/EFForg/apkeep/archive/refs/tags/1.0.0.tar.gz"
   sha256 "0c7a9c84b5dff12c356b22878e4f88ff3f1b44500ff80436c9e64cee17146388"
   license "MIT"
+  revision 1
   head "https://github.com/EFForg/apkeep.git", branch: "master"
 
   livecheck do
@@ -24,7 +25,7 @@ class Apkeep < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
