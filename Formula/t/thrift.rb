@@ -5,6 +5,7 @@ class Thrift < Formula
   mirror "https://archive.apache.org/dist/thrift/0.23.0/thrift-0.23.0.tar.gz"
   sha256 "1859d932d2ae1f13d16c5a196931208c116310a5ff50f2bfd11d3db03be8f46f"
   license "Apache-2.0"
+  revision 1
   compatibility_version 2
 
   bottle do
@@ -27,7 +28,7 @@ class Thrift < Formula
 
   depends_on "bison" => :build
   depends_on "boost" => [:build, :test]
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -41,7 +42,7 @@ class Thrift < Formula
       --disable-tests
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
+      --with-openssl=#{Formula["openssl@4"].opt_prefix}
       --without-java
       --without-kotlin
       --without-python
