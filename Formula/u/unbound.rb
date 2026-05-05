@@ -17,12 +17,12 @@ class Unbound < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0ea9166a4b7231f0cd73b0c6e6fec63114b6e2697fcf0841bc36ac3b8dd00411"
-    sha256 arm64_sequoia: "3220d79628029b34d13352bcb00440debe10d24f0184c6180cf9be66a2e58c3c"
-    sha256 arm64_sonoma:  "a19a6712b6f63ac4fde2f7a1c82e6fd796f24d825e93d97b118d75d06165edd3"
-    sha256 sonoma:        "bb5bd5b4ce182c28df322993473db74c74928a7bec7cbe9d3d52f63039defde3"
-    sha256 arm64_linux:   "80096cbcb206668a12aca1c53f79f873797a75748b394586d6fe0af63ca6ee59"
-    sha256 x86_64_linux:  "1c318031b4e6cfde3ee65824946645f907f9393f310ea652733fffb1f198b953"
+    sha256 arm64_tahoe:   "670e2b1931adc953b71b505f04cc69785d24ad9c0c7dafba1d31a05df424c7f1"
+    sha256 arm64_sequoia: "48b04ba2e5f8b73e573c63c9efd3d98af3ea826923611808e3d4714ddb7b63b4"
+    sha256 arm64_sonoma:  "703644274144dd13e29bf4809df5928b9ae4e5c29d5c6dedff2a19ca0a4a9e96"
+    sha256 sonoma:        "f4b337ab6a6f1ff8b3fb457ee316f30e897cf572d377168baa67fe52431fb09c"
+    sha256 arm64_linux:   "6e06e02e097f97a3c358be39a3598ab9ecb3fce0f6f2c77cdf06ae484e5c880d"
+    sha256 x86_64_linux:  "38797000bffaeadbd02e0889d8b3f449c7d4153dc360ecfcfba6416662db92fa"
   end
 
   depends_on "libevent"
