@@ -4,6 +4,7 @@ class Teslamate < Formula
   url "https://github.com/teslamate-org/teslamate/archive/refs/tags/v3.0.0.tar.gz"
   sha256 "a4a7267df27982cf5844e453d59ff866c6daf3ae126bcda05c0abe87dee43b45"
   license "AGPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "365e32212184579cd3ad2e8645994e88d5a2d19e5bf46ac32ebcab53ff0f1b99"
@@ -18,7 +19,7 @@ class Teslamate < Formula
   depends_on "postgresql@18" => :test
   depends_on "elixir"
   depends_on "erlang"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "ncurses"
 
