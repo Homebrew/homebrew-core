@@ -7,12 +7,12 @@ class Teslamate < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "365e32212184579cd3ad2e8645994e88d5a2d19e5bf46ac32ebcab53ff0f1b99"
-    sha256 cellar: :any,                 arm64_sequoia: "a009b56e79cab4ad8ab6cc93a724009b905fedc6c16b719ab99355105d7be9bd"
-    sha256 cellar: :any,                 arm64_sonoma:  "051fee5157e21481b9365da64058189babfb80efe0f53a15110244734b42913d"
-    sha256 cellar: :any,                 sonoma:        "c761eaccdc2122fb4544aa9521e9b7d5d4e411a34907228fd60c13e8966cf03e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "44b5037040201b926c88283fa5f582fbd638f78744fbd66586aa3b4b477097d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15897cb1032f908f271565db40062499ee6fb30b4793a657600c559470ec242b"
+    sha256 cellar: :any,                 arm64_tahoe:   "422fbb319b72f80b329972f0980ddedc0320e7d5376b1b44d8de4e142b371944"
+    sha256 cellar: :any,                 arm64_sequoia: "1cb0cbbc58a7bf8575c6e02c88fe8997d89a43115e73de6e1f90f77a3259b7be"
+    sha256 cellar: :any,                 arm64_sonoma:  "3cfe91fbb755ce931627711dfd28383c6561bfcb096cd7ef578465eda2c567e6"
+    sha256 cellar: :any,                 sonoma:        "f8873255f56222b52a1ae1f36f597bffa2889dc06b9938603b84541537758ada"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b50992381b06287f0dead17e28eb32b242c1606457f474884ef73bcbbe0a01c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcb3754463ba8579c5a912ac2ad299d63957b0731bff3bb570cb17f5d52faf7c"
   end
 
   depends_on "node" => :build
