@@ -4,6 +4,7 @@ class Aftman < Formula
   url "https://github.com/LPGhatguy/aftman/archive/refs/tags/v0.3.0.tar.gz"
   sha256 "f75aab63cb887c63e3888a225061a1ab4e0fd0d9c3e0a1c86b8ac7ad035fdf6c"
   license "MIT"
+  revision 1
   head "https://github.com/LPGhatguy/aftman.git", branch: "main"
 
   bottle do
@@ -29,7 +30,7 @@ class Aftman < Formula
   uses_from_macos "bzip2"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
