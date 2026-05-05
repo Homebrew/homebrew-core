@@ -5,7 +5,7 @@ class Opusfile < Formula
   mirror "https://github.com/xiph/opusfile/releases/download/v0.12/opusfile-0.12.tar.gz"
   sha256 "118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/opus/"
@@ -13,22 +13,16 @@ class Opusfile < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "922d401e40f524054d79245fa8b30b4025420bdc1f38fbdb4ac223ddbc0bd1df"
-    sha256 cellar: :any,                 arm64_sequoia:  "ad3b05a6931361ed1be9fd61d7c378d149071cf50bf0e7741df0799da481849a"
-    sha256 cellar: :any,                 arm64_sonoma:   "6de955abe2ffac326b26128bb2001110e1c91cfe171c54673bf23abc47e88283"
-    sha256 cellar: :any,                 arm64_ventura:  "d2d8a06a9cf6bae410e9112ec383e928b69986c8f6d1b91cde5961008e1ec077"
-    sha256 cellar: :any,                 arm64_monterey: "cd2de61cdf56792c4d6e03d5af1c1319b028d7c0227bbeb8b221f85c6928c301"
-    sha256 cellar: :any,                 arm64_big_sur:  "c82b83a7d1a4847695a7667de5537fa2b75fc737d0caedf3562891019b7e8c37"
-    sha256 cellar: :any,                 sonoma:         "afa275ae206fade81999c64b1f0d6d5812be81ffb9ca8a68d7f7d5f0421ec8ee"
-    sha256 cellar: :any,                 ventura:        "3f71655f0ae4529bbe68cdf389f44b835130e77078758674f0f433327aa7341f"
-    sha256 cellar: :any,                 monterey:       "fa8d9e078297d10e650883b4c259d46bf955031174af802849e4151ef3b5dccc"
-    sha256 cellar: :any,                 big_sur:        "f97ed204769d1f151372469bc4364076add0c7e15035bdba1a9aa630c2ee2063"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "4c2071a6fa1b8fba96beadcc92aae367174e03567220c066457a3490a629f919"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4b0a03f7494d92eb31cdc658c7aca5d971a1c9482ad899a2fe6643715d887f4"
+    sha256 cellar: :any,                 arm64_tahoe:   "750266cd9b303346651feabba1b39ffd5b5cd1d3927c6a06a5322c4888518e66"
+    sha256 cellar: :any,                 arm64_sequoia: "9b6a9947fddd5dab71810fe2a740a199b6ff9731bad586f93c544fa78683cad3"
+    sha256 cellar: :any,                 arm64_sonoma:  "c38acf5a1a76e31f9b92150113edd776d867db1524422ec4183fd8c435b3d080"
+    sha256 cellar: :any,                 sonoma:        "67029b81b431b3d0f0e2a3804ed961c71d5c9f8ab3f6e17092134570e5a9fa51"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9f9251859e1d2d20063fc46bb1b22e0ce0dbb163747013347b88d7d3f75bf14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91e550edcd34b9e8eea57f61bc8b4604205528a9a5dec5e78d6a1bb7984e3efd"
   end
 
   head do
-    url "https://gitlab.xiph.org/xiph/opusfile.git", branch: "master"
+    url "https://gitlab.xiph.org/xiph/opusfile.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -37,7 +31,7 @@ class Opusfile < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libogg"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "opus"
 
   resource "sample" do
