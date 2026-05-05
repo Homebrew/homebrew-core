@@ -4,6 +4,7 @@ class AsmLsp < Formula
   url "https://github.com/bergercookie/asm-lsp/archive/refs/tags/v0.10.1.tar.gz"
   sha256 "9500dd7234966ae9fa57d8759edf1d165acd06c4924d7dbeddb7d52eb0ce59d6"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/bergercookie/asm-lsp.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class AsmLsp < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
