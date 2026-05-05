@@ -4,6 +4,7 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/refs/tags/v2.12.1.tar.gz"
   sha256 "71edd8f721448311852122fca8d83ae497b43846e5bfcdfd275dc06bb7f3d0c5"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -32,7 +33,7 @@ class Adios2 < Formula
   depends_on "nanobind"
   depends_on "numpy"
   depends_on "open-mpi"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pugixml"
   depends_on "python@3.14"
   depends_on "sqlite"
