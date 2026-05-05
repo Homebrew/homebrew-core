@@ -8,13 +8,12 @@ class Wget < Formula
   compatibility_version 1
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "27e15ca14afaaa7c2016bba7a098452cf66d1d8a74330ed6195a0b6ae7a4dada"
-    sha256 arm64_sequoia: "aa19cf5de262d5b67631af8288cce233a075c251c68050a1e73699314a911e7b"
-    sha256 arm64_sonoma:  "ebac9bd5e93603af8d3dcf3cfed9924f773e0fa5f8a827c12c69ad07cc80a6de"
-    sha256 sonoma:        "32e76ca0ef4b26d7022dd1cad7621e8cd9bccca7677b7d4646d30d2fa009f413"
-    sha256 arm64_linux:   "f6e698ad339b9d9398f9769ad46ffa999809e9e07ab0e6d9a1537ec136dbaf01"
-    sha256 x86_64_linux:  "8f58b44e7482ee12e910df582cf43a4dadb808e4db70bfc760aaf258942652a5"
+    sha256 arm64_tahoe:   "95813f55485b527013d3caff66c3c52389947769ba3fa56bea3dd37bd64bc542"
+    sha256 arm64_sequoia: "03c53f2362562e8325f486dce8ef0daa2826bf7b35647deab93ca65d9006000c"
+    sha256 arm64_sonoma:  "f7e1d373d330de52e9ba82293c31fa1d268dc36bd37bcfda968f527e42e724dc"
+    sha256 sonoma:        "2df5a5bfb22520aebb4693e42877a703157b60ebae3dc426becf3a6a2b939a5a"
+    sha256 arm64_linux:   "fe5bcfa1f8fc0df487dbb88ca3272867a845a226c907f2a937665dbe6efe0d2b"
+    sha256 x86_64_linux:  "ff1f252c29b196108376bce23f6fdb56af9c4416d8ed81c7346b845ee00ec310"
   end
 
   head do
