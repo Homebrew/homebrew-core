@@ -4,6 +4,7 @@ class Bulletty < Formula
   url "https://github.com/CrociDB/bulletty/archive/refs/tags/v0.2.2.tar.gz"
   sha256 "e13b5743ee66a1d62c87f1ffa791a0c290d031fbb5d9363ce2c1e81cda25682d"
   license "MIT"
+  revision 1
   head "https://github.com/CrociDB/bulletty.git", branch: "main"
 
   bottle do
@@ -19,7 +20,19 @@ class Bulletty < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
+  end
+
+  # Backport openssl 4 part 1
+  patch do
+    url "https://github.com/crocidb/bulletty/commit/732f1c7c253d1f0819e14f112c999b5d4160eca4.patch?full_index=1"
+    sha256 "5d5d8f7c8428ad994854ea825ab7029fbe3359492f6f395cea547eb7a24eb0ec"
+  end
+
+  # Backport openssl 4 part 2
+  patch do
+    url "https://github.com/crocidb/bulletty/commit/a2bc60cb5d5c5301c818935fa3d6ad36e5a78752.patch?full_index=1"
+    sha256 "6b45b5cbd4f7c3410a5feab98f7b46c7923e4923b50876e56e2ba5841122f728"
   end
 
   def install
