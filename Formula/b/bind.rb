@@ -7,6 +7,7 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
   license "MPL-2.0"
+  revision 1
   version_scheme 1
 
   stable do
@@ -24,12 +25,12 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "fb375ac33749724b2c9be2b869f0a20c5a3c10ebcc970f5dbd05ad55df4a723d"
-    sha256 arm64_sequoia: "d785ddd16c8f41f16d30e2742a1d70698f83aae6ebd38c9f5b26914efabad187"
-    sha256 arm64_sonoma:  "a079b80dc5c7893f097b0ae72a95745a06b7c436fb7e5f2b80419b1b286b781a"
-    sha256 sonoma:        "4e539dcb32fc26442a7ea9b537c99201a78d992bd6d001a34f5c0992aff157b3"
-    sha256 arm64_linux:   "2c3f7cbe44fdcbbfa12a7b94659718d80e0b2ceb9dc216f16898d62d0cc968da"
-    sha256 x86_64_linux:  "d016b1f6e728a085e613a7c14af6b4ffdaddc6c3cb7bb10cff4f0a4af3e45619"
+    sha256 arm64_tahoe:   "d9ed734e5ea2b4d7ab80348117140b155a18eda8a6e40c479e6742041580e890"
+    sha256 arm64_sequoia: "635561c6d2536d7f9d1f09e81377d944e926f5b8afe49b8b64e55a02b465d22a"
+    sha256 arm64_sonoma:  "d6259270ba06a432733b383e8281a45c90f88facc54806e667201481629cb5ab"
+    sha256 sonoma:        "a18be96084b8116749fdb7c89cfc4b4c40b9051b9c4f8f61709c2f8faa45f732"
+    sha256 arm64_linux:   "b8034ecff3194e43c817e717a64a77890804d584d36af4a8858ac1df942c0159"
+    sha256 x86_64_linux:  "ae73c86b5cce1c22282a9175f2ad234136633a3ea8d627f52884367767d33b63"
   end
 
   head do
@@ -49,7 +50,7 @@ class Bind < Formula
   depends_on "libidn2"
   depends_on "libnghttp2"
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "userspace-rcu"
 
   uses_from_macos "libxml2"
@@ -58,6 +59,9 @@ class Bind < Formula
     depends_on "libcap"
     depends_on "zlib-ng-compat"
   end
+
+  # OpenSSL 4 cleanup can allocate after BIND's OpenSSL memory context is unsafe.
+  patch :DATA
 
   def install
     # Apply macOS 15+ libxml2 deprecation to all macOS versions.
@@ -80,7 +84,7 @@ class Bind < Formula
         "--localstatedir=#{var}",
         "--with-json-c",
         "--with-libidn2=#{Formula["libidn2"].opt_prefix}",
-        "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+        "--with-openssl=#{Formula["openssl@4"].opt_prefix}",
         "--without-lmdb",
       ]
 
@@ -127,3 +131,28 @@ class Bind < Formula
     system bin/"dig", "ü.cl"
   end
 end
+
+__END__
+diff --git a/lib/isc/tls.c b/lib/isc/tls.c
+--- a/lib/isc/tls.c
++++ b/lib/isc/tls.c
+@@ -80,7 +80,8 @@ static atomic_bool handle_fatal = true;
+ static atomic_bool handle_fatal = false;
+ #endif
+ 
+-#if !defined(LIBRESSL_VERSION_NUMBER) && OPENSSL_VERSION_NUMBER >= 0x30000000L
++#if !defined(LIBRESSL_VERSION_NUMBER) && OPENSSL_VERSION_NUMBER >= 0x30000000L && \
++	OPENSSL_VERSION_NUMBER < 0x40000000L
+ /*
+  * This was crippled with LibreSSL, so just skip it:
+  * https://cvsweb.openbsd.org/src/lib/libcrypto/Attic/mem.c
+@@ -154,7 +155,8 @@ isc__tls_initialize(void) {
+ 	isc_mem_setname(isc__tls_mctx, "OpenSSL");
+ 	isc_mem_setdestroycheck(isc__tls_mctx, false);
+ 
+-#if !defined(LIBRESSL_VERSION_NUMBER) && OPENSSL_VERSION_NUMBER >= 0x30000000L
++#if !defined(LIBRESSL_VERSION_NUMBER) && OPENSSL_VERSION_NUMBER >= 0x30000000L && \
++	OPENSSL_VERSION_NUMBER < 0x40000000L
+ 	/*
+ 	 * CRYPTO_set_mem_(_ex)_functions() returns 1 on success or 0 on
+ 	 * failure, which means OpenSSL already allocated some memory.  There's
