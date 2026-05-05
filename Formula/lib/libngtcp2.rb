@@ -5,6 +5,7 @@ class Libngtcp2 < Formula
   mirror "http://fresh-center.net/linux/www/ngtcp2-1.22.1.tar.xz"
   sha256 "dfd2c68bd64b89847c611425b9487105c46e8447b5c21e6aeb00642c8fbe2ca8"
   license "MIT"
+  revision 1
   compatibility_version 1
   head "https://github.com/ngtcp2/ngtcp2.git", branch: "main"
 
@@ -18,7 +19,7 @@ class Libngtcp2 < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
