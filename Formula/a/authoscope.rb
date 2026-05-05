@@ -4,6 +4,7 @@ class Authoscope < Formula
   url "https://github.com/kpcyrd/authoscope/archive/refs/tags/v0.8.1.tar.gz"
   sha256 "fd70d3d86421ac791362bf8d1063a1d5cd4f5410b0b8f5871c42cb48c8cc411a"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 2
@@ -19,7 +20,7 @@ class Authoscope < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3" # Uses Secure Transport on macOS
+    depends_on "openssl@4" # Uses Secure Transport on macOS
     depends_on "zlib-ng-compat"
   end
 
