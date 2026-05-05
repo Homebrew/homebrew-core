@@ -19,14 +19,14 @@ class Cmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e2c5a1ae09a0e35a582305caba6f7ad47adfd35cc240d8b2e6c24a106fdbb1c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8f1f9f6a2a1a73ddb23f85ab9e60b02822dbea67437e0e3263ccdbdbe119ef8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "442706522c7aa99018512b41f43ef6b3886bd6adbabc91401450852f1540ed8a"
-    sha256 cellar: :any_skip_relocation, tahoe:         "6c11190a4470cc8b813227670233c7073513090e83af6eb02e23f30c6e8e3f1b"
-    sha256 cellar: :any_skip_relocation, sequoia:       "781e965f824e5aacf040171dbe3c93785810f21125f8f2d406b0951647d19ba4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fdb020c78c9eae496d086556ca1d729cd4815203ef1b545d77de73767553b041"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b78b738d51bb50e489362ebfacc1c3f441980e153c81305cf2a03dd510a0edb1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72afa4b97cce47ab0433bc2e59b474ee585ceb3f7e55cf34ee7805ce687ae3f8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "40fa7ab6cbb1340bca9c5101d65f852edb56b990a3e335efa735cc1743884570"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6566c414e096a60c61dce97735b50f93e993919d3b96f66b88fd6e140e329aa0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5cdd3973aed8ad832afc2c45297778b260125be439dafd0c28186ab55fb3a035"
+    sha256 cellar: :any_skip_relocation, tahoe:         "dea3acb4151222accb9c725617b2e026f9beea4bd7f04b470669f0abc8d59719"
+    sha256 cellar: :any_skip_relocation, sequoia:       "0788b1d6335a68adba92be661f52172cd01c3a03fc744ce5f4c4ae2e4e811fd9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4578fdc25324c25aba44fa64a653b3e6f107dc73e57e87c8df86e7970d43d173"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "751731dfc991820d8fe786624daecae18f023063fa3732957e99469a268704c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "283fffb90211cdf24904e4a99ece378592bcf8b852f42eefad021ec0659cedff"
   end
 
   uses_from_macos "ncurses"
