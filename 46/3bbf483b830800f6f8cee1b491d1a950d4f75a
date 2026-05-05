@@ -1,0 +1,12 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "463bbf483b830800f6f8cee1b491d1a950d4f75a",
+  "prompts": {},
+  "humans": {
+    "h_30e39192f9d90e": {
+      "author": "Rui Chen"
+    }
+  }
+}
