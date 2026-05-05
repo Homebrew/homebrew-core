@@ -4,7 +4,7 @@ class AwsCCal < Formula
   url "https://github.com/awslabs/aws-c-cal/archive/refs/tags/v0.9.13.tar.gz"
   sha256 "80b7c6087b0af461b4483e4c9483aea2e0dac5d9fb2289b057159ea6032409e1"
   license "Apache-2.0"
-  revision 1
+  revision 2
   compatibility_version 1
 
   bottle do
