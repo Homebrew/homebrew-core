@@ -36,7 +36,7 @@ class SpirvTools < Formula
                     "-DPython3_EXECUTABLE=#{which("python3")}",
                     "-DSPIRV-Headers_SOURCE_DIR=#{Formula["spirv-headers"].opt_prefix}",
                     "-DSPIRV_SKIP_TESTS=ON",
-                    "-DSPIRV_TOOLS_BUILD_STATIC=OFF",
+                    "-DSPIRV_TOOLS_BUILD_STATIC=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
