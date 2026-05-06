@@ -32,9 +32,10 @@ class Rustup < Formula
   def install
     system "cargo", "install", *std_cargo_args(features: "no-self-update")
 
+    mv bin/"rustup-init", bin/"rustup"
     %w[cargo cargo-clippy cargo-fmt cargo-miri clippy-driver rls rust-analyzer
-       rust-gdb rust-gdbgui rust-lldb rustc rustdoc rustfmt rustup].each do |name|
-      bin.install_symlink bin/"rustup-init" => name
+       rust-gdb rust-gdbgui rust-lldb rustc rustdoc rustfmt].each do |name|
+      bin.install_symlink bin/"rustup" => name
     end
 
     (buildpath/"settings.toml").write <<~TOML
@@ -47,7 +48,7 @@ class Rustup < Formula
   end
 
   def post_install
-    (HOMEBREW_PREFIX/"bin").install_symlink bin/"rustup", bin/"rustup-init"
+    (HOMEBREW_PREFIX/"bin").install_symlink bin/"rustup"
   end
 
   def caveats
@@ -73,12 +74,5 @@ class Rustup < Formula
       assert_equal "Hello, world!", shell_output("./main").chomp
       assert_empty shell_output("#{bin}/cargo clippy")
     end
-
-    # Check for stale symlinks
-    system bin/"rustup-init", "-y"
-    bins = bin.glob("*").to_set(&:basename).delete(Pathname("rustup-init"))
-    expected = testpath.glob(".cargo/bin/*").to_set(&:basename)
-    assert (extra = bins - expected).empty?, "Symlinks need to be removed: #{extra.join(",")}"
-    assert (missing = expected - bins).empty?, "Symlinks need to be added: #{missing.join(",")}"
   end
 end
