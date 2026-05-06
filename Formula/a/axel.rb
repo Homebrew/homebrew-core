@@ -4,6 +4,7 @@ class Axel < Formula
   url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.14/axel-2.17.14.tar.xz"
   sha256 "938ee7c8c478bf6fcc82359bbf9576f298033e8b13908e53e3ea9c45c1443693"
   license "GPL-2.0-or-later" => { with: "cryptsetup-OpenSSL-exception" }
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:    "1f8ad603fc44127acc3b97b453360043ffa0610d63248035509a8b9c70d93fdc"
@@ -29,7 +30,7 @@ class Axel < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_macos do
     depends_on "gettext"
