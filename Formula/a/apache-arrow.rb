@@ -5,7 +5,7 @@ class ApacheArrow < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-24.0.0/apache-arrow-24.0.0.tar.gz"
   sha256 "9a8094d24fa33b90c672ab77fdda253f29300c8b0dd3f0b8e55a29dbd98b82c9"
   license "Apache-2.0"
-  revision 1
+  revision 2
   compatibility_version 2
   head "https://github.com/apache/arrow.git", branch: "main"
 
@@ -30,7 +30,7 @@ class ApacheArrow < Formula
   depends_on "grpc"
   depends_on "llvm"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "re2"
   depends_on "snappy"
