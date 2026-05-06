@@ -4,7 +4,7 @@ class Amber < Formula
   url "https://github.com/amberframework/amber/archive/refs/tags/v1.4.1.tar.gz"
   sha256 "92664a859fb27699855dfa5d87dc9bf2e4a614d3e54844a8344196d2807e775c"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 1
@@ -20,7 +20,7 @@ class Amber < Formula
   depends_on "crystal"
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "sqlite"
 
@@ -36,6 +36,10 @@ class Amber < Formula
   end
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@4"].opt_lib/"pkgconfig"
+    ENV["OPENSSL_DIR"] = Formula["openssl@4"].opt_prefix
+    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@4"].opt_prefix
+
     system "shards", "install"
     system "make", "install", "PREFIX=#{prefix}"
   end
