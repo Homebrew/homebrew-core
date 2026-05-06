@@ -6,7 +6,7 @@ class Dbus < Formula
   mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.16.2.orig.tar.xz"
   sha256 "0ba2a1a4b16afe7bceb2c07e9ce99a8c2c3508e5dec290dbb643384bd6beb7e2"
   license any_of: ["AFL-2.1", "GPL-2.0-or-later"]
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://gitlab.freedesktop.org/dbus/dbus.git", branch: "main"
 
@@ -37,7 +37,8 @@ class Dbus < Formula
   uses_from_macos "python" => :build
   uses_from_macos "expat"
 
-  # Remove deprecated keys from launchd plist.
+  # Remove deprecated keys from launchd plist
+  # and start at load so the wrapper can publish the launchd socket for clients.
   # PR ref: https://gitlab.freedesktop.org/dbus/dbus/-/merge_requests/179
   patch :DATA
 
@@ -54,8 +55,23 @@ class Dbus < Formula
       -Dmodular_tests=disabled
     ]
 
-    args << "-Dlaunchd_agent_dir=#{prefix}" << "-Ddbus_user=daemon" if OS.mac?
-    inreplace "bus/org.freedesktop.dbus-session.plist.in", "@DBUS_DAEMONDIR@", opt_bin
+    if OS.mac?
+      args << "-Dlaunchd_agent_dir=#{prefix}" << "-Ddbus_user=daemon"
+
+      libexec.mkpath
+      (libexec/"dbus-session-wrapper").write <<~SH
+        #!/bin/sh
+        if [ -n "${DBUS_LAUNCHD_SESSION_BUS_SOCKET}" ]; then
+          /bin/launchctl setenv DBUS_LAUNCHD_SESSION_BUS_SOCKET "${DBUS_LAUNCHD_SESSION_BUS_SOCKET}"
+          /bin/launchctl setenv DBUS_SESSION_BUS_ADDRESS "unix:path=${DBUS_LAUNCHD_SESSION_BUS_SOCKET}"
+        fi
+        exec "#{opt_bin}/dbus-daemon" "$@"
+      SH
+      chmod 0755, libexec/"dbus-session-wrapper"
+
+      inreplace "bus/org.freedesktop.dbus-session.plist.in",
+                "@DBUS_DAEMONDIR@/dbus-daemon", opt_libexec/"dbus-session-wrapper"
+    end
 
     # rpath is not set for meson build
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}"
@@ -135,6 +151,26 @@ class Dbus < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/dbus-daemon --version")
+
+    # With DBUS_LAUNCHD_SESSION_BUS_SOCKET unset, the wrapper skips its
+    # launchctl publishing and execs dbus-daemon, so this exercises the shell
+    # script and the opt_bin path without touching real launchd state.
+    assert_match version.to_s,
+                 shell_output("#{libexec}/dbus-session-wrapper --version")
+
+    # session.conf listens via the launchd transport, which requires a real
+    # launchd check-in (see dbus-server-launchd.c), so dbus-run-session can't
+    # bring up the bus here. Spawn an explicit Unix-socket bus instead.
+    ENV["DBUS_SESSION_BUS_ADDRESS"] = address = "unix:path=#{testpath}/bus"
+    pid = spawn(bin/"dbus-daemon", "--session", "--nofork", "--address=#{address}")
+    sleep 2
+    assert_match "org.freedesktop.DBus",
+                 shell_output("#{bin}/dbus-send --session --type=method_call --print-reply " \
+                              "--dest=org.freedesktop.DBus " \
+                              "/ org.freedesktop.DBus.ListNames")
+  ensure
+    Process.kill "TERM", pid if pid
+    Process.wait pid if pid
   end
 end
 
@@ -143,13 +179,21 @@ diff --git a/bus/org.freedesktop.dbus-session.plist.in b/bus/org.freedesktop.dbu
 index 40ff370..3c77fa9 100644
 --- a/bus/org.freedesktop.dbus-session.plist.in
 +++ b/bus/org.freedesktop.dbus-session.plist.in
-@@ -5,15 +5,6 @@
+@@ -5,15 +5,15 @@
  	<key>Label</key>
  	<string>org.freedesktop.dbus-session</string>
  
 -	<key>ServiceIPC</key>
 -	<true/>
--
++	<key>RunAtLoad</key>
++	<true/>
++
++	<key>KeepAlive</key>
++	<dict>
++		<key>SuccessfulExit</key>
++		<false/>
++	</dict>
+ 
 -	<!-- Please uncomment on 10.4; OnDemand doesn't work properly there. -->
 -	<!--
 -	<key>OnDemand</key>
