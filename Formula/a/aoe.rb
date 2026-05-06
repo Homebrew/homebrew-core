@@ -4,21 +4,22 @@ class Aoe < Formula
   url "https://github.com/njbrake/agent-of-empires/archive/refs/tags/v1.5.1.tar.gz"
   sha256 "cdf109969f5503d0d217da62836b0619afb72e0ba2896c10f1d0c455645c8b20"
   license "MIT"
+  revision 1
   head "https://github.com/njbrake/agent-of-empires.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "719ecc2044efcfb66600fa0d41f72bd535b59771c8fe56b02d176eeb11910542"
-    sha256 cellar: :any,                 arm64_sequoia: "b66f92a4ad5f6078d68597a2d5a0124afcd83a559203944390345323686d9954"
-    sha256 cellar: :any,                 arm64_sonoma:  "9f7ec565829ba4a712ff67efc08e19a9b50c02e57e0a1c23e6cf23ca7472a2b9"
-    sha256 cellar: :any,                 sonoma:        "3c112be9845abe179b7fd9709e8d3d37afb1cb4030f0450a5a48e43e73fe47ce"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3773469d543acfc27e2e5dd0be688069c935f3bd82d0c8cc3c23fb499cbc5e33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff60ae17359bfd75e58c82dc348e5212d5c62b98f8e04b1010d341c9576d05a9"
+    sha256 cellar: :any,                 arm64_tahoe:   "bea7b5a34a6b0b365ba326b275f39ab95b20567a3fb62991b6b45d453634076f"
+    sha256 cellar: :any,                 arm64_sequoia: "30987cf4081079a41f7193426cf07c1567fb3d913a09cfc73ca6262a7509b44d"
+    sha256 cellar: :any,                 arm64_sonoma:  "e3d83bcf23364136c9b1e0d4169396d18c1559f4b2599d9ef36a10489375170f"
+    sha256 cellar: :any,                 sonoma:        "86e9bffd573645cad677338743cc0822ef391fe972910bcd991adfd7904d7aeb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9566c7c84460a70694ccc0ea464b0acfcefead51cd0ba0afba1d565a7712d36b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f5f3547d10ae148528f313a0f6720877f4f7c6fc8b24c6f39d38cdd364078fa"
   end
 
   depends_on "node" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "tmux"
 
   on_linux do
@@ -26,6 +27,12 @@ class Aoe < Formula
   end
 
   def install
+    openssl = Formula["openssl@4"]
+    ENV["OPENSSL_DIR"] = openssl.opt_prefix
+    ENV["OPENSSL_LIB_DIR"] = openssl.opt_lib
+    ENV["OPENSSL_INCLUDE_DIR"] = openssl.opt_include
+    ENV.prepend_path "PKG_CONFIG_PATH", openssl.opt_lib/"pkgconfig"
+
     system "cargo", "install", *std_cargo_args(features: "serve")
     generate_completions_from_executable(bin/"aoe", "completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
