@@ -7,16 +7,12 @@ class Axel < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:    "1f8ad603fc44127acc3b97b453360043ffa0610d63248035509a8b9c70d93fdc"
-    sha256 cellar: :any, arm64_sequoia:  "b916766161940b92547f4dfddcc72ff0a7138c773e935927e0c8ae3111076494"
-    sha256 cellar: :any, arm64_sonoma:   "3304a247f8e410cf41737d083bb6611d74bb5991d7cec6d76b48d9ce2e944423"
-    sha256 cellar: :any, arm64_ventura:  "0b24ce8df8e83157f4558afcb41083993d7b7aa5dbf02e06b01037a665a63ae5"
-    sha256 cellar: :any, arm64_monterey: "a5ac14c819bb4bc61c7f9b1c9b8211bbc14e83c9db8a3c301f58abaf822de463"
-    sha256 cellar: :any, sonoma:         "10439c6710098fb8022d91ce619e8c459810845beee5d20f2aab33c6cf1a13df"
-    sha256 cellar: :any, ventura:        "5ca2bc10eba04c8efaf32c380ac81f6b3da6a3a8a0dd28013a9000d06a76dd4e"
-    sha256 cellar: :any, monterey:       "70f5c6208758d713185fe924ef3778b4a72e81c29660b495c1cdab5c2e968685"
-    sha256               arm64_linux:    "5a1e69568f0649bd3fc53694bf840b8a626e507c11cbb12496b8485ac82553af"
-    sha256               x86_64_linux:   "bf422304c452796fc7a1c020f7bf067fe1ff5eb7be4757a56b249eef815dfa9d"
+    sha256 cellar: :any, arm64_tahoe:   "f2e4f284dc20b918521e8493a25f90dc1ec4f70e1475e548a1b04ccfa967a130"
+    sha256 cellar: :any, arm64_sequoia: "95c51635ca58e485bd24471f4586bb1588a83abeefd50061bfb24494086696d7"
+    sha256 cellar: :any, arm64_sonoma:  "33ccc3f5be77891efca3ce004f122cc494db614255e445fd721a6bdc9433a30d"
+    sha256 cellar: :any, sonoma:        "8926c7626c602becabb002607665fb5680aaeb113469a2be0d307ef2a84fb902"
+    sha256               arm64_linux:   "66b10f06213d7853d329bbe6550cac344cb5c0ef2e80b9288d5104b4204df8c7"
+    sha256               x86_64_linux:  "5e36485c13d0c6d2d3ec965dae2d9d2e87cb8f4929d7b8a9c1cc4115eda26012"
   end
 
   head do
