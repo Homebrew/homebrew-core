@@ -7,6 +7,7 @@ class Qtbase < Formula
     "BSD-3-Clause", # *.cmake
     "GFDL-1.3-no-invariants-only", # *.qdoc
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtbase.git", branch: "dev"
 
@@ -57,7 +58,7 @@ class Qtbase < Formula
   depends_on "libb2"
   depends_on "libpng"
   depends_on "md4c"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "zstd"
 
