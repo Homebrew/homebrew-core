@@ -7,6 +7,7 @@ class Afflib < Formula
     "BSD-4-Clause", # AFFLIB 2.0a14 and before
     :public_domain, # contributions after 2.0a14
   ]
+  revision 1
 
   bottle do
     rebuild 3
@@ -23,7 +24,7 @@ class Afflib < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "python@3.14" => [:build, :test] # for bindings, avoid runtime dependency due to `expat`
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
   uses_from_macos "expat"
