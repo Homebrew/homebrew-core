@@ -2,6 +2,7 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
 
   stable do
@@ -40,7 +41,7 @@ class Crystal < Formula
   depends_on "gmp" => :no_linkage # std uses it but it's not linked
   depends_on "libyaml"
   depends_on "llvm"
-  depends_on "openssl@3" # std uses it but it's not linked
+  depends_on "openssl@4" # std uses it but it's not linked
   depends_on "pcre2"
   depends_on "pkgconf" # @[Link] will use pkg-config if available
 
