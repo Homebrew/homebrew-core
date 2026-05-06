@@ -4,6 +4,7 @@ class AmqpCpp < Formula
   url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/refs/tags/v4.3.27.tar.gz"
   sha256 "af649ef8b14076325387e0a1d2d16dd8395ff3db75d79cc904eb6c179c1982fe"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git", branch: "master"
 
   livecheck do
@@ -23,7 +24,7 @@ class AmqpCpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   # Backport fix for CMake 4
   # PR ref: https://github.com/CopernicaMarketingSoftware/AMQP-CPP/pull/541
