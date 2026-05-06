@@ -6,6 +6,7 @@ class Barman < Formula
   url "https://github.com/EnterpriseDB/barman/releases/download/release%2F3.18.0/barman-3.18.0.tar.gz"
   sha256 "8e752ac93d2f3a61e86b8374185209cae477a638ece7e6f540070f36d28d6997"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "cbf037220fca3b11693a2e177c7153a51a1bc3a6c6b544982e19d5dfb87ec318"
@@ -17,7 +18,7 @@ class Barman < Formula
   end
 
   depends_on "libpq"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
 
   resource "psycopg2" do
