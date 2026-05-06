@@ -8,7 +8,7 @@ class AircrackNg < Formula
     "GPL-2.0-or-later",
     "GPL-2.0-or-later" => { with: "cryptsetup-OpenSSL-exception" },
   ]
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -29,7 +29,7 @@ class AircrackNg < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "sqlite"
 
