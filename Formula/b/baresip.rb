@@ -4,6 +4,7 @@ class Baresip < Formula
   url "https://github.com/baresip/baresip/archive/refs/tags/v4.7.0.tar.gz"
   sha256 "fa281d041e6c5d02f9f71b88524ca8fe05b54d37bbdf985f44fb6a034e02a604"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_tahoe:   "03f6a32353e1147a8a70e483ddf28a4f0423b6932f2e8028a0c8a1d2ee03a541"
@@ -19,7 +20,7 @@ class Baresip < Formula
   depends_on "libre"
 
   on_macos do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
