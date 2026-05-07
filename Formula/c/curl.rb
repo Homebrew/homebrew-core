@@ -8,6 +8,7 @@ class Curl < Formula
   mirror "http://fresh-center.net/linux/www/legacy/curl-8.20.0.tar.bz2"
   sha256 "4be48e69cf467246cb97d369b85d78a08528f2b37cffef2418ee16e6a4eb596e"
   license "curl"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -40,7 +41,7 @@ class Curl < Formula
   depends_on "libnghttp3"
   depends_on "libngtcp2"
   depends_on "libssh2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "krb5"
@@ -68,7 +69,7 @@ class Curl < Formula
 
     args = %W[
       --disable-silent-rules
-      --with-ssl=#{Formula["openssl@3"].opt_prefix}
+      --with-ssl=#{Formula["openssl@4"].opt_prefix}
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback
