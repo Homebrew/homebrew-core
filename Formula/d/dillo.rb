@@ -4,15 +4,15 @@ class Dillo < Formula
   url "https://github.com/dillo-browser/dillo/releases/download/v3.2.0/dillo-3.2.0.tar.bz2"
   sha256 "1066ed42ea7fe0ce19e79becd029c651c15689922de8408e13e70bb5701931bf"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "133ccf2cba4d0bd952f33b732c18d55cf734e4cc52cdfe1eec378e77c9a4db24"
-    sha256 arm64_sequoia: "7dc7ce269edd8f4f14fceaeb32e4778124b9598c7012ff352ade23c8efa0438a"
-    sha256 arm64_sonoma:  "a79d60c5478603e8a82cfa50bbce87946c26b671a4d2bc118e1005c5e9ee4329"
-    sha256 sonoma:        "8e4b78d3b2f1909881dfcf2fbee7924222a055cf6b863d6d77a6346a127cbf50"
-    sha256 arm64_linux:   "affc8edd131cb4d01285085bb413c678ee6ebc0dbf55aebbee6f1abdab7dbae5"
-    sha256 x86_64_linux:  "633afe5f018db26138ac0d62cd5d0d55b11fefa78a68bedfc1992718e3ede88b"
+    sha256 arm64_tahoe:   "da77692abb96f86d4d0427308f403fbcf16d065976fa32f5fb98a60ac93c159a"
+    sha256 arm64_sequoia: "dfa302f5f967a9b01d66755ab4b1e37fcfb8095ce68c2cadfeb66c43f11f031f"
+    sha256 arm64_sonoma:  "85d85b5e3c449de29a6d2ad5f607ab17545fff90f3a21f88a4b741c5e76089c1"
+    sha256 sonoma:        "115efce250911169652cabaf6917acecd236e80b648dd7dd3a27cd8df5f28181"
+    sha256 arm64_linux:   "8702a43940327df2fc982348866612cd9f0085c341032a5688d08edf1aac011b"
+    sha256 x86_64_linux:  "638583a861928687adc34e6b7293d7a27dc5b94f02bf2b94845a68a7f85bdf00"
   end
 
   head do
@@ -27,7 +27,7 @@ class Dillo < Formula
   depends_on "fltk@1.3"
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "libx11"
