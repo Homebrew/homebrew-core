@@ -10,13 +10,12 @@ class Rtmpdump < Formula
   head "https://git.ffmpeg.org/rtmpdump.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "488ebaf2932cd02770654ecaf903c115a2f21606d1e7eb37b87054c08f63486e"
-    sha256 cellar: :any,                 arm64_sequoia: "dbae365bd1a8c9299b123dbb8557042c43332921b7c71496e0dedf554617ab29"
-    sha256 cellar: :any,                 arm64_sonoma:  "717373dde83a7c0140831a1fa33b718dc71600c1d93759ddb10baf7d60afe245"
-    sha256 cellar: :any,                 sonoma:        "89c063d3d0b8bb6d8a63c5cc47a3ace403dee9c99bd3d10e3c1e8efd58ee3bb3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "18c6bc27daf24689a704d66342892097754843e402d591e5957086d5427a61ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5d37b5e7d3831124a9beea1f7fde55e593ffd12357007671ddb402642a4e009"
+    sha256 cellar: :any,                 arm64_tahoe:   "9e82c204f24b38ab4fd9e0b706cf3e6edc4ef352e9f80c2a69eb2b3ce551fecf"
+    sha256 cellar: :any,                 arm64_sequoia: "be2e0bb5e18a85fe2bd42492a5a09d43f95a97a051cba4feefa2e92b5a8e8b29"
+    sha256 cellar: :any,                 arm64_sonoma:  "18f2f6ea084a9387e826392dfb6c610e8c7aa6813ef582b82af30c95cf1da41d"
+    sha256 cellar: :any,                 sonoma:        "c22bd9ef3ed2e216bc3f62d95a1c79f8db58198123f03bd0809646ad69dd9c41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "262cdbe4025f22936097bf830e01c822819ac800572c18299d11a00ac6a79d0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "842e5f794e8b746f103fb4cd20f5911e5ff54e8faa27c5d6263ae11be1c74f69"
   end
 
   depends_on "openssl@4"
