@@ -4,6 +4,7 @@ class Deadfinder < Formula
   url "https://github.com/hahwul/deadfinder/archive/refs/tags/2.0.2.tar.gz"
   sha256 "13d3d4b0392d6b1548071d44dc03a14e790ea161781d5a57a196577316a97543"
   license "MIT"
+  revision 1
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
   bottle do
@@ -21,7 +22,7 @@ class Deadfinder < Formula
   depends_on "bdw-gc"
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
 
   uses_from_macos "libxml2"
@@ -31,6 +32,7 @@ class Deadfinder < Formula
   end
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@4"].opt_lib/"pkgconfig"
     system "shards", "build", "--production", "--release", "--no-debug"
     bin.install "bin/deadfinder"
 
