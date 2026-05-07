@@ -13,12 +13,12 @@ class Fossil < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "4b4e87850124a9ac1e744a1666dcb130559b2a42211c88fd6638bf4aaf94bedd"
-    sha256                               arm64_sequoia: "374946eaa9167456cb3a8afdfbfd682f6b3d1fec6f824e8f5675fbb39b6affaa"
-    sha256                               arm64_sonoma:  "5257caee28e4c79d291c042d068d6d6224516349af37bbbb44364502a19d12ba"
-    sha256 cellar: :any,                 sonoma:        "a0b0f4dd1d52c16dfc8c86eef57c54931c3f6a63b8ea823d57a81250f823579d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "527bcb7891799919f0b6219d088421a044f5af220ae06c2d1305444014a12701"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbd65f925258794188c892a90210dd3c84d48feef1c435c7d432a2f7cfec8f7b"
+    sha256                               arm64_tahoe:   "5e31addaca063b247a0ea3f933cec94cd2c717f8f5b35f60649acd26d4b98e16"
+    sha256                               arm64_sequoia: "addc876425062178960ac5ff4695d46bf417878ead65c0e46e9d57e01d7a2557"
+    sha256                               arm64_sonoma:  "09030560e1be034a443999998de141921355eab8b7ffb8e26314ab80294641c8"
+    sha256 cellar: :any,                 sonoma:        "2017f745d7c51b24533c2c094a16061f132284ce8879780e3c12b4136fbef678"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab82a9960b2bcd26a6b17e10738300dfc81108033ecfb54ede06d246c999c4e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3de76c97f0f4df6411d1198c56cbffe8d4f2dd5996f9646fff6ce3b0a4be7f6"
   end
 
   depends_on "openssl@4"
