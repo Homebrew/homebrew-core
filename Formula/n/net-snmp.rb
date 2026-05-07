@@ -4,6 +4,7 @@ class NetSnmp < Formula
   url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9.5.2/net-snmp-5.9.5.2.tar.gz"
   sha256 "16707719f833184a4b72835dac359ae188123b06b5e42817c00790d7dc1384bf"
   license all_of: ["MIT-CMU", "MIT", "BSD-3-Clause"]
+  revision 1
   compatibility_version 1
   head "https://github.com/net-snmp/net-snmp.git", branch: "master"
 
@@ -13,13 +14,12 @@ class NetSnmp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "d142bb242b76208fa92a73801a64a20513dec07949351cd1ec802f7d5f770b2c"
-    sha256 arm64_sequoia: "1c4f2e18d46e36360e6711c26a25317ab7517ee165a8e1c53ce6cddbba56834a"
-    sha256 arm64_sonoma:  "d640b8927a1aa772b87085a8c63b0dab583052307d2296f9ccd1b201c510e6fe"
-    sha256 sonoma:        "a8c8b0732709c407177489228b4c772ad61b5814eb035f6863ebbc5982d94146"
-    sha256 arm64_linux:   "dcc352521e634a15b9891373b5b95fa697cada2e7958cf432c8037064aa45ad1"
-    sha256 x86_64_linux:  "15b5bf2138a9ddbf83512b4d5fef9a7d77f3a5636b275570e4ceec60790ea9b1"
+    sha256 arm64_tahoe:   "60b8a097757e7513dbe2ce5984a266a0d78be2587a8b3154a96548cbf10979f5"
+    sha256 arm64_sequoia: "38c0927f3b149096b984c95a7c32c7b7151387bbe86cc7581858efaa5c96c58a"
+    sha256 arm64_sonoma:  "b89b359674da95fe75459cefcf36c9ad0fc1b34f7712359063573a394c15b6cc"
+    sha256 sonoma:        "d6faf8fb6ac91735d46081e0c1ea86f0dfa295e4888bf19a4ec233e31e7f5d25"
+    sha256 arm64_linux:   "e9ed1814d288256a92c19eb1db31c48f1b6491ad122029b32b98ecde1c74c57b"
+    sha256 x86_64_linux:  "33e985fe63a50768c46cb6939fc84b7c7fa5c8f439b3211ef8850529a65d8c29"
   end
 
   keg_only :provided_by_macos
