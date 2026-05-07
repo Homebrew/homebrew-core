@@ -5,7 +5,7 @@ class Libshout < Formula
   mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/libshout/libshout-2.4.6.tar.gz"
   sha256 "39cbd4f0efdfddc9755d88217e47f8f2d7108fa767f9d58a2ba26a16d8f7c910"
   license "LGPL-2.0-or-later"
-  revision 2
+  revision 3
   compatibility_version 1
 
   livecheck do
@@ -27,7 +27,7 @@ class Libshout < Formula
   depends_on "pkgconf" => :build
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "speex"
   depends_on "theora"
 
