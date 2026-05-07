@@ -4,6 +4,7 @@ class Dillo < Formula
   url "https://github.com/dillo-browser/dillo/releases/download/v3.2.0/dillo-3.2.0.tar.bz2"
   sha256 "1066ed42ea7fe0ce19e79becd029c651c15689922de8408e13e70bb5701931bf"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -27,7 +28,7 @@ class Dillo < Formula
   depends_on "fltk@1.3"
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "libx11"
