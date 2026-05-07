@@ -4,6 +4,7 @@ class Ccache < Formula
   url "https://github.com/ccache/ccache/releases/download/v4.13.5/ccache-4.13.5.tar.xz"
   sha256 "7a8945f4ac7d4bb79c0055cd3db7857a6934c2b7ab3d80bb11a0f5271e36fd94"
   license "GPL-3.0-or-later"
+  revision 1
   compatibility_version 1
   head "https://github.com/ccache/ccache.git", branch: "master"
 
@@ -27,7 +28,7 @@ class Ccache < Formula
   depends_on "blake3"
   depends_on "fmt"
   depends_on "hiredis"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "xxhash"
   depends_on "zstd"
 
