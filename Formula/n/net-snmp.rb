@@ -23,7 +23,7 @@ class NetSnmp < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_arm do
     depends_on "autoconf" => :build
@@ -49,7 +49,7 @@ class NetSnmp < Formula
       "--without-kmem-usage",
       "--disable-embedded-perl",
       "--without-perl-modules",
-      "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+      "--with-openssl=#{Formula["openssl@4"].opt_prefix}",
     ]
 
     system "autoreconf", "--force", "--install", "--verbose" if Hardware::CPU.arm?
