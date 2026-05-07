@@ -4,6 +4,7 @@ class Cadaver < Formula
   url "https://notroj.github.io/cadaver/cadaver-0.28.tar.gz"
   sha256 "33e3a54bd54b1eb325b48316a7cacc24047c533ef88e6ef98b88dfbb60e12734"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -30,7 +31,7 @@ class Cadaver < Formula
 
   depends_on "pkgconf" => :build
   depends_on "neon"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "readline"
 
   on_macos do
@@ -43,7 +44,7 @@ class Cadaver < Formula
       system "./autogen.sh"
     end
     system "./configure", "--with-ssl=openssl",
-                          "--with-libs=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-libs=#{Formula["openssl@4"].opt_prefix}",
                           "--with-neon=#{Formula["neon"].opt_prefix}",
                           *std_configure_args
     system "make"
