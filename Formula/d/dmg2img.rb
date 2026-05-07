@@ -9,7 +9,7 @@ class Dmg2img < Formula
     "GPL-2.0-only",
     "MIT", # vfdecrypt
   ]
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -26,7 +26,7 @@ class Dmg2img < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef48b1f21bb0dd210883e31452368224a72fc775db03a15b95c29f61c1e41c82"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bzip2"
 
