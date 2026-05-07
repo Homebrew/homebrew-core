@@ -5,6 +5,7 @@ class Rtmpdump < Formula
       tag:      "v2.6",
       revision: "138fdb258d9fc26f1843fd1b891180416c9dc575"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
   compatibility_version 1
   head "https://git.ffmpeg.org/rtmpdump.git", branch: "master"
 
@@ -18,7 +19,7 @@ class Rtmpdump < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5d37b5e7d3831124a9beea1f7fde55e593ffd12357007671ddb402642a4e009"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
