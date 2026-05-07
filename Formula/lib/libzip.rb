@@ -13,12 +13,13 @@ class Libzip < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "08417964bf803b08c703fa297f87ff23998f73c6cfe0b327103d02c9a41582af"
-    sha256 cellar: :any,                 arm64_sequoia: "6a65f5a729a460ee8988e05e9af08880215a008692dffede96e51694d0a8b428"
-    sha256 cellar: :any,                 arm64_sonoma:  "41df5da85bc172a781efd6f32c46708f7a88f9b1faa82577cec64992f5254f5b"
-    sha256 cellar: :any,                 sonoma:        "5b808617db89e546465d756a8d8e0ee7068806e7dc58ae06952eea528ebdce8f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0dd50da8a8ac50d993717bc5d59ed132a311a8d05ff65839ec038890b25bd518"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6c30ff07c163ba9e53ccf30f1f21124a2fc2942adca5d34c8595840638f6ea2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "c290af28bf46ce0ad37565135483609bc1e1de0e71e9edf1b9b9182e75a6f2d6"
+    sha256 cellar: :any,                 arm64_sequoia: "a7ce0f0b76c3fa4957234b101576f601438ffef7769341cf1ca000cf90960ad6"
+    sha256 cellar: :any,                 arm64_sonoma:  "6ef7ac3386de9d85713e1f7e62c7d1edff6bcd7833281b90fbfd7b191df7b2f8"
+    sha256 cellar: :any,                 sonoma:        "f55c42e37daf714f4283b77f56b25ccb3288c73b97b15831b3cb5377652d3376"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4eff813d4699d88b656864b98d6a5ca89aa651a3ee48f6ee2122ff17b4880973"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19ea3f62d46ce3026e49c8c38bf12f1e221b6a1bae5e787d138b32c1160f47bb"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +30,7 @@ class Libzip < Formula
   uses_from_macos "bzip2"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
     depends_on "zlib-ng-compat"
   end
 
