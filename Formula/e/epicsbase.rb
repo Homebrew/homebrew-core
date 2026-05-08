@@ -13,15 +13,15 @@ class Epicsbase < Formula
     sha256 "b988e750302893a206ed01e854dec0df04b4a23707a92bdc9f4096e0936c9b2d"
   end
   def install
-    # EPICS erwartet, dass diese Umgebungsvariablen gesetzt sind
+    # EPICS needed this environment variables
     ENV["EPICS_HOST_ARCH"] = `./startup/EpicsHostArch`.strip
     hostarch = `./startup/EpicsHostArch`.strip
     puts "EPICS_HOST_ARCH = #{hostarch}"
     ENV["EPICS_BASE"] = buildpath
-    # Optional: Anpassung der Konfigurationsdateien
+    # Optional: optinal config files
     inreplace "configure/CONFIG_SITE", /#?INSTALL_LOCATION=.*/, "INSTALL_LOCATION=#{prefix}"
     system "make"
-    # Installation: einfach alles kopieren
+    # installation: simply copy over this stuff
     prefix.install Dir["*"]
 
     bin.install_symlink "#{prefix}/bin/#{hostarch}/caget" => "caget"
@@ -45,10 +45,9 @@ class Epicsbase < Formula
 
   def caveats
     <<~EOS
-      EPICS Base wurde installiert.
+      EPICS Base is installed
 
-      Um EPICS korrekt zu verwenden, füge dies zu deiner Shell-Konfiguration hinzu:
-
+      To use EPICS in the shell you have to put this here into shell configuration:
         export EPICS_BASE=#{opt_prefix}
         export EPICS_HOST_ARCH=$(#{opt_prefix}/startup/EpicsHostArch)
 
@@ -56,7 +55,7 @@ class Epicsbase < Formula
   end
 
   test do
-    # einfacher Test, ob z.B. caput installiert ist
+    # simple test if these files exists
     assert_path_exists "#{prefix}/bin/#{hostarch}/caput", :exist?
     assert_path_exists "#{prefix}/bin/#{hostarch}/pvput", :exist?
     assert_path_exists "#{prefix}/bin/#{hostarch}/softIoc", :exist?
