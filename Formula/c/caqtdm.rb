@@ -7,7 +7,7 @@ class Caqtdm < Formula
   head "https://github.com/caqtdm/caqtdm.git", branch: "Development"
 
   depends_on "qtbase"  => :build
-  depends_on "epicsbase" 
+  depends_on "epicsbase"
   depends_on "qt"
   depends_on "qt5compat"
   depends_on "qtimageformats"
@@ -17,7 +17,7 @@ class Caqtdm < Formula
   depends_on "qwt"
   depends_on "python"
   depends_on "zeromq"
-  
+
 
   def install
     require "macho"
@@ -31,7 +31,7 @@ class Caqtdm < Formula
     ENV["EPICSLIB"] = Formula["epicsbase"].opt_prefix
     ENV["EPICSLIB"] += "/lib/#{ENV["EPICS_HOST_ARCH"]}"
     ENV["CAQTDM_MODBUS"] = "1"
-    
+
     ENV["CAQTDM_GPS"] = "1"
     ENV["PRODUCT_BUNDLE_IDENTIFIER"] = "ch.psi.caqtdm"
     ENV["QTDIR"] = Formula["qt"].opt_prefix
@@ -45,7 +45,7 @@ class Caqtdm < Formula
     ENV["QWTLIB"] += "/lib"
     ENV["QWTINCLUDE"] = Formula["qwt"].opt_prefix
     ENV["QWTINCLUDE"] += "/lib/qwt.framework/Headers"
-    
+
     ENV["PYTHONVERSION"] = Formula["python"].version.major.to_s
     ENV["PYTHONVERSION"] += "."
     ENV["PYTHONVERSION"] += Formula["python"].version.minor.to_s
@@ -58,11 +58,11 @@ class Caqtdm < Formula
     ENV["PYTHONINCLUDE"] += "#{ENV["PYTHONVERSION"]}"
     ENV["PYTHONINCLUDE"] += "/include/python"
     ENV["PYTHONINCLUDE"] += "#{ENV["PYTHONVERSION"]}"
-    
+
     puts ">> Detected QWTLIB: #{ENV["QWTLIB"]}"
     puts ">> Detected QWTINCLUDE: #{ENV["QWTINCLUDE"]}"
     puts ">> Detected qwt: #{Formula["qwt"].opt_prefix}"
-    
+
     puts ">> Detected PYTHONVERSION: #{ENV["PYTHONVERSION"]} "
     puts ">> Detected PYTHONLIB: #{ENV["PYTHONLIB"]} "
     puts ">> Detected PYTHONINCLUDE: #{ENV["PYTHONINCLUDE"]} "
@@ -82,7 +82,7 @@ class Caqtdm < Formula
       frameworks = "#{prefix}/caQtDM.app/Contents/Frameworks"
       plugins =  "#{prefix}/caQtDM.app/Contents/PlugIns/controlsystems"
       design =  "#{prefix}/caQtDM.app/Contents/PlugIns/designer"
- 
+
       lib_caQtDM_Lib = "#{frameworks}/libcaQtDM_Lib.dylib"
       lib_qtcontrols = "#{frameworks}/libqtcontrols.dylib"
 
@@ -94,10 +94,10 @@ class Caqtdm < Formula
       plugin_env = "#{plugins}/libenvironment_plugin.dylib"
       plugin_gps =  "#{plugins}/libgps_plugin.dylib"
       plugin_modbus = "#{plugins}/libmodbus_plugin.dylib"
-      
+
       MachO::Tools.change_install_name(app_bin, "libcaQtDM_Lib.dylib", "@rpath/libcaQtDM_Lib.dylib", strict: false) do end
       MachO::Tools.change_install_name(app_bin, "libqtcontrols.dylib", "@rpath/libqtcontrols.dylib", strict: false) do end
- 
+
       MachO::Tools.change_install_name(plugin_epics3,
                                        "libcaQtDM_Lib.dylib", "@rpath/libcaQtDM_Lib.dylib", strict: false) do end
       MachO::Tools.change_install_name(plugin_epics4,
@@ -107,7 +107,7 @@ class Caqtdm < Formula
                                        "libqtcontrols.dylib", "@rpath/libqtcontrols.dylib", strict: false) do end
       MachO::Tools.change_install_name(plugin_sf,
                                        "libcaQtDM_Lib.dylib", "@rpath/libcaQtDM_Lib.dylib", strict: false) do end
-                                       
+
       MachO::Tools.change_install_name(plugin_http,
                                        "libqtcontrols.dylib", "@rpath/libqtcontrols.dylib", strict: false) do end
       MachO::Tools.change_install_name(plugin_http,
@@ -120,16 +120,16 @@ class Caqtdm < Formula
       MachO::Tools.change_install_name(plugin_modbus,
                                        "libcaQtDM_Lib.dylib", "@rpath/libcaQtDM_Lib.dylib", strict: false) do end
 
-                                       
-                                       
+
+
       MachO::Tools.change_install_name(plugin_env,
                                  "libqtcontrols.dylib", "@rpath/libqtcontrols.dylib", strict: false) do end
       MachO::Tools.change_install_name(plugin_env,
                                  "libcaQtDM_Lib.dylib", "@rpath/libcaQtDM_Lib.dylib", strict: false) do end
-      
+
       MachO::Tools.change_install_name(plugin_gps,
                                  "libcaQtDM_Lib.dylib", "@rpath/libcaQtDM_Lib.dylib", strict: false) do end
-      
+
       MachO::Tools.change_install_name(lib_qtcontrols,
                                        "libadlParser.dylib", "#{frameworks}/libadlParser.dylib", strict: false) do end
       MachO::Tools.change_install_name(lib_qtcontrols,
@@ -168,7 +168,7 @@ class Caqtdm < Formula
       system ("chmod 755 #{prefix}/caQtDM.app/Contents/Resources/caqtdm_designer")
 
       system "codesign", "--force", "--sign", "-", "-vvv", "--deep", app_bin
-      
+
       lib.install_symlink prefix/"caQtDM.app/Contents/libqtcontrols.dylib"=> "libqtcontrols.dylib"
       lib.install_symlink prefix/"caQtDM.app/Contents/libcaQtDM_Lib.dylib"=> "libcaQtDM_Lib.dylib"
 
