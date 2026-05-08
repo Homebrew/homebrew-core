@@ -8,13 +8,13 @@ class Caqtdm < Formula
 
   depends_on "qtbase" => :build
   depends_on "epicsbase"
+  depends_on "python"
   depends_on "qt"
   depends_on "qt5compat"
   depends_on "qtimageformats"
   depends_on "qtnetworkauth"
   depends_on "qtpositioning"
   depends_on "qtserialbus"
-  depends_on "python"
   depends_on "qwt"
   depends_on "zeromq"
 
