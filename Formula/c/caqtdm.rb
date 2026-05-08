@@ -142,7 +142,7 @@ class Caqtdm < Formula
       MachO::Tools.change_install_name("#{design}/libqtcontrols_monitors_plugin.dylib",
                                        "libqtcontrols.dylib", "@rpath/libqtcontrols.dylib", strict: false) do end
       MachO::Tools.change_install_name( "#{design}/libqtcontrols_utilities_plugin.dylib",
-                                       "libqtcontrols.dylib", "@rpath/libqtcontrols.dylib", strict: false) do end
+                                       "libqtcontrols.dylib", "@rpath/libqtcontrols.dylib", strict: false) {}
 
       write_default="defaults write #{prefix}/caQtDM.app/Contents/Info"
       system ("#{write_default} LSEnvironment -dict QT_PLUGIN_PATH #{prefix}/caQtDM.app/Contents/PlugIns")
