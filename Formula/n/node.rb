@@ -23,11 +23,11 @@ class Node < Formula
 
   depends_on "pkgconf" => :build
   depends_on "python@3.14" => :build
+  depends_on "rust" => :build
   depends_on "ada-url"
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "hdrhistogram_c"
-  depends_on "icu4c@78"
   depends_on "libnghttp2"
   depends_on "libnghttp3"
   depends_on "libngtcp2"
@@ -81,6 +81,11 @@ class Node < Formula
     end
   end
 
+  resource "icu" do
+    url "https://github.com/unicode-org/icu/releases/download/release-78.3/icu4c-78.3-sources.tgz"
+    sha256 "3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0"
+  end
+
   def install
     ENV.llvm_clang if OS.linux? && deps.map(&:name).any?("llvm")
 
@@ -94,15 +99,17 @@ class Node < Formula
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.14")
 
-    # Ensure Homebrew deps are used
+    # Stage ICU source for full-icu and remove bundled resources handled below.
     rm_r(["deps/icu-small", "deps/npm"])
+    resource("icu").stage buildpath/"icu-source"
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
     args = %W[
       --prefix=#{prefix}
       --without-npm
-      --with-intl=system-icu
+      --with-intl=full-icu
+      --with-icu-source=#{buildpath/"icu-source"}
       --shared
       --openssl-use-def-ca-store
     ]
@@ -242,6 +249,9 @@ class Node < Formula
 
     output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"de-DE\").format(1234.56))'").strip
     assert_equal "1.234,56", output
+
+    output = shell_output("#{bin}/node -p 'typeof globalThis.Temporal?.Now?.zonedDateTimeISO'").strip
+    assert_equal "function", output
 
     # make sure npm can find node
     ENV.prepend_path "PATH", opt_bin
