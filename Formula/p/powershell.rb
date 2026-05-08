@@ -5,7 +5,7 @@ class Powershell < Formula
       tag:      "v7.6.1",
       revision: "fb32ab04df59569f4e6d8f0670a82f27e22a1d7e"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -24,7 +24,7 @@ class Powershell < Formula
   depends_on "dotnet"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
