@@ -18,7 +18,6 @@ class Caqtdm < Formula
   depends_on "qwt"
   depends_on "zeromq"
 
-
   def install
     require "macho"
 
@@ -51,13 +50,13 @@ class Caqtdm < Formula
     ENV["PYTHONVERSION"] += Formula["python"].version.minor.to_s
     ENV["PYTHONLIB"] = Formula["python"].opt_prefix
     ENV["PYTHONLIB"] += "/Frameworks/Python.framework/Versions/"
-    ENV["PYTHONLIB"] += "#{ENV["PYTHONVERSION"]}"
+    ENV["PYTHONLIB"] += ENV["PYTHONVERSION"].to_s
     ENV["PYTHONLIB"] += "/lib/"
     ENV["PYTHONINCLUDE"] = Formula["python"].opt_prefix
     ENV["PYTHONINCLUDE"] += "/Frameworks/Python.framework/Versions/"
-    ENV["PYTHONINCLUDE"] += "#{ENV["PYTHONVERSION"]}"
+    ENV["PYTHONINCLUDE"] += ENV["PYTHONVERSION"].to_s
     ENV["PYTHONINCLUDE"] += "/include/python"
-    ENV["PYTHONINCLUDE"] += "#{ENV["PYTHONVERSION"]}"
+    ENV["PYTHONINCLUDE"] += ENV["PYTHONVERSION"].to_s
 
     puts ">> Detected QWTLIB: #{ENV["QWTLIB"]}"
     puts ">> Detected QWTINCLUDE: #{ENV["QWTINCLUDE"]}"
@@ -81,9 +80,7 @@ class Caqtdm < Formula
 
       frameworks = "#{prefix}/caQtDM.app/Contents/Frameworks"
       plugins =  "#{prefix}/caQtDM.app/Contents/PlugIns/controlsystems"
-      design =  "#{prefix}/caQtDM.app/Contents/PlugIns/designer"
-
-      lib_caQtDM_Lib = "#{frameworks}/libcaQtDM_Lib.dylib"
+      design = "#{prefix}/caQtDM.app/Contents/PlugIns/designer"
       lib_qtcontrols = "#{frameworks}/libqtcontrols.dylib"
 
       plugin_epics3 = "#{plugins}/libepics3_plugin.dylib"
@@ -118,8 +115,6 @@ class Caqtdm < Formula
                                        "libqtcontrols.dylib", "@rpath/libqtcontrols.dylib", strict: false) {}
       MachO::Tools.change_install_name(plugin_modbus,
                                        "libcaQtDM_Lib.dylib", "@rpath/libcaQtDM_Lib.dylib", strict: false) {}
-
-
 
       MachO::Tools.change_install_name(plugin_env,
                                  "libqtcontrols.dylib", "@rpath/libqtcontrols.dylib", strict: false) {}
