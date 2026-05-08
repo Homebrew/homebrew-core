@@ -4,22 +4,35 @@ class Aiken < Formula
   url "https://github.com/aiken-lang/aiken/archive/refs/tags/v1.1.21.tar.gz"
   sha256 "c6bbdba11a37a6452d6a00c6fee9473264b757475912c4dfd9c3fd18ea60ed4c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/aiken-lang/aiken.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c9ae36751833384d16c8a4df43c8fb3ef0755d4b05d3363486b48e54ee207d4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ffe5ae7edaf537679ee4b86f20e3dfbe7266154ccd640c7103131b97c70e9718"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e4d9a6295b7b7f127704e1c3908209878b1d46f0e5655b1d858071530c2dabb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cac6ef2d9163db78866a858eb745edbda9d016956dcf08f0f7d1ad5a3c2e38bc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "87156bc45bd1fe859eeaebb4307725e38b8ce9098551efec869574f2ce509bc7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2dd61e0126ab3d0b44ea3e085d69d20b36c9fec4cd36fd8431236514d1ec70d7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1880676384c217aebfa1835c94df19fa25a9f30049c1259a037d68d0e532c82e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd5de1d90c2b519dc31172a78c2561b0ff231089d2c6059ff5cb4cb1ac149fc8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b094e38d7c67bde13386ad4b32f2242dd15cf1f611d5867fc39881ba80b36631"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8bfc0c056f9d7d513c0df13b2ef087130a5d931cfad9ac39fc82489ed996bb45"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca34ae5907f8efe7affd7e3170ea1a4cf8d926cb010c216d217e217175396946"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ee3811ce4cac5efefda4a264ffe65fbf7631bac3ef59aa4cb25aef84525daee"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
+  end
+
+  # Backport openssl part 1
+  patch do
+    url "https://github.com/aiken-lang/aiken/commit/d5aba83a115439384ecd5b4c398c33baf33f7a77.patch?full_index=1"
+    sha256 "499e4f309d5a0ea7c047b0d05c8933019d616b6ec831a5dbaf73ebb982c06bf4"
+  end
+
+  # Backport openssl 4 support https://github.com/aiken-lang/aiken/pull/1312
+  patch do
+    url "https://github.com/aiken-lang/aiken/commit/b1756f6311d383c079dfd976c2a2068aedbf922e.patch?full_index=1"
+    sha256 "423ed0c5a3453f3870f1984cb67c30806e3f506fbdfe5ddbd7955431858a0cb9"
   end
 
   def install
