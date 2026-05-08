@@ -3,7 +3,7 @@ class Caqtdm < Formula
   homepage "https://github.com/caqtdm/caqtdm"
   url "https://github.com/caqtdm/caqtdm/archive/refs/tags/V4.5.0.tar.gz"
   sha256 "153a3d7355a6f6412343b0e2cb876a3dafee06c97e3f1fdcb849320134ee6d1e"
-  license "GPLv3"
+  license "GPL-3.0-only"
   head "https://github.com/caqtdm/caqtdm.git", branch: "Development"
 
   depends_on "qtbase" => :build
