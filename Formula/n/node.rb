@@ -23,6 +23,7 @@ class Node < Formula
 
   depends_on "pkgconf" => :build
   depends_on "python@3.14" => :build
+  depends_on "rust" => :build
   depends_on "ada-url"
   depends_on "brotli"
   depends_on "c-ares"
@@ -242,6 +243,9 @@ class Node < Formula
 
     output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"de-DE\").format(1234.56))'").strip
     assert_equal "1.234,56", output
+
+    output = shell_output("#{bin}/node -p 'typeof globalThis.Temporal?.Now?.zonedDateTimeISO'").strip
+    assert_equal "function", output
 
     # make sure npm can find node
     ENV.prepend_path "PATH", opt_bin
