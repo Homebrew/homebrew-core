@@ -4,7 +4,7 @@ class AzureStorageCommonCpp < Formula
   url "https://github.com/Azure/azure-sdk-for-cpp/archive/refs/tags/azure-storage-common_12.12.0.tar.gz"
   sha256 "0d835b22c03358f6e837044c70b3f9d93902cf710c27ac9ee22b2544ffdec27c"
   license "MIT"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -22,7 +22,7 @@ class AzureStorageCommonCpp < Formula
 
   depends_on "cmake" => :build
   depends_on "azure-core-cpp"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "libxml2"
 
