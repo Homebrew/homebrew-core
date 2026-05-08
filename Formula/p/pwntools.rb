@@ -6,16 +6,16 @@ class Pwntools < Formula
   url "https://files.pythonhosted.org/packages/f2/5c/9ae3d94c98b0b038ffd7f09ebdac506d346fe1b964999f71c96c8a904efd/pwntools-4.15.0.tar.gz"
   sha256 "d99a917298c1ca7241b51bba9ad2212f2af441ef66488059b2426508e9a2a776"
   license "MIT"
-  revision 6
+  revision 7
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "143d8a85eb759ae9d4df94b982effe7e8a4c3604c390263502919e4d58c84946"
-    sha256 cellar: :any,                 arm64_sequoia: "c20f42487d3fc40dd95fd7f42a57f81ef6ad60b865e4d285ea5b5299ed1987ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "fb381a945b7dae29d78c423c1e6a43e6682d15471eb1bbd1cde9d4e49115e8ba"
-    sha256 cellar: :any,                 sonoma:        "33cf5ff4af31be9bb771130b52d26d87302e18e398986fba185bded66e14afb9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "30af6829604732352055440e5de36b49f004c0cc4249f90c139ba9716b3f5160"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebc88917f0c5dfa4b0d5b7dfcf2b2a572c4380d6e203ca991569a088447113f4"
+    sha256 cellar: :any,                 arm64_tahoe:   "de01e1e134e66ee822618319d5312aad163b51daf129cce037e69de84e638afd"
+    sha256 cellar: :any,                 arm64_sequoia: "206a28ba57e7b1cd49e4febbd4dbba4e62cbeb5feb782d0453236a0e07d79485"
+    sha256 cellar: :any,                 arm64_sonoma:  "ddb620fbfb91c4de8796ab14511ae82e3d68fdc175acab6151d430d43574729e"
+    sha256 cellar: :any,                 sonoma:        "c1bb677d5b8182bbe13cfed6ef6bf5552592ed248328d2c2b6d1bfe256419f62"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d1605bdc70b0e84aceedcfa92f529e0831482f1c3b86d0589319036d82a2db48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5735a638e0b7dd3a58c8411dfa8ecdc99a094cafee1c220dafa55a9b0a5f562"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -52,8 +52,8 @@ class Pwntools < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "intervaltree" do
@@ -67,8 +67,8 @@ class Pwntools < Formula
   end
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/59/8a/805404d0c0b9f3d7a326475ca008db57aea9c5c9f2e1e39ed0faa335571c/mako-1.3.11.tar.gz"
-    sha256 "071eb4ab4c5010443152255d77db7faa6ce5916f35226eb02dc34479b6858069"
+    url "https://files.pythonhosted.org/packages/00/62/791b31e69ae182791ec67f04850f2f062716bbd205483d63a215f3e062d3/mako-1.3.12.tar.gz"
+    sha256 "9f778e93289bd410bb35daadeb4fc66d95a746f0b75777b942088b7fd7af550a"
   end
 
   resource "markupsafe" do
@@ -77,8 +77,8 @@ class Pwntools < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/de/0d2b39fb4af88a0258f3bac87dfcbb48e73fbdea4a2ed0e2213f9a4c2f9a/packaging-26.1.tar.gz"
-    sha256 "f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "paramiko" do

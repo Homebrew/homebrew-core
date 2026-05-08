@@ -2,11 +2,11 @@ class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
-  url "https://curl.se/download/curl-8.19.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_19_0/curl-8.19.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.19.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.19.0.tar.bz2"
-  sha256 "eba3230c1b659211a7afa0fbf475978cbf99c412e4d72d9aa92d020c460742d4"
+  url "https://curl.se/download/curl-8.20.0.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_20_0/curl-8.20.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.20.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.20.0.tar.bz2"
+  sha256 "4be48e69cf467246cb97d369b85d78a08528f2b37cffef2418ee16e6a4eb596e"
   license "curl"
   compatibility_version 1
 
@@ -16,12 +16,12 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "22a5da2b96dba56d222c6003d7b3add442b7da85b5fd6c4fe95299d3a4568b3f"
-    sha256 cellar: :any,                 arm64_sequoia: "b41905deb0ce0cd0e164af725e747d2e968cc67bcc0dfa61dbd67e69bc5f8959"
-    sha256 cellar: :any,                 arm64_sonoma:  "e51e0fef9c8c8ff821f9af07c5a055801836ead9bc6de1c88d3c9a01e0cb4117"
-    sha256 cellar: :any,                 sonoma:        "e93bbb5c8a803427c63f9842d42e4d6cda82b51c4d3af345574c15f77541250e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "13b26e6b4e2a6df75c7d427fb4149683514772e37064fcdbede143372ab24852"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29ef3f57ed1a8cba8c2689cc8a8ca097908c40d17d4c899e16acfa95ab899b93"
+    sha256 cellar: :any,                 arm64_tahoe:   "bd670b96423f4df3ec9333188e58ce40b936f9d63359f201e17ff0e2219239ea"
+    sha256 cellar: :any,                 arm64_sequoia: "cb1366bbbd11a94a5824dafccdccbfb19d26d50b99a0b650e5863497ef39ea7e"
+    sha256 cellar: :any,                 arm64_sonoma:  "965f8c8ca3d582b5cc8b3e4ded8b34dfc7a59ef1c4e05c2c94ca3d093f1255b8"
+    sha256 cellar: :any,                 sonoma:        "76f4b92369879e1c6870afb34f9408926db80ed16f8476f7e0a98a0c7bf8b937"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd8bd30940ccb3181200e3fd93cb794d2dedac06e973fa67e8c3655b1ca11cde"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e78a17c535b9e3fee4bd0794456b23254259484677721ea2685f8b4d4295b23"
   end
 
   head do

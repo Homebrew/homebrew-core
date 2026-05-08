@@ -14,12 +14,13 @@ class Cryptominisat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3ffc932cffd60239777dcacf11be1ba3e5b3aa33792759837e37f23e331514a4"
-    sha256 cellar: :any,                 arm64_sequoia: "a60238ea10a150c198f00bb6cd04622008802b65600b25373b7baffaed3e0cbd"
-    sha256 cellar: :any,                 arm64_sonoma:  "0f63c8da2a5cab6ed922922b0ad6ef4d7d04ce13c8a168affa559ff13f13f52c"
-    sha256 cellar: :any,                 sonoma:        "0446688d197106f1101a15233bde43c276193dfaea6f5d0c39a545f23055fa59"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "44bd4462780909e1f4f2f6ce4001f8aece70e985858a294e259e30c63036d07e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1f78aa17e3ce8c2ad98146ef71de77a09b29e90e76cf8106af1b55330bb3f6a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "b2d71c29e673f8fe425c63848154ef5e824de624268023a9e56fe9f3b99b6d0f"
+    sha256 cellar: :any,                 arm64_sequoia: "5239fb1cf825cfdfbb4a697a5c3009b1e5899c8a74ea64fcf932f9fc961fd268"
+    sha256 cellar: :any,                 arm64_sonoma:  "69bc8c2ca51ab1df9daef08ef1ed3eacd438d8d6125b1d659206e1f692381ff6"
+    sha256 cellar: :any,                 sonoma:        "a67f35b0592b480831b2463a17dab5f7d9f637eea03d27d3c469f59be807b25f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b60138350eecaff614b7ed419457f26e4a837d2155c826c49e40e8bc5c9a50e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c56b827004dd4770e742065676caaf01eb3cae78ef4888502ad2b42273d7b42"
   end
 
   depends_on "cmake" => :build
@@ -66,6 +67,15 @@ class Cryptominisat < Formula
   def install
     # fix audit failure with `lib/libcryptominisat5.5.7.dylib`
     inreplace "src/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
+
+    # Revert msoos/cryptominisat@50b87734's PRIVATE -> PUBLIC; export leaks break consumers
+    # main.cpp uses GMP directly so link it explicitly into the binary too.
+    # Issue ref: https://github.com/msoos/cryptominisat/issues/820
+    inreplace "src/CMakeLists.txt" do |s|
+      s.sub!(/^    PUBLIC\n(        Threads)/, '\1')
+      s.sub! "target_link_libraries(cryptominisat5-bin\n    PRIVATE\n        cryptominisat5\n",
+             "\\0        PkgConfig::GMP\n"
+    end
 
     resource("cadical").stage do
       system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: buildpath/"cadical")

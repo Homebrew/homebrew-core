@@ -1,18 +1,18 @@
 class Llhttp < Formula
   desc "Port of http_parser to llparse"
   homepage "https://llhttp.org/"
-  url "https://github.com/nodejs/llhttp/archive/refs/tags/release/v9.3.1.tar.gz"
-  sha256 "c14a93f287d3dbd6580d08af968294f8bcc61e1e1e3c34301549d00f3cf09365"
+  url "https://github.com/nodejs/llhttp/archive/refs/tags/release/v9.4.1.tar.gz"
+  sha256 "86a8c16759fdcc7aa2c9841fbe8ba2e77ea98be7d5d45615f2604776d0ff78c7"
   license "MIT"
-  compatibility_version 1
+  compatibility_version 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "35c5eb5a905ba0729cf2af32593498a8c62f289941e141c46836335b8e428a20"
-    sha256 cellar: :any,                 arm64_sequoia: "5dce7dc5e8c5cea5bd819da5b4df5b8c07a88414cd26fed46c4800084007f39a"
-    sha256 cellar: :any,                 arm64_sonoma:  "e5ec03abe69e8861845736d9c02392c0228dd14f2a972084d0f4d8e0d67cea3b"
-    sha256 cellar: :any,                 sonoma:        "7a68099f251edee5ec013af565622c06569b7d46f66175edc04768230b71a7cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c0ff9594e5ab4ef4bb38860f7a42ab5c27a1a774791ab08ceaed4268e8c0a4bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9758338dfa51d0eb47445d9a279a7e0525c3fd3a8aa4f2e4c9b2ffd48224023a"
+    sha256 cellar: :any,                 arm64_tahoe:   "008c27ccda18513f7b62a6ad142774acecc300cd6eeac9f5aac8fef748495ae0"
+    sha256 cellar: :any,                 arm64_sequoia: "2e8334042c1afd61dcbdde7e24472889cf323cbec3d251b669ba9f5e79476bee"
+    sha256 cellar: :any,                 arm64_sonoma:  "5cc1eba5deaab8a20bf1ba35469db8d693f6cf75726e0d88ae0c4170190df389"
+    sha256 cellar: :any,                 sonoma:        "9d0428367d420235836b13a4d9db987a55c341b4e8eeea4756824827c85c8c41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "44cc7ec6552fbbb70d026809c0c2a88caacad11e7eeeba9a9c02b1aa6cb86ac3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6fa60dfe50e4abe067f2295ffea6c4668fbfdec401edd73c6e16d70b9a8c6de"
   end
 
   depends_on "cmake" => :build

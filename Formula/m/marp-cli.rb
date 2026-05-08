@@ -1,20 +1,21 @@
 class MarpCli < Formula
   desc "Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images"
   homepage "https://github.com/marp-team/marp-cli"
-  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-4.3.1.tgz"
-  sha256 "162c5e06f022c75dd741f4e27bff8caf97f3283f3fa57475decea59d3b480a1e"
+  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-4.4.0.tgz"
+  sha256 "564ffe54b62b5a0cd7c07dc69d6bc6bd1f4443e9a04256c9a1e0bc4ba9e6b24c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b5e74d0cb2b6aba5ebc8fcb9066e2579143856e28565578344a0eec3177e7587"
-    sha256 cellar: :any,                 arm64_sequoia: "f7bb739c27563361aa91847c952bf100f98167b6662d61d5a30999a8ba12c2c8"
-    sha256 cellar: :any,                 arm64_sonoma:  "f7bb739c27563361aa91847c952bf100f98167b6662d61d5a30999a8ba12c2c8"
-    sha256 cellar: :any,                 sonoma:        "f68e38630e584815a3b4035ff5f8dfdc6665b00aa3940b7e51d340e257c2c2c9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "234404880ee4628830255bd83cb3f37e63798cd3a7c029e7b4edec22db135a9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c684a488cc5073a2783e8bff1575f60955763c96b4576912dd7f793395e6d11"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "b736b6057fbd2362e98098260ea5f7a4bc45083811f7a4416b64ef7ec2aae4e8"
+    sha256 cellar: :any,                 arm64_sequoia: "1022c802fe2927d93d68153550089cd61706c6694fa7c29f30f003d8d1b5e908"
+    sha256 cellar: :any,                 arm64_sonoma:  "1022c802fe2927d93d68153550089cd61706c6694fa7c29f30f003d8d1b5e908"
+    sha256 cellar: :any,                 sonoma:        "cbf7d9124137a38d4b9c67d7a752d3536b11fa0d2a8c72d83ebe8e4ac12e2344"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff3c7f6fdf1cc304498e76b34cfeb40b72d9f7d0be28f9814793607400f0031d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd0296008c2e6062bc4e1774188cbc676c67b4c7f79875b164ea943f8e665a31"
   end
 
-  depends_on "node"
+  depends_on "node@24"
 
   def install
     system "npm", "install", *std_npm_args

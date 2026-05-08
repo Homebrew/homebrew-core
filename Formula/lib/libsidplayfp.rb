@@ -1,8 +1,8 @@
 class Libsidplayfp < Formula
   desc "Library to play Commodore 64 music"
   homepage "https://github.com/libsidplayfp/libsidplayfp"
-  url "https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.16.1/libsidplayfp-2.16.1.tar.gz"
-  sha256 "ace0f73c2ef8645ab069ce1b298b10e31e36af7b5996109983b2b67ad60ff3ca"
+  url "https://github.com/libsidplayfp/libsidplayfp/releases/download/v3.0.0/libsidplayfp-3.0.0.tar.gz"
+  sha256 "b22fe5d3cc1e228733b23dd175573b00e677cf4d2a2b277fcdb7ababc0ff66a2"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libsidplayfp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b4e8bd9e2d458c17ce895240352279188cb802ca03d28557f85f1e6045eb81cb"
-    sha256 cellar: :any,                 arm64_sequoia: "0e1f398dcdfdd193e2e85c820f5549918b48e9b8d71e1313c059f0dea8136ae5"
-    sha256 cellar: :any,                 arm64_sonoma:  "dc9ba9117d51c55362f71cb2ca50d7907526f2cb9ce09c56bf9b21313938d953"
-    sha256 cellar: :any,                 sonoma:        "12268da95535d62e016d9e358206b19af1d20c74e51c7fa3eb6a1e0b13e6c176"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8b710c5a3c78a41f8fcdccf57849459572733c58746aea2161be90737c178c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85066022ede61620945cc9777e6983209c16053ff1e9f307a75234ddcea295ed"
+    sha256 cellar: :any,                 arm64_tahoe:   "9802ac3fc20b374564905242bd8db9ab6973bc7f7d6b69f4dc84b8d1b3220ea8"
+    sha256 cellar: :any,                 arm64_sequoia: "65228ab9338c057178d5992a6dcd7cddb4f559f366aeb760d508112a10303e48"
+    sha256 cellar: :any,                 arm64_sonoma:  "c8582d2c83ca7a3be4085e003399b83c78b1d74cff2db0fec074bdc3f38c4eb1"
+    sha256 cellar: :any,                 sonoma:        "d5fb3b14b6bf4bb5b502ecb7ea69602fb33da379cebd0dfae541b9b5cbb459ec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4be84c8b2db0127b2f5635b774e9a742c33252707ad7549bf852461031d8cd2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbbf31d7a2bb9cd835717a480469d428f23e56a97fef0227392c65d6dd2205db"
   end
 
   head do

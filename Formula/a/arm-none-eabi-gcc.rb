@@ -1,9 +1,9 @@
 class ArmNoneEabiGcc < Formula
   desc "GNU compiler collection for arm-none-eabi"
   homepage "https://gcc.gnu.org"
-  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
-  sha256 "438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
+  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
+  sha256 "50efb4d94c3397aff3b0d61a5abd748b4dd31d9d3f2ab7be05b171d36a510f79"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -11,13 +11,12 @@ class ArmNoneEabiGcc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "4e862be029fd2e27e1d2614a54581846fdf3cf1f55e4d3e75eb1d097ffaafc39"
-    sha256 arm64_sequoia: "8b0034c3bc3e3ec1d1e7b3d4da1fc9208f9ddcaf182bf95a85dc921ad394b2ab"
-    sha256 arm64_sonoma:  "7586b52ffdc271857080b690184c269975c0d885c8688653c01c063e321fa02d"
-    sha256 sonoma:        "4a64941cdc4bc7110a72969d07e89e17944392073a1dce1a90ab31fe052303ad"
-    sha256 arm64_linux:   "a52b2e1db4a395276e704677d2dd7f164ab9fd277ad2353b8f117d45ca917a6e"
-    sha256 x86_64_linux:  "ef7aec12914835857f8ade168373e744061017468638dab8275ab7a28a3764b8"
+    sha256 arm64_tahoe:   "7573fd4e0b21843b4784eb729cda4895f36c25e89b963a4390cd0e2314f6d6eb"
+    sha256 arm64_sequoia: "2b405ada76d998c8e154d282e3e5a29e43cfe0e31bd12469142015b377f465e0"
+    sha256 arm64_sonoma:  "c8fcc7b952187622aafe9e60e4c64391c741c8b028adc2c3c580101aade8ddaf"
+    sha256 sonoma:        "7541d239f02d871caf18a692cc79afc58076fadc70925775ebb892be066e8556"
+    sha256 arm64_linux:   "914d9ff78aa719866ac62d90b9cff345c378e84a8d08ab5cfdd75737ee9850c1"
+    sha256 x86_64_linux:  "9a394fb45248bdc5359c8bb0a6aed1fc5041298cbdcf5481fff7a7b0a4ddbc7a"
   end
 
   depends_on "arm-none-eabi-binutils"

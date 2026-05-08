@@ -1,15 +1,15 @@
 class Nb < Formula
   desc "Command-line and local web note-taking, bookmarking, and archiving"
   homepage "https://xwmx.github.io/nb"
-  url "https://github.com/xwmx/nb/archive/refs/tags/7.25.3.tar.gz"
-  sha256 "c2c25323b906fadbed4edad6d14951b815bc7541335cd2114e61595104dff03b"
+  url "https://github.com/xwmx/nb/archive/refs/tags/7.25.4.tar.gz"
+  sha256 "0d4d2423f56ab765a934d5770a8f84b52fd83801759813bbb92e916ca4cb8dcb"
   license "AGPL-3.0-or-later"
   head "https://github.com/xwmx/nb.git", branch: "master"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "39b726983185513bfdce84f4a2a9b70db08ca47d4ab0e50986fd9d63493cac71"
+    sha256 cellar: :any_skip_relocation, all: "2d6087e2f6625ada9f8fe04935df42051be5d8d0cf6c784929412e2432cd4816"
   end
 
   depends_on "bat"

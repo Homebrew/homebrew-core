@@ -1,19 +1,19 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2026.04.20.00.tar.gz"
-  sha256 "50bc34bf7115c3211fdd86727dd06d146c0761fd1bd7976881aa4cafea12a9d5"
+  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2026.05.04.00.tar.gz"
+  sha256 "6531825fe423d4872c50f5065f4255a8f02fe0d7f607af5dca701c421cce66e0"
   license "MIT"
   compatibility_version 1
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
   bottle do
-    sha256                               arm64_tahoe:   "ab43a742be15e1d460b38a5b13f4391b63700f46db404d5c09e5a0c29a9de2f2"
-    sha256                               arm64_sequoia: "6767c7772cac62b37c51fa096a5eb4792d202ef7a4143d41acb3b5b6389b5f88"
-    sha256                               arm64_sonoma:  "3669950f9432986db4225b34775f7030d787f3e83d6e40ffb6b42452770b6b46"
-    sha256 cellar: :any,                 sonoma:        "50520d4248ed71f1c4e9d37ee9331ae46101081ee335a79d54f458b0a073c9c9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "14ac430bf404ac6afe9d7932e7e312c624c6b0a71a677cca4c79b15578ff0892"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f5a388710d27611fa0e7a30b67556594d23e67795d4507a42c62e9a5d28f44a"
+    sha256                               arm64_tahoe:   "6e63b7d5a6c010ed61272ea820cc8f201121a765dee99f56e5822946f45ebe20"
+    sha256                               arm64_sequoia: "5d8b71a0b29a2d478982a4e039b81f31855c722d4c350bdab308df515fcfae2c"
+    sha256                               arm64_sonoma:  "b58df9665e49d025012540378b3d584bbcc5eb9dc35068db70db3c3bc3987493"
+    sha256 cellar: :any,                 sonoma:        "68c2f92665467320689807ed7a1ec04de9f8be09b7835f3e8fb195430bffc24e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8fab445467736a3eb230f64f4ca63da161b1d6d33ead69851fc18cd4da47297"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72f6383949e70e09414131fb47c00d140ab7525a988f6a84d488c8e779c564e3"
   end
 
   depends_on "cmake" => :build

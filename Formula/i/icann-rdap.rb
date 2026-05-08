@@ -1,17 +1,17 @@
 class IcannRdap < Formula
   desc "Full-rich client for the Registry Data Access Protocol (RDAP) sponsored by ICANN"
   homepage "https://github.com/icann/icann-rdap/wiki"
-  url "https://github.com/icann/icann-rdap/archive/refs/tags/v0.0.28.tar.gz"
-  sha256 "9854f31c96086cc54110c7d86e7f4c99a37810aab0a9e2b9331d68918c374ede"
+  url "https://github.com/icann/icann-rdap/archive/refs/tags/v0.0.29.tar.gz"
+  sha256 "f7a717aa9d428af9e88fac770f0433bc557c82d682f0091d4e1d12a420fd428f"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "34c9b6a21e70a646e7290d1d19486733fae11bdd5aba240ac4923ce1b57427ea"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "043a2c7f3e5045f65d95d862697992cd6bf708aa49101c849980e6f2623fec8c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0699d4673f303f1b4ebc80d82fd1b8b8d5419d91ec98c5f58c7a89b5ae6d7827"
-    sha256 cellar: :any_skip_relocation, sonoma:        "85d2d8c72ec6a3ac1fc4d416709b45be42e4791b9299c388b50bc3d17d6ab7d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "598e86e5b1bec87ed8de06c60445d4a18b686c78a6d827bf7cbdfe61cd5b0e14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fada26f6ba2ed67ea9caa729f9cdb5e4a75f253cfe3d9ae00addbcf614334a2c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "966a48227c17aa3f40e31d3e28ff6b7096d0ab1a82bb38044a8532af58d7cedd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "85686ffe266d1edf673dd323dbf68b357d16709f90337d077b4cc95f93bae2ce"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85e49646eb3a9d8331642716f6d45147479ee3bd82a6fa7765af48fd89a7802f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5f26a52532a842398d923c1d41da53366fcc2e63095f9c1222517bacb4133f89"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c11fdc5bcc524f07bc6f1188f66836b4ed0a577aa7f2a6c66494922c87553c76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a75453ab2eb7ba11eddfe73fec1e994c36b0d1e685aa7deb7eb8dc25af37cf41"
   end
 
   depends_on "pkgconf" => :build

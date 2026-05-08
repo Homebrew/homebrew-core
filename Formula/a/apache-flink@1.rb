@@ -1,10 +1,10 @@
 class ApacheFlinkAT1 < Formula
   desc "Scalable batch and stream data processing"
   homepage "https://flink.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.20.3/flink-1.20.3-bin-scala_2.12.tgz"
-  mirror "https://archive.apache.org/dist/flink/flink-1.20.3/flink-1.20.3-bin-scala_2.12.tgz"
-  version "1.20.3"
-  sha256 "af791074d2aaf5d9dd0938b215e05e22a602e32879005daf8de3f900469f5ac4"
+  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.20.4/flink-1.20.4-bin-scala_2.12.tgz"
+  mirror "https://archive.apache.org/dist/flink/flink-1.20.4/flink-1.20.4-bin-scala_2.12.tgz"
+  version "1.20.4"
+  sha256 "0f51d5fde4b81089a6a0e1f37c90ac487229a8f9167583466226d772026948e5"
   license "Apache-2.0"
 
   livecheck do
@@ -13,10 +13,13 @@ class ApacheFlinkAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5fa38e74640401d922a7d4be29970534d07481ed7e77345d294763395ee82503"
+    sha256 cellar: :any_skip_relocation, all: "b481652adbfa9cc17f1e988d0dd0ad2b6437ef413922bb27e32b4d55d0c2df10"
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2026-05-02", because: :unsupported
+  disable! date: "2027-05-02", because: :unsupported
 
   depends_on "openjdk@11"
 

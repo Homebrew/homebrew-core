@@ -1,8 +1,8 @@
 class Sdl3 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://libsdl.org/"
-  url "https://github.com/libsdl-org/SDL/releases/download/release-3.4.4/SDL3-3.4.4.tar.gz"
-  sha256 "ee712dbe6a89bb140bbfc2ce72358fb5ee5cc2240abeabd54855012db30b3864"
+  url "https://github.com/libsdl-org/SDL/releases/download/release-3.4.8/SDL3-3.4.8.tar.gz"
+  sha256 "e9fff7467fb60f037e6708da18b25560649e4c63edc2a69bb871b960d9cbfbba"
   license "Zlib"
   compatibility_version 1
   head "https://github.com/libsdl-org/SDL.git", branch: "main"
@@ -14,12 +14,12 @@ class Sdl3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e755581de2dc4d285d7408cbdcd028786e86554f6b9ad1a39640a8684947a862"
-    sha256 cellar: :any,                 arm64_sequoia: "f85fe79a52ebe9e384779ecfc30ddb9dcc80a300ac9c3c218c8857dc2c6a977c"
-    sha256 cellar: :any,                 arm64_sonoma:  "557ed179eb9bb6c0c8b989d5614cf0029c3f7844444068569072f1416596ecb7"
-    sha256 cellar: :any,                 sonoma:        "1d046b4f5c731870ce735c69614c84585753ddd3e0bcf328bff98ec30a7aaaef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b20d983b09b1f6e065837f9d5d8a746d10c6cd443c6e5442e013a7cec1e1b592"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "752ae1ed99c939e1888fc616f0209d3376389d3d27afb62afeb8a081c74a9ed5"
+    sha256 cellar: :any,                 arm64_tahoe:   "bce5819cd3a60a531e67a2ed1ff6f06cb426ec39a6ed132cfe8aa84e7ffff18f"
+    sha256 cellar: :any,                 arm64_sequoia: "c5dce093f69b0fd4160a731d9eb075654da079799d308d9111ea8720cd9c6c5a"
+    sha256 cellar: :any,                 arm64_sonoma:  "1b9171d0c23eff375f5af894d4bdc82b2769434b68c8c748d64640bd706f9909"
+    sha256 cellar: :any,                 sonoma:        "9ea79e01741cb4cac9ee900ecc7ef58098d878a639581fe926b5170ef1f259b7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3cd8b8d8110b071f8aba22624b00047e4178904bfb98456a389a12bf34aec0a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "387593990db38c1a1b92691da7ccd586b770926eed5b8dc18807cfa20e1af742"
   end
 
   depends_on "cmake" => :build

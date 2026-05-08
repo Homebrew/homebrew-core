@@ -1,10 +1,10 @@
 class Coal < Formula
   desc "Extension of the Flexible Collision Library"
   homepage "https://github.com/coal-library/coal"
-  url "https://github.com/coal-library/coal/releases/download/v3.0.2/coal-3.0.2.tar.gz"
-  sha256 "899eb343ee7d86ae6312401bc969d1d2cb8103a5a67af5e1f06061a9c5fb0743"
+  url "https://github.com/coal-library/coal/releases/download/v3.0.3/coal-3.0.3.tar.gz"
+  sha256 "d1afcc0c22477a61e93e070a01cc8ed1d256a96ec65d308844d24b9caf771d36"
   license "BSD-2-Clause"
-  revision 2
+  compatibility_version 1
   head "https://github.com/coal-library/coal.git", branch: "devel"
 
   livecheck do
@@ -13,12 +13,12 @@ class Coal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fd213abe328948a7c9911a43373ed8046d0710fb8a0a9889d2d6ff11bbf4b73f"
-    sha256 cellar: :any,                 arm64_sequoia: "320c09dd888c1d2c9d670ca2e2277fb25fcb0692ab4f83ad6cc6350d77f2f46d"
-    sha256 cellar: :any,                 arm64_sonoma:  "27de2e1a650fd1690c675c756b04e72175c40a818fd874467f1d3a157f7364d2"
-    sha256 cellar: :any,                 sonoma:        "087d9dabc09adca03410b614932ad56798a671c6ee52aad74ddafd63ffdc4192"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9567a4db7fe0a8cfc17a0ba7d5a5f9d2d1d58002cf07675480d5c1746ce50e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d396d1e1014d58558ab9f2a9e560845ee86dbfa429d2511a95776780894372a"
+    sha256 cellar: :any,                 arm64_tahoe:   "b7fe4df0b934288e12efb12f02ced3be04048554ec4dbb5443d82f8e75e6e316"
+    sha256 cellar: :any,                 arm64_sequoia: "0ce2c1748d1a38984096d874ea55d77e876765baaf4369d85e31ec5af334caba"
+    sha256 cellar: :any,                 arm64_sonoma:  "480d1274af46ebf2654d8a74c9b6af5b3eb0f47dd5a53a9b32fa010d55da5675"
+    sha256 cellar: :any,                 sonoma:        "5b6f314be22e5c0364cf100fdc54811bd9fe34d9070b6cd73eec12a49937225c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f49f1616f37151a19ef15beffe6383aaec0c45d8464ab6c2d8ab4dda1e007c69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88cd0bfd149b14bac9666ac6609dfc76ef7314bbbe098a5c541c5eb463cc94cd"
   end
 
   depends_on "cmake" => :build
@@ -31,10 +31,6 @@ class Coal < Formula
   depends_on "eigenpy"
   depends_on "octomap"
   depends_on "python@3.14"
-
-  # Workaround for Boost 1.89.0 until upstream fix.
-  # Issue ref: https://github.com/coal-library/coal/issues/743
-  patch :DATA
 
   def python3
     "python3.14"
@@ -68,18 +64,3 @@ class Coal < Formula
     end
   end
 end
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ec28225..cdbcddc 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -167,7 +167,7 @@ if(COAL_ENABLE_LOGGING)
-   ADD_PROJECT_DEPENDENCY(Boost REQUIRED log)
- endif()
- if(BUILD_PYTHON_INTERFACE)
--  find_package(Boost REQUIRED COMPONENTS system)
-+  find_package(Boost REQUIRED)
- endif(BUILD_PYTHON_INTERFACE)
- 
- if(Boost_VERSION_STRING VERSION_LESS 1.81)

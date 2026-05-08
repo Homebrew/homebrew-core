@@ -1,18 +1,18 @@
 class Chroma < Formula
   desc "General purpose syntax highlighter in pure Go"
   homepage "https://github.com/alecthomas/chroma"
-  url "https://github.com/alecthomas/chroma/archive/refs/tags/v2.23.1.tar.gz"
-  sha256 "982fa634c6b2f153143ca35e2626335bbca315ede57f64050af16566699aaafb"
+  url "https://github.com/alecthomas/chroma/archive/refs/tags/v2.24.1.tar.gz"
+  sha256 "1ee811f5c32ed6cb47e67deb58c0039b13560f0d12cb47fdb6f193d8cf4cbb1d"
   license "MIT"
   head "https://github.com/alecthomas/chroma.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1da95b99aa0957f9f91d27470f6f523af5e85a83489265081fb4853c3e0e10a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1da95b99aa0957f9f91d27470f6f523af5e85a83489265081fb4853c3e0e10a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1da95b99aa0957f9f91d27470f6f523af5e85a83489265081fb4853c3e0e10a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b62b7bede674d658a4d4d53029998ff6de919eb782b2053cc529862ce1d4af84"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec026fbf748b7e0f9f392e72b56645ac970c27641b0c94b3db82fea072b02c36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b2bf8ad75617ece86443d200795d13ba61ebeb5dbb18795bc9269e797b76478"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1d4349aa7133f4c76fabc875c2c3c2ca6129daed98861836e081a8eef6197eb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1d4349aa7133f4c76fabc875c2c3c2ca6129daed98861836e081a8eef6197eb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1d4349aa7133f4c76fabc875c2c3c2ca6129daed98861836e081a8eef6197eb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c3529ad775bbe50f3233e31d2215823da535b058e8b4cba5541d191a36c8da0f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7f034ff170f173a03651a414fb5276c5b7912a3784b0174eea6fa0335142008"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1acb003a428ead725a9640a577e6c25321a05c07111789e3fac939c411b47d07"
   end
 
   depends_on "go" => :build

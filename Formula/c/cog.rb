@@ -1,8 +1,8 @@
 class Cog < Formula
   desc "Containers for machine learning"
   homepage "https://cog.run/"
-  url "https://github.com/replicate/cog/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "2733dfa0de13b53463ebc13aa4cf1783c9d9e3e3c3fb6ab4f435accb4b39a13f"
+  url "https://github.com/replicate/cog/archive/refs/tags/v0.19.3.tar.gz"
+  sha256 "c5a5e54e0c5582819a53658d716eca5954a2d6c52766b1c3c96019b84609cef0"
   license "Apache-2.0"
   head "https://github.com/replicate/cog.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Cog < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a9a59f0e636fe320078558678edba2ce7c4e8424e263b2dad7e8740373a78917"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ce61870d7a012f3bd17fdaa4f5f3568fdcdd958414be5fbe44e4a962a9b8ce9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5004168757e332ad0e81cdd138e70e484610e476f03d0d5fc0a3ead9fc1cf09f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7b0a0987e56475d6b67f42c4c3ff482dae08ac8cba786f1d6f2ebd5ef6ffb0a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7bf94cd4bf910a95fe297e5f3829c50dbb95f9a58ba5c20ecce714160d21b27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65cbf3a8aba2f6209e3747f23dc209ef7eb252bc9e00bab6ee8bd1c21253d679"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5b9c9c40573ef25f63690ed2ff6c32742fee00c8c497008a2f5cb57df3455976"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb959864120834d220313b392cf1c14d1f3b08bde16324e40dd4132339affee5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2e7f2ad1b230389251e00a308bf505f5a3903c0e99e2a72e51402f5a02bc0c7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2644ae68dd30a3b35da80640954a37927e87a8f3ddf5210657c7b58fa9c59ee6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "744a32c531c9cc58bdb81a1a96bf1bb710d0a84ceb72a19d1cba2e9f3db48213"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "589dbb85de44712f37047542d26440daa4fda030fa8541f1ba6b21bbdd50d7d8"
   end
 
   depends_on "go" => :build

@@ -3,18 +3,18 @@ class PocketTts < Formula
 
   desc "Text-to-speech application designed to run efficiently on CPUs"
   homepage "https://github.com/kyutai-labs/pocket-tts"
-  url "https://files.pythonhosted.org/packages/b2/4c/2d974017bafdd9a2728deade38b3fae88876e22c13961c4378e5c050a386/pocket_tts-2.0.0.tar.gz"
-  sha256 "66af8f5b2b25b5be6bd29ec12242aa56f90b6aad381234d1664fa4fc803d1ff2"
+  url "https://files.pythonhosted.org/packages/f9/2c/7445f57163bb40e2b2fab4df70d18a4216c4965cdf74196344d95859fc07/pocket_tts-2.1.0.tar.gz"
+  sha256 "6f244f445413400f686506f5ccfb75048547caab7b455b927f4a854c551c60a8"
   license "MIT"
   head "https://github.com/kyutai-labs/pocket-tts.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "187a649ba2d75c0feb86ae6d0afbbeeca99c845a28643b5ae8a15a4d93e072b5"
-    sha256 cellar: :any,                 arm64_sequoia: "4c0a67b71d0bd7fb9451b2b575438a8ca58615abb0bffa037d20293698a5298a"
-    sha256 cellar: :any,                 arm64_sonoma:  "075a90d46845d9d37602ea34dba9265f24cfa68dfab9ed0fdb164585376001a5"
-    sha256 cellar: :any,                 sonoma:        "68fd096f0f3a8b7dd4e033ce45119b37d101130b041fad97dda92f402ecfa068"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e29d2ded63ad5a23a8f4cebaf04dcc13b529ce2cc662ae9b1c99b6c2c3f4041c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "857cf21065536d9fa4a3110401ec2a8c3376520b1a56ddce802acb67ff5b2411"
+    sha256 cellar: :any,                 arm64_tahoe:   "a23ca106cdf15fd7630cdbb06bdd0609f562a5e46842c71976c5edbb80e87140"
+    sha256 cellar: :any,                 arm64_sequoia: "84ea3ac7ef15575b659655010ca08f11b38cfb340d3f7c0e480eb1eb1d1d54a9"
+    sha256 cellar: :any,                 arm64_sonoma:  "82996f8f6e7b4d0634a078419bc1668d57b0baa029260f00804573cf67873366"
+    sha256 cellar: :any,                 sonoma:        "fc9b337d23e87868eaa50f3c04f195de50143a778fd6c184c48d17f7403b7e74"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0455621fa5d231ff70a0b0a2f20cd6bfd1c6280cd28cbe69a0e80073786d2ac3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "244fe895d6a42f22d350f81af9224605f902a3c8d96a1adb09a6c6039d6d666d"
   end
 
   depends_on "cmake" => :build
@@ -54,8 +54,8 @@ class PocketTts < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "einops" do
@@ -64,8 +64,8 @@ class PocketTts < Formula
   end
 
   resource "fastapi" do
-    url "https://files.pythonhosted.org/packages/4e/d9/e66315807e41e69e7f6a1b42a162dada2f249c5f06ad3f1a95f84ab336ef/fastapi-0.136.0.tar.gz"
-    sha256 "cf08e067cc66e106e102d9ba659463abfac245200752f8a5b7b1e813de4ff73e"
+    url "https://files.pythonhosted.org/packages/5d/45/c130091c2dfa061bbfe3150f2a5091ef1adf149f2a8d2ae769ecaf6e99a2/fastapi-0.136.1.tar.gz"
+    sha256 "7af665ad7acfa0a3baf8983d393b6b471b9da10ede59c60045f49fbc89a0fa7f"
   end
 
   resource "h11" do
@@ -89,13 +89,13 @@ class PocketTts < Formula
   end
 
   resource "huggingface-hub" do
-    url "https://files.pythonhosted.org/packages/dc/89/e7aa12d8a6b9259bed10671abb25ae6fa437c0f88a86ecbf59617bae7759/huggingface_hub-1.11.0.tar.gz"
-    sha256 "15fb3713c7f9cdff7b808a94fd91664f661ab142796bb48c9cd9493e8d166278"
+    url "https://files.pythonhosted.org/packages/89/ff/ec7ed2eb43bd7ce8bb2233d109cc235c3e807ffe5e469dc09db261fac05e/huggingface_hub-1.13.0.tar.gz"
+    sha256 "f6df2dac5abe82ce2fe05873d10d5ff47bc677d616a2f521f4ee26db9415d9d0"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "markdown-it-py" do
@@ -109,8 +109,8 @@ class PocketTts < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/de/0d2b39fb4af88a0258f3bac87dfcbb48e73fbdea4a2ed0e2213f9a4c2f9a/packaging-26.1.tar.gz"
-    sha256 "f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "pygments" do
@@ -119,8 +119,8 @@ class PocketTts < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/88/71/b145a380824a960ebd60e1014256dbb7d2253f2316ff2d73dfd8928ec2c3/python_multipart-0.0.26.tar.gz"
-    sha256 "08fadc45918cd615e26846437f50c5d6d23304da32c341f289a617127b081f17"
+    url "https://files.pythonhosted.org/packages/69/9b/f23807317a113dc36e74e75eb265a02dd1a4d9082abc3c1064acd22997c4/python_multipart-0.0.27.tar.gz"
+    sha256 "9870a6a8c5a20a5bf4f07c017bd1489006ff8836cff097b6933355ee2b49b602"
   end
 
   resource "pyyaml" do
@@ -164,8 +164,8 @@ class PocketTts < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/f5/24/cb09efec5cc954f7f9b930bf8279447d24618bb6758d4f6adf2574c41780/typer-0.24.1.tar.gz"
-    sha256 "e39b4732d65fbdcde189ae76cf7cd48aeae72919dea1fdfc16593be016256b45"
+    url "https://files.pythonhosted.org/packages/e4/51/9aed62104cea109b820bbd6c14245af756112017d309da813ef107d42e7e/typer-0.25.1.tar.gz"
+    sha256 "9616eb8853a09ffeabab1698952f33c6f29ffdbceb4eaeecf571880e8d7664cc"
   end
 
   resource "urllib3" do
@@ -174,8 +174,8 @@ class PocketTts < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/eb/2e/62b0d9a2cfc8b4de6771322dae30f2db76c66dae9ec32e94e176a44ad563/uvicorn-0.45.0.tar.gz"
-    sha256 "3fe650df136c5bd2b9b06efc5980636344a2fbb840e9ddd86437d53144fa335d"
+    url "https://files.pythonhosted.org/packages/1f/93/041fca8274050e40e6791f267d82e0e2e27dd165627bd640d3e0e378d877/uvicorn-0.46.0.tar.gz"
+    sha256 "fb9da0926999cc6cb22dc7cd71a94a632f078e6ae47ff683c5c420750fb7413d"
   end
 
   def install

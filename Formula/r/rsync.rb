@@ -1,10 +1,10 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://rsync.samba.org/ftp/rsync/rsync-3.4.1.tar.gz"
-  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.4.1.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.4.1.tar.gz"
-  sha256 "2924bcb3a1ed8b551fc101f740b9f0fe0a202b115027647cf69850d65fd88c52"
+  url "https://rsync.samba.org/ftp/rsync/rsync-3.4.2.tar.gz"
+  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.4.2.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.4.2.tar.gz"
+  sha256 "ff10aa2c151cd4b2dbbe6135126dbc854046113d2dfb49572a348233267eb315"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -13,18 +13,16 @@ class Rsync < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "0788bfffd17f8bc2e8a811872138dc1c982fe0ad499a7a3de787d49f698cf52a"
-    sha256 cellar: :any,                 arm64_sequoia: "80935e18dbfba662f81e08e57e753086c8d25489a2f64a0f00323be2cba1f8f0"
-    sha256 cellar: :any,                 arm64_sonoma:  "030d807ac23fa2ce01203c46830f354070330e8b60b945b9b37b2065d5365132"
-    sha256 cellar: :any,                 sonoma:        "745da62d69fc3b379ac37773cfa93fdb57f47bbd4407d04ce4a0a0744a2d0c31"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad8ff5025ca448e37ffd3b463cdbfd22b344a3b6830c39e88cb798cdcdcddddd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f9d25a62161a4c53d96c3ac1b5053e5f21a0fd02c8bf466ff82b0bbe2d3ffd9"
+    sha256 cellar: :any,                 arm64_tahoe:   "25f90781c38640e1db42dc6781b96aa9e6f2ee1bf400a0a15c31eebe8263487c"
+    sha256 cellar: :any,                 arm64_sequoia: "89660ae05442504adc311e3c78d4e31f5b1b43b77a41d5727437ee4dd24b04a6"
+    sha256 cellar: :any,                 arm64_sonoma:  "f9ba9d2c965bb61f0fb5e8406cdf80d36b33b90e8ba2a40887f50b68a7c2170a"
+    sha256 cellar: :any,                 sonoma:        "b0d2c87a8cadcca9b55e7315932ba562e0033b025fb9d0a7fc36a1411737a373"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6f18bad4597008398094ed3011d1f6e08ec7f8a662a8f35359da79c18464f69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f79dfe41245d5601e2345446ba7899c6cc6a3b4f5f2fea84829530f4ac90a66b"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "cmark-gfm" => :build
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "popt"
@@ -35,18 +33,9 @@ class Rsync < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # hfs-compression.diff has been marked by upstream as broken since 3.1.3
-  # and has not been reported fixed as of 3.2.7
-  patch do
-    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.4.1.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.4.1.tar.gz"
-    sha256 "f56566e74cfa0f68337f7957d8681929f9ac4c55d3fb92aec0d743db590c9a88"
-    apply "patches/fileflags.diff"
-  end
-
   def install
-    # build rrsync.1 which is not included in the source tarball
-    (buildpath/"support/rrsync.1").write Utils.safe_popen_read("cmark-gfm", "support/rrsync.1.md", "--to", "man")
+    # Move `rrsync` manual to the correct directory
+    mv buildpath/"rrsync.1", "support/"
 
     args = %W[
       --with-rsyncd-conf=#{etc}/rsyncd.conf

@@ -6,16 +6,16 @@ class Datasette < Formula
   url "https://files.pythonhosted.org/packages/80/26/80b5480921d71891b8ff880fed6d44150b9164903d683efe2eb7405b61d8/datasette-0.65.2.tar.gz"
   sha256 "be956fb2633b8380d7f818b5ddab40d5c7346d5e9d4d24e81c43b1fb60267432"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/simonw/datasette.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0e696f2ba01d3b948e76adc777ecec65c5d95d76aadecfac5708027c5826c7c8"
-    sha256 cellar: :any,                 arm64_sequoia: "5d39165fe3472bdbcd0552aa4aa7747fa15177e1733133faaf0c72dd833cb9f9"
-    sha256 cellar: :any,                 arm64_sonoma:  "3b48ccc7ca1032eb6cb6518cd248020d1772f321e26368f9b6f5709d7ebc8889"
-    sha256 cellar: :any,                 sonoma:        "e0b5b0388c23932be1715f0c320cd8d925e40a23aee878475be992f1a73bffaa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0c3d394070f3c77f90301a8066d3e0fc34d1aca9a74bb5f84672de56c9ca3ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a0d9e6f3eb1bd9b91c6c870bb84452bc9535129348f821cd4a51a9e8f99d607"
+    sha256 cellar: :any,                 arm64_tahoe:   "e30a0b27f9ad366cddaaf5048681e04a61d2fa97ca20676c89949c82d4ba0932"
+    sha256 cellar: :any,                 arm64_sequoia: "938a03f5cb768d640f937114b78d5f87e3aadc602b693ccbbcb9e687e4f65285"
+    sha256 cellar: :any,                 arm64_sonoma:  "987e4faaceeaa3b7e6135b0477d86ebcd2e720832db11776a25eb5c920178c9f"
+    sha256 cellar: :any,                 sonoma:        "e8e14ad897b3e0f7dec41b7a1ce29fd69d34665e7fa5559e9ebd8393c880ccc3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "39aefc697b34c27b473333ad209fcc66af455a99d7895d107e547ba65f1ac668"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7700238801f541277c4acf591d54b20f8d8ad7aff815ecacb8f29cf9c779e32"
   end
 
   depends_on "certifi" => :no_linkage
@@ -45,8 +45,8 @@ class Datasette < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "click-default-group" do
@@ -85,8 +85,8 @@ class Datasette < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "itsdangerous" do
@@ -125,8 +125,8 @@ class Datasette < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/88/71/b145a380824a960ebd60e1014256dbb7d2253f2316ff2d73dfd8928ec2c3/python_multipart-0.0.26.tar.gz"
-    sha256 "08fadc45918cd615e26846437f50c5d6d23304da32c341f289a617127b081f17"
+    url "https://files.pythonhosted.org/packages/69/9b/f23807317a113dc36e74e75eb265a02dd1a4d9082abc3c1064acd22997c4/python_multipart-0.0.27.tar.gz"
+    sha256 "9870a6a8c5a20a5bf4f07c017bd1489006ff8836cff097b6933355ee2b49b602"
   end
 
   resource "pyyaml" do
@@ -145,8 +145,8 @@ class Datasette < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/5e/da/6eee1ff8b6cbeed47eeb5229749168e81eb4b7b999a1a15a7176e51410c9/uvicorn-0.44.0.tar.gz"
-    sha256 "6c942071b68f07e178264b9152f1f16dfac5da85880c4ce06366a96d70d4f31e"
+    url "https://files.pythonhosted.org/packages/1f/93/041fca8274050e40e6791f267d82e0e2e27dd165627bd640d3e0e378d877/uvicorn-0.46.0.tar.gz"
+    sha256 "fb9da0926999cc6cb22dc7cd71a94a632f078e6ae47ff683c5c420750fb7413d"
   end
 
   def install

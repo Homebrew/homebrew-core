@@ -3,14 +3,13 @@ class Psutils < Formula
 
   desc "Utilities for manipulating PostScript documents"
   homepage "https://github.com/rrthomas/psutils"
-  url "https://files.pythonhosted.org/packages/45/ff/4af412351a21ee38835b7597555936c547830d9a8246a2b7d2aa41aabdd3/psutils-3.3.14.tar.gz"
-  sha256 "6212167dd8c09f59c9535d5e416c4f8c01431b7a5beab0ee68f4ec416ca3980c"
+  url "https://files.pythonhosted.org/packages/78/50/adfefdc3096c2c25a135ca8e4f2485c891bc6bb60b86d27f3955af65b5c4/psutils-3.3.15.tar.gz"
+  sha256 "7001ff39c5a84e2616aecbe8c9d213f14412908990f84dfbd92168edfdbaaf3d"
   license "GPL-3.0-or-later"
-  revision 14
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fc8d285230bf0588ab6b2689af2ea8e7660aaec79b548998c575c21acdc11cb7"
+    sha256 cellar: :any_skip_relocation, all: "dbc0496494604584cbbf285e20a36f2d3535b2f67d4d3f75f612c9eb9ca64281"
   end
 
   depends_on "libpaper"

@@ -1,19 +1,19 @@
 class Juju < Formula
   desc "DevOps management tool"
   homepage "https://canonical.com/juju"
-  url "https://github.com/juju/juju/archive/refs/tags/v4.0.8.tar.gz"
-  sha256 "85bbc60cff915e7bf7f9c8b3400aba7cc3ae32928584a8b13f9d1ed2556245d4"
+  url "https://github.com/juju/juju/archive/refs/tags/v4.0.9.tar.gz"
+  sha256 "4b0f2beeaa76fffdafb24b59412da43c12a3fcf8a7ef8066e266dca606e8da8c"
   license "AGPL-3.0-only"
   version_scheme 1
   head "https://github.com/juju/juju.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b98f71156df430c59a0da58e51b9a40cde533166b4f4a7c7afcdbc735472f09c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "300994286238b22cfd825692fb662b0d249d9b40236226c48ba9aa3cf6a24940"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49821a51423165733e1acd75b6454a315bb77f87a8f7229fd9943dc6ece5047c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eade82a4d18420e02a625a9273f26c2861d650b4c67cdfd68e73f3cf2425b68a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8159b8fdcc148ab15a562c1aeafc07dce3fed614f2308ccae4adee49e0fb6786"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f03d249ca7efea092970b99483739c69b798f4c3d9e4c153fa1b8f9a8ab10072"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "235d6cf3a038bec05264800e22447e2861f786106bfffd9f8f3abb1c2d7c97c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "26180a107ac045bb9d2e2d56fdd0c8ee7f5c369a450918c9e2ee4dbd6d627447"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8412b6638cefce562913b48e938144204bac7b24c71fd596ed8e4a209e88862d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "95e6d523a13b9da00a3ce8514db9f0f7df61821b87fa453a35589a72b6900d08"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c226fe052233c7f2a37a1751334cd776dd614d152f77a6db9ab346c7fa82268"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1aa5b8ecc1089bbd3eab84b73941f605a74e3097fd49343e6d9a7141d87a5bdc"
   end
 
   depends_on "go" => :build

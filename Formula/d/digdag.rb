@@ -14,6 +14,9 @@ class Digdag < Formula
     sha256 cellar: :any_skip_relocation, all: "3af153565676568e99be6edfa30c63e2729d7c3e0b1c89cad5fbb49550be4ac3"
   end
 
+  deprecate! date: "2026-05-02", because: :unmaintained
+  disable! date: "2027-05-02", because: :unmaintained
+
   depends_on "openjdk@11"
 
   def install

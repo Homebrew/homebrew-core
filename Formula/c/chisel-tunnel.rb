@@ -1,18 +1,18 @@
 class ChiselTunnel < Formula
   desc "Fast TCP/UDP tunnel over HTTP"
   homepage "https://github.com/jpillora/chisel"
-  url "https://github.com/jpillora/chisel/archive/refs/tags/v1.11.5.tar.gz"
-  sha256 "fed288bfccc2a57e02643565f984047f92f114e40e886fe02b15bc455eca00a0"
+  url "https://github.com/jpillora/chisel/archive/refs/tags/v1.11.6.tar.gz"
+  sha256 "6886326544ae0acb2769c269fb4f635658ebae9d12e7692b31574c987f254563"
   license "MIT"
   head "https://github.com/jpillora/chisel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "daf015703a752a4786c905377001c47d17867503ca896bfaa6ea39e0a65a16cf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "daf015703a752a4786c905377001c47d17867503ca896bfaa6ea39e0a65a16cf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "daf015703a752a4786c905377001c47d17867503ca896bfaa6ea39e0a65a16cf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "07575be7da4d9373dad3dbee2b9429097879f6d4fc6d956611dcec9106367b99"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "26f7711d21e5cbc15a36f9a65272f334c892c6ce726bfcbb433fcb092d7a44c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4137d698fc542b48866abc345d4f443f600a4057bb44cd4b227f5425d8b1191c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e2e85a7a12fc06202c3ba5dd43bd0e2c14e989e29cf21b1a653144cc57636bb5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2e85a7a12fc06202c3ba5dd43bd0e2c14e989e29cf21b1a653144cc57636bb5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2e85a7a12fc06202c3ba5dd43bd0e2c14e989e29cf21b1a653144cc57636bb5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "04d9c2c885d3c4be73693abbf5435eb0d7beb9a66d31083df077fbec8206a1de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75b578c86a5b89a82f594e64dd23bf9f852dafa646d316fd0db8d69bdda58d05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a9581ac478387a060456c7891acd3fbda8e99a95ae2701dfcfa444a9f448477"
   end
 
   depends_on "go" => :build

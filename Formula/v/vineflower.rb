@@ -1,17 +1,17 @@
 class Vineflower < Formula
   desc "Java decompiler"
   homepage "https://vineflower.org/"
-  url "https://github.com/Vineflower/vineflower/archive/refs/tags/1.11.2.tar.gz"
-  sha256 "f37543cd5e99e0f74870dd2a5d2b8e84a03711ab6bf0c89a5377affea8547027"
+  url "https://github.com/Vineflower/vineflower/archive/refs/tags/1.12.0.tar.gz"
+  sha256 "25c783b5b73fd0ae8c904c9ea3e7ee1e6713812d4d5fd085547fb20f1dacfdfb"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e77a21a55ef74e9c8310e0121698f1eb50830d344ff5acb3ced54e2ed54c9fb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9293fab5c6221a1e271be0115ee8af9e4f49733b26094e55a4d70de43e75c493"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18f0c90501bba6530cfbd62200450d74f91bb77b3f6453e1343e8cb1cf868566"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cb76ee96aa9cbea200a151bf7a24218dbc0b6994ef75efd4e48459499e86ee72"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "24e17ecf2cf39fcb0618d53e2602726052e4a123300f883f97f8a28777113615"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdf0610c249ba909944aec7b19f2b2ab4110a34d745fd9184fdbafd8eaba0138"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "91e7c7ca9e70c60bb7b16aab8fe65a2af39059f5dc2dd1d37a0e4fa0e1cc20da"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2994bdcc86051fe14ca1cbbfa81a7af61ee3d80b44d24d58a78cd9f6b26dc24c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37b0f0adaa1789a67e178d4461bb74014c21d288126d2500b420ad5cd479b785"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b44b38172f537e0270cc5a595daf74618b5a6628c91bd0024c804fb12e664951"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eac798f1f14c0f517d1a6a4c62de6b0d7a48d154a628e353825e44c178a113b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e4e4f0c65df994935ac48a57c5a367dd05eea111bf6f75e1e74dc2029e51016"
   end
 
   # Issue ref: https://github.com/Vineflower/vineflower/issues/495

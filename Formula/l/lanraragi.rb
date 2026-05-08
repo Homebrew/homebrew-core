@@ -1,19 +1,18 @@
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
-  url "https://github.com/Difegue/LANraragi/archive/refs/tags/v.0.9.70.tar.gz"
-  sha256 "bc89ae47873a35145a0db5a4d93d274b89e7f546deaa396d389fe7975693f7a6"
+  url "https://github.com/Difegue/LANraragi/archive/refs/tags/v.0.9.71.tar.gz"
+  sha256 "4dab46dddd2c227bd0428eef4318cad673fca1e2a1420eee1fa2110043827408"
   license "MIT"
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "4f86576d118a1637ce0782199448d27fe6c1c1b85b5f677a28a00ac0d74291a3"
-    sha256 cellar: :any,                 arm64_sequoia: "3c0184197fa965de72895b6e47d0663160c41d8ae69750174e913cf31ad8fb6a"
-    sha256 cellar: :any,                 arm64_sonoma:  "51082767fccba96f84b20bba75754f5739e242cb8180a5ca0af67d2c1d033829"
-    sha256 cellar: :any,                 sonoma:        "1868bc4be55401b487271bcc1c0f9f7034721df9bec6454b4870f20ffb194937"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce916c932637a2d482c9ef431e72bf6a008e957acb3cfec235abd4f607a0bb1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf65e28832e61f3175af0122013761366850c4b5147255d202cbda3f402f1d38"
+    sha256 cellar: :any,                 arm64_tahoe:   "82f115b1051d6ae57411796a4a239c639106ee35ccdf1d73c4c4bb5b0979dcb1"
+    sha256 cellar: :any,                 arm64_sequoia: "e09a9184d798b6dfe60d293111c0f353546581f772b9ad3e45de40a851d50f53"
+    sha256 cellar: :any,                 arm64_sonoma:  "5656dc03498a8963e26890841f82298174fc928c8b5a6d0089b402fc97a0cf87"
+    sha256 cellar: :any,                 sonoma:        "339388cc5e250d86fe2022def364a219eebca2f0595f95bb6ac4685d3e897d9e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c177edbccbda0156e095788003c56ac911fc515d3ad941a079ac98d8ff4cb58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0157925219e3eb6d4b3ba454387d9b66d1eb41b9560e24da521d701b7d106f11"
   end
 
   depends_on "cpanminus" => :build

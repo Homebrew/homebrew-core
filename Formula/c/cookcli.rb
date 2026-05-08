@@ -7,21 +7,19 @@ class Cookcli < Formula
   head "https://github.com/cooklang/cookcli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c8828756df8f300cf9426ac1c5b6f59c5e2c68bfdfc40d1be32dc8e13428c195"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d75a3e91bd01a66683e385483897edfad096ec9711aed8dbc76aa2ee5fe0dc8d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7a2e34519e3e0c9af4a58fa31869662c7a7056c16874b2432b6e76541b479fa3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ab43a54331607f10bdc248620f56ffebae33a39f4cf31b4601c9520bc83dba6e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "24a4199d7452568e166fc3e120a299223768cd34e6f2718e5aa7f31268e35f7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37364317e295a0c985d9b696137bf6bd5dc7945ab8bab7e47e8cf3135549553e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80718adc02a867a009b0fb55df93711cafbf01648ff7280bfac3db082d3f0018"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9e009c7f9a43fade1ce38db62673fb53e570a2135c25e9b24dda804bac3f4112"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c936946d57ebe9af6734fe07735af1f2a215847cce1ea48db488a2ec08ee801"
+    sha256 cellar: :any_skip_relocation, sonoma:        "af192a3b015c53f211777487a46b18d107a8c2dc197630a2395e7d78faf6d587"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca2fcf6efa96e16a8f43cb93d1db6a1572ea5a84d6e9171fd842a8acee45b925"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "243e686d2be163a18ea2ab28eabad5b71ac1f76521f89cdd50b0ac2022019b2f"
   end
 
   depends_on "node" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-
     # Install npm dependencies and build assets
     system "npm", "install", *std_npm_args(prefix: false)
     system "npm", "run", "build-css"

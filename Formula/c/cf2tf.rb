@@ -6,16 +6,16 @@ class Cf2tf < Formula
   url "https://files.pythonhosted.org/packages/7f/c3/a6dfdc4848cfd4fb50e15e9449c439791a009638c2bd06b6fe6982d9afc1/cf2tf-0.9.2.tar.gz"
   sha256 "3fcae8f42f2d1aeb14deb7ef70215cc76c1f1f5cac9b465081e87729498e3ac9"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/DontShaveTheYak/cf2tf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e126abf97d62c18f3c46977c69ba22f29380b3f801c9adf65d3d5f20e7ed2045"
-    sha256 cellar: :any,                 arm64_sequoia: "732fcdcc0a926ccac3c022dcb8604d070db6760c91801dfb72c3de893682252f"
-    sha256 cellar: :any,                 arm64_sonoma:  "baea9a77eb64eb10193939fdca33899cbcbdbc196e6cbdc9ecd90804ffa5f93c"
-    sha256 cellar: :any,                 sonoma:        "0ef2d4849b3b757d62522e8699eab76c185278c22f05072881182d3b540efca5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c19cd197909afda6f22f4220dfc6f43f76ff647a627f4e723958dc0676fab796"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca05775c1f38bd252f654606c695bf12a7ca629410ae09e1ba56865f5ff644be"
+    sha256 cellar: :any,                 arm64_tahoe:   "bc62b20615b26943c10e1dc14adf82902e6c5a6a97bed21a1ea7b143864a5e9c"
+    sha256 cellar: :any,                 arm64_sequoia: "921f7b224a87234d01d9663bfcb89137796ec88a2d80567ad0665cdbd6866f83"
+    sha256 cellar: :any,                 arm64_sonoma:  "58ab9103d07ace054388ceaffc5effe4c468589852d2f266d5cdc8f847c46fad"
+    sha256 cellar: :any,                 sonoma:        "9532dcceac6031a840e8f3786b1ba62e1ab965790b43bee0a43e7c87ae77491f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "531972c958dbec6579ceafdf0c18e80d35040689a50996cf8a102ef758b7d48c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "790cb719839ef15e7dbdd4c194b81de4234db39e68747749ac9033ff7d03e5ee"
   end
 
   depends_on "cmake" => :build
@@ -31,13 +31,13 @@ class Cf2tf < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
-    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "click-log" do
@@ -51,13 +51,13 @@ class Cf2tf < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/df/b5/59d16470a1f0dfe8c793f9ef56fd3826093fc52b3bd96d6b9d6c26c7e27b/gitpython-3.1.46.tar.gz"
-    sha256 "400124c7d0ef4ea03f7310ac2fbf7151e09ff97f2a3288d64a440c584a29c37f"
+    url "https://files.pythonhosted.org/packages/e1/63/210aaa302d6a0a78daa67c5c15bbac2cad361722841278b0209b6da20855/gitpython-3.1.49.tar.gz"
+    sha256 "42f9399c9eb33fc581014bedd76049dfbaf6375aa2a5754575966387280315e1"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "pyyaml" do
@@ -66,13 +66,13 @@ class Cf2tf < Formula
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/d3/28/9d808fe62375b9aab5ba92fa9b29371297b067c2790b2d7cda648b1e2f8d/rapidfuzz-3.14.3.tar.gz"
-    sha256 "2491937177868bc4b1e469087601d53f925e8d270ccc21e07404b4b5814b7b5f"
+    url "https://files.pythonhosted.org/packages/2c/21/ef6157213316e85790041254259907eb722e00b03480256c0545d98acd33/rapidfuzz-3.14.5.tar.gz"
+    sha256 "ba10ac57884ce82112f7ed910b67e7fb6072d8ef2c06e30dc63c0f604a112e0e"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
-    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
+    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
+    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
   end
 
   resource "six" do

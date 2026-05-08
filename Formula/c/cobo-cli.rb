@@ -3,18 +3,18 @@ class CoboCli < Formula
 
   desc "Build, test, and manage your integration with Cobo Wallet-as-a-Service"
   homepage "https://github.com/CoboGlobal/cobo-cli"
-  url "https://files.pythonhosted.org/packages/86/04/c89a9673b66d8f39cd19a870daccb3420a793da34d4fc1cf02f51da64050/cobo_cli-0.1.7.tar.gz"
-  sha256 "499e4d5e54b2e47d036951c055ab12a3dd7c3710c6672565f9388feff6ffdbde"
+  url "https://files.pythonhosted.org/packages/31/5a/b46f07b2cb2e0e7583e83873f65ca0f177e1b56d5f5a5f253ba83ab4c9f7/cobo_cli-0.1.8.tar.gz"
+  sha256 "bee5155dd3b4f16aa72b3ad1e02d5505cfa66d374856db0067ef1812986b218a"
   license "MIT"
   head "https://github.com/CoboGlobal/cobo-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5894bc81db0c50b94af755071fba4d99a0e3f1d5ac57719fc21babeb341f817a"
-    sha256 cellar: :any,                 arm64_sequoia: "40287a032e75ab75a12f1e9718afb7353a5c7fc68efb050cb65a9ecc06ef9c94"
-    sha256 cellar: :any,                 arm64_sonoma:  "a327fb5c9a25bc0ab117597a39cb86ee1b61ae2076b49b737df102fa4d01e2d6"
-    sha256 cellar: :any,                 sonoma:        "3eedba5cd4d2f498ba765c94ff8ededf6c7174a8db62525267c867c361c53277"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "75ee21fb7d12ffe0f83002ba13c2c061853ae64c0c1f360eededf9c7e8c9a369"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "266aef546bd1a6a88dc59601fb5f4b16abfc76c5bc1de594473fa642c7d7d925"
+    sha256 cellar: :any,                 arm64_tahoe:   "132966a392cb30c8c50cfe50a95a0d9241fde698d9f73499ddec405dd32b0969"
+    sha256 cellar: :any,                 arm64_sequoia: "c53467b37a554f4ab21fe8bfa8548003ee29dbd266be923557f2b6e370f92ddc"
+    sha256 cellar: :any,                 arm64_sonoma:  "e4b242fd90b0a0d5ed94588e9e4c577c0f7f4bce31c91b67f871cdc02940ab76"
+    sha256 cellar: :any,                 sonoma:        "66bffca8482f01cc149d7e5ad37f121c4dc4af652daaa928d879e7cd82c0bb7f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d72fcbfdd5863eb5a981708f0d4b904e9a3b60142c2f28eba0f98b696c328395"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "888d4d1fce655a36411e1152789e74560b8f8fc1c8efd82b90ea0c2bcb8beee8"
   end
 
   depends_on "certifi" => :no_linkage
@@ -34,8 +34,8 @@ class CoboCli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "dataclasses-json" do
@@ -59,13 +59,13 @@ class CoboCli < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/df/b5/59d16470a1f0dfe8c793f9ef56fd3826093fc52b3bd96d6b9d6c26c7e27b/gitpython-3.1.46.tar.gz"
-    sha256 "400124c7d0ef4ea03f7310ac2fbf7151e09ff97f2a3288d64a440c584a29c37f"
+    url "https://files.pythonhosted.org/packages/33/f6/354ae6491228b5eb40e10d89c4d13c651fe1cf7556e35ebdded50cff57ce/gitpython-3.1.50.tar.gz"
+    sha256 "80da2d12504d52e1f998772dc5baf6e553f8d2fcfe1fcc226c9d9a2ee3372dcc"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "marshmallow" do
@@ -79,13 +79,13 @@ class CoboCli < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
-    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/52/6d/fffca34caecc4a3f97bda81b2098da5e8ab7efc9a66e819074a11955d87e/pydantic_settings-2.13.1.tar.gz"
-    sha256 "b4c11847b15237fb0171e1462bf540e294affb9b86db4d9aa5c01730bdbe4025"
+    url "https://files.pythonhosted.org/packages/42/98/c8345dccdc31de4228c039a98f6467a941e39558da41c1744fbe29fa5666/pydantic_settings-2.14.0.tar.gz"
+    sha256 "24285fd4b0e0c06507dd9fdfd331ee23794305352aaec8fc4eb92d4047aeb67d"
   end
 
   resource "pynacl" do

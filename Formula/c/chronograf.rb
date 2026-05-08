@@ -1,18 +1,18 @@
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/refs/tags/1.11.1.tar.gz"
-  sha256 "aaa17b75e192f9d14709223c1070db81f382447afded69c5cbbb8be417229fb8"
+  url "https://github.com/influxdata/chronograf/archive/refs/tags/1.11.2.tar.gz"
+  sha256 "5bee300f2466d6a19774644993e9802ca93d18c5571099a4fb965daa47339710"
   license "AGPL-3.0-or-later"
   head "https://github.com/influxdata/chronograf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5b70280c4f201b7b04b71d7667d46ee2321ba0510c2472bf75fdde51af6f65b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d40c11f04b3135055191360c58cf7a4691a375593e99c12114efa8cd309c2e70"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "de66f5a7aea8d9849b169298afb4c2e71ebca45e4b4e829ae78228a312b66881"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3af85f1489c43441dcbb1e7a46b6a0b1c1e7fcefef574f27a8df2f7caf47b313"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6acd0982f8cf4f58babf785eb92bc09053fd80cbffa98c41cc4155e69d687a5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eafe31d39f938c140843c1c4ac98777668d551678388f3ba5be36e1936f15405"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb2474203dd02216655dbbf45e8175709b52b1a16c3f44e7e675907fac265e2d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a589e354fb36b0f6d2b93c48f7d74d5b678ed905d664925763f0914b41f587d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5af5c8d23f2fcdbd76db708d4c571cb89d88e2172283c7a22360c4a08ad6e8e0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e43f18ce274e49bbc1c0591278e286f00981698ce64b1745536e12f7766bbfd3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "39371de12b393bd0350bae13ff2318d3ead6f76fbe4d338530c6e1f517c1cbd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1a26e7c986c4839ee9f934be7a9cf4e6d9b5fdd1964bcd79280245661cffbed"
   end
 
   depends_on "go" => :build

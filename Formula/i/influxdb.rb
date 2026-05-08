@@ -2,8 +2,8 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      tag:      "v3.9.1",
-      revision: "9e6a635944e0413bf339d112bd4926ba7cc2c7fd"
+      tag:      "v3.9.2",
+      revision: "eae58d2018cc50ad4c2f6f56316c94d06d37683c"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/influxdata/influxdb.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Influxdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6b0efc89a45dacf20d2025f0476e5a6bd7fdc400e2512bcefb106d22cb22f01e"
-    sha256 cellar: :any,                 arm64_sequoia: "39fb704842962496547fc125e88ed1ecf9a7bd6dd34190aa0d0142e8b6ba83ee"
-    sha256 cellar: :any,                 arm64_sonoma:  "b9e350c7d2b8fce299725f17c81921e1f1c4d7d215c9076b54d5571f2eb70e4d"
-    sha256 cellar: :any,                 sonoma:        "c4e5b2157798a55d281f3b11822c7c98ee31648e4aee8aba3083a003a6eab31b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ad2222232415257cc998adba2fdc6af32b76efe024304c47e1d43abe873276f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20980a62ea1f4f57333d05937f89f11dbca6647a9a055990042e2c8ff0d3fdf5"
+    sha256 cellar: :any,                 arm64_tahoe:   "57623d1f338c9c5122f11cd92c91b4be0d4bdad028f9bb5b9649735350d70472"
+    sha256 cellar: :any,                 arm64_sequoia: "4c1dbac814c94c4d21d0ac708e657e589c853a7736b0042f5501c5309fed7b05"
+    sha256 cellar: :any,                 arm64_sonoma:  "61009640c586fff6fc68d05fd90d94e00be3f7667ecfa2fd3c4f1d9aa984c5c0"
+    sha256 cellar: :any,                 sonoma:        "8e57cb92701647f5140f2758deb9d54eb68f78907f8110026decf068951775b0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c63f6c4bdb7b040a1f3eb60e51f8b95959e787759bb85df798bfb23f14d11a44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3dce7ea72f59d95827f7e52ca398a678bcc5381d992b5e48a71639c3e52a380"
   end
 
   depends_on "pkgconf" => :build

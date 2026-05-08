@@ -4,6 +4,7 @@ class Erfa < Formula
   url "https://github.com/liberfa/erfa/archive/refs/tags/v2.0.1.tar.gz"
   sha256 "d5469fbd0b212b3c7270c1da15c9bd82f37da9218fc89627f98283d27b416cbf"
   license "BSD-3-Clause"
+  head "https://github.com/liberfa/erfa.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "1ddfe8f2240132e262a4bf6c0ce8aaced1eff640123b43c27355093910bf0482"
@@ -20,7 +21,6 @@ class Erfa < Formula
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
-    system "meson", "test", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 

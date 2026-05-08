@@ -1,8 +1,8 @@
 class Moco < Formula
   desc "Stub server with Maven, Gradle, Scala, and shell integration"
   homepage "https://github.com/dreamhead/moco"
-  url "https://search.maven.org/remotecontent?filepath=com/github/dreamhead/moco-runner/1.6.0/moco-runner-1.6.0-standalone.jar"
-  sha256 "31a3dc5dd902afd4615903f10a8179e289300c497a8d01dd04775b7003350f75"
+  url "https://search.maven.org/remotecontent?filepath=com/github/dreamhead/moco-runner/1.6.1/moco-runner-1.6.1-standalone.jar"
+  sha256 "f61ea62275e2b11590472b74de933a65f62ea05ff4de8b94f6b06173773301b1"
   license "MIT"
 
   livecheck do
@@ -11,7 +11,7 @@ class Moco < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "271d940055a185520615344ea85cef31431bc1d71dc7c1c08b87d1f4e5bd623d"
+    sha256 cellar: :any_skip_relocation, all: "75d231201d51d05d699392664c9d9a3bd979c863dcb09e6a75ed646251975019"
   end
 
   depends_on "openjdk"

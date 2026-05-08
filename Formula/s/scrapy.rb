@@ -3,18 +3,18 @@ class Scrapy < Formula
 
   desc "Web crawling & scraping framework"
   homepage "https://scrapy.org"
-  url "https://files.pythonhosted.org/packages/53/36/db15d4f43b4e83b5ce92c7f6873b649da6a895a2fe2732171d4861cea41a/scrapy-2.15.1.tar.gz"
-  sha256 "036d28f565b69a1206f56ef407cd81c5872e0b7bb697086be24edbb0651d81d7"
+  url "https://files.pythonhosted.org/packages/11/ee/601014b8696e2e869c806d4377da6c468b278fd891b03fc5d1c830f2b641/scrapy-2.15.2.tar.gz"
+  sha256 "c7b8fc8d2c51a39d52f6025bdd7e9c714e43f97afd300e8c44157cf7a05c0c9e"
   license "BSD-3-Clause"
   head "https://github.com/scrapy/scrapy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd7fdccbcbb0e8e6ad8c387bf3b2ac132053b0ec9d9e2d07ec4a2025b78b494a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8da203c8660e476c73c849dfbbfd38081eeb0baf5a866f8def1a8431f459473b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3464ea45b4e3402fe6700d56bd83278cb61a949a44576d42af6a30049f947850"
-    sha256 cellar: :any_skip_relocation, sonoma:        "11a30a953e19792546b7df33aa35976e848feb4812f35c5439394e9a155b28a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8181399941ecf8c1f5da90d455cd928ed5ca1bb9d87f3729437dee6c61552d22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f18a44a84bb5051a9f2c3630bdc8fed7b13c1462a693ce9c4710685f2021aba"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "61f7ada7013409d632b12e09ecbb7cd0bf816ffa7fc3e4a8620eaf858564b99a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c9a59a393681ba6d6948cd2365ff3f14153f1bd9261d815de7d79db20ade29b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5b8dbf40d08143a1d9e4b1d0303e2d6edbf13eee0690f99c67281f3a81c75d96"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b0ff03bbadad7a11c61aa10a96c1f42fe3bf61e559c69a3542c1bc0a46cb0109"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "067fad67568c30ccf0d92404b380a907d739bf986d1526e28d04be1e38aa05b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a84a9eddfc77d9ecbe79f84da56349fb53b6a3b57fa9f165cf1b5382e0457628"
   end
 
   depends_on "certifi" => :no_linkage
@@ -97,8 +97,8 @@ class Scrapy < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/de/0d2b39fb4af88a0258f3bac87dfcbb48e73fbdea4a2ed0e2213f9a4c2f9a/packaging-26.1.tar.gz"
-    sha256 "f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "parsel" do
@@ -127,8 +127,8 @@ class Scrapy < Formula
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/8e/11/a62e1d33b373da2b2c2cd9eb508147871c80f12b1cacde3c5d314922afdd/pyopenssl-26.0.0.tar.gz"
-    sha256 "f293934e52936f2e3413b89c6ce36df66a0b34ae1ea3a053b8c5020ff2f513fc"
+    url "https://files.pythonhosted.org/packages/8c/a8/26d36401e3ab8eed9030ad33f381da7856fcfad5691780fccd1b019718fc/pyopenssl-26.1.0.tar.gz"
+    sha256 "737f0a2275c5bc54f3b02137687e1a765931fb3949b9a92a825e4d33b9eec08b"
   end
 
   resource "queuelib" do
@@ -188,8 +188,8 @@ class Scrapy < Formula
   end
 
   resource "zope-interface" do
-    url "https://files.pythonhosted.org/packages/c9/04/0b1d92e7d31507c5fbe203d9cc1ae80fb0645688c7af751ea0ec18c2223e/zope_interface-8.3.tar.gz"
-    sha256 "e1a9de7d0b5b5c249a73b91aebf4598ce05e334303af6aa94865893283e9ff10"
+    url "https://files.pythonhosted.org/packages/9f/65/34a6e6e4dfa260c4c55ee02bb2fc53625e126ff0181485286cf0c9d453d6/zope_interface-8.4.tar.gz"
+    sha256 "9dbee7925a23aa6349738892c911019d4095a96cff487b743482073ecbc174a8"
   end
 
   def install

@@ -1,9 +1,9 @@
 class Libtrace < Formula
   desc "Library for trace processing supporting multiple inputs"
   homepage "https://github.com/LibtraceTeam/libtrace"
-  url "https://github.com/LibtraceTeam/libtrace/archive/refs/tags/4.0.30-1.tar.gz"
-  version "4.0.30"
-  sha256 "2e83c5cfb3cf6eb98ee9d928f3b04f4aa8c0b9ec8060e74c27f0e213b83818d9"
+  url "https://github.com/LibtraceTeam/libtrace/archive/refs/tags/4.0.31-1.tar.gz"
+  version "4.0.31"
+  sha256 "a84209ea928d113a2c26078eb833fc0c973c53216bbef8cb0333972d5ba95a2d"
   license all_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
@@ -15,12 +15,12 @@ class Libtrace < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cfe9ddfb74e19626fec9725c20436cef6515f7875e72190f55e78acb8db587f4"
-    sha256 cellar: :any,                 arm64_sequoia: "7126db48963d12a654960b4e870d35628708e38d08a4e0b81c175f74ae27bcd7"
-    sha256 cellar: :any,                 arm64_sonoma:  "1437384c71d2c28d9f0659dc0ed343129031466e3d7f420ee19a618d6ead4ce6"
-    sha256 cellar: :any,                 sonoma:        "9da327786a615a8428364e987422206d23422904cf4e1a6aca211e6525b2e9da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eadb255c3c9fd7996493baa19fcf4ac182de1f672f882e68d37b607773ea61a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "386ff1e7ccd8bd1f3327842a56bc059c5fcb31ad45751a938e076af18c279316"
+    sha256 cellar: :any,                 arm64_tahoe:   "e57d8acabf4b31eadb453dfdd5fe3cbd73ff9f46a10a2428fd8a595b8a95ce3e"
+    sha256 cellar: :any,                 arm64_sequoia: "63b1e096f7a97694d9d9768dedde24367fa34886be218ecc51f855011af09ee5"
+    sha256 cellar: :any,                 arm64_sonoma:  "133a82aa444dd672b9993ca171e2ecb6eceb5c110cdf48f192687f1814746746"
+    sha256 cellar: :any,                 sonoma:        "fd9fb0d02a390957faf05ec46de551962d3c3b9fa1dea83481f55b39b69cda69"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "62a5586ce2976124b2d41f1c86b2274921721237cbbe6e57c6a5bf534d42dac3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fe7055c590a8de8ec46a40cce222e56b71dbd0be37e50eda9cf31beb5394c49"
   end
 
   depends_on "autoconf" => :build

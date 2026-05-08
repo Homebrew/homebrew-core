@@ -1,18 +1,18 @@
 class Rasusa < Formula
   desc "Randomly subsample sequencing reads or alignments"
   homepage "https://doi.org/10.21105/joss.03941"
-  url "https://github.com/mbhall88/rasusa/archive/refs/tags/4.0.0.tar.gz"
-  sha256 "cfbcb8db74d2675d8844c99a48877cb109cd25d2aa97fba3945ccbba07bc073e"
+  url "https://github.com/mbhall88/rasusa/archive/refs/tags/4.1.0.tar.gz"
+  sha256 "bc3db8950f14d8a398382054212bbaad2f850d45f79eaf6fa582055ffd3e02af"
   license "MIT"
   head "https://github.com/mbhall88/rasusa.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e490ba8f6e4b8ca4d8965e0b4ae6448a205d8bf462d13aac83890e4f35f8452b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "23305294ff906613a194a85f77e5f1d4463fbc1ab37ff01e82ced0b57e53c0b6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ec81daba484e187053e985a64e91b7c3220e24d52db27774531f522ec775dff"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9b403394e19b92b43b877d75fd5b560ae64c03fe528ab8b7ddfe25da366e7fd9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "70e117cfe0638fa31b945ea99472d85b5c5a112a728852f138ad8849fa9aed38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "654b1cd11beeafdf126f3501dd64e9a5c26de589fa05796d0265b91a67f28b69"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80f9a5b8089eb91b6e1c7a9c1de12f3b07bd020900554f8b82bd87e174cd8357"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d419940c7a227d188bb6121656b03faa8e4ccf768486c0ca612aac7e86f1ffd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6b71b3e961a2d4a2941091f7a5eec66191afae5b9a2df8b3df053f5179c779b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a3daa60224a3ea34291975b6f980d969946318d3a9f224513f263be7673ada86"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6afe6d298df18f338bf1f4cfab2f375b0199c5c50cc52ebe6b27332ff705579"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58f43438ba8402a9effdf5819494e63194a5f2ed8797d87d8bcffd0b7a03a460"
   end
 
   depends_on "rust" => :build

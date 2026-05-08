@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/18/5d/e1f60bb9ebeb134f5d5705c77e5709a287519988bc80a2afc4925f43788f/esphome-2026.4.2.tar.gz"
-  sha256 "7373e8e34686df32fc754c7599e8162f179f15e2ca9fa0cdbfa7c3ee73b17351"
+  url "https://files.pythonhosted.org/packages/18/d8/695904a15ca14a5c880d9a724b36de2d5ca4a0911d5a668fa7ae8aa6a3dc/esphome-2026.4.3.tar.gz"
+  sha256 "0ad90497c1d559130a89795c88ba65b6b6ab1d5c9f4c596757fe3cd563b13317"
   license "MIT"
   head "https://github.com/esphome/esphome.git", branch: "dev"
 
@@ -12,12 +12,12 @@ class Esphome < Formula
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2376fcd62ead1878dcdabcc9201b578d342ad3bd5454ad4147c3d7f2219d1520"
-    sha256 cellar: :any,                 arm64_sequoia: "87778d5d940d95ef63baae30437a68df61995f4dbf1d50d8f117b97a8b877d9a"
-    sha256 cellar: :any,                 arm64_sonoma:  "bbb41806acd0d6d4e20b58344b1d5b87034c2fc83e2ed3389d92890fb04417ab"
-    sha256 cellar: :any,                 sonoma:        "e052c26e1b71f1ea76a1c13d3c36bd118f13bab201b34f3e3e338d0348adccf3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a24ee397c065cfdad06fad3820a7dea709c5f02c2a3ff0c33a3ee0716880669"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "928f53699bea6e16a0171577a9b2927c000f8d02b75ad08cedf8658d05e82a2f"
+    sha256 cellar: :any,                 arm64_tahoe:   "d40c15f54bb81cec6280e1711b94a63c743b31aa57c3e62700400c9cb7d24c3a"
+    sha256 cellar: :any,                 arm64_sequoia: "78645bd3398cbaf59bdb51622f55f79dc7817487a3c2d5e8bff3831b39695e8d"
+    sha256 cellar: :any,                 arm64_sonoma:  "3efc09c4186b07e4631f6915add84ed48ef9e2a928f33deb2d872cfd42a76833"
+    sha256 cellar: :any,                 sonoma:        "82546e2dff7224788caff4ddfe865ebc845386d6fc337e8bff5eca4b5eaa8044"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8105a2a457072d4c290cbb4cea1432e99676177d201c1f0942f2b2c40fb5715e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cc4db73da6996c63d4e0da3ab1e83cf770195937982bf04db697a916bf65b03"
   end
 
   depends_on "rust" => :build
@@ -206,8 +206,8 @@ class Esphome < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/de/0d2b39fb4af88a0258f3bac87dfcbb48e73fbdea4a2ed0e2213f9a4c2f9a/packaging-26.1.tar.gz"
-    sha256 "f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "paho-mqtt" do
@@ -346,8 +346,8 @@ class Esphome < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/19/f5/cd531b2d15a671a40c0f66cf06bc3570a12cd56eef98960068ebbad1bf5a/tzdata-2026.1.tar.gz"
-    sha256 "67658a1903c75917309e753fdc349ac0efd8c27db7a0cb406a25be4840f87f98"
+    url "https://files.pythonhosted.org/packages/ba/19/1b9b0e29f30c6d35cb345486df41110984ea67ae69dddbc0e8a100999493/tzdata-2026.2.tar.gz"
+    sha256 "9173fde7d80d9018e02a662e168e5a2d04f87c41ea174b139fbef642eda62d10"
   end
 
   resource "tzlocal" do

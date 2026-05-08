@@ -1,18 +1,23 @@
 class Mdfried < Formula
   desc "Terminal markdown viewer"
   homepage "https://github.com/benjajaja/mdfried"
-  url "https://github.com/benjajaja/mdfried/archive/refs/tags/v0.19.5.tar.gz"
-  sha256 "c13561e12027e39468a9a7949da9b454bf14140d99001477e4e90dd1f1c425d8"
+  url "https://github.com/benjajaja/mdfried/archive/refs/tags/v0.19.7.tar.gz"
+  sha256 "c9cb3a3faa22e01128632806229947741004c13a22041378778e3186b8a95b72"
   license "GPL-3.0-or-later"
   head "https://github.com/benjajaja/mdfried.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7601a98ea5595347f5bab4d15637dfe53d42fc534d250da8310b7e6a36da27ba"
-    sha256 cellar: :any,                 arm64_sequoia: "3637f29b3da8892d1a8841b561be52f8217165762092e3300dec9fefabf22e29"
-    sha256 cellar: :any,                 arm64_sonoma:  "cb56363af16a5da7d031ecb2186f5d152aa1f7d5985f37e85b94c21fd7e773e0"
-    sha256 cellar: :any,                 sonoma:        "4c99d178dd7fadd2efa3dfa0f9928488604e557c65ec05c11afb45fa23010929"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "58e44082449bceeb6e86bfd6b1101e1294f1b36ba09f7644436c736c75123c68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41e4e87d43b0d18ceeee42dc67e25c4cd4df098903dc84404f3ccbb77b82d2ac"
+    sha256 cellar: :any,                 arm64_tahoe:   "7249f8d257877df4c56688549511200f52796de223ab8a8ac2a25ac9a0628a8f"
+    sha256 cellar: :any,                 arm64_sequoia: "c6a46f5f5de431c61bf816f757caa11753706a185d368f5464b8dea44e870426"
+    sha256 cellar: :any,                 arm64_sonoma:  "332f5b5652eb1ecc02bc33fe4371213b27056db6a757345db476ff050e969e2b"
+    sha256 cellar: :any,                 sonoma:        "b29f3c890e8e729d8ab54a233f0132e46659087f190ba781b5454ba3bcd7bcf7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e491cd94436551185e92e406de44094e3da270e15591e51e0a535984a3eae35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92a071ebc2236efc63ab4a556ba0817866386c889fb1b61e8ce7b6e5ca5d203f"
   end
 
   depends_on "pkgconf" => :build

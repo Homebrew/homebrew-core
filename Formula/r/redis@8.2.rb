@@ -1,8 +1,8 @@
 class RedisAT82 < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://download.redis.io/releases/redis-8.2.5.tar.gz"
-  sha256 "68de6b8c7665ac7f5ddea026745515ea027a1e233d3ed413f67134333c0e611b"
+  url "https://download.redis.io/releases/redis-8.2.6.tar.gz"
+  sha256 "78dd7326c5c959202c6c3849d3ea9c61896d78d647c20f6542b52c0917f96eac"
   license all_of: [
     "AGPL-3.0-only",
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
@@ -17,12 +17,12 @@ class RedisAT82 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "98dc91477160c0076ecf6f93f3ff2a7d03738838fb4e27aecebed92ce3e91859"
-    sha256 cellar: :any,                 arm64_sequoia: "152bc3912ec0ea39058032fd6315ef6a87c03077276102a997d72d2a1380392b"
-    sha256 cellar: :any,                 arm64_sonoma:  "20c76d7eafbb04762e8c405220786ff87dea7f3f84c5edee7828e942e2da2f8a"
-    sha256 cellar: :any,                 sonoma:        "3038cf858b7ddb8ce320e5ee8acec1e63c789539765575670d4c26a460061679"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b613fe46b6da065b5c5b3bee18d5f3597197d12c91d39a7d7a067eb1ca5bf715"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "752002b1aa5a779970903a2849d29d4e16bc205db89b107d45adf8400d3e77a5"
+    sha256 cellar: :any,                 arm64_tahoe:   "e7877125678bd2a162f149b99b9d1c886d503306502b1e293876a5fd48e7dc5c"
+    sha256 cellar: :any,                 arm64_sequoia: "0cea7611a724953ce034ea43aacc1b62d62730d90b34f91e12f16cc978da406b"
+    sha256 cellar: :any,                 arm64_sonoma:  "a4ebcad9e75c6a6aa8a2b149e8595fd399f9b5c8fcf02327e81784939c8719af"
+    sha256 cellar: :any,                 sonoma:        "a5d5968614ca6a325602f0c93e712bfc4a3d37f94c819fc51a3b16947a3aba75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6df2454501458067779354e4ce2e1aaba0d94ea27ca7413fea89ee75e88f4d26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "310ca6b5d8f4f241432e3dc89252671ab523f8258e083bbf62d9b23f75d0390d"
   end
 
   keg_only :versioned_formula

@@ -1,17 +1,17 @@
 class OpenclawCli < Formula
   desc "Your own personal AI assistant"
   homepage "https://openclaw.ai/"
-  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.4.24.tgz"
-  sha256 "8f4a0f598a041732eeb5180a4af48ea371c79fcb178ea6206fbd2370766360e7"
+  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.5.6.tgz"
+  sha256 "3f8f42181f0fbc99fc17420de002a1e28c73cd643dbb4bdbc4faf63f4a46dbce"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f6c51693d75fbdbc543402da8e9452349cb0d12baf52cc8cc3877e20abdc851f"
-    sha256 cellar: :any,                 arm64_sequoia: "d448079d04ee4ba47cc3eca9f6e01e3fbc3f4eac11c743e34f228c4e9d8bb45d"
-    sha256 cellar: :any,                 arm64_sonoma:  "d448079d04ee4ba47cc3eca9f6e01e3fbc3f4eac11c743e34f228c4e9d8bb45d"
-    sha256 cellar: :any,                 sonoma:        "dc3ca5a3b5582eea3dddfcea6668837c85d3fc43718c4b89b597e6474c248e0a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b5ffac4d1f3a4f024b6062a0ba19b6361c3b05c72fd7b7223fef7523627e5e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a04ec727a06cd741dcc33b5c8bb33671fc2ec58cfaa60ff43ff90a3f6e3f573"
+    sha256 cellar: :any,                 arm64_tahoe:   "27c33748f6a0b6708cc32186db29c54b72b4add1bc417a5eb68914166128140e"
+    sha256 cellar: :any,                 arm64_sequoia: "777cafc0a99e97200e3c25d079675600edabf5966cd7fcaad82c4fc958fc51be"
+    sha256 cellar: :any,                 arm64_sonoma:  "777cafc0a99e97200e3c25d079675600edabf5966cd7fcaad82c4fc958fc51be"
+    sha256 cellar: :any,                 sonoma:        "73bec1636b41f49896ac71092f5063a462230ac7a9367e6b008f660e729c5540"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "36e98d4ec38e0fb0f07de59cdc1960f578dd8af6798c0bf44a10075e82f742d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d330c327017dc2bba920f11bb44c0d26c1b9701e4d8fbdd08ca26f880a233f92"
   end
 
   depends_on "node"
@@ -27,17 +27,18 @@ class OpenclawCli < Formula
     # Remove macOS pre-built dylibs that fail Homebrew bottle linkage fixups.
     node_modules.glob("sqlite-vec-darwin-*").each { |dir| rm_r(dir) } if OS.mac?
 
-    # The bundled Discord plugin ships unresolved nested dependencies and a
-    # prebuilt macOS arm64 module that fails Homebrew linkage fixups.
-    rm_r libexec/"lib/node_modules/openclaw/dist/extensions/discord"
-
-    # Remove incompatible pre-built @node-llama-cpp binaries (non-native
-    # architectures and GPU variants requiring CUDA/Vulkan)
+    # Remove incompatible pre-built binaries (non-native architectures
+    # and GPU variants requiring CUDA/Vulkan)
     arch = Hardware::CPU.arm? ? "arm64" : "x64"
-    llama_target = "#{OS.linux? ? "linux" : "mac"}-#{arch}"
+    target = "#{OS.linux? ? "linux" : "mac"}-#{arch}"
+
+    node_modules.glob("tree-sitter-bash/prebuilds/*").each do |dir|
+      rm_r(dir) if dir.basename.to_s != target
+    end
+
     node_modules.glob("@node-llama-cpp/*").each do |dir|
       basename = dir.basename.to_s
-      next if basename.start_with?(llama_target) &&
+      next if basename.start_with?(target) &&
               basename.exclude?("cuda") &&
               basename.exclude?("vulkan")
 

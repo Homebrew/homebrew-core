@@ -1,17 +1,17 @@
 class Seal < Formula
   desc "Easy-to-use homomorphic encryption library"
   homepage "https://github.com/microsoft/SEAL"
-  url "https://github.com/microsoft/SEAL/archive/refs/tags/v4.3.0.tar.gz"
-  sha256 "2c843054d795d0f36944e5cf1e9ab4b72b239af2ab427905394ed1c69c13bca3"
+  url "https://github.com/microsoft/SEAL/archive/refs/tags/v4.3.2.tar.gz"
+  sha256 "90c36b28bda750327f9ae172a4b15ad0706412f7d8239471636b94f944dfcac6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "310246ba73ca19467d57d849615901dfb226cbc853ef692a4318ec6b1bb3434a"
-    sha256 cellar: :any,                 arm64_sequoia: "0790b479d8372b06b3c33790ca3d765d4c43d02a53868ce0c4d3aec022aa4563"
-    sha256 cellar: :any,                 arm64_sonoma:  "c09da5e90916e6b613229eddd7eafcc0217d02fb864fac78a56fcca3f3f09ffa"
-    sha256 cellar: :any,                 sonoma:        "2d89ebd79f9023f7a6fa8cc707a4692def14c81edfe9455bf5cae8f64f661f77"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "95d4a668b5018d0244734827d32e22197b5ea2d34761d0ecca6ffa221370d936"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f6afd5fba812cc64ec7756a4caadb2f83def5c484c1b6aaa5e08b9483bdcc04"
+    sha256 cellar: :any,                 arm64_tahoe:   "7cc01d9da127c29dfd802c11e3814b7b2f5a68634183771a6dc2c45bcecc3916"
+    sha256 cellar: :any,                 arm64_sequoia: "3ff8fd30e84624004babcca418e0c6c0ea62a474f20e04a958a8ea554d08101e"
+    sha256 cellar: :any,                 arm64_sonoma:  "39fec0847163290974daf97015cadccd2d3b9cd2f445b0958d66c760e85862fc"
+    sha256 cellar: :any,                 sonoma:        "cfd97a692850aee3755660ad63d81c9bff076f86e4d45a39ccff16683dbaddce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d544832700f6e72900c75555f332c5e1a9a63d89ff36c7090ba0352852d1dc2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e89a843fa2378aba5156d3374b36bc47bb273031493e9949594a41bd4bc1ae32"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -25,13 +25,6 @@ class Seal < Formula
   resource "hexl" do
     url "https://github.com/IntelLabs/hexl/archive/refs/tags/v1.2.6.tar.gz"
     sha256 "5035cedff6984060c10e2ce7587dab83483787ea2010e1b60d18d19bb3538f3b"
-  end
-
-  # Fix to error for package "HEXL" that is compatible with requested version "1"
-  # PR ref: https://github.com/microsoft/SEAL/pull/740
-  patch do
-    url "https://github.com/microsoft/SEAL/commit/7d449845499f64232c6870085e96e4fd7493e752.patch?full_index=1"
-    sha256 "b48c681ac957b3c7fcc7aad2ac456e3301e2320e00c464d0fec3d95225681548"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Openblas64 < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/OpenMathLib/OpenBLAS/archive/refs/tags/v0.3.32.tar.gz"
-  sha256 "f8a1138e01fddca9e4c29f9684fd570ba39dedc9ca76055e1425d5d4b1a4a766"
+  url "https://github.com/OpenMathLib/OpenBLAS/archive/refs/tags/v0.3.33.tar.gz"
+  sha256 "6761af1d9f5d353ab4f0b7497be2643313b36c8f31caec0144bfef198e71e6ab"
   # The main license is BSD-3-Clause. Additionally,
   # 1. OpenBLAS is based on GotoBLAS2 so some code is under original BSD-2-Clause-Views
   # 2. lapack-netlib/ is a bundled LAPACK so it is BSD-3-Clause-Open-MPI
@@ -17,12 +17,12 @@ class Openblas64 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5acb4cea96994e55e9485dc75494398c3e928d08d586f98f5bf7ccf604327d64"
-    sha256 cellar: :any,                 arm64_sequoia: "8a168bbfc03cbc101843845ceaf0cdf68ff4eb18b824f2b9d1b48f57cbd6126d"
-    sha256 cellar: :any,                 arm64_sonoma:  "aca0f04d8af5abd8076216c26e31fe16b9a34c7f3d94c181d487d18f43b522b7"
-    sha256 cellar: :any,                 sonoma:        "b61af378c53c392121709c2ab7034761b54a52f48c30a5d4225ed7012ae02663"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd57eab8523eb94a61e9f7962fb28ab4e8af621761697400b68661640bfc70ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed51f7495fbeae1a7d16529f5b11eae3d6e602100308218b1cda678310dacfbb"
+    sha256 cellar: :any,                 arm64_tahoe:   "f24e5a2dbfb97d9ad0b842606a35ad051e429abe5bc006127b7f50de9794ba26"
+    sha256 cellar: :any,                 arm64_sequoia: "8f1927573aef089008401f4d916211319272c73a74dc18817d124427b1ce684f"
+    sha256 cellar: :any,                 arm64_sonoma:  "0fec9c095dd09fcb3e9421dd92deb04d41fba3fa707d975a7d7fa80205b24328"
+    sha256 cellar: :any,                 sonoma:        "af3588a01ee22ed012ab103c2311ccfb992df5910e910eba5cbd8c392bb96dd7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98214ca0a0d94d4544a36b3dd7e65558f9856991ff404f3c8d0d14de2a2157be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a37f139cca766a751a73743fd0c43365d0af68d94a2c12b335ea59fdc3c953d"
   end
 
   keg_only "the headers conflict with `openblas`"
@@ -59,6 +59,9 @@ class Openblas64 < Formula
     # Apple Silicon does not support SVE
     # https://github.com/OpenMathLib/OpenBLAS/issues/4212
     ENV["NO_SVE"] = "1" if Hardware::CPU.arm?
+
+    # ld denied .o file renamed by objconv that is not 8-byte aligned
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if OS.mac? && DevelopmentTools.clang_build_version >= 1700
 
     # Must call in two steps
     system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared"

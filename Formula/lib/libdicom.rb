@@ -1,20 +1,23 @@
 class Libdicom < Formula
   desc "DICOM WSI read library"
   homepage "https://github.com/ImagingDataCommons/libdicom"
-  url "https://github.com/ImagingDataCommons/libdicom/releases/download/v1.2.0/libdicom-1.2.0.tar.xz"
-  sha256 "3b8c05ceb6bf667fed997f23b476dd32c3dc6380eee1998185c211d86a7b4918"
+  url "https://github.com/ImagingDataCommons/libdicom/releases/download/v1.2.1/libdicom-1.2.1.tar.xz"
+  sha256 "7a448d295b179a4c0b311c09f5253655446a44bf66b3b7d2aa4c09d15f02f1f8"
   license "MIT"
   compatibility_version 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "edf1ef90081de45407247c6f2c62dfa5f25ec6e449c77fd817587e4e7947bdd5"
-    sha256 cellar: :any,                 arm64_sequoia: "a0ebd3a3367d71d0334a7891bcfd592e2b3afb155ee06ef53147132dfcefd60e"
-    sha256 cellar: :any,                 arm64_sonoma:  "f375601773df0c5094df266775394c93aa72f5b48fb05cf1fc05b5af5cc9c3af"
-    sha256 cellar: :any,                 arm64_ventura: "878c5957cfd9c3a44b204f9917c2dcdde618abbab7038a7b60052d4c9a5ac504"
-    sha256 cellar: :any,                 sonoma:        "070a0a036117b34c98f56cd86327d70572bbb0131df4b2b0c31d3c32d585009e"
-    sha256 cellar: :any,                 ventura:       "24ecd6d69b3020110e55b0a6d70737dec2df074a9568b65b1c7bf5a5f7e5d381"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2123321b416caf06cb685ed6307a53ada4d8eace6429595d99a1249caf171f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a12c2177e7519f1cd98ed1d88e227eeabdee7236532fa270b1a780b16a068020"
+    sha256 cellar: :any,                 arm64_tahoe:   "e9a14120d4cfa52dd2071bbcb9d43523b712b43f19a06204ed6d6e87bb3b98d2"
+    sha256 cellar: :any,                 arm64_sequoia: "03152b93d7e51c7e967a3d5774f6c5f4a487e6404c06ff79780da38fc6085bbe"
+    sha256 cellar: :any,                 arm64_sonoma:  "6a70bf18be8cdab41295bcb8c702caaa02e41b10c40fcfda08698d86fa2a9e66"
+    sha256 cellar: :any,                 sonoma:        "1005712c39f20e0ed08bd41f71e356928ce8900bda502a3440c10b67afe4f121"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a013097c92ecc377e3001ef0ecf42d716d34b68af3adb8d4dc0b3854ef27e03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "940adb9a8ec118f961c3fba37a15b8594718895a5d12c485926632aea6b5613b"
   end
 
   depends_on "meson" => :build

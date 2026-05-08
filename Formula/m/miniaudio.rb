@@ -6,12 +6,13 @@ class Miniaudio < Formula
   license any_of: [:public_domain, "MIT-0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "12948d6a45969c48fd0abfe17aa631da268ba423f8271c160ed6cc31e8ccf363"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e7372e92b813a137f0e372f653252daab3530e55e3d9a032ee1941049a44f75"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9fd4e9ad49caca0aa1ee4da2e8dbb7edf5b003b8a7eda1da73105f8e16a5ee59"
-    sha256 cellar: :any_skip_relocation, sonoma:        "312733a8e74e4b4cded6e2429cfc4860c2eaec1a9d4bdbc6d184daa4bfcc5cdf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f18fa4627bcae27e0bdf8a6f904d371f3e620666ba6e8ecb1826b95d9fbf4b51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0642c4bea6189bbef7f56daf9428cf3a832104ff2e5eea66a657af2b1bad8dd"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "4116dff207a7fd4b5e6f2d2da3189df46f33397d09e4a06a2c074dd48f6441b6"
+    sha256 cellar: :any,                 arm64_sequoia: "1ef0a99c6d5502c31c77b39d859c02adbb09b3d80eb441a85777dcf546c60858"
+    sha256 cellar: :any,                 arm64_sonoma:  "9e94a62aee3436dbc9d99faada5cce88bd76249c629798098306897041355ca7"
+    sha256 cellar: :any,                 sonoma:        "9a56208b00933d2bfc08b578cbbc0be50e2ac69d57103809b4e6ad48e092f084"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3c96b371c8f6ef73cbf576dcf4a1be1c2f4e88a3f3b5354c987d3d7ef80b837"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5acba976aeb2cd0c39b26921c7788f0e4cd3ae721210bcdb6116ce8775756e2b"
   end
 
   depends_on "cmake" => :build
@@ -21,6 +22,8 @@ class Miniaudio < Formula
       -DMINIAUDIO_BUILD_EXAMPLES=OFF
       -DMINIAUDIO_BUILD_TESTS=OFF
       -DMINIAUDIO_INSTALL=ON
+      -DBUILD_SHARED_LIBS=ON
+      -DMINIAUDIO_NO_EXTRA_NODES=ON
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -38,15 +41,7 @@ class Miniaudio < Formula
       }
     C
 
-    args = %W[
-      test.c
-      -I#{include}
-      -L#{lib}
-      -lminiaudio
-      -lm
-    ]
-    args += %w[-o test]
-    system ENV.cc, *args
+    system ENV.cc, "test.c", "-o", "test", "-I#{include}", "-L#{lib}", "-lminiaudio", "-lm"
     system "./test"
   end
 end

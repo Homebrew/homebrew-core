@@ -6,12 +6,13 @@ class Mockolo < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "28f3f5299d6478185c5b35f37da6c7a1d791fe766a66c030f7441ebd4fe956a9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "970c2257774bc38af7d45af809e9016192b2a7d614714c38cb3e2ed1460c9b88"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f025430350422f46f9a5d69ad45db63fced53a75946b3c39f52ac921ee2176ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "37cdff273a121d5eed2ff46e35bab50a99a4b4f1e4446bfe077253c4d6dfa56c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "395a7a051e016e562ac590dda6319bb80340180c394f698e0e1968d91cec680d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a6599308c17e1c5794ba4cd502e2219df61c146d3d4b2d9eced84046e7bfdb1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "672c6c24b9e5bcbec341e30c2904709ad6451cbe5bf0616048bef4fd88eb75cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4a85b865dfc03617199bf14d7b392af1aab23401df70c330c7744ba08126f0c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ca61d8280ecc64958225c7860b556bc132d521c055847d476275d5bbc117f89"
+    sha256 cellar: :any_skip_relocation, sonoma:        "209dcf4e21d99e40e206708505a0e902c576cfa8b3f78fd3a93a71f95177eb68"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e1cef95840e26a78cd28cd2b515033025bd1af26beb7459fbb7a28e8ada8f0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7939818512b30239cbda264db9d01481066ff9c76b0f4fb1836591edb7bd9d1"
   end
 
   depends_on xcode: ["15.3", :build]
@@ -19,6 +20,7 @@ class Mockolo < Formula
   uses_from_macos "swift" => :build
 
   def install
+    inreplace "Sources/Mockolo/Version.swift", "development", version.to_s
     args = if OS.mac?
       ["--disable-sandbox"]
     else

@@ -15,6 +15,9 @@ class Alluxio < Formula
     sha256 cellar: :any_skip_relocation, all: "5063a69bf2f9fb8db4f197d44aa9098e206c9b69ab03c2c7f3a2698c94c21f8c"
   end
 
+  deprecate! date: "2026-05-02", because: :unmaintained
+  disable! date: "2027-05-02", because: :unmaintained
+
   # Alluxio requires Java 8 or Java 11
   depends_on "openjdk@11"
 

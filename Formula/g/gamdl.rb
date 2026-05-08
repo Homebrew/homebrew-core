@@ -3,17 +3,17 @@ class Gamdl < Formula
 
   desc "Python CLI app for downloading Apple Music songs, music videos and post videos"
   homepage "https://github.com/glomatico/gamdl"
-  url "https://files.pythonhosted.org/packages/f4/3c/d299e790dcfcc846dcfcb93af457a311f2f4f661f5274688b3ae33973bbc/gamdl-3.3.tar.gz"
-  sha256 "269cde0d0a555a3fb9b70c7e6853fb38a8ba0438fce692cf8839eb009d7885dc"
+  url "https://files.pythonhosted.org/packages/ed/7b/6691b91f6af5cb8ba47ec4c7ed6518837d184895f7c3f2367d05b637205a/gamdl-3.5.tar.gz"
+  sha256 "89da2c239f4a85c2ef5be4363cb83c28541c1feaeff747b0b900646c6c7b3319"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1ac8a9fd721133cd3036b7144380358ef279c08e076c02a72594917354c53029"
-    sha256 cellar: :any,                 arm64_sequoia: "d9be4af13fa677e69108ed1a729350aba0c3b6cdd482e1be9ac496b90a2a8256"
-    sha256 cellar: :any,                 arm64_sonoma:  "64df7e7a0c352ac2c1914cd2083a4010d6a78fc8a2e137f446ec1f38f33eb35b"
-    sha256 cellar: :any,                 sonoma:        "cf1f3216d8b1cc72161038edb752482394c2eabe19c4d575af3f30a0ff293f87"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "16422aa082677afbeddf80bb452f1d30eb68494d30a6b193dfd08a23324182ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4eaa804168c4c0c41a75544fa45f3656b512320b658ae0cd04445c9e687512db"
+    sha256 cellar: :any,                 arm64_tahoe:   "b61eef31b6a177745ccfce584e305733c356230446ed46b7510a50c5e7532a38"
+    sha256 cellar: :any,                 arm64_sequoia: "65e2d2c567e1b7fe0199ea23912531ec88fb9deb57686bacc8bb836faaafaf99"
+    sha256 cellar: :any,                 arm64_sonoma:  "a231566f374d88b0c2d2c54ec4806419b76b3afed2069eb2c205380289b0c989"
+    sha256 cellar: :any,                 sonoma:        "e4f5e8ff14b02f3dc7443e94cb44bacf4707bf358f41cefee4213efeea134db8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "124d087f39f59623b92291eb4a8bb584774819551090ac9531321a1650f5105b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9da6efa742fe8ac8c5748efea70d0d5453a94a94d1195393c7048ee27f028c43"
   end
 
   depends_on "certifi" => :no_linkage

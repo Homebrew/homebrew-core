@@ -2,17 +2,17 @@ class Licensed < Formula
   desc "Cache and verify the licenses of dependencies"
   homepage "https://github.com/licensee/licensed"
   url "https://github.com/licensee/licensed.git",
-      tag:      "v5.0.6",
-      revision: "30a7f6abb2b1ba6d960f2878233009766430e085"
+      tag:      "v5.1.0",
+      revision: "5cefad36349e5798ab0e4e33551907ff999ccbaa"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c88684d9683431a42b1fab8b4be83c95b5699cb571383d58e44c295342b56ae9"
-    sha256 cellar: :any,                 arm64_sequoia: "ad97635e2a83084e400112444db2f5674af5ce2f3c91ca2bb9f235147858756a"
-    sha256 cellar: :any,                 arm64_sonoma:  "d9bf2af64ef09eb7278ce260ada09b6ffc001c77dcc46c89f24c5540bb6bee68"
-    sha256 cellar: :any,                 sonoma:        "a15d6aae872eeea77f0099b0fa5dd410058779396a2327db4c5591990d79de93"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "59ae55e6198311fc0186cca96569da692ddd305bfeb939791eb2c8da952b3e3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f03ed2f11a7cdb3a2bf05b2670004612b42717b2cc9073753eb8ac3da7d9c860"
+    sha256 cellar: :any,                 arm64_tahoe:   "ea77d11cb8ea2da19a84ab0f0364879377e11d303aa963d0ac049bf1703cbbd5"
+    sha256 cellar: :any,                 arm64_sequoia: "82a43ae41ae886071174c26305626fcbd3d73345e84dc834640c66d5aedc6d8e"
+    sha256 cellar: :any,                 arm64_sonoma:  "c4956552d915a6d6e92587842fdaea142c15bbaba25e90bb938829a6b1893cad"
+    sha256 cellar: :any,                 sonoma:        "7af95dd4e135fca493ff97db9ff2a7deeef984d9a978b3f3556e7e3cb7a69695"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f68d0c9c90ba091329670f3c55db2dab668310c0706bc549cb4ddd4a1ac484b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f587002eec90446e70bfacce15a00a64481313940db75c5cf5cb983271e3aa36"
   end
 
   depends_on "cmake" => :build

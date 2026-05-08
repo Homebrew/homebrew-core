@@ -4,18 +4,16 @@ class LibjsonRpcCpp < Formula
   url "https://github.com/cinemast/libjson-rpc-cpp/archive/refs/tags/v1.4.1.tar.gz"
   sha256 "7a057e50d6203e4ea0a10ba5e4dbf344c48b177e5a3bf82e850eb3a783c11eb5"
   license "MIT"
-  revision 4
+  revision 5
   head "https://github.com/cinemast/libjson-rpc-cpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6dc9f12a9b6bf936881daefc66364df558d40e4daa5ef1327313619b91e8ebd1"
-    sha256 cellar: :any,                 arm64_sequoia: "437e579e259460e182a7a265ab31eda753c85860623d95fae1585c831ed26046"
-    sha256 cellar: :any,                 arm64_sonoma:  "3c31da615d72e5b0b7fa8563a2f20ba614ae2149eedbdcc5e7b1bbf2ec4cf485"
-    sha256 cellar: :any,                 arm64_ventura: "a50a022cd28c1afc756e6549255a779b0cc7e657de249492cee095c7414bf462"
-    sha256 cellar: :any,                 sonoma:        "1a06d33fb6dfb02a77dff103df8c5dccaf31732f57c5084894a6bb8a990fd40f"
-    sha256 cellar: :any,                 ventura:       "2b77b2e2ab126d3f5256ac54666ebc3bfaf0d039b9a204a94ccdf12e3adc2988"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "937c9426645552d0f435306f02dc4bea55498e2e6402c53d2bcbb5ab053c067c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e81e47b0e548b539d9be3449e951c2f8fbdd9274acfef193ca9a89e6255b67e"
+    sha256 cellar: :any,                 arm64_tahoe:   "90009f5dccd487daf8353a4e34d46cc7e2b4dc88261daa2cfd73269685686613"
+    sha256 cellar: :any,                 arm64_sequoia: "258f462530444dda7c57ba05dff26d861a7f4779e1f932b13be8fcc7383bd6fd"
+    sha256 cellar: :any,                 arm64_sonoma:  "c9310d16222ac14c96de196af4c598064e47a5ced65280743c1036709fc72264"
+    sha256 cellar: :any,                 sonoma:        "b13814601b1409b3d2bd6a2b714adb238c0853efe75cdb06a80bb657843c5c23"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af46b21b0d61e4ed19640672030c305c8a368bce66e9a43582fc61455d9a171e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e25df228081f30d9cab7785837ef4354978d11007ad815a61fdad087e6fea536"
   end
 
   depends_on "cmake" => :build

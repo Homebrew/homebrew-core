@@ -7,17 +7,25 @@ class Clipper < Formula
   head "https://github.com/wincent/clipper.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "44b24d4c30b5e9f0b830a3c4f9189bac8f62d4e84c1a268493b3a36eff3a1b7b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44b24d4c30b5e9f0b830a3c4f9189bac8f62d4e84c1a268493b3a36eff3a1b7b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44b24d4c30b5e9f0b830a3c4f9189bac8f62d4e84c1a268493b3a36eff3a1b7b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f1e008969ac9bb3e7978963fc1c43d22514338f9a255a57e99d45ad4581ae990"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9a774abbbe9a959f39a478a85b38f06ee5991ffd4eeb2d6314d242da59ed5402"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a774abbbe9a959f39a478a85b38f06ee5991ffd4eeb2d6314d242da59ed5402"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a774abbbe9a959f39a478a85b38f06ee5991ffd4eeb2d6314d242da59ed5402"
+    sha256 cellar: :any_skip_relocation, sonoma:        "82e62e607c9831b635560f0783e52f3d3f1a98bda6a0fc8083f61629b9423b79"
   end
 
   depends_on "go" => :build
   depends_on :macos
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "clipper.go"
+    clipper_version = if build.stable?
+      version.to_s
+    else
+      Utils.safe_popen_read("git", "describe", "--tags", "--dirty").chomp
+    end
+
+    ldflags = %W[-s -w -X main.version=#{clipper_version}]
+    system "go", "build", *std_go_args(ldflags:), "clipper.go"
   end
 
   service do
@@ -46,5 +54,8 @@ class Clipper < Formula
         Process.kill "TERM", clipper.pid
       end
     end
+
+    version_output = shell_output("#{bin}/clipper -v 2>&1")
+    assert_match version.to_s, version_output
   end
 end

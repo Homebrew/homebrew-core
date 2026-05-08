@@ -1,8 +1,8 @@
 class Flix < Formula
   desc "Statically typed functional, imperative, and logic programming language"
   homepage "https://flix.dev/"
-  url "https://github.com/flix/flix/archive/refs/tags/v0.71.0.tar.gz"
-  sha256 "d7e90a19e6d9812c7eaf0a844f621ec1c1d3039c36556f192273898d4b177dc0"
+  url "https://github.com/flix/flix/archive/refs/tags/v0.72.0.tar.gz"
+  sha256 "22fdd9685f5a3b6c9ee03c6c52704f0876bb70be5d53750793133bf160898ab3"
   license "Apache-2.0"
   head "https://github.com/flix/flix.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Flix < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ac3971fd083afecc49000b03c737c6dbf2969d4dc6a15815626e1ca659a4391e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "074591429f2e7f54bc6860e003a25d70aace9defe692d714887493a31e3c7f13"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "881e59d42e615bf42885e030d0655c5e90c0ff708f6c0dd4ed0d1c119d60a031"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2eec9cf5d8552773b791b77d0909f402e3375709b5351f1e184142b6cc224132"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ea67e5290284f687355db81e407e56fc8c4051a7643474fe51f15fdf9ff5f70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3df34e37e0475566e6ce1d82b73fe2a6eaf9ee8ce369aba677414d35c330fb42"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "60cec842ad0b6759a873c84fe43b168568553ab522c7c61d61e187f6bcb96850"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "383dd12cada22f1760fcc438c462ac45ac1e7aab4ba8856ba8c279b62f285794"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e3890632428bcbb2280369b9dbd3e6c849ec768c438de8672aebad025336a46"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b473714b3d4ada800dc87baf1d472e15aa7aa198265e9f2335ebc04c0f55bbad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7229efc72621211e2914ff2d462e39f1f8757cf88b926b8afa5e75a4fb036192"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05a9aff399dc2652e4c43ab40695b5810e7fc52e0b001fbe6d616bebc088c9ba"
   end
 
   depends_on "mill" => :build

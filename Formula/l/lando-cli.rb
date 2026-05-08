@@ -1,8 +1,8 @@
 class LandoCli < Formula
   desc "Cli part of Lando"
   homepage "https://docs.lando.dev/cli"
-  url "https://github.com/lando/core/archive/refs/tags/v3.26.3.tar.gz"
-  sha256 "c61458af0ec84c39db41fb82ce379bd6838148940454dae27c2d0869cb764904"
+  url "https://github.com/lando/core/archive/refs/tags/v3.26.4.tar.gz"
+  sha256 "5eac86889f11815b8ebb2fe075f37d411337326ad8aa6b195c000cad8a7839eb"
   license "MIT"
   head "https://github.com/lando/core.git", branch: "main"
 
@@ -12,12 +12,12 @@ class LandoCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f189eaf3c5402615f94218285300d16bc11384e6975c5bced2910391ea047fb7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f189eaf3c5402615f94218285300d16bc11384e6975c5bced2910391ea047fb7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f189eaf3c5402615f94218285300d16bc11384e6975c5bced2910391ea047fb7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f189eaf3c5402615f94218285300d16bc11384e6975c5bced2910391ea047fb7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a129adb8f4bdf6ace7421657bd952242126270411efb6785ecec20d9a77e99e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a129adb8f4bdf6ace7421657bd952242126270411efb6785ecec20d9a77e99e2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9edbd403a98f78d00d44169dfaf4b4a09e96b48074a14366275511b06debe986"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9edbd403a98f78d00d44169dfaf4b4a09e96b48074a14366275511b06debe986"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9edbd403a98f78d00d44169dfaf4b4a09e96b48074a14366275511b06debe986"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9edbd403a98f78d00d44169dfaf4b4a09e96b48074a14366275511b06debe986"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "230134ecdad90ccadceee0c6b786bc0dc4fab1b3e45cdac691f25217fa2d10af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "230134ecdad90ccadceee0c6b786bc0dc4fab1b3e45cdac691f25217fa2d10af"
   end
 
   depends_on "node"

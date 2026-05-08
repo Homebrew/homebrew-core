@@ -1,8 +1,8 @@
 class Quasi88 < Formula
   desc "PC-8801 emulator"
   homepage "https://www.eonet.ne.jp/~showtime/quasi88/"
-  url "https://www.eonet.ne.jp/~showtime/quasi88/release/quasi88-0.7.3.zip"
-  sha256 "ea8b7095917a841a5f38ce817654ee823ae1e7b0ad7c8629348d584b29667350"
+  url "https://www.eonet.ne.jp/~showtime/quasi88/release/quasi88-0.7.4.zip"
+  sha256 "e61f110ae2adc3ee10b0e6718f58e60f796a272c25309fd0950e47e70c2844e1"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,12 @@ class Quasi88 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "842ac1ca7dff5eab4167dbc2c254c9d10906925b88ce89358d8d60d845915acb"
-    sha256 cellar: :any,                 arm64_sequoia: "20231bb2bc8ee681fd26333fec50a8d641abb9decc2a9aeedded11adce5fa046"
-    sha256 cellar: :any,                 arm64_sonoma:  "c7039f1e39858b42023516c859a375d478dea926b76f274b624dfd9130a9598f"
-    sha256 cellar: :any,                 arm64_ventura: "c88abc6fbf41106452bf7b3fb13c6e3626c8367382d2918d14f1041bc2e1a0b6"
-    sha256 cellar: :any,                 sonoma:        "72f63671f466c20d84d1c148f2682283526d1ca2a4ea65dbcdf16d53fb476def"
-    sha256 cellar: :any,                 ventura:       "d73202052e48e221a118f9f010f1c284cf83caa4c5a95c1fa7e3c393b6e4a993"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "89265c3d0c0abaed57404054d2b2ebbb65d9eee0f79c9041428ef07c019d3f13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f397f98e66812a49e708963bd8cccc62c07179828358bbebac9073fef06ecd6"
+    sha256 cellar: :any,                 arm64_tahoe:   "47421a4e4fc01489f3d76dbf3e5c5a61540805e9763ac85b6cafc9ff586d85ae"
+    sha256 cellar: :any,                 arm64_sequoia: "b87fc4c4e04fc3176440e8c108ad1b84f668afeb813b1e00379ca6d3da282da6"
+    sha256 cellar: :any,                 arm64_sonoma:  "668cadf83d0929c5af286d639e25d31accc625c6bd7c71e0206aaa80196c5517"
+    sha256 cellar: :any,                 sonoma:        "761c6ef48629e0775a1ac4a28cd01a5c8dc63d3283b299071119750f105174ba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6edab8cad958fe676cd1be78f384b60e27f83d6776e13c7763bb314b5276b58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afb05e1ae465626203a6b28662dc320fc35720dff2d90b60f5e0491325606b88"
   end
 
   depends_on "sdl2"

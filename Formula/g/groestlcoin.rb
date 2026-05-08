@@ -4,15 +4,16 @@ class Groestlcoin < Formula
   url "https://github.com/Groestlcoin/groestlcoin/releases/download/v31.0/groestlcoin-31.0.tar.gz"
   sha256 "9c8b3004f7ed640a24acdadccace49ea123feae66ba562ca967de4119f061be3"
   license "MIT"
+  revision 1
   head "https://github.com/groestlcoin/groestlcoin.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6b34b29f95a15f5bf923243efb76bcfacdffebaeaf48f18d68753b1fb00148d6"
-    sha256 cellar: :any,                 arm64_sequoia: "2600540ec34b02b0fc80027a73a041ccc2083454b9cb8bc485a233de73914585"
-    sha256 cellar: :any,                 arm64_sonoma:  "a3013ba82a38cc77215374ec336a9e5d09bc39bfcb37d8a3267a7319568a61b0"
-    sha256 cellar: :any,                 sonoma:        "541fc5fc553dfb721d1c75d3218ab9bafde3bf3a5620542832755ef049b5c61b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "40538f448cd3d23ff293c4c3f6453cdea3d4c799ef349b0b837896f5ab2e56a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d914fbb52ef405a0d2b9f17e6094af2f190d93167a8eea547d163c0325b2c79"
+    sha256 cellar: :any,                 arm64_tahoe:   "07bdf140bf675fc0e27f38498494c81177bfbe474c3f2aee05e65139158b1ffd"
+    sha256 cellar: :any,                 arm64_sequoia: "674528d98f1699a24ba3f74422e018a0edebc20d9c6574e96208553adebc6d15"
+    sha256 cellar: :any,                 arm64_sonoma:  "24dff0b09980648e208f9064cf38d11b5599f83e1160d3b62ee18dc4d2c67ad6"
+    sha256 cellar: :any,                 sonoma:        "ded8d99ee833460c53afe2f05e8cb0e03d757042ae029f0666aba02257788a78"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "17d4c68e225e97d490438fe63442f3991e18e2346061bf6173d161fecd5f1ecc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5501b805d303d1514ce1c12f2ee606c76d0e96ff85d39931aa79325531c7e67d"
   end
 
   depends_on "boost" => :build

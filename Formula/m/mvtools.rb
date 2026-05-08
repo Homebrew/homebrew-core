@@ -1,18 +1,18 @@
 class Mvtools < Formula
   desc "Filters for motion estimation and compensation"
   homepage "https://github.com/dubhater/vapoursynth-mvtools"
-  url "https://github.com/dubhater/vapoursynth-mvtools/archive/refs/tags/v26.tar.gz"
-  sha256 "c39feedaf44e01c89264fa169a68318897b85bd445fb2a11c0125f9729103e54"
+  url "https://github.com/dubhater/vapoursynth-mvtools/archive/refs/tags/v27.tar.gz"
+  sha256 "b3b93ae7243d91d058a2b101ca725b949350b3edf20c080a8735ab76993c9df8"
   license "GPL-2.0-or-later"
   head "https://github.com/dubhater/vapoursynth-mvtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "406369000087292b5decc84727eaca52a88b83c99754744782203221fc522c6b"
-    sha256 cellar: :any, arm64_sequoia: "b5caf19cef34a78c81d56f542d7ec191eea7ca072afdba53ea1c41d7e18eb92a"
-    sha256 cellar: :any, arm64_sonoma:  "877060a2befc9c7ac6787a1591b223629fbd6fba33754933d46130b049f2d5f0"
-    sha256 cellar: :any, sonoma:        "d3ad99631ccc7a67b718a13811cd1c6881888d9ddd3050d8d71e32a5674e098c"
-    sha256               arm64_linux:   "6fca5e19f1687f108142e6988f216c0f066dbda83658707f5d0c45580b229429"
-    sha256               x86_64_linux:  "af62856555e6280aff6df278c801d45545de453d70321829c85893fcc606a912"
+    sha256 cellar: :any, arm64_tahoe:   "14809c01efd7e53351c96d8d1defba2a9325e547fa0db9036d1b6f16ac650f02"
+    sha256 cellar: :any, arm64_sequoia: "a1b4a4b4db3ce08f36b2232cba673af8588b8c5a32d47b1c092a88040358e539"
+    sha256 cellar: :any, arm64_sonoma:  "f6bfb7057960f5aa77cdbbd89acd1dcb97b22625e9dde04194d613796590d381"
+    sha256 cellar: :any, sonoma:        "1c92246993863db2da8f4d30f40c1030a0431dc47386e26f43f583ebde716adc"
+    sha256               arm64_linux:   "efe41d8791343d134a6951a75274e5714baff052ab75863455991ec5aa17fa0c"
+    sha256               x86_64_linux:  "33c670e57b5f02ee2070c48438aea149d0d5162fd8b987e6fa91ea2e1a99f28a"
   end
 
   depends_on "meson" => :build
@@ -26,7 +26,8 @@ class Mvtools < Formula
   def install
     # Replace vendored path to homebrew formula path
     inreplace "meson.build" do |s|
-      s.gsub! "'vapoursynth/include'", "'#{Formula["vapoursynth"].opt_include}/vapoursynth'"
+      s.gsub!(/^incdir = include_directories\(.*?^\)/m,
+        "incdir = include_directories('#{Formula["vapoursynth"].opt_include}/vapoursynth')")
       s.gsub! "py.get_install_dir() / 'vapoursynth/plugins'", "'#{lib}'"
     end
 

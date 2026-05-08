@@ -1,8 +1,8 @@
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
   homepage "https://hg.mozilla.org/projects/nspr"
-  url "https://archive.mozilla.org/pub/nspr/releases/v4.38.2/src/nspr-4.38.2.tar.gz"
-  sha256 "e4092faeab77bdc9b32db1113e4215948ee768e26c4666db3b5a60b35f2c9105"
+  url "https://archive.mozilla.org/pub/nspr/releases/v4.39/src/nspr-4.39.tar.gz"
+  sha256 "bbd02ee87a55676063a63e5bc819e0227de2666b47307b2a0134414cdf42368e"
   license "MPL-2.0"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Nspr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3805d2575867676338bd8bdb1bb4780482a14282b6a175826937404ebd1cb4dd"
-    sha256 cellar: :any,                 arm64_sequoia: "ceefc5a539beb299e3c9a57c9d7f53610bb81cba02902ed387cd5a37982ac046"
-    sha256 cellar: :any,                 arm64_sonoma:  "b2cd63bc9b605523db2d1bf60c0f5f6f0d5531983ba7fcc2d3063060ebe25cbd"
-    sha256 cellar: :any,                 sonoma:        "4eeb9ea3c9f202f2d35205f36bc3c36db4484ed3805ea1b1887e6c6b1f6c3c3d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "94d286afeb03039c370534bbe9efeb43ed42c72853541d059f0abf7624a6ae34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c6caf9854b18196ecd60afa83011882654e93b5244524962bb1389f68981231"
+    sha256 cellar: :any,                 arm64_tahoe:   "5c0433814ea6788f13f87269ed5e377bf18997d9341ff7f432afb95105b4338e"
+    sha256 cellar: :any,                 arm64_sequoia: "86063b7037bebac70bc726578f1602ed20300fa88b89afce526d04b0401faedd"
+    sha256 cellar: :any,                 arm64_sonoma:  "4852be684884f1a082fcc64e461432a298d841369abec07c134115263799e948"
+    sha256 cellar: :any,                 sonoma:        "849901abc7d5e0f3188f99b125f5cbde59bba337e4bdb543ef0d06c7d52e917e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ddb3c9945d8c15e9da26d8ff4d3e910a77076a2cdbe773890bb7e4f217c26612"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b401fd2842255dad7595c67c6658098fef934dce638b667ce392340bdde5de2"
   end
 
   def install

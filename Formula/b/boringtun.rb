@@ -1,18 +1,18 @@
 class Boringtun < Formula
   desc "Userspace WireGuard implementation in Rust"
   homepage "https://github.com/cloudflare/boringtun"
-  url "https://github.com/cloudflare/boringtun/archive/refs/tags/boringtun-0.7.0.tar.gz"
-  sha256 "a49f3c230825f44d5c304d95751d7fb4dd2df6ddb9e47535e1b186c8bd8d56ef"
+  url "https://github.com/cloudflare/boringtun/archive/refs/tags/boringtun-0.7.1.tar.gz"
+  sha256 "734e2c542efca8a76fd75ce6db1afd75593e1e3893a94c3973096060f1168465"
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/boringtun.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c25b6f0df17bab99cdfceb31f2d5a9cd138bf7964bf645c758d4b5ce0c4e5671"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "19ed7d7915ab9a8384c3f78e5c2ba051d6cebfa54a1ee5279f79e6c98d650b47"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e504446eed22fda2b5c33de673790e413af99d5d319922fdf8b6205360c2f571"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3093bdb97aaac295e60d427c12f09adaa21f392eedecb51fefe617d2210ac48c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "576770d4e4f0ab75c50ade48145b27fa9f30ac03e5a24f72b374c7921a8d95d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed03ae2827ea946af365aa93bef4ce8d020ad2603becd561cae40f0e97964d66"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "59432e2c236ddb04d319d846997dfdeb62ca909dc397e7e012036d52070c413e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3556b91162eb1ead779e4e595374a49e8c3c9b4681d4778be04cf09c06bfc0ce"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e8b1e9bdad4465d5736ff85a7a2e50be9cd67d71c9c32b94f29801f2e1653ed"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2d596ead2f6adc48d6ec310e0db784113f9d5db3c830b6a2a976479fa3ffe096"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5118bac42ee0b4cc447d14e80879c8ab13361cbb373b7b97cfb36b0891408da0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "392c3c6b31d97d83e954483b6b7a92af52c927023c369fe43f3430eef5add48e"
   end
 
   depends_on "rust" => :build

@@ -1,17 +1,17 @@
 class Wuppiefuzz < Formula
   desc "Coverage-guided REST API fuzzer developed on top of LibAFL"
   homepage "https://github.com/TNO-S3/WuppieFuzz"
-  url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.4.3/source.tar.gz"
-  sha256 "283450c7b4d9723a0c3e67e537cddb1d4d6d77e3d93e5630dafc8f071ce79cfd"
+  url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.5.0/source.tar.gz"
+  sha256 "f13052b7066be9c0b1047abc7c7a1ce9c5ed1139d52228fe2609b87853daa946"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b7837adad1781bd07b850695d5ce6ddefc967fcec2d2b8ddbd993ac293e81360"
-    sha256 cellar: :any,                 arm64_sequoia: "9ddb9a4fdf7bf8cf8faa96fa507ddd847b71d828da71f5b5667e1feb20a15f8b"
-    sha256 cellar: :any,                 arm64_sonoma:  "823b10b0b893600991d1e90e66fcb8c6116a54ab824114c1057bb5cbec4f2ee8"
-    sha256 cellar: :any,                 sonoma:        "17992da78d913a54fe9eaac7d84a4482e62bcff0b74e7705cad15e3a241aa587"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd78f339f6b24585f6eeb80cad64ed0d3181d710448bc4c5a2f7af6c5dc76b33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42fbe354c80c59a2e5356107cecb887a6ed495db5dc6868032daa75ef4a1dfc5"
+    sha256 cellar: :any,                 arm64_tahoe:   "4feaacb658e2c0ad8e8b83658ce0ef87a14d2d490cf2d853850e36efa9f72250"
+    sha256 cellar: :any,                 arm64_sequoia: "951bfd7f88dd3b59c2bb242fed41e1450163c06c2fe3de821294d75de2ceb5c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "1ad59c6029f6c989046da3b02617f862f7b4dcffa38aefdea85677441c4c50fd"
+    sha256 cellar: :any,                 sonoma:        "85b560780a233c76c551a6d0dd654e0a81c18382cb6bd808a57338fbca7a326b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "668c7fc5ef40eb1ade9d165ace3f480459806ce76c82e92547622b9830bb574e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bec331a44097c5601069c056b6e3ba948890b8b6fe646ef991f3be8ddf0ec48"
   end
 
   depends_on "cmake" => :build

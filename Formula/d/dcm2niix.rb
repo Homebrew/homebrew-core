@@ -1,8 +1,8 @@
 class Dcm2niix < Formula
   desc "DICOM to NIfTI converter"
   homepage "https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage"
-  url "https://github.com/rordenlab/dcm2niix/archive/refs/tags/v1.0.20250506.tar.gz"
-  sha256 "1b24658678b6c24141e58760dbea9fe2786ffdd736bcc37a36d9cdabc731bafa"
+  url "https://github.com/rordenlab/dcm2niix/archive/refs/tags/v1.0.20260416.tar.gz"
+  sha256 "dc87a34b8284df2700a5aee433c4ba7ea56b999ac774fcf684962de5e898670d"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/rordenlab/dcm2niix.git", branch: "master"
@@ -13,14 +13,12 @@ class Dcm2niix < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "887894cb6a9d368dcb707572a92a3fedbc7f274b2f5b4308b1a6dffbb9e661ad"
-    sha256                               arm64_sequoia: "cc953772d891f078f91fd15f340853dfba970634f20e22165987259f607b7155"
-    sha256                               arm64_sonoma:  "ca821734148aff6d0baebd8c83c68f2fc20f26ac06e7b3351344fed94a8e4e39"
-    sha256                               arm64_ventura: "260b608922b27a33915650bc66b36fd0aaa4415f139f09a5402877484cd60f1f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "91a28ea73ffecf684bbc7d96d7ad551927c1cfc334f57f294708e04edaa422ea"
-    sha256 cellar: :any_skip_relocation, ventura:       "ac1a9f60a17fedba7485333d8992fa1bac206d6083e6cc23ba8e70b3db7e950f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "71555b10ff6f721b9ab11c482a6d8d0385987d34cebd7d19186e70fcc43fa903"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d28346e349db8dd0a7cdb4b08242e52f79ca6c6a5214aa7a6987cb3142e870e"
+    sha256                               arm64_tahoe:   "6f1e01c9d3edee9470d14033c1a3b9f6c7bddc7474fc0f916949ce8e4c9dece2"
+    sha256                               arm64_sequoia: "781e5f1d49c8e2811b60cdd71316a10813d1f9fee0637ea4614271e30667c712"
+    sha256                               arm64_sonoma:  "8e78e0a91b0fa02bec640991fe6f07a3766c80bcb816a79b25dd6033f7fb18d3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6d9bab3bc043ae32cb80aa7a64d9f668736b14eec546f529b2f3f8b73e7a52ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8903003d4c70a0973cace04352d99b7912d6f712421f7a06bc1d45f0f994d879"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af1694c2b47ee8fd650956909c9a46b252d146381d695d46f0fcf35938043443"
   end
 
   depends_on "cmake" => :build

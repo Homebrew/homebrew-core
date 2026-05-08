@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "https://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2026.1.tar.gz"
-  sha256 "d95a313f56db7e05ee3a21e50f582fdee5176c2f60b900bab2461fd95c5e81be"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2026.2.tar.gz"
+  sha256 "d27e4455e8246177952366798631a0dad9f2e1f567400a6cb854a168dcc050dd"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "a251cb841fbf8a2f3b67f236c310d9533512945b0fbeeec2ac1510e6b638a4c5"
-    sha256                               arm64_sequoia: "3130e7ee83d460bcd366a6dbca8db5ae353a2ca52c8f6d15bf0f6b42ec355417"
-    sha256                               arm64_sonoma:  "68027f2275bd6c37f3cf68089fdaa7385f9a2f0d542333ae3041f8b4e69d9dba"
-    sha256                               sonoma:        "ac0c6d551978b96551339ecb78cf4d34886030cb69b1fcdcee694493b7ab611f"
-    sha256                               arm64_linux:   "c6d9150209e24005c68959723ee18d56680dd97bd1d9a9ff59abb87151d961de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c3e5871f11f53468331f0d77d1c17bee72d75d7e495e2a0811ffa0b4d172daf"
+    sha256                               arm64_tahoe:   "f7d6b364c85b86c259ae897a580572d159a7f3e733f0427b3b6d0ebb4361c4af"
+    sha256                               arm64_sequoia: "1fdcf2f62d117a7e11bfab13d57b49dc843c3c31a3b0d6e4e12c2651be2a926b"
+    sha256                               arm64_sonoma:  "0c633a5fb8387d5298677eb57d970556d2730b3d41aa59a2300df2c93336a338"
+    sha256                               sonoma:        "ee62f78155a3da81456b5b153aae50c075d3474f6e2376119c2d5d8eebaf581e"
+    sha256                               arm64_linux:   "921eb74e182de10ccbf46025f92f3745cfb9780a11c66a00acae96f8b0b211b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4094c3d1a0840f21bfcff79c011e0cfbb8bc84186897f82726c89af65eff20ce"
   end
 
   depends_on "cmake" => :build

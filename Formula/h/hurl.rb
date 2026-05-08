@@ -1,8 +1,8 @@
 class Hurl < Formula
   desc "Run and Test HTTP Requests with plain text and curl"
   homepage "https://hurl.dev"
-  url "https://github.com/Orange-OpenSource/hurl/archive/refs/tags/7.1.0.tar.gz"
-  sha256 "1bbe1e9f2736209bc1c0ce3082d3debac08b1aec7c6203e0b6698669c8abc3f2"
+  url "https://github.com/Orange-OpenSource/hurl/archive/refs/tags/8.0.1.tar.gz"
+  sha256 "d5ea72ed489b9de319d0306d7b23728c4d284ac505adeb06c297ff5da1cf0de8"
   license "Apache-2.0"
   head "https://github.com/Orange-OpenSource/hurl.git", branch: "master"
 
@@ -15,12 +15,12 @@ class Hurl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "edd49915f44436cfadb09265f7a25bb416285ea1368b652e81e60cdd82084184"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "23cd51ed813f6a04ef2dda8bfe7835f4581db110e67b4aecccb4590652f7d1e7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "086a925f840c851696f69affba51fdf048ef48b4bb9054357133422c074d162f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "66ed13f47fcc9f6edcdbfaadca45319b7fe411495491d5f3214cac72ccc78323"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3a50486dbdf525831cf6d4c3f28f9d9d29db10dd59d2a9362c1847e9dfc1f52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc7886a550cb1fdb5331418be37e06e04f0b038ca0bc083d5385ffa65b17983b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f15ab5653bd4c92d74db286c58d54b16e91d2e758fde2cdd26ce1add3f73d508"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f6132eb546f9cd5b0f2ca0b926bf5b136c7051dd8c853fdaa8c5a4873cd7973b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3aa40c19792fa00e24de2db64d60f5b9a6d88d5712d611da0b58a7d2e3d1be1d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aeb88b9fee569adfcb1065bf13dcd5425d09cd8ad212bd1dd2ac4f3279648bc6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2851008a9865376f05311536ac5ee96ecab6871e9e2da51dda6cfdbc0a72b40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1e214559626b52cee946741f5de4b1b359e2542f29284fe2f24628a9969ccf0"
   end
 
   depends_on "pkgconf" => :build

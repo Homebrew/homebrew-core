@@ -1,17 +1,17 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.60.tar.xz"
-  sha256 "bb02feb286062805564438534e1fea459f97cebac8a090b1a7e47ca251e07467"
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.61.tar.xz"
+  sha256 "2ac135d856572713c1a408b76b50a59f2a9769ed21f1213446b5af255df20a12"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
   bottle do
-    sha256                               arm64_tahoe:   "02e980a333f1147f76517adf6aef59f34d85d8e0ad5139e4d00bc726cc7bc27f"
-    sha256                               arm64_sequoia: "f56d25431c4d976c9aabb4e630a6a4f5cd3e2bce3c91a17595ca6d96b65c2a21"
-    sha256                               arm64_sonoma:  "546789bb7b3a30a6a791060bbd852eabcdc12b5a5c0dd1b6380feb6ddf251b94"
-    sha256                               sonoma:        "fbe5478953b752c3777bb6f782f69fe0d7905b7eae318aa6c97ec156ed3033b5"
-    sha256                               arm64_linux:   "8bbb3ef361de7939d9e205eee5d13e361e529ee88cf0b1ce36eaa472fa420b6f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "758c3360118c9db83b015d1ff4713664ba68c50b48abcb122c906f5c80ad5fc5"
+    sha256                               arm64_tahoe:   "87ec983634c95f3a84ef0a5dfd4f2d931cf7e079e8a8c517e3c1e4828140c6b6"
+    sha256                               arm64_sequoia: "b70ab92ff63874564f70ee766b785b943e4a2e6ec5db93c44f68cce0bec6da7c"
+    sha256                               arm64_sonoma:  "41c16d0cf0f9d92ab8281f55c4c290b108c620bc84a36459799db8c0b5795369"
+    sha256                               sonoma:        "4ee29f1b229de7caca627d0752ff2a4d7484e4058010ee567e826b2b93138d12"
+    sha256                               arm64_linux:   "0e82f4e32957739e9b0c58954ff8a39a188e06b495773f8facde3ee04b513a3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa182bbed6dbc997896f45691b6515e4a640265d26a8eeae8343987b7d0cdc69"
   end
 
   depends_on "gettext" => :build
@@ -42,13 +42,6 @@ class Gnumeric < Formula
   on_linux do
     depends_on "perl-xml-parser" => :build
     depends_on "zlib-ng-compat"
-  end
-
-  # Replace `bool` type (which requires stdbool.h) with `gboolean`
-  # https://gitlab.gnome.org/GNOME/gnumeric/-/merge_requests/39/commits
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gnumeric/-/commit/0de4c0a45f078ec211fd372da4103b09cb718b1b.diff"
-    sha256 "ac4f245417fcf2d627503ec86aa78fc73becca43c39c7c6ab7c137db55ff48b1"
   end
 
   def install

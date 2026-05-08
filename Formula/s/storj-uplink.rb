@@ -1,8 +1,8 @@
 class StorjUplink < Formula
   desc "Uplink CLI for the Storj network"
   homepage "https://storj.io"
-  url "https://github.com/storj/storj/archive/refs/tags/v1.152.6.tar.gz"
-  sha256 "90c980b303ca446a3e1b0973b076f1246a20967b0806e97efce2defe3fc7bb26"
+  url "https://github.com/storj/storj/archive/refs/tags/v1.153.2.tar.gz"
+  sha256 "f19c095f1ab264073c7f68e97594ef1314aae560d237db012bb4786f4b5c94b7"
   license "AGPL-3.0-only"
 
   # Upstream creates stable releases and marks them as "pre-release" before
@@ -18,12 +18,12 @@ class StorjUplink < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7260ff3c311de21f0ddc9b7e8a861474d62b446d10c52a2a2e0b7a03271614a3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7260ff3c311de21f0ddc9b7e8a861474d62b446d10c52a2a2e0b7a03271614a3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7260ff3c311de21f0ddc9b7e8a861474d62b446d10c52a2a2e0b7a03271614a3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "97da61561cbcd16d50677a6d1eed6f133153c84aa7fe31a6087927de115effae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "970704bb109c55f4b1a6bca0b31c2787b3565ce1430816a3a0cf084d9166504a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c33792356977a8aa4cc9b77d10d45291c694eb2ccbaa5ce0f39feaac2f35c87"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "02ebcefc3a5cd970b2c568b2ad97c31a03fd3e95f06d38dea16b7b104d9f6890"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "02ebcefc3a5cd970b2c568b2ad97c31a03fd3e95f06d38dea16b7b104d9f6890"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02ebcefc3a5cd970b2c568b2ad97c31a03fd3e95f06d38dea16b7b104d9f6890"
+    sha256 cellar: :any_skip_relocation, sonoma:        "38b5c46a9b149ff4e9c78167315704698607c783db2a57427d143a268aadaaaa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a3866885b22a39806b739eee99e69634a08ee9121895f8d24aaeb18c18731e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99f9cac3f5efec3733aca7b9406a3667e18ed35631525f93eb80936fba65b962"
   end
 
   depends_on "go" => :build

@@ -1,18 +1,18 @@
 class Colmap < Formula
   desc "Structure-from-Motion and Multi-View Stereo"
   homepage "https://colmap.github.io/"
-  url "https://github.com/colmap/colmap/archive/refs/tags/4.0.3.tar.gz"
-  sha256 "9d0a0916c5419d8e8c59839a729b041856d46f8abc911f32847e3857918969bd"
+  url "https://github.com/colmap/colmap/archive/refs/tags/4.0.4.tar.gz"
+  sha256 "200309abca2a3ee05970b1f8a48d545fc71f435dffe6764a8040f9f6f364da32"
   license "BSD-3-Clause"
   revision 1
 
   bottle do
-    sha256                               arm64_tahoe:   "efe49f613aba9613d3668da831972c6a1182b59e149a61118f4f4e3bc0384a86"
-    sha256                               arm64_sequoia: "b99e92618b3a2cbe6db83e3df6189abeca0c0e707728f62531341bbfebb00505"
-    sha256                               arm64_sonoma:  "a10ac9fa039653f3e6161e182bbb71657175f66605b68c32b89cb88259d6cd43"
-    sha256 cellar: :any,                 sonoma:        "4c6e5c93b3b62b7364e3dc853582eb88cba26e275d8576bbe75c6853dcd3358c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c0fd27334eebd51b6a96d7c84f2e1eec9f8d9296053af0a5ccecb6aafb7993e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a541e640a3d699b1d8149dced386be1c3d08a73ac638531dfe6d584faf18deac"
+    sha256                               arm64_tahoe:   "bd20d958cb4f60a42fd8b0ee259f8f640b6c158e16c62c531d5cb4b91b8c4ee2"
+    sha256                               arm64_sequoia: "0bfe3baa1f9b1ebf142e88b4a175d31b0519412035f6c1ba7c58671a7795e631"
+    sha256                               arm64_sonoma:  "7b5fe40717d09b3f18ecb90d128a5a8435eefbdf626f22e07ba36fe7ee911c11"
+    sha256 cellar: :any,                 sonoma:        "05300b4770eded1de9d1ecbea8fccfd0ebaee1f2f011560e6da6424703bff77f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "84cc786e811f4c7b34c7f7d2bd982a40e085cc3bbc7f963c82d9fd7a86149c61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cb6793d6681d0c1570c3cf916166c70dabc8eb58b69047cf1c1b8635d473a98"
   end
 
   depends_on "cmake" => :build
@@ -61,6 +61,9 @@ class Colmap < Formula
     # Fix library install directory and rpath
     inreplace "CMakeLists.txt", "LIBRARY DESTINATION thirdparty/", "LIBRARY DESTINATION lib/"
     args << "-DCMAKE_INSTALL_RPATH=#{loader_path}"
+    # Set openssl@3 to avoid indirect linkage with openssl@4
+    # TODO: switch to openssl@4
+    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}"
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

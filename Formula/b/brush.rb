@@ -1,8 +1,8 @@
 class Brush < Formula
   desc "Bourne RUsty SHell (command interpreter)"
   homepage "https://github.com/reubeno/brush"
-  url "https://github.com/reubeno/brush/archive/refs/tags/brush-shell-v0.3.0.tar.gz"
-  sha256 "a0dac5cf7e9d8bced9bf28ed400955750ed6b7320d1154522a14f4a74e75a056"
+  url "https://github.com/reubeno/brush/archive/refs/tags/brush-shell-v0.4.0.tar.gz"
+  sha256 "0cce607454972c18bc4a30d2f44a2c91fccf02c458475fda7720370a3dc8a4f0"
   license "MIT"
   head "https://github.com/reubeno/brush.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Brush < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4d62172c2f07ead104359fb3485595bec113dabc2b05e9dded3c2fb0ab80df9a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ae28a423a3690aab0f163f6de5ebf15652f12cf5e11b7662e7c24095b021efd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8c2683da27ee0cbb7458651a9bd7b885650f8cf58d00e544b3b8f061f90f3b3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1734ad8babbaaca852bdc04f3abb8f1bc79fac949d57a2e1d695ba16542d712c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "33cc6f3f71341f1e34d73019448cb5d91f2563abbfcdc1b057df46f7ce82cedd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ab23f77499e85c5fbe70aaeffcb521bda4f053c5be4f21cc653e5c182291909"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "098b4048f51d50dd079fff3c456e64160880e581f4146068bd60abd6ab0718cd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4f18b49331a18ccd1faba7b6ac13a06bea6f849ab64083ee3d67c9e5fbe987fc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "03bf4057800160009e2c424e4521357f8659b6fb7fa4ee23210d65e378b4a91f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d53619148465d9c35e4d2bc7bbc8db0fad6040002f17ace31aba77dc1157325a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "607f7b829ea9cefee2bd2181bcfe897d408f8d2acb0659e8cdfe6279c4487d05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5616dd6646beeafaff8e3d100efa6ca92f51ffc8af360a96f1121040cc939f25"
   end
 
   depends_on "rust" => :build

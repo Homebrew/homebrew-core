@@ -1,19 +1,17 @@
 class Dufs < Formula
   desc "Static file server"
   homepage "https://github.com/sigoden/dufs"
-  url "https://github.com/sigoden/dufs/archive/refs/tags/v0.45.0.tar.gz"
-  sha256 "62aa2cadd77e1bd9d96c77cbd832a53ffc364301c549001bf8fd9d023cbd8ab1"
+  url "https://github.com/sigoden/dufs/archive/refs/tags/v0.46.0.tar.gz"
+  sha256 "e5bb926107736802bfd3be6937482dd3daf396a5c481fed714de542055286ebc"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e2623f7700a3913841f199db10539e61d1625feb3cdf7d2559b8492ec170e771"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4a8c894f245955cbe70f070d6d44491116b22597568ed2df8f657604dd0dad1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "99b888d76b8b9333829318cb386a9f57dfd6a199cf5fd97ec6bc43eb820b2077"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d90c2920723a064c8d7eecbdabcb120239bfb3957a42582dd5a00e6c8f4498bf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2fd86ac85b2f189bd2ca6272595cb058a96257593e99ad613efc00f82b38838c"
-    sha256 cellar: :any_skip_relocation, ventura:       "8234b27ea41c52056cd4e7b7538f74bec5e9f8de89f85c3c41c9da6de82bf2c0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4cf91d3356b14a9bee84d2b99b779571bdd49a8f7203530dccc2ddaa656eece5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9555a2f90b0bda4e1c21cfe7a81001f9bc9d93fa1d45a3546faf893dffa1a0e0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8809a44c8faee498c2c02f8a12c6fbf0a4d9059505baec2f4e6e16fa09c8063a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b082b2be9df85031227cf41755f732de8f77d8e718334f5d7291542ef56fd074"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e09eb3094f85d9d6ae7e5ab490e72415c96fc666446dcff36d577c4166f1f0c3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d44260fdeedd24b497e846259dfae15ca4266b09b4e40c6f90bc2e41c23a51d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1958938715233820f40ba53132fffd9a130c3dcbbb69cb082147891fd9c3f061"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de0e44808f99690325dc887515c931ee34e680a8d2d5655eb2f4187e48e189d8"
   end
 
   depends_on "rust" => :build

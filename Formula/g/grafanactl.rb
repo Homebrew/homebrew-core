@@ -1,18 +1,18 @@
 class Grafanactl < Formula
   desc "CLI to interact with Grafana"
   homepage "https://grafana.github.io/grafanactl/"
-  url "https://github.com/grafana/grafanactl/archive/refs/tags/v0.1.9.tar.gz"
-  sha256 "f978c3f36d6b6efb1e145a73c9f3fdeca1720def348a137fec6a289fb7df4541"
+  url "https://github.com/grafana/grafanactl/archive/refs/tags/v0.1.10.tar.gz"
+  sha256 "c3a3fef02f073aa92fb7b62c6f60a26e80fe794cf158f86830fe38ff053035fd"
   license "Apache-2.0"
   head "https://github.com/grafana/grafanactl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d1be923a9df9276a27f9e4965647e811a1873358209703187fd639657327388"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d1be923a9df9276a27f9e4965647e811a1873358209703187fd639657327388"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d1be923a9df9276a27f9e4965647e811a1873358209703187fd639657327388"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39da9d2b1a823939683d3a4e2a4d97f14ccebc44de736e5f2048c0992d44d1e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b5a8960cacedff76439080b8aa593b4fb0101cb81f9ef5808aa1ca7d43d5c3ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81f3d8fde16bc8c3f2413f94ce0e29887fc5dc25526c717d798e28d9eeb1805a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8681101d7ce09ad2f0bbe19bac3729a733a9005aaa5e6a4fdd57a555f8c130c8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8681101d7ce09ad2f0bbe19bac3729a733a9005aaa5e6a4fdd57a555f8c130c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8681101d7ce09ad2f0bbe19bac3729a733a9005aaa5e6a4fdd57a555f8c130c8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8b44a3bb495b05b91c124983e899a6e76573eecd61bade09bace5289255840d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8fda68f21b5faafbbacaad8faa63435180d0c95f3a011f0e625fded17b28a5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9aee39b653aaf1f4c2f58598eacac6f71dcb2cdc3f7a52f5f4948bbe30e87209"
   end
 
   depends_on "go" => :build

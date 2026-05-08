@@ -5,8 +5,8 @@ class Crystal < Formula
   compatibility_version 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.20.0.tar.gz"
-    sha256 "2eb511167d9545331e472920c1ec89c4ab6807aadc74afddb020b2630843cf2d"
+    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.20.1.tar.gz"
+    sha256 "2fdc7eaefed34755383db15f8787e3a7c2f04069e93871d353f95fa083ed7d8d"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.20.0.tar.gz"
@@ -20,12 +20,12 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8a69ac9c9cfc44cbb0ff06492ec14aded26a1047ab4195f6abc4ae3015052166"
-    sha256 cellar: :any,                 arm64_sequoia: "a4c3b04d4b4da0c7e36f67fee98a82bcc5d3abe3360d687e80e54b70181b4459"
-    sha256 cellar: :any,                 arm64_sonoma:  "610912667b1569068e82a105d732ca9d55b9240fe44b992d6e4f26964f3923fd"
-    sha256 cellar: :any,                 sonoma:        "fa4cbe339be9e774fb66ddad0ae337d7b433982e4f440e4a1c921fc3703ebd00"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "244fe822c9711953f0bbdc5bd434c5494208e76da67857dee8fe73646f5eb0f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "329e86ab33c1ce5dc9e9e05b873ca79fa5a79b50d84aaeebdc87ca3a9bf47423"
+    sha256 cellar: :any,                 arm64_tahoe:   "ff629eaeaf887408cb9d45c200e3e1504baa5fed839a93131ef734e84447ea1a"
+    sha256 cellar: :any,                 arm64_sequoia: "518f8317f77bdeca7cbddce4e8b31833a02d3af9833449a368a77e5ac06c7160"
+    sha256 cellar: :any,                 arm64_sonoma:  "3cfbbb87730a4a2c7ce806788ca9acd26cf53b962dc42734763823346bb7a32d"
+    sha256 cellar: :any,                 sonoma:        "505bd2158377022be2f3b93989cca2cf7ce275b071ed69b58c8de27b98a5d069"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "42da86e8bd4293a6a2b75f922dd58ff187f7e14fea89428a4aec18dc440efe4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f3fbda029de327c736fa4d34ad2543bc20d38d1ca36b07b029d3dca81b2dff1"
   end
 
   head do

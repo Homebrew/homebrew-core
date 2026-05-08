@@ -1,18 +1,18 @@
 class BoshCli < Formula
   desc "Cloud Foundry BOSH CLI v2"
   homepage "https://bosh.io/docs/cli-v2/"
-  url "https://github.com/cloudfoundry/bosh-cli/archive/refs/tags/v7.10.3.tar.gz"
-  sha256 "b425463ea3763ce536d28cb55e1fbfa4a675d6884e4ecdf84d19fdbba1c1b520"
+  url "https://github.com/cloudfoundry/bosh-cli/archive/refs/tags/v7.10.4.tar.gz"
+  sha256 "ec30286d69a0b12494f13175eb7fa808774be280c66dbb1c5f869423da66d402"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/bosh-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "15c60906cc9905e6c97e7efa06091a61c69fa5834751fa80874dc66bad7735bc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15c60906cc9905e6c97e7efa06091a61c69fa5834751fa80874dc66bad7735bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15c60906cc9905e6c97e7efa06091a61c69fa5834751fa80874dc66bad7735bc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d58a09c216c804e348a318c9a1cd97de051ee9615866977559c4d81b404d0bf0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a37bd7d543d1f2e3b12a0db3108414a430df4896ed9846bd6bda72e27f8e3760"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2d02e2e40980be8ed9266488f64deca3b0e3568ae3c7ff138d36e3090d960f6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "74f670059bfb1ce94ec0122896a289a74d3b83a995138e707647d007c3e1ab23"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "74f670059bfb1ce94ec0122896a289a74d3b83a995138e707647d007c3e1ab23"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "74f670059bfb1ce94ec0122896a289a74d3b83a995138e707647d007c3e1ab23"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f887de220431fad8d27c47a6e3919a28e0eec3955f1c1022f99b6b8344ba1e34"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3ddbac921008d88f41b82c0104c16b7701bc04a4d9684643aa7edbdb952bdbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc92b742f561fdf30a267067ae84b2636783a165a4722a21c05cd3c0ad5f2807"
   end
 
   depends_on "go" => :build

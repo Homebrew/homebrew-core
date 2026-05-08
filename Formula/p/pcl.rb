@@ -2,7 +2,7 @@ class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
   head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
 
   stable do
@@ -24,12 +24,12 @@ class Pcl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e4c9cc4c139723b408091c01b18ef8249bbe08fe11e3d51f268d9cd908f7c750"
-    sha256 cellar: :any,                 arm64_sequoia: "fa794acfcedf3c15696c6ea696b209a57b7f869ed8946486314aa002b785dc3f"
-    sha256 cellar: :any,                 arm64_sonoma:  "7b1706e9e0e9865664ea19e0739b56d7080810e27100f49ca0b45591bee42b04"
-    sha256 cellar: :any,                 sonoma:        "83661d4af8d5ef9844d36db153b951253a27c2fed7d27c7694a2cf1f10436d09"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4fd468daa240828c4fee288994bd82dd9ddd426726d4e8caf18b8965ef71eb9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37753c8c319f1738f80f5a055142384da4ed7835f89df80373f5101af6297e17"
+    sha256 cellar: :any,                 arm64_tahoe:   "a4cc4e1291db1f2e10515c180cd48f5e6f50b94f5e7e5ca1411804c2563654be"
+    sha256 cellar: :any,                 arm64_sequoia: "93fcbdafca09f69a27a844cdf1e64d8298f91d87b85e0da1f6a10d39925aa78c"
+    sha256 cellar: :any,                 arm64_sonoma:  "ae8e135130e61ce7e9e980ba4c05fd11e2472c6aef0c220a935457674433a04c"
+    sha256 cellar: :any,                 sonoma:        "2c1d15cda77696f9a51dd143a5ff3a52c6d7b19a466d80fa34c490536c3274dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f25b96e651d13ee40734180caaef77877c55b75e1fc3d900d5f1cdf14c8cfd3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e8af83451d3cbf9b4acb8cb031e600420c8adc3ca069e7f2298538e4923335c"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -57,6 +57,13 @@ class Pcl < Formula
     depends_on "libx11"
     depends_on "mesa"
     depends_on "mesa-glu"
+  end
+
+  # vtk 9.6+ is optional to x11, it doesn't link transitively and so here we need to add it as a dependency
+  # PR ref: https://github.com/PointCloudLibrary/pcl/pull/6435
+  patch do
+    url "https://github.com/PointCloudLibrary/pcl/commit/490996e66d36829394e01c19089385f23fdf3c9c.patch?full_index=1"
+    sha256 "f71b64ce5e8e606a5f57b3c011d961b625ace6c0c8956a7a25db1d4db8446664"
   end
 
   def install

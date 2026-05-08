@@ -1,17 +1,17 @@
 class Odpi < Formula
   desc "Oracle Database Programming Interface for Drivers and Applications"
   homepage "https://oracle.github.io/odpi/"
-  url "https://github.com/oracle/odpi/archive/refs/tags/v5.6.4.tar.gz"
-  sha256 "d8ba665d9deb0f0c601e38de477d3808e7d426438b9e37345bef53f0e75687ea"
+  url "https://github.com/oracle/odpi/archive/refs/tags/v6.0.0.tar.gz"
+  sha256 "86c3ab03bb58efe259755db398962324e1401c1e2ea4c535fd47d236206e092b"
   license any_of: ["Apache-2.0", "UPL-1.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8a6676b58158a1c7d3748565cc3db376b66aea0172f0a1507843a13f4c4a376c"
-    sha256 cellar: :any,                 arm64_sequoia: "ce314efcbe39364995d9ef2b88f145f81c1648914d5d53a374d9f76c0d03c95b"
-    sha256 cellar: :any,                 arm64_sonoma:  "09803feb041abef5738b31b18350f5e4551947e7b3960170f48671e10a6423a6"
-    sha256 cellar: :any,                 sonoma:        "cbe010ec61585e5b0559f9694001c7f2953d9c5267232ce746fdecc33b858383"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "69f242660d2cea8f4ada128a8a7204dfb7595d354cf07a1ba8fa33c46c6e52dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d442d47435cba91054e84e264668f7a55be6a2c3c07618da5671d649fb7a6fc8"
+    sha256 cellar: :any,                 arm64_tahoe:   "bb1fe7b315e2159a2ec658ebcb255466d8e7934a9334e9d3f5137f3c334eabb5"
+    sha256 cellar: :any,                 arm64_sequoia: "0b944ae9da22534f21126f7eca817ee4baac3aa17454f1722b3e25febd5969ae"
+    sha256 cellar: :any,                 arm64_sonoma:  "d4831e62bddc6abcc76ce7680f9e3a2e3bbbc133ea4f76c1bbb879a14b8dd1d9"
+    sha256 cellar: :any,                 sonoma:        "1b1fe28f3a2bc19f1941dbf6098c7681d0deaa9615257f71dd8f452c40f96b2e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4fb4c98302c9677a564272bf9e210ebd78236944076c502c8b3e6aad38b101be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acb3d83d48ffe23b73c40800c6dda24994dabb7410447e79810e753afcbf156d"
   end
 
   def install

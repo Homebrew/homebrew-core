@@ -1,10 +1,9 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.6.3.tar.gz"
-  sha256 "fad44fff274fdda5ffcc0c0fff3bc3c596362722b9292fc8944db91187813600"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.6.4.tar.gz"
+  sha256 "227b637b91c9820ea96f39a65eb087f053de567d82f4338e2884f123f8183c55"
   license "CFITSIO"
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -13,12 +12,12 @@ class Cfitsio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "918983cfb5da385c576dd824d187fe8ee240a7c1516a36bff814101dadb16a3b"
-    sha256 cellar: :any,                 arm64_sequoia: "b941d8b944e1f39a29dcf96f4eb5b0c52fe6a9752f681f8c0daa5f6e4d2b150d"
-    sha256 cellar: :any,                 arm64_sonoma:  "b7d90f791bb15c90eba273f60f4b9ebf26f32f75c779ec34a3e39344dff46a5c"
-    sha256 cellar: :any,                 sonoma:        "52fcd05eb4da45db0a5f3538d731af42b5c1936d3a42a4da19e759d8db608ffc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a8be3014dd22ae6e593c46523fb2b02ec2015cc0cb8583cc1500921b2e56758"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb23f4fd808a941684ba54c17eee5a6e3bc5b3a07fa9691a065f4c5df419bcee"
+    sha256 cellar: :any,                 arm64_tahoe:   "2353b2536db332cdc37dd7f6c3003957dc9a789388ce6118446c0c4532d0bab3"
+    sha256 cellar: :any,                 arm64_sequoia: "308d9e0e397167131881e0807bde8246bbc542a908a8f02fcf344dcee0cf405e"
+    sha256 cellar: :any,                 arm64_sonoma:  "44c5ef7f5f03f2f10a7d42dc33acd47c86774d5e908ea1adda10ecf8dc4c7b1a"
+    sha256 cellar: :any,                 sonoma:        "e724865bb3af65038616b13c45763c771bff50b34b39439904a11acb359affd0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "df79bedd066ce570fcab74bae86faee9767480c903c51c897a8464f42f3d3a31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9378185a54e7322582fa554444b3d324da60aac3b4e0f95a4cd0e2ee62bf65e"
   end
 
   depends_on "cmake" => :build

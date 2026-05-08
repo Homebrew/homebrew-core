@@ -1,18 +1,18 @@
 class MagicWormholeRs < Formula
   desc "Rust implementation of Magic Wormhole, with new features and enhancements"
   homepage "https://github.com/magic-wormhole/magic-wormhole.rs"
-  url "https://github.com/magic-wormhole/magic-wormhole.rs/archive/refs/tags/0.8.0.tar.gz"
-  sha256 "c6cf7f9e5793488a275f525562d55f9edb03ab5ffbe0d859c2ea052fec05a08d"
+  url "https://github.com/magic-wormhole/magic-wormhole.rs/archive/refs/tags/0.8.1.tar.gz"
+  sha256 "90e8b1d7270a4c251f78376e10948c994df1a559152eca7eedd4aecbf70b70d9"
   license "EUPL-1.2"
   head "https://github.com/magic-wormhole/magic-wormhole.rs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7e96efa80b44367e83104f74d56eabd4eae246852e0cbefbced41604e4d2a269"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e55ecc6f0f55258ab5612e89f93e86212af41a3ea38f4b3bb241425af79ed449"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd13363db07ed58675c61843da02e0af211980cfac5aa590eb29bde09a9a0e1d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "99596794d9aee114584a49100fed6bd5fe8344e1cbb7b7abda98c4819275610d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c20a1dbf798ec4c8e3744fc006e8fb83840322fde44416c1982b54c58410c20a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc7e00c24774687f9f14a872e9737cb8f84fd18ad78d908defe3fcfa6d4a8e9d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb6fc9ebd5dd3e8938121a9f5fe30a7f4da6761a6149aaa397815cfc55c4e730"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13959efef8fb4cf5e870c1985756dd83b3ec84cda92716d23ca10495af073a58"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dae9b37b7d39c8b1cb28ce41a30e7dae0efcc83a7c83519bc868afe016087c73"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7816b8449b9c690c720d749c983c63daf3bd746ab332cd4673db098005b991b5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5ac2b3ba20334153bab8f4360dc54576119c1ddb71306d2aa0c0e8bc7db79dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45aaddeca394e30d8e3e55fb4e9a707776dc37ecf146d79bcf15820741c99244"
   end
 
   depends_on "rust" => :build

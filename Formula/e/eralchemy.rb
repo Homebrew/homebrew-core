@@ -3,19 +3,17 @@ class Eralchemy < Formula
 
   desc "Simple entity relation (ER) diagrams generation"
   homepage "https://github.com/eralchemy/eralchemy"
-  url "https://files.pythonhosted.org/packages/0e/c0/9c28acf903566a02de43f8fc6c572b8195ab0fa854016825e5690c77b57a/eralchemy-1.6.0.tar.gz"
-  sha256 "8f82d329ec0cd9c04469adf36b8889b5ea2583e7e53c0fd2e784e176e1e27c7a"
+  url "https://files.pythonhosted.org/packages/1b/cc/d41f21c662b244efedabac91705834c59dcf43b09e74dbc2b5ff32ea8b1c/eralchemy-1.7.0.tar.gz"
+  sha256 "926376fdab2e1ca8eec05698c457d17718ed1458fa574b67e815c43ae52b377a"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "49a346cfaa425cda1007f4fc5cccca83546f2297770cb007d63d9f3b0f84e2e6"
-    sha256 cellar: :any,                 arm64_sequoia: "1ee8ae85a57cbceefb97b74b20b7471e107569152e7bb44708e9a44398a7ddb0"
-    sha256 cellar: :any,                 arm64_sonoma:  "7d5f1101a875838e742fb2649d37be7e22705606ee1b3256117cd8e82a000d5b"
-    sha256 cellar: :any,                 sonoma:        "d8d2db3e30495966876ddd5e78cd9105333ce3d89f88b71515a87eca3997b051"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c79fa38699df65ebad7ff99554d7775d9fe5b91a4a5c94e0ceccce3a2663d2d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17c170fcb2656f9089d5142b82ca21c6b9b2793cadd458505714b65803b237c9"
+    sha256 cellar: :any,                 arm64_tahoe:   "7f0c579b5cecb02b2d634f44cac494e4697b67a2ed198fe9b63e192eb232d2c0"
+    sha256 cellar: :any,                 arm64_sequoia: "29324fabc47df34f89e5d771c7527e32e7a89d81a5e57932c2e67362fa450f87"
+    sha256 cellar: :any,                 arm64_sonoma:  "7b32526c8a1aab44abebfccf9bf962f094aa1d56d0654e90d53a519c7cd5f118"
+    sha256 cellar: :any,                 sonoma:        "2a58ed68b58b9e9737d56099513797032f8add9c31960b210f63880234dc4d15"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "da1dc20b501229c2cc255afc9467115903e01c5d1458c5a0664423d2aeffff84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38e727310ef0494b3de0a2ee14ee7f3a791931b1c1b7c82b815f11ced3ab8bb9"
   end
 
   depends_on "pkgconf" => :build
@@ -26,14 +24,19 @@ class Eralchemy < Formula
 
   pypi_packages package_name: "eralchemy[pygraphviz]"
 
+  resource "greenlet" do
+    url "https://files.pythonhosted.org/packages/3c/3f/dbf99fb14bfeb88c28f16729215478c0e265cacd6dc22270c8f31bb6892f/greenlet-3.5.0.tar.gz"
+    sha256 "d419647372241bc68e957bf38d5c1f98852155e4146bd1e4121adea81f4f01e4"
+  end
+
   resource "pygraphviz" do
     url "https://files.pythonhosted.org/packages/66/ca/823d5c74a73d6b8b08e1f5aea12468ef334f0732c65cbb18df2a7f285c87/pygraphviz-1.14.tar.gz"
     sha256 "c10df02377f4e39b00ae17c862f4ee7e5767317f1c6b2dfd04cea6acc7fc2bea"
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/f0/f2/840d7b9496825333f532d2e3976b8eadbf52034178aac53630d09fe6e1ef/sqlalchemy-2.0.44.tar.gz"
-    sha256 "0ae7454e1ab1d780aee69fd2aae7d6b8670a581d8847f2d1e0f7ddfbf47e5a22"
+    url "https://files.pythonhosted.org/packages/09/45/461788f35e0364a8da7bda51a1fe1b09762d0c32f12f63727998d85a873b/sqlalchemy-2.0.49.tar.gz"
+    sha256 "d15950a57a210e36dd4cec1aac22787e2a4d57ba9318233e2ef8b2daf9ff2d5f"
   end
 
   resource "typing-extensions" do

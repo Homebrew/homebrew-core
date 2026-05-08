@@ -3,18 +3,23 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/guides/toolkit/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      tag:      "v0.1.35213",
-      revision: "1cbd2542e036e2aa13f775ea5e2e461b6a76ffcf"
+      tag:      "v0.1.36202",
+      revision: "50a6f5685ea024c53fd11ed477742382cfbdaade"
   license "MIT"
   head "https://github.com/CircleCI-Public/circleci-cli.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "beedb43dba63c1829749cff797a543b74770629fc023b17cc5c43dc9c68f0f86"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "142ff782aeec0ee8eb859f07d912f89ee9ad31c5368290c3b6ca779fd49471e2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d6454b01dcb206f0567bd4efa2dc795d43dc5d736790ed6a9bd98601ab3a823"
-    sha256 cellar: :any_skip_relocation, sonoma:        "327543e7ef8c26e758c7a023da090c7d407e47518376086a49bf75f491e9563b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9645a6b69e42befe1af8abfabd8aaac5367505d52de6c7309cdb78e10c8db6c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d7e1ca229d3b00dca43c29d1c2d84809ad6cd1f30d9bf11c3eb600533db2aee"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1b073b841bb8ee909da68864f2a79bf0cc3fa2dcf1b8a2c3af32090726fa619"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "482500126ba2bf047ee33467e83c480a7d3cbac4e206f3af7767a7219f1e034d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f3c77a4ef60f323bb6be4c43271e0dc9fdfb4fdd702818bfdb8f6d393899ffc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6a8f778bf75a4032ca2979369fb85812eed74856d7e2dad0030e75a80828fe31"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9cdc0fa6ae14afb3cc7233e782635f0fd095828a808455852c2fad81a629f83c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1da39d60c1bc6df02417922efbb0e486c67096a1dc5f72d084bc9a2809419d07"
   end
 
   depends_on "go" => :build

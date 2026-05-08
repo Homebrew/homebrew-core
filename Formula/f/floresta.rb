@@ -1,8 +1,8 @@
 class Floresta < Formula
   desc "Lightweight and embeddable Bitcoin client, built for sovereignty"
   homepage "https://getfloresta.org"
-  url "https://github.com/getfloresta/Floresta/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "1a484842451ea3b35c5f9686cc8955cad23923eddf166f373dd3e994e64a7ee7"
+  url "https://github.com/getfloresta/Floresta/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "47dbff1991bd9ee8f8880a0762e4c7ee8b095b93c755529a6e0805fa9ea1cf9f"
   license any_of: [
     "MIT",
     "Apache-2.0",
@@ -10,12 +10,12 @@ class Floresta < Formula
   head "https://github.com/getfloresta/Floresta.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c3f3ee1082b13ca1aa6fc1fdaa98f8b6639b9719e847a737db7c4da08158ba8f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "635e39430ce0d5400db337e9a927827a932e427a16905641cc8f4b751f1ec4db"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "801777d966511da07247471d94656149754d9d94715a0be6e058073b9ff6ea3c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "92fdee27eda28d945e82b8372710be103b6f693b3775e7c537a074258585585f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39f3dda1ac7e0a6807510eeb868276e7059790cf2e8ef45fbb4ecd98d6598348"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c61969fc684bb549eb75e2f812b33cdfe48c61ef4de877dcd9be76792bb71fe"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8ba412b48e231c0e21051fa442177a6697709361495d100d6b6ee16e6d47d755"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e3c70b99d0b4fda14040188eea45f159209f983f8947b6144256323d72b2a4d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "434e944254bf76417f6edc3742c7fe8660b7e2842d68def4e886d967a9771bec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7c0914f6e642b655eea1c5f5ca2c619723f65eadd2f78fedd7af795363190026"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f474d469550bf62d70d0ba7439d870285860f68ba24a1f87fef96aacf1a9b5af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd56abbba28df8300678a7ef2db4570d9ea19dbbff35a44fe68ab4f767338fa2"
   end
 
   depends_on "boost" => :build

@@ -4,6 +4,7 @@ class RedwaxTool < Formula
   url "https://redwax.eu/dist/rt/redwax-tool-1.0.0.tar.bz2"
   sha256 "dd2d7e6ce1ee9b78bc3a2d076f4c1b282b61e9a3a20456566d3e62d32dc12d5e"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://redwax.eu/dist/rt/"
@@ -11,14 +12,12 @@ class RedwaxTool < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "df4ddf01024dfde7043791c8c816cee438fbd91d6ce6bd4c952e32932f139466"
-    sha256 arm64_sequoia: "18943e0545f824c95a02107eb5e2d3113921a4dec7f70e38b0a9c99360838b30"
-    sha256 arm64_sonoma:  "4f7ba708291d0a8d55dc60dafaccf9e25c30ed7f69460175937769edee510cbf"
-    sha256 arm64_ventura: "636f7fb81a83351e5663edd8a9f55bfcf6da9468e99c294ba718c1682183ffe0"
-    sha256 sonoma:        "aeace3d70b6856d3b41435e67e8841db8932ecc98f77dcef6171a8d414abe356"
-    sha256 ventura:       "a1b39030dca8dc36b515a668d391b9ca661e0308163fe722069714553ba5dc98"
-    sha256 arm64_linux:   "68957ca0352be57c3439fbd84d584a080729c17472e5193e8fd836c261d5a65e"
-    sha256 x86_64_linux:  "10ad5632233a8a26fa7561d2cc0d7059c2cfee757c20d8b934b761ce242fde9d"
+    sha256 arm64_tahoe:   "2529ee7f15ecdd3248f57f4addc086c0afdef2de61f44d23a636dbbe48d95988"
+    sha256 arm64_sequoia: "2c481f5c7870e761dba5cfe94df7f63a31913858d39c53e55c3fa1e2e6435834"
+    sha256 arm64_sonoma:  "f68f532e621df9d89c65efe94f66c528e937910ce6af06fa7238236a7c17cbde"
+    sha256 sonoma:        "ce9b67daccd66bab249daf0a50039171ee3cfc2c2471520c2e7a0768ce5bdd78"
+    sha256 arm64_linux:   "936d3d2007956b068d9d0ada00d9c68a09de5b936912dc58fc68bd7aa4a9c186"
+    sha256 x86_64_linux:  "135cde0d7a1d503d9e760b1a87a71955ca335b53871c874da0854a2b5647e3c7"
   end
 
   depends_on "pkgconf" => :build

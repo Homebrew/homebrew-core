@@ -2,8 +2,8 @@ class Languagetool < Formula
   desc "Style and grammar checker"
   homepage "https://www.languagetool.org/"
   url "https://github.com/languagetool-org/languagetool.git",
-      tag:      "v6.7",
-      revision: "84625f61a71ae0b54cc683e46f8e209f75169117"
+      tag:      "v6.8",
+      revision: "e807fcde6a6506191e1470744d2345da28c26be6"
   license "LGPL-2.1-or-later"
   head "https://github.com/languagetool-org/languagetool.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Languagetool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6fea33d351a9f879bc18b3482acc005a9745bea3e1e011fca5851d37fd6f83f2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7b92cc5a0913b777c862b42a90b96820630157b08d6601424624d09bdaac52e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a98c2e1dfd79d4d61812874ccad3b7cd2da1ade1e91325560e13443151ac6c21"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f9dcf2480437854ab2576be8f4e19ac728f5c8e048751308b01284e226e83b96"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2375c3a5d2bd25954bc23b0baf74d6007f69e6ed397181d104e4327a331501c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d40b8680fd7e046f54ef4b2e79fb60cc0d7a228cb15ab2301f70016b6bc8a557"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d6f1f9c9689a9c44484d7bdaeebec9bd9c5ade21f2d0a31bc229cf8862564a0c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d8adb5386f04909c226e5655817e944b05c888608e032ded305c3f99618b8c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e22c41d9a141788580600f4e5296c9ea75e41f24bb55f3501c3a330fd7e07ae2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6f7f36ab6f9345d9c0b76e550fdf36b2d3162ebcea8ff93f1f189d4b3142db75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0c7bc609cc7f0f1a820a3726de8b5c768e44035834209ab3d3d3d30e755a1a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62426512fa454101a223b9a178e4983f43b48aed3782352c268b04f4e9859273"
   end
 
   depends_on "maven" => :build

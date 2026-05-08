@@ -1,18 +1,18 @@
 class Copa < Formula
   desc "Tool to directly patch container images given the vulnerability scanning results"
   homepage "https://github.com/project-copacetic/copacetic"
-  url "https://github.com/project-copacetic/copacetic/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "94fcb4cdaa40f42c20b39685e7436f06ab78f18e7379b69601b117f4ed5cc780"
+  url "https://github.com/project-copacetic/copacetic/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "47cf4c4e583d35523ef1e146e9a640bce5ffbb99bcedbf63e07c11eab60b4a8f"
   license "Apache-2.0"
   head "https://github.com/project-copacetic/copacetic.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c811bc53233675b7a9e649f8f5fbf8541a36cd0a85c3e72563c060977f183751"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c811bc53233675b7a9e649f8f5fbf8541a36cd0a85c3e72563c060977f183751"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c811bc53233675b7a9e649f8f5fbf8541a36cd0a85c3e72563c060977f183751"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cd32d26f28ba7efa9ba4dc96bcb1d28ec773893fbcd8f86485624393562d63cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1809a7a1751ad605a94a0339feb969abbd2a54cd332171874981c6f383f740e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cc4f21c153d18b97d910b5dc3c919667024d80024b0710137cf03c36e0ba956"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "17368549b019ccac22fe06200bee34d534c8fe4a0c0f56247a14710e0a9ce6dd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17368549b019ccac22fe06200bee34d534c8fe4a0c0f56247a14710e0a9ce6dd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17368549b019ccac22fe06200bee34d534c8fe4a0c0f56247a14710e0a9ce6dd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9481b1416a70cf0a6cca5584c0f52ff4f402231366e138eac6dd75a0ec1564fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04b5dfc027c1546bdb54de1b1fe2409df969a23618aefd1aabacd831fa88a60f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83b867b11564f03ff5e48c6dd5088a9a59a573bf8c2726fd57dde11fdd322b33"
   end
 
   depends_on "go" => :build

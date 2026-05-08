@@ -4,10 +4,9 @@ class FbClient < Formula
 
   desc "Shell-script client for https://paste.xinu.at"
   homepage "https://paste.xinu.at"
-  url "https://paste.xinu.at/data/client/fb-2.3.0.tar.gz"
-  sha256 "1164eca06eeacb4210d462c4baf1c4004272a6197d873d61166e7793539d1983"
+  url "https://paste.xinu.at/data/client/fb-2.4.0.tar.gz"
+  sha256 "a3dd5580c7ba459c18f2d2ac39614422fd9c0dccb4545dbd683c77104062af39"
   license "GPL-3.0-only"
-  revision 2
 
   livecheck do
     url :homepage
@@ -15,13 +14,12 @@ class FbClient < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "d8e28f243d35b05f844423d91864d16f6a762c9f504f275b844dd6b9a30e7cae"
-    sha256 cellar: :any,                 arm64_sequoia: "847de16c9a66787cd02c39cb7d3fe9d2b525d35c14c994b65897340c72c9ef9c"
-    sha256 cellar: :any,                 arm64_sonoma:  "979dc4765686977ab283f64a2cc5d9a2e11b29aa77429a1e10cff91d26d3710b"
-    sha256 cellar: :any,                 sonoma:        "8b4e5071281484647dc85aacd08e852e801300efc81a10020244a33682913c1b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "25a09e67f190d6b0fb898ff38b44fdae32c068f1710b240d1e2591cdd4c8c9d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "710a8cfa181a40cf624baf02e392d55a72420764bff738d2e400ad099dc9dbca"
+    sha256 cellar: :any,                 arm64_tahoe:   "94836e631e1cebba28bc3327d3cb63a2725af425a34949ea5b3d643b3e88a18b"
+    sha256 cellar: :any,                 arm64_sequoia: "87c40285614876d05e7b8f4274ac5bb5b171d1cdcea2931eefc6d32ccd4f490d"
+    sha256 cellar: :any,                 arm64_sonoma:  "059881236183d0a075ac3059e01eeb9be2546e82bcb8d6daa0e295ffb0d4971c"
+    sha256 cellar: :any,                 sonoma:        "6af4054c808c8f5c3ec176d38dfe8fcedab2516ff410f9bf7d747afbf0520521"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa64e34d0861774bb7570f22b37fc37ca517d484f9c4d38307bd76d474b0ed44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7dacaf9c2b823ba207783b95c773e5820ca391393b93cdf0c05f1cb7e993d86c"
   end
 
   depends_on "curl"
@@ -34,8 +32,8 @@ class FbClient < Formula
                 extra_packages: ["pycurl", "pyxdg"]
 
   resource "pycurl" do
-    url "https://files.pythonhosted.org/packages/e3/3d/01255f1cde24401f54bb3727d0e5d3396b67fc04964f287d5d473155f176/pycurl-7.45.7.tar.gz"
-    sha256 "9d43013002eab2fd6d0dcc671cd1e9149e2fc1c56d5e796fad94d076d6cb69ef"
+    url "https://files.pythonhosted.org/packages/95/23/cc07b16591af8ca373494d29aafc8df13e547077579e6779bb865a3f5a7f/pycurl-7.46.0.tar.gz"
+    sha256 "422ed7005b98768fe60fe6b6cb8bb6a4e1fc18b5433402e8fbdaba91811c4604"
   end
 
   resource "pyxdg" do

@@ -1,18 +1,18 @@
 class Fedify < Formula
   desc "CLI toolchain for Fedify"
   homepage "https://fedify.dev/cli"
-  url "https://github.com/fedify-dev/fedify/archive/refs/tags/2.1.10.tar.gz"
-  sha256 "3f22201f5ef1c44f9af9f8368a9e2768aa46ea8e7a0e264055d8c6a08f583201"
+  url "https://github.com/fedify-dev/fedify/archive/refs/tags/2.2.0.tar.gz"
+  sha256 "e1416a79cb3b6c0186336ebea20ee0d562c27f1072cfb5e9332055d719f20aa9"
   license "MIT"
   head "https://github.com/fedify-dev/fedify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c6b79974db9e483b818b91d580efaeccd664aa1fd987ea8be2638681af705d1d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c213d89b738c9906ac89155c52570da9d4bb8f56d6823d0d7aa97e23133f46c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47daefd4899b660f821e6dc4bb0d93327bc510fb1d7a6f08d794986eab9f3c1d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "62b148dd033f7c470abbefc51bbc0473cf00e176f5227c601a6c0541feda4274"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a2064d365d86fb01b8ca593fed0d56113c0661d4ade99c9e72abeffe9d2d3b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b60309f182fbed415d821d0ee801ea1691275b18bc27c937d220275f2d5e95f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e0ea56f62639e7549976cd4c296ee88d252dfbe617f18f016b403e3f63865ba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a54426a76dd88e6e266ed1cbe8b94a2fff843b44a8bd140cb17f5f8b6e046de0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89129027aeafaddc9d244465bf4f1f6c1f727387a217945565f42074a20d9678"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3c610c208d3b1e80ee541fa4bd7122096f4aca611a7969de51a619fb3cd827ca"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9a870b2b2dac17e3615cad22e164d21cb587e0ff456a807876d8cae3f58ae67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "482746a5bcbf85c48e55b2588b4828ba41fba8494362c684d103dbc009e7eaa2"
   end
 
   depends_on "deno" => :build

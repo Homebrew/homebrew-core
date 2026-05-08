@@ -1,18 +1,18 @@
 class HackBrowserData < Formula
   desc "Command-line tool for decrypting and exporting browser data"
   homepage "https://github.com/moonD4rk/HackBrowserData"
-  url "https://github.com/moonD4rk/HackBrowserData/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "f856385687f87bd7f099d3d431289a012d64b2ede719b2b72453934f3be11b86"
+  url "https://github.com/moonD4rk/HackBrowserData/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "80d2b77ba764aaf88bae49d7a071c0309b8fb05f45af884b407ec58183b6478c"
   license "MIT"
   head "https://github.com/moonD4rk/HackBrowserData.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5188d7ce62d6e242674c9beda55f0761119f4e194efcea286b50e04a389e81f8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5188d7ce62d6e242674c9beda55f0761119f4e194efcea286b50e04a389e81f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5188d7ce62d6e242674c9beda55f0761119f4e194efcea286b50e04a389e81f8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1309e377866a7e547fd7ae93e741a4ff35046e718c49f77ccb492044607bd274"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "07c94a19af17db62aae7fc059d15254585dd80f0430b3681f883c4f541c52519"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cf67f50372cfd85f81c5807b6da827e78c9e38fbec746b595ac85fa90c505f1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a7b249fa7e8dc58e6e3aa31174dff9d67b788d91248866c5e9e60cf0c7e06c4e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a7b249fa7e8dc58e6e3aa31174dff9d67b788d91248866c5e9e60cf0c7e06c4e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a7b249fa7e8dc58e6e3aa31174dff9d67b788d91248866c5e9e60cf0c7e06c4e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "04be65e5e5a9e26b6021468947d1052ce9453a07bc0c1daa2d02f3317e77fe89"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eea96e3264bb785543efea3792ff7f3167c530e5e11a134747ef386d4ae56123"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43ce0a5471d222a7edb530c9370199fc6db91475b6fb9c47f17f23d870708279"
   end
 
   depends_on "go" => :build

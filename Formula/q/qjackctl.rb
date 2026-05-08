@@ -1,8 +1,8 @@
 class Qjackctl < Formula
   desc "Simple Qt application to control the JACK sound server daemon"
   homepage "https://qjackctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/1.0.5/qjackctl-1.0.5.tar.gz"
-  sha256 "ce6056dd17fd5c1e8cca928754357f3cc6a6ff8464c9e05b07f8011b2597ec61"
+  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/1.0.6/qjackctl-1.0.6.tar.gz"
+  sha256 "dfffef1ddc65df666a1f0eba89a1d6d85fab47c765a91de36a5ef6360472899a"
   license "GPL-2.0-or-later"
   head "https://git.code.sf.net/p/qjackctl/code.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Qjackctl < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "920a75fe7293a69246900ad32076b30664108d832355a537f03ad4b9dffc74c0"
-    sha256 arm64_sequoia: "a0a31424e3de8d51f1dee15e5e92fea5a03d453731042707943758fba2d589a4"
-    sha256 arm64_sonoma:  "c8d960f0ba5c1de5ecef6fc877570098ec77125c603a1d3247ce48fc2aab2598"
-    sha256 sonoma:        "1b68ec180377ed8a00935ef037e7ff50a70738f03f5a5c46ccb4e4bbf8bf1fe5"
-    sha256 arm64_linux:   "dca44237f1bae122b317740ec831d3d68e132415b53cfd10c62db236117315f6"
-    sha256 x86_64_linux:  "06145fdf9dc0b34aaa2aac747efe52df93590b72f9916ee15fcf14b7c75797e8"
+    sha256 arm64_tahoe:   "0bc5962d3381116c34ed5fb4f146cdd8519b356e40fa926428e789381097dd4c"
+    sha256 arm64_sequoia: "c6e987bffe341fefb324da4d6fda2654fdc695d623f99be0009ca2349e7296b5"
+    sha256 arm64_sonoma:  "aa91d5f22aa395db21d35bb20c05474d99f7debb96f1ca05995ff48005ec8233"
+    sha256 sonoma:        "1955e7be6a6dd90086fda9bdb2dae09291e3e219035a594d4f80734101aa1815"
+    sha256 arm64_linux:   "f2bcd15543975f6644660f40bcaae2e4b765ecd36a2f66385856ae50d93bd268"
+    sha256 x86_64_linux:  "6e20a93d373988625b7c7f9d855fa697877729409b00ac8610b25797eece5ffe"
   end
 
   depends_on "cmake" => :build

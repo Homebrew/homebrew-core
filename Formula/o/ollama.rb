@@ -2,10 +2,9 @@ class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
   homepage "https://ollama.com/"
   url "https://github.com/ollama/ollama.git",
-      tag:      "v0.21.2",
-      revision: "590109c8352e8d5a6206e8909b518a54a2b0a7b8"
+      tag:      "v0.23.2",
+      revision: "f866e7608f378dcfca6f8c717101df1945db3b97"
   license "MIT"
-  revision 1
   head "https://github.com/ollama/ollama.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -17,12 +16,12 @@ class Ollama < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de7f24489b290528b2c910124794ba8b1c704cc7950e964785531c8a27d6200c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7aa2da3f6e13c63bb59dd84985455f17f30a0082a7811288d9de63e25a5b4466"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd2ba929a766e1daca960565af6e99529a7e599b5c08e77333e99a8c14bc6d80"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f211d8baa6bb2bc69487b05e015509900e4a25af706424d0f15fd7addfabb08e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "947791ec3f92bbaae1acfa8efee9786810bd80f51e60bfb2621e73e4595e3d58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d8be852f2ffb384b2f65cd89661f6219dae51c474240466160b821163c0517f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cc6cbe495e82e4788d7899d6edf43b89d63c70c62fe174490c902fd9b59de7c8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a92a78f76d33dfb064b346fdc806d033828fd360766de0f086c2f6df142d07ef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "281b405c9aff177840654fa4d558f1969c514a13f762f318b0f522149a6b290e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "46ed8863476955d51e1541a93530b9b6c62ad3a8be9d2fc863f320e94f3f59ed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6da5405e6f1489dfc984ded8147a3d7f1d56615d7e6c7f14b4e51119b2106f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de017c0d263c241cf09a60d0b6ac97026f4454dcd922ac1e255ad4af520b441f"
   end
 
   depends_on "cmake" => :build
@@ -33,13 +32,6 @@ class Ollama < Formula
       depends_on "mlx-c" => :no_linkage
 
       if build.stable?
-
-        # Support for mlx 0.31.2, pr ref https://github.com/ollama/ollama/pull/15793
-        patch do
-          url "https://github.com/ollama/ollama/commit/bdd7fdd171be290099d368aacb747f9a1241299a.patch?full_index=1"
-          sha256 "88de38e8e190f1f465288094778844146d4883aa86adaebf68efc27c46ef0127"
-        end
-
         # Fixes x/imagegen/mlx wrapper generation with system-installed mlx-c headers.
         # upstream pr ref, https://github.com/ollama/ollama/pull/14201
         patch do

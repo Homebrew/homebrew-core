@@ -3,19 +3,18 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/e1/5d/4372f76a9a483247538138d84ad21e303f88c35c630b9745c1c69bec05f1/bzt-1.16.49.tar.gz"
-  sha256 "827408e83f8ae07a42982bf7541fd5b1f8f9162a09cfc342ba8f0d4bfd8f65e2"
+  url "https://files.pythonhosted.org/packages/df/e6/d75c947034e3c1166707717bf2f735ed8de0a562de35cbfffdf613a91a2d/bzt-1.16.50.tar.gz"
+  sha256 "3c7ce335fcb88835c7613d2c8768b5017f74c5b2952032d93dee2dffa8988b0c"
   license "Apache-2.0"
-  revision 3
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5fb8dc423f05fd99f7a16ed2d6352521d1e491596a93169bc354533a6f521bd4"
-    sha256 cellar: :any,                 arm64_sequoia: "ee827038f421ab1f78ec6c1c0ce323958822b67fb31b0501b8ca723a5a2940e7"
-    sha256 cellar: :any,                 arm64_sonoma:  "e3c465494a7011386159640a9554962e596d9de9be93f518ec5131ebe56f7d3d"
-    sha256 cellar: :any,                 sonoma:        "45036db89606ffdbbe57f5402dbd17737758a63eda546f6eb02391128b3bae0f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "83f6b2fad17575e479fe90c187b3f3d0e1ce37d815245fe50318729c98dd450a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0332f125f5501f0bfdf39cb37a9e5ac0b51a35cc0a43400666cabec8062da273"
+    sha256 cellar: :any,                 arm64_tahoe:   "faa62c32ba2ec81cd16077eb465d5f5b2a86e560d70806d7180f92c0d5ba1ca8"
+    sha256 cellar: :any,                 arm64_sequoia: "3cf134e5aefb89f37b3e4a7623650db70f1244482ebc47701d39a6a69e1ca925"
+    sha256 cellar: :any,                 arm64_sonoma:  "120272a28e73c8dd5687224dafa47629681a7c82f78e1a59e2013f7f102e540d"
+    sha256 cellar: :any,                 sonoma:        "00dbc5b1acb467346175a26c1c6abc49d5301ae6c9f3069e4b797e04af115ed9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2005952217fd470cb0ef8c8bc6b0b814b373676b0985f009c04f3371063221a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0c4376158127add1e8e8bc47dc5c05a882c371fc7d2c69bd77954d3cf23ffe0"
   end
 
   depends_on "cmake" => :build
@@ -117,8 +116,8 @@ class Bzt < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "influxdb" do
@@ -152,8 +151,8 @@ class Bzt < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/de/0d2b39fb4af88a0258f3bac87dfcbb48e73fbdea4a2ed0e2213f9a4c2f9a/packaging-26.1.tar.gz"
-    sha256 "f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "progressbar33" do
@@ -257,8 +256,8 @@ class Bzt < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/89/24/a2eb353a6edac9a0303977c4cb048134959dd2a51b48a269dfc9dde00c8a/wheel-0.46.3.tar.gz"
-    sha256 "e3e79874b07d776c40bd6033f8ddf76a7dad46a7b8aa1b2787a83083519a1803"
+    url "https://files.pythonhosted.org/packages/39/62/75f18a0f03b4219c456652c7780e4d749b929eb605c098ce3a5b6b6bc081/wheel-0.47.0.tar.gz"
+    sha256 "cc72bd1009ba0cf63922e28f94d9d83b920aa2bb28f798a31d0691b02fa3c9b3"
   end
 
   resource "wsproto" do

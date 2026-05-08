@@ -1,18 +1,18 @@
 class Inetutils < Formula
   desc "GNU utilities for networking"
   homepage "https://www.gnu.org/software/inetutils/"
-  url "https://ftpmirror.gnu.org/gnu/inetutils/inetutils-2.7.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/inetutils/inetutils-2.7.tar.gz"
-  sha256 "a156be1cde3c5c0ffefc262180d9369a60484087907aa554c62787d2f40ec086"
+  url "https://ftpmirror.gnu.org/gnu/inetutils/inetutils-2.8.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/inetutils/inetutils-2.8.tar.gz"
+  sha256 "57b3cf4f77555992881e5ba2a09a63b05aa2c56342a60ed4305b5f45938390b5"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "679c93f5939a40a29d8405d0494cf42900d039adde87f2c6c80cb0ac78bea4d5"
-    sha256 arm64_sequoia: "945627896b2789911b27c99c415ec4392c4950e2857d3ccd63810c695c00b4ac"
-    sha256 arm64_sonoma:  "8d4c9f02566b20dde1c997e6902230d9bee5100eb659627dfeebc9469c366926"
-    sha256 sonoma:        "bb1efe4e985bba255854ed3cb1b3b1a5e94a2be65b390a6f384746e1be4f3009"
-    sha256 arm64_linux:   "2f583154f1494f33345fe3d74baba8805fb95be9cb152ffe1f7b3b4a4fa84d45"
-    sha256 x86_64_linux:  "252b3d566a72404df73d6a4c5e4094a4bf84ed98a594ae6fb5c5174ea8ad85ae"
+    sha256 arm64_tahoe:   "0a66dfe25ede29e4c90e7cf13c6a6944ca36a13307c07473a56a9f7244668766"
+    sha256 arm64_sequoia: "c1d48a14177702ea7463d3b952bd270665dcfe5e55d8106f02ade499676f6fcc"
+    sha256 arm64_sonoma:  "c165f99ceec005129fd4cc13562cb6a9b21ac6838c99e8dbb61217f315e55c06"
+    sha256 sonoma:        "d3bb0b5770606e81c7e8c66a8e9845e409be6fd612bd083295e2b17fccdb344b"
+    sha256 arm64_linux:   "73563aafff795dfc70e174a26345f2c5c9a8d90e46074dd5dd00c226ba3d7d06"
+    sha256 x86_64_linux:  "3720ff504aa3da595a8f268348142cdf4640a853634117308a3d7b1c3fa02273"
   end
 
   depends_on "help2man" => :build

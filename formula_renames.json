@@ -1,4 +1,5 @@
 {
+  "act_runner": "gitea-runner",
   "alloy": "alloy-analyzer",
   "amtk": "libgedit-amtk",
   "annie": "lux",

@@ -12,19 +12,18 @@ class Clipboard < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f5aa10de8e148bedda7f84cab8c848b785ab77c5cd5753cfbce5eb88574499c5"
-    sha256 cellar: :any,                 arm64_sequoia: "4133bfd9353d194c8b0597eaab4640752c07d53027c733ed1c1056b84a1f74c3"
-    sha256 cellar: :any,                 arm64_sonoma:  "f479da9e04d1fe86620fe54f9149d90b4d15eb6945a44380193bd190333e9497"
-    sha256 cellar: :any,                 arm64_ventura: "d0415d6ed62ac9d27c7d360ca0d97ba7114c430c4c54fcca252cb3bbae73e39c"
-    sha256 cellar: :any,                 sonoma:        "c551b2ece1d81249476f06ee13336c52a948fdf469b02b02b892a16bab58862d"
-    sha256 cellar: :any,                 ventura:       "da3319d484d5bff0daff721c5236718d7dc65dd31e2b4352beee5aa4f70e2c91"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "222d40b953ed0218c7d3f4b51708294764afd22cb6f9fbdffa5c6cd9465a6c34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d390684f0efa26d3fe4a5a5b93f98daaf10c678cf1b0a638ae52aeca7ec1ebb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6747d2a87bd1aa59e30171c55e8c07dcd9d6a153c90c51e33e325a7e5361b5bd"
+    sha256 cellar: :any,                 arm64_sequoia: "21b61029176463f416d7d0c4e181c87c7ec0e6d52d1f1f6f3c7eeba61ce26d1b"
+    sha256 cellar: :any,                 arm64_sonoma:  "fad69c52a99d680964ba009eacf120896c87b262e708e30ded132894e33a6900"
+    sha256 cellar: :any,                 sonoma:        "197516a0ca09d8f459caf3d4ec519d26553a57525a49ae769fe0c56102c08c6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "afd9f3678d529ba857fa5be81cc6e6b19949325f6e0c680417a57dcd4d9fe498"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbafe6e2061bd73bb093e73edb1b5c1527fffc75c59b8384e14874d82ae109ee"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1300

@@ -2,18 +2,18 @@ class Kn < Formula
   desc "Command-line interface for managing Knative Serving and Eventing resources"
   homepage "https://github.com/knative/client"
   url "https://github.com/knative/client.git",
-      tag:      "knative-v1.21.0",
-      revision: "382000a93f176980bf5ef182d4f8a2682a167e65"
+      tag:      "knative-v1.22.0",
+      revision: "479f2162b627314c75e93b84be81290e3f4bc237"
   license "Apache-2.0"
   head "https://github.com/knative/client.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cf30b69b4f1c305714768b732015dd7a703bd536e4a0a5021274fc0f17a991a3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "438be7588ddfd635912a6130d68de906cf7db3f8c655a5f97b990d892a6ece55"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e51cc4c2f46c0eda809247edb27dee4c010994858051362e70721758e8ab5f9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5ff6f8b240ea7e60bf2b022b6cc9d65ae7ec8506cc190465eafa34ce48312283"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d3c49ba8034b4b91f75e8427d829f9d470506c5cbeacae309a8083f52f3bbb9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d74f940af91492cee17f8547b8fe03a0805e1d32858604326bc20bfd932b8bba"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ac3f057f6036fd79548c044946f8366896c949b05cc12d744b7f3a9ea0a38677"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bbb2653eeff8b307833f05f809bc53b123907789802554a291267dae8f9bb426"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a3fc043392f32c5ffed0e95759a8e988d1c1c1b31c9d83e613e404a31fc642d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d30d58a02a16e9de407e820db2c0c471f5ed0710d9d482de83ff6bc3655e70ba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1db3d8a6e09976f6b7a948410983eaa911f904f4b33ad69928397ed55b4a67c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f611959fa110d983d07fdfc7c03e7b7bb540d4af4b428bc6b034eaf454e5c641"
   end
 
   depends_on "go" => :build

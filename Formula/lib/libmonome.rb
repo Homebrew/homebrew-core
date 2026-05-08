@@ -1,18 +1,18 @@
 class Libmonome < Formula
   desc "Library for easy interaction with monome devices"
   homepage "https://monome.org/"
-  url "https://github.com/monome/libmonome/archive/refs/tags/v1.4.9.tar.gz"
-  sha256 "145b51318f8c4895273d2a8695e20f61730c242428dacb7bff2c132a7d8e08b8"
+  url "https://github.com/monome/libmonome/archive/refs/tags/v1.4.10.tar.gz"
+  sha256 "b2684d790da645948bf7f5bbd997f241567e67c8269d7361006cafa1c9bdad92"
   license "ISC"
   head "https://github.com/monome/libmonome.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b31308553453c848b03425ff8b6e6caa6ba3390707ad393f2b40e40f289154c0"
-    sha256 cellar: :any,                 arm64_sequoia: "a8f7827e9fce6c88f2c91abeadd818b0ae33b849509afa93d7b502ad1c336fb7"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9dc02e09461603b7c834ed207cab657858532729875671b177336cd56166458"
-    sha256 cellar: :any,                 sonoma:        "c783f385c91abc6cf2cbc6392011309e3971d4d0614f0040b859871d874ecc1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "abfeec4974ffd9cd22459e1ba90a8fba0d017e43b6c292872e11113c98c5f836"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24fa734badf36be01d30e10a64e180df8a35a02820efe6797d5766879eddc077"
+    sha256 cellar: :any,                 arm64_tahoe:   "a5d780da58b7c74eff9bff8d785e09ee6337e1bd0110f64c8b56d1f0a4ada16f"
+    sha256 cellar: :any,                 arm64_sequoia: "7413e13d1540f8a4dd02efd21158343a56ce2ce0a08a26c87fac4ce907f3f352"
+    sha256 cellar: :any,                 arm64_sonoma:  "731bdc3bbf8cd9c3bb2b77a591a00769a40732cf10ed96a496c0472f7f7b905e"
+    sha256 cellar: :any,                 sonoma:        "a842a34f619967b87993662603ea4377b0ccdb336eae88aa3b523afed6eff1d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9149a77bd63d1d429ca394cc345f14545e01fd34ed8e02b3d21487477d057151"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98ca9e32707506cfb8d3044b804f5151e29a8429048f540c956db65f23785c74"
   end
 
   depends_on "liblo"

@@ -1,18 +1,18 @@
 class Liblo < Formula
   desc "Lightweight Open Sound Control implementation"
   homepage "https://liblo.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/liblo/liblo/0.34/liblo-0.34.tar.gz"
-  sha256 "69aa0cd365dba5ea7799b850a7da659ad303e6074bbd67f4ab84e4d6f5f6c3a4"
+  url "https://downloads.sourceforge.net/project/liblo/liblo/0.35/liblo-0.35.tar.gz"
+  sha256 "9acc4f7e5a24f33472e9acd7e409b7bd6810a46f0a1f3cfeecea22d60f3aae13"
   license "LGPL-2.1-or-later"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f08a0362c895fd58456663358085ba1641a39f0fc74d62136c07efeb4d25e299"
-    sha256 cellar: :any,                 arm64_sequoia: "a9e38a71645c64dc13e45f4fd3d9b7e12fed84c15cfed55d17e3e23d10138691"
-    sha256 cellar: :any,                 arm64_sonoma:  "49cd38572b94d428f60ec1f1587537ba71cdcccf9f2a11f496f0c9f611e7fafd"
-    sha256 cellar: :any,                 sonoma:        "e6e20a668824e9b917bc5b07dad6c338668c4e4ed561df20b630fceb24c0321e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "10cedad46fbb3f57a057122e5d4fad858108996c40b1cec044d6d9fe9e096ddc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e119d8b42b66ba6da8115416827c9dfdbcaeea774b2b2d707c74fdce4e467da2"
+    sha256 cellar: :any,                 arm64_tahoe:   "c1fa7f02794de81f4e06be6c432e4d9c2647761ef00992fa3de55945540afd44"
+    sha256 cellar: :any,                 arm64_sequoia: "4ff3f95735108c43158e6f0a2fe444697b9d62210d8ff51d0806693d030004f5"
+    sha256 cellar: :any,                 arm64_sonoma:  "c0febe0351ee278b9c3c7428549f39c001ff7aa20257299a7a23f142c20b9c4a"
+    sha256 cellar: :any,                 sonoma:        "0f827d91c8c2b1bb0bf9d131651e39e4271c79a746339357cdcb824d37a5b8c0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5d4c3a58984a078e7ba8affce24a3dff5a3075db1e1764ae0f4d87f1a3ddae6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f0ad474a27c6483b6b41697cfcdd9ddec8eb4fe9f2f93478469a2f949aea352"
   end
 
   head do

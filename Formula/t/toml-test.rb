@@ -1,17 +1,17 @@
 class TomlTest < Formula
   desc "Language agnostic test suite for TOML parsers"
   homepage "https://github.com/toml-lang/toml-test"
-  url "https://github.com/toml-lang/toml-test/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "41d5a748b6942e535c43fc6d8a12ea7ecb6b24cb8bbe09adf929364099407741"
+  url "https://github.com/toml-lang/toml-test/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "fdab2779b3902eb08030f389a5d53e95c5b49404149ac6f2eda5227a5363c232"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ee578e8acafde6cec49e74d85c3f71c6116d2594e742d5f2c4be1b39ca976ad5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ee578e8acafde6cec49e74d85c3f71c6116d2594e742d5f2c4be1b39ca976ad5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee578e8acafde6cec49e74d85c3f71c6116d2594e742d5f2c4be1b39ca976ad5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "81bbd20b442bfa5ea9bd85890a038aabddaf74db0a46b5557a9ea0ccfb25ca25"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "377ad217fbdd1c3724a31cabc7dca4fdad2c662bbe0a0a017e0ffd0b02fc95a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5334df336e9c02a5f219e31fcf9e7604ad73ddf8f5874f74fddfe501fb2d9594"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7af4042ad74ce2aea27d3ca24b0dba2519f2a74ace4549addf0bd502afec023c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7af4042ad74ce2aea27d3ca24b0dba2519f2a74ace4549addf0bd502afec023c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7af4042ad74ce2aea27d3ca24b0dba2519f2a74ace4549addf0bd502afec023c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "99d22c7090692bb2f4995dd2a64fdbe5118a8a9ddfd18cb3cc3c6e8a8947d4e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "65cc6f41d6a823a30cf3b6c9712a69d5703b127775d92b766f0d0b388edb2adf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e496138f50bc24d70d70ae3f5acca3bf36fb7604f27296d9b3e293aac529470"
   end
 
   depends_on "go" => :build

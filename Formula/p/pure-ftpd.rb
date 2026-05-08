@@ -1,8 +1,8 @@
 class PureFtpd < Formula
   desc "Secure and efficient FTP server"
   homepage "https://www.pureftpd.org/"
-  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.53.tar.gz"
-  sha256 "b3f2b0194223b1e88bf8b0df9e91ffb5d1b9812356e9dd465f2f97b72b21265f"
+  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.54.tar.gz"
+  sha256 "dc9140420ec44f7829579591ff378aa6396b4604b9c6aeae847368e0f35bd7b2"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "BSD-4-Clause", "ISC"]
 
   livecheck do
@@ -11,12 +11,12 @@ class PureFtpd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "03cfef54d53503a02151f0fa412d98d81e1aabc3467338279bd85d058dd41415"
-    sha256 cellar: :any,                 arm64_sequoia: "2b8251dbfc4608c839b7605809ea418d4d1cac9b4ffb3f6a4641c282d14c1d1f"
-    sha256 cellar: :any,                 arm64_sonoma:  "a3758a3a8e337de890de59cf10f3f0c45e8c35f9dc396dffc860acdfe502b7db"
-    sha256 cellar: :any,                 sonoma:        "d8f87d56821a23a8c1c8c81b0c4ff5f68670b710500964603194102161f901d2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8588b13b6b674e8d0b73ada5692c1af5fe752a4c27439be3f6f324bcbef6cd6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24c58c62b5c4ec5c7ace78c73ef9859b65f53ab3dfd15eeaf58d7ac7e52f51bc"
+    sha256 cellar: :any,                 arm64_tahoe:   "cf1841b3487dbdb3a5e380f3b178c354de508df29650fcf6086ed95db8b54690"
+    sha256 cellar: :any,                 arm64_sequoia: "2cba9ea69e0371fa58f81a9050098367e4f4cf17b05dd4affde15b0cb4432ce1"
+    sha256 cellar: :any,                 arm64_sonoma:  "934d776804d04642e781ce5af6f7e188d1056cfcfd2e339baf3ac57dff63140a"
+    sha256 cellar: :any,                 sonoma:        "482b64b01f30ab8f2a4dddc3be252d6bb18d6550bf8ca31aaab9866c9aa37aa2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8fb3186c3cda4f475ad070daaeb5beb75180d8ebc49eb216a4d4603b23b10b9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b6a2c4c3332e1004565d84826972a9ad032b01f0ec50438dd5b94a4c7729fb3"
   end
 
   depends_on "libsodium"

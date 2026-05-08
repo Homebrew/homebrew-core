@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/refs/tags/v3.11.2.tar.gz"
-  sha256 "673982ed2394b1a89fa0250ce848fa55c05ce22f989c9de58fe9cd257175abb4"
+  url "https://github.com/prometheus/prometheus/archive/refs/tags/v3.11.3.tar.gz"
+  sha256 "37bb17f10ec8c36be21452b2efbbc51fc2a94c3d75569c02b8ea0c8cf8ffcfb0"
   license "Apache-2.0"
 
   # There can be a notable gap between when a version is tagged and a
@@ -14,12 +14,12 @@ class Prometheus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e57131b9ac8441888149068e04afaacb2a6474cb1cd0afe440fd2dbf0f0b5d07"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08b0138c7a34f5c129a8a7dafd2130492ce846e8822bc55ef3b6dc4d98955ead"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bcaca8bc54e9e9edd9cd395da80e4294fbdd7f32f5b9c2880c74a3594f8dc568"
-    sha256 cellar: :any_skip_relocation, sonoma:        "259b9846fa2ca745f150f78a043d455481d500708ae725ef9cc2faed20cda11a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d3d7ee8d67b4808daecb485f9f4bc59af439848c925f32821c6dbdf722ae22d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50ec4db4f2ec8bd255c9b34776aad60697220836e02adb8a84129281fffc1c00"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "23713a26bc2fb34460d556e6b46098cf683552c9bc4c7ef11f215c576f5f9812"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9118cef9b8038389071a2c980e9894fd32a64e0e7f863e75f64aa7ff254dad32"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee2c85cf0e76ce8215abee115d411f49ed46d960139f385cd480259a98abd3e3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "64708753fb75cdc0ee2d2a86c34901d344d09dd31f868d38d8694e377708dda8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "675117a717cabd54f3cecbf54e55f6d55e3441ccb4c81f4c5f5df0a1a31a6e5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bebcaa3bbb33ab816705b04b49c2da72947f7414ff89451053c80683fafb3e21"
   end
 
   depends_on "gnu-tar" => :build

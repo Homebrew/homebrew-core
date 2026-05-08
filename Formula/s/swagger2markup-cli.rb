@@ -16,6 +16,9 @@ class Swagger2markupCli < Formula
     sha256 cellar: :any_skip_relocation, all: "371bbc9c30ce8cb116cc9d7ad64b97d87ef6116db53877b067878a2643c3cb95"
   end
 
+  deprecate! date: "2026-05-02", because: :unmaintained
+  disable! date: "2027-05-02", because: :unmaintained
+
   depends_on "openjdk@11" # JDK 17+ issue: https://github.com/Swagger2Markup/swagger2markup/issues/423
 
   def install

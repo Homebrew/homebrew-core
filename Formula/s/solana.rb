@@ -1,8 +1,8 @@
 class Solana < Formula
   desc "Web-Scale Blockchain for decentralized apps and marketplaces"
   homepage "https://www.anza.xyz/"
-  url "https://github.com/anza-xyz/agave/archive/refs/tags/v3.1.13.tar.gz"
-  sha256 "02cf1eac551e0f04e41eb7f9802a1e4f34012f0ab31b74fa56eaf8df0db6cfac"
+  url "https://github.com/anza-xyz/agave/archive/refs/tags/v3.1.14.tar.gz"
+  sha256 "b7e84caad554388a04e64c40f535b787fea3d1d24ead1ced4748294e8ed0214d"
   license "Apache-2.0"
   version_scheme 1
 
@@ -12,12 +12,12 @@ class Solana < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "03122f7c98ed0d8053ef7a71a8dd0b1b4212cfc016da0f3d9fd7cad3990a0128"
-    sha256 cellar: :any,                 arm64_sequoia: "3487a13d6002d69baade4051436d1a5ec65ba7e32f7539329cc42512205f6672"
-    sha256 cellar: :any,                 arm64_sonoma:  "b48e83b80c04aebe7c8986f92c1f8c171b6d31c1dced519e70838ba84734dc23"
-    sha256 cellar: :any,                 sonoma:        "f1e7cd96f7ef78ffac016e45ed2d245f53e08fcaf550045883ec5f0d2debe18f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "14d2f94f76c0c07cfe295cd035e529e823fcbcca843c8c033c352c94bb786655"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d935cf2a8a7ecafe44df7b6ac9ce5e06cf10fd5d0f7f8ca9f23b9f90dd954a7"
+    sha256 cellar: :any,                 arm64_tahoe:   "a317082c5b2b1f2254e43ee4eb6201807de9c246ab9496c4fac47b92d48a7d24"
+    sha256 cellar: :any,                 arm64_sequoia: "6554bb60f1e0bf8b0e9cc63faeafbdc244d72bf3ab3cfc197a0fd9b2668eb302"
+    sha256 cellar: :any,                 arm64_sonoma:  "d088fe004ce885bb382c92da9b83d735cfd813e2a2d86c46d16db39dd206c98a"
+    sha256 cellar: :any,                 sonoma:        "e4aeda5f14cc2a31c04bcdaf601dedbfd8975e32189c698b5b729fd616481063"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d65635cfe5b9969c720005c49e042470602a9f4df69ce7d3a9d48e710cbf7c8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15be27fcd1ea8c9ac0fdc685796c0757a1ef70b62ef782dde9a0a54f4a1e2a5c"
   end
 
   depends_on "llvm" => :build # for libclang

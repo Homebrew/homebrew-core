@@ -1,8 +1,8 @@
 class Solidity < Formula
   desc "Contract-oriented programming language"
   homepage "https://soliditylang.org"
-  url "https://github.com/argotorg/solidity/releases/download/v0.8.34/solidity_0.8.34.tar.gz"
-  sha256 "415acd0bfc87a12e3c436fb439aabc62639e7a66d433450f0135a23238b4fc7e"
+  url "https://github.com/argotorg/solidity/releases/download/v0.8.35/solidity_0.8.35.tar.gz"
+  sha256 "76178a2d5ba92f08b6faa109fdd452a3fbe05ca610a43fa2f1a9426deda7e191"
   license all_of: ["GPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0", "CC0-1.0"]
 
   livecheck do
@@ -11,12 +11,12 @@ class Solidity < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9e3645a6ebe0c93c918472d8ec36ef17c3cbc34d3ed2aa271dfb675c9d5b0efb"
-    sha256 cellar: :any,                 arm64_sequoia: "04f07924eefb08ffb28185e28fbfa04e094352822a9208b67ca3bcf4c70d1e2d"
-    sha256 cellar: :any,                 arm64_sonoma:  "9db844da9da263eb4f87372ad95a981f61c7add74e0f9e79d4916cf3cf6e2f7b"
-    sha256 cellar: :any,                 sonoma:        "4decbd94b65937c3474f4d165f5af5a4d4f5585e8532614ffb385e53f66c7a6d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f103c5adec2f4ad20ba718d74164d359f018b643ca8ffe2567f5edd1b7c827c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17ac2f832e86cc676ba6db3c807b18098cf0c423e02ee352b1d0aec3ad26d9f7"
+    sha256 cellar: :any,                 arm64_tahoe:   "dd725bd70eea7bb4d916ba9e1f8ac41ed2047c93c6cefc4d3ab7f0bee12cfcce"
+    sha256 cellar: :any,                 arm64_sequoia: "e3037ae235e65c8c92c6de206b604bca8d0f780884402f4c2a8decc1a285d4f9"
+    sha256 cellar: :any,                 arm64_sonoma:  "a13a0989c50011dab49a1f5ada54d421046bcb4631e50d2e63f43eae9e8e7f54"
+    sha256 cellar: :any,                 sonoma:        "3d56154e7421ef86a0502a7151ac453d8a78904c2d5e50b4c68bffe23f470db2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "448c14dc142ede41a53bce5c447230ae3b6595ce376f2208196ccba6e1d82bfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e6fa375d57473ac08f1274da84c8a75763011ea49821388bc4ced7364678306"
   end
 
   depends_on "cmake" => :build

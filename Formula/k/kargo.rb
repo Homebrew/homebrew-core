@@ -1,18 +1,18 @@
 class Kargo < Formula
   desc "Multi-Stage GitOps Continuous Promotion"
   homepage "https://kargo.io/"
-  url "https://github.com/akuity/kargo/archive/refs/tags/v1.10.2.tar.gz"
-  sha256 "9def8e58a6baa8e60dabf21e5288faf67878d4240b90c1551c320af4b0091242"
+  url "https://github.com/akuity/kargo/archive/refs/tags/v1.10.3.tar.gz"
+  sha256 "1ef64673757765a0356e009d9da9b9f80de3ac94b636448fa4a4b107a47238bf"
   license "Apache-2.0"
   head "https://github.com/akuity/kargo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "490b478273843cf2464a3fccc23b4733f8952abbd1e94b78c450f92e305fd052"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "926d62f28ca022b030f5ef2b23bd62624f26824fe6719d329ac309b23f6ab680"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b2c82f0709f1fb4202f4c4db4a3e253b0c346624bf01c9306b4b72ca139867ce"
-    sha256 cellar: :any_skip_relocation, sonoma:        "feadf4c76d9c961446c4679834f888c3017d3026269d9af1cb48b6b038e2bd64"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "23a36d46abb069153f92bdd851976023cd5f47fdff582e76a033fb73a3acfdd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f6a6bbaa3fd5a7a27cd874bef91cea5c55220200de4eef124f5f048d9367653"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f67f0aa4959b7bc9846ff3d7e363bcd4efa3c807372aa02fbf9aa9f43219a4dd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91483a809678b48707a06f57a903997625108c76c5807980d5a7b3ddc3ef4fa6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "568a90696357a169e0077230167a8fd606c05ebaf7fafe7998189c861dd9d78d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6003da01239cef91c1b69630b2fc25b03deff148cf2d776eaf251d646fb28d6b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d1edb9366f0b967f0a4b669828201d1b7e2c2ce26db7b0b0d9162b17c739d1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0fea85b6defa1c850a2c083ba4b10bb60676c93427ceecf73d54c6f28dd4a13"
   end
 
   depends_on "go" => :build

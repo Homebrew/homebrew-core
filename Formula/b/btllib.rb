@@ -1,17 +1,17 @@
 class Btllib < Formula
   desc "Bioinformatics Technology Lab common code library"
   homepage "https://github.com/bcgsc/btllib"
-  url "https://github.com/bcgsc/btllib/releases/download/v1.7.7/btllib-1.7.7.tar.gz"
-  sha256 "9e81a509f60d5bf7f19d5e5d052248a92425fec5809d0d31368537660336247a"
+  url "https://github.com/bcgsc/btllib/releases/download/v1.7.8/btllib-1.7.8.tar.gz"
+  sha256 "cd213d20a971ae3441551dd61b0e46a08559e3d9da19cb59ee8dc3397807f121"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6c80e5b9c4f2998ee7216c2854bceec4f391416569bad982b51692eefa389ebe"
-    sha256 cellar: :any,                 arm64_sequoia: "f103f3a8bb10fabf57746de55432fda7f27590b5b1a683d161d23412be1521b6"
-    sha256 cellar: :any,                 arm64_sonoma:  "ac1372fd0b2573f0f154a8d2400ff0908d99768a49c3e6efb7d19256335b5779"
-    sha256 cellar: :any,                 sonoma:        "1f2ccf4565f213d1939870be4752e048c8abba6c1a5833e20093ba628e0a7f3f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "688e643a5c17de084209b3a1d26edb5d91067a0f39397df9a4cae8dcbef09d91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16983204f5bc2d14d99d4f43df2482c974bdc39e3a0549d51f1b8d7f150e307b"
+    sha256 cellar: :any,                 arm64_tahoe:   "c97fa830bec809a259eafea78ad8d575fdd39246e300a094db6e9e6828b20cb1"
+    sha256 cellar: :any,                 arm64_sequoia: "b199cb1787d5f6650c6ba33e3fe3d84ea4d4bbada0df36cc8f2a79c751eeb2a2"
+    sha256 cellar: :any,                 arm64_sonoma:  "b27993864f2a1b481c89020aa6b2384a4c76a2373213038d97cc1d82b29a593d"
+    sha256 cellar: :any,                 sonoma:        "f265eb6beb110c04dfdb3aa85fbf23016e7b8a8ed4943c3d96da32aebe066905"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6242f4b4c44840b063c1a159c3afaa12ec00c8044c0a632149b2db29829987b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a40c45bac82f1fdfc8c01fa149515964b3e509a77eee0d47a1900aa738778305"
   end
 
   depends_on "cmake" => :build

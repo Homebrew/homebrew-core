@@ -4,6 +4,7 @@ class Senpai < Formula
   url "https://git.sr.ht/~delthas/senpai/archive/v0.4.1.tar.gz"
   sha256 "ab786b7b3cffce69d080c3b58061e14792d9065ba8831f745838c850acfeab24"
   license "MIT"
+  head "https://git.sr.ht/~delthas/senpai", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3babf5b4950b6fe98db4af1331a97661168b54b4d1c9a6648b8ef0da5bafbf90"

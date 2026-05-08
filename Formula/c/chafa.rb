@@ -1,8 +1,8 @@
 class Chafa < Formula
   desc "Versatile and fast Unicode/ASCII/ANSI graphics renderer"
   homepage "https://hpjansson.org/chafa/"
-  url "https://hpjansson.org/chafa/releases/chafa-1.18.1.tar.xz"
-  sha256 "e75a9772444247a70178cdd238b522d35c613dfb6f3a3bf516457958109e9910"
+  url "https://hpjansson.org/chafa/releases/chafa-1.18.2.tar.xz"
+  sha256 "0b8d9ba9f347e8b6c0c71878217c9b0e478b4a42aa4babea0bf20840567239c2"
   license "LGPL-3.0-or-later"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Chafa < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8481084fe39e9971a49c4e1aa094c161230de635d53afb45e07e25a21b654cb5"
-    sha256 cellar: :any,                 arm64_sequoia: "0dcd125a55d77500044cdeff708777e60229d8120c85fed9186bb2194a51a8bf"
-    sha256 cellar: :any,                 arm64_sonoma:  "41113fa3f691c936a3805e7cc9cd00b860d50dbbbe2ad7bb65074425d592254b"
-    sha256 cellar: :any,                 sonoma:        "c4cc89aed4c4637d304044c4f44bc8a761f348dedad467a955d22b98bf6628a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "04eeb0c26b507b7b9c6b71c46f1aa92f03ee255cf52a78eef07926c64b867b57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "356f1d9486e4e1a759490d85492e7eda81262ac3e36299bc1d8724c98ac98b73"
+    sha256 cellar: :any,                 arm64_tahoe:   "7e54e1ad7b3ffca076aa84f9c2031fb9b6b2cb9e8d3b10cb4aa26c60584f3fa9"
+    sha256 cellar: :any,                 arm64_sequoia: "e5e873b1ee62224e64475a25ecc7f4f45018e49a9d165fb4811dd84af8eb05b5"
+    sha256 cellar: :any,                 arm64_sonoma:  "f033ead5057314428ad6caefe760c189fcdfdd0db1955db50a4a13b7065e6aeb"
+    sha256 cellar: :any,                 sonoma:        "c9af1b713bca7cc95181e378ba3edf010e196e3044fd72596f857b002bdd46f3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f79d52cd5d1c0bca9a7f856e2e85084b5a134985427a1f8e8d78d4f413bda18f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d3b052da8221a35b0cd35c22618ad4bb21c474df36372c4d9597331bcc2a940"
   end
 
   head do

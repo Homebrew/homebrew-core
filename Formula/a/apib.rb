@@ -31,6 +31,9 @@ class Apib < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "43509a772521b80a03d3702dba034b752371581c0739c6cfb7f1c48217398a42"
   end
 
+  deprecate! date: "2026-04-30", because: :repo_archived
+  disable! date: "2027-04-30", because: :repo_archived
+
   depends_on "cmake" => :build
   depends_on "libev"
   depends_on "openssl@3"

@@ -7,22 +7,17 @@ class Libtins < Formula
   head "https://github.com/mfontanini/libtins.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "af8f272b96dd2249c5bdac6af064a6faa89417b4f8f176745b4017bf98bb9a67"
-    sha256 cellar: :any,                 arm64_sequoia:  "5cb848c245b9b880eb92a07133a8ec40238f08cc88ab9707805368efcc4bdf9d"
-    sha256 cellar: :any,                 arm64_sonoma:   "12126120e038b274429c55f65891dd2eef0bdcb96cf728de5f3fb80b863896f4"
-    sha256 cellar: :any,                 arm64_ventura:  "2c1278e057086dc562909a6e748d782d269cb1969e64841daa0e260ecbdec343"
-    sha256 cellar: :any,                 arm64_monterey: "fb3bcc8fe5fc54313c85eb70e579b649b6c27a73a1486fc84913188ddf8218db"
-    sha256 cellar: :any,                 arm64_big_sur:  "62c5cbbc6883db588cc36570b78c38a83b730457450cc5e7dc492587af01147f"
-    sha256 cellar: :any,                 sonoma:         "6910d2c7380fbd8fcf2f0b4da28409f934c29dcfe7593ccd213c2eaa3fd4b6dd"
-    sha256 cellar: :any,                 ventura:        "609b84f055cac0e8c5633dae7ef910c65954ed009c1fd0d093d6b06f1a2a3661"
-    sha256 cellar: :any,                 monterey:       "a474a01dc33b7daf906ae1b4fedcb5615b35892ddc12efbd497baa8a33ce7bff"
-    sha256 cellar: :any,                 big_sur:        "b14d2403f2e8f6d2906df5843f6532556a3e7ebe84c558fc55ec0acea7938317"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "c011d72ea5ddb35f6896b7f6862513adcedd91f632664802ec59bdc1352c62e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf78cf582a5f1411a8103f91a2c787422a790c2a821dffe949d7c97bd888888e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "38159a186f5cfc1814d2213988961c0722fa0516c3e3e358cce144ca75deeb9b"
+    sha256 cellar: :any,                 arm64_sequoia: "90d59f1f6bfbae9ed0df679f1d5b01e5fbf0250a06952bea0569c730ef91308f"
+    sha256 cellar: :any,                 arm64_sonoma:  "3453d410232d79ff731aa368d989f39330673f81dd4c8bd0c639d0a3d3edd256"
+    sha256 cellar: :any,                 sonoma:        "38e9b99edfe1ecc2fc1fd4b631d23003d68c9328c27af7562e0882caced2a0bd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce171f76d72665a789898ef1699e48c13fa8006b3ccd3c2a54d8fd6f9c843b0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dcbd72e7f1c30f197318654896be2ad81b9d16f910ec1cde31a264c8a850a7d"
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "libpcap"
 

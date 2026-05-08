@@ -4,16 +4,16 @@ class Bamtools < Formula
   url "https://github.com/pezmaster31/bamtools/archive/refs/tags/v2.5.3.tar.gz"
   sha256 "7d4e59bac7c03bde488fe43e533692f78b5325a097328785ec31373ffac08344"
   license "MIT"
+  revision 1
   head "https://github.com/pezmaster31/bamtools.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "7f678e35ee8bbd84f50d0bc33a6ebeb840754b2581599be380d6bbd823f9b70e"
-    sha256 cellar: :any,                 arm64_sequoia: "b0af491c561150a59e610140388f05e9d61eaac14806f6e1aee5069413b4c2c7"
-    sha256 cellar: :any,                 arm64_sonoma:  "7a331a56657ba146a719fbe8911bb43e7b9155c824a6c4f33ecc88931800a53e"
-    sha256 cellar: :any,                 sonoma:        "83b46fc21dd8d03010235b022abe2d98bff4219707b5ff6fbad3c7735609286f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0575567ce67f57826e323b0f26aa06f5b0d4f23db128c45b659bd4f1243fd903"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "464bbce0fe1f5f7e302f4274e4e5bfb1153083f95b7e5d754b70690b8cc0748a"
+    sha256 cellar: :any,                 arm64_tahoe:   "e8e8d1b1517af38c77262824988729d08207aa2cbd2b4c4dbabaec811a512081"
+    sha256 cellar: :any,                 arm64_sequoia: "d2d039c52afcc2619c964a259c7ec509f88d91ac86db3be4b60b0e2e214afe18"
+    sha256 cellar: :any,                 arm64_sonoma:  "2e15c688f92ca708cb3c291a9e60003dd8e68e9c6e1becbe6a253098b5292a79"
+    sha256 cellar: :any,                 sonoma:        "4515350fae1a4dc6e96a85e0fbe9aabd09725a6cdeba153958f7ec4a9f8635d0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c76377b22b8eb2db52870a018989b2fd339c2d0e55500238657e7427a5b9c8a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "542d3eff5a4e76c2c8c00183e5e8d0f1934296c94540a200f923f095ef41549c"
   end
 
   depends_on "cmake" => :build

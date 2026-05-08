@@ -1,10 +1,28 @@
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
-  url "https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.6.tar.gz"
-  sha256 "f93b6dd7ce796b13d02c108bc9f79812245a82e577581c4c9aabe57075c90ea2"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/open-source-parsers/jsoncpp.git", branch: "master"
+
+  stable do
+    url "https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.7.tar.gz"
+    sha256 "830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18"
+
+    # Fix C++11 ABI breakage when compiled with C++17
+    # PR ref: https://github.com/open-source-parsers/jsoncpp/pull/1675
+    patch do
+      url "https://github.com/open-source-parsers/jsoncpp/commit/c67034e4b4c722579ee15fddb8e4af8f04252b08.patch?full_index=1"
+      sha256 "e25bdb33c92f6b8f11f7172e884f94ba38cde6a4efbde49b683e989681e142b3"
+    end
+
+    # chore: remove leftover CMake checks for std::string_view
+    # PR ref: https://github.com/open-source-parsers/jsoncpp/pull/1676
+    patch do
+      url "https://github.com/open-source-parsers/jsoncpp/commit/36f94b68d60774d2a5870a6881a92de02ed76eb1.patch?full_index=1"
+      sha256 "33e40d0e382a1a7e5b1693039703f55ea9e3c8e1e33e2c8c73ad0a92639d1471"
+    end
+  end
 
   livecheck do
     url :stable
@@ -12,14 +30,12 @@ class Jsoncpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b67edf4eb071c0a0976e373c5a67015158f6f35bcf69f6692723aac69e9ef221"
-    sha256 cellar: :any,                 arm64_sequoia: "09ac35efeac2249064d84ab26a79ac116aa9b25b91baedaf065ce7a66d9d20ef"
-    sha256 cellar: :any,                 arm64_sonoma:  "a6436e046cdede285aee56208380f24d37ef592671901d7cea131f00998a5000"
-    sha256 cellar: :any,                 arm64_ventura: "15a94fe13490a723ab78a54a39129e7cc39ad3e3d5e9ea67e17d6b3c3a67e021"
-    sha256 cellar: :any,                 sonoma:        "8917f4a14ef0bd4f4d59f8d1a4689c653dd69180fe6ae7c3915bcd904db1d056"
-    sha256 cellar: :any,                 ventura:       "22fff7a8f16806ace94150ddf11d88ccc58a86326404cd018ad3b87852df7bf3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9447d9e39e2d2af144df7436aad79a6f7c3bb9cf75bb21e2409dfcae273fa4e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "460d3286f4bdf820e9426b66e3773551420c1a1dd1b3bf62d7f20bf2e7e955c1"
+    sha256 cellar: :any,                 arm64_tahoe:   "5beaf350688283483e3f7c82726a8d11ec6cc88b389051916b09e21850a2b498"
+    sha256 cellar: :any,                 arm64_sequoia: "a71f80781827c5677bafdfeb474711cf3b5b48a3250adf99bbbbd49d07dd15c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "362ddd256b7f2bd664bed9375c3697a7ffe11a19bc120f1c496fec56316b1534"
+    sha256 cellar: :any,                 sonoma:        "5f5d30dac714b5dfd17f4de27349692cd949f0144ccb3780860015b87a275b98"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b8d1661e7e6a7b5c6307c97ae08aea55e19bcb0587afe220e5c38a70f64a3f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7df8d9a070ee27066fb2287e2a48218ffe143ccc5bf607a701143a57dae242d3"
   end
 
   # NOTE: Do not change this to use CMake, because the CMake build is deprecated.
@@ -28,13 +44,6 @@ class Jsoncpp < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "cmake" => :test
-
-  # remove check_required_components for meson build
-  # upstream pr ref, https://github.com/open-source-parsers/jsoncpp/pull/1570
-  patch do
-    url "https://github.com/open-source-parsers/jsoncpp/commit/3d47db0edcfa5cb5a6237c43efbe443221a32702.patch?full_index=1"
-    sha256 "1d042632c3272e6946ac9ac1a7cb3b1f0b2a61f901bd20001bed53fc6892d0e0"
-  end
 
   def install
     system "meson", "setup", "build", *std_meson_args

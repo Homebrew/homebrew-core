@@ -1,8 +1,8 @@
 class Redress < Formula
   desc "Tool for analyzing stripped Go binaries compiled with the Go compiler"
   homepage "https://github.com/goretk/redress"
-  url "https://github.com/goretk/redress/archive/refs/tags/v1.2.64.tar.gz"
-  sha256 "12623b9205b61e8cfa0f8115002182f9e0ceb9803d3b51a9e4f8eddd41ecb75c"
+  url "https://github.com/goretk/redress/archive/refs/tags/v1.2.66.tar.gz"
+  sha256 "29c3be55f3f74a5138615e19baecb1104a8a03d78079fbc0ae9c53ae02480bb3"
   license "AGPL-3.0-only"
   head "https://github.com/goretk/redress.git", branch: "develop"
 
@@ -12,12 +12,12 @@ class Redress < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de42c81406bd24f302f218df4f185885d1623daaa09305fcaa492b9217c4a449"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6124546bf9571366c28201c2c2a0b76234643081c75151ecbf9507c9cdced0b1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7f9f67ee2127d6be66b99942a3fa248a8610044d83e1bed4f4b50d0d7fabda1f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aa93197429a019de14541fc9dbee4b867faf431adcd036345b92a28944e1dc43"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b59aca6c247e668e4306a3eb22bfcd98c5e4ee257530468a1779897308b50d1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44783a9e8930ceea51efc10329b46d583772db63cbe103d1e9506c1aefbddf56"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc64a6b666b5a8e681432c0fe4a302da0ff702c19589c545a24c74b5292a1b28"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95b521e84ae594402c6bd075e0122bf922ffdb4167617082fdabef013f15f957"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb0dc7d22128605bc279a6d6bfc447d259a22917aa572f83c4610f6bb9b029a3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5fc9f09dd03e9270afebd89c470de8f870e1174fc165bb10cdaab0e17ea03d7a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "29095b425633a461859e2d08cda46c08db1225e98f1783a71135dcbb7e633a8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91320def415c7d0428311246fe890abd627156d9c0e60ede5d3a98eb16c71aba"
   end
 
   depends_on "go" => :build

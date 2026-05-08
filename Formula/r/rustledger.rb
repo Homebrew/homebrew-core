@@ -1,18 +1,18 @@
 class Rustledger < Formula
   desc "Fast, pure Rust implementation of Beancount double-entry accounting"
   homepage "https://rustledger.github.io"
-  url "https://github.com/rustledger/rustledger/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "0e352526d2b33497b9f13df0237fca33a8ec0b6dd72ae4297c330a496efc80a2"
+  url "https://github.com/rustledger/rustledger/archive/refs/tags/v0.14.1.tar.gz"
+  sha256 "9bf9eed242b88e0997363cf24db3d0865e867074d34b194d3c2411629cfe0c37"
   license "GPL-3.0-only"
   head "https://github.com/rustledger/rustledger.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "42f99d5ec7572b09a18fe931fd1556d213732f9e422f022abf4ba3429d11fea4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b1cadea3f4bc81492c1722e7d7a22540a68feaa17cc37e217e048ed2a7b2895f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6245d4e08962ac539102c2772796f070db808c2087f984e8b475d6da988b476b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0e7ae01b71276dc985fcfa955e851c55222f3dd9557b500795664bc924eeb91e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "14b70802834e49a8beda394f64107dca611f33e260b7ab762f8065bb981464cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5808d5851b2efa3ddc22f994f4ba1c3d3d7d6c0d11429409962a37732ba0d58"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bdf02bad3ebb3f43ca5160cc458d8a7e955dd459652daea1d9d5ba2c3caa8084"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4f7eb3d9338dca98907f5a38318dc8386ccb881b38b2d728bc830bd8d6b94849"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09bb3826871a897f5179c91528838ee5d40880b33a72177595efb8f81be9dce3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ff4dd67a6951c06e0cf103f04d7e8a3e4592ac2089d7ae42fe68c566599fa106"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "133efd3fa008f3df7afe0320cbfbee433c20235aa68bb5d160c862770cba635f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba4e6882c2baf098a0a6429e0edcbe80423400cef174d439caba1d915d4fea68"
   end
 
   depends_on "rust" => :build

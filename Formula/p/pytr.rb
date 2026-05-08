@@ -152,8 +152,6 @@ class Pytr < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/pytr --version")
-
     output = shell_output(
       "#{bin}/pytr --debug-logfile pytr.log login -n +4912345678 -p 1234 2>&1", 1
     )

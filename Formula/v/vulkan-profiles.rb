@@ -4,7 +4,7 @@ class VulkanProfiles < Formula
   url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/vulkan-sdk-1.4.341.0.tar.gz"
   sha256 "a20173e02fba707e4d1ef2badd1c0009df8aa142cb402ac48670be12e8c3fda6"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/KhronosGroup/Vulkan-Profiles.git", branch: "main"
 
   livecheck do
@@ -13,12 +13,12 @@ class VulkanProfiles < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7a173ab675e9c90c1fa4af74722308057623e65b1c893fb4cb64ed5d52255679"
-    sha256 cellar: :any,                 arm64_sequoia: "ff15d720beaf413868fc7105c8a8c2acc76e7dd87f5ed615fe5e08fad5767713"
-    sha256 cellar: :any,                 arm64_sonoma:  "367fd3313c20c5514b8cc127cdad0b7df2cf27d92a9d1a0091e4e68a205c27a8"
-    sha256 cellar: :any,                 sonoma:        "e3f752b08717a737bdb2e0f3ec4caeb36aed2492cb43e13f76164b9b48d9f129"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ef0052707a6505a93de581f8ddeeb263c5ae9d4514a9ab759f03811eb8cade2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cc02fe269e747f23e656e4cfd0ddaac01cb50bebdfed100625d920b5d48715b"
+    sha256 cellar: :any,                 arm64_tahoe:   "c08c2025c487993a951435edfcd8475a7917d46ab7fe86878a5f8c189c87c017"
+    sha256 cellar: :any,                 arm64_sequoia: "111374902e7419773f82cbb852cde07008e88c40c19ffe715ee3f8a12b2b98bc"
+    sha256 cellar: :any,                 arm64_sonoma:  "4df7700c9fa043aac3737a4777224602dd5e664121948530f89f6b2ce1e3a25b"
+    sha256 cellar: :any,                 sonoma:        "6c53ab8583bf76fef99e40c62a6876958e3f744b642245c5bb0f81a1fef6eadf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "15198b9506da35cdb3cb1a73ebe7eba84dfede5566eedea6c1a9e0820c61162b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f492d785a0b706da0405b14ae3e7d56129dd6158f43c69707fee73a550ee3313"
   end
 
   depends_on "cmake" => :build

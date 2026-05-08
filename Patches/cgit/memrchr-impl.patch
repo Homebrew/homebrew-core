@@ -24,8 +24,8 @@ to the mailig list. Let's give it another shot.
 
  cgit.h    |  4 ++++
  cgit.mk   |  9 +++++++++
- memrchr.c | 49 +++++++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 62 insertions(+)
+ memrchr.c | 50 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 63 insertions(+)
  create mode 100644 memrchr.c
 
 diff --git a/cgit.h b/cgit.h
@@ -70,7 +70,7 @@ new file mode 100644
 index 0000000..46ec17f
 --- /dev/null
 +++ b/memrchr.c
-@@ -0,0 +1,49 @@
+@@ -0,0 +1,50 @@
 +/*
 + * SPDX-License-Identifier: ISC
 + *
@@ -95,6 +95,7 @@ index 0000000..46ec17f
 + * PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
 + */
 +
++#include "git-compat-util.h"
 +#include <config.h>
 +
 +#ifndef HAVE_MEMRCHR

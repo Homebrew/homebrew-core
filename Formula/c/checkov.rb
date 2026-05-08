@@ -6,6 +6,7 @@ class Checkov < Formula
   url "https://files.pythonhosted.org/packages/53/37/5cb7133fc3910d7a01d3a5d27b266936a55be08b1497edac63581621802b/checkov-3.2.520.tar.gz"
   sha256 "e566d06f3c57fd12339a0adc4e0a73f235572958e7cd3838a806212984b50f2e"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://pypi.org/rss/project/checkov/releases.xml"
@@ -17,15 +18,16 @@ class Checkov < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ff9eac561b6b9167e79942566d98e545925fcea885ed1a787a4f3c29728e3e9f"
-    sha256 cellar: :any,                 arm64_sequoia: "5331fa2017681204cf439872bc13f354a5991b738773e744b9dca0b97d7ea744"
-    sha256 cellar: :any,                 arm64_sonoma:  "58fd4fedb08c2214d0745a74c2ccc9711fae14c903277f904105cb1221297d4d"
-    sha256 cellar: :any,                 sonoma:        "ec0fccc0119937fdba8fbdba91c24004086e20a79080c2980a7d4d843ebca5b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4fca3c249dfcdcf259dd458d1ff8f6b3799dfe400e652c6e2a5596d2d9e1155c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fb74e5708b1ef4f418e43bada288d7dafc43c21149a54e8499d8c370383f6a1"
+    sha256 cellar: :any,                 arm64_tahoe:   "71cc61cfcf76f5f70bb3bcbf886f27e68e1a237c126bb9c96e3a4307b3dea51a"
+    sha256 cellar: :any,                 arm64_sequoia: "2c24ab15fe1ed0578b425adfb7517b73bd4919ec59145de91eacceab6d24baa3"
+    sha256 cellar: :any,                 arm64_sonoma:  "44ad4b6980be81cf3ba12e501810e07c8c39a37cb3d8e31d11fb03b333e1a249"
+    sha256 cellar: :any,                 sonoma:        "c928451a174fa1b71f70a27759452b5f48385e7acc995579835b31a7c5df1763"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3b5dc64146a172442537eee7efcf28875f2036c210f296ab1360860cf588041"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8588d8a4d37bc7bbca5a60a951d50e0b6e5fb0d608cb40a6ef5507e590c21db8"
   end
 
   depends_on "cmake" => :build # for igraph
+  depends_on "maturin" => :build # for orjson
   depends_on "rust" => :build # for orjson
   depends_on "certifi" => :no_linkage
   depends_on "cffi" => :no_linkage
@@ -135,8 +137,8 @@ class Checkov < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "click-option-group" do
@@ -205,13 +207,13 @@ class Checkov < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/df/b5/59d16470a1f0dfe8c793f9ef56fd3826093fc52b3bd96d6b9d6c26c7e27b/gitpython-3.1.46.tar.gz"
-    sha256 "400124c7d0ef4ea03f7310ac2fbf7151e09ff97f2a3288d64a440c584a29c37f"
+    url "https://files.pythonhosted.org/packages/e1/63/210aaa302d6a0a78daa67c5c15bbac2cad361722841278b0209b6da20855/gitpython-3.1.49.tar.gz"
+    sha256 "42f9399c9eb33fc581014bedd76049dfbaf6375aa2a5754575966387280315e1"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "importlib-metadata" do
@@ -277,6 +279,9 @@ class Checkov < Formula
   resource "orjson" do
     url "https://files.pythonhosted.org/packages/9d/1b/2024d06792d0779f9dbc51531b61c24f76c75b9f4ce05e6f3377a1814cea/orjson-3.11.8.tar.gz"
     sha256 "96163d9cdc5a202703e9ad1b9ae757d5f0ca62f4fa0cc93d1f27b0e180cc404e"
+
+    # Remove nightly feature flag, Rust 1.95 is now stable
+    patch :DATA
   end
 
   resource "packageurl-python" do
@@ -430,8 +435,8 @@ class Checkov < Formula
   end
 
   resource "uritools" do
-    url "https://files.pythonhosted.org/packages/dd/f7/6651d145bedd535a5bdd6dad108329ec1fec89d38ec611f8d98834eb5378/uritools-6.0.1.tar.gz"
-    sha256 "2f9e9cb954e7877232b2c863f724a44a06eb98d9c7ebdd69914876e9487b94f8"
+    url "https://files.pythonhosted.org/packages/8a/97/508fa009ddc9c0d0e6e687eca0e3aa6ff09ac9836f98c28958a7eed936c1/uritools-6.1.0.tar.gz"
+    sha256 "be97e452528e7a42ef0a4df68364ddd77833e982c5bac5cdcfee15c81f65e96b"
   end
 
   resource "urllib3" do
@@ -440,8 +445,8 @@ class Checkov < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
-    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
+    url "https://files.pythonhosted.org/packages/2c/ee/afaf0f85a9a18fe47a67f1e4422ed6cf1fe642f0ae0a2f81166231303c52/wcwidth-0.7.0.tar.gz"
+    sha256 "90e3a7ea092341c44b99562e75d09e4d5160fe7a3974c6fb842a101a95e7eed0"
   end
 
   resource "xmltodict" do
@@ -455,8 +460,8 @@ class Checkov < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/e3/02/0f2892c661036d50ede074e376733dca2ae7c6eb617489437771209d4180/zipp-3.23.0.tar.gz"
-    sha256 "a07157588a12518c9d4034df3fbbee09c814741a33ff63c05fa29d26a2404166"
+    url "https://files.pythonhosted.org/packages/30/21/093488dfc7cc8964ded15ab726fad40f25fd3d788fd741cc1c5a17d78ee8/zipp-3.23.1.tar.gz"
+    sha256 "32120e378d32cd9714ad503c1d024619063ec28aad2248dc6672ad13edfa5110"
   end
 
   def install
@@ -501,3 +506,15 @@ class Checkov < Formula
     assert_match "Passed checks: 1, Failed checks: 0, Skipped checks: 0", output
   end
 end
+
+__END__
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -1,7 +1,6 @@
+ // SPDX-License-Identifier: MPL-2.0
+ // Copyright ijl (2018-2026)
+
+-#![cfg_attr(feature = "cold_path", feature(cold_path))]
+ #![cfg_attr(feature = "generic_simd", feature(portable_simd))]
+ #![cfg_attr(feature = "optimize", feature(optimize_attribute))]
+ #![allow(unused_features)] // portable_simd on universal2 cross-compile

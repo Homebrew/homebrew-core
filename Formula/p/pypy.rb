@@ -1,8 +1,8 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.21-src.tar.bz2"
-  sha256 "23537c62e875ad1a3e675c64d4435eff392ea20843e20d690fd1400b79363d64"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.22-src.tar.bz2"
+  sha256 "f4445c1a835effe4d3b26521e73a7780893dec02520aa6799a377c9a0fcdd8ad"
   license "MIT"
   head "https://github.com/pypy/pypy.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Pypy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "36d9cf694cfd593c6e7bee6062749b88bc13b585e8ae3e9db8fc5e3eb4dd4a31"
-    sha256 cellar: :any,                 arm64_sequoia: "c9efcb91aa406ca6c2c618712013655bb873f18047dee6b7af9ac4a0d716d26d"
-    sha256 cellar: :any,                 arm64_sonoma:  "d15a72ab63690f79f685a78f6f9a5fa4b8a1c77f85d014431ae5e48f210806d9"
-    sha256 cellar: :any,                 sonoma:        "40d7a665ea9dcf3f56738d213659dfeb14b9bd7f1db70bc5f729577e368f1e5d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1056baf16f2311a1b2ac1b3a6cffaf5974133d1e83b3bb0cf222689689348cd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6eca856704967e468bdb8b64ccb32bf27996ca91565cbe1a088cd8064714e45c"
+    sha256 cellar: :any,                 arm64_tahoe:   "214b15d7d460ab7d02bb76aba85c69856c684f82269ff0b9e7dd2edcc03cc387"
+    sha256 cellar: :any,                 arm64_sequoia: "46dfc79c8c491926ee90a20d2e4aa76a4382f9b7fd0e4270b13035a00085a5cd"
+    sha256 cellar: :any,                 arm64_sonoma:  "6d26a44841ce2d5e76db035b17425c48c3a8cf635acb0b11f08497b8796f5e8e"
+    sha256 cellar: :any,                 sonoma:        "16419b06de0a239154e4f0cebf13d4f6e8fd91307c0874cc4933066deacc06d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "61ae9fca34d0f6c3f763f49e64cb2a1169d0e4b481be7a0b94f7abb1020ae2c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ac8fe37dd140eb45806812aed8bf1fc39903ee96794fd25bf2279feff3c133e"
   end
 
   depends_on "pkgconf" => :build

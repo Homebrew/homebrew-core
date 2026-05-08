@@ -2,8 +2,8 @@ class InfluxdbAT2 < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      tag:      "v2.8.0",
-      revision: "40a633239e25dde9efcf0f21d5950897051cf8a9"
+      tag:      "v2.9.0",
+      revision: "fde85a2af2a62eec0bb84216786c7a48a61cbd5e"
   license "MIT"
 
   livecheck do
@@ -12,12 +12,12 @@ class InfluxdbAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eac49c488c06b5fb0dac04de800ff3d793fa6893f19bac8203f15a46e2ec2f1f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "81b814b815ce01c996d4d6f74a2e640d45eaef750e30499153e1c759a736fdee"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40514cfa58d87f940fad4fdd66d5057f8ec21097fe639db27ee722ca65e75093"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a332a795d88b9c8cea1f8c1676397097b7a5d8a008fbd483c3acfe8950a92d3b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1f7167e5c4e97f78db67e742713f84b200abce1b6d6bdaf66664aeddf1dee662"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "708c107dee67d55476b461806973c399e3afd4c49d42ea189bda0411dc6a7775"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f5c619e32e6a2e1684f49cf50846c85898ddc701f0cac5b6b762e7e0195c6c29"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "073d4461d2de0c84a5f8d32b201fb38b7d035c60ffa7cc70bb5ac9349aa12b48"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8668798cd2f15b9806557d0e3e83996d6d621fb9ded9d65bf85981c8b332a725"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d7dfb137d5974bd49017b8dab5b95f90b099adc02667753cee5eb1e4a2d22389"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "30537818779dd86d7bc058578b53f492b271c616cb268bf98bfa3409782d9335"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6713ba67fc66d156c04b410c20e3956249fed32819e88c0c80f9deb9c739e144"
   end
 
   keg_only :versioned_formula
@@ -31,8 +31,8 @@ class InfluxdbAT2 < Formula
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.14.tar.gz"
-    sha256 "465d2fb3fc6dab9aca60e3ee3ca623ea346f3544d53082505645f81a7c4cd6d3"
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.3.0.tar.gz"
+    sha256 "769deabe12733224eaebbfff3b5a9d69491b0158bdf58bbbbc7089326d33a9c8"
 
     livecheck do
       url "https://raw.githubusercontent.com/influxdata/influxdb/v#{LATEST_VERSION}/go.mod"
@@ -43,8 +43,8 @@ class InfluxdbAT2 < Formula
   # NOTE: The version/URL here is specified in scripts/fetch-ui-assets.sh in influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "ui-assets" do
-    url "https://github.com/influxdata/ui/releases/download/OSS-v2.7.12/build.tar.gz"
-    sha256 "682f8660c6b160a918f4631a791c76da1437c62de47d6a5a4cb0bd6a3a8e6800"
+    url "https://github.com/influxdata/ui/releases/download/OSS-v2.9.0/build.tar.gz"
+    sha256 "9cb2df818f1f5badc23e051f51eef7e8b143540233947606eadad309f395bb0e"
 
     livecheck do
       url "https://raw.githubusercontent.com/influxdata/influxdb/v#{LATEST_VERSION}/scripts/fetch-ui-assets.sh"

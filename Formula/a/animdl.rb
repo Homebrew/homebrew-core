@@ -19,6 +19,9 @@ class Animdl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ebb633e0f672d698a29678b8dde3f7e0119195e410528f163eff55232f6bb0e"
   end
 
+  deprecate! date: "2026-04-27", because: :unmaintained
+  disable! date: "2027-04-27", because: :unmaintained
+
   depends_on "certifi"
   depends_on "libyaml"
   depends_on "python@3.14"

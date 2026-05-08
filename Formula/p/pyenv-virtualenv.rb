@@ -1,8 +1,8 @@
 class PyenvVirtualenv < Formula
   desc "Pyenv plugin to manage virtualenv"
   homepage "https://github.com/pyenv/pyenv-virtualenv"
-  url "https://github.com/pyenv/pyenv-virtualenv/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "9e2a425d96447bb45235ba8630acd4906d018e5e93ea2bd0133aad3d8bda24ba"
+  url "https://github.com/pyenv/pyenv-virtualenv/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "9aaf9f01660f10f538251fdaaf552d429e7fd41efb7b651b69a3a9768f4a181f"
   license "MIT"
   version_scheme 1
   head "https://github.com/pyenv/pyenv-virtualenv.git", branch: "master"
@@ -13,12 +13,12 @@ class PyenvVirtualenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2367b93a908ce216bc8d5c14216466eebde917271f97951ac13da21e08ca204f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2367b93a908ce216bc8d5c14216466eebde917271f97951ac13da21e08ca204f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2367b93a908ce216bc8d5c14216466eebde917271f97951ac13da21e08ca204f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "88ed48e401f7a08e8fa61a978f3ab6d72de09d4dfb2cdf2e94e6569075bad310"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "185778a56be8e883b66a26ac2f03c6fc7ac3059a50e1d2738e246efd5303c9d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "185778a56be8e883b66a26ac2f03c6fc7ac3059a50e1d2738e246efd5303c9d0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "db1cbb985d132f266721fa18646934134da8937207cae9d6556820549eb99abb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "db1cbb985d132f266721fa18646934134da8937207cae9d6556820549eb99abb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db1cbb985d132f266721fa18646934134da8937207cae9d6556820549eb99abb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0dfd9c5b2043b4de679a5451881fb073eb11026aed8bbc9c5bafde5f618b0c91"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab5d01834a7fa0ab1f874a9e9df33d907422b56204ae73da505a159288412f21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab5d01834a7fa0ab1f874a9e9df33d907422b56204ae73da505a159288412f21"
   end
 
   depends_on "pyenv"

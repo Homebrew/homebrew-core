@@ -1,8 +1,8 @@
 class Glslang < Formula
   desc "OpenGL and OpenGL ES reference compiler for shading languages"
   homepage "https://www.khronos.org/opengles/sdk/Reference-Compiler/"
-  url "https://github.com/KhronosGroup/glslang/archive/refs/tags/16.2.0.tar.gz"
-  sha256 "01985335785c97906a91afe3cb5ee015997696181ec6c125bab5555602ba08e2"
+  url "https://github.com/KhronosGroup/glslang/archive/refs/tags/16.3.0.tar.gz"
+  sha256 "efff5a15258dce1ca2d323bf64c974f5fca03778174615dbc30c8d36db645bf5"
   license all_of: ["BSD-3-Clause", "GPL-3.0-or-later", "MIT", "Apache-2.0"]
   compatibility_version 1
   head "https://github.com/KhronosGroup/glslang.git", branch: "main"
@@ -13,12 +13,12 @@ class Glslang < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "81924c6c819f9d643c33be3b3ee7f13f80ea92785aabe196439f791f7da752f6"
-    sha256 cellar: :any,                 arm64_sequoia: "dc0515864df090407e1f04780264648a2d8ba285dbc9d151a29d53ed35e3d2e5"
-    sha256 cellar: :any,                 arm64_sonoma:  "a2fab91a8da94e119a37d698d28bb924c7fb30c03413f77bd371a8eb6fe9b952"
-    sha256 cellar: :any,                 sonoma:        "cdebed0b1446d431a203e5c1f3c0810dcfa78f7e3f592a1ca24b9de7071a912a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a69059366d774589e644eca0ce8a693fbc84c5c029275633ba78b1f378913f3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b623c9588fd39840421a180f4f5a9e04f9b630b2b50c3d03f33a0d3a98b6b67"
+    sha256 cellar: :any,                 arm64_tahoe:   "fd99a43cfaf561faf3503b990acec14c0bdb53f53f03b8c3d1130b5f4382b287"
+    sha256 cellar: :any,                 arm64_sequoia: "39d78330b329675a2c72dea2cad0bcea6b88f3b2b7cec71badec87d5328d307b"
+    sha256 cellar: :any,                 arm64_sonoma:  "26b340d94c04da2d20eae8bfb067d3db0a5848b211882b8ac57064bbd23cfd1f"
+    sha256 cellar: :any,                 sonoma:        "77e333b928a4ccc4020b12a76e76075293be6144caceb6f6d7ebec8e987b33ba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06ea9072fade813efe648a8d9e0b4e49adf70ec8b007691f53a8660745171f03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27164f95b7738da40cd1bdb9473403fa0f0905d3259d3b65f7f14cf06655eeec"
   end
 
   depends_on "cmake" => :build

@@ -1,19 +1,18 @@
 class Termusic < Formula
   desc "Music Player TUI written in Rust"
   homepage "https://github.com/tramhao/termusic"
-  url "https://github.com/tramhao/termusic/archive/refs/tags/v0.12.1.tar.gz"
-  sha256 "686f66856d755f2d2056a9548f074b11ba9568ac8075fafd8903e332bf166227"
+  url "https://github.com/tramhao/termusic/archive/refs/tags/v0.13.2.tar.gz"
+  sha256 "661e1c39135f6eeb01cb6df199b8dcdd902ac456e96bd204ea4fda7ec6ae41ef"
   license all_of: ["MIT", "GPL-3.0-or-later"]
   head "https://github.com/tramhao/termusic.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "e3facb7042db6b4dd321d40077b8f19c1c4db1880fe2e1814555f573656cb44b"
-    sha256 cellar: :any,                 arm64_sequoia: "d83195d661adccb98aebbb151861fe34cd51fdefe46865ea1da642d4195f8b41"
-    sha256 cellar: :any,                 arm64_sonoma:  "ab04857bd9d272a05c41d7bad1cff3dda4926b96250c569452caf421012ea888"
-    sha256 cellar: :any,                 sonoma:        "a63a6ab065346edc1f230305318ba7ca301b2c065c3fe6414f6f4bcc8c5eb774"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5bb1fb574dd37e881471ae1eb8e8b027ae83ab1626d3aed9c8fae06568f7ac6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53a444e5a34adb183b14326f05c0f5a251d4e17e6e59d7d6cd2e4e4a397b2d24"
+    sha256 cellar: :any,                 arm64_tahoe:   "849a8e2baf136452070b25f3f41f9b1e5ca2a13d42e52c2cc4f3d4343caa236d"
+    sha256 cellar: :any,                 arm64_sequoia: "a4a71b8e4eb7daaf98313a4b773c124334c2d08662cf6ff7a9ab6576a7965482"
+    sha256 cellar: :any,                 arm64_sonoma:  "d746ca41ae4e7e5fe17ed7179922ac79c86b7485556cc9937824b7309c2d9366"
+    sha256 cellar: :any,                 sonoma:        "72a694587aab41e4482759d5da0652853d60505467125bebdfb6dbfc23cd8b46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "294ca981f0d206a9bc8a960c4cda0206d6ec9da0de34622ed09b60f679f27a1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9260de245136bc641b94a891a0bdb97cf41b7e1e58485fcc65c666ab1827591a"
   end
 
   depends_on "pkgconf" => :build

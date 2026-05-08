@@ -11,12 +11,13 @@ class Ghidra < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b127dc5cd7460a62937fb94341221b53d2cb424f713482fa69d3412e05b6b779"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e030d0d082c0dc6d2b5c6669671719b8d619e3c9db082021966cc1b05dfb8e2a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "61979e62e4a3a36fea845664f087e75de1aa7563271f298ef888a1c9ab951ddc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f2100cf3fe75867af53608f21896de0856b4c179db2814acd5ef89fb24e885c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e2801dc27010ed14f2e7ea64ebe5d4088bacee2ae454abb8eafb6d4c839cfce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51f334661eac028aa05eb5108e240385db0dfb493ce50f6e18a013f8dc59194d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ebf487d4b8d81dce759bf069f43008788d3f79de534e1a3c658ecd7cad97d58b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "74a0188d43ca6b1e108752381a1f9b0f8dc4f3424c0151b0daa21896d480257b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a589ce90ef47f1971fe87b5f12f93abac50cad69b5583f1a6a96e9f51f369b0a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "52bce83f468089abc2cdc4f7ec37c3da201fbfea86b1a18caac02ffc08d15e6a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "99b14662788f6044b1aaeb82bab63d70894ebf725a405efb5f1b0addd2174168"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c304a0f8fc1d50ef2eb74e862109aa1338af079d2ee992562ec4521efca419f"
   end
 
   depends_on "gradle" => :build
@@ -33,6 +34,8 @@ class Ghidra < Formula
     libexec.install (buildpath/"build/dist/ghidra_#{version}_PUBLIC").children
     (bin/"ghidraRun").write_env_script libexec/"ghidraRun",
                                        Language::Java.overridable_java_home_env("21")
+    (bin/"pyghidraRun").write_env_script libexec/"support/pyghidraRun",
+                                         Language::Java.overridable_java_home_env("21")
   end
 
   test do

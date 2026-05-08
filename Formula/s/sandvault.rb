@@ -1,15 +1,17 @@
 class Sandvault < Formula
   desc "Run AI agents isolated in a sandboxed macOS user account"
   homepage "https://github.com/webcoyote/sandvault"
-  url "https://github.com/webcoyote/sandvault/archive/refs/tags/v1.13.0.tar.gz"
-  sha256 "4c74a9c8651d95531dc539b8629e6767dd60b67c9d62f36cb1aadfa33c30541f"
+  url "https://github.com/webcoyote/sandvault/archive/refs/tags/v1.18.0.tar.gz"
+  sha256 "694e2cf6973c58756052d3176a7ecc90949642d27b81c4f2c5ea0cb5fbd39e4f"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e79d2bcb7d1377b12667b289506d79e2f60333a0779ae2d3085b992fe128e4f5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e79d2bcb7d1377b12667b289506d79e2f60333a0779ae2d3085b992fe128e4f5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e79d2bcb7d1377b12667b289506d79e2f60333a0779ae2d3085b992fe128e4f5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d38ccf2d813b3d1669daa36be31c1cf1e715e322e0a61a1cfde7d646006b372d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c0ac955dd6598fed72fa27024df8b460e7c1c46caf161f7da48541beba663527"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0ac955dd6598fed72fa27024df8b460e7c1c46caf161f7da48541beba663527"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0ac955dd6598fed72fa27024df8b460e7c1c46caf161f7da48541beba663527"
+    sha256 cellar: :any_skip_relocation, sonoma:        "365cdaf9b0f3296c230f114a9b3847b56dab6bd97c55053f3e151de8c3a7fbc9"
   end
 
   depends_on :macos
@@ -17,8 +19,8 @@ class Sandvault < Formula
   conflicts_with "runit", because: "both install `sv` binaries"
 
   def install
-    prefix.install "guest", "sv", "sv-clone"
-    bin.write_exec_script prefix/"sv", prefix/"sv-clone"
+    libexec.install "guest", "helpers", "skills", "sv", "sv-clone", "sv-agentsview-setup"
+    bin.write_exec_script libexec/"sv", libexec/"sv-clone", libexec/"sv-agentsview-setup"
   end
 
   test do

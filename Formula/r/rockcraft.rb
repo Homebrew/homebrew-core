@@ -5,10 +5,9 @@ class Rockcraft < Formula
   homepage "https://documentation.ubuntu.com/rockcraft/"
   # git checkout needed for setuptools-scm
   url "https://github.com/canonical/rockcraft.git",
-      tag:      "1.17.2",
-      revision: "272fa0c8deeef92ad97ba9b29ad187ad0c68a50f"
+      tag:      "1.18.0",
+      revision: "0bd0727378641e04184a0bb4d63d9b014955c824"
   license "GPL-3.0-only"
-  revision 2
   head "https://github.com/canonical/rockcraft.git", branch: "main"
 
   livecheck do
@@ -17,12 +16,12 @@ class Rockcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2d907db5bfe3d7422a2b0c9e85e24fb3bac5972572f3260427996bc43c33de90"
-    sha256 cellar: :any,                 arm64_sequoia: "4f9883bc1dfe741efb96efd1733e642237b1a924d95abd6f6a49170f1a94fef5"
-    sha256 cellar: :any,                 arm64_sonoma:  "2be85fc2441c461a3578d39a4020a1aaff582fa42faf0d2362f495e3c9540361"
-    sha256 cellar: :any,                 sonoma:        "3a79d561582c25cd07b7779351252f7d2fe45b8d0c3b4b0d3f7b60b1b7e08c5d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c9339380f5ffe0a9142514530143c3fbed1b2a71782b3aad49f3565c86f6e4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f18987af56be781871f7350bb50f875a9da5c988b8fa74857e0de036153e23e"
+    sha256 cellar: :any,                 arm64_tahoe:   "17805fb82ebdd255a5282aa0fe12bd0a0e5858da288bf51629e09173efc5d415"
+    sha256 cellar: :any,                 arm64_sequoia: "cf06d3a6e22b1b32aeb9c3e538c8fdee799aad01a3522f40a31114154a6d4ffe"
+    sha256 cellar: :any,                 arm64_sonoma:  "f4322d86fe03554bdbf4faa68518b681b520d8167eabcec437c6d66f3176d849"
+    sha256 cellar: :any,                 sonoma:        "4d13fb0d8a23aab192d666f0cda352f6cdbadb650900b73ae7fe718b3d547024"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e180175b5d55bc50569250759479dfcfd1e9602df99a4965ff9e95139909d22d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4394c45a26db7323fc16e76a7e00d5ca1ca86bdab8371c9df7f41bc6bc96b7a0"
   end
 
   depends_on "certifi" => :no_linkage
@@ -52,8 +51,8 @@ class Rockcraft < Formula
   end
 
   resource "craft-application" do
-    url "https://files.pythonhosted.org/packages/54/53/b438062f5e86cf01bf3efc39069624502c741379e12c395fc2c2fec1b1f5/craft_application-6.3.1.tar.gz"
-    sha256 "bdac674c77c79e62fdf21cd786ddf2033bdb72de14bd0f742a5807478be7451f"
+    url "https://files.pythonhosted.org/packages/31/88/1a31a8085bf01ca5f00aeda88a5f5e4cff314fd4e56ee2a629f2c1d95ca3/craft_application-6.4.0.tar.gz"
+    sha256 "02b6afaaad0462f752c1c4715b6da4d7b7ee57bcd71b4ca38234cb18220a4354"
   end
 
   resource "craft-archives" do
@@ -102,8 +101,8 @@ class Rockcraft < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "jeepney" do
@@ -127,8 +126,8 @@ class Rockcraft < Formula
   end
 
   resource "lazr-uri" do
-    url "https://files.pythonhosted.org/packages/58/53/de9135d731a077b1b4a30672720870abdb62577f18b1f323c87e6e61b96c/lazr_uri-1.0.7.tar.gz"
-    sha256 "ed0cf6f333e450114752afb1ce0c299c36ac4b109063eb50354c4f87f825a3ee"
+    url "https://files.pythonhosted.org/packages/88/a9/2f81f86bb83c32c3ab585e58c32871c5ce99011293104f8a3c955909397d/lazr_uri-1.0.8.tar.gz"
+    sha256 "0e45854eb22687958dfb807655ff7e095b1765be649e24ccc581934d0337d3b4"
   end
 
   resource "license-expression" do
@@ -157,8 +156,8 @@ class Rockcraft < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/de/0d2b39fb4af88a0258f3bac87dfcbb48e73fbdea4a2ed0e2213f9a4c2f9a/packaging-26.1.tar.gz"
-    sha256 "f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "platformdirs" do

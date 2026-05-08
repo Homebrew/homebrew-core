@@ -6,18 +6,18 @@ class Libdpp < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "c5022345a6b7fc9c4518698d511ad1487e53a295707b89368032cd9590ad32cc"
-    sha256 cellar: :any,                 arm64_sequoia: "f179deb074f4384b8ae185ee2e6f6b05bbd63679838d65f8114595890bdf615d"
-    sha256 cellar: :any,                 arm64_sonoma:  "babee221f0768dfd793918335a1d4fd7a862151cdc7c45d6a17d911cc448d833"
-    sha256 cellar: :any,                 sonoma:        "183dff2ab83799bc9ca38c00af58bebd310959ee13912a529d2615163152bea1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "051ebf325593da2a5c1940348c1d5b2ffc5228f87402b3a4899c8a0e35b919e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77e3dfffd350f286e85ac0fd66648f92ea0a6aaaf2d5dc9136821c8f637248c3"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "ed4381735ffe387ad60865f7c1097d9814a81d32ff40e02441cc06f98fc54a5e"
+    sha256 cellar: :any,                 arm64_sequoia: "fcc5344b1764a84cbd1278f8e6b4eb7d8701ddd705d4ca6fac097c347c44e689"
+    sha256 cellar: :any,                 arm64_sonoma:  "d8ef8e060fc8d453cd1dda3504682fa14964e50b4007b646229e1bf4726a034f"
+    sha256 cellar: :any,                 sonoma:        "daf05786e8cba8e07e9e26e8cdd10f9c8503538c4d33b755e2b79e8f2d1285dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cacb6b011fc2123d3e09824694b2f54c902b7918f8e6b2929afe89e03b2696e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "447038751ce0cd976352472c2ce51c945c9e26317b15bfb6ed35866699b591d8"
   end
 
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "opus"
   depends_on "pkgconf"
 

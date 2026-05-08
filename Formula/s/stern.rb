@@ -1,18 +1,18 @@
 class Stern < Formula
   desc "Tail multiple Kubernetes pods & their containers"
   homepage "https://github.com/stern/stern"
-  url "https://github.com/stern/stern/archive/refs/tags/v1.33.1.tar.gz"
-  sha256 "24101b69a65e5fcfa459806c9628540c8085e8427fb44a28b6daf8c865215878"
+  url "https://github.com/stern/stern/archive/refs/tags/v1.34.0.tar.gz"
+  sha256 "1cfec22cef9705e68fc46060ba85164af12bd07ede9264bafb67d11400996e71"
   license "Apache-2.0"
   head "https://github.com/stern/stern.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af35aecefbd4c2b1be1e461142d3564e5b99560c4d219e3341298d2c7f0c33cf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b6dc5128e378f0c30fb217ca3942ac5a417500ab44f3afcb0d866b8312abf55"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9400bab425c16eb532dfe42f78d7b031a83585a5b0e581266776a1f30593339"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e4f18fd2df16ec8934441ca211882cbb6a0786df1382f2bf19aa60ce7698d14f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09a7ad11ceae2bd689efa18a06031b9256cc2cce00906f12d97d3aafc71fb3dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ae5e78ab281417f4028b95007dac56edcd8ad20b630a9086529de253ab81671"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cf87c8b14a3f062463ba7d4608a9472a539d6d3c5812ee0a4f49d3ce28009167"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d50b7ab79b975167e19f75bf68597227ad82881ed46c3ff6a62bb90983748cdb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6cc2f6e3114eff8a51e4c27be9b561539d6e79395cabc65c3268bdc5fed52d5f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0fc9084d111eacf45d4cb9b24d4dbdf2f9f1f019215c305391f6f149062f60c9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "74c91eb1456dd62cb71a8eabd41ce94f33856dd2e3b5db0e82a479acc9275ade"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93c97d2b2b51afe05b8ce55e30e3e415b96981d32fac68ff985a265286425582"
   end
 
   depends_on "go" => :build

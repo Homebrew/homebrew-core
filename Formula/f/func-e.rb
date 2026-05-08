@@ -1,18 +1,18 @@
 class FuncE < Formula
   desc "Easily run Envoy"
   homepage "https://func-e.io"
-  url "https://github.com/tetratelabs/func-e/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "d6e93b3bfe2ea00da45b858cbd9393a8213c1f5be115870b642214dc86323d3c"
+  url "https://github.com/tetratelabs/func-e/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "2648439feeb98f0e3dd7b8b5d3381b80b2b4a6793385b255d152db4da3cad3f3"
   license "Apache-2.0"
   head "https://github.com/tetratelabs/func-e.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50312b58ab29066d403d2223ee4984ca03bfc44e96e3e3e2b9a6848b9c6fb4b6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ba95e1ba41daa04ed7162604a23cf2eb49813093f4b0644c4ccc513d863ab16"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "23f3725f16951e27c77cf1d560a7353122fc6820cdaa70c4f49f9d2f2c6298e5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "159edb37bc2a32ee7cb161335fb98fec97c14606aae75b4db9e10591ce4e60be"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "37abe96369388aa7a44b7fbcc53ee09ae2a523f94c090a420ff5533b8f7d0472"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fdbe813a99dcfa62b20860c1e349000a3cb88c9e60982cbae35c3cf952286a8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8716e84aafaf3e684b7b15d6086597d0926e97f8b05c5712c63ea7518476351a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4e518d3252072257a7e1bbd48d104d683c0e9fb622474e4cce467fd9a26578c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b1b1cb08ed33666bbeb46b5a7703a160c89536e47a1bfeb8aa3937086aa4017"
+    sha256 cellar: :any_skip_relocation, sonoma:        "86420a590f773ec6077060e05603e3990ad5b7c49496df302d5e344206d2eefa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a176ca8b0fb670b871bb953db3d3f51dee455fed55a7fa0e004a07f35b9e8ed7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "233527192a1e7e66de8c6dca6af4a9107fab3753e23f7444fad6b9fed448af17"
   end
 
   depends_on "go" => :build

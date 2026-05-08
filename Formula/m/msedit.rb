@@ -1,18 +1,17 @@
 class Msedit < Formula
   desc "Simple text editor with clickable interface"
   homepage "https://github.com/microsoft/edit"
-  url "https://github.com/microsoft/edit/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "41c719b08212fa4ab6e434a53242b2718ba313e8d24d090f244bb857d6a9d0fd"
+  url "https://github.com/microsoft/edit/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "f35da309c5f3d92b10e5c4b2267e4d5e29d809b2aa460e80326b11f7feba72a5"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bd62dbac464d403a1d01ca2b1dc5417cf0464722ed5046f9b2817e6dc001e6cc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "26108335e5657a2edcaeeb2e733774c0ca17f252579570dd57f3305e9fea9082"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67edc565c938a4a51ad0e295b6dcc499457cf85cd0f443040cd81bb42cc36a2e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ab51f79acc7a99a93dde6e3d150f0888eee399e8ab91e3c624f6019694426a2b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b8aea7360ae38105ca7172ede2e3a6ce8cf8b217a05307d7ba38aae70c55964"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7ea7cbd48b0add90c97b5dbe93a1c8945e46afafb367ca1433e53f7990b607a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9e53e7fda41c9669f4d7c785352edd9b93b2257c1219b4ee3600eafd4133c7d2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43f68f519638f1ed15f065e7d64ab430719fe6a0d6eb079a40f712e61241caff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "57b1a88073cfd839d44753664d27b2136354b4e0133bdc012629821ef2c365d0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8e967b1a1ac73c7785e2aef74051c6af6bfd04a7e59f0b3ef1e6954804c53699"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9c65558ba93a129afafc88465df0b48b2450cce879e1abe131ed45a6a015d2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74d042709b9bff1f75811558cd6cb5a8a442d2126cf1edbc559467c6b7cd3abf"
   end
 
   depends_on "rust" => :build
@@ -23,7 +22,7 @@ class Msedit < Formula
 
   def install
     ENV["RUSTC_BOOTSTRAP"] = "1"
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "crates/edit")
   end
 
   test do

@@ -1,8 +1,8 @@
 class BazelAT8 < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/8.6.0/bazel-8.6.0-dist.zip"
-  sha256 "13a84586429b6084b13bd5040d78deda58d523012151e71e7d4be0c63dd831f9"
+  url "https://github.com/bazelbuild/bazel/releases/download/8.7.0/bazel-8.7.0-dist.zip"
+  sha256 "75ed5aa189fd687e6e7c289ad86a3851844965a6c1479b7a5ce9b846a6e461bc"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class BazelAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "81a6389bfb8f18a73451c71bf803988a9af10cf314322ca4a24cc4a8e4efd7ce"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "81a6389bfb8f18a73451c71bf803988a9af10cf314322ca4a24cc4a8e4efd7ce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "414ba53e76fe28d73df0fbffa32b7d356a1dc51663e875fb1b2b2360268e6249"
-    sha256 cellar: :any_skip_relocation, sonoma:        "56b08b7f4e9abd62c948fd0971dae2c7a0366cb9ef54305cf90aa1715b11b2c3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a01a2bfaeac3406f7419f20cdae4543b13f8a157a78a6f889c8690443a5ed52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a2e519aa69573ba0bc59fc73208990f9786a0e07efd07ae395eebf863b35fc1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "161a25c3347d96036e45ed77461c0671516b8c876ad5e7fb51ecb234168097a2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b94928449b5868698110bf0e3688bfbfd5638aa604f8ef73ffabcd7a4954b80c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e4318d4c84c0a0e3085ed628cae08b8a7ef340f1df5859df675ea732a51d3c2b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7062ed5b725780be68ab7fc9edf3fd93f73d9eadcbfcdb01657afb0451db0685"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2c398935faf41892a9c9aba6c79258be26668acbcfdc6b4e37c1ecb351102aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d01ad6ceeb38349179afab16173d6704af630f92d89302560581b31c1c2c057"
   end
 
   keg_only :versioned_formula

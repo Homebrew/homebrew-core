@@ -1,8 +1,8 @@
 class Assimp < Formula
   desc "Portable library for importing many well-known 3D model formats"
   homepage "https://www.assimp.org/"
-  url "https://github.com/assimp/assimp/archive/refs/tags/v6.0.4.tar.gz"
-  sha256 "afa5487efdd285661afa842c85187cd8c541edad92e8d4aa85be4fca7476eccc"
+  url "https://github.com/assimp/assimp/archive/refs/tags/v6.0.5.tar.gz"
+  sha256 "edf3749559c2b7d1f758ffb66fc5bec62186221e623b7f2e8969f17ee46ecb6f"
   # NOTE: BSD-2-Clause is omitted as contrib/Open3DGC/o3dgcArithmeticCodec.c is not used
   license all_of: [
     "BSD-3-Clause",
@@ -12,17 +12,16 @@ class Assimp < Formula
     "Unlicense", # contrib/zip
     "Zlib",      # contrib/unzip
   ]
-  revision 1
   compatibility_version 1
   head "https://github.com/assimp/assimp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0930951bcd9774b987699ee7add5fda6ac3b00e2673acce808c184aa7b61760a"
-    sha256 cellar: :any,                 arm64_sequoia: "a4e025c0806ce486f8a80f29181ac4f3d32f3d123e8a053da8be874ff99382a2"
-    sha256 cellar: :any,                 arm64_sonoma:  "18d6b231e7f26e98a0487a3b99870cae734df4beda140ad9e64ab9bdd28f089f"
-    sha256 cellar: :any,                 sonoma:        "def0ed8dc8400652de3695f530a6ac4c21c986cd0b111814d839f28ac7664f1f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c098bc898a711aff23c8c697e0689a1856f661d74b81c94f9ba50be348d0d81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3524d1c82108896fb32b8ef1fc81cf252b4c59c0669dbf3c394c0a90c846dc34"
+    sha256 cellar: :any,                 arm64_tahoe:   "8d2cea4c896625a1772b252a6ef47a6f92170d5cd6d627d4fa02baea0803cb22"
+    sha256 cellar: :any,                 arm64_sequoia: "7ff7d04b3a67e6992992030de224a2edb46ee0f8b71045b8c80d3f11f58a0438"
+    sha256 cellar: :any,                 arm64_sonoma:  "1155bc594827e2d1c810a0c2d67b78beca8aba61a0f037e317f49243060e4465"
+    sha256 cellar: :any,                 sonoma:        "7a60edb6511ace111a3275f7edf765f7c8bfa1f91d0ff86066ccb308d496f4de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd7a50450be8428d982ea7cb68d993a9e7d6ea73e1b39850ebf2bdb8d2ace56e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6199347daa14e928216dfade64f4dea018ce360d818bcc37aafb30b805bc46a0"
   end
 
   depends_on "cmake" => :build

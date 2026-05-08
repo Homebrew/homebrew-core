@@ -1,18 +1,18 @@
 class Cpm < Formula
   desc "Fast CPAN module installer"
   homepage "https://metacpan.org/pod/cpm"
-  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-0.998003.tar.gz"
-  sha256 "d15b17241a07fed11ed4a917bbe00d2317e94ac52ac38ee92a9cacbb346adb16"
+  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-v1.1.0.tar.gz"
+  sha256 "16f9a10dad4e2166403beba163d5dfe142c1c20eb77301324b59d825fe27218d"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/skaji/cpm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "39943392bb01834017a1cbf3b14b49753efee9370520b5e8c1b5009827b22c8c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39943392bb01834017a1cbf3b14b49753efee9370520b5e8c1b5009827b22c8c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39943392bb01834017a1cbf3b14b49753efee9370520b5e8c1b5009827b22c8c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e2943684a18400c6e4e7c55a667d3a7c5a555baa350832ba9c88de079ea935f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "02275f43215e7cc133f9d83dc6c4de46cced54494ce068aaf833b84677cf8ee0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a7df99cd6d078553861bff91a306e163ee0ccd723b261414f80c0764d996d1e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c0ca25450919564dcd4a95a13649ae3c4321f53566704f6ed4f9936e06e4a2e5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0ca25450919564dcd4a95a13649ae3c4321f53566704f6ed4f9936e06e4a2e5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0ca25450919564dcd4a95a13649ae3c4321f53566704f6ed4f9936e06e4a2e5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ad8a47f0487fb548fd340dda9de5ef4c87dc9408fc36aed6c3758398917c1a7c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c3e211baf355525812c3cb979b79aa1809442c05796bfeb9878a3e2c245e9ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f8d5c0aed2636357e1619c6a064b49ba803dbb9114e4c87acd98c483ccbc3f2"
   end
 
   depends_on "perl"
@@ -20,8 +20,8 @@ class Cpm < Formula
   conflicts_with "yaze-ag", because: "both install `cpm` binaries"
 
   resource "Module::Build::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.052.tar.gz"
-    sha256 "bd10452c9f24d4b4fe594126e3ad231bab6cebf16acda40a4e8dc784907eb87f"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.053.tar.gz"
+    sha256 "3726d622da6f655e88fdf89e4fd597709c44970b47de65082003e8d86b5e193a"
   end
 
   resource "CPAN::Common::Index" do
@@ -95,8 +95,8 @@ class Cpm < Formula
   end
 
   resource "HTTP::Tinyish" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/HTTP-Tinyish-0.19.tar.gz"
-    sha256 "e9ce94a9913f9275d312ded4ddb34f76baf011b6b8d6029ff2871d5bd7bae468"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/HTTP-Tinyish-0.20.tar.gz"
+    sha256 "c60e714186f81c815690ca5d475f3e6eac8617c50b146ae668ae4dd5d86a5ed7"
   end
 
   resource "IPC::Run3" do
@@ -130,13 +130,13 @@ class Cpm < Formula
   end
 
   resource "Parse::LocalDistribution" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/Parse-LocalDistribution-0.20.tar.gz"
-    sha256 "664f4351e55ee9473c9b012af87d2832f652979cb89ade7954e6f38cd126a859"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/Parse-LocalDistribution-0.21.tar.gz"
+    sha256 "779ea48113f968d98cf6727607d668b96e8ed98f82a26645daf77820e0ec0acc"
   end
 
   resource "Parse::PMFile" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/Parse-PMFile-0.47.tar.gz"
-    sha256 "26817cf3d72e245452375dcff9e923a061ee0a40bbf060d3a08ebe60a334aaae"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/Parse-PMFile-0.48.tar.gz"
+    sha256 "b459d0b73e18d3c69f15f58acf018cdb599d54482344de570b877874b33cbc53"
   end
 
   resource "String::ShellQuote" do
@@ -160,8 +160,8 @@ class Cpm < Formula
   end
 
   resource "YAML::PP" do
-    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-PP-v0.39.0.tar.gz"
-    sha256 "32f53c65781277dcbe50827b4cbf217eceeff264779e3a6c98c94229eb149f58"
+    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-PP-v0.40.0.tar.gz"
+    sha256 "76c4d28d5c78f0a5cfec631f0032aff1baa68a705f21f6f4bfe70ad83dce2e33"
   end
 
   resource "local::lib" do

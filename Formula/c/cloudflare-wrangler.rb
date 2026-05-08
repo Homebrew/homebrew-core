@@ -1,17 +1,17 @@
 class CloudflareWrangler < Formula
   desc "CLI tool for Cloudflare Workers"
   homepage "https://github.com/cloudflare/workers-sdk"
-  url "https://registry.npmjs.org/wrangler/-/wrangler-4.85.0.tgz"
-  sha256 "2ccf373d72356991a246880b8c4bb7ff42beae1fc329d81b962db5bd79bcc3ef"
+  url "https://registry.npmjs.org/wrangler/-/wrangler-4.88.0.tgz"
+  sha256 "4739fead0fdd95ef3c60f18721fd43b29a289729970edc387fa2521c29dd3fbe"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9e10bfcde079001066b07316da7322605fc384d4e1827a9cf35107f068cb2f07"
-    sha256 cellar: :any,                 arm64_sequoia: "d60a68229ed977f4a1c0ef4ec20f2645bd27f22aa1fd3841faced23d20744a97"
-    sha256 cellar: :any,                 arm64_sonoma:  "d60a68229ed977f4a1c0ef4ec20f2645bd27f22aa1fd3841faced23d20744a97"
-    sha256 cellar: :any,                 sonoma:        "dc311ebcbdb22efea43d3ab7b8bd970c0e5682050b50c41e9b55718b18be0b85"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5ef5326f96c99d47d5f5451a60d729cca833617ec86fa35dcccaef66440a8a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d45b7ee3b6f19a8295b209bd4e41db5a38c29bb9c181e1ef8367c573e2f86c27"
+    sha256 cellar: :any,                 arm64_tahoe:   "5ce7a33acf65be2af37fa979d914cf5dc822be56e517c70957ab76f11bfbc750"
+    sha256 cellar: :any,                 arm64_sequoia: "6fc8e3b0f8d31b059bf8d792392b511474aeae4ea4b9dc6582189b8bda9fa606"
+    sha256 cellar: :any,                 arm64_sonoma:  "6fc8e3b0f8d31b059bf8d792392b511474aeae4ea4b9dc6582189b8bda9fa606"
+    sha256 cellar: :any,                 sonoma:        "9c1d9d1c512f77edf9fcb70575cd48c3eb3d641c04262e278fdce17bd22ee155"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "13af6b9fcc21633d4dbb9c632579556c6e9b9eb04e882473c6ee127eb3a76cb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c35607e09cdc789a7523649b9997b393b42b1f8382d2adaf6d944bd02fe0d02"
   end
 
   depends_on "node"
@@ -22,6 +22,8 @@ class CloudflareWrangler < Formula
 
     node_modules = libexec/"lib/node_modules/wrangler/node_modules"
     deuniversalize_machos node_modules/"fsevents/fsevents.node" if OS.mac?
+
+    generate_completions_from_executable(bin/"wrangler", "complete", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do

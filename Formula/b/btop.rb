@@ -1,18 +1,18 @@
 class Btop < Formula
   desc "Resource monitor. C++ version and continuation of bashtop and bpytop"
   homepage "https://github.com/aristocratos/btop"
-  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.6.tar.gz"
-  sha256 "4beb90172c6acaac08c1b4a5112fb616772e214a7ef992bcbd461453295a58be"
+  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.7.tar.gz"
+  sha256 "933de2e4d1b2211a638be463eb6e8616891bfba73aef5d38060bd8319baeefc6"
   license "Apache-2.0"
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80638535c550bc0c889dfb685e886d149fd46583f5f75052cdf06d02878ca9cc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12aa531d09c0715dd5ffda73f64634f7f2a38b09dca5bff68ea3083c6fb6b31b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbed3af9274a12efc813725d8dd156f3053c461413d12e016169ff3e80d32d47"
-    sha256                               sonoma:        "f9b95ebf0374cfe8fa4e949e8667964db4b2dc76be16c2470e8cfd154a07aa41"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e62232a59ffd4afeb89d2656cdd875967bda73af235173798b29468fddfdb85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27379e9f992f8a4e33c48b0fc356f114bc8293c709a7b4c02f009ac435056a05"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "844f051db2955c0a0a11ee1634313b635ec192b3922ecb519dcf050f60a610ef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "853866a08592bf895324bbd637148d623cb83b1cd36e7a080c7d414f463c00a7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70955db3ee586eb4144a6f2032d66bbe2291dec28e1dcf2b306d9d080d107424"
+    sha256                               sonoma:        "faecdc31554282d43c9e2a4bb10ec563a573fdd29269284556941fdea59911af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8fb6c3c6b161915d97b8a51b962ccb16f663f6dcfd4c915f4c7d7ed80bcdaa9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b07bba0ef5de2cc919669e86f3deb131d5f548e72d32198c4cde58bfb8bcdc34"
   end
 
   depends_on "lowdown" => :build
@@ -72,7 +72,7 @@ class Btop < Formula
     log = (testpath/".local/state/btop.log").read
     # SMC is not available in VMs.
     log = log.lines.grep_v(/ERROR:.* SMC /).join if Hardware::CPU.virtualized?
-    assert_match "===> btop++ v.#{version}", log
+    assert_match "===> btop++ v#{version}", log
     refute_match(/ERROR:/, log)
   ensure
     Process.kill("TERM", pid)

@@ -1,10 +1,10 @@
 class Capnp < Formula
   desc "Data interchange format and capability-based RPC system"
   homepage "https://capnproto.org/"
-  url "https://github.com/capnproto/capnproto/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "01ab2ba7f52fcc3c51a10e22935aae56f3bc5e99b726b7e507fe6700cb12147d"
+  url "https://github.com/capnproto/capnproto/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "d14a9149b79c055fee9d5aa778defe8e8cee0d2a11f0729865cd30dcc345eef2"
   license "MIT"
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/capnproto/capnproto.git", branch: "v2"
 
   livecheck do
@@ -13,13 +13,12 @@ class Capnp < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "7cc44347381c8fe4c691bb7684f1664ebc47c3f5ded704604e9f5ddf09445754"
-    sha256 arm64_sequoia: "3127500be3b5b7ec1dc964ceb15cf49911a22e47295c622299114e25ba45cbf5"
-    sha256 arm64_sonoma:  "820d5befe53e826fb307ecac9cc045c9e6391019bcb715d55a7a7180f6f156b9"
-    sha256 sonoma:        "607ed6bed655af9a7dd6b13a4941bcd3ce36342254dddeda7a442c9f9ba545cc"
-    sha256 arm64_linux:   "fa02acb983940b8eb6354198371ee5533b4a2144e0a0699e9c4ec11e5cc1aa92"
-    sha256 x86_64_linux:  "15fa47fde394d8b2b443338a89bc5893539dc79da5aa593e24c9cfab433b0939"
+    sha256 arm64_tahoe:   "e999051c6f5a36c7b626b9f97768554550058d87a8fbd9d57cdd4ba3b1e95a5a"
+    sha256 arm64_sequoia: "838748596b9229739ca78e07515ee3b0dd6e06a92d5952a3a6343c3672b33e94"
+    sha256 arm64_sonoma:  "9706e2380a2f38cfa7793c23a39368ceada6435eab01c19faad152253536c54a"
+    sha256 sonoma:        "77e1fd35cebbacde953d7efe689ea99a815d5a896ed262431c7a3310326e7083"
+    sha256 arm64_linux:   "dbbacfe6f0d69f2daf5af810f78c7e50029bb6f2c93ab48256345df311b9423c"
+    sha256 x86_64_linux:  "28db17788d75c20523d3da4796cc1bd20ba1e2fc5bfe0de09a6cc5fe0ae106b9"
   end
 
   depends_on "cmake" => :build

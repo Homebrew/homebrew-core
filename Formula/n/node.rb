@@ -1,10 +1,9 @@
 class Node < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v25.9.0/node-v25.9.0.tar.xz"
-  sha256 "8f78af3ee55fb278668b5f801db58bd1a38ea161318eb5ce2128ddbc9cd813aa"
+  url "https://nodejs.org/dist/v26.0.0/node-v26.0.0.tar.xz"
+  sha256 "fcb5e5c06a5c2ec9e669801248657aafaa2291f8760dac7bfb639f878318c592"
   license "MIT"
-  revision 2
   compatibility_version 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -14,12 +13,12 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3432dd22a4f6bb6b6a2decdaa6e39f980518120106b25e8f9032c92e97380938"
-    sha256 cellar: :any,                 arm64_sequoia: "8c3fb7faffdab909f18ecd255cd7ec63d0fd874d48285f40b4e09ef472140f71"
-    sha256 cellar: :any,                 arm64_sonoma:  "c384fef61921d8e3af26fc67231bbf581ffe176de2e5ecef42c4ea66ba2bf1a5"
-    sha256 cellar: :any,                 sonoma:        "492d9823b1e958a334d664b9694a02d2e2087280d248c398284d75787cdf8733"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "21c9e2e7f8fb82c2764cddf862baf49e5c86e7483b30902186e63f1f8aa77bbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "863422cefaae72ab333d662a64a39e81b97a00065c9bc0e7a460b1b16e010a1b"
+    sha256 cellar: :any,                 arm64_tahoe:   "d8a6c3a17de8735c6bd79f532af5a404b647c4c067217d7328394315a2583966"
+    sha256 cellar: :any,                 arm64_sequoia: "fbff668a5b3d655dbc8b80dd7181da1a375d40f4ed9aac2197195e889ae53fe0"
+    sha256 cellar: :any,                 arm64_sonoma:  "cf5a4ea9d7283ab08bcf4d2db27c97fb944338dbe05d5b60d81bb68ffedc538d"
+    sha256 cellar: :any,                 sonoma:        "a0a56171de4dc10563d6e10363b6d1003b70552c1c0aba25b57f4fefabb5d77b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e037638495afa9776bc3dddc5b1bb13cb14cee78f340f1b8ebc9bedcc29a6190"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db99f551170ae6811682fa342a1e52a9f6f5f5c5f632176af684f09c5c0d9c39"
   end
 
   depends_on "pkgconf" => :build
@@ -49,6 +48,7 @@ class Node < Formula
   end
 
   on_linux do
+    depends_on "llvm" => :build if DevelopmentTools.gcc_version < 13
     depends_on "zlib-ng-compat"
   end
 
@@ -63,8 +63,8 @@ class Node < Formula
   # https://github.com/nodejs/node/blob/main/BUILDING.md#supported-toolchains
   # https://github.com/ada-url/ada?tab=readme-ov-file#requirements
   fails_with :gcc do
-    version "11"
-    cause "needs GCC 12 or newer"
+    version "12"
+    cause "needs GCC 13 or newer"
   end
 
   # We track major/minor from upstream Node releases.
@@ -82,6 +82,8 @@ class Node < Formula
   end
 
   def install
+    ENV.llvm_clang if OS.linux? && deps.map(&:name).any?("llvm")
+
     # Backport fix for bundled LIEF's bundled spdlog's bundled fmt.
     # Should be fixed when new LIEF version with following commit is released and used by node:
     # https://github.com/lief-project/LIEF/commit/710637216b1f6f19569002d62e43fca201b9d91c

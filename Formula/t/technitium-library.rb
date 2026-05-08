@@ -1,17 +1,17 @@
 class TechnitiumLibrary < Formula
   desc "Library for technitium .net based applications"
   homepage "https://technitium.com"
-  url "https://github.com/TechnitiumSoftware/TechnitiumLibrary/archive/refs/tags/dns-server-v15.0.1.tar.gz"
-  sha256 "e35df79967cc7594068c8457d8f407620e54481a45fd6b8459d2ed7f2da86a38"
+  url "https://github.com/TechnitiumSoftware/TechnitiumLibrary/archive/refs/tags/dns-server-v15.1.0.tar.gz"
+  sha256 "1e48c16cdfdc3b4970d69c9937e6fd5f2357c86986c79a9363eb7e4b99ad06db"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "be66cb942c84ea3dfab12f836ef08187ba73632c03efaaf41ff7116bdc0e00f6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2a75ecb91ddd66d09cfa88bd3d6cbc87f75ff9114f2ad9c11bfce37c381ca29"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07018ac39ddd2b91b15dd515deb7c1716cb13ad2cb2f34d7b2cbd8ac0c8d94b4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "27c764ea2b6fa5785ea5aecbac2467e1552bf46c31e92a419455c70c3c479585"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d925d57b855d5dd9c3913a3414ed815080087285dc522f8a6f79edd1bc59010f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e10bc3e6d49e96d25a460d1eea4eabe7e686bf91e262a18975e0e99abc8faaaf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "020b24d80f7168b4b1b4865d65a271a586ce5d388ca38c4919741fbae339ffec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f2ddafe95dbdf6b6f026c3787c6c5fe778747c10d26c66fd36c058aad3910afa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70fc4d4b7277c9e5b18a857e92fe60a7c07f3335bb63a49999a0b8944bb9e0c9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0dcc540b3c80e41692aad6c4260cc1c1865aed8b3b52302ade799fa334537298"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "df1dbc3c09c6600b898e8ebb0f3e72dbaff1d223c283487cd6448f5897c60ad8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71bc262dcfdbef240195a8dd033229f5fc870eab90dfaf59e228a6fdb04c74b8"
   end
 
   depends_on "dotnet"

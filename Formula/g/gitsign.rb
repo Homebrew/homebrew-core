@@ -1,18 +1,18 @@
 class Gitsign < Formula
   desc "Keyless Git signing using Sigstore"
   homepage "https://github.com/sigstore/gitsign"
-  url "https://github.com/sigstore/gitsign/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "340c806f74fc19a2e9d0443f48239cc3dc40fa5c001355fb355a3f486dccf4f9"
+  url "https://github.com/sigstore/gitsign/archive/refs/tags/v0.16.0.tar.gz"
+  sha256 "98aae793562337414bc67d529eb2971efa6168020fa4640634b8942faf9a6ea9"
   license "Apache-2.0"
   head "https://github.com/sigstore/gitsign.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3bacb71a978c2b7971220a61f2710d0ee57f242fa5d7c129ee5a8270bd57bd9b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bacb71a978c2b7971220a61f2710d0ee57f242fa5d7c129ee5a8270bd57bd9b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3bacb71a978c2b7971220a61f2710d0ee57f242fa5d7c129ee5a8270bd57bd9b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5e9965bfdcd0667a982743cdd836f0ec059f1c9780fac6b75949f224bf308dc8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7bbddb53c8cfb0e35656cf3cff189e9d24e7862ecc77fcab61b9b1ab95c948c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19b45ca45444552cc4ae6ed18123f1af38b1a7791effe4f259d76890000bb727"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3a54bf87aa0e1d92363eb5eaf1c985342dda65edb18cc491437f3b8fe6c67ea0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a54bf87aa0e1d92363eb5eaf1c985342dda65edb18cc491437f3b8fe6c67ea0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a54bf87aa0e1d92363eb5eaf1c985342dda65edb18cc491437f3b8fe6c67ea0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a360dda6c07f8435ea9887a7ddbcc7e08ff507908852d210113b930cfdaf528d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "12b3eaa45137ae08fe25ebb56ceab6ac4f713fd6e61f1b08b721956675c31783"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a98a432d4c92090be7c42cebee6f6468f2ae77edb5a931832875aaf1063d78b"
   end
 
   depends_on "go" => :build

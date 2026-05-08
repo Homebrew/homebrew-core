@@ -1,18 +1,18 @@
 class Cmctl < Formula
   desc "Command-line tool to manage cert-manager"
   homepage "https://cert-manager.io"
-  url "https://github.com/cert-manager/cmctl/archive/refs/tags/v2.4.1.tar.gz"
-  sha256 "70c9f5e1fbcf526c87c5a862afca663b816e3ec1eda2d55c7edf70e33fb00fe5"
+  url "https://github.com/cert-manager/cmctl/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "4e7f137c2b5411f92948749dbdb31d61911088a54d32e14aea609da02c203bb5"
   license "Apache-2.0"
   head "https://github.com/cert-manager/cmctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "291b511a8c5fa486f5cf94358527770d4f0307563b221425a64c0a9a2c06a63d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5fc1d5ac986e39da4fa61785b9ce49db17292a37b61957d94e0fa25ce80bb174"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b27b55bc9fdc8f36c7e7dd57412dd18959bfafb4e1910b793145129cce0a6646"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f61491c8f73e2de22532677e52eb0987cf27a3a2b95ba5298c2a2984d29a8fc6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd0970ba25aa60ad39e6546b58f92e7a90e15def9ac788c700f6fa19eb074a87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2648686a59c1ddaebd2b738b36e4ded146c5ff7e1393ec3f84c20b8acdb4f379"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "271671ba1bdfaa5a69f55f616a89b06e1acc5bdf7f13dc848d6655cf7178b25f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a42ced3630aafc6c83f88f391d41e3000b3ac86504670847e2a7e6b58cffc63"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bbbf9b497ec577ea8243a5bb4866450f7a4037def0cdf4f898099298d494caa6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4eb05bd9dabd9c5704431fa5606dd3d1565c3df246cde61441695643de1d00d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0508c06169c85a918120f264e9d9578e0ca802ef0500c634e928f6cfc542a01d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd6659b2651cd73fba23df6899578954392f7a77b557cdf00d2dc3d24cafe61a"
   end
 
   depends_on "go" => :build

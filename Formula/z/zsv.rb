@@ -1,18 +1,18 @@
 class Zsv < Formula
   desc "Tabular data swiss-army knife CLI"
   homepage "https://github.com/liquidaty/zsv"
-  url "https://github.com/liquidaty/zsv/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "c58939985dbb9750469284a32ae6cde850ca599fb031977b540de8b2c61f644c"
+  url "https://github.com/liquidaty/zsv/archive/refs/tags/v1.4.2.tar.gz"
+  sha256 "0db9632ec173c1fe61a50c6269dba68e6b0a21fdb6608219f18a2cd866a9a444"
   license "MIT"
   head "https://github.com/liquidaty/zsv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "997ea4dbce75715183cd0e7d1e43367a0de9e16c78df0e41ca55d95078b63229"
-    sha256 cellar: :any,                 arm64_sequoia: "59360bdb6c9b6e73aa19b977eae512a57242c2d7b15c000435acec98c24bd6a0"
-    sha256 cellar: :any,                 arm64_sonoma:  "48bcfbb029c90895b6feab493d38580560ee44ed8fe27cfb9b71e68b23dbe69f"
-    sha256 cellar: :any,                 sonoma:        "27c4666e155d474494eb2df6582c1aed93fc7b78c3bf6a82879024435773ddc8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0fef2888d1a3e274f0b3764cc157bb83ed5d71c3561ff40d2a4feb98af622f29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9b1e9626221ed2494a1472c7cfb6e3dfe4875f18bf3b24658f89ceb0568834f"
+    sha256 cellar: :any,                 arm64_tahoe:   "c90f6560691b4a1ca27521ddf17e87aa997164b6e6f1b7a30addd8394aa1e803"
+    sha256 cellar: :any,                 arm64_sequoia: "a77a59331251d371990949308a013eb7e85f06c31f0996199c480800c312de7c"
+    sha256 cellar: :any,                 arm64_sonoma:  "fd7408fd79d3df8d0384802d338c48e13b19d4ccde72a27987a4369afcf49c13"
+    sha256 cellar: :any,                 sonoma:        "1e1ec0ed873ce304d4917f5a85fc3f6d14c30251863e071df4c3448fcb7732c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "62c1e84e7fe7b03618fc2b3f319c8bfa996977122e7cb3c23541262ae1691b26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef8444f81b92d9683b17f4db3b845522b245aee24a44538b58ad86a2fac72306"
   end
 
   depends_on "jq"

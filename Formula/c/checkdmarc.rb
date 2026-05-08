@@ -3,13 +3,13 @@ class Checkdmarc < Formula
 
   desc "Command-line parser for SPF and DMARC DNS records"
   homepage "https://domainaware.github.io/checkdmarc/"
-  url "https://files.pythonhosted.org/packages/25/c7/e099a3d5356f36f2063ab01ea8cea77f321aa947d91a0651c58ec458c6f3/checkdmarc-5.15.2.tar.gz"
-  sha256 "715c0870edb8ea14ee277894bb83e5f3a5b6bcc8dae3d58b2d7a8aff4e651f7c"
+  url "https://files.pythonhosted.org/packages/cb/c3/c8c84cbce9f7f3cd980b609e2b0bff049eaa6a2632473285ecd2d15fa562/checkdmarc-5.15.4.tar.gz"
+  sha256 "2fd81c50e0150e9780a7b899c022a9f3c588509b087a73b885d611eee52d67e1"
   license "Apache-2.0"
   head "https://github.com/domainaware/checkdmarc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b1c0dcfce0e76c5ffa64fdd0bf9741931f691d2c5e14c2388b1a839d247cb9e0"
+    sha256 cellar: :any_skip_relocation, all: "761fa5b24c03a8c400c4052ae53e02f15cd93bb0912a94dfeb14f324a89ba154"
   end
 
   depends_on "certifi" => :no_linkage
@@ -49,8 +49,8 @@ class Checkdmarc < Formula
   end
 
   resource "publicsuffixlist" do
-    url "https://files.pythonhosted.org/packages/bd/7a/1d865772d369f59c123b0b426e1d4e1df82dda1553dc3a535d0a736b0681/publicsuffixlist-1.0.2.20260422.tar.gz"
-    sha256 "745992cf7d7bb07020d8f081836c0018cdec85bdbbb2a464c79335c5c3b682cc"
+    url "https://files.pythonhosted.org/packages/40/fe/1a4e3869178f43ef932dfc777f445706fa2783e8267b4317dc5970dbe249/publicsuffixlist-1.0.2.20260502.tar.gz"
+    sha256 "eff7b85e2b4bea972ff6a972a9794ba7058288798b7588f9840134fd87e59401"
   end
 
   resource "pyleri" do
@@ -59,8 +59,8 @@ class Checkdmarc < Formula
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/8e/11/a62e1d33b373da2b2c2cd9eb508147871c80f12b1cacde3c5d314922afdd/pyopenssl-26.0.0.tar.gz"
-    sha256 "f293934e52936f2e3413b89c6ce36df66a0b34ae1ea3a053b8c5020ff2f513fc"
+    url "https://files.pythonhosted.org/packages/1a/51/27a5ad5f939d08f690a326ef9582cda7140555180db71695f6fb747d6a36/pyopenssl-26.2.0.tar.gz"
+    sha256 "8c6fcecd1183a7fc897548dfe388b0cdb7f37e018200d8409cf33959dbe35387"
   end
 
   resource "requests" do

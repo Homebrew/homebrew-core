@@ -1,8 +1,8 @@
 class Yutu < Formula
   desc "MCP server and CLI for YouTube"
   homepage "https://github.com/eat-pray-ai/yutu"
-  url "https://github.com/eat-pray-ai/yutu/archive/refs/tags/v0.10.7.tar.gz"
-  sha256 "b79912ef164c2f760fa14ecd815265b8bd6a95edc8fdb17f50a180d7737c2b5e"
+  url "https://github.com/eat-pray-ai/yutu/archive/refs/tags/v0.10.8.tar.gz"
+  sha256 "c6b8074ad28f8416f97e027502e261f8d6a7796da3e72886822830576138087d"
   license "Apache-2.0"
   head "https://github.com/eat-pray-ai/yutu.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Yutu < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5fe246e32e9fab9d4db2df5b3bc0c081767b4698632a182ecbc7597acc7bdc00"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5fe246e32e9fab9d4db2df5b3bc0c081767b4698632a182ecbc7597acc7bdc00"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5fe246e32e9fab9d4db2df5b3bc0c081767b4698632a182ecbc7597acc7bdc00"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1634f33dc53d49702e0c6be8b20956a1230b20cbdd50ed1988a509ee0210cac6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b14b9b88467695f864a49bdbc969dde4be9a6f6907824ab54ec8e462dfc3accb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b59f17f68ca0072f52f1d5e56f94608d698bbe784065f40260827ad56eb1a030"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c545dc4c3b262f641dad584a7e89c1c7f850d0cab360d1409b1f0e04a5a7ea2b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c545dc4c3b262f641dad584a7e89c1c7f850d0cab360d1409b1f0e04a5a7ea2b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c545dc4c3b262f641dad584a7e89c1c7f850d0cab360d1409b1f0e04a5a7ea2b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a97054e668c2bc5669f89ee0ba1c6fbc1d2667af3ee5a592027b744800686f88"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4a642c3dbabe9fcc2871685aaab9c5a2e12b2bb1025d2a14dc200f6ddcf8d33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b5ca5eec04e41f45122fcf6376aed04aa5f7373729d7c3aa78e9c1013100e55"
   end
 
   depends_on "go" => :build

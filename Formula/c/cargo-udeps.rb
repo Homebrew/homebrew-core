@@ -1,18 +1,17 @@
 class CargoUdeps < Formula
   desc "Find unused dependencies in Cargo.toml"
   homepage "https://github.com/est31/cargo-udeps"
-  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.60.tar.gz"
-  sha256 "b1eab01d1fd525db7e8e8b9b843a6a2cc2ddb55450ffef97dcbddeae8d401b0a"
+  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.61.tar.gz"
+  sha256 "c50b60817cf112fb8cfd4272bbdd3c342947c72aeb60435c87d45d197da96e77"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "b0f1babf90db0b6d472b3d54b4229ab27d4d477bcace4e3e72f0a6ad1a745236"
-    sha256 cellar: :any,                 arm64_sequoia: "c51d8d744d30586fb471b970924f89b0ef6f002beeead0f6f41c5b156ea347ee"
-    sha256 cellar: :any,                 arm64_sonoma:  "a474e7998c6f90ad63a4b3fcda20db6f183c1a0bf5faa8ff5aaa198447ba5516"
-    sha256 cellar: :any,                 sonoma:        "d28ca37096bf81553f948de03994f7bface8758ff248163c9d58fd3d307a1684"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f5206f7c22a18f322ebc4eea01b96e509d4831eca1cad867525b2aa06d45082"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d5767124eb006fd03faf9a346c96d88fd69edecabe53715939402b9c0ad24fd"
+    sha256 cellar: :any,                 arm64_tahoe:   "d80af82efdf3c7b06fe4189fe09664b955848c83077d346f1ffb4eeff7f8e9a3"
+    sha256 cellar: :any,                 arm64_sequoia: "466209aa6ba61edccb693f540fb5a7b6a3774cd172f3b6eabd894553db1bc226"
+    sha256 cellar: :any,                 arm64_sonoma:  "dd3340af06b1d5ffc42d139e49257b1ac00665a8e75b3b7245252a2e52d4383b"
+    sha256 cellar: :any,                 sonoma:        "f272485e3f56b147e1c68e07d8fd7fd91b06e343cc4250b84cb9ebaae0e63296"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d3bcca123df90077cf852de6ef808c2c28135a13a5b643d48d930457a5e199c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d30eb29b6cde34d57f10a502b565bd6bc9baabcb569f0341974060cc8c252f7"
   end
 
   depends_on "pkgconf" => :build

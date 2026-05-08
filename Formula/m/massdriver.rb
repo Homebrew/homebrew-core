@@ -1,8 +1,8 @@
 class Massdriver < Formula
   desc "Manage applications and infrastructure on Massdriver Cloud"
   homepage "https://www.massdriver.cloud/"
-  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/1.14.4.tar.gz"
-  sha256 "086b6a6965d40677b5b4ab4daa21a7f40a0a600a91cd7f131ca83a8cd39dbf3d"
+  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/2.0.0.tar.gz"
+  sha256 "d7a05fe3fc2f262e9750d32b966611a634cbee26979aab7b4105c8d9401599a9"
   license "Apache-2.0"
   head "https://github.com/massdriver-cloud/mass.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Massdriver < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b9698c314548efbca0c5e155c2f0289fcd6d6adae82937366c403775ccf817cb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9698c314548efbca0c5e155c2f0289fcd6d6adae82937366c403775ccf817cb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9698c314548efbca0c5e155c2f0289fcd6d6adae82937366c403775ccf817cb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "88eb4c0bd998c28f97f254ad26447f8ebdbbb3ea726181188b5552a2657d3482"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81e97d07544ba63c4bd7c0bed33c5451128d7317873b0777560d36aa46e1bd6f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eacf647330005b2e978fc6881d99b34c46a85eaec6b00dcfc33d324dbeb4b884"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "95f937fe0cdb8a997b512e6888f0d0424e73af725386cee11e5c54206f43aa37"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95f937fe0cdb8a997b512e6888f0d0424e73af725386cee11e5c54206f43aa37"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95f937fe0cdb8a997b512e6888f0d0424e73af725386cee11e5c54206f43aa37"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1ee3cba70c96ce5cdbc5dc0fb70816a50c5a6a09cb33e27045407d5fcfbfca1f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d23681a5b0dc23226a0983a99552900f58e3aa3fdd9e520c41e19085586e9e8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e7166ffb365457c70f24ea9032083a9d35df1f4de146157f3a3eeed24c4d37c"
   end
 
   depends_on "go" => :build

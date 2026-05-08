@@ -1,21 +1,17 @@
 class FdkAacEncoder < Formula
   desc "Command-line encoder frontend for libfdk-aac"
   homepage "https://github.com/nu774/fdkaac"
-  url "https://github.com/nu774/fdkaac/archive/refs/tags/v1.0.6.tar.gz"
-  sha256 "ed34c8dcae3d49d385e1ceaa380c5871cda744402358c61bcb49950a25bfae58"
+  url "https://github.com/nu774/fdkaac/archive/refs/tags/v1.0.7.tar.gz"
+  sha256 "145d4684c9325a2bd650e46a04b03327abe780a7b59cce47e6de8af2064fb2c7"
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "e89af6a6d4d3cbfc2a5e312ca4a0f5d5eb74205fa9d328e2b8e1f197680c9779"
-    sha256 cellar: :any,                 arm64_sequoia:  "7984a593915d70746aa5802b6f4232ad56c5c5329192197fa10a45a7c4f09266"
-    sha256 cellar: :any,                 arm64_sonoma:   "e9e4f37acb4d76dc6139145cacc2c1d9799104c60ee43d650f63f1ff6bf96b94"
-    sha256 cellar: :any,                 arm64_ventura:  "fece94f860394daafbacfb656ea28592bd0f482b12227335952f84852b011094"
-    sha256 cellar: :any,                 arm64_monterey: "09cd0ffbcfe2e83c3526a2ea97ae7fac02085c4682938f2714291ce09a1d0dd9"
-    sha256 cellar: :any,                 sonoma:         "99f243a63d88d1350bc798ca8f90ed703485462aa7a99b92588aafecd2867874"
-    sha256 cellar: :any,                 ventura:        "4cc459e64c6b70274d477f223911b3f4cef20646920cd6f365d0992faae184c3"
-    sha256 cellar: :any,                 monterey:       "93b808efe4acbd0d60c1990acd03b8eebd5308c8c59350f8bd13394423a7baa6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "4b941b4a0be48f5ec58726a7f25547007f8085683a8b060ad24552532bd0880e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d3bcffd33552747f8c107a46e42f3cff7b500647fd2f268d688bee77ef711aa"
+    sha256 cellar: :any,                 arm64_tahoe:   "e3d5a36246ed05cf712710c26bcba7d88570d9733386d834c26027b813cf460e"
+    sha256 cellar: :any,                 arm64_sequoia: "7e8347597d693ddc8bd3dfb7d2fad8e3f2a1a454e41a18eeba31ea79a2f9aa80"
+    sha256 cellar: :any,                 arm64_sonoma:  "0cccceea0402d98a415aa93a87420b8c9f4f71393ee1df58b7bcffca62961a24"
+    sha256 cellar: :any,                 sonoma:        "e83a70330bbecdc9ad66cddd891181153b0836edae4d78b52193c948aab787a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d0999a7c5a7ec6ecd3d42625860b83857cac894b7b333bc24bbbf4f5d2f2685"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c138775cc930815e191b15a0c09a3df618be38832db32eb234c58e0cb1b6085"
   end
 
   depends_on "autoconf" => :build

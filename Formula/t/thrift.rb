@@ -1,29 +1,19 @@
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
+  url "https://www.apache.org/dyn/closer.lua?path=thrift/0.23.0/thrift-0.23.0.tar.gz"
+  mirror "https://archive.apache.org/dist/thrift/0.23.0/thrift-0.23.0.tar.gz"
+  sha256 "1859d932d2ae1f13d16c5a196931208c116310a5ff50f2bfd11d3db03be8f46f"
   license "Apache-2.0"
-  revision 1
-  compatibility_version 1
-
-  stable do
-    url "https://www.apache.org/dyn/closer.lua?path=thrift/0.22.0/thrift-0.22.0.tar.gz"
-    mirror "https://archive.apache.org/dist/thrift/0.22.0/thrift-0.22.0.tar.gz"
-    sha256 "794a0e455787960d9f27ab92c38e34da27e8deeda7a5db0e59dc64a00df8a1e5"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
+  compatibility_version 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4bb047f3d74c5a11f20e5bd50a79ad89745ae9684b5f90529ee76928af6ade36"
-    sha256 cellar: :any,                 arm64_sequoia: "57789905a11fba3cc15bdf565b3ae5cb433ead8bca0cb8303f020d185b4ef642"
-    sha256 cellar: :any,                 arm64_sonoma:  "cdf09a38f15d2f72ab1a9edc47a5af5e613f448c66b43d47259c5716553e3993"
-    sha256 cellar: :any,                 sonoma:        "96a2cc6d24ea0a82e431f87befb21766da37630a685dcefb0274bf8c939f5c0a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "33dca7c0cac36c3b2c72df78a56c732dfc9705750a12b504b6e98ce4d9341b7f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9206127d5d2652d0803c870a06daf8ca6d24b4d12676b39bad2f767c18479453"
+    sha256 cellar: :any,                 arm64_tahoe:   "37388761423cac9f473862af5fdd46873d4eba832d9260edd419fb35a92e9cb7"
+    sha256 cellar: :any,                 arm64_sequoia: "dd6ed015e1b7a980c3dfa2b0dd1c01d563a8cf73bdb7f3de87d0cc1656fc1e1b"
+    sha256 cellar: :any,                 arm64_sonoma:  "f2fa00c53a8b8d8630df1fdab10ee8f3d65b3665d08bf733c493ebc2b2f815ac"
+    sha256 cellar: :any,                 sonoma:        "e612d135257541b83e49f87a8ee4970db4db526aef405212e05e5887eef4a279"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b3e3ce909464d1ffc26af810160ecb6db3665d742b76a0924f358983767cde5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30dd3f72b9f5c0dc9c73286534b24230ccd6bb6ad58cd43d235e8a79f6107c0f"
   end
 
   head do

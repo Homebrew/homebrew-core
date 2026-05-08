@@ -1,20 +1,18 @@
 class Hcledit < Formula
   desc "Command-line editor for HCL"
   homepage "https://github.com/minamijoyo/hcledit"
-  url "https://github.com/minamijoyo/hcledit/archive/refs/tags/v0.2.17.tar.gz"
-  sha256 "007e8ba0c8be6272793fc4714cb60b93cb4cdfdc48ab5ad5a6566e44f99d200e"
+  url "https://github.com/minamijoyo/hcledit/archive/refs/tags/v0.2.18.tar.gz"
+  sha256 "40be8406251263e90006853bcd336dc27b09fae93c56840dc3a44c3fd72f968c"
   license "MIT"
   head "https://github.com/minamijoyo/hcledit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8c12e2f1d81a8e8ae4218c5959527a8c3fecd0335c47be6a009ff9fa379656bf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f337eedfe77241c8a1e9e1be22fcc53322fc34343950d7cb7a52908f5452c4e0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f337eedfe77241c8a1e9e1be22fcc53322fc34343950d7cb7a52908f5452c4e0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f337eedfe77241c8a1e9e1be22fcc53322fc34343950d7cb7a52908f5452c4e0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0b20a51f695f3783df9862c041c4c969061476b870efee585cbbc0e676c49542"
-    sha256 cellar: :any_skip_relocation, ventura:       "0b20a51f695f3783df9862c041c4c969061476b870efee585cbbc0e676c49542"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8f3385b7a443e2bcaa9316779682f28c1c3a5e97231c96be9d7fb98e01da984"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "502832282bfe2438b7fec2233905a46cf484e94240e86b854e7fdc85bd634603"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "26ef5207f2ea741c27c5a519cd59abdb614ec76ba88df2b5c952b636cfc0205b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "26ef5207f2ea741c27c5a519cd59abdb614ec76ba88df2b5c952b636cfc0205b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "26ef5207f2ea741c27c5a519cd59abdb614ec76ba88df2b5c952b636cfc0205b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3d3c45b42e09e19149b5f1eadef9d07775c0382ed0d539ff86e40dbdd5067ed2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af426dfe5cbe58a7b8fae3280585c4d435409d69163488cd22e13f4403dcafe2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fb5a34f86a074e3dd1fdea34d82c293e2a345a65b5f26bbbc348cb3b585964b"
   end
 
   depends_on "go" => :build

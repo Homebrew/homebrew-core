@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 8
+  revision 10
   compatibility_version 1
 
   stable do
@@ -25,12 +25,12 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f5ca20940550ae0583e07401f40caefc939f8fe64b279921b48ddc4cb9acf9de"
-    sha256 arm64_sequoia: "5c1a25dd27e429a8281909af699cc79e6ccf1c37b996cd18f3a057417c3f7bad"
-    sha256 arm64_sonoma:  "da1c083a9b1fe8370813fc501f585026bcde61f1579068c0b8259fc8a1a6bdb6"
-    sha256 sonoma:        "3296399eb781d8d753d418360eb125f5c655e7282d257b1810c4e8b9e826b4fa"
-    sha256 arm64_linux:   "0c834d72a0c83f34b8e0f642708304a309c4ab6e30bf544f56dcb6c39945ab19"
-    sha256 x86_64_linux:  "a148fbaa547d84070ef8537c5da2d55792b472e13d40d13bd4ff7f20babafb25"
+    sha256 arm64_tahoe:   "123b6d8860c3835290e3e58ab9af96b638c1bc162163f2880935f27abe58b387"
+    sha256 arm64_sequoia: "4255631e4cc70e700d7bf3e126a618364c7cf7dee522bd1dbc4360a973b34889"
+    sha256 arm64_sonoma:  "454f705d2a2abcb20db11260b6b7ea007c1b05d7a843a97ac38e4ffee62a88c1"
+    sha256 sonoma:        "c668b081315ed90dc6b97c29a393b8bc10be9334083847b3517a859450701a42"
+    sha256 arm64_linux:   "dcefcc3a3a40d2b77b07438ed95a35522966339f6a07a709a0eed8edede591a5"
+    sha256 x86_64_linux:  "71dc6c4101a7e1e4855b05f1086dc4132ec825b5b2ccef6313235744edbf862c"
   end
 
   head do
@@ -100,6 +100,15 @@ class Opencv < Formula
     inreplace "modules/dnn/src/op_inf_engine.cpp",
               "return Mat(size, type, blob.data());",
               "return Mat(size, type, const_cast<void*>(blob.data()));"
+
+    # VTK 9.6 stopped transitively including <iostream>;
+    # viz uses std::cout/endl directly.
+    # PR refs: https://github.com/opencv/opencv_contrib/pull/4085
+    inreplace "opencv_contrib/modules/viz/src/vtk/vtkVizInteractorStyle.cpp" do |s|
+      s.sub! '#include "../precomp.hpp"', "#include <iostream>\n\\0"
+      s.gsub!(/^(\s*)cout (<<.* )endl;$/, "\\1std::cout \\2std::endl;")
+    end
+    inreplace "opencv_contrib/modules/viz/src/widget.cpp", '#include "precomp.hpp"', "#include <iostream>\n\\0"
 
     args = %W[
       -DCMAKE_CXX_STANDARD=17

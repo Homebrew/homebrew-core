@@ -1,8 +1,8 @@
 class IpinfoCli < Formula
   desc "Official CLI for the IPinfo IP Address API"
   homepage "https://ipinfo.io/"
-  url "https://github.com/ipinfo/cli/archive/refs/tags/ipinfo-3.3.1.tar.gz"
-  sha256 "b3acdfdfdebe64b34c7a1aa80de25fd7178a51105e588ad0d205870ca9d15cfb"
+  url "https://github.com/ipinfo/cli/archive/refs/tags/ipinfo-3.3.2.tar.gz"
+  sha256 "ad5464068ec370599bd7624cd69f58047ac56d8140ba8e50b468c80e06c438a1"
   license "Apache-2.0"
   head "https://github.com/ipinfo/cli.git", branch: "master"
 
@@ -12,13 +12,12 @@ class IpinfoCli < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "629bce3608145a3bad1850c24b09617d223f4307e432b256cafb35a7f1d68bb1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "49f5aa2b1f8995258d1afa217a73e990cd054775b09fe062d3e663dd8aa03c2e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "004f55184d0983e4ba071aa51c46eb7f2b421cbb424b88b9a315683aba9e6b71"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3909846e5be7d305fd8b3861957c719fee0a1490950f57bcb499ac6d5e4031da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "239dcc822e7759a8ae57a8df5bf91218e6ab59b5789e64b93bf5be59451e4be7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d357ca2a3418da8d4f16edeca092f2e10a9e30ccd71992f5aeaf5d320773c0c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd5a770f3763ffca3826152bd4e056eb2c60ae47219f36a33ec9f7c4b4d76a2c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0cafb083180fad88a5c117f36864d403227cc670e37937f5a2f2b3878e1de936"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b26ca6c5b4dee902726c4230ef72b9793a5b4994f273d589af0656ef1f51c6e6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20931465b2b3a1430bc224c892b8c82db6ab79c31adbd0e06cc3efde74ef6003"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf2aacb42ea2ef2fff5efe7d481bd44964c277f474a0fa942da4ecbf1787a6a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2aff14e9acb1e9df4c3d44e1305751d2e472432e2d3739d157a562f2680d7aca"
   end
 
   depends_on "go" => :build

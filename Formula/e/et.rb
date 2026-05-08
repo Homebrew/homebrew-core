@@ -6,19 +6,20 @@ class Et < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c14ad953bcc4571ce51e889d15557bad0a15ddb203d8b73bf0ccac823f5f1405"
-    sha256 cellar: :any,                 arm64_sequoia: "161e483009fa29de8ef1db8e0fd6d3a7d63e97d0814e170a702daf224590af12"
-    sha256 cellar: :any,                 arm64_sonoma:  "4e223a932b062e0eac5f6147def2b4cac109b23f772d96b381ba34706b623fe4"
-    sha256 cellar: :any,                 sonoma:        "acdda6aa6132c0e9652c901c806acd5f3d2a05b71a1f73c8ab182b8dea643dc2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "776af490681d4b07a0ab51a5dd3bd1164b7db1d7064d0195c36d8ebcb3ba76df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cc0303a8c6dd42fddfc899880ee2f60d3264817837a628bcd2e6595005f8e3b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d6a34468a1f8717d8e5883df897360f447be2da8d39b6c19c9340a723247f953"
+    sha256 cellar: :any,                 arm64_sequoia: "84069668e2b37c83feb09b520b3446555b8cb2e5e5d98d70b85e305cdaf0fcbd"
+    sha256 cellar: :any,                 arm64_sonoma:  "50fd905b77f11c9da8a9583fd907625619bacdefcd6790273d1c6c34f929f509"
+    sha256 cellar: :any,                 sonoma:        "b43d881f5a6b9f44137fead22d6d33d5ac9ef360267e14a96a6f64172bc2657f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3eeea0b83e230c75aaac71fa63d3c4eeb644973a5edf6d82161cc89844bb304c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55ccaf1da1a2aebe6cd71dfecdf19144fe0203df1f49900242d145d3a0ab4401"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
 
   depends_on "libsodium"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
 
   on_linux do

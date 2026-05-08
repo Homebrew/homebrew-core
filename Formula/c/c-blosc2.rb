@@ -1,18 +1,19 @@
 class CBlosc2 < Formula
   desc "Fast, compressed, persistent binary data store library for C"
   homepage "https://www.blosc.org"
-  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v2.23.1.tar.gz"
-  sha256 "3a1a55d1e3794fb2b51a12e722d611b3e577443abb7ff9951666511f576ea3da"
+  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v3.0.2.tar.gz"
+  sha256 "c711e988ec25c0e05030d4db996a2e07bad3d07000c62844a4f45b2a9860a6f1"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://github.com/Blosc/c-blosc2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "91448eaa6c8e16b006c19886acea4ac58264283dbf3ea8fd162ff1d39e6db9f0"
-    sha256 cellar: :any,                 arm64_sequoia: "0be8067bbf25c9d6b967ca40b1b00e104b6360e94dde074bfea9d9513e1708a5"
-    sha256 cellar: :any,                 arm64_sonoma:  "c5389b2626af39a505b153259d9293f76b687622a920d498725e9ed1a17d6d99"
-    sha256 cellar: :any,                 sonoma:        "bf86940c02cd637d88301284e74a606c4d4bffc830d53a48d711a4e744b8fbdf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc07ddbf6019521e4c51d1207772f53066a4e5edc613b52e46e578bdff046d1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9905447e2b2599757bebab05c143b0f94f5708d943d1e58b4520553abd1373c"
+    sha256 cellar: :any,                 arm64_tahoe:   "ea2d8d81b75c466eddfac8c94d00a3a56e11672cd3876110f67630cf2194f0b9"
+    sha256 cellar: :any,                 arm64_sequoia: "232ebfebbf482ae94f822d7a3c7f6a96c449b3816a7bd020a49c8314c87e2b0c"
+    sha256 cellar: :any,                 arm64_sonoma:  "fe3bc75c3a30e644e7cfed9aefaffa275b97fa2b97a1a39b5222d526545ed4c4"
+    sha256 cellar: :any,                 sonoma:        "ff22d0e6963f1041c8184e2defee04513b651d38cc5f11165266b4673d475120"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "034c1696eca95ab0cc1db09a256379629d49132125a889ae60b3830c2031f671"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9ee4bd83c2e05883f731268c668f2051694ce31167bda65a9b6a79dc5808ed9"
   end
 
   depends_on "cmake" => :build
@@ -32,13 +33,12 @@ class CBlosc2 < Formula
   end
 
   def install
-    rm_r("internal-complibs")
-
     args = %w[
       -DBUILD_TESTS=OFF
       -DBUILD_FUZZERS=OFF
       -DBUILD_BENCHMARKS=OFF
       -DBUILD_EXAMPLES=OFF
+      -DBUILD_PLUGINS=OFF
       -DPREFER_EXTERNAL_LZ4=ON
       -DPREFER_EXTERNAL_ZLIB=ON
       -DPREFER_EXTERNAL_ZSTD=ON

@@ -1,18 +1,18 @@
 class Tfmigrate < Formula
   desc "Terraform/OpenTofu state migration tool for GitOps"
   homepage "https://github.com/minamijoyo/tfmigrate"
-  url "https://github.com/minamijoyo/tfmigrate/archive/refs/tags/v0.4.4.tar.gz"
-  sha256 "85d8fa6881efdd444a3102dfbddc0559380643d2d72d871c1cbe3cfd3df1902d"
+  url "https://github.com/minamijoyo/tfmigrate/archive/refs/tags/v0.4.5.tar.gz"
+  sha256 "306c8d14bfbe86a532c85fffca2c4ea2cca6412bcbc4016680f81643d0d630e9"
   license "MIT"
   head "https://github.com/minamijoyo/tfmigrate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "603e3f3a30094b8b86c98fcb425b286607956fe6b5f040f1cf1158bd18cddb1e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "603e3f3a30094b8b86c98fcb425b286607956fe6b5f040f1cf1158bd18cddb1e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "603e3f3a30094b8b86c98fcb425b286607956fe6b5f040f1cf1158bd18cddb1e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "993820c499d14f9eeab7d504c9d966b2bf45e1f70142cb8c4db1641785b401fd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3a3f8800cded05ff20287578059f556f3993e2566ae83b7710decdf0ab9e1e19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ae0031a822efc9bee92b239c6f0df4a352931aa7f41ac7fc4980138ba04f673"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "527a0a2f6adf35b6c7af46b767adb0606bd8fcf22c2e3bdeab9eb9974e87bcea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "527a0a2f6adf35b6c7af46b767adb0606bd8fcf22c2e3bdeab9eb9974e87bcea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "527a0a2f6adf35b6c7af46b767adb0606bd8fcf22c2e3bdeab9eb9974e87bcea"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1c9c2184db05b3284d109c0012e0147bae72b55e13bec559331fc229a29e0c56"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "430636bf6fc4ec275637decd04b44abee2df45d46f978ceb9456e6e5e8ed3f34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11ece0b32824bd5a6b518816eed3b236921014d8a3e535aea7b9998289abf057"
   end
 
   depends_on "go" => :build

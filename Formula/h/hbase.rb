@@ -8,17 +8,18 @@ class Hbase < Formula
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 arm64_tahoe:   "add59c179ca1a52eda188727acbad545289cb0b7279d5667f205a745432bd395"
-    sha256 arm64_sequoia: "81c98b4253fcf7864192aec69b4b9bd50e44aba8654d9264dd86dc3147042e18"
-    sha256 arm64_sonoma:  "94e793b80b2a29c52db274322cb20d8c764ebf0fd624e42632a4b84504a5195c"
-    sha256 sonoma:        "246ede87a8ca8b624da273d08de57400a72b989c84c92d0b44553cb1bd61c5ef"
-    sha256 arm64_linux:   "c0e4e633a550eceac6fd8f0aa86a79789519208b57cf7f87eee2e79b30da8077"
-    sha256 x86_64_linux:  "ca2ccf74243eb40d117b1ec7209c0089b1f9824b3f2dde1a5f0347ac926aba9c"
+    rebuild 1
+    sha256 arm64_tahoe:   "fd00080ca7610f1c4e7eac9acc1760fc964e899f9a17f06e4a2c7bf4b74c4e39"
+    sha256 arm64_sequoia: "0b0a4d575975c6147604f0747c53f041409d81f921577105632c593c91046e33"
+    sha256 arm64_sonoma:  "4b5c7e54871fec8a2dbbe83b4b8d863fc3368afb0ba7718f15739e04225a4c9d"
+    sha256 sonoma:        "fcb9cbf33b216436444dd2d5e3596aa5be87e69002b6e51818493b71eb039bb3"
+    sha256 arm64_linux:   "1032d4382795b7637eb832decbfbbbd6e92a67378b333ee26a573d081d9012e5"
+    sha256 x86_64_linux:  "3e9c3334d63451522677cc6973729d92254d4ef6983dca41eba2e71f4ed97433"
   end
 
   depends_on "ant" => :build
   depends_on "lzo"
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
 
   on_linux do
     on_arm do
@@ -45,14 +46,14 @@ class Hbase < Formula
   end
 
   def install
-    java_home = Language::Java.java_home("11")
+    java_home = Language::Java.java_home("17")
     rm(Dir["bin/*.cmd", "conf/*.cmd"])
     libexec.install %w[bin conf lib hbase-webapps]
 
     # Some binaries have really generic names (like `test`) and most seem to be
     # too special-purpose to be permanently available via PATH.
     %w[hbase start-hbase.sh stop-hbase.sh].each do |script|
-      (bin/script).write_env_script libexec/"bin"/script, Language::Java.overridable_java_home_env("11")
+      (bin/script).write_env_script libexec/"bin"/script, Language::Java.overridable_java_home_env("17")
     end
 
     resource("hadoop-lzo").stage do
@@ -74,7 +75,7 @@ class Hbase < Formula
       # Workaround for Xcode 14.3.
       ENV.append_to_cflags "-m64" if Hardware::CPU.intel?
       ENV.append_to_cflags "-Wno-implicit-function-declaration"
-      ENV["CPPFLAGS"] = "-I#{Formula["openjdk@11"].include}"
+      ENV["CPPFLAGS"] = "-I#{Formula["openjdk@17"].include}"
 
       system "ant", "compile-native", "tar"
       (libexec/"lib").install Dir["build/hadoop-lzo-*/hadoop-lzo-*.jar"]
@@ -86,7 +87,7 @@ class Hbase < Formula
       # https://issues.apache.org/jira/browse/HADOOP-8568
       # https://issues.apache.org/jira/browse/HADOOP-3619
       s.gsub!(/^# export HBASE_OPTS$/,
-              "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
+              "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true\"")
       s.gsub!(/^# export JAVA_HOME=.*/,
               "export JAVA_HOME=\"${JAVA_HOME:-#{java_home}}\"")
 
@@ -148,7 +149,6 @@ class Hbase < Formula
                           HBASE_LOGFILE:           "hbase-root-master.log",
                           HBASE_MASTER_OPTS:       " -XX:PermSize=128m -XX:MaxPermSize=128m",
                           HBASE_NICENESS:          "0",
-                          HBASE_OPTS:              "-XX:+UseConcMarkSweepGC",
                           HBASE_PID_DIR:           var/"run/hbase",
                           HBASE_REGIONSERVER_OPTS: " -XX:PermSize=128m -XX:MaxPermSize=128m",
                           HBASE_ROOT_LOGGER:       "INFO,RFA",

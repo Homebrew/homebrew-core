@@ -3,19 +3,18 @@ class Beancount < Formula
 
   desc "Double-entry accounting tool that works on plain text files"
   homepage "https://beancount.github.io/"
-  url "https://files.pythonhosted.org/packages/57/e3/951015ad2e72917611e1a45c5fe9a33b4e2e202923d91455a9727aff441b/beancount-3.2.0.tar.gz"
-  sha256 "9f374bdcbae63328d8a0cf6d539490f81caa647f2d1cc92c9fa6117a9eb092ca"
+  url "https://files.pythonhosted.org/packages/eb/21/ed48e671a5e474c620762a7ea9c6b7f402f847d74dd2b73ceb5d2dec79a3/beancount-3.2.3.tar.gz"
+  sha256 "f52c4d237bcb092cbf02a29373d3e59d95349c2828a91491818ae437ee220f74"
   license "GPL-2.0-only"
   head "https://github.com/beancount/beancount.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3045ff72fe59dd3077e08f18d541b91421d5fdb08d1b0bbaf154418840685dae"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7cbfdba20bcae6f4bd7c5c526a32a3369b037bad2491cc35e20a8e04a1881c5e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b41451840d2ed0b79e7d7e32799e776001e9a0355525f584ef18f9231a64474"
-    sha256 cellar: :any_skip_relocation, sonoma:        "96a14578b71603bb20ebf8f08e4a11fc8dcfde165d0e7ae9ace5c29cd80a36f7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e84599c4925de97bd2feb7e75162a9fe8e332bdb0e9b8d79954f73947dc40bca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23f5e096016de0cfda9bbab51edfec9b71b4b888a135572ee61fd3d46245e287"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1af0f9a89d47e99664b9bad0e4d2751d478e174b8bc7cbd588ff6989383c00c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c57d3813a14d22f1a692b91998be9b172c289a6cf663eb95b17a392580cb9e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab88e4520e81e3e9522b763443cfa5a13eaa0f88f8f5fdea048f8e60da427f93"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2c4062e64e6e41b696552c21225773e0f8754cb7a18c8e1662e8e0b083ef3ced"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4c4f66f5d218bb6526476e7c1fc8b1a5491e5e895957af55a8c1ad7bb92e471"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5111dd091e70b372535c34ccec7b32356031a49473c679a47463e961e7ed6f3b"
   end
 
   depends_on "bison" => :build
@@ -33,8 +32,8 @@ class Beancount < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "python-dateutil" do
@@ -43,8 +42,8 @@ class Beancount < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/b2/5a/4c63457fbcaf19d138d72b2e9b39405954f98c0349b31c601bfcb151582c/regex-2025.9.1.tar.gz"
-    sha256 "88ac07b38d20b54d79e704e38aa3bd2c0f8027432164226bdee201a1c0c9c9ff"
+    url "https://files.pythonhosted.org/packages/cb/0e/3a246dbf05666918bd3664d9d787f84a9108f6f43cc953a077e4a7dfdb7e/regex-2026.4.4.tar.gz"
+    sha256 "e08270659717f6973523ce3afbafa53515c4dc5dcad637dc215b6fd50f689423"
   end
 
   resource "six" do
@@ -53,6 +52,9 @@ class Beancount < Formula
   end
 
   def install
+    # Skip the PyPI flex/bison wrappers; we already provide system equivalents.
+    inreplace "pyproject.toml", /^\s*'(flex|bison)-bin.*\n/, ""
+
     virtualenv_install_with_resources
 
     bin.glob("bean-*") do |executable|

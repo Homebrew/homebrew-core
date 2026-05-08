@@ -1,10 +1,9 @@
 class Tiledb < Formula
   desc "Universal storage engine"
   homepage "https://tiledb.com/"
-  url "https://github.com/TileDB-Inc/TileDB/archive/refs/tags/2.30.0.tar.gz"
-  sha256 "c5f94da6de0e0f93925f7ad107bd80fef0615f9b3d111a5bae245f75b1fcc173"
+  url "https://github.com/TileDB-Inc/TileDB/archive/refs/tags/2.30.1.tar.gz"
+  sha256 "36381f9eaa2a6defc8990aa1a95d1f0e87971748a50bf6fb705bf032ac7384cf"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +11,12 @@ class Tiledb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "54fd33027f3080b795d9bb20f7fa69bf04f569812d86fbfe87cf1ccb27c9d59f"
-    sha256 cellar: :any,                 arm64_sequoia: "9a296a2fc9496cf3a0a02ca911b8ddd00519889bd959c8e326bf1f30c43b1856"
-    sha256 cellar: :any,                 arm64_sonoma:  "d3d0f806307d8f777c41c035d59e2193d809e1915b7e35e27a271c596f6ae87c"
-    sha256 cellar: :any,                 sonoma:        "cbcbbdbfadddc8ad1db6f24856e3c7db00da6916da39e5db2860ce2a020ac501"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "42d8601468572ca286e43ebf0aba0ef95ed81448731819881ea538c04b25e975"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9dd9ab013c19d5bfdb2dab16580134e17fe4b80a378fc8e87fa2358cf7fab2d4"
+    sha256 cellar: :any,                 arm64_tahoe:   "98fee684203c548244cc2f3ec9459f7f4539369e385b3be78240a2ccd30ef106"
+    sha256 cellar: :any,                 arm64_sequoia: "c1de4bb360650a489724b55e763de8db121f70ecde9b95e8174fe5af11114715"
+    sha256 cellar: :any,                 arm64_sonoma:  "d2486b2bb95402d98de88de5872c2a9339eac39dc80d7d2495cee23b73589ff7"
+    sha256 cellar: :any,                 sonoma:        "8c0caf0184e82ca10c8d739210ca07bfc0e2fea6349a04693b2a2ab9b43485e2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc141748f5b5f2635e77346efcd4cd158ee0b61f71a63d7b816e5deb2cb93421"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69feef5a67603d461607fba63663fff92e5b955b124675e87e655589a224d2f0"
   end
 
   depends_on "c-blosc2" => :build
@@ -36,6 +34,13 @@ class Tiledb < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Fix version, remove in next release
+  # PR ref: https://github.com/TileDB-Inc/TileDB/pull/5793
+  patch do
+    url "https://github.com/TileDB-Inc/TileDB/commit/9a89804d24ca736a5baadcc0794c7edede2db1ad.patch?full_index=1"
+    sha256 "ea540d60699fc58432ccd0702989bcc1782b5d8f18d64c72548672f54197254b"
   end
 
   def install

@@ -8,18 +8,17 @@ class Caf < Formula
   head "https://github.com/actor-framework/actor-framework.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "faa09c3ddebe8332936b1cc01028494b75a7b80763b045256840983be78f3785"
-    sha256 cellar: :any,                 arm64_sequoia: "7678c03ac5833969bc5ef720b398e774d1e3156d268d34ce9d95349e7f885823"
-    sha256 cellar: :any,                 arm64_sonoma:  "34839f1a22902b556f3ece25edc7e1b3123768f17ed76f2a0e5a24ae0f13110b"
-    sha256 cellar: :any,                 arm64_ventura: "c2b9cac897daf44e7c17dcf6b52790a4ed3b74d36a96b61f1794bf3077be02df"
-    sha256 cellar: :any,                 sonoma:        "aa3ca3370d07b8ed67d9e319eccf4412e8b7cd8a654eadd8df8fbf1f2c2feff3"
-    sha256 cellar: :any,                 ventura:       "967061c8c7b2f3b6adc948623502333c7d680616a6fe21941374aba7f836ae01"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "980f1e6bf7b3462f90c1251a2fc22ca9cdee8f81e1ae631fd34cdd48469aad7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18dd86732ab832bc6b035af48f3fcc8d05c6ec4dca5ec068d09f43fc3b724335"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "cdea98fe4c1d6c96ce9c27d279bbbd9c27bb201be0c7d3962d13a4a5ea544eb4"
+    sha256 cellar: :any,                 arm64_sequoia: "8feab93e8b57d114236e22652bed925c45a0c99d5973c9156b12bd8252b0f95c"
+    sha256 cellar: :any,                 arm64_sonoma:  "0e1a5cdca6696088cc37f12d0908abf669655689e6187066994eb022814905e8"
+    sha256 cellar: :any,                 sonoma:        "66f289a4e6565895a7dce5c54560496b541944792a8bdba92742276371f43b17"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5be578ceca56236f6383d890131db23cd0c113e57d090866a4e85231bd7ac2dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "308c700f475a619ae55aec7ce2952dce2db3df85ea38ecc8a8067f6365ca1dd7"
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     tools = pkgshare/"tools"

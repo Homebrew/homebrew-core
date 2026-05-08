@@ -1,18 +1,18 @@
 class Svu < Formula
   desc "Semantic version utility"
   homepage "https://github.com/caarlos0/svu"
-  url "https://github.com/caarlos0/svu/archive/refs/tags/v3.4.0.tar.gz"
-  sha256 "7448fafc958551e06ad7c8bb2eddc5db9bd5d7335a7d5c80750193b68b6f78bd"
+  url "https://github.com/caarlos0/svu/archive/refs/tags/v3.4.1.tar.gz"
+  sha256 "b40fe73b43926051885045cdf72a3882d3b5e4826577532bd95ef15a9313e418"
   license "MIT"
   head "https://github.com/caarlos0/svu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e2cb5cf9e7e3a54ac0305ba6b92bc6579b00806940ee1b4bcb35ebb80949479a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2cb5cf9e7e3a54ac0305ba6b92bc6579b00806940ee1b4bcb35ebb80949479a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2cb5cf9e7e3a54ac0305ba6b92bc6579b00806940ee1b4bcb35ebb80949479a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "71e37771b8a1f26f2171dd64b6c06d6b2fb575265b234f1bce6169c5df6545f2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb6fc6f24f354b2784e272ce6e3ff82f9cf47b26de6d9b11b0da4514c6e9ee54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cddc90ff2dec26b876cd70a333c71f69d47163402eeb2ad3cb2018fecc75bbb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9fbb8d4392171c75d6949b322d900a4f8bdee26f714a9c4250f5e8dea22d43bd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9fbb8d4392171c75d6949b322d900a4f8bdee26f714a9c4250f5e8dea22d43bd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9fbb8d4392171c75d6949b322d900a4f8bdee26f714a9c4250f5e8dea22d43bd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4bf2db740cb081a92a5e619945631bf9cd2aba7a047442ce2ea42ac62d1fb732"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1da09dc2baa8695ebe3cdb32f36829ff438c85671a890db2bbbd8efeb3280fe7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "100a92ac58251333d989171e67366067965e3fb4e2546df4693ea71e44167427"
   end
 
   depends_on "go" => :build

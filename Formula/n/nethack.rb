@@ -4,17 +4,25 @@ class Nethack < Formula
   desc "Single-player roguelike video game"
   homepage "https://www.nethack.org/"
   license "NGPL"
-  head "https://github.com/NetHack/NetHack.git", branch: "NetHack-3.7"
+  head "https://github.com/NetHack/NetHack.git", branch: "NetHack-5.0"
 
   stable do
-    url "https://www.nethack.org/download/3.6.7/nethack-367-src.tgz"
-    version "3.6.7"
-    sha256 "98cf67df6debf9668a61745aa84c09bcab362e5d33f5b944ec5155d44d2aacb2"
+    url "https://nethack.org/download/5.0.0/nethack-500-src.tgz"
+    version "5.0.0"
+    sha256 "2959b7886aac76185b90aea0c9f80d14343f604de0ae96b3dd2a760f7ab3bde9"
 
-    # add macos patch, upstream PR ref, https://github.com/NetHack/NetHack/pull/988
+    # Fixes --showpaths command when used noninteractively,
+    # required by Homebrew's tests
+    # https://github.com/NetHack/NetHack/issues/1512
     patch do
-      url "https://github.com/NetHack/NetHack/commit/79cf1e902483c070b209b55059159da5f2120b97.patch?full_index=1"
-      sha256 "5daf984512d9c512818e0376cf2b57a5cd9eefaa626ea286bfd70d899995b5de"
+      url "https://github.com/NetHack/NetHack/commit/60d59f4d5574c00cbb391cd58da3ed959de1ba2b.patch?full_index=1"
+      sha256 "3ac9c71f360404c30845b67b8e96d06504c3039abe1ae43b76c856b20ee11f98"
+    end
+
+    # Second half of the above fix
+    patch do
+      url "https://github.com/NetHack/NetHack/commit/b7735632bfdac6a502f8f2954fbe6d5bbac53e2b.patch?full_index=1"
+      sha256 "ea9a05446b9d840030c799d610bec394337040c2d63f8d3694f38221776e6d02"
     end
   end
 
@@ -28,22 +36,15 @@ class Nethack < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:    "9266431ce0bd0980d82d8a6a0a899d1e31ad90236598706d79600b6acf76cdef"
-    sha256 arm64_sequoia:  "4bd7bdd2aa9ce9dae7f450ffaeda07c1279f597ef35ee3bd7ee52086b54160e1"
-    sha256 arm64_sonoma:   "ce30c296e474a239cb110c54a7b16950de538e9782414718290606a8cc9424d1"
-    sha256 arm64_ventura:  "e51292f937dbfdb68feb969552da8ab484a8728d5fb85fc6e389cdfd0ed57922"
-    sha256 arm64_monterey: "f546283d68a22ff79a4a382a05fb9f7c1949b8057e52f478c8cead4300d424b4"
-    sha256 arm64_big_sur:  "078ee2989d66bf8a98a577509c86dc4e7bddc009fe475dcfe172c075bd0cdb39"
-    sha256 sonoma:         "496413acccb6c48f8ae064d8beed827062858948e4f28dd7e792ef256d6236ad"
-    sha256 ventura:        "a2ca955b4f528e11d3d5baceeb8bb9783914f595a1a010e12ce23cc5206e85ef"
-    sha256 monterey:       "0fad9d74cfab3770167a0de3de5228f2ec5c079e94d6956c140f820b3b8e2097"
-    sha256 big_sur:        "9478349296901830cee4abfeecbca729453a87732753603216e6a7ca8b31695a"
-    sha256 arm64_linux:    "d4278220da343d3dcd08254e40c10167c03e6fc83af8634433f241ab9c3e9b0c"
-    sha256 x86_64_linux:   "e8904c482b7915880b90dd409d7a66d74b46524d07071f3eb720aa870cf78a83"
+    sha256 arm64_tahoe:   "263f45d084336797c0d218b49fa8569039f7ed227ea59e10135f585b2a3b39a0"
+    sha256 arm64_sequoia: "d8355aeffe5789f86375979287c62fe720c8d0e6472543b0da9d2a17f60f4535"
+    sha256 arm64_sonoma:  "a9132b7b68acda7a4def72459ef19bd3f45b54c650d7af7276f16540970e07bc"
+    sha256 sonoma:        "f02f8d45ea8cdffed20400ecb0c6f3c33a185ad8dd70c45a214bec52b2feea62"
+    sha256 arm64_linux:   "340fd39677a8b56e30acecc47c33b69618c0f8319bd6b91d1c975764246d095b"
+    sha256 x86_64_linux:  "0f72ae46bf187e2c0e507b2504c39cd3f94872f3ac2ac86a5b5c7ed1de6e016e"
   end
 
-  uses_from_macos "bison" => :build
-  uses_from_macos "flex" => :build
+  depends_on "groff" => :build
   uses_from_macos "ncurses"
 
   def install
@@ -55,9 +56,9 @@ class Nethack < Formula
 
     cd "sys/unix" do
       hintfile = if OS.mac?
-        build.head? ? "macOS.370" : "macosx10.14"
+        "macOS.500"
       else
-        build.head? ? "macosx.sh" : "macosx10.10"
+        "linux.500"
       end
 
       # Enable wizard mode for all users
@@ -70,15 +71,15 @@ class Nethack < Formula
         s.change_make_var! "CHOWN", "true"
         s.change_make_var! "CHGRP", "true"
         if build.stable?
-          s.gsub! "#WANT_WIN_CURSES=1",
-                  "WANT_WIN_CURSES=1\nCFLAGS+=-DVAR_PLAYGROUND='\"#{HOMEBREW_PREFIX}/share/nethack\"'"
+          s.gsub! "#NHCFLAGS+=-DLIVELOG",
+                  "#NHCFLAGS+=-DLIVELOG\nCFLAGS+=-DVAR_PLAYGROUND='\"#{HOMEBREW_PREFIX}/share/nethack\"'"
         end
       end
 
       system "sh", "setup.sh", "hints/#{hintfile}"
     end
 
-    system "make", "fetch-lua" if build.head?
+    system "make", "fetch-lua"
     system "make", "install"
     bin.install_symlink libexec/"nethack"
     man6.install "doc/nethack.6"

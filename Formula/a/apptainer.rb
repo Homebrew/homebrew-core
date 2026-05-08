@@ -1,15 +1,14 @@
 class Apptainer < Formula
   desc "Application container and unprivileged sandbox platform for Linux"
   homepage "https://apptainer.org/"
-  url "https://github.com/apptainer/apptainer/releases/download/v1.4.5/apptainer-1.4.5.tar.gz"
-  sha256 "d323a8b9a0a9e5e131b396d0049fdaa99beceb83a3d7ffb80dd91d15331e3b9a"
+  url "https://github.com/apptainer/apptainer/releases/download/v1.5.0/apptainer-1.5.0.tar.gz"
+  sha256 "36d67d57ef959397fa4f59169cf7deb92220537160e761e0c1cff84624ad81e3"
   license "BSD-3-Clause"
   head "https://github.com/apptainer/apptainer.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "869d04ad3305e8a4f7129c6cd978ec4d48972b049c65edfbb56d3c6048714df6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c0e1729e484d95e8c33083e9fa81046d60d4dc2ebae1c1ea195c4009158c7124"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "39e03d7e4b2e68548b73be60516fbcbe276fc62e03eca03346d15b4799873082"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bc38fe8a8b777da096ef715f64fd978b15b54196be745c1059791699d1cc76d4"
   end
 
   # No relocation, the localstatedir to find configs etc is compiled into the program
@@ -29,7 +28,7 @@ class Apptainer < Formula
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --without-suid
-      -P release-stripped
+      -P release
       -v
     ]
     ENV.O0

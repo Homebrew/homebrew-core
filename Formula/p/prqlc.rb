@@ -1,18 +1,18 @@
 class Prqlc < Formula
   desc "Simple, powerful, pipelined SQL replacement"
   homepage "https://prql-lang.org"
-  url "https://github.com/PRQL/prql/archive/refs/tags/0.13.11.tar.gz"
-  sha256 "d4161413104291aa88c094863aacf2dd1c97cbb5325a56b8fc92e6448cd65a86"
+  url "https://github.com/PRQL/prql/archive/refs/tags/0.13.12.tar.gz"
+  sha256 "8e24657f9bec405bccc3c22404cc97e18d6583ffbafc3cd3286038f7c1728606"
   license "Apache-2.0"
   head "https://github.com/prql/prql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f524bfd04eec3c9dad9cbe545ded3902d893448a3de9bcbbde45abfb88e91e23"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd91bbd04fd724b433093437e4e310f2fcab54ee8f48cfc8264c40af68ae3639"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c967c97d0ef9dd9c751357c56b2c3fa47ace3f6b60f77c213a07b66b3dc763d0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5125a39d69c45663e83492bfacfc6b859687b5265efd9c7e5b2da8542b3cb777"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1aeef2b550e240e4df5b60d5032ecb3354f4e627727f653060dc81275d8eeeb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "365d6dc0e193eebd5696d52310c163553fe85d060a14b45d51594f293ef8ecd9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "517b7f9c458526d0a4555ba1b10e9dc36be1ce33b2fbf7414bc3aa0ff07cf6c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f48314093f30414363d6de9f4f8d35e415dd81cbc892a9a1fe9e2230dee3d76f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ee17962c077cd577a494e6fd17643dc0a18ac6bdcca4dc7490b7ff44ad0039b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dcf69b61205285244a61802cc991c20471f99cb6b08436d6b45a0ec9911a458a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e10014ba53cdde8d2b708a96692174e57db11cbe4e63cddda755098a6f9b72a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acb247bfebd86adcc1cb5dc51d045b8ad567a77af4ae69b74935714b8b5339fa"
   end
 
   depends_on "rust" => :build

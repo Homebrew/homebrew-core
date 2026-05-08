@@ -1,18 +1,18 @@
 class Thriftgo < Formula
   desc "Implementation of thrift compiler in go language with plugin mechanism"
   homepage "https://github.com/cloudwego/thriftgo"
-  url "https://github.com/cloudwego/thriftgo/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "d705854e766e8bc89e2ef44385d00810938fcba22686d417d93c8f83a07fe3ce"
+  url "https://github.com/cloudwego/thriftgo/archive/refs/tags/v0.4.5.tar.gz"
+  sha256 "8469be2df13bb1c2128a3594e4d59fb718ddf3da603181d163dbcf3d230214af"
   license "Apache-2.0"
   head "https://github.com/cloudwego/thriftgo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5cb46a98965f84e1857d0ae5395d532e3cbdef428e03e39a60ba40bf75fb48ba"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5cb46a98965f84e1857d0ae5395d532e3cbdef428e03e39a60ba40bf75fb48ba"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5cb46a98965f84e1857d0ae5395d532e3cbdef428e03e39a60ba40bf75fb48ba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "132fa03cdcc0762f6df66d48116df589207f914fcdeb207e27ec8ae8852f0ab9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf9b14ced5844d920c396b4545bb0f41a9a065ced28314d3fc1f26b988a79df3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c769a0df181ec44dff7f01ce065f5f32370671d478626344fc615bb337bc099"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d21e7f4fcfe6e416ca12f60946f9fba844d3655c5f55ee74464a8d68df99b7c8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d21e7f4fcfe6e416ca12f60946f9fba844d3655c5f55ee74464a8d68df99b7c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d21e7f4fcfe6e416ca12f60946f9fba844d3655c5f55ee74464a8d68df99b7c8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7479b1ff7069e364795aa5f94dfafb8ff5c36c57dbb27ddcc7052c5cb139b301"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c6aa972482bd6bac8b182a9eff23ab06000febb8eb3b5c4e0802aa49a9fcc22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "998dcd0021acb422ecd7baf840339121e0664e1ad490b451497045f8756deec9"
   end
 
   depends_on "go" => :build

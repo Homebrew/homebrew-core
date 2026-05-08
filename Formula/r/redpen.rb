@@ -17,6 +17,9 @@ class Redpen < Formula
     sha256 cellar: :any_skip_relocation, all: "06d9d1562bd8c00de7be8ad87e1bb69494deb932496dcd2d2b9dc2aebb87ddd1"
   end
 
+  deprecate! date: "2026-05-02", because: :unmaintained
+  disable! date: "2027-05-02", because: :unmaintained
+
   depends_on "openjdk@11"
 
   def install

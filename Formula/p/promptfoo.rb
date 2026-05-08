@@ -1,20 +1,21 @@
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.121.8.tgz"
-  sha256 "7dc691946e8cc3db5115ee56fb23c6727af471706e749ef41305954932b6eec2"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.121.9.tgz"
+  sha256 "3ed21092bece051fb7450614c648cfff7a54ff622f150f26de19c5c7f1fadbb4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f7299d793564ce47ab0a24348d9d407297f78e4469a549ae4e98481f9007d534"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b6665edb9b3546cc25f9f8cd050a6325a1c3f9c18ea2e994ddc3905c2e532163"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "abf2b9b9a705fa25fa0b18c8d17a3061d9549175e42f7e360befece925d7df4b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "41435e3ff623c106b511071d056737f86012c78b3aea6c3db60394b19444733c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d8ec1cac3232fdcd6cb4573c25b1ff53b874a124fe8355f9e93538553c7718d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c6ced135ce56bd765747b66c93018205a56afb707235d550bb2e7b78244af9b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "88b2fa0b7d68786833b6a2ad9c28fa622a097a17c6a3b45b42aa859a2f4668ac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c1a097678f49b6270ce80fbe4871d087ef43b7a986d693820c1f433d75487a4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "291d1bc8f4e8331ed08e9e69df7b6252028c5fa276cfae21fb49f04863a47512"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c4aa480a697f5dcfc5e256631bcda845803d2689994cd623cf27362db49080ba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "16bc17c8797230f3325c4d3b58ffea5f6b0c20d07896f0a837699c9e479cf6b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1dacfd958a9308086dbfd29af1b0d55339fe9070890fedf0fcdfde5182ca6e95"
   end
 
-  depends_on "node"
+  depends_on "node@24"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1700

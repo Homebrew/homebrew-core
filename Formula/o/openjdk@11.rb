@@ -1,8 +1,8 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.30-ga.tar.gz"
-  sha256 "5357c80e529dc131cbd8eb1121fa1e54bae7aaa53c038391ea053281266c1718"
+  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.31-ga.tar.gz"
+  sha256 "11c04910fb30a26a807b0847c9cccb8fc72e0b4d0e9db54e31957f27c7f03fd9"
   license "GPL-2.0-only"
   compatibility_version 1
 
@@ -12,16 +12,18 @@ class OpenjdkAT11 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "cc39878610883e6bd2b7fd4bbec7d97a4561ba8d196df32424629391cf5e32c0"
-    sha256 cellar: :any,                 arm64_sequoia: "7f50d2b87ceb160ee580777aa702e8827b82235c8c0000b75f41464b4e2d27f7"
-    sha256 cellar: :any,                 arm64_sonoma:  "0a49166a5a50ee00e65d22e80b8a5e8fb9193e6be5e6789d903d83d67c5f9eca"
-    sha256 cellar: :any,                 sonoma:        "3dccdd9e3052c5a9ddde091407d24a4fe2f7cfc41028ace08ea6d2890fbdd909"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "57585af6588c21f64a4102d776bf19fb1c44efdabb855eac3297c484a45b32b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc2c7f36d3022e4c8eb698d2afa82215ffa2f8ab58bea63c8fc2a04e84522115"
+    sha256 cellar: :any,                 arm64_tahoe:   "f1d4cab805e34e540c02dc897e737c724b5e11b4f0f7234e7a2261d08362e77c"
+    sha256 cellar: :any,                 arm64_sequoia: "2f4ae77b7d610cb674a6ed3e50a845045c1b7ec183a3880b2b06330a1c80ab19"
+    sha256 cellar: :any,                 arm64_sonoma:  "f87d1fb5038ed73123d58a028989f66438d24d3d7f370bd58cf8ba1452f8a501"
+    sha256 cellar: :any,                 sonoma:        "fe8f555eab63fa7044b97806a11dc0304991062edb4801a1899bee5d779bb132"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e207943cd73c41ca85642d8a71ef275a3066f311ecfa421cfcddbc73a3eef79e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1481b8b3267eb790b9cc7e7b8a2b2813f07b4e0aff6735230b8c0d4d0ee65a72"
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2023-09-30", because: :unmaintained
+  disable! date: "2032-01-31", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "pkgconf" => :build
@@ -54,8 +56,8 @@ class OpenjdkAT11 < Formula
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://cdn.azul.com/zulu/bin/zulu11.84.17-ca-jdk11.0.29-macosx_aarch64.tar.gz"
-        sha256 "09ed1734c2d88fadcb75fdbec1ba5467d32e7fa2b10894541aa8e3d3ce78dc2d"
+        url "https://cdn.azul.com/zulu/bin/zulu11.88.17-ca-jdk11.0.31-macosx_aarch64.tar.gz"
+        sha256 "fe756215bc360cab0703c9c851f7e46d4762591dff33011420a710d4950e79b1"
       end
       on_intel do
         url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz"
@@ -64,8 +66,8 @@ class OpenjdkAT11 < Formula
     end
     on_linux do
       on_arm do
-        url "https://cdn.azul.com/zulu/bin/zulu11.84.17-ca-jdk11.0.29-linux_aarch64.tar.gz"
-        sha256 "5a225a0fe0a92bc6c04c8c5aeb03c697c6fd114465829f23e494a2ad44fa1cc0"
+        url "https://cdn.azul.com/zulu/bin/zulu11.88.17-ca-jdk11.0.31-linux_aarch64.tar.gz"
+        sha256 "8fa22d2c45355b7db381f932f8cda60f959299e2836167d79f0ccb3b1465f0fb"
       end
       on_intel do
         url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz"
@@ -77,7 +79,7 @@ class OpenjdkAT11 < Formula
   def install
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
-    boot_jdk /= "Contents/Home" if OS.mac? && !Hardware::CPU.arm?
+    boot_jdk /= "Contents/Home" if OS.mac?
     java_options = ENV.delete("_JAVA_OPTIONS")
 
     args = %W[
@@ -107,6 +109,7 @@ class OpenjdkAT11 < Formula
     ]
 
     ldflags = ["-Wl,-rpath,#{loader_path.gsub("$", "\\$$")}/server"]
+
     args += if OS.mac?
       ldflags << "-headerpad_max_install_names"
 
@@ -127,11 +130,16 @@ class OpenjdkAT11 < Formula
         --with-stdc++lib=dynamic
       ]
     end
+
     args << "--with-extra-ldflags=#{ldflags.join(" ")}"
 
+    # Work around Xcode 16 bug: https://bugs.openjdk.org/browse/JDK-8340341
     if DevelopmentTools.clang_build_version == 1600
       args << "--with-extra-cflags=-mllvm -enable-constraint-elimination=0"
     end
+
+    # Fix: prevent clang C++ driver from receiving `-std=gnu23` (Homebrew CI macOS + Linux toolchains)
+    args << "--with-extra-cxxflags=-std=gnu++17"
 
     system "bash", "configure", *args
 
@@ -164,7 +172,7 @@ class OpenjdkAT11 < Formula
   test do
     (testpath/"HelloWorld.java").write <<~JAVA
       class HelloWorld {
-        public static void main(String args[]) {
+        public static void main(String[] args) {
           System.out.println("Hello, world!");
         }
       }

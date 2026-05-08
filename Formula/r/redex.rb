@@ -5,6 +5,7 @@ class Redex < Formula
   desc "Bytecode optimizer for Android apps"
   homepage "https://fbredex.com/"
   license "MIT"
+  revision 1
   head "https://github.com/facebook/redex.git", branch: "main"
 
   stable do
@@ -32,12 +33,12 @@ class Redex < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e06fdb01d04d9f3034df3e5d8fe15f018b35846a72e9100ed559019a690bec47"
-    sha256 cellar: :any,                 arm64_sequoia: "f67e926b2befa3165251e26fd74e782b9e4682b83698f743c99499701dde663c"
-    sha256 cellar: :any,                 arm64_sonoma:  "b9c8df2bfdf2a2fde8ad231a6ca457b5b2c9814a7ba69dc0ee60d135d0ba6822"
-    sha256 cellar: :any,                 sonoma:        "9756ac7b8651a4270f4eb7ba663b9b9742f6d93686c2b10ec200977ac054c567"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2bf568921ef0ef17b89405d0893023bdc9ed29c0317f5bd64ba4fc0df9ce4340"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f0bf2c78fe56fb7df4d9583e57d344905a437cf0453c2e748eb69c8274e17b2"
+    sha256 cellar: :any,                 arm64_tahoe:   "24b6ffd1214ecd6ebf1eaeb04d031e55986e5e253deea222719a3d70d64487b1"
+    sha256 cellar: :any,                 arm64_sequoia: "39f605172a8cc139285503af1b4025a1d05ab9f307dcf87c21d03f6b4abb951d"
+    sha256 cellar: :any,                 arm64_sonoma:  "cf8f57ce89907754720d4362bc7e968c94e13ef837b3d53e7116e909de17b45e"
+    sha256 cellar: :any,                 sonoma:        "5478b429978e610107b019efe17ef056574745d401854e9e4c668db03e0fab93"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebb117a92cfd36ffe458acc31dbba4b1588c870cc9337bb4f4a59cb96437e9b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ad8d5114f1a3431a9b88a8fd74e654143149a207383e655994fc4c456fd303a"
   end
 
   depends_on "cmake" => :build

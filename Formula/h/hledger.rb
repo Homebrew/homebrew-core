@@ -1,10 +1,10 @@
 class Hledger < Formula
   desc "Easy plain text accounting with command-line, terminal and web UIs"
   homepage "https://hledger.org/"
-  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.52.tar.gz"
-  sha256 "5da2baa4cdb8a391961c66ad2b9d502898f0d7cb534c07703ea05696475ea42b"
+  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.52.1.tar.gz"
+  sha256 "242ba652cb76b2ca5cab1ba7588d0c99c8b7ebb329d76785f1851f2d5e9e95f6"
   license "GPL-3.0-or-later"
-  head "https://github.com/simonmichael/hledger.git", branch: "master"
+  head "https://github.com/simonmichael/hledger.git", branch: "main"
 
   # A new version is sometimes present on Hackage before it's officially
   # released on the upstream homepage, so we check the first-party download
@@ -15,12 +15,12 @@ class Hledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "77ab2f1fd71757c8902f2f6e53e2d5c67653e6d31d3fd231216fffd09aebbcd4"
-    sha256 cellar: :any,                 arm64_sequoia: "f4424389b4191b7f027624c750b7e2955b61ab900eee85fddc85dda5b60c665a"
-    sha256 cellar: :any,                 arm64_sonoma:  "0fbf25faf6f31f7af7f5bd2670f4a7e1914b4855f71a1622b05b93880e28a154"
-    sha256 cellar: :any,                 sonoma:        "5c34c6349ed9b32a0690b02f215d82a9a2f12aebd6e72a9e80cc470f3290b47c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8df4e6f3f40c895abc80dda7c0161c63ebf6e46ea9ea07bb55c6030d3889ebe6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f098bd1c127e3475a312eb996b374c80e36e33e1c9c6844522556499ed1ce77f"
+    sha256 cellar: :any,                 arm64_tahoe:   "3418bbb9913aa3091ac52ec529dd841fb710165d79c142aa6f69c416ba186f5d"
+    sha256 cellar: :any,                 arm64_sequoia: "62dc5190d88662b6bb4b5c1f8215ba2278fe7997484bd0d47e694c4d4d1b25ca"
+    sha256 cellar: :any,                 arm64_sonoma:  "4382f3a7b41c3bcbb5cf62cb508f271008ea2e1aa6129d784de26cf67d42e2bf"
+    sha256 cellar: :any,                 sonoma:        "e87a9220f1832041012e310d8f5ca342c25721767d3b82a3fa629a6253e83830"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4947e53576045a611dafdb8867fa59f93e4f67b576e6e4d34bdbd6d8828a27f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17ce67ab1b754b86b6c07671793094d6dc89ff9d01d62bba29e6c7560fa38834"
   end
 
   depends_on "ghc" => :build

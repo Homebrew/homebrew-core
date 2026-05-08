@@ -1,8 +1,8 @@
 class Djvulibre < Formula
   desc "DjVu viewer"
   homepage "https://djvu.sourceforge.net/"
-  url "https://downloads.sourceforge.net/djvu/djvulibre-3.5.29.tar.gz"
-  sha256 "d3b4b03ae2bdca8516a36ef6eb27b777f0528c9eda26745d9962824a3fdfeccf"
+  url "https://downloads.sourceforge.net/djvu/djvulibre-3.5.30.tar.gz"
+  sha256 "ee5e457d4cfebe566f94b99e5e3d3cc7f5c79ddb741c2ac2ba2e456f00329644"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
@@ -12,14 +12,12 @@ class Djvulibre < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "61ac827cdfc87e9056b7490d09970c49b652e26303ce0c71e68808ae11dfc49f"
-    sha256 arm64_sequoia: "b57955b6d0b24eff78e60121d490dbff24df02a829f323acde977b46b9b098c0"
-    sha256 arm64_sonoma:  "8554c9e53aa97aa0aefaffdddc1d11ee2b2b9378a3cd2a424414a675b689556a"
-    sha256 arm64_ventura: "c5dc6a4c1dfbaff711076c51591e0f5e13afcb4377f45627163dc4bec1994a16"
-    sha256 sonoma:        "6af726701b6112d300f266ed794040fe2fdfcf8ee489df594841443f0e603f95"
-    sha256 ventura:       "e840b0290a5280b98c65201c445f9d079f8ceb506a389297f441354fcc574e21"
-    sha256 arm64_linux:   "4be3c4c0603b32ce06a6cd8176e3f7a96e30c482147d900cd8294f80d03f9896"
-    sha256 x86_64_linux:  "79310252531b97960283b93c1de09ee14c6c4fcb8e56ca893a5e48fc23a7d2fa"
+    sha256 arm64_tahoe:   "5039f6f0f6a4487565d093e250ea699acb30308f85c828e098b53a454021d446"
+    sha256 arm64_sequoia: "d828e09fa7ba7c8b4e1c5df16ccd47129ab8b60e1e63953db28026cb73632c6c"
+    sha256 arm64_sonoma:  "0bd317798e13d3319d2836c08c2218b50285708f5c5d87fda0919b63fd9c4798"
+    sha256 sonoma:        "e0a0acf06178dd606b49dccfdf52c300700ac3319e96bb93ca7c8b1e7678484b"
+    sha256 arm64_linux:   "1327990b93502b056f917b818a957b7a7b34e981179d8c2d09ff37b81c009986"
+    sha256 x86_64_linux:  "ff0c780ed64168eec0fb1bd8111ed0ec7d06c1408336f8b0c066ad799591a3ff"
   end
 
   depends_on "autoconf" => :build

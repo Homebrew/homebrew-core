@@ -1,8 +1,8 @@
 class Apkeep < Formula
   desc "Command-line tool for downloading APK files from various sources"
   homepage "https://github.com/EFForg/apkeep"
-  url "https://github.com/EFForg/apkeep/archive/refs/tags/0.18.0.tar.gz"
-  sha256 "627f2382c3c849cbf872c512cf5f7293d31714b630afdf531ec8a9263bea207e"
+  url "https://github.com/EFForg/apkeep/archive/refs/tags/1.0.0.tar.gz"
+  sha256 "0c7a9c84b5dff12c356b22878e4f88ff3f1b44500ff80436c9e64cee17146388"
   license "MIT"
   head "https://github.com/EFForg/apkeep.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Apkeep < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd7187795c6c4dd436f98a4c58a3128f711053df8c15185c75ca232221ae9f9d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f1741e4a1fc3a84ffa1ca7dd123c51fdec72afdcdb5a68d02f7b434be3ea4d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7255a509e2350733e8811febb6dc61ac26825a597129cfbb67e91f555175046"
-    sha256 cellar: :any_skip_relocation, sonoma:        "62cd9e4b38fb8c9ed221c3e2e1ab1d2a50e29ea82a9e029f55e27abcfc330f6f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "feff4312a01787dd43c63e1b073f4881296cd9d0a339b0c9c7708b2040caf438"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85dc722f1671de059f697ba93b8eabcaebfdbf89b36b9ce43d4063b1503bfcbb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "965dc2b86a46baf0d1e9d8b589939f4b710435ee7c95a7c83d3a8558a7bac46c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4dfe63e1fcab476184a2d0f8aa56f45b805d1f07b7d2fdc460f388324a313286"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20436b7b3d5b419ed0adf748845138820d64259a29145241278c10996d8e23d1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb37623192c9d223be4588150c3fdaa141094882632a0b46bd5ea5869c987e90"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c38626aac992337f797dd8c51082fa89e81bf0f3f2244f828f58d935d95cc09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "929ef5f479c16ebf5e521b0d8c3fc4bc63e25d022eb510859dd82befc696f82e"
   end
 
   depends_on "pkgconf" => :build

@@ -1,17 +1,17 @@
 class MermaidCli < Formula
   desc "CLI for Mermaid library"
   homepage "https://github.com/mermaid-js/mermaid-cli"
-  url "https://registry.npmjs.org/@mermaid-js/mermaid-cli/-/mermaid-cli-11.12.0.tgz"
-  sha256 "c59e2b7ec010d7a27a45b4addcde97978c644b1e996609e39714ea52d8926837"
+  url "https://registry.npmjs.org/@mermaid-js/mermaid-cli/-/mermaid-cli-11.14.0.tgz"
+  sha256 "fec919124ef10078fcf06357fcec2214a28c52260579d1aaf677cbe37e8120d8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7585648a49d157ad32707c73aa4dff41b4d06a38261d8df4909c5a09c282c581"
-    sha256 cellar: :any,                 arm64_sequoia: "c6fbf4fbb0ccd2a1e4d2c13a1ffadeb5e5a8f5c49a9665f1e5a9e8248082e309"
-    sha256 cellar: :any,                 arm64_sonoma:  "c6fbf4fbb0ccd2a1e4d2c13a1ffadeb5e5a8f5c49a9665f1e5a9e8248082e309"
-    sha256 cellar: :any,                 sonoma:        "b2fb3aa586d4644029bf858d189adf7ff879c8383b396a6ac2cc7fd8cb9ab9c0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f139c590db72914dd6bb29ccbc38caeba011433dbbd0048b91c601f1f449d7bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32ef5ace7620a06092136d9900497f2fe55a15693d28a3b50bb2ce62af7b68af"
+    sha256 cellar: :any,                 arm64_tahoe:   "7d165bdb0de11cc9707199536556e9fd7190d92be82ebebc609f05f1e96b75e8"
+    sha256 cellar: :any,                 arm64_sequoia: "43d7b13abe3a73f2ae945bab9c85c25c74c523c643bc23bd8392308999bd25d0"
+    sha256 cellar: :any,                 arm64_sonoma:  "43d7b13abe3a73f2ae945bab9c85c25c74c523c643bc23bd8392308999bd25d0"
+    sha256 cellar: :any,                 sonoma:        "aeab34243cf0e2912ac48c7bb104229a97e4f1c4295d1dd55c235e7a57ef7037"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3184c0e63a623405461f0a6afe6836c37134fa30578fd4651e3e1a6f30a9c0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12e5dc77aea50daf1a67f43f2ba41134de29eb0f7e26be8211b404a64ae6f499"
   end
 
   depends_on "node"
@@ -27,6 +27,8 @@ class MermaidCli < Formula
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     node_modules.glob("{bare-fs,bare-os,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
+
+    deuniversalize_machos node_modules/"fsevents/fsevents.node" if OS.mac?
   end
 
   test do

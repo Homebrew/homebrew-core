@@ -1,18 +1,18 @@
 class Marmite < Formula
   desc "Static Site Generator for Blogs using Markdown"
   homepage "https://rochacbruno.github.io/marmite/"
-  url "https://github.com/rochacbruno/marmite/archive/refs/tags/0.3.0.tar.gz"
-  sha256 "62b03429855af3509282b32d654c49128072da5fc1ca2b795f1dadaf77e79539"
+  url "https://github.com/rochacbruno/marmite/archive/refs/tags/0.3.1.tar.gz"
+  sha256 "cf9b749a5f723d6fb7a10b91b1444da514d670397ee9e115613a62c0b956b7e6"
   license "AGPL-3.0-or-later"
   head "https://github.com/rochacbruno/marmite.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d461334505eed181cd92527d6b228d5fa96040c7808fa7ece8f88f5062e3381d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0fd11f309f002febecdbf34d44fb63193558460043a6f545a20a6730eadd3adf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36aa3e1921074f107a35f227b931ce6b99ea010cd5d49d0194aa45a60d31ae12"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3be80f61af2d2c190ed39663b2139bace751d7c5c0148a705247635d5f299a75"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa33262a4d128f9af93f2febee934a99edab521ed8e4148cda1a64926b0c4400"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "228f28e59c2d1d3bed47132922733d0148e2a0311e905641c8ab63a771491197"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4e6bddacf1922908819e97b912530933762cc0ef309cd8c6ba96e25e601070d3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c72344ba315d212bcaec3989873876b1fbf9ab1f372e6fff929264fea6fe7a8a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49212f796b9a0d713e642f2d4bfbfa93ae4f00f1df7595bc368c3d40568d5bf3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "650efaf6fab29452c127f2fd54fe58ffde603ba8d50cba1b3b0261913d9970e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "362457816c1d1e1bc22ec6d7b4ace678e7087de1a2e93a3187fee0e769ef37fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c63df45f2e20e00b8e4a014e77b9dbeacb2410a5db5a728a9e239cd00b1a4d77"
   end
 
   depends_on "rust" => :build

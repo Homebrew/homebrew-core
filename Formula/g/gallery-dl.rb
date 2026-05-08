@@ -3,18 +3,18 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/18/f1/148d2a1acc46c0d997b6eb34ac3cb00144f94c2566d44225a64a08c7b127/gallery_dl-1.32.0.tar.gz"
-  sha256 "526175da6e6046ec3044842923d768f3c459df8a8b1600fe172f5048093ccb7d"
+  url "https://files.pythonhosted.org/packages/a2/fc/a65a29335aa618a90bcde6289e8bc9e87f4c706fd38a37a859a3b2603185/gallery_dl-1.32.1.tar.gz"
+  sha256 "b59f1c3b58783c9c904d38ba24cb64e2004341c84100903564913340fb97767f"
   license "GPL-2.0-only"
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b5313bba10ab4b0e2d70a8cb0fa4ff9fc0388a2703ce0606768978bc6784becd"
-    sha256 cellar: :any,                 arm64_sequoia: "c914664d946b054c77fbe8f7ebc26e73f9490c33effa1eb26510fcf0040104e0"
-    sha256 cellar: :any,                 arm64_sonoma:  "56a07b561d45f869b3c9450d2df4c399f647046f5d8fc5c259f19db6bb6a53ae"
-    sha256 cellar: :any,                 sonoma:        "ae331e4cfa091dd4a318fe6fc68768bf739a48b06f1d0b34b2323b6b1a2f2dda"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9f70cdcb830dba0568ead530977876323826ef1e10164c37492e1d7c9ec49f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a64d0ebdca4d31e97f11b2d1813304eefb3c8a8c323c4576c8396ba9eec89d8"
+    sha256 cellar: :any,                 arm64_tahoe:   "0677f786dc9fbc6372c3732d88e77429c95565d93e8b76e59b9033c3068a7219"
+    sha256 cellar: :any,                 arm64_sequoia: "c53d3975182ff45960f4e2416969ac6271d447aa0d48027ace169cbe875ab8df"
+    sha256 cellar: :any,                 arm64_sonoma:  "057bffff19e79c236a5eba4254c007457fc2a570155a4c900def619553bec428"
+    sha256 cellar: :any,                 sonoma:        "73c4078edbb2f8c4e792fd7bfcaac6c3ebf2c9b50665fa64264a7dbf6d63b74f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a488f3b2fec6053cb52ed92e82bb60101da99eb7c4b298f97a8028578fec96b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95f1b167ae4a189dd05961909fb8e650c9f749cfc26026c446fd0c481c4b1c49"
   end
 
   depends_on "certifi" => :no_linkage

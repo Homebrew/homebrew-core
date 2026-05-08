@@ -3,19 +3,18 @@ class Vunnel < Formula
 
   desc "Tool for collecting vulnerability data from various sources"
   homepage "https://github.com/anchore/vunnel"
-  url "https://files.pythonhosted.org/packages/a2/8d/355e2eff757e249dafbada03eb1c5c6c0e7b4cdc0c54dee5bc036caa45d3/vunnel-0.56.0.tar.gz"
-  sha256 "bb576d181fa1e11fe396ca55006958574bb34ef816364e0cc39aff96d6ab5e0b"
+  url "https://files.pythonhosted.org/packages/06/2d/f9856bd90ee0e5644a150029d979995d0853e7e1f34cbb053129f2df7ba4/vunnel-0.57.0.tar.gz"
+  sha256 "f5ff7726e99d9842720c7e10367ec6328e29e61b87d8754de9d3eb682e2231d2"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ae4d5a55c6bdb1a7b3ea562db5834c4050d735bf0a27c03894f8fa4da8fcf445"
-    sha256 cellar: :any,                 arm64_sequoia: "4cea2d5fc892d4ac8510fe58fb3fb26b34abfb859b4713af28f2aa44cbc31ec2"
-    sha256 cellar: :any,                 arm64_sonoma:  "fd36a5511accc2f37e609f85e93ca7153a1daee0d505628d43622d8c60bf7ca4"
-    sha256 cellar: :any,                 sonoma:        "1183c43716048df59b0737f5be8a9dab05d505fe28ecce39e7777b3c467b95cb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca2f75b53ef8de9bdd334582726000b67874049e5de7c8216ed2ba663ed2a6dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8fd34f16720380fa24f79b4d3f8cfd2f1a0a0cbe074df27c0978bd2824afca0"
+    sha256 cellar: :any,                 arm64_tahoe:   "3e9250fb5cb5c5c9ae4b7abcaeb04481ca61e4e5a1887e63832d38848100f8dd"
+    sha256 cellar: :any,                 arm64_sequoia: "b63c15dac6d9f446d34889ea92dffeb33e5f5489e40795f671368e9de24268ae"
+    sha256 cellar: :any,                 arm64_sonoma:  "fbe4ecaf079ee259a63bda49851c3ec32e673ba918318ee35c5d9f3bf1db43a3"
+    sha256 cellar: :any,                 sonoma:        "9e1496aff53f923bd032cb56af3790e1d328daf0e2a1e8b33c2dd13d646b7a3c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1ac8324202be5f4d2fb9d77612197c57b8c8af74939aa3318b55b971f57b81c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "049bd0e58053fba9fcfd985f71e7c2be71dc890087d4471083013b5e574c5e8c"
   end
 
   depends_on "rust" => :build
@@ -40,8 +39,8 @@ class Vunnel < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "colorlog" do
@@ -60,8 +59,8 @@ class Vunnel < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "ijson" do
@@ -138,8 +137,8 @@ class Vunnel < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/de/0d2b39fb4af88a0258f3bac87dfcbb48e73fbdea4a2ed0e2213f9a4c2f9a/packaging-26.1.tar.gz"
-    sha256 "f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "pluggy" do
@@ -183,8 +182,8 @@ class Vunnel < Formula
   end
 
   resource "ruff" do
-    url "https://files.pythonhosted.org/packages/e4/8d/192f3d7103816158dfd5ea50d098ef2aec19194e6cbccd4b3485bdb2eb2d/ruff-0.15.11.tar.gz"
-    sha256 "f092b21708bf0e7437ce9ada249dfe688ff9a0954fc94abab05dcea7dcd29c33"
+    url "https://files.pythonhosted.org/packages/99/43/3291f1cc9106f4c63bdce7a8d0df5047fe8422a75b091c16b5e9355e0b11/ruff-0.15.12.tar.gz"
+    sha256 "ecea26adb26b4232c0c2ca19ccbc0083a68344180bba2a600605538ce51a40a6"
   end
 
   resource "six" do
@@ -218,8 +217,8 @@ class Vunnel < Formula
   end
 
   resource "xxhash" do
-    url "https://files.pythonhosted.org/packages/02/84/30869e01909fb37a6cc7e18688ee8bf1e42d57e7e0777636bd47524c43c7/xxhash-3.6.0.tar.gz"
-    sha256 "f0162a78b13a0d7617b2845b90c763339d1f1d82bb04a4b07f4ab535cc5e05d6"
+    url "https://files.pythonhosted.org/packages/24/2f/e183a1b407002f5af81822bee18b61cdb94b8670208ef34734d8d2b8ebe9/xxhash-3.7.0.tar.gz"
+    sha256 "6cc4eefbb542a5d6ffd6d70ea9c502957c925e800f998c5630ecc809d6702bae"
   end
 
   resource "zipp" do
@@ -251,7 +250,7 @@ __END__
 @@ -1,7 +1,6 @@
  // SPDX-License-Identifier: MPL-2.0
  // Copyright ijl (2018-2026)
- 
+
 -#![cfg_attr(feature = "cold_path", feature(cold_path))]
  #![cfg_attr(feature = "generic_simd", feature(portable_simd))]
  #![cfg_attr(feature = "optimize", feature(optimize_attribute))]

@@ -24,13 +24,13 @@ class Audacious < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "7a7f67bf4b64394d870e919adb218d6219d283519a371afd36a69ad6b5947364"
-    sha256 arm64_sequoia: "25325221b0c81275a2478a21a0952909599a5e1cd0988cc8e5b78506109ebbf4"
-    sha256 arm64_sonoma:  "7fb011f4a7c3c96d1106eb743b6d2b7cffbe37b07c7e66285a493b488823f579"
-    sha256 sonoma:        "55ccec676cdba4f7485c508722e24978c5d8b010b491feb6e4bb44ffcf1a1159"
-    sha256 arm64_linux:   "70eb9d875b483b0b76c50fb2f1eaec07891d721d771304d03f3e9cb698a44dc5"
-    sha256 x86_64_linux:  "b78c9ab9812b2e5a5f49837ce1922dc00b2ad4d2ae7215d7f6b1ed30873f4e8e"
+    rebuild 3
+    sha256 arm64_tahoe:   "ffdfc68f4754dbaa320a933bc7be5962b1c01d80502419b0186826c270aeafbb"
+    sha256 arm64_sequoia: "cc3f88588abc2ae5f77b94d48c906d4f054d395deff705b674c67a779f2143f1"
+    sha256 arm64_sonoma:  "98dd0b14fd0830c27791b7b20258a8fba82fc94eeb0477d853b871df636f6c67"
+    sha256 sonoma:        "273c80c6e3c195716502702bbbf8db483f28543d81953d367d719cf5fc1ddfc8"
+    sha256 arm64_linux:   "c0baaca63ec22d339a797b4be872cdd047cdcc0e0316c311ee841a5fa6bad978"
+    sha256 x86_64_linux:  "b97e762b2657955a9f6c8494cb29d6b2dfba66c0b70bbaea88eaaa4d45a29011"
   end
 
   head do
@@ -60,7 +60,6 @@ class Audacious < Formula
   depends_on "libogg"
   depends_on "libopenmpt"
   depends_on "libsamplerate"
-  depends_on "libsidplayfp"
   depends_on "libsndfile"
   depends_on "libsoxr"
   depends_on "libvorbis"
@@ -88,6 +87,12 @@ class Audacious < Formula
     depends_on "pipewire"
     depends_on "pulseaudio"
     depends_on "zlib-ng-compat"
+  end
+
+  # Remove `libsidplayfp`, which is actually Windows only dependency, remove in next release
+  patch do
+    url "https://github.com/audacious-media-player/audacious/commit/61fae600af7e71c5dc03c74f45dee6edc4889611.patch?full_index=1"
+    sha256 "b5e6fa094fa5db30b1154e30a6372d89006803f4f4069b0f219d8d086007a05d"
   end
 
   def install

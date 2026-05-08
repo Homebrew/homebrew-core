@@ -3,18 +3,17 @@ class Apprise < Formula
 
   desc "Send notifications from the command-line to popular notification services"
   homepage "https://pypi.org/project/apprise/"
-  url "https://files.pythonhosted.org/packages/20/f4/be5c7e39b83a2285ab62ae7c19bb10704836f59c0a5b4c471730f54c9f98/apprise-1.9.9.tar.gz"
-  sha256 "fd622c0df16bdc79ed385539735573488cafe2405d25747e87eebd6b09b26012"
+  url "https://files.pythonhosted.org/packages/2f/74/9c16829d3e7e45ce7daf1b704687fa4fde7ea00d72eafe8de18c72bf5995/apprise-1.10.0.tar.gz"
+  sha256 "b768f32d99e45ed5f4c3eef1f67903e803c97f97ba61a531a5d0a45d40df90a8"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a296ff1323816972ac2e9c9da3042fb5790584d40322306a8d7ea82495cfc8cd"
-    sha256 cellar: :any,                 arm64_sequoia: "90f1028556f4f4bcd0e8cfb269c33acf087fe5a4748c7f7c3410ee3c6a52a2d1"
-    sha256 cellar: :any,                 arm64_sonoma:  "5ac4d334995cfe37eafb61b923198b19aa133f702bd953e6b8db867dee1981c5"
-    sha256 cellar: :any,                 sonoma:        "45511822d5a876c766d45f7238f25c51c933db5abb088c465574148b2901151d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7257fad04e5cabddd7a923790f9ee67ed227efe92fff1b494b2fa6160d64b66f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c8375b05c36e07e289aaf895a5c29b42ea37415a03bf3a0fa8f577b22ab05fb"
+    sha256 cellar: :any,                 arm64_tahoe:   "368d80d8324136215dc957ddf7c55ae511664f38b455d32c05302575fc0a83a6"
+    sha256 cellar: :any,                 arm64_sequoia: "67872e6dba410069e6702456d780456a312f5551f4f0fe8da0d00d732bc343a9"
+    sha256 cellar: :any,                 arm64_sonoma:  "3828587acc342d928fddae6d28a7bf234093b5788ac2ccfa523325751212ba64"
+    sha256 cellar: :any,                 sonoma:        "fec3c78446eaf6d7f53b6590eb598e9f6ab8849b45672c9b5a24afa57cadd0e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eeec860adf335460b845a80a560c8b4292b3f2ab038a0d435fc83cd14a0b255d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1f19f989ded5e9b3c8ffb1a56229d9cbe73fd7e46eb5314c17657a9f5ab0efa"
   end
 
   depends_on "certifi"
@@ -24,18 +23,18 @@ class Apprise < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
-    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
+    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
   end
 
   resource "markdown" do
@@ -54,8 +53,8 @@ class Apprise < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
-    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
+    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
+    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
   end
 
   resource "requests-oauthlib" do

@@ -8,12 +8,13 @@ class Rustup < Formula
   head "https://github.com/rust-lang/rustup.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6c25d273bdcfced40a76808858e6817b486513cc8d868860002492670e2fbdb0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8aa9ac9513b9680fedf2d8817d8327408baf7ebe022a97ed8da0e7c703f42e5e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a425fe59f5a297874f18a28ae6e99d4f9631aeab1cd8d321d83e9861222ae7c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f12b096c790141eb3b7a03cacfa3ba814089b0fd403e1b66456dc7cd033d2383"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fc2f0762c6d963689677499ad3bf139fc17f4199468c2f7e8a3d1f897672d49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5181fb2e07be82fb124c2da941b76c45fa3a2199cd49561f4e584d0ee5820a5e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "19a521c95dbdf554cfbf099448be40f523bfbea161d1736ad192cf89beb28092"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9d847dcbef495560deb088e50dc43dd7bdf81f5c8e631f981250363b3df805d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea9ef9d8a8947364c20a9ecec3cface8c9a4b0d5e7e25308663c6b48f3878cd0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "33ff8e2f74daa8ecf16698ede00d659d367a92dbc62357aeaa2f280d9b8f3fdd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "44046e67b0a58611beb5fce43a61d522b2e1c13571aab6cfb8e2d1ec34611378"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8f97a2a8630656873cf63e816e083e58cc9623b839e8188c36cd55c8daea767"
   end
 
   keg_only "it conflicts with rust"
@@ -35,7 +36,14 @@ class Rustup < Formula
        rust-gdb rust-gdbgui rust-lldb rustc rustdoc rustfmt rustup].each do |name|
       bin.install_symlink bin/"rustup-init" => name
     end
-    generate_completions_from_executable(bin/"rustup", "completions")
+
+    (buildpath/"settings.toml").write <<~TOML
+      default_toolchain = "stable"
+    TOML
+    pkgetc.install "settings.toml"
+    bin.env_script_all_files libexec/"bin", RUSTUP_OVERRIDE_UNIX_FALLBACK_SETTINGS: pkgetc/"settings.toml"
+
+    generate_completions_from_executable(libexec/"bin/rustup", "completions")
   end
 
   def post_install
@@ -44,9 +52,6 @@ class Rustup < Formula
 
   def caveats
     <<~EOS
-      To initialize `rustup`, set a default toolchain:
-        rustup default stable
-
       If you have `rust` installed, ensure you have "$(brew --prefix rustup)/bin"
       before "$(brew --prefix)/bin" in your $PATH:
         #{Formatter.url("https://rust-lang.github.io/rustup/installation/already-installed-rust.html")}
@@ -58,14 +63,16 @@ class Rustup < Formula
     ENV["RUSTUP_HOME"] = testpath/".rustup"
     ENV.prepend_path "PATH", bin
 
-    assert_match "no default is configured", shell_output("#{bin}/rustc --version 2>&1", 1)
-    system bin/"rustup", "default", "stable"
+    assert_match "stable", shell_output("#{bin}/rustup default")
+    assert_match "stable", shell_output("#{bin}/rustc --version 2>&1")
 
-    system bin/"cargo", "init", "--bin"
-    system bin/"cargo", "fmt"
-    system bin/"rustc", "src/main.rs"
-    assert_equal "Hello, world!", shell_output("./main").chomp
-    assert_empty shell_output("#{bin}/cargo clippy")
+    system bin/"cargo", "new", "--bin", "./app"
+    cd "app" do
+      system bin/"cargo", "fmt"
+      system bin/"rustc", "src/main.rs"
+      assert_equal "Hello, world!", shell_output("./main").chomp
+      assert_empty shell_output("#{bin}/cargo clippy")
+    end
 
     # Check for stale symlinks
     system bin/"rustup-init", "-y"

@@ -1,17 +1,17 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://latexindentpl.readthedocs.io"
-  url "https://github.com/cmhughes/latexindent.pl/archive/refs/tags/V4.0.tar.gz"
-  sha256 "dc1ab6766897487650623c74cd2c44f570d277e4fd6a66f8b32b1e2427e27170"
+  url "https://github.com/cmhughes/latexindent.pl/archive/refs/tags/V4.0.1.tar.gz"
+  sha256 "7b3d7517199473ae8f0b7e61ab274b7ce215ee7cc349495b7139cdf06c1f52f0"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "11726a10a306ffa7fd669bdd69e9acefc83b479e4a0581d1b40dbcc483ef67d2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cddaf1088d512cfb36221920996dfc451afdbafec4b7b7f5bdcfee2329be906f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5327cfff2d622d1c4b5e51e93c32c45187f48a326f819fb35a99209e063c7ea3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "afefdac361789a102f03dfea77643256073a75e79798b8c19d1fc16e53cd2fda"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "74c8080017cfb0f32b781b5e2fca9600999b3efc93e84896c9086600745293cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54f09117ac095a46f2db783f7392be98b04ec960828c74c49e24153b06b9fc0c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f509f3706c8ba8bbf6498201633b37bf9e5453dbbf7de0577c8b762c3cde6680"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa02c299d3385a7a50d46c154cd8553e14d597ef5bdefe2538bdabfc358dc424"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6f9ca5e3530c75bbb84cb650898e345f449016cfaff95ac5a24bca5f0585c582"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3292e2338c0c2942615f61d507e40f0c5f0f28c78d87bf124723b210f3945fbd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc64f81c87e7fafb450608624b4f8e3c26bc28076fa0a906eb22c8d832acbada"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35e5a4f592ec7844318a13e9a8a3297453ec65305289ccf0e738c5f4c85ecb6d"
   end
 
   depends_on "perl"

@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.22/gtk-4.22.3.tar.xz"
-  sha256 "0145a4a243b283303d90bdfd2d8a0c6b9106b880390b63c161d9505672f9df38"
+  url "https://download.gnome.org/sources/gtk/4.22/gtk-4.22.4.tar.xz"
+  sha256 "51bd9f60c7d23a665a556c7364c21fb2e4e282566b3e7e092455e8f910330893"
   license "LGPL-2.1-or-later"
   compatibility_version 1
   head "https://gitlab.gnome.org/GNOME/gtk.git", branch: "main"
@@ -13,13 +13,12 @@ class Gtk4 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "eb7dbd2b613a53a653f36eeb9766f4733cbc909c7d035ce4a14d96ee6ea970e1"
-    sha256 arm64_sequoia: "5702eb9e38556d1e0e33440ede3ede31e979b0fe7ce1e0daea2fbd97068d1e32"
-    sha256 arm64_sonoma:  "6095a720aa01d9124076c73d05a1cac2c47760c4dce249516fa186e2e1cbbbe3"
-    sha256 sonoma:        "ec9cff3469cc82f7509dbfe61ae4c41f751e958e009648e237da5ce2f9a5a27e"
-    sha256 arm64_linux:   "49f092aa49faf40c7432176278c5b4444ac6d50359c04594690bd452c18fa22a"
-    sha256 x86_64_linux:  "3782c1e4d3d9fc4686fba2ea5688a28227c598e2b79902fb4b862e1683fbd8ff"
+    sha256 arm64_tahoe:   "e72d082698cc77c270987578821d1304a2a6b746a157a3fd464cb51a6e46c0dc"
+    sha256 arm64_sequoia: "137f69e0c877c7f095f91b383e6364646cdd6e1b0d92ee78bcc80571e884a1fc"
+    sha256 arm64_sonoma:  "099c3e9f16b6fba159f1a9b666a9ef4eb6a2d5fcd147d89e04ea6b53f275d791"
+    sha256 sonoma:        "a96eed73a25bae3791146e8111fdf665023a29e017843d8ef12aa96a7c9c48f6"
+    sha256 arm64_linux:   "75db66988a5d5f6372b1ab0e30b227850f78693268d335699a12a49e0c8932bb"
+    sha256 x86_64_linux:  "05da937708e49fbb87da0369a59f8bc65a75ede89d4751372fbb7c285606b5b2"
   end
 
   depends_on "dart-sass" => :build

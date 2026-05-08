@@ -1,19 +1,18 @@
 class CargoSpellcheck < Formula
   desc "Checks rust documentation for spelling and grammar mistakes"
   homepage "https://github.com/drahnr/cargo-spellcheck"
-  url "https://github.com/drahnr/cargo-spellcheck/archive/refs/tags/v0.15.5.tar.gz"
-  sha256 "ab4027dea18ac252b1a3ad733f47899daa50dde3c90aa34f5f22534745f853d7"
+  url "https://github.com/drahnr/cargo-spellcheck/archive/refs/tags/v0.15.7.tar.gz"
+  sha256 "e1516cdf8fbd8596c96d15c19ab04349a69d03a249fd73287685ac30c08f764e"
   license any_of: ["Apache-2.0", "MIT"]
-  head "https://github.com/drahnr/cargo-spellcheck.git", branch: "master"
+  head "https://github.com/drahnr/cargo-spellcheck.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "326e88bcdb1597ccb4a04b1da254081c5af47c65f3fdb0c506e35adf3dc56e24"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4fab5b1581a397e0776c84e933b94097d8a96fd61f548e376321c892abfa2aa8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7be9eabcfbb07a45dced0dd3356d26ef6b7b31a422ee2356222cf23327604228"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5ef273e407c69f213ca9637e6e04b5c89d55715d27bbe71c361e541caeea8b2d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "428cf7e2f5215ad664810553cc83adfc474beceb7a03d08ae671f8ab7a88fe52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "666cde4c0816a27802d38b2700ab4d815811645737b82d3769a2b13b2ac9f9d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4b4b48e1616d2653f1bc5837848240d6c28fd222c517b967bf5f616f82335ac7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22967040c3ba30ab1f6740051f181f4c819ef42c39772a557eb80a37d56da8a6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c08d656cc0a62d8a97accf476166ed038a8ee9860bf5b945554557a0c6f32528"
+    sha256 cellar: :any_skip_relocation, sonoma:        "98299dd56c020ec544f0d2b49d8c61e78b917d1a284d36cde8234f57a0913a6b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5574479c303340268ef548c032ca841ad475ff14d68b533e4c15d199700baa49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d14fe5a50a0274db17f76e0d6486e5d21e730dd8faadc7fb446ebcef54d902a3"
   end
 
   depends_on "llvm" => :build

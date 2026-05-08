@@ -7,16 +7,16 @@ class GobjectIntrospection < Formula
   url "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz"
   sha256 "920d1a3fcedeadc32acff95c2e203b319039dd4b4a08dd1a2dfd283d19c0b9ae"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
-  revision 1
+  revision 2
   compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "9a5a3a8d93c5c110f035ad2f8ddb464e60e0f7ab45f15d237d1a7ab8e7cdc04d"
-    sha256 arm64_sequoia: "e4e3c5118f258df531a0c6ea8da8acaecdbcdcbbafde39b659e7f2b2e13eff29"
-    sha256 arm64_sonoma:  "2a3668d7d8e82fda46b361ae5995e8eaaf08649d33cda06915d8ada238969027"
-    sha256 sonoma:        "226dda1dd4649222046c702f4c16db17a015630842a429de2a33edc3569225c7"
-    sha256 arm64_linux:   "7f3b87b3d48f704b18bdf405378c0a5e83d2f5abcf5eb4eef2a7630c32fece2e"
-    sha256 x86_64_linux:  "6042a571389ab23de9d57666a19935889b7b5e7858d985353235261293e028a2"
+    sha256 arm64_tahoe:   "d516a1e37d140117bf326b55b50ddd6006d31d9bca3e997677b3c9267e0d0250"
+    sha256 arm64_sequoia: "e64de3819c37536ff15195c82925070993cd5b767e320a82391242293383b0ae"
+    sha256 arm64_sonoma:  "596894b2d43f43863219f67eb964677bd4bda8d50766c0c4dce76a260adf08a5"
+    sha256 sonoma:        "7e1c0048f6f4820438594175eb963c0c01262dbf380802d4801f5455f55e797d"
+    sha256 arm64_linux:   "a06a12d6de94f9ba01ecb93cfb12804ecca66ee4b09e5b82a0a93b5628d70a7d"
+    sha256 x86_64_linux:  "ed82cf5011d87d3c9fb974dc41a33d99ada58fff4c9bbb77621c821692fdeb1a"
   end
 
   depends_on "bison" => :build
@@ -35,8 +35,8 @@ class GobjectIntrospection < Formula
                 extra_packages: %w[mako markdown setuptools]
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/59/8a/805404d0c0b9f3d7a326475ca008db57aea9c5c9f2e1e39ed0faa335571c/mako-1.3.11.tar.gz"
-    sha256 "071eb4ab4c5010443152255d77db7faa6ce5916f35226eb02dc34479b6858069"
+    url "https://files.pythonhosted.org/packages/00/62/791b31e69ae182791ec67f04850f2f062716bbd205483d63a215f3e062d3/mako-1.3.12.tar.gz"
+    sha256 "9f778e93289bd410bb35daadeb4fc66d95a746f0b75777b942088b7fd7af550a"
   end
 
   resource "markdown" do

@@ -1,10 +1,10 @@
 class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
-  url "https://github.com/microsoft/onnxruntime/archive/refs/tags/v1.25.0.tar.gz"
-  sha256 "071d31a593082dd1d3a8ff3db8a78fba4e3d841653e225e807b1eb709da5f56f"
+  url "https://github.com/microsoft/onnxruntime/archive/refs/tags/v1.25.1.tar.gz"
+  sha256 "b0c49a093976bf84f099a19aa13a46bd1d213e1d13b34ffe3b0916657209a844"
   license "MIT"
-  compatibility_version 1
+  compatibility_version 2
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class Onnxruntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "aeb34331e13158cf392ed62814d184dd8c25d546b24e41ed8d8d52c918572e05"
-    sha256 cellar: :any,                 arm64_sequoia: "0942323475cc20b732829c5227b78374c1f35a73d31ecb9cafe5bd93a5f3901a"
-    sha256 cellar: :any,                 arm64_sonoma:  "7c9ccc65f984314787b19be120559f530a67e2771dd93805dccf13b6b5b604ec"
-    sha256 cellar: :any,                 sonoma:        "ec71e06248073db127515bb24d38802cb9a8d0bbd8ecbbc9b0a9381820962974"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dce22ba2c3c1e80801ba669d144c6d2a0d3f86aa0760bcb99a2b3e82db51fcf8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f97fc81d13bc01275d1552ae0f8425ddf54c92937491d8e41a8c8cf616ff12f"
+    sha256 cellar: :any,                 arm64_tahoe:   "4f04e872b460acf0a4eed14b4bd95e0147c904cf1945844ba0efd964ca73da51"
+    sha256 cellar: :any,                 arm64_sequoia: "19656dbcc30d1ad2ab65acb1ace9216b841fbc8e57725c9a20018370aa213be6"
+    sha256 cellar: :any,                 arm64_sonoma:  "2a5afe4f6098d54341a165e41f03f3072a0fa837ef425d3c1b2752a87f5eec54"
+    sha256 cellar: :any,                 sonoma:        "104a17865b62d158e2ada3f02c660061b405a8056cac3ea1109e6c363a39cf73"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e41b7f05f9cf97f8f18ab78f33e8715659a2b886d5d9dd9b6526e1acf174adb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07b9ae5812d250def52883c8eb7a8f9d61ef5d9b79f431b88ae34a20efbfceb2"
   end
 
   depends_on "boost" => :build

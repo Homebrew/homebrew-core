@@ -1,10 +1,10 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u482-ga.tar.gz"
-  version "1.8.0-482"
-  BUILD_NUMBER = "b08".freeze # Please update when a new GA release is available: https://wiki.openjdk.org/spaces/jdk8u/overview.
-  sha256 "5f39085895a59d77dbe256427289558ae100013a547bcc7417492eea8b22b224"
+  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u492-ga.tar.gz"
+  version "1.8.0-492"
+  BUILD_NUMBER = "b09".freeze # Please update when a new GA release is available: https://wiki.openjdk.org/spaces/jdk8u/overview
+  sha256 "3744ed83399b4646c6b64cb7ec3539ed43917edae56378e9853a62ede670a9b7"
   license "GPL-2.0-only"
 
   livecheck do
@@ -16,12 +16,15 @@ class OpenjdkAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "00a07d38b70286d9aa1fd41bf437b5fac36ef59d47d0717dc8270dfe226739b9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "6fbda949244ca72f7be006dc37f27ea7cab2dac0310a297c7cab697db9149486"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9322d6b0d39dc54126928b937573645d0444b2f2d0ccd20b1087261d8d1fe650"
+    sha256 cellar: :any,                 sonoma:       "b9c1ddd42f177e05dc609df78a31474055290ad2cc160864decb0cec956ac8d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "7d4f29f1df0916a69117f664f1c1f3231938807534f3acdb63166841fc8a7825"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7d1cc59954a6abfb13da30f8a899ce06e7ce83bf1c3ed68adc3c6b1bd43750b3"
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2022-03-13", because: :unmaintained
+  disable! date: "2030-12-31", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "pkgconf" => :build
@@ -71,8 +74,10 @@ class OpenjdkAT8 < Formula
     end
   end
 
-  # NOTE: Since macOS Sonoma or newer don't include the required headers for JNF (JavaNativeFoundation.framework),
-  # we will use the headers provided at https://github.com/apple/openjdk.
+  # NOTE: macOS Sonoma+ SDK removed the JavaNativeFoundation headers required by JDK 8's Serviceability Agent (SA)
+  # and AppleScript engine. We provide a header-only shim placed in a framework-like layout and inject the framework
+  # search path into saproc.make so the SA debugger backend can find the headers while still linking against the
+  # system framework.
   resource "JavaNativeFoundation" do
     on_sonoma :or_newer do
       url "https://github.com/apple/openjdk/archive/refs/tags/iTunesOpenJDK-1014.0.2.12.1.tar.gz"
@@ -93,17 +98,16 @@ class OpenjdkAT8 < Formula
 
   def install
     _, _, update = version.to_s.rpartition("-")
+
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
+
     java_options = ENV.delete("_JAVA_OPTIONS")
 
     # Work around clashing -I/usr/include and -isystem headers, as superenv already handles this detail for us.
-    inreplace "common/autoconf/flags.m4",
-              '-isysroot \"$SYSROOT\"', ""
+    inreplace "common/autoconf/flags.m4", '-isysroot \"$SYSROOT\"', ""
     inreplace "common/autoconf/toolchain.m4",
               '-isysroot \"$SDKPATH\" -iframework\"$SDKPATH/System/Library/Frameworks\"', ""
-    inreplace "hotspot/make/bsd/makefiles/saproc.make",
-              '-isysroot "$(SDKPATH)" -iframework"$(SDKPATH)/System/Library/Frameworks"', ""
 
     if OS.mac?
       # Fix macOS version detection. After 10.10 this was changed to a 6 digit number,
@@ -111,6 +115,25 @@ class OpenjdkAT8 < Formula
       inreplace "hotspot/make/bsd/makefiles/gcc.make" do |s|
         s.gsub! "$(subst .,,$(MACOSX_VERSION_MIN))", ENV["HOMEBREW_MACOS_VERSION_NUMERIC"]
         s.gsub! "MACOSX_VERSION_MIN=11.00.00", "MACOSX_VERSION_MIN=#{MacOS.version}"
+      end
+
+      if MacOS.version >= :sonoma
+        resource("JavaNativeFoundation").stage do
+          # Create a framework-like header shim that the saproc.make -F flag will find
+          # when searching for JavaNativeFoundation.framework.
+          jnf_shim = buildpath/"JavaNativeFoundation.framework"
+          jnf_headers = jnf_shim/"Headers"
+          jnf_headers.mkpath
+
+          # Copy the headers from Apple's openjdk archive.
+          Dir["apple/JavaNativeFoundation/JavaNativeFoundation/*.h"].each do |header|
+            cp header, jnf_headers
+          end
+        end
+
+        # Inject -F flag into saproc.make's SA_SYSROOT_FLAGS so the SA debugger backend compilation
+        # finds our header shim before falling through to the (headerless) system framework.
+        inreplace "hotspot/make/bsd/makefiles/saproc.make", "SA_SYSROOT_FLAGS=", "SA_SYSROOT_FLAGS=-F#{buildpath} "
       end
     else
       # Fix linker errors on brewed GCC.
@@ -136,6 +159,7 @@ class OpenjdkAT8 < Formula
     ]
 
     ldflags = ["-Wl,-rpath,#{loader_path.gsub("$", "\\$$$$")}/server"]
+
     if OS.mac?
       args += %w[
         --with-toolchain-type=clang
@@ -145,20 +169,14 @@ class OpenjdkAT8 < Formula
       extra_cflags = []
       extra_cxxflags = []
 
-      # On macOS Sonoma or newer, we provide the missing JNF headers from an external resource.
       if MacOS.version >= :sonoma
-        resource("JavaNativeFoundation").stage do
-          jnf_headers = buildpath/"jnf-headers"
-          jnf_headers.install Pathname.pwd/"apple/JavaNativeFoundation/JavaNativeFoundation"
-          # Work around for missing 'JavaNativeFoundation/JavaNativeFoundation.h' in MacosxDebuggerLocal.m.
-          (buildpath/"hotspot/agent/src/os/bsd").install_symlink jnf_headers
-          # Add JNF headers to extra flags.
-          extra_cflags << "-I#{jnf_headers}"
-          extra_cxxflags << "-I#{jnf_headers}"
-        end
+        # The JDK build system's jdk/makefiles also compile AppleScript sources that import JavaNativeFoundation.
+        # Adding -F here ensures those compilation units find our header shim.
+        extra_cflags << "-F#{buildpath}"
+        extra_cxxflags << "-F#{buildpath}"
       end
 
-      # Work around Xcode 16 bug: https://bugs.openjdk.org/browse/JDK-8340341.
+      # Work around for Xcode 16 bug: https://bugs.openjdk.org/browse/JDK-8340341
       extra_cflags << "-mllvm -enable-constraint-elimination=0" if DevelopmentTools.clang_build_version == 1600
 
       args << "--with-extra-cflags=#{extra_cflags.join(" ")}" unless extra_cflags.empty?
@@ -176,6 +194,7 @@ class OpenjdkAT8 < Formula
       extra_rpath = rpath(source: libexec/"lib"/arch, target: libexec/"jre/lib"/arch)
       ldflags << "-Wl,-rpath,#{extra_rpath.gsub("$", "\\$$$$")}"
     end
+
     args << "--with-extra-ldflags=#{ldflags.join(" ")}"
 
     system "bash", "common/autoconf/autogen.sh"
@@ -185,13 +204,12 @@ class OpenjdkAT8 < Formula
     system "make", "bootcycle-images", "CONF=release"
 
     cd "build/release/images" do
-      jdk = libexec
-
       if OS.mac?
         libexec.install Dir["j2sdk-bundle/*"].first => "openjdk.jdk"
-        jdk /= "openjdk.jdk/Contents/Home"
+        jdk = libexec/"openjdk.jdk/Contents/Home"
       else
         libexec.install Dir["j2sdk-image/*"]
+        jdk = libexec
       end
 
       bin.install_symlink Dir[jdk/"bin/*"]
@@ -213,7 +231,7 @@ class OpenjdkAT8 < Formula
   test do
     (testpath/"HelloWorld.java").write <<~JAVA
       class HelloWorld {
-        public static void main(String args[]) {
+        public static void main(String[] args) {
           System.out.println("Hello, world!");
         }
       }
@@ -226,23 +244,6 @@ class OpenjdkAT8 < Formula
 end
 
 __END__
---- jdk/src/share/bin/splashscreen_stubs.c
-+++ jdk/src/share/bin/splashscreen_stubs.c
-@@ -61,11 +61,11 @@
- #define INVOKEV(name) _INVOKE(name, ,;)
-
- int     DoSplashLoadMemory(void* pdata, int size) {
--    INVOKE(SplashLoadMemory, NULL)(pdata, size);
-+    INVOKE(SplashLoadMemory, 0)(pdata, size);
- }
-
- int     DoSplashLoadFile(const char* filename) {
--    INVOKE(SplashLoadFile, NULL)(filename);
-+    INVOKE(SplashLoadFile, 0)(filename);
- }
-
- void    DoSplashInit(void) {
-
 --- jdk/src/share/native/com/sun/java/util/jar/pack/jni.cpp
 +++ jdk/src/share/native/com/sun/java/util/jar/pack/jni.cpp
 @@ -292,7 +292,7 @@

@@ -1,18 +1,17 @@
 class Qtkeychain < Formula
   desc "Platform-independent Qt API for storing passwords securely"
   homepage "https://github.com/frankosterfeld/qtkeychain"
-  url "https://github.com/frankosterfeld/qtkeychain/archive/refs/tags/0.15.0.tar.gz"
-  sha256 "f4254dc8f0933b06d90672d683eab08ef770acd8336e44dfa030ce041dc2ca22"
+  url "https://github.com/frankosterfeld/qtkeychain/archive/refs/tags/0.16.0.tar.gz"
+  sha256 "3be26ec4ae30eecf0c2ff7572ba83799791b157c76e15a05ef35f23dc25e4054"
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "4bac16d3d1b6ea7c7ef54da66872ca0b6eb106be5d8fe9a3b293bec8f28e5612"
-    sha256 cellar: :any,                 arm64_sequoia: "fe4522c0672e68076e5a6caabade89eb43f0842af5d10a2f6b9bffbf1c60918e"
-    sha256 cellar: :any,                 arm64_sonoma:  "8e25450053fa00c0c96a1a458b8a71eb6f01eb2dfff70ae9621106f863b2bbf5"
-    sha256 cellar: :any,                 sonoma:        "94c0e9f2d3d3723769cc8084e3bef5e15f0990844782743a2f6fc501a7fc640c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1802b46a69c8458733001a41570a683c32bbccb682dc8dd9440af5ba774fc84f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c8606b46a5628d4ac64761e1bd0e5ae118c18267cbae6b9cbd8f2c0e95a26a8"
+    sha256 cellar: :any,                 arm64_tahoe:   "41f6d22dfd217ea9b48f9c04f870110de63ae4976058fb2f0440b809f89ca0d0"
+    sha256 cellar: :any,                 arm64_sequoia: "ba494276b36b760cfe65977b69b17c512f56fd44702a51597249f68f3ba7c7af"
+    sha256 cellar: :any,                 arm64_sonoma:  "043664ceb869b0cddd4cea963e93f8c7ae59a891ac26577e88e5bb167c21fca1"
+    sha256 cellar: :any,                 sonoma:        "9ed1e42e2b34aecfdfb1a2fc9a8c3956331929ec80e12a058c287a2238b3e244"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48eb663efa321d756a6ba5c367b48424df7774a805a45835c28be6aa9189846a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c306524e585af4bfbe79793e2146de8caf466d26bc12568640964464fffa243"
   end
 
   depends_on "cmake" => :build

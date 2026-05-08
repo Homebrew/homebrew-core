@@ -7,7 +7,7 @@ class Buku < Formula
   url "https://github.com/jarun/buku/archive/refs/tags/v5.1.tar.gz"
   sha256 "0f1a3e15f882fe9a0f8e550abae7388d3cb81d4718a1b4309dcf4363633cb7b1"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/jarun/buku.git", branch: "master"
 
   livecheck do
@@ -18,12 +18,12 @@ class Buku < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a5f757e3139a80d6d9f292a4625da01e9106111176816598e7502051835861bb"
-    sha256 cellar: :any,                 arm64_sequoia: "c33335f375e87fdddf90a935efa84ad6d898741ea86f3a558ac174b1666b6733"
-    sha256 cellar: :any,                 arm64_sonoma:  "512b2c0d417060504e8b1ed55042980b752f5a095f1d139a91021631a8266bbb"
-    sha256 cellar: :any,                 sonoma:        "fc507847cdda3b254154d7d459e81e1d6768141719b965c4b38477b186f18147"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e9d70c5f42a25857e618d0b11e6a2eebc754904a06be6146ddee0657a029709"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95ce163ee47128d82ec4fb8f4a8971934989e287ffeac94fc8bf13118cd959b3"
+    sha256 cellar: :any,                 arm64_tahoe:   "445b3d00075987def7b97cf82aceac488e22218bfae530beabfad15019c46f9c"
+    sha256 cellar: :any,                 arm64_sequoia: "2914f940bde71179274e4f3d9ad7c33b47738cec3c5f84859039045739eaef68"
+    sha256 cellar: :any,                 arm64_sonoma:  "ac0779ad15ae320a0fcbe6289945e308593fc7f6d08e82fc15c2722f6e98b525"
+    sha256 cellar: :any,                 sonoma:        "5d1a23f4714f0e7bb8288e81746dc4651089d34475628ddba4397adcab84b968"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "461527eddf2f5683bd2be9089d0b9a142da9e33adec04c5fe70da699d29ca7ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e2e1d72860c2ffc04e8235962f30ce28db2221f42da09492cea84087f5d4b36"
   end
 
   depends_on "certifi" => :no_linkage
@@ -43,8 +43,8 @@ class Buku < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
-    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "beautifulsoup4" do
@@ -58,8 +58,8 @@ class Buku < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "flasgger" do
@@ -73,8 +73,8 @@ class Buku < Formula
   end
 
   resource "flask-admin" do
-    url "https://files.pythonhosted.org/packages/cc/b7/78a1534b4fe1a40bccf79e8e274e1ace6ee1678c804e4c178b1c96e6c8d6/flask_admin-2.0.2.tar.gz"
-    sha256 "1d06aec7efee957972b43f6b08a0bd08d5f4cf9a337d4ece2f17c98abc2a214e"
+    url "https://files.pythonhosted.org/packages/eb/0a/da941c07fd938d1d1d3026e0f01fd6b89a1ad3e69fefd45fc97a3589a8f9/flask_admin-2.1.0.tar.gz"
+    sha256 "d88c26de71f548b589dd956996844eb348212dda4e8a9b7178ae1f6fdf387459"
   end
 
   resource "flask-paginate" do
@@ -83,8 +83,8 @@ class Buku < Formula
   end
 
   resource "flask-wtf" do
-    url "https://files.pythonhosted.org/packages/80/9b/f1cd6e41bbf874f3436368f2c7ee3216c1e82d666ff90d1d800e20eb1317/flask_wtf-1.2.2.tar.gz"
-    sha256 "79d2ee1e436cf570bccb7d916533fa18757a2f18c290accffab1b9a0b684666b"
+    url "https://files.pythonhosted.org/packages/91/f1/605a56d4ea217b307f3e6f4d663e0351253d85d841edc93ba559f0648e19/flask_wtf-1.3.0.tar.gz"
+    sha256 "61d5dabc50c3df885c297dcbd80810443a5d632106c8a69cab8ce740f0cdd7cc"
   end
 
   resource "html5lib" do
@@ -125,13 +125,13 @@ class Buku < Formula
   end
 
   resource "mistune" do
-    url "https://files.pythonhosted.org/packages/9d/55/d01f0c4b45ade6536c51170b9043db8b2ec6ddf4a35c7ea3f5f559ac935b/mistune-3.2.0.tar.gz"
-    sha256 "708487c8a8cdd99c9d90eb3ed4c3ed961246ff78ac82f03418f5183ab70e398a"
+    url "https://files.pythonhosted.org/packages/ca/84/620cc3f7e3adf6f5067e10f4dbae71295d8f9e16d5d3f9ef97c40f2f592c/mistune-3.2.1.tar.gz"
+    sha256 "7c8e5501d38bac1582e067e46c8343f17d57ea1aaa735823f3aba1fd59c88a28"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
-    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "python-dateutil" do
@@ -165,8 +165,8 @@ class Buku < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/5e/a7/c202b344c5ca7daf398f3b8a477eeb205cf3b6f32e7ec3a6bac0629ca975/tzdata-2025.3.tar.gz"
-    sha256 "de39c2ca5dc7b0344f2eba86f49d614019d29f060fc4ebc8a417896a620b56a7"
+    url "https://files.pythonhosted.org/packages/ba/19/1b9b0e29f30c6d35cb345486df41110984ea67ae69dddbc0e8a100999493/tzdata-2026.2.tar.gz"
+    sha256 "9173fde7d80d9018e02a662e168e5a2d04f87c41ea174b139fbef642eda62d10"
   end
 
   resource "urllib3" do
@@ -180,13 +180,13 @@ class Buku < Formula
   end
 
   resource "werkzeug" do
-    url "https://files.pythonhosted.org/packages/61/f1/ee81806690a87dab5f5653c1f146c92bc066d7f4cebc603ef88eb9e13957/werkzeug-3.1.6.tar.gz"
-    sha256 "210c6bede5a420a913956b4791a7f4d6843a43b6fcee4dfa08a65e93007d0d25"
+    url "https://files.pythonhosted.org/packages/dd/b2/381be8cfdee792dd117872481b6e378f85c957dd7c5bca38897b08f765fd/werkzeug-3.1.8.tar.gz"
+    sha256 "9bad61a4268dac112f1c5cd4630a56ede601b6ed420300677a869083d70a4c44"
   end
 
   resource "wtforms" do
-    url "https://files.pythonhosted.org/packages/01/e4/633d080897e769ed5712dcfad626e55dbd6cf45db0ff4d9884315c6a82da/wtforms-3.2.1.tar.gz"
-    sha256 "df3e6b70f3192e92623128123ec8dca3067df9cfadd43d59681e210cfb8d4682"
+    url "https://files.pythonhosted.org/packages/e9/91/ed9b517da898e3fb747566aa3c12a734bd64ea7449a0d25ec74ce8f8b8eb/wtforms-3.2.2.tar.gz"
+    sha256 "7b00c73f8670f35d4edb0293dcd81b980528bee72fd662b182aaba27ae570b93"
   end
 
   # Fix type error and missing apidocs: https://github.com/jarun/buku/pull/883

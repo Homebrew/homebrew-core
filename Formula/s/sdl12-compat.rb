@@ -13,12 +13,13 @@ class Sdl12Compat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "72161caba641a583c35ae7329d312e133e075d22181e6e73b05ee419606c02ef"
-    sha256 cellar: :any,                 arm64_sequoia: "2f0e4787c520344e1ce8e10f60c1b9d671a17d7a8895e38ce96b517fc23021e5"
-    sha256 cellar: :any,                 arm64_sonoma:  "99b0dba0da565a052dbb4ec3791f81a7880c20de8e69d2aa0e40a68001a9dc7c"
-    sha256 cellar: :any,                 sonoma:        "49274bc46c2f0f2ba1494e4ac6e70f494c894e0e6559835d4f7cc3f7c601ceed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a4fe54f8946efbcc8db2e5775f09ece08c6fc0b7e141ad49c7e0caed0cf4a46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0510ee9c54c6ce20809c5bbad6e295d4cd1c280f64829f1ac2c1331863a7bbb9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "56dc659b94776ea6230f7b978c84fcb4df46a5970a565960a12805ae922eb9a6"
+    sha256 cellar: :any,                 arm64_sequoia: "fe94f9cd0d788a8b77c8704b7681f59edc67e20c801b22b4aba248d27a58e2dd"
+    sha256 cellar: :any,                 arm64_sonoma:  "ec62b168684492e1686bbc7d308f8fc2f4f03858b0d5f4eb27299acb2c39bac6"
+    sha256 cellar: :any,                 sonoma:        "84eefd7e2780806b46ad5b0fc88c9d6d8a2025a74f41237226eb964bc3ece057"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c85d1ec8070299e38628a852d5dc491f11d8e13f9010908bc8716b8ced7f2a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5325fbcdb88813f34b205c7bdb1a52a9f4d282c31d4da5518941cbfbd119c230"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +28,7 @@ class Sdl12Compat < Formula
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DSDL2_PATH=#{Formula["sdl2"].opt_prefix}",
-                    "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-rpath,#{Formula["sdl2"].opt_lib}",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath(target: Formula["sdl2"].opt_lib)}",
                     "-DSDL12DEVEL=ON",
                     "-DSDL12TESTS=OFF",
                     *std_cmake_args

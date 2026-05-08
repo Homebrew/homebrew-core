@@ -1,18 +1,18 @@
 class Ingress2gateway < Formula
   desc "Convert Kubernetes Ingress resources to Kubernetes Gateway API resources"
   homepage "https://github.com/kubernetes-sigs/ingress2gateway"
-  url "https://github.com/kubernetes-sigs/ingress2gateway/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "741f21ed50470f531d474e35253b8ba5aff6fc13e1ad8ca64049ece5cf1faae1"
+  url "https://github.com/kubernetes-sigs/ingress2gateway/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "a3c74ca555df43e40b0acd89743cb0ade9b1ad72bcd61fad0d0bec0b233a9c7c"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/ingress2gateway.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "201b988b580c4e42c48e08760988334468e3826cb699be2f174e7162b083776c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "201b988b580c4e42c48e08760988334468e3826cb699be2f174e7162b083776c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "201b988b580c4e42c48e08760988334468e3826cb699be2f174e7162b083776c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eae6ceed87bec26779eb52c1198d4dc312f60ffbe0fc1924f1116fa24c3678be"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c1b42a27918c80219820e78b83967a75fa852431dc1a3a6be75532c6d9dd232"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7054cb26468e37aa3310911a43bda1c8a17ad8c336def48e6094d8bf674f7b67"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62f589debe662edb6b0334b2cc906de5b81168444ab688d77b25cc09a0396a73"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "62f589debe662edb6b0334b2cc906de5b81168444ab688d77b25cc09a0396a73"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62f589debe662edb6b0334b2cc906de5b81168444ab688d77b25cc09a0396a73"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ed1c1eb32daca7a1a017ccd4b83442dba6eed99ab9d6177be7779de5243d9ea7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "65cfc1a5c64753665a15b70d36ed8ba94a666690599d6de0314a9737e2e38056"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "363ac48d982fe5071d25fbdaaef9f4c3e42481356fd6d01e97951ec60de94b57"
   end
 
   depends_on "go" => :build
@@ -86,7 +86,6 @@ class Ingress2gateway < Formula
           - path:
               type: PathPrefix
               value: /
-          name: rule-0
       status:
         parents: []
     YAML

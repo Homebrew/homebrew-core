@@ -1,8 +1,8 @@
 class GhOst < Formula
   desc "Triggerless online schema migration solution for MySQL"
   homepage "https://github.com/github/gh-ost"
-  url "https://github.com/github/gh-ost/archive/refs/tags/v1.1.8.tar.gz"
-  sha256 "771b1afd831a9e26eee045eb4f759d343db407786569619d2c77f1c186b873b5"
+  url "https://github.com/github/gh-ost/archive/refs/tags/v1.1.9.tar.gz"
+  sha256 "0c5450e61cac940a6daaff22463ee6205b84c256b981ef047e0b4c430a25eb4b"
   license "MIT"
   head "https://github.com/github/gh-ost.git", branch: "master"
 
@@ -12,12 +12,12 @@ class GhOst < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f80872c648a99bed4e5b0df8448cf7b188809e722c80f939c4bd72895d650361"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dab7c980d4d51cd755f4a3c4c1ca9f12b5b5326de4fb9f7c019a8fb6246c3e7c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "827efb6229793ce5b67caffc1f754c0184866d292434e811dc370ea8e63a831d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ce09865234fee9ba0b25bec58bebfc4eac4b2342f143681f0ef9c0fe283c1149"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "db7f0c66138bc290b995a16e4f3ce79f7cf55d7d098e00f5656f60cfdb7db09b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9eaff5e09baab33ffb93ce3fd37905859e8e48b2c0a9f4910cd756c1591803d7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1c71250037404630df76c18f252118facc474b5e2a6769c6558fa5f04a105cf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0f0e3f8dc64ab186702813b749dd5fec589dbc4be6476b8f6ae11f6a436b1ca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b4400397d24ec74720312b23d489c8b18d0e6c7086bc48c09a6f7b7d094a1197"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a874f959a202e74254c85181ec8d97b8036f735692b05cd6793785a4330efcc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a5a7358c74cb32e12754c3a2aad575f6cd6268b222a122b99522add63a2ef20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53e1ba3b16e29e6d0c3069a50adb4fb3d6bc7bb8e2c21a9146fa84bf48040c66"
   end
 
   depends_on "go" => :build

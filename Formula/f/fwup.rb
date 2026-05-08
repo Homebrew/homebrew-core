@@ -1,17 +1,17 @@
 class Fwup < Formula
   desc "Configurable embedded Linux firmware update creator and runner"
   homepage "https://github.com/fwup-home/fwup"
-  url "https://github.com/fwup-home/fwup/releases/download/v1.15.1/fwup-1.15.1.tar.gz"
-  sha256 "b42a8970e37dc9036cd3ad1e9e702793ab37b469082b4b2c6b8cb73b2ed44c68"
+  url "https://github.com/fwup-home/fwup/releases/download/v1.16.0/fwup-1.16.0.tar.gz"
+  sha256 "a07b79268247ecee134a916ab928914be2a4ecbac0bc5e5f19212ec36ecb5c21"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "32765b9fd836c7d873b898a28c467660a0dee504a6f48d5e67dfab918f5ca3da"
-    sha256 cellar: :any,                 arm64_sequoia: "7d2a4765bc0ee84eab7629d2399f9233473ae51ea8462eebbcc5fb1a2be17a28"
-    sha256 cellar: :any,                 arm64_sonoma:  "43c0a548bed1f8af284675c6c05552f2817a4fe2789484de32ec2403797c4fd0"
-    sha256 cellar: :any,                 sonoma:        "5e243230d8363413c05c9f811528155163a62bbf58267d83838b487f287104b9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e40c65ed3a14a74d41a7f374d3c978ff2fae29146a47cba10f0f0ac1ff21731e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f907cc4b1a6668a216adeff2abbaf990189bb2be5dcc86ad2b8b71026ef401c"
+    sha256 cellar: :any,                 arm64_tahoe:   "6889435df5cb6061040ca6b6378fed61db3cbd2e788612bf2a1b0378bf52ae36"
+    sha256 cellar: :any,                 arm64_sequoia: "bf97603e599df41655e6815fe756278347f90c143d8e3c1be7e274cd437b9d06"
+    sha256 cellar: :any,                 arm64_sonoma:  "3b8fa9c33117cce4004f7ced5613b5dd7fac92d441e1bb1e628f73e698fd2943"
+    sha256 cellar: :any,                 sonoma:        "f0f7bb2c63e78f15bc9de214c18b7d1f6adb62c5975c156fbc79e9e350c14b9e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fbdf90c835d9d352a73c6144fa8b13f2c2956e60376faac2bbbf13f8d52230fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39c560ce6ce9cb60effd7b9da4807b0ef394747de3314ab3b514d4c5dc216b76"
   end
 
   depends_on "pkgconf" => :build

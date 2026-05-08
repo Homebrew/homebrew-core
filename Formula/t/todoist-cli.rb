@@ -1,18 +1,18 @@
 class TodoistCli < Formula
   desc "CLI for Todoist"
   homepage "https://github.com/sachaos/todoist"
-  url "https://github.com/sachaos/todoist/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "2987f9919b61609e121aaee4fd3296c40c7e5437784c84eb707a55dc0757ad9b"
+  url "https://github.com/sachaos/todoist/archive/refs/tags/v0.24.0.tar.gz"
+  sha256 "1993d51b1d6fe85c521bc215584674631bef59fe1e9a4e29cf19d921e8df303f"
   license "MIT"
   head "https://github.com/sachaos/todoist.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe24f3a9167095be7987e52601190e1b6ed8f8a0b09cf88320e7bf63db186a0f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe24f3a9167095be7987e52601190e1b6ed8f8a0b09cf88320e7bf63db186a0f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe24f3a9167095be7987e52601190e1b6ed8f8a0b09cf88320e7bf63db186a0f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "455337aed4d77945998de06dba80a3031f69bd537565052286109112a349990a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f49c51e0fe56cf86e2eab8c4d542601e980236fae1d7f0cf6d5934132b8f7d85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10c3e7eb3366de978e1ba7ad6a495ad9d26b99101eebdb8ab19c655190c2f8e5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3e76e81f52e18234babc96982bcb2610cf65931d5ecd6b8ca64a49f67e586e28"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e76e81f52e18234babc96982bcb2610cf65931d5ecd6b8ca64a49f67e586e28"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e76e81f52e18234babc96982bcb2610cf65931d5ecd6b8ca64a49f67e586e28"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1c94087d6916eb0664300379de1872d977f5653a785faacfc00d18b09516d08e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "81e1f3ffdf796e7ea5df27e49f35348878c618cfc774caf2f77529029d19e133"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12308761800834d8f19f565a017031928153aa376e31ccbca57efc73f7673911"
   end
 
   depends_on "go" => :build

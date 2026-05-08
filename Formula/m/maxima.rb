@@ -4,7 +4,7 @@ class Maxima < Formula
   url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.49.0-source/maxima-5.49.0.tar.gz"
   sha256 "6d401a4aa307cd3a5a9cadca4fa96c4ef0e24ff95a18bb6a8f803e3d2114adee"
   license "GPL-2.0-only"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class Maxima < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "74d28224184ec701e4706e5a2fdd94fbc611d953d0493214787f5bf560318cbf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "77a786865f0926fa8afff706100ec6b752bd5d0fb9c7ae6cd363f36faae2290c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5176702c5155255475eaca239df84cfc6f4e9109cbc026f5d0a55c1d0f87928f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e052a154e150c444af1df1d8dd34a5062d5732dbdef1642de12876830b2312d1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "933610065fab7e81de832297ca9f971ab336d869bef32331df901a31df862c76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b360daf9cd088d52a88feb81f7f58aca9320180c3137e8776a8bf6b1ac07022"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1ecc3e1ac4a811ed770411402050828ca1c17318235f6c4d6373cec36908263"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "723048538dfb0664d761ac639ed19fa7d5d834a765fe2601eff7cbb60db81e7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "759447271ca783415bbea231345878183595a547eae587df1a4415d176b02023"
+    sha256 cellar: :any_skip_relocation, sonoma:        "05b1f0ed16bf223cec3b15b1ccc24619e8e5f1252fb1ec61471a6530cabd5f16"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5981e4bb3dccc17bd263ec24beb64ca1cfe81a340c094269175d15073c5712ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f18c565ca824fdd4a7f2b00e931fb6bb8a8b9595025fb6c559568a9b67fa532"
   end
 
   depends_on "gawk" => :build

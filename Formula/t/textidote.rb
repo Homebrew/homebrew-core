@@ -1,8 +1,8 @@
 class Textidote < Formula
   desc "Spelling, grammar and style checking on LaTeX documents"
   homepage "https://sylvainhalle.github.io/textidote"
-  url "https://github.com/sylvainhalle/textidote/archive/refs/tags/v0.8.3.tar.gz"
-  sha256 "8c55d6f6f35d51fb5b84e7dcc86a4041e06b3f92d6a919023dc332ba2effd584"
+  url "https://github.com/sylvainhalle/textidote/archive/refs/tags/v0.9.tar.gz"
+  sha256 "df4ec98e355dddb3cebe155868da63ae17f48778151d2d8b227d412aee768c9b"
   license "GPL-3.0-or-later"
   head "https://github.com/sylvainhalle/textidote.git", branch: "master"
 
@@ -12,27 +12,27 @@ class Textidote < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3341188f4b8fb7912f78dcb53dda8f624dcc8693f96a51c1ccaa49422746b84a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bc15a1fbb32e89fa3aa4f01a348336f1032974eca44c74789719e8e3ee9f391"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c7874766d3f1f514f1b32435f160c92a0622a19ca8d2b0f7a8f653bfec05445"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4bf516adb25ff61f3453f6825819e6353e2045619e46c7168ee250a782dc538d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39c5742e46605837bfb719356ba9aeb9811afa145ef5bdaabe0982704a270a30"
-    sha256 cellar: :any_skip_relocation, ventura:       "e50f6561b290ac98eec57706a01c5a6e644a66b5d12e2c289d81c785d05f6ce4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1bf9049a7149770b7e587a8a0fd0437750306a7ab810b7f6d878aeca523a54e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73b3a785959a0992e981b78f47a4c39932c59f158a3d4c3281fb5ccc5926abc5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f4b010da704dd2a9b12a2d09e5650155e9f479a40cd570b17f4b8efd528105e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d1140672131e899e9d6cf803887b18c02c2303ba99f00827bc7d0089452e913"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3eff1023b011df0e13dddb83b58ef78c21d4caf7c263a22137538a7069ff5656"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cce2572b9162b7d2fe70a8c894d31b62f4b003600bc8ee4c6b5520c56169d1f6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "03e8c7af91fc42d9fc5f88c4ad59fb5a0e963411706b78b39264155c39a56297"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9be63691bc14624cbef4de396d3636511834591a094d83867918b458e820fccf"
   end
 
   depends_on "ant" => :build
   depends_on "openjdk"
 
   def install
+    # Skip javadoc: JDK 25 doclint rejects textidote's legacy `<tt>` tags
+    inreplace "build.xml", 'depends="compile,javadoc"', 'depends="compile"'
+
     # Build the JAR
     system "ant", "download-deps"
     system "ant", "-Dbuild.targetjdk=#{Formula["openjdk"].version.major}"
 
     # Install the JAR + a wrapper script
-    libexec.install "textidote.jar"
+    libexec.install "textidote-#{version}.jar" => "textidote.jar"
     # Fix run with `openjdk` 24.
     # Reported upstream at https://github.com/sylvainhalle/textidote/issues/265.
     bin.write_jar_script libexec/"textidote.jar", "textidote", "-Djdk.xml.totalEntitySizeLimit=50000000"

@@ -1,9 +1,9 @@
 class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/clojure-lsp/clojure-lsp"
-  url "https://github.com/clojure-lsp/clojure-lsp/releases/download/2026.02.20-16.08.58/clojure-lsp-standalone.jar"
-  version "2026.02.20-16.08.58"
-  sha256 "b1213f048453e4235cd994b72f048c2ef40354a2cc94cd412212aaea3a17ddcf"
+  url "https://github.com/clojure-lsp/clojure-lsp/releases/download/2026.05.05-12.58.26/clojure-lsp-standalone.jar"
+  version "2026.05.05-12.58.26"
+  sha256 "a97f2c1fbf82e9b5aea588540b7454503201150b7fba4f3a048d4c50d936b7bd"
   license "MIT"
   version_scheme 1
   head "https://github.com/clojure-lsp/clojure-lsp.git", branch: "master"
@@ -14,7 +14,7 @@ class ClojureLsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a7e5aff42ef389944eba07cc31c144418eff69797743d9b43babe4cd2539e3ed"
+    sha256 cellar: :any_skip_relocation, all: "b040d54786335630b4bbe1e950a316bf57f74902d8b726ea91b93c50000964bd"
   end
 
   depends_on "openjdk"

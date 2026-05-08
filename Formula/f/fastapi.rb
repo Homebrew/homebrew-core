@@ -6,14 +6,15 @@ class Fastapi < Formula
   url "https://files.pythonhosted.org/packages/5d/45/c130091c2dfa061bbfe3150f2a5091ef1adf149f2a8d2ae769ecaf6e99a2/fastapi-0.136.1.tar.gz"
   sha256 "7af665ad7acfa0a3baf8983d393b6b471b9da10ede59c60045f49fbc89a0fa7f"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e8c22bc3a38ca3ab10fdf41833d112374842e6f7b2b8e3839de8789ceeb2cf27"
-    sha256 cellar: :any,                 arm64_sequoia: "d93181c765a7d5df9935577b53231cb77fe315444732a5180328d251d29c7166"
-    sha256 cellar: :any,                 arm64_sonoma:  "7e3f924704895f0f892356b6779f15cd9bb77291c0040e1fced52d8cb75c0933"
-    sha256 cellar: :any,                 sonoma:        "bef27456b4a3f716189e1ebba24543e41dcfb0146b525a42dfa0502292082520"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d333958eb74c014d5df9e2a2a90fc522fa693f96fd63c4a81a81a2ac38e57d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab1ba4e29d8cd530d4d4ef14aae2b6277d2ded56fa24e8edbd3fa3ccc867addb"
+    sha256 cellar: :any,                 arm64_tahoe:   "93990dc47f1d6c47123d4c0c87c5a6befac8de9387822a5680bff006fd1ed9bd"
+    sha256 cellar: :any,                 arm64_sequoia: "155ce04d665f4821d302f9578bedadd51f3fb7fd98f5dd56ce2ddbf27ae06024"
+    sha256 cellar: :any,                 arm64_sonoma:  "319ef231c49c3055f03762617422459e6a133353192ecd07b09118abbe4af827"
+    sha256 cellar: :any,                 sonoma:        "6208bfef83b775cd4f4f7430cf1bbbc96a26b52eba93c2211970874d46bb321a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a18ce4d74277d76198a4bf051ac3d6e563f4ca19f4b5a55d18c65ae7bd7e3422"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac13b51721b5dd69773c4e710e1332feac9809bdde0eadc4ccf14f2a93c16343"
   end
 
   depends_on "rust" => :build # for annotated-doc
@@ -56,8 +57,8 @@ class Fastapi < Formula
   end
 
   resource "fastapi-cloud-cli" do
-    url "https://files.pythonhosted.org/packages/67/79/66567c39c5fab6dbebf9e40b3a3fcb0e2ec359517c87a67434c76b06e60b/fastapi_cloud_cli-0.17.0.tar.gz"
-    sha256 "2b6c241b63427023bd1e23b3251f23234aba4b05428b245a050e92db1389823c"
+    url "https://files.pythonhosted.org/packages/96/57/cee8e91b83f39e75ae5562a2237261442a8179dcb3b631c7398113157398/fastapi_cloud_cli-0.17.1.tar.gz"
+    sha256 "0baece208fa88063bec46dccb5fb512f3199162092165e57654b44e64adbc44d"
   end
 
   resource "fastar" do
@@ -131,8 +132,8 @@ class Fastapi < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/88/71/b145a380824a960ebd60e1014256dbb7d2253f2316ff2d73dfd8928ec2c3/python_multipart-0.0.26.tar.gz"
-    sha256 "08fadc45918cd615e26846437f50c5d6d23304da32c341f289a617127b081f17"
+    url "https://files.pythonhosted.org/packages/69/9b/f23807317a113dc36e74e75eb265a02dd1a4d9082abc3c1064acd22997c4/python_multipart-0.0.27.tar.gz"
+    sha256 "9870a6a8c5a20a5bf4f07c017bd1489006ff8836cff097b6933355ee2b49b602"
   end
 
   resource "pyyaml" do
@@ -156,8 +157,8 @@ class Fastapi < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/26/b3/fb8291170d0e844173164709fc0fa0c221ed75a5da740c8746f2a83b4eb1/sentry_sdk-2.58.0.tar.gz"
-    sha256 "c1144d947352d54e5b7daa63596d9f848adf684989c06c4f5a659f0c85a18f6f"
+    url "https://files.pythonhosted.org/packages/65/e0/9bf5e5fc7442b10880f3ec0eff0ef4208b84a099606f343ec4f5445227fb/sentry_sdk-2.59.0.tar.gz"
+    sha256 "cd265808ef8bf3f3edf69b527c0a0b2b6b1322762679e55b8987db2e9584aec1"
   end
 
   resource "shellingham" do
@@ -171,8 +172,8 @@ class Fastapi < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/83/b8/9ebb531b6c2d377af08ac6746a5df3425b21853a5d2260876919b58a2a4a/typer-0.24.2.tar.gz"
-    sha256 "ec070dcfca1408e85ee203c6365001e818c3b7fffe686fd07ff2d68095ca0480"
+    url "https://files.pythonhosted.org/packages/e4/51/9aed62104cea109b820bbd6c14245af756112017d309da813ef107d42e7e/typer-0.25.1.tar.gz"
+    sha256 "9616eb8853a09ffeabab1698952f33c6f29ffdbceb4eaeecf571880e8d7664cc"
   end
 
   resource "urllib3" do

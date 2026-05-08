@@ -1,21 +1,21 @@
 class Minizign < Formula
   desc "Minisign reimplemented in Zig"
   homepage "https://github.com/jedisct1/zig-minisign"
-  url "https://github.com/jedisct1/zig-minisign/archive/refs/tags/0.1.7.tar.gz"
-  sha256 "e0358f68a5fe6573c7e735db45cd1b697abcef6925c922abddc20978cd20a9f1"
+  url "https://github.com/jedisct1/zig-minisign/archive/refs/tags/0.1.12.tar.gz"
+  sha256 "4a567fd462e7dc75e3d6f20a300208ca1629a89896119493d53b6d19bec4bca2"
   license "ISC"
   head "https://github.com/jedisct1/zig-minisign.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a349db551b3508819e74a44d4a429f9ffd0bc12b93331a3a305c0efbf17a34d1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3520b2254e1d0f5e9096961e925746b2ba4e825ededb7ca0e879be5006d3e77f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6c959ed56c57e4b9ac4f9d76ac3fe4f6f39d2d5186f3f7b7f02e75b920f6f095"
-    sha256 cellar: :any_skip_relocation, sonoma:        "af5f32f6bce23feaf291f5b3ad22ab4b4a0e4a9d2f9b012b6c0a9e98204add79"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbfa1168118d9f119e205f38e1093c50508fe4849e9174ea09408b330cfacc13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc703647a481bb360cd6413e1e926898dcc6b7cad9bcf8ae02f139b3afee7f1e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7747a4bf070f657dd5f6df9128074e7f7a5fb12a67bbf72d3a72747a7af22e25"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "901ad4567285ecbfbd9c770bc60261e436f0a9bd3eda9edd4302f98f142f4430"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0060297445e8955145eaa9f7eacb2041e16ff8c9f3c58a6b5c803f1861e8b460"
+    sha256 cellar: :any_skip_relocation, sonoma:        "83301b5522b4a250708494c16c2e6fe9b045e14a6233ce469b0f9b50a29c7a0d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "238042c6bcf403128dcd157e08a797029b8b57358929779ce9e8f339c3828227"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69e3b052be65cd52cae297195d1763cef8bf4beee317efefb69fba16fcee9002"
   end
 
-  depends_on "zig@0.15" => :build
+  depends_on "zig" => :build
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.

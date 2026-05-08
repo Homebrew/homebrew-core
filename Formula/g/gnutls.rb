@@ -1,9 +1,9 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.12.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.8/gnutls-3.8.12.tar.xz"
-  sha256 "a7b341421bfd459acf7a374ca4af3b9e06608dcd7bd792b2bf470bea012b8e51"
+  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.13.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.8/gnutls-3.8.13.tar.xz"
+  sha256 "ffed8ec1bf09c2426d4f14aae377de4753b53e537d685e604e99a8b16ca9c97e"
   license all_of: ["LGPL-2.1-or-later", "GPL-3.0-only"]
   compatibility_version 1
 
@@ -31,12 +31,12 @@ class Gnutls < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "df6bfd97301eefdd39186a84e2089cd6b2ac62655a5bcf005e23c1b1e6631628"
-    sha256 arm64_sequoia: "2c852d43e0792be1e1091677c8bd3021c69b6d4cd237ea35918c033893f9ab1b"
-    sha256 arm64_sonoma:  "da087cf434671200e3c1b77f21341d9b5deb6e3df64b3868cc21212b965f9358"
-    sha256 sonoma:        "6dd581133c9f496152ed69d45129f53408035392101cd9c44d64649d0fba8bfb"
-    sha256 arm64_linux:   "ee21922877570b314f7457e9030fd915ca55ea6c0c343c8ccfce82b1f4914c5e"
-    sha256 x86_64_linux:  "d99e673012799fbe5648e8f511230233f9280a6aaba82bb5e3fa4b257bc4d9e0"
+    sha256 cellar: :any, arm64_tahoe:   "18db0c67bfa3137d02bf8f38a5cec216084c86a789bdaab5db9eba4964eb0c88"
+    sha256 cellar: :any, arm64_sequoia: "8acaf18cb03a73800698ab4e056238c9cabf74e7efe74d288054eeacdedf8459"
+    sha256 cellar: :any, arm64_sonoma:  "183ccacee048473aab71fe369f3fe8fb5362f2b063d609640d53b441bb6e7eb3"
+    sha256 cellar: :any, sonoma:        "a5465977c52d8e166cf94f062a8a2195a050874f8cdbb7fb7d3e42df9fc92ed7"
+    sha256               arm64_linux:   "213f90db6d02c8bf0a442f6fb121dea84e02d4cb25f9d3e4460472b325264960"
+    sha256               x86_64_linux:  "6d205dae91a84de7f88ea13a2e055e6071cc06c9d9c1445c2528b0f968592121"
   end
 
   depends_on "pkgconf" => :build

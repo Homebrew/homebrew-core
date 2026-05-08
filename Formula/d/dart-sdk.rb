@@ -1,17 +1,17 @@
 class DartSdk < Formula
   desc "Dart Language SDK, including the VM, dart2js, core libraries, and more"
   homepage "https://dart.dev"
-  url "https://github.com/dart-lang/sdk/archive/refs/tags/3.11.5.tar.gz"
-  sha256 "0e7029c6ba63c45a43357f5f3e8890f6798827c1433a14b92962f8a688afdf6f"
+  url "https://github.com/dart-lang/sdk/archive/refs/tags/3.11.6.tar.gz"
+  sha256 "107d24efcf88be96ceea9045465bc4c6f90a230d09b48511a45447145db01946"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cec92f51ea1ad125d6c7d71243a19a329d972668033867347518ac6983dbe8ad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf95fba3922059a150a9d0b5ba88164723d1658951702fb42872b978117d4aed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e277c084855cee60fb7d05215f57ac348e3fe60fea2602aa7fe9ebd2a7557766"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2832b913d71cc14c2c63cea01292fec45b7f270e4bf94223d485cc97a91179a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e25bd1bbe2ca739f75ff6bb53765cbdc58c10245b9bab31def9ece1cd94f1829"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1ea971433e619dc9fc19e84428b7b4813d895da6890b69817815ec7fa9e817b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aa1a7a1fed0fc1e45100cd150f216d628e3b4adaef2e3179489fdfe70830f28b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6e614dda7ccce558bd0a4d0bcd1afc45da8e5f5ec42f68b868eb251a57c764c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "273e37381eaa45041d40ad962b9b628e0ca0d7797d9d7790eaf988aab6173d00"
+    sha256 cellar: :any_skip_relocation, sonoma:        "da4b254c7ad3ef401a61e626bc53d3a5452c1abbd3c64e420b4c3ba204d9a9c9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f5cb46426872b161c7b69b32758cb72800317f51214e12752f03aefa0976394e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c87a03f33559d69cfb418b7d682da15af9ee5a5a019ad074bb2a9e9e056182ab"
   end
 
   depends_on "ninja" => :build

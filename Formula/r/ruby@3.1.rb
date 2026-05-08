@@ -18,8 +18,9 @@ class RubyAT31 < Formula
 
   keg_only :versioned_formula
 
-  # EOL: 2025-03-26
+  # EOL: 2025-03-31
   deprecate! date: "2025-04-08", because: :unsupported
+  disable! date: "2026-05-07", because: :unsupported
 
   depends_on "pkgconf" => :build
   depends_on "libyaml"
