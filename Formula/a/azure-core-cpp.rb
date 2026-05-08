@@ -4,6 +4,7 @@ class AzureCoreCpp < Formula
   url "https://github.com/Azure/azure-sdk-for-cpp/archive/refs/tags/azure-core_1.16.3.tar.gz"
   sha256 "70d5d2aea5ece95148ee8b71fb302ae35a1178e58b58150a14df8866a0c54464"
   license "MIT"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -21,9 +22,15 @@ class AzureCoreCpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
+
+  # Backport openssl4 support
+  patch do
+    url "https://github.com/Azure/azure-sdk-for-cpp/commit/4c2e11fd9239ab5c157493f22b9ddd0b5ec90402.patch?full_index=1"
+    sha256 "2909545705162851ff48b16c650763605492df077f59be969f589540acb079fb"
+  end
 
   def install
     ENV["AZURE_SDK_DISABLE_AUTO_VCPKG"] = "1"
