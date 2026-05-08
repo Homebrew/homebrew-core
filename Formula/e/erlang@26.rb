@@ -6,6 +6,7 @@ class ErlangAT26 < Formula
   url "https://github.com/erlang/otp/releases/download/OTP-26.2.5.20/otp_src_26.2.5.20.tar.gz"
   sha256 "fcb6fd222fe6abd00aa12e7fc41d15c149c44f3b5ac4c98896ce63abcf128db0"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,7 @@ class ErlangAT26 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "unixodbc"
   depends_on "wxwidgets@3.2" # for GUI apps like observer
 
@@ -65,7 +66,7 @@ class ErlangAT26 < Formula
       --enable-threads
       --enable-wx
       --with-odbc=#{Formula["unixodbc"].opt_prefix}
-      --with-ssl=#{Formula["openssl@3"].opt_prefix}
+      --with-ssl=#{Formula["openssl@4"].opt_prefix}
       --without-javac
       --with-wx-config=#{wx_config}
     ]
