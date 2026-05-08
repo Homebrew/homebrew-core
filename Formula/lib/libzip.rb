@@ -4,7 +4,7 @@ class Libzip < Formula
   url "https://libzip.org/download/libzip-1.11.4.tar.xz"
   sha256 "8a247f57d1e3e6f6d11413b12a6f28a9d388de110adc0ec608d893180ed7097b"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -13,13 +13,12 @@ class Libzip < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "c290af28bf46ce0ad37565135483609bc1e1de0e71e9edf1b9b9182e75a6f2d6"
-    sha256 cellar: :any,                 arm64_sequoia: "a7ce0f0b76c3fa4957234b101576f601438ffef7769341cf1ca000cf90960ad6"
-    sha256 cellar: :any,                 arm64_sonoma:  "6ef7ac3386de9d85713e1f7e62c7d1edff6bcd7833281b90fbfd7b191df7b2f8"
-    sha256 cellar: :any,                 sonoma:        "f55c42e37daf714f4283b77f56b25ccb3288c73b97b15831b3cb5377652d3376"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4eff813d4699d88b656864b98d6a5ca89aa651a3ee48f6ee2122ff17b4880973"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19ea3f62d46ce3026e49c8c38bf12f1e221b6a1bae5e787d138b32c1160f47bb"
+    sha256 cellar: :any,                 arm64_tahoe:   "2b30e7bc40f37827ad74dd3b60600538b466cd087d260fb6e5c50256ec4d4144"
+    sha256 cellar: :any,                 arm64_sequoia: "dcb8f699f1d8aac185602a5978cbd01f5ee230a9021d0237da206ec7b2889c70"
+    sha256 cellar: :any,                 arm64_sonoma:  "96e048bb95d2fe5bbe224443a5d318fc1cca3c1b9899ae7af2243c08d10281c4"
+    sha256 cellar: :any,                 sonoma:        "e8c2e6843c68fcda5ea2b089fe0764e90f7e5bcfaddc5a50e7d6d74fd36e5039"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0434181bd75991da053078f0272e9123e9b896132876a28dbcbf7af876dff9d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7aa413d27088cec99e7273c2776efe8732efb1b0f1b84411a2e612cb74418870"
   end
 
   depends_on "cmake" => :build
