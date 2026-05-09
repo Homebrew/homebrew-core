@@ -4,6 +4,7 @@ class Expert < Formula
   url "https://github.com/expert-lsp/expert/archive/refs/tags/v0.1.3.tar.gz"
   sha256 "cbebb733de1996ff870b5171d6abd5d0bfa1e366d47eb210977edbcde82216d6"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/expert-lsp/expert.git", branch: "main"
 
   bottle do
@@ -18,7 +19,7 @@ class Expert < Formula
   depends_on "elixir" => :build
   depends_on "erlang" => :build
   depends_on "just" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "ncurses"
 
