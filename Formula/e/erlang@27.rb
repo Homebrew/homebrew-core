@@ -6,6 +6,7 @@ class ErlangAT27 < Formula
   url "https://github.com/erlang/otp/releases/download/OTP-27.3.4.11/otp_src_27.3.4.11.tar.gz"
   sha256 "9d63382d3e7707c058dabe338114e09ff8228d54d29df794d907d3c8dddde5f9"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,7 @@ class ErlangAT27 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "unixodbc"
   depends_on "wxwidgets@3.2" # for GUI apps like observer
 
@@ -75,7 +76,7 @@ class ErlangAT27 < Formula
     args = %W[
       --enable-dynamic-ssl-lib
       --with-odbc=#{Formula["unixodbc"].opt_prefix}
-      --with-ssl=#{Formula["openssl@3"].opt_prefix}
+      --with-ssl=#{Formula["openssl@4"].opt_prefix}
       --without-javac
       --with-wx-config=#{wx_config}
     ]
