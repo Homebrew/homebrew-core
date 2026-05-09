@@ -14,12 +14,12 @@ class MongoCDriver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "336926859b333b66f2d74164b652b5a0c0a3e1b99524e0e29087db3ce8f69537"
-    sha256 cellar: :any,                 arm64_sequoia: "ebb36242b858213ae11773aacc11ec7c2df90da4a06d2f5a851dbf5eaa8999fa"
-    sha256 cellar: :any,                 arm64_sonoma:  "cc736db383f037928e0635bd19b196e68a2ec401b1ddf01a1db0275dfb6906f9"
-    sha256 cellar: :any,                 sonoma:        "5681798f8425885c4eb5cb5d751887b5bd68465b0ee12735271ec101ba659712"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9499499331e8470642bdc2fe7d32c6ed3ae663fc4ea80dac1504263d2da79a06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ace76b739e8a16294c95c3982b57d581c8154d3df299b445a4edb35373126d17"
+    sha256 cellar: :any,                 arm64_tahoe:   "49e03cb97bc513a0e729604fda55de40ed5d712914b4f1c9bdd5c358570d2e36"
+    sha256 cellar: :any,                 arm64_sequoia: "f04f48be920942ce4010b585d4f55a1b56219dcec8ece7ce7b19ff3a4d0a3cc8"
+    sha256 cellar: :any,                 arm64_sonoma:  "0cc93ceece73967a24a740143e154bda2aad3038f4414070908996299c0d725a"
+    sha256 cellar: :any,                 sonoma:        "baeac8488db093b88e23a03ac580d3fb2f00da5a69d4e4e3c698f31ebbe8b891"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "73cdc05c79fd9906b16f5ff29efb464a9df1d88f4b068e74ee4edcad69c8a3b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97aac3e9301f693aaa6345be9ceab4355e1d47624086cbc56b6afa8e1b639cad"
   end
 
   depends_on "cmake" => :build
