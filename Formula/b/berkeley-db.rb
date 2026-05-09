@@ -13,18 +13,12 @@ class BerkeleyDb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "8ab6e76001b5a945ed16eaa85a4a5676bd3a7f54365c2255c90565d73096ff0e"
-    sha256 cellar: :any,                 arm64_sequoia:  "422be2c8877f981442a27bd80d7a4494de3a515b54b1d206e51c4e710f9d83eb"
-    sha256 cellar: :any,                 arm64_sonoma:   "f8a6da9be201214ca17efa824a335060a6f1ff4d72cc579a5878ee06ac2d9b61"
-    sha256 cellar: :any,                 arm64_ventura:  "67fed25d26cb987106b346ee4088959b71306db6a016cb6f58cca9da9350c36d"
-    sha256 cellar: :any,                 arm64_monterey: "e5416a45caf56653c4691f5d939df58d9da2254807efd6ab5425cfa63a472ac9"
-    sha256 cellar: :any,                 arm64_big_sur:  "a68f9cf2daa3a03ea5c9c9e072955d2dec43aff19859ef2c40888b7b85ea379f"
-    sha256 cellar: :any,                 sonoma:         "01746c62817e50160208bd9acb690eec9352e89b5a3b8bda6bea3952b9bc4352"
-    sha256 cellar: :any,                 ventura:        "a6b04772ee3978ec98f1e3e79fec872c9dc5476b49b7d70218e5c850af6ecf79"
-    sha256 cellar: :any,                 monterey:       "6db05f803f05820f25cdd5936a8d23615ef886f0a409946d40d966cf5f35f023"
-    sha256 cellar: :any,                 big_sur:        "5f4917a225a5986f682c85dbcfb6503024738d6eadb637161210ae621c26f457"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "8ae89765b5bcd261562a5dd527459d9fadb46d2aa264240b634e0acc21076a58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ba948d2977fbfcc865086fab6d6567b4f3972fcc46e327817fb7600f64d4312"
+    sha256 cellar: :any,                 arm64_tahoe:   "5c80c2a5549d9231b046f5054c7e3bd091bc4accb52f8c3b6aac303ac73d9898"
+    sha256 cellar: :any,                 arm64_sequoia: "61883ff98a6fabd76485d7eb3d8ce2beea6a36cde795abbfaa3f68188d343d44"
+    sha256 cellar: :any,                 arm64_sonoma:  "719a0104dfb17a271589beb545024fcd68abc211930f5d550b6cc7438bc9a89c"
+    sha256 cellar: :any,                 sonoma:        "7bb183ccef1018e2bd5b855725c69d8aac655c60f8b6f21acd1a1cf3a18ba076"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2dd18cc81b181da169f1617c705d14c3ff394c821a55556cf35c80357c97c65b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e7a13dfbaf54be80e7e35d126bd206f1e3bc6a7fde8c80fc60c680b3325e473"
   end
 
   keg_only :provided_by_macos
