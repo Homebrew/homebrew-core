@@ -6,7 +6,7 @@ class Eralchemy < Formula
   url "https://files.pythonhosted.org/packages/0e/c0/9c28acf903566a02de43f8fc6c572b8195ab0fa854016825e5690c77b57a/eralchemy-1.6.0.tar.gz"
   sha256 "8f82d329ec0cd9c04469adf36b8889b5ea2583e7e53c0fd2e784e176e1e27c7a"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -21,7 +21,7 @@ class Eralchemy < Formula
   depends_on "pkgconf" => :build
   depends_on "graphviz"
   depends_on "libpq"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
 
   pypi_packages package_name: "eralchemy[pygraphviz]"
