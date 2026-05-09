@@ -4,6 +4,7 @@ class Monetdb < Formula
   url "https://www.monetdb.org/downloads/sources/Dec2025-SP2/MonetDB-11.55.5.tar.xz"
   sha256 "480c921a45b54c610dee9a17147f0e89ae74c31516b9250e5c8f2371e1bd70c2"
   license "MPL-2.0"
+  revision 1
   head "https://www.monetdb.org/hg/MonetDB", using: :hg
 
   livecheck do
@@ -14,19 +15,19 @@ class Monetdb < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 arm64_tahoe:   "24fc287de47a1464c727526f6e6a78c710b40794b490cacc507c5144e87c87ac"
-    sha256 arm64_sequoia: "cee5a44056bb7418286a78bf5491f0896c2fbd3efc7728a1ec4af9b90f1d20d5"
-    sha256 arm64_sonoma:  "6b8d075897e6f4e8953a1c63404c1dc2197b4485149b650d5548404a00fcd983"
-    sha256 sonoma:        "77465e90ccd2eaba2d244bab4e751317a8239128790a33f82cac87292851bd11"
-    sha256 arm64_linux:   "149c74d0bc2b77d5253befcd18a54dc88d6c9e85309665ec1ccc94a58149771b"
-    sha256 x86_64_linux:  "d8ccc09b9a6352cdf22dba1f563499cd81c889810e2040908136d4d043f86690"
+    sha256 arm64_tahoe:   "951fa07466c28d36575e06b842ad4e310e9038140a8dc2bf02f1e5d1292c2833"
+    sha256 arm64_sequoia: "2d9851e2ade6dfef6f171b6e6c5825082a8cbc8ed65061cf02ed755b54f8ed4e"
+    sha256 arm64_sonoma:  "0a7991075d5c3252fd4202612dbf9fcb35abfa0a48fa492c05d20117f0a0a8ce"
+    sha256 sonoma:        "d67baf8654716372510526e30a6cc60262c421a80a422bd90df59f2382ccceff"
+    sha256 arm64_linux:   "8c5841e66f574394356652817e29844f7da9f04b9d93aa14dbe8794351a89f1f"
+    sha256 x86_64_linux:  "a83a81f1323f6b7c132521fd1a5f82c18d200923f8cdf88ffd5d374586a6061f"
   end
 
   depends_on "bison" => :build # macOS bison is too old
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "readline" # Compilation fails with libedit
   depends_on "xz"
