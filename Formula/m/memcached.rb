@@ -4,6 +4,7 @@ class Memcached < Formula
   url "https://www.memcached.org/files/memcached-1.6.41.tar.gz"
   sha256 "e097073c156eeff9e12655b054f446d57374cfba5c132dcdbe7fac64e728286a"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :homepage
@@ -27,7 +28,7 @@ class Memcached < Formula
   end
 
   depends_on "libevent"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "./autogen.sh" if build.head?
