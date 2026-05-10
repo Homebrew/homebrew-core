@@ -4,14 +4,15 @@ class Baresip < Formula
   url "https://github.com/baresip/baresip/archive/refs/tags/v4.7.0.tar.gz"
   sha256 "fa281d041e6c5d02f9f71b88524ca8fe05b54d37bbdf985f44fb6a034e02a604"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "03f6a32353e1147a8a70e483ddf28a4f0423b6932f2e8028a0c8a1d2ee03a541"
-    sha256 arm64_sequoia: "f7067437db59bf7c870a7383dcc2b7a880349532987673213575f869eb77950d"
-    sha256 arm64_sonoma:  "34b13de302e1ec33880078166a799a735e558dc3ba2b4c8f9c21a38c7e541f04"
-    sha256 sonoma:        "06c0431350efe08d713689776e9e559a10b8bc63ef1b0f78fae798b46011c15a"
-    sha256 arm64_linux:   "555db0a500acf127f89b074b4afb444fe1ad18387f2b430d514850130a6d397f"
-    sha256 x86_64_linux:  "3229e501f5738da0144381e939415389d02fb584b3fe8e22aeea617309415cc2"
+    sha256 arm64_tahoe:   "f7c332c695fdf5364339529947d80f436b45fc79a6b32e7fbbe0bcf24382c098"
+    sha256 arm64_sequoia: "fdbd002e5ced64c21986fea1912a530ae8e81fc86cecf2cc497cf5c83ac3bbda"
+    sha256 arm64_sonoma:  "a0c1ebfe95f6a47e9489f2e6061fbce17d650ee235352efd22fdb32659e8ba39"
+    sha256 sonoma:        "0394f44c924c456689e5727f3861faaf33265421fb24d5ca9fb914cea228b690"
+    sha256 arm64_linux:   "21dce109827b01556684e6d05cc876864d6efc8a03628496ebb94ec5cf220b48"
+    sha256 x86_64_linux:  "2a4940c3b0372d2f672dca8bb517bc482e7a6a1b8fa9e6e3a64d19950e4c3411"
   end
 
   depends_on "cmake" => :build
@@ -19,7 +20,7 @@ class Baresip < Formula
   depends_on "libre"
 
   on_macos do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
