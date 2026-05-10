@@ -4,6 +4,7 @@ class Qpdf < Formula
   url "https://github.com/qpdf/qpdf/releases/download/v12.3.2/qpdf-12.3.2.tar.gz"
   sha256 "6cba2f9f2cd887d905faeb99e0e51a307b217920d1bbf3e9cfbb2e8178a2deda"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
 
   bottle do
@@ -18,7 +19,7 @@ class Qpdf < Formula
 
   depends_on "cmake" => :build
   depends_on "jpeg-turbo"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
