@@ -7,12 +7,12 @@ class Libre < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c4849b9398137a10a5ba3ffab29c7a1a6223b84c62defb5443cf2a308082abe9"
-    sha256 cellar: :any,                 arm64_sequoia: "44e0e7858b06c671ce7cf7efbb1c73cea6aaf0dff14a370ba444bf74d6505de7"
-    sha256 cellar: :any,                 arm64_sonoma:  "e21769e6c8a9d9b692ddca7e38dcfaf0400817fa5cb37ee12a558d818be53c6f"
-    sha256 cellar: :any,                 sonoma:        "4220322ee8a3a529a3087ea818db393a3ea0e164a02b6848f998a10fea1a0271"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "07efd22a55d3ab0502375dec2d1e4c634d71b45a09e154a0015e1419111ddac7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbb565a5be6533757165374d5172aa8cdc168a7a6bfbd31464dafe5117700432"
+    sha256 cellar: :any,                 arm64_tahoe:   "70969e170240318aca3e08d2fd6f8c3dc0f9ce96bb1fff89d45599ce1b502d27"
+    sha256 cellar: :any,                 arm64_sequoia: "dd9b777a67722bcc8f15d101f92ff6b0ca1aab87f3a96801de3fd384d0e46d50"
+    sha256 cellar: :any,                 arm64_sonoma:  "4327496129de4fca151e8b00342996f2548ff0f3f92ce3c8b0cb40166d52551c"
+    sha256 cellar: :any,                 sonoma:        "557c21463b26a8d145147b6cff2b7ff5d64d80a08898a2cd0b44dc0e7fc0c42b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7010dc9c9706091b8fd6b270b42448a6cd7f93da85e402d7d6c92dd1ee1b4560"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f1fdf6715008f5507be923ba5cb410e06f223bc0f2b667810f2284bcc6af2fa"
   end
 
   depends_on "cmake" => :build
