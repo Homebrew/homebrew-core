@@ -2,7 +2,7 @@ class ClickhouseOdbc < Formula
   desc "Official ODBC driver implementation for accessing ClickHouse as a data source"
   homepage "https://github.com/ClickHouse/clickhouse-odbc"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
 
   stable do
@@ -42,7 +42,7 @@ class ClickhouseOdbc < Formula
   depends_on "cmake" => :build
   depends_on "folly" => :build
   depends_on "icu4c@78"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "poco"
   depends_on "unixodbc"
 
