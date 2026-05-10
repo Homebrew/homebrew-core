@@ -4,6 +4,7 @@ class Cgal < Formula
   url "https://github.com/CGAL/cgal/releases/download/v6.1.1/CGAL-6.1.1.tar.xz"
   sha256 "52506935f70e247ed2777e3c65f20e86f79208c2a2d0e180ae7475daf11c96ef"
   license "GPL-3.0-or-later"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -23,7 +24,7 @@ class Cgal < Formula
   depends_on "mpfr"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
