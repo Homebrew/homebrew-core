@@ -4,6 +4,7 @@ class VapoursynthSub < Formula
   url "https://github.com/vapoursynth/subtext/archive/refs/tags/R6.tar.gz"
   sha256 "536e2f056c7b318b0104b8b9050bb17c00d8ca60b0e5fdecf1ee92879c5f9165"
   license "MIT"
+  revision 1
   version_scheme 1
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
 
@@ -23,25 +24,27 @@ class VapoursynthSub < Formula
   depends_on "libass"
   depends_on "vapoursynth"
 
-  def install
-    # Upstream build system wants to install directly into vapoursynth's libdir and does not respect
-    # prefix, but we want it in a Cellar location instead.
-    inreplace "meson.build" do |s|
-      s.gsub!(/^incdir = include_directories\(.*?^\)/m,
-              "incdir = include_directories('#{Formula["vapoursynth"].opt_include}/vapoursynth')")
-      s.gsub! "install_dir: py.get_install_dir() / 'vapoursynth/plugins'", "install_dir: '#{lib}/vapoursynth'"
-    end
+  def python3
+    Formula["vapoursynth"].deps
+                          .find { |d| d.name.match?(/^python@\d\.\d+$/) }
+                          .to_formula
+                          .opt_libexec/"bin/python"
+  end
 
-    system "meson", "setup", "build", *std_meson_args
+  def install
+    site_packages = Language::Python.site_packages(python3)
+
+    args = %W[
+      -Dpython.platlibdir=#{site_packages}
+      -Dpython.purelibdir=#{site_packages}
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
   test do
-    python = Formula["vapoursynth"].deps
-                                   .find { |d| d.name.match?(/^python@\d\.\d+$/) }
-                                   .to_formula
-                                   .opt_libexec/"bin/python"
-    system python, "-c", "from vapoursynth import core; core.sub"
+    system python3, "-c", "from vapoursynth import core; core.sub"
   end
 end
