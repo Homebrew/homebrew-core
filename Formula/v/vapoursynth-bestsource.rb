@@ -5,6 +5,7 @@ class VapoursynthBestsource < Formula
       tag:      "R17",
       revision: "b026135190bdee175417310fa783e8383077193f"
   license "MIT"
+  revision 1
   head "https://github.com/vapoursynth/bestsource.git", branch: "master"
 
   livecheck do
@@ -28,24 +29,29 @@ class VapoursynthBestsource < Formula
   depends_on "vapoursynth"
   depends_on "xxhash"
 
-  def install
-    # Upstream build system wants to install directly into vapoursynth's libdir and does not respect
-    # prefix, but we want it in a Cellar location instead.
-    inreplace "meson.build" do |s|
-      s.gsub!("py.get_install_dir() / 'vapoursynth/plugins'", "get_option('libdir') / 'vapoursynth'")
-      s.gsub!("-march=x86-64-v2", "-msse4.1")
-    end
+  def python3
+    Formula["vapoursynth"].deps
+                          .find { |d| d.name.match?(/^python@\d\.\d+$/) }
+                          .to_formula
+                          .opt_libexec/"bin/python"
+  end
 
-    system "meson", "setup", "build", *std_meson_args
+  def install
+    inreplace "meson.build", "-march=x86-64-v2", "-msse4.1" if Hardware::CPU.intel?
+
+    site_packages = Language::Python.site_packages(python3)
+
+    args = %W[
+      -Dpython.platlibdir=#{site_packages}
+      -Dpython.purelibdir=#{site_packages}
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
   test do
-    python = Formula["vapoursynth"].deps
-                                   .find { |d| d.name.match?(/^python@\d\.\d+$/) }
-                                   .to_formula
-                                   .opt_libexec/"bin/python"
-    system python, "-c", "from vapoursynth import core; core.bs"
+    system python3, "-c", "from vapoursynth import core; core.bs"
   end
 end
