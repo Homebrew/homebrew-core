@@ -64,7 +64,9 @@ class Epicsbase < Formula
     assert_match "EPICS Version", shell_output("#{bin}/caget -V")
 
     assert_path_exists "#{prefix}/bin/#{hostarch}/pvget", :exist?
-    assert_match "Usage: pvget", shell_output("#{bin}/pvget -h 2>&1", 0)
+    output = Utils.safe_popen_read("#{bin}/pvget", "-h", err: :out)
+    assert_match "Usage: pvget", output
+
     assert_path_exists "#{prefix}/bin/#{hostarch}/pvput", :exist?
     assert_match "No pv name specified.", shell_output("#{bin}/pvput")
 
