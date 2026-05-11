@@ -4,7 +4,7 @@ class F3d < Formula
   url "https://github.com/f3d-app/f3d/archive/refs/tags/v3.5.0.tar.gz"
   sha256 "033845b5d49af3ae60fcc3fe85d82c841d990d3534638a4472123f84b3e82795"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
@@ -53,6 +53,7 @@ class F3d < Formula
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_CXX_STANDARD=17
       -DF3D_MACOS_BUNDLE=OFF
       -DF3D_PLUGIN_BUILD_ALEMBIC=ON
       -DF3D_PLUGIN_BUILD_ASSIMP=ON
