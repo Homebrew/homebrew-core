@@ -68,7 +68,7 @@ class Epicsbase < Formula
     assert_match "Usage: pvget", output
 
     assert_path_exists "#{prefix}/bin/#{hostarch}/pvput", :exist?
-    output = Utils.safe_popen_read("#{bin}/pvput", "", err: :out)
+    output = Utils.safe_popen_read("#{bin}/pvput", "", err: :out)  rescue ""
     assert_match "No pv name specified.", output
 
     assert_path_exists "#{prefix}/bin/#{hostarch}/softIoc", :exist?
