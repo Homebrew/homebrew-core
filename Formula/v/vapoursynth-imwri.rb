@@ -18,6 +18,11 @@ class VapoursynthImwri < Formula
     sha256               x86_64_linux:  "21b4c595a5528b6d61eaba2d223e2f51bdf2b69ff50d623a915fc55a98263513"
   end
 
+  # repository was archived by the owner on Apr 9, 2026
+  # Partly replaced by vapoursynth-bestsource
+  deprecate! date: "2025-04-09", because: :repo_archived
+  disable! date: "2025-04-09", because: :repo_archived
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
