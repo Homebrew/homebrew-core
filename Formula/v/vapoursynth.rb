@@ -1,10 +1,12 @@
 class Vapoursynth < Formula
+  include Language::Python::Virtualenv
+
   desc "Video processing framework with simplicity in mind"
   homepage "https://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R73.tar.gz"
-  sha256 "1bb8ffe31348eaf46d8f541b138f0136d10edaef0c130c1e5a13aa4a4b057280"
+  url "https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R75.tar.gz"
+  sha256 "a1f71019de7f5c252c309e134f245bf49d64038b1f4e1df7f4dfb1e1ed290526"
   license "LGPL-2.1-or-later"
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
 
   livecheck do
@@ -23,10 +25,15 @@ class Vapoursynth < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "cython" => :build
   depends_on "libtool" => :build
+  depends_on "meson" => :build
   depends_on "nasm" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "python-build" => :build
+  depends_on "python-packaging" => :build
   depends_on "python@3.14"
   depends_on "zimg"
 
@@ -38,18 +45,40 @@ class Vapoursynth < Formula
     fails_with :clang
   end
 
-  def install
-    ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++" if OS.mac? && MacOS.version <= :ventura
+  def python3
+    Formula["python@3.14"].opt_bin/"python3.14"
+  end
 
-    system "./autogen.sh"
-    inreplace "Makefile.in", "pkglibdir = $(libdir)", "pkglibdir = $(exec_prefix)"
-    system "./configure", "--disable-silent-rules",
-                          "--with-cython=#{Formula["cython"].bin}/cython",
-                          "--with-plugindir=#{HOMEBREW_PREFIX}/lib/vapoursynth",
-                          "--with-python_prefix=#{prefix}",
-                          "--with-python_exec_prefix=#{prefix}",
-                          *std_configure_args
-    system "make", "install"
+  def install
+    inreplace "meson.build" do |s|
+      s.gsub! "static: true", "static: false"
+      s.gsub! "avx2_args = '-march=x86-64-v3'", "avx2_args = ['-mavx2', '-mfma']" if Hardware::CPU.intel?
+    end
+
+    venv = virtualenv_create(libexec, python3)
+
+    args = %W[
+      -Dpython.platlibdir=#{venv.site_packages}
+      -Dpython.purelibdir=#{venv.site_packages}
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+
+    venv.pip_install_and_link(buildpath)
+
+    vs = venv.site_packages/"vapoursynth"
+
+    vs.install_symlink Language::Python.homebrew_site_packages(python3)/"vapoursynth/plugins"
+
+    lib.install_symlink vs.glob(shared_library("*"))
+
+    include.install_symlink (vs/"include").children
+
+    (share/"pkgconfig").install_symlink (vs/"pkgconfig").children
+
+    (prefix/Language::Python.site_packages(python3)/"homebrew-vapoursynth.pth").write venv.site_packages
   end
 
   def caveats
@@ -59,11 +88,11 @@ class Vapoursynth < Formula
         brew install vapoursynth-sub
       To use vapoursynth.core.ocr, execute:
         brew install vapoursynth-ocr
-      To use vapoursynth.core.imwri, execute:
-        brew install vapoursynth-imwri
+      To use vapoursynth.core.bs, execute:
+        brew install vapoursynth-bestsource
       To use vapoursynth.core.ffms2, execute the following:
         brew install ffms2
-        ln -s "../libffms2.dylib" "#{HOMEBREW_PREFIX}/lib/vapoursynth/#{shared_library("libffms2")}"
+        ln -s "../../../../libffms2.dylib" "#{Language::Python.homebrew_site_packages(python3)/"vapoursynth/plugins"}/#{shared_library("libffms2")}"
       For more information regarding plugins, please visit:
         http://www.vapoursynth.com/doc/plugins.html
     EOS
