@@ -55,6 +55,8 @@ class Epicsbase < Formula
   end
 
   test do
+    hostarch = Utils.safe_popen_read("#{prefix}/startup/EpicsHostArch").strip
+    puts "EPICS_HOST_ARCH = #{hostarch}"
     # simple test if these files exists
     assert_path_exists "#{prefix}/bin/#{hostarch}/caput", :exist?
     assert_match "EPICS Version", shell_output("#{bin}/caput -V")
