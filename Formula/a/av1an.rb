@@ -4,6 +4,7 @@ class Av1an < Formula
   url "https://github.com/rust-av/Av1an/archive/refs/tags/v0.5.2.tar.gz"
   sha256 "58eba4215ffaf07a58065e78fb4aec8df9ebda48e9d996621d559f3024b3538b"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/rust-av/Av1an.git", branch: "master"
 
   # Differentiate v-prefixed tags from old version schemes
@@ -31,6 +32,11 @@ class Av1an < Formula
   def install
     ENV["VERGEN_GIT_COMMIT_DATE"] = time.iso8601
     ENV["VERGEN_GIT_SHA"] = tap.user
+
+    # TODO: remove on next release
+    # Add support for vapoursynth R75 see: https://github.com/rust-av/Av1an/commit/17298da4fa337960cdf14b7869f513f8ab906896
+    system "cargo", "update", "-p", "vapoursynth", "--precise", "0.5.6" unless head?
+
     system "cargo", "install", *std_cargo_args(path: "av1an")
 
     generate_completions_from_executable(bin/"av1an", "--completions", shells: [:bash, :zsh, :fish, :pwsh])
