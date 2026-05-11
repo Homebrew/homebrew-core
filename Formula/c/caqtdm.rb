@@ -175,7 +175,8 @@ class Caqtdm < Formula
 
   test do
     # Optional: Ein einfacher Test, ob das Binary da ist
-    assert_path_exists bin/"caQtDM.app", :exist?
+    assert_path_exists bin/"caqtdm", :exist?
+    assert_path_exists prefix/"caQtDM.app", :exist?
     output = Utils.safe_popen_read("caqtdm", "-help", err: :out)  rescue ""
     assert_match "Usage:", output
 
