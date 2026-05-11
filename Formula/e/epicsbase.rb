@@ -14,8 +14,8 @@ class Epicsbase < Formula
   end
   def install
     # EPICS needed this environment variables
-    ENV["EPICS_HOST_ARCH"] = Utils.safe_popen_read("./startup/EpicsHostArch")
-    hostarch = Utils.safe_popen_read("./startup/EpicsHostArch")
+    ENV["EPICS_HOST_ARCH"] = Utils.safe_popen_read("./startup/EpicsHostArch").strip
+    hostarch = Utils.safe_popen_read("./startup/EpicsHostArch").strip
     puts "EPICS_HOST_ARCH = #{hostarch}"
     ENV["EPICS_BASE"] = buildpath
     # Optional: optinal config files
