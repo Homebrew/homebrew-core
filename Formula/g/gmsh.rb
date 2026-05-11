@@ -4,6 +4,7 @@ class Gmsh < Formula
   url "https://gmsh.info/src/gmsh-4.15.2-source.tgz"
   sha256 "be3f66f225d27ba9fa014f07e83169285da8a051b0e8ab7103d88066b39bdd3e"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.onelab.info/gmsh/gmsh.git", branch: "master"
 
   livecheck do
@@ -54,6 +55,7 @@ class Gmsh < Formula
     ENV["CASROOT"] = Formula["opencascade"].opt_prefix
 
     args = %w[
+      -DCMAKE_CXX_STANDARD=17
       -DENABLE_OS_SPECIFIC_INSTALL=OFF
       -DENABLE_BUILD_LIB=ON
       -DENABLE_BUILD_SHARED=ON
