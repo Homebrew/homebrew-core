@@ -4,6 +4,7 @@ class VapoursynthOcr < Formula
   url "https://github.com/vapoursynth/vs-ocr/archive/refs/tags/R3.tar.gz"
   sha256 "e9da11b7f5f3e4acfee5890729769217aa5b385bb573cb303c2661d8d8a83712"
   license "MIT"
+  revision 1
   version_scheme 1
   head "https://github.com/vapoursynth/vs-ocr.git", branch: "master"
 
@@ -25,12 +26,19 @@ class VapoursynthOcr < Formula
   depends_on "tesseract"
   depends_on "vapoursynth"
 
+  def python3
+    Formula["vapoursynth"].deps
+                          .find { |d| d.name.match?(/^python@\d\.\d+$/) }
+                          .to_formula
+                          .opt_libexec/"bin/python"
+  end
+
   def install
     # Upstream build system wants to install directly into vapoursynth's libdir and does not respect
     # prefix, but we want it in a Cellar location instead.
     inreplace "meson.build",
               "install_dir : join_paths(vapoursynth_dep.get_pkgconfig_variable('libdir'), 'vapoursynth')",
-              "install_dir : '#{lib}/vapoursynth'"
+              "install_dir : '#{Language::Python.site_packages(python3)}/vapoursynth/plugins'"
 
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -38,10 +46,6 @@ class VapoursynthOcr < Formula
   end
 
   test do
-    python = Formula["vapoursynth"].deps
-                                   .find { |d| d.name.match?(/^python@\d\.\d+$/) }
-                                   .to_formula
-                                   .opt_libexec/"bin/python"
-    system python, "-c", "from vapoursynth import core; core.ocr"
+    system python3, "-c", "from vapoursynth import core; core.ocr"
   end
 end
