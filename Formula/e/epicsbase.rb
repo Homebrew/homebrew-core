@@ -72,8 +72,8 @@ class Epicsbase < Formula
     assert_match "Usage: pvput", output
 
     assert_path_exists "#{prefix}/bin/#{hostarch}/softIoc", :exist?
-    assert_match "Usage: softIOC", shell_output("#{bin}/softIoc")
+    assert_match "Usage: softIOC", shell_output("softioc -h")
     assert_path_exists "#{prefix}/bin/#{hostarch}/softIocPVA", :exist?
-    assert_match "Usage: softIOCPVA", shell_output("#{bin}/softIocPVA")
+    assert_match "Usage: softIOCPVA", shell_output("softiocpva -h")
   end
 end
