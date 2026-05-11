@@ -57,8 +57,18 @@ class Epicsbase < Formula
   test do
     # simple test if these files exists
     assert_path_exists "#{prefix}/bin/#{hostarch}/caput", :exist?
+    assert_match "EPICS Version", shell_output("#{bin}/caput -V")
+    assert_path_exists "#{prefix}/bin/#{hostarch}/caget", :exist?
+    assert_match "EPICS Version", shell_output("#{bin}/caget -V")
+
+    assert_path_exists "#{prefix}/bin/#{hostarch}/pvget", :exist?
+    assert_match "No pv name specified.", shell_output("#{bin}/pvget")
     assert_path_exists "#{prefix}/bin/#{hostarch}/pvput", :exist?
+    assert_match "No pv name specified.", shell_output("#{bin}/pvput")
+
     assert_path_exists "#{prefix}/bin/#{hostarch}/softIoc", :exist?
+    assert_match "Usage: softIOC", shell_output("#{bin}/softIoc")
     assert_path_exists "#{prefix}/bin/#{hostarch}/softIocPVA", :exist?
+    assert_match "Usage: softIOCPVA", shell_output("#{bin}/softIocPVA")
   end
 end
