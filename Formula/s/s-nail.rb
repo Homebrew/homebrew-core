@@ -31,14 +31,14 @@ class SNail < Formula
   end
 
   depends_on "libidn2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "ncurses"
 
   def install
     system "make", "CC=#{ENV.cc}",
-                   "C_INCLUDE_PATH=#{Formula["openssl@3"].opt_include}",
-                   "LDFLAGS=-L#{Formula["openssl@3"].opt_lib}",
+                   "C_INCLUDE_PATH=#{Formula["openssl@4"].opt_include}",
+                   "LDFLAGS=-L#{Formula["openssl@4"].opt_lib}",
                    "VAL_PREFIX=#{prefix}",
                    "OPT_DOTLOCK=no",
                    "config"
