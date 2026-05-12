@@ -61,14 +61,6 @@ module.exports = async ({github, context, core}, formulae_detect, dependent_test
         console.log('No "long dependent tests" label found. Setting short GitHub Actions timeout.')
         core.setOutput('long-timeout', false)
       }
-
-      if (label_names.includes('CI-parallel-dependents')) {
-        console.log('CI-parallel-dependents label found. Splitting dependent tests into 4 shards.')
-        core.setOutput('dependent-shards', '4')
-      } else {
-        console.log('No CI-parallel-dependents label found. Running dependent tests without sharding.')
-        core.setOutput('dependent-shards', '1')
-      }
     } else {
       if (label_names.includes('long build')) {
         console.log('"long build" label found. Setting long GitHub Actions timeout.')

@@ -268,7 +268,6 @@ jobs:
       fail-fast: ${{ steps.check-labels.outputs.fail-fast }}
       test-dependents: ${{ steps.check-labels.outputs.test-dependents }}
       long-timeout: ${{ steps.check-labels.outputs.long-timeout }}
-      dependent-shards: ${{ steps.check-labels.outputs.dependent-shards }}
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
       test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
       download-concurrency: ${{ steps.check-labels.outputs.download-concurrency }}
@@ -318,7 +317,6 @@ jobs:
     env:
       HOMEBREW_LINUX_RUNNER: ${{needs.setup_dep_tests.outputs.linux-runner}}
       HOMEBREW_MACOS_LONG_TIMEOUT: ${{needs.setup_dep_tests.outputs.long-timeout}}
-      DEPENDENT_SHARDS: ${{needs.setup_dep_tests.outputs.dependent-shards}}
       TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
     steps:
       - name: Set up Homebrew
@@ -330,7 +328,7 @@ jobs:
 
       - name: Determine runners to use for test_deps job
         id: determine-dependent-runners
-        run: brew determine-test-runners --dependents --eval-all --dependent-shards="$DEPENDENT_SHARDS" "$TESTING_FORMULAE"
+        run: brew determine-test-runners --dependents --eval-all "$TESTING_FORMULAE"
 
   test_deps:
     needs:
@@ -371,18 +369,12 @@ jobs:
 
       - name: Test dependents
         run: |
-          if [[ -n "$FORMULAE_DEPENDENTS_SHARD" ]]
-          then
-            TEST_BOT_DEPENDENTS_ARGS="${TEST_BOT_DEPENDENTS_ARGS} --formulae-dependents-shard=${FORMULAE_DEPENDENTS_SHARD}"
-          fi
-
           xargs -t brew test-bot \
             --testing-formulae="$TESTING_FORMULAE" \
             --tested-formulae="$TESTED_FORMULAE" \
             <<<"$TEST_BOT_DEPENDENTS_ARGS"
         env:
           HOMEBREW_DOWNLOAD_CONCURRENCY: ${{ needs.setup_dep_tests.outputs.download-concurrency }}
-          FORMULAE_DEPENDENTS_SHARD: ${{ matrix.formulae_dependents_shard || '' }}
           TEST_BOT_DEPENDENTS_ARGS: ${{ needs.setup_dep_tests.outputs.test-bot-dependents-args }}
           TESTED_FORMULAE: ${{ needs.formulae_detect.outputs.testing_formulae }}
         working-directory: ${{ env.BOTTLES_DIR }}
