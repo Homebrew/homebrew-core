@@ -5,7 +5,7 @@ class AiImageRenamer < Formula
   homepage "https://docs.kolja-nolte.com/ai-image-renamer-cli"
   url "https://files.pythonhosted.org/packages/source/a/ai_image_renamer/ai_image_renamer-1.2.0.tar.gz"
   sha256 "25d555240780ce5b6822b4c8a5ef5a884d37362de2a4a7acbf2666d39aa26c56"
-  license "BSD-2-Clause" # Fixed: Matched GitHub license found by audit
+  license "BSD-2-Clause"
 
   depends_on "python@3.12"
 
