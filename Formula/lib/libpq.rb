@@ -31,6 +31,7 @@ class Libpq < Formula
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
   depends_on "openssl@3"
+  depends_on "readline"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -39,13 +40,14 @@ class Libpq < Formula
   uses_from_macos "curl"
 
   on_linux do
-    depends_on "readline"
     depends_on "zlib-ng-compat"
   end
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     ENV.runtime_cpu_detection
+    ENV.prepend "CPPFLAGS", "-I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["readline"].opt_lib}"
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
@@ -97,5 +99,6 @@ class Libpq < Formula
     C
     system ENV.cc, "libpq.c", "-L#{lib}", "-I#{include}", "-lpq", "-o", "libpqtest"
     assert_equal "Connection to database attempted and failed", shell_output("./libpqtest")
+    assert_match "libreadline", shell_output("otool -L #{bin}/psql") if OS.mac?
   end
 end
