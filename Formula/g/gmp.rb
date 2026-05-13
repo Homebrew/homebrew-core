@@ -35,6 +35,11 @@ class Gmp < Formula
 
   uses_from_macos "m4" => :build
 
+  # gmpxx.h uses deprecated literal operator syntax (space between "" and identifier)
+  # which Clang 15+ treats as an error under -Wdeprecated-literal-operator.
+  # Fixed upstream: https://gmplib.org/repo/gmp/rev/1e504d187571
+  patch :DATA
+
   def install
     if build.head?
       system "./.bootstrap"
@@ -90,3 +95,32 @@ class Gmp < Formula
     system "./test"
   end
 end
+
+__END__
+--- a/gmpxx.h
++++ b/gmpxx.h
+@@ -2160,20 +2160,20 @@
+
+ /**************** User-defined literals ****************/
+
+ #if __GMPXX_USE_CXX11
+-inline mpz_class operator"" _mpz(const char* s)
++inline mpz_class operator""_mpz(const char* s)
+ {
+   return mpz_class(s);
+ }
+
+-inline mpq_class operator"" _mpq(const char* s)
++inline mpq_class operator""_mpq(const char* s)
+ {
+   mpq_class q;
+   q.get_num() = s;
+   return q;
+ }
+
+-inline mpf_class operator"" _mpf(const char* s)
++inline mpf_class operator""_mpf(const char* s)
+ {
+   return mpf_class(s);
+ }
+ #endif
