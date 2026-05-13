@@ -7,6 +7,7 @@ class Openrtsp < Formula
   # Keep a mirror as upstream tarballs are removed after each version
   sha256 "1ffd626ce2e2473196e55a473b7b5ba056326eeabf8fd5622cea6b123d8b6370"
   license "LGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.live555.com/"
@@ -22,7 +23,7 @@ class Openrtsp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ee691b638c038e6271ff6459cf1f44b8be70439aae0f72d48d8899270244cfe"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   # Support CXXFLAGS when building on macOS
   # PR ref: https://github.com/rgaufman/live555/pull/46
@@ -39,17 +40,17 @@ class Openrtsp < Formula
 
     # Avoid linkage to system OpenSSL
     libs = [
-      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+      Formula["openssl@4"].opt_lib/shared_library("libcrypto"),
+      Formula["openssl@4"].opt_lib/shared_library("libssl"),
     ]
 
-    os_flag = OS.mac? ? "macosx-bigsur" : "linux"
+    os_flag = OS.mac? ? "macosx-bigsur" : "linux-with-shared-libraries"
     system "./genMakefiles", os_flag
     system "make", "PREFIX=#{prefix}",
            "LIBS_FOR_CONSOLE_APPLICATION=#{libs.join(" ")}", "install"
 
     # Move the testing executables out of the main PATH
-    libexec.install Dir.glob(bin/"test*")
+    libexec.install bin.glob("test*")
   end
 
   def caveats
