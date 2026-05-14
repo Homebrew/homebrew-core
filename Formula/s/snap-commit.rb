@@ -1,5 +1,5 @@
 class SnapCommit < Formula
-  desc "A lightweight CLI tool that helps you create consistent Git commits following the Conventional Commits standard."
+  desc "Lightweight CLI tool for Conventional Commits"
   homepage "https://github.com/nxkh4ng/snap-commit"
   url "https://github.com/nxkh4ng/snap-commit/archive/refs/tags/v0.4.0.tar.gz"
   sha256 "d29fad7a42cfd471498500c1b82dbea75c73867a6719365dd3e79bf50b8df56a"
