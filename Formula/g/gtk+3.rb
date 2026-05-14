@@ -63,6 +63,8 @@ class Gtkx3 < Formula
     depends_on "xorgproto"
   end
 
+  patch :DATA
+
   def install
     args = %w[
       -Dgtk_doc=false
@@ -112,3 +114,17 @@ class Gtkx3 < Formula
     assert_match version.to_s, shell_output("cat #{lib}/pkgconfig/gtk+-3.0.pc").strip
   end
 end
+
+__END__
+diff --git a/tests/gtkgears.c b/tests/gtkgears.c
+--- a/tests/gtkgears.c
++++ b/tests/gtkgears.c
+@@ -48,7 +48,7 @@
+ #define VERTICES_PER_TOOTH 34
+ #define GEAR_VERTEX_STRIDE 6
+
+-#ifndef HAVE_SINCOS
++#if !defined(HAVE_SINCOS) || defined(__APPLE__)
+ static void
+ sincos (double x, double *_sin, double *_cos)
+ {
