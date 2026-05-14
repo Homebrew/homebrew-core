@@ -7,7 +7,6 @@ class Avfs < Formula
     "GPL-2.0-only",
     "LGPL-2.0-only", # for shared library
     "GPL-2.0-or-later", # modules/dav_ls.c
-    "Zlib", # zlib/*
   ]
 
   livecheck do
@@ -32,6 +31,9 @@ class Avfs < Formula
   end
 
   def install
+    # Remove bundled libraries
+    rm_r(["bzlib", "zlib"])
+
     system "./configure", "--disable-silent-rules",
                           "--enable-fuse",
                           "--enable-library",
