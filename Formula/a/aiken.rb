@@ -22,18 +22,6 @@ class Aiken < Formula
     depends_on "openssl@4"
   end
 
-  # Backport openssl part 1
-  patch do
-    url "https://github.com/aiken-lang/aiken/commit/d5aba83a115439384ecd5b4c398c33baf33f7a77.patch?full_index=1"
-    sha256 "499e4f309d5a0ea7c047b0d05c8933019d616b6ec831a5dbaf73ebb982c06bf4"
-  end
-
-  # Backport openssl 4 support https://github.com/aiken-lang/aiken/pull/1312
-  patch do
-    url "https://github.com/aiken-lang/aiken/commit/b1756f6311d383c079dfd976c2a2068aedbf922e.patch?full_index=1"
-    sha256 "423ed0c5a3453f3870f1984cb67c30806e3f506fbdfe5ddbd7955431858a0cb9"
-  end
-
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/aiken")
 
