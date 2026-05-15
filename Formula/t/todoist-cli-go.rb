@@ -1,4 +1,4 @@
-class TodoistCli < Formula
+class TodoistCliGo < Formula
   desc "CLI for Todoist"
   homepage "https://github.com/sachaos/todoist"
   url "https://github.com/sachaos/todoist/archive/refs/tags/v0.24.0.tar.gz"
@@ -6,20 +6,23 @@ class TodoistCli < Formula
   license "MIT"
   head "https://github.com/sachaos/todoist.git", branch: "master"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3e76e81f52e18234babc96982bcb2610cf65931d5ecd6b8ca64a49f67e586e28"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e76e81f52e18234babc96982bcb2610cf65931d5ecd6b8ca64a49f67e586e28"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e76e81f52e18234babc96982bcb2610cf65931d5ecd6b8ca64a49f67e586e28"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1c94087d6916eb0664300379de1872d977f5653a785faacfc00d18b09516d08e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81e1f3ffdf796e7ea5df27e49f35348878c618cfc774caf2f77529029d19e133"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12308761800834d8f19f565a017031928153aa376e31ccbca57efc73f7673911"
-  end
-
   depends_on "go" => :build
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args(output: bin/"todoist", ldflags:)
+  end
+
+  def caveats
+    <<~EOS
+      This formula was renamed from "todoist-cli" to "todoist-cli-go" to
+      free up the "todoist-cli" name for the official Doist CLI
+      (https://github.com/Doist/todoist-cli).
+
+      The "todoist-cli" name will be transferred to Doist soon. Please
+      ensure you run `brew upgrade` before then to stay on this
+      (sachaos/todoist) implementation.
+    EOS
   end
 
   test do
