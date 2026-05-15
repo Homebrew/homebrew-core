@@ -1,0 +1,71 @@
+diff --git a/dll/amp/layer2.c b/dll/amp/layer2.c
+index d4c4d95..2b7d412 100644
+--- a/dll/amp/layer2.c
++++ b/dll/amp/layer2.c
+@@ -77,7 +77,7 @@ int hsize,fs,mean_frame_size;
+ 					   nbal=&t_nbal2;
+ 					   sblimit=8;
+ 					   break;
+-				default  : /*printf(" bit alloc info no gud ");*/
++				default  : break;
+ 				}
+ 				break;
+ 		case 1 : switch (bitrate)	/* 1 = 48 kHz */
+@@ -98,7 +98,7 @@ int hsize,fs,mean_frame_size;
+ 					   nbal=&t_nbal2;
+ 					   sblimit=8;
+ 					   break;
+-				default  : /*printf(" bit alloc info no gud ");*/
++				default  : break;
+ 				}
+ 				break;
+ 		case 2 : switch (bitrate)	/* 2 = 32 kHz */
+@@ -122,10 +122,10 @@ int hsize,fs,mean_frame_size;
+                                    nbal=&t_nbal3;
+                                    sblimit=12;
+ 				   break;
+-			default  : /*printf("bit alloc info not ok\n");*/
++			default  : break;
+ 			}
+ 	                break;                                                    
+-		default  : /*printf("sampling freq. not ok/n");*/
++		default  : break;
+ 	} else {
+ 		bit_alloc_index=&t_allocMPG2;
+ 		nbal=&t_nbalMPG2;
+diff --git a/source/commands.c b/source/commands.c
+index d140d57..7fd81d6 100644
+--- a/source/commands.c
++++ b/source/commands.c
+@@ -118,7 +118,6 @@ extern	int	doing_notice;
+ 
+ static	void	oper_password_received (char *, char *);
+ 
+-int	no_hook_notify = 0;
+ int	load_depth = -1;
+ 
+ extern char	cx_function[];
+diff --git a/source/modules.c b/source/modules.c
+index 52817fc..99d39bb 100644
+--- a/source/modules.c
++++ b/source/modules.c
+@@ -77,7 +77,7 @@ extern int BX_read_sockets();
+ extern int identd;
+ extern int doing_notice;
+ 
+-int (*serv_open_func) (int, unsigned long, int);
++extern int (*serv_open_func) (int, unsigned long, int);
+ extern int (*serv_output_func) (int, int, char *, int);
+ extern int (*serv_input_func)  (int, char *, int, int, int);
+ extern int (*serv_close_func) (int, unsigned long, int);
+diff --git a/source/numbers.c b/source/numbers.c
+index 741fca9..2f80f22 100644
+--- a/source/numbers.c
++++ b/source/numbers.c
+@@ -66,7 +66,6 @@ void	show_server_map		(void);
+ int	stats_k_grep		(char **);
+ void	who_handlekill		(char *, char *, char *);
+ void	handle_tracekill	(int, char *, char *, char *);
+-int	no_hook_notify;
+ extern  AJoinList *ajoin_list;
+ void	remove_from_server_list (int);

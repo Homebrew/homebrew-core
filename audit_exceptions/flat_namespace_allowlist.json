@@ -1,0 +1,18 @@
+[
+  "arpack",
+  "bind",
+  "blast",
+  "cp2k",
+  "dbcsr",
+  "gnuradio",
+  "hdf5-mpi",
+  "libvirt",
+  "mpich",
+  "open-mpi",
+  "pypy",
+  "pypy3.10",
+  "pypy3.9",
+  "soapysdr",
+  "tcl-tk@8",
+  "uhd"
+]
