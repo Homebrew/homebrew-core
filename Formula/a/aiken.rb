@@ -1,10 +1,9 @@
 class Aiken < Formula
   desc "Modern smart contract platform for Cardano"
   homepage "https://aiken-lang.org/"
-  url "https://github.com/aiken-lang/aiken/archive/refs/tags/v1.1.21.tar.gz"
-  sha256 "c6bbdba11a37a6452d6a00c6fee9473264b757475912c4dfd9c3fd18ea60ed4c"
+  url "https://github.com/aiken-lang/aiken/archive/refs/tags/v1.1.22.tar.gz"
+  sha256 "c0b40b4c6ec79f06fc6f860fefa4372eb0d2190f34ed9243f9140e351598911a"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/aiken-lang/aiken.git", branch: "main"
 
   bottle do
