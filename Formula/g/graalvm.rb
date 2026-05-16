@@ -23,7 +23,7 @@ class Graalvm < Formula
   depends_on "autoconf" => :build
   depends_on "mx" => :build
   depends_on "ninja" => :build
-  depends_on "openjdk" => :build
+  depends_on "openjdk@25" => :build
   depends_on "pkgconf" => :build
   depends_on xcode: :build
   depends_on "freetype"
@@ -67,9 +67,9 @@ class Graalvm < Formula
 
   def install
     boot_jdk = if OS.mac?
-      Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
+      Formula["openjdk@25"].opt_libexec/"openjdk.jdk/Contents/Home"
     else
-      Formula["openjdk"].opt_libexec
+      Formula["openjdk@25"].opt_libexec
     end
     java_options = ENV.delete("_JAVA_OPTIONS")
 
@@ -140,8 +140,6 @@ class Graalvm < Formula
 
     cd labs_openjdk do
       system "bash", "configure", *args
-
-      ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
       system "make", "static-libs-graal-image", "images"
     end
 
