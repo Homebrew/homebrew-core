@@ -21,7 +21,7 @@ class BalenaCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ba992739437f046667a1e0620c1c3ce9e3e609496c2045fd1c86ddc01c7cc7d"
   end
 
-  depends_on "node"
+  depends_on "node@24"
 
   on_linux do
     depends_on "libusb"
