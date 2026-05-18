@@ -1,8 +1,8 @@
 class Supabase < Formula
   desc "Open source Firebase alternative"
   homepage "https://supabase.com/docs/reference/cli/about"
-  url "https://github.com/supabase/cli/archive/refs/tags/v2.98.2.tar.gz"
-  sha256 "4b42cabce35e662bffb29dc3b7dd36a3b9c04177fe8ba4800b57c67e05564d5b"
+  url "https://github.com/supabase/cli/archive/refs/tags/v2.100.0.tar.gz"
+  sha256 "ff35ac27821125966cfb261d9f901f7cf1058ab6f16525625a116eef37df66b4"
   license "MIT"
   head "https://github.com/supabase/cli.git", branch: "develop"
 
@@ -27,7 +27,9 @@ class Supabase < Formula
       -s -w
       -X github.com/supabase/cli/internal/utils.Version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags:)
+    cd "apps/cli-go" do
+      system "go", "build", *std_go_args(ldflags:)
+    end
     generate_completions_from_executable(bin/"supabase", shell_parameter_format: :cobra)
   end
 
