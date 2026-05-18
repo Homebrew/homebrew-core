@@ -10,7 +10,9 @@ class Autoenv < Formula
     sha256 cellar: :any_skip_relocation, all: "7d291627ba82fc28ef378728ea6969eb3cebed1e8b2c17b9655cf05745102362"
   end
 
-  depends_on "bash"
+  on_macos do
+    depends_on "bash"
+  end
 
   def install
     prefix.install "activate.sh"
