@@ -185,7 +185,7 @@
   "tepl": "libgedit-tepl",
   "thors-mongo": "thors-anvil",
   "thors-serializer": "thors-anvil",
-  "todoist": "todoist-cli",
+  "todoist": "todoist-cli-go",
   "todoist-cli": "todoist-cli-go",
   "todolist": "ultralist",
   "tomee-jax-rs": "tomee-plus",
