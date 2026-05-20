@@ -4,6 +4,7 @@ class Rustup < Formula
   url "https://github.com/rust-lang/rustup/archive/refs/tags/1.29.0.tar.gz"
   sha256 "de73d1a62f4d5409a2f6bdb1c523d8dc08aa6d9d63588db62493c19ca8f8bf55"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   compatibility_version 1
   head "https://github.com/rust-lang/rustup.git", branch: "main"
 
@@ -32,16 +33,38 @@ class Rustup < Formula
   def install
     system "cargo", "install", *std_cargo_args(features: "no-self-update")
 
-    %w[cargo cargo-clippy cargo-fmt cargo-miri clippy-driver rls rust-analyzer
-       rust-gdb rust-gdbgui rust-lldb rustc rustdoc rustfmt rustup].each do |name|
-      bin.install_symlink bin/"rustup-init" => name
-    end
-
     (buildpath/"settings.toml").write <<~TOML
       default_toolchain = "stable"
     TOML
     pkgetc.install "settings.toml"
-    bin.env_script_all_files libexec/"bin", RUSTUP_OVERRIDE_UNIX_FALLBACK_SETTINGS: pkgetc/"settings.toml"
+
+    # rustup-init is not the recommended way to use this formula.
+    # But for backwards compatibility we try to support it the best we can.
+    # We are doing three things here:
+    # 1. We hide the real binaries behind a symlink so `rustup-init` will install a symlink
+    #    to `~/.cargo/bin` rather than copying the binary (which has self-update disabled)
+    # 2. Previously, the formula would install `rustup` -> `prefix/bin/rustup-init`
+    #    to `~/.cargo/bin` so the shim scripts need to pass through arg0 to retain compatibility.
+    # 3. We add a warning to `rustup-init` to recommend using `rustup` directly instead.
+    # NOTE: `~/.cargo/bin/rustup` will bypass Homebrew's settings.toml. This is unavoidable.
+    (libexec/"bin").install bin/"rustup-init" => "rustup-real"
+    (libexec/"bin").install_symlink libexec/"bin/rustup-real" => "rustup"
+    (bin/"rustup").write <<~SH
+      #!/bin/bash
+      export RUSTUP_OVERRIDE_UNIX_FALLBACK_SETTINGS="#{pkgetc}/settings.toml"
+      if [[ "$0" == *"rustup-init" ]]; then
+        echo "Warning: rustup-init is not the recommended way to use the rustup Homebrew formula." \\
+              "Please add \\"\\$(brew --prefix rustup)/bin\\" to your \\$PATH instead." >&2
+      fi
+      exec -a "$0" "#{opt_libexec}/bin/rustup" "$@"
+    SH
+
+    # Install the proxy symlinks - these are the recommended entrypoints for users of this formula,
+    # except for `rustup-init` which is for backwards compatibility only.
+    %w[cargo cargo-clippy cargo-fmt cargo-miri clippy-driver rls rust-analyzer
+       rust-gdb rust-gdbgui rust-lldb rustc rustdoc rustfmt rustup-init].each do |executable|
+      bin.install_symlink bin/"rustup" => executable
+    end
 
     generate_completions_from_executable(libexec/"bin/rustup", "completions")
   end
@@ -52,8 +75,7 @@ class Rustup < Formula
 
   def caveats
     <<~EOS
-      If you have `rust` installed, ensure you have "$(brew --prefix rustup)/bin"
-      before "$(brew --prefix)/bin" in your $PATH:
+      To use rustup, ensure you have "$(brew --prefix rustup)/bin" in your $PATH:
         #{Formatter.url("https://rust-lang.github.io/rustup/installation/already-installed-rust.html")}
     EOS
   end
@@ -80,5 +102,13 @@ class Rustup < Formula
     expected = testpath.glob(".cargo/bin/*").to_set(&:basename)
     assert (extra = bins - expected).empty?, "Symlinks need to be removed: #{extra.join(",")}"
     assert (missing = expected - bins).empty?, "Symlinks need to be added: #{missing.join(",")}"
+
+    # Linux unfortunately doesn't seem to copy symlinks the same way right now.
+    return if OS.linux?
+
+    # Check that .cargo/bin/rustup is a symlink pointing to Homebrew's opt prefix for this formula
+    rustup_symlink = testpath/".cargo/bin/rustup"
+    assert_predicate rustup_symlink, :symlink?
+    assert_equal "#{opt_libexec}/bin/rustup", rustup_symlink.readlink.to_s
   end
 end
