@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v26.0.0/node-v26.0.0.tar.xz"
-  sha256 "fcb5e5c06a5c2ec9e669801248657aafaa2291f8760dac7bfb639f878318c592"
+  url "https://nodejs.org/dist/v26.2.0/node-v26.2.0.tar.xz"
+  sha256 "ea82be7db418f54b3ef153a02d44d4f6748466f4765ae80bc484f34af40df610"
   license "MIT"
   compatibility_version 1
   head "https://github.com/nodejs/node.git", branch: "main"
@@ -41,6 +41,7 @@ class Node < Formula
   depends_on "uvwasi"
   depends_on "zstd"
 
+  uses_from_macos "libffi"
   uses_from_macos "python"
 
   on_macos do
@@ -70,8 +71,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.12.1.tgz"
-    sha256 "e679850e663b16f5f146ee425d0eb0e3442c1d2bda3d513bbfd7c81f5ee5db38"
+    url "https://registry.npmjs.org/npm/-/npm-11.13.0.tgz"
+    sha256 "a4ffa1de3bf1c7f9d5e3dd24fe2921970bdb1589d647f4083eaaaab3be974b7e"
 
     livecheck do
       url "https://raw.githubusercontent.com/nodejs/node/refs/tags/v#{LATEST_VERSION}/deps/npm/package.json"
@@ -93,6 +94,13 @@ class Node < Formula
 
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.14")
+
+    # Workaround to use macOS libffi
+    # TODO: should handle upstream so that missing FFI_VERSION_STRING doesn't fail build
+    if OS.mac?
+      libffi_version = Utils.safe_popen_read("pkgconf", "--modversion", "libffi").chomp
+      ENV.append_to_cflags "'-DFFI_VERSION_STRING=\"#{libffi_version}\"'"
+    end
 
     # Ensure Homebrew deps are used
     rm_r(["deps/icu-small", "deps/npm"])
@@ -116,6 +124,7 @@ class Node < Formula
       "ada"           => ["ada",             "ada-url"],
       "brotli"        => ["brotli",          "brotli"],
       "cares"         => ["cares",           "c-ares"],
+      "ffi"           => ["libffi",          ("libffi" unless OS.mac?)],
       "hdr-histogram" => ["histogram",       "hdrhistogram_c"],
       "http-parser"   => ["llhttp",          "llhttp"],
       "libuv"         => ["uv",              "libuv"],
@@ -143,7 +152,7 @@ class Node < Formula
     # - `--shared-gtest` is only used for building the test suite, which we don't run here.
     # - `--shared-simdutf` seems to result in build failures.
     # - `--shared-temporal_capi` is only used when building with `--v8-enable-temporal-support`
-    # - `--shared-lief` is not available as dependency in Homebrew.
+    # - `--shared-lief` is for SEA feature which is incompatible with `--shared` (libnode)
     ignored_shared_flags = %w[
       gtest
       simdutf
