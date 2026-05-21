@@ -1,20 +1,10 @@
 class GitBranchless < Formula
   desc "High-velocity, monorepo-scale workflow for Git"
   homepage "https://github.com/arxanas/git-branchless"
+  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "f5c66ff2194f6cf0a83dbc7b80e29aed4281917471dee32ed2dd5cb15cc4164e"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 2
   head "https://github.com/arxanas/git-branchless.git", branch: "master"
-
-  stable do
-    url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.10.0.tar.gz"
-    sha256 "1eb8dbb85839c5b0d333e8c3f9011c3f725e0244bb92f4db918fce9d69851ff7"
-
-    # patch to build with rust 1.89 and bump git2 to 0.20
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/git-branchless/0.10.0-build.patch"
-      sha256 "7624b6fe14a4d471636e4b22433507b2454b7ee311eac13c4d128cb688be234c"
-    end
-  end
 
   # Upstream appears to use GitHub releases to indicate that a version is
   # released (and some tagged versions don't end up as a release), so it's
