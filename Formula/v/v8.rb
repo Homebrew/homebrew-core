@@ -3,8 +3,8 @@ class V8 < Formula
   homepage "https://v8.dev/docs"
   # Track V8 version from Chrome stable: https://chromiumdash.appspot.com/releases?platform=Mac
   # Check `brew livecheck --resources v8` for any resource updates
-  url "https://github.com/v8/v8/archive/refs/tags/14.8.178.22.tar.gz"
-  sha256 "7c8f53371567113cce0a29e3bf418486af05dabc815bfb189c60bf4b38ca6756"
+  url "https://github.com/v8/v8/archive/refs/tags/14.9.207.8.tar.gz"
+  sha256 "def23b1d22d8f6300e4d502899e023d3d94fdf069e4d0856836871dd4a984aec"
   license "BSD-3-Clause"
 
   livecheck do
@@ -56,8 +56,8 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#74
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "6e8dcdebbadf4f8aa75e6a4b6e0bdf89dce1513a"
-    version "6e8dcdebbadf4f8aa75e6a4b6e0bdf89dce1513a"
+        revision: "d830369a8e7db2383ab7bb1c2c142ee2766cfea2"
+    version "d830369a8e7db2383ab7bb1c2c142ee2766cfea2"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -67,8 +67,8 @@ class V8 < Formula
 
   resource "build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "9b7e5bb55b71044930fcf31b3fe531ad63151813"
-    version "9b7e5bb55b71044930fcf31b3fe531ad63151813"
+        revision: "1a96aee6e4cadad50a9deaa57b7e4af31499ceba"
+    version "1a96aee6e4cadad50a9deaa57b7e4af31499ceba"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -78,8 +78,8 @@ class V8 < Formula
 
   resource "buildtools" do
     url "https://chromium.googlesource.com/chromium/src/buildtools.git",
-        revision: "22e55595e15ebbbbb4bef118d5a654b185b0b30d"
-    version "22e55595e15ebbbbb4bef118d5a654b185b0b30d"
+        revision: "c9110ba7150d93134b1c85ea392033b4a82d28f7"
+    version "c9110ba7150d93134b1c85ea392033b4a82d28f7"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -89,8 +89,8 @@ class V8 < Formula
 
   resource "third_party/abseil-cpp" do
     url "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp.git",
-        revision: "2a7d49fc392cad55159d68d98aa3648bc89795d3"
-    version "2a7d49fc392cad55159d68d98aa3648bc89795d3"
+        revision: "5e42a36a85a252d8cdee6c39661d2bfd9883fd5c"
+    version "5e42a36a85a252d8cdee6c39661d2bfd9883fd5c"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -111,8 +111,8 @@ class V8 < Formula
 
   resource "third_party/fast_float/src" do
     url "https://chromium.googlesource.com/external/github.com/fastfloat/fast_float.git",
-        revision: "cb1d42aaa1e14b09e1452cfdef373d051b8c02a4"
-    version "cb1d42aaa1e14b09e1452cfdef373d051b8c02a4"
+        revision: "05087a303dad9c98768b33c829d398223a649bc6"
+    version "05087a303dad9c98768b33c829d398223a649bc6"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -144,8 +144,8 @@ class V8 < Formula
 
   resource "third_party/highway/src" do
     url "https://chromium.googlesource.com/external/github.com/google/highway.git",
-        revision: "84379d1c73de9681b54fbe1c035a23c7bd5d272d"
-    version "84379d1c73de9681b54fbe1c035a23c7bd5d272d"
+        revision: "2607d3b5b0113992fe84d3848859eae13b3b52c1"
+    version "2607d3b5b0113992fe84d3848859eae13b3b52c1"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -188,8 +188,8 @@ class V8 < Formula
 
   resource "third_party/partition_alloc" do
     url "https://chromium.googlesource.com/chromium/src/base/allocator/partition_allocator.git",
-        revision: "b707a2ca5567b06f4b886fbcd888dfa7e8044718"
-    version "b707a2ca5567b06f4b886fbcd888dfa7e8044718"
+        revision: "fafdd4c9f559c6d0cfdf2ed3170ce370b59bfdbf"
+    version "fafdd4c9f559c6d0cfdf2ed3170ce370b59bfdbf"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -210,8 +210,8 @@ class V8 < Formula
 
   resource "third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "b80f1d1e5256ac25f6aea3f31f13d458981cb1f9"
-    version "b80f1d1e5256ac25f6aea3f31f13d458981cb1f9"
+        revision: "89921383f1f51331f48a2dc843403779770ea3a9"
+    version "89921383f1f51331f48a2dc843403779770ea3a9"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -226,29 +226,16 @@ class V8 < Formula
       # GCC only flag, not supported by clang
       s.gsub! "cflags += [ \"-fno-lifetime-dse\" ]", ""
       # Drop Chromium clang flags that upstream LLVM does not (yet) recognize.
-      # TODO: Check this flags are supported by newer llvm
-      s.gsub! "\"-fsanitize-ignore-for-ubsan-feature=array-bounds\",", ""
-      s.gsub! "\"-fsanitize-ignore-for-ubsan-feature=return\",", ""
+      # TODO: Check these flags are supported by newer llvm
+      s.gsub! "cflags += [ \"-fdiagnostics-show-inlining-chain\" ]", ""
+      s.gsub! "cflags += [ \"/clang:-fdiagnostics-show-inlining-chain\" ]", ""
     end
 
-    # Public headers reference unqualified `nullptr_t`; libstdc++ rejects this.
-    # Remove in next release
-    # ref: https://chromium.googlesource.com/v8/v8/+/6bb04495264b714767107d2bba9a53e42bc30702
-    inreplace %w[include/v8-object.h include/v8-template.h],
-              /(?<!::|std::)\bnullptr_t\b/, "std::nullptr_t"
-
-    # `bigint.h` uses `std::unique_ptr` but never includes <memory>.
-    # Remove in next release
-    # ref: https://chromium.googlesource.com/v8/v8/+/4f9f652d6d4dd16a54ceb978069fb991ecef8fbc
-    inreplace "src/bigint/bigint.h",
-              "#include <utility>",
-              "#include <memory>\n#include <utility>"
-
-    # libstdc++ can't deduce the template parameter for `value_or({})`.
-    # Remove in next release
-    # ref: https://chromium.googlesource.com/v8/v8/+/913f679d5a4a3c4d0c6916cbdd065569945dc2a6
-    inreplace "src/compiler/turboshaft/wasm-shuffle-reducer.cc",
-              "max.value_or({})", "max.value_or(uint8_t{})"
+    # `-fsanitize-ignore-for-ubsan-feature` moved to a GN template and is now
+    # emitted as `-fsanitize-ignore-for-ubsan-feature=${invoker.sanitizer}`.
+    # Strip the template line so upstream LLVM can build.
+    inreplace buildpath/"build/config/sanitizers/sanitizers.gni",
+              "\"-fsanitize-ignore-for-ubsan-feature=${invoker.sanitizer}\",", ""
 
     # Build gn from source and add it to the PATH
     cd "gn" do
