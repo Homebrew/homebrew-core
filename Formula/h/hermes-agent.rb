@@ -6,7 +6,7 @@ class HermesAgent < Formula
   url "https://github.com/NousResearch/hermes-agent/archive/refs/tags/v2026.5.16.tar.gz"
   sha256 "c0a554050a50ee9a62f3fa5cd288a167ba5640c42d647d100cdea084b7294143"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/NousResearch/hermes-agent.git", branch: "main"
 
   bottle do
@@ -211,6 +211,13 @@ class HermesAgent < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # Remove stale certifi from venv to ensure the system certifi (with valid
+    # cacert.pem symlink to ca-certificates) is used via --system-site-packages.
+    # A leftover certifi in the venv can shadow the system one and cause TLS errors
+    # (e.g. broken cacert.pem path) on platforms like Feishu, Telegram, WeChat.
+    venv_site_packages = libexec/Language::Python.site_packages("python3.14")
+    rm_r(venv_site_packages/"certifi", verbose: true) if (venv_site_packages/"certifi").exist?
   end
 
   test do
