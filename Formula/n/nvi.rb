@@ -35,6 +35,8 @@ class Nvi < Formula
 
   uses_from_macos "ncurses"
 
+  conflicts_with "nvi2", because: "nvi also provides a binary named nvi"
+
   # Patches per MacPorts
   # The first corrects usage of BDB flags.
   patch :p0 do
