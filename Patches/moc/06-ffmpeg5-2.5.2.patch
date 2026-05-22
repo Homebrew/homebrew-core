@@ -1,0 +1,249 @@
+--- a/decoder_plugins/ffmpeg/ffmpeg.c
++++ b/decoder_plugins/ffmpeg/ffmpeg.c
+@@ -67,6 +67,11 @@
+ # include <libavformat/avformat.h>
+ GCC_DIAG_ON(deprecated-declarations)
+ 
++/* FFmpeg 5 split <libavformat/avformat.h> so it no longer transitively
++ * defines LIBAVCODEC_VERSION_INT or AVCodecContext. Include avcodec.h
++ * explicitly so the version-gated #ifs below work and the type is in scope. */
++# include <libavcodec/avcodec.h>
++
+ # include <libavutil/mathematics.h>
+ # ifdef HAVE_AV_GET_CHANNEL_LAYOUT_NB_CHANNELS
+ #  if HAVE_LIBAVUTIL_CHANNEL_LAYOUT_H
+@@ -106,6 +111,22 @@
+ # define AV_CODEC_FLAG_TRUNCATED CODEC_FLAG_TRUNCATED
+ #endif
+ 
++/* FFmpeg 5.1 (libavcodec 59.24.100) introduced the AVChannelLayout struct
++ * and deprecated AVCodecContext.channels / channel_layout /
++ * request_channel_layout; FFmpeg 7.0 (libavcodec 61) removed them outright. */
++#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(59,24,100)
++# define MOC_HAVE_CH_LAYOUT 1
++#endif
++
++static inline int moc_nb_channels (const AVCodecContext *ctx)
++{
++#ifdef MOC_HAVE_CH_LAYOUT
++	return ctx->ch_layout.nb_channels;
++#else
++	return ctx->channels;
++#endif
++}
++
+ /* Set SEEK_IN_DECODER to 1 if you'd prefer seeking to be delay until
+  * the next time ffmpeg_decode() is called.  This will provide seeking
+  * in formats for which FFmpeg falsely reports seek errors, but could
+@@ -208,9 +229,9 @@
+ 	AVFormatContext *ic;
+ 	AVStream *stream;
+ 	AVCodecContext *enc;
+-	AVCodec *codec;
++	const AVCodec *codec;
+ 
+-#ifndef HAVE_AVCODEC_DECODE_AUDIO4
++#if !defined(HAVE_AVCODEC_DECODE_AUDIO4) && !defined(HAVE_AVCODEC_RECEIVE_FRAME)
+ 	int avbuf_size;
+ 	char *avbuf;
+ #endif
+@@ -520,8 +541,10 @@
+ 	av_log_set_level (AV_LOG_ERROR);
+ #endif
+ 	av_log_set_callback (ffmpeg_log_cb);
++#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(58,10,100)
+ 	avcodec_register_all ();
+ 	av_register_all ();
++#endif
+ 
+ 	supported_extns = lists_strs_new (16);
+ 	load_audio_extns (supported_extns);
+@@ -871,18 +894,27 @@
+ /* Downmix multi-channel audios to stereo. */
+ static void set_downmixing (struct ffmpeg_data *data)
+ {
+-#ifdef HAVE_AV_GET_CHANNEL_LAYOUT_NB_CHANNELS
++#ifdef MOC_HAVE_CH_LAYOUT
++	/* FFmpeg 7 removed request_channel_layout. The modern replacement
++	 * is the per-codec "downmix" AVOption (only AC-3 honours it), so
++	 * just leave the codec at native layout and let MOC's
++	 * audio_conversion layer downmix to the output's channel count. */
++	(void)data;
++	return;
++#else
++# ifdef HAVE_AV_GET_CHANNEL_LAYOUT_NB_CHANNELS
+ 	if (av_get_channel_layout_nb_channels (data->enc->channel_layout) <= 2)
+ 		return;
+-#else
++# else
+ 	if (data->enc->channels <= 2)
+ 		return;
+-#endif
++# endif
+ 
+-#ifdef HAVE_STRUCT_AVCODECCONTEXT_REQUEST_CHANNELS
++# ifdef HAVE_STRUCT_AVCODECCONTEXT_REQUEST_CHANNELS
+ 	set_request_channels (data->enc, 2);
+-#else
++# else
+ 	data->enc->request_channel_layout = AV_CH_LAYOUT_STEREO;
++# endif
+ #endif
+ }
+ 
+@@ -903,7 +935,7 @@
+ 	data->bitrate = 0;
+ 	data->avg_bitrate = 0;
+ 
+-#if !defined(HAVE_AVCODEC_DECODE_AUDIO4) && defined(HAVE_POSIX_MEMALIGN)
++#if !defined(HAVE_AVCODEC_DECODE_AUDIO4) && !defined(HAVE_AVCODEC_RECEIVE_FRAME) && defined(HAVE_POSIX_MEMALIGN)
+ 	/* The sample buffer should be 16 byte aligned (because of SSE); a
+ 	 * segmentation fault may occur otherwise.  We allocate it dynamically
+ 	 * (to avoid overflowing OpenBSD's default pthread stack size) and once
+@@ -1025,8 +1057,11 @@
+ #endif
+ 
+ 	set_downmixing (data);
++#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(59,0,100)
++	/* Truncated mode was removed in FFmpeg 5. */
+ 	if (data->codec->capabilities & AV_CODEC_CAP_TRUNCATED)
+ 		data->enc->flags |= AV_CODEC_FLAG_TRUNCATED;
++#endif
+ 
+ #ifdef HAVE_AVCODEC_OPEN2
+ 	if (avcodec_open2 (data->enc, data->codec, NULL) < 0)
+@@ -1249,7 +1284,7 @@
+ #ifdef HAVE_AVCODEC_RECEIVE_FRAME
+   GCC_DIAG_OFF(deprecated-declarations)
+ #endif
+-#ifndef HAVE_AVCODEC_DECODE_AUDIO4
++#if !defined(HAVE_AVCODEC_DECODE_AUDIO4) && !defined(HAVE_AVCODEC_RECEIVE_FRAME)
+ /* Decode samples from packet data using pre-avcodec_decode_audio4(). */
+ static int decode_packet (struct ffmpeg_data *data, AVPacket *pkt,
+                           char *buf, int buf_len)
+@@ -1312,8 +1347,46 @@
+ }
+ #endif
+ 
+-#ifdef HAVE_AVCODEC_DECODE_AUDIO4
+-/* Decode samples from packet data using avcodec_decode_audio4(). */
++#if defined(HAVE_AVCODEC_DECODE_AUDIO4) || defined(HAVE_AVCODEC_RECEIVE_FRAME)
++
++#ifdef HAVE_AVCODEC_RECEIVE_FRAME
++/* FFmpeg 5 removed avcodec_decode_audio4. Wrap send_packet/receive_frame to
++ * keep the rest of decode_packet's shape unchanged. */
++static int decode_audio (AVCodecContext *ctx, AVFrame *frame,
++                         int *got_frame_ptr, const AVPacket *pkt)
++{
++	int rc, result = 0;
++
++	*got_frame_ptr = 0;
++
++	rc = avcodec_send_packet (ctx, pkt);
++	if (rc != 0 && rc != AVERROR(EAGAIN) && rc != AVERROR_EOF)
++		return rc;
++
++	result = pkt->size;
++
++	rc = avcodec_receive_frame (ctx, frame);
++	switch (rc) {
++	case 0:
++		*got_frame_ptr = 1;
++		break;
++	case AVERROR(EAGAIN):
++		break;
++	case AVERROR_EOF:
++		avcodec_flush_buffers (ctx);
++		break;
++	default:
++		result = rc;
++	}
++
++	return result;
++}
++#else
++# define decode_audio avcodec_decode_audio4
++#endif
++
++/* Decode samples from packet data using avcodec_decode_audio4() (or
++ * send_packet/receive_frame on FFmpeg 5+). */
+ static int decode_packet (struct ffmpeg_data *data, AVPacket *pkt,
+                           char *buf, int buf_len)
+ {
+@@ -1330,7 +1403,7 @@
+ 	do {
+ 		int len, got_frame, is_planar, packed_size, copied;
+ 
+-		len = avcodec_decode_audio4 (data->enc, frame, &got_frame, pkt);
++		len = decode_audio (data->enc, frame, &got_frame, pkt);
+ 
+ 		if (len < 0) {
+ 			/* skip frame */
+@@ -1354,17 +1427,17 @@
+ 
+ 		is_planar = av_sample_fmt_is_planar (data->enc->sample_fmt);
+ 		packed = (char *)frame->extended_data[0];
+-		packed_size = frame->nb_samples * data->sample_width
+-		                                * data->enc->channels;
++		int nb_ch = moc_nb_channels (data->enc);
++		packed_size = frame->nb_samples * data->sample_width * nb_ch;
+ 
+-		if (is_planar && data->enc->channels > 1) {
++		if (is_planar && nb_ch > 1) {
+ 			int sample, ch;
+ 
+ 			packed = xmalloc (packed_size);
+ 
+ 			for (sample = 0; sample < frame->nb_samples; sample += 1) {
+-				for (ch = 0; ch < data->enc->channels; ch += 1)
+-					memcpy (packed + (sample * data->enc->channels + ch)
++				for (ch = 0; ch < nb_ch; ch += 1)
++					memcpy (packed + (sample * nb_ch + ch)
+ 					                         * data->sample_width,
+ 					        (char *)frame->extended_data[ch] + sample * data->sample_width,
+ 					        data->sample_width);
+@@ -1436,8 +1509,15 @@
+ 		seek_ts += data->stream->start_time;
+ 	}
+ 
++#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(59,0,100)
++	/* AVStream.cur_dts became private in FFmpeg 5; without it we can't
++	 * tell seek direction. Always set BACKWARD so the seek lands
++	 * at-or-before the target (correct for audio in either direction). */
++	flags |= AVSEEK_FLAG_BACKWARD;
++#else
+ 	if (data->stream->cur_dts > seek_ts)
+ 		flags |= AVSEEK_FLAG_BACKWARD;
++#endif
+ 
+ 	rc = av_seek_frame (data->ic, data->stream->index, seek_ts, flags);
+ 	if (rc < 0) {
+@@ -1478,7 +1558,7 @@
+ 		return 0;
+ 
+ 	/* FFmpeg claims to always return native endian. */
+-	sound_params->channels = data->enc->channels;
++	sound_params->channels = moc_nb_channels (data->enc);
+ 	sound_params->rate = data->enc->sample_rate;
+ 	sound_params->fmt = data->fmt | SFMT_NE;
+ 
+@@ -1583,7 +1663,7 @@
+ 		free_remain_buf (data);
+ 	}
+ 
+-#if !defined(HAVE_AVCODEC_DECODE_AUDIO4) && defined(HAVE_POSIX_MEMALIGN)
++#if !defined(HAVE_AVCODEC_DECODE_AUDIO4) && !defined(HAVE_AVCODEC_RECEIVE_FRAME) && defined(HAVE_POSIX_MEMALIGN)
+ 	free (data->avbuf);
+ #endif
+ 
+@@ -1675,7 +1755,9 @@
+ 
+ struct decoder *plugin_init ()
+ {
+-#if defined(HAVE_AVCODEC_DECODE_AUDIO4)
++#if defined(HAVE_AVCODEC_RECEIVE_FRAME)
++	logit ("Using avcodec_send_packet()/avcodec_receive_frame()");
++#elif defined(HAVE_AVCODEC_DECODE_AUDIO4)
+ 	logit ("Using avcodec_decode_audio4()");
+ #elif defined(HAVE_POSIX_MEMALIGN)
+ 	logit ("Using posix_memalign()");

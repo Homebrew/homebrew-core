@@ -1,0 +1,15 @@
+--- a/tags_cache.c
++++ b/tags_cache.c
+@@ -876,7 +876,12 @@
+ #endif
+ 
+ #ifdef HAVE_DB_H
++#if DB_VERSION_MAJOR >= 18
++static void db_msg_cb (const DB_ENV *dbenv ATTR_UNUSED,
++                       const char *prefix ATTR_UNUSED, const char *msg)
++#else
+ static void db_msg_cb (const DB_ENV *dbenv ATTR_UNUSED, const char *msg)
++#endif
+ {
+ 	assert (msg);
+ 
