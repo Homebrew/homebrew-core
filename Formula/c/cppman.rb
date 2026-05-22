@@ -72,6 +72,11 @@ class Cppman < Formula
   end
 
   def install
+    # Workaround for https://github.com/html5lib/html5lib-python/issues/593
+    odie "Check if setuptools workaround can be removed!" if resource("html5lib").version > "1.1.0"
+    (buildpath/"build-constraints.txt").write "setuptools<82\n"
+    ENV["PIP_BUILD_CONSTRAINT"] = buildpath/"build-constraints.txt"
+
     virtualenv_install_with_resources
     # NOTE: Excluding bash completion which uses GNU xargs so has issues on macOS
     fish_completion.install_symlink libexec/"share/fish/vendor_completions.d/cppman.fish"
