@@ -2,7 +2,7 @@ class Moc < Formula
   desc "Terminal-based music player"
   homepage "https://moc.daper.net/"
   license "GPL-2.0-or-later"
-  revision 10
+  revision 11
 
   stable do
     url "https://ftp.daper.net/pub/soft/moc/stable/moc-2.5.2.tar.bz2"
@@ -35,6 +35,21 @@ class Moc < Formula
       url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/moc/05-audio4-2.5.2.patch"
       sha256 "9a75ac8479ed895d07725ac9b7d86ceb6c8a1a15ee942c35eb5365f4c3cc7075"
     end
+
+    # 06 and 07 take 2.5.2 the rest of the way to FFmpeg 5+/8 and Berkeley DB
+    # 18 compatibility, removing the need for the keg-only ffmpeg@4 and
+    # berkeley-db@5 pins. Closes https://moc.daper.net/node/3644.
+    # The commit SHA in these URLs should be replaced with the merged
+    # homebrew-core commit SHA when this PR lands.
+    patch do
+      url "https://raw.githubusercontent.com/jagajaga/homebrew-core/f4be5dcb6c0970f7dde2a9009299fe44276db0e3/Patches/moc/06-ffmpeg5-2.5.2.patch"
+      sha256 "5ac15cf37db3b39fe679f08eb82838815a3f3f2053daf11cfc15e4b27533f970"
+    end
+
+    patch do
+      url "https://raw.githubusercontent.com/jagajaga/homebrew-core/f4be5dcb6c0970f7dde2a9009299fe44276db0e3/Patches/moc/07-bdb18-2.5.2.patch"
+      sha256 "6b511b16a1e6d3b97c5e7dcffbdad4e5dffdebb7e1030c0d608966cdc34e3637"
+    end
   end
 
   livecheck do
@@ -64,8 +79,11 @@ class Moc < Formula
   depends_on "automake" => :build
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
+  # Keep berkeley-db@5 to match the version jack depends on, otherwise
+  # brew audit flags conflicting recursive bdb versions. Patch 07 is
+  # guarded on DB_VERSION_MAJOR and is a no-op against bdb 5.
   depends_on "berkeley-db@5"
-  depends_on "ffmpeg@4" # FFmpeg 5 issue: https://moc.daper.net/node/3644
+  depends_on "ffmpeg"
   depends_on "flac"
   depends_on "jack"
   depends_on "libmodplug"
@@ -85,6 +103,11 @@ class Moc < Formula
     # macOS iconv implementation is slightly broken since Sonoma.
     # upstream bug report: https://savannah.gnu.org/bugs/index.php?66541
     ENV["am_cv_func_iconv_works"] = "yes" if OS.mac? && MacOS.version >= :sequoia
+
+    # AX_PTHREAD's internal probe writes a test program that fails under
+    # clang's -Wunused-but-set-parameter + -Werror combination, so configure
+    # bails with "I don't know how to compile pthreads code". Relax it.
+    ENV.append "CFLAGS", "-Wno-error=unused-but-set-parameter"
 
     ENV.append_path "ACLOCAL_PATH", Formula["gettext"].pkgshare/"m4"
 
