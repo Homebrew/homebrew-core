@@ -1,0 +1,19 @@
+Formula/y/youplot.rb
+  s_12cb7bf6dca251::t_5f25dae9d68124 21-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "7585ceed6cc967393e0c3395e5a6ce41096ab00f",
+  "prompts": {},
+  "sessions": {
+    "s_12cb7bf6dca251": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "90034760-8555-4dab-9c23-0a414c01075b",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
