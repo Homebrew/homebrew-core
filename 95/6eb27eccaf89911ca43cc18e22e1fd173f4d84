@@ -1,0 +1,19 @@
+Formula/u/undercutf1.rb
+  s_cf60aeccdde80b::t_6f85f8df5fe9e2 54-56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "956eb27eccaf89911ca43cc18e22e1fd173f4d84",
+  "prompts": {},
+  "sessions": {
+    "s_cf60aeccdde80b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fcd2b3ea-96f7-4088-b665-dde4167e6151",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
