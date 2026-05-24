@@ -1,0 +1,14 @@
+Formula/s/supabase.rb
+  h_9df9c32c3f321d 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "482dd21fde5b3c55727474583e0ee6df6c37c25e",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
