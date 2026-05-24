@@ -1,0 +1,20 @@
+Formula/s/semgrep.rb
+  s_cf60aeccdde80b::t_f970aefc1ee97f 416-417,419
+  s_cf60aeccdde80b::t_d5ba58e657475f 414-415,418,420-422
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "8b55abbb8b578cac98ce43ab8bf7bd0bcfd09dd0",
+  "prompts": {},
+  "sessions": {
+    "s_cf60aeccdde80b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fcd2b3ea-96f7-4088-b665-dde4167e6151",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
