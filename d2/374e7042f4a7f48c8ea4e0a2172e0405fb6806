@@ -1,0 +1,1037 @@
+Formula/f/frpc.rb
+  ai_agent 4-5,10-15
+Formula/p/pwntools.rb
+  ai_agent 9,13-18,55-56,130-131
+Formula/k/keploy.rb
+  ai_agent 4-5,10-15
+Formula/p/poutine.rb
+  ai_agent 4-5,10-15
+Formula/e/exploitdb.rb
+  ai_agent 5-6,11-16
+Formula/r/rune.rb
+  ai_agent 4-5,10-15
+Formula/h/howdoi.rb
+  ai_agent 9,12-17,46-47,61-62,71-72,111-112
+Formula/l/litecli.rb
+  ai_agent 9,12-17,37-38,42-43,82-83,87-88,92-93,97-98,112-113,177-178
+Formula/d/dolphie.rb
+  ai_agent 9,12-17,33-34,53-54,98-99,103-104,118-119
+Formula/b/bbtools.rb
+  ai_agent 4-5,15-20
+Formula/g/go-parquet-tools.rb
+  ai_agent 4-5,10-15
+Formula/m/m4ri.rb
+  ai_agent 1-78
+Formula/h/hysteria.rb
+  ai_agent 4-5,10-15
+Formula/p/pdm.rb
+  ai_agent 6-7,12-17,41-42,86-87,91-92,116-117,136-137,197-198
+Formula/t/turso.rb
+  ai_agent 4-5,15-20
+Formula/c/cargo-deny.rb
+  ai_agent 4-5,10-15
+Formula/f/fdroidserver.rb
+  ai_agent 9,12-17,107-108,137-138,152-153,172-173,212-213,347-348
+Formula/f/fastmcp.rb
+  ai_agent 9,13-18,34-35,59-60,69-70,74-75,129-130,144-145,169-170,209-210,219-220,244-245,259-260,279-280,294-295,309-310
+Formula/f/flow-cli.rb
+  ai_agent 4-5,15-20
+Formula/d/dvc.rb
+  ai_agent 9,12-17,149-150,184-185,219-220,384-385,476-479,483-484,503-504,555-560,694-695,844-845,884-905
+Formula/l/luau.rb
+  ai_agent 4-5,16-21
+Formula/p/powershell.rb
+  ai_agent 5-6,15-20
+Formula/w/wakatime-cli.rb
+  ai_agent 5-6,11-16
+Formula/m/mysql@8.4.rb
+  ai_agent 9,17-22
+Formula/m/mongo-orchestration.rb
+  ai_agent 9,13-18,47-48,52-53,67-68
+Formula/f/fastnetmon.rb
+  ai_agent 7,10-15
+Formula/g/ggshield.rb
+  ai_agent 9,13-18,59-60,74-75
+Formula/e/esphome.rb
+  ai_agent 6-7,15-20,44-45,49-50,114-115,129-130,134-135,164-165,224-225,284-285,289-290,359-360,379-380
+Formula/t/telegram-downloader.rb
+  ai_agent 4-5,12-17
+Formula/a/aiven-client.rb
+  ai_agent 6-7,12
+Formula/k/khaos.rb
+  ai_agent 9,13-18,50-51,55-56,65-66,95-96,115-116
+Formula/l/likec4.rb
+  ai_agent 4-5,9-14
+Formula/s/signal-cli.rb
+  ai_agent 4-5,14-18,39-40
+Formula/n/nqp.rb
+  ai_agent 4-5,14-19
+Formula/m/mcpm.rb
+  ai_agent 6-7,11-16,52-53,62-63,67-68,92-93,132-133,162-168,312-313,332-333,347-348,377-378,386-390,397-398,402-403,422-423,427-428,447-448
+Formula/p/poetry.rb
+  ai_agent 9,13-18,74-75,109-110,114-115,129-130,159-160,184-185,194-195,214-215,219-220,229-230
+Formula/w/whosthere.rb
+  ai_agent 4-5,14-19
+Formula/n/netdata.rb
+  ai_agent 7,16-21
+Formula/q/qtgrpc.rb
+  ai_agent 14,23-28
+Formula/a/atuin.rb
+  ai_agent 10-16,30
+Formula/a/asc.rb
+  ai_agent 4-5,10-15
+Formula/s/snowflake-cli.rb
+  ai_agent 6-7,12-17,38-39,43-44,73-74,98-99,248-249,278-279,297-299
+Formula/e/evernote-backup.rb
+  ai_agent 9,12-19,48-49,58-59
+Formula/m/mycli.rb
+  ai_agent 9,12-17,89-90,104-105,114-115,134-135
+Formula/o/onnxruntime.rb
+  ai_agent 7,16-21
+Formula/j/jupyterlab.rb
+  ai_agent 12,16-21,111-112,166-167,406-407
+Formula/l/leaf-proxy.rb
+  ai_agent 21
+Formula/t/todoist-cli-go.rb
+  ai_agent 1-47
+Formula/c/cargo-dist.rb
+  ai_agent 3-5,10-15
+Formula/b/bitrise.rb
+  ai_agent 4-5,15-20
+Formula/s/skillshare.rb
+  ai_agent 4-5,10-15
+Formula/x/xcsift.rb
+  ai_agent 4-5,10-15,22
+Formula/f/fleet-cli.rb
+  ai_agent 4-5,15-20
+Formula/lib/libphonenumber.rb
+  ai_agent 4-5,14-19
+Formula/n/nginx.rb
+  ai_agent 6-7,9,18-23
+Formula/g/git-branchless.rb
+  ai_agent 4-5,18-23
+Formula/lib/libpg_query.rb
+  ai_agent 4-5,7,10-15,19-25
+Formula/c/cubejs-cli.rb
+  ai_agent 4-5,9-14
+Formula/h/http-prompt.rb
+  ai_agent 9,13-18,33-34,48-49,98-99
+Formula/d/dblab.rb
+  ai_agent 4-5,10-15
+Formula/p/pyscn.rb
+  ai_agent 4-5,10-15
+Formula/s/sqlx-cli.rb
+  ai_agent 4-5,9-14,31-32,35
+Formula/r/rakudo.rb
+  ai_agent 4-5,14-19
+Formula/j/jenkins-job-builder.rb
+  ai_agent 9,12-17,38-39,78-79,93-94
+Formula/m/mesheryctl.rb
+  ai_agent 5-6,13-18
+Formula/q/quickjs-ng.rb
+  ai_agent 4-5,10-15
+Formula/a/apache-spark.rb
+  ai_agent 4-7,19
+Formula/m/mongodb-atlas-cli.rb
+  ai_agent 4-5,15-20
+Formula/s/swc.rb
+  ai_agent 4-5,15-20
+Formula/g/grpc.rb
+  ai_agent 8,24-29
+Formula/s/sonic.rb
+  ai_agent 4-5,9-14
+Formula/t/twtxt.rb
+  ai_agent 9,12-19,25-26,45-46,60-61,70-71,85-86
+Formula/o/osm-pbf.rb
+  ai_agent 7,10-15
+Formula/n/nanobot.rb
+  ai_agent 4-5,10-15
+Formula/b/betterleaks.rb
+  ai_agent 4-5,10-15
+Formula/j/jiratui.rb
+  ai_agent 6-7,12-17,48-49,168-169,268-269
+Formula/g/glances.rb
+  ai_agent 9,13-18,47-48,77-78,132-133,157-158,167-168
+Formula/h/hf-mount.rb
+  ai_agent 4-5,10-15
+Formula/a/aws-sam-cli.rb
+  ai_agent 6-7,9,12-18,29,52-53,77-78,82-83,92-93,132-133,222-223,413,424
+Formula/lib/libgit2.rb
+  ai_agent 4-5,16-21
+Formula/v/vnu.rb
+  ai_agent 4-5,10
+Formula/h/hf.rb
+  ai_agent 6-7,12-17,46-47
+Formula/c/calm-cli.rb
+  ai_agent 4-5,9
+Formula/s/structurizr.rb
+  ai_agent 4-5,9-14
+Formula/p/promptfoo.rb
+  ai_agent 4-5,9-14
+Formula/w/wgcf.rb
+  ai_agent 4-5,10-15
+Formula/n/nextflow.rb
+  ai_agent 4-5,14-19
+Formula/r/rtk.rb
+  ai_agent 4-5,10-15
+Formula/z/zsync.rb
+  ai_agent 4-7,15-20,23,26-28
+Formula/d/dotnet@8.rb
+  ai_agent 5-6,16-20,39,46-53,63-64,75-85,92,192-194,196-198
+Formula/m/mac.rb
+  ai_agent 4-6,17-22
+Formula/p/protobuf@33.rb
+  ai_agent 27
+Formula/d/deno.rb
+  ai_agent 4-5,11-16,50
+Formula/p/puzzles.rb
+  ai_agent 5-7,21-26
+Formula/s/syslog-ng.rb
+  ai_agent 9,18-23
+Formula/i/internetarchive.rb
+  ai_agent 9,13,27-28,42-43
+Formula/f/forbidden.rb
+  ai_agent 9,13-18,62-63,82-83
+Formula/r/rclone.rb
+  ai_agent 4-5,11-16
+Formula/s/semver.rb
+  ai_agent 4-5,9
+Formula/v/verovio.rb
+  ai_agent 4-5,10-15
+Formula/h/hatch.rb
+  ai_agent 9,12-17,39-40,49-50,79-80,94-95,109-110,119-120,124-125,129-130,139-140,164-165,169-170,189-190,194-195,204-205
+Formula/a/algernon.rb
+  ai_agent 4-5,16-21
+Formula/d/dagu.rb
+  ai_agent 4-5,10-15
+Formula/v/vite.rb
+  ai_agent 4-5,9-14
+Formula/w/wasmtime.rb
+  ai_agent 5-6,19-24
+Formula/f/flang.rb
+  ai_agent 4-5,15-20
+Formula/e/ecs-deploy.rb
+  ai_agent 9,12,21-22,26-27,31-32,36-37,56-57,61-62,76-77
+Formula/g/gtkmm.rb
+  ai_agent 27-29
+Formula/a/angular-cli.rb
+  ai_agent 4-5,9
+Formula/g/goolabs.rb
+  ai_agent 9,12,26-27,31-32,36-37
+Formula/m/mago.rb
+  ai_agent 4-5,9-14
+Formula/c/ctx7.rb
+  ai_agent 4-5,9
+Formula/h/helix-db.rb
+  ai_agent 4-5,9-14
+Formula/r/ruff.rb
+  ai_agent 4-5,10-15
+Formula/n/nvc.rb
+  ai_agent 4-5,9-14
+Formula/x/xleak.rb
+  ai_agent 4-5,10-15
+Formula/b/brev.rb
+  ai_agent 4-5,18-23
+Formula/k/kosli-cli.rb
+  ai_agent 4-5,15-20
+Formula/m/mosh.rb
+  ai_agent 7,10-15
+Formula/g/gimme-aws-creds.rb
+  ai_agent 9,13-18,83-84,88-89,142-143,157-158,182-183,202-203,252-253,257-258,297-298
+Formula/t/tmt.rb
+  ai_agent 6-7,11-16,38-39,68-69,118-119
+Formula/g/gitingest.rb
+  ai_agent 9,12-17,38-39,58-59,83-84,88-89,93-94
+Formula/c/cfn-lint.rb
+  ai_agent 6-7,11-16,37-38,42-43
+Formula/g/graphqlite.rb
+  ai_agent 4-5,8-12,14-19
+Formula/f/fdclone.rb
+  ai_agent 26
+Formula/i/imgproxy.rb
+  ai_agent 4-5,10-15
+Formula/f/fzf.rb
+  ai_agent 4-5,11-16
+Formula/h/harper.rb
+  ai_agent 4-5,15-20
+Formula/h/harsh.rb
+  ai_agent 4-5,10-15
+Formula/h/helmfile.rb
+  ai_agent 4-5,11-16
+Formula/g/grip.rb
+  ai_agent 9,12-17,36-37,51-52,86-87
+Formula/c/cdo.rb
+  ai_agent 4-5,16-21,46-51
+Formula/l/less.rb
+  ai_agent 4-5,15-20
+Formula/c/c4core.rb
+  ai_agent 4-5,9-14
+Formula/g/gupnp-av.rb
+  ai_agent 4-5,9-14
+Formula/p/pcb2gcode.rb
+  ai_agent 15-21,31-34
+Formula/d/dbml-cli.rb
+  ai_agent 4-5,9-14
+Formula/g/gnu-which.rb
+  ai_agent 5-7,11-16,20-21,34
+Formula/p/protoc-gen-grpc-web.rb
+  ai_agent 7,15-20
+Formula/h/httpie.rb
+  ai_agent 9,13-18,38-39,68-69
+Formula/j/jfrog-cli.rb
+  ai_agent 4-5,18-23
+formula_renames.json
+  ai_agent 188
+Formula/o/oasis.rb
+  ai_agent 4-5,10-15
+Formula/p/pdfly.rb
+  ai_agent 9,12-17,58-59,73-74,83-84,93-94,128-129,133-134
+Formula/q/quilt-installer.rb
+  ai_agent 4-5,14-19
+Formula/g/groonga.rb
+  ai_agent 4-5,16-21
+disabled_new_usr_local_relocation_formulae.json
+  ai_agent 8
+Formula/b/balena-cli.rb
+  ai_agent 7,17-22,25,40-45
+Formula/a/aws-c-event-stream.rb
+  ai_agent 4-5,10-15
+Formula/c/codex-acp.rb
+  ai_agent 4-5,10-15
+Formula/c/cycode.rb
+  ai_agent 9,13-18,91-92,151-152,211-212
+Formula/m/mdbtools.rb
+  ai_agent 7,10-15,24-26,33-35
+Formula/m/mavsdk.rb
+  ai_agent 8,16-21
+Formula/i/instaloader.rb
+  ai_agent 9,12,26-27,31-32
+Formula/m/models.rb
+  ai_agent 4-5,10-15
+Formula/c/certifi.rb
+  ai_agent 4-5,10
+Formula/a/aws-cdk.rb
+  ai_agent 4-5,9
+Formula/s/shadcn.rb
+  ai_agent 4-5,9
+Formula/lib/libmediainfo.rb
+  ai_agent 4-5,16-21,42-46
+Formula/s/summarize.rb
+  ai_agent 4-5,10
+Formula/lib/libaec.rb
+  ai_agent 4-5,8,11-16
+Formula/r/railway.rb
+  ai_agent 4-5,10-15
+Formula/k/kaskade.rb
+  ai_agent 9,13-18,51-52,61-62,101-102,131-132,151-152,171-172,181-182
+Formula/a/aom.rb
+  ai_agent 5-6,11-16
+Formula/d/docker-squash.rb
+  ai_agent 9,12,31-32,41-42
+Formula/g/got.rb
+  ai_agent 4-6,19-24
+Formula/j/jetty-runner.rb
+  ai_agent 18-19
+Formula/m/mkdocs-material.rb
+  ai_agent 9,12-17,44-45,59-60,124-125,144-145
+Formula/w/wasm-bindgen.rb
+  ai_agent 4-5,9-14
+Formula/c/codeburn.rb
+  ai_agent 1-30
+Formula/o/or-tools.rb
+  ai_agent 7,16-21
+Formula/g/gersemi.rb
+  ai_agent 6-7,11-16
+Formula/p/portable-ruby.rb
+  ai_agent 9,18-21,47-48
+Formula/r/rulesync.rb
+  ai_agent 4-5,9
+Formula/m/magic-wormhole.rb
+  ai_agent 9,13-18,46-47,51-52,71-72,81-82,166-167
+Formula/m/mercury-cli.rb
+  ai_agent 1-28
+Formula/p/protoc-gen-grpc-java.rb
+  ai_agent 7,10-15
+Formula/d/dnsdist.rb
+  ai_agent 6-7,16-21
+Formula/p/pint.rb
+  ai_agent 4-5,9-14
+Formula/g/grokmirror.rb
+  ai_agent 9,13,27-28,32-33
+Formula/b/bruno-cli.rb
+  ai_agent 4-5,9
+Formula/s/strands-agents-sops.rb
+  ai_agent 9,12,34-35,59-60,74-75,79-80,84-85,94-95,104-105,109-110,114-115
+Formula/w/worktrunk.rb
+  ai_agent 4-5,10-15
+Formula/a/apache-arrow.rb
+  ai_agent 8,13-18
+Formula/l/lexicon.rb
+  ai_agent 9,13-18,43-44,48-49,63-64,78-79,98-99,113-114,158-159,203-204
+Formula/a/aoe.rb
+  ai_agent 4-5,10-15
+Formula/l/lue-reader.rb
+  ai_agent 9,12-17,61-62,66-67,76-77,96-97,116-117,131-132
+Formula/p/prowler.rb
+  ai_agent 6-7,12-17,57-58,437-438,607-608,612-613,803-804,808-809,813-814,858-859,918-919,1033-1034,1108-1109
+Formula/m/media-info.rb
+  ai_agent 4-5,16-21,24-26,36-37
+Formula/p/python@3.10.rb
+  ai_agent 31
+Formula/p/phpunit.rb
+  ai_agent 4-5,15
+Formula/m/metaproxy.rb
+  ai_agent 4-5,16-21
+Formula/g/gitea.rb
+  ai_agent 4-5,17-22
+Formula/o/opencode.rb
+  ai_agent 4-5,13-18
+Formula/p/python@3.14.rb
+  ai_agent 453-457,469-472
+Formula/r/recc.rb
+  ai_agent 4-5,10-15
+Formula/a/aws-c-auth.rb
+  ai_agent 4-5,10-15
+Formula/c/cargo-auditable.rb
+  ai_agent 4-5,10-15
+Formula/t/try-rs.rb
+  ai_agent 4-5,10-15
+Formula/c/crytic-compile.rb
+  ai_agent 6-7,12-17
+Formula/a/amqp-cpp.rb
+  ai_agent 7,16-21,25
+Formula/p/pocketbase.rb
+  ai_agent 4-5,9-14
+Formula/m/mk.rb
+  ai_agent 9,13-18,49-50,79-80,94-95,159-160
+Formula/l/linode-cli.rb
+  ai_agent 9,13-18,53-54,98-99
+Formula/t/teslamate.rb
+  ai_agent 17-18
+Formula/m/mlx-lm.rb
+  ai_agent 9,13-15,42-43,52-53,62-63,77-78,82-83,92-93,107-108,112-113,127-128,162-163,167-168
+Formula/g/gptline.rb
+  ai_agent 9,13-18,66-67,116-117,126-127,136-137,156-157,186-187,221-222
+Formula/w/weave.rb
+  ai_agent 4-5,10-15
+Formula/l/letta-code.rb
+  ai_agent 4-5,9-14
+Formula/c/cloudflare-speed-cli.rb
+  ai_agent 4-5,10-15
+Formula/l/llvm.rb
+  ai_agent 10-11,27-32
+Formula/s/seaweedfs.rb
+  ai_agent 5-6,16-21
+Formula/l/llm.rb
+  ai_agent 9,12-17,34-35,69-70,74-75,79-80
+Formula/p/pelican.rb
+  ai_agent 9,12-17,46-47,61-62,106-107
+Formula/p/pachi.rb
+  ai_agent 10,14-19
+Formula/w/web-ext.rb
+  ai_agent 4-5,9
+Formula/f/fresh-editor.rb
+  ai_agent 4-5,9-14
+Formula/s/specify.rb
+  ai_agent 6-7,11-16
+Formula/g/gogcli.rb
+  ai_agent 4-5,10-15
+Formula/a/axel.rb
+  ai_agent 7,10-15,29
+Formula/s/sacad.rb
+  ai_agent 9,13-18,30-31,70-71,75-76,90-91,110-111
+Formula/s/satellite-tracker.rb
+  ai_agent 1-45
+Formula/i/iocextract.rb
+  ai_agent 9,13-18,33-34,43-44
+Formula/b/b43-fwcutter.rb
+  ai_agent 4-5,14-19
+Formula/w/wasm-tools.rb
+  ai_agent 4-5,15-20
+Formula/t/typedb.rb
+  ai_agent 4-5,9-14,68-69
+Formula/c/capstone.rb
+  ai_agent 4-5,16-21
+Formula/m/mt32emu.rb
+  ai_agent 4-5,18-23
+Formula/c/chainloop-cli.rb
+  ai_agent 4-5,15-20
+Formula/f/fluent-bit.rb
+  ai_agent 4-5,15-20
+Formula/p/picoclaw.rb
+  ai_agent 4-5,15-20
+Formula/l/linux-headers@5.15.rb
+  ai_agent 4-5,15-16
+Formula/f/fifechan.rb
+  ai_agent 4-5,14-19
+Formula/p/posting.rb
+  ai_agent 9,12-17,43-44,68-69,78-79,83-84,98-99,103-104,128-129,228-229
+Formula/m/min-lang.rb
+  ai_agent 4-5,9-14
+Formula/p/protobuf.rb
+  ai_agent 4-5,7,15-20
+Formula/c/claude-squad.rb
+  ai_agent 4-5,10-15
+Formula/l/leaf.rb
+  ai_agent 28
+Formula/p/pytorch.rb
+  ai_agent 10,19-24
+Formula/l/lsr.rb
+  ai_agent 22
+Formula/e/etcd-cpp-apiv3.rb
+  ai_agent 7,10-15
+Formula/p/pi-coding-agent.rb
+  ai_agent 4-5,9-14
+Formula/g/gcsfuse.rb
+  ai_agent 4-5,15-16
+Formula/o/ola.rb
+  ai_agent 5,27-32
+Formula/b/bazel-diff.rb
+  ai_agent 4-5,9-14
+Formula/s/sysaidmin.rb
+  ai_agent 9,12-17,45-46,80-81,85-86,105-106,110-111,120-121,130-131,140-141,155-156,165-166,175-176
+Formula/f/fred.rb
+  ai_agent 9,12,26-27,31-32,36-37
+Formula/c/convertlit.rb
+  ai_agent 22
+Formula/t/typos-cli.rb
+  ai_agent 4-5,14-19
+Formula/r/rumdl.rb
+  ai_agent 4-5,14-19
+Formula/c/checkdmarc.rb
+  ai_agent 6-7,12
+Formula/p/python@3.13.rb
+  ai_agent 439-443,458-461
+Formula/w/weaviate-cli.rb
+  ai_agent 9,12-17,66-67,71-72,96-97
+Formula/c/crossplane.rb
+  ai_agent 3-5,7,15-20,28,30,52
+Formula/c/cdk8s.rb
+  ai_agent 4-5,9
+Formula/f/futhark.rb
+  ai_agent 4-5,10-15
+Formula/d/docker-machine.rb
+  ai_agent 4-6,12-17
+Formula/p/php@8.3.rb
+  ai_agent 51
+Formula/lib/libpulsar.rb
+  ai_agent 8,11-16
+Formula/a/azure-dev.rb
+  ai_agent 4-5,10-15
+Formula/k/kingfisher.rb
+  ai_agent 4-5,9-14
+Formula/m/moarvm.rb
+  ai_agent 4-5,14-19,38-39
+Formula/f/faiss.rb
+  ai_agent 4-5,14-19,45
+Formula/m/mysql.rb
+  ai_agent 10,18-23
+Formula/m/mx.rb
+  ai_agent 4-5,14
+Formula/a/arf.rb
+  ai_agent 4-5,9-14
+Formula/t/ty.rb
+  ai_agent 4-5,10-15
+Formula/d/dotdrop.rb
+  ai_agent 10,13-18,43-44,68-69
+Formula/p/panache.rb
+  ai_agent 1-36
+Formula/o/openclaw-cli.rb
+  ai_agent 4-5,9-14
+Formula/m/mail-deduplicate.rb
+  ai_agent 9,13,45-46,70-71,80-81
+Formula/e/e2b.rb
+  ai_agent 4-5,9
+Formula/g/gcalcli.rb
+  ai_agent 9,13-18,55-56,80-81,105-106,130-131
+Formula/f/fastapi.rb
+  ai_agent 9,12-17,40-41,90-91,135-136,150-151,160-161,170-171,185-186,195-196
+Formula/m/mysql@8.0.rb
+  ai_agent 9,17-22
+Formula/p/postgresql@16.rb
+  ai_agent 26
+Formula/g/gravitino.rb
+  ai_agent 22,24
+Formula/p/python-gdbm@3.12.rb
+  ai_agent 7,14-20,38-67,81-94
+Formula/a/arkade.rb
+  ai_agent 4-5,15-20
+Formula/g/git-review.rb
+  ai_agent 9,13,29-30,34-35
+Formula/n/nushell.rb
+  ai_agent 4-5,16-21
+Formula/s/secretspec.rb
+  ai_agent 4-5,10-15
+Formula/n/node@24.rb
+  ai_agent 4-5,15-20
+Formula/m/mise.rb
+  ai_agent 4-5,15-20
+Formula/m/mockserver.rb
+  ai_agent 4-5,14
+Formula/o/openvino.rb
+  ai_agent 9,19-24
+Formula/r/render.rb
+  ai_agent 4-5,10-15
+Formula/t/termframe.rb
+  ai_agent 4-5,10-15
+Formula/w/webtorrent-cli.rb
+  ai_agent 4-5,9-14,18,27,35
+Formula/c/csprecon.rb
+  ai_agent 4-5,10-15
+Formula/k/knot-resolver.rb
+  ai_agent 9,18-23,77-78,102-103,127-128
+Formula/p/percona-server@8.0.rb
+  ai_agent 7,24-29,104-105
+Formula/p/pulumi.rb
+  ai_agent 5-6,13-18
+Formula/s/snakefmt.rb
+  ai_agent 6-7,12-17,20,24-25,29-30,39-40,44-45,58-60
+Formula/v/vtcode.rb
+  ai_agent 4-5,14-19
+Formula/o/oh-my-agent.rb
+  ai_agent 4-5,9-14
+Formula/d/dotnet@9.rb
+  ai_agent 5-6,16-21,42,60-61,72-77
+Formula/p/percona-xtrabackup.rb
+  ai_agent 7,24-29
+Formula/l/locust.rb
+  ai_agent 9,12-17,49-50,84-85,94-95,164-165
+Formula/r/renovate.rb
+  ai_agent 5-6,22
+Formula/s/solargraph.rb
+  ai_agent 6-7,11-16
+Formula/c/context7-mcp.rb
+  ai_agent 4-5,9
+Formula/g/glaze.rb
+  ai_agent 4-5,9
+Formula/o/orbiton.rb
+  ai_agent 4-5,15-20
+Formula/c/chronograf.rb
+  ai_agent 19,36,50,53
+Formula/m/mcp-proxy.rb
+  ai_agent 9,12,34-35,64-65,89-90,99-100,114-115
+Formula/v/vespa-cli.rb
+  ai_agent 4-5,15-20
+Formula/c/cassandra.rb
+  ai_agent 8
+Formula/r/rustup.rb
+  ai_agent 7,12-17,35-38,40-41,54-59,64,66-67,87-88
+Formula/c/cloudflare-wrangler.rb
+  ai_agent 4-5,9-14
+Formula/g/gdown.rb
+  ai_agent 9,13,37-38,47-48
+Formula/c/cdncheck.rb
+  ai_agent 4-5,15-20
+Formula/k/keeper-commander.rb
+  ai_agent 6-7,14-19,80-81,210-211,285-286,320-321
+Formula/m/manifold.rb
+  ai_agent 4-5,9-14
+Formula/f/fallow.rb
+  ai_agent 4-5,10-15
+Formula/p/percona-server.rb
+  ai_agent 7,24-29
+Formula/e/et.rb
+  ai_agent 7,10-15
+Formula/d/docker-agent.rb
+  ai_agent 4-5,10-15
+Formula/r/ruby@3.2.rb
+  ai_agent 26
+Formula/b/brpc.rb
+  ai_agent 8,12-17,25,82
+Formula/c/cake.rb
+  ai_agent 4-5,9-14
+Formula/f/flume.rb
+  ai_agent 14-19
+Formula/h/homeassistant-cli.rb
+  ai_agent 9,13-20,54-55,74-75,134-135,164-165,169-170
+Formula/h/httptap.rb
+  ai_agent 9,12,68-69,73-74
+Formula/p/parsedmarc.rb
+  ai_agent 6-7,12-17,32-33,72-73,77-78,137-138,202-203,227-228,237-238,292-293,297-298,322-323,327-328,332-333,337-338,347-348,357-358,377-378,402-403,407-408,427-428,462-463
+Formula/b/block-goose-cli.rb
+  ai_agent 4-5,15-20
+Formula/d/dtc.rb
+  ai_agent 15-21,24-25,28-29,34-44
+Formula/g/go-librespot.rb
+  ai_agent 4-5,10-15
+.github/workflows/actionlint.yml
+  ai_agent 104
+Formula/o/objfw.rb
+  ai_agent 4-5,15-20
+Formula/s/skip.rb
+  ai_agent 4-5,10-15,33-34
+Formula/s/search-that-hash.rb
+  ai_agent 16-18
+Formula/t/tailscale.rb
+  ai_agent 5-6,16-21
+Formula/n/ncnn.rb
+  ai_agent 7,11-16
+Formula/b/bazel@7.rb
+  ai_agent 26
+Formula/s/standardebooks.rb
+  ai_agent 6-7,12-17,94-95,114-115,179-180
+Formula/e/enzyme.rb
+  ai_agent 4-5,10-15
+Formula/k/kubeseal.rb
+  ai_agent 5-6,16-21
+Formula/l/lld.rb
+  ai_agent 4-5,16-21
+Formula/d/dart-sass.rb
+  ai_agent 4-5
+Formula/c/cargo-generate.rb
+  ai_agent 4-5,10-15
+Formula/s/sceptre.rb
+  ai_agent 6-7,11-16,31-32,36-37,51-52,71-72,126-127
+Formula/z/zabbix-cli.rb
+  ai_agent 9,13,34-35,54-55,59-60,69-70,74-75,89-90,126-127,131-132
+Formula/r/radicle.rb
+  ai_agent 4-5,16-21
+Formula/w/wcslib.rb
+  ai_agent 4-5,15-20
+Formula/m/mcp-google-sheets.rb
+  ai_agent 9,12-17,44-45,59-60,104-105,134-135,154-155,169-170,194-195
+Formula/m/mcp-server-kubernetes.rb
+  ai_agent 4-5,9-14
+Formula/a/aws-crt-cpp.rb
+  ai_agent 4-5,10-15
+Formula/e/electric.rb
+  ai_agent 4-5,14-19,23,40
+Formula/a/aicommit2.rb
+  ai_agent 4-5,9
+Formula/a/at-spi2-core.rb
+  ai_agent 4-5,10-15
+Formula/t/tmuxinator-completion.rb
+  ai_agent 4-5,14
+Formula/a/aliyun-cli.rb
+  ai_agent 5-6,16-21
+Formula/m/mcp-atlassian.rb
+  ai_agent 9,13-18,78-79,88-89,108-109,173-174,188-189,218-219,238-239,288-289,303-304,338-339,348-349,353-354,383-384,408-409,423-424,458-459,463-464,488-489,493-494,503-504,508-509,513-514,518-519,543-544,553-554
+Formula/c/cdxgen.rb
+  ai_agent 4-5,9-14,24-25
+Formula/g/gptme.rb
+  ai_agent 9,13-18,66-67,76-77,116-117,131-132,151-152,231-232,246-247,271-272,291-292,301-302,311-312,336-337,346-347
+Formula/i/infisical.rb
+  ai_agent 4-5,10-15
+Formula/t/theharvester.rb
+  ai_agent 6-7,12-17,37-38,47-48,57-58,62-63,127-128,152-153,167-168,187-188,197-198,302-303,312-313,322-323,332-333,342-343
+Formula/n/nx.rb
+  ai_agent 4-5,10-15
+Formula/o/octodns.rb
+  ai_agent 9,13-18,35-36
+Formula/s/stylelint.rb
+  ai_agent 4-5,9
+Formula/p/python@3.12.rb
+  ai_agent 16-24,155,452-456,471-474,503-504,515
+Formula/g/gitlab-runner.rb
+  ai_agent 5-6,16-21
+Formula/o/otterdog.rb
+  ai_agent 9,13-18,52-53,112-113,132-133,142-143,202-203,227-228,267-268
+Formula/k/kimi-cli.rb
+  ai_agent 9,15-20,57-58,67-68,92-93,137-138,152-153,162-163,222-223,227-228,272-273,287-288,302-303,322-323,417-418,427-428,477-478,512-513,547-548,608-609,623-624,783-784,803-804
+Formula/f/frps.rb
+  ai_agent 4-5,10-15
+Formula/q/qwen-code.rb
+  ai_agent 4-5,9-14
+Formula/a/aircrack-ng.rb
+  ai_agent 11,19-24,31
+Formula/n/n8n-mcp.rb
+  ai_agent 4-5,9
+Formula/t/typescript-language-server.rb
+  ai_agent 4-5,9
+Formula/a/apfel.rb
+  ai_agent 4-5,10
+Formula/f/flyway.rb
+  ai_agent 4-5,9
+Formula/h/headscale-cli.rb
+  ai_agent 8-12
+Formula/p/psysh.rb
+  ai_agent 4-5,9
+Formula/y/yle-dl.rb
+  ai_agent 6-7,12-17,46-52,56-57
+Formula/m/mole.rb
+  ai_agent 4-5,18-21
+Formula/g/gallery-dl.rb
+  ai_agent 9,13-18,42-43,82-83
+Formula/s/schemathesis.rb
+  ai_agent 9,12-17,46-47,76-77,91-92,191-192
+Formula/p/php@8.4.rb
+  ai_agent 53
+Formula/a/aws-sso-cli.rb
+  ai_agent 4-5,10-15
+Formula/r/reposurgeon.rb
+  ai_agent 4-5,10-15
+Formula/w/webpack.rb
+  ai_agent 6-7,12
+Formula/j/johnnydep.rb
+  ai_agent 6-7,11-16,19,22,24-28,31-33,36-38,41-43,46-58,61-63,66-78,81-83,86-88,91-93
+Formula/s/snyk-cli.rb
+  ai_agent 4-5,9-14
+Formula/g/glooctl.rb
+  ai_agent 4-5,19-24
+Formula/d/dstack.rb
+  ai_agent 6-7,11-16,143-144,148-149,168-169,213-214,278-279,283-284,408-409,513-514,623-624
+Formula/lib/libpq@16.rb
+  ai_agent 26
+Formula/u/uv.rb
+  ai_agent 4-5,11-16
+Formula/s/sapling.rb
+  ai_agent 4-5,18-23
+Formula/n/ncspot.rb
+  ai_agent 4-5,9-14
+Formula/p/putty.rb
+  ai_agent 4-5,10-15,32
+Formula/f/flit.rb
+  ai_agent 9,13,37-38,42-43
+Formula/u/util-linux.rb
+  ai_agent 4-5,28-33
+Formula/a/awscli.rb
+  ai_agent 6-7,13-18
+Formula/g/gssdp.rb
+  ai_agent 4-5,9-14
+Formula/p/pieces-cli.rb
+  ai_agent 9,13-18,40-41,65-66,130-131,150-151,165-166,175-176
+Formula/p/protoc-gen-js.rb
+  ai_agent 7,11-16
+Formula/l/langgraph-cli.rb
+  ai_agent 9,12-17,33-34,53-54
+Formula/s/snowball.rb
+  ai_agent 4-5,9-14
+Formula/t/terrascan.rb
+  ai_agent 10-16,19
+Formula/g/go-air.rb
+  ai_agent 4-5,10-15
+Formula/g/getparty.rb
+  ai_agent 4-5,10-15
+Formula/b/bloaty.rb
+  ai_agent 5,21-26
+Formula/c/cloud-sql-proxy.rb
+  ai_agent 4-5,10-15
+Formula/g/ggc.rb
+  ai_agent 4-5,10-15
+Formula/i/instalooter.rb
+  ai_agent 9,12,52-53,62-63
+Formula/p/protobuf-c.rb
+  ai_agent 7,11-16
+Formula/m/mmctl.rb
+  ai_agent 4-5,15-20
+Formula/r/robot-framework.rb
+  ai_agent 9,13-18,51-52,61-62,96-97,106-107,121-122
+Formula/a/actions-up.rb
+  ai_agent 4-5,9
+Formula/g/grayskull.rb
+  ai_agent 9,13-18,49-50,79-80
+Formula/t/tlrc.rb
+  ai_agent 4-5,10-15
+Formula/h/hcloud.rb
+  ai_agent 4-5,10-15
+Formula/t/todoist-cli.rb
+  ai_agent 2-5,9-14,17,20-21,23-26,28-34,36-37
+Formula/g/gamdl.rb
+  ai_agent 6-7,11-16,42-43,137-138
+Formula/f/filebrowser.rb
+  ai_agent 4-5,10-15
+Formula/b/bazel@8.rb
+  ai_agent 26
+Formula/u/utf8cpp.rb
+  ai_agent 4-5,11,17-19
+Formula/a/aqbanking.rb
+  ai_agent 4-5,16-21
+Formula/k/kafka.rb
+  ai_agent 4-6,15-20
+Formula/o/open-babel.rb
+  ai_agent 61-71,73-75
+Formula/c/cliproxyapi.rb
+  ai_agent 4-5,16-21
+Formula/lib/libomp.rb
+  ai_agent 4-5,15-20
+Formula/l/llama.cpp.rb
+  ai_agent 6-7,23-28
+Formula/c/chunkah.rb
+  ai_agent 1-33
+Formula/g/gitea-runner.rb
+  ai_agent 4-5,9-14
+Formula/p/postgres-language-server.rb
+  ai_agent 7,11-16
+Formula/c/cronboard.rb
+  ai_agent 6-7,11-16,59-60,109-110
+Formula/j/jackett.rb
+  ai_agent 4-5,10-15
+Formula/r/root.rb
+  ai_agent 4-5,18-23,57,90-91,198,202
+Formula/h/h3.rb
+  ai_agent 4-5,9-14
+Formula/p/pocket-tts.rb
+  ai_agent 9,13-18,58-59,93-94,98-99,123-124,133-134,158-159,178-179
+Formula/l/lisette.rb
+  ai_agent 4-5,15-20
+Formula/t/tombi.rb
+  ai_agent 4-5,15-20
+Formula/p/pulsarctl.rb
+  ai_agent 4-5,22-27
+Formula/g/gemini-cli.rb
+  ai_agent 4-5,9-14,17-18
+Formula/m/moon.rb
+  ai_agent 4-5,15-20
+Formula/j/jet.rb
+  ai_agent 4-5,10-15
+Formula/o/onnx.rb
+  ai_agent 7,11-16
+Formula/p/py-spy.rb
+  ai_agent 21,35
+Formula/w/wasi-runtimes.rb
+  ai_agent 5-6,15-20
+Formula/b/bitwuzla.rb
+  ai_agent 4-5,14-19
+Formula/h/hermes-agent.rb
+  ai_agent 9,13-18,42-43,72-73,82-83,102-103,111-113,132-138,147-148,152-163
+Formula/l/leaf-md.rb
+  ai_agent 1-32
+Formula/p/php@8.2.rb
+  ai_agent 51
+Formula/p/pcre.rb
+  ai_agent 29-41
+Formula/n/node@20.rb
+  ai_agent 26
+Formula/a/aws-c-cal.rb
+  ai_agent 4-5,10-15
+Formula/g/ghostscript.rb
+  ai_agent 4-5,23-28,32
+Formula/lib/libdca.rb
+  ai_agent 36
+Formula/b/butane.rb
+  ai_agent 4-5,15-20
+Formula/v/vercel-cli.rb
+  ai_agent 4-5,9-14
+Formula/i/innotop.rb
+  ai_agent 4-5,10-15
+Formula/s/sendemail.rb
+  ai_agent 16
+Formula/v/vacuum.rb
+  ai_agent 4-5,10-15
+Formula/m/miasma.rb
+  ai_agent 1-34
+Formula/s/sdb.rb
+  ai_agent 4-5,10-15
+Formula/m/meta-package-manager.rb
+  ai_agent 10,14-19,70-71,110-111,145-146,190-191,250-251
+Formula/lib/libmpeg2.rb
+  ai_agent 36-40,43
+Formula/d/duplicity.rb
+  ai_agent 11,17-22,60-61,75-76,80-81,140-141,170-171,205-206,230-231,305-306,310-311,355-356,425-426,460-461,500-501
+Formula/s/snyk-agent-scan.rb
+  ai_agent 6-7,9,12-17,30-31,65-66,100-101,160-161,165-166,175-176,200-201,215-216,220-221,240-241,245-246
+Formula/d/dasel.rb
+  ai_agent 10-16,26-27
+Formula/f/frege-repl.rb
+  ai_agent 15-18
+Formula/l/lego.rb
+  ai_agent 4-5,15-20
+Formula/s/s3ql.rb
+  ai_agent 9,17-18,58-59,68-69,98-99
+Formula/z/zboy.rb
+  ai_agent 33
+Formula/p/pnpm.rb
+  ai_agent 4-5,17-22
+Formula/s/sk.rb
+  ai_agent 4-5,15-20
+Formula/o/opentelemetry-cpp.rb
+  ai_agent 7,11-16
+Formula/t/thors-anvil.rb
+  ai_agent 5-6,10-15
+Formula/p/percona-xtrabackup@8.0.rb
+  ai_agent 7,24-29
+Formula/t/tt.rb
+  ai_agent 4-5,17-22
+Formula/s/securefs.rb
+  ai_agent 7,16-17
+Formula/r/redocly-cli.rb
+  ai_agent 4-5,9
+Formula/p/postgresql@15.rb
+  ai_agent 26
+Formula/a/allure.rb
+  ai_agent 4-5,14
+Formula/g/ghcup.rb
+  ai_agent 5-6,17-22
+Formula/f/fern-api.rb
+  ai_agent 4-5,13-18
+Formula/a/aws-c-http.rb
+  ai_agent 4-5,10-15
+Formula/n/node-sass.rb
+  ai_agent 4-5,9-14
+Formula/o/oterm.rb
+  ai_agent 6-7,11-16,38-39,58-59,83-84,88-89,93-94,108-109,157-159,173-174,178-179,183-184,228-229,233-234,253-254,263-264,303-304,308-309,348-349,428-429,433-434,448-449,463-464,483-484,523-524,558-559,578-579,593-594,608-609
+Formula/p/passenger.rb
+  ai_agent 7,11-16
+Formula/x/xbyak.rb
+  ai_agent 4-5,15
+Formula/t/tmuxinator.rb
+  ai_agent 4-5,10-15
+Formula/c/ccusage.rb
+  ai_agent 4-5,9-14,17,20,24
+Formula/d/dolt.rb
+  ai_agent 4-5,16-21
+Formula/c/closure-compiler.rb
+  ai_agent 4-5,14
+Formula/m/mcp-toolbox.rb
+  ai_agent 4-5,9-14
+Formula/i/ipsw.rb
+  ai_agent 4-5,15-20
+Formula/r/rapidyaml.rb
+  ai_agent 4-5,9-14
+Formula/m/muffet.rb
+  ai_agent 4-5,10-15
+Formula/s/supabase.rb
+  ai_agent 2,4-5,9-14,17,20-21
+Formula/m/mistral-vibe.rb
+  ai_agent 6-7,12-17
+Formula/p/postgresql@18.rb
+  ai_agent 26
+Formula/t/teleport.rb
+  ai_agent 4-5,21-26
+Formula/s/skm.rb
+  ai_agent 4-5,10-15
+Formula/p/pvetui.rb
+  ai_agent 4-5,10-15
+Formula/p/pgstream.rb
+  ai_agent 4-5,9-14
+Formula/t/tsduck.rb
+  ai_agent 4-5,19-24
+Formula/k/krakend.rb
+  ai_agent 4-5,10-15
+Formula/s/statesmith.rb
+  ai_agent 5-6,10-15,18-20
+Formula/s/sylpheed.rb
+  ai_agent 25-33
+Formula/o/opencv.rb
+  ai_agent 5,28-33
+Formula/g/git-pkgs.rb
+  ai_agent 4-5,10-15
+Formula/d/dependabot.rb
+  ai_agent 4-5,10-15
+Formula/n/nvi.rb
+  ai_agent 30-35
+Formula/d/dnstwist.rb
+  ai_agent 9,12-17,76-77,106-107,121-122
+Formula/g/gmp-ecm.rb
+  ai_agent 1-72
+Formula/p/pixi.rb
+  ai_agent 4-5,18-23
+Formula/c/config-file-validator.rb
+  ai_agent 4-5,10-15
+Formula/p/postgresql@17.rb
+  ai_agent 26
+Formula/g/gitu.rb
+  ai_agent 4-5,10-15
+Formula/n/nerdctl.rb
+  ai_agent 4-5,10-11
+Formula/s/sentry-cli.rb
+  ai_agent 4-5,15-20
+Formula/p/picat.rb
+  ai_agent 4-6,17-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "d2374e7042f4a7f48c8ea4e0a2172e0405fb6806",
+  "prompts": {}
+}
