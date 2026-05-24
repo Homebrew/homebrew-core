@@ -1,0 +1,21 @@
+Formula/h/herdr.rb
+  s_cf60aeccdde80b::t_5f68413132bc8e 27-28,30-34
+  s_cf60aeccdde80b::t_aa165837f06ff2 17-19,22-26
+  s_cf60aeccdde80b::t_02c404e1580075 20-21,29,35-37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "267b764d715b6cea6a48a7c8de5c38515206f313",
+  "prompts": {},
+  "sessions": {
+    "s_cf60aeccdde80b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fcd2b3ea-96f7-4088-b665-dde4167e6151",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": null
+    }
+  }
+}
