@@ -1,0 +1,24 @@
+Formula/lib/libplctag.rb
+  s_cf60aeccdde80b::t_84f3b1bb6f6d8a 31-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "3c7e1821a33214b50c6c180f07805191415a1313",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  },
+  "sessions": {
+    "s_cf60aeccdde80b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fcd2b3ea-96f7-4088-b665-dde4167e6151",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
