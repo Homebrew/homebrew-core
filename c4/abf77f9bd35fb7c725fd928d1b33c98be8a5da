@@ -1,0 +1,14 @@
+Formula/j/jcal.rb
+  h_9df9c32c3f321d 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "c4abf77f9bd35fb7c725fd928d1b33c98be8a5da",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
