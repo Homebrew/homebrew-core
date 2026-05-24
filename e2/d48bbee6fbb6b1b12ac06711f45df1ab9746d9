@@ -1,0 +1,19 @@
+Formula/s/supabase.rb
+  s_12cb7bf6dca251::t_0b2146029f0324 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "e2d48bbee6fbb6b1b12ac06711f45df1ab9746d9",
+  "prompts": {},
+  "sessions": {
+    "s_12cb7bf6dca251": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "90034760-8555-4dab-9c23-0a414c01075b",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
