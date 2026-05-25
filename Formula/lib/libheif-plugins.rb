@@ -1,8 +1,8 @@
 class LibheifPlugins < Formula
   desc "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder"
   homepage "https://www.libde265.org/"
-  url "https://github.com/strukturag/libheif/releases/download/v1.22.0/libheif-1.22.0.tar.gz"
-  sha256 "8bd20cfa3201997b8f63266cddfabea2e1481467d7f992e6a2595e0bec691fc2"
+  url "https://github.com/strukturag/libheif/releases/download/v1.22.1/libheif-1.22.1.tar.gz"
+  sha256 "379b6abde094ba8f93620b91c230af2d7102945ad641231876074f3b113865fa"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -30,12 +30,6 @@ class LibheifPlugins < Formula
   depends_on "rav1e"
   depends_on "svt-av1"
   depends_on "x264"
-
-  # Fix for missed common_utils.cc in OpenJPEG_DECODER plugin's sources, remove in next release
-  patch do
-    url "https://github.com/strukturag/libheif/commit/b5ccea15c1f62d6dc2301bd0551194f433e91217.patch?full_index=1"
-    sha256 "b74848c61f41e076534511d7b42d9c72f9e9e9c7a3bc6dd1c104381681d7f3e9"
-  end
 
   def install
     # Enabling plugins for "popular" formulae
