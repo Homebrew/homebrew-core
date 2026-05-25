@@ -1,0 +1,19 @@
+Formula/k/katago.rb
+  s_4ebf603a4d0e55::t_1e828995c1a87e 86-99
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.1",
+  "base_commit_sha": "6341e6312b4bf894069798e4678c2e0631fce0d3",
+  "prompts": {},
+  "sessions": {
+    "s_4ebf603a4d0e55": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e5f47-019a-7752-a3e3-06b7298861e9",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
