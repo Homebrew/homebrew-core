@@ -46,6 +46,7 @@ class Hister < Formula
       assert_match(/<html|<!doctype/i, shell_output("curl -fsS http://127.0.0.1:#{port}/"))
     ensure
       Process.kill("TERM", pid)
+      Process.wait(pid)
     end
   end
 end
