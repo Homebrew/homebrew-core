@@ -30,6 +30,6 @@ class Vizb < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/vizb")
+    assert_match version.to_s, shell_output("#{bin}/vizb --version")
   end
 end
