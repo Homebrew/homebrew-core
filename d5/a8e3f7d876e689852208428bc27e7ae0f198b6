@@ -1,0 +1,29 @@
+Formula/h/herdr.rb
+  s_4ebf603a4d0e55::t_5816a6da423cd0 36-59,62,64
+  s_4ebf603a4d0e55::t_dbcac37f0a4778 20
+  s_4ebf603a4d0e55::t_c4e6ae54bb9326 61,63
+  s_4ebf603a4d0e55::t_412812f3827616 5
+  s_4ebf603a4d0e55::t_ba6698a479d6b9 4
+  s_4ebf603a4d0e55::t_cbf1ae3632afa9 14-19,21-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "d5a8e3f7d876e689852208428bc27e7ae0f198b6",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  },
+  "sessions": {
+    "s_4ebf603a4d0e55": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e5f47-019a-7752-a3e3-06b7298861e9",
+        "model": "gpt-5.5"
+      },
+      "human_author": null
+    }
+  }
+}
