@@ -1,0 +1,19 @@
+Formula/c/cloudmonkey.rb
+  s_87f8c0844778e5::t_e37f90f2eb7729 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "960fc17a50c323977543405e8faf4cc9944ae82e",
+  "prompts": {},
+  "sessions": {
+    "s_87f8c0844778e5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e5f48-5628-7d81-9cc0-1f89a2092735",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
