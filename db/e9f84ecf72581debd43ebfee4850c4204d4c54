@@ -1,0 +1,14 @@
+Formula/o/ocp.rb
+  h_9df9c32c3f321d 54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "dbe9f84ecf72581debd43ebfee4850c4204d4c54",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
