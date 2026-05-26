@@ -1,0 +1,14 @@
+Formula/z/zerolang.rb
+  h_9df9c32c3f321d 1-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.1",
+  "base_commit_sha": "4616a5b2146a75f23d52386ea2896b004ec86e66",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
