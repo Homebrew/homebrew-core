@@ -53,6 +53,12 @@ class ArxLibertatis < Formula
       -DWITH_SDL=2
     ]
 
+    if OS.mac?
+      # Add additional localisation dir flags
+      args << "-DDATA_DIR_PREFIXES=/Applications:#{HOMEBREW_PREFIX}/share/games"
+      args << "-DDATA_DIR=ArxLibertatis:arx"
+    end
+
     # Install prebuilt icons to avoid inkscape and imagemagick deps
     if build.head?
       (buildpath/"arx-libertatis-data").install resource("arx-libertatis-data")
