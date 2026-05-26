@@ -1,8 +1,8 @@
 class Shimmy < Formula
   desc "Small local inference server with OpenAI-compatible GGUF endpoints"
   homepage "https://github.com/Michael-A-Kuykendall/shimmy"
-  url "https://github.com/Michael-A-Kuykendall/shimmy/archive/refs/tags/v1.9.0.tar.gz"
-  sha256 "d761c96a497263a19a2d4a78ddfe248e5c8c0b896ff535d15ac31b47032761e4"
+  url "https://github.com/Michael-A-Kuykendall/shimmy/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "37ff9a0b1efb87c9c34f72e6848e187d44de298561b84ab11b1087a9b9dd53d6"
   license "Apache-2.0"
   head "https://github.com/Michael-A-Kuykendall/shimmy.git", branch: "main"
 
@@ -26,6 +26,9 @@ class Shimmy < Formula
   uses_from_macos "llvm" => :build # for libclang
 
   def install
+    # Cargo always tries to load manifest, even if the dependency is optional
+    inreplace "Cargo.toml", 'airframe = { path = "../airframe",', "airframe = {"
+
     system "cargo", "install", *std_cargo_args
   end
 
