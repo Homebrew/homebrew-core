@@ -5,6 +5,14 @@ class Xcodes < Formula
   sha256 "0c38a39ecd527d15c3343da9b9bc57c9f0d5217f4c9d36fc3879c3ae423b1295"
   license "MIT"
 
+  # Upstream marks some releases that use a stable version format (v1.2.3b45)
+  # as pre-release on GitHub.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:b\d+)?)$/i)
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dfc27a53e26ae6745593dbf7acb43f6165ddf918cfa1a2bac73666f974c7ba3c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f0d1d4136c44d6bce3a29a6161d91282397175b811d8346486ff281267106f6"
