@@ -6,6 +6,7 @@ class Drogon < Formula
       tag:      "v1.9.13",
       revision: "4c5430757ea5451a7c38fbbef4b4bef7dbb47f2f"
   license "MIT"
+  revision 1
   head "https://github.com/drogonframework/drogon.git", branch: "master"
 
   bottle do
@@ -21,7 +22,7 @@ class Drogon < Formula
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "jsoncpp"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "sqlite"
 
