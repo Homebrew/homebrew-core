@@ -14,12 +14,13 @@ class Ttl < Formula
   def caveats
     <<~EOS
       ttl requires elevated privileges for raw socket access.
+      You should be certain that you trust any software you grant such privileges.
 
       On macOS:
         sudo ttl <target>
 
       On Linux (recommended):
-        sudo setcap cap_net_raw+ep $(which ttl)
+        sudo setcap cap_net_raw+ep #{opt_bin}/ttl
         ttl <target>
     EOS
   end
