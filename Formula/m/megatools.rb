@@ -1,8 +1,8 @@
 class Megatools < Formula
   desc "Command-line client for Mega.co.nz"
   homepage "https://xff.cz/megatools/"
-  url "https://xff.cz/megatools/builds/megatools-1.11.5.20250706.tar.gz"
-  sha256 "51f78a03748a64b1066ce28a2ca75d98dbef5f00fe9789dc894827f9a913b362"
+  url "https://xff.cz/megatools/builds/megatools-1.12.0.20260527.tar.gz"
+  sha256 "b0457e35642d3639bcadff6404a8340532504f6fef82505bda215c6a6ba6c0f9"
   license "GPL-2.0-or-later" => { with: "cryptsetup-OpenSSL-exception" }
 
   livecheck do
@@ -34,6 +34,10 @@ class Megatools < Formula
     depends_on "gettext"
   end
 
+  # Fix build error: `goto skip_ed25519` jumps over initialization of an
+  # `__attribute__((cleanup))` variable (gc_free ed_b64)
+  patch :DATA
+
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -48,3 +52,22 @@ class Megatools < Formula
     assert_equal "Hello Homebrew!\n", (testpath/"testfile.txt").read
   end
 end
+
+__END__
+--- a/lib/mega.c
++++ b/lib/mega.c
+@@ -2446,6 +2446,7 @@
+ 		gc_free guchar *ed25519_key = NULL;
+ 		const gchar *ed_node = s_json_get_member(u, "+puEd255");
+ 		if (!ed_node) goto skip_ed25519;
++		{
+ 		gc_free gchar *ed_b64 = s_json_get_member_string(ed_node, "av");
+ 		if (!ed_b64) goto skip_ed25519;
+ 		ed25519_key = base64urldecode(ed_b64, &ed_key_len);
+@@ -2456,6 +2457,7 @@
+ 		}
+ 		if (authring_check_key(s, user_handle, ed25519_key, 32, FALSE) < 0)
+ 			g_printerr("WARNING: Ed25519 key verification failed for %s\n", user_handle);
++		}
+ 
+ skip_ed25519:;
