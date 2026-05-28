@@ -5,6 +5,7 @@ class ElixirLs < Formula
   sha256 "d8e6c1b7ffc2a122c280ab9790de3cc22b2c12cf98caeabca66e222c8b6a8da1"
   license "Apache-2.0"
   revision 1
+  head "https://github.com/elixir-lsp/elixir-ls.git", branch: "master"
 
   livecheck do
     url :stable
@@ -15,7 +16,15 @@ class ElixirLs < Formula
     sha256 cellar: :any_skip_relocation, all: "8385ec761f10d3b55b6c046b6a10c91a9f24ea4333aba88e8f11eba294e0e24e"
   end
 
-  depends_on "elixir"
+  depends_on "elixir" => [:build, :test]
+  depends_on "erlang" => :build
+  depends_on "openssl@3"
+
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     ENV["MIX_ENV"] = "prod"
