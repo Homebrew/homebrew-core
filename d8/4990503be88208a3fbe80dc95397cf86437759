@@ -1,0 +1,25 @@
+Formula/s/subnetcalc.rb
+  s_9b62e21a8b509f::t_e3770911f102b3 20
+  s_9b62e21a8b509f::t_c399c474c2ff7b 42,49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "d84990503be88208a3fbe80dc95397cf86437759",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  },
+  "sessions": {
+    "s_9b62e21a8b509f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ba9cfcc6-1d74-490a-befa-ef394a121617",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": null
+    }
+  }
+}
