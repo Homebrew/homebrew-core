@@ -1,0 +1,21 @@
+Formula/d/dynare.rb
+  s_9b62e21a8b509f::t_e3b89b55dc93be 84
+  s_9b62e21a8b509f::t_e7493b1b29ecdf 70
+  s_9b62e21a8b509f::t_2fa98881f579c4 81-83,85-86,95,97,107
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "cf30481988e3f433b3bd8f4c61c4e5e77946891b",
+  "prompts": {},
+  "sessions": {
+    "s_9b62e21a8b509f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ba9cfcc6-1d74-490a-befa-ef394a121617",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
