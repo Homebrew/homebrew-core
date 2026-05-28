@@ -1,0 +1,19 @@
+Formula/b/bibtexconv.rb
+  s_9b62e21a8b509f::t_33c6711d87e434 44-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "c8353a1a44a1cf60bfce24f0b3249db9f5d041cc",
+  "prompts": {},
+  "sessions": {
+    "s_9b62e21a8b509f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ba9cfcc6-1d74-490a-befa-ef394a121617",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
