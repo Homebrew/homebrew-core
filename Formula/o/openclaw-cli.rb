@@ -1,8 +1,8 @@
 class OpenclawCli < Formula
   desc "Your own personal AI assistant"
   homepage "https://openclaw.ai/"
-  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.5.19.tgz"
-  sha256 "fc2e773418c8e909345034d78f04f85290c38f79fb7237e7a00e003c19b60f13"
+  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.5.27.tgz"
+  sha256 "cfdc32b25c9b097c47afed049ca38378c62e4508eaa6e4e82dd0f913164ea499"
   license "MIT"
 
   bottle do
@@ -20,8 +20,17 @@ class OpenclawCli < Formula
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 
-    node_modules = libexec/"lib/node_modules/openclaw/node_modules/"
-    deuniversalize_machos node_modules/"@mariozechner/clipboard-darwin-universal/clipboard.darwin-universal.node"
+    node_modules = libexec/"lib/node_modules/openclaw/node_modules"
+    pi_node_modules = node_modules/"@earendil-works/pi-coding-agent/node_modules"
+    os = OS.mac? ? "darwin" : "linux"
+    arch = Hardware::CPU.arm? ? "arm64" : "x64"
+    pi_node_modules.glob("@mariozechner/*").each do |dir|
+      rm_r(dir) unless dir.basename.to_s.start_with?("clipboard-#{os}-#{arch}")
+      rm_r(dir) if OS.linux? && dir.basename.to_s.exclude?("gnu")
+    end
+    pi_node_modules.glob("koffi/build/koffi/*").each do |dir|
+      rm_r(dir) if dir.basename.to_s != "#{os}_#{arch}"
+    end
 
     # sqlite-vec falls back cleanly when the native extension is unavailable.
     # Remove macOS pre-built dylibs that fail Homebrew bottle linkage fixups.
@@ -29,7 +38,6 @@ class OpenclawCli < Formula
 
     # Remove incompatible pre-built binaries (non-native architectures
     # and GPU variants requiring CUDA/Vulkan)
-    arch = Hardware::CPU.arm? ? "arm64" : "x64"
     target = "#{OS.linux? ? "linux" : "mac"}-#{arch}"
 
     node_modules.glob("tree-sitter-bash/prebuilds/*").each do |dir|
