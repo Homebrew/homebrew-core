@@ -5,13 +5,14 @@ class Yaws < Formula
   head "https://github.com/erlyaws/yaws.git", branch: "master"
 
   stable do
-    url "https://github.com/erlyaws/yaws/archive/refs/tags/yaws-2.2.0.tar.gz"
-    sha256 "39318736472c165d4aec769c89ac4edfe3cab7ff7759f32de0a4e699ef6c88e8"
+    url "https://github.com/erlyaws/yaws/archive/refs/tags/yaws-2.3.0.tar.gz"
+    sha256 "13cbe85d67c9e95e5d5241fe80cf0be3de5cdff4648eec76541c705fe6d8d08f"
 
-    # Backport support to build with Erlang 29
+    # Fix types in `application/yapp`
+    # Remove in the next release
     patch do
-      url "https://github.com/erlyaws/yaws/commit/b325caea6cf9df1411b1b1f0c362a1ac28058654.patch?full_index=1"
-      sha256 "f20f083d36ef1b0f9719f8b43084dd6085573119aa14c76b3f1448e375683691"
+      url "https://github.com/erlyaws/yaws/commit/8817e802177d47ae569d8f4323bd7ac27d0736b9.patch?full_index=1"
+      sha256 "8dad15546ca9deef951708ce57d3570c04073ff1c7a67296358d37c51282845c"
     end
   end
 
