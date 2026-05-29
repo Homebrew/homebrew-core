@@ -3,18 +3,18 @@ class RpdsPy < Formula
 
   desc "Python bindings to Rust's persistent data structures"
   homepage "https://rpds.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/2e/43/25a8dcd3feedd735039a8f0b5b7e3b118232b5eae288c4fd9ab200d41094/rpds_py-2026.5.1.tar.gz"
-  sha256 "07b24fea40541e28570e5b795a4a38fbdcd12550c06bd0748005ecc8116ca256"
+  url "https://files.pythonhosted.org/packages/20/af/3f2f423103f1113b36230496629986e0ef7e199d2aa8392452b484b38ced/rpds_py-0.30.0.tar.gz"
+  sha256 "dd8ff7cf90014af0c0f787eea34794ebf6415242ee1d6fa91eaba725cc441e84"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "9891bd49f258c2938b83836301b897d5233bd5674cf376f9acce3faa387fe21c"
-    sha256 cellar: :any, arm64_sequoia: "fa22ff97d66e66239b52785025ed16ecd3c3f0503ffc7f3c45f2d50522811548"
-    sha256 cellar: :any, arm64_sonoma:  "90eb5cb97727b360594c1ad5754e50914168e9d79b2b1f992ac49888b6fab4ab"
-    sha256 cellar: :any, sonoma:        "a2e44885e2a7f256c67adede77bcae36952ec5b44c6ca6ce51064cf4f3633e9b"
-    sha256 cellar: :any, arm64_linux:   "90348d1888a871b1127b6d8c108d35db52039153546b388509bb692bcd893b08"
-    sha256 cellar: :any, x86_64_linux:  "de4ea069b065799b8c8167a69030b0e248e8aced5743a69e5d5fcb6a3554e8a3"
+    sha256 cellar: :any,                 arm64_tahoe:   "715388516c58816ba10a5458011fb92a77970c58544d4167c6e36de71b193f6e"
+    sha256 cellar: :any,                 arm64_sequoia: "bd16aebf97d58de866e2041ee66bcca16c9f55a652100f9514cc0d313b8803fd"
+    sha256 cellar: :any,                 arm64_sonoma:  "6e1ce5a078da634180ffd96bebf737afab0967954852a16c90f733f2eb858138"
+    sha256 cellar: :any,                 sonoma:        "3808dbe98500333e04280e14b13b13eaf99d72273ed0080dcc2d2f69debe7044"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1f51f49db0cdc7e4096374c349e02cca662493409941321c9a5975cfcc3c25ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e2de518db42c0db26a5d5bc60bca0af22ed32d44043bf6bb42755213523a659"
   end
 
   depends_on "maturin" => :build

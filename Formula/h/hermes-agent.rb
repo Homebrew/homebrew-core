@@ -8,11 +8,6 @@ class HermesAgent < Formula
   license "MIT"
   head "https://github.com/NousResearch/hermes-agent.git", branch: "main"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "079531e165fbfe6753fd5395946dd6c9ca0155f82709827aef194fd2fb785b3d"
     sha256 cellar: :any,                 arm64_sequoia: "b4b06619ee93e035f263fa471e712520173f86ee3432ebe9980f711741cec627"

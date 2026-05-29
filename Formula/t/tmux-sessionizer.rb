@@ -1,17 +1,17 @@
 class TmuxSessionizer < Formula
   desc "Tool for opening git repositories as tmux sessions"
   homepage "https://github.com/jrmoulton/tmux-sessionizer/"
-  url "https://github.com/jrmoulton/tmux-sessionizer/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "186c83b892d29ea7161676c787589a2765c8550fe03d604eb44fd931df5e293c"
+  url "https://github.com/jrmoulton/tmux-sessionizer/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "d33e0e7c544de0798ab9fdfdfd2914ee486a6bdf61f183f8634a7f42a1006ba0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52fc5a69d6267f256d6224f386e2b1e21673695970783397c8b7651c4d4a3ff8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df1ee713aae26d6d8aba8d9d28acfb95fd3ba7b347b2a779174118cdbe4726dc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf58c2687f60a767467deea5bd9ef5b21a5cd3ba8bbcc9ae9a8579b415aaf96a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fba2821174c650778172f3e212b186fd78807ee016787df2ab3001db8812c529"
-    sha256 cellar: :any,                 arm64_linux:   "efe76142e388c210962bf6e36dfaff4d7d1cf737b7126804a242d67bd8bd3537"
-    sha256 cellar: :any,                 x86_64_linux:  "6800da10228fe8b4f72a3e6a58c3826602b73c18611a814fe8d92d678e7eb666"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "691a259dca94951fa001d0e5fac2f5ef8053967dfa558bf02d81254feb0dee01"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "26d474957de8463c836bd1c915ad59667aaa203168490d431a46c9b996ab7f54"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce3acdb075e3e4f05370452d5c7e355ab2667776d0ce059ecb71c515fd33bc8b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "69b2ec1579e1baed3782b63ef6c3bb174f7afdc8b3fc713c954c1db0dc4a5b75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4bb505e7eaa28699e5691efc1eb88e15b19bb7be6a17e0a277969a0cef87fbfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "baf6819b1996d90c69172a9460e81e3779de4b8a9daae77b2970a0b79c2977de"
   end
 
   depends_on "rust" => :build

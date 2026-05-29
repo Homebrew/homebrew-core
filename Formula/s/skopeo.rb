@@ -1,17 +1,17 @@
 class Skopeo < Formula
   desc "Work with remote images registries"
   homepage "https://github.com/containers/skopeo"
-  url "https://github.com/containers/skopeo/archive/refs/tags/v1.23.0.tar.gz"
-  sha256 "de96bfc2bb523c852af675ffdadd934484812ce190aa8620e1d5fd6c51442e25"
+  url "https://github.com/containers/skopeo/archive/refs/tags/v1.22.2.tar.gz"
+  sha256 "b6e1f208c1048f7a80613e8154774e6a3fdc891aeb45325c8ed905be4dee48d8"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "a93a144e4d21454d330d20537a175192818eff12bd3bf39b24bcd9df59c3ef11"
-    sha256 cellar: :any, arm64_sequoia: "4a4dec053c4455b697ad281764db577f65df8e38b6229b523c7a2b80f19e308e"
-    sha256 cellar: :any, arm64_sonoma:  "f19eda35caa3f43719974c12b493e6b01a22daf429171a852fda8e7faaa7405d"
-    sha256 cellar: :any, sonoma:        "a57bd1550d62257a16cbba71ed575978b1098f2b3767ae341aff61e0cc089d7d"
-    sha256 cellar: :any, arm64_linux:   "ae5b682c693390a7130d47c4086fc4537390fb3ff95a488e05d8e50bd0ab22c6"
-    sha256 cellar: :any, x86_64_linux:  "7afc74962f447ba96d1ace2fba34d88894549adf366ebadb5be7e35f3d94c31f"
+    sha256               arm64_tahoe:   "e36348d1a9b374d7e26ed244e22812b06b975c9e366dc86f062754b6e44333bd"
+    sha256               arm64_sequoia: "4d748abe26a03304db741d3d4706166761648de067f92b6dfd9b9ff9b4318cac"
+    sha256               arm64_sonoma:  "c2c419417107ef6d75bcc79cf55a0320fb3d74a8b13f6cc9c6fc2cc8b1af22d4"
+    sha256 cellar: :any, sonoma:        "7cd6c9189287dafbd5007a79ea8e9bd53809f38f13417b9bf0c29fb6a4e61b03"
+    sha256               arm64_linux:   "5055e6a401bf22ccc27841582a02214cb0c85b6d5c842424fb87728e63636c32"
+    sha256               x86_64_linux:  "a04548ac4277a5c6e144814e5e4b99d56f70b98ab779ad6e107158d6bbc1e287"
   end
 
   depends_on "go" => :build
@@ -57,11 +57,9 @@ class Skopeo < Formula
     output = shell_output(cmd)
     assert_match "docker.io/library/busybox", output
 
-    expected = if OS.mac?
-      "Error loading trust policy"
-    else
-      "Invalid destination name test"
-    end
-    assert_match expected, shell_output("#{bin}/skopeo copy docker://alpine test 2>&1", 1)
+    # https://github.com/Homebrew/homebrew-core/pull/47766
+    # https://github.com/Homebrew/homebrew-core/pull/45834
+    assert_match(/Invalid destination name test: Invalid image name .+, expected colon-separated transport:reference/,
+                 shell_output("#{bin}/skopeo copy docker://alpine test 2>&1", 1))
   end
 end
