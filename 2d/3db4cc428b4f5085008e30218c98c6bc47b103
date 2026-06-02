@@ -1,0 +1,24 @@
+Formula/c/cucumber-ruby.rb
+  s_bf306cac80c912::t_2c3a330ca4c8c2 83
+  s_bf306cac80c912::t_bf3b9547f78ea4 93
+  s_bf306cac80c912::t_a9bdae56ac0bb5 92
+  s_bf306cac80c912::t_80a4f777759a0b 78
+  s_bf306cac80c912::t_dcd9bf4f7b8306 82
+  s_bf306cac80c912::t_df705ca3fa7e4f 77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "2d3db4cc428b4f5085008e30218c98c6bc47b103",
+  "prompts": {},
+  "sessions": {
+    "s_bf306cac80c912": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "74e257f9-4e3d-4286-82f2-d2e0fc19106d",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
