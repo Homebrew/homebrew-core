@@ -2,8 +2,8 @@ class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
   # Keep version in sync with manual below
-  url "https://downloads.sourceforge.net/project/asymptote/3.11/asymptote-3.11.src.tgz"
-  sha256 "537e9f22621bf84f09ee0d44dc455c4ea91ba193830f1d7624a07d4710d7e7d1"
+  url "https://downloads.sourceforge.net/project/asymptote/3.12/asymptote-3.12.src.tgz"
+  sha256 "eaec1e97463ef213a393c388d466a73478b0818f9403c962b91240659c9b8f1b"
   license "LGPL-3.0-only"
 
   livecheck do
@@ -26,6 +26,7 @@ class Asymptote < Formula
   depends_on "bdw-gc"
   depends_on "fftw"
   depends_on "ghostscript"
+  depends_on "glfw"
   depends_on "gsl"
   depends_on "readline"
 
@@ -42,8 +43,8 @@ class Asymptote < Formula
   end
 
   resource "manual" do
-    url "https://downloads.sourceforge.net/project/asymptote/3.11/asymptote.pdf"
-    sha256 "edfc31f9a54900dcc92fd29535aecccf5e83a38c5843742d7418aaa3baee3802"
+    url "https://downloads.sourceforge.net/project/asymptote/3.12/asymptote.pdf"
+    sha256 "61cf226107c7010848626dd7251e99891e5f64c14721c6c30fa0abb3c28191b7"
 
     livecheck do
       formula :parent
@@ -53,7 +54,7 @@ class Asymptote < Formula
   def install
     odie "manual resource needs to be updated" if version != resource("manual").version
 
-    system "./configure", *std_configure_args
+    system "./configure", "--enable-vulkan=no", *std_configure_args
 
     # Avoid use of LaTeX with these commands (instead of `make all && make install`)
     # Also workaround to override bundled bdw-gc. Upstream is not willing to add configure option.
