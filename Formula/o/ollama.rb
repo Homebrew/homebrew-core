@@ -5,6 +5,7 @@ class Ollama < Formula
       tag:      "v0.30.2",
       revision: "4b5bdd3b25118dc6904c01b01b47abcf5cbd8b92"
   license "MIT"
+  revision 1
   head "https://github.com/ollama/ollama.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -26,6 +27,8 @@ class Ollama < Formula
 
   depends_on "cmake" => :build
   depends_on "go" => :build
+
+  depends_on "llama.cpp"
 
   on_macos do
     on_arm do
