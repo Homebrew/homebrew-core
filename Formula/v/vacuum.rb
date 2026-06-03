@@ -15,6 +15,9 @@ class Vacuum < Formula
     sha256 cellar: :any,                 x86_64_linux:  "c07a87bffe884f103f097f4654864156d053060f9136c413317f2df4772684c7"
   end
 
+  deprecate! date: "2026-06-03", because: :unsupported, replacement_cask: "daveshanley/vacuum/vacuum"
+  disable! date: "2026-12-03", because: :unsupported, replacement_cask: "daveshanley/vacuum/vacuum"
+
   depends_on "go" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
