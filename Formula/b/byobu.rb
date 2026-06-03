@@ -43,7 +43,7 @@ class Byobu < Formula
       byobu_script = "byobu-#{script.basename(".py")}"
 
       libexec.install(bin/byobu_script)
-      (bin/byobu_script).write_env_script(libexec/byobu_script, BYOBU_PYTHON: byobu_python.to_s)
+      (bin/byobu_script).write_env_script(libexec/byobu_script, BYOBU_PYTHON: byobu_python)
     end
   end
 
