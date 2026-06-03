@@ -6,6 +6,7 @@ class LlamaCpp < Formula
       tag:      "b9430",
       revision: "d48a56effbba99944a677938d4beb63a0065ecdf"
   license "MIT"
+  revision 1
   compatibility_version 1
   head "https://github.com/ggml-org/llama.cpp.git", branch: "master"
 
@@ -38,6 +39,7 @@ class LlamaCpp < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DLLAMA_ALL_WARNINGS=OFF
       -DLLAMA_BUILD_TESTS=OFF
+      -DLLAMA_BUILD_SERVER=ON
       -DLLAMA_OPENSSL=ON
       -DLLAMA_USE_SYSTEM_GGML=ON
     ]
