@@ -46,6 +46,7 @@ class Openvino < Formula
     depends_on "pybind11" => :build
     depends_on "rapidjson" => :build
     depends_on "opencl-icd-loader"
+    depends_on "openssl@3"
 
     resource "onednn_gpu" do
       url "https://github.com/uxlfoundation/oneDNN/archive/470e87eb07bdc805937a9f6d45d5c3a0fe4d27e7.tar.gz"
