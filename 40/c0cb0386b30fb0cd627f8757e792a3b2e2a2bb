@@ -1,0 +1,20 @@
+Formula/m/miniz.rb
+  s_adee74f75ca207::t_0d394a29028159 9-10,12-13
+  s_adee74f75ca207::t_7da29c9519daa3 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "40c0cb0386b30fb0cd627f8757e792a3b2e2a2bb",
+  "prompts": {},
+  "sessions": {
+    "s_adee74f75ca207": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58b78242-d08b-41b4-8736-021803729771",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": null
+    }
+  }
+}
