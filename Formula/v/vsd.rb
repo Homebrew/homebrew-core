@@ -1,5 +1,5 @@
 class Vsd < Formula
-  desc "A command-line utility for downloading streams from DASH .mpd manifests and HLS .m3u8 playlists."
+  desc "Download streams from DASH .mpd manifests and HLS .m3u8 playlists"
   homepage "https://github.com/clitic/vsd"
   url "https://github.com/clitic/vsd/archive/refs/tags/vsd-0.5.0.tar.gz"
   sha256 "d47092ce89c22d36d0fd976bd558fa9f895384025cb98e568adbf9793134d7dc"
