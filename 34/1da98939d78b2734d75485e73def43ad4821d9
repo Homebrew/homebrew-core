@@ -1,0 +1,19 @@
+Formula/h/hookdeck.rb
+  s_adee74f75ca207::t_56070f8994331e 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "341da98939d78b2734d75485e73def43ad4821d9",
+  "prompts": {},
+  "sessions": {
+    "s_adee74f75ca207": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58b78242-d08b-41b4-8736-021803729771",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
