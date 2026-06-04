@@ -1,0 +1,19 @@
+Formula/m/miniz.rb
+  s_adee74f75ca207::t_0d394a29028159 9-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "cf0d01ea45e63f16302f3216008dfc24a55ef3e2",
+  "prompts": {},
+  "sessions": {
+    "s_adee74f75ca207": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58b78242-d08b-41b4-8736-021803729771",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
