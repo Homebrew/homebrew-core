@@ -1,0 +1,20 @@
+Formula/a/ansible@13.rb
+  s_adee74f75ca207::t_1fe4d3a2ddf028 1,9-15,17-22
+  s_adee74f75ca207::t_5c08f82edebcbe 2-8,16,23-612
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "ef72d033d0ecf690471ccdc85d368a5da7f78402",
+  "prompts": {},
+  "sessions": {
+    "s_adee74f75ca207": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58b78242-d08b-41b4-8736-021803729771",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
