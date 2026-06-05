@@ -1,0 +1,14 @@
+Formula/y/youplot.rb
+  h_9df9c32c3f321d 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "04bf20be9ba792f674e5a74f8ab19cda9079cf9c",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
