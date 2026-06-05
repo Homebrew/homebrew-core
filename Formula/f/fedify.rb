@@ -1,18 +1,18 @@
 class Fedify < Formula
   desc "CLI toolchain for Fedify"
   homepage "https://fedify.dev/cli"
-  url "https://github.com/fedify-dev/fedify/archive/refs/tags/2.2.4.tar.gz"
-  sha256 "47b7c0059906430313dc41ac9c956b5416070b09f82bbdba966eaecbc49b1379"
+  url "https://github.com/fedify-dev/fedify/archive/refs/tags/2.2.5.tar.gz"
+  sha256 "fa25bebd0eb4e2e25ca29e5460668f79e044801f92f913c48db5f35e7b18c7e6"
   license "MIT"
   head "https://github.com/fedify-dev/fedify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3abbe06d8418708983a659fe15c15ee89c2259306a5663ffe3a3fae1bda295b8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32c49e6bf9b74f929e3bac6e33375614f30b2e63c3e5f2137cb1acee3e3e00cd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b5fa8a85989924556950c97822ffe1da1d1b914b2a9fa65066c7249d5531a44f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "16946400151cdcde54918be8ee993892321b68277787bef71ac45d80f700762f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "290d949e8868b8806b35036ec60aa077f42f268644407068a8e036dd0daac39f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "170ed3cfdd705c7139603f30b4bae530ac4642d618f4109366a7da3046c70f2f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "123f67f7934b3541b87b4353b5a200e0f2c50bf102e9fb3aa5ec1dd2dafe8b9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9e1b3da532193d57bce79dd6947af0abe43a1de5e018976d99a97753a597c4d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8810b75c800451e1cf75b206d74ae2b58ca700c2eae538137debc6089f47133a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "708ba5559a103040e881c96e81d0ccd9109d609965c58c5f4d0a7f6c53c84c88"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d469619898f78cce86d27ee8c0a9879f75168a867b123d86adbcda5bcb7dd4f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9bb25e68d1be79317ee4333bc2ab054d397c563fdf697d01ce406580b423aeb"
   end
 
   depends_on "deno" => :build
@@ -21,13 +21,6 @@ class Fedify < Formula
     # We use a workaround to prevent modification of the `fedify` binary
     # but this means brew cannot rewrite paths for non-default prefix
     pour_bottle? only_if: :default_prefix
-  end
-
-  # Fix type error with Deno 2.8+ where setTimeout returns Timeout, not number
-  # https://github.com/fedify-dev/fedify/pull/789
-  patch do
-    url "https://github.com/chenrui333/fedify/commit/fc77c0003620bed0ea20a002fcdf52f56864798e.patch?full_index=1"
-    sha256 "8fb3d89a946924573020391e39f5497d178283848bf4a18daa4b9fa2b33bff77"
   end
 
   def install
