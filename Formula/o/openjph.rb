@@ -1,19 +1,19 @@
 class Openjph < Formula
   desc "Open-source implementation of JPEG2000 Part-15 (or JPH or HTJ2K)"
   homepage "https://github.com/aous72/OpenJPH"
-  url "https://github.com/aous72/OpenJPH/archive/refs/tags/0.27.3.tar.gz"
-  sha256 "f96808ef72cf3acca73a52123bda3e680f6550dfb4774ad7de57eb3ce26de57a"
+  url "https://github.com/aous72/OpenJPH/archive/refs/tags/0.27.4.tar.gz"
+  sha256 "4bd6c75cc74721b1a40c3e07206621d0c953d0b21e9f63c9982a8ecb4a6f326d"
   license "BSD-2-Clause"
   compatibility_version 2
   head "https://github.com/aous72/OpenJPH.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1017ceff9efe338afe41d3457605873b38a4f64051a67e79dc129d6178b4b5b9"
-    sha256 cellar: :any,                 arm64_sequoia: "ed56deb929a1d39ececb4f471e89c7043ea9a7f0f1e0aef8622f5217c559eae5"
-    sha256 cellar: :any,                 arm64_sonoma:  "88271d81447d931c1b6150fe372b8787e7524fd16e965b64658db8468ef638ec"
-    sha256 cellar: :any,                 sonoma:        "70728b71d49d15add086d75bfdcf0802dc39817bbfbb4e09501dd94476fe4c49"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdf747bdc76a1151087b1c7efe1db18e1fd7e938e078333d23a52280fc6d992e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b9fa791196bd379fa3a8d0d1ee9c852096073895d57d2f10d05968ddd2f47cf"
+    sha256 cellar: :any, arm64_tahoe:   "cd9b15e9f756a82579559662bc1b89075f89b9c9d4c79aa9788cd86faf79a673"
+    sha256 cellar: :any, arm64_sequoia: "2522f9415fb6582c665cb8b172d7be00803a2810c14849469d54a8dd066ce158"
+    sha256 cellar: :any, arm64_sonoma:  "66dcd6f07aec1b08799be8cccf11d0d74ec88e8f9abc0a4ab896ee5f76d61ada"
+    sha256 cellar: :any, sonoma:        "877fabfcdf0ae0a06a82c14c84cdc2812261b02b4d64dcef229f51d5a92b4de1"
+    sha256 cellar: :any, arm64_linux:   "78939ad6850e572bf9077efd528f58ed0a9ecf88d5c1d5c04abb7175f5716b9d"
+    sha256 cellar: :any, x86_64_linux:  "c147b323885f5ff48296ac124a1da19fe84e4ad913fb5ea1d1817c33e17e6ae2"
   end
 
   depends_on "cmake" => :build
