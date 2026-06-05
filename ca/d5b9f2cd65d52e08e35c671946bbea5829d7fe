@@ -1,0 +1,19 @@
+Formula/z/zigmod.rb
+  s_bd8da0afa59bd3::t_e9c703345c6e8d 57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "cad5b9f2cd65d52e08e35c671946bbea5829d7fe",
+  "prompts": {},
+  "sessions": {
+    "s_bd8da0afa59bd3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1cdb9348-a9d9-4993-90b0-8faca2983f1f",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
