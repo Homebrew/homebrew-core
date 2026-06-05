@@ -1,0 +1,14 @@
+Formula/p/petsc-complex.rb
+  h_9df9c32c3f321d 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "202a0556ebeeeca39b0c9c89d0373d28db3cd95c",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
