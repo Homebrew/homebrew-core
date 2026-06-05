@@ -1,0 +1,19 @@
+Formula/z/zigmod.rb
+  s_bb592bebbe3a1c::t_f4fc24d9f74ffd 24,50-69,78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "d21ae1c6ecdb289907eb7aa9fe7b89ce5281adc7",
+  "prompts": {},
+  "sessions": {
+    "s_bb592bebbe3a1c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e9612-88e0-7772-aeb4-a600769f4b99",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
