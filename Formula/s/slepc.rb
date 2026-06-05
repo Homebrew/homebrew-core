@@ -4,6 +4,7 @@ class Slepc < Formula
   url "https://slepc.upv.es/download/distrib/slepc-3.24.3.tar.gz"
   sha256 "3f13421f3fcd68fd720a143088506e0f91e24243844703997597eee793225452"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://slepc.upv.es/download/distrib/"
