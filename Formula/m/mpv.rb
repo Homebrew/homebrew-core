@@ -68,7 +68,7 @@ class Mpv < Formula
     depends_on "libxscrnsaver"
     depends_on "libxv"
     depends_on "mesa"
-    depends_on "pulseaudio"
+    depends_on "pipewire"
     depends_on "wayland"
     depends_on "wayland-protocols" => :no_linkage # needed by mpv.pc
     depends_on "zlib-ng-compat"
@@ -106,6 +106,7 @@ class Mpv < Formula
         -Degl=enabled
         -Dwayland=enabled
         -Dx11=enabled
+        -Dpipewire=enabled
       ]
     end
 
