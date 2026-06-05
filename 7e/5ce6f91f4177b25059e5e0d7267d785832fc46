@@ -1,0 +1,19 @@
+Formula/f/fedify.rb
+  s_bd8da0afa59bd3::t_cbf03038a2292d 26-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "7e5ce6f91f4177b25059e5e0d7267d785832fc46",
+  "prompts": {},
+  "sessions": {
+    "s_bd8da0afa59bd3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1cdb9348-a9d9-4993-90b0-8faca2983f1f",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": null
+    }
+  }
+}
