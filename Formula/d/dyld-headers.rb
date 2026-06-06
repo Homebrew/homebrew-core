@@ -11,6 +11,7 @@ class DyldHeaders < Formula
 
   keg_only :provided_by_macos
 
+  # Install header files to the include directory.
   def install
     include.install Dir["include/*"]
   end
