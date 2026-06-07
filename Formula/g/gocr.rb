@@ -1,14 +1,14 @@
 class Gocr < Formula
   desc "Optical Character Recognition (OCR), converts images back to text"
-  homepage "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/"
-  url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/gocr-0.52.tar.gz"
+  homepage "https://jocr.sourceforge.net/"
+  url "https://deb.debian.org/debian/pool/main/g/gocr/gocr_0.52.orig.tar.gz"
   sha256 "df906463105f5f4273becc2404570f187d4ea52bd5769d33a7a8661a747b8686"
   license "GPL-2.0-or-later"
   revision 2
 
   livecheck do
-    url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/download.html"
-    regex(%r{href=(?:["']?|.*?/)gocr[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    url "https://deb.debian.org/debian/pool/main/g/gocr/"
+    regex(/href=.*?gocr[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
   bottle do
