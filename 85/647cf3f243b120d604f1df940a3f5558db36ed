@@ -1,0 +1,14 @@
+Formula/k/k0sctl.rb
+  h_9df9c32c3f321d 15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "85647cf3f243b120d604f1df940a3f5558db36ed",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
