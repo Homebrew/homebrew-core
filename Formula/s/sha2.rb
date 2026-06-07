@@ -1,14 +1,16 @@
 class Sha2 < Formula
   desc "Implementation of SHA-256, SHA-384, and SHA-512 hash algorithms"
-  homepage "https://aarongifford.com/computers/sha.html"
-  url "https://aarongifford.com/computers/sha2-1.0.1.tgz"
+  homepage "https://src.fedoraproject.org/rpms/sha2"
+  url "https://src.fedoraproject.org/repo/pkgs/sha2/sha2-1.0.1.tgz/5c050ef4edb9d5198e7d57e759c4996f/sha2-1.0.1.tgz"
   sha256 "67bc662955c6ca2fa6a0ce372c4794ec3d0cd2c1e50b124e7a75af7e23dd1d0c"
   license "BSD-3-Clause"
 
   livecheck do
-    url :homepage
+    url "https://src.fedoraproject.org/repo/pkgs/sha2/"
     regex(/href=.*?sha2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 4
