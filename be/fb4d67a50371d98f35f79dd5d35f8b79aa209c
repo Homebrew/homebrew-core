@@ -1,0 +1,21 @@
+Formula/c/concord.rb
+  s_93bdd1fb1e80f4::t_67b94e6ab12a00 21-28,30-33,36-41
+  s_93bdd1fb1e80f4::t_86a85772ea7292 29
+  s_93bdd1fb1e80f4::t_4b50b2e2d057ef 34-35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "befb4d67a50371d98f35f79dd5d35f8b79aa209c",
+  "prompts": {},
+  "sessions": {
+    "s_93bdd1fb1e80f4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ea228-ab2d-7573-80cd-16dace18a069",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
