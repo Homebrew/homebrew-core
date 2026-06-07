@@ -41,7 +41,7 @@ class Sdl2 < Formula
     depends_on "libxi"
     depends_on "libxrandr"
     depends_on "libxscrnsaver"
-    depends_on "pulseaudio"
+    depends_on "pipewire"
   end
 
   def install
@@ -58,8 +58,8 @@ class Sdl2 < Formula
     else
       %w[
         --disable-rpath
-        --enable-pulseaudio
-        --enable-pulseaudio-shared
+        --enable-pipewire
+        --enable-pipewire-shared
         --enable-video-dummy
         --enable-video-opengl
         --enable-video-opengles
