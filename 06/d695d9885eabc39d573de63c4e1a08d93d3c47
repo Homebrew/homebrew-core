@@ -1,0 +1,24 @@
+Formula/k/k0sctl.rb
+  s_93bdd1fb1e80f4::t_194d45df0c565b 12-13,21-22,26-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "06d695d9885eabc39d573de63c4e1a08d93d3c47",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  },
+  "sessions": {
+    "s_93bdd1fb1e80f4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ea228-ab2d-7573-80cd-16dace18a069",
+        "model": "gpt-5.5"
+      },
+      "human_author": null
+    }
+  }
+}
