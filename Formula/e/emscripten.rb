@@ -1,8 +1,8 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/5.0.7.tar.gz"
-  sha256 "66a6537a8dede6b0e5945839f0d0641e73e64f728729d26900e9d918040f0210"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/6.0.0.tar.gz"
+  sha256 "c2ee2193824bd72b570bcd00f9e96b30a93a7097d57a5f586265f904a6072077"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -50,9 +50,9 @@ class Emscripten < Formula
   # https://chromium.googlesource.com/emscripten-releases/+/<commit>/DEPS
   # Then use the listed binaryen_revision for the revision below.
   resource "binaryen" do
-    url "https://github.com/WebAssembly/binaryen/archive/c6a5e65b77a4b6e9d72fa7ba674632aba4b99099.tar.gz"
-    version "c6a5e65b77a4b6e9d72fa7ba674632aba4b99099"
-    sha256 "a807c950b910d247a5f68dd059e775f0c7bda9fecff5a1ef11f4180e1a60ccf8"
+    url "https://github.com/WebAssembly/binaryen/archive/b9c72894fba2ee5bef8e4002fb176c1917a556ad.tar.gz"
+    version "b9c72894fba2ee5bef8e4002fb176c1917a556ad"
+    sha256 "7f3186396beb1242ef97d9c6295214a15e5b72a2808d53bb4d366f52b95829b5"
 
     livecheck do
       url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
@@ -76,9 +76,9 @@ class Emscripten < Formula
   # See binaryen resource above for instructions on how to update this.
   # Then use the listed llvm_project_revision for the tarball below.
   resource "llvm" do
-    url "https://github.com/llvm/llvm-project/archive/7b58716d96c3ae4c0c4e6f72e29b16137bb6224b.tar.gz"
-    version "7b58716d96c3ae4c0c4e6f72e29b16137bb6224b"
-    sha256 "0791c69319e1861e86ccb438d10b1b1816987f2d99b13d7e95ef08f88f0cedf8"
+    url "https://github.com/llvm/llvm-project/archive/c6c2ad52586c28e74a724570985a48dc0022d250.tar.gz"
+    version "c6c2ad52586c28e74a724570985a48dc0022d250"
+    sha256 "45661c79153188de66fdfa10fe3cc8a296056554ef35eb335c052c4dfc150442"
 
     livecheck do
       url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
@@ -194,8 +194,10 @@ class Emscripten < Formula
       # Delete native GraalVM image in incompatible platforms.
       if OS.linux? && Hardware::CPU.intel?
         rm_r("node_modules/google-closure-compiler-linux")
+      elsif OS.linux? && Hardware::CPU.arm?
+        rm_r("node_modules/google-closure-compiler-linux-arm64")
       elsif OS.mac? && Hardware::CPU.arm?
-        rm_r("node_modules/google-closure-compiler-osx")
+        rm_r("node_modules/google-closure-compiler-macos")
       end
 
       # Remove incompatible pre-built binaries
@@ -208,6 +210,12 @@ class Emscripten < Formula
         next if Dir.glob("#{dir}/rollup.*.node").empty?
 
         rm_r(dir) if permitted_dir != dir.basename.to_s
+      end
+
+      # Remove musl-libc native variants
+      if OS.linux?
+        rm_r libexec/"node_modules/lightningcss-#{os}-#{arch}-musl"
+        rm_r libexec/"node_modules/@rolldown/binding-#{os}-#{arch}-musl"
       end
     end
 
