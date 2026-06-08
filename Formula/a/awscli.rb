@@ -96,6 +96,8 @@ class Awscli < Formula
     which("python3.14")
   end
 
+  deny_network_access!
+
   def install
     ENV["AWS_CRT_BUILD_USE_SYSTEM_LIBCRYPTO"] = "1"
 
