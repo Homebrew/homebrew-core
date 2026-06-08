@@ -1,0 +1,30 @@
+diff --git a/lib/Frontend/CompilerInvocation.cpp b/lib/Frontend/CompilerInvocation.cpp
+index 477c664143d..87a6f1fe5dd 100644
+--- a/lib/Frontend/CompilerInvocation.cpp
++++ b/lib/Frontend/CompilerInvocation.cpp
+@@ -52,6 +52,25 @@ void CompilerInvocation::computeRuntimeResourcePathFromExecutablePath(
+ 
+   llvm::sys::path::remove_filename(runtimeResourcePath); // Remove /swift
+   llvm::sys::path::remove_filename(runtimeResourcePath); // Remove /bin
++
++  StringRef RuntimeResourcePathRef(runtimeResourcePath.data(), runtimeResourcePath.size());
++  llvm::SmallVector<StringRef> InstallPrefix;
++  for (auto PathIt = llvm::sys::path::rbegin(RuntimeResourcePathRef),
++            PathEnd = llvm::sys::path::rend(RuntimeResourcePathRef);
++            PathIt != PathEnd; ++PathIt) {
++    if (*PathIt == "Cellar" && !InstallPrefix.empty() && InstallPrefix.back() == "swift") {
++      llvm::SmallString<128> OrigPath(runtimeResourcePath.begin(), runtimeResourcePath.end());
++      runtimeResourcePath.resize(PathIt - PathEnd);
++      llvm::sys::path::append(runtimeResourcePath, "opt", "swift");
++      for (auto It = InstallPrefix.rbegin() + 2, End = InstallPrefix.rend(); It != End; ++It)
++        llvm::sys::path::append(runtimeResourcePath, *It);
++      if (!llvm::sys::fs::exists(runtimeResourcePath)) // not symlinked to opt
++        runtimeResourcePath.assign(OrigPath.begin(), OrigPath.end());
++      break;
++    }
++    InstallPrefix.push_back(*PathIt);
++  }
++
+   appendSwiftLibDir(runtimeResourcePath, shared);
+ }
+ 

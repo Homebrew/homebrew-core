@@ -1,0 +1,127 @@
+class Nss < Formula
+  desc "Libraries for security-enabled client and server applications"
+  homepage "https://firefox-source-docs.mozilla.org/security/nss/index.html"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_124_RTM/src/nss-3.124.tar.gz"
+  sha256 "80da9f1cbcb267293b2248818d288bc02f874d6a34f1989a2828401d74a0bc9b"
+  license "MPL-2.0"
+  compatibility_version 1
+
+  livecheck do
+    url "https://ftp.mozilla.org/pub/security/nss/releases/"
+    regex(%r{href=.*?NSS[._-]v?(\d+(?:[._]\d+)+)[._-]RTM/?["' >]}i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match.first.tr("_", ".") }
+    end
+  end
+
+  bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6441abee1d6e873bc100f92b9f7db22bfed703229778188af712a64a6aea5925"
+    sha256 cellar: :any,                 arm64_sequoia: "2867d46cfa3c28a508e9978de3536d446f14092fffdf00c07e7184ce2b856a35"
+    sha256 cellar: :any,                 arm64_sonoma:  "36f7e0e2e8a19948acea79abe4c2c443cfb3150424d30ceb862b5317044a731d"
+    sha256 cellar: :any,                 sonoma:        "ce5b1bed99de6f7859fd1c27fdf5c4eb0abf0f7614c83ae9fca60371e678ad93"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb1084c3378d57dda326c5f247c50edac553f08622dbc86649ed189eab78c63c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08e107f008b5aab4c7db5834886ce843ec057d2ef5ba9563177a00aa9ecb3d8b"
+  end
+
+  depends_on "nspr"
+
+  uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
+
+  conflicts_with "arabica", because: "both install `mangle` binaries"
+  conflicts_with "resty", because: "both install `pp` binaries"
+
+  def install
+    # Fails on arm64 macOS for some reason with:
+    #   aes-armv8.c:14:2: error: "Compiler option is invalid"
+    ENV.runtime_cpu_detection if OS.linux? || Hardware::CPU.intel?
+    ENV.deparallelize
+    cd "nss"
+
+    args = %W[
+      BUILD_OPT=1
+      NSS_ALLOW_SSLKEYLOGFILE=1
+      NSS_DISABLE_GTESTS=1
+      NSS_USE_SYSTEM_SQLITE=1
+      NSPR_INCLUDE_DIR=#{Formula["nspr"].opt_include}/nspr
+      NSPR_LIB_DIR=#{Formula["nspr"].opt_lib}
+      USE_64=1
+    ]
+
+    # Remove the broken (for anyone but Firefox) install_name
+    inreplace "coreconf/Darwin.mk", "-install_name @executable_path", "-install_name #{lib}"
+    inreplace "lib/freebl/config.mk", "@executable_path", lib
+
+    system "make", "all", *args
+
+    # We need to use cp here because all files get cross-linked into the dist
+    # hierarchy, and Homebrew's Pathname.install moves the symlink into the keg
+    # rather than copying the referenced file.
+    cd "../dist"
+    bin.mkpath
+    os = OS.kernel_name
+    Dir.glob("#{os}*/bin/*") do |file|
+      cp file, bin unless file.include? ".dylib"
+    end
+
+    include_target = include/"nss"
+    include_target.mkpath
+    Dir.glob("public/{dbm,nss}/*") { |file| cp file, include_target }
+
+    lib.mkpath
+    libexec.mkpath
+    Dir.glob("#{os}*/lib/*") do |file|
+      if file.include? ".chk"
+        cp file, libexec
+      else
+        cp file, lib
+      end
+    end
+    # resolves conflict with openssl, see legacy-homebrew#28258
+    rm lib/"libssl.a"
+
+    (bin/"nss-config").write config_file
+    (lib/"pkgconfig/nss.pc").write pc_file
+  end
+
+  test do
+    # See: https://developer.mozilla.org/docs/Mozilla/Projects/NSS/tools/NSS_Tools_certutil
+    (testpath/"passwd").write("It's a secret to everyone.")
+    system bin/"certutil", "-N", "-d", pwd, "-f", "passwd"
+    system bin/"certutil", "-L", "-d", pwd
+  end
+
+  # A very minimal nss-config for configuring firefox etc. with this nss,
+  # see https://bugzil.la/530672 for the progress of upstream inclusion.
+  def config_file
+    <<~EOS
+      #!/bin/sh
+      for opt; do :; done
+      case "$opt" in
+        --version) opt="--modversion";;
+        --cflags|--libs) ;;
+        *) exit 1;;
+      esac
+      pkg-config "$opt" nss
+    EOS
+  end
+
+  def pc_file
+    <<~EOS
+      prefix=#{prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include/nss
+
+      Name: NSS
+      Description: Mozilla Network Security Services
+      Version: #{version}
+      Requires: nspr >= 4.12
+      Libs: -L${libdir} -lnss3 -lnssutil3 -lsmime3 -lssl3
+      Cflags: -I${includedir}
+    EOS
+  end
+end

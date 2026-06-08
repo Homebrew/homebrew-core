@@ -1,0 +1,98 @@
+From 7661e79c3442001ae6b616be91630952d18f07e4 Mon Sep 17 00:00:00 2001
+From: Rui Chen <rui@chenrui.dev>
+Date: Wed, 5 Feb 2025 13:53:10 -0500
+Subject: [PATCH] curlpp: add build patch for curl 8.10
+
+Signed-off-by: Rui Chen <rui@chenrui.dev>
+---
+ doc/guide.tex              |  2 --
+ include/curlpp/Options.hpp | 19 ++++++++++---------
+ 2 files changed, 10 insertions(+), 11 deletions(-)
+
+diff --git a/doc/guide.tex b/doc/guide.tex
+index 12165e7..76b5c59 100644
+--- a/doc/guide.tex
++++ b/doc/guide.tex
+@@ -623,8 +623,6 @@ see the ``how to enhance cURLpp'' section.
+         cURL::CURLOPT_LOW_SPEED_TIME > LowSpeedTime;
+       typedef cURLpp::OptionTrait< long, 
+         cURL::CURLOPT_MAXCONNECTS > MaxConnects;
+-      typedef cURLpp::OptionTrait< cURL::curl_closepolicy, 
+-        cURL::CURLOPT_CLOSEPOLICY > ClosePolicy;
+       typedef cURLpp::OptionTrait< bool, 
+         cURL::CURLOPT_FRESH_CONNECT > FreshConnect;
+       typedef cURLpp::OptionTrait< bool, 
+diff --git a/include/curlpp/Options.hpp b/include/curlpp/Options.hpp
+index c705c9d..5b83469 100644
+--- a/include/curlpp/Options.hpp
++++ b/include/curlpp/Options.hpp
+@@ -209,7 +209,6 @@ namespace options
+ 	*/
+ 
+ 	typedef curlpp::OptionTrait<bool, CURLOPT_AUTOREFERER> AutoReferer;
+-	typedef curlpp::OptionTrait<std::string, CURLOPT_ENCODING> Encoding;
+ 	typedef curlpp::OptionTrait<bool, CURLOPT_FOLLOWLOCATION> FollowLocation;
+ 	typedef curlpp::OptionTrait<bool, CURLOPT_UNRESTRICTED_AUTH> UnrestrictedAuth;
+ 	typedef curlpp::OptionTrait<long, CURLOPT_MAXREDIRS> MaxRedirs;
+@@ -240,13 +239,9 @@ namespace options
+ 	typedef curlpp::OptionTrait<std::list<std::string>, CURLOPT_QUOTE> Quote;
+ 	typedef curlpp::OptionTrait<std::list<std::string>, CURLOPT_POSTQUOTE> PostQuote;
+ 	typedef curlpp::OptionTrait<std::list<std::string>, CURLOPT_PREQUOTE> PreQuote;
+-	typedef curlpp::OptionTrait<bool, CURLOPT_FTPLISTONLY> FtpListOnly;
+-	typedef curlpp::OptionTrait<bool, CURLOPT_FTPAPPEND> FtpAppend;
+ 	typedef curlpp::OptionTrait<bool, CURLOPT_FTP_USE_EPSV> FtpUseEpsv;
+ 	typedef curlpp::OptionTrait<long, CURLOPT_FTP_FILEMETHOD> FtpFileMethod;
+ 	typedef curlpp::OptionTrait<bool, CURLOPT_FTP_CREATE_MISSING_DIRS> FtpCreateMissingDirs;
+-	typedef curlpp::OptionTrait<bool, CURLOPT_FTP_RESPONSE_TIMEOUT> FtpResponseTimeout;
+-	typedef curlpp::OptionTrait<curl_ftpssl, CURLOPT_FTP_SSL> FtpSsl;
+ 	typedef curlpp::OptionTrait<curl_ftpauth, CURLOPT_FTPSSLAUTH> FtpSslAuth;
+ 
+ 
+@@ -278,7 +273,6 @@ namespace options
+ 	typedef curlpp::OptionTrait<long, CURLOPT_LOW_SPEED_LIMIT> LowSpeedLimit;
+ 	typedef curlpp::OptionTrait<long, CURLOPT_LOW_SPEED_TIME> LowSpeedTime;
+ 	typedef curlpp::OptionTrait<long, CURLOPT_MAXCONNECTS> MaxConnects;
+-	typedef curlpp::OptionTrait<curl_closepolicy, CURLOPT_CLOSEPOLICY> ClosePolicy;
+ 	typedef curlpp::OptionTrait<bool, CURLOPT_FRESH_CONNECT> FreshConnect;
+ 	typedef curlpp::OptionTrait<bool, CURLOPT_FORBID_REUSE> ForbidReuse;
+ 	typedef curlpp::OptionTrait<long, CURLOPT_CONNECTTIMEOUT> ConnectTimeout;
+@@ -291,10 +285,8 @@ namespace options
+ 
+ 	typedef curlpp::OptionTrait<std::string, CURLOPT_SSLCERT> SslCert;
+ 	typedef curlpp::OptionTrait<std::string, CURLOPT_SSLCERTTYPE> SslCertType;
+-	typedef curlpp::OptionTrait<std::string, CURLOPT_SSLCERTPASSWD> SslCertPasswd;
+ 	typedef curlpp::OptionTrait<std::string, CURLOPT_SSLKEY> SslKey;
+ 	typedef curlpp::OptionTrait<std::string, CURLOPT_SSLKEYTYPE> SslKeyType;
+-	typedef curlpp::OptionTrait<std::string, CURLOPT_SSLKEYPASSWD> SslKeyPasswd;
+ 	typedef curlpp::OptionTrait<std::string, CURLOPT_SSLENGINE> SslEngine;
+ 	typedef curlpp::NoValueOptionTrait<CURLOPT_SSLENGINE_DEFAULT> SslEngineDefault;
+ 	typedef curlpp::OptionTrait<long, CURLOPT_SSLVERSION> SslVersion;
+@@ -305,7 +297,6 @@ namespace options
+ 	typedef curlpp::OptionTrait<std::string, CURLOPT_EGDSOCKET> EgdSocket;
+ 	typedef curlpp::OptionTrait<long, CURLOPT_SSL_VERIFYHOST> SslVerifyHost;
+ 	typedef curlpp::OptionTrait<std::string, CURLOPT_SSL_CIPHER_LIST> SslCipherList;
+-	typedef curlpp::OptionTrait<std::string, CURLOPT_KRB4LEVEL> Krb4Level;
+ 
+ 
+ 	/**
+@@ -313,7 +304,17 @@ namespace options
+ 	*/
+ 
+ 	typedef curlpp::OptionTrait<void *, CURLOPT_PRIVATE> Private;
++
++#ifndef CURL_NO_OLDIES
+ 	typedef curlpp::OptionTrait<std::string, CURLOPT_KRB4LEVEL> Krb4Level;
++	typedef curlpp::OptionTrait<std::string, CURLOPT_SSLKEYPASSWD> SslKeyPasswd;
++	typedef curlpp::OptionTrait<std::string, CURLOPT_SSLCERTPASSWD> SslCertPasswd;
++	typedef curlpp::OptionTrait<curl_ftpssl, CURLOPT_FTP_SSL> FtpSsl;
++	typedef curlpp::OptionTrait<long, CURLOPT_FTP_RESPONSE_TIMEOUT> FtpResponseTimeout;
++	typedef curlpp::OptionTrait<bool, CURLOPT_FTPAPPEND> FtpAppend;
++	typedef curlpp::OptionTrait<bool, CURLOPT_FTPLISTONLY> FtpListOnly;
++	typedef curlpp::OptionTrait<std::string, CURLOPT_ENCODING> Encoding;
++#endif
+ 
+ 
+ 	//Share;
+-- 
+2.48.1
+

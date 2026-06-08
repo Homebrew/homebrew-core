@@ -1,0 +1,256 @@
+commit 8f8adb387ccc3ff968bcc1d044810893e7a426fc
+Author: Björn Svensson <bjorn.a.svensson@est.tech>
+Date:   Mon Oct 23 12:38:24 2023 +0200
+
+    Use PCRE2 instead of PCRE (#153)
+    
+    PCRE is now at end of life and is no longer actively maintained.
+    Lift the dependency to the next major version, i.e. PCRE2.
+    
+    Implementation notes:
+    - Removed the pcre study option since:
+      "The new API ... was simplified by abolishing the separate "study" optimizing
+      function; in PCRE2, patterns are automatically optimized where possible."
+    - If asprintf() fails the content of the 'strp' variable is undefined.
+      Lets check the return value and return NULL upon error.
+    - Pattern and subject can straightforwardly be cast to PCRE2_SPTR since we
+      only work with 8-bit code units.
+
+diff --git a/configure.ac b/configure.ac
+index df52731..ba58ca7 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -74,7 +74,7 @@ AM_CONDITIONAL(USE_JEMALLOC, test "x$have_jemalloc" = "xyes")
+ # AC_DEFINE(USE_JEMALLOC, test "x$found_jemalloc" = "xyes" , "use jemalloc")
+ 
+ 
+-PKG_CHECK_MODULES(DEPS, [libpcre])
++PKG_CHECK_MODULES(DEPS, [libpcre2-8])
+ AC_SUBST(DEPS_CFLAGS)
+ AC_SUBST(DEPS_LIBS)
+ 
+diff --git a/include/r3.h b/include/r3.h
+index f8732a2..347bb2b 100644
+--- a/include/r3.h
++++ b/include/r3.h
+@@ -10,7 +10,8 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <pcre.h>
++#define PCRE2_CODE_UNIT_WIDTH 8
++#include <pcre2.h>
+ #include <stdbool.h>
+ #include "r3_define.h"
+ #include "str_array.h"
+@@ -31,17 +32,16 @@ struct _node {
+     edge  ** edges;
+     // edge  ** edge_table;
+     char * combined_pattern;
+-    pcre * pcre_pattern;
++    pcre2_code * pcre_pattern;
+ 
+ // #ifdef PCRE_STUDY_JIT_COMPILE
+-    pcre_extra * pcre_extra;
++    pcre2_match_data * match_data;
+ // #endif
+ 
+     // edges are mostly less than 255
+     unsigned int edge_len;
+     unsigned int compare_type; // compare_type: pcre, opcode, string
+     unsigned char    endpoint; // endpoint, should be zero for non-endpoint nodes
+-    unsigned char    ov_cnt; // capture vector array size for pcre
+ 
+     // almost less than 255
+     unsigned char      edge_cap;
+diff --git a/r3.pc.in b/r3.pc.in
+index 6f2ffb9..d82ddf8 100644
+--- a/r3.pc.in
++++ b/r3.pc.in
+@@ -6,6 +6,6 @@ libdir=@libdir@
+ Name: r3
+ Description: High-performance URL router library
+ Version: @PACKAGE_VERSION@
+-Requires: libpcre
++Requires: libpcre2-8
+ Libs: -L${libdir} -lr3
+ CFlags: -I${includedir}
+diff --git a/src/edge.c b/src/edge.c
+index c42415e..48aefba 100644
+--- a/src/edge.c
++++ b/src/edge.c
+@@ -13,8 +13,6 @@
+ // Jemalloc memory management
+ // #include <jemalloc/jemalloc.h>
+ 
+-// PCRE
+-#include <pcre.h>
+ #include "r3.h"
+ #include "r3_str.h"
+ #include "slug.h"
+diff --git a/src/match_entry.c b/src/match_entry.c
+index 54854ae..ff39efc 100644
+--- a/src/match_entry.c
++++ b/src/match_entry.c
+@@ -7,7 +7,6 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <pcre.h>
+ #include <assert.h>
+ #include <stdbool.h>
+ 
+diff --git a/src/node.c b/src/node.c
+index 82d4412..34897df 100644
+--- a/src/node.c
++++ b/src/node.c
+@@ -5,9 +5,6 @@
+ #include <assert.h>
+ #include <ctype.h>
+ 
+-// PCRE
+-#include <pcre.h>
+-
+ #include "r3.h"
+ #include "r3_str.h"
+ #include "slug.h"
+@@ -59,7 +56,7 @@ node * r3_tree_create(int cap) {
+     n->endpoint = 0;
+     n->combined_pattern = NULL;
+     n->pcre_pattern = NULL;
+-    n->pcre_extra = NULL;
++    n->match_data = NULL;
+     n->data = NULL;
+     return n;
+ }
+@@ -73,13 +70,11 @@ void r3_tree_free(node * tree) {
+     zfree(tree->edges);
+     zfree(tree->routes);
+     if (tree->pcre_pattern) {
+-        pcre_free(tree->pcre_pattern);
++        pcre2_code_free(tree->pcre_pattern);
+     }
+-#ifdef PCRE_STUDY_JIT_COMPILE
+-    if (tree->pcre_extra) {
+-        pcre_free_study(tree->pcre_extra);
++    if (tree->match_data) {
++        pcre2_match_data_free(tree->match_data);
+     }
+-#endif
+     zfree(tree->combined_pattern);
+     zfree(tree);
+     tree = NULL;
+@@ -221,39 +216,44 @@ int r3_tree_compile_patterns(node * n, char **errstr) {
+ 
+     n->combined_pattern = cpat;
+ 
+-    const char *pcre_error;
+-    int pcre_erroffset;
++    int pcre_errorcode = 0;
++    PCRE2_SIZE pcre_erroffset = 0;
+     unsigned int option_bits = 0;
+ 
+-    n->ov_cnt = (1 + n->edge_len) * 3;
+-
+     if (n->pcre_pattern) {
+-        pcre_free(n->pcre_pattern);
++        pcre2_code_free(n->pcre_pattern);
+     }
+-    n->pcre_pattern = pcre_compile(
+-            n->combined_pattern,              /* the pattern */
++    n->pcre_pattern = pcre2_compile(
++            (PCRE2_SPTR)n->combined_pattern,  /* the pattern, 8-bit code units */
++            PCRE2_ZERO_TERMINATED,
+             option_bits,                                /* default options */
+-            &pcre_error,               /* for error message */
++            &pcre_errorcode,           /* for error code */
+             &pcre_erroffset,           /* for error offset */
+-            NULL);                /* use default character tables */
++            NULL);                     /* compile context */
+     if (n->pcre_pattern == NULL) {
+         if (errstr) {
+-            asprintf(errstr, "PCRE compilation failed at offset %d: %s, pattern: %s", pcre_erroffset, pcre_error, n->combined_pattern);
++            PCRE2_UCHAR buf[128];
++            pcre2_get_error_message(pcre_errorcode, buf, sizeof(buf));
++            int r = asprintf(errstr, "PCRE compilation failed at offset %ld: %s, pattern: %s", pcre_erroffset, buf, n->combined_pattern);
++            if (r < 0) {
++                *errstr = NULL; /* the content of errstr is undefined when asprintf() fails */
++            }
+         }
+         return -1;
+     }
+-#ifdef PCRE_STUDY_JIT_COMPILE
+-    if (n->pcre_extra) {
+-        pcre_free_study(n->pcre_extra);
++    if (n->match_data) {
++        pcre2_match_data_free(n->match_data);
+     }
+-    n->pcre_extra = pcre_study(n->pcre_pattern, 0, &pcre_error);
+-    if (n->pcre_extra == NULL) {
++    n->match_data = pcre2_match_data_create_from_pattern(n->pcre_pattern, NULL);
++    if (n->match_data == NULL) {
+         if (errstr) {
+-            asprintf(errstr, "PCRE study failed at offset %s, pattern: %s", pcre_error, n->combined_pattern);
++            int r = asprintf(errstr, "Failed to allocate match data block");
++            if (r < 0) {
++                *errstr = NULL; /* the content of errstr is undefined when asprintf() fails */
++            }
+         }
+         return -1;
+     }
+-#endif
+     return 0;
+ }
+ 
+@@ -323,20 +323,18 @@ node * r3_tree_matchl(const node * n, const char * path, int path_len, match_ent
+     if (n->pcre_pattern) {
+         const char *substring_start = NULL;
+         int   substring_length = 0;
+-        int   ov[ n->ov_cnt ];
+         int   rc;
+ 
+         info("pcre matching %s on %s\n", n->combined_pattern, path);
+ 
+-        rc = pcre_exec(
++        rc = pcre2_match(
+                 n->pcre_pattern, /* the compiled pattern */
+-                n->pcre_extra,
+-                path,         /* the subject string */
++                (PCRE2_SPTR)path,/* the subject string, 8-bit code units */
+                 path_len,     /* the length of the subject */
+                 0,            /* start at offset 0 in the subject */
+                 0,            /* default options */
+-                ov,           /* output vector for substring information */
+-                n->ov_cnt);      /* number of elements in the output vector */
++                n->match_data,/* match data results */
++                NULL);        /* match context */
+ 
+         // does not match all edges, return NULL;
+         if (rc < 0) {
+@@ -344,7 +342,7 @@ node * r3_tree_matchl(const node * n, const char * path, int path_len, match_ent
+             printf("pcre rc: %d\n", rc );
+             switch(rc)
+             {
+-                case PCRE_ERROR_NOMATCH:
++                case PCRE2_ERROR_NOMATCH:
+                     printf("pcre: no match '%s' on pattern '%s'\n", path, n->combined_pattern);
+                     break;
+ 
+@@ -357,7 +355,7 @@ node * r3_tree_matchl(const node * n, const char * path, int path_len, match_ent
+             return NULL;
+         }
+ 
+-
++        PCRE2_SIZE *ov = pcre2_get_ovector_pointer(n->match_data);
+ 
+         restlen = path_len - ov[1]; // if it's fully matched to the end (rest string length)
+ 
+@@ -465,7 +463,7 @@ node * r3_node_create() {
+     n->endpoint = 0;
+     n->combined_pattern = NULL;
+     n->pcre_pattern = NULL;
+-    n->pcre_extra = NULL;
++    n->match_data = NULL;
+     n->data = NULL;
+     return n;
+ }

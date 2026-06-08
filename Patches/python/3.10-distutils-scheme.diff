@@ -1,0 +1,14 @@
+diff --git a/Lib/distutils/command/install.py b/Lib/distutils/command/install.py
+index 01d5331a63..601c8dd135 100644
+--- a/Lib/distutils/command/install.py
++++ b/Lib/distutils/command/install.py
+@@ -38,7 +38,8 @@
+ # Copy from sysconfig._INSTALL_SCHEMES
+ for key in SCHEME_KEYS:
+     for distutils_scheme_name, sys_scheme_name in (
+-            ("unix_prefix", "posix_prefix"), ("unix_home", "posix_home"),
++            ("unix_prefix", sysconfig.get_preferred_scheme("prefix")),
++            ("unix_home", "posix_home"),
+             ("nt", "nt")):
+         sys_key = key
+         sys_scheme = sysconfig._INSTALL_SCHEMES[sys_scheme_name]

@@ -1,0 +1,56 @@
+name: Manage pull request labels
+
+on:
+  pull_request_target:
+    types:
+      - labeled
+      - unlabeled
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number }}-${{ github.event.label.name }}
+  cancel-in-progress: true
+
+env:
+  GH_REPO: ${{ github.repository }}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+  HOMEBREW_DISABLE_LOAD_FORMULA: 1
+  PR: ${{ github.event.number }}
+
+jobs:
+  workflows-label:
+    permissions:
+      pull-requests: write # for `gh pr edit`
+    runs-on: ubuntu-latest
+    if: >
+      github.repository_owner == 'Homebrew' &&
+      github.event.action == 'unlabeled' &&
+      contains(fromJson('["workflows"]'), github.event.label.name)
+    steps:
+      - name: Re-label PR
+        run: gh pr edit "$PR" --add-label "$LABEL" --repo "$GITHUB_REPOSITORY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LABEL: ${{ github.event.label.name }}
+
+  concurrent-downloads-label:
+    permissions:
+      pull-requests: write # for `gh pr comment`
+    runs-on: ubuntu-latest
+    if: >
+      github.repository_owner == 'Homebrew' &&
+      github.event.action == 'labeled' &&
+      contains(fromJson('["CI-test-bot-no-concurrent-downloads"]'), github.event.label.name)
+    steps:
+      - name: Post comment
+        run: gh pr comment "$PR" --body "$COMMENT" --repo "$GITHUB_REPOSITORY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT: >-
+            @${{ github.actor }}, please file an issue at Homebrew/brew for all uses of
+            ${{ github.server_url }}/${{ github.repository }}/labels/${{ github.event.label.name }}.
+            Thanks!

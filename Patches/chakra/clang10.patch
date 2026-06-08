@@ -1,0 +1,760 @@
+From 3b3aa9ba1ddca0fc2f29681fe78d83aa580aaa1d Mon Sep 17 00:00:00 2001
+From: Petr Penzin <penzin.dev@gmail.com>
+Date: Mon, 8 Feb 2021 22:31:51 -0800
+Subject: [PATCH] Fix Clang 10 and Ubuntu 20.04 compatibility errors
+
+Drive by cleanup - build all wabt files in the build directory.
+
+Disambiguate template parameter names. Overloading a template parameter
+by a declaration (including in parameters to nested templates) is
+treated as an error by Clang 10.
+
+PAL math and memory API clean up (also for #6404). Remove PAL
+redefintions of system functions with incompatible exception
+declarations. Remove externally visible redifinitions of math and memory
+management functions. Delete corresponding math function
+implementations, as they pretty much call their system counterparts.
+Hide memory management functions, since they are still used from inside
+of PAL.
+
+[CI] Use Ubuntu 20.04 image for default Linux builds. Change default
+Linux image to Ubuntu 20.04. Add two extra build jobs for Ubuntu 18.04.
+
+Closes #6600
+---
+ bin/ch/MessageQueue.h                         |  11 +-
+ lib/Common/DataStructures/Comparer.h          |   3 +-
+ lib/Common/DataStructures/List.h              |  13 +-
+ lib/Common/Memory/HeapBucket.h                |   5 +-
+ lib/Common/Memory/SmallLeafHeapBucket.h       |   3 +-
+ lib/Parser/TextbookBoyerMoore.h               |   9 +-
+ lib/Parser/pnodewalk.h                        |  13 +-
+ lib/Runtime/Base/jitprofiling.cpp             |   3 +
+ lib/Runtime/Language/EvalMapRecord.h          |   7 +-
+ lib/Runtime/Library/MapOrSetDataList.h        |   3 +-
+ lib/Runtime/Types/DictionaryTypeHandler.h     |   3 +-
+ lib/Runtime/Types/ES5ArrayTypeHandler.h       |   5 +-
+ .../Types/SimpleDictionaryTypeHandler.h       |   3 +-
+ .../SimpleDictionaryUnorderedTypeHandler.h    |   5 +-
+ lib/wabt/CMakeLists.txt                       |   4 +-
+ pal/inc/pal.h                                 |  55 +----
+ pal/inc/rt/palrt.h                            |   2 +-
+ pal/src/cruntime/finite.cpp                   | 207 ------------------
+ 18 files changed, 62 insertions(+), 292 deletions(-)
+
+diff --git a/bin/ch/MessageQueue.h b/bin/ch/MessageQueue.h
+index bc350806ec80827a6bec34413e7541cfdb1fbd2f..ea2c91943f7801020a03e3216ca372dfed5c157e 100644
+--- a/bin/ch/MessageQueue.h
++++ b/bin/ch/MessageQueue.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ #pragma once
+@@ -28,15 +29,15 @@ class MessageBase
+ template <typename T>
+ class SortedList 
+ {
+-    template <typename T>
++    template <typename U>
+     struct DListNode
+     {
+-        T data;
+-        DListNode<T>* prev;
+-        DListNode<T>* next;
++        U data;
++        DListNode<U>* prev;
++        DListNode<U>* next;
+ 
+     public:
+-        DListNode(const T& data) :
++        DListNode(const U& data) :
+             data(data),
+             prev(nullptr),
+             next(nullptr)
+diff --git a/lib/Common/DataStructures/Comparer.h b/lib/Common/DataStructures/Comparer.h
+index c6b3eb19d96bb0e311ef691acd74b5c62db926a8..378f9f26122b0e1e68ac363c03e57cd3cf2239c2 100644
+--- a/lib/Common/DataStructures/Comparer.h
++++ b/lib/Common/DataStructures/Comparer.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ #pragma once
+@@ -176,7 +177,7 @@ struct DefaultComparer<const WCHAR*> : public StringComparer<const WCHAR*> {};
+ template <typename T, typename TComparer>
+ struct SpecializedComparer
+ {
+-    template <typename T> class TComparerType : public TComparer {};
++    template <typename U> class TComparerType : public TComparer {};
+ };
+ 
+ namespace regex
+diff --git a/lib/Common/DataStructures/List.h b/lib/Common/DataStructures/List.h
+index 8def4634c3a68046fc67a9426cb7bc1411a01087..dc7f20a3f9184f4c7afb12ae07163c1ad6583fa3 100644
+--- a/lib/Common/DataStructures/List.h
++++ b/lib/Common/DataStructures/List.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ #pragma once
+@@ -63,10 +64,10 @@ namespace JsUtil
+                 && memcmp(this->buffer, list->GetBuffer(), sizeof(T)* this->Count()) == 0;
+         }
+ 
+-        template<class TAllocator>
+-        static ReadOnlyList * New(TAllocator* alloc, __in_ecount(count) T* buffer, DECLSPEC_GUARD_OVERFLOW int count)
++        template<class UAllocator>
++        static ReadOnlyList * New(UAllocator* alloc, __in_ecount(count) T* buffer, DECLSPEC_GUARD_OVERFLOW int count)
+         {
+-            return AllocatorNew(TAllocator, alloc, ReadOnlyList, buffer, count, alloc);
++            return AllocatorNew(UAllocator, alloc, ReadOnlyList, buffer, count, alloc);
+         }
+ 
+         ReadOnlyList(__in_ecount(count) T* buffer, int count, TAllocator* alloc)
+@@ -284,10 +285,10 @@ namespace JsUtil
+             }
+         }
+ 
+-        template<class T>
+-        void Copy(const T* list)
++        template<class U>
++        void Copy(const U* list)
+         {
+-            CompileAssert(sizeof(TElementType) == sizeof(typename T::TElementType));
++            CompileAssert(sizeof(TElementType) == sizeof(typename U::TElementType));
+             if (list->Count() > 0)
+             {
+                 this->EnsureArray(list->Count());
+diff --git a/lib/Common/Memory/HeapBucket.h b/lib/Common/Memory/HeapBucket.h
+index ea52efefd18e4e5bc62e7c3b04048905292b5d04..377c902190f5c2bf06d85a80d6b5fcbbefebffc5 100644
+--- a/lib/Common/Memory/HeapBucket.h
++++ b/lib/Common/Memory/HeapBucket.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ #pragma once
+@@ -22,8 +23,8 @@ class GenericRecyclerVerifyListConsistencyData
+     bool hasSetupVerifyListConsistencyData;
+     SmallHeapBlockT<TBlockAttributes> * nextAllocableBlockHead;
+ 
+-    template <typename TBlockAttributes>
+-    void SetupVerifyListConsistencyData(SmallHeapBlockT<TBlockAttributes>* block, bool expectFull, bool expectDispose)
++    template <typename TBlockAttr>
++    void SetupVerifyListConsistencyData(SmallHeapBlockT<TBlockAttr>* block, bool expectFull, bool expectDispose)
+     {
+         this->nextAllocableBlockHead = block;
+         this->expectFull = expectFull;
+diff --git a/lib/Common/Memory/SmallLeafHeapBucket.h b/lib/Common/Memory/SmallLeafHeapBucket.h
+index 1cf6d27e38a6affc16b853aa4c543430c910b385..eae26539b4e28d03c4e4078ce1c35336e253570d 100644
+--- a/lib/Common/Memory/SmallLeafHeapBucket.h
++++ b/lib/Common/Memory/SmallLeafHeapBucket.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ namespace Memory
+@@ -10,7 +11,7 @@ class SmallLeafHeapBucketT : public HeapBucketT<SmallLeafHeapBlockT<TBlockAttrib
+     typedef HeapBucketT<SmallLeafHeapBlockT<TBlockAttributes>> BaseT;
+ protected:
+     friend class HeapBucket;
+-    template <class TBlockAttributes>
++    template <class TBlockAttr>
+     friend class HeapBucketGroup;
+ 
+     void Sweep(RecyclerSweep& recyclerSweep);
+diff --git a/lib/Parser/TextbookBoyerMoore.h b/lib/Parser/TextbookBoyerMoore.h
+index 3871ac926151523d955254b2c228377d28dbf76a..59a4ef8107a6b0f401c1e2ea99bc4ea462ae2474 100644
+--- a/lib/Parser/TextbookBoyerMoore.h
++++ b/lib/Parser/TextbookBoyerMoore.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ // From Cormen, Leiserson and Rivest, ch 34.
+@@ -14,9 +15,9 @@ namespace UnifiedRegex
+     private:
+         typedef typename Chars<C>::Char Char;
+ 
+-        template <typename C>
++        template <typename T>
+         friend class TextbookBoyerMoore;
+-        template <typename C>
++        template <typename T>
+         friend class TextbookBoyerMooreWithLinearMap;
+ 
+     public:
+@@ -46,7 +47,7 @@ namespace UnifiedRegex
+     template <typename C>
+     class TextbookBoyerMooreWithLinearMap : private Chars<C>
+     {
+-        template <typename C>
++        template <typename T>
+         friend struct TextbookBoyerMooreSetup;
+         typedef typename Chars<C>::Char Char;
+     private:
+@@ -95,7 +96,7 @@ namespace UnifiedRegex
+     template <typename C>
+     class TextbookBoyerMoore : private Chars<C>
+     {
+-        template <typename C>
++        template <typename T>
+         friend struct TextbookBoyerMooreSetup;
+         typedef typename Chars<C>::Char Char;
+ 
+diff --git a/lib/Parser/pnodewalk.h b/lib/Parser/pnodewalk.h
+index 07552ba644e89a1dbfd762c33802eca37c0f02be..a83b121962468f330c9457dc5c084cae9a970eaf 100644
+--- a/lib/Parser/pnodewalk.h
++++ b/lib/Parser/pnodewalk.h
+@@ -1,14 +1,15 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ #pragma once
+ 
+-template <class ResultType, class Context>
++template <class _ResultType, class _Context>
+ struct WalkerPolicyBase
+ {
+-    typedef ResultType ResultType;
+-    typedef Context Context;
++    using ResultType = _ResultType ;
++    using Context = _Context ;
+ 
+     inline bool ContinueWalk(ResultType) { return true; }
+     inline ResultType DefaultResult() { return ResultType(); }
+@@ -21,11 +22,11 @@ struct WalkerPolicyBase
+     inline void WalkReference(ParseNode **ppnode, Context context) { }
+ };
+ 
+-template <class Context>
+-struct WalkerPolicyBase<bool, Context>
++template <class _Context>
++struct WalkerPolicyBase<bool, _Context>
+ {
+     typedef bool ResultType;
+-    typedef Context Context;
++    using Context = _Context ;
+ 
+     inline bool ContinueWalk(ResultType) { return true; }
+     inline bool DefaultResult() { return true; }
+diff --git a/lib/Runtime/Base/jitprofiling.cpp b/lib/Runtime/Base/jitprofiling.cpp
+index f04715dbc15016a677d69dde39d5ef4086dc6959..c330157bf4654c6bb1069ade829f18663ad3c1b1 100644
+--- a/lib/Runtime/Base/jitprofiling.cpp
++++ b/lib/Runtime/Base/jitprofiling.cpp
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft Corporation and contributors. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ #include "RuntimeBasePch.h"
+@@ -8,12 +9,14 @@
+ 
+ #include "ittnotify_config.h"
+ 
++#ifdef ITT_PLATFORM
+ #if ITT_PLATFORM==ITT_PLATFORM_WIN
+ #include <windows.h>
+ #endif /* ITT_PLATFORM==ITT_PLATFORM_WIN */
+ #if ITT_PLATFORM != ITT_PLATFORM_MAC && ITT_PLATFORM != ITT_PLATFORM_FREEBSD
+ #include <malloc.h>
+ #endif
++#endif
+ #include <stdlib.h>
+ 
+ #include "jitprofiling.h"
+diff --git a/lib/Runtime/Language/EvalMapRecord.h b/lib/Runtime/Language/EvalMapRecord.h
+index 6f63d60c8e06bf889610aa48c3deeca0b6d0e134..fa3b3c4d9e897ba972dc42776b63f75d9c924df4 100644
+--- a/lib/Runtime/Language/EvalMapRecord.h
++++ b/lib/Runtime/Language/EvalMapRecord.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ #pragma once
+@@ -103,11 +104,11 @@ namespace Js
+     template <class Key, class Value, class EntryRecord, class TopLevelDictionary, class NestedKey>
+     class TwoLevelHashDictionary
+     {
+-        template <class T, class Value>
++        template <class T, class V>
+         class AutoRestoreSetInAdd
+         {
+         public:
+-            AutoRestoreSetInAdd(T* instance, Value value) :
++            AutoRestoreSetInAdd(T* instance, V value) :
+                 instance(instance), value(value)
+             {
+                 instance->SetIsInAdd(value);
+@@ -119,7 +120,7 @@ namespace Js
+ 
+         private:
+             T* instance;
+-            Value value;
++            V value;
+         };
+ 
+     public:
+diff --git a/lib/Runtime/Library/MapOrSetDataList.h b/lib/Runtime/Library/MapOrSetDataList.h
+index bcd1d89d44505244c94539e9b599960f50bcd998..47cd0543d4f820bda5860984da9ff6bed0e2d6ef 100644
+--- a/lib/Runtime/Library/MapOrSetDataList.h
++++ b/lib/Runtime/Library/MapOrSetDataList.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ #pragma once
+@@ -25,7 +26,7 @@ namespace Js
+     class MapOrSetDataNode
+     {
+     private:
+-        template <typename TData>
++        template <typename T>
+         friend class MapOrSetDataList;
+ 
+         Field(MapOrSetDataNode<TData>*) next;
+diff --git a/lib/Runtime/Types/DictionaryTypeHandler.h b/lib/Runtime/Types/DictionaryTypeHandler.h
+index 49320423afadce2a482b7de49a9f14612198dbed..20affc8b09b025b74e6fc451e29cf27334c57c53 100644
+--- a/lib/Runtime/Types/DictionaryTypeHandler.h
++++ b/lib/Runtime/Types/DictionaryTypeHandler.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ #pragma once
+@@ -20,7 +21,7 @@ namespace Js
+         friend class DynamicObject;
+         friend class DynamicTypeHandler;
+         template <typename TPropertyIndex, typename TMapKey, bool IsNotExtensibleSupported> friend class SimpleDictionaryTypeHandlerBase;
+-        template <typename T> friend class DictionaryTypeHandlerBase;
++        template <typename U> friend class DictionaryTypeHandlerBase;
+ 
+         // Explicit non leaf allocator as the key is non-leaf
+         typedef JsUtil::BaseDictionary<const PropertyRecord*, DictionaryPropertyDescriptor<T>, RecyclerNonLeafAllocator, DictionarySizePolicy<PowerOf2Policy, 1>, PropertyRecordStringHashComparer>
+diff --git a/lib/Runtime/Types/ES5ArrayTypeHandler.h b/lib/Runtime/Types/ES5ArrayTypeHandler.h
+index e3216329b3b8333d211382c09d4ffd0655cfbb74..1eb1a377a4be891915100bef3e892541764ebd8d 100644
+--- a/lib/Runtime/Types/ES5ArrayTypeHandler.h
++++ b/lib/Runtime/Types/ES5ArrayTypeHandler.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ #pragma once
+@@ -98,8 +99,8 @@ namespace Js
+         template<size_t size>
+         friend class SimpleTypeHandler;
+         template <typename TPropertyIndex, typename TMapKey, bool IsNotExtensibleSupported> friend class SimpleDictionaryTypeHandlerBase;
+-        template <typename T> friend class DictionaryTypeHandlerBase;
+-        template <typename T> friend class ES5ArrayTypeHandlerBase;
++        template <typename U> friend class DictionaryTypeHandlerBase;
++        template <typename U> friend class ES5ArrayTypeHandlerBase;
+ 
+     private:
+         Field(IndexPropertyDescriptorMap*) indexPropertyMap;
+diff --git a/lib/Runtime/Types/SimpleDictionaryTypeHandler.h b/lib/Runtime/Types/SimpleDictionaryTypeHandler.h
+index 3594e70a76129b2d19b8956432768ddb92b068f1..fb2e1b2e7e0ff426c6715c58942c463f70cdcd6d 100644
+--- a/lib/Runtime/Types/SimpleDictionaryTypeHandler.h
++++ b/lib/Runtime/Types/SimpleDictionaryTypeHandler.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ //
+@@ -55,7 +56,7 @@ namespace Js
+         template<size_t size>
+         friend class SimpleTypeHandler;
+ 
+-        template <typename TPropertyIndex, typename TMapKey, bool IsNotExtensibleSupported> friend class SimpleDictionaryTypeHandlerBase;
++        template <typename _TPropertyIndex, typename _TMapKey, bool _IsNotExtensibleSupported> friend class SimpleDictionaryTypeHandlerBase;
+ 
+         // Explicit non leaf allocator now that the key is non-leaf
+         typedef JsUtil::BaseDictionary<TMapKey, SimpleDictionaryPropertyDescriptor<TPropertyIndex>, RecyclerNonLeafAllocator, DictionarySizePolicy<PowerOf2Policy, 1>, PropertyRecordStringHashComparer, PropertyMapKeyTraits<TMapKey>::template Entry>
+diff --git a/lib/Runtime/Types/SimpleDictionaryUnorderedTypeHandler.h b/lib/Runtime/Types/SimpleDictionaryUnorderedTypeHandler.h
+index 9a384cfe0fb0cf7e0c2590572cb5107c4042fcb7..f8e23ffc26ab8f0d5a56f64ecda6463f6cd82baf 100644
+--- a/lib/Runtime/Types/SimpleDictionaryUnorderedTypeHandler.h
++++ b/lib/Runtime/Types/SimpleDictionaryUnorderedTypeHandler.h
+@@ -1,5 +1,6 @@
+ //-------------------------------------------------------------------------------------------------------
+ // Copyright (C) Microsoft. All rights reserved.
++// Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ // Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ //-------------------------------------------------------------------------------------------------------
+ #pragma once
+@@ -22,8 +23,8 @@ namespace Js
+     template<class TPropertyIndex, class TMapKey, bool IsNotExtensibleSupported>
+     class SimpleDictionaryUnorderedTypeHandler sealed : public SimpleDictionaryTypeHandlerBase<TPropertyIndex, TMapKey, IsNotExtensibleSupported>
+     {
+-        template <typename TPropertyIndex, typename TMapKey, bool IsNotExtensibleSupported> friend class SimpleDictionaryUnorderedTypeHandler;
+-        template <typename TPropertyIndex, typename TMapKey, bool IsNotExtensibleSupported> friend class SimpleDictionaryTypeHandlerBase;
++        template <typename _TPropertyIndex, typename _TMapKey, bool _IsNotExtensibleSupported> friend class SimpleDictionaryUnorderedTypeHandler;
++        template <typename _TPropertyIndex, typename _TMapKey, bool _IsNotExtensibleSupported> friend class SimpleDictionaryTypeHandlerBase;
+ 
+     private:
+         // A deleted property ID that will be reused for the next property add. The object's slot corresponding to this property
+diff --git a/lib/wabt/CMakeLists.txt b/lib/wabt/CMakeLists.txt
+index 8d1fd41b98eec8afdbe7d7577e36da31e465afa7..994533f300e3bd22a20bbc3337da2cdc9131ecc7 100644
+--- a/lib/wabt/CMakeLists.txt
++++ b/lib/wabt/CMakeLists.txt
+@@ -40,10 +40,10 @@ check_type_size(size_t SIZEOF_SIZE_T)
+ 
+ configure_file(
+   ${CMAKE_CURRENT_SOURCE_DIR}/src/config.h.in
+-  ${CMAKE_CURRENT_SOURCE_DIR}/built/config.h
++  ${CMAKE_CURRENT_BINARY_DIR}/config.h
+ )
+ 
+-include_directories(chakra ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/built)
++include_directories(chakra ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
+ 
+ # disable -Wunused-parameter: this is really common when implementing
+ #   interfaces, etc.
+diff --git a/pal/inc/pal.h b/pal/inc/pal.h
+index 66ec53b516d79a7af27cab91b458a0820fe8bbdb..6415392dad0414de5b93c66227f2e28787414ac4 100644
+--- a/pal/inc/pal.h
++++ b/pal/inc/pal.h
+@@ -6089,7 +6089,6 @@ CoCreateGuid(OUT GUID * pguid);
+ #define towupper      PAL_towupper
+ #define vsprintf      PAL_vsprintf
+ #define vswprintf     PAL_vswprintf
+-#define realloc       PAL_realloc
+ #define fopen         PAL_fopen
+ #define strtok        PAL_strtok
+ #define strtoul       PAL_strtoul
+@@ -6122,16 +6121,7 @@ CoCreateGuid(OUT GUID * pguid);
+ #define ungetc        PAL_ungetc
+ #define setvbuf       PAL_setvbuf
+ #define atol          PAL_atol
+-#define acos          PAL_acos
+-#define asin          PAL_asin
+-#define atan2         PAL_atan2
+-#define exp           PAL_exp
+-#define labs          PAL_labs
+-#define log           PAL_log
+-#define log10         PAL_log10
+-#define malloc        PAL_malloc
+ #define memmove       memmove_xplat
+-#define free          PAL_free
+ #define mkstemp       PAL_mkstemp
+ #define rename        PAL_rename
+ #define unlink        PAL_unlink
+@@ -6195,7 +6185,7 @@ PALIMPORT int __cdecl vsprintf(char *, const char *, va_list);
+ PALIMPORT int __cdecl sscanf(const char *, const char *, ...);
+ PALIMPORT int __cdecl atoi(const char *);
+ PALIMPORT LONG __cdecl atol(const char *);
+-PALIMPORT long long int __cdecl atoll(const char *);
++//PALIMPORT long long int __cdecl atoll(const char *) __THROW;
+ PALIMPORT ULONG __cdecl strtoul(const char *, char **, int);
+ PALIMPORT double __cdecl atof(const char *);
+ PALIMPORT double __cdecl strtod(const char *, char **);
+@@ -6372,39 +6362,6 @@ unsigned long long __cdecl _rotr64(unsigned long long value, int shift)
+ }
+ #endif
+ 
+-PALIMPORT int __cdecl abs(int);
+-PALIMPORT double __cdecl fabs(double);
+-#ifndef PAL_STDCPP_COMPAT
+-PALIMPORT LONG __cdecl labs(LONG);
+-PALIMPORT double __cdecl fabs(double);
+-#endif // !PAL_STDCPP_COMPAT
+-// clang complains if this is declared with __int64
+-PALIMPORT long long __cdecl llabs(long long);
+-
+-PALIMPORT double __cdecl sqrt(double);
+-PALIMPORT double __cdecl log(double);
+-PALIMPORT double __cdecl log10(double);
+-PALIMPORT double __cdecl exp(double);
+-PALIMPORT double __cdecl acos(double);
+-PALIMPORT double __cdecl asin(double);
+-PALIMPORT double __cdecl atan(double);
+-PALIMPORT double __cdecl atan2(double,double);
+-PALIMPORT double __cdecl cos(double);
+-PALIMPORT double __cdecl sin(double);
+-PALIMPORT double __cdecl tan(double);
+-PALIMPORT double __cdecl cosh(double);
+-PALIMPORT double __cdecl sinh(double);
+-PALIMPORT double __cdecl tanh(double);
+-PALIMPORT double __cdecl fmod(double, double);
+-PALIMPORT float __cdecl fmodf(float, float);
+-PALIMPORT double __cdecl floor(double);
+-PALIMPORT float __cdecl floorf(float);
+-PALIMPORT double __cdecl ceil(double);
+-PALIMPORT float __cdecl ceilf(float);
+-PALIMPORT float __cdecl fabsf(float);
+-PALIMPORT double __cdecl modf(double, double *);
+-PALIMPORT float __cdecl modff(float, float *);
+-
+ PALIMPORT int __cdecl _finite(double);
+ PALIMPORT int __cdecl _isnan(double);
+ PALIMPORT double __cdecl _copysign(double, double);
+@@ -6424,9 +6381,13 @@ inline __int64 abs(__int64 _X) {
+ #endif
+ #endif
+ 
+-PALIMPORT void * __cdecl malloc(size_t);
+-PALIMPORT void   __cdecl free(void *);
+-PALIMPORT void * __cdecl realloc(void *, size_t);
++#ifdef INCLUDE_PAL_INTERNAL_
++/* FIXME remove
++ * PAL wrappers around memory management functions, only used inside PAL */
++PALIMPORT void * __cdecl PAL_malloc(size_t);
++PALIMPORT void   __cdecl PAL_free(void *);
++PALIMPORT void * __cdecl PAL_realloc(void *, size_t);
++#endif
+ PALIMPORT char * __cdecl _strdup(const char *);
+ 
+ #if defined(_MSC_VER)
+diff --git a/pal/inc/rt/palrt.h b/pal/inc/rt/palrt.h
+index 86c5e1b597a4b10d40fe25992b8d4ff9c475266d..0338410e40d893b94e1ee7a2dd5d7f082b0e134a 100644
+--- a/pal/inc/rt/palrt.h
++++ b/pal/inc/rt/palrt.h
+@@ -1067,7 +1067,7 @@ _SAFECRT__EXTERN_C
+ errno_t __cdecl getenv_s(size_t *_ReturnValue, char *_Dst, size_t _SizeInWords, const char *_Name);
+ 
+ #if defined(__cplusplus) && _SAFECRT_USE_CPP_OVERLOADS
+-template <size_t _SizeInWords>
++template <size_t _SzInWords>
+ inline
+ errno_t __cdecl getenv_s(size_t *_ReturnValue, char *_Dst, size_t _SizeInWords, const char *_Name)
+ {
+diff --git a/pal/src/cruntime/finite.cpp b/pal/src/cruntime/finite.cpp
+index a7d7cdcb68be6a2ba91a5a4bdef13707846f97d6..54b32279913b5d8d94dc40faa36906b4cf772947 100644
+--- a/pal/src/cruntime/finite.cpp
++++ b/pal/src/cruntime/finite.cpp
+@@ -136,210 +136,3 @@ _copysignf(
+     return ret;
+ }
+ 
+-/*++
+-Function:
+-    acos
+-
+-See MSDN.
+---*/
+-PALIMPORT double __cdecl PAL_acos(double x)
+-{
+-    double ret;
+-
+-    PERF_ENTRY(acos);
+-    ENTRY("acos (x=%f)\n", x);
+-#if !HAVE_COMPATIBLE_ACOS
+-    errno = 0;
+-#endif  // HAVE_COMPATIBLE_ACOS
+-    ret = acos(x);
+-#if !HAVE_COMPATIBLE_ACOS
+-    if (errno == EDOM)
+-    {
+-        ret = PAL_NAN;  // NaN
+-    }
+-#endif  // HAVE_COMPATIBLE_ACOS
+-    LOGEXIT("acos returns double %f\n", ret);
+-    PERF_EXIT(acos);
+-    return ret;
+-}
+-
+-/*++
+-Function:
+-    asin
+-
+-See MSDN.
+---*/
+-PALIMPORT double __cdecl PAL_asin(double x)
+-{
+-    double ret;
+-
+-    PERF_ENTRY(asin);
+-    ENTRY("asin (x=%f)\n", x);
+-#if !HAVE_COMPATIBLE_ASIN
+-    errno = 0;
+-#endif  // HAVE_COMPATIBLE_ASIN
+-    ret = asin(x);
+-#if !HAVE_COMPATIBLE_ASIN
+-    if (errno == EDOM)
+-    {
+-        ret = PAL_NAN;  // NaN
+-    }
+-#endif  // HAVE_COMPATIBLE_ASIN
+-    LOGEXIT("asin returns double %f\n", ret);
+-    PERF_EXIT(asin);
+-    return ret;
+-}
+-
+-/*++
+-Function:
+-    atan2
+-
+-See MSDN.
+---*/
+-PALIMPORT double __cdecl PAL_atan2(double y, double x)
+-{
+-    double ret;
+-
+-    PERF_ENTRY(atan2);
+-    ENTRY("atan2 (y=%f, x=%f)\n", y, x);
+-#if !HAVE_COMPATIBLE_ATAN2
+-    errno = 0;
+-#endif  // !HAVE_COMPATIBLE_ATAN2
+-    ret = atan2(y, x);
+-#if !HAVE_COMPATIBLE_ATAN2
+-    if (errno == EDOM)
+-    {
+-#if HAVE_COPYSIGN
+-        if (x == 0.0 && y == 0.0)
+-        {
+-            const double sign_x = copysign (1.0, x);
+-            const double sign_y = copysign (1.0, y);
+-            if (sign_x > 0)
+-            {
+-                ret = copysign (0.0, sign_y);
+-            }
+-            else
+-            {
+-                ret = copysign (atan2 (0.0, -1.0), sign_y);
+-            }
+-        }
+-#else   // HAVE_COPYSIGN
+-#error  Missing copysign or equivalent on this platform!
+-#endif  // HAVE_COPYSIGN
+-    }
+-#endif  // !HAVE_COMPATIBLE_ATAN2
+-    LOGEXIT("atan2 returns double %f\n", ret);
+-    PERF_EXIT(atan2);
+-    return ret;
+-}
+-
+-/*++
+-Function:
+-    exp
+-
+-See MSDN.
+---*/
+-PALIMPORT double __cdecl PAL_exp(double x)
+-{
+-    double ret;
+-
+-    PERF_ENTRY(exp);
+-    ENTRY("exp (x=%f)\n", x);
+-#if !HAVE_COMPATIBLE_EXP
+-    if (x == 1.0) 
+-    {
+-        ret = M_E;
+-    }
+-    else
+-    {
+-        ret = exp(x);
+-    }
+-#else // !HAVE_COMPATIBLE_EXP
+-    ret = exp(x);
+-#endif // !HAVE_COMPATIBLE_EXP
+-    LOGEXIT("exp returns double %f\n", ret);
+-    PERF_EXIT(exp);
+-    return ret;
+-}
+-
+-/*++
+-Function:
+-    labs
+-
+-See MSDN.
+---*/
+-PALIMPORT LONG __cdecl PAL_labs(LONG l)
+-{
+-    long lRet;
+-
+-    PERF_ENTRY(labs);
+-    ENTRY("labs (l=%ld)\n", l);
+-    
+-    lRet = labs(l);    
+-
+-    LOGEXIT("labs returns long %ld\n", lRet);
+-    PERF_EXIT(labs);
+-      /* This explicit cast to LONG is used to silence any potential warnings
+-         due to implicitly casting the native long lRet to LONG when returning. */
+-    return (LONG)lRet;
+-}
+-
+-/*++
+-Function:
+-    log
+-
+-See MSDN.
+---*/
+-PALIMPORT double __cdecl PAL_log(double x)
+-{
+-    double ret;
+-
+-    PERF_ENTRY(log);
+-    ENTRY("log (x=%f)\n", x);
+-#if !HAVE_COMPATIBLE_LOG
+-    errno = 0;
+-#endif  // !HAVE_COMPATIBLE_LOG
+-    ret = log(x);
+-#if !HAVE_COMPATIBLE_LOG
+-    if (errno == EDOM)
+-    {
+-        if (x < 0)
+-        {
+-	    ret = PAL_NAN;    // NaN
+-        }
+-    }
+-#endif  // !HAVE_COMPATIBLE_LOG
+-    LOGEXIT("log returns double %f\n", ret);
+-    PERF_EXIT(log);
+-    return ret;
+-}
+-
+-/*++
+-Function:
+-    log10
+-
+-See MSDN.
+---*/
+-PALIMPORT double __cdecl PAL_log10(double x)
+-{
+-    double ret;
+-
+-    PERF_ENTRY(log10);
+-    ENTRY("log10 (x=%f)\n", x);
+-#if !HAVE_COMPATIBLE_LOG10
+-    errno = 0;
+-#endif  // !HAVE_COMPATIBLE_LOG10
+-    ret = log10(x);
+-#if !HAVE_COMPATIBLE_LOG10
+-    if (errno == EDOM)
+-    {
+-        if (x < 0)
+-        {
+-	    ret = PAL_NAN;    // NaN
+-        }
+-    }
+-#endif  // !HAVE_COMPATIBLE_LOG10
+-    LOGEXIT("log10 returns double %f\n", ret);
+-    PERF_EXIT(log10);
+-    return ret;
+-}

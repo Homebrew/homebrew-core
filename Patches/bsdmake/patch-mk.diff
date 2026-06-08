@@ -1,0 +1,258 @@
+diff -r -u mk/bsd.README mk/bsd.README
+--- mk/bsd.README	2012-03-09 23:30:48.000000000 +0100
++++ mk/bsd.README	2012-03-09 23:50:21.000000000 +0100
+@@ -2,7 +2,7 @@
+ # $FreeBSD: src/share/mk/bsd.README,v 1.28 2004/12/21 08:46:54 ru Exp $
+ 
+ This is the README file for the "include" files for the FreeBSD
+-source tree.  The files are installed in /usr/share/mk, and are by
++source tree.  The files are installed in @PREFIX@/share/mk, and are by
+ convention, named with the suffix ".mk".  These files store several
+ build options and should be handled with caution.
+ 
+@@ -43,7 +43,7 @@
+ This file does not document bsd.port*.mk.  They are documented in ports(7).
+ 
+ See also make(1), mkdep(1), style.Makefile(5) and `PMake - A
+-Tutorial', located in /usr/share/doc/psd/12.make.
++Tutorial', located in @PREFIX@/share/doc/bsdmake/tutorial.asc.
+ 
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ 
+diff -r -u mk/bsd.cpu.mk mk/bsd.cpu.mk
+--- mk/bsd.cpu.mk	2012-03-09 23:30:48.000000000 +0100
++++ mk/bsd.cpu.mk	2012-03-09 23:53:55.000000000 +0100
+@@ -21,7 +21,7 @@
+ . endif
+ .else
+ 
+-# Handle aliases (not documented in make.conf to avoid user confusion
++# Handle aliases (not documented in bsdmake.conf to avoid user confusion
+ # between e.g. i586 and pentium)
+ 
+ . if ${MACHINE_ARCH} == "i386"
+@@ -59,7 +59,7 @@
+ 
+ ###############################################################################
+ # Logic to set up correct gcc optimization flag.  This must be included
+-# after /etc/make.conf so it can react to the local value of CPUTYPE
++# after @PREFIX@/etc/bsdmake.conf so it can react to the local value of CPUTYPE
+ # defined therein.  Consult:
+ #	http://gcc.gnu.org/onlinedocs/gcc/DEC-Alpha-Options.html
+ #	http://gcc.gnu.org/onlinedocs/gcc/IA-64-Options.html
+diff -r -u mk/bsd.doc.mk mk/bsd.doc.mk
+--- mk/bsd.doc.mk	2012-03-09 23:30:48.000000000 +0100
++++ mk/bsd.doc.mk	2012-03-09 23:42:07.000000000 +0100
+@@ -149,8 +149,8 @@
+ 	(cd ${.CURDIR}; spell ${SRCS} ) | sort | \
+ 		comm -23 - ${.CURDIR}/spell.ok > ${DOC}.spell
+ 
+-BINDIR?=	/usr/share/doc
+-BINMODE=	444
++BINDIR?=	@PREFIX@/share/doc
++BINMODE=	644
+ 
+ SRCDIR?=	${.CURDIR}
+ 
+diff -r -u mk/bsd.obj.mk mk/bsd.obj.mk
+--- mk/bsd.obj.mk	2012-03-09 23:30:48.000000000 +0100
++++ mk/bsd.obj.mk	2012-03-09 23:51:14.000000000 +0100
+@@ -16,7 +16,7 @@
+ #
+ #		E.g. use `env MAKEOBJDIR=temp-obj make'
+ #
+-# MAKEOBJDIRPREFIX  Specifies somewhere other than /usr/obj to root the object
++# MAKEOBJDIRPREFIX  Specifies somewhere other than @PREFIX@/obj to root the object
+ #		tree.  Note: MAKEOBJDIRPREFIX is an *environment* variable
+ #		and works properly only if set as an environment variable,
+ #		not as a global or command line variable!
+@@ -45,7 +45,7 @@
+ .if defined(MAKEOBJDIRPREFIX)
+ CANONICALOBJDIR:=${MAKEOBJDIRPREFIX}${.CURDIR}
+ .else
+-CANONICALOBJDIR:=/usr/obj${.CURDIR}
++CANONICALOBJDIR:=@PREFIX@/obj${.CURDIR}
+ .endif
+ 
+ #
+@@ -57,7 +57,7 @@
+ # 2.  ${MAKEOBJDIR}
+ # 3.  obj.${MACHINE}
+ # 4.  obj
+-# 5.  /usr/obj/`pwd`
++# 5.  @PREFIX@/obj/`pwd`
+ # 6.  ${.CURDIR}
+ #
+ # If ${.OBJDIR} is constructed using canonical cases 1 or 5, or
+diff -r -u mk/bsd.own.mk mk/bsd.own.mk
+--- mk/bsd.own.mk	2012-03-09 23:30:48.000000000 +0100
++++ mk/bsd.own.mk	2012-03-09 23:40:51.000000000 +0100
+@@ -9,28 +9,28 @@
+ # DESTDIR	Change the tree where the file gets installed. [not set]
+ #
+ # DISTDIR	Change the tree where the file for a distribution
+-# 		gets installed (see /usr/src/release/Makefile). [not set]
++# 		gets installed. [not set]
+ #
+ # COMPRESS_CMD	Program to compress documents.
+ #		Output is to stdout. [gzip -cn]
+ #
+ # COMPRESS_EXT	File name extension of ${COMPRESS_CMD} command. [.gz]
+ #
+-# BINOWN	Binary owner. [root]
++# BINOWN	Binary owner. [@INSTALL_USER@]
+ #
+-# BINGRP	Binary group. [wheel]
++# BINGRP	Binary group. [@INSTALL_GROUP@]
+ #
+-# BINMODE	Binary mode. [555]
++# BINMODE	Binary mode. [755]
+ #
+-# NOBINMODE	Mode for non-executable files. [444]
++# NOBINMODE	Mode for non-executable files. [644]
+ #
+-# LIBDIR	Base path for libraries. [/usr/lib]
++# LIBDIR	Base path for libraries. [@PREFIX@/lib]
+ #
+-# LIBCOMPATDIR	Base path for compat libraries. [/usr/lib/compat]
++# LIBCOMPATDIR	Base path for compat libraries. [@PREFIX@/lib/compat]
+ #
+-# LIBDATADIR	Base path for misc. utility data files. [/usr/libdata]
++# LIBDATADIR	Base path for misc. utility data files. [@PREFIX@/libdata]
+ #
+-# LINTLIBDIR	Base path for lint libraries. [/usr/libdata/lint]
++# LINTLIBDIR	Base path for lint libraries. [@PREFIX@/libdata/lint]
+ #
+ # SHLIBDIR	Base path for shared libraries. [${LIBDIR}]
+ #
+@@ -42,7 +42,7 @@
+ #
+ #
+ # KMODDIR	Base path for loadable kernel modules
+-#		(see kld(4)). [/boot/kernel]
++#		(see kld(4)). [@PREFIX@/boot/kernel]
+ #
+ # KMODOWN	KLD owner. [${BINOWN}]
+ #
+@@ -52,11 +52,11 @@
+ #
+ #
+ # SHAREDIR	Base path for architecture-independent ascii
+-#		text files. [/usr/share]
++#		text files. [@PREFIX@/share]
+ #
+-# SHAREOWN	ASCII text file owner. [root]
++# SHAREOWN	ASCII text file owner. [@INSTALL_USER@]
+ #
+-# SHAREGRP	ASCII text file group. [wheel]
++# SHAREGRP	ASCII text file group. [@INSTALL_GROUP@]
+ #
+ # SHAREMODE	ASCII text file mode. [${NOBINMODE}]
+ #
+@@ -99,30 +99,30 @@
+ #
+ # NLSMODE	National Language Support files mode. [${NOBINMODE}]
+ #
+-# INCLUDEDIR	Base path for standard C include files [/usr/include]
++# INCLUDEDIR	Base path for standard C include files [@PREFIX@/include]
+ 
+ .if !target(__<bsd.own.mk>__)
+ __<bsd.own.mk>__:
+ 
+ # Binaries
+-BINOWN?=	root
+-BINGRP?=	wheel
+-BINMODE?=	555
+-NOBINMODE?=	444
++BINOWN?=	@INSTALL_USER@
++BINGRP?=	@INSTALL_GROUP@
++BINMODE?=	755
++NOBINMODE?=	644
+ 
+ .if defined(MODULES_WITH_WORLD)
+-KMODDIR?=	/boot/modules
++KMODDIR?=	@PREFIX@/boot/modules
+ .else
+-KMODDIR?=	/boot/kernel
++KMODDIR?=	@PREFIX@/boot/kernel
+ .endif
+ KMODOWN?=	${BINOWN}
+ KMODGRP?=	${BINGRP}
+ KMODMODE?=	${BINMODE}
+ 
+-LIBDIR?=	/usr/lib
+-LIBCOMPATDIR?=	/usr/lib/compat
+-LIBDATADIR?=	/usr/libdata
+-LINTLIBDIR?=	/usr/libdata/lint
++LIBDIR?=	@PREFIX@/lib
++LIBCOMPATDIR?=	@PREFIX@/lib/compat
++LIBDATADIR?=	@PREFIX@/libdata
++LINTLIBDIR?=	@PREFIX@/libdata/lint
+ SHLIBDIR?=	${LIBDIR}
+ LIBOWN?=	${BINOWN}
+ LIBGRP?=	${BINGRP}
+@@ -130,9 +130,9 @@
+ 
+ 
+ # Share files
+-SHAREDIR?=	/usr/share
+-SHAREOWN?=	root
+-SHAREGRP?=	wheel
++SHAREDIR?=	@PREFIX@/share
++SHAREOWN?=	@INSTALL_USER@
++SHAREGRP?=	@INSTALL_GROUP@
+ SHAREMODE?=	${NOBINMODE}
+ 
+ MANDIR?=	${SHAREDIR}/man/man
+@@ -155,7 +155,7 @@
+ NLSGRP?=	${SHAREGRP}
+ NLSMODE?=	${NOBINMODE}
+ 
+-INCLUDEDIR?=	/usr/include
++INCLUDEDIR?=	@PREFIX@/include
+ 
+ # Common variables
+ .if !defined(DEBUG_FLAGS)
+diff -r -u mk/bsd.port.mk mk/bsd.port.mk
+--- mk/bsd.port.mk	2012-03-09 23:30:48.000000000 +0100
++++ mk/bsd.port.mk	2012-03-09 23:52:49.000000000 +0100
+@@ -1,6 +1,6 @@
+ # $FreeBSD: src/share/mk/bsd.port.mk,v 1.307 2004/07/02 20:47:18 eik Exp $
+ 
+-PORTSDIR?=	/usr/ports
++PORTSDIR?=	@PREFIX@/ports
+ BSDPORTMK?=	${PORTSDIR}/Mk/bsd.port.mk
+ 
+ .include <bsd.own.mk>
+diff -r -u mk/bsd.port.subdir.mk mk/bsd.port.subdir.mk
+--- mk/bsd.port.subdir.mk	2012-03-09 23:30:48.000000000 +0100
++++ mk/bsd.port.subdir.mk	2012-03-09 23:53:10.000000000 +0100
+@@ -1,6 +1,6 @@
+ # $FreeBSD: src/share/mk/bsd.port.subdir.mk,v 1.31 2004/07/02 20:47:18 eik Exp $
+ 
+-PORTSDIR?=	/usr/ports
++PORTSDIR?=	@PREFIX@/ports
+ BSDPORTSUBDIRMK?=	${PORTSDIR}/Mk/bsd.port.subdir.mk
+ 
+ .include "${BSDPORTSUBDIRMK}"
+diff -r -u mk/sys.mk mk/sys.mk
+--- mk/sys.mk	2012-03-09 23:30:48.000000000 +0100
++++ mk/sys.mk	2012-03-09 23:54:07.000000000 +0100
+@@ -19,7 +19,7 @@
+ .SUFFIXES:	.out .a .ln .o .c .cc .cpp .cxx .C .m .F .f .e .r .y .l .S .asm .s .cl .p .h .sh
+ .endif
+ 
+-X11BASE		?=	/usr/X11R6
++X11BASE		?=	@PREFIX@
+ 
+ AR		?=	ar
+ .if defined(%POSIX)
+@@ -253,7 +253,7 @@
+ 	rm -f ${.PREFIX}.tmp.c
+ 
+ # FreeBSD build pollution.  Hide it in the non-POSIX part of the ifdef.
+-__MAKE_CONF?=/etc/make.conf
++__MAKE_CONF?=@PREFIX@/etc/bsdmake.conf
+ .if exists(${__MAKE_CONF})
+ .include "${__MAKE_CONF}"
+ .endif

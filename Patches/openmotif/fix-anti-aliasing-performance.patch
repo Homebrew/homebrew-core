@@ -1,0 +1,66 @@
+Subject: [PATCH] XmRenderT: extend FIX_1536 color caching to text drawing
+
+FIX_1536 introduced a cached XftColor path to avoid repeated
+XQueryColor calls. However this optimization was not applied
+to text drawing paths.
+
+Apply the same cached path to _XmXftDrawString and
+_XmXftDrawString2.
+
+--- a/lib/Xm/XmRenderT.c
++++ b/lib/Xm/XmRenderT.c
+@@ -2975,7 +2975,9 @@ _XmXftDrawString2(Display *display, Window window, GC gc, XftFont *font, int bpc
+     XftColor xftcol;
+     
+     XGetGCValues(display, gc, GCForeground, &gc_val);
+-
++#ifdef FIX_1536
++    xftcol = _XmXftGetXftColor(display, gc_val.foreground);
++#else
+     xcol.pixel = gc_val.foreground;
+     XQueryColor(display, DefaultColormap(display,
+         DefaultScreen(display)), &xcol);
+@@ -2983,6 +2985,7 @@ _XmXftDrawString2(Display *display, Window window, GC gc, XftFont *font, int bpc
+     xftcol.color.blue = xcol.blue;
+     xftcol.color.green = xcol.green;
+     xftcol.color.alpha = 0xFFFF;
++#endif
+ 
+     switch (bpc)
+     {
+@@ -3049,6 +3052,9 @@ _XmXftDrawString(Display *display, Window window, XmRendition rend, int bpc,
+ 	    XColor xcol;
+ 
+ 	    XGetGCValues(display, _XmRendGC(rend), GCBackground, &gc_val);
++  #ifdef FIX_1536
++      bg_color = _XmXftGetXftColor(display, gc_val.background);
++  #else
+ 	    xcol.pixel = gc_val.background;
+             XQueryColor(display, DefaultColormapOfScreen(
+                   DefaultScreenOfDisplay(display)), &xcol);
+@@ -3057,6 +3063,7 @@ _XmXftDrawString(Display *display, Window window, XmRendition rend, int bpc,
+ 	    bg_color.color.green = xcol.green;
+ 	    bg_color.color.blue = xcol.blue;
+ 	    bg_color.color.alpha = 0xFFFF;
++  #endif
+ 	}
+ #ifdef FIX_1451
+         XftDrawRect(draw, &bg_color, x, y - _XmRendXftFont(rend)->ascent,
+@@ -3076,6 +3083,9 @@ _XmXftDrawString(Display *display, Window window, XmRendition rend, int bpc,
+         XGCValues gc_val;
+ 	XColor xcol;
+ 	XGetGCValues(display, _XmRendGC(rend), GCForeground, &gc_val);
++#ifdef FIX_1536
++  fg_color = _XmXftGetXftColor(display, gc_val.foreground);
++#else
+ 	xcol.pixel = gc_val.foreground;
+         XQueryColor(display, DefaultColormapOfScreen(
+               DefaultScreenOfDisplay(display)), &xcol);
+@@ -3084,6 +3094,7 @@ _XmXftDrawString(Display *display, Window window, XmRendition rend, int bpc,
+ 	fg_color.color.green = xcol.green;
+ 	fg_color.color.blue = xcol.blue;
+ 	fg_color.color.alpha = 0xFFFF;
++#endif
+     }
+ 
+     switch (bpc)

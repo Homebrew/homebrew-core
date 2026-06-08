@@ -1,0 +1,439 @@
+diff --git a/lsusb.c b/lsusb.c
+index 0b74182..ebb408a 100644
+--- a/lsusb.c
++++ b/lsusb.c
+@@ -261,7 +261,9 @@ static void dump_device(
+ 	char vendor[128], product[128];
+ 	char cls[128], subcls[128], proto[128];
+ 	char mfg[128] = {0}, prod[128] = {0}, serial[128] = {0};
++#ifdef HAVE_SYSFS
+ 	char sysfs_name[PATH_MAX];
++#endif
+ 	const char *negotiated_speed;
+ 
+ 	get_vendor_product_with_fallback(vendor, sizeof(vendor),
+@@ -272,11 +274,13 @@ static void dump_device(
+ 	get_protocol_string(proto, sizeof(proto), descriptor->bDeviceClass,
+ 			descriptor->bDeviceSubClass, descriptor->bDeviceProtocol);
+ 
++#ifdef HAVE_SYSFS
+ 	if (get_sysfs_name(sysfs_name, sizeof(sysfs_name), dev) >= 0) {
+ 		read_sysfs_prop(mfg, sizeof(mfg), sysfs_name, "manufacturer");
+ 		read_sysfs_prop(prod, sizeof(prod), sysfs_name, "product");
+ 		read_sysfs_prop(serial, sizeof(serial), sysfs_name, "serial");
+ 	}
++#endif
+ 
+ 	switch (libusb_get_device_speed(dev)) {
+ 		case LIBUSB_SPEED_LOW:
+@@ -3796,12 +3800,16 @@ int main(int argc, char *argv[])
+ 		{ "version", 0, 0, 'V' },
+ 		{ "verbose", 0, 0, 'v' },
+ 		{ "help", 0, 0, 'h' },
++#ifdef HAVE_TREE_MODE
+ 		{ "tree", 0, 0, 't' },
++#endif
+ 		{ 0, 0, 0, 0 }
+ 	};
+ 	libusb_context *ctx;
+ 	int c, err = 0;
++#ifdef HAVE_TREE_MODE
+ 	unsigned int treemode = 0;
++#endif
+ 	int bus = -1, devnum = -1, vendor = -1, product = -1;
+ 	const char *devdump = NULL;
+ 	int help = 0;
+@@ -3824,9 +3832,11 @@ int main(int argc, char *argv[])
+ 			help=1;
+ 			break;
+ 
++#ifdef HAVE_TREE_MODE
+ 		case 't':
+ 			treemode = 1;
+ 			break;
++#endif
+ 
+ 		case 's':
+ 			cp = strchr(optarg, ':');
+@@ -3878,8 +3888,10 @@ int main(int argc, char *argv[])
+ 			"      product ID numbers (in hexadecimal)\n"
+ 			"  -D device\n"
+ 			"      Selects which device lsusb will examine\n"
++#ifdef HAVE_TREE_MODE
+ 			"  -t, --tree\n"
+ 			"      Dump the physical USB device hierarchy as a tree\n"
++#endif
+ 			"  -V, --version\n"
+ 			"      Show version of program\n"
+ 			"  -h, --help\n"
+@@ -3892,17 +3904,23 @@ int main(int argc, char *argv[])
+ 	}
+ 
+ 
++#ifdef HAVE_UDEV
+ 	/* by default, print names as well as numbers */
+ 	if (names_init() < 0)
+ 		fprintf(stderr, "unable to initialize usb spec");
+ 
+ 	status = 0;
++#endif
+ 
++#ifdef HAVE_TREE_MODE
+ 	if (treemode) {
+ 		status = lsusb_t();
++#ifdef HAVE_UDEV
+ 		names_exit();
++#endif
+ 		return status;
+ 	}
++#endif
+ 
+ 	err = libusb_init(&ctx);
+ 	if (err) {
+@@ -3915,7 +3933,9 @@ int main(int argc, char *argv[])
+ 	else
+ 		status = list_devices(ctx, bus, devnum, vendor, product);
+ 
++#ifdef HAVE_UDEV
+ 	names_exit();
++#endif
+ 	libusb_exit(ctx);
+ 	return status;
+ }
+diff --git a/lsusb.h b/lsusb.h
+index 3e93c23..2a97df6 100644
+--- a/lsusb.h
++++ b/lsusb.h
+@@ -3,7 +3,9 @@
+ #ifndef _LSUSB_H
+ #define _LSUSB_H
+ 
++#ifdef HAVE_TREE_MODE
+ extern int lsusb_t(void);
++#endif
+ extern unsigned int verblevel;
+ 
+ #endif
+diff --git a/meson.build b/meson.build
+index c522283..ee4469f 100644
+--- a/meson.build
++++ b/meson.build
+@@ -76,7 +76,7 @@ add_project_arguments('-include', 'config.h', language : 'c')
+ #####################
+ # man page generation
+ #####################
+-install_man(['man/lsusb.8', 'man/lsusb.py.1', 'man/usb-devices.1', 'man/usbhid-dump.8'])
++man_pages = ['man/lsusb.8', 'man/usbhid-dump.8']
+ 
+ 
+ ##########################
+@@ -87,13 +87,9 @@ lsusb_sources = [
+   'desc-defs.h',
+   'desc-dump.c',
+   'desc-dump.h',
+-  'lsusb-t.c',
+   'lsusb.c',
+   'lsusb.h',
+-  'names.c',
+   'names.h',
+-  'sysfs.c',
+-  'sysfs.h',
+   'usb-spec.h',
+   'usbmisc.c',
+   'usbmisc.h',
+@@ -105,10 +101,38 @@ lsusb_sources = [
+   'ccan/list/list.h',
+ ]
+ 
+-libudev = dependency('libudev', version: '>= 196')
++libudev = dependency('libudev', version: '>= 196', required: false)
+ libusb = dependency('libusb-1.0', version: '>= 1.0.22')
+-
+-executable('lsusb', lsusb_sources, dependencies: [libusb, libudev], install: true)
++libiconv = dependency('iconv')
++
++if get_option('with_sysfs')
++  add_project_arguments('-DHAVE_SYSFS', language : 'c')
++  lsusb_sources += [
++    'sysfs.c',
++    'sysfs.h',
++  ]
++endif
++
++if get_option('with_tree_mode')
++  add_project_arguments('-DHAVE_TREE_MODE', language : 'c')
++  lsusb_sources += [
++    'lsusb-t.c',
++  ]
++endif
++
++if get_option('with_udev') and libudev.found()
++  add_project_arguments('-DHAVE_UDEV', language : 'c')
++
++  lsusb_sources += [
++    'names.c',
++  ]
++else
++  lsusb_sources += [
++    'names_no_udev.c',
++  ]
++endif
++
++executable('lsusb', lsusb_sources, dependencies: [libusb, libudev, libiconv], install: true)
+ 
+ ################################
+ # usbhid-dump build instructions
+@@ -128,6 +152,7 @@ usbhid_sources = [
+ 
+ executable('usbhid-dump', usbhid_sources, dependencies: libusb, install: true)
+ 
++if get_option('with_sysfs')
+ ##############################
+ # usbreset build instructions
+ ##############################
+@@ -156,3 +181,8 @@ install_data(usb_devices_sources, install_dir: get_option('bindir'), install_mod
+ # Also a hack, like was done for usb-devices, as this is "just" a script and
+ # doesn't need to be compiled.
+ install_data(files('lsusb.py'), install_dir: get_option('bindir'), install_mode: 'rwxr-xr-x')
++
++man_pages += ['man/lsusb.py.1', 'man/usb-devices.1']
++endif
++
++install_man(man_pages)
+diff --git a/meson_options.txt b/meson_options.txt
+new file mode 100644
+index 0000000..aff1fc8
+--- /dev/null
++++ b/meson_options.txt
+@@ -0,0 +1,3 @@
++option('with_udev', type : 'boolean', value : false)
++option('with_sysfs', type : 'boolean', value : false)
++option('with_tree_mode', type : 'boolean', value : false)
+diff --git a/names_no_udev.c b/names_no_udev.c
+new file mode 100644
+index 0000000..9494b48
+--- /dev/null
++++ b/names_no_udev.c
+@@ -0,0 +1,222 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * USB name database manipulation routines
++ *
++ * Copyright (C) 1999, 2000 Thomas Sailer (sailer@ife.ee.ethz.ch)
++ * Copyright (C) 2013 Tom Gundersen (teg@jklm.no)
++ */
++#include <stdint.h>
++#include <sys/stat.h>
++#include <fcntl.h>
++#include <dirent.h>
++#include <string.h>
++#include <errno.h>
++#include <stdlib.h>
++#include <unistd.h>
++#include <stdio.h>
++#include <ctype.h>
++#include <stdbool.h>
++
++#include <libusb.h>
++
++#include "usb-spec.h"
++#include "names.h"
++#ifdef HAVE_SYSFS
++#include "sysfs.h"
++#endif
++
++/* ---------------------------------------------------------------------- */
++
++static const char *names_genericstrtable(const struct genericstrtable *t,
++					 unsigned int idx)
++{
++	const struct genericstrtable *h;
++
++	for (h = t; t->name; t++)
++		if (h->num == idx)
++			return h->name;
++	return NULL;
++}
++
++const char *names_hid(uint8_t hidd)
++{
++	return names_genericstrtable(hiddescriptors, hidd);
++}
++
++const char *names_reporttag(uint8_t rt)
++{
++	return names_genericstrtable(reports, rt);
++}
++
++const char *names_huts(unsigned int data)
++{
++	return names_genericstrtable(huts, data);
++}
++
++const char *names_hutus(unsigned int data)
++{
++	return names_genericstrtable(hutus, data);
++}
++
++const char *names_langid(uint16_t langid)
++{
++	return names_genericstrtable(langids, langid);
++}
++
++const char *names_physdes(uint8_t ph)
++{
++	return names_genericstrtable(physdess, ph);
++}
++
++const char *names_bias(uint8_t b)
++{
++	return names_genericstrtable(biass, b);
++}
++
++const char *names_countrycode(unsigned int countrycode)
++{
++	return names_genericstrtable(countrycodes, countrycode);
++}
++
++static const char *hwdb_get(const char *modalias, const char *key)
++{
++	return NULL;
++}
++
++const char *names_vendor(uint16_t vendorid)
++{
++	return NULL;
++}
++
++const char *names_product(uint16_t vendorid, uint16_t productid)
++{
++	return NULL;
++}
++
++const char *names_class(uint8_t classid)
++{
++	return NULL;
++}
++
++const char *names_subclass(uint8_t classid, uint8_t subclassid)
++{
++	return NULL;
++}
++
++const char *names_protocol(uint8_t classid, uint8_t subclassid, uint8_t protocolid)
++{
++	return NULL;
++}
++
++const char *names_audioterminal(uint16_t termt)
++{
++	const struct audioterminal *at;
++
++	for (at = audioterminals; at->name; at++)
++		if (at->termt == termt)
++			return at->name;
++	return NULL;
++}
++
++const char *names_videoterminal(uint16_t termt)
++{
++	const struct videoterminal *vt;
++
++	for (vt = videoterminals; vt->name; vt++)
++		if (vt->termt == termt)
++			return vt->name;
++	return NULL;
++}
++
++/* ---------------------------------------------------------------------- */
++
++int get_vendor_string(char *buf, size_t size, uint16_t vid)
++{
++        const char *cp;
++
++        if (size < 1)
++                return 0;
++        *buf = 0;
++        if (!(cp = names_vendor(vid)))
++		return 0;
++        return snprintf(buf, size, "%s", cp);
++}
++
++int get_product_string(char *buf, size_t size, uint16_t vid, uint16_t pid)
++{
++        const char *cp;
++
++        if (size < 1)
++                return 0;
++        *buf = 0;
++        if (!(cp = names_product(vid, pid)))
++		return 0;
++        return snprintf(buf, size, "%s", cp);
++}
++
++int get_class_string(char *buf, size_t size, uint8_t cls)
++{
++	const char *cp;
++
++	if (size < 1)
++		return 0;
++	*buf = 0;
++	if (!(cp = names_class(cls)))
++		return snprintf(buf, size, "[unknown]");
++	return snprintf(buf, size, "%s", cp);
++}
++
++int get_subclass_string(char *buf, size_t size, uint8_t cls, uint8_t subcls)
++{
++	const char *cp;
++
++	if (size < 1)
++		return 0;
++	*buf = 0;
++	if (!(cp = names_subclass(cls, subcls)))
++		return snprintf(buf, size, "[unknown]");
++	return snprintf(buf, size, "%s", cp);
++}
++
++/*
++ * Attempt to get friendly vendor and product names from the udev hwdb. If
++ * either or both are not present, instead populate those from the device's
++ * own string descriptors.
++ */
++void get_vendor_product_with_fallback(char *vendor, int vendor_len,
++				      char *product, int product_len,
++				      libusb_device *dev)
++{
++	struct libusb_device_descriptor desc;
++	bool have_vendor, have_product;
++
++	libusb_get_device_descriptor(dev, &desc);
++
++	/* set to "[unknown]" by default unless something below finds a string */
++	strncpy(vendor, "[unknown]", vendor_len);
++	strncpy(product, "[unknown]", product_len);
++
++	have_vendor = !!get_vendor_string(vendor, vendor_len, desc.idVendor);
++	have_product = !!get_product_string(product, product_len,
++			desc.idVendor, desc.idProduct);
++
++	if (have_vendor && have_product)
++		return;
++#ifdef HAVE_SYSFS
++	if (get_sysfs_name(sysfs_name, sizeof(sysfs_name), dev) >= 0) {
++		if (!have_vendor)
++			read_sysfs_prop(vendor, vendor_len, sysfs_name, "manufacturer");
++		if (!have_product)
++			read_sysfs_prop(product, product_len, sysfs_name, "product");
++	}
++#endif
++}
++
++int names_init(void)
++{
++	return -1;
++}
++
++void names_exit(void)
++{
++}
