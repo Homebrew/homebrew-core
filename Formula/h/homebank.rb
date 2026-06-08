@@ -27,6 +27,7 @@ class Homebank < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "gdk-pixbuf"
+  depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
@@ -38,7 +39,6 @@ class Homebank < Formula
 
   on_macos do
     depends_on "at-spi2-core"
-    depends_on "gettext"
     depends_on "harfbuzz"
   end
 
