@@ -31,11 +31,13 @@ class Temporal < Formula
   end
 
   service do
-    run [opt_bin/"temporal", "server", "start-dev"]
+    run [opt_bin/"temporal", "server", "start-dev",
+         "--db-filename", var/"temporal/temporal.db",
+         "--ui-port", "8233"]
     keep_alive true
     error_log_path var/"log/temporal.log"
     log_path var/"log/temporal.log"
-    working_dir var
+    working_dir var/"temporal"
   end
 
   test do
