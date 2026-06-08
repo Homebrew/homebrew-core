@@ -8,6 +8,7 @@ class Curl < Formula
   mirror "http://fresh-center.net/linux/www/legacy/curl-8.20.0.tar.bz2"
   sha256 "4be48e69cf467246cb97d369b85d78a08528f2b37cffef2418ee16e6a4eb596e"
   license "curl"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -16,12 +17,12 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bd670b96423f4df3ec9333188e58ce40b936f9d63359f201e17ff0e2219239ea"
-    sha256 cellar: :any,                 arm64_sequoia: "cb1366bbbd11a94a5824dafccdccbfb19d26d50b99a0b650e5863497ef39ea7e"
-    sha256 cellar: :any,                 arm64_sonoma:  "965f8c8ca3d582b5cc8b3e4ded8b34dfc7a59ef1c4e05c2c94ca3d093f1255b8"
-    sha256 cellar: :any,                 sonoma:        "76f4b92369879e1c6870afb34f9408926db80ed16f8476f7e0a98a0c7bf8b937"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd8bd30940ccb3181200e3fd93cb794d2dedac06e973fa67e8c3655b1ca11cde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e78a17c535b9e3fee4bd0794456b23254259484677721ea2685f8b4d4295b23"
+    sha256 cellar: :any,                 arm64_tahoe:   "292a95f8922562eb97609df58f6f2765a0c1f912899e161827ac2fd288146789"
+    sha256 cellar: :any,                 arm64_sequoia: "de32ed6b3ff9420e5559be0bab5944c9ee7f30078a69be57fd810746a21d06a3"
+    sha256 cellar: :any,                 arm64_sonoma:  "3cf2d6da13f3a932f80017c72058810eb5de2409f95d857ef96535049ff4b1f3"
+    sha256 cellar: :any,                 sonoma:        "842054ace2ad5405139509eb6a7e9f96d3691224ce1f8c41258118ec1d146a2a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32f7fbed23fd2d5c154afef0b9f99697b06115fd2d19f6b9ba5574bcd5a7471c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a56889f9aa7a44053503b64e77f68387d410d0c04bd5e9decaf08c48fcc846ea"
   end
 
   head do
@@ -40,7 +41,7 @@ class Curl < Formula
   depends_on "libnghttp3"
   depends_on "libngtcp2"
   depends_on "libssh2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "krb5"
@@ -68,7 +69,7 @@ class Curl < Formula
 
     args = %W[
       --disable-silent-rules
-      --with-ssl=#{Formula["openssl@3"].opt_prefix}
+      --with-ssl=#{Formula["openssl@4"].opt_prefix}
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback
@@ -134,6 +135,8 @@ class Curl < Formula
 
     ENV["PKG_CONFIG_PATH"] = lib/"pkgconfig"
     ENV.append_path "PKG_CONFIG_PATH", Formula["zlib-ng-compat"].lib/"pkgconfig" unless OS.mac?
+    # TODO: remove when `openssl@4` is not keg_only anymore.
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@4"].opt_lib/"pkgconfig"
     system "pkgconf", "--cflags", "libcurl"
   end
 end

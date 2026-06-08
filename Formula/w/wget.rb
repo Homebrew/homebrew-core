@@ -4,16 +4,16 @@ class Wget < Formula
   url "https://ftpmirror.gnu.org/gnu/wget/wget-1.25.0.tar.gz"
   sha256 "766e48423e79359ea31e41db9e5c289675947a7fcf2efdcedb726ac9d0da3784"
   license "GPL-3.0-or-later"
+  revision 1
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "03be72d23a113a3273245b3e071667b611ea5d81dab6f52e995a84420d0ed734"
-    sha256 arm64_sequoia: "d620e085be7df7e93c7a8e6dc98e71b7a2faedbb40e83daae9b823374ee9b09e"
-    sha256 arm64_sonoma:  "0611b16c2d24332fbb48cf1d75717b3ac3fc579a6ddac33ee1acaa791ff12e8e"
-    sha256 sonoma:        "91995d4d44951e981c36879505e8e294d15e46bbd3ef3965caf94d55424e165b"
-    sha256 arm64_linux:   "6c291dba1e71dcfada741192dbf78790c60488d927fa15c82f4bd0901edfa014"
-    sha256 x86_64_linux:  "09603bb2a51e4bdc94a9f4f3e66442ef6e401a2a2d244213066c58cceb686f95"
+    sha256 arm64_tahoe:   "95813f55485b527013d3caff66c3c52389947769ba3fa56bea3dd37bd64bc542"
+    sha256 arm64_sequoia: "03c53f2362562e8325f486dce8ef0daa2826bf7b35647deab93ca65d9006000c"
+    sha256 arm64_sonoma:  "f7e1d373d330de52e9ba82293c31fa1d268dc36bd37bcfda968f527e42e724dc"
+    sha256 sonoma:        "2df5a5bfb22520aebb4693e42877a703157b60ebae3dc426becf3a6a2b939a5a"
+    sha256 arm64_linux:   "fe5bcfa1f8fc0df487dbb88ca3272867a845a226c907f2a937665dbe6efe0d2b"
+    sha256 x86_64_linux:  "ff1f252c29b196108376bce23f6fdb56af9c4416d8ed81c7346b845ee00ec310"
   end
 
   head do
@@ -26,7 +26,7 @@ class Wget < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libidn2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_macos do
     depends_on "gettext"
@@ -38,12 +38,15 @@ class Wget < Formula
     depends_on "zlib-ng-compat"
   end
 
+  # OpenSSL 4 removes SSLv3_client_method.
+  patch :DATA
+
   def install
     system "./bootstrap", "--skip-po" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
-                          "--with-libssl-prefix=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-libssl-prefix=#{Formula["openssl@4"].opt_prefix}",
                           "--disable-pcre",
                           "--disable-pcre2",
                           "--without-libpsl",
@@ -55,3 +58,18 @@ class Wget < Formula
     system bin/"wget", "-O", File::NULL, "https://google.com"
   end
 end
+
+__END__
+diff --git a/src/openssl.c b/src/openssl.c
+index 7310514..6b748bf 100644
+--- a/src/openssl.c
++++ b/src/openssl.c
+@@ -226,7 +226,7 @@ ssl_init (void)
+       break;
+ 
+     case secure_protocol_sslv3:
+-#ifndef OPENSSL_NO_SSL3_METHOD
++#if !defined OPENSSL_NO_SSL3_METHOD && OPENSSL_VERSION_NUMBER < 0x40000000L
+       meth = SSLv3_client_method ();
+ #endif
+       break;

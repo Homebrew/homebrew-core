@@ -4,6 +4,7 @@ class NetSnmp < Formula
   url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9.5.2/net-snmp-5.9.5.2.tar.gz"
   sha256 "16707719f833184a4b72835dac359ae188123b06b5e42817c00790d7dc1384bf"
   license all_of: ["MIT-CMU", "MIT", "BSD-3-Clause"]
+  revision 1
   compatibility_version 1
   head "https://github.com/net-snmp/net-snmp.git", branch: "master"
 
@@ -13,17 +14,17 @@ class NetSnmp < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "aa3127d38dc1d35626fe7bd3e53e66bd88adea6ed7aca814ba55adbe47b7fabb"
-    sha256 arm64_sequoia: "6a1db83d132177a261003a10ad4f9392ef532b0eade1b831af53d2cf388c5d20"
-    sha256 arm64_sonoma:  "43a5e2de2d18ee41c5517bd121f28881a2b5add0935277dd749704866d58fde5"
-    sha256 sonoma:        "0ef82db8c6d4236ce288931fcc5529632f3b9fdd6bc10eb7a77f1fe54d0e3cca"
-    sha256 arm64_linux:   "0ff9a48126694d8c8eac3e6a7d01bd013cb22db2e88b8cc91135fe3f0eec1c26"
-    sha256 x86_64_linux:  "1105287f2a864a6c66b750dae9ba98d7a6fae7a30a1a729a6c3d47cb88ac6d54"
+    sha256 arm64_tahoe:   "60b8a097757e7513dbe2ce5984a266a0d78be2587a8b3154a96548cbf10979f5"
+    sha256 arm64_sequoia: "38c0927f3b149096b984c95a7c32c7b7151387bbe86cc7581858efaa5c96c58a"
+    sha256 arm64_sonoma:  "b89b359674da95fe75459cefcf36c9ad0fc1b34f7712359063573a394c15b6cc"
+    sha256 sonoma:        "d6faf8fb6ac91735d46081e0c1ea86f0dfa295e4888bf19a4ec233e31e7f5d25"
+    sha256 arm64_linux:   "e9ed1814d288256a92c19eb1db31c48f1b6491ad122029b32b98ecde1c74c57b"
+    sha256 x86_64_linux:  "33e985fe63a50768c46cb6939fc84b7c7fa5c8f439b3211ef8850529a65d8c29"
   end
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_arm do
     depends_on "autoconf" => :build
@@ -49,7 +50,7 @@ class NetSnmp < Formula
       "--without-kmem-usage",
       "--disable-embedded-perl",
       "--without-perl-modules",
-      "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+      "--with-openssl=#{Formula["openssl@4"].opt_prefix}",
     ]
 
     system "autoreconf", "--force", "--install", "--verbose" if Hardware::CPU.arm?

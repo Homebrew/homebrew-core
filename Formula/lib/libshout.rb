@@ -5,7 +5,7 @@ class Libshout < Formula
   mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/libshout/libshout-2.4.6.tar.gz"
   sha256 "39cbd4f0efdfddc9755d88217e47f8f2d7108fa767f9d58a2ba26a16d8f7c910"
   license "LGPL-2.0-or-later"
-  revision 2
+  revision 3
   compatibility_version 1
 
   livecheck do
@@ -14,20 +14,18 @@ class Libshout < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "76663b1032171e339e3050387e161c4428a0831ee4c0142c76ba6fd0d4dfa767"
-    sha256 cellar: :any,                 arm64_sequoia: "5ff13dd8f27961848f5a16d23ce60c171146c09424e7335eb2eaee7245a78ed3"
-    sha256 cellar: :any,                 arm64_sonoma:  "86c6bd103a2d979c4d21e4b419716498cbc4662addf0db2308d91bdcebaeac48"
-    sha256 cellar: :any,                 arm64_ventura: "7a69fb9e5b3562368d2ab467fe6b9bfb7b0091505a0324e943873bdec9de4eef"
-    sha256 cellar: :any,                 sonoma:        "94d290dfdf67616fbf858902a09552c31ea53b9c130105735398208cb91df08f"
-    sha256 cellar: :any,                 ventura:       "56982df807301d4f69684c7988c6d9c74faeb71471b453899649ab3e211b40df"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac4ae07ae448d7c8ba89fb704caf46dabde6b99994aaca7f4240f99e213b9787"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec4015cc70b9e3b8c9d17596e744743589c3f8c0a1be06c1116054e6855a4619"
+    sha256 cellar: :any,                 arm64_tahoe:   "b394e0a6fd09c7ba4b53579a82a529c5ce5c1ed41cdb49981efe603675d6f5fa"
+    sha256 cellar: :any,                 arm64_sequoia: "1d2ace0c95fcbf33c4a63af683467c33fd06c7ec664ab7089eba60f85d66cc0a"
+    sha256 cellar: :any,                 arm64_sonoma:  "32c215d0035f50f20904bc426ce29c6bf12b086366f3a5c8b6c13cce72415783"
+    sha256 cellar: :any,                 sonoma:        "b94034f786b46eb57a033eebfbab7343e87fb030d127d5dbbe390fc55e8627be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f53d2f3520652af063c41d488b1738af1a23fc2bb64be3d0604dd8ec2324cc13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "663a5903d6aaa29f2ca8010eef9c437e2ba8b1fce8120d4a107b8c53b99e0f87"
   end
 
   depends_on "pkgconf" => :build
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "speex"
   depends_on "theora"
 
