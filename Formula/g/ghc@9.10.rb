@@ -36,6 +36,26 @@ class GhcAT910 < Formula
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
 
+  # Backport fixes for https://gitlab.haskell.org/ghc/ghc/-/issues/26166
+  # Using commits from https://gitlab.haskell.org/ghc/ghc/-/merge_requests/16079
+  on_sequoia :or_newer do
+    patch do
+      url "https://gitlab.haskell.org/ghc/ghc/-/commit/6db1e81c76b338ca18677906c9767e5f60e9ff0e.diff"
+      sha256 "48f8a2bdb6af1c060f6f4d976744c9d9d1c3297c9f8f26ca39f65a18dab7f81c"
+      type :backport
+    end
+    patch do
+      url "https://gitlab.haskell.org/ghc/ghc/-/commit/d0966d3753da095dc76f2c314b2eb0dcbc828b65.diff"
+      sha256 "229cf8ebf7c3228a4addf1c6dc40d79b1d4892fad4e9ca339dfc393fbc1cac2e"
+      type :backport
+    end
+    patch do
+      url "https://gitlab.haskell.org/ghc/ghc/-/commit/4ab3132f1318f36b84e7a9382bb7f26144e22388.diff"
+      sha256 "cbe091d1c20473b6e1eb7e0a86674f09a336cd2fffb094656d19bd3b21aea6f4"
+      type :backport
+    end
+  end
+
   on_linux do
     depends_on "gmp" => :build
   end
@@ -87,6 +107,11 @@ class GhcAT910 < Formula
     end
   end
 
+  resource "unix" do
+    url "https://hackage.haskell.org/package/unix-2.8.8.0/unix-2.8.8.0.tar.gz"
+    sha256 "a128dea3bfeb731a562f22d376fa606e902154d95321363f7ec1ea6b787a5a3e"
+  end
+
   def install
     # ENV.cc and ENV.cxx return specific compiler versions on Ubuntu, e.g.
     # gcc-11 and g++-11 on Ubuntu 22.04. Using such values effectively causes
@@ -100,10 +125,11 @@ class GhcAT910 < Formula
     ENV["LD"] = ENV["MergeObjsCmd"] = "ld"
     ENV["PYTHON"] = python3
 
-    # Workaround for https://gitlab.haskell.org/ghc/ghc/-/issues/26166
-    if DevelopmentTools.ld64_version >= "1221.4"
-      inreplace "rts/rts.cabal", /("-Wl,-undefined,dynamic_lookup)"/, "\\1,-ld_classic\""
-    end
+    # Workaround to fix build on newer macOS by using newer unix package
+    unix_version = Version.new(File.read("libraries/unix/unix.cabal")[/^version:\s*(\d+(?:\.\d+)+)$/i, 1])
+    odie "Remove `unix` resource!" if unix_version > "2.8.7.0"
+    rm_r "libraries/unix"
+    resource("unix").stage("libraries/unix")
 
     binary = buildpath/"binary"
     resource("binary").stage do
