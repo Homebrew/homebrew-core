@@ -3,8 +3,8 @@ class Specify < Formula
 
   desc "Toolkit to help you get started with Spec-Driven Development"
   homepage "https://github.com/github/spec-kit"
-  url "https://github.com/github/spec-kit/archive/refs/tags/v0.9.5.tar.gz"
-  sha256 "c7da5f34015c077443723786de8a6e4e06fa20db1f649570d16382aeb4915928"
+  url "https://github.com/github/spec-kit/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "5f164a6c96c1fe9709b0f928508cde326feb782ea16b7ff9f7ce1465ac5f7e33"
   license "MIT"
 
   bottle do
@@ -102,7 +102,7 @@ class Specify < Formula
   end
 
   test do
-    system bin/"specify", "init", "test-project", "--ai", "copilot", "--script", "sh", "--ignore-agent-tools"
+    system bin/"specify", "init", "test-project", "--integration", "copilot", "--script", "sh", "--ignore-agent-tools"
     assert_path_exists testpath/"test-project/.specify/memory/constitution.md"
 
     assert_match "Specify CLI is ready to use", shell_output("#{bin}/specify check")
