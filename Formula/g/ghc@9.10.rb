@@ -36,6 +36,23 @@ class GhcAT910 < Formula
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
 
+  # Backport fixes for https://gitlab.haskell.org/ghc/ghc/-/issues/26166
+  # Using commits from https://gitlab.haskell.org/ghc/ghc/-/merge_requests/16079
+  on_sequoia :or_newer do
+    patch do
+      url "https://gitlab.haskell.org/ghc/ghc/-/commit/6db1e81c76b338ca18677906c9767e5f60e9ff0e.diff"
+      sha256 "48f8a2bdb6af1c060f6f4d976744c9d9d1c3297c9f8f26ca39f65a18dab7f81c"
+    end
+    patch do
+      url "https://gitlab.haskell.org/ghc/ghc/-/commit/d0966d3753da095dc76f2c314b2eb0dcbc828b65.diff"
+      sha256 "229cf8ebf7c3228a4addf1c6dc40d79b1d4892fad4e9ca339dfc393fbc1cac2e"
+    end
+    patch do
+      url "https://gitlab.haskell.org/ghc/ghc/-/commit/4ab3132f1318f36b84e7a9382bb7f26144e22388.diff"
+      sha256 "cbe091d1c20473b6e1eb7e0a86674f09a336cd2fffb094656d19bd3b21aea6f4"
+    end
+  end
+
   # Build uses sed -r option, which is not available in Catalina shipped sed.
   on_catalina :or_older do
     depends_on "gnu-sed" => :build
@@ -105,11 +122,6 @@ class GhcAT910 < Formula
     ENV["LD"] = ENV["MergeObjsCmd"] = "ld"
     ENV["PYTHON"] = which("python3.14")
 
-    # Workaround for https://gitlab.haskell.org/ghc/ghc/-/issues/26166
-    if DevelopmentTools.ld64_version >= "1221.4"
-      inreplace "rts/rts.cabal", /("-Wl,-undefined,dynamic_lookup)"/, "\\1,-ld_classic\""
-    end
-
     binary = buildpath/"binary"
     resource("binary").stage do
       binary_args = []
@@ -132,8 +144,8 @@ class GhcAT910 < Formula
     args = []
     if OS.mac?
       # https://gitlab.haskell.org/ghc/ghc/-/issues/22595#note_468423
-      args << "--with-ffi-libraries=#{MacOS.sdk_path_if_needed}/usr/lib"
-      args << "--with-ffi-includes=#{MacOS.sdk_path_if_needed}/usr/include/ffi"
+      args << "--with-ffi-libraries=#{MacOS.sdk_path}/usr/lib"
+      args << "--with-ffi-includes=#{MacOS.sdk_path}/usr/include/ffi"
       args << "--with-system-libffi"
     end
 
