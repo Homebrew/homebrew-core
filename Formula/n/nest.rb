@@ -36,8 +36,8 @@ class Nest < Formula
 
   def install
     # Help FindReadline find macOS system ncurses library
-    args = if OS.mac? && (sdk = MacOS.sdk_path_if_needed)
-      ["-DNCURSES_LIBRARY=#{sdk}/usr/lib/libncurses.tbd"]
+    args = if OS.mac? && (sdk_path = MacOS.sdk_path)
+      ["-DNCURSES_LIBRARY=#{sdk_path}/usr/lib/libncurses.tbd"]
     else
       []
     end
