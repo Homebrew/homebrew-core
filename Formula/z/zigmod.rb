@@ -1,8 +1,8 @@
 class Zigmod < Formula
   desc "Package manager for the Zig programming language"
   homepage "https://nektro.github.io/zigmod/"
-  url "https://github.com/nektro/zigmod/archive/refs/tags/r103.tar.gz"
-  sha256 "965bd1aacbe4fee5c3dbbe0715d40f5b6a6413065bf5dc0385ba1ba1acc6c2e2"
+  url "https://github.com/nektro/zigmod/archive/refs/tags/r104.tar.gz"
+  sha256 "ae9d845a67750d5f7fae685768cc3bc9bf6de059b767502ffdd8064c5d8e4c96"
   license "MIT"
 
   livecheck do
@@ -19,21 +19,15 @@ class Zigmod < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cc6fc70bf0c8af0294cbe4319ad37118c9ebe83c9f4ec940961d6b04c03b625"
   end
 
-  depends_on "pkgconf" => :build
-  depends_on "zig@0.15"
-  uses_from_macos "git" => :test
+  depends_on "zig"
 
   def install
-    # Avoid zig-nfs mkdirat failure when creating absolute cache paths on macOS x86_64.
-    inreplace "src/common.zig", "try nfs.cwd().makePath(cachepath);",
-                                "try std.fs.cwd().makePath(cachepath);"
-
     # Fix illegal instruction errors when using bottles on older CPUs.
     # https://github.com/Homebrew/homebrew-core/issues/92282
-    cpu = case Hardware.oldest_cpu
-    when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
+    cpu = case ENV.effective_arch # See `zig targets`.
+    when :arm_vortex_tempest then "apple_m1"
     when :armv8 then "xgene1" # Closest to `-march=armv8-a`
-    else Hardware.oldest_cpu
+    else ENV.effective_arch
     end
 
     # do not use std_zig_args
