@@ -8,6 +8,7 @@ class Freeswitch < Formula
     "MPL-1.1",
     "LGPL-2.1-only", # spandsp
   ]
+  revision 1
 
   livecheck do
     url :head
