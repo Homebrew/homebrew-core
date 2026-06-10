@@ -23,8 +23,7 @@ class Pygobject3 < Formula
 
   depends_on "cairo"
   depends_on "glib"
-  depends_on "gobject-introspection"
-  depends_on "py3cairo"
+  depends_on "py3cairo" => :no_linkage
 
   uses_from_macos "libffi"
 
