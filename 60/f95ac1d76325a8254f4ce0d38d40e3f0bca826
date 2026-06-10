@@ -1,0 +1,19 @@
+Formula/o/openssl@3.5.rb
+  s_47f338395061aa::t_5e79dc4600b413 37-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "60f95ac1d76325a8254f4ce0d38d40e3f0bca826",
+  "prompts": {},
+  "sessions": {
+    "s_47f338395061aa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "25265e95-bf00-4874-a979-262cf838a02d",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
