@@ -1,0 +1,14 @@
+Formula/c/container-use.rb
+  h_9df9c32c3f321d 1-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "b227187bf1244a4e995dd6ff7ad0b319555bee47",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
