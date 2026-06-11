@@ -1,10 +1,10 @@
 class Shellshare < Formula
   desc "Live Terminal Broadcast"
   homepage "https://github.com/vitorbaptista/shellshare"
-  url "https://github.com/vitorbaptista/shellshare/archive/refs/tags/v2.0.5.tar.gz"
-  sha256 "68469121e9209eb9b916c2246d06af9f5408db66d9bc8fc916d0f9fed99001a0"
+  url "https://github.com/vitorbaptista/shellshare/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "7f3036bcead0f3d88ac55f9ad4fe553177533bf9f2bff39ed4139284fbcf2e95"
   license "Apache-2.0"
-  head "https://github.com/vitorbaptista/shellshare.git", branch: "master"
+  head "https://github.com/vitorbaptista/shellshare.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a75120585874d126689d8dcc50415013565a05f9799e60841ca7c866562ff767"
@@ -26,10 +26,8 @@ class Shellshare < Formula
 
     port = free_port
 
-    Open3.popen3(bin/"shellshare", "--server", "http://localhost:#{port}") do |_, stdout, _, w|
+    Open3.popen3(bin/"shellshare", "--server", "http://localhost:#{port}") do |_, stdout|
       assert_match("Sharing terminal", stdout.readline)
-    ensure
-      Process.kill "TERM", w.pid
     end
   end
 end
