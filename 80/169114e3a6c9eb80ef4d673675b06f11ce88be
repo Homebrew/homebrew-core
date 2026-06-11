@@ -1,0 +1,14 @@
+Formula/d/dart-sass.rb
+  h_9df9c32c3f321d 7,31-35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "80169114e3a6c9eb80ef4d673675b06f11ce88be",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
