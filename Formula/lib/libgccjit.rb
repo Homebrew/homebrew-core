@@ -5,16 +5,15 @@ class Libgccjit < Formula
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
-    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
-    sha256 "438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
+    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
+    mirror "https://ftp.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
+    sha256 "50efb4d94c3397aff3b0d61a5abd748b4dd31d9d3f2ab7be05b171d36a510f79"
 
     # Branch from the Darwin maintainer of GCC, with a few generic fixes and
-    # Apple Silicon support, located at https://github.com/iains/gcc-14-branch
+    # Apple Silicon support, released as gcc-16.1-darwin-r0.
     patch do
       on_macos do
-        url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gcc/gcc-15.1.0.diff"
-        sha256 "360fba75cd3ab840c2cd3b04207f745c418df44502298ab156db81d41edf3594"
+        file "Patches/gcc/gcc-16.1.0.diff"
       end
     end
   end
@@ -47,6 +46,9 @@ class Libgccjit < Formula
   depends_on "zstd"
 
   on_macos do
+    # macOS make is too old, has intermittent parallel build issue
+    depends_on "make" => :build
+
     on_intel do
       depends_on "gcc"
     end
@@ -84,8 +86,7 @@ class Libgccjit < Formula
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
 
       # System headers may not be in /usr/include
-      sdk = MacOS.sdk_path_if_needed
-      args << "--with-sysroot=#{sdk}" if sdk
+      args << "--with-sysroot=#{MacOS.sdk_path}"
 
       # Avoid this semi-random failure:
       # "Error: Failed changing install name"
@@ -114,8 +115,9 @@ class Libgccjit < Formula
     # Building jit needs --enable-host-shared, which slows down the compiler.
     mkdir "build-jit" do
       system "../configure", *args, "--enable-languages=jit", "--enable-host-shared"
-      system "make", *make_args
-      system "make", "install"
+      make = OS.mac? ? "gmake" : "make"
+      system make, *make_args
+      system make, "install"
     end
 
     # We only install the relevant libgccjit files from libexec and delete the rest.
