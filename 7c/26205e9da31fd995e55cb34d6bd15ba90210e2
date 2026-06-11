@@ -1,0 +1,14 @@
+Formula/f/fast-cli.rb
+  h_9df9c32c3f321d 1-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "7c26205e9da31fd995e55cb34d6bd15ba90210e2",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
