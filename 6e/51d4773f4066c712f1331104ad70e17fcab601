@@ -1,0 +1,25 @@
+Formula/v/vulcain.rb
+  h_9df9c32c3f321d 1-18,30-50
+  s_44666a2b15c3da::t_207fc83f2a3910 19-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "6e51d4773f4066c712f1331104ad70e17fcab601",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  },
+  "sessions": {
+    "s_44666a2b15c3da": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019eb4a9-faa8-7d92-a63c-9b8567f888ba",
+        "model": "gpt-5.5"
+      },
+      "human_author": null
+    }
+  }
+}
