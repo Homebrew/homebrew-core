@@ -137,6 +137,14 @@ class Ocrmypdf < Formula
     fish_completion.install "misc/completion/ocrmypdf.fish"
   end
 
+  def caveats
+    <<~EOS
+      OCRmyPDF works without veraPDF, but installing it enables faster
+      PDF/A validation and is recommended for the best PDF/A experience:
+        brew install verapdf
+    EOS
+  end
+
   test do
     system bin/"ocrmypdf", "-f", "-q", "--deskew",
                            test_fixtures("test.pdf"), "ocr.pdf"
