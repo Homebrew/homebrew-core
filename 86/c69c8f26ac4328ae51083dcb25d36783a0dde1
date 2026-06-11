@@ -1,0 +1,14 @@
+Formula/k/kdash.rb
+  h_9df9c32c3f321d 1-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "86c69c8f26ac4328ae51083dcb25d36783a0dde1",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
