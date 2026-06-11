@@ -1,8 +1,8 @@
 class LivekitCli < Formula
   desc "Command-line interface to LiveKit"
   homepage "https://livekit.io"
-  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v2.16.4.tar.gz"
-  sha256 "064070e62e3cd864c2e02f999eb6e000ce9ba5ecf7f7cbeffc2cf8d9685ffa7e"
+  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v2.16.5.tar.gz"
+  sha256 "d5818a61cbd1bc25ab5bb4a255adca672492320a6dbba4d83e1e674fd96ab558"
   license "Apache-2.0"
   head "https://github.com/livekit/livekit-cli.git", branch: "main"
 
@@ -18,6 +18,8 @@ class LivekitCli < Formula
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = "-s -w"
     system "go", "build", *std_go_args(ldflags:, output: bin/"lk"), "./cmd/lk"
 
