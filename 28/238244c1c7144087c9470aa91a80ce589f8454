@@ -1,0 +1,14 @@
+Formula/z/zot.rb
+  h_9df9c32c3f321d 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "28238244c1c7144087c9470aa91a80ce589f8454",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
