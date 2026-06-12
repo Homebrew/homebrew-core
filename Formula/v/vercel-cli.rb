@@ -1,8 +1,8 @@
 class VercelCli < Formula
   desc "Command-line interface for Vercel"
   homepage "https://vercel.com/home"
-  url "https://registry.npmjs.org/vercel/-/vercel-54.11.1.tgz"
-  sha256 "3f87a84a2e246f562ba9f65051edb5177ec66433ede3e88a0c3308725647093f"
+  url "https://registry.npmjs.org/vercel/-/vercel-54.12.1.tgz"
+  sha256 "ab52f334e3f838669c5fe2c7de5419988302ef082425b01a661050fa7c3e29dd"
   license "Apache-2.0"
 
   bottle do
@@ -26,6 +26,13 @@ class VercelCli < Formula
     rm_r node_modules/"sandbox/dist/pty-server-linux-x86_64"
 
     deuniversalize_machos node_modules/"fsevents/fsevents.node" if OS.mac?
+
+    (node_modules/"@vercel/go/bin").glob("**/proxy-*").each do |f|
+      next if OS.linux? && f.arch == Hardware::CPU.arch
+
+      rm f
+    end
+
     bin.install_symlink libexec.glob("bin/*")
   end
 
