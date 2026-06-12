@@ -3,8 +3,8 @@ class Chapel < Formula
 
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/2.8.0/chapel-2.8.0.tar.gz"
-  sha256 "80e8c3018e33e49674c7a2542e062547ea41d64d6595edb3b799e90c88f963f8"
+  url "https://chapel-lang.org/tmp/chapel-2.9.0.tar.gz"
+  sha256 "d91ececfc070f0e94c979dd08cdd3f6da84db4ee48fe06f3187ad259ea9553e7"
   license "Apache-2.0"
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
@@ -23,7 +23,7 @@ class Chapel < Formula
   depends_on "gmp"
   depends_on "hwloc"
   depends_on "jemalloc"
-  depends_on "llvm@21"
+  depends_on "llvm"
   depends_on "pkgconf"
   depends_on "python@3.14"
 
@@ -117,6 +117,7 @@ class Chapel < Formula
 
       with_env(CHPL_PIP_FROM_SOURCE: "1") do
         system "make", "chpldoc"
+        system "make", "c2chapel"
         system "make", "chplcheck"
         system "make", "chpl-language-server"
       end
@@ -227,6 +228,8 @@ class Chapel < Formula
            "--print-commands", libexec/"examples/hello.chpl"
     system bin/"chpldoc", "--version"
     system bin/"mason", "--version"
+
+    system bin/"c2chapel", "--version"
 
     # Test chplcheck, if it works CLS probably does too.
     # chpl-language-server will hang indefinitely waiting for a LSP client
