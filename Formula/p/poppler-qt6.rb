@@ -55,7 +55,7 @@ class PopplerQt6 < Formula
   end
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -DBUILD_GTK_TESTS=OFF
       -DENABLE_BOOST=OFF
       -DENABLE_GLIB=ON
@@ -66,11 +66,11 @@ class PopplerQt6 < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
-    system "cmake", "-S", ".", "-B", "build_shared", *args
+    system "cmake", "-S", ".", "-B", "build_shared", *args, *std_cmake_args
     system "cmake", "--build", "build_shared"
     system "cmake", "--install", "build_shared"
 
-    system "cmake", "-S", ".", "-B", "build_static", *args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "-S", ".", "-B", "build_static", *args, *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
     system "cmake", "--build", "build_static"
     lib.install "build_static/libpoppler.a"
     lib.install "build_static/cpp/libpoppler-cpp.a"
