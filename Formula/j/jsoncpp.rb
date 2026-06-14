@@ -1,28 +1,11 @@
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
+  url "https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.8-rc1.tar.gz"
+  sha256 "f59ef533e2463bbaf1a660f4c6114462cf03be4dfdd07154c40d165bb642a745"
   license "MIT"
   compatibility_version 1
   head "https://github.com/open-source-parsers/jsoncpp.git", branch: "master"
-
-  stable do
-    url "https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.7.tar.gz"
-    sha256 "830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18"
-
-    # Fix C++11 ABI breakage when compiled with C++17
-    # PR ref: https://github.com/open-source-parsers/jsoncpp/pull/1675
-    patch do
-      url "https://github.com/open-source-parsers/jsoncpp/commit/c67034e4b4c722579ee15fddb8e4af8f04252b08.patch?full_index=1"
-      sha256 "e25bdb33c92f6b8f11f7172e884f94ba38cde6a4efbde49b683e989681e142b3"
-    end
-
-    # chore: remove leftover CMake checks for std::string_view
-    # PR ref: https://github.com/open-source-parsers/jsoncpp/pull/1676
-    patch do
-      url "https://github.com/open-source-parsers/jsoncpp/commit/36f94b68d60774d2a5870a6881a92de02ed76eb1.patch?full_index=1"
-      sha256 "33e40d0e382a1a7e5b1693039703f55ea9e3c8e1e33e2c8c73ad0a92639d1471"
-    end
-  end
 
   livecheck do
     url :stable
