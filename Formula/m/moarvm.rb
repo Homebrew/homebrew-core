@@ -1,8 +1,8 @@
 class Moarvm < Formula
   desc "VM with adaptive optimization and JIT compilation, built for Rakudo"
   homepage "https://moarvm.org"
-  url "https://github.com/MoarVM/MoarVM/releases/download/2026.05/MoarVM-2026.05.tar.gz"
-  sha256 "aa6d39debc9154fb353c94debb78690a52e61de0745f744d7f2f7144451e7295"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2026.05.1/MoarVM-2026.05.1.tar.gz"
+  sha256 "801a43c2e87bdbb5030318e3c649c52f859a10f2bd21b6f26d4da8e9fda0bddf"
   license "Artistic-2.0"
 
   livecheck do
@@ -34,15 +34,6 @@ class Moarvm < Formula
   conflicts_with "moor", because: "both install `moar` binaries"
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
-  resource "nqp" do
-    url "https://github.com/Raku/nqp/releases/download/2026.05/nqp-2026.05.tar.gz"
-    sha256 "f43085635bcda97c6e4163e827bcca34e46840f72316126246b94bc04ab58ebf"
-
-    livecheck do
-      formula :parent
-    end
-  end
-
   def install
     # Remove bundled libraries
     %w[dyncall libatomicops libtommath mimalloc].each { |dir| rm_r("3rdparty/#{dir}") }
@@ -70,6 +61,11 @@ class Moarvm < Formula
   end
 
   test do
+    resource "nqp" do
+      url "https://github.com/Raku/nqp/releases/download/2026.05/nqp-2026.05.tar.gz"
+      sha256 "f43085635bcda97c6e4163e827bcca34e46840f72316126246b94bc04ab58ebf"
+    end
+
     testpath.install resource("nqp")
     out = Dir.chdir("src/vm/moar/stage0") do
       shell_output("#{bin}/moar nqp.moarvm -e 'for (0,1,2,3,4,5,6,7,8,9) { print($_) }'")
