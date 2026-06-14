@@ -1,11 +1,10 @@
 class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
   homepage "https://www.infradead.org/openconnect/"
-  url "https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/o/openconnect/openconnect_9.12.orig.tar.gz"
-  sha256 "a2bedce3aa4dfe75e36e407e48e8e8bc91d46def5335ac9564fbf91bd4b2413e"
+  url "https://www.infradead.org/openconnect/download/openconnect-9.20.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/o/openconnect/openconnect_9.20.orig.tar.gz"
+  sha256 "607a1c96d7615a136810a83c412a38336e987f949fc79c8547e807f5349e506a"
   license "LGPL-2.1-only"
-  revision 2
 
   livecheck do
     url "https://www.infradead.org/openconnect/download.html"
@@ -49,15 +48,8 @@ class Openconnect < Formula
   end
 
   resource "vpnc-script" do
-    url "https://gitlab.com/openconnect/vpnc-scripts/-/raw/5b9e7e4c8e813cc6d95888e7e1d2992964270ec8/vpnc-script"
-    sha256 "dee08feb571dc788018b5d599e4a79177e6acc144d196a776a521ff5496fddb8"
-  end
-
-  # Fix for GnuTLS v3.8.1
-  # https://gitlab.com/openconnect/openconnect/-/merge_requests/490
-  patch do
-    url "https://gitlab.com/openconnect/openconnect/-/commit/7512698217c4104aade7a2df669a20de68f3bb8c.diff"
-    sha256 "8a26be2116b88bf9ad491b56138498a2a18bd80bb081e90a386ee8817a1314c3"
+    url "https://gitlab.com/openconnect/vpnc-scripts/-/raw/ce9e961bd0f6b867e1c7c35f78f6fb973f6ff101/vpnc-script"
+    sha256 "f0c4d936a382f07711263242699b5e2d85d1ace37136bb78785d352997c17742"
   end
 
   def install
