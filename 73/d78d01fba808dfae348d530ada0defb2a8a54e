@@ -1,0 +1,14 @@
+Formula/g/gnhf.rb
+  h_9df9c32c3f321d 1-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "73d78d01fba808dfae348d530ada0defb2a8a54e",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
