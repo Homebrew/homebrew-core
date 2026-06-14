@@ -1,0 +1,14 @@
+Formula/j/jwt-ui.rb
+  h_9df9c32c3f321d 1-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "4cfd07deb654cd8de25f35db6f4e84dc9c208e96",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
