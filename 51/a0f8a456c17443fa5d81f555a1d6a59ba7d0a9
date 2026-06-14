@@ -1,0 +1,14 @@
+Formula/r/redli.rb
+  h_9df9c32c3f321d 1-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "51a0f8a456c17443fa5d81f555a1d6a59ba7d0a9",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
