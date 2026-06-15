@@ -1,0 +1,14 @@
+Formula/c/ccusage.rb
+  h_9df9c32c3f321d 4-5,9-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "22abe3973d19051c5a7fae4d0a086b93d8255276",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
