@@ -1,0 +1,19 @@
+Formula/a/aoe.rb
+  s_d548c7b9df4a55::t_7669d2677fb886 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "f024e228d5611ae46c04a60edd0c440056317bfc",
+  "prompts": {},
+  "sessions": {
+    "s_d548c7b9df4a55": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ec8ab-1450-70c3-967c-feb0a9ae0389",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
