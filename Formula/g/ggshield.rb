@@ -3,10 +3,9 @@ class Ggshield < Formula
 
   desc "Scanner for secrets and sensitive data in code"
   homepage "https://www.gitguardian.com"
-  url "https://files.pythonhosted.org/packages/51/d5/54067ee60dee03485ceab3f5f3f998fed550ffb087e63a25635797cb0e77/ggshield-1.51.0.tar.gz"
-  sha256 "e7f21d6a2693ab7c546f1be84d218e5cd69357ed5ac2e0bfb92fb93cfa367edb"
+  url "https://files.pythonhosted.org/packages/e6/34/6307e686d488fda5c88e8fd0ceea78e69ede08958dc17f85e69ec2bbba05/ggshield-1.52.0.tar.gz"
+  sha256 "f5eb3dfaba2deb75617aee24d4b36c9572af9a93ace7cf63ac56671c379dbfd2"
   license "MIT"
-  revision 1
   head "https://github.com/GitGuardian/ggshield.git", branch: "main"
 
   bottle do
@@ -40,6 +39,11 @@ class Ggshield < Formula
     sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
   end
 
+  resource "configupdater" do
+    url "https://files.pythonhosted.org/packages/2b/f4/603bd8a65e040b23d25b5843836297b0f4e430f509d8ed2ef8f072fb4127/ConfigUpdater-3.2.tar.gz"
+    sha256 "9fdac53831c1b062929bf398b649b87ca30e7f1a735f3fbf482072804106306b"
+  end
+
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/8c/8b/57666417c0f90f08bcafa776861060426765fdb422eb10212086fb811d26/dnspython-2.8.0.tar.gz"
     sha256 "181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"
@@ -48,6 +52,11 @@ class Ggshield < Formula
   resource "email-validator" do
     url "https://files.pythonhosted.org/packages/f5/22/900cb125c76b7aaa450ce02fd727f452243f2e91a61af068b40adba60ea9/email_validator-2.3.0.tar.gz"
     sha256 "9fc05c37f2f6cf439ff414f8fc46d917929974a82244c20eb10231ba60c54426"
+  end
+
+  resource "filelock" do
+    url "https://files.pythonhosted.org/packages/e6/dc/be6cbe99670cd6e4ad387123647cb08e0c32975e223f82551e914c5568a6/filelock-3.29.4.tar.gz"
+    sha256 "10cdb3656fc44541cdf30652a93fb10ec6b05325620eb316bd26893e4201538a"
   end
 
   resource "id" do
@@ -146,8 +155,8 @@ class Ggshield < Formula
   end
 
   resource "pygitguardian" do
-    url "https://files.pythonhosted.org/packages/52/d9/15e6d313c47c1e8753d7c0a274717b8841f34e9e187ba8a9f5b9598096f4/pygitguardian-1.30.0.tar.gz"
-    sha256 "fd6a43a2650d181c06d3e0a5c38b7a9ed9e4868bdd1997ce4e6c5863c94de9fe"
+    url "https://files.pythonhosted.org/packages/f5/3f/c55dc98389b11e83fe628865fb580290ff6f3f5bba5504c98fa4dcc57776/pygitguardian-1.31.0.tar.gz"
+    sha256 "ee3892409ff07152f92d88e0db2b99e8075dda5783716f7ef89593b1ead773c1"
   end
 
   resource "pygments" do
