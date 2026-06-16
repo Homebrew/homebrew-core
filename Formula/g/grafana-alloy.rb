@@ -41,7 +41,7 @@ class GrafanaAlloy < Formula
     ]
 
     # https://github.com/grafana/alloy/blob/main/tools/make/packaging.mk
-    tags = %w[netgo embedalloyui]
+    tags = %w[netgo embedalloyui gore2regex]
     tags << "promtail_journal_enabled" if OS.linux?
 
     cd "internal/web/ui" do
@@ -51,8 +51,25 @@ class GrafanaAlloy < Formula
 
     system "go", "build", "-C", "collector", *std_go_args(ldflags:, tags:, output: bin/"alloy")
 
-    generate_completions_from_executable(bin/"alloy", "completion")
+    generate_completions_from_executable(bin/"alloy", shell_parameter_format: :cobra)
+
+    # Create an empty files for environment variables and extra command line arguments.
     pkgetc.mkpath
+    (pkgetc/"config.env").write ""
+    (pkgetc/"extra-args.txt").write ""
+
+    # Generate a wrapper script to run Alloy as service with custom env vars and flags from files.
+    system "go", "run",
+      "-C", "packaging/homebrew/service-wrapper-gen", ".",
+      "-alloy-bin", opt_bin/"alloy",
+      "-config-path", pkgetc.to_s,
+      "-env-file", pkgetc/"config.env",
+      "-extra-args-file", pkgetc/"extra-args.txt",
+      "-otel-extra-args-file", pkgetc/"otel-extra-args.txt",
+      "-storage-path", var/"lib/grafana-alloy/data",
+      "-out", bin/"alloy-wrapper"
+
+    bin.install "alloy-wrapper"
   end
 
   def caveats
@@ -60,7 +77,7 @@ class GrafanaAlloy < Formula
   end
 
   service do
-    run [opt_bin/"alloy", "run", "--storage.path=#{var}/lib/grafana-alloy/data", etc/"grafana-alloy"]
+    run [opt_bin/"alloy-wrapper"]
     keep_alive true
     log_path var/"log/grafana-alloy.log"
     error_log_path var/"log/grafana-alloy.log"
