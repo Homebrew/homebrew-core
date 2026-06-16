@@ -23,6 +23,8 @@ class Freerdp < Formula
   depends_on "pkgconf" => :build
   depends_on "cjson"
   depends_on "ffmpeg"
+  depends_on "libcbor"
+  depends_on "libfido2"
   depends_on "jansson"
   depends_on "jpeg-turbo"
   depends_on "libusb"
