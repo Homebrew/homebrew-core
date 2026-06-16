@@ -25,6 +25,8 @@ class Freerdp < Formula
   depends_on "ffmpeg"
   depends_on "jansson"
   depends_on "jpeg-turbo"
+  depends_on "libcbor" 
+  dependency "libfido2"
   depends_on "libusb"
   depends_on "libx11"
   depends_on "libxcursor"
