@@ -42,6 +42,12 @@ class Ollama < Formula
     end
   end
 
+  on_linux do
+    depends_on "shaderc" => :build
+    depends_on "spirv-headers" => :build
+    depends_on "vulkan-loader"
+  end
+
   conflicts_with cask: "ollama-app"
 
   # Pinned dependency required by llama-server
@@ -67,18 +73,32 @@ class Ollama < Formula
     llama_source_dir = buildpath/"llama.cpp"
     llama_source_dir.install resource("llama.cpp")
 
-    preset = (OS.mac? && Hardware::CPU.arm?) ? "darwin" : "cpu"
+    if OS.linux?
+      inreplace "llama/server/CMakeLists.txt",
+                'set(CMAKE_INSTALL_RPATH "$ORIGIN")',
+                'set(CMAKE_INSTALL_RPATH "$ORIGIN;$ORIGIN/..")'
+    end
+
+    presets = [(OS.mac? && Hardware::CPU.arm?) ? "darwin" : "cpu"]
+    presets << "vulkan" if OS.linux?
+
+    install_rpaths = [loader_path]
+    install_rpaths << "#{loader_path}/.." if OS.linux?
+    install_rpaths << rpath(target: Formula["vulkan-loader"].opt_lib) if OS.linux?
 
     args = %W[
-      --preset #{preset}
       -DFETCHCONTENT_SOURCE_DIR_LLAMA_CPP=#{llama_source_dir}
       -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
-      -DCMAKE_INSTALL_RPATH=#{loader_path}
+      -DCMAKE_INSTALL_RPATH=#{install_rpaths.join(";")}
     ]
 
-    system "cmake", "-S", "llama/server", "-B", "llama-server", *args, *std_cmake_args(install_prefix: libexec)
-    system "cmake", "--build", "llama-server"
-    system "cmake", "--install", "llama-server", "--component", "llama-server"
+    presets.each do |preset|
+      build_dir = "llama-server-#{preset}"
+      system "cmake", "-S", "llama/server", "-B", build_dir,
+                      "--preset", preset, *args, *std_cmake_args(install_prefix: libexec)
+      system "cmake", "--build", build_dir
+      system "cmake", "--install", build_dir, "--component", "llama-server"
+    end
 
     # Remove ui app directory
     rm_r("app")
@@ -145,6 +165,14 @@ class Ollama < Formula
       output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/ollama --help 2>&1")
       assert_match "libmlxc.dylib", output
       assert_match "libmlx.dylib", output
+    end
+
+    if OS.linux?
+      vulkan_backend = libexec/"lib/ollama/vulkan"/shared_library("libggml-vulkan")
+      assert_path_exists vulkan_backend
+      ldd_output = shell_output("ldd #{vulkan_backend}")
+      assert_match "libvulkan", ldd_output
+      refute_match "not found", ldd_output
     end
 
     # Check llama-server binary
