@@ -1,8 +1,8 @@
 class MonitoringPlugins < Formula
   desc "Plugins for nagios compatible monitoring systems"
   homepage "https://www.monitoring-plugins.org"
-  url "https://www.monitoring-plugins.org/download/monitoring-plugins-2.4.0.tar.gz"
-  sha256 "e5dfd4ad8fde0a40da50aab3aff6d9a27020b8f283e332bc4da6ef9914f4028c"
+  url "https://www.monitoring-plugins.org/download/monitoring-plugins-3.0.0.tar.gz"
+  sha256 "29fc9692a66c10519f5f98fc251fc216fcd13271b4fccb42eb012893baec5949"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -23,6 +23,7 @@ class MonitoringPlugins < Formula
     sha256               x86_64_linux:   "27b58371aa6e210a9510c9fd0b64ed2f0923425b336eeda2b5c9eb0fd08509ac"
   end
 
+  depends_on "net-snmp"
   depends_on "openssl@3"
 
   on_macos do
