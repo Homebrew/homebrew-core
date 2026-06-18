@@ -1,8 +1,8 @@
 class Gascity < Formula
   desc "Orchestration-builder SDK for multi-agent coding workflows"
   homepage "https://github.com/gastownhall/gascity"
-  url "https://github.com/gastownhall/gascity/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "e35d375d404b434d46961cd2fe0f16618808381f8f1a2ae17b84890151da2916"
+  url "https://github.com/gastownhall/gascity/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "e8cb716c3c37a2a92a0ba3872e57dd101a603a3af7ccc20ad3d925f39ce35c8e"
   license "MIT"
   head "https://github.com/gastownhall/gascity.git", branch: "main"
 
@@ -18,6 +18,7 @@ class Gascity < Formula
   depends_on "go" => :build
   depends_on "beads"
   depends_on "dolt"
+  depends_on "icu4c@78"
   depends_on "jq"
   depends_on "tmux"
 
