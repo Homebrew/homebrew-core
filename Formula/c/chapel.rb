@@ -160,16 +160,15 @@ class Chapel < Formula
     (lib/"cmake/chpl").install libexec.glob("lib/cmake/chpl/*")
 
     chplrun_udp = libexec/"bin"/platform/"chplrun-udp"
-    chplrun_udp.write <<~EOS
-      #!/bin/bash
-      GASNET_SPAWNFN=L \
-      GASNET_ROUTE_OUTPUT=0 \
-      GASNET_QUIET=Y \
-      GASNET_MASTERIP=127.0.0.1 \
-      GASNET_WORKERIP=127.0.0.0 \
-      CHPL_RT_OVERSUBSCRIBED=yes \
-      exec "$@"
-    EOS
+    chplrun_udp.write <<~BASH
+     #!/bin/bash
+     GASNET_SPAWNFN=L \
+     GASNET_ROUTE_OUTPUT=0 \
+@@ -168,7 +169,7 @@ def install
+     GASNET_WORKERIP=127.0.0.0 \
+     CHPL_RT_OVERSUBSCRIBED=yes \
+     exec "$@"
+    BASH
     chplrun_udp.chmod 0755
     bin.install_symlink chplrun_udp => "chplrun-udp"
   end
