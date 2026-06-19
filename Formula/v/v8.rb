@@ -53,11 +53,11 @@ class V8 < Formula
   end
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#74
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#99
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "6e8dcdebbadf4f8aa75e6a4b6e0bdf89dce1513a"
-    version "6e8dcdebbadf4f8aa75e6a4b6e0bdf89dce1513a"
+        revision: "3357c4f51b1a9e676378c695dd9c7e9911c35ee6"
+    version "3357c4f51b1a9e676378c695dd9c7e9911c35ee6"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -67,8 +67,8 @@ class V8 < Formula
 
   resource "build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "9b7e5bb55b71044930fcf31b3fe531ad63151813"
-    version "9b7e5bb55b71044930fcf31b3fe531ad63151813"
+        revision: "b787aa6672fcf87221cdb63da9c2523878a6d267"
+    version "b787aa6672fcf87221cdb63da9c2523878a6d267"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -78,8 +78,8 @@ class V8 < Formula
 
   resource "buildtools" do
     url "https://chromium.googlesource.com/chromium/src/buildtools.git",
-        revision: "22e55595e15ebbbbb4bef118d5a654b185b0b30d"
-    version "22e55595e15ebbbbb4bef118d5a654b185b0b30d"
+        revision: "17495e454aae81b581e8b3caccbb53054509b280"
+    version "17495e454aae81b581e8b3caccbb53054509b280"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -89,8 +89,8 @@ class V8 < Formula
 
   resource "third_party/abseil-cpp" do
     url "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp.git",
-        revision: "2a7d49fc392cad55159d68d98aa3648bc89795d3"
-    version "2a7d49fc392cad55159d68d98aa3648bc89795d3"
+        revision: "d16e32215c3ab90ba57c2e904a5344d85c7353e4"
+    version "d16e32215c3ab90ba57c2e904a5344d85c7353e4"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -111,8 +111,8 @@ class V8 < Formula
 
   resource "third_party/fast_float/src" do
     url "https://chromium.googlesource.com/external/github.com/fastfloat/fast_float.git",
-        revision: "cb1d42aaa1e14b09e1452cfdef373d051b8c02a4"
-    version "cb1d42aaa1e14b09e1452cfdef373d051b8c02a4"
+        revision: "05087a303dad9c98768b33c829d398223a649bc6"
+    version "05087a303dad9c98768b33c829d398223a649bc6"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -144,8 +144,8 @@ class V8 < Formula
 
   resource "third_party/highway/src" do
     url "https://chromium.googlesource.com/external/github.com/google/highway.git",
-        revision: "84379d1c73de9681b54fbe1c035a23c7bd5d272d"
-    version "84379d1c73de9681b54fbe1c035a23c7bd5d272d"
+        revision: "2607d3b5b0113992fe84d3848859eae13b3b52c1"
+    version "2607d3b5b0113992fe84d3848859eae13b3b52c1"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -188,8 +188,8 @@ class V8 < Formula
 
   resource "third_party/partition_alloc" do
     url "https://chromium.googlesource.com/chromium/src/base/allocator/partition_allocator.git",
-        revision: "b707a2ca5567b06f4b886fbcd888dfa7e8044718"
-    version "b707a2ca5567b06f4b886fbcd888dfa7e8044718"
+        revision: "ff3b8b885b8374cbd3902642d94dc737bda93d5d"
+    version "ff3b8b885b8374cbd3902642d94dc737bda93d5d"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -210,8 +210,8 @@ class V8 < Formula
 
   resource "third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "b80f1d1e5256ac25f6aea3f31f13d458981cb1f9"
-    version "b80f1d1e5256ac25f6aea3f31f13d458981cb1f9"
+        revision: "3246f1b60849cc505e231c5d19d0cbf358093555"
+    version "3246f1b60849cc505e231c5d19d0cbf358093555"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
