@@ -225,30 +225,7 @@ class V8 < Formula
     inreplace buildpath/"build/config/compiler/BUILD.gn" do |s|
       # GCC only flag, not supported by clang
       s.gsub! "cflags += [ \"-fno-lifetime-dse\" ]", ""
-      # Drop Chromium clang flags that upstream LLVM does not (yet) recognize.
-      # TODO: Check this flags are supported by newer llvm
-      s.gsub! "\"-fsanitize-ignore-for-ubsan-feature=array-bounds\",", ""
-      s.gsub! "\"-fsanitize-ignore-for-ubsan-feature=return\",", ""
     end
-
-    # Public headers reference unqualified `nullptr_t`; libstdc++ rejects this.
-    # Remove in next release
-    # ref: https://chromium.googlesource.com/v8/v8/+/6bb04495264b714767107d2bba9a53e42bc30702
-    inreplace %w[include/v8-object.h include/v8-template.h],
-              /(?<!::|std::)\bnullptr_t\b/, "std::nullptr_t"
-
-    # `bigint.h` uses `std::unique_ptr` but never includes <memory>.
-    # Remove in next release
-    # ref: https://chromium.googlesource.com/v8/v8/+/4f9f652d6d4dd16a54ceb978069fb991ecef8fbc
-    inreplace "src/bigint/bigint.h",
-              "#include <utility>",
-              "#include <memory>\n#include <utility>"
-
-    # libstdc++ can't deduce the template parameter for `value_or({})`.
-    # Remove in next release
-    # ref: https://chromium.googlesource.com/v8/v8/+/913f679d5a4a3c4d0c6916cbdd065569945dc2a6
-    inreplace "src/compiler/turboshaft/wasm-shuffle-reducer.cc",
-              "max.value_or({})", "max.value_or(uint8_t{})"
 
     # Build gn from source and add it to the PATH
     cd "gn" do
