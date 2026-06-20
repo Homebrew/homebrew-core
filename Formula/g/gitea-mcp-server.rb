@@ -2,7 +2,7 @@ class GiteaMcpServer < Formula
   desc "Interactive with Gitea instances with MCP"
   homepage "https://gitea.com/gitea/gitea-mcp"
   url "https://gitea.com/gitea/gitea-mcp/archive/v1.3.0.tar.gz"
-  sha256 "1339122b71e806806999f694ade323724d6eea2f86b86528c00660b28415e8ed"
+  sha256 "5f62e83af03eea655c5287bda86dc6338f9bee3d25f400699e73836e31ca3a68"
   license "MIT"
   head "https://gitea.com/gitea/gitea-mcp.git", branch: "main"
 
