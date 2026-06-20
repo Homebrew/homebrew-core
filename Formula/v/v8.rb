@@ -175,6 +175,17 @@ class V8 < Formula
     end
   end
 
+  resource "third_party/llvm-libc/src" do
+    url "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libc.git",
+        revision: "9309c117ebae84dd2f9df1ef99de4782162527d5"
+    version "9309c117ebae84dd2f9df1ef99de4782162527d5"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
+      regex(%r{["']/external/github.com/llvm/llvm-project/libc\.git["']\s*\+\s*["']@["']\s*\+\s*["']([0-9a-f]+)["']}i)
+    end
+  end
+
   resource "third_party/markupsafe" do
     url "https://chromium.googlesource.com/chromium/src/third_party/markupsafe.git",
         revision: "4256084ae14175d38a3ff7d739dca83ae49ccec6"
@@ -225,7 +236,13 @@ class V8 < Formula
     inreplace buildpath/"build/config/compiler/BUILD.gn" do |s|
       # GCC only flag, not supported by clang
       s.gsub! "cflags += [ \"-fno-lifetime-dse\" ]", ""
+      # Google clang fork only flag, not supported by clang, gcc
+      s.gsub! "cflags += [ \"-fdiagnostics-show-inlining-chain\" ]", ""
     end
+
+    # Google clang fork only flag, not supported by clang, gcc
+    inreplace buildpath/"build/config/sanitizers/sanitizers.gni",
+              "\"-fsanitize-ignore-for-ubsan-feature=${invoker.sanitizer}\",", ""
 
     # Build gn from source and add it to the PATH
     cd "gn" do
@@ -264,8 +281,13 @@ class V8 < Formula
     gn_args[:clang_version] = "\"#{llvm.version.major}\""
 
     if OS.linux?
-      ENV["AR"] = DevelopmentTools.locate("ar")
-      ENV["NM"] = DevelopmentTools.locate("nm")
+      ENV["AR"] = llvm.opt_bin/"llvm-ar"
+      ENV["NM"] = llvm.opt_bin/"llvm-nm"
+      # unbundle toolchain uses separate host toolchain and reads BUILD_* variables
+      ENV["BUILD_CC"]  = ENV["CC"]
+      ENV["BUILD_CXX"] = ENV["CXX"]
+      ENV["BUILD_AR"]  = ENV["AR"]
+      ENV["BUILD_NM"]  = ENV["NM"]
       gn_args[:use_sysroot] = false # don't use sysroot
       gn_args[:custom_toolchain] = "\"//build/toolchain/linux/unbundle:default\"" # uses system toolchain
       gn_args[:host_toolchain] = "\"//build/toolchain/linux/unbundle:default\"" # to respect passed LDFLAGS
