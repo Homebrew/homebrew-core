@@ -6,7 +6,7 @@ class PerconaToolkit < Formula
 
   stable do
     url "https://downloads.percona.com/downloads/percona-toolkit/3.7.1/source/tarball/percona-toolkit-3.7.1.tar.gz"
-    sha256 "d5abd944905e75800e29176aff7fdeb7062da212511e82c265be50ac03b4c19b"
+    sha256 "ee997edf4f5c9f530032cf36b09ca08c1cd43db64b94e3f21f60cca878c0c730"
 
     # Fix Makefile.PL to also install go tools
     patch do
