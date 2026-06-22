@@ -35,13 +35,16 @@ class Freeswitch < Formula
 
   depends_on "freetype"
   depends_on "jpeg-turbo"
+  depends_on "lame"
   depends_on "ldns"
   depends_on "libks"
   depends_on "libpng"
   depends_on "libpq"
+  depends_on "libshout"
   depends_on "libsndfile"
   depends_on "libtiff"
   depends_on "lua"
+  depends_on "mpg123"
   depends_on "opencore-amr"
   depends_on "openssl@3"
   depends_on "opus"
@@ -191,6 +194,9 @@ class Freeswitch < Formula
     # Ref: https://github.com/signalwire/freeswitch/blob/master/src/mod/applications/mod_av/mod_av.c#L5
     odie "MPL-1.1 is incompatible with FFmpeg's GPL license" if deps.any? { |dep| dep.name.start_with? "ffmpeg" }
     inreplace "modules.conf", %r{^applications/mod_av$}, "#\\0"
+
+    ## support mod_shout - disabled by default for building
+    inreplace "modules.conf", %r{^#formats/mod_shout$}, "formats/mod_shout"
 
     # Workaround for opus_parse.h using true/false which are keywords in C23
     ENV.append "CFLAGS", "-std=gnu17" if DevelopmentTools.clang_build_version >= 1700
