@@ -43,21 +43,19 @@ class Opendoor < Formula
   end
 
   test do
+    python3 = "python3.14"
     port = free_port
     wordlist = testpath/"wordlist.txt"
 
     wordlist.write ["opendoor-health.txt", "missing-opendoor.txt", ""].join(10.chr)
     (testpath/"opendoor-health.txt").write "ok"
 
-    server_pid = spawn Formula["python@3.14"].opt_bin/"python3.14",
-                       "-m", "http.server", port.to_s,
-                       "--bind", "127.0.0.1",
-                       "--directory", testpath.to_s
+    server_pid = spawn python3, "-m", "http.server", port.to_s, "--bind", "localhost", "--directory", testpath.to_s
 
-    sleep 2
+    sleep 5
 
     output = shell_output(
-      "#{bin}/opendoor --host 127.0.0.1 --port #{port} --scheme http:// " \
+      "#{bin}/opendoor --host localhost --port #{port} --scheme http:// " \
       "--scan directories --method GET --wordlist #{wordlist} " \
       "--threads 1 --include-status 200 --debug -1 2>&1",
     )
