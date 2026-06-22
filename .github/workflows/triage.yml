@@ -218,6 +218,12 @@ jobs:
               path: Formula/.+
               content: depends_on "openjdk(@[0-9.]+)?"
 
+            - label: openssl-4-migration
+              path: Formula/.+
+              content: '(depends_on|uses_from_macos) "openssl@4"'
+              patch_content: '(?m)^-.*(depends_on|uses_from_macos) "openssl@3"'
+              allow_any_match: true
+
             - label: linux-only
               path: Formula/.+
               content: depends_on :linux
