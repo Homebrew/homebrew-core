@@ -32,10 +32,6 @@ class Kea < Formula
   depends_on "log4cplus"
   depends_on "openssl@3"
 
-  # Workaround for boost >= 1.89
-  # https://gitlab.isc.org/isc-projects/kea/-/issues/4085
-  patch :DATA
-
   def install
     # TODO: We probably also need to `inreplace` the following so they don't install in the prefix:
     #   - LOCALSTATEDIR_INSTALLED
@@ -60,49 +56,3 @@ class Kea < Formula
     system sbin/"keactrl", "status"
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index cedc949773..aed020ebb2 100644
---- a/meson.build
-+++ b/meson.build
-@@ -189,7 +189,10 @@ message(f'Detected system "@SYSTEM@".')
- 
- #### Dependencies
- 
--boost_dep = dependency('boost', version: '>=1.66', modules: ['system'])
-+boost_dep = dependency('boost', version: '>=1.69', required: false)
-+if not boost_dep.found()
-+    boost_dep = dependency('boost', version: '>=1.66', modules: ['system'])
-+endif
- dl_dep = dependency('dl')
- threads_dep = dependency('threads')
- add_project_dependencies(boost_dep, dl_dep, threads_dep, language: ['cpp'])
-diff --git a/src/lib/asiolink/asio_wrapper.h b/src/lib/asiolink/asio_wrapper.h
-index a33c56f2d4..e1ae6e06f6 100644
---- a/src/lib/asiolink/asio_wrapper.h
-+++ b/src/lib/asiolink/asio_wrapper.h
-@@ -74,9 +74,11 @@
- #pragma GCC push_options
- #pragma GCC optimize ("O0")
- #include <boost/asio.hpp>
-+#include <boost/asio/deadline_timer.hpp>
- #pragma GCC pop_options
- #else
- #include <boost/asio.hpp>
-+#include <boost/asio/deadline_timer.hpp>
- #endif
- 
- #endif // ASIO_WRAPPER_H
-diff --git a/src/lib/log/logger_level_impl.cc b/src/lib/log/logger_level_impl.cc
-index a4aba73..c2e4ee5 100644
---- a/src/lib/log/logger_level_impl.cc
-+++ b/src/lib/log/logger_level_impl.cc
-@@ -10,6 +10,7 @@
- #include <string.h>
- #include <iostream>
- #include <boost/lexical_cast.hpp>
-+#include <boost/static_assert.hpp>
- 
- #include <log4cplus/logger.h>
- 
