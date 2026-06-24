@@ -2,9 +2,16 @@ class Ratify < Formula
   desc "Artifact Ratification Framework"
   homepage "https://ratify.dev"
   url "https://github.com/notaryproject/ratify/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "58db052b8a02a7d5cc78dde837530c5d7fe0f525facd84d8aac4ef7ab93f5ce2"
+  sha256 "fe80cd14f68e69f9ff0951dce74b3954c158aac8608f9fa5fc4508d1e10f23a5"
   license "Apache-2.0"
   head "https://github.com/notaryproject/ratify.git", branch: "main"
+
+  # Upstream moves the tag until a release is finally made and marked as latest,
+  # so we have to use the `GithubLatest` strategy to avoid picking up a pre-release.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6fdbdf1f9e1245d66cdb6dfda5362bba5dd3f1b826f76100604b8d94a7e47e17"
