@@ -3,9 +3,9 @@ class Kea < Formula
   homepage "https://www.isc.org/kea/"
   # NOTE: the livecheck block is a best guess at excluding development versions.
   #       Check https://www.isc.org/download/#Kea to make sure we're using a stable version.
-  url "https://ftp.isc.org/isc/kea/3.0.3/kea-3.0.3.tar.xz"
-  mirror "https://dl.cloudsmith.io/public/isc/kea-3-0/raw/versions/3.0.3/kea-3.0.3.tar.xz"
-  sha256 "09702ddb078b637e85de9236cbedd3fb9d7af7c6e797026c538b45748ad4d631"
+  url "https://ftp.isc.org/isc/kea/3.2.0/kea-3.2.0.tar.xz"
+  mirror "https://dl.cloudsmith.io/public/isc/kea-3-0/raw/versions/3.2.0/kea-3.2.0.tar.xz"
+  sha256 "14bf695d37b65b9b1bf550fea5d0adaf9806c50e5419ef2a176a4b8e9aade3df"
   license "MPL-2.0"
   head "https://gitlab.isc.org/isc-projects/kea.git", branch: "master"
 
