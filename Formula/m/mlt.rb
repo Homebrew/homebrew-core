@@ -65,6 +65,7 @@ class Mlt < Formula
                     "-DMOD_QT6=ON",
                     "-DMOD_SDL1=OFF",
                     "-DMOD_MOVIT=OFF",
+                    "-DMOD_RNNOISE=OFF",
                     "-DRELOCATABLE=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
