@@ -111,6 +111,17 @@ class XorgServer < Formula
     end
   end
 
+  def post_install
+    return unless OS.mac?
+
+    app = opt_libexec/"X11.app"
+    lsregister = Pathname(
+      "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister",
+    )
+
+    system lsregister, "-f", app if app.directory? && lsregister.executable?
+  end
+
   def caveats
     <<~EOS
       To launch X server, it is recommend to install xinit,
