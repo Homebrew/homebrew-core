@@ -62,7 +62,7 @@ class Zsh < Formula
            "--enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions",
            "--enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts",
            "--enable-runhelpdir=#{pkgshare}/help",
-           "--enable-cap",
+           *("--enable-cap" if OS.linux?),
            "--enable-maildir-support",
            "--enable-multibyte",
            "--enable-pcre",
