@@ -56,21 +56,24 @@ class Zsh < Formula
 
     system "Util/preconfig" if build.head?
 
-    system "./configure", "--prefix=#{prefix}",
-           "--enable-fndir=#{pkgshare}/functions",
-           "--enable-scriptdir=#{pkgshare}/scripts",
-           "--enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions",
-           "--enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts",
-           "--enable-runhelpdir=#{pkgshare}/help",
-           *("--enable-cap" if OS.linux?),
-           "--enable-maildir-support",
-           "--enable-multibyte",
-           "--enable-pcre",
-           "--enable-zsh-secure-free",
-           "--enable-unicode9",
-           "--enable-etcdir=/etc",
-           "--with-tcsetpgrp",
-           "DL_EXT=bundle"
+    args = %W[
+      --enable-fndir=#{pkgshare}/functions
+      --enable-scriptdir=#{pkgshare}/scripts
+      --enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions
+      --enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts
+      --enable-runhelpdir=#{pkgshare}/help
+      --enable-maildir-support
+      --enable-multibyte
+      --enable-pcre
+      --enable-zsh-secure-free
+      --enable-unicode9
+      --enable-etcdir=/etc
+      --with-tcsetpgrp
+    ]
+
+    args << "--enable-cap" if OS.linux?
+
+    system "./configure", *args, *std_configure_args, "DL_EXT=bundle"
 
     # Do not version installation directories.
     inreplace ["Makefile", "Src/Makefile"],
