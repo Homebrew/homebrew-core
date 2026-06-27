@@ -1,0 +1,117 @@
+--- pathnames.h	2012-03-10 01:01:58.000000000 +0100
++++ pathnames.h	2012-03-10 01:02:31.000000000 +0100
+@@ -38,7 +38,7 @@
+ #endif /* ! PATH_OBJDIR */
+ 
+ #ifndef PATH_OBJDIRPREFIX
+-#define	PATH_OBJDIRPREFIX	"/usr/obj"
++#define	PATH_OBJDIRPREFIX	"@PREFIX@/obj"
+ #endif /* ! PATH_OBJDIRPREFIX */
+ 
+ #ifndef PATH_DEFSHELLDIR
+@@ -50,7 +50,7 @@
+ #endif /* ! PATH_DEFSYSMK */
+ 
+ #ifndef PATH_DEFSYSPATH
+-#define	PATH_DEFSYSPATH	"/usr/share/mk"
++#define	PATH_DEFSYSPATH	"@PREFIX@/share/mk/bsdmake"
+ #endif /* ! PATH_DEFSYSPATH */
+ 
+ #endif /* pathnames_h_235b888a */
+--- dir.c	2012-03-10 01:28:22.000000000 +0100
++++ dir.c	2012-03-10 01:28:40.000000000 +0100
+@@ -944,24 +944,6 @@
+  *	read and hashed.
+  *-----------------------------------------------------------------------
+  */
+-#ifdef __APPLE__
+-struct Dir *
+-Path_AddDirPrefix(struct Path *path, const char *prefix, const char *inname)
+-{
+-	const char *name;
+-	char buf[MAXPATHLEN];
+-
+-	if (prefix && prefix[0] == '/' && prefix[1] != 0) {
+-		strlcpy(buf, prefix, sizeof(buf));
+-		strlcat(buf, inname, sizeof(buf));
+-		name = buf;
+-	} else
+-		name = inname;
+-
+-	return Path_AddDir(path, name);
+-}
+-
+-#endif /* __APPLE__ */
+ struct Dir *
+ Path_AddDir(struct Path *path, const char *name)
+ {
+--- dir.h	2012-03-10 01:28:54.000000000 +0100
++++ dir.h	2012-03-10 01:29:03.000000000 +0100
+@@ -60,9 +60,6 @@
+ void Dir_PrintDirectories(void);
+ 
+ struct Dir *Path_AddDir(struct Path *, const char *);
+-#ifdef __APPLE__
+-struct Dir *Path_AddDirPrefix(struct Path *, const char *, const char *);
+-#endif /* __APPLE__ */
+ void Path_Clear(struct Path *);
+ void Path_Concat(struct Path *, const struct Path *);
+ void Path_Duplicate(struct Path *, const struct Path *);
+--- main.c	2012-03-10 01:25:51.000000000 +0100
++++ main.c	2012-03-10 01:31:10.000000000 +0100
+@@ -958,55 +958,16 @@
+ 	 */
+ 	if (TAILQ_EMPTY(&sysIncPath)) {
+ 		char syspath[] = PATH_DEFSYSPATH;
+-#ifdef __APPLE__
+-	    char *prefixes[2] = { NULL, NULL };
+-	    char *devdir = getenv("DEVELOPER_DIR");
+-	    char **pf;
+-	    char execpath[MAXPATHLEN];
+-	    uint32_t execpathsize = sizeof(execpath);
+-	    char *rel;
+-
+-	    if (devdir && *devdir != '/')
+-		devdir = NULL;
+-	    prefixes[0] = devdir;
+-	    if (_NSGetExecutablePath(execpath, &execpathsize) != 0)
+-		strcpy(execpath, "/usr/bin/bsdmake");
+-	    /* chop off name to get path */
+-	    if ((cp = strrchr(execpath, '/')) != NULL)
+-		*cp = 0;
+-	    /* chop off 'bin' */
+-	    if ((cp = strrchr(execpath, '/')) != NULL)
+-		*cp = 0;
+-	    /* chop off 'usr' */
+-	    if ((cp = strrchr(execpath, '/')) != NULL)
+-		*cp = 0;
+-	    rel = (cp > execpath) ? execpath : NULL;
+-	    pf = prefixes;
+-	    do {
+-#endif /* __APPLE__ */
+ 		for (start = syspath; *start != '\0'; start = cp) {
+ 			for (cp = start; *cp != '\0' && *cp != ':'; cp++)
+ 				continue;
+ 			if (*cp == '\0') {
+-#ifdef __APPLE__
+-				Path_AddDirPrefix(&sysIncPath, *pf ? *pf : rel, start);
+-#else /* !__APPLE__ */
+ 				Path_AddDir(&sysIncPath, start);
+-#endif /* __APPLE__ */
+ 			} else {
+-#ifdef __APPLE__
+-				*cp = '\0';
+-				Path_AddDirPrefix(&sysIncPath, *pf ? *pf : rel, start);
+-				*cp++ = ':';
+-#else /* !__APPLE__ */
+ 				*cp++ = '\0';
+ 				Path_AddDir(&sysIncPath, start);
+-#endif /* __APPLE__ */
+ 			}
+ 		}
+-#ifdef __APPLE__
+-	    } while(*pf++);
+-#endif /* __APPLE__ */
+ 	}
+ 
+ 	/*

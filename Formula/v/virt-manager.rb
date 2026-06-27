@@ -1,0 +1,132 @@
+class VirtManager < Formula
+  include Language::Python::Virtualenv
+  include Language::Python::Shebang
+
+  desc "App for managing virtual machines"
+  homepage "https://virt-manager.org/"
+  license "GPL-2.0-or-later"
+  revision 5
+  head "https://github.com/virt-manager/virt-manager.git", branch: "main"
+
+  stable do
+    url "https://releases.pagure.org/virt-manager/virt-manager-5.1.0.tar.xz"
+    sha256 "ccfc44b6c1c0be8398beb687c675d9ea4ca1c721dfb67bd639209a7b0dec11b1"
+
+    # Backport support for etree rather than deprecated libxml2 python bindings
+    # Ref: https://github.com/virt-manager/virt-manager/pull/983
+    patch do
+      url "https://github.com/virt-manager/virt-manager/commit/d4988b02efb8bba91fd55614fbbff11b3a915d44.patch?full_index=1"
+      sha256 "fc1daaf8440b01600b0297384f5bdd1cda654aaee958ce3fcd27d79c6b2d9ffb"
+    end
+    patch do
+      url "https://github.com/virt-manager/virt-manager/commit/ff9fa95e52f890ccd8dce18567aa7cc30582ca4f.patch?full_index=1"
+      sha256 "5ae4ce21b65cf77fa9511bae70799bd3c1890ab15a31372491662a7dc186df4f"
+    end
+    patch do
+      url "https://github.com/virt-manager/virt-manager/commit/d0372e82c8b6fe6b5517d850a81847422c861446.patch?full_index=1"
+      sha256 "5084650b38527f8bac3f2ea803b81f1a49ecf51cb461c3ad7088ec9f90845dae"
+    end
+    patch do
+      url "https://github.com/virt-manager/virt-manager/commit/766bf2ecdc5ac6853b41a36412d09c1950c700bf.patch?full_index=1"
+      sha256 "24deb9287b86caaac7eaea7d5dff145c0686bbc32ccb6952a8a0d4b0c6d3adeb"
+    end
+  end
+
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8d07cb463ff7898b94f6d6345907088f178ba21054c5e5b7e19fd416e605b7da"
+  end
+
+  depends_on "docutils" => :build
+  depends_on "gettext" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkgconf" => :build
+  depends_on "adwaita-icon-theme"
+  depends_on "certifi" => :no_linkage
+  depends_on "cpio"
+  depends_on "gtk-vnc"
+  depends_on "gtksourceview4"
+  depends_on "libosinfo"
+  depends_on "libvirt-glib"
+  depends_on "libvirt-python" => :no_linkage
+  depends_on "osinfo-db"
+  depends_on "py3cairo" => :no_linkage
+  depends_on "pygobject3" => :no_linkage
+  depends_on "python@3.14"
+  depends_on "spice-gtk"
+  depends_on "vte3"
+
+  on_linux do
+    depends_on "xorg-server" => :test
+  end
+
+  pypi_packages package_name:     "",
+                exclude_packages: "certifi",
+                extra_packages:   "requests"
+
+  resource "charset-normalizer" do
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+  end
+
+  resource "idna" do
+    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
+    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+  end
+
+  resource "requests" do
+    url "https://files.pythonhosted.org/packages/24/36/7180e7f077c38108945dbbdf60fe04db681c3feb6e96419f8c6dc8723741/requests-2.34.1.tar.gz"
+    sha256 "0fc5669f2b69704449fe1552360bd2a73a54512dfd03e65529157f1513322beb"
+  end
+
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+  end
+
+  def install
+    python3 = "python3.14"
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources
+    ENV.prepend_path "PATH", venv.root/"bin"
+
+    system "meson", "setup", "build", "-Dtests=disabled",
+                                      "-Dupdate-icon-cache=false",
+                                      "-Dcompile-schemas=false",
+                                      *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+
+    rewrite_shebang python_shebang_rewrite_info(venv.root/"bin/python"), *bin.children
+  end
+
+  def post_install
+    # manual schema compile step
+    system formula_opt_bin("glib")/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
+    # manual icon cache update step
+    system formula_opt_bin("gtk+3")/"gtk3-update-icon-cache", HOMEBREW_PREFIX/"share/icons/hicolor"
+  end
+
+  test do
+    pids = [spawn(Formula["libvirt"].opt_sbin/"libvirtd", "-f", Formula["libvirt"].etc/"libvirt/libvirtd.conf")]
+
+    if OS.linux? && ENV.exclude?("DISPLAY")
+      pids << spawn(Formula["xorg-server"].bin/"Xvfb", ":1")
+      ENV["DISPLAY"] = ":1"
+      sleep 10
+    end
+
+    output = testpath/"virt-manager.log"
+    pids << spawn(bin/"virt-manager", "-c", "test:///default", "--debug", [:out, :err] => output.to_s)
+    sleep 20
+    sleep 10 if OS.mac? && Hardware::CPU.intel?
+
+    assert_match "conn=test:///default changed to state=Active", output.read
+  ensure
+    pids.reverse_each do |pid|
+      Process.kill("TERM", pid)
+      Process.wait(pid)
+    end
+  end
+end

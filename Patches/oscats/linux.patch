@@ -1,0 +1,88 @@
+diff --git a/src/liboscats/algorithms/closest_diff.c b/src/liboscats/algorithms/closest_diff.c
+index 86f7f2f..97de5d9 100644
+--- a/src/liboscats/algorithms/closest_diff.c
++++ b/src/liboscats/algorithms/closest_diff.c
+@@ -175,7 +175,7 @@ static gdouble criterion(const OscatsItem *item, OscatsExaminee *e,
+   return oscats_model_distance(model, theta, e->covariates);
+ }
+ 
+-static gint select (OscatsTest *test, OscatsExaminee *e,
++static gint select_algorithm (OscatsTest *test, OscatsExaminee *e,
+                     GBitArray *eligible, gpointer alg_data)
+ {
+   return oscats_alg_chooser_choose(OSCATS_ALG_CLOSEST_DIFF(alg_data)->chooser,
+@@ -194,7 +194,7 @@ static void alg_register (OscatsAlgorithm *alg_data, OscatsTest *test)
+   OscatsAlgClosestDiff *self = OSCATS_ALG_CLOSEST_DIFF(alg_data);
+   self->chooser->bank = g_object_ref(test->itembank);
+   self->chooser->criterion = (OscatsAlgChooserCriterion)criterion;
+-  g_signal_connect_data(test, "select", G_CALLBACK(select),
++  g_signal_connect_data(test, "select", G_CALLBACK(select_algorithm),
+                         alg_data, oscats_algorithm_closure_finalize, 0);
+ }
+                    
+diff --git a/src/liboscats/algorithms/max_fisher.c b/src/liboscats/algorithms/max_fisher.c
+index 16c8b39..0835bf6 100644
+--- a/src/liboscats/algorithms/max_fisher.c
++++ b/src/liboscats/algorithms/max_fisher.c
+@@ -265,7 +265,7 @@ static gdouble criterion(const OscatsItem *item,
+     // max det[sum I_j(theta)] <==> min -det[sum I_j(theta)]
+ }
+ 
+-static gint select (OscatsTest *test, OscatsExaminee *e,
++static gint select_algorithm (OscatsTest *test, OscatsExaminee *e,
+                     GBitArray *eligible, gpointer alg_data)
+ {
+   OscatsAlgMaxFisher *self = OSCATS_ALG_MAX_FISHER(alg_data);
+@@ -298,7 +298,7 @@ static void alg_register (OscatsAlgorithm *alg_data, OscatsTest *test)
+ 
+   g_signal_connect_data(test, "initialize", G_CALLBACK(initialize),
+                         alg_data, oscats_algorithm_closure_finalize, 0);
+-  g_signal_connect_data(test, "select", G_CALLBACK(select),
++  g_signal_connect_data(test, "select", G_CALLBACK(select_algorithm),
+                         alg_data, oscats_algorithm_closure_finalize, 0);
+   g_object_ref(alg_data);
+ }
+diff --git a/src/liboscats/algorithms/max_kl.c b/src/liboscats/algorithms/max_kl.c
+index ac9a53e..95c74a3 100644
+--- a/src/liboscats/algorithms/max_kl.c
++++ b/src/liboscats/algorithms/max_kl.c
+@@ -623,7 +623,7 @@ static gdouble criterion(const OscatsItem *item,
+                                  alg_data);
+ }
+ 
+-static gint select (OscatsTest *test, OscatsExaminee *e,
++static gint select_algorithm (OscatsTest *test, OscatsExaminee *e,
+                     GBitArray *eligible, gpointer alg_data)
+ {
+   OscatsAlgMaxKl *self = OSCATS_ALG_MAX_KL(alg_data);
+@@ -661,7 +661,7 @@ static void alg_register (OscatsAlgorithm *alg_data, OscatsTest *test)
+ 
+   g_signal_connect_data(test, "initialize", G_CALLBACK(initialize),
+                         alg_data, oscats_algorithm_closure_finalize, 0);
+-  g_signal_connect_data(test, "select", G_CALLBACK(select),
++  g_signal_connect_data(test, "select", G_CALLBACK(select_algorithm),
+                         alg_data, oscats_algorithm_closure_finalize, 0);
+   g_object_ref(alg_data);
+ }
+diff --git a/src/liboscats/algorithms/pick_rand.c b/src/liboscats/algorithms/pick_rand.c
+index 1e66758..ef6234c 100644
+--- a/src/liboscats/algorithms/pick_rand.c
++++ b/src/liboscats/algorithms/pick_rand.c
+@@ -35,7 +35,7 @@ static void oscats_alg_pick_rand_init (OscatsAlgPickRand *self)
+ {
+ }
+ 
+-static gint select (OscatsTest *test, OscatsExaminee *e,
++static gint select_algorithm (OscatsTest *test, OscatsExaminee *e,
+                     GBitArray *eligible, gpointer alg_data)
+ {
+   guint i, item = 0;
+@@ -55,7 +55,7 @@ static gint select (OscatsTest *test, OscatsExaminee *e,
+  */
+ static void alg_register (OscatsAlgorithm *alg_data, OscatsTest *test)
+ {
+-  g_signal_connect_data(test, "select", G_CALLBACK(select),
++  g_signal_connect_data(test, "select", G_CALLBACK(select_algorithm),
+                         alg_data, oscats_algorithm_closure_finalize, 0);
+ }
+                    

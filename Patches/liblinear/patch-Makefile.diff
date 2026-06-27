@@ -1,0 +1,52 @@
+*** Makefile.orig
+--- Makefile
+***************
+*** 5,20 ****
+  #LIBS = -lblas
+  SHVER = 5
+  OS = $(shell uname)
+  ifeq ($(OS),Darwin)
+! 	SHARED_LIB_FLAG = -dynamiclib -Wl,-install_name,liblinear.so.$(SHVER)
+  else
+! 	SHARED_LIB_FLAG = -shared -Wl,-soname,liblinear.so.$(SHVER)
+  endif
+  
+! all: train predict
+  
+  lib: linear.o newton.o blas/blas.a
+! 	$(CXX) $(SHARED_LIB_FLAG) linear.o newton.o blas/blas.a -o liblinear.so.$(SHVER)
+  
+  train: newton.o linear.o train.c blas/blas.a
+  	$(CXX) $(CFLAGS) -o train train.c newton.o linear.o $(LIBS)
+--- 5,24 ----
+  #LIBS = -lblas
+  SHVER = 5
+  OS = $(shell uname)
++ PREFIX ?= /usr/local
++ 
+  ifeq ($(OS),Darwin)
+! 	LIBEXT = ".$(SHVER).dylib"
+! 	SHARED_LIB_FLAG = -dynamiclib -install_name $(PREFIX)/lib/liblinear$(LIBEXT)
+  else
+! 	LIBEXT = ".so.$(SHVER)"
+! 	SHARED_LIB_FLAG = -shared -Wl,-soname,liblinear$(LIBEXT)
+  endif
+  
+! all: train predict lib
+  
+  lib: linear.o newton.o blas/blas.a
+! 	$(CXX) $(SHARED_LIB_FLAG) linear.o newton.o blas/blas.a -o liblinear$(LIBEXT)
+  
+  train: newton.o linear.o train.c blas/blas.a
+  	$(CXX) $(CFLAGS) -o train train.c newton.o linear.o $(LIBS)
+***************
+*** 34,37 ****
+  clean:
+  	make -C blas clean
+  	make -C matlab clean
+! 	rm -f *~ newton.o linear.o train predict liblinear.so.$(SHVER)
+--- 38,41 ----
+  clean:
+  	make -C blas clean
+  	make -C matlab clean
+! 	rm -f *~ newton.o linear.o train predict liblinear.*

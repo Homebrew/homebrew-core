@@ -1,0 +1,95 @@
+diff --git a/Makefile b/Makefile
+index fed75b3..66691ea 100644
+--- a/Makefile
++++ b/Makefile
+@@ -12,9 +12,9 @@ PLAT= guess
+ # LUA_ROOT, LUA_LDIR, and LUA_CDIR in luaconf.h.
+ INSTALL_TOP= /usr/local
+ INSTALL_BIN= $(INSTALL_TOP)/bin
+-INSTALL_INC= $(INSTALL_TOP)/include
++INSTALL_INC= $(INSTALL_TOP)/include/lua
+ INSTALL_LIB= $(INSTALL_TOP)/lib
+-INSTALL_MAN= $(INSTALL_TOP)/man/man1
++INSTALL_MAN= $(INSTALL_TOP)/share/man/man1
+ INSTALL_LMOD= $(INSTALL_TOP)/share/lua/$V
+ INSTALL_CMOD= $(INSTALL_TOP)/lib/lua/$V
+
+@@ -41,7 +41,7 @@ PLATS= guess aix bsd c89 freebsd generic linux linux-readline macosx mingw posix
+ # What to install.
+ TO_BIN= lua luac
+ TO_INC= lua.h luaconf.h lualib.h lauxlib.h lua.hpp
+-TO_LIB= liblua.a
++TO_LIB= liblua.a liblua.dylib
+ TO_MAN= lua.1 luac.1
+
+ # Lua version and release.
+@@ -52,7 +52,7 @@ R= $V.3
+ all:	$(PLAT)
+
+ $(PLATS) help test clean:
+-	@cd src && $(MAKE) $@
++	@cd src && $(MAKE) $@ V=$(V) R=$(R)
+
+ install: dummy
+ 	cd src && $(MKDIR) $(INSTALL_BIN) $(INSTALL_INC) $(INSTALL_LIB) $(INSTALL_MAN) $(INSTALL_LMOD) $(INSTALL_CMOD)
+@@ -60,6 +60,8 @@ install: dummy
+ 	cd src && $(INSTALL_DATA) $(TO_INC) $(INSTALL_INC)
+ 	cd src && $(INSTALL_DATA) $(TO_LIB) $(INSTALL_LIB)
+ 	cd doc && $(INSTALL_DATA) $(TO_MAN) $(INSTALL_MAN)
++	cd $(INSTALL_LIB) && ln -s liblua.dylib liblua.$(V).dylib
++	cd $(INSTALL_LIB) && ln -s liblua.dylib liblua.$(R).dylib
+
+ uninstall:
+ 	cd src && cd $(INSTALL_BIN) && $(RM) $(TO_BIN)
+diff --git a/src/Makefile b/src/Makefile
+index f78c0b8..7f3faf5 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -33,6 +33,7 @@ CMCFLAGS=
+ PLATS= guess aix bsd c89 freebsd generic linux linux-readline macosx mingw posix solaris
+
+ LUA_A=	liblua.a
++LUA_DYLIB= liblua.dylib
+ CORE_O=	lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o lundump.o lvm.o lzio.o
+ LIB_O=	lauxlib.o lbaselib.o lcorolib.o ldblib.o liolib.o lmathlib.o loadlib.o loslib.o lstrlib.o ltablib.o lutf8lib.o linit.o
+ BASE_O= $(CORE_O) $(LIB_O) $(MYOBJS)
+@@ -44,8 +45,8 @@ LUAC_T=	luac
+ LUAC_O=	luac.o
+
+ ALL_O= $(BASE_O) $(LUA_O) $(LUAC_O)
+-ALL_T= $(LUA_A) $(LUA_T) $(LUAC_T)
+-ALL_A= $(LUA_A)
++ALL_T= $(LUA_DYLIB) $(LUA_A) $(LUA_T) $(LUAC_T)
++ALL_A= $(LUA_DYLIB) $(LUA_A)
+
+ # Targets start here.
+ default: $(PLAT)
+@@ -60,11 +61,15 @@ $(LUA_A): $(BASE_O)
+ 	$(AR) $@ $(BASE_O)
+ 	$(RANLIB) $@
+
+-$(LUA_T): $(LUA_O) $(LUA_A)
+-	$(CC) -o $@ $(LDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
++$(LUA_DYLIB): $(BASE_O)
++	$(CC) -o $@ -dynamiclib -install_name @OPT_LIB@/liblua.dylib \
++		-compatibility_version $(V) -current_version $(R) $^
+
+-$(LUAC_T): $(LUAC_O) $(LUA_A)
+-	$(CC) -o $@ $(LDFLAGS) $(LUAC_O) $(LUA_A) $(LIBS)
++$(LUA_T): $(LUA_O) $(LUA_DYLIB)
++	$(CC) -fno-common -o $@ $(LDFLAGS) $(LUA_O) $(LUA_DYLIB) -L. -llua $(LIBS)
++
++$(LUAC_T): $(LUAC_O) $(LUA_DYLIB)
++	$(CC) -o $@ $(LDFLAGS) $(LUAC_O) $(LUA_DYLIB) $(LIBS)
+
+ test:
+ 	./$(LUA_T) -v
+@@ -126,7 +131,7 @@ linux-readline:
+ 	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_LINUX -DLUA_USE_READLINE" SYSLIBS="-Wl,-E -ldl -lreadline"
+
+ Darwin macos macosx:
+-	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX -DLUA_USE_READLINE" SYSLIBS="-lreadline"
++	$(MAKE) $(ALL) SYSCFLAGS="-fno-common -DLUA_USE_MACOSX -DLUA_USE_READLINE" SYSLIBS="-lreadline"
+
+ mingw:
+ 	$(MAKE) "LUA_A=lua54.dll" "LUA_T=lua.exe" \

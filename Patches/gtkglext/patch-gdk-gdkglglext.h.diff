@@ -1,0 +1,14 @@
+--- gdk/gdkglglext.h.orig	2009-08-24 14:47:39.000000000 +0400
++++ gdk/gdkglglext.h	2009-08-24 14:48:31.000000000 +0400
+@@ -30,7 +30,11 @@
+ #include <windows.h>
+ #endif
+ 
++#ifdef GDK_WINDOWING_QUARTZ
++#include <OpenGL/gl.h>
++#else
+ #include <GL/gl.h>
++#endif
+ 
+ #include <gdk/gdkgldefs.h>
+ #include <gdk/gdkglquery.h>
