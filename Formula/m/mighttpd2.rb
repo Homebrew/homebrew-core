@@ -26,8 +26,8 @@ class Mighttpd2 < Formula
   end
 
   def install
-    # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
-    args = ["--allow-newer=base,containers,template-haskell"]
+    # Workaround to build with GHC 9.14 until serialise > 0.2.6.1 is available
+    args = ["--allow-newer=base"]
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", "--flags=tls", *args, *std_cabal_v2_args
