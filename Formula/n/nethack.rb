@@ -36,13 +36,13 @@ class Nethack < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "64c1e5e3881ad027b0863dec469eb70bb17c96d2682b0ca111c472e27ea685ef"
-    sha256 arm64_sequoia: "cbe525013079e0b7036e3eb1ce549b738fe9a973e9d49a6209f2be4eaaad9f71"
-    sha256 arm64_sonoma:  "ae526f9bb987bd3fd402f6eba3bb9ff12fe17d32db301e9649ece36c3e14bfc0"
-    sha256 sonoma:        "dabec95206e3a906c55552727a6bbd346daa31ba7b8a9e7310ccf7ff915456c3"
-    sha256 arm64_linux:   "27674cebca8e1f2cdaafe515b2562f4fe5e363d56b24915db408b7d59278101b"
-    sha256 x86_64_linux:  "23c92a6f3d645059c8624d380fd8c2a31d995d902029a9589614a24db22b6a44"
+    rebuild 2
+    sha256 arm64_tahoe:   "3b408742a63c852cf11455a3c86255fd4515a7e06971d6b51301bbaca0bf701d"
+    sha256 arm64_sequoia: "828b593da16e8483ba2e2ee4a6c926130e6cb5f61141399ea91b81ccba7d34c4"
+    sha256 arm64_sonoma:  "d5d11cc6a399fe43749986745a51b80931ebf376bd75d80beb30c9b58265ab53"
+    sha256 sonoma:        "b06719b309b4c5c02dc0a506f68740f4ac01cb0379ecc52d7e903dd4a10f72dc"
+    sha256 arm64_linux:   "8af171a7dee4d8421abb172f5fdefe0c8a2f39da72c80594aaefd32502ba3050"
+    sha256 x86_64_linux:  "9f5613cc7fe579a4932a39f4e12bb841d31208b26b45bf864071c28a2eeb8313"
   end
 
   depends_on "groff" => :build
