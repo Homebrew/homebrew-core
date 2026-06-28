@@ -14,6 +14,11 @@ class DbxCli < Formula
     sha256 cellar: :any, x86_64_linux:  "d7e2687ee017c2f4cccced2c50c194806a504783b589adb6bc5cd1eb572812bb"
   end
 
+  livecheck do
+    url "https://registry.npmjs.org/@dbx-app/cli/latest"
+    regex(/"version":"(\d+(?:\.\d+)+)"/i)
+  end
+
   depends_on "node"
 
   on_linux do
