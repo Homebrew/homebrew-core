@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.9.1.tar.gz"
-  sha256 "e827433bbbc35999eab0415568bf36dd1f7d500a0fe477ce71c24784fcd6c429"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.9.2.tar.gz"
+  sha256 "f79a618de0f4bae8d135e1a7514c722ce9a52496af5a3ddaafc5799fa37dded1"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -44,8 +44,8 @@ class Teleport < Formula
   conflicts_with cask: "tsh", because: "both install `tsh` binaries"
 
   resource "wasm-bindgen" do
-    url "https://github.com/wasm-bindgen/wasm-bindgen/archive/refs/tags/0.2.99.tar.gz"
-    sha256 "1df06317203c9049752e55e59aee878774c88805cc6196630e514fa747f921f2"
+    url "https://github.com/wasm-bindgen/wasm-bindgen/archive/refs/tags/0.2.122.tar.gz"
+    sha256 "3ea60c7c7dffbd4ea1898c5a0046c6ccd4a53d5638f231238936b5464e49d161"
 
     livecheck do
       url "https://raw.githubusercontent.com/gravitational/teleport/refs/tags/v#{LATEST_VERSION}/Cargo.lock"
