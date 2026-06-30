@@ -23,6 +23,7 @@ class TransmissionCli < Formula
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
   depends_on "libevent"
+  depends_on "libpsl"
   depends_on "miniupnpc"
 
   uses_from_macos "python" => :build
