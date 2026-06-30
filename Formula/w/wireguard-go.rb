@@ -2,7 +2,7 @@ class WireguardGo < Formula
   desc "Userspace Go implementation of WireGuard"
   homepage "https://www.wireguard.com/"
   url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20250522.tar.xz"
-  sha256 "c698fb9fd09d48e8cf5c1eee3e5f0170f1916a7eed09ba025aa025cd5e721a20"
+  sha256 "c7eeffb13e5eb43b93e54a21d78dd71414771af9e07112da5275690493695c9c"
   license "MIT"
   head "https://git.zx2c4.com/wireguard-go.git", branch: "master"
 
