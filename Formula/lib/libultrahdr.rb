@@ -4,6 +4,7 @@ class Libultrahdr < Formula
   url "https://github.com/google/libultrahdr/archive/refs/tags/v1.4.0.tar.gz"
   sha256 "e7e1252e2c44d8ed6b99ee0f67a3caf2d8a61c43834b13b1c3cd485574c03ab9"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
 
   bottle do
@@ -22,7 +23,11 @@ class Libultrahdr < Formula
   depends_on "jpeg-turbo"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Dual-encode the gain map: write the Adobe hdrgm XMP metadata in addition
+    # to the default ISO 21496-1 box. ISO-only output is not decodable by Apple
+    # ImageIO (Preview, Photos, Quick Look, Safari); the XMP plus ISO combination
+    # is what Android 15 and Apple's own camera write, and it renders on all of them.
+    system "cmake", "-S", ".", "-B", "build", "-DUHDR_WRITE_XMP=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
