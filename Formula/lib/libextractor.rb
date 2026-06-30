@@ -1,9 +1,9 @@
 class Libextractor < Formula
   desc "Library to extract meta data from files"
   homepage "https://www.gnu.org/software/libextractor/"
-  url "https://ftpmirror.gnu.org/gnu/libextractor/libextractor-1.15.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/libextractor/libextractor-1.15.tar.gz"
-  sha256 "189c1ad67574144f55578adc031f09138ddad6bf15aec0bd76cbf37b6e9e0205"
+  url "https://ftpmirror.gnu.org/gnu/libextractor/libextractor-1.16.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/libextractor/libextractor-1.16.tar.gz"
+  sha256 "0d54668538a9f9612934f5c5a3218e39632f2328fb078df29fd7c8afc859376c"
   license "GPL-3.0-or-later"
 
   bottle do
