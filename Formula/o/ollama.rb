@@ -154,7 +154,7 @@ class Ollama < Formula
     r, _w, pid = PTY.spawn(libexec/"lib/ollama/llama-server")
     begin
       timeout = Time.now + 20
-      until output.include?("starting router server")
+      until output.include?("starting server in router mode")
         raise "timed out waiting for llama-server to start\n#{output}" if Time.now > timeout
 
         begin
@@ -166,7 +166,7 @@ class Ollama < Formula
         end
       end
 
-      assert_match "starting router server", output
+      assert_match "starting server in router mode", output
     ensure
       Process.kill "TERM", pid
       Process.wait pid
