@@ -1,8 +1,8 @@
 class MonitoringPlugins < Formula
   desc "Plugins for nagios compatible monitoring systems"
   homepage "https://www.monitoring-plugins.org"
-  url "https://www.monitoring-plugins.org/download/monitoring-plugins-2.4.0.tar.gz"
-  sha256 "e5dfd4ad8fde0a40da50aab3aff6d9a27020b8f283e332bc4da6ef9914f4028c"
+  url "https://www.monitoring-plugins.org/download/monitoring-plugins-3.0.1.tar.gz"
+  sha256 "683aaf6108a545a39e9c431e8fac04a1873a695041c66378f924bd54cbb225cc"
   license "GPL-3.0-or-later"
 
   livecheck do
