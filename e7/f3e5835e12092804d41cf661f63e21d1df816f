@@ -1,0 +1,14 @@
+Formula/d/duck.rb
+  h_9df9c32c3f321d 50-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "e7f3e5835e12092804d41cf661f63e21d1df816f",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
