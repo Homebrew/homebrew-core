@@ -1,0 +1,20 @@
+Formula/v/visidata.rb
+  s_6a3bfe93474849::t_9020c798a0854e 46
+  s_6a3bfe93474849::t_67cf70127d3cc2 6-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "307e397f726e5d25d5dba8faef14981f75e7d8d3",
+  "prompts": {},
+  "sessions": {
+    "s_6a3bfe93474849": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "76ad095e-5cbb-49d2-830f-c5f49b6008fc",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
