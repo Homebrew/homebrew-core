@@ -1,0 +1,19 @@
+Formula/d/dnsdist.rb
+  s_6a3bfe93474849::t_a6c2178f8f38f2 68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "fd3a0f181b4de0f53b1c24c004769d818e3d0ce5",
+  "prompts": {},
+  "sessions": {
+    "s_6a3bfe93474849": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "76ad095e-5cbb-49d2-830f-c5f49b6008fc",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
