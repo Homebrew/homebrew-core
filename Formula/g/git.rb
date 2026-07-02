@@ -29,6 +29,7 @@ class Git < Formula
 
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
+  depends_on "rust" => :build
   depends_on "pcre2"
 
   uses_from_macos "curl"
@@ -106,6 +107,13 @@ class Git < Formula
     # to avoid a dependency on tcl-tk and to avoid using the broken system
     # tcl-tk (see https://github.com/Homebrew/homebrew-core/issues/36390)
     # This is done by setting the NO_TCLTK make variable.
+    #
+    # Rust support is enabled by default upstream since Git 2.55 (the
+    # `WITH_RUST` Makefile knob was renamed to `NO_RUST`, i.e. opt-out).
+    # We build the memory-safe Rust subsystems (contrib/libgit-sys, gitcore:
+    # varint/csum_file/hash/loose) rather than passing `NO_RUST=1`, so that
+    # the Homebrew bottle matches upstream defaults and is ready for Git 3.0,
+    # where Rust becomes mandatory. See `rust => :build` above.
     args = %W[
       prefix=#{prefix}
       sysconfdir=#{etc}
@@ -113,7 +121,6 @@ class Git < Formula
       CFLAGS=#{ENV.cflags}
       LDFLAGS=#{ENV.ldflags}
       NO_TCLTK=1
-      NO_RUST=1
     ]
 
     args += if OS.mac?
@@ -231,6 +238,12 @@ class Git < Formula
     # If this assertion fails, please fix the `inreplace` instead of removing this test.
     # The failure of this test means that `git` will generate broken launchctl plist files.
     refute_match HOMEBREW_CELLAR.to_s, shell_output("#{bin}/git --exec-path")
+
+    # Ensure the Rust subsystems were actually compiled in (upstream default
+    # since Git 2.55). A Rust-enabled build reports `rust: enabled` here, while
+    # a `NO_RUST=1` build omits the line. This guards against silently
+    # regressing back to the legacy C-only configuration.
+    assert_match "rust: enabled", shell_output("#{bin}/git version --build-options")
 
     return unless OS.mac?
 
