@@ -1,0 +1,20 @@
+Formula/s/sequoia-sqv.rb
+  s_5f8468cdecaf1f::t_3d11ac40eff5a5 23
+  s_5f8468cdecaf1f::t_f23598c44dda08 24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "b61711ffebf5219e08476d2274f09b1fea5f5c56",
+  "prompts": {},
+  "sessions": {
+    "s_5f8468cdecaf1f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0eba129e-c202-463f-a6cc-e226139b021c",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
