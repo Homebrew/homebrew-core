@@ -6,12 +6,12 @@ class CppPeglib < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "39aac971f2d4a994ba9b457fc06e293162353d4d9be913bc51a9d8829dac385c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b95d8015b936e5f5c53121108689c687c87040875eb0650777d63ced4336ccb8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe5654b207b0c340fca9ba4fa593e195604cf52fd3cea8cd0d1769f96e6b1dcf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7c6c23db3d96aa8cd42c793a1844223e867f80840367b14295715103316a6509"
-    sha256 cellar: :any,                 arm64_linux:   "d51bf80c914ab90da23409d12feba25cb72b8ec02318bc017e35363c586b396a"
-    sha256 cellar: :any,                 x86_64_linux:  "3cb71b55e2f613ec7d7d8b1ce8c2d36a7638dc822c7d577629749fa954a5634a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "70ec14fa81394d5485e34c090e20114665bec250287acbcff6f41a290ce82d30"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1959d59160f624c1b0ea0c39f7e3cc13c5a98d4f6b7c0c086613cf32ed2469d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee07e0e9d848cce25aa3d68b49a7c2dbbdf88a740a88222462f54518eb00ee75"
+    sha256 cellar: :any_skip_relocation, sonoma:        "99a404897191194273762c08df86842a6d4eb0cb3ecaae2bbdf757dbbe89de1f"
+    sha256 cellar: :any,                 arm64_linux:   "27fec28070f61d8ab4f787435433ffbcc1d2dd208557dec9115a5ffc2ed42f9d"
+    sha256 cellar: :any,                 x86_64_linux:  "723c2c0af52725df8e2af584e71b10dc54b7d353c55aad7e8cfd1d47adfde812"
   end
 
   depends_on "cmake" => :build
