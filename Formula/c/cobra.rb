@@ -21,6 +21,6 @@ class Cobra < Formula
   end
 
   test do
-    system "#{bin}/cobra", "--version"
+    system bin/"cobra", "--version"
   end
 end
