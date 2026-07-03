@@ -1,0 +1,24 @@
+Formula/b/bear.rb
+  s_5f8468cdecaf1f::t_5bbbacc8a5069f 27
+  s_5f8468cdecaf1f::t_c55a293109eadd 34
+  s_5f8468cdecaf1f::t_9cf8e800188773 32-33,35
+  s_5f8468cdecaf1f::t_86bcd51d5d19c0 42-43
+  s_5f8468cdecaf1f::t_36ea531cadd588 38
+  s_5f8468cdecaf1f::t_3ce1f85aaa2f55 28-31,44-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "cb4bf8c4d257981ee8a357c9867d9fc3712b618f",
+  "prompts": {},
+  "sessions": {
+    "s_5f8468cdecaf1f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0eba129e-c202-463f-a6cc-e226139b021c",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
