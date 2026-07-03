@@ -242,6 +242,7 @@ jobs:
             --deleted-formulae="$DELETED_FORMULAE" \
             <<<"$TEST_BOT_FORMULAE_ARGS"
         env:
+          HOMEBREW_DEBUG: ${{ runner.debug }}
           HOMEBREW_DOWNLOAD_CONCURRENCY: ${{ needs.setup_tests.outputs.download-concurrency }}
           TEST_BOT_FORMULAE_ARGS: ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
           TESTING_FORMULAE: ${{ needs.formulae_detect.outputs.testing_formulae }}
