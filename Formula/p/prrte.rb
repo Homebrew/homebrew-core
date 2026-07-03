@@ -46,9 +46,6 @@ class Prrte < Formula
                  "share/man/man5/prte.5", "share/doc/prrte/", "share/prte/"
 
   def install
-    # Avoid references to the Homebrew shims directory
-    inreplace "src/tools/prte_info/param.c", "PRTE_CC_ABSOLUTE", "\"#{ENV.cc}\""
-
     args = %W[
       --disable-silent-rules
       --enable-ipv6
