@@ -1,0 +1,14 @@
+Formula/p/picotool.rb
+  h_9df9c32c3f321d 61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "f6be6a9001e35158e850e2d2bc249f3132d35b39",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
