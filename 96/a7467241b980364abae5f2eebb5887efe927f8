@@ -1,0 +1,19 @@
+Formula/o/ouch.rb
+  s_9809d481deaad1::t_c499d7c59659b0 37-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "96a7467241b980364abae5f2eebb5887efe927f8",
+  "prompts": {},
+  "sessions": {
+    "s_9809d481deaad1": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f2d3e-1c25-7d20-9d20-90236169a36f",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
