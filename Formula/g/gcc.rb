@@ -67,6 +67,15 @@ class Gcc < Formula
     end
   end
 
+  def libdir(root)
+    if versioned_formula?
+      root/"lib/gcc"/version_suffix
+    else
+      # Use `lib/gcc/current` to provide a path that doesn't change with GCC's version.
+      root/"lib/gcc/current"
+    end
+  end
+
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
@@ -84,10 +93,9 @@ class Gcc < Formula
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
 
-    # Use `lib/gcc/current` to provide a path that doesn't change with GCC's version.
     args = %W[
       --prefix=#{opt_prefix}
-      --libdir=#{opt_lib}/gcc/current
+      --libdir=#{libdir(opt_prefix)}
       --disable-nls
       --enable-checking=release
       --with-gcc-major-version-only
@@ -135,9 +143,6 @@ class Gcc < Formula
     end
 
     mkdir "build" do
-      system "../configure", *args
-      system "gmake", *make_args
-
       # Do not strip the binaries on macOS, it makes them unsuitable
       # for loading plugins
       install_target = OS.mac? ? "install" : "install-strip"
@@ -145,19 +150,23 @@ class Gcc < Formula
       # To make sure GCC does not record cellar paths, we configure it with
       # opt_prefix as the prefix. Then we use DESTDIR to install into a
       # temporary location, then move into the cellar path.
+      system "../configure", *args
+      system "gmake", *make_args
       system "gmake", install_target, "DESTDIR=#{buildpath}/instdir"
       prefix.install buildpath.glob("instdir/#{opt_prefix}/*")
     end
 
-    bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
-    bin.install_symlink bin/"gm2-#{version_suffix}" => "gm2"
+    unless versioned_formula?
+      bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
+      bin.install_symlink bin/"gm2-#{version_suffix}" => "gm2"
 
-    # Provide a `lib/gcc/xy` directory to align with the versioned GCC formulae.
-    # We need to create `lib/gcc/xy` as a directory and not a symlink to avoid `brew link` conflicts.
-    (lib/"gcc"/version_suffix).install_symlink (lib/"gcc/current").children
+      # Provide a `lib/gcc/xy` directory to align with the versioned GCC formulae.
+      # We need to create `lib/gcc/xy` as a directory and not a symlink to avoid `brew link` conflicts.
+      (lib/"gcc"/version_suffix).install_symlink (lib/"gcc/current").children
 
-    # Only the newest brewed gcc should install gfortan libs as we can only have one.
-    lib.install_symlink lib.glob("gcc/current/libgfortran.*") if OS.linux?
+      # Only the newest brewed gcc should install gfortan libs as we can only have one.
+      lib.install_symlink lib.glob("gcc/current/libgfortran.*") if OS.linux?
+    end
 
     # Handle conflicts between GCC formulae and avoid interfering
     # with system compilers.
@@ -213,40 +222,43 @@ class Gcc < Formula
       specs_string = Utils.safe_popen_read(gcc, "-dumpspecs")
       specs_orig.write specs_string
 
-      # Set the library search path
-      # For include path:
-      #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
-      #     system header files.
-      #   * `-idirafter <dir>` instructs gcc to search system header
-      #     files after gcc internal header files.
-      # For libraries:
-      #   * `-nostdlib -L#{libgcc} -L#{glibc.opt_lib}` instructs gcc to use
-      #     brewed glibc if applied.
-      #   * `-L#{libdir}` instructs gcc to find the corresponding gcc
-      #     libraries. It is essential if there are multiple brewed gcc
-      #     with different versions installed.
-      #     Noted that it should only be passed for the `gcc@*` formulae.
-      #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
-      #     brew libraries.
-      # Note: *link will silently add #{libdir} first to the RPATH
-      libdir = HOMEBREW_PREFIX/"lib/gcc/current"
+      odie "Failed to add homebrew_rpath to GCC specs" if specs_string.gsub!(" %o ", "\\0%(homebrew_rpath) ").nil?
       link_libgcc = glibc_installed ? "-nostdlib -L#{libgcc} -L#{formula_opt_lib("glibc")}" : "+"
-      specs.write specs_string + <<~EOS
-        *cpp_unique_options:
-        + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
-
-        *link_libgcc:
-        #{link_libgcc} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
-
-        *link:
-        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir}
-
-        *homebrew_rpath:
-        -rpath #{HOMEBREW_PREFIX}/lib
-
-      EOS
-      inreplace(specs, " %o ", "\\0%(homebrew_rpath) ")
+      write_spec!(specs, specs_string, system_header_dirs, link_libgcc)
     end
+  end
+
+  def write_spec!(specs, specs_string, system_header_dirs, link_libgcc)
+    # Set the library search path
+    # For include path:
+    #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
+    #     system header files.
+    #   * `-idirafter <dir>` instructs gcc to search system header
+    #     files after gcc internal header files.
+    # For libraries:
+    #   * `-nostdlib -L#{libgcc} -L#{glibc.opt_lib}` instructs gcc to use
+    #     brewed glibc if applied.
+    #   * `-L#{libdir}` instructs gcc to find the corresponding gcc
+    #     libraries. It is essential if there are multiple brewed gcc
+    #     with different versions installed.
+    #     Noted that it should only be passed for the `gcc@*` formulae.
+    #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
+    #     brew libraries.
+    # Note: *link will silently add #{libdir} first to the RPATH
+    specs.write specs_string + <<~EOS
+      *cpp_unique_options:
+      + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
+
+      *link_libgcc:
+      #{link_libgcc} -L#{libdir(HOMEBREW_PREFIX)} -L#{HOMEBREW_PREFIX}/lib
+
+      *link:
+      + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir(HOMEBREW_PREFIX)}
+
+      *homebrew_rpath:
+      -rpath #{HOMEBREW_PREFIX}/lib
+
+    EOS
   end
 
   test do
