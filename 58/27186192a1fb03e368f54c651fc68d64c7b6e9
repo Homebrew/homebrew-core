@@ -1,0 +1,20 @@
+Formula/v/vite-plus.rb
+  s_5f8468cdecaf1f::t_f4595c327b681b 26-27
+  s_5f8468cdecaf1f::t_780aeef40d30ea 39-40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "5827186192a1fb03e368f54c651fc68d64c7b6e9",
+  "prompts": {},
+  "sessions": {
+    "s_5f8468cdecaf1f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0eba129e-c202-463f-a6cc-e226139b021c",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
