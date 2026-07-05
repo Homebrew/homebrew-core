@@ -8,7 +8,7 @@ class Kari < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X kari/internal/app.Version=#{version} -X kari/internal/app.Commit=#{Utils.git_short_head}"), "./cmd/kari"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X kari/internal/app.Version=#{version}"), "./cmd/kari"
   end
 
   test do
