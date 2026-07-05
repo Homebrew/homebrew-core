@@ -17,10 +17,20 @@ class Odin < Formula
     sha256 cellar: :any, x86_64_linux:  "288b049665dbdf70a81e260468e174c85bd2a5b4a85b03d9e83359d8fda4c444"
   end
 
+  depends_on "cmake" => :build
   depends_on "glfw" => :no_linkage
   depends_on "lld"
   depends_on "llvm"
-  depends_on "raylib@5.5"
+
+  on_linux do
+    depends_on "libx11"
+    depends_on "libxcursor"
+    depends_on "libxi"
+    depends_on "libxinerama"
+    depends_on "libxrandr"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
 
   fails_with :gcc do
     cause "requires Clang"
@@ -31,6 +41,11 @@ class Odin < Formula
     sha256 "299c8fcabda68309a60dc858741b76c32d7d0fc533cdc2539a55988cee236812"
   end
 
+  resource "raylib" do
+    url "https://github.com/raysan5/raylib/archive/refs/tags/5.5.tar.gz"
+    sha256 "aea98ecf5bc5c5e0b789a76de0083a21a70457050ea4cc2aec7566935f5e258e"
+  end
+
   def install
     llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
     ENV["LLVM_CONFIG"] = (llvm.opt_bin/"llvm-config").to_s
@@ -38,6 +53,20 @@ class Odin < Formula
 
     # Delete pre-compiled binaries which brew does not allow.
     buildpath.glob("vendor/**/*.{lib,dll,a,dylib,so,so.*}").map(&:unlink)
+
+    resource("raylib").stage do
+      cmake_args = %w[-DBUILD_EXAMPLES=OFF -DBUILD_GAMES=OFF -DMACOS_FATLIB=OFF]
+      cmake_args << "-DCMAKE_INSTALL_NAME_DIR=#{libexec}/raylib/lib" if OS.mac?
+      system "cmake", "-S", ".", "-B", "shared", "-DBUILD_SHARED_LIBS=ON",
+                      *cmake_args, *std_cmake_args(install_prefix: libexec/"raylib")
+      system "cmake", "--build", "shared"
+      system "cmake", "--install", "shared"
+      system "cmake", "-S", ".", "-B", "static", "-DBUILD_SHARED_LIBS=OFF",
+                      *cmake_args, *std_cmake_args
+      system "cmake", "--build", "static"
+      (libexec/"raylib/lib").install "static/raylib/libraylib.a"
+    end
+    raylib = libexec/"raylib"
 
     cd buildpath/"vendor/miniaudio/src" do
       system "make"
@@ -73,9 +102,9 @@ class Odin < Formula
 
     ln_s Formula["glfw"].lib/"libglfw3.a", buildpath/glfw_installpath/"libglfw3.a"
 
-    ln_s Formula["raylib@5.5"].lib/"libraylib.a", buildpath/raylib_installpath/"libraylib.a"
+    ln_s raylib/"lib/libraylib.a", buildpath/raylib_installpath/"libraylib.a"
     # In order to match the version 500 used in odin
-    ln_s Formula["raylib@5.5"].lib/shared_library("libraylib", "5.5.0"),
+    ln_s raylib/"lib"/shared_library("libraylib", "5.5.0"),
       buildpath/raylib_installpath/shared_library("libraylib", "550")
 
     resource("raygui").stage do
@@ -83,7 +112,7 @@ class Odin < Formula
 
       # build static library
       system ENV.cc, "-c", "-o", "raygui.o", "src/raygui.c",
-        "-fpic", "-DRAYGUI_IMPLEMENTATION", "-I#{Formula["raylib@5.5"].include}"
+        "-fpic", "-DRAYGUI_IMPLEMENTATION", "-I#{raylib}/include"
       system "ar", "-rcs", "libraygui.a", "raygui.o"
       cp "libraygui.a", buildpath/raygui_installpath
 
@@ -95,8 +124,8 @@ class Odin < Formula
         "-fpic",
         "-DRAYGUI_IMPLEMENTATION",
         "-lm", "-lpthread", "-ldl",
-        "-I#{Formula["raylib@5.5"].include}",
-        "-L#{Formula["raylib@5.5"].lib}",
+        "-I#{raylib}/include",
+        "-L#{raylib}/lib",
         "-lraylib"
       ]
 
