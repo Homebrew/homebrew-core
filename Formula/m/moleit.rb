@@ -2,7 +2,7 @@ class MoleIt < Formula
   desc 'CLI tool for scaffolding C and C++ projects, inspired by cargo init'
   homepage 'https://github.com/Jayesh-Dev21/MoleIt'
   url 'https://moleit.vercel.app/rel/v0.1.0.tar.gz'
-  sha256 '0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5'
+  sha256 'a352bd2143aa415e31caa9118602c13a2ccc20d3d34b9c32f44380b0b612c4eb'
   license 'MIT'
 
   depends_on 'cmake' => :build
