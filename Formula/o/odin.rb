@@ -20,7 +20,7 @@ class Odin < Formula
   depends_on "glfw" => :no_linkage
   depends_on "lld"
   depends_on "llvm"
-  depends_on "raylib"
+  depends_on "raylib@5.5"
 
   fails_with :gcc do
     cause "requires Clang"
@@ -73,9 +73,9 @@ class Odin < Formula
 
     ln_s Formula["glfw"].lib/"libglfw3.a", buildpath/glfw_installpath/"libglfw3.a"
 
-    ln_s Formula["raylib"].lib/"libraylib.a", buildpath/raylib_installpath/"libraylib.a"
+    ln_s Formula["raylib@5.5"].lib/"libraylib.a", buildpath/raylib_installpath/"libraylib.a"
     # In order to match the version 500 used in odin
-    ln_s Formula["raylib"].lib/shared_library("libraylib", "5.5.0"),
+    ln_s Formula["raylib@5.5"].lib/shared_library("libraylib", "5.5.0"),
       buildpath/raylib_installpath/shared_library("libraylib", "550")
 
     resource("raygui").stage do
@@ -83,7 +83,7 @@ class Odin < Formula
 
       # build static library
       system ENV.cc, "-c", "-o", "raygui.o", "src/raygui.c",
-        "-fpic", "-DRAYGUI_IMPLEMENTATION", "-I#{Formula["raylib"].include}"
+        "-fpic", "-DRAYGUI_IMPLEMENTATION", "-I#{Formula["raylib@5.5"].include}"
       system "ar", "-rcs", "libraygui.a", "raygui.o"
       cp "libraygui.a", buildpath/raygui_installpath
 
@@ -95,8 +95,8 @@ class Odin < Formula
         "-fpic",
         "-DRAYGUI_IMPLEMENTATION",
         "-lm", "-lpthread", "-ldl",
-        "-I#{Formula["raylib"].include}",
-        "-L#{Formula["raylib"].lib}",
+        "-I#{Formula["raylib@5.5"].include}",
+        "-L#{Formula["raylib@5.5"].lib}",
         "-lraylib"
       ]
 
