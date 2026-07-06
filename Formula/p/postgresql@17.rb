@@ -114,13 +114,10 @@ class PostgresqlAT17 < Formula
     inreplace makefile, "-install_name '#{lib}/postgresql/", "-install_name '$(libdir)/"
   end
 
-  post_install_steps do
-    mkdir_p "log"
-    # Don't initialize database, it clashes when testing other PostgreSQL versions.
-    init_data_dir "postgresql@17", using: :postgresql_initdb
-  end
-
   def post_install
+    (var/"log").mkpath
+    postgresql_datadir.mkpath
+
     # Manually link files from keg to non-conflicting versioned directories in HOMEBREW_PREFIX.
     %w[include lib share].each do |dir|
       dst_dir = HOMEBREW_PREFIX/dir/name
@@ -143,6 +140,11 @@ class PostgresqlAT17 < Formula
 
     # Also link versioned executables
     bin.each_child { |f| (HOMEBREW_PREFIX/"bin").install_symlink f => "#{f.basename}-#{version.major}" }
+
+    # Don't initialize database, it clashes when testing other PostgreSQL versions.
+    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    system bin/"initdb", "--locale=en_US.UTF-8", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
   end
 
   def postgresql_datadir
@@ -151,6 +153,10 @@ class PostgresqlAT17 < Formula
 
   def postgresql_log_path
     var/"log/#{name}.log"
+  end
+
+  def pg_version_exists?
+    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats
