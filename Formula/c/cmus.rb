@@ -48,7 +48,6 @@ class Cmus < Formula
   depends_on "libao" # See https://github.com/cmus/cmus/issues/1130
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "mp4v2"
   depends_on "ncurses"
   depends_on "opusfile"
 
@@ -58,6 +57,11 @@ class Cmus < Formula
   end
 
   def install
+    # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=765634#10
+    # https://www.gnu.org/licenses/license-list.html#MPL
+    # https://www.mozilla.org/en-US/MPL/1.1/FAQ/
+    odie "mp4v2 is licensed under MPL-1.1 which is incompatible with GPL!" if deps.map(&:name).include?("mp4v2")
+
     args = [
       "prefix=#{prefix}",
       "mandir=#{man}",
