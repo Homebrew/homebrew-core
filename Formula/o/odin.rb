@@ -129,6 +129,7 @@ class Odin < Formula
         "-lraylib"
       ]
 
+      args += ["-Wl,-rpath,#{raylib}/lib"] if OS.linux?
       args += ["-framework", "OpenGL"] if OS.mac?
       system ENV.cc, *args
       cp shared_library("libraygui"), buildpath/raygui_installpath
