@@ -29,15 +29,10 @@ class Elm < Formula
   patch do
     # elm's tarball is not a proper cabal tarball, it contains multiple cabal files.
     # Add `cabal.project` lets cabal-install treat this tarball as cabal project correctly.
-    # https://github.com/elm/compiler/pull/2159
     url "https://github.com/elm/compiler/commit/eb566e901a419a6620e43c18faf89f57f0827124.patch?full_index=1"
     sha256 "556ff15fb4d8e5ca6e853280e35389c8875fa31a543204b315b55ec2ac967624"
-  end
-
-  patch do
-    # These patches allow elm to build on ghc 9.4+.
-    url "https://github.com/elm/compiler/commit/0421dfbe48e53d880a401e201890eac0b3de5f06.patch?full_index=1"
-    sha256 "b498e39112ab7306b18b47821e799bf436d0c2151836187388c2a6b6f32bd437"
+    type :cherry_pick
+    resolves "https://github.com/elm/compiler/pull/2159"
   end
 
   def install
