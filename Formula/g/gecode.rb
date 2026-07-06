@@ -1,10 +1,10 @@
 class Gecode < Formula
   desc "Toolkit for developing constraint-based systems and applications"
-  homepage "https://www.gecode.org/"
-  url "https://github.com/Gecode/gecode/archive/refs/tags/release-6.2.0.tar.gz"
-  sha256 "27d91721a690db1e96fa9bb97cec0d73a937e9dc8062c3327f8a4ccb08e951fd"
+  homepage "https://www.gecode.dev/"
+  url "https://github.com/Gecode/gecode/archive/refs/tags/release-6.3.0.tar.gz"
+  sha256 "e3b5d9051bbc669ac39344adaa208ccb0b340213f4e03dec12c7bfb96ab8673d"
   license "MIT"
-  revision 1
+  compatibility_version 1
 
   bottle do
     rebuild 4
@@ -19,18 +19,7 @@ class Gecode < Formula
   depends_on "pkgconf" => :test
   depends_on "qtbase"
 
-  # Backport support for Qt6 from release/6.3.0 branch
-  patch do
-    url "https://github.com/Gecode/gecode/commit/c0ca0e5f4406099be22f87236ea8547c2f31ded3.patch?full_index=1"
-    sha256 "233b266a943c0619b027b4cb19912e2a8c9d1f8e4323a3627765cb32b47c59fe"
-    type :cherry_pick
-  end
-
   def install
-    # Backport parts of upstream commit[^1] and add workarounds to allow configure to build with Qt6
-    #
-    # [^1]: https://github.com/Gecode/gecode/commit/19b9ec3b938f52f5ef5feef15c6be417b5b27e36
-    inreplace "configure", "if test ${ac_gecode_qt_major} -eq 5;", "if test ${ac_gecode_qt_major} -ge 5;"
     ENV["MOC"] = Formula["qtbase"].opt_share/"qt/libexec/moc"
     ENV.append "CXXFLAGS", "-std=c++17"
 
