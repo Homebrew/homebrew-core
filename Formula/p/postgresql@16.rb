@@ -110,10 +110,14 @@ class PostgresqlAT16 < Formula
                                     "includedir_internal=#{include}/postgresql/internal"
   end
 
-  post_install_steps do
-    mkdir_p "log"
+  def post_install
+    (var/"log").mkpath
+    postgresql_datadir.mkpath
+
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
-    init_data_dir "postgresql@16", using: :postgresql_initdb
+    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    system bin/"initdb", "--locale=en_US.UTF-8", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
   end
 
   def postgresql_datadir
@@ -122,6 +126,10 @@ class PostgresqlAT16 < Formula
 
   def postgresql_log_path
     var/"log/#{name}.log"
+  end
+
+  def pg_version_exists?
+    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats
