@@ -11,12 +11,13 @@ class PostgresqlAT14 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0322195d5cf1702c7c070f072a6c470cf5d4de374436d7e5660903dc2405ae93"
-    sha256 arm64_sequoia: "d30043059262150c75cce78f8136cc240e067f36be3b319a03feea5502e86ba2"
-    sha256 arm64_sonoma:  "8131c03a311e69b1263342994550c4b634ac0f4a1d3cae1d9b0b390acab3c2ea"
-    sha256 sonoma:        "7584def6106fefecd718ec7c076a48004827a7ceddc4bc568b4b80cead474ecc"
-    sha256 arm64_linux:   "f36a5345168110d2a60f491e864096908add1c662e50d8cae727913ad6d68030"
-    sha256 x86_64_linux:  "0a8306e23122766cf7a14a3ffbdc1359d822bf641d8226993c12e71882a0440e"
+    rebuild 1
+    sha256 arm64_tahoe:   "dc282cc6fdf7a2a982622d6a9c94fe3d580461c218aa9f3923da50cac415b3c4"
+    sha256 arm64_sequoia: "72ab7d81ddad9c873c2860a9aadf0b7b77459e473f7d09a310547fa39cd0ae82"
+    sha256 arm64_sonoma:  "a7f2436d23c5b34bc34ee4874653ab2f5d9817bfb6976d6d7b91fdcbd7bd2e25"
+    sha256 sonoma:        "0cba3c377a0bc772201df99f070a2e1690102c59bc05768533c8cb05184344b1"
+    sha256 arm64_linux:   "01608f2ea0c2ece2612005e7d62816558bbfd972bd0d138b7ff8b25e9a7d972c"
+    sha256 x86_64_linux:  "d8e5563eb58a4165095c387b6afcaada3d664d8a562682aede9286c7fbc2b9b5"
   end
 
   # deprecating one year before the last release,
@@ -98,21 +99,6 @@ class PostgresqlAT14 < Formula
     init_data_dir "postgresql@14", using: :postgresql_initdb
   end
 
-  def post_install
-    old_postgres_data_dir = var/"postgres"
-    if old_postgres_data_dir.exist?
-      opoo "The old PostgreSQL data directory (#{old_postgres_data_dir}) still exists!"
-      puts <<~EOS
-        Previous versions of postgresql shared the same data directory.
-
-        You can migrate to a versioned data directory by running:
-          mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
-
-        (Make sure PostgreSQL is stopped before executing this command)
-      EOS
-    end
-  end
-
   def postgresql_datadir
     var/name
   end
@@ -122,7 +108,14 @@ class PostgresqlAT14 < Formula
   end
 
   def caveats
+    old_postgres_data_dir = var/"postgres"
     <<~EOS
+      If an old PostgreSQL data directory (#{old_postgres_data_dir}) still exists,
+      you can migrate to a versioned data directory by running:
+        mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
+
+      (Make sure PostgreSQL is stopped before executing this command)
+
       This formula has created a default database cluster with:
         initdb --locale=en_US.UTF-8 -E UTF-8 #{postgresql_datadir}
     EOS

@@ -6,12 +6,13 @@ class FileRoller < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "60e57d73727b41b08539be9d9396d132e6e1893f1306b35db6c3a2cdaf20739f"
-    sha256 arm64_sequoia: "db890d8346bab533220917f3bf332919d935a604a0452c02166c3b049d87bc10"
-    sha256 arm64_sonoma:  "b56c9f10b2b4f9bbf16bdb2ac431d196ca32a9d6b7ba72c7317d75b0b8e11156"
-    sha256 sonoma:        "4810dfc155262b69cbba451184253370760fb307fdfef3b1de36b160d6473f2b"
-    sha256 arm64_linux:   "be7a87dc229abd4204dc8317ad04dcb1868018b829c6b2acfdad9182821b775f"
-    sha256 x86_64_linux:  "1899d41795fd04556ecf84faf2f05bca75d72425dbeb2b73e1ff894baac5af4a"
+    rebuild 1
+    sha256 arm64_tahoe:   "9a76432dbf3de2b5f978893f3bfab338e71b100b81ef0cef68a0d51e509851f5"
+    sha256 arm64_sequoia: "7531ab1b2228e2df76eec7f3de2ae197772801a52c1df9daf66102e246f6a521"
+    sha256 arm64_sonoma:  "45933a7e7fb0a10406e8229d3457caa327d3373c3750bbac0e5ede094f91584d"
+    sha256 sonoma:        "607c23912d7aef061787efc23d8358c6affbdc5c72265d2c1045530d778e8435"
+    sha256 arm64_linux:   "3eadf2c56bffc406f031216e18a65eff6fc20d3a34c2c03aefa42e8a4c1bfcaa"
+    sha256 x86_64_linux:  "62ae864f882eee7f9ddafd770ad20762db0d5638982747e67722a341504be546"
   end
 
   depends_on "gettext" => :build
@@ -45,15 +46,26 @@ class FileRoller < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system formula_opt_bin("glib")/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
-    system formula_opt_bin("gtk4")/"gtk4-update-icon-cache", "-f", "-t", HOMEBREW_PREFIX/"share/icons/hicolor"
-    system formula_opt_bin("desktop-file-utils")/"update-desktop-database", HOMEBREW_PREFIX/"share/applications"
+  post_install_steps do
+    compile_gsettings_schemas
+    gtk_update_icon_cache
+    update_desktop_database
   end
 
   test do
-    cmd = "#{bin}/file-roller --help"
-    cmd = "#{Formula["xorg-server"].bin}/xvfb-run #{cmd}" if OS.linux? && ENV.exclude?("DISPLAY")
-    assert_match "Create and modify an archive", shell_output(cmd)
+    pids = []
+    if OS.linux?
+      IO.pipe do |read_io, write_io|
+        pids << spawn(Formula["xorg-server"].bin/"Xvfb", "-displayfd", write_io.fileno.to_s, write_io => write_io)
+        write_io.close
+        ENV["DISPLAY"] = ":#{read_io.read.strip}"
+      end
+    end
+    assert_match "Create and modify an archive", shell_output("#{bin}/file-roller --help")
+  ensure
+    pids.reverse_each do |pid|
+      Process.kill "TERM", pid
+      Process.wait pid
+    end
   end
 end
