@@ -1,6 +1,6 @@
 class Calceph < Formula
   desc "C library to access the binary planetary ephemeris files"
-  homepage "https://www.imcce.fr/inpop/calceph"
+  homepage "https://calceph.imcce.fr"
   url "https://www.imcce.fr/content/medias/recherche/equipes/asd/calceph/calceph-4.0.5.tar.gz"
   sha256 "3460d8a3e10a86e7fe0228d5d9abcda589713b8ed3ee007ce061ae01f8c2e1ea"
   license "GPL-2.0-or-later"
