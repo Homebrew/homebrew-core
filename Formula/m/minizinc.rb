@@ -4,6 +4,7 @@ class Minizinc < Formula
   url "https://github.com/MiniZinc/libminizinc/archive/refs/tags/2.9.7.tar.gz"
   sha256 "bb04d783dda4bba58de4004afd51d65b1fa4e8d9714c88c129cac312e267152e"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/MiniZinc/libminizinc.git", branch: "master"
 
   bottle do
