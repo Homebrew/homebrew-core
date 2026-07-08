@@ -26,6 +26,14 @@ class RnaStar < Formula
     depends_on "zlib-ng-compat"
   end
 
+  # Fix STAR reporting 0 input reads on macOS (libc++ ignores setbuf).
+  # Remove once a STAR release includes this patch.
+  # https://github.com/alexdobin/STAR/pull/2691
+  patch do
+    url "https://github.com/alexdobin/STAR/commit/14b1f235927e75ff927be08134c1fb6a00c14d79.patch?full_index=1"
+    sha256 "f12a27b4f1381b591011de118f715bd93ea32e87d26c60f13aa246f67191d9db"
+  end
+
   def install
     args = ["CXXFLAGS_SIMD="]
     args << "CXXFLAGSextra=-D'COMPILE_FOR_MAC'" if OS.mac?
