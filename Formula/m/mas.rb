@@ -30,6 +30,8 @@ class Mas < Formula
 
   def install
     ENV["MAS_DIRTY_INDICATOR"] = ""
+    # /usr/bin/jq only exists on Sequoia+; use the Homebrew dep otherwise.
+    inreplace "Scripts/mas", "/usr/bin/jq", formula_opt_bin("jq")/"jq" if MacOS.version <= :sonoma
     system "Scripts/build", "homebrew/core/mas", "--disable-sandbox", "-c", "release"
     (libexec/"bin").install ".build/release/mas"
     bin.install "Scripts/mas"
