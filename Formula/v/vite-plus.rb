@@ -1,8 +1,8 @@
 class VitePlus < Formula
   desc "Unified toolchain and entry point for web development"
   homepage "https://viteplus.dev"
-  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v0.1.22.tar.gz"
-  sha256 "b1e6951592ae7af2f7a6044e92fc1d1802288bf8c0c4039a982ba3d58a46e797"
+  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v0.2.3.tar.gz"
+  sha256 "8d21fd9ff529017988eb834bf23014af329a2a4bbd009c6cd1384d864701e765"
   license "MIT"
   head "https://github.com/voidzero-dev/vite-plus.git", branch: "main"
 
@@ -18,13 +18,13 @@ class VitePlus < Formula
   depends_on "cmake" => :build
   depends_on "just" => :build
   depends_on "pnpm" => :build
-  depends_on "rust" => :build
+  depends_on "rustup" => :build
   depends_on "node"
 
   resource "rolldown" do
     url "https://github.com/rolldown/rolldown.git",
-        revision: "ac5c71025a639d394a0db9c3a921b7eda5d71a88"
-    version "ac5c71025a639d394a0db9c3a921b7eda5d71a88"
+        revision: "6cbd2330dc5ca973b90444973ee04c2dc7ee2f2d"
+    version "6cbd2330dc5ca973b90444973ee04c2dc7ee2f2d"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -36,8 +36,8 @@ class VitePlus < Formula
 
   resource "vite" do
     url "https://github.com/vitejs/vite.git",
-        revision: "66f3194aa8e59924562575f0a98e7f4ae0acdd89"
-    version "66f3194aa8e59924562575f0a98e7f4ae0acdd89"
+        revision: "578ffb80d46940f3b99cd96ed609f8b3a0ac5ede"
+    version "578ffb80d46940f3b99cd96ed609f8b3a0ac5ede"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -53,12 +53,12 @@ class VitePlus < Formula
 
     ENV["NPM_CONFIG_MANAGE_PACKAGE_MANAGER_VERSIONS"] = "false"
 
-    # fspy requires nightly Cargo's `-Z bindeps`.
-    # Use a stable-Rust stub to keep the CLI buildable without nightly.
-    ENV["RUSTC_BOOTSTRAP"] = "1"
+    # fspy requires nightly Rust for c_variadic support
+    system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "nightly"
 
     system "just", "build"
-    system "cargo", "install", *std_cargo_args(path: "crates/vite_global_cli")
+    system "cargo", "+nightly", "install", *std_cargo_args(path: "crates/vite_global_cli")
 
     system "pnpm", "--filter=vite-plus", "deploy", "--prod", "--legacy", "--no-optional",
            prefix/"node_modules/vite-plus"
