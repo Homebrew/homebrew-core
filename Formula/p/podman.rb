@@ -72,6 +72,13 @@ class Podman < Formula
     end
   end
 
+  resource "krunkit" do
+    on_macos do
+      url "https://github.com/libkrun/krunkit/releases/download/v1.3.2/krunkit-podman-unsigned-1.3.2.tgz"
+      sha256 "de9ab62dd90461cd1df1e37b78e780690d75490f4bab1674cbb4a1f75b90c227"
+    end
+  end
+
   resource "catatonit" do
     on_linux do
       url "https://github.com/openSUSE/catatonit/archive/refs/tags/v0.2.1.tar.gz"
@@ -117,6 +124,19 @@ class Podman < Formula
         arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
         system "gmake", "out/vfkit-#{arch}"
         (libexec/"podman").install "out/vfkit-#{arch}" => "vfkit"
+      end
+
+      resource("krunkit").stage do
+        (libexec/"podman").install "bin/krunkit"
+        (libexec/"podman").install Dir["lib/*.dylib"]
+        # https://github.com/libkrun/homebrew-krun/blob/main/Formula/krunkit.rb
+        (libexec/"share/krunkit").install "share/krunkit/KRUN_EFI.silent.fd"
+        krunkit = libexec/"podman/krunkit"
+        chmod 0755, krunkit # tarball ships with read-only perms
+        MachO::Tools.add_rpath(krunkit, "@loader_path")
+        # Match podman's contrib/pkginstaller/package.sh setup
+        Dir[libexec/"podman/*.dylib"].each { |d| codesign d }
+        codesign "--entitlements", buildpath/"contrib/pkginstaller/krunkit.entitlements", krunkit
       end
 
       system "gmake", "podman-remote-darwin-docs"
@@ -178,6 +198,10 @@ class Podman < Formula
     end
   end
 
+  def codesign(*args)
+    system "/usr/bin/codesign", "--force", "--sign", "-", *args
+  end
+
   def caveats
     on_linux do
       <<~EOS
@@ -207,6 +231,10 @@ class Podman < Formula
     assert_match "Cannot connect to Podman", out
 
     if OS.mac?
+      output = shell_output("codesign --verify --verbose #{libexec}/podman/krunkit 2>&1")
+      assert_match "valid on disk", output
+      assert_match "satisfies its Designated Requirement", output
+
       # This test will fail if VM images are not built yet. Re-run after VM images are built if this is the case
       # See https://github.com/Homebrew/homebrew-core/pull/166471
       out = shell_output("#{bin}/podman-remote machine init homebrew-testvm")
