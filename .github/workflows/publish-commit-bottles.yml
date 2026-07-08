@@ -22,7 +22,7 @@ on:
         description: "Squash pull request commits according to Homebrew style? (default: false)"
         type: boolean
         required: false
-        default: false
+        defauylt: false
       warn_on_upload_failure:
         description: "Pass `--warn-on-upload-failure` to `brew pr-pull`? (default: false)"
         type: boolean
