@@ -30,13 +30,13 @@ class Mas < Formula
 
   def install
     ENV["MAS_DIRTY_INDICATOR"] = ""
+    # /usr/bin/jq only exists on Sequoia+; use the Homebrew dep otherwise.
+    on_sonoma :or_older do
+      inreplace "Scripts/mas", "/usr/bin/jq", Formula["jq"].opt_bin/"jq"
+    end
     system "Scripts/build", "homebrew/core/mas", "--disable-sandbox", "-c", "release"
     (libexec/"bin").install ".build/release/mas"
     bin.install "Scripts/mas"
-    on_sonoma :or_older do
-      # /usr/bin/jq only exists on Sequoia+; use the Homebrew dep otherwise.
-      inreplace bin/"mas", "/usr/bin/jq", Formula["jq"].opt_bin/"jq"
-    end
     system "swift", "package", "--disable-sandbox", "generate-manual"
     man1.install ".build/plugins/GenerateManual/outputs/mas/mas.1"
     bash_completion.install "contrib/completion/mas.bash" => "mas"
