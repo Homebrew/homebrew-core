@@ -1,0 +1,14 @@
+--- gdk/gdkglquery.c.orig	2009-08-24 14:43:25.000000000 +0400
++++ gdk/gdkglquery.c	2009-08-24 14:44:18.000000000 +0400
+@@ -27,7 +27,11 @@
+ #include <windows.h>
+ #endif
+ 
++#ifdef GDK_WINDOWING_QUARTZ
++#include <OpenGL/gl.h>
++#else
+ #include <GL/gl.h>
++#endif
+ 
+ /*
+  * This code is based on glutExtensionSupported().

@@ -1,0 +1,11 @@
+--- pcaputil.c.orig	2005-12-20 22:51:13.000000000 +0100
++++ pcaputil.c	2005-12-20 22:52:30.000000000 +0100
+@@ -26,6 +26,8 @@
+ 
+ #include "pcaputil.h"
+ 
++#define BIOCIMMEDIATE _IOW('B',112, u_int)
++
+ pcap_t *
+ pcap_open(char *device)
+ {

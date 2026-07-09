@@ -1,0 +1,37 @@
+name: Prune command-not-found DB
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/prune-command-not-found-db.yml
+  schedule:
+    # Once every day at 2AM
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+concurrency:
+  group: command-not-found-db
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  delete-old-command-not-found-db-versions:
+    if: github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-slim
+    permissions:
+      packages: write
+    steps:
+      - name: Delete old versions from GitHub Packages
+        uses: actions/delete-package-versions@e5bc658cc4c965c472efe991f8beea3981499c55 # v5.0.0
+        with:
+          package-name: command-not-found/executables
+          package-type: container
+          min-versions-to-keep: 0
+          delete-only-untagged-versions: true
