@@ -52,7 +52,7 @@ class GraphTool < Formula
   on_linux do
     depends_on "patchelf" => :build
   end
-  
+
   fails_with :clang do
     build 2000
     cause "Requires Clang 20 or later"
