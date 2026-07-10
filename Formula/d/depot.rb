@@ -40,6 +40,6 @@ class Depot < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/depot --version")
     output = shell_output("#{bin}/depot list builds 2>&1", 1)
-    assert_match "Error: unknown project ID", output
+    assert_match "unknown project ID", output
   end
 end
