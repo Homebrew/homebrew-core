@@ -1,8 +1,8 @@
 class EnteCli < Formula
   desc "Utility for exporting data from Ente and decrypt the export from Ente Auth"
   homepage "https://github.com/ente-io/"
-  url "https://github.com/ente/ente/archive/refs/tags/cli-v0.2.3.tar.gz"
-  sha256 "6bd4ab7b60bf15dd52fbf531d7fa668660caf85c60ef8c4b4f619b777068b4e3"
+  url "https://github.com/ente/ente/archive/refs/tags/cli-v0.3.0.tar.gz"
+  sha256 "bcc7620943ed8e3b16f5f2295ab8ff2e7dfe0f9b60abc9f95bf2139a02f27708"
   license "AGPL-3.0-only"
   head "https://github.com/ente/ente.git", branch: "main"
 
