@@ -4,6 +4,7 @@ class Muon < Formula
   url "https://git.sr.ht/~lattis/muon/archive/0.6.0.tar.gz"
   sha256 "5300e58c4b4d43e3026856004c79d746075aaa9d9e66d76ba9f32ce249495b81"
   license "GPL-3.0-only"
+  revision 1
   head "https://git.sr.ht/~lattis/muon", branch: "master"
 
   bottle do
@@ -22,6 +23,11 @@ class Muon < Formula
   depends_on "pkgconf"
 
   uses_from_macos "curl"
+
+  # Build against the libpkgconf 3.0.0 API (pkgconf_client_init args; tuple_find -> variable_eval_name)
+  # https://lists.sr.ht/~lattis/muon/patches/70538
+  # https://todo.sr.ht/~lattis/muon/145
+  patch :DATA
 
   def install
     args = %w[
@@ -60,3 +66,35 @@ class Muon < Formula
     assert_equal "hi", shell_output("build/hello").chomp
   end
 end
+
+__END__
+diff --git a/src/external/pkgconfig_libpkgconf.c b/src/external/pkgconfig_libpkgconf.c
+index ee4697fe..c58c3cdf 100644
+--- a/src/external/pkgconfig_libpkgconf.c
++++ b/src/external/pkgconfig_libpkgconf.c
+@@ -40,7 +40,11 @@ muon_pkgconf_init(struct workspace *wk, struct pkgconf_client *c, enum machine_k
+ {
+ 	TracyCZoneAutoS;
+ 	c->personality = pkgconf_cross_personality_default();
+-	pkgconf_client_init(&c->client, error_handler, NULL, c->personality);
++	pkgconf_client_init(&c->client, error_handler, NULL, c->personality
++#if defined(LIBPKGCONF_VERSION) && LIBPKGCONF_VERSION >= 20991
++		, NULL, NULL
++#endif
++	);
+
+ 	struct obj_array *pkg_config_path;
+ 	{
+@@ -263,7 +267,11 @@ apply_variable(pkgconf_client_t *client, pkgconf_pkg_t *world, void *_ctx, int m
+ 	pkgconf_pkg_t *pkg = dep->match;
+
+ 	if (pkg != NULL) {
++#if defined(LIBPKGCONF_VERSION) && LIBPKGCONF_VERSION >= 20995
++		var = pkgconf_variable_eval_name(client, &pkg->vars, ctx->var);
++#else
+ 		var = pkgconf_tuple_find(client, &pkg->vars, ctx->var);
++#endif
+ 		if (var != NULL) {
+ 			*ctx->res = make_str(ctx->wk, var);
+ 			found = true;
+
