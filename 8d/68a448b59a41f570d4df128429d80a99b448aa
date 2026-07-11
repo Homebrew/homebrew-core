@@ -1,0 +1,29 @@
+Formula/g/goimapnotify.rb
+  s_0352ca43288c6e::t_026f730a7cbf8e 6-18,21-32
+  s_0352ca43288c6e::t_ba1467dba68025 19-20
+  s_84f9cf2cdf3e31::t_8b4d2883e8131f 1-5,33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "8d68a448b59a41f570d4df128429d80a99b448aa",
+  "prompts": {},
+  "sessions": {
+    "s_0352ca43288c6e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f5125-45bd-7931-9b6a-60c36f95a466",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    },
+    "s_84f9cf2cdf3e31": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f5126-892e-71e1-a6fc-8aaad682a7bb",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
