@@ -1,0 +1,19 @@
+Formula/e/esbmc.rb
+  s_f354a43b099808::t_6a92646d31f22c 3,44,60-66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "1f37787fe3529c1d14827f60f550ad50349e6eef",
+  "prompts": {},
+  "sessions": {
+    "s_f354a43b099808": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f511f-d66e-7ae1-b02c-53edc9c14bc6",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
