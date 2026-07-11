@@ -21,6 +21,7 @@ class Hadoop < Formula
 
   conflicts_with "corepack", because: "both install `yarn` binaries"
   conflicts_with "yarn", because: "both install `yarn` binaries"
+  conflicts_with "yarn-berry", because: "both install `yarn` binaries"
 
   def install
     rm(Dir["bin/*.cmd", "sbin/*.cmd", "libexec/*.cmd", "etc/hadoop/*.cmd"])
