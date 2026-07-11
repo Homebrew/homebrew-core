@@ -1,0 +1,19 @@
+Formula/z/zsh-patina.rb
+  s_16d486665a6c5f::t_857ffdd946ca7e 30-31,34-41
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "2bfc68b724bf2d0841665a33942614438703d253",
+  "prompts": {},
+  "sessions": {
+    "s_16d486665a6c5f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f5123-233a-73f1-9474-bdf44e47a0b5",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
