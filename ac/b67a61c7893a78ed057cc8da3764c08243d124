@@ -1,0 +1,14 @@
+Formula/d/difi.rb
+  h_9df9c32c3f321d 4-5,10-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "acb67a61c7893a78ed057cc8da3764c08243d124",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
