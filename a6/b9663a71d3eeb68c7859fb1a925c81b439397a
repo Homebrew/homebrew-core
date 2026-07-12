@@ -1,0 +1,28 @@
+Formula/s/swift-section.rb
+  s_16d486665a6c5f::t_ecb8dfa27ecfca 27
+  s_b2ce6710e92514::t_8f3030756cf62e 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "a6b9663a71d3eeb68c7859fb1a925c81b439397a",
+  "prompts": {},
+  "sessions": {
+    "s_16d486665a6c5f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f5123-233a-73f1-9474-bdf44e47a0b5",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    },
+    "s_b2ce6710e92514": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f52de-e693-74d2-aefb-e8d96bda2cf9",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
