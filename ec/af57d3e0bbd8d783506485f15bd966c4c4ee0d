@@ -1,0 +1,14 @@
+Formula/p/pcapplusplus.rb
+  h_9df9c32c3f321d 4-5,8-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "ecaf57d3e0bbd8d783506485f15bd966c4c4ee0d",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
