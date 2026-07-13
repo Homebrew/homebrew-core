@@ -1,0 +1,22 @@
+Formula/l/lief.rb
+  s_16d486665a6c5f::t_80a79f934e7706 26-30,38-40,47-48
+  s_16d486665a6c5f::t_7e42fc83df214e 43,45
+  s_16d486665a6c5f::t_c63271cb18b768 31-35,37,41-42
+  s_16d486665a6c5f::t_b1515e7aab7d26 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "799bcf1cd932e948e784b2edf6a041d1bc6f76c8",
+  "prompts": {},
+  "sessions": {
+    "s_16d486665a6c5f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f5123-233a-73f1-9474-bdf44e47a0b5",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
