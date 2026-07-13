@@ -2,8 +2,8 @@ class Vlang < Formula
   desc "V programming language"
   homepage "https://vlang.io"
   # NOTE: Keep this in sync with V compiler below when updating
-  url "https://github.com/vlang/v/archive/refs/tags/0.5.1.tar.gz"
-  sha256 "444f20a77b57fec8a4e8a31fb2d50c318d277fe8377e0c870c2087395c0de810"
+  url "https://github.com/vlang/v/archive/refs/tags/0.5.2.tar.gz"
+  sha256 "1a05f646fba9516ec6307979b282d0cc5327075bef268d40c0ca7d0b887e4f52"
   license "MIT"
 
   livecheck do
@@ -29,20 +29,14 @@ class Vlang < Formula
     # When updating vlang, find the vc commit whose message matches this release:
     #   [v:master] <vlang commit SHA> - V <version>
     # Then use that vc commit's SHA in the URL below.
-    url "https://github.com/vlang/vc/archive/f461dfebcdfac3c75fdf28fec80c07f0a7a9a53d.tar.gz"
-    sha256 "f537c63ff195d3583eb2bfdfb51dfc50d8cbaf0ef8b955954cbe4c9a7343d81c"
+    url "https://github.com/vlang/vc/archive/7eb8c54a3843e5107d5af06d7a8c3e928f322475.tar.gz"
+    sha256 "255d5e999edf71dd2786c06a0fdcda47ecfd79d9fde3c9cf7548e36996284f45"
 
     on_big_sur :or_older do
       patch do
         file "Patches/vlang/vc.patch"
       end
     end
-  end
-
-  # upstream fix for clang20 + musl qsort signature, https://github.com/vlang/v/issues/24711
-  patch do
-    url "https://github.com/vlang/v/commit/4333e2ddcb5c5e0927c630bc5c17bdf915a71696.patch?full_index=1"
-    sha256 "45fb47de9a17dc391728cc37db2c6409c7ec8915f753179bf9f40eb707451234"
   end
 
   # upstream discussion, https://github.com/vlang/v/issues/16776
@@ -93,10 +87,10 @@ end
 
 __END__
 diff --git a/vlib/builtin/builtin_d_gcboehm.c.v b/vlib/builtin/builtin_d_gcboehm.c.v
-index 444a014..159e5a1 100644
 --- a/vlib/builtin/builtin_d_gcboehm.c.v
 +++ b/vlib/builtin/builtin_d_gcboehm.c.v
-@@ -43,24 +43,13 @@ $if dynamic_boehm ? {
+@@ -65,44 +65,14 @@
+ } $else {
  	$if macos || linux {
  		#flag -DGC_BUILTIN_ATOMIC=1
 -		#flag -I @VEXEROOT/thirdparty/libgc/include
@@ -104,20 +98,40 @@ index 444a014..159e5a1 100644
 +		#flag -I @@HOMEBREW_PREFIX@@/include
 +		$if (!macos && prod && !tinyc && !debug) || !(amd64 || arm64 || i386 || arm32 || rv64) {
  			// TODO: replace the architecture check with a `!$exists("@VEXEROOT/thirdparty/tcc/lib/libgc.a")` comptime call
+ 			#flag -DALL_INTERIOR_POINTERS=1
  			#flag @VEXEROOT/thirdparty/libgc/gc.o
  		} $else {
  			$if !use_bundled_libgc ? {
 -				$if macos {
--					#flag -L@VEXEROOT/thirdparty/tcc/lib
--					#flag -lgc
 -					$if tinyc {
--						// this is a problem for compiler paths, containing spaces and commas, but tcc does not support -Xlinker :-|
--						#flag -Wl,-rpath,"@VEXEROOT/thirdparty/tcc/lib"
+-						$if arm64 {
+-							// tcc on macOS arm64 can leave the bundled GC archive symbols unresolved.
+-							#flag @VEXEROOT/thirdparty/tcc/lib/libgc.dylib
+-							#flag -Wl,-rpath,"@VEXEROOT/thirdparty/tcc/lib"
+-						} $else {
+-							// macOS amd64 tccbin only ships libgc.a (no .dylib).
+-							#flag @VEXEROOT/thirdparty/tcc/lib/libgc.a
+-						}
 -					} $else {
+-						#flag -L@VEXEROOT/thirdparty/tcc/lib
+-						#flag -lgc
 -						#flag -Xlinker -rpath -Xlinker "@VEXEROOT/thirdparty/tcc/lib"
 -					}
 -				} $else {
--					#flag @VEXEROOT/thirdparty/tcc/lib/libgc.a
+-					$if musl ? {
+-						// The bundled tcc libgc archive is built for glibc and
+-						// references __data_start/data_start, which musl does
+-						// not provide. Alpine installs musl-compatible libgc.
+-						$if tinyc {
+-							// Prefer the shared library when present: Alpine's
+-							// static libgc archive can leave weak data segment
+-							// probes unresolved under tcc.
+-							#flag $when_first_existing("/usr/lib/libgc.so", "/usr/local/lib/libgc.so", "/lib/libgc.so")
+-						}
+-						#flag -lgc
+-					} $else {
+-						#flag @VEXEROOT/thirdparty/tcc/lib/libgc.a
+-					}
 -				}
 +				#flag @@HOMEBREW_PREFIX@@/lib/libgc.a
  			}
