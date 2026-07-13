@@ -2,8 +2,8 @@ class Batt < Formula
   desc "Control and limit battery charging on Apple Silicon MacBooks"
   homepage "https://github.com/charlie0129/batt"
   url "https://github.com/charlie0129/batt.git",
-      tag:      "v0.7.3",
-      revision: "569ec86b0a201fe0403db131f6eb13f495b62f37"
+      tag:      "v0.7.5",
+      revision: "8148dfc57114f01db7af11bc4ce6ed99b72ea9d8"
   license "GPL-2.0-only"
   head "https://github.com/charlie0129/batt.git", branch: "master"
 
