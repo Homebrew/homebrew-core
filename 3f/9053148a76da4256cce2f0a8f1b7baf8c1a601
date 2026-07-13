@@ -1,0 +1,20 @@
+Formula/r/rust.rb
+  s_16d486665a6c5f::t_ddefd0e68f5412 40-41,44-45,51-52,55-56,65-66,69-70,76-77,80-81,90-91,94-95,101-102,105-106
+  s_16d486665a6c5f::t_a4b673d3eba961 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "3f9053148a76da4256cce2f0a8f1b7baf8c1a601",
+  "prompts": {},
+  "sessions": {
+    "s_16d486665a6c5f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f5123-233a-73f1-9474-bdf44e47a0b5",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
