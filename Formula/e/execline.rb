@@ -1,8 +1,8 @@
 class Execline < Formula
   desc "Interpreter-less scripting language"
   homepage "https://skarnet.org/software/execline/"
-  url "https://skarnet.org/software/execline/execline-2.9.8.1.tar.gz"
-  sha256 "23350d10797909636060522607591cb4a2118328cb58c5e65fb19a2c0d47264e"
+  url "https://skarnet.org/software/execline/execline-2.9.9.2.tar.gz"
+  sha256 "908ed4db3a6b3a23a205d8fd4cf2a71089156f2aeae0f54656045aafad2dee32"
   license "ISC"
   head "git://git.skarnet.org/execline", branch: "main"
 
