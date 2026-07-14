@@ -14,6 +14,6 @@ class Msl < Formula
   end
 
   test do
-    system "#{bin}/msl", "--version"
+    system bin/"msl", "--version"
   end
 end
