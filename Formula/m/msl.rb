@@ -5,8 +5,8 @@ class Msl < Formula
   sha256 "d81bae1d8cae7e6cf1fbf4842bf524e4772abd9ff43fa4595892963316a50cfa"
   license "MIT"
 
-  depends_on :macos
   depends_on xcode: ["15.0", :build]
+  depends_on :macos
 
   def install
     system "make"
