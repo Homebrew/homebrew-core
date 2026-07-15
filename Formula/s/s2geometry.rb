@@ -4,6 +4,7 @@ class S2geometry < Formula
   url "https://github.com/google/s2geometry/archive/refs/tags/v0.14.0.tar.gz"
   sha256 "8c1f0a4b98472ed9df9807f5ec10ee57928cca388e16c13f430b652790d3ad8b"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :homepage
@@ -21,6 +22,14 @@ class S2geometry < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "abseil"
+
+  # Backport abseil 20260526.0 build fix (throw_delegate moved to a public header).
+  patch do
+    url "https://github.com/google/s2geometry/commit/424bc82d412cb939412e0952c1b3da22b5e19d66.patch?full_index=1"
+    sha256 "adebc643e21044eb440bf07dbf7dc22ac1aae8eb448249592200fcdecc00c05b"
+    type :backport
+    resolves "https://github.com/google/s2geometry/pull/653"
+  end
 
   def install
     # Keep C++ standard in sync with `abseil.rb`.
