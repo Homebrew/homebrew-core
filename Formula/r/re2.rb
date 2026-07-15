@@ -4,6 +4,7 @@ class Re2 < Formula
   url "https://github.com/google/re2/releases/download/2025-11-05/re2-2025-11-05.tar.gz"
   sha256 "87f6029d2f6de8aa023654240a03ada90e876ce9a4676e258dd01ea4c26ffd67"
   license "BSD-3-Clause"
+  revision 1
   version_scheme 1
   compatibility_version 1
   head "https://github.com/google/re2.git", branch: "main"
