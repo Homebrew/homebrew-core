@@ -4,6 +4,7 @@ class ProtobufAT29 < Formula
   url "https://github.com/protocolbuffers/protobuf/releases/download/v29.6/protobuf-29.6.tar.gz"
   sha256 "877bf9f880631aa31daf2c09896276985696728137fcd43cc534a28c5566d9ba"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
 
   livecheck do
