@@ -4,6 +4,7 @@ class OpencvAT4 < Formula
   url "https://github.com/opencv/opencv/archive/refs/tags/4.14.0.tar.gz"
   sha256 "ee8fb9b30eb60850431b4656447080e3737b56e45719c92b67f245950609f86e"
   license "Apache-2.0"
+  revision 1
   compatibility_version 2
 
   livecheck do
