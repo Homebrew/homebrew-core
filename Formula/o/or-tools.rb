@@ -47,12 +47,12 @@ class OrTools < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Backport abseil 20260526.0 build fix (abseil now defines absl::SourceLocation).
+  # Backport abseil 20260526.0 build fix (absl::SourceLocation ODR conflict).
   patch do
-    url "https://github.com/google/or-tools/commit/40dd9bc05d3f18ff8dfe8ab6ef1d1222b88194e0.patch?full_index=1"
-    sha256 "e49011e8ab0ce9b25ce17891278057ea70c693cd0bbf06361db9bd0f2b3629e8"
+    url "https://github.com/google/or-tools/commit/a8c25e646e7b645c462db4be7c62e544b252e8fa.patch?full_index=1"
+    sha256 "1a20aa39165cd978c1274932ab19225540338a228e756be5b28f1b29006b03e3"
     type :backport
-    resolves "https://github.com/google/or-tools/pull/5256"
+    resolves "https://github.com/google/or-tools/pull/5180"
   end
 
   def install
