@@ -1,8 +1,8 @@
 class IcpCli < Formula
   desc "Development tool for building and deploying canisters on ICP"
   homepage "https://dfinity.github.io/icp-cli/"
-  url "https://github.com/dfinity/icp-cli/archive/refs/tags/v1.0.2.tar.gz"
-  sha256 "e22b6ddbfadf6cc71c64129584e36cd421360b80ae32e6544a53380a1adec25d"
+  url "https://github.com/dfinity/icp-cli/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "b836cdd99003b492074d942c39e0fc79780399a2a843ab7297ef493a3d9e5aa5"
   license "Apache-2.0"
 
   bottle do
@@ -14,7 +14,7 @@ class IcpCli < Formula
     sha256 cellar: :any, x86_64_linux:  "ad07962894436e153522f75221859e1c712a4ca127bc03fd247bd06d1d8fe2d6"
   end
 
-  depends_on "rust" => :build
+  depends_on "rustup" => :build
   depends_on "ic-wasm"
   depends_on "openssl@4"
 
@@ -28,9 +28,14 @@ class IcpCli < Formula
     ENV["ICP_CLI_BUILD_DIST"] = "homebrew-core"
     ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
-    # Skip wasm32-wasip2 test fixture build in icp-sync-plugin (only used in tests)
-    # https://github.com/dfinity/icp-cli/issues/543
-    inreplace "crates/icp-sync-plugin/build.rs", "build_test_fixture();", ""
+    # build.rs cross-compiles an in-tree canister (recover-cycles-canister) to
+    # wasm32-unknown-unknown, so the build needs that Rust target. The "rust"
+    # formula cannot add targets, so use rustup to provide it; the toolchain and
+    # target are pinned by the repo's rust-toolchain.toml.
+    ENV.prepend_path "PATH", Formula["rustup"].bin
+    system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "stable"
+    system "rustup", "target", "add", "wasm32-unknown-unknown"
 
     system "cargo", "install", *std_cargo_args(path: "crates/icp-cli")
   end
