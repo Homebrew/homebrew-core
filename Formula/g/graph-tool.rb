@@ -3,10 +3,9 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.98.tar.bz2"
-  sha256 "eef1948b937f5f043749eee75fe0c6d7e8f036551d945e9d55e37870b06cc527"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-3.1.tar.bz2"
+  sha256 "1e8a887b93d0e97390d0c016a0585fc7438841e5b221aa8a2d680dac49b71718"
   license "LGPL-3.0-or-later"
-  revision 4
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
@@ -24,7 +23,6 @@ class GraphTool < Formula
   end
 
   depends_on "cgal" => :build
-  depends_on "google-sparsehash" => :build # TODO: Remove in 3.x
   depends_on "pkgconf" => :build
   depends_on "py3cairo" => [:build, :test]
   depends_on "python-setuptools" => :build # for zstandard
@@ -46,9 +44,25 @@ class GraphTool < Formula
   uses_from_macos "expat"
 
   on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 2100
     depends_on "cairo"
     depends_on "libomp"
     depends_on "libsigc++"
+  end
+
+  on_linux do
+    depends_on "mold" => :build
+    depends_on "gcc"
+  end
+
+  fails_with :clang do
+    build 2100
+    cause "needs C++23"
+  end
+
+  fails_with :gcc do
+    version "14"
+    cause "needs C++23"
   end
 
   pypi_packages package_name:   "",
@@ -85,9 +99,21 @@ class GraphTool < Formula
       ENV.append_to_cflags "-Xpreprocessor -fopenmp"
       ENV.append "LDFLAGS", "-L#{formula_opt_lib("libomp")} -lomp"
       ENV.append "CPPFLAGS", "-I#{formula_opt_include("libomp")}"
+
+      # We tune the total parallel jobs to reduce thrashing. Compiling some
+      # files can peak at ~10 GB of memory but most files stay under 6 GB.
+      jobs = Utils.safe_popen_read("sysctl", "-n", "hw.memsize").to_i / 8_000_000_000
+      if jobs <= 1
+        ENV.deparallelize
+      elsif jobs < ENV.make_jobs
+        ENV["MAKEFLAGS"] = "-j#{jobs}"
+      end
     else
       # Linux build is not thread-safe.
       ENV.deparallelize
+
+      ENV["MOLD_JOBS"] = "1"
+      ENV.append "LDFLAGS", "-fuse-ld=mold"
     end
 
     args = %W[
@@ -99,6 +125,7 @@ class GraphTool < Formula
       --disable-silent-rules
     ]
     args << "PYTHON_LIBS=-undefined dynamic_lookup" if OS.mac?
+    args << "MOD_CXXFLAGS=-flto" if OS.linux?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
