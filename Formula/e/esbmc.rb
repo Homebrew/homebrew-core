@@ -4,6 +4,7 @@ class Esbmc < Formula
   url "https://github.com/esbmc/esbmc/archive/refs/tags/v8.4.tar.gz"
   sha256 "9959fef848ffae597adac6fa2d74063f9553b4fcee93ed7cbe8aae3bd667bf91"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/esbmc/esbmc.git", branch: "master"
 
   livecheck do
