@@ -6,14 +6,14 @@
 # To be explicit: we will never accept changes to this file adding people from outside the Homebrew GitHub
 # organisation. If you are not a Homebrew maintainer: you do not personally "own" or "maintain" any formulae.
 
-CODEOWNERS                        @Homebrew/lead-maintainers @MikeMcQuaid
+CODEOWNERS                        @Homebrew/lead-maintainers @pathum25
 CONTRIBUTING.md                   @Homebrew/lead-maintainers @MikeMcQuaid
 tap_migrations.json               @Homebrew/lead-maintainers @MikeMcQuaid
 .github/ISSUE_TEMPLATE/           @Homebrew/lead-maintainers @MikeMcQuaid
 .github/PULL_REQUEST_TEMPLATE.md  @Homebrew/lead-maintainers @MikeMcQuaid
 LICENSE.txt                       @Homebrew/lead-maintainers @MikeMcQuaid
 .github/workflows/                @Homebrew/lead-maintainers @MikeMcQuaid
-.github/workflows/triage.yml      @Homebrew/lead-maintainers
+.github/workflows/triage.yml      @Homebrew/lead-maintainers @pathum25
 Formula/f/ffmpeg.rb               @Homebrew/lead-maintainers @MikeMcQuaid
 Formula/f/ffmpeg-full.rb          @Homebrew/lead-maintainers @MikeMcQuaid
 Formula/i/imagemagick.rb          @Homebrew/lead-maintainers @MikeMcQuaid
