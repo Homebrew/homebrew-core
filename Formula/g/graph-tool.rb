@@ -51,7 +51,7 @@ class GraphTool < Formula
   end
 
   on_linux do
-    depends_on "mold" => :build
+    depends_on "llvm" => :build
     depends_on "gcc"
   end
 
@@ -61,8 +61,8 @@ class GraphTool < Formula
   end
 
   fails_with :gcc do
-    version "14"
-    cause "needs C++23"
+    # TODO: version "14" (retry after self-hosted)
+    cause "needs C++23 and build fails due to OOM"
   end
 
   pypi_packages package_name:   "",
@@ -102,7 +102,7 @@ class GraphTool < Formula
 
       # We tune the total parallel jobs to reduce thrashing. Compiling some
       # files can peak at ~10 GB of memory but most files stay under 6 GB.
-      jobs = Utils.safe_popen_read("sysctl", "-n", "hw.memsize").to_i / 8_000_000_000
+      jobs = Utils.safe_popen_read("sysctl", "-n", "hw.memsize").to_i / 4_000_000_000
       if jobs <= 1
         ENV.deparallelize
       elsif jobs < ENV.make_jobs
@@ -112,8 +112,9 @@ class GraphTool < Formula
       # Linux build is not thread-safe.
       ENV.deparallelize
 
-      ENV["MOLD_JOBS"] = "1"
-      ENV.append "LDFLAGS", "-fuse-ld=mold"
+      # Force clang to use GCC libgomp to avoid mixing OpenMP
+      ENV["ax_cv_cxx_openmp"] = "-fopenmp=libgomp"
+      # TODO: ENV.append "LDFLAGS", "-fuse-ld=lld"
     end
 
     args = %W[
@@ -125,7 +126,7 @@ class GraphTool < Formula
       --disable-silent-rules
     ]
     args << "PYTHON_LIBS=-undefined dynamic_lookup" if OS.mac?
-    args << "MOD_CXXFLAGS=-flto" if OS.linux?
+    # TODO: args << "MOD_CXXFLAGS=-flto" if OS.linux?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
