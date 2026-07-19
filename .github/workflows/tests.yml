@@ -384,7 +384,7 @@ jobs:
             --testing-formulae="$TESTING_FORMULAE" \
             --tested-formulae="$TESTED_FORMULAE" \
             <<<"$TEST_BOT_DEPENDENTS_ARGS"
-        env:
+        env: 
           HOMEBREW_DOWNLOAD_CONCURRENCY: ${{ needs.setup_dep_tests.outputs.download-concurrency }}
           FORMULAE_DEPENDENTS_SHARD: ${{ matrix.formulae_dependents_shard || '' }}
           TEST_BOT_DEPENDENTS_ARGS: ${{ needs.setup_dep_tests.outputs.test-bot-dependents-args }}
