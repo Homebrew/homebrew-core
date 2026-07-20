@@ -64,20 +64,15 @@ class Jnethack < Formula
     bin.install_symlink libexec/"jnethack"
   end
 
-  def post_install
-    # These need to exist (even if empty) otherwise NetHack won't start
-    savedir = HOMEBREW_PREFIX/"share/jnethack"
-    mkdir_p savedir
-    cd savedir do
-      %w[xlogfile logfile perm record].each do |f|
-        touch f
-      end
-      mkdir_p "save"
-      touch "save/.keepme" # preserve on `brew cleanup`
-    end
-    # Set group-writeable for multiuser installs
-    chmod "g+w", savedir
-    chmod "g+w", savedir/"save"
+  post_install_steps do
+    mkdir_p "{{HOMEBREW_PREFIX}}/share/jnethack/save"
+    touch "{{HOMEBREW_PREFIX}}/share/jnethack/xlogfile"
+    touch "{{HOMEBREW_PREFIX}}/share/jnethack/logfile"
+    touch "{{HOMEBREW_PREFIX}}/share/jnethack/perm"
+    touch "{{HOMEBREW_PREFIX}}/share/jnethack/record"
+    touch "{{HOMEBREW_PREFIX}}/share/jnethack/save/.keepme"
+    set_permissions ["{{HOMEBREW_PREFIX}}/share/jnethack", "{{HOMEBREW_PREFIX}}/share/jnethack/save"], "g+w",
+                    recursive: false
   end
 
   test do

@@ -103,20 +103,15 @@ class Nethack < Formula
     man6.install "doc/nethack.6"
   end
 
-  def post_install
-    # These need to exist (even if empty) otherwise nethack won't start
-    savedir = HOMEBREW_PREFIX/"share/nethack"
-    mkdir_p savedir
-    cd savedir do
-      %w[xlogfile logfile perm record].each do |f|
-        touch f
-      end
-      mkdir_p "save"
-      touch "save/.keepme" # preserve on `brew cleanup`
-    end
-    # Set group-writeable for multiuser installs
-    chmod "g+w", savedir
-    chmod "g+w", savedir/"save"
+  post_install_steps do
+    mkdir_p "{{HOMEBREW_PREFIX}}/share/nethack/save"
+    touch "{{HOMEBREW_PREFIX}}/share/nethack/xlogfile"
+    touch "{{HOMEBREW_PREFIX}}/share/nethack/logfile"
+    touch "{{HOMEBREW_PREFIX}}/share/nethack/perm"
+    touch "{{HOMEBREW_PREFIX}}/share/nethack/record"
+    touch "{{HOMEBREW_PREFIX}}/share/nethack/save/.keepme"
+    set_permissions ["{{HOMEBREW_PREFIX}}/share/nethack", "{{HOMEBREW_PREFIX}}/share/nethack/save"], "g+w",
+                    recursive: false
   end
 
   test do

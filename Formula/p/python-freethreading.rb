@@ -349,11 +349,14 @@ class PythonFreethreading < Formula
     INI
   end
 
-  def post_install
-    # Ensure the template venv activation scripts are writable
-    # to allow reinitializing an existing venv without throwing a permission error.
-    # See: https://github.com/python/cpython/issues/86079
-    chmod "u+w", lib_cellar.glob("venv/scripts/**/*").select(&:file?)
+  post_install_steps do
+    on_macos do
+      set_permissions "PythonT.framework/Versions/#{version.major_minor}/lib/python#{version.major_minor}t/venv/scripts/**/*",
+                      "u+w", base: :frameworks, recursive: false
+    end
+    on_linux do
+      set_permissions "python#{version.major_minor}t/venv/scripts/**/*", "u+w", base: :lib, recursive: false
+    end
   end
 
   def sitecustomize
