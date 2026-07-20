@@ -57,8 +57,8 @@ class Sysprof < Formula
     pkgshare.install "examples"
   end
 
-  def post_install
-    system formula_opt_bin("gtk4")/"gtk4-update-icon-cache", "-f", "-t", HOMEBREW_PREFIX/"share/icons/hicolor"
+  post_install_steps do
+    update_gtk_icon_cache
   end
 
   test do
