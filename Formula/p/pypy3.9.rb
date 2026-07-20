@@ -133,57 +133,8 @@ class Pypy39 < Formula
     rm [libexec/"pypybin/libpypy#{abi_version}-c.so.debug", libexec/"pypybin/pypy#{abi_version}.debug"]
   end
 
-  def post_install
-    # Precompile cffi extensions in lib_pypy
-    # list from create_cffi_import_libraries in pypy/tool/release/package.py
-    %w[_sqlite3 _curses syslog gdbm _tkinter].each do |module_name|
-      quiet_system bin/"pypy#{abi_version}", "-c", "import #{module_name}"
-    end
-
-    # Post-install, fix up the site-packages and install-scripts folders
-    # so that user-installed Python software survives minor updates, such
-    # as going from 1.7.0 to 1.7.1.
-
-    # Create a site-packages in the prefix.
-    site_packages(HOMEBREW_PREFIX).mkpath
-    touch site_packages(HOMEBREW_PREFIX)/".keepme"
-    rm_r(site_packages(libexec))
-
-    # Symlink the prefix site-packages into the cellar.
-    site_packages(libexec).parent.install_symlink site_packages(HOMEBREW_PREFIX)
-
-    # Create a scripts folder in the prefix and symlink it as libexec/bin.
-    # This is needed as setuptools' distutils ignores our distutils.cfg.
-    # If `brew link` created a symlink for scripts folder, replace it with a directory
-    if scripts_folder.symlink?
-      scripts_folder.unlink
-      scripts_folder.install_symlink pkgshare.children
-    end
-    libexec.install_symlink scripts_folder => "bin" unless (libexec/"bin").exist?
-
-    # Tell distutils-based installers where to put scripts
-    (distutils/"distutils.cfg").atomic_write <<~INI
-      [install]
-      install-scripts=#{scripts_folder}
-    INI
-
-    %w[setuptools pip].each do |pkg|
-      resource(pkg).stage do
-        system bin/"pypy#{abi_version}", "-s", "setup.py", "--no-user-cfg", "install", "--force", "--verbose"
-      end
-    end
-
-    # Symlinks to pip_pypy3
-    bin.install_symlink scripts_folder/"pip#{abi_version}" => "pip_pypy#{abi_version}"
-    symlink_to_prefix = [bin/"pip_pypy#{abi_version}"]
-
-    if newest_abi_version?
-      bin.install_symlink "pip_pypy#{abi_version}" => "pip_pypy3"
-      symlink_to_prefix << (bin/"pip_pypy3")
-    end
-
-    # post_install happens after linking
-    (HOMEBREW_PREFIX/"bin").install_symlink symlink_to_prefix
+  post_install_steps do
+    bootstrap_pypy abi_version: "3.9"
   end
 
   def caveats

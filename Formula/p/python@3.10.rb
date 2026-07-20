@@ -337,71 +337,8 @@ class PythonAT310 < Formula
     end
   end
 
-  def post_install
-    ENV.delete "PYTHONPATH"
-
-    # Fix up the site-packages so that user-installed Python software survives
-    # minor updates, such as going from 3.3.2 to 3.3.3:
-
-    # Create a site-packages in HOMEBREW_PREFIX/lib/python#{version.major_minor}/site-packages
-    site_packages.mkpath
-
-    # Symlink the prefix site-packages into the cellar.
-    site_packages_cellar.unlink if site_packages_cellar.exist?
-    site_packages_cellar.parent.install_symlink site_packages
-
-    # Remove old sitecustomize.py. Now stored in the cellar.
-    rm_r(Dir["#{site_packages}/sitecustomize.py[co]"])
-
-    # Remove old setuptools installations that may still fly around and be
-    # listed in the easy_install.pth. This can break setuptools build with
-    # zipimport.ZipImportError: bad local file header
-    # setuptools-0.9.8-py3.3.egg
-    rm_r(Dir["#{site_packages}/setuptools[-_.][0-9]*", "#{site_packages}/setuptools"])
-    rm_r(Dir["#{site_packages}/distribute[-_.][0-9]*", "#{site_packages}/distribute"])
-    rm_r(Dir["#{site_packages}/pip[-_.][0-9]*", "#{site_packages}/pip"])
-    rm_r(Dir["#{site_packages}/wheel[-_.][0-9]*", "#{site_packages}/wheel"])
-
-    system python3, "-Im", "ensurepip"
-
-    # Install desired versions of setuptools, pip, wheel using the version of
-    # pip bootstrapped by ensurepip.
-    # Note that while we replaced the ensurepip wheels, there's no guarantee
-    # ensurepip actually used them, since other existing installations could
-    # have been picked up (and we can't pass --ignore-installed).
-    bundled = lib_cellar/"ensurepip/_bundled"
-    system python3, "-Im", "pip", "install", "-v",
-           "--no-deps",
-           "--no-index",
-           "--upgrade",
-           "--isolated",
-           "--target=#{site_packages}",
-           bundled/"setuptools-#{resource("setuptools").version}-py3-none-any.whl",
-           bundled/"pip-#{resource("pip").version}-py3-none-any.whl",
-           libexec/"wheel-#{resource("wheel").version}-py3-none-any.whl"
-
-    # pip install with --target flag will just place the bin folder into the
-    # target, so move its contents into the appropriate location
-    mv (site_packages/"bin").children, bin
-    rmdir site_packages/"bin"
-
-    rm_r(bin.glob("pip{,3}"))
-    mv bin/"wheel", bin/"wheel#{version.major_minor}"
-
-    # Install unversioned and major-versioned symlinks in libexec/bin.
-    {
-      "pip"    => "pip#{version.major_minor}",
-      "pip3"   => "pip#{version.major_minor}",
-      "wheel"  => "wheel#{version.major_minor}",
-      "wheel3" => "wheel#{version.major_minor}",
-    }.each do |short_name, long_name|
-      (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
-    end
-
-    # post_install happens after link
-    %W[wheel#{version.major_minor} pip#{version.major_minor}].each do |e|
-      (HOMEBREW_PREFIX/"bin").install_symlink bin/e
-    end
+  post_install_steps do
+    bootstrap_cpython
   end
 
   def sitecustomize

@@ -133,49 +133,8 @@ class Pypy310 < Formula
     rm([libexec/"bin/libpypy#{abi_version}-c.so.debug", libexec/"bin/pypy#{abi_version}.debug"])
   end
 
-  def post_install
-    # Precompile cffi extensions in lib_pypy
-    # list from create_cffi_import_libraries in pypy/tool/release/package.py
-    %w[_sqlite3 _curses syslog gdbm _tkinter].each do |module_name|
-      quiet_system bin/"pypy#{abi_version}", "-c", "import #{module_name}"
-    end
-
-    # Post-install, fix up the site-packages and install-scripts folders
-    # so that user-installed Python software survives minor updates, such
-    # as going from 1.7.0 to 1.7.1.
-
-    # Create a site-packages in the prefix.
-    site_packages(HOMEBREW_PREFIX).mkpath
-    touch site_packages(HOMEBREW_PREFIX)/".keepme"
-    rm_r(site_packages(libexec))
-
-    # Symlink the prefix site-packages into the cellar.
-    site_packages(libexec).parent.install_symlink site_packages(HOMEBREW_PREFIX)
-
-    # Tell distutils-based installers where to put scripts
-    scripts_folder.mkpath
-    (distutils/"distutils.cfg").atomic_write <<~EOS
-      [install]
-      install-scripts=#{scripts_folder}
-    EOS
-
-    %w[setuptools pip].each do |pkg|
-      resource(pkg).stage do
-        system bin/"pypy#{abi_version}", "-s", "setup.py", "--no-user-cfg", "install", "--force", "--verbose"
-      end
-    end
-
-    # Symlinks to pip_pypy3
-    bin.install_symlink scripts_folder/"pip#{abi_version}" => "pip_pypy#{abi_version}"
-    symlink_to_prefix = [bin/"pip_pypy#{abi_version}"]
-
-    if newest_abi_version?
-      bin.install_symlink "pip_pypy#{abi_version}" => "pip_pypy3"
-      symlink_to_prefix << (bin/"pip_pypy3")
-    end
-
-    # post_install happens after linking
-    (HOMEBREW_PREFIX/"bin").install_symlink symlink_to_prefix
+  post_install_steps do
+    bootstrap_pypy abi_version: "3.10"
   end
 
   def caveats
