@@ -179,26 +179,11 @@ class PerconaServerAT80 < Formula
     etc.install "my.cnf"
   end
 
-  def post_install
-    # Make sure the var/mysql directory exists
-    (var/"mysql").mkpath
-
-    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
-      opoo <<~EOS
-
-        A "#{my_cnf}" from another install may interfere with a Homebrew-built
-        server starting up correctly.
-      EOS
+  post_install_steps do
+    if_path_exists "/etc/{my.cnf,mysql/my.cnf}" do
+      warn "A system my.cnf may interfere with a Homebrew-built server starting correctly."
     end
-
-    # Don't initialize database, it clashes when testing other MySQL-like implementations.
-    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    unless (datadir/"mysql/general_log.CSM").exist?
-      ENV["TMPDIR"] = nil
-      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
-                           "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
-    end
+    init_data_dir "mysql", using: :mysql
   end
 
   def caveats
