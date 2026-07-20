@@ -20,8 +20,10 @@ class Wemux < Formula
     etc.install "wemux.conf.example" => "wemux.conf"
   end
 
-  def post_install
-    inreplace etc/"wemux.conf", "change_this", ENV["USER"], audit_result: false
+  post_install_steps do
+    if_path_exists "{{etc}}/wemux.conf" do
+      inreplace "wemux.conf", "change_this", "{{user}}", base: :etc, audit_result: false
+    end
   end
 
   def caveats

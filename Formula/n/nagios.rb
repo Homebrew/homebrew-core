@@ -69,14 +69,11 @@ class Nagios < Formula
     system "make", "install-webconf"
   end
 
-  def post_install
-    (var/"lib/nagios/rw").mkpath
-
-    config = etc/"nagios/nagios.cfg"
-    return unless config.exist?
-    return if config.read.include?("nagios_user=#{ENV["USER"]}")
-
-    inreplace config, /^nagios_user=.*/, "nagios_user=#{ENV["USER"]}"
+  post_install_steps do
+    mkdir_p "lib/nagios/rw"
+    if_path_exists "{{etc}}/nagios/nagios.cfg" do
+      inreplace "nagios/nagios.cfg", /^nagios_user=.*/, "nagios_user={{user}}", base: :etc, audit_result: false
+    end
   end
 
   service do

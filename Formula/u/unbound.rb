@@ -51,13 +51,11 @@ class Unbound < Formula
     system "make", "install"
   end
 
-  def post_install
-    conf = etc/"unbound/unbound.conf"
-    return unless conf.exist?
-    return unless conf.read.include?('username: "@@HOMEBREW-UNBOUND-USER@@"')
-
-    inreplace conf, 'username: "@@HOMEBREW-UNBOUND-USER@@"',
-                    "username: \"#{ENV["USER"]}\""
+  post_install_steps do
+    if_path_exists "{{etc}}/unbound/unbound.conf" do
+      inreplace "unbound/unbound.conf", 'username: "@@HOMEBREW-UNBOUND-USER@@"', 'username: "{{user}}"',
+                base: :etc, audit_result: false
+    end
   end
 
   service do
