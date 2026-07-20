@@ -261,42 +261,18 @@ class LlvmAT19 < Formula
   # We use the extra layer of indirection in `arch` because the FormulaAudit/OnSystemConditionals
   # doesn't want to let us use `Hardware::CPU.arch` outside of `install` or `post_install` blocks.
   def write_config_files(macos_version, kernel_version, arch)
-    clang_config_file_dir.mkpath
+    require "utils/clang"
 
-    arches = Set.new([:arm64, :x86_64, :aarch64])
-    arches << arch
-
-    sysroot = if macos_version.blank? || MacOS.version > macos_version
-      "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX.sdk"
-    else
-      "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX#{macos_version}.sdk"
-    end
-
-    {
-      darwin: kernel_version,
-      macosx: macos_version,
-    }.each do |system, version|
-      arches.each do |target_arch|
-        config_file = "#{target_arch}-apple-#{system}#{version}.cfg"
-        (clang_config_file_dir/config_file).atomic_write <<~CONFIG
-          -isysroot #{sysroot}
-        CONFIG
-      end
-    end
+    Utils::Clang.write_system_config_files(
+      config_dir:     clang_config_file_dir,
+      macos_version:,
+      kernel_version:,
+      arch:,
+    )
   end
 
-  def post_install
-    return unless OS.mac?
-
-    config_files = {
-      darwin: OS.kernel_version.major,
-      macosx: MacOS.version,
-    }.map do |system, version|
-      clang_config_file_dir/"#{Hardware::CPU.arch}-apple-#{system}#{version}.cfg"
-    end
-    return if config_files.all?(&:exist?)
-
-    write_config_files(MacOS.version, OS.kernel_version.major, Hardware::CPU.arch)
+  post_install_steps do
+    configure_clang_system
   end
 
   def caveats
