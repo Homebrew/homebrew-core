@@ -33,10 +33,22 @@ class Arcadedb < Formula
     (var/"arcadedb/config").mkpath
   end
 
-  def post_install
-    %w[arcadedb-log.properties server-groups.json gremlin-server.yaml gremlin-server.groovy].each do |f|
-      target = var/"arcadedb/config"/f
-      cp libexec/"config"/f, target unless target.exist?
+  post_install_steps do
+    unless_path_exists "arcadedb/config/arcadedb-log.properties" do
+      copy "config/arcadedb-log.properties", "arcadedb/config/arcadedb-log.properties",
+           source_base: :libexec, target_base: :var
+    end
+    unless_path_exists "arcadedb/config/server-groups.json" do
+      copy "config/server-groups.json", "arcadedb/config/server-groups.json",
+           source_base: :libexec, target_base: :var
+    end
+    unless_path_exists "arcadedb/config/gremlin-server.yaml" do
+      copy "config/gremlin-server.yaml", "arcadedb/config/gremlin-server.yaml",
+           source_base: :libexec, target_base: :var
+    end
+    unless_path_exists "arcadedb/config/gremlin-server.groovy" do
+      copy "config/gremlin-server.groovy", "arcadedb/config/gremlin-server.groovy",
+           source_base: :libexec, target_base: :var
     end
   end
 
