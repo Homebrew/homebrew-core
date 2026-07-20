@@ -33,11 +33,13 @@ class TronbytServer < Formula
 
   post_install_steps do
     mkdir_p "tronbyt-server"
-    write "tronbyt-server/.env", <<~EOS
-      # Add application configuration here.
-      # For example:
-      # LOG_LEVEL=INFO
-    EOS
+    unless_path_exists "tronbyt-server/.env" do
+      write_file "tronbyt-server/.env", <<~EOS
+        # Add application configuration here.
+        # For example:
+        # LOG_LEVEL=INFO
+      EOS
+    end
   end
 
   def caveats

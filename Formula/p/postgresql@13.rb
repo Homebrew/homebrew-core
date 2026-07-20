@@ -98,7 +98,7 @@ class PostgresqlAT13 < Formula
   post_install_steps do
     mkdir_p "log"
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
-    init_data_dir "postgresql@13", using: :postgresql_initdb
+    init_data_dir "postgresql@13", using: :postgresql
   end
 
   def postgresql_datadir

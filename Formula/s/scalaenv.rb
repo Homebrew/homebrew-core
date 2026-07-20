@@ -30,7 +30,7 @@ class Scalaenv < Formula
   end
 
   post_install_steps do
-    ln_sf "default-plugins/scala-install", "lib/scalaenv/plugins/scala-install", target_base: :var
+    symlink "default-plugins/scala-install", "lib/scalaenv/plugins/scala-install", target_base: :var, overwrite: true
   end
 
   test do
