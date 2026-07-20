@@ -74,8 +74,8 @@ class Container < Formula
   # container APIs aren't guaranteed to be backward compatible,
   # so we stop the system service to ensure no components are out of sync.
   # Ref: https://github.com/apple/container/issues/551#issuecomment-3246928923
-  def post_install
-    system libexec/"ensure-container-stopped.sh", "-a"
+  post_install_steps do
+    run "ensure-container-stopped.sh", args: ["-a"], base: :libexec
   end
 
   service do

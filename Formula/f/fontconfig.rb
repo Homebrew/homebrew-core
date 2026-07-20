@@ -71,9 +71,8 @@ class Fontconfig < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    ohai "Regenerating font cache, this may take a while"
-    system bin/"fc-cache", "--force", "--really-force", "--verbose"
+  post_install_steps do
+    run "fc-cache", args: ["--force", "--really-force", "--verbose"], base: :bin
   end
 
   test do

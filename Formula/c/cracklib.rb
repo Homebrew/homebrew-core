@@ -59,10 +59,10 @@ class Cracklib < Formula
     share.install resource("cracklib-words")
   end
 
-  def post_install
-    (var/"cracklib").mkpath
-    cp share/"cracklib-words-#{resource("cracklib-words").version}", var/"cracklib/cracklib-words"
-    system "#{bin}/cracklib-packer < #{var}/cracklib/cracklib-words"
+  post_install_steps do
+    mkdir_p "cracklib"
+    copy "cracklib-words-*", "cracklib/cracklib-words", source_base: :share, target_base: :var, source_glob: true
+    run "cracklib-packer", base: :bin, stdin_path: "cracklib/cracklib-words"
   end
 
   test do

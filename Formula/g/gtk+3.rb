@@ -89,10 +89,11 @@ class Gtkx3 < Formula
     man1.install_symlink man1/"gtk-update-icon-cache.1" => "gtk3-update-icon-cache.1"
   end
 
-  def post_install
-    system "#{formula_opt_bin("glib")}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system bin/"gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
-    system bin/"gtk-query-immodules-3.0 > #{HOMEBREW_PREFIX}/lib/gtk-3.0/3.0.0/immodules.cache"
+  post_install_steps do
+    compile_gsettings_schemas
+    run "gtk3-update-icon-cache", args: ["-f", "-t", "{{HOMEBREW_PREFIX}}/share/icons/hicolor"], base: :bin
+    run "gtk-query-immodules-3.0", base:        :bin,
+                                   stdout_path: "{{HOMEBREW_PREFIX}}/lib/gtk-3.0/3.0.0/immodules.cache"
   end
 
   test do

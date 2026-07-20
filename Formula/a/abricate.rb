@@ -159,8 +159,8 @@ class Abricate < Formula
     bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
   end
 
-  def post_install
-    system bin/"abricate", "--setupdb"
+  post_install_steps do
+    run "abricate", args: ["--setupdb"], base: :bin
   end
 
   test do

@@ -53,37 +53,35 @@ class DocbookXsl < Formula
     end
 
     bin.write_exec_script "#{prefix}/docbook-xsl/epub/bin/dbtoepub"
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      set -e
+      catalog="#{etc}/xml/catalog"
+      export XML_CATALOG_FILES="$catalog"
+      for names in "xsl xsl-nons" "xsl-ns xsl"; do
+        set -- $names
+        old_name="$1"
+        new_name="$2"
+        location="file://#{opt_prefix}/docbook-$old_name"
+        entry="$location/catalog.xml"
+        xmlcatalog --noout --del "$entry" "$catalog"
+        xmlcatalog --noout --add nextCatalog "" "$entry" "$catalog"
+        for url in "https://cdn.docbook.org/release/$new_name" \
+                   "http://docbook.sourceforge.net/release/$old_name"; do
+          for version in "#{version}" current; do
+            xmlcatalog --noout --del "$url/$version" "$catalog"
+            xmlcatalog --noout --add rewriteSystem "$url/$version" "$location" "$catalog"
+            xmlcatalog --noout --add rewriteURI "$url/$version" "$location" "$catalog"
+          done
+        done
+      done
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    etc_catalog = etc/"xml/catalog"
-    ENV["XML_CATALOG_FILES"] = etc_catalog
-
-    {
-      "xsl"    => "xsl-nons",
-      "xsl-ns" => "xsl",
-    }.each do |old_name, new_name|
-      loc = "file://#{opt_prefix}/docbook-#{old_name}"
-
-      # add/replace catalog entries
-      cat_loc = "#{loc}/catalog.xml"
-      system "xmlcatalog", "--noout", "--del", cat_loc, etc_catalog
-      system "xmlcatalog", "--noout", "--add", "nextCatalog", "", cat_loc, etc_catalog
-
-      # add rewrites for the new and old catalog URLs
-      rewrites = ["rewriteSystem", "rewriteURI"]
-      [
-        "https://cdn.docbook.org/release/#{new_name}",
-        "http://docbook.sourceforge.net/release/#{old_name}",
-      ].each do |url_prefix|
-        [version.to_s, "current"].each do |ver|
-          system "xmlcatalog", "--noout", "--del", "#{url_prefix}/#{ver}", etc_catalog
-          rewrites.each do |rewrite|
-            system "xmlcatalog", "--noout", "--add", rewrite, "#{url_prefix}/#{ver}", loc, etc_catalog
-          end
-        end
-      end
-    end
+  post_install_steps do
+    run "post-install", base: :libexec
   end
 
   test do

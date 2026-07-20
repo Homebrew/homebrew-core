@@ -52,12 +52,10 @@ class Cayley < Formula
     end
   end
 
-  def post_install
-    unless File.exist? var/"cayley"
-      (var/"cayley").mkpath
-
-      # Initialize the database
-      system bin/"cayley", "init", "--config=#{etc}/cayley.yml"
+  post_install_steps do
+    unless_path_exists "cayley" do
+      mkdir_p "cayley"
+      run "cayley", args: ["init", "--config={{etc}}/cayley.yml"], base: :bin
     end
   end
 

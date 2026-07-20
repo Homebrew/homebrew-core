@@ -60,21 +60,29 @@ class DsdaDoom < Formula
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      set -e
+      parent="#{HOMEBREW_PREFIX}/share/games"
+      if [ -L "$parent" ]; then
+        original="$(cd "$parent" && pwd -P)"
+        rm "$parent"
+        mkdir -p "$parent"
+        if [ -d "$original" ]; then
+          for child in "$original"/* "$original"/.[!.]* "$original"/..?*; do
+            [ -e "$child" ] || [ -L "$child" ] || continue
+            ln -s "$child" "$parent/$(basename "$child")"
+          done
+        fi
+      fi
+      mkdir -p "$parent/doom"
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    path = doomwaddir(HOMEBREW_PREFIX)
-
-    # "share/games/" can be a symlink to another formula's keg so we need to
-    # convert it to a real directory to avoid writing into another keg.
-    # Could make "share/games/" into a :mkpath directory in brew to avoid this.
-    if (parent = path.parent).symlink?
-      original_path = parent.resolved_path
-      rm(parent)
-      parent.install_symlink original_path.children if original_path.exist?
-    end
-
-    path.mkpath
+  post_install_steps do
+    run "post-install", base: :libexec
   end
 
   def caveats

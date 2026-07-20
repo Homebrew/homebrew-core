@@ -90,27 +90,25 @@ class Docbook < Formula
         (prefix/"docbook/xml"/r.version).install Dir["*"]
       end
     end
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      set -e
+      catalog="#{etc}/xml/catalog"
+      export XML_CATALOG_FILES="$catalog"
+      xmlcatalog="$(command -v xmlcatalog)"
+      [ -f "$catalog" ] || "$xmlcatalog" --noout --create "$catalog"
+      for version in 4.2 4.1.2 4.3 4.4 4.5 5.0 5.1 5.2; do
+        entry="file://#{opt_prefix}/docbook/xml/$version/catalog.xml"
+        "$xmlcatalog" --noout --del "$entry" "$catalog"
+        "$xmlcatalog" --noout --add nextCatalog "" "$entry" "$catalog"
+      done
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    etc_catalog = etc/"xml/catalog"
-    ENV["XML_CATALOG_FILES"] = etc_catalog
-
-    # We use `/usr/bin/xmlcatalog` on macOS, but libxml2's `xmlcatalog` on Linux.
-    xmlcatalog = DevelopmentTools.locate("xmlcatalog")
-
-    # only create catalog file if it doesn't exist already to avoid content added
-    # by other formulae to be removed
-    system xmlcatalog, "--noout", "--create", etc_catalog unless etc_catalog.file?
-
-    %w[4.2 4.1.2 4.3 4.4 4.5 5.0 5.1 5.2].each do |version|
-      catalog = opt_prefix/"docbook/xml/#{version}/catalog.xml"
-
-      system xmlcatalog, "--noout", "--del",
-             "file://#{catalog}", etc_catalog
-      system xmlcatalog, "--noout", "--add", "nextCatalog",
-             "", "file://#{catalog}", etc_catalog
-    end
+  post_install_steps do
+    run "post-install", base: :libexec
   end
 
   def caveats

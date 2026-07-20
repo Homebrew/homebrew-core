@@ -72,11 +72,19 @@ class Morpheus < Formula
 
     # Set PATH environment variable including Homebrew prefix in macOS app bundle
     inreplace "#{prefix}/Morpheus.app/Contents/Info.plist", "HOMEBREW_BIN_PATH", "#{HOMEBREW_PREFIX}/bin"
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      [ "$(uname -m)" = "arm64" ] || exit 0
+      exec /usr/bin/codesign -f -s - "#{opt_prefix}/Morpheus.app"
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    # Sign to ensure proper execution of the app bundle
-    system "/usr/bin/codesign", "-f", "-s", "-", "#{prefix}/Morpheus.app" if OS.mac? && Hardware::CPU.arm?
+  post_install_steps do
+    on_macos do
+      run "post-install", base: :libexec
+    end
   end
 
   test do

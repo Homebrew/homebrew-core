@@ -61,17 +61,23 @@ class Opensearch < Formula
     bin.env_script_all_files(libexec/"bin", JAVA_HOME: formula_opt_prefix("openjdk@25"))
   end
 
-  def post_install
-    # Make sure runtime directories exist
-    (var/"lib/opensearch").mkpath
-    (var/"log/opensearch").mkpath
-    ln_s etc/"opensearch", libexec/"config" unless (libexec/"config").exist?
-    (var/"opensearch/plugins").mkpath
-    ln_s var/"opensearch/plugins", libexec/"plugins" unless (libexec/"plugins").exist?
-    (var/"opensearch/extensions").mkpath
-    ln_s var/"opensearch/extensions", libexec/"extensions" unless (libexec/"extensions").exist?
-    # fix test not being able to create keystore because of sandbox permissions
-    system bin/"opensearch-keystore", "create" unless (etc/"opensearch/opensearch.keystore").exist?
+  post_install_steps do
+    mkdir_p "lib/opensearch"
+    mkdir_p "log/opensearch"
+    unless_path_exists "{{libexec}}/config" do
+      symlink "{{etc}}/opensearch", "config", target_base: :libexec
+    end
+    mkdir_p "opensearch/plugins"
+    unless_path_exists "{{libexec}}/plugins" do
+      symlink "{{var}}/opensearch/plugins", "plugins", target_base: :libexec
+    end
+    mkdir_p "opensearch/extensions"
+    unless_path_exists "{{libexec}}/extensions" do
+      symlink "{{var}}/opensearch/extensions", "extensions", target_base: :libexec
+    end
+    unless_path_exists "{{etc}}/opensearch/opensearch.keystore" do
+      run "opensearch-keystore", args: ["create"], base: :bin
+    end
   end
 
   def caveats

@@ -17,170 +17,113 @@ class CaCertificates < Formula
 
   def install
     pkgshare.install "cacert-#{version}.pem" => "cacert.pem"
-  end
 
-  def post_install
-    if OS.mac?
-      macos_post_install
-    else
-      linux_post_install
-    end
-  end
+    (libexec/"post-install.rb").write <<~'RUBY'
+      require "fileutils"
+      require "open3"
+      require "set"
+      require "tempfile"
 
-  def macos_post_install
-    ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
+      CERTIFICATE_PATTERN = /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m
 
-    keychains = {
-      "/Library/Keychains/System.keychain"                        => "ssl",
-      "/System/Library/Keychains/SystemRootCertificates.keychain" => "basic",
-    }
+      def capture(*command, input: nil)
+        stdout, stderr, status = Open3.capture3(*command, stdin_data: input.to_s)
+        raise "#{command.first}: #{stderr}" unless status.success?
 
-    trusted_certificates = []
-    keychains.each do |keychain, purpose|
-      certificates =
-        Utils.safe_popen_read("/usr/bin/security", "find-certificate", "-a", "-p", keychain)
-             .scan(
-               /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-             )
+        stdout
+      end
 
-      # Check that the certificate has not expired
-      certificates.select! do |certificate|
-        begin
-          Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
-                                                             "-checkend", "0",
-                                                             "-noout") do |openssl_io|
-            openssl_io.write(certificate)
+      def certificates(path)
+        File.binread(path).force_encoding(Encoding::ASCII_8BIT).scan(CERTIFICATE_PATTERN)
+      end
+
+      def fingerprint(certificate, openssl)
+        capture(openssl, "x509", "-inform", "pem", "-fingerprint", "-sha256", "-noout", input: certificate)
+      end
+
+      def executable(name)
+        ENV.fetch("PATH", "").split(File::PATH_SEPARATOR).find do |directory|
+          File.executable?(File.join(directory, name))
+        end&.then { |directory| File.join(directory, name) }
+      end
+
+      def write_bundle(path, trusted_certificates)
+        FileUtils.mkdir_p(File.dirname(path))
+        Tempfile.create(["cert", ".pem"], File.dirname(path)) do |file|
+          file.binmode
+          file.write(trusted_certificates.join("\n") << "\n")
+          file.close
+          FileUtils.mv(file.path, path)
+        end
+        File.chmod(0644, path)
+      end
+
+      source, destination = ARGV
+      abort "usage: post-install.rb SOURCE DESTINATION" unless source && destination
+
+      if RUBY_PLATFORM.include?("darwin")
+        keychains = {
+          "/Library/Keychains/System.keychain"                        => "ssl",
+          "/System/Library/Keychains/SystemRootCertificates.keychain" => "basic",
+        }
+        trusted_certificates = keychains.flat_map do |keychain, purpose|
+          capture("/usr/bin/security", "find-certificate", "-a", "-p", keychain)
+            .scan(CERTIFICATE_PATTERN)
+            .select do |certificate|
+              begin
+                capture("/usr/bin/openssl", "x509", "-inform", "pem", "-checkend", "0", "-noout",
+                        input: certificate)
+                next false unless capture("/usr/bin/openssl", "x509", "-inform", "pem", "-purpose", "-noout",
+                                          input: certificate).include?("SSL server CA : Yes")
+
+                Tempfile.create do |file|
+                  file.binmode
+                  file.write(certificate)
+                  file.flush
+                  capture("/usr/bin/security", "verify-cert", "-l", "-L", "-c", file.path,
+                          "-p", purpose, "-R", "offline")
+                end
+                true
+              rescue RuntimeError
+                false
+              end
+            end
+        end
+        fingerprints = trusted_certificates.to_set do |certificate|
+          fingerprint(certificate, "/usr/bin/openssl")
+        end
+        trusted_certificates.concat certificates(source).select { |certificate|
+          fingerprints.add?(fingerprint(certificate, "/usr/bin/openssl"))
+        }
+      else
+        system_bundle = [
+          "/etc/ssl/certs/ca-certificates.crt",
+          "/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem",
+          "/etc/ssl/ca-bundle.pem",
+        ].find { |path| File.file?(path) && File.readable?(path) }
+        openssl = executable("openssl")
+        if system_bundle && openssl
+          fingerprints = Set.new
+          trusted_certificates = [system_bundle, source].flat_map do |path|
+            certificates(path).select do |certificate|
+              fingerprints.add?(fingerprint(certificate, openssl))
+            rescue RuntimeError
+              false
+            end
           end
-        rescue ErrorDuringExecution
-          # Expired likely.
-          next
+        else
+          warn "Cannot find a readable system CA bundle or OpenSSL; using Mozilla certificates only."
+          trusted_certificates = certificates(source)
         end
-
-        # Only include certificates that are designed to act as a SSL root.
-        openssl_purpose = Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
-                                                                     "-purpose",
-                                                                     "-noout") do |openssl_io|
-          openssl_io.write(certificate)
-        end
-        openssl_purpose.include?("SSL server CA : Yes")
       end
 
-      # Check that the certificate is trusted in keychain
-      trusted_certificates += begin
-        tmpfile = Tempfile.new
-
-        verify_args = %W[
-          -l -L
-          -c #{tmpfile.path}
-          -p #{purpose}
-          -R offline
-        ]
-
-        certificates.select do |certificate|
-          tmpfile.rewind
-          tmpfile.write certificate
-          tmpfile.truncate certificate.size
-          tmpfile.flush
-          Utils.safe_popen_read("/usr/bin/security", "verify-cert", *verify_args)
-          true
-        rescue ErrorDuringExecution
-          # Invalid.
-          false
-        end
-      ensure
-        tmpfile&.close!
-      end
-    end
-
-    # Get SHA256 fingerprints for all trusted certificates
-    fingerprints = trusted_certificates.to_set do |certificate|
-      get_certificate_fingerprint(certificate, "/usr/bin/openssl")
-    end
-
-    # Now process Mozilla certificates we downloaded.
-    # Read as raw bytes to avoid locale-dependent encoding errors
-    pem_certificates_list = (pkgshare/"cacert.pem").binread.force_encoding(Encoding::ASCII_8BIT)
-    pem_certificates = pem_certificates_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-    )
-
-    # Append anything new.
-    trusted_certificates += pem_certificates.select do |certificate|
-      fingerprint = get_certificate_fingerprint(certificate, "/usr/bin/openssl")
-      fingerprints.add?(fingerprint)
-    end
-
-    pkgetc.mkpath
-    (pkgetc/"cert.pem").atomic_write(trusted_certificates.join("\n") << "\n")
+      write_bundle(destination, trusted_certificates)
+    RUBY
   end
 
-  def get_certificate_fingerprint(certificate, openssl_binary = "openssl")
-    Utils.safe_popen_write(openssl_binary, "x509", "-inform", "pem",
-                                                   "-fingerprint",
-                                                   "-sha256",
-                                                   "-noout") do |openssl_io|
-      openssl_io.write(certificate)
-    end
-  end
-
-  def load_certificates_from_file(file_path, trusted_certificates, fingerprints, certificate_type)
-    # Read as raw bytes to avoid locale-dependent encoding errors
-    certificates_list = file_path.binread.force_encoding(Encoding::ASCII_8BIT)
-    certificates = certificates_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-    )
-    loaded_count = 0
-    certificates.each do |certificate|
-      fingerprint = get_certificate_fingerprint(certificate)
-      if fingerprints.add?(fingerprint)
-        trusted_certificates << certificate
-        loaded_count += 1
-      end
-    rescue ErrorDuringExecution
-      # Skip invalid certificate
-      next
-    end
-    puts "Loaded #{loaded_count} #{certificate_type} certificates" if loaded_count.positive?
-  end
-
-  def linux_post_install
-    rm(pkgetc/"cert.pem", force: true)
-    pkgetc.mkpath
-
-    ca_certificate_paths = [
-      "/etc/ssl/certs/ca-certificates.crt", # Debian/Ubuntu, Alpine Linux, Arch Linux
-      "/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem", # RHEL/CentOS/Fedora, Amazon Linux
-      "/etc/ssl/ca-bundle.pem", # SUSE/openSUSE
-    ]
-    system_ca_certificates = ca_certificate_paths.map { |p| Pathname.new(p) }
-                                                 .find { |pn| pn.file? && pn.readable? }
-    return unless system_ca_certificates
-
-    # Integrate system certificates if OpenSSL is available
-    unless which("openssl")
-      opoo "Cannot find OpenSSL: skipping system certificates."
-      puts <<~EOS
-        To include custom system certificates run:
-          brew install openssl
-          brew postinstall ca-certificates
-      EOS
-      return
-    end
-
-    trusted_certificates = []
-    fingerprints = Set.new
-
-    # First, load system certificates from standard Linux location
-    load_certificates_from_file(system_ca_certificates, trusted_certificates, fingerprints, "system")
-
-    # Now process Mozilla certs and append only new ones
-    load_certificates_from_file(pkgshare/"cacert.pem", trusted_certificates, fingerprints, "Mozilla")
-
-    (pkgetc/"cert.pem").atomic_write(trusted_certificates.join("\n") << "\n")
-    ohai "CA certificates have been bootstrapped from the system CA store at #{system_ca_certificates}"
-  ensure
-    # Ensure a PEM file always exists, even if the method exits early or fails
-    cp pkgshare/"cacert.pem", pkgetc/"cert.pem" unless (pkgetc/"cert.pem").exist?
+  post_install_steps do
+    run "{{HOMEBREW_BREW_FILE}}",
+        args: ["ruby", "--", "{{libexec}}/post-install.rb", "{{pkgshare}}/cacert.pem", "{{pkgetc}}/cert.pem"]
   end
 
   def caveats

@@ -36,20 +36,23 @@ class Janet < Formula
 
     system "make"
     system "make", "install"
-  end
-
-  def post_install
-    mkdir_p syspath unless syspath.exist?
 
     resource("jpm").stage do
-      ENV["PREFIX"] = prefix
-      ENV["JANET_BINPATH"] = HOMEBREW_PREFIX/"bin"
-      ENV["JANET_HEADERPATH"] = HOMEBREW_PREFIX/"include/janet"
-      ENV["JANET_LIBPATH"] = HOMEBREW_PREFIX/"lib"
-      ENV["JANET_MANPATH"] = HOMEBREW_PREFIX/"share/man/man1"
-      ENV["JANET_MODPATH"] = syspath
-      system bin/"janet", "bootstrap.janet"
+      (libexec/"jpm").install Dir["*"]
     end
+  end
+
+  post_install_steps do
+    mkdir_p "{{HOMEBREW_PREFIX}}/lib/janet"
+    run "janet", args: ["bootstrap.janet"], base: :bin, chdir: "{{libexec}}/jpm",
+         env: {
+           "PREFIX"           => "{{prefix}}",
+           "JANET_BINPATH"    => "{{HOMEBREW_PREFIX}}/bin",
+           "JANET_HEADERPATH" => "{{HOMEBREW_PREFIX}}/include/janet",
+           "JANET_LIBPATH"    => "{{HOMEBREW_PREFIX}}/lib",
+           "JANET_MANPATH"    => "{{HOMEBREW_PREFIX}}/share/man/man1",
+           "JANET_MODPATH"    => "{{HOMEBREW_PREFIX}}/lib/janet",
+         }
   end
 
   def caveats
