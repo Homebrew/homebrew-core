@@ -159,8 +159,8 @@ class GhcAT912 < Formula
     (lib/"ghc-#{version}/lib/package.conf.d/package.cache.lock").unlink
   end
 
-  def post_install
-    system bin/"ghc-pkg", "recache"
+  post_install_steps do
+    run "ghc-pkg", args: ["recache"], base: :bin
   end
 
   test do

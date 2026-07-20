@@ -88,8 +88,10 @@ class Mono < Formula
     libexec.install bin/"mono-gdb.py", bin/"mono-sgen-gdb.py"
   end
 
-  def post_install
-    system bin/"cert-sync", Formula["ca-certificates"].pkgetc/"cert.pem" if OS.linux?
+  post_install_steps do
+    on_linux do
+      run "cert-sync", args: ["{{HOMEBREW_PREFIX}}/etc/ca-certificates/cert.pem"], base: :bin
+    end
   end
 
   def caveats

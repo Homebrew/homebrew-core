@@ -227,28 +227,30 @@ class Emscripten < Formula
 
     # Replace universal binaries with their native slices
     deuniversalize_machos libexec/"node_modules/fsevents/fsevents.node"
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      set -e
+      config="#{opt_libexec}/.emscripten"
+      [ -e "$config" ] && exit 0
+      if [ -e "$HOME/.emscripten" ]; then
+        echo "Skipping configuration generation"
+        echo "You have a ~/.emscripten configuration file. Remove it and run brew postinstall emscripten"
+        exit 0
+      fi
+      "#{opt_bin}/emcc" --generate-config
+      sed -E -i.bak \
+        -e "s|^LLVM_ROOT[[:space:]]*[?+:!]?=.*$|LLVM_ROOT='#{opt_libexec}/llvm/bin'|" \
+        -e "s|^BINARYEN_ROOT[[:space:]]*[?+:!]?=.*$|BINARYEN_ROOT='#{opt_libexec}/binaryen'|" \
+        -e "s|^NODE_JS[[:space:]]*[?+:!]?=.*$|NODE_JS='#{formula_opt_bin("node")}/node'|" \
+        "$config"
+      rm -f "$config.bak"
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    return if (libexec/".emscripten").exist?
-
-    if File.exist?("#{Dir.home}/.emscripten")
-      ohai "Skipping configuration generation"
-      puts <<~EOS
-        You have a ~/.emscripten configuration file, so the default configuration
-        file was not generated. To generate the default configuration:
-          rm ~/.emscripten
-          brew postinstall emscripten
-      EOS
-      return
-    end
-
-    system bin/"emcc", "--generate-config"
-    inreplace libexec/".emscripten" do |s|
-      s.change_make_var! "LLVM_ROOT", "'#{libexec}/llvm/bin'"
-      s.change_make_var! "BINARYEN_ROOT", "'#{libexec}/binaryen'"
-      s.change_make_var! "NODE_JS", "'#{formula_opt_bin("node")}/node'"
-    end
+  post_install_steps do
+    run "post-install", base: :libexec
   end
 
   test do

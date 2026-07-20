@@ -84,16 +84,10 @@ class MinimalRacket < Formula
     inreplace racket_config, prefix, opt_prefix
   end
 
-  def post_install
-    # Run raco setup to make sure core libraries are properly compiled.
-    # Sometimes the mtimes of .rkt and .zo files are messed up after a fresh
-    # install, making Racket take 15s to start up because interpreting is slow.
-    system bin/"raco", "setup"
-
-    return unless racket_config.read.include?(HOMEBREW_CELLAR)
-
-    ohai "Fixing up Cellar references in #{racket_config}..."
-    inreplace racket_config, %r{#{Regexp.escape(HOMEBREW_CELLAR)}/minimal-racket/[^/]}o, opt_prefix
+  post_install_steps do
+    run "raco", args: ["setup"], base: :bin
+    inreplace "racket/config.rktd", %r{{{HOMEBREW_CELLAR}}/minimal-racket/[^/]}, "{{opt_prefix}}",
+              base: :etc, audit_result: false
   end
 
   def caveats

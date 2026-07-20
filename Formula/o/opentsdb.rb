@@ -83,17 +83,24 @@ class Opentsdb < Formula
 
     libexec.mkpath
     bin.env_script_all_files(libexec, env)
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      set -e
+      cleanup() { "#{formula_opt_bin("hbase")}/stop-hbase.sh"; }
+      trap cleanup EXIT
+      "#{formula_opt_bin("hbase")}/start-hbase.sh"
+      sleep 2
+      "#{opt_pkgshare}/tools/create_table_with_env.sh"
+      trap - EXIT
+      cleanup
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    (var/"cache/opentsdb").mkpath
-    system "#{formula_opt_bin("hbase")}/start-hbase.sh"
-    begin
-      sleep 2
-      system "#{pkgshare}/tools/create_table_with_env.sh"
-    ensure
-      system "#{formula_opt_bin("hbase")}/stop-hbase.sh"
-    end
+  post_install_steps do
+    mkdir_p "cache/opentsdb"
+    run "post-install", base: :libexec
   end
 
   service do

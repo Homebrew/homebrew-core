@@ -38,9 +38,8 @@ class Tzdb < Formula
     system "make", *make_args, "install"
   end
 
-  def post_install
-    # Generate default localtime, from Makefile.
-    system sbin/"zic", "-l", "Factory", "-p", "-", "-t", localtime
+  post_install_steps do
+    run "zic", args: ["-l", "Factory", "-p", "-", "-t", "{{etc}}/localtime"], base: :sbin
   end
 
   test do

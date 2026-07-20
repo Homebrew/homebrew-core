@@ -29,14 +29,21 @@ class Texinfo < Formula
     system "./configure", "--disable-install-warnings", *std_configure_args
     system "make", "install"
     doc.install Dir["doc/refcard/txirefcard*"]
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      info_dir="#{HOMEBREW_PREFIX}/share/info/dir"
+      rm -f "$info_dir"
+      for file in "#{HOMEBREW_PREFIX}/share/info/"*.info "#{HOMEBREW_PREFIX}/share/info/"*.info.gz; do
+        [ -e "$file" ] || continue
+        "#{opt_bin}/install-info" --quiet "$file" "$info_dir" || true
+      done
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    info_dir = HOMEBREW_PREFIX/"share/info/dir"
-    info_dir.delete if info_dir.exist?
-    info_dir.dirname.glob(["*.info", "*.info.gz"]) do |f|
-      quiet_system("#{bin}/install-info", "--quiet", f, info_dir)
-    end
+  post_install_steps do
+    run "post-install", base: :libexec
   end
 
   test do

@@ -76,13 +76,11 @@ class BareosClient < Formula
     system "cmake", "--install", "build"
   end
 
-  def post_install
-    (var/"lib/bareos").mkpath
-    # If no configuration files are present,
-    # deploy them (copy them and replace variables).
-    unless (etc/"bareos/bareos-fd.d").exist?
-      system lib/"bareos/scripts/bareos-config", "deploy_config", "bareos-fd"
-      system lib/"bareos/scripts/bareos-config", "deploy_config", "bconsole"
+  post_install_steps do
+    mkdir_p "lib/bareos"
+    unless_path_exists "{{etc}}/bareos/bareos-fd.d" do
+      run "bareos/scripts/bareos-config", args: ["deploy_config", "bareos-fd"], base: :lib
+      run "bareos/scripts/bareos-config", args: ["deploy_config", "bconsole"], base: :lib
     end
   end
 

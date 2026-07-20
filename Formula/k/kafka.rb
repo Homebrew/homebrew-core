@@ -46,13 +46,22 @@ class Kafka < Formula
     mv "config", "kafka"
     etc.install "kafka"
     libexec.install_symlink etc/"kafka" => "config"
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      set -e
+      storage="#{opt_bin}/kafka-storage"
+      uuid="$($storage random-uuid)"
+      exec "$storage" format --standalone -t "$uuid" -c "#{etc}/kafka/server.properties"
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    # create directory for kafka stdout+stderr output logs when run by launchd
-    (var/"log/kafka").mkpath
-
-    generate_log_dir(etc/"kafka/server.properties") unless (var/"lib/kraft-combined-logs/meta.properties").exist?
+  post_install_steps do
+    mkdir_p "log/kafka"
+    unless_path_exists "lib/kraft-combined-logs/meta.properties" do
+      run "post-install", base: :libexec
+    end
   end
 
   def generate_log_dir(path)
