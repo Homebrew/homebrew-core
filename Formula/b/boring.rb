@@ -26,8 +26,8 @@ class Boring < Formula
     generate_completions_from_executable(bin/"boring", "--shell")
   end
 
-  def post_install
-    quiet_system "killall", "boring"
+  post_install_steps do
+    terminate_process "boring", must_succeed: false
   end
 
   test do
