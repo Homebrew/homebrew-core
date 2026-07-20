@@ -150,12 +150,8 @@ class Bun < Formula
     end
   end
 
-  def post_install
-    if (prefix/"bun.gz").exist?
-      system "gunzip", prefix/"bun.gz"
-      (prefix/"bun").chmod 0755
-      bin.install prefix/"bun"
-    end
+  post_install_steps do
+    install_gzipped_executable "bun.gz", "bin/bun"
   end
 
   test do

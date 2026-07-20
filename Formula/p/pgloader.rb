@@ -84,12 +84,8 @@ class Pgloader < Formula
     end
   end
 
-  def post_install
-    if (prefix/"pgloader.gz").exist?
-      system "gunzip", prefix/"pgloader.gz"
-      bin.install prefix/"pgloader"
-      (bin/"pgloader").chmod 0755
-    end
+  post_install_steps do
+    install_gzipped_executable "pgloader.gz", "bin/pgloader"
   end
 
   test do
