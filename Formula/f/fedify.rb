@@ -37,12 +37,8 @@ class Fedify < Formula
     end
   end
 
-  def post_install
-    if (prefix/"fedify.gz").exist?
-      system "gunzip", prefix/"fedify.gz"
-      bin.install prefix/"fedify"
-      (bin/"fedify").chmod 0755
-    end
+  post_install_steps do
+    install_gzipped_executable "fedify.gz", "bin/fedify"
   end
 
   test do

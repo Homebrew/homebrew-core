@@ -94,12 +94,9 @@ class BazelAT7 < Formula
     end
   end
 
-  def post_install
-    if File.exist?("#{bazel_real}.gz")
-      rm(bazel_real)
-      system "gunzip", "#{bazel_real}.gz"
-      bazel_real.chmod 0755
-    end
+  post_install_steps do
+    install_gzipped_executable "bin/bazel-real.gz", "bin/bazel-real",
+                                  source_base: :libexec, target_base: :libexec
   end
 
   test do

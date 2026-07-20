@@ -56,12 +56,9 @@ class Cafeobj < Formula
     end
   end
 
-  def post_install
-    if (prefix/"cafeobj.sbcl.gz").exist?
-      system "gunzip", prefix/"cafeobj.sbcl.gz"
-      (prefix/"cafeobj.sbcl").chmod (lib/"cafeobj-#{version.major_minor}/sbcl/cafeobj.sbcl").lstat.mode
-      (lib/"cafeobj-#{version.major_minor}/sbcl").install prefix/"cafeobj.sbcl"
-    end
+  post_install_steps do
+    install_gzipped_executable "cafeobj.sbcl.gz", "cafeobj-#{version.major_minor}/sbcl/cafeobj.sbcl",
+                                  target_base: :lib
   end
 
   test do

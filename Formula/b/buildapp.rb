@@ -31,12 +31,8 @@ class Buildapp < Formula
     end
   end
 
-  def post_install
-    if (prefix/"buildapp.gz").exist?
-      system "gunzip", prefix/"buildapp.gz"
-      bin.install prefix/"buildapp"
-      (bin/"buildapp").chmod 0755
-    end
+  post_install_steps do
+    install_gzipped_executable "buildapp.gz", "bin/buildapp"
   end
 
   test do
