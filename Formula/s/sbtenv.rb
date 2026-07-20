@@ -28,7 +28,7 @@ class Sbtenv < Formula
 
   # Var symlinks must be done in post install as bottling converts symlinks to real files
   post_install_steps do
-    ln_sf "default-plugins/sbt-install", "lib/sbtenv/plugins/sbt-install", target_base: :var
+    symlink "default-plugins/sbt-install", "lib/sbtenv/plugins/sbt-install", target_base: :var, overwrite: true
   end
 
   test do

@@ -106,10 +106,10 @@ class Quictls < Formula
   end
 
   post_install_steps do
-    ln_sf "cert.pem", "quictls/cert.pem",
+    symlink "cert.pem", "quictls/cert.pem",
           source_formula: "ca-certificates",
           source_base:    :formula_pkgetc,
-          target_base:    :etc
+          target_base:    :etc, overwrite: true
   end
 
   def caveats

@@ -59,7 +59,7 @@ class GdkPixbuf < Formula
   end
 
   post_install_steps do
-    gdk_pixbuf_query_loaders
+    update_gdk_pixbuf_loaders_cache
   end
 
   test do

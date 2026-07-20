@@ -111,7 +111,7 @@ class VirtManager < Formula
 
   post_install_steps do
     compile_gsettings_schemas
-    gtk_update_icon_cache
+    update_gtk_icon_cache
   end
 
   test do

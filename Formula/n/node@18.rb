@@ -80,7 +80,7 @@ class NodeAT18 < Formula
   end
 
   post_install_steps do
-    write "lib/node_modules/npm/npmrc", "prefix = {{HOMEBREW_PREFIX}}\n", base: :prefix, overwrite: true
+    write_file "lib/node_modules/npm/npmrc", "prefix = {{HOMEBREW_PREFIX}}\n", base: :prefix
   end
 
   test do

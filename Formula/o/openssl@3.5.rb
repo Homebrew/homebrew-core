@@ -110,10 +110,10 @@ class OpensslAT35 < Formula
   def openssldir = pkgetc
 
   post_install_steps do
-    ln_sf "cert.pem", "cert.pem",
+    symlink "cert.pem", "cert.pem",
           source_formula: "ca-certificates",
           source_base:    :formula_pkgetc,
-          target_base:    :pkgetc
+          target_base:    :pkgetc, overwrite: true
   end
 
   def caveats

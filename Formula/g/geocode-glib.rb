@@ -44,7 +44,7 @@ class GeocodeGlib < Formula
   end
 
   post_install_steps do
-    gtk_update_icon_cache
+    update_gtk_icon_cache
   end
 
   test do
