@@ -198,33 +198,28 @@ class Node < Formula
     generate_completions_from_executable(bin/"npm", "completion", shells: [:bash], shell_parameter_format: :none)
   end
 
-  def post_install
-    node_modules = HOMEBREW_PREFIX/"lib/node_modules"
-    node_modules.mkpath
-    # Remove npm but preserve all other modules across node updates/upgrades.
-    rm_r node_modules/"npm" if (node_modules/"npm").exist?
-
-    cp_r libexec/"lib/node_modules/npm", node_modules
-    # This symlink doesn't hop into homebrew_prefix/bin automatically so
-    # we make our own. This is a small consequence of our
-    # bottle-npm-and-retain-a-private-copy-in-libexec setup
-    # All other installs **do** symlink to homebrew_prefix/bin correctly.
-    # We ln rather than cp this because doing so mimics npm's normal install.
-    ln_sf node_modules/"npm/bin/npm-cli.js", bin/"npm"
-    ln_sf node_modules/"npm/bin/npx-cli.js", bin/"npx"
-    ln_sf bin/"npm", HOMEBREW_PREFIX/"bin/npm"
-    ln_sf bin/"npx", HOMEBREW_PREFIX/"bin/npx"
-
-    # Create manpage symlinks (or overwrite the old ones)
-    %w[man1 man5 man7].each do |man|
-      # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
-      mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
-      # still needed to migrate from copied file manpages to symlink manpages
-      rm(Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.,npx.}*"])
-      ln_sf Dir[node_modules/"npm/man/#{man}/{npm,package-,shrinkwrap-,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
-    end
-
-    (node_modules/"npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+  post_install_steps do
+    mkdir_p "{{HOMEBREW_PREFIX}}/lib/node_modules"
+    remove "{{HOMEBREW_PREFIX}}/lib/node_modules/npm", recursive: true
+    copy "lib/node_modules/npm", "{{HOMEBREW_PREFIX}}/lib/node_modules/npm", source_base: :libexec,
+                                                                             recursive:   true
+    symlink "{{HOMEBREW_PREFIX}}/lib/node_modules/npm/bin/npm-cli.js", "npm", target_base: :bin, overwrite: true
+    symlink "{{HOMEBREW_PREFIX}}/lib/node_modules/npm/bin/npx-cli.js", "npx", target_base: :bin, overwrite: true
+    symlink "{{bin}}/npm", "{{HOMEBREW_PREFIX}}/bin/npm", overwrite: true
+    symlink "{{bin}}/npx", "{{HOMEBREW_PREFIX}}/bin/npx", overwrite: true
+    mkdir_p "{{HOMEBREW_PREFIX}}/share/man/man1"
+    mkdir_p "{{HOMEBREW_PREFIX}}/share/man/man5"
+    mkdir_p "{{HOMEBREW_PREFIX}}/share/man/man7"
+    remove "{{HOMEBREW_PREFIX}}/share/man/man1/{npm.,npm-,npmrc.,package.json.,npx.}*"
+    remove "{{HOMEBREW_PREFIX}}/share/man/man5/{npm.,npm-,npmrc.,package.json.,npx.}*"
+    remove "{{HOMEBREW_PREFIX}}/share/man/man7/{npm.,npm-,npmrc.,package.json.,npx.}*"
+    symlink "{{HOMEBREW_PREFIX}}/lib/node_modules/npm/man/man1/{npm,package-,shrinkwrap-,npx}*",
+          "{{HOMEBREW_PREFIX}}/share/man/man1", source_glob: true, overwrite: true
+    symlink "{{HOMEBREW_PREFIX}}/lib/node_modules/npm/man/man5/{npm,package-,shrinkwrap-,npx}*",
+          "{{HOMEBREW_PREFIX}}/share/man/man5", source_glob: true, overwrite: true
+    symlink "{{HOMEBREW_PREFIX}}/lib/node_modules/npm/man/man7/{npm,package-,shrinkwrap-,npx}*",
+          "{{HOMEBREW_PREFIX}}/share/man/man7", source_glob: true, overwrite: true
+    write_file "{{HOMEBREW_PREFIX}}/lib/node_modules/npm/npmrc", "prefix = {{HOMEBREW_PREFIX}}\n"
   end
 
   # Explain why some features enabled in upstream binaries are disabled in Homebrew.
