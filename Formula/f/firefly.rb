@@ -25,9 +25,9 @@ class Firefly < Formula
 
   def install
     ldflags = %W[
-      -X github.com/hyperledger/firefly-cli/cmd.BuildDate=#{time.iso8601}
-      -X github.com/hyperledger/firefly-cli/cmd.BuildCommit=#{tap.user}
-      -X github.com/hyperledger/firefly-cli/cmd.BuildVersionOverride=v#{version}
+      -X github.com/hyperledger-firefly/cli/cmd.BuildDate=#{time.iso8601}
+      -X github.com/hyperledger-firefly/cli/cmd.BuildCommit=#{tap.user}
+      -X github.com/hyperledger-firefly/cli/cmd.BuildVersionOverride=v#{version}
     ]
     system "go", "build", *std_go_args(ldflags:), "./ff"
 
