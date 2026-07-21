@@ -4,6 +4,7 @@ class FreeradiusServer < Formula
   url "https://github.com/FreeRADIUS/freeradius-server/archive/refs/tags/release_3_2_10.tar.gz"
   sha256 "3e9f24439ce976c04e4c56441722a3bd18677a61dd17f67bc8863eb4ed36cd4b"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
   head "https://github.com/FreeRADIUS/freeradius-server.git", branch: "master"
 
   livecheck do
