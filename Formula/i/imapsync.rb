@@ -5,7 +5,7 @@ class Imapsync < Formula
   # NOTE: The mirror will return 404 until the version becomes outdated.
   sha256 "34e1715c6584889ff3bd9c0acc2fab254446282beda90c8e5a71a83b3a59dbca"
   license "NLPL"
-  revision 1
+  revision 2
   head "https://github.com/imapsync/imapsync.git", branch: "master"
 
   livecheck do
