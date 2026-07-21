@@ -1,8 +1,8 @@
 class Odiff < Formula
   desc "Very fast SIMD-first image comparison library (with nodejs API)"
   homepage "https://github.com/dmtrKovalenko/odiff"
-  url "https://github.com/dmtrKovalenko/odiff/archive/refs/tags/v4.3.8.tar.gz"
-  sha256 "5a28709727303cd47c9562d530ca97e19de13a7d2260fa20af16685635881a9f"
+  url "https://github.com/dmtrKovalenko/odiff/archive/refs/tags/v4.4.0.tar.gz"
+  sha256 "0046fa28e46b6c271d874ceb8b5f12b4ab5ac0f99f0f3ebbc566e075d570a8a5"
   license "MIT"
   head "https://github.com/dmtrKovalenko/odiff.git", branch: "main"
 
@@ -15,7 +15,7 @@ class Odiff < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7683d0832d5b0b06ed3300ca1d7c4200a7f8e0bd1054df9741d79771245cff9a"
   end
 
-  depends_on "zig@0.15" => :build
+  depends_on "zig" => :build
 
   on_intel do
     depends_on "nasm" => :build
