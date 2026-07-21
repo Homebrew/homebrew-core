@@ -4,6 +4,7 @@ class Lcov < Formula
   url "https://github.com/linux-test-project/lcov/releases/download/v2.5/lcov-2.5.tar.gz"
   sha256 "7e5e5a154bd5f3557659c328cab376764e7abd238bb403c424472c296b175126"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/linux-test-project/lcov.git", branch: "master"
 
   bottle do
