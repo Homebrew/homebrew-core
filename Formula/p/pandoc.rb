@@ -30,6 +30,29 @@ class Pandoc < Formula
   def install
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
     args = ["--allow-newer=base,containers,template-haskell"]
+    args << "--ghc-options=-pie" if OS.linux?
+
+    (buildpath/"cabal.project.local").write <<~EOS
+      -- Use split-sections to reduce binary sizes
+      if os(linux)
+        package *
+          split-sections: True
+
+      -- Allow building PIE on non-ARM Linux
+      if os(linux) && !arch(arm) && !arch(aarch64)
+        package *
+          ghc-options: -fPIC -fexternal-dynamic-refs
+
+      -- Avoid bundled libraries in packages
+      package direct-sqlite
+        flags: +systemlib
+
+      package persistent-sqlite
+        flags: +systemlib +use-pkgconfig
+
+      package system-libyaml
+        flags: +system-libyaml
+    EOS
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", *args, *std_cabal_v2_args, "pandoc-cli"
