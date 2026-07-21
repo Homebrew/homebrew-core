@@ -4,6 +4,7 @@ class SqlTranslator < Formula
   url "https://cpan.metacpan.org/authors/id/V/VE/VEESH/SQL-Translator-1.66.tar.gz"
   sha256 "f7ff7e369d8293a394cb3783b54b745e7faf44422e8a83bfcc359378a6e56145"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "34f3eb0d5923e69a001f4a993058c0be8a23bc023aca0bbc5f2a535f26aad749"
