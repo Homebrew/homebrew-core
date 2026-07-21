@@ -56,17 +56,16 @@ class Rustup < Formula
     end
   end
 
-  def post_install
-    (HOMEBREW_PREFIX/"bin").install_symlink bin/"rustup"
-    (HOMEBREW_PREFIX/"etc/bash_completion.d").install_symlink bash_completion/"rustup"
-    (HOMEBREW_PREFIX/"share/zsh/site-functions").install_symlink zsh_completion/"_rustup"
-    (HOMEBREW_PREFIX/"share/fish/vendor_completions.d").install_symlink fish_completion/"rustup.fish"
-    (HOMEBREW_PREFIX/"share/pwsh/completions").install_symlink pwsh_completion/"_rustup.ps1"
-
-    # Remove the old Homebrew-created symlink during upgrades, but leave any
-    # user-managed `rustup-init` file alone.
-    rustup_init = HOMEBREW_PREFIX/"bin/rustup-init"
-    rustup_init.unlink if rustup_init.symlink? && rustup_init.readlink.to_s.match?(%r{(?:Cellar|opt)/rustup/})
+  post_install_steps do
+    symlink "{{bin}}/rustup", "{{HOMEBREW_PREFIX}}/bin/rustup", overwrite: true
+    symlink "{{bash_completion}}/rustup", "{{HOMEBREW_PREFIX}}/etc/bash_completion.d/rustup", overwrite: true
+    symlink "{{zsh_completion}}/_rustup", "{{HOMEBREW_PREFIX}}/share/zsh/site-functions/_rustup", overwrite: true
+    symlink "{{fish_completion}}/rustup.fish", "{{HOMEBREW_PREFIX}}/share/fish/vendor_completions.d/rustup.fish",
+overwrite: true
+    symlink "{{pwsh_completion}}/_rustup.ps1", "{{HOMEBREW_PREFIX}}/share/pwsh/completions/_rustup.ps1",
+overwrite: true
+    remove "{{HOMEBREW_PREFIX}}/bin/rustup-init", symlink_target_contains: "Cellar/rustup/"
+    remove "{{HOMEBREW_PREFIX}}/bin/rustup-init", symlink_target_contains: "opt/rustup/"
   end
 
   def caveats

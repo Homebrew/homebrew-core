@@ -111,31 +111,19 @@ class Nginx < Formula
     end
   end
 
-  def post_install
-    (etc/"nginx/servers").mkpath
-    (var/"run/nginx").mkpath
-
-    # nginx's docroot is #{prefix}/html, this isn't useful, so we symlink it
-    # to #{HOMEBREW_PREFIX}/var/www. The reason we symlink instead of patching
-    # is so the user can redirect it easily to something else if they choose.
-    html = prefix/"html"
-    dst = var/"www"
-
-    if dst.exist?
-      rm_r(html)
-      dst.mkpath
-    else
-      dst.dirname.mkpath
-      mv(html, dst)
+  post_install_steps do
+    mkdir_p "nginx/servers", base: :etc
+    mkdir_p "run/nginx"
+    if_path_exists "www" do
+      remove "html", base: :prefix, recursive: true
     end
-
-    prefix.install_symlink dst => "html"
-
-    # for most of this formula's life the binary has been placed in sbin
-    # and Homebrew used to suggest the user copy the plist for nginx to their
-    # ~/Library/LaunchAgents directory. So we need to have a symlink there
-    # for such cases
-    sbin.install_symlink bin/"nginx" if rack.subdirs.any? { |d| d.join("sbin").directory? }
+    unless_path_exists "www" do
+      move "html", "www", source_base: :prefix, target_base: :var
+    end
+    symlink "{{var}}/www", "html", target_base: :prefix
+    if_path_exists "{{rack}}/*/sbin" do
+      symlink "{{bin}}/nginx", "nginx", target_base: :sbin
+    end
   end
 
   def caveats

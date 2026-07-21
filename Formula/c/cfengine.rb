@@ -64,17 +64,11 @@ class Cfengine < Formula
     (pkgshare/"CoreBase").install resource("masterfiles")
   end
 
-  def post_install
-    workdir = var/"cfengine"
-    secure_dirs = %W[
-      #{workdir}/inputs
-      #{workdir}/outputs
-      #{workdir}/ppkeys
-      #{workdir}/plugins
-    ]
-    chmod 0700, secure_dirs
-    chmod 0750, workdir/"state"
-    chmod 0755, workdir/"modules"
+  post_install_steps do
+    set_permissions %w[cfengine/inputs cfengine/outputs cfengine/ppkeys cfengine/plugins], "0700",
+                    recursive: false
+    set_permissions "cfengine/state", "0750", recursive: false
+    set_permissions "cfengine/modules", "0755", recursive: false
   end
 
   test do
