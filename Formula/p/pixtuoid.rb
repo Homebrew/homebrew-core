@@ -15,7 +15,12 @@ class Pixtuoid < Formula
     sha256 cellar: :any,                 x86_64_linux:  "86bd764227ee420cb396a548992717c130c78ae3fa62dbd909e4a1a536ed2dc7"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "alsa-lib"
+  end
 
   def install
     # Drop upstream's x86_64 Linux lld linker pin
