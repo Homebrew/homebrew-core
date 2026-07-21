@@ -4,7 +4,7 @@ class Irssi < Formula
   url "https://github.com/irssi/irssi/releases/download/1.4.5/irssi-1.4.5.tar.xz"
   sha256 "72a951cb0ad622785a8962801f005a3a412736c7e7e3ce152f176287c52fe062"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
