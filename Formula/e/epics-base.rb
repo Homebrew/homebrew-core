@@ -5,6 +5,7 @@ class EpicsBase < Formula
      tag:      "R7.0.10",
      revision: "bf11a0c31c919ba85ba2e23b72bcf0b5f9f62e77"
   license "EPICS"
+  revision 1
 
   bottle do
     sha256 arm64_tahoe:   "1d968b86ccf1e6f0ac9719f1c9d1d0d655640c291e46fd770c486f3426494a0c"
