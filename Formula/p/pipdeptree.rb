@@ -14,11 +14,13 @@ class Pipdeptree < Formula
     sha256 cellar: :any, sonoma:        "93371b33976faaaccfcbecee30f4155212817fbd444b585c5fd6994c75bcf3cb"
   end
 
-  depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "rust" => :build
   depends_on "python@3.14"
+
+  pypi_packages exclude_packages: "meson",
+                extra_packages:   "meson-python"
 
   resource "build" do
     url "https://files.pythonhosted.org/packages/78/e0/df5e171f685f82f37b12e1f208064e24244911079d7b767447d1af7e0d70/build-1.5.0.tar.gz"
@@ -28,6 +30,11 @@ class Pipdeptree < Formula
   resource "installer" do
     url "https://files.pythonhosted.org/packages/06/fe/b9f481cf0cc867958a21338baa900357b7b7d86cac9b025948049d77923c/installer-1.0.1.tar.gz"
     sha256 "052c7fc3721d54c696e2dea019be67539d7b144e924f559f54beb3121831c364"
+  end
+
+  resource "meson-python" do
+    url "https://files.pythonhosted.org/packages/8b/f0/d794d7ed8a843a8a8947768f3b329d1e8601222dc95d930f4a5f9706cd6c/meson_python-0.20.0.tar.gz"
+    sha256 "6d9726ae6cd37e22f210c74b364b30180a68c20442e97ff09f3c566a414af738"
   end
 
   resource "nab-index" do
@@ -53,6 +60,11 @@ class Pipdeptree < Formula
   resource "pyproject-hooks" do
     url "https://files.pythonhosted.org/packages/e7/82/28175b2414effca1cdac8dc99f76d660e7a4fb0ceefa4b4ab8f5f6742925/pyproject_hooks-1.2.0.tar.gz"
     sha256 "1e859bd5c40fae9448642dd871adf459e5e2084186e8d2c2a79a824c970da1f8"
+  end
+
+  resource "pyproject-metadata" do
+    url "https://files.pythonhosted.org/packages/4f/76/1cae539918a7b1746d624c2f01560b793c22cd8c081157505bb9bbf0e34d/pyproject_metadata-0.12.1.tar.gz"
+    sha256 "8809a4df6fe08279b39a8890669506ed3158e0617855ac9aff098fcbe772ae4c"
   end
 
   resource "tomli" do
@@ -81,7 +93,11 @@ class Pipdeptree < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3.14")
+    venv.pip_install resources.reject { |r| r.name == "meson-python" }
+    # meson-python self-hosts via backend-path; without isolation it uses brew meson and ninja
+    venv.pip_install resource("meson-python"), build_isolation: false
+    venv.pip_install_and_link buildpath, build_isolation: false
   end
 
   test do
