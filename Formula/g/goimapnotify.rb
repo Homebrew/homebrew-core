@@ -1,10 +1,21 @@
 class Goimapnotify < Formula
   desc "Execute scripts on IMAP mailbox changes using IDLE"
-  homepage "https://gitlab.com/shackra/goimapnotify"
-  url "https://gitlab.com/shackra/goimapnotify/-/archive/2.5.6/goimapnotify-2.5.6.tar.bz2"
-  sha256 "d0e9b80a0284ad19ad94103f4c5be7004a6921b0b7fc9981e07094eaf74ca16b"
+  homepage "https://radicle.network/nodes/jardin.jorgearaya.dev/rad:z39RJHSHs166S5kr8Qstj6kd1LFah"
+  url "https://jardin.jorgearaya.dev/z39RJHSHs166S5kr8Qstj6kd1LFah.git",
+      tag:      "2.5.6",
+      revision: "251292f1544bf3c69ae6c8a325beb2930d6509b2"
   license "GPL-3.0-or-later"
-  head "https://gitlab.com/shackra/goimapnotify.git", branch: "master"
+  head "https://jardin.jorgearaya.dev/z39RJHSHs166S5kr8Qstj6kd1LFah.git", branch: "master"
+
+  livecheck do
+    url "https://jardin.jorgearaya.dev/api/v1/repos/rad%3Az39RJHSHs166S5kr8Qstj6kd1LFah/remotes"
+    regex(/v?(\d+(?:\.\d+)+)$/i)
+    strategy :json do |json, regex|
+      json.filter_map do |item|
+        item["refs"]&.keys&.filter_map { |tag| tag[regex, 1] }
+      end.flatten
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f95781ffbd87f18943ee5e89a71a16f54abf0369714bd772b7a1d82402d99dbb"
