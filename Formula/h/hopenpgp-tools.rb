@@ -1,9 +1,8 @@
 class HopenpgpTools < Formula
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
-  # TODO: Check if `ixset-typed` resource can be dropped
-  url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.11.1/hopenpgp-tools-0.23.11.1.tar.gz"
-  sha256 "d79adea3ce0d399409d40571e149a17f895e88d79cb50c37cfed94f903815031"
+  url "https://hackage.haskell.org/package/hopenpgp-tools-0.24/hopenpgp-tools-0.24.tar.gz"
+  sha256 "717b919db0cc9971ea2bae152bf91f435cad7111a71d73360ae6b969f82484f3"
   license "AGPL-3.0-or-later"
   head "https://salsa.debian.org/clint/hOpenPGP.git", branch: "master"
 
@@ -29,20 +28,6 @@ class HopenpgpTools < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # TODO: Remove resource once new release ixset-typed release is available
-  resource "ixset-typed" do
-    url "https://hackage.haskell.org/package/ixset-typed-0.5.1.0/ixset-typed-0.5.1.0.tar.gz"
-    sha256 "08b7b4870d737b524a8575529ee1901b0d8e39ff72298a6b231f8719b5a8790c"
-
-    # Backport https://github.com/well-typed/ixset-typed/pull/23
-    patch do
-      url "https://github.com/well-typed/ixset-typed/commit/460901368dcb452d352a17bcd4b8f60200a6fa71.patch?full_index=1"
-      sha256 "e284534df9ff14f49dad95a6745137c36c7a6335e896201c577d709794882e4c"
-    end
-    # Backport https://github.com/well-typed/ixset-typed/commit/1ee029539a77b0c7d854660707c9daa957d6fb11
-    patch :DATA
-  end
-
   # TODO: remove resource after once haskell-nettle supports Nettle 4
   # https://github.com/stbuehler/haskell-nettle/issues/12
   resource "nettle" do
@@ -59,7 +44,6 @@ class HopenpgpTools < Formula
   def install
     # Workaround to use newer GHC
     (buildpath/"cabal.project.local").write "packages: . vendor/*/*.cabal"
-    (buildpath/"vendor/ixset-typed").install resource("ixset-typed")
     (buildpath/"vendor/nettle").install resource("nettle")
 
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
@@ -92,18 +76,3 @@ class HopenpgpTools < Formula
     end
   end
 end
-
-__END__
-diff --git a/ixset-typed.cabal b/ixset-typed.cabal
-index 888d8a7..e42b86b 100644
---- a/ixset-typed.cabal
-+++ b/ixset-typed.cabal
-@@ -38,7 +38,7 @@ library
-                      deepseq          >= 1.3 && < 2,
-                      safecopy         >= 0.8 && < 0.11,
-                      syb              >= 0.4 && < 1,
--                     template-haskell >= 2.8 && < 2.23
-+                     template-haskell >= 2.8 && < 2.24
- 
-   hs-source-dirs:    src
-   exposed-modules:
