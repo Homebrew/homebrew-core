@@ -3,8 +3,8 @@ class AdvaiCli < Formula
 
   desc "CLI for managing skills and external CLIs"
   homepage "https://github.com/Advai-X/advai-cli"
-  url "https://files.pythonhosted.org/packages/32/24/f06412429212844c19320cc689e8859d744075a28db2732bf244d5e1a0d5/advai_cli-1.0.10.tar.gz"
-  sha256 "e91db8eba55f8e796c14f11a0482f6d073087ecf4bb332bccd5dd44727acc2ce"
+  url "https://files.pythonhosted.org/packages/9d/3f/de8343b82c6f5a25ce311c8f356a06f016e557823918610b2e016d1d612a/advai_cli-1.0.11.tar.gz"
+  sha256 "b1d37bbb1d34b81c2104cbcb2f94d31db0945ecc5309b1a8d0642738fe222009"
   license "MIT"
 
   bottle do
