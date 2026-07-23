@@ -4,6 +4,7 @@ class Onnx < Formula
   url "https://github.com/onnx/onnx/archive/refs/tags/v1.22.0.tar.gz"
   sha256 "70bb8b25cf31ea9b1d9f94baacfdc8c4fa27a760f9a10f5d93881bc9eede5fbc"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
 
   bottle do

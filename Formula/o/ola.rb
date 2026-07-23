@@ -2,7 +2,7 @@ class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 13
+  revision 14
   head "https://github.com/OpenLightingProject/ola.git", branch: "master"
 
   stable do

@@ -4,6 +4,7 @@ class ClickhouseCpp < Formula
   url "https://github.com/ClickHouse/clickhouse-cpp/archive/refs/tags/v2.6.2.tar.gz"
   sha256 "bac497857759e991fa4e1638bccf936cb36d10ad79273695a570272cc4891428"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ClickHouse/clickhouse-cpp.git", branch: "master"
 
   bottle do

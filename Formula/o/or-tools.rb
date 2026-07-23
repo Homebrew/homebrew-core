@@ -4,7 +4,7 @@ class OrTools < Formula
   url "https://github.com/google/or-tools/archive/refs/tags/v9.15.tar.gz"
   sha256 "6395a00a97ff30af878ee8d7fd5ad0ab1c7844f7219182c6d71acbee1b5f3026"
   license "Apache-2.0"
-  revision 9
+  revision 10
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -45,6 +45,14 @@ class OrTools < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Backport abseil 20260526.0 build fix (absl::SourceLocation ODR conflict).
+  patch do
+    url "https://github.com/google/or-tools/commit/a8c25e646e7b645c462db4be7c62e544b252e8fa.patch?full_index=1"
+    sha256 "1a20aa39165cd978c1274932ab19225540338a228e756be5b28f1b29006b03e3"
+    type :backport
+    resolves "https://github.com/google/or-tools/pull/5180"
   end
 
   def install
