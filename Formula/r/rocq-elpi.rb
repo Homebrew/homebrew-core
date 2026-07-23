@@ -2,10 +2,9 @@ class RocqElpi < Formula
   desc "Elpi extension language for Rocq"
   homepage "https://github.com/LPCIC/coq-elpi"
   # Update resources based on https://github.com/LPCIC/coq-elpi/blob/v#{version}/rocq-elpi.opam#L18-L26
-  url "https://github.com/LPCIC/coq-elpi/releases/download/v3.4.0/rocq-elpi-3.4.0.tar.gz"
-  sha256 "fe81750ca2e5f5976f16e658979a133cfaa2011ae5591e552a1222ceaacaaf06"
+  url "https://github.com/LPCIC/coq-elpi/releases/download/v3.5.0/rocq-elpi-3.5.0.tar.gz"
+  sha256 "fd052f6389ba0b648b63388b7e60a99e7832564b09ce1551c82e2d69250d9068"
   license "LGPL-2.1-or-later"
-  revision 1
   compatibility_version 2
 
   livecheck do
