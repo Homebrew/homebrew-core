@@ -1,0 +1,11 @@
+--- configure.orig	2005-12-20 22:35:03.000000000 +0100
++++ configure	2005-12-20 22:35:27.000000000 +0100
+@@ -2578,7 +2578,7 @@
+ 
+ trap 'rm -f $CONFIG_STATUS conftest*; exit 1' 1 2 15
+ 
+-DEFS=-DHAVE_CONFIG_H
++DEFS="-DHAVE_CONFIG_H -DDNET_TUN_H"
+ 
+ # Without the "./", some shells look in PATH for config.status.
+ : ${CONFIG_STATUS=./config.status}

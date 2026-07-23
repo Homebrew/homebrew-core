@@ -1,0 +1,43 @@
+class SpirvHeaders < Formula
+  desc "Headers for SPIR-V"
+  homepage "https://github.com/KhronosGroup/SPIRV-Headers"
+  url "https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.4.350.1.tar.gz"
+  sha256 "9e6d5c78878172d2b810e97f3a74ecbbb14b4ad52b07384ce915fbbeb226d610"
+  license "MIT"
+  head "https://github.com/KhronosGroup/SPIRV-Headers.git", branch: "main"
+
+  livecheck do
+    url :stable
+    regex(/^(?:vulkan[._-])?sdk[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "afe29d78808fb805cbd23981522ab29239d231abee473fb01e7117b1c3ae5922"
+  end
+
+  depends_on "cmake" => [:build, :test]
+
+  def install
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    pkgshare.install "tests"
+  end
+
+  test do
+    cp pkgshare/"tests/example.cpp", testpath
+
+    (testpath/"CMakeLists.txt").write <<~CMAKE
+      cmake_minimum_required(VERSION 3.14)
+
+      add_library(SPIRV-Headers-example
+                  ${CMAKE_CURRENT_SOURCE_DIR}/example.cpp)
+      target_include_directories(SPIRV-Headers-example
+                  PRIVATE ${SPIRV-Headers_SOURCE_DIR}/include)
+    CMAKE
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+  end
+end

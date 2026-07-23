@@ -1,0 +1,50 @@
+diff --git a/Lib/sysconfig.py b/Lib/sysconfig.py
+index daf9f00006..095a199463 100644
+--- a/Lib/sysconfig.py
++++ b/Lib/sysconfig.py
+@@ -56,8 +56,22 @@
+         'scripts': '{base}/Scripts',
+         'data': '{base}',
+         },
++    'osx_framework_library': {
++        'stdlib': '{installed_base}/{platlibdir}/python{py_version_short}',
++        'platstdlib': '{platbase}/{platlibdir}/python{py_version_short}',
++        'purelib': '@@HOMEBREW_PREFIX@@/lib/python{py_version_short}/site-packages',
++        'platlib': '@@HOMEBREW_PREFIX@@/{platlibdir}/python{py_version_short}/site-packages',
++        'include':
++            '{installed_base}/include/python{py_version_short}{abiflags}',
++        'platinclude':
++            '{installed_platbase}/include/python{py_version_short}{abiflags}',
++        'scripts': '@@HOMEBREW_PREFIX@@/bin',
++        'data': '@@HOMEBREW_PREFIX@@',
++        },
+     }
+ 
++_INSTALL_SCHEMES['venv'] = _INSTALL_SCHEMES['posix_prefix']
++
+ 
+ # NOTE: site.py has copy of this function.
+ # Sync it when modify this function.
+@@ -231,14 +245,20 @@ def _get_preferred_schemes():
+             'home': 'posix_home',
+             'user': 'nt_user',
+         }
++
++    if sys.prefix == sys.base_prefix and not os.environ.get("ENSUREPIP_OPTIONS", None):
++      prefix = 'osx_framework_library'
++    else:
++      prefix = 'posix_prefix'
++
+     if sys.platform == 'darwin' and sys._framework:
+         return {
+-            'prefix': 'posix_prefix',
++            'prefix': prefix,
+             'home': 'posix_home',
+             'user': 'osx_framework_user',
+         }
+     return {
+-        'prefix': 'posix_prefix',
++        'prefix': prefix,
+         'home': 'posix_home',
+         'user': 'posix_user',
+     }

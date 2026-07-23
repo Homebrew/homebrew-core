@@ -1,0 +1,119 @@
+--- a/src/code/external-formats/enc-basic.lisp
++++ b/src/code/external-formats/enc-basic.lisp
+@@ -673,6 +673,8 @@
+     (let* ((n (logand length (- sb-vm:n-word-bytes)))
+            (string-sap (vector-sap string))
+            (string-offset 0))
++      (declare (optimize sb-c::preserve-single-use-debug-variables
++                         sb-c::preserve-constants))
+       (loop for byte-offset below n by sb-vm:n-word-bytes
+             do
+             (let ((word (sap-ref-word sap byte-offset)))
+@@ -1193,7 +1195,7 @@
+   :fd-stream-read-n-characters fd-stream-read-n-characters/utf-8
+   :write-n-bytes-fun output-bytes/utf-8/lf
+   :char-encodable-p (let ((bits (char-code |ch|))) (not (<= #xd800 bits #xdfff)))
+-  :read-c-string-function read-from-c-string/utf-8/lf*
++  :read-c-string-function read-from-c-string/utf-8/lf
+   :output-c-string-function output-to-c-string/utf-8/lf
+   :handle-size nil)
+ 
+@@ -1471,8 +1473,7 @@
+               nil))
+       (when decode-break-reason
+         (c-string-decoding-error :utf-8 sap head decode-break-reason))
+-      (when (zerop (char-code |ch|)) (return count))))
+-  (error "~s modified while validating UTF-8" sap))
++      (when (zerop (char-code |ch|)) (return count)))))
+ 
+ (declaim (inline word-has-zero-bytes))
+ (defun word-has-zero-bytes (word)
+@@ -1564,19 +1565,16 @@
+               (incf index 4))
+              (t (return (values nil nil)))))
+          (incf codepoints))))))
+-
+-
+-;;; An entry point with boxed SAP for putting inside ef-read-c-string-fun
+-(defun read-from-c-string/utf-8/lf* (sap element-type)
+-  (read-from-c-string/utf-8/lf sap element-type))
+ 
+ (defun read-from-c-string/utf-8/lf (sap element-type)
+-  (declare (type system-area-pointer sap))
++  (declare (type system-area-pointer sap)
++           (optimize (sb-c:verify-arg-count 0)))
+   (locally
+       (declare (optimize (speed 3) (safety 0)))
+     (multiple-value-bind (length all-ascii) (sb-vm::simd-utf8-strlen sap)
+       (unless length
+-        (find-bad-utf8 sap))
++        (find-bad-utf8 sap)
++        (error "~a modified while validating UTF-8" sap))
+       (let* ((string
+                (case element-type
+                  (base-char (make-string length :element-type 'base-char))
+--- a/src/code/fd-stream.lisp
++++ b/src/code/fd-stream.lisp
+@@ -928,13 +928,10 @@
+ (defun sb-alien::c-string-to-string (sap external-format element-type)
+   (declare (type system-area-pointer sap)
+            (explicit-check :result))
+-  (if (eq external-format :utf-8)
+-      (read-from-c-string/utf-8/lf sap element-type)
+-      (locally
+-          (declare (optimize (speed 3) (safety 0))
+-                   (muffle-conditions compiler-note))
+-        (let ((external-format (get-external-format-or-lose external-format)))
+-          (funcall (ef-read-c-string-fun external-format) sap element-type)))))
++  (locally
++      (declare (optimize (speed 3) (safety 0)))
++    (let ((external-format (get-external-format-or-lose external-format)))
++      (funcall (ef-read-c-string-fun external-format) sap element-type))))
+ 
+ (defun sb-alien::c-string-to-string-boxed-sap (sap external-format element-type)
+   (sb-alien::c-string-to-string sap external-format element-type))
+--- a/src/compiler/aliencomp.lisp
++++ b/src/compiler/aliencomp.lisp
+@@ -83,7 +83,7 @@
+                                                              simple-base-string)
+     (movable flushable))
+ (defknown sb-alien::c-string-to-string (system-area-pointer t t) simple-string
+-    (movable fixed-args flushable))
++    (movable flushable))
+ (defknown sb-alien::c-string-external-format * *
+         (movable flushable))
+ 
+--- a/src/compiler/fndb.lisp
++++ b/src/compiler/fndb.lisp
+@@ -2606,20 +2606,3 @@
+ 
+ (defknown sb-kernel::single-float-invalid-operation (t single-float) nil (fixed-args))
+ (defknown sb-kernel::double-float-invalid-operation (t double-float) nil (fixed-args))
+-
+-
+-(defknown sb-impl::read-from-c-string/utf-8/lf (system-area-pointer t) simple-string
+-    (movable flushable fixed-args))
+-
+-(defknown sb-vm::simd-utf8-strlen (system-area-pointer) (values t t)
+-    (movable flushable fixed-args))
+-
+-(defknown sb-vm::simd-copy-utf8-sap-to-character-string
+-    (system-area-pointer (simple-array character (*)) index)
+-    t
+-    (movable fixed-args))
+-
+-(defknown sb-impl::find-bad-utf8
+-    (system-area-pointer)
+-    nil
+-    (movable fixed-args))
+--- a/src/compiler/generic/utils.lisp
++++ b/src/compiler/generic/utils.lisp
+@@ -189,7 +189,7 @@
+                               sc
+                               (elt *float-regs* n))
+                (descriptor))))
+-        ((system-area-pointer unsigned-byte-64 signed-byte-64)
++        ((unsigned-byte-64 signed-byte-64)
+          (let ((n (incf (#-c-stack-is-control-stack fixed-call-args-state-non-descriptors
+                          #+c-stack-is-control-stack fixed-call-args-state-descriptors
+                          state)))

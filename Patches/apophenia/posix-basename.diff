@@ -1,0 +1,39 @@
+This patch combines the two commits:
+
+49923f0017da3ceee1c78d0c79696100204af962
+f9c3f8d1519624810bb75d5940df4c4825564b4a
+
+These commits do not apply cleanly to the latest release (v1.0), since the
+source files were renamed in commit:
+
+b1237c8f2b4d7fa76727e5db4289bc23aa90c5a1
+
+This patch applies the same changes, just in differently named files. 
+
+diff -ur a/apop_conversions.c b/apop_conversions.c
+--- a/apop_conversions.c	2015-11-30 12:04:24.000000000 -0500
++++ b/apop_conversions.c	2023-09-28 16:36:11.000000000 -0400
+@@ -5,6 +5,7 @@
+ #include <gsl/gsl_math.h> //GSL_NAN
+ #include <assert.h>
+ #include <stdbool.h>
++#include <libgen.h>
+ 
+ /*extend a string. this prevents a minor leak you'd get if you did
+  asprintf(&q, "%s is a teapot.", q);
+@@ -1121,9 +1122,12 @@
+     #endif
+ }
+ 
+-char *cut_at_dot(char const *infile){
+-    char *out = strdup(basename(infile));
+-    for (char *c = out; *c; c++) if (*c=='.') {*c='\0'; return out;}
++static char *cut_at_dot(char const *infile){
++    char *incopy = strdup(infile); //basename reserves the right to modify its input.
++    char *out = strdup(basename(incopy));
++    free(incopy);
++    char *dot = strchr(out, '.');
++    if (dot) *dot='\0';
+     return out;
+ }
+ 

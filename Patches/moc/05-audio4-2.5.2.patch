@@ -1,0 +1,39 @@
+diff --git a/decoder_plugins/ffmpeg/ffmpeg.c b/decoder_plugins/ffmpeg/ffmpeg.c
+index f26afab..834967f 100644
+--- a/decoder_plugins/ffmpeg/ffmpeg.c
++++ b/decoder_plugins/ffmpeg/ffmpeg.c
+@@ -1246,6 +1246,9 @@ static AVPacket *get_packet (struct ffmpeg_data *data)
+ 	return NULL;
+ }
+ 
++#ifdef HAVE_AVCODEC_RECEIVE_FRAME
++  GCC_DIAG_OFF(deprecated-declarations)
++#endif
+ #ifndef HAVE_AVCODEC_DECODE_AUDIO4
+ /* Decode samples from packet data using pre-avcodec_decode_audio4(). */
+ static int decode_packet (struct ffmpeg_data *data, AVPacket *pkt,
+@@ -1396,6 +1399,10 @@ static int decode_packet (struct ffmpeg_data *data, AVPacket *pkt,
+ 	return filled;
+ }
+ #endif
++#ifdef HAVE_AVCODEC_RECEIVE_FRAME
++  GCC_DIAG_ON(deprecated-declarations)
++#endif
++
+ 
+ #if SEEK_IN_DECODER
+ static bool seek_in_stream (struct ffmpeg_data *data)
+diff --git a/decoder_plugins/ffmpeg/ffmpeg.m4 b/decoder_plugins/ffmpeg/ffmpeg.m4
+index cf818d3..21f6d00 100644
+--- a/decoder_plugins/ffmpeg/ffmpeg.m4
++++ b/decoder_plugins/ffmpeg/ffmpeg.m4
+@@ -142,6 +142,9 @@ then
+ 				[Define to 1 if you have the `avcodec_free_context' function.])])
+ 		AC_CHECK_MEMBERS([struct AVStream.codecpar], [], [],
+ 	                     [#include <libavformat/avformat.h>])
++		AC_SEARCH_LIBS(avcodec_receive_frame, avcodec,
++			[AC_DEFINE([HAVE_AVCODEC_RECEIVE_FRAME], 1,
++				[Define to 1 if you have the `avcodec_receive_frame' function.])])
+ 		AC_CHECK_DECLS([CODEC_ID_PCM_S8], , ,
+ 		                 [#include <libavcodec/avcodec.h>])
+ 		AC_CHECK_DECLS([CODEC_ID_PCM_S8_PLANAR], , ,

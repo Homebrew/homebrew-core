@@ -1,0 +1,16 @@
+diff --git a/Sources/SPMSQLite3/CMakeLists.txt b/Sources/SPMSQLite3/CMakeLists.txt
+index 46777305b..8fca39d51 100644
+--- a/Sources/SPMSQLite3/CMakeLists.txt
++++ b/Sources/SPMSQLite3/CMakeLists.txt
+@@ -11,6 +11,8 @@ target_include_directories(SPMSQLite3 INTERFACE
+   ${CMAKE_CURRENT_SOURCE_DIR})
+ target_link_libraries(SPMSQLite3 INTERFACE
+   SQLite::SQLite3)
+-if(CMAKE_SYSTEM_NAME STREQUAL OpenBSD)
+-  target_link_options(SPMSQLite3 INTERFACE "-L/usr/local/lib")
+-endif()
++
++# The modulemap supplies `-lsqlite3` regardless of the above so we need to configure `-L`
++get_target_property(SQLITE_LOCATION SQLite::SQLite3 LOCATION)
++cmake_path(GET SQLITE_LOCATION PARENT_PATH SQLITE_LIBDIR)
++target_link_options(SPMSQLite3 INTERFACE "-L${SQLITE_LIBDIR}")

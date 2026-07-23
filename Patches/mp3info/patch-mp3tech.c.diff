@@ -1,0 +1,11 @@
+--- ../mp3info-0.8.5a/mp3tech.c	2006-11-05 22:05:30.000000000 -0600
++++ mp3tech.c	2007-11-30 12:28:52.000000000 -0600
+@@ -279,7 +279,7 @@
+ }
+ 
+ int sameConstant(mp3header *h1, mp3header *h2) {
+-    if((*(uint*)h1) == (*(uint*)h2)) return 1;
++    if((*(unsigned int*)h1) == (*(unsigned int*)h2)) return 1;
+ 
+     if((h1->version       == h2->version         ) &&
+        (h1->layer         == h2->layer           ) &&

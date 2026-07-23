@@ -1,0 +1,53 @@
+Index: include/CMakeLists.txt
+===================================================================
+--- include/CMakeLists.txt	(revision 481)
++++ include/CMakeLists.txt	(nonexistent)
+@@ -1 +0,0 @@
+-INSTALL(DIRECTORY mpc DESTINATION include)
+Index: libmpcdec/Makefile.am
+===================================================================
+--- libmpcdec/Makefile.am	(revision 481)
++++ libmpcdec/Makefile.am	(revision 482)
+@@ -16,4 +16,5 @@
+ 	mpc_bits_reader.h huffman.h decoder.h internal.h requant.h mpcdec_math.h \
+ 	$(common_sources)
+ 
++# version info shoud match the one in CMakeLists.txt
+ libmpcdec_la_LDFLAGS = -no-undefined -version-info 7:0:1
+Index: libmpcdec/CMakeLists.txt
+===================================================================
+--- libmpcdec/CMakeLists.txt	(revision 481)
++++ libmpcdec/CMakeLists.txt	(revision 482)
+@@ -1,7 +1,23 @@
++SET(mpcdec_VERSION_MAJOR 7)
++SET(mpcdec_VERSION_MINOR 0)
++SET(mpcdec_VERSION_PATCH 1)
++
++set(mpcdec_VERSION ${mpcdec_VERSION_MAJOR}.${mpcdec_VERSION_MINOR}.${mpcdec_VERSION_PATCH})
++
+ include_directories(${libmpc_SOURCE_DIR}/include)
++install(FILES
++	${libmpc_SOURCE_DIR}/include/mpc/mpcdec.h
++	${libmpc_SOURCE_DIR}/include/mpc/reader.h
++	${libmpc_SOURCE_DIR}/include/mpc/streaminfo.h
++	${libmpc_SOURCE_DIR}/include/mpc/mpc_types.h
++	DESTINATION include/mpc COMPONENT headers)
++
+ if(SHARED)
+   add_library(mpcdec SHARED huffman mpc_decoder mpc_reader streaminfo mpc_bits_reader mpc_demux requant synth_filter ${libmpc_SOURCE_DIR}/common/crc32)
++  set_target_properties(mpcdec PROPERTIES VERSION ${mpcdec_VERSION} SOVERSION ${mpcdec_VERSION_MAJOR})
++  install(TARGETS mpcdec LIBRARY DESTINATION "lib" COMPONENT libraries)
+ else(SHARED)
+   add_library(mpcdec_static STATIC huffman mpc_decoder mpc_reader streaminfo mpc_bits_reader mpc_demux requant synth_filter ${libmpc_SOURCE_DIR}/common/crc32)
++  install(TARGETS mpcdec_static ARCHIVE DESTINATION "lib/static" COMPONENT libraries)
+ endif(SHARED)
+ 
+Index: CMakeLists.txt
+===================================================================
+--- CMakeLists.txt	(revision 481)
++++ CMakeLists.txt	(revision 482)
+@@ -30,4 +30,3 @@
+ add_subdirectory(mpccut)
+ add_subdirectory(mpcchap)
+ add_subdirectory(wavcmp)
+-add_subdirectory(include)

@@ -1,0 +1,16 @@
+--- main.c.orig	2013-04-10 12:10:17.000000000 +0000
++++ main.c	2013-04-10 12:22:02.000000000 +0000
+@@ -741,10 +741,9 @@
+ 			err(2, "getrlimit");
+ 		}
+ #ifdef __APPLE__
+-		if (rl.rlim_max != RLIM_INFINITY)
+-			rl.rlim_cur = rl.rlim_max;
+-		else
+-			rl.rlim_cur = OPEN_MAX;
++		if (rl.rlim_max > OPEN_MAX)
++			rl.rlim_max = OPEN_MAX;
++		rl.rlim_cur = rl.rlim_max;
+ #else /* !__APPLE__ */
+ 		rl.rlim_cur = rl.rlim_max;
+ #endif /* __APPLE__ */

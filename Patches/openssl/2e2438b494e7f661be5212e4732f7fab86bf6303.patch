@@ -1,0 +1,46 @@
+From 2e2438b494e7f661be5212e4732f7fab86bf6303 Mon Sep 17 00:00:00 2001
+From: Milan Broz <gmazyland@gmail.com>
+Date: Tue, 17 Mar 2026 14:16:37 +0100
+Subject: [PATCH] test: Do not fail if packet cannot be extended in QUIC
+ multistream test
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+In some specific timings, the qtest_fault_resize_plain_packet function
+returns failure as there is not enough space in allocated buffer.
+
+There is no way to recover in this situation, let print
+information and keep the test finish instead of failure
+in TEST_error() call.
+
+This patch fixes test runs on Windows where I can reproduce
+this quite reliably.
+
+Signed-off-by: Milan Broz <gmazyland@gmail.com>
+
+Reviewed-by: Saša Nedvědický <sashan@openssl.org>
+Reviewed-by: Norbert Pocs <norbertp@openssl.org>
+MergeDate: Thu Mar 19 09:18:34 2026
+(Merged from https://github.com/openssl/openssl/pull/30461)
+---
+ test/helpers/quictestlib.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/test/helpers/quictestlib.c b/test/helpers/quictestlib.c
+index a0df212074bd3fad662407846979dffe213858d7..5405df6ebf3edf0830739b20f2a1cd34288b63ab 100644
+--- a/test/helpers/quictestlib.c
++++ b/test/helpers/quictestlib.c
+@@ -930,9 +930,10 @@ int qtest_fault_prepend_frame(QTEST_FAULT *fault, const unsigned char *frame,
+     old_len = fault->pplainio.buf_len;
+ 
+     /* Extend the size of the packet by the size of the new frame */
+-    if (!TEST_true(qtest_fault_resize_plain_packet(fault,
+-            old_len + frame_len)))
++    if (!qtest_fault_resize_plain_packet(fault, old_len + frame_len)) {
++        TEST_info("Cannot extend packet (%zu + %zu)", old_len, frame_len);
+         return 0;
++    }
+ 
+     memmove(buf + frame_len, buf, old_len);
+     memcpy(buf, frame, frame_len);

@@ -1,0 +1,36 @@
+From 9061e9381306a053908177aca8509c262015cdf3 Mon Sep 17 00:00:00 2001
+From: Milan Broz <gmazyland@gmail.com>
+Date: Tue, 17 Mar 2026 14:09:47 +0100
+Subject: [PATCH] test: Increase timeout for QUIC multistream test
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+I can regularly hit timeout on Windows for QUIC multistream test.
+While increasing is not the best solution, it eliminates many
+failures during testing. This timeout only applies in specific
+situation, so run time should not be actually used often.
+
+Signed-off-by: Milan Broz <gmazyland@gmail.com>
+
+Reviewed-by: Saša Nedvědický <sashan@openssl.org>
+Reviewed-by: Norbert Pocs <norbertp@openssl.org>
+MergeDate: Thu Mar 19 09:18:32 2026
+(Merged from https://github.com/openssl/openssl/pull/30461)
+---
+ test/quic_multistream_test.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test/quic_multistream_test.c b/test/quic_multistream_test.c
+index a3b46e57d05eec11415114c5bbfca13f05247a88..0bb0253b7ea774a9d3858e71459ee00bb3645d8a 100644
+--- a/test/quic_multistream_test.c
++++ b/test/quic_multistream_test.c
+@@ -1098,7 +1098,7 @@ static int run_script_worker(struct helper *h, const struct script_op *script,
+             first = 0;
+             offset = 0;
+             op_start_time = ossl_time_now();
+-            op_deadline = ossl_time_add(op_start_time, ossl_ms2time(60000));
++            op_deadline = ossl_time_add(op_start_time, ossl_ms2time(180000));
+         }
+ 
+         if (!TEST_int_le(ossl_time_compare(ossl_time_now(), op_deadline), 0)) {

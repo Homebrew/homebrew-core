@@ -1,0 +1,50 @@
+--- proctools/proctools.orig.c	2003-12-06 03:41:26.000000000 -0800
++++ proctools/proctools.c	2008-06-01 22:39:04.000000000 -0700
+@@ -23,7 +23,10 @@
+ 
+ extern char *cmdpart(char *);
+ extern void  fmt_puts(char *, int *);
++
++#if defined(USE_KVM)
+ extern void  fmt_argv(kvm_t *kd, struct kinfo_proc *ki);
++#endif
+ 
+ static char  dbuf[DUMPBUFSZ];
+ 
+@@ -919,7 +922,7 @@
+ 								matched = !strcmp(name, pattern);
+ 						}
+ 						else {
+-							matched = regexec(&regex, name, 0, NULL, NULL) == 0;
++							matched = regexec(&regex, name, 0, NULL, 0) == 0;
+ 						}
+ 					}
+ 					else {
+@@ -960,7 +963,7 @@
+ 						}
+ 					}
+ 					else
+-						if (regexec(&regex, name, 0, NULL, NULL) == 0)
++						if (regexec(&regex, name, 0, NULL, 0) == 0)
+ 							pushProcList(proctoolslist, kp);
+ 				}
+ 				else
+@@ -995,7 +998,7 @@
+ 								matched = !strcmp(name, pattern);
+ 						}
+ 						else {
+-							matched = regexec(&regex, name, 0, NULL, NULL) == 0;
++							matched = regexec(&regex, name, 0, NULL, 0) == 0;
+ 						}
+ 					}
+ 					else {
+@@ -1037,7 +1040,7 @@
+ 						}
+ 					}
+ 					else
+-						if (regexec(&regex, name, 0, NULL, NULL) == REG_NOMATCH)
++						if (regexec(&regex, name, 0, NULL, 0) == REG_NOMATCH)
+ 							pushProcList(proctoolslist, kp);
+ 				}
+ 				else
+ 				
