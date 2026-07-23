@@ -1,0 +1,28 @@
+Formula/j/jupytext.rb
+  s_2880cdf3d20867::t_461567d24843a2 99-100
+  s_f95c74433d5088::t_2ad3ed7b7ca337 101
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "573047d8cd2d6c55bad60d10a54e70efc1b8d0ef",
+  "prompts": {},
+  "sessions": {
+    "s_2880cdf3d20867": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f8c86-6205-7b53-8ec1-e53e541b3f25",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    },
+    "s_f95c74433d5088": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f8cb0-4e70-7fa0-828e-b9289c245c2f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
