@@ -1,0 +1,23 @@
+Formula/p/pi-coding-agent.rb
+  s_2880cdf3d20867::t_4ea8cee488b7c6 26-28,31
+  s_2880cdf3d20867::t_fae6d396e5180b 19
+  s_2880cdf3d20867::t_cceffe4d243e70 29
+  s_2880cdf3d20867::t_1a534f88fc1728 30
+  s_2880cdf3d20867::t_84b19bd62e5e24 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "57610207381c097b5678d60dd4e8023dcff230b4",
+  "prompts": {},
+  "sessions": {
+    "s_2880cdf3d20867": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f8c86-6205-7b53-8ec1-e53e541b3f25",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
