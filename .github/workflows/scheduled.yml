@@ -163,3 +163,15 @@ jobs:
           gh issue comment "$REPORTING_ISSUE" \
                            --body "$FORMULA attestation has problems. Check $RUN_URL" \
                            --repo "$GITHUB_REPOSITORY"
+
+      - name: Check tests
+        id: test
+        if: always()
+        run: brew install "$FORMULA" && brew test "$FORMULA"
+
+      - name: Report test issues
+        if: failure() && steps.test.conclusion == 'failure'
+        run:  |
+          gh issue comment "$REPORTING_ISSUE" \
+                           --body "$FORMULA test has problems. Check $RUN_URL" \
+                           --repo "$GITHUB_REPOSITORY"
