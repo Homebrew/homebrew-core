@@ -1,8 +1,8 @@
 class Ijq < Formula
   desc "Interactive jq"
   homepage "https://codeberg.org/gpanders/ijq"
-  url "https://codeberg.org/gpanders/ijq/archive/v1.3.0.tar.gz"
-  sha256 "904391d8cf6c803fe7abbdacccac13a9e477c7b7768cc956ed1b61de9bc125f4"
+  url "https://codeberg.org/gpanders/ijq/archive/v1.4.0.tar.gz"
+  sha256 "3bc925a05755f621926ac21051a257220f924bb7fa6dd85dc1367cd508b391cb"
   license "GPL-3.0-or-later"
   head "https://codeberg.org/gpanders/ijq.git", branch: "master"
 
@@ -21,6 +21,9 @@ class Ijq < Formula
 
   uses_from_macos "jq", since: :sequoia
 
+  # Fail cleanly without a controlling terminal instead of crashing on a nil tty
+  patch :DATA
+
   def install
     system "make", "prefix=#{prefix}", "install"
   end
@@ -29,11 +32,14 @@ class Ijq < Formula
     ENV["TERM"] = "xterm"
 
     (testpath/"filterfile.jq").write '["foo", "bar", "baz"] | sort | add'
+    output_log = testpath/"output.log"
 
     require "expect"
     require "pty"
-    PTY.spawn("#{bin}/ijq -H '' -M -n -f filterfile.jq > result") do |r, w, pid|
+    PTY.spawn(bin/"ijq", "-H", "", "-M", "-n", "-f", "filterfile.jq",
+              [:out, :err] => output_log.to_s) do |r, w, pid|
       refute_nil r.expect("barbazfoo", 5), "Expected barbazfoo"
+      sleep 1
       w.write "\r"
       r.read
     rescue Errno::EIO
@@ -43,6 +49,44 @@ class Ijq < Formula
       w.close
       Process.wait(pid)
     end
-    assert_equal "\"barbazfoo\"\n", (testpath/"result").read
+    assert_match "\"barbazfoo\"", output_log.read
   end
 end
+
+__END__
+diff --git a/main.go b/main.go
+index 8fcacb2..6d5be20 100644
+--- a/main.go
++++ b/main.go
+@@ -288,6 +288,8 @@ func init() {
+ func createApp(doc Document, screen tcell.Screen) *tview.Application {
+ 	app := tview.NewApplication()
+ 
++	app.EnableMouse(true)
++
+ 	var clipboardTTY io.Writer
+ 	if screen != nil {
+ 		app.SetScreen(screen)
+@@ -1012,7 +1014,7 @@ func createApp(doc Document, screen tcell.Screen) *tview.Application {
+ 		}
+ 	})
+ 
+-	app.SetRoot(pages, true).EnableMouse(true).SetFocus(mainGrid)
++	app.SetRoot(pages, true).SetFocus(mainGrid)
+ 
+ 	return app
+ }
+@@ -1069,7 +1071,12 @@ func main() {
+ 		}
+ 	}
+ 
+-	screen, err := tcell.NewScreen()
++	tty, err := tcell.NewDevTty()
++	if err != nil {
++		log.Fatalln(err)
++	}
++
++	screen, err := tcell.NewTerminfoScreenFromTty(tty)
+ 	if err != nil {
+ 		log.Fatalln(err)
+ 	}
