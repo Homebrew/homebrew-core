@@ -3,8 +3,8 @@ class Systemd < Formula
 
   desc "System and service manager"
   homepage "https://systemd.io"
-  url "https://github.com/systemd/systemd/archive/refs/tags/v261.1.tar.gz"
-  sha256 "f9b9da1103d1714703503d1746971ccbeeae945663ef3ede3b7348169b5df064"
+  url "https://github.com/systemd/systemd/archive/refs/tags/v261.2.tar.gz"
+  sha256 "ed1059ff964f5df35b6056434cc17cc83f86dc913f10489948a0b19b6081c5ec"
   license all_of: [
     # Main license is LGPL-2.1-or-later while systemd-udevd is GPL-2.0-or-later
     "LGPL-2.1-or-later",
@@ -107,6 +107,7 @@ class Systemd < Formula
       -Dp11kit=disabled
       -Dpam=disabled
       -Dshellprofiledir=no
+      -Dcompat-sysv-interfaces=false
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args
