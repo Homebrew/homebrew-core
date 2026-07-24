@@ -90,10 +90,10 @@ class MoltenVk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c0b1bda916255edc08d5a884eec4826e2649a890283b03e6f62e4aa9984cc9b8"
-    sha256 cellar: :any, arm64_sequoia: "c37a023bd090ca66e5cec2e0b24f7fcd6a57078ca7cc2a1d661301d01975ee27"
-    sha256 cellar: :any, arm64_sonoma:  "0260e56d985f283c9f81af474469285855ce88f48ac5dc31c7a9fb7c2c846aa6"
-    sha256 cellar: :any, sonoma:        "9bb2d88ee0ed7cd035f982a59a2e9c5878237c9f4df88117172ccdbc5127f6d9"
+    sha256 cellar: :any, arm64_tahoe:   "5a83a9421fb588695613464a75ea469443f9aef72db475c3b2ae64dccc97c98a"
+    sha256 cellar: :any, arm64_sequoia: "fb4d355feaf8f36631695721b1ea2ac2e63cfdced0f3044c85ed8e6305a9acbc"
+    sha256 cellar: :any, arm64_sonoma:  "69674ab4252fb0ce4c7369565105a06665af8e0c4df4c6bc251050ea012d3ece"
+    sha256 cellar: :any, sonoma:        "4d72464ad51723c9afeea216088deb733596fc6b544d4738e90824f4eb04a039"
   end
 
   head do
