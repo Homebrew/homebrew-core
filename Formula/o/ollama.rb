@@ -130,6 +130,14 @@ class Ollama < Formula
                           OLLAMA_KV_CACHE_TYPE:   "q8_0"
   end
 
+  def caveats
+    <<~EOS
+      This formula doesn't support GPU acceleration on Linux, so if you need it, 
+      you may want to consider installing Ollama through your distribution's
+      package manager or through the official installation script.
+    EOS
+   end
+ 
   test do
     port = free_port
     ENV["OLLAMA_HOST"] = "localhost:#{port}"
