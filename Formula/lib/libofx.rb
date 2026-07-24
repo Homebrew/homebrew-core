@@ -33,14 +33,11 @@ class Libofx < Formula
   depends_on "open-sp"
 
   def install
-    ENV.cxx11
-
     system "./autogen.sh" if build.head?
 
-    opensp = Formula["open-sp"]
     system "./configure", "--disable-dependency-tracking",
-                          "--with-opensp-includes=#{opensp.opt_include}/OpenSP",
-                          "--with-opensp-libs=#{opensp.opt_lib}",
+                          "--with-opensp-includes=#{formula_opt_include("open-sp")}/OpenSP",
+                          "--with-opensp-libs=#{formula_opt_lib("open-sp")}",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
