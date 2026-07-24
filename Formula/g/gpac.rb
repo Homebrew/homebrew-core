@@ -1,8 +1,8 @@
 class Gpac < Formula
   desc "Multimedia framework for research and academic purposes"
   homepage "https://gpac.io/"
-  url "https://github.com/gpac/gpac/archive/refs/tags/v26.02.0.tar.gz"
-  sha256 "7a265e1cd58b317d8c9175816a54e0ab14199c21d81eb779047d7088fca52ae4"
+  url "https://github.com/gpac/gpac/archive/refs/tags/v26.07.0.tar.gz"
+  sha256 "57822c1a74dcb83d76ff1f671e1b4fae2e7614e8194a5adb9f20661e0e9421dd"
   license "LGPL-2.1-or-later"
   compatibility_version 1
   head "https://github.com/gpac/gpac.git", branch: "master"
@@ -13,13 +13,12 @@ class Gpac < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "b2d9c99d0d9bc24cd5c392091cb890363af39d9214ee1a2c35422208f06bff2c"
-    sha256 cellar: :any,                 arm64_sequoia: "be8bb6b0bbbf25456bbd19a39cbca7110e1b49e6bd6dba5eb3e12d9c0e8b1329"
-    sha256 cellar: :any,                 arm64_sonoma:  "182ced8e20d0530398046fe48a6b0a5dbdf816a271cadda5d612b8fda236a70c"
-    sha256                               sonoma:        "f31f73e8e8c7a7aec8b554b7a860b9e49081d0bc45299083e86316ded86be2f6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7ad558c0a70fcf23b5fa5d5e30adfeccd1776c3d96306a2e2e9e3b55ffa4232"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a2cd87687f784c99df64a1580d282cf9b93c0922f3f4fe1457ba11c0ffc308e"
+    sha256 cellar: :any, arm64_tahoe:   "132c3b88f84e155331f9304e0c8a39f2698ff56f9aef01c5981462d7b317b501"
+    sha256 cellar: :any, arm64_sequoia: "14d7442544e7a5298f7f17a3595c6565dc7b195cb9d5543e98678d8625ae60bb"
+    sha256 cellar: :any, arm64_sonoma:  "98ddef7b897bf3577931c899364ed6547a6d397f6444b62f5aafe80c12927762"
+    sha256               sonoma:        "ea10be1e66ee9d7423367b0714e9bb089fb67553aee79cd3d71b8ea3321a8caf"
+    sha256 cellar: :any, arm64_linux:   "409aa8f685a6f2f2fc093328f0cea6bcf8f84f6e471246c5dea125b33e6d0181"
+    sha256 cellar: :any, x86_64_linux:  "937b4d265d6c4c1b81af3222e87241fb34c216de1bfcd55ba235abf649da4da2"
   end
 
   depends_on "pkgconf" => :build
