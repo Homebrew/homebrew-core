@@ -23,7 +23,6 @@ class Jsonnet < Formula
   conflicts_with "go-jsonnet", because: "both install binaries with the same name"
 
   def install
-    ENV.cxx11
     system "make"
     bin.install "jsonnet"
     bin.install "jsonnetfmt"
