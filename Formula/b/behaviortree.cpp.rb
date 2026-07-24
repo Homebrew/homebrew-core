@@ -20,13 +20,6 @@ class BehaviortreeCpp < Formula
 
   uses_from_macos "sqlite"
 
-  # Apple libc++ has no floating-point std::from_chars; fall back to std::stod.
-  # PR ref: https://github.com/BehaviorTree/BehaviorTree.CPP/pull/1160
-  patch do
-    url "https://github.com/BehaviorTree/BehaviorTree.CPP/commit/865e9a47eca0f8a1b10c636d90f4b00eebe360af.patch?full_index=1"
-    sha256 "4ab0e1d247a89a3d29c8eb3a6d1423d4eaedb5d07f26cf4f211d8258e6650d2c"
-  end
-
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
