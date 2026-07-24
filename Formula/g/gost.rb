@@ -4,6 +4,7 @@ class Gost < Formula
   url "https://github.com/go-gost/gost/archive/refs/tags/v3.2.6.tar.gz"
   sha256 "79874354530b899576dd4866d3b1400651d0b17c1e7a90ad30c44686a0642600"
   license "MIT"
+  revision 1
   head "https://github.com/go-gost/gost.git", branch: "master"
 
   livecheck do
@@ -27,14 +28,43 @@ class Gost < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/gost"
     prefix.install "README_en.md"
+
+    etc.install "gost.yml"
+  end
+
+  def caveats
+    <<~EOS
+      The config is installed to #{etc}/gost.yml.
+    EOS
+  end
+
+  service do
+    run [opt_bin/"gost", "-C", etc/"gost.yml"]
+    keep_alive true
   end
 
   test do
     bind_address = "127.0.0.1:#{free_port}"
-    spawn bin/"gost", "-L", bind_address
+    (testpath/"gost.yml").write <<~YAML
+      services:
+        - name: test
+          addr: "#{bind_address}"
+          handler:
+            type: auto
+          listener:
+            type: tcp
+    YAML
+    pid = spawn bin/"gost", "-C", testpath/"gost.yml"
     sleep 2
-    output = shell_output("curl -I -x #{bind_address} https://github.com")
+    output = shell_output("curl --max-time 10 -I -x #{bind_address} https://github.com")
     assert_match %r{HTTP/\d+(?:\.\d+)? 200}, output
     assert_match(/Server: GitHub.com/i, output)
+
+    output = shell_output("curl --max-time 10 -I --socks5-hostname #{bind_address} https://github.com")
+    assert_match %r{HTTP/\d+(?:\.\d+)? 200}, output
+    assert_match(/Server: GitHub.com/i, output)
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end
