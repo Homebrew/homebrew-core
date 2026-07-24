@@ -1,18 +1,18 @@
 class Nanobot < Formula
   desc "Build MCP Agents"
   homepage "https://www.nanobot.ai/"
-  url "https://github.com/obot-platform/nanobot/archive/refs/tags/v0.0.90.tar.gz"
-  sha256 "1b70f43c3553696267ead009f32b2b2604361f9d7f1093ce51b5bc9926ee0346"
+  url "https://github.com/obot-platform/nanobot/archive/refs/tags/v0.0.91.tar.gz"
+  sha256 "cc0ac449b6aef7827d7db936db727c412bbe409367049028452df8fe66ba25bc"
   license "Apache-2.0"
   head "https://github.com/obot-platform/nanobot.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a563519337231dca4c0e9a6475727d15d6ecf5cff504dfe273f3dbbdb2c6cb87"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e6c207ec6604ec82565d2229f1a2c9fe279106bdb9589b98410a3894b602dfc4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "594e7fd19cd5c71d37ccdf29a8a5176495b2a24c95361d5fced35b346503a27c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ddedd86743bab07b1a3805ea96d013267113897832b385dd27429e8154abc326"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "43de702280fb05956295d77efd7ad713c5793bff2f44f66081e2e3b12d93e43e"
-    sha256 cellar: :any,                 x86_64_linux:  "4a7c1a8ce9b4c1d3fd50b6fd049ae7e5c93def7a0bb9a9e78734ecf70dcaf645"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "18f7be1dde01cb27bcc982da49696273c1201fd45cadec947c52934bc4b40bd4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7aba7f2569dce7bf864158a7209f7e013765d4af74bb9fa101e7b784d4a266a1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad43f8225943a1512ce1cb68599f41c68e87b036b58b36976d1d4ce711f144a9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bc977814b799758707ae0c1b9e74c144874aa9d9014f085ea994e8e12dd9fc4f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1440317bce4ed96dc03447c82863c521dc528951866283067595341f2951fa1a"
+    sha256 cellar: :any,                 x86_64_linux:  "3c72c972835bbd3b56a18c5660348ca7ff6583b942c63b411c46e1a2d4b8868a"
   end
 
   depends_on "go" => :build
