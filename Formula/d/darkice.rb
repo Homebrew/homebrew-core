@@ -4,6 +4,7 @@ class Darkice < Formula
   url "https://github.com/rafael2k/darkice/archive/refs/tags/v1.6.tar.gz"
   sha256 "52807d887d60646776110b63543d3845ebe9ed52d3eea44bed7c4bdd95b6575e"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -35,6 +36,15 @@ class Darkice < Formula
 
   on_linux do
     depends_on "alsa-lib"
+  end
+
+  # Support faac 2.0 API
+  patch :p2 do
+    url "https://github.com/rafael2k/darkice/commit/af8c0ad5904bf7bc97ec2d4dfb8f883397009c9d.patch?full_index=1"
+    sha256 "c599afb642d374332d63220c80914d3e369400cda3b60068183460d1120fec35"
+    directory "darkice/trunk"
+    type :unofficial
+    resolves "https://github.com/rafael2k/darkice/pull/216"
   end
 
   def install
