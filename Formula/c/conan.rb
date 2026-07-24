@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/4e/95/589f05549953f74377d671ab8d5ba041dbeec8208e360ed00fe69c77cfda/conan-2.30.0.tar.gz"
-  sha256 "8cee363744b164fc043d0b9bef8db856bd6b27a3c971d9c494441d2aa92794fa"
+  url "https://files.pythonhosted.org/packages/86/dd/eb92606b645f864fd741cd1552ffcb14df8d98835d1264e001adefc6f2b3/conan-2.31.0.tar.gz"
+  sha256 "2bce901a0ada11934c4654e6b182f9349df0ed9e51124e399448bc132fa6b791"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop2"
 
@@ -27,8 +27,8 @@ class Conan < Formula
                 extra_packages:   "distro"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "colorama" do
