@@ -2,7 +2,7 @@ class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
   license "Apache-2.0"
-  revision 4
+  revision 5
   compatibility_version 1
 
   stable do

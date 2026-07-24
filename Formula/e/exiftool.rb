@@ -9,6 +9,7 @@ class Exiftool < Formula
   mirror "https://cpan.metacpan.org/authors/id/E/EX/EXIFTOOL/Image-ExifTool-13.55.tar.gz"
   sha256 "5f4c81d34ad406538c2871ad72dbfceb5d9b412b2f16cbbeb4d712d270846667"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1
   compatibility_version 1
   head "https://git.code.sf.net/p/exiftool/code.git", branch: "master"
 

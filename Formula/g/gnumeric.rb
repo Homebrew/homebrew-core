@@ -4,6 +4,7 @@ class Gnumeric < Formula
   url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.61.tar.xz"
   sha256 "2ac135d856572713c1a408b76b50a59f2a9769ed21f1213446b5af255df20a12"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
+  revision 1
 
   bottle do
     rebuild 1

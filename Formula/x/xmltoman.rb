@@ -8,7 +8,7 @@ class Xmltoman < Formula
   url "https://downloads.sourceforge.net/project/xmltoman/xmltoman/xmltoman-0.4.tar.gz/xmltoman-0.4.tar.gz"
   sha256 "948794a316aaecd13add60e17e476beae86644d066cb60171fc6b779f2df14b0"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a"

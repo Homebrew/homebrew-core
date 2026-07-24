@@ -4,6 +4,7 @@ class Innotop < Formula
   url "https://github.com/innotop/innotop/archive/refs/tags/v1.16.0.tar.gz"
   sha256 "45645f20e70d54adc5208b5098beb378f5f29fc5e0447237351311418cc9933b"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
+  revision 1
   head "https://github.com/innotop/innotop.git", branch: "master"
 
   bottle do

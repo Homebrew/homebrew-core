@@ -4,6 +4,7 @@ class Abricate < Formula
   url "https://github.com/tseemann/abricate/archive/refs/tags/v1.4.0.tar.gz"
   sha256 "cbafe0efbdb7a0ac3d3bcd3cb2ca4a0152474d20b68c5f98da5a4c7cc25676eb"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/tseemann/abricate.git", branch: "master"
 
   bottle do

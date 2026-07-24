@@ -4,6 +4,7 @@ class Sslmate < Formula
   url "https://packages.sslmate.com/other/sslmate-1.10.0.tar.gz"
   sha256 "ca378afc28c54a38f29ab8956f8d405b2d12489e66c0fa7a4fe6acc8769e5f91"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://packages.sslmate.com/other/"
