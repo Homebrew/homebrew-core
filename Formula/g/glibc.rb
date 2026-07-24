@@ -256,15 +256,31 @@ class Glibc < Formula
         ENV["TIMEOUTFACTOR"] = "4" if Hardware::CPU.intel?
 
         # Workaround to skip test failures seen when running in bubblewrap
-        xfail_tests = [
-          "test-xfail-tst-nss-files-hosts-long=yes", # error: tst-nss-files-hosts-long.c:36: ahostsv4 failed
-          "test-xfail-tst-setuid3=yes",              # runs setuid(0) expecting EPERM
-        ]
+        if ENV["HOMEBREW_SANDBOX_LINUX_LANDLOCK"] != "1"
+          xfail_tests = [
+            "test-xfail-tst-nss-files-hosts-long=yes", # error: tst-nss-files-hosts-long.c:36: ahostsv4 failed
+            "test-xfail-tst-setuid3=yes",              # runs setuid(0) expecting EPERM
+          ]
+        end
       end
 
       system "../configure", *args, "CFLAGS=#{cflags}"
       system "make", "all"
-      system "make", "check", *xfail_tests if build.bottle?
+      begin
+        system "make", "check", *xfail_tests if build.bottle?
+      ensure
+        # add failing tests to log artifact
+        logs.install Dir["debug/tst-fortify*"]
+        logs.install Dir["io/tst-open-tmpfile*"]
+        logs.install Dir["login/tst-ptsname*"]
+        logs.install Dir["posix/tst-spawn6*"]
+        logs.install Dir["rt/tst-bz28213*"]
+        logs.install Dir["rt/tst-mqueue*"]
+        logs.install Dir["rt/tst-shm*"]
+        logs.install Dir["stdio-common/tst-printf-fp-*"]
+        logs.install Dir["stdlib/tst-realpath-toolong*"]
+        logs.install Dir["support/tst-support_descriptors*"]
+      end
       system "make", "install", "localedir=#{share}/locale"
       prefix.install_symlink "lib" => "lib64"
     end
