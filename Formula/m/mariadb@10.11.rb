@@ -60,7 +60,6 @@ class MariadbAT1011 < Formula
 
   def install
     ENV.runtime_cpu_detection
-    ENV.cxx11
 
     # Backport fix for CMake 4.0 in columnstore submodule
     # https://github.com/mariadb-corporation/mariadb-columnstore-engine/commit/726cc3684b4de08934c2b14f347799fd8c3aac9a
