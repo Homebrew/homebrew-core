@@ -1,8 +1,8 @@
 class DashMpdCli < Formula
   desc "Download media content from a DASH-MPEG or DASH-WebM MPD manifest"
   homepage "https://emarsden.github.io/dash-mpd-cli/"
-  url "https://github.com/emarsden/dash-mpd-cli/archive/refs/tags/v0.2.33.tar.gz"
-  sha256 "d112b1220e64594d08c441cb13376649bb5324ce3c5877cc0c4dfcb4a580831b"
+  url "https://github.com/emarsden/dash-mpd-cli/archive/refs/tags/v0.2.34.tar.gz"
+  sha256 "1885bec56c1c247bda474f0d85bc6e89ba59cc017c1c63bea9d9830cdbe7d820"
   license "MIT"
   head "https://github.com/emarsden/dash-mpd-cli.git", branch: "main"
 
@@ -22,6 +22,7 @@ class DashMpdCli < Formula
   depends_on "mkvtoolnix"
 
   def install
+    ENV.append_to_rustflags "--cfg reqwest_unstable"
     system "cargo", "install", *std_cargo_args
   end
 
