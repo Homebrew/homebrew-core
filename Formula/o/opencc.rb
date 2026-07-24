@@ -25,6 +25,7 @@ class Opencc < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DPYTHON_EXECUTABLE=#{which("python3")}
       -DUSE_SYSTEM_MARISA=ON
+      -DBUILD_OPENCC_JIEBA_PLUGIN=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -37,5 +38,11 @@ class Opencc < Formula
     output = pipe_output(bin/"opencc", input)
     output = output.force_encoding("UTF-8") if output.respond_to?(:force_encoding)
     assert_match "中國鼠標軟件打印機", output
+
+    assert_path_exists lib/"opencc/plugins"/shared_library("libopencc-jieba")
+    input = "城堡里的士兵"
+    output = pipe_output("#{bin}/opencc -c s2twp_jieba.json", input)
+    output = output.force_encoding("UTF-8") if output.respond_to?(:force_encoding)
+    assert_match "城堡裡的士兵", output
   end
 end
