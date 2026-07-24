@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/7d/ae/e50cb550ce0c179c26e2ebb3d068cbe79d7d370fa90f128795f38aa4977b/cfn_lint-1.53.1.tar.gz"
-  sha256 "8bf13c111d240822f9568e7fda0ba7bb51e117e7d7a857ce215719456d2ffb17"
+  url "https://files.pythonhosted.org/packages/c2/82/f8f1b7437077a1b203141e3c9d2b9550748062ea761496a86610a1e0c3c9/cfn_lint-1.53.2.tar.gz"
+  sha256 "f2f4a63bc0e6dce802cc429993e6c7b2a4dac4bc1f4b0e743709cb684fad345b"
   license "MIT-0"
 
   bottle do
@@ -34,13 +34,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/a2/4f/b93620c09e81b8dd28558e73862d7b61f938c5a9db9366fab4b0bb53512f/boto3-1.43.51.tar.gz"
-    sha256 "b5a416cc703db73b69b22bef563c89c1fb14a4b10a93628d3c7abc4dd1aaf979"
+    url "https://files.pythonhosted.org/packages/63/62/9a6795d2e85b04615a18bf25d39e9cfea243f7bd532f420eeee17045f157/boto3-1.43.55.tar.gz"
+    sha256 "ab2d18d00fd0ceb7110c3659176b9306e009a313dbc5fcc5bd8734253f115157"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e6/f5/5a6b4fe037ba689fd4a9eaf31af8b681e4c1eb82debc470d18dec99eac62/botocore-1.43.51.tar.gz"
-    sha256 "e0e5e88585fdb01dcb6b533ac2dd3f18d5d45092a14ccbfd330e3576a4152128"
+    url "https://files.pythonhosted.org/packages/5c/eb/a235d69083f5948d3ed7e1e5d75ceb16f5bf943761e33b54cb141c497ed1/botocore-1.43.55.tar.gz"
+    sha256 "46e8d9f457a804948abf45a22add963ebaaa6c2765c2f1c26ff3b534309d7a58"
   end
 
   resource "jmespath" do
@@ -99,8 +99,8 @@ class CfnLint < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/65/da/4bef7ce7bb989b222aa4785a413896dbec53306dfc59c6ce7d16a7ffbd6a/s3transfer-0.19.1.tar.gz"
-    sha256 "d3d6371dc3f1e5c5427b2b457bcf13bcf87bec334c95aed18642eae61f6926f3"
+    url "https://files.pythonhosted.org/packages/76/43/35e4d8aa320bffe8287fe8f65f578fa2d2db0a64212f0e710dce58267854/s3transfer-0.19.2.tar.gz"
+    sha256 "ba0309fd86be3c27dbf78cdd813c13c5e1df16e5874b99d2535ebbdfb9892993"
   end
 
   resource "six" do
