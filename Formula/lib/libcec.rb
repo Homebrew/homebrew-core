@@ -19,8 +19,6 @@ class Libcec < Formula
   uses_from_macos "ncurses"
 
   def install
-    ENV.cxx11
-
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
