@@ -1,8 +1,8 @@
 class Gpac < Formula
   desc "Multimedia framework for research and academic purposes"
   homepage "https://gpac.io/"
-  url "https://github.com/gpac/gpac/archive/refs/tags/v26.02.0.tar.gz"
-  sha256 "7a265e1cd58b317d8c9175816a54e0ab14199c21d81eb779047d7088fca52ae4"
+  url "https://github.com/gpac/gpac/archive/refs/tags/v26.07.0.tar.gz"
+  sha256 "57822c1a74dcb83d76ff1f671e1b4fae2e7614e8194a5adb9f20661e0e9421dd"
   license "LGPL-2.1-or-later"
   compatibility_version 1
   head "https://github.com/gpac/gpac.git", branch: "master"
