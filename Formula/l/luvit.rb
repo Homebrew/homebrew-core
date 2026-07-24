@@ -4,7 +4,7 @@ class Luvit < Formula
   url "https://github.com/luvit/luvit/archive/refs/tags/2.18.1.tar.gz"
   sha256 "b792781d77028edb7e5761e96618c96162bd68747b8fced9a6fc52f123837c2c"
   license "Apache-2.0"
-  revision 22
+  revision 23
   head "https://github.com/luvit/luvit.git", branch: "master"
 
   bottle do
