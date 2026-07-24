@@ -256,10 +256,12 @@ class Glibc < Formula
         ENV["TIMEOUTFACTOR"] = "4" if Hardware::CPU.intel?
 
         # Workaround to skip test failures seen when running in bubblewrap
-        xfail_tests = [
-          "test-xfail-tst-nss-files-hosts-long=yes", # error: tst-nss-files-hosts-long.c:36: ahostsv4 failed
-          "test-xfail-tst-setuid3=yes",              # runs setuid(0) expecting EPERM
-        ]
+        if ENV["HOMEBREW_SANDBOX_LINUX_LANDLOCK"] != "1"
+          xfail_tests = [
+            "test-xfail-tst-nss-files-hosts-long=yes", # error: tst-nss-files-hosts-long.c:36: ahostsv4 failed
+            "test-xfail-tst-setuid3=yes",              # runs setuid(0) expecting EPERM
+          ]
+        end
       end
 
       system "../configure", *args, "CFLAGS=#{cflags}"
