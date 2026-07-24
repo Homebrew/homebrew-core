@@ -28,6 +28,7 @@ class Nono < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/nono-cli")
+    generate_completions_from_executable(bin/"nono", "completion", "--silent")
   end
 
   test do
