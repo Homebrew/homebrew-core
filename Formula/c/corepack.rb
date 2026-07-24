@@ -14,6 +14,7 @@ class Corepack < Formula
   conflicts_with "hadoop", because: "both install `yarn` binaries"
   conflicts_with "pnpm", because: "both install `pnpm` and `pnpx` binaries"
   conflicts_with "yarn", because: "both install `yarn` and `yarnpkg` binaries"
+  conflicts_with "yarn-berry", because: "both install `yarn` and `yarnpkg` binaries"
 
   def install
     system "npm", "install", *std_npm_args

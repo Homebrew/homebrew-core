@@ -18,6 +18,7 @@ class Yarn < Formula
 
   conflicts_with "corepack", because: "both install `yarn` and `yarnpkg` binaries"
   conflicts_with "hadoop", because: "both install `yarn` binaries"
+  conflicts_with "yarn-berry", because: "both install `yarn` and `yarnpkg` binaries"
 
   def install
     libexec.install buildpath.glob("*")
