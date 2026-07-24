@@ -1,8 +1,8 @@
 class BehaviortreeCpp < Formula
   desc "Behavior Trees Library in C++"
   homepage "https://www.behaviortree.dev/"
-  url "https://github.com/BehaviorTree/BehaviorTree.CPP/archive/refs/tags/4.9.1.tar.gz"
-  sha256 "509f508aa8ce38ec8c54b91e94f2049c4b00905474d38e503057f0c2a3054e31"
+  url "https://github.com/BehaviorTree/BehaviorTree.CPP/archive/refs/tags/4.10.0.tar.gz"
+  sha256 "c758fdedb3666f7ca4c9998a4c0b243251e0a5fb5d03c99e2ee63d615af7a71d"
   license "MIT"
 
   bottle do
