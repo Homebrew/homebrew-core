@@ -40,7 +40,6 @@ class Libpointing < Formula
       s.gsub! "print >> makefile\n", "print(\"\", file=makefile)\n"
     end
 
-    ENV.cxx11
     platform = OS.mac? ? "mac" : "linux"
     cd "building-and-packaging/#{platform}" do
       ENV["LIBPOINTING_VERSION"] = version
@@ -65,7 +64,7 @@ class Libpointing < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lpointing", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lpointing", "-o", "test"
     system "./test"
   end
 end
