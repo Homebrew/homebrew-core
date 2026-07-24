@@ -7,8 +7,7 @@ class Ansiweather < Formula
   head "https://github.com/fcambus/ansiweather.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "1d6a9dc83687c62774d4adb2da6302dac16f29a985a0eca62cb2a7fcc564a594"
+    sha256 cellar: :any_skip_relocation, all: "c6f4301b140b8f6c95a9b16c85051a562fd9ba65a21ace8317e3906995cf494b"
   end
 
   uses_from_macos "bc-gh"
