@@ -40,8 +40,15 @@ class Task < Formula
     resolves "https://github.com/GothenburgBitFactory/taskwarrior/pull/3976"
   end
 
+  # Taskwarrior 3.x uses rustls with tls-webpki-roots by default, which embeds Mozilla's CA list at compile time
+  # and bypasses the system keychain entirely. Building with ENABLE_TLS_NATIVE_ROOTS=ON switches to tls-native-roots,
+  # and reads from the macOS Keychain at runtime.
+
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DSYSTEM_CORROSION=ON", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                                     "-DSYSTEM_CORROSION=ON",
+                                     "-DENABLE_TLS_NATIVE_ROOTS=ON",
+                                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     bash_completion.install "scripts/bash/task.sh"
