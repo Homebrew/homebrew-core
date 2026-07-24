@@ -266,7 +266,21 @@ class Glibc < Formula
 
       system "../configure", *args, "CFLAGS=#{cflags}"
       system "make", "all"
-      system "make", "check", *xfail_tests if build.bottle?
+      begin
+        system "make", "check", *xfail_tests if build.bottle?
+      ensure
+        # add failing tests to log artifact
+        logs.install Dir["debug/tst-fortify*"]
+        logs.install Dir["io/tst-open-tmpfile*"]
+        logs.install Dir["login/tst-ptsname*"]
+        logs.install Dir["posix/tst-spawn6*"]
+        logs.install Dir["rt/tst-bz28213*"]
+        logs.install Dir["rt/tst-mqueue*"]
+        logs.install Dir["rt/tst-shm*"]
+        logs.install Dir["stdio-common/tst-printf-fp-*"]
+        logs.install Dir["stdlib/tst-realpath-toolong*"]
+        logs.install Dir["support/tst-support_descriptors*"]
+      end
       system "make", "install", "localedir=#{share}/locale"
       prefix.install_symlink "lib" => "lib64"
     end
