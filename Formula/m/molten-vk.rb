@@ -5,8 +5,8 @@ class MoltenVk < Formula
   compatibility_version 1
 
   stable do
-    url "https://github.com/KhronosGroup/MoltenVK/archive/refs/tags/v1.4.1.tar.gz"
-    sha256 "9985f141902a17de818e264d17c1ce334b748e499ee02fcb4703e4dc0038f89c"
+    url "https://github.com/KhronosGroup/MoltenVK/archive/refs/tags/v1.4.2.tar.gz"
+    sha256 "6864db532f1dbbdb621a8d0ec13f24edae318fd9269dd3dd0cdff791334bb1cb"
 
     # MoltenVK depends on very specific revisions of its dependencies.
     # For each resource the path to the file describing the expected
@@ -14,8 +14,8 @@ class MoltenVk < Formula
     resource "SPIRV-Cross" do
       # ExternalRevisions/SPIRV-Cross_repo_revision
       url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-          revision: "adec7acbf41a988713cdb85f93f26c8ca5ea863e"
-      version "adec7acbf41a988713cdb85f93f26c8ca5ea863e"
+          revision: "6c09849fe88c48eaed08413aa022aaa136a3a057"
+      version "6c09849fe88c48eaed08413aa022aaa136a3a057"
 
       livecheck do
         url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/SPIRV-Cross_repo_revision"
@@ -26,8 +26,8 @@ class MoltenVk < Formula
     resource "SPIRV-Headers" do
       # ExternalRevisions/SPIRV-Headers_repo_revision
       url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-          revision: "b824a462d4256d720bebb40e78b9eb8f78bbb305"
-      version "b824a462d4256d720bebb40e78b9eb8f78bbb305"
+          revision: "29981f65241605e08b0ede4cfeb999fe3b723c6a"
+      version "29981f65241605e08b0ede4cfeb999fe3b723c6a"
 
       livecheck do
         url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/SPIRV-Headers_repo_revision"
@@ -38,8 +38,8 @@ class MoltenVk < Formula
     resource "SPIRV-Tools" do
       # ExternalRevisions/SPIRV-Tools_repo_revision
       url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          revision: "262bdab48146c937467f826699a40da0fdfc0f1a"
-      version "262bdab48146c937467f826699a40da0fdfc0f1a"
+          revision: "0d6fd73ca73830ccab5fa1f00ed5ed40124e2c55"
+      version "0d6fd73ca73830ccab5fa1f00ed5ed40124e2c55"
 
       livecheck do
         url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/SPIRV-Tools_repo_revision"
@@ -50,8 +50,8 @@ class MoltenVk < Formula
     resource "Vulkan-Headers" do
       # ExternalRevisions/Vulkan-Headers_repo_revision
       url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-          revision: "6aefb8eb95c8e170d0805fd0f2d02832ec1e099a"
-      version "6aefb8eb95c8e170d0805fd0f2d02832ec1e099a"
+          revision: "e3b1eec08173d6b825cd3ac88c885a63b621504a"
+      version "e3b1eec08173d6b825cd3ac88c885a63b621504a"
 
       livecheck do
         url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/Vulkan-Headers_repo_revision"
@@ -62,8 +62,8 @@ class MoltenVk < Formula
     resource "Vulkan-Tools" do
       # ExternalRevisions/Vulkan-Tools_repo_revision
       url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-          revision: "013058f74e2356347f8d9317233bc769816c9dfb"
-      version "013058f74e2356347f8d9317233bc769816c9dfb"
+          revision: "8c66b352925cb771f793a4d3220b1321ae0febf1"
+      version "8c66b352925cb771f793a4d3220b1321ae0febf1"
 
       livecheck do
         url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/Vulkan-Tools_repo_revision"
