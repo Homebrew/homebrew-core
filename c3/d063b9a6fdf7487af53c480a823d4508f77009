@@ -1,0 +1,19 @@
+Formula/c/chiko.rb
+  s_1ded5135e8234e::t_0d8f0299dee4e4 30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "c3d063b9a6fdf7487af53c480a823d4508f77009",
+  "prompts": {},
+  "sessions": {
+    "s_1ded5135e8234e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4e3f5445-1ebf-463e-a367-b64819e6c614",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
