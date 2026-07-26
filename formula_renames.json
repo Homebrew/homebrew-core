@@ -95,6 +95,7 @@
   "ksh": "ksh93",
   "kubernetes-helm": "helm",
   "ldb": "samba",
+  "leaf-md": "leaf-markdown-viewer",
   "libcython": "cython",
   "libmongoclient": "mongo-cxx-driver",
   "libpython-tabulate": "python-tabulate",
