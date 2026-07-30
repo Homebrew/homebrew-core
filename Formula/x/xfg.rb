@@ -7,9 +7,9 @@ class Xfg < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "openssl@4"
   depends_on "icu4c@78"
   depends_on "jsoncpp"
+  depends_on "openssl@4"
 
   conflicts_with "fuego"
 
