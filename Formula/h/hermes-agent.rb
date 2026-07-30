@@ -3,8 +3,8 @@ class HermesAgent < Formula
 
   desc "Self-improving AI agent that creates skills from experience"
   homepage "https://hermes-agent.nousresearch.com"
-  url "https://github.com/NousResearch/hermes-agent/archive/refs/tags/v2026.7.20.tar.gz"
-  sha256 "285f3fc134ff466a90065e1517801a68993733b807158ee8f32aa01613786990"
+  url "https://github.com/NousResearch/hermes-agent/archive/refs/tags/v2026.7.30.tar.gz"
+  sha256 "1932d0fca3f2c5288c909f26f03738712083b14749d6855482d24af41feea7e2"
   license "MIT"
   head "https://github.com/NousResearch/hermes-agent.git", branch: "main"
 
@@ -31,11 +31,11 @@ class HermesAgent < Formula
   depends_on "pydantic" => :no_linkage
   depends_on "python@3.14"
 
-  pypi_packages exclude_packages: %w[certifi cryptography pillow pydantic]
+  pypi_packages exclude_packages: %w[certifi cryptography nemo-relay pillow pydantic]
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz"
-    sha256 "fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"
+    url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
+    sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
   end
 
   resource "anyio" do
@@ -64,8 +64,8 @@ class HermesAgent < Formula
   end
 
   resource "fastapi" do
-    url "https://files.pythonhosted.org/packages/cd/95/d3f0ae10836324a2eab98a52b61210ac609f08200bf4bb0dc8132d32f78a/fastapi-0.139.2.tar.gz"
-    sha256 "333145a6891e9b5b3cfceb69baf817e8240cde4d4588ae5a10bf56ffacb6255e"
+    url "https://files.pythonhosted.org/packages/8a/02/91e3416a8fdd715abb903a952a6bec7cdd8d14eed55d415fc8595524c319/fastapi-0.141.1.tar.gz"
+    sha256 "e8822fc40db1e1858054d7a949a888695bc9bdce70139178e33bd2871a453ca1"
   end
 
   resource "fire" do
@@ -184,8 +184,8 @@ class HermesAgent < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/ff/46/dd499ec9038423421951e4fad73051febaa13d2df82b4064f87af8b8c0c3/pytz-2026.2.tar.gz"
-    sha256 "0e60b47b29f21574376f218fe21abc009894a2321ea16c6754f3cad6eb7cdd6a"
+    url "https://files.pythonhosted.org/packages/fb/48/fb042503b6ca6cd271261dc559fd6432f7d8c713153e9ec5c591af4dfc1c/pytz-2026.3.post1.tar.gz"
+    sha256 "2211d3fcf9a797d3405cac96ac7f61d80e6a644f72a3309607282fe8a2010c5d"
   end
 
   resource "pyyaml" do
@@ -250,8 +250,8 @@ class HermesAgent < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/8c/69/40407dfc835517f058b603dbf37a6df094d8582b015a51eddc988febbcb7/tqdm-4.69.0.tar.gz"
-    sha256 "700c5e85dcd5f009dd6222588a29180a193a748247a5d855b4d67db93d79a53b"
+    url "https://files.pythonhosted.org/packages/21/3b/6c24bec5be5e743ffd99576daa5cc077722fc7d5bbc00bd133fa0c698dc6/tqdm-4.70.0.tar.gz"
+    sha256 "55b0b0dbd97462d06ebee91e4dac24ed4d4702be82b24f07e6c1d27e08cea220"
   end
 
   resource "urllib3" do
@@ -260,8 +260,8 @@ class HermesAgent < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/a2/65/b7c6c443ccc58678c91e1e973bbe2a878591538655d6e1d47f24ba1c51f3/uvicorn-0.51.0.tar.gz"
-    sha256 "f6f4b69b657c312f516dd2d268ab9ae6f254b11e4bac504f37b2ab58b24dd0b0"
+    url "https://files.pythonhosted.org/packages/05/c8/2d307868453a4bca6e64fa3581d122ae0748a0869c53f159339def179c7c/uvicorn-0.52.0.tar.gz"
+    sha256 "ca8876ad6c1983f394157c168b39d52f6dd56dabf5602fa0982751cffc2293ae"
   end
 
   resource "uvloop" do
@@ -284,17 +284,38 @@ class HermesAgent < Formula
     sha256 "82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee"
   end
 
+  # Lack sdist
+  resource "nemo-relay" do
+    url "https://github.com/NVIDIA/NeMo-Relay/archive/refs/tags/0.6.0.tar.gz"
+    sha256 "17e16753696a8319835ebfa7a98cd7b8dd2b27f7d893f16c2a385d8d7c13205e"
+  end
+
+  # Restore the Homebrew install handling upstream dropped, which otherwise
+  # tells users to `pip install -e` inside the Cellar
+  # https://github.com/NousResearch/hermes-agent/pull/68217
+  patch do
+    file "Patches/hermes-agent/restore-homebrew-install-method.patch"
+    type :unofficial
+  end
+
   def install
     # Allow to build with Python 3.14
     inreplace "pyproject.toml", "requires-python = \">=3.11,<3.14\"", "requires-python = \">=3.11,<3.15\""
 
+    # Upstream rejects wheel/sdist builds unless this is set
+    ENV["HERMES_NIX_BUILD"] = "1"
+
     virtualenv_install_with_resources
+
+    # Code-scoped stamp read by detect_install_method, as the Docker image does
+    (libexec/Language::Python.site_packages("python3.14")/".install_method").write "homebrew\n"
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/hermes version")
 
     assert_match "No sessions found", shell_output("#{bin}/hermes sessions list")
+    assert_match "brew upgrade hermes-agent", shell_output("#{bin}/hermes update --check", 1)
     system bin/"hermes", "status"
     system bin/"hermes", "doctor"
   end

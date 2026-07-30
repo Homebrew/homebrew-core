@@ -1,0 +1,66 @@
+diff --git a/hermes_cli/config.py b/hermes_cli/config.py
+index 4523f92..0b50b30 100644
+--- a/hermes_cli/config.py
++++ b/hermes_cli/config.py
+@@ -444,7 +444,7 @@ def detect_install_method(project_root: Optional[Path] = None) -> str:
+     See issue #34397.
+     """
+     root = _install_method_project_root(project_root)
+-    supported_methods = {"docker", "nix", "nixos", "git", "unknown"}
++    supported_methods = {"docker", "homebrew", "nix", "nixos", "git", "unknown"}
+ 
+     # 1. Code-scoped stamp — authoritative, immune to shared $HERMES_HOME.
+     try:
+@@ -538,6 +538,8 @@ def recommended_update_command_for_method(method: str) -> str:
+         return _NIX_UPDATE_MSG
+     if method == "docker":
+         return "docker pull nousresearch/hermes-agent:latest"
++    if method == "homebrew":
++        return "brew upgrade hermes-agent"
+     return "hermes update"
+ 
+ 
+diff --git a/hermes_cli/doctor.py b/hermes_cli/doctor.py
+index ca8b889..15cf37e 100644
+--- a/hermes_cli/doctor.py
++++ b/hermes_cli/doctor.py
+@@ -1618,7 +1618,12 @@ def run_doctor(args):
+     _check_gateway_service_linger(issues)
+     _check_s6_supervision(issues)
+ 
+-    if sys.platform != "win32":
++    if detect_install_method(PROJECT_ROOT) == "homebrew":
++        # Homebrew owns bin/hermes and the venv layout; the install.sh
++        # venv/bin + ~/.local/bin checks below do not apply.
++        _section("Command Installation")
++        check_ok("Installed by Homebrew", "(run 'brew upgrade hermes-agent' to update)")
++    elif sys.platform != "win32":
+         _section("Command Installation")
+         # Determine the venv entry point location
+         _venv_bin = None
+diff --git a/hermes_cli/main.py b/hermes_cli/main.py
+index 814fa7e..b8cabdc 100644
+--- a/hermes_cli/main.py
++++ b/hermes_cli/main.py
+@@ -8984,7 +8984,7 @@ def cmd_update(args):
+         print(format_docker_update_message())
+         sys.exit(1)
+ 
+-    if install_method in {"nix", "nixos"}:
++    if install_method in {"homebrew", "nix", "nixos"}:
+         print(recommended_update_command_for_method(install_method))
+         sys.exit(1)
+ 
+diff --git a/hermes_cli/update_cmd.py b/hermes_cli/update_cmd.py
+index 6b777ff..02597af 100644
+--- a/hermes_cli/update_cmd.py
++++ b/hermes_cli/update_cmd.py
+@@ -1939,7 +1939,7 @@ def _cmd_update_check(branch: str = "main", *, branch_explicit: bool = False):
+         print(format_docker_update_message())
+         sys.exit(1)
+ 
+-    if method in {"nix", "nixos"}:
++    if method in {"homebrew", "nix", "nixos"}:
+         print(recommended_update_command_for_method(method))
+         sys.exit(1)
+ 
