@@ -6,7 +6,7 @@ class Xfg < Formula
   license "GPL-3.0-or-later"
 
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "boost@1.85" # boost 1.86+ breaks io_service compat
   depends_on "openssl@3"
   depends_on "icu4c"
   depends_on "jsoncpp"
