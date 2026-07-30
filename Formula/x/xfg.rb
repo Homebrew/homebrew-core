@@ -6,7 +6,7 @@ class Xfg < Formula
   license "GPL-3.0-or-later"
 
   depends_on "cmake" => :build
-  depends_on "boost@1.85"
+  depends_on "boost"
   depends_on "openssl@3"
   depends_on "icu4c"
   depends_on "jsoncpp"
@@ -14,14 +14,14 @@ class Xfg < Formula
   conflicts_with "fuego"
 
   def install
-    system "cmake", "-B", "build", "-DCMAKE_BUILD_TYPE=Release", *std_cmake_args
-    system "cmake", "--build", "build", "-j", Hardware::CPU.cpus
+    system "cmake", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     cd "tui" do
-      system "go", "build", "-o", bin/"fuego-tui"
+      system "go", "build", *std_go_args(output: bin/"fuego-tui"), "."
     end
     cd "swapxfg" do
-      system "go", "build", "-o", bin/"swapxfg", "."
+      system "go", "build", *std_go_args(output: bin/"swapxfg"), "."
     end
   end
 
