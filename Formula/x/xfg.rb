@@ -26,10 +26,10 @@ class Xfg < Formula
   end
 
   test do
-    wallet_path = testpath/"test_wallet.bin"
-    system "#{bin}/fire_wallet", "--testnet", "--generate-new-wallet", wallet_path.to_s,
-           "--password", "test_password"
-    assert_predicate wallet_path, :exist?
-    assert_match "Fuego", shell_output("#{bin}/fuegod --help 2>&1", 1)
+    # fuegod --print-genesis-tx exercises the crypto engine, block serialization,
+    # and coinbase construction without needing a running node
+    output = shell_output("#{bin}/fuegod --print-genesis-tx 2>&1")
+    assert_match "GENESIS_COINBASE_TX_HEX", output
+    assert_match "013c01ff0001", output
   end
 end
