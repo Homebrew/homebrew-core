@@ -1,8 +1,8 @@
 class Vapor < Formula
   desc "Command-line tool for Vapor (Server-side Swift web framework)"
   homepage "https://vapor.codes"
-  url "https://github.com/vapor/toolbox/archive/refs/tags/20.0.0.tar.gz"
-  sha256 "b3b215a69ae8b5235d4f37229313ee1947de5c5b9ad2142a76b17c105dd758cf"
+  url "https://github.com/vapor/toolbox/archive/refs/tags/20.0.1.tar.gz"
+  sha256 "3fbd7eb255e2b5233cac7d6a83ce5670c07d46b7124df885d8bbdd5de72933d3"
   license "MIT"
   head "https://github.com/vapor/toolbox.git", branch: "main"
 
@@ -32,7 +32,7 @@ class Vapor < Formula
   end
 
   test do
-    system bin/"vapor", "new", "hello-world", "-n"
+    system bin/"vapor", "new", "hello-world", "--no-fluent", "--no-leaf"
     assert_path_exists testpath/"hello-world/Package.swift"
   end
 end
