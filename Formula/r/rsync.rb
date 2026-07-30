@@ -5,6 +5,7 @@ class Rsync < Formula
   mirror "https://github.com/RsyncProject/rsync/releases/download/v3.4.4/rsync-3.4.4.tar.gz"
   sha256 "bd88cf82fa653da32314fb229136407c5c90f80d1758d8f4b091767877d8fa96"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://rsync.samba.org/ftp/rsync/?C=M&O=D"
@@ -28,6 +29,11 @@ class Rsync < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  patch :p0 do
+    url "https://github.com/macports/macports-ports/raw/07d4977a98e68f98b8835b67a6a7a168cc13f145/net/rsync/files/fileflags.diff"
+    sha256 "b3bf038c732f2610b7e0d1cdaa42d7b0f2316d4c0c9c867e5e443db82901e3a6"
   end
 
   def install
