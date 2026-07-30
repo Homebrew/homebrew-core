@@ -7,7 +7,7 @@ class Xfg < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "icu4c@78"
   depends_on "jsoncpp"
 
@@ -26,8 +26,6 @@ class Xfg < Formula
   end
 
   test do
-    # fuegod --print-genesis-tx exercises the crypto engine, block serialization,
-    # and coinbase construction without needing a running node
     output = shell_output("#{bin}/fuegod --print-genesis-tx 2>&1")
     assert_match "GENESIS_COINBASE_TX_HEX", output
     assert_match "013c01ff0001", output
