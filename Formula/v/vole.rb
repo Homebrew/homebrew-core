@@ -15,7 +15,9 @@ class Vole < Formula
   end
 
   test do
-    assert_match "vole", shell_output("#{bin}/vole --help")
     assert_predicate pkgshare/"rules", :directory?
+    # Exercise real functionality: load packaged rules and emit a clean plan JSON.
+    output = shell_output("#{bin}/vole clean --plan")
+    assert_match "\"schema_version\":1", output
   end
 end
