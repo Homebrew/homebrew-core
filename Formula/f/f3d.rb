@@ -4,7 +4,7 @@ class F3d < Formula
   url "https://github.com/f3d-app/f3d/archive/refs/tags/v3.5.0.tar.gz"
   sha256 "033845b5d49af3ae60fcc3fe85d82c841d990d3534638a4472123f84b3e82795"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
@@ -39,6 +39,14 @@ class F3d < Formula
     depends_on "libx11"
     depends_on "mesa"
     depends_on "zlib-ng-compat"
+  end
+
+  # Support `opencascade` 8.x
+  patch do
+    url "https://github.com/f3d-app/f3d/commit/68e9a13e9aa1aa2ae4af511205957bc5730c2d44.patch?full_index=1"
+    sha256 "6171ca7877ab8d2bc88b7e1cccdb5ca69c66ca83f42d50777651c81a6c1ec869"
+    type :backport
+    resolves "https://github.com/f3d-app/f3d/pull/3137"
   end
 
   def install
