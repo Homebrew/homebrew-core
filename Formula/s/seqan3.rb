@@ -12,10 +12,6 @@ class Seqan3 < Formula
   depends_on "cereal" => :build
   depends_on "cmake" => :build
 
-  on_macos do
-    depends_on "gcc" => :test if DevelopmentTools.clang_build_version < 1700
-  end
-
   def install
     args = %w[-DCPM_LOCAL_PACKAGES_ONLY=ON]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -33,7 +29,7 @@ class Seqan3 < Formula
       }
     CPP
 
-    ENV.method("gcc-#{Formula["gcc"].version.major}").call if OS.mac? && DevelopmentTools.clang_build_version < 1700
+    # ENV.method("gcc-#{Formula["gcc"].version.major}").call if OS.mac? && DevelopmentTools.clang_build_version < 1700
     system ENV.cxx, "-std=c++23", "test.cpp", "-o", "test"
     system "./test"
   end
