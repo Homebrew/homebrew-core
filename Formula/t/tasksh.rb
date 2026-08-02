@@ -4,7 +4,7 @@ class Tasksh < Formula
   url "https://github.com/GothenburgBitFactory/taskshell/releases/download/v1.2.0/tasksh-1.2.0.tar.gz"
   sha256 "6e42f949bfd7fbdde4870af0e7b923114cc96c4344f82d9d924e984629e21ffd"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/GothenburgBitFactory/taskshell.git", branch: "master"
 
   livecheck do
@@ -30,7 +30,6 @@ class Tasksh < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "readline" # Possible opportunistic linkage. TODO: Check if this can be removed.
   depends_on "task"
 
   on_linux do
