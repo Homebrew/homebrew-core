@@ -3,10 +3,9 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.98.tar.bz2"
-  sha256 "eef1948b937f5f043749eee75fe0c6d7e8f036551d945e9d55e37870b06cc527"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-3.6.tar.bz2"
+  sha256 "2852a2b6fcf7cc5110022f2192f2010b473941346638945a99d57473231b7a35"
   license "LGPL-3.0-or-later"
-  revision 5
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
@@ -48,6 +47,11 @@ class GraphTool < Formula
     depends_on "cairo"
     depends_on "libomp"
     depends_on "libsigc++"
+  end
+
+  fails_with :gcc do
+    version "13"
+    cause "Requires GNU++23 support"
   end
 
   pypi_packages package_name:   "",
