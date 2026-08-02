@@ -31,19 +31,14 @@ class Otterdog < Formula
   # No sdist on PyPI, so we use the GitHub tarball
   # Ref: https://github.com/microsoft/playwright-python/issues/2579
   resource "playwright" do
-    # 1.61.0+ needed ahead of poetry.lock as driver CDN blobs for <=1.58 were removed, breaking source builds
     url "https://github.com/microsoft/playwright-python/archive/refs/tags/v1.61.0.tar.gz"
     sha256 "ed26e5ef51c730b2bb8019042cb529f56dd459acd1a9bcbe3c0373ca598104ed"
 
     # We track poetry.lock version while PyPI sdist is not available as it
     # guarantees a compatible version is installed.
-    # TODO: Restore the check below once otterdog's poetry.lock reaches playwright >= 1.61
-    # livecheck do
-    #   url "https://raw.githubusercontent.com/eclipse-csi/otterdog/refs/tags/v#{LATEST_VERSION}/poetry.lock"
-    #   regex(/name = "playwright"\nversion = "(\d+(?:\.\d+)+)"/i)
-    # end
     livecheck do
-      skip "Pinned ahead of upstream poetry.lock to keep source builds working"
+      url "https://raw.githubusercontent.com/eclipse-csi/otterdog/refs/tags/v#{LATEST_VERSION}/poetry.lock"
+      regex(/name = "playwright"\nversion = "(\d+(?:\.\d+)+)"/i)
     end
   end
 
