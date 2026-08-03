@@ -42,7 +42,7 @@ class Grate < Formula
   end
 
   test do
-    scripts = testpath/"scripts"/"up"
+    scripts = testpath/"scripts/up"
     scripts.mkpath
     (scripts/"001_create_widgets.sql").write <<~SQL
       CREATE TABLE widgets (
