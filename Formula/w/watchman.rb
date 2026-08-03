@@ -3,8 +3,8 @@ class Watchman < Formula
 
   desc "Watch files and take action when they change"
   homepage "https://facebook.github.io/watchman/"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2026.07.27.00.tar.gz"
-  sha256 "4bab0e96e251a477148d5267aa293065f9cc8585b46485da569a729ced654de4"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2026.08.03.00.tar.gz"
+  sha256 "36ecc782f7dc056e79bd664b3f4c6d4fe08ca78041835df2f1c39ef2566461f6"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
@@ -42,15 +42,17 @@ class Watchman < Formula
     depends_on "openssl@4"
   end
 
-  # fmt 12.2 dropped fmt::format from <fmt/core.h>; include <fmt/format.h> where used.
-  patch do
-    url "https://github.com/facebook/watchman/commit/7dbd77e849641ec756fee53a587da56d4502b4d1.patch?full_index=1"
-    sha256 "5855728d86bca5c11d08195db93659da91a813ce7a5c0293366aafe08970364a"
-    type :unofficial
-    resolves "https://github.com/facebook/watchman/pull/1348"
-  end
-
   def install
+    # fmt 12.2 no longer provides fmt::format via <fmt/core.h>
+    # https://github.com/facebook/watchman/pull/1348
+    inreplace Dir["watchman/**/*.{cpp,h}"], "<fmt/core.h>", "<fmt/format.h>", audit_result: false
+
+    # The release tarball does not vendor eden/fs/utils/GlobPath.h that this type needs
+    inreplace "eden/fs/service/eden.thrift" do |s|
+      s.gsub! 'cpp_include "eden/fs/utils/GlobPath.h"', ""
+      s.gsub! '@cpp.Type{name = "::facebook::eden::GlobPathList"}', ""
+    end
+
     # NOTE: Setting `BUILD_SHARED_LIBS=ON` will generate DSOs for Eden libraries.
     #       These libraries are not part of any install targets and have the wrong
     #       RPATHs configured, so will need to be installed and relocated manually
