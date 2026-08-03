@@ -1,0 +1,15 @@
+Formula/v/v2ray.rb
+  h_9df9c32c3f321d 28-32,38-42,46-52
+  h_9df9c32c3f321d 26,36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "5711671d0d652f01577a1fd4092620b4866df95d",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
