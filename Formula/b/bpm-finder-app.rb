@@ -2,7 +2,7 @@ class BpmFinderApp < Formula
   desc "Audio tempo detection, tap BPM counter, and delay timing calculator"
   homepage "https://bpmfinderapp.com"
   url "https://github.com/nazzal5448/bpm-finder-app/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  sha256 "12887f0211b6d9582575cb020c29cbfe9f3dc5a2ca9f5aee9acacd0e4235929e"
   license "MIT"
 
   def install
