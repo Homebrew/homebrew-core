@@ -5,8 +5,10 @@ class BpmFinderApp < Formula
   sha256 "12887f0211b6d9582575cb020c29cbfe9f3dc5a2ca9f5aee9acacd0e4235929e"
   license "MIT"
 
+  depends_on "node"
+
   def install
-    bin.install "snapcraft-bpm-finder/bin/bpm-finder-app" => "bpm-finder-app"
+    system "npm", "install", *std_npm_args
   end
 
   test do
