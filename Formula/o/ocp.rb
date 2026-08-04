@@ -1,8 +1,8 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
   homepage "https://stian.cubic.org/project-ocp.php"
-  url "https://stian.cubic.org/ocp/ocp-3.3.1.tar.xz"
-  sha256 "924c07f53d45e2bda3e9a4c404ff520dfa49ffed7718ebe6f1d352479bca9ad3"
+  url "https://stian.cubic.org/ocp/ocp-3.4.0.tar.xz"
+  sha256 "191363a8b451ecc692e1cd69b1736e7c83f86a83e62ad18bd6c4e7dceaed9b52"
   license "GPL-2.0-or-later"
   head "https://github.com/mywave82/opencubicplayer.git", branch: "master"
 
@@ -50,8 +50,9 @@ class Ocp < Formula
 
   # https://github.com/mywave82/opencubicplayer/blob/master/mingw/versionsconf.sh#L20
   resource "unifont" do
-    url "https://ftpmirror.gnu.org/gnu/unifont/unifont-17.0.04/unifont-17.0.04.tar.gz"
-    sha256 "5c52c5d56ef98089ddbca62e68560ceccc57ea88940b9d38cc3c888fe3b59a34"
+    url "https://ftpmirror.gnu.org/gnu/unifont/unifont-17.0.05/unifont-17.0.05.tar.gz"
+    mirror "https://ftp.gnu.org/gnu/unifont/unifont-17.0.05/unifont-17.0.05.tar.gz"
+    sha256 "f287cffb26e22723aa36e6684869b0f3ff3bfb822c4b01008bd847911ec1b631"
   end
 
   def install
@@ -66,6 +67,7 @@ class Ocp < Formula
 
     args = %W[
       --prefix=#{prefix}
+      --without-speex
       --without-x11
       --without-desktop_file_install
       --without-update-mime-database
