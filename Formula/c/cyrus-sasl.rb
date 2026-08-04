@@ -4,6 +4,7 @@ class CyrusSasl < Formula
   url "https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.28/cyrus-sasl-2.1.28.tar.gz"
   mirror "http://fresh-center.net/linux/misc/cyrus-sasl-2.1.28.tar.gz"
   sha256 "7ccfc6abd01ed67c1a0924b353e526f1b766b21f42d4562ee635a8ebfc5bb38c"
+  head "https://github.com/cyrusimap/cyrus-sasl.git", branch: "master"
   license "BSD-3-Clause-Attribution"
   revision 2
 
@@ -30,6 +31,11 @@ class CyrusSasl < Formula
   uses_from_macos "libxcrypt"
 
   def install
+    if build.head?
+      with_env("NOCONFIGURE" => 1) do
+        system "sh", "./autogen.sh"
+      end
+    end
     system "./configure",
       "--disable-macos-framework",
       "--disable-dependency-tracking",
