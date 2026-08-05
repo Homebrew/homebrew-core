@@ -1,0 +1,14 @@
+Formula/c/calm-cli.rb
+  h_9df9c32c3f321d 35,38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "8af9eeccfd14e7ae9269d3271d6b7aeb2231c9e9",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
