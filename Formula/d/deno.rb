@@ -37,33 +37,65 @@ class Deno < Formula
 
   conflicts_with "dxpy", because: "both install `dx` binaries"
 
-  def llvm
-    Formula["llvm"]
+  # Temporary resource to work around build failure due to files missing from
+  # crate needed to build with V8_FROM_SOURCE=1
+  resource "rusty_v8" do
+    url "https://github.com/denoland/rusty_v8.git",
+        tag:      "v150.2.0",
+        revision: "d305e6afa7736f6e298c30ae6646f7709ee9382b"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/denoland/deno/refs/tags/v#{LATEST_VERSION}/Cargo.lock"
+      regex(/^name = "v8"\nversion = "(\d+(?:\.\d+)+)"/i)
+    end
   end
 
-  def install
-    inreplace "Cargo.toml" do |s|
-      # https://github.com/Homebrew/homebrew-core/pull/227966#issuecomment-3001448018
-      s.gsub!(/^lto = true$/, 'lto = "thin"')
+  def llvm = Formula["llvm"]
 
-      # Avoid vendored dependencies.
-      s.gsub!(/^libffi = "(.+)"$/, 'libffi = { version = "\\1", features = ["system"] }')
-      s.gsub!(/^rusqlite = { version = "(.+)", features = \["unlock_notify", "bundled", "session"/,
-              'rusqlite = { version = "\\1", features = ["unlock_notify", "session"')
+  def install
+    # Work around files missing from crate
+    resource("rusty_v8").stage("rusty_v8")
+    if build.head? && (v8_version = File.read("Cargo.lock")[/^name = "v8"\nversion = "(\d+(?:\.\d+)+)"/i, 1])
+      system "git", "-C", "rusty_v8", "checkout", "--recurse-submodules", "v#{v8_version}"
+    end
+    args = %w[--config patch.crates-io.v8.path="rusty_v8"]
+
+    # Same inreplaces as `v8` formula to allow building with stable Clang
+    inreplace "rusty_v8/build/config/compiler/BUILD.gn" do |s|
+      s.gsub! 'cflags += [ "-fno-lifetime-dse" ]', ""
+      s.gsub! 'cflags += [ "-fdiagnostics-show-inlining-chain" ]', ""
+    end
+    inreplace "rusty_v8/build/config/sanitizers/sanitizers.gni",
+              '"-fsanitize-ignore-for-ubsan-feature=${invoker.sanitizer}",', ""
+
+    # FIXME: unable to build with brew rust (via `rust_sysroot_absolute`) due to nightly flags
+    gn_args = %W[clang_version="#{llvm.version.major}" use_lld=#{OS.linux?}]
+    if OS.linux?
+      # unbundle toolchain uses separate host toolchain and reads BUILD_* variables
+      ENV["BUILD_AR"]  = ENV["AR"] = which("ar") # llvm.opt_bin/"llvm-ar"
+      ENV["BUILD_NM"]  = ENV["NM"] = which("nm") # llvm.opt_bin/"llvm-nm"
+      ENV["BUILD_CC"]  = ENV.cc
+      ENV["BUILD_CXX"] = ENV.cxx
+      gn_args += %w[
+        custom_toolchain="//build/toolchain/linux/unbundle:default"
+        host_toolchain="//build/toolchain/linux/unbundle:default"
+        use_system_libffi=true
+      ]
     end
 
+    ENV["CARGO_FEATURE_SYSTEM"] = "1" # libffi
     ENV["LCMS2_LIB_DIR"] = formula_opt_lib("little-cms2")
+    ENV["LIBSQLITE3_SYS_USE_PKG_CONFIG"] = "1"
+    ENV["V8_FROM_SOURCE"] = "1" # per Homebrew/core policy, do not use prebuilt libv8.a
     # env args for building a release build with our python3 and ninja
     ENV["PYTHON"] = which("python3")
     ENV["NINJA"] = which("ninja")
     # Build with llvm and link against system libc++ (no runtime dep)
-    ENV["CLANG_BASE_PATH"] = llvm.prefix
+    ENV["CLANG_BASE_PATH"] = llvm.opt_prefix
+    ENV["GN_ARGS"] = gn_args.join(" ")
 
-    # use our clang version, and disable lld because the build assumes the lld
-    # supports features from newer clang versions (>=20)
-    ENV["GN_ARGS"] = "clang_version=#{llvm.version.major} use_lld=#{OS.linux?}"
-
-    system "cargo", "install", "--no-default-features", "-vv", *std_cargo_args(path: "cli")
+    features = ["deno_core/v8", "v8/v8"] if build.head?
+    system "cargo", "install", "--no-default-features", "-vv", *args, *std_cargo_args(path: "cli", features:)
     bin.install_symlink bin/"deno" => "dx"
     generate_completions_from_executable(bin/"deno", "completions")
   end
