@@ -201,7 +201,6 @@ class Chapel < Formula
     ENV["CHPL_LIB_PATH"] = HOMEBREW_PREFIX/"lib"
     ENV["CHPL_IGNORE_GASNET_LD"] = "1"
     ENV["CHPL_RT_SILENCE_UNUSED_CORES"] = "1"
-    ENV["CHPL_START_TEST_ARGS"] = "--test-root #{testpath}"
 
     cd libexec do
       system "util/test/checkChplInstall"
