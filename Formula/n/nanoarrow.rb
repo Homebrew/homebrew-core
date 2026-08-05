@@ -15,9 +15,18 @@ class Nanoarrow < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "flatcc"
+
+  # Link against shared flatccrt library instead of static
+  # Upstream hardcodes STATIC IMPORTED for external flatcc
+  # Issue ref: https://github.com/apache/arrow-nanoarrow/issues/922
+  patch :DATA
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = %w[-DNANOARROW_IPC=ON]
+    args << "-DNANOARROW_FLATCC_ROOT_DIR=#{formula_opt_prefix("flatcc")}"
+    args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -33,5 +42,43 @@ class Nanoarrow < Formula
     C
     system ENV.cc, "test.c", "-L#{lib}", "-lnanoarrow_shared", "-o", "test"
     system "./test"
+
+    # Test IPC functionality
+    (testpath/"test_ipc.c").write <<~C
+      #include <nanoarrow/nanoarrow.h>
+      #include <nanoarrow/nanoarrow_ipc.h>
+
+      int main() {
+        struct ArrowIpcInputStream input;
+        input.release = NULL;
+        return 0;
+      }
+    C
+    system ENV.cc, "test_ipc.c", "-L#{lib}", "-lnanoarrow_shared", "-lnanoarrow_ipc_shared", "-o", "test_ipc"
+    system "./test_ipc"
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -227,13 +227,13 @@ if(NANOARROW_IPC)
+
+   elseif(NOT NANOARROW_FLATCC_INCLUDE_DIR)
+     set(NANOARROW_FLATCC_INCLUDE_DIR "${NANOARROW_FLATCC_ROOT_DIR}/include")
+-    add_library(flatccrt STATIC IMPORTED)
++    add_library(flatccrt SHARED IMPORTED)
+     set_target_properties(flatccrt
+                           PROPERTIES IMPORTED_LOCATION
+-                                     "${NANOARROW_FLATCC_ROOT_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}flatccrt${CMAKE_STATIC_LIBRARY_SUFFIX}"
++                                     "${NANOARROW_FLATCC_ROOT_DIR}/lib/${CMAKE_SHARED_LIBRARY_PREFIX}flatccrt${CMAKE_SHARED_LIBRARY_SUFFIX}"
+                                      IMPORTED_LOCATION_DEBUG
+-                                     "${NANOARROW_FLATCC_ROOT_DIR}/debug/lib/${CMAKE_STATIC_LIBRARY_PREFIX}flatccrt_d${CMAKE_STATIC_LIBRARY_SUFFIX}"
++                                     "${NANOARROW_FLATCC_ROOT_DIR}/debug/lib/${CMAKE_SHARED_LIBRARY_PREFIX}flatccrt_d${CMAKE_SHARED_LIBRARY_SUFFIX}"
+                                      IMPORTED_LOCATION_RELEASE
+-                                     "${NANOARROW_FLATCC_ROOT_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}flatccrt${CMAKE_STATIC_LIBRARY_SUFFIX}"
++                                     "${NANOARROW_FLATCC_ROOT_DIR}/lib/${CMAKE_SHARED_LIBRARY_PREFIX}flatccrt${CMAKE_SHARED_LIBRARY_SUFFIX}"
+                                      INTERFACE_INCLUDE_DIRECTORIES
+                                      "${NANOARROW_FLATCC_INCLUDE_DIR}")
+   endif()
