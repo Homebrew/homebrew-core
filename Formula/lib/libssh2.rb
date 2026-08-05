@@ -126,6 +126,36 @@ class Libssh2 < Formula
     resolves "CVE-2026-66035"
   end
 
+  # Remove after confirming this is included in the next release
+  # `brew vulns --no-fix-available` showed:
+  # libssh2 (1.11.1)
+  # OSV-2022-24 (UNKNOWN) - Null-dereference READ in session_startup
+  #   Fixed in: b89858b83d68d7e29e0c5b0bb803f8a68271710c
+  # OSV-2024-847 (UNKNOWN) - Null-dereference READ in _libssh2_packet_add
+  #   Fixed in: b89858b83d68d7e29e0c5b0bb803f8a68271710c
+  patch do
+    url "https://github.com/libssh2/libssh2/commit/b89858b83d68d7e29e0c5b0bb803f8a68271710c.patch?full_index=1"
+    sha256 "76bdf62172e16e2f74fdde35cd3daa3db27b753c48c4a7bdfd295463444eb936"
+    type :backport
+    resolves "OSV-2022-24"
+    resolves "OSV-2022-847"
+  end
+
+  # Remove after confirming this is included in the next release
+  # `brew vulns --no-fix-available` showed:
+  # libssh2 (1.11.1)
+  # OSV-2025-90 (UNKNOWN) - Null-dereference READ in ubsan_GetStackTrace
+  #   Fixed in: 631e2f82a32ef016299ebb1af66efeae0161f68e
+  # OSV-2025-92 (UNKNOWN) - Null-dereference READ in session_startup
+  #   Fixed in: 631e2f82a32ef016299ebb1af66efeae0161f68e
+  patch do
+    url "https://github.com/libssh2/libssh2/commit/631e2f82a32ef016299ebb1af66efeae0161f68e.patch?full_index=1"
+    sha256 "a790ab6c15c8dd6300ca8a651121ecc91e90e0eda1a221ad8108f51de05e1cf3"
+    type :backport
+    resolves "OSV-2022-90"
+    resolves "OSV-2022-92"
+  end
+
   def install
     args = %W[
       --disable-silent-rules
