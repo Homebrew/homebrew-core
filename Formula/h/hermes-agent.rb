@@ -22,11 +22,6 @@ class HermesAgent < Formula
     sha256 cellar: :any, x86_64_linux:  "62dad23f60f0a785378ef2ea188255a724633e437cd5305ff667643a10a036f2"
   end
 
-  # Support for brew was removed in https://github.com/NousResearch/hermes-agent/pull/68217
-  # Formula can not be updated
-  deprecate! date: "2026-08-03", because: "Upstream does not suppoort brew anymore"
-  disable! date: "2027-02-03", because: :unmaintained
-
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
