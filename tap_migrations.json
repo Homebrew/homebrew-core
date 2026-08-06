@@ -4,6 +4,7 @@
   "app-engine-go-32": "homebrew/cask/google-cloud-sdk",
   "app-engine-go-64": "homebrew/cask/google-cloud-sdk",
   "avidemux": "homebrew/cask",
+  "azure-cli": "homebrew/cask",
   "chromedriver": "homebrew/cask",
   "cockatrice": "homebrew/cask",
   "codex": "homebrew/cask",
