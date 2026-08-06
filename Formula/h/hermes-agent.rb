@@ -234,6 +234,14 @@ class HermesAgent < Formula
       type :backport
       resolves "https://github.com/sethmlarson/socksio/pull/61"
     end
+
+    # Workaround for flit-core 4+
+    patch do
+      url "https://github.com/sethmlarson/socksio/commit/504f7e51682b9526d3ecc7ea893338af1fedfb2d.patch?full_index=1"
+      sha256 "b0c327c4e8fa722669dc372263d735f429015587e02935e2e8cb2b22028c0bfb"
+      type :unofficial
+      resolves "https://github.com/sethmlarson/socksio/pull/66"
+    end
   end
 
   resource "starlette" do
