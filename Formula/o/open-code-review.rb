@@ -4,6 +4,7 @@ class OpenCodeReview < Formula
   url "https://github.com/alibaba/open-code-review/archive/refs/tags/v1.8.10.tar.gz"
   sha256 "e6a69f15e74c13b3ef455b2df4e51d69d88057f07ecf2d64f20d4a02673a1756"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/alibaba/open-code-review.git", branch: "main"
 
   bottle do
@@ -20,6 +21,7 @@ class OpenCodeReview < Formula
   def install
     ldflags = "-X main.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"ocr"), "./cmd/opencodereview"
+    generate_completions_from_executable(bin/"ocr", "completion")
   end
 
   test do
