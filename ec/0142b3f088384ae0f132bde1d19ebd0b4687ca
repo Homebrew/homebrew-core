@@ -1,0 +1,14 @@
+Formula/w/wakatime-cli.rb
+  h_9df9c32c3f321d 5-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "ec0142b3f088384ae0f132bde1d19ebd0b4687ca",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
