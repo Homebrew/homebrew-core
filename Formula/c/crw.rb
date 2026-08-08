@@ -1,8 +1,8 @@
 class Crw < Formula
   desc "Web scraper for AI agents: scrape any URL to markdown in one command"
   homepage "https://github.com/us/crw"
-  url "https://github.com/us/crw/archive/refs/tags/v0.24.0.tar.gz"
-  sha256 "859b61750ae9d587105a120924c1df99e626d23ae2fafc42421d2e215a632195"
+  url "https://github.com/us/crw/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "61e00c46e1107595fa8d458bf4d41e4f05221e9b13e5f14d4cb9febf0740549c"
   license "AGPL-3.0-only"
   head "https://github.com/us/crw.git", branch: "main"
 
