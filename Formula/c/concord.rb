@@ -4,6 +4,7 @@ class Concord < Formula
   url "https://github.com/chojs23/concord/archive/refs/tags/v2.5.6.tar.gz"
   sha256 "ce321477df056448772aff022a9d39d58556b3a4a8f70d5c9847c79814161338"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "e80ed125ad00497f4e0bf66afd1bbce044f07f24bdbeb1b857fa036fc14db157"
@@ -23,6 +24,7 @@ class Concord < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "libva"
+    depends_on "mesa"
     depends_on "pipewire"
   end
 
