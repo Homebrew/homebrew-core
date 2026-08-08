@@ -3,8 +3,8 @@ class Pytr < Formula
 
   desc "Use TradeRepublic in terminal and mass download all documents"
   homepage "https://github.com/pytr-org/pytr"
-  url "https://files.pythonhosted.org/packages/11/91/6296f202e588f830437d27d0876745eca4e21555d9a11a504ac8270f1e4e/pytr-0.4.9.tar.gz"
-  sha256 "cd9a9547ba8de75caf9322bb205e71871890a57a69512a6e48a72bb354866332"
+  url "https://github.com/pytr-org/pytr/archive/refs/tags/v0.4.10.tar.gz"
+  sha256 "ed72bb4a88d9efc07c781ac9f426850b8e1847993e24892e8c921c7e10c9ab46"
   license "MIT"
   revision 1
 
