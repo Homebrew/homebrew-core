@@ -3,8 +3,8 @@ class Tracy < Formula
   homepage "https://tracy.nereid.pl/"
   # NOTE: Do not report issues with dependencies upstream as they only support
   # vendored dependencies, see https://github.com/wolfpld/tracy/issues/1079
-  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "d4efc50ebcb0bfcfdbba148995aeb75044c0d80f5d91223aebfaa8fa9e563d2b"
+  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "a932cf2a90adbf63f87b449fa4374a52f18a36c4a3858d4d69d3e75d62fa5f6a"
   license "BSD-3-Clause"
 
   bottle do
@@ -22,8 +22,7 @@ class Tracy < Formula
   depends_on "aklomp-base64"
   # TODO: depends_on "capstone"
   depends_on "freetype"
-  depends_on "md4c"
-  depends_on "nativefiledialog-extended"
+  # TODO: depends_on "md4c" once a release ships MD_FLAG_ADMONITIONS/FOOTNOTES
   depends_on "pugixml"
   depends_on "tidy-html5"
   depends_on "zstd"
@@ -32,6 +31,8 @@ class Tracy < Formula
 
   on_macos do
     depends_on "glfw"
+    # Linux vendors a newer NFD (see the `nfd` resource) for Wayland support
+    depends_on "nativefiledialog-extended"
   end
 
   on_linux do
@@ -41,11 +42,21 @@ class Tracy < Formula
     depends_on "mesa"
     depends_on "tbb"
     depends_on "wayland"
+
+    # The profiler's Wayland backend needs NFD_SetWaylandDisplay, which postdates
+    # nativefiledialog-extended 1.3.0. Vendor upstream's pinned commit until the
+    # formula ships Wayland support.
+    # TODO: add Wayland support to `nativefiledialog-extended` and drop this
+    resource "nfd" do
+      url "https://github.com/btzy/nativefiledialog-extended/archive/3cd252a8f7ca32419b1ca235c2990ba6a0ecba7c.tar.gz"
+      version "1.3.0-g3cd252a"
+      sha256 "3ea216a6f7cac2fefbd7dc1ce1deebf623a7f7d3022ee1d00277faccf2abd634"
+    end
   end
 
   resource "capstone" do
-    url "https://github.com/capstone-engine/capstone/releases/download/6.0.0-Alpha6/capstone-6.0.0-Alpha6.tar.xz"
-    sha256 "8ad244c35508b28d6c0751e3610a25380f34ddd892c968212794ed6a90d8e3cb"
+    url "https://github.com/capstone-engine/capstone/releases/download/6.0.0-Alpha10/capstone-6.0.0-Alpha10.tar.xz"
+    sha256 "3eabbad2c6e6b6904c78c72110527e5c560a245421fcc2dfbb135aa292a95e94"
   end
 
   resource "PPQSort" do
@@ -53,10 +64,18 @@ class Tracy < Formula
     sha256 "12d9c05363fa3d36f4916a78f1c7e237748dfe111ef44b8b7a7ca0f3edad44da"
   end
 
+  # Upstream pins an unreleased md4c commit for MD_FLAG_ADMONITIONS/FOOTNOTES,
+  # which no md4c release (including brew's) provides yet
+  resource "md4c" do
+    url "https://github.com/mity/md4c/archive/65c6c9d72cebd9a731aaa5597414ce04d9ea5de3.tar.gz"
+    version "0.5.3-77-g65c6c9d"
+    sha256 "e69592e2cea567fefb06b22013297f51a27197b1507e36a4896b8376c040a808"
+  end
+
   resource "usearch" do
     url "https://github.com/unum-cloud/USearch.git",
-        tag:      "v2.23.0",
-        revision: "7306bb446be5f0f0c529ec8acdc57361cef8a8a7"
+        tag:      "v2.26.0",
+        revision: "cc23bbaf21ef52313c5a495adbc40cbd733cdcfb"
   end
 
   def install
@@ -69,6 +88,11 @@ class Tracy < Formula
     inreplace "cmake/server.cmake", " libzstd ", " zstd::libzstd_shared "
     inreplace "cmake/vendor.cmake", /NAME json$/, "NAME nlohmann_json"
 
+    # Upstream requests nfd without a version, so CPM calls `find_package(nfd "")`,
+    # which the nfd config rejects; pin the version so the brew formula is reused
+    nfd_version = Formula["nativefiledialog-extended"].version
+    inreplace "cmake/vendor.cmake", /(NAME nfd)$/, "\\1\n            VERSION #{nfd_version}"
+
     # Workaround to bypass upstream vendoring tidy-html5 by adding a find module
     (staging_prefix/"Findtidy.cmake").write <<~CMAKE
       find_package(PkgConfig REQUIRED)
@@ -78,9 +102,26 @@ class Tracy < Formula
       find_package_handle_standard_args(tidy REQUIRED_VARS tidy_LIBRARIES VERSION_VAR tidy_VERSION)
     CMAKE
 
+    # md4c ships no CMake version file, so CPM's versioned `find_package` misses the
+    # staged copy and would fetch online; a pkg-config find module reuses the staged build
+    (staging_prefix/"Findmd4c.cmake").write <<~CMAKE
+      find_package(PkgConfig REQUIRED)
+      pkg_check_modules(md4c REQUIRED IMPORTED_TARGET md4c)
+      if(NOT TARGET md4c::md4c)
+        add_library(md4c::md4c ALIAS PkgConfig::md4c)
+      endif()
+      include(FindPackageHandleStandardArgs)
+      find_package_handle_standard_args(md4c REQUIRED_VARS md4c_LIBRARIES VERSION_VAR md4c_VERSION)
+    CMAKE
+
+    # The profiler links md4c's raw CPM target and pulls headers from its source tree;
+    # retarget both at the brew-style staged build so no online fetch is needed
+    inreplace "profiler/CMakeLists.txt", /^    md4c$/, "    md4c::md4c"
+    inreplace "profiler/CMakeLists.txt", %r{\$\{md4c_SOURCE_DIR\}/src}, staging_prefix/"include"
+
     odie "Try replacing capstone resource with dependency!" if Formula["capstone"].stable.version >= "6.0.0"
     resource("capstone").stage do
-      # https://github.com/wolfpld/tracy/blob/v0.13.1/cmake/vendor.cmake#L30-L53
+      # https://github.com/wolfpld/tracy/blob/v0.14.0/cmake/vendor.cmake#L40-L62
       disable_archs = %w[
         ALPHA ARC HPPA LOONGARCH M680X M68K MIPS MOS65XX PPC SPARC SYSTEMZ
         XCORE TRICORE TMS320C64X M680X EVM WASM BPF RISCV SH XTENSA
@@ -99,6 +140,33 @@ class Tracy < Formula
       system "cmake", "--install", "build"
     end
 
+    resource("md4c").stage do
+      system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=OFF",
+             *std_cmake_args(install_prefix: staging_prefix)
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+    end
+    ENV.prepend_path "PKG_CONFIG_PATH", staging_prefix/"lib/pkgconfig"
+
+    # Build the Wayland-capable NFD into the staging prefix so it precedes the
+    # older `nativefiledialog-extended` formula in the CPM `find_package` search.
+    if OS.linux?
+      resource("nfd").stage do
+        # NFD's Wayland build expects the xdg-foreign protocol from its git
+        # submodule; source it from the `wayland-protocols` formula instead.
+        proto = "unstable/xdg-foreign/xdg-foreign-unstable-v1.xml"
+        (buildpath/"nfd-3ps/unstable/xdg-foreign").install \
+          Formula["wayland-protocols"].opt_share/"wayland-protocols/#{proto}"
+        inreplace "src/CMakeLists.txt",
+                  "${CMAKE_CURRENT_SOURCE_DIR}/../3ps/wayland-protocols/#{proto}",
+                  "#{buildpath}/nfd-3ps/#{proto}"
+        system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=OFF",
+               "-DNFD_PORTAL=ON", "-DNFD_WAYLAND=ON", *std_cmake_args(install_prefix: staging_prefix)
+        system "cmake", "--build", "build"
+        system "cmake", "--install", "build"
+      end
+    end
+
     resource("usearch").stage do
       args = %w[
         -DUSEARCH_INSTALL=ON
@@ -108,16 +176,18 @@ class Tracy < Formula
       system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: staging_prefix)
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
-      (staging_prefix/"fp16").install "fp16/include"
     end
 
     args = %w[CAPSTONE GLFW FREETYPE LIBCURL PUGIXML].map { |arg| "-DDOWNLOAD_#{arg}=OFF" }
     args << "-DCMAKE_MODULE_PATH=#{staging_prefix}"
+    # upstream injects a bare `ccache` compile launcher that is not on the sandboxed build PATH
+    args << "-DNO_CCACHE=ON"
 
     buildpath.each_child do |child|
       next unless child.directory?
       next unless (child/"CMakeLists.txt").exist?
-      next if %w[python test].include?(child.basename.to_s)
+      # `monitor` is a Linux-only perf_event tool that upstream never builds in CI
+      next if %w[python test monitor].include?(child.basename.to_s)
 
       # Workaround to link to shared nativefiledialog-extended. Upstream only supports vendored libs
       extra_args = ["-DCMAKE_EXE_LINKER_FLAGS=-lobjc"] if OS.mac? && child.basename.to_s == "profiler"
@@ -127,7 +197,7 @@ class Tracy < Formula
       bin.install child.glob("build/tracy-*").select(&:executable?)
     end
 
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", "-DNO_CCACHE=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     bin.install_symlink "tracy-profiler" => "tracy"
