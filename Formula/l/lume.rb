@@ -7,8 +7,8 @@ class Lume < Formula
   head "https://github.com/trycua/cua.git", branch: "main"
 
   livecheck do
-    url :stable
-    regex(/^(?:lume[._-])?v?(\d+(?:\.\d+)+)$/i)
+    url "https://cua.ai/lume/install.sh"
+    regex(/^LUME_BAKED_VERSION="v?(\d+(?:\.\d+)+)" # x-release-please-version$/i)
   end
 
   bottle do
