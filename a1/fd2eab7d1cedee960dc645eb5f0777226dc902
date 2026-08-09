@@ -1,0 +1,29 @@
+Formula/l/lunarr.rb
+  s_b15f19d54b3096::t_71a2f6e7a4097f 36
+  s_b15f19d54b3096::t_f5bf121882631c 29-31,33,35
+  s_725e4c6983ed76::t_e112d9766c6010 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "a1fd2eab7d1cedee960dc645eb5f0777226dc902",
+  "prompts": {},
+  "sessions": {
+    "s_725e4c6983ed76": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fa3af-823c-7a13-8af1-e2c766b8a396",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    },
+    "s_b15f19d54b3096": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4695c827-497c-48e8-b2f5-ec6678b95736",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
