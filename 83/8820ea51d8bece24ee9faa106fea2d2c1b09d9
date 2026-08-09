@@ -1,0 +1,19 @@
+Formula/p/pake.rb
+  s_b15f19d54b3096::t_69c4b52ba25328 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "838820ea51d8bece24ee9faa106fea2d2c1b09d9",
+  "prompts": {},
+  "sessions": {
+    "s_b15f19d54b3096": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4695c827-497c-48e8-b2f5-ec6678b95736",
+        "model": "unknown"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
