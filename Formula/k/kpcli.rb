@@ -22,6 +22,7 @@ class Kpcli < Formula
     sha256 cellar: :any, x86_64_linux:  "cef290dfb2cd7da018353cd78e129e1972e5411ca73c4e0ae92a0d7035271071"
   end
 
+  depends_on "expat"
   depends_on "readline"
 
   uses_from_macos "ncurses"
@@ -53,6 +54,26 @@ class Kpcli < Formula
     sha256 "66aeac6127418be5e471ead3744648c766bd01482825c5b66652675f2bc86a8f"
   end
 
+  resource "Class::Inspector" do
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Class-Inspector-1.36.tar.gz"
+    sha256 "cc295d23a472687c24489d58226ead23b9fdc2588e522f0b5f0747741700694e"
+  end
+
+  resource "File::ShareDir" do
+    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.118.tar.gz"
+    sha256 "3bb2a20ba35df958dc0a4f2306fc05d903d8b8c4de3c8beefce17739d281c958"
+  end
+
+  resource "File::ShareDir::Install" do
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install-0.14.tar.gz"
+    sha256 "8f9533b198f2d4a9a5288cbc7d224f7679ad05a7a8573745599789428bc5aea0"
+  end
+
+  resource "XML::Parser" do
+    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.59.tar.gz"
+    sha256 "a358fd7c49f5e27717a644a9102bd21dc7fc25a415983279c59b1580e2b62a58"
+  end
+
   resource "File::KeePass" do
     url "https://cpan.metacpan.org/authors/id/R/RH/RHANDOM/File-KeePass-2.03.tar.gz"
     sha256 "c30c688027a52ff4f58cd69d6d8ef35472a7cf106d4ce94eb73a796ba7c7ffa7"
@@ -74,8 +95,8 @@ class Kpcli < Formula
   end
 
   resource "Term::ReadLine::Gnu" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.46.tar.gz"
-    sha256 "b13832132e50366c34feac12ce82837c0a9db34ca530ae5d27db97cf9c964c7b"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.47.tar.gz"
+    sha256 "3b07ac8a9b494c50aa87a40dccab3f879b92eb9527ac0f2ded5d4743d166b649"
   end
 
   resource "Data::Password" do
@@ -128,5 +149,33 @@ class Kpcli < Formula
 
   test do
     system bin/"kpcli", "--help"
+
+    database_file = testpath/"test.kdbx"
+    database_secret = "testsecret"
+    password_file = testpath/"test.pw"
+    password_file.write "#{database_secret}\n"
+
+    (testpath/"create_database.pl").write <<~PERL
+      use File::KeePass;
+
+      my $keepass = File::KeePass->new;
+      my $group = $keepass->add_group({ title => "HomebrewGroup" });
+      $keepass->add_entry({
+        title    => "kpcli test entry",
+        username => "kpcli",
+        password => "KPCLI",
+        group    => $group,
+      });
+      $keepass->save_db($ARGV[0], "#{database_secret}");
+    PERL
+
+    ENV.prepend_path "PERL5LIB", libexec/"lib/perl5"
+    system "perl", testpath/"create_database.pl", database_file
+
+    output = shell_output(
+      "#{bin}/kpcli --kdb=#{database_file} --pwfile=#{password_file} " \
+      "--readonly --command='ls HomebrewGroup'",
+    )
+    assert_match "kpcli test entry", output
   end
 end
