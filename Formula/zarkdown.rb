@@ -3,7 +3,7 @@ class Zarkdown < Formula
 
   desc "Zarkdown - 键盘友好型纯文本标记语言"
   homepage "https://github.com/yangzizhoudiwuxuande/zarkdown"
-  url "https://github.com/yangzizhoudiwuxuande/zarkdown/releases/download/v2.0.1/zarkdown-2.0.1.tar.gz"
+  url "https://github.com/yangzizhoudiwuxuande/zarkdown/archive/refs/tags/v2.0.1.tar.gz"
   sha256 "963d118f63883567eedb150d6207884fffe315f94e3abb420500a7bfc5a7f4e4"
   license "MIT"
 
@@ -14,6 +14,8 @@ class Zarkdown < Formula
   end
 
   test do
-    system "#{bin}/zarkdown", "--version"
+    (testpath/"test.zkdn").write "/ 标题\n\n?粗体? 和 *链接*(https://example.com)"
+    system "#{bin}/zarkdown", "test.zkdn", "-o", "test.html"
+    assert_predicate testpath/"test.html", :exist?
   end
 end
