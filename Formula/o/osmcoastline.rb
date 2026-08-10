@@ -31,17 +31,8 @@ class Osmcoastline < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
-  # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.
-  # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
-  def remove_brew_expat
-    env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
-    ENV.remove env_vars, /(^|:)#{Regexp.escape(formula_opt_prefix("expat"))}[^:]*/
-    ENV.remove "HOMEBREW_DEPENDENCIES", "expat"
-  end
-
   def install
-    remove_brew_expat if OS.mac? && MacOS.version < :sequoia
+    ENV.remove_brew_expat if OS.mac? && MacOS.version < :sequoia
 
     protozero = formula_opt_include("protozero")
     args = %W[
