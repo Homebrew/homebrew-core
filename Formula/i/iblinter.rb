@@ -16,11 +16,7 @@ class Iblinter < Formula
     sha256                               x86_64_linux:  "c3a4dcb0445ce6cc30ee0d563919b23c5f7acd012cb83316d3f9a389343ad74c"
   end
 
-  uses_from_macos "swift"
-
-  on_macos do
-    depends_on xcode: ["10.2", :build]
-  end
+  uses_from_macos "swift" => :build # swift 5.2+
 
   # Fetch a copy of SourceKitten in order to fix build with newer Swift.
   # Issue ref: https://github.com/IBDecodable/IBLinter/issues/189
@@ -37,13 +33,12 @@ class Iblinter < Formula
   end
 
   def install
-    args = ["--disable-sandbox", "--configuration", "release"]
     if !OS.mac? || MacOS.version >= :sonoma
       (buildpath/"SourceKitten").install resource("SourceKitten")
-      system "swift", "package", *args, "edit", "SourceKitten", "--path", buildpath/"SourceKitten"
+      system "swift", "package", "--disable-sandbox", "edit", "SourceKitten", "--path", buildpath/"SourceKitten"
     end
 
-    system "swift", "build", *args
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/iblinter"
   end
 
