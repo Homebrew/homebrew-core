@@ -3,7 +3,7 @@ class SentryCli < Formula
   homepage "https://docs.sentry.io/cli/"
   url "https://github.com/getsentry/sentry-cli/archive/refs/tags/3.6.2.tar.gz"
   sha256 "f2b2471393efe7df74d980829df6bb2af3bd0036f5f8bf3204717d96393e6205"
-  license "BSD-3-Clause"
+  license "FSL-1.1-MIT"
   head "https://github.com/getsentry/sentry-cli.git", branch: "master"
 
   livecheck do
