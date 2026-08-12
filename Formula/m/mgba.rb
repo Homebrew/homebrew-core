@@ -2,7 +2,7 @@ class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
   license "MPL-2.0"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/mgba-emu/mgba/archive/refs/tags/0.10.5.tar.gz"
