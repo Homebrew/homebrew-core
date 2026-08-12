@@ -4,18 +4,18 @@ class MetaPackageManager < Formula
 
   desc "Wrapper around all package managers with a unifying CLI"
   homepage "https://kdeldycke.github.io/meta-package-manager/"
-  url "https://files.pythonhosted.org/packages/21/d5/5d40ce95ad2b7def61b259e71745605b42100c5329fea94f6e6c551a3ab6/meta_package_manager-7.6.0.tar.gz"
-  sha256 "da82b93648788da0ef3203e4c2164df9713108daf3cfc9b556ae047ca526c277"
+  url "https://files.pythonhosted.org/packages/0c/d7/40a3c0ba8a2dbdc177ad3138d9862d3733e0f4356b13f81dcf7f30eb7041/meta_package_manager-7.6.1.tar.gz"
+  sha256 "b504c57323c83dd545846abead91d1389cc843aa1ab01a20ac0eb96834f10344"
   license "GPL-2.0-or-later"
   head "https://github.com/kdeldycke/meta-package-manager.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5f89ff5f3f1d2b32e7deab3c4a5f4d2896df0956804f8289ac0735e2bae0a253"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f89ff5f3f1d2b32e7deab3c4a5f4d2896df0956804f8289ac0735e2bae0a253"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f89ff5f3f1d2b32e7deab3c4a5f4d2896df0956804f8289ac0735e2bae0a253"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9c4711909ef1b88c7cfab564366148d48dfa0cd9a6842802f7292a0c93a1c909"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d43938c382fcdfdac979ca481b41f7adfef09e8b9a72ced92867a26378194eae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d43938c382fcdfdac979ca481b41f7adfef09e8b9a72ced92867a26378194eae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "46fb7bd8d02baaeeb7408bd0ab4f234b0cc1df55441d624850c38904e535a618"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46fb7bd8d02baaeeb7408bd0ab4f234b0cc1df55441d624850c38904e535a618"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46fb7bd8d02baaeeb7408bd0ab4f234b0cc1df55441d624850c38904e535a618"
+    sha256 cellar: :any_skip_relocation, sonoma:        "85f1d1645dea081c099eb1e08b37f4cfca9fc7941a8279bf5923e6199010c65a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7aa6409204324dc7172dc90d3c332e120786e1bd24c41b7e18ef8851025e2219"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7aa6409204324dc7172dc90d3c332e120786e1bd24c41b7e18ef8851025e2219"
   end
 
   depends_on "rust" => :build

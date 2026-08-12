@@ -3,8 +3,8 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://github.com/Azure/azure-cli/archive/refs/tags/azure-cli-2.89.0.tar.gz"
-  sha256 "9486b17fb65c6c93412f2f34a60e9bb9a779dababac008d22fb6ddf97115678f"
+  url "https://github.com/Azure/azure-cli/archive/refs/tags/azure-cli-2.89.1.tar.gz"
+  sha256 "9d511a5f501464537e6aeec22d0b638edc81f1dd8ce0e6c6a22381c57ad70ba0"
   license "MIT"
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
@@ -17,12 +17,12 @@ class AzureCli < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "894cf7338d7200e1842c9ee20328702255b264b866c676ac691ea869d8e9424d"
-    sha256 cellar: :any, arm64_sequoia: "a92b5e59b3d3fb1e399029904c71415b48c02edaa1d4681ffad62fce6ba77c30"
-    sha256 cellar: :any, arm64_sonoma:  "c714e64cc055b64fa46389ab67ca6b72968ffaaac6b2209d6cb5b8757519bd4e"
-    sha256 cellar: :any, sonoma:        "99e90e50b940169fe440297ccf02488125bf3516f1d78fbbf9f0398372c7e099"
-    sha256 cellar: :any, arm64_linux:   "9bcae15919b945cb42fdbade6bdb0b0146c0a1de049c06a388c3aa8da9dfe204"
-    sha256 cellar: :any, x86_64_linux:  "c4c3a16c5e89faf3c81c83763c32339b37ce24ce0a80fc235605ca947e532578"
+    sha256 cellar: :any, arm64_tahoe:   "f9429b468dc05b7a7346aef50ff44bd696fa2d08ece762ace381d7a784ac3a73"
+    sha256 cellar: :any, arm64_sequoia: "c0777ad7635409f9ad03e1a301a61dcc21a83bd6b47ddbca4e520c52ceead9eb"
+    sha256 cellar: :any, arm64_sonoma:  "dcd7e595711c0236677f9e024a903d82cad25fcd8ea7a321558c46a28052b544"
+    sha256 cellar: :any, sonoma:        "031c5096be2a155ed1f91853ab461a2f0453c760bf28cb40a034dddfdccb05ba"
+    sha256 cellar: :any, arm64_linux:   "ce8ccb1f5a31ec76781c7ed8accdbac426b9fd0b59275805c8bd53048b527724"
+    sha256 cellar: :any, x86_64_linux:  "b7df1696e493f5a308bc9364fd65a10c67908c5ff539b1e70cf4b725e508e28e"
   end
 
   # `pkgconf`, `rust`, and `openssl@3` are for bcrypt and cryptography.
@@ -676,8 +676,8 @@ class AzureCli < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/01/91/47e7d486260f618783899587af63ccf7980fb60245c3e63dd4571c6b57ad/pip-26.1.2.tar.gz"
-    sha256 "f49cd134c61cf2fd75e0ce2676db03e4054504a5a4986d00f8299ae632dc4605"
+    url "https://files.pythonhosted.org/packages/ae/15/4500e320e6b101ec3b719ae85b697d9940b6cda672bc555bd6016fc60c6f/pip-26.2.1.tar.gz"
+    sha256 "f6ad667e89a1fe78046c8f13232b247200f5258d7828f3f7883d660878e0813f"
   end
 
   resource "py-deviceid" do
@@ -726,8 +726,8 @@ class AzureCli < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
-    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
+    url "https://files.pythonhosted.org/packages/6d/44/f5da03a8ef95d369145c5bb53050e7877c9f3d312e128605fd9504829143/setuptools-84.0.0.tar.gz"
+    sha256 "f4695c21257f0d9b537ec2692c941d02ee143b7cc1276941349a546573b2ef73"
   end
 
   resource "six" do

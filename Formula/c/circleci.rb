@@ -3,8 +3,8 @@ class Circleci < Formula
   homepage "https://cli.circleci.com"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      tag:      "v1.0.47876",
-      revision: "4ea36161842a0cd5157c7340dd9ddec6fb2001be"
+      tag:      "v1.0.47928",
+      revision: "cf232026b9f3cb3308e901bf4fa4cfc93c3f2a59"
   license "MIT"
   head "https://github.com/CircleCI-Public/circleci-cli.git", branch: "main"
 
@@ -14,12 +14,12 @@ class Circleci < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0e020bb386a318092e52cd83adb5e41b45817cb7ccf4009a2e7713f59b413676"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e98dbae780761694c7de18dcbd6ef5f23b26e5308eab2d2d51952e7270581302"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2fbc1cf7f71c99ad503a2f58b148b9337908da34b221d337f6354c27826fedf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f327505e7cb278d31c999cfba40bdf12d8da5cc82b13a13fa401ace741464ff5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8241dd2f21381f645b214faf3feaf3f818d4e56384a517f57fec66c9c998753"
-    sha256 cellar: :any,                 x86_64_linux:  "7572ef6db3753f22687e7a25c83abc1a48abd1de9f0e86c39ede08219e4cbe3c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "718c58b244d3c1b2cf1a25151dcab76beb65ff07d33bb9db67dee0f21e73fd6e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29bbb9d885682c2de104c141a5b8e799c14d1dd39e350c840d927c6a9e60dc4b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c238f984574076bec8ccea0a28a92dbfe31fe3812428f20b6fc3a4c94de9ce2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3bf55edb672d74f7413cbc13bf067be6956714a30536a9c71cae6e06a090f58d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2951674cc2afdcb60ab3b7ca8f6af0beb3486eccd7a66ee2714dd92392edba5d"
+    sha256 cellar: :any,                 x86_64_linux:  "35f48119f362bf3897f081bf94e492d68395244e41e9befcab736cdae16388d8"
   end
 
   depends_on "go" => :build

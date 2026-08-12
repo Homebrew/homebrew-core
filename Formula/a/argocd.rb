@@ -2,8 +2,8 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.github.io/cd/"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v3.5.0",
-      revision: "e95e1be88a2da6c06bff5c2fe1791e4d233ed810"
+      tag:      "v3.5.1",
+      revision: "109ca7ca71139e514114499d294a492e7910a965"
   license "Apache-2.0"
 
   # There can be a notable gap between when a version is tagged and a
@@ -18,12 +18,12 @@ class Argocd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bc7dd8768b45fa49f32c94f7902a9d7ea8f7d8c759331a07d6146094c6c15bfc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cdf67e7c5c35105e4b6713b63d42f386241445cd456016e5a3001d38a0c1361e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c517b8e69233b55eeb6a45ffa902e02ff774f97ff92f97b4ffe0f43d41abfc34"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6da01b36b22bd7da053660222e9270d43ec6eb45c7acf88fd6731126f6c69d7d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c32decde534f5ae9ba58d6502d5fd8e5a702d33f3f692faa0b19d64b540df99a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35d31dbc8adff102e517e5a24187fcc9be6613c924b54403baeeffd62372fe8a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dfa1369c7e3f04753018ce40fe4984fdbf11ad7eac8ce0690bf282e4c1ba1a75"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "987e768b953dc9e647743cee29650c36925497ba103d9223e77ebf6b2e11197e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d36181f22b5418d5e822b62e37b5571aa7aee364dd74266bcd99dff417e00b0f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4808f3b3e3c5578c0356a67f91f9b34d9dce8bba12d04497661e72c4a875be9d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71fd5465eb2374da5d5615c894e42fca28d906955d60b36bf83371bb1f9895d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29fb0739a3a0dc556f6aef6a28a74b2d4fe1a0d41f57beba5848e329cdfbfa97"
   end
 
   depends_on "corepack" => :build # requires newer `yarn`

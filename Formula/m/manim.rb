@@ -3,27 +3,27 @@ class Manim < Formula
 
   desc "Animation engine for explanatory math videos"
   homepage "https://www.manim.community"
-  url "https://files.pythonhosted.org/packages/dc/3b/ad54ce02f3e95d17d016cb1254708ae3795b60d5661f3b2085655940a565/manim-0.20.1.tar.gz"
-  sha256 "1e9747fb2fc1bde58ad09bcbd77d141793ce4b61811726a7fce537193d92e16b"
+  url "https://files.pythonhosted.org/packages/b1/2e/08d46ab1eb765f054cc9e4f64e95896d6fc53642c8f0e29c6c5c29028fe7/manim-0.21.0.tar.gz"
+  sha256 "2f3d719e726c9abf49b1bea503fb17510ee2063dab53915ab44a2c47c32f9a13"
   license "MIT"
-  revision 1
   head "https://github.com/manimCommunity/manim.git", branch: "main"
 
   # FIXME: Fails trying to resolve pycairo as pip tries compiling it but cannot find cairo
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "e9b8dcf893e651660fcd329ff2cf1e0bc16ddcd97e3fa6a66d2539c4c731e21f"
-    sha256 cellar: :any, arm64_sequoia: "b0f3bd6781fe7e17ebe9ba4137c0f8f1a7ab4f25edab0361b483bb02976ce084"
-    sha256 cellar: :any, arm64_sonoma:  "a550fadccc90d321c09cd38f5764533b176ea85386a77c0291dd2d86e1b88850"
-    sha256 cellar: :any, sonoma:        "bc300a6b4a8cb4dc85c7b62ba43aed318b784a8ed2174737b490953e25fb0c0e"
-    sha256 cellar: :any, arm64_linux:   "b84d0fbe6e1918cfd6caaa49dfe1aaa32e96672cd4d9b32a2daa498163b7938a"
-    sha256 cellar: :any, x86_64_linux:  "6efeaeb76911150baa467dd9fb2474020ed8cabc5df00c6af475970bf67d5996"
+    sha256 cellar: :any, arm64_tahoe:   "3adff6878a2aa615b4c6146209b2b0ebb1167f54c711f927ed02bfd8366c7080"
+    sha256 cellar: :any, arm64_sequoia: "e18c55186a8930afae64577e29e70b8677c0a2a7a6b62e88f893e37545d63daf"
+    sha256 cellar: :any, arm64_sonoma:  "0b1bd92bbc8ce6f02190e512aa29dd0540aa7e163b195fc4388224af8c31011f"
+    sha256 cellar: :any, sonoma:        "3849171c3798c25205db1f2242f6cb18f829ae7a67570d2adb8c3a698ce08588"
+    sha256 cellar: :any, arm64_linux:   "7c0a9ef805b8dd9fde5678da4aa13d7b9f593c956108497901fd351f3df569a8"
+    sha256 cellar: :any, x86_64_linux:  "97a8cf59713113c2ae8f29dd9d11c8b9c8cf73db0b040e94e4307250f74cffbb"
   end
 
   depends_on "cmake" => :build # for mapbox_earcut
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "rust" => :build
   depends_on "cairo" # for cairo.h
   depends_on "ffmpeg"
   depends_on "fontconfig"
@@ -180,8 +180,8 @@ class Manim < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/d9/38/e12680bbe6b4f8f3d17adcaf38d26850aa756c85cf4a80e79fc12a018fe8/soupsieve-2.9.1.tar.gz"
-    sha256 "c33e6605bbc71dd628b00c632d58ae607c22bade247e52553928f83bbb75b4ba"
+    url "https://files.pythonhosted.org/packages/69/99/a6ca3beb3ccacb41fb3321d8a60e5566f9e6467601ef8eba6a17e1b89778/soupsieve-2.9.2.tar.gz"
+    sha256 "4a55d8cf158a9c2e587fa4922f1bbb91d68ac829e2d6f25403a85747c71daf74"
   end
 
   resource "srt" do

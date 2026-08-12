@@ -9,13 +9,15 @@ class Cyan < Formula
   head "https://github.com/asdfzxcvbn/pyzule-rw.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3aaa04dcb1c17fb7c594bf66255d9657bad473ad3192f2f953a459a6ef117555"
-    sha256 cellar: :any,                 arm64_sequoia: "2afe45a12098c644a1783fde362b37338ef093eae02f027c69594827cc988df2"
-    sha256 cellar: :any,                 arm64_sonoma:  "8704c006c8abc7cb5f92f02a6fc45ffae48b99098de33cbfc0cf3d0c5aa7d955"
-    sha256 cellar: :any,                 sonoma:        "eb51d22bf9f8d1ca28278c1873893b47b1f50ebca6c9cab061561beda3cc6f08"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "739a405a26eaad070e1b0fc5094a8140db6d947492d8772f901ad45a90ab9114"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3e5c57e0f56551ead62e908c0fbf91e31dccec524fa4403e1c38b8fc06ade7b3"
+    sha256 cellar: :any,                 arm64_sequoia: "3e5c57e0f56551ead62e908c0fbf91e31dccec524fa4403e1c38b8fc06ade7b3"
+    sha256 cellar: :any,                 arm64_sonoma:  "3e5c57e0f56551ead62e908c0fbf91e31dccec524fa4403e1c38b8fc06ade7b3"
+    sha256 cellar: :any,                 sonoma:        "5384185dc20d570688aba0840637a715c3e5a97d2f8cc8686ec4442b6bddaa01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec4d32880cba6eb8e91bdbdfcb0c8c05ab8ab937d85c68fbe3d482960d6bd792"
   end
 
+  depends_on "ldid-procursus"
   depends_on "python@3.14"
 
   on_linux do
@@ -24,38 +26,31 @@ class Cyan < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
-    venv.pip_install buildpath
-    bin.install_symlink libexec/"bin/cyan"
-    bin.install_symlink libexec/"bin/cgen"
+    venv = virtualenv_install_with_resources
 
     # Keep only tool binaries for the current OS/architecture pair.
-    tools_system = OS.mac? ? "Darwin" : "Linux"
-    tools_arch = if OS.mac?
-      Hardware::CPU.arm? ? "arm64" : "x86_64"
-    else
-      Hardware::CPU.arm? ? "aarch64" : "x86_64"
-    end
+    tools_arch = (!OS.mac? && Hardware::CPU.arm64?) ? "aarch64" : Hardware::CPU.arch.to_s
     tools_root = venv.site_packages/"cyan/tools"
-    tools_root.children.each do |system_dir|
-      next unless system_dir.directory?
-      next if system_dir.basename.to_s == tools_system
+    tools_os_dir = tools_root/OS.kernel_name
+    tools_dir = tools_os_dir/tools_arch
+    rm_r(tools_root.children.select(&:directory?) - [tools_os_dir])
+    rm_r(tools_os_dir.children.select(&:directory?) - [tools_dir])
 
-      rm_r system_dir
-    end
+    # Replace prebuilt binaries
+    tools_dir.each_child do |tool|
+      cmd = tool.basename.to_s
+      next if cmd == "insert_dylib" # TODO: replace this prebuilt
 
-    current_system_dir = tools_root/tools_system
-    current_system_dir.children.each do |arch_dir|
-      next unless arch_dir.directory?
-      next if arch_dir.basename.to_s == tools_arch
-
-      rm_r arch_dir
-    end
-
-    if OS.linux?
-      tools_dir = current_system_dir/tools_arch
-      rm tools_dir/"lipo"
-      tools_dir.install_symlink formula_opt_bin("llvm")/"llvm-lipo" => "lipo"
+      rm(tool)
+      replacement = if cmd == "ldid"
+        formula_opt_bin("ldid-procursus")/cmd
+      elsif OS.linux?
+        formula_opt_bin("llvm")/"llvm-#{cmd.tr("_", "-")}"
+      else
+        DevelopmentTools.locate(cmd)
+      end
+      odie "Unable to find replacement for prebuilt #{cmd}!" if replacement.blank? || !replacement.exist?
+      ln_s replacement.relative_path_from(tools_dir), tools_dir/cmd
     end
   end
 

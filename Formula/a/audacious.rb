@@ -27,6 +27,7 @@ class Audacious < Formula
     sha256 arm64_tahoe:   "48dbe878fd9df67c86b7e437c2e4770f033f834cada423a10ae66c3a4c6b1113"
     sha256 arm64_sequoia: "2cfb53981e028830ddd8bef9502f4561f46f873ae4033799dc7a27aa9edc0cea"
     sha256 arm64_sonoma:  "314fe296aa6b20dd16824fa0394edbc5212a0096043ef696b492d195666325e4"
+    sha256 sonoma:        "e3490319addfa23b35a3b745bfd62eb6db3a3a363202af70ceaf9774d64cbc48"
     sha256 arm64_linux:   "6a9f6156904b0ef56f775d6818f0ba9ff33ec855665e62ffbd7925534727ece3"
     sha256 x86_64_linux:  "3617052325f3933306defaf34cadcef3d0c8b40aca0fb89b47c1b2f5a338f2d3"
   end

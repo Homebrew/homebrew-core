@@ -1,8 +1,8 @@
 class Mold < Formula
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
-  url "https://github.com/rui314/mold/archive/refs/tags/v2.41.0.tar.gz"
-  sha256 "0a61abac85d818437b425df856822e9d6e9982baeae5a93bcb02fe6c0060c61a"
+  url "https://github.com/rui314/mold/archive/refs/tags/v2.42.0.tar.gz"
+  sha256 "6c0f3308c5b3159a369202d970922ad819bab1bfcb5a3b3c06a723d19f65373e"
   license "MIT"
   head "https://github.com/rui314/mold.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Mold < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "35d236bd637fc1d244b9fc57d4813829dfa9013148d7fe0f42a829fcf0e99637"
-    sha256 cellar: :any,                 arm64_sequoia: "6b55e967cf616f017ed6b8a518783d65714f9b70a21b9289f2f49f2bc4e95876"
-    sha256 cellar: :any,                 arm64_sonoma:  "87addb4013852f6523584023085f3541402234ab13cb58c893edfbafbe93875b"
-    sha256 cellar: :any,                 sonoma:        "df2b0b7c591195a19e68244ddee0c6e0d50a51c5fc6ada23d06c51468b8e2531"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "23bce5ee171d327c402a9d42937ad6cc682e2bcee3ee658305b552a04d3ea1a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aeffa1693a6e26ffc350c89c46c7e19b60170f691293b35c362be433c0488373"
+    sha256 cellar: :any, arm64_tahoe:   "1bce73a0f4993f2e5a5adea86bebb4e468fbadbb5dafdb2cb843570a02c1c5f7"
+    sha256 cellar: :any, arm64_sequoia: "8bc93fb0496b59c0df4bdf52b80294148a25adf0e160ec582681e5e89bed8d93"
+    sha256 cellar: :any, arm64_sonoma:  "7b386120f413cc520d460747197fb16a5488ae608f59fa40d87436d032eb39b7"
+    sha256 cellar: :any, sonoma:        "87121cfe9730583b4515d0008faf5d2f75a45116d97f87b5790e85f324b49098"
+    sha256 cellar: :any, arm64_linux:   "3607fa1c26b9afc17971737dff4bc8e4d26b00c9cf6e6004da9b86dbc5da2571"
+    sha256 cellar: :any, x86_64_linux:  "82199850b5721e89aa433f39b44e4521480a209a209a44a95dbe32b89224d3a7"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +29,7 @@ class Mold < Formula
   depends_on "zstd"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1899
   end
 
   on_linux do
@@ -38,13 +38,13 @@ class Mold < Formula
   end
 
   fails_with :clang do
-    build 1500
-    cause "Requires C++20"
+    build 1899
+    cause "Requires C++20 `std::atomic_ref`"
   end
 
   fails_with :gcc do
-    version "7"
-    cause "Requires C++20"
+    version "10"
+    cause "Requires C++20 `std::atomic_ref`"
   end
 
   def install

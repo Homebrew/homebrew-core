@@ -29,6 +29,7 @@
   "quassel": "homebrew/cask",
   "schismtracker": "homebrew/cask/schism-tracker",
   "seam": "homebrew/cask",
+  "sentry-cli": "homebrew/cask",
   "transmission-remote-gtk": "homebrew/cask/transmission-remote-gui",
   "truetree": "homebrew/cask",
   "wesnoth": "homebrew/cask/the-battle-for-wesnoth"

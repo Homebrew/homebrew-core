@@ -26,6 +26,7 @@ class Flux < Formula
   depends_on "rust" => :build
 
   conflicts_with "fantom", because: "both install `flux` binaries"
+  conflicts_with "fluxcd", because: "both install `flux` binaries"
 
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.

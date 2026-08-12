@@ -3,11 +3,10 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2026.2.1.tar.gz"
-  sha256 "9255a1cd87ad330242ed5063c2bcb2d04cc6897ab50b9fc95da5ac4a4625ae4d"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2026.3.0.tar.gz"
+  sha256 "48d97d500916e8fd57972a9ed729584c6d73c286554486745fb786e4cf5cf5df"
   license "Apache-2.0"
-  revision 2
-  compatibility_version 4
+  compatibility_version 5
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
   livecheck do
@@ -16,12 +15,12 @@ class Openvino < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "514be9e6a25a2e56f54b44d89cd14ea2f4884193b9e527a1f5704acfe25961e9"
-    sha256 cellar: :any, arm64_sequoia: "1ad512e9d583f7b46ea057650cfc233603848211d4c0e652c4a77fc4fdc9bcbf"
-    sha256 cellar: :any, arm64_sonoma:  "e01c0a9063786a2c96d4f1d9c106c0b79eb0f6f723cfcffd76aa1f5526fe43f1"
-    sha256 cellar: :any, sonoma:        "1dd837ea4719aa72f1235fba6760f00367f3c71085f1bc6c572ad87512d7920b"
-    sha256               arm64_linux:   "0fcea0de44fc2df07cffa5ca82ccd408fae0a5496a6fb3f64817a0fd8e60df7f"
-    sha256               x86_64_linux:  "c84247a747bb0387a85e576b1cba6fc0af3c39b70f917f87659fdce5452c3b1d"
+    sha256 cellar: :any, arm64_tahoe:   "66dbdaec2206251dc5d47a1b59a911bff51f171101752afbe51fc0bacc739b6e"
+    sha256 cellar: :any, arm64_sequoia: "d33c960ca2b45e57cbaf0cf1053154eefbada8eeba2ca718ad97dbc8df9d9660"
+    sha256 cellar: :any, arm64_sonoma:  "f1c97cdc083d823705bf7dcc137ca1e668b081c7981a439cc6683d5b48faaceb"
+    sha256 cellar: :any, sonoma:        "bb098c6c7d3cdd8d20220cd895b9903313540a81407cf414edb41e96284f43cb"
+    sha256               arm64_linux:   "210a1b13766be4750b6021012f9cb901c005667b470c7e4887840fe1567d23a3"
+    sha256               x86_64_linux:  "da4db634959e1c3a19ef743d51af736579aaec9418350cc41cf21b62d40b701b"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -48,8 +47,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/uxlfoundation/oneDNN/archive/20db47e2d3c4df1b66e93bed2e97d30da175512d.tar.gz"
-      sha256 "175fe1fd5b4fb53c5250b7e7c1bc815498365c6fb3ca198002cd045fee57747b"
+      url "https://github.com/uxlfoundation/oneDNN/archive/babb7375ff500dd8ad77d26cbd2b044122b7a8b4.tar.gz"
+      sha256 "d21d5e8757f4012c51a2e26ed47e15751217dfcee7327bbfbe909a446f126c4f"
     end
   end
 
@@ -57,12 +56,12 @@ class Openvino < Formula
     depends_on "scons" => :build
 
     resource "arm_compute" do
-      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v53.0.0.tar.gz"
-      sha256 "370c480385493c5be9c639dfcfabaa4bc8eac74fe21332905b1630a4c0cb3a87"
+      url "https://github.com/ARM-software/ComputeLibrary/archive/7f8a8ab512ad8d1c1c207003ac5f96c4445da36f.tar.gz"
+      sha256 "040222d5e80191dc3c1f6c855b35638d9e0b547f6c1bf81b0618778c26d8307c"
     end
     resource "arm_kleidiai" do
-      url "https://github.com/ARM-software/kleidiai/archive/7d82645ca2f3c3d58a5c0b1a96905e53916c8ff8.tar.gz"
-      sha256 "7f6dc8992d229d5a0be8c2dec09011bab7c45201ed06ae60fbcd3c9343d09368"
+      url "https://github.com/ARM-software/kleidiai/archive/dc50c2e68d2eb28efe17c835c754f1d6421f30e8.tar.gz"
+      sha256 "e2032ce93f2cdd2cd7f698ba2a5f216a446a12a8c918d79e7e398476dba80c8b"
     end
   end
 
@@ -82,8 +81,8 @@ class Openvino < Formula
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/87f65fdd1927b1d0cbdf0ea37728146abfbffb52.tar.gz"
-    sha256 "2843f9d4e92a83d16d37a92dcc29b87732415f9cd9fd87769651aa67da197521"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/f82d833de6f13fac4bb1926d521ca8fec4f4ae01.tar.gz"
+    sha256 "119c80210ceec0ea2b2b1908b862ed9c3b4366e65d4e0bdea82142f14b7f6712"
   end
 
   resource "openvino-telemetry" do
@@ -95,12 +94,12 @@ class Openvino < Formula
     "python3.14"
   end
 
-  # Newer OpenCL-CLHPP dropped CL_HPP_PARAM_NAME_INFO_1_1_DEPRECATED_IN_2_0_;
-  # declare the trait it provided (CL_DEVICE_HOST_UNIFIED_MEMORY) directly.
+  # Newer OpenCL-CLHPP dropped the macro used to declare the CL_DEVICE_HOST_UNIFIED_MEMORY trait
   patch do
     url "https://github.com/openvinotoolkit/openvino/commit/dc4633aadac8e644dfab6d8aced84ebe33e09b6e.patch?full_index=1"
     sha256 "1d1c91de8ead006c3a6ce28124578ab5d52a3b6f1a8bb4a03076d18f2bede32a"
-    type :unofficial
+    type :backport
+    resolves "https://github.com/openvinotoolkit/openvino/pull/37096"
   end
 
   def install
@@ -178,7 +177,7 @@ class Openvino < Formula
 
     inreplace "pyproject.toml" do |s|
       # Allow our newer `numpy`
-      s.gsub! "numpy>=1.16.6,<2.5.0", "numpy>=1.16.6"
+      s.gsub! "numpy>=1.16.6,<2.6.0", "numpy>=1.16.6"
       # use our `cmake` instead of the PyPI cmake wheel
       s.gsub!(/^\s*"cmake[^"\n]*",?\s*\n/, "")
     end
