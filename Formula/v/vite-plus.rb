@@ -1,8 +1,8 @@
 class VitePlus < Formula
   desc "Unified toolchain and entry point for web development"
   homepage "https://viteplus.dev"
-  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v0.2.8.tar.gz"
-  sha256 "c07ae8f828039fae32b791abcfc8f1d1b769024a2ae5c04bdc2946e8318615f4"
+  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v0.2.9.tar.gz"
+  sha256 "749f6bd91c31a0f1ddb5221c03058ea52a582becbf1d05aeb5a1cd3ad19b9559"
   license "MIT"
   head "https://github.com/voidzero-dev/vite-plus.git", branch: "main"
 
@@ -17,14 +17,21 @@ class VitePlus < Formula
 
   depends_on "cmake" => :build
   depends_on "just" => :build
-  depends_on "pnpm" => :build
   depends_on "rustup" => :build # TODO: try to restore stable rust: https://github.com/voidzero-dev/vite-task/commit/db99ba4d5d33323cc9e7b329f11bdea0610fbc7f
   depends_on "node"
 
+  # Match the `packageManager`-pinned pnpm and vendor it so we can patch the
+  # peer-resolution null-dereference that crashes `pnpm deploy --legacy` (see
+  # `install`); Homebrew's own pnpm is read-only and hits the same bug.
+  resource "pnpm" do
+    url "https://registry.npmjs.org/pnpm/-/pnpm-11.20.0.tgz"
+    sha256 "34e198cb1e43237517ecedfd31f9ae26a6c0a3e5366ce58a2d05f4b21fb5f19a"
+  end
+
   resource "rolldown" do
     url "https://github.com/rolldown/rolldown.git",
-        revision: "872b98ac7476eb7d5892a2913e4ba010d124c6ac"
-    version "872b98ac7476eb7d5892a2913e4ba010d124c6ac"
+        revision: "52dbd194ea6b6d4320706caa5f2db14b1034adaf"
+    version "52dbd194ea6b6d4320706caa5f2db14b1034adaf"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -36,8 +43,8 @@ class VitePlus < Formula
 
   resource "vite" do
     url "https://github.com/vitejs/vite.git",
-        revision: "fa79f9ab699f9a22a6f9b50f3d247be6b51f684d"
-    version "fa79f9ab699f9a22a6f9b50f3d247be6b51f684d"
+        revision: "421615865dad3ed39137d17281814fc78a41246c"
+    version "421615865dad3ed39137d17281814fc78a41246c"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -51,10 +58,32 @@ class VitePlus < Formula
     resource("rolldown").stage buildpath/"rolldown"
     resource("vite").stage buildpath/"vite"
 
-    ENV["NPM_CONFIG_MANAGE_PACKAGE_MANAGER_VERSIONS"] = "false"
+    # Run the pinned pnpm via a PATH shim so `just build`'s bare `pnpm` calls use
+    # it too. Disable self-management: the pinned `@pnpm/exe.*` binary is absent
+    # from the lockfiles, so a self-download cannot verify its identity.
+    # TODO: check if you can remove ignore-unknown-native-binaries=true in a later version,
+    # as this is needed to workaround an issue with @pnpm/exe.darwin-x64
+    (buildpath/".npmrc").write "manage-package-manager-versions=false\nignore-unknown-native-binaries=true\n"
+    resource("pnpm").stage buildpath/"pnpm-dist"
+    pnpm_cjs = buildpath.glob("pnpm-dist/**/bin/pnpm.cjs").reject { |f| f.to_s.include?("/artifacts/") }.first
+
+    # `pnpm deploy --legacy` re-resolves peers on the shared workspace lockfile
+    # and crashes: `inheritedParentPkgBreaksPeerDiamond` calls `Object.keys` on a
+    # resolved package whose `peerDependencies` is undefined. Guard the access.
+    inreplace buildpath.glob("pnpm-dist/**/dist/pnpm.mjs"),
+              "Object.keys(parentPkg.peerDependencies)",
+              "Object.keys(parentPkg.peerDependencies ?? {})"
+
+    (buildpath/"pnpm-shim").mkpath
+    (buildpath/"pnpm-shim/pnpm").write <<~SH
+      #!/bin/sh
+      exec "#{formula_opt_bin("node")}/node" "#{pnpm_cjs}" "$@"
+    SH
+    chmod "+x", buildpath/"pnpm-shim/pnpm"
+    ENV.prepend_path "PATH", buildpath/"pnpm-shim"
 
     system "just", "build"
-    system "cargo", "install", *std_cargo_args(path: "crates/vite_global_cli")
+    system "cargo", "install", *std_cargo_args(path: "crates/vp_global_cli")
 
     system "pnpm", "--filter=vite-plus", "deploy", "--prod", "--legacy", "--no-optional",
            prefix/"node_modules/vite-plus"
