@@ -32,6 +32,8 @@ class Dsh < Formula
     depends_on "gnu-sed" => :build
   end
 
+  conflicts_with "deepseek-harness", because: "both install a `dsh` executable"
+
   def install
     # Use GNU sed on macOS to avoid this build failure:
     # sed: RE error: illegal byte sequence
