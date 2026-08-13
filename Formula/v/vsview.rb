@@ -3,8 +3,8 @@ class Vsview < Formula
 
   desc "Next-generation VapourSynth previewer"
   homepage "https://jaded-encoding-thaumaturgy.github.io/vs-view/"
-  url "https://files.pythonhosted.org/packages/b4/a7/fa3c8b1cca5e307960c5266bfee27237c2e98d82f3e130f9dc7e0cc87159/vsview-0.9.0.tar.gz"
-  sha256 "03746bdb2adb201ecb688c52ccc99b6f2a6ad185235cbddc72da48f40d46bd56"
+  url "https://files.pythonhosted.org/packages/2d/82/84faa840da6558861dcb410f531ac9a80bffccc45b1452b5635d56a2fee6/vsview-0.10.0.tar.gz"
+  sha256 "133662da4871f1c3722f0646eee0dc8162de12124a2b2a1586a8650ffa916373"
   license all_of: [
     "EUPL-1.2",
     all_of: ["MIT", "Apache-2.0", "ISC", "OFL-1.1"], # src/vsview/assets/
@@ -23,6 +23,7 @@ class Vsview < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "zig" => :build
   depends_on "numpy"
   depends_on "pydantic" => :no_linkage
   depends_on "pyside"
@@ -42,8 +43,8 @@ class Vsview < Formula
                 extra_packages:   %w[jeepney secretstorage] # Linux-only
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
-    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
+    url "https://files.pythonhosted.org/packages/cb/31/4971872b3ed8715346231fb6eb4da8fcba65a4143c189db151ee28a2812b/charset_normalizer-3.5.0.tar.gz"
+    sha256 "49bd5feb59b0bf3cbf6ebcf4352e371c95b9da9bacd4449f8b64d0ad2c10a26e"
   end
 
   resource "h11" do
@@ -72,8 +73,8 @@ class Vsview < Formula
   end
 
   resource "jetpytools" do
-    url "https://files.pythonhosted.org/packages/13/bb/6c57b9a53f8bc6c4c01c00fe76109f665d55218e581bc987cd00e201e42a/jetpytools-2.2.7.tar.gz"
-    sha256 "4063155f3e33283273a899d9b2c80104c6cf0c365abc3aa8c95c9dfd901fa6ec"
+    url "https://files.pythonhosted.org/packages/7f/99/99279c429c0bfe13e109ffb9a622ee297cc27af444b0166da6bc6b0b572c/jetpytools-3.1.1.tar.gz"
+    sha256 "2eec2d4dd3959b3a0da8c2c438e84953b5659610107448ed9b4f4708174c7502"
   end
 
   resource "jh2" do
@@ -112,8 +113,8 @@ class Vsview < Formula
   end
 
   resource "niquests" do
-    url "https://files.pythonhosted.org/packages/f2/6f/c2310e0c0d09ef1c22d235ef82d2d5d16f6b04b3a3702ebe1bc8d1dfbd6c/niquests-3.20.1.tar.gz"
-    sha256 "55951812cf997963bfef8e4f797ff0460ca571e53ec184039b010e12152c0e41"
+    url "https://files.pythonhosted.org/packages/03/1c/836ad34fb18fac781722019100e2bffd81eb9a0011d7a91c434a7094460d/niquests-3.21.0.tar.gz"
+    sha256 "5b7d10a05f4c7ed08cede0af74f492ae7a8a5a71291833d029e23365fc3ea80a"
   end
 
   resource "pathvalidate" do
@@ -122,13 +123,18 @@ class Vsview < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/52/cd/4f25b2f95b23f5d2c9c1fe43e49841bff5800562149b2666afc09309aa8f/platformdirs-4.10.1.tar.gz"
-    sha256 "ceab4084426fe6319ce18e86deada8ab1b7487c7aee7040c55e277c9ae793695"
+    url "https://files.pythonhosted.org/packages/e5/98/0bf930c4f97d0266b58a89e36c015f56232c52b5d2f207215d48cca9e8f7/platformdirs-4.11.2.tar.gz"
+    sha256 "3a2ae5fca3520a01ab1be8b45613537f52ddf5b5f6f53d88233892dfbf0cd82d"
   end
 
   resource "pluggy" do
     url "https://files.pythonhosted.org/packages/f9/e2/3e91f31a7d2b083fe6ef3fa267035b518369d9511ffab804f839851d2779/pluggy-1.6.0.tar.gz"
     sha256 "7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3"
+  end
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/aa/c6/d1ddf4abb55e93cebc4f2ed8b5d6dbad109ecb8d63748dd2b20ab5e57ebe/psutil-7.2.2.tar.gz"
+    sha256 "0746f5f8d406af344fd547f1c8daa5f5c33dbc293bb8d6a16d80b4bb88f59372"
   end
 
   resource "pygments" do
@@ -157,13 +163,18 @@ class Vsview < Formula
   end
 
   resource "urllib3-future" do
-    url "https://files.pythonhosted.org/packages/43/e0/b8d8e0a919fe2a0674a3193b42de9c56816341b85d69b5ef6af58a72710b/urllib3_future-2.23.900.tar.gz"
-    sha256 "f488f22983f96cd8c733640b47e6a32def462d33c59bcc4bea6d97a8568b70c8"
+    url "https://files.pythonhosted.org/packages/ed/9f/590bfa6575e8872829dc65d02c887d0599b3897912479e5ca198660a8c1e/urllib3_future-2.24.900.tar.gz"
+    sha256 "05c2e9d09293ab29a154fed8f5b60644c7cdaffe4ae2587a07b1c7f00f23a7fb"
   end
 
   resource "vapoursynth-fftspectrum-rs" do
     url "https://files.pythonhosted.org/packages/13/56/9771adfbc1195017e887142cf03253316efac3d21d2f7f10900bdcf628df/vapoursynth_fftspectrum_rs-1.0.13.tar.gz"
     sha256 "bd2347222d833d82ba8f3b4e4cf45aea6276b7c48e5c3eb510198520bf15ebe6"
+  end
+
+  resource "vapoursynth-vszip" do
+    url "https://files.pythonhosted.org/packages/3e/5e/3823f1c3ce492c3f0acca288501e67cbd1de4be317c436c71d5fdfdd81c9/vapoursynth_vszip-22.1.0.tar.gz"
+    sha256 "93c1aaf5867ad43e1f21b77418fa89b0b1ed2191d0c4bfb03a65c958826ed8c9"
   end
 
   resource "vsjetengine" do
@@ -172,8 +183,8 @@ class Vsview < Formula
   end
 
   resource "vsjetpack" do
-    url "https://files.pythonhosted.org/packages/a6/df/37da0c9b40e29f43d37540e63ad88a4af478fb4807118af8e88e2fb87a0b/vsjetpack-1.5.0.tar.gz"
-    sha256 "1c9a410329c60ee0058a1bf6a84b692f85db68154de55d04a80ea43f25a5c1cf"
+    url "https://files.pythonhosted.org/packages/58/4d/ae2ef5d3bc8f1f81129d028dceea9df7306a48b9eda6945d6de4de6396d1/vsjetpack-2.2.0.tar.gz"
+    sha256 "c3c12361c4615f133583d97224639d443123c1d3a9dfd7ff19f7f2855484ccd5"
   end
 
   resource "vspackrgb" do
@@ -182,33 +193,33 @@ class Vsview < Formula
   end
 
   resource "vsview-cli" do
-    url "https://files.pythonhosted.org/packages/f9/34/69c0786564221ea676aa28642484f10e25a0f1a59bda237cecd077f3049f/vsview_cli-1.1.0.tar.gz"
-    sha256 "b119bdb559f64bd340afa8f6d0ab63d20cb2a01dc34e8e343391d8862558752b"
+    url "https://files.pythonhosted.org/packages/0d/03/17c0c66ff7426d14c9fe33a8066774c97c7f6eb4c01ea07c1102e5656e3e/vsview_cli-1.2.0.tar.gz"
+    sha256 "cb983f4436a36f0f561ebc2e5d06280d1c9247564c1bcafc9c53fdf2c9c5417c"
   end
 
   resource "vsview-comp" do
-    url "https://files.pythonhosted.org/packages/7c/09/eac47b76df526c9e823153597963b7df81a808215cbcf0f100880a6392d7/vsview_comp-0.12.0.tar.gz"
-    sha256 "fe1756959965af87f5720ae65e0a00b2bc838db1d40f37a6f4af16048064395d"
+    url "https://files.pythonhosted.org/packages/9f/c9/ceaef1873ef5426561601592640f07b9e7ce430bb3a61c69e6c3e82375ee/vsview_comp-0.13.0.tar.gz"
+    sha256 "99aa816eda23f18f10c87181cdd85dfd11643d2b71dfef941a16daed100a7e8d"
   end
 
   resource "vsview-fftspectrum" do
-    url "https://files.pythonhosted.org/packages/2d/8f/4361e35f97c1e7bafadf9f9b27578d909c77af57231e54b90740cab4e546/vsview_fftspectrum-0.2.1.tar.gz"
-    sha256 "17e14f8fa276b4a569259fd762cc7c79cce1db20aaa8dcc1b548dd95c3b05e5d"
+    url "https://files.pythonhosted.org/packages/64/21/0db0d29b5d66b98efeac761b8c1e9208afcfe5eedefe8efb474620983d0d/vsview_fftspectrum-0.2.3.tar.gz"
+    sha256 "b48066c57df27c1ad3de441ef6cf51de56e096d331437d3290855fb080c4781d"
   end
 
   resource "vsview-frameprops-extended" do
-    url "https://files.pythonhosted.org/packages/42/9c/d5c47089966553efba9b42e8fc26b16e0bcd185815682663bf43aba8ad84/vsview_frameprops_extended-0.2.2.tar.gz"
-    sha256 "9cc298f0ac558a9c1004c2b8984e3f8338c9709c88271608ffe3f97bc8d22d81"
+    url "https://files.pythonhosted.org/packages/2f/be/b8a6d9a8f769cb6233afb99849cc1fbebab6b5140dfb10e74587aa05e709/vsview_frameprops_extended-0.2.3.post1.tar.gz"
+    sha256 "5d7693762318804d7e9bf13223b420d06d4d6b1d064dd8e01f7ef964271d6ea9"
   end
 
   resource "vsview-split-planes" do
-    url "https://files.pythonhosted.org/packages/4b/52/2cf4c35349c046882fecc29d49c3a713327f8e8c84dc0adb59546cef81b1/vsview_split_planes-0.2.2.tar.gz"
-    sha256 "7b4bccf3b0cf4b4e41b139068251bd667fba2392c6470fb18b6ec8211f8d7b8e"
+    url "https://files.pythonhosted.org/packages/c6/e3/068fa2c9744e240329e3411ca35ede7a1bc5166da829dc982335f8ce0e15/vsview_split_planes-0.2.4.tar.gz"
+    sha256 "b9609c4e2f1a6b84ac6a2eb439d90cf39571028ff8f16f8a867512694dd0069e"
   end
 
   resource "wassima" do
-    url "https://files.pythonhosted.org/packages/d1/9f/be43f3a97d27bd3bcdd572024ed082b55f486e0541834061da6acf9c77c7/wassima-2.1.2.tar.gz"
-    sha256 "f74b5441151728c54118ece6d747cfe92b2c595a3d062a1955f42a2bc894cd10"
+    url "https://files.pythonhosted.org/packages/53/a1/714674b53d3a57013730187e027e291c652a25db053e02236798bec49d61/wassima-2.1.3.tar.gz"
+    sha256 "fcd6c38be0f909c393da35cb2a993101fcdcff673b8fa8d5da228f73b630d0d0"
   end
 
   def install
