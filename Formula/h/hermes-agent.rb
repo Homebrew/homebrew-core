@@ -302,7 +302,9 @@ class HermesAgent < Formula
     # Allow to build with Python 3.14
     inreplace "pyproject.toml", "requires-python = \">=3.11,<3.14\"", "requires-python = \">=3.11,<3.15\""
     # Ship `registration_lifecycle`, new in this release but missing from the
-    # wheel's py-modules list; `hermes_cli.plugins` imports it at startup
+    # wheel's py-modules list; `hermes_cli.plugins` imports it at startup.
+    # Fixed upstream after the release tag; remove on the next version bump.
+    # Ref: https://github.com/NousResearch/hermes-agent/commit/89d3e43f5e61146bff46923dd8a9fc7a6cfc9d63
     inreplace "pyproject.toml", "py-modules = [\n  \"run_agent\",",
               "py-modules = [\n  \"registration_lifecycle\",\n  \"run_agent\","
 
