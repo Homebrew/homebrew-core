@@ -3,10 +3,9 @@ class HermesAgent < Formula
 
   desc "Self-improving AI agent that creates skills from experience"
   homepage "https://hermes-agent.nousresearch.com"
-  url "https://github.com/NousResearch/hermes-agent/archive/refs/tags/v2026.8.3.tar.gz"
-  sha256 "370542c7219faba6300905c3b419e14e6508a31ac698a1a5174e0386990834be"
+  url "https://github.com/NousResearch/hermes-agent/archive/refs/tags/v2026.8.13.tar.gz"
+  sha256 "2b202b0cbcecfaeec85572b60d66cd481ca387248b592878bf92204de78abefe"
   license "MIT"
-  revision 1
   head "https://github.com/NousResearch/hermes-agent.git", branch: "main"
 
   livecheck do
@@ -38,8 +37,8 @@ class HermesAgent < Formula
   pypi_packages exclude_packages: %w[certifi cryptography pillow pydantic]
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz"
-    sha256 "fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"
+    url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
+    sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
   end
 
   resource "anyio" do
@@ -48,8 +47,8 @@ class HermesAgent < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
-    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
+    url "https://files.pythonhosted.org/packages/cb/31/4971872b3ed8715346231fb6eb4da8fcba65a4143c189db151ee28a2812b/charset_normalizer-3.5.0.tar.gz"
+    sha256 "49bd5feb59b0bf3cbf6ebcf4352e371c95b9da9bacd4449f8b64d0ad2c10a26e"
   end
 
   resource "click" do
@@ -68,8 +67,8 @@ class HermesAgent < Formula
   end
 
   resource "fastapi" do
-    url "https://files.pythonhosted.org/packages/cd/95/d3f0ae10836324a2eab98a52b61210ac609f08200bf4bb0dc8132d32f78a/fastapi-0.139.2.tar.gz"
-    sha256 "333145a6891e9b5b3cfceb69baf817e8240cde4d4588ae5a10bf56ffacb6255e"
+    url "https://files.pythonhosted.org/packages/8a/02/91e3416a8fdd715abb903a952a6bec7cdd8d14eed55d415fc8595524c319/fastapi-0.141.1.tar.gz"
+    sha256 "e8822fc40db1e1858054d7a949a888695bc9bdce70139178e33bd2871a453ca1"
   end
 
   resource "fire" do
@@ -132,6 +131,11 @@ class HermesAgent < Formula
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
+  resource "nemo-relay" do
+    url "https://files.pythonhosted.org/packages/58/81/a7a545ac3a2f8c670d261c89df599aa8fbf49d8be45fd1f52efb36b489eb/nemo_relay-0.7.2.tar.gz"
+    sha256 "828d9f6c7d7e4e42276bb7192bd44202c761e0c76fa4943d84e051b5a99028e5"
+  end
+
   resource "openai" do
     url "https://files.pythonhosted.org/packages/55/13/17e87641b89b74552ed408a92b231283786523edddc95f3545809fab673c/openai-2.24.0.tar.gz"
     sha256 "1e5769f540dbd01cb33bc4716a23e67b9d695161a734aff9c5f925e2bf99a673"
@@ -188,8 +192,8 @@ class HermesAgent < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/ff/46/dd499ec9038423421951e4fad73051febaa13d2df82b4064f87af8b8c0c3/pytz-2026.2.tar.gz"
-    sha256 "0e60b47b29f21574376f218fe21abc009894a2321ea16c6754f3cad6eb7cdd6a"
+    url "https://files.pythonhosted.org/packages/fb/48/fb042503b6ca6cd271261dc559fd6432f7d8c713153e9ec5c591af4dfc1c/pytz-2026.3.post1.tar.gz"
+    sha256 "2211d3fcf9a797d3405cac96ac7f61d80e6a644f72a3309607282fe8a2010c5d"
   end
 
   resource "pyyaml" do
@@ -241,8 +245,8 @@ class HermesAgent < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/eb/e3/7c1dc7381d9f8ab7d854328ebfa884e62cb3f3d8549ddfd37c7814f42afa/starlette-1.3.1.tar.gz"
-    sha256 "05d0213193f2fbaae60e2ecb593b4add4262ad4e46536b54abe36f11a71724e0"
+    url "https://files.pythonhosted.org/packages/b5/b4/205b0d5241d934e8add0c38aa924c4f9fb7330834ff11e5444db964ec3f9/starlette-1.6.0.tar.gz"
+    sha256 "d4e3ac5e546444960c710297a3c9fc3f7ebae1b7e963f3d36173b49da535be9b"
   end
 
   resource "tenacity" do
@@ -256,8 +260,8 @@ class HermesAgent < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/8c/69/40407dfc835517f058b603dbf37a6df094d8582b015a51eddc988febbcb7/tqdm-4.69.0.tar.gz"
-    sha256 "700c5e85dcd5f009dd6222588a29180a193a748247a5d855b4d67db93d79a53b"
+    url "https://files.pythonhosted.org/packages/21/3b/6c24bec5be5e743ffd99576daa5cc077722fc7d5bbc00bd133fa0c698dc6/tqdm-4.70.0.tar.gz"
+    sha256 "55b0b0dbd97462d06ebee91e4dac24ed4d4702be82b24f07e6c1d27e08cea220"
   end
 
   resource "urllib3" do
@@ -266,8 +270,8 @@ class HermesAgent < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/a2/65/b7c6c443ccc58678c91e1e973bbe2a878591538655d6e1d47f24ba1c51f3/uvicorn-0.51.0.tar.gz"
-    sha256 "f6f4b69b657c312f516dd2d268ab9ae6f254b11e4bac504f37b2ab58b24dd0b0"
+    url "https://files.pythonhosted.org/packages/2e/28/64ca011edf31c715b4fad359c587ea52391aaffa125065695590241ff617/uvicorn-0.52.3.tar.gz"
+    sha256 "18857b9e6579300be55c91c0a1cfd37d9a2cf0cabea33b88275f199eb73b8b58"
   end
 
   resource "uvloop" do
@@ -292,8 +296,15 @@ class HermesAgent < Formula
 
   def install
     ENV["HERMES_NIX_BUILD"] = "1"
+    # Work around superenv breaking aws-lc-sys `-O0` needed to build CPU Jitter RNG
+    # Issue ref: https://github.com/aws/aws-lc-rs/issues/1097
+    ENV["AWS_LC_SYS_NO_JITTER_ENTROPY"] = "1"
     # Allow to build with Python 3.14
     inreplace "pyproject.toml", "requires-python = \">=3.11,<3.14\"", "requires-python = \">=3.11,<3.15\""
+    # Ship `registration_lifecycle`, new in this release but missing from the
+    # wheel's py-modules list; `hermes_cli.plugins` imports it at startup
+    inreplace "pyproject.toml", "py-modules = [\n  \"run_agent\",",
+              "py-modules = [\n  \"registration_lifecycle\",\n  \"run_agent\","
 
     venv = virtualenv_install_with_resources(without: "socksio")
     resource("socksio").stage do
@@ -329,6 +340,7 @@ class HermesAgent < Formula
         HERMES_BUNDLED_PLUGINS: pkgshare/"plugins",
         HERMES_BUNDLED_LOCALES: pkgshare/"locales",
         HERMES_OPTIONAL_MCPS:   pkgshare/"optional-mcps",
+        HERMES_BIN:             "${HERMES_BIN:-#{bin}/hermes}",
         HERMES_WEB_DIST:        pkgshare/"web_dist",
         HERMES_TUI_DIR:         pkgshare/"ui-tui",
         HERMES_PYTHON:          libexec/"bin/python3",
