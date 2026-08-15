@@ -1,0 +1,34 @@
+Formula/t/tracy.rb
+  s_b15f19d54b3096::t_a365aed22ebb3c 200
+  s_b15f19d54b3096::t_03cb4bcd9f9b50 58-59
+  s_b15f19d54b3096::t_3693dab030342c 25
+  s_b15f19d54b3096::t_8dad3b7d96902a 78
+  s_b15f19d54b3096::t_c547608605baf2 91-95
+  s_b15f19d54b3096::t_8b56f28311a01d 6-7
+  s_b15f19d54b3096::t_0fde1ee1847777 121
+  s_b15f19d54b3096::t_10c3c438a84029 124
+  s_b15f19d54b3096::t_509c40380cd59a 105-120
+  s_b15f19d54b3096::t_8f043df87c4677 77
+  s_b15f19d54b3096::t_803f3ea2e8bbb5 54,143-169
+  s_b15f19d54b3096::t_40ce8af9d4e9c7 67-74
+  s_b15f19d54b3096::t_0575644bb0a6bb 183-184
+  s_b15f19d54b3096::t_103a9f34bc3e8e 189-190
+  s_b15f19d54b3096::t_588a28289f7ae1 26
+  s_b15f19d54b3096::t_6c05dd443511cb 51-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "52557ead0702e063617b4a68203a8ef4b00e3583",
+  "prompts": {},
+  "sessions": {
+    "s_b15f19d54b3096": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4695c827-497c-48e8-b2f5-ec6678b95736",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
