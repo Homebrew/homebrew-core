@@ -1,0 +1,19 @@
+Formula/z/zsync.rb
+  s_b15f19d54b3096::t_d2a8a5142b979e 35-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "3904a15a12a960d081d73431b86a4546f64af0dd",
+  "prompts": {},
+  "sessions": {
+    "s_b15f19d54b3096": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4695c827-497c-48e8-b2f5-ec6678b95736",
+        "model": "unknown"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
