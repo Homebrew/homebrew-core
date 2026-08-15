@@ -1,0 +1,14 @@
+Formula/x/xplr.rb
+  h_9df9c32c3f321d 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "73955feafe2141df2c2aaf6ae69fb596d56d9128",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
