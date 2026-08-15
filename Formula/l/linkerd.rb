@@ -3,7 +3,7 @@ class Linkerd < Formula
   homepage "https://linkerd.io"
   url "https://github.com/linkerd/linkerd2.git",
       tag:      "version-2.20",
-      revision: "7977d505fc3d9ae7dddddd11779a82f813e405ac"
+      revision: "eadc1acf79ad2e766afbdceadb77f1594296fd77"
   license "Apache-2.0"
   head "https://github.com/linkerd/linkerd2.git", branch: "main"
 
