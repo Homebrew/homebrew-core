@@ -36,10 +36,11 @@ class Pgstream < Formula
 
     system pg_ctl, "initdb", "-D", testpath/"test"
     (testpath/"test/postgresql.conf").write <<~CONF, mode: "a+"
-      port = #{port}
-      shared_preload_libraries = 'wal2json'
-      wal_level = logical
-    CONF
+  port = #{port}
+  shared_preload_libraries = 'wal2json'
+  wal_level = logical
+  output_plugin_libraries = 'pgoutput, test_decoding, wal2json'
+CONF
     system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
 
     begin
