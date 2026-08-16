@@ -1,0 +1,14 @@
+Formula/c/cpm.rb
+  h_9df9c32c3f321d 78-79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "975bb59dc35e2a269ae99580e5ea0f1839b3d5d2",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
