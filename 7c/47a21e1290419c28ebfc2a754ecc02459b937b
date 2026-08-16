@@ -1,0 +1,19 @@
+Formula/g/go-librespot.rb
+  s_b15f19d54b3096::t_bb2a4de2d5eadb 23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "7c47a21e1290419c28ebfc2a754ecc02459b937b",
+  "prompts": {},
+  "sessions": {
+    "s_b15f19d54b3096": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4695c827-497c-48e8-b2f5-ec6678b95736",
+        "model": "unknown"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
