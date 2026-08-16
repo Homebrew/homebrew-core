@@ -1,0 +1,19 @@
+Formula/t/task.rb
+  s_fc61534e977490::t_c6dd49a330a391 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "332e2fddf9a4c003c75385e675b58935ed8f4577",
+  "prompts": {},
+  "sessions": {
+    "s_fc61534e977490": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "412d654e-badd-4aaf-b814-9665dc9f078a",
+        "model": "unknown"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
