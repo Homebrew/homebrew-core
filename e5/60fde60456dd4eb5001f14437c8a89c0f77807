@@ -1,0 +1,19 @@
+Formula/g/godap.rb
+  s_fc61534e977490::t_e1becd6b54e05d 4-5,27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "e560fde60456dd4eb5001f14437c8a89c0f77807",
+  "prompts": {},
+  "sessions": {
+    "s_fc61534e977490": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "412d654e-badd-4aaf-b814-9665dc9f078a",
+        "model": "unknown"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
