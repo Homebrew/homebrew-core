@@ -1,8 +1,8 @@
 class Funzzy < Formula
   desc "Lightweight file watcher"
   homepage "https://github.com/cristianoliveira/funzzy"
-  url "https://github.com/cristianoliveira/funzzy/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "9c98ff08a611a8c3fc9eedd5bc56ecdc9fbd7ec5630d020cd1aa7426524df3d3"
+  url "https://github.com/cristianoliveira/funzzy/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "68eeac63ae56eeaf394a636efa7e7f74e77a9d1c6494a3a81f7319d8afbdc845"
   license "MIT"
   head "https://github.com/cristianoliveira/funzzy.git", branch: "master"
 
