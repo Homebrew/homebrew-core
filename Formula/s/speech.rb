@@ -1,8 +1,8 @@
 class Speech < Formula
   desc "On-device speech toolkit for Apple Silicon: ASR, TTS, VAD, diarization"
   homepage "https://soniqo.audio"
-  url "https://github.com/soniqo/speech-swift/archive/refs/tags/v0.0.23.tar.gz"
-  sha256 "e41204b5de0839a4168ef2747f78e03eb529cc43b75b152b302f5b4a4a964866"
+  url "https://github.com/soniqo/speech-swift/archive/refs/tags/v0.0.24.tar.gz"
+  sha256 "4f5a6456b6456f6f94d4f18e5f504f788a3abf171c7e98ccdc4dc3ffae3837d9"
   license "Apache-2.0"
   head "https://github.com/soniqo/speech-swift.git", branch: "main"
 
@@ -11,12 +11,17 @@ class Speech < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "92b135d9815098269fa84fe2df4063bec0c083905602e2c905899f3157dedf50"
   end
 
-  depends_on xcode: ["16.0", :build]
+  depends_on xcode: :build
   depends_on arch: :arm64
-  depends_on macos: :sequoia
+  depends_on macos: :sonoma
+
+  uses_from_macos "swift" => :build, since: :tahoe # swift 6.3+
 
   def install
-    system "swift", "build", *std_swift_args
+    # Sonoma's Xcode 16 clang defaults to C++98 but the LocalVQE AEC target needs C++11 or newer.
+    args = ["-Xcxx", "-std=c++17"] if MacOS.version <= :sonoma
+
+    system "swift", "build", *args, *std_swift_args
     system "./scripts/build_mlx_metallib.sh", "release"
 
     %w[speech speech-server].each do |name|
