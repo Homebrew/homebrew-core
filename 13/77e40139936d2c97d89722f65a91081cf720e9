@@ -1,0 +1,14 @@
+Formula/g/go-librespot.rb
+  h_9df9c32c3f321d 4-5,23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "1377e40139936d2c97d89722f65a91081cf720e9",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
