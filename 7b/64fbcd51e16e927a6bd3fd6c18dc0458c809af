@@ -1,0 +1,19 @@
+Formula/s/stellar-core.rb
+  s_0054a5ac358e80::t_66a978c34acff5 5-6,52-56,61-83
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "7b64fbcd51e16e927a6bd3fd6c18dc0458c809af",
+  "prompts": {},
+  "sessions": {
+    "s_0054a5ac358e80": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0083d-3fe5-7f52-8e0d-ca72c6f8bf16",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
