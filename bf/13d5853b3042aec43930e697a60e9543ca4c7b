@@ -1,0 +1,14 @@
+Formula/lib/libxo.rb
+  h_9df9c32c3f321d 4-5,22-28,31-48,52,54-66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "bf13d5853b3042aec43930e697a60e9543ca4c7b",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
