@@ -41,6 +41,8 @@ class Redis < Formula
       s.gsub! "/var/run/redis_6379.pid", var/"run/redis.pid"
       s.gsub! "dir ./", "dir #{var}/db/redis/"
       s.sub!(/^bind .*$/, "bind 127.0.0.1 ::1")
+      # `make install` builds the core only, so the bundled modules don't exist
+      s.gsub!(/^loadmodule .*$/, "# \\0")
     end
 
     etc.install "redis.conf"
