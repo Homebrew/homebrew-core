@@ -1,0 +1,25 @@
+Formula/lib/libxo.rb
+  h_9df9c32c3f321d 4-5,22-26,28-29,32-38,40-44,46-51,55,57-59,61-65,67-71
+  s_b15f19d54b3096::t_ad6cb103e8ea02 27,39,45,60,66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "3d582cb009c9d058fade4622298c4b06ae3842b4",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  },
+  "sessions": {
+    "s_b15f19d54b3096": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4695c827-497c-48e8-b2f5-ec6678b95736",
+        "model": "unknown"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
