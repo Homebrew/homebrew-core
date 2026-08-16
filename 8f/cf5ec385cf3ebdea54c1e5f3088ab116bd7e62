@@ -1,0 +1,19 @@
+Formula/s/sem-cli.rb
+  s_fc61534e977490::t_5207c1425855e9 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "8fcf5ec385cf3ebdea54c1e5f3088ab116bd7e62",
+  "prompts": {},
+  "sessions": {
+    "s_fc61534e977490": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "412d654e-badd-4aaf-b814-9665dc9f078a",
+        "model": "unknown"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
