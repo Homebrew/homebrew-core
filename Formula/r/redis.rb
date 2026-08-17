@@ -5,9 +5,11 @@ class Redis < Formula
   sha256 "f1baa4b28befd417aa6577ebeedde9e9fc7814cfcc299b2a6d2fd99ef7420a6c"
   license all_of: [
     "AGPL-3.0-only",
+    "Apache-2.0", # modules: ScalableVectorSearch, cpu_features
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
-    "BSL-1.0", # deps/fpconv
-    "MIT", # deps/lua
+    "BSD-3-Clause", # modules: libevent, hiredis, readies
+    "BSL-1.0", # deps/fpconv, modules: boost, eve, dragonbox, fast_double_parser
+    "MIT", # deps/lua, modules: fmt, spdlog, robin-map, tomlplusplus, fast_float, t-digest-c
     any_of: ["CC0-1.0", "BSD-2-Clause"], # deps/hdr_histogram
   ]
   compatibility_version 1
@@ -27,12 +29,34 @@ class Redis < Formula
     sha256 cellar: :any, x86_64_linux:  "89491b60e2d6bbc3e97af40a962776d1b2aab58861aaa402a158e5f96669516e"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "cmake" => :build
+  depends_on "libtool" => :build
+  depends_on "python@3.14" => :build
+  depends_on "rust" => :build
   depends_on "openssl@3"
+
+  uses_from_macos "llvm" => :build # for bindgen
+
+  on_macos do
+    depends_on "make" => :build # RediSearch needs Make 4.0+
+  end
 
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
+  def redis_modules = %w[redisbloom.so redisearch.so redistimeseries.so rejson.so]
+
   def install
-    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
+    # RediSearch sets `CMAKE_CXX_STANDARD` inside a function without `PARENT_SCOPE`,
+    # so no `-std` reaches the compile line and the compiler default is used instead.
+    ENV.append "CXXFLAGS", "-std=gnu++20"
+    # VectorSimilarity selects its SIMD kernels at runtime via cpu_features.
+    ENV.runtime_cpu_detection
+    ENV.prepend_path "PATH", Formula["make"].libexec/"gnubin" if OS.mac?
+
+    system "make", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}",
+           "BUILD_TLS=yes", "REDISEARCH_GENERATE_HEADERS=0", "IGNORE_MISSING_DEPS=1", "LTO=0"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
@@ -41,10 +65,15 @@ class Redis < Formula
       s.gsub! "/var/run/redis_6379.pid", var/"run/redis.pid"
       s.gsub! "dir ./", "dir #{var}/db/redis/"
       s.sub!(/^bind .*$/, "bind 127.0.0.1 ::1")
+      s.gsub! "#{lib}/redis/modules", "#{opt_lib}/redis/modules"
     end
 
     etc.install "redis.conf"
     etc.install "sentinel.conf" => "redis-sentinel.conf"
+  end
+
+  post_install_steps do
+    set_permissions "redis/modules", "a+x", base: :lib
   end
 
   service do
@@ -56,7 +85,12 @@ class Redis < Formula
   end
 
   test do
-    system bin/"redis-server", "--test-memory", "2"
     %w[run db/redis log].each { |p| assert_path_exists var/p, "#{var/p} doesn't exist!" }
+
+    # Test that all modules can be loaded
+    redis_modules.each do |file|
+      output = shell_output("#{bin}/redis-server --loadmodule #{lib/"redis/modules"/file} --test-memory 2 2>&1", 1)
+      assert_match(/Module.*loaded from/, output)
+    end
   end
 end

@@ -48,6 +48,7 @@
   "qtbase",
   "qtmultimedia",
   "qtwebengine",
+  "redis",
   "sleef",
   "spades",
   "spidermonkey",
