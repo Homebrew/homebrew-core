@@ -21,13 +21,14 @@ class Composer < Formula
 
   depends_on "php"
 
-  # Keg-relocation breaks the formula when it replaces the prefix with a non-default value
-  on_macos do
-    pour_bottle? only_if: :default_prefix
-  end
-
   def install
-    bin.install "composer.phar" => "composer"
+    # Keep the signed Phar non-executable so bottle relocation does not modify it.
+    libexec.install "composer.phar"
+
+    (bin/"composer").write <<~PHP
+      #!#{formula_opt_bin("php")}/php
+      <?php require '#{libexec}/composer.phar';
+    PHP
   end
 
   test do
