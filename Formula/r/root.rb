@@ -60,6 +60,7 @@ class Root < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "llvm@20"
   depends_on "lz4"
   depends_on "nlohmann-json" => :no_linkage
   depends_on "numpy" # for tmva
@@ -77,6 +78,7 @@ class Root < Formula
   depends_on "zstd"
 
   uses_from_macos "curl"
+  uses_from_macos "libedit"
   uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
@@ -126,7 +128,7 @@ class Root < Formula
       -Dbuiltin_ftgl=OFF
       -Dbuiltin_gl2ps=OFF
       -Dbuiltin_gsl=OFF
-      -Dbuiltin_llvm=ON
+      -Dbuiltin_llvm=OFF
       -Dbuiltin_lz4=OFF
       -Dbuiltin_lzma=OFF
       -Dbuiltin_nlohmannjson=OFF
