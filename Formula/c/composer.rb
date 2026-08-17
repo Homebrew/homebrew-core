@@ -27,6 +27,10 @@ class Composer < Formula
   end
 
   def install
+    inreplace "composer.phar" do |s|
+      s.gsub! %r{/(?:usr/local|opt/homebrew)}, HOMEBREW_PREFIX.to_s
+    end
+
     bin.install "composer.phar" => "composer"
   end
 
