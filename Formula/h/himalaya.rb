@@ -4,6 +4,7 @@ class Himalaya < Formula
   url "https://github.com/pimalaya/himalaya/archive/refs/tags/v2.1.0.tar.gz"
   sha256 "491c7e51aa58874e2b70b4a0377e1770a1d3522392b9a9b867f965ac9d75aaa5"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf93247c63b1452a46d4dd5cef349a422116c41d7523b3715d7df715156c0b37"
@@ -26,7 +27,10 @@ class Himalaya < Formula
 
     system bin/"himalaya", "man", buildpath
     man1.install Dir["*.1"]
-    generate_completions_from_executable(bin/"himalaya", "completion")
+    system bin/"himalaya", "completion", "bash", "fish", "zsh", "--dir", buildpath
+    bash_completion.install "himalaya.bash" => "himalaya"
+    fish_completion.install "himalaya.fish"
+    zsh_completion.install "_himalaya"
   end
 
   test do
