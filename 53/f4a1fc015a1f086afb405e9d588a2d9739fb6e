@@ -1,0 +1,19 @@
+Formula/f/flyline.rb
+  s_7286e60aa8a395::t_7a85bb62c404e6 4-5,48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "53f4a1fc015a1f086afb405e9d588a2d9739fb6e",
+  "prompts": {},
+  "sessions": {
+    "s_7286e60aa8a395": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ecd60b5c-2025-4e5e-afd2-408764d671cb",
+        "model": "unknown"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
