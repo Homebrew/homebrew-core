@@ -1,0 +1,19 @@
+Formula/c/conda-lock.rb
+  s_7848b3355fbe03::t_576fae6844419c 286
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "bf5a9ea1f10021ff2fa8f14f29646310a38d2f35",
+  "prompts": {},
+  "sessions": {
+    "s_7848b3355fbe03": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cc423854-54b2-459c-9292-9abe6e532a9b",
+        "model": "unknown"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
