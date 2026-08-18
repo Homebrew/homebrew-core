@@ -32,11 +32,11 @@ class LocalsendCli < Formula
     ENV["XDG_CONFIG_HOME"] = sender_config.realpath
     _r, writer_sender, _pid_sender = PTY.spawn(bin/"localsend-cli", "--port=#{free_port}", "-f", original_file)
 
-    sleep 1  # Time to find each other
-    writer_sender.puts "\r\n"  # Press Enter
-    sleep 1  # Time to hear about file transfert
-    writer_receiver.puts "Y"  # Accept file transfert
-    sleep 1  # Time to transfer
+    sleep 1 # Time to find each other
+    writer_sender.puts "\r\n" # Press Enter
+    sleep 1 # Time to hear about file transfert
+    writer_receiver.puts "Y" # Accept file transfert
+    sleep 1 # Time to transfer
 
     ## Check successful transfert
     require "fileutils"
