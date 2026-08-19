@@ -35,11 +35,20 @@ class LocalsendCli < Formula
     Process.kill("TERM", pid1)
     Process.kill("TERM", pid2)
 
-    assert_match "D\e[39m [1]", r1.read
+    # Collect r1 output
+    output = +""
+    begin
+      output << r1.readpartial(4096) while true
+    rescue EOFError, Errno::EIO
+        # EOF on macOS, EIO on Linux.
+    end
+
+    # Check if a peer has been discover ie: D [1]
+    assert_match "D\e[39m [1]", output
 
   # Cleanup
   ensure
-    Process.wait(pid1)
-    Process.wait(pid2)
+    Process.wait(pid1) rescue nil
+    Process.wait(pid2) rescue nil
   end
 end
