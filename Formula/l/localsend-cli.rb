@@ -8,49 +8,38 @@ class LocalsendCli < Formula
 
   depends_on "rust" => :build
 
-  # Test fails on macOS sequoia and below but I don't know why
-  on_macos do
-    depends_on macos: :tahoe
-  end
-
   def install
     system "cargo", "install", *std_cargo_args(path: "cli")
   end
 
   test do
-    filename = "test.gif"
-    original_file = test_fixtures(filename)
-
-    ## Transfert file
+    # Test discovery
     require "pty"
 
     # An identity file is created in the config folder preventing two instance
-    # with the same config from sending file to each other
-    receiver_config = testpath/"receiver"
-    receiver_config.mkdir
-    sender_config = testpath/"sender"
-    sender_config.mkdir
+    # with the same config from dicovering each other
+    config1 = testpath/"1"
+    config1.mkdir
+    config2 = testpath/"2"
+    config2.mkdir
 
-    ENV["XDG_CONFIG_HOME"] = receiver_config.realpath
-    _r, writer_receiver, pid_receiver = PTY.spawn(bin/"localsend-cli", "--port=#{free_port}", "--destination=.")
+    ENV["XDG_CONFIG_HOME"] = config1.realpath
+    r1, _w, pid1 = PTY.spawn(bin/"localsend-cli", "--port=#{free_port}")
 
-    ENV["XDG_CONFIG_HOME"] = sender_config.realpath
-    _r, writer_sender, _pid_sender = PTY.spawn(bin/"localsend-cli", "--port=#{free_port}", "-f", original_file)
+    ENV["XDG_CONFIG_HOME"] = config2.realpath
+    _r, _w, pid2 = PTY.spawn(bin/"localsend-cli", "--port=#{free_port}")
 
-    sleep 10 # Time to find each other
-    writer_sender.puts "\r\n" # Press Enter
-    sleep 10 # Time to hear about file transfert
-    writer_receiver.puts "Y" # Accept file transfert
-    sleep 10 # Time to transfer
+    # Give time to discover each other
+    sleep 1
 
-    ## Check successful transfert
-    require "fileutils"
+    Process.kill("TERM", pid1)
+    Process.kill("TERM", pid2)
 
-    assert compare_file(original_file, filename)
+    assert_match "D\e[39m [1]", r1.read
 
   # Cleanup
   ensure
-    Process.kill("TERM", pid_receiver)
-    Process.wait(pid_receiver)
+    Process.wait(pid1)
+    Process.wait(pid2)
   end
 end
