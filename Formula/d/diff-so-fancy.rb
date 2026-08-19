@@ -2,8 +2,9 @@ class DiffSoFancy < Formula
   desc "Good-lookin' diffs with diff-highlight and more"
   homepage "https://github.com/so-fancy/diff-so-fancy"
   url "https://github.com/so-fancy/diff-so-fancy/archive/refs/tags/v1.4.12.tar.gz"
-  sha256 "6f6b6e8910821766ce55a99fd5d6c960f1943440738a36b12b66a7165188ce7d"
+  sha256 "438cccf785cc8ac1575a81ca606afdbb8a4de8f860136d9f26a1807b00903f5d"
   license "MIT"
+  revision 1
   head "https://github.com/so-fancy/diff-so-fancy.git", branch: "next"
 
   bottle do
