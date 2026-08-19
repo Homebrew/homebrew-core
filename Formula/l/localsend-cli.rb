@@ -38,9 +38,9 @@ class LocalsendCli < Formula
     # Collect r1 output
     output = +""
     begin
-      output << r1.readpartial(4096) while true
+      loop { output << r1.readpartial(4096) }
     rescue EOFError, Errno::EIO
-        # EOF on macOS, EIO on Linux.
+        output << "" # EOF on macOS, EIO on Linux.
     end
 
     # Check if a peer has been discover ie: D [1]
@@ -48,7 +48,7 @@ class LocalsendCli < Formula
 
   # Cleanup
   ensure
-    Process.wait(pid1) rescue nil
-    Process.wait(pid2) rescue nil
+    Process.wait(pid1)
+    Process.wait(pid2)
   end
 end
