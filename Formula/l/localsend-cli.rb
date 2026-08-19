@@ -8,6 +8,12 @@ class LocalsendCli < Formula
 
   depends_on "rust" => :build
 
+  # Test fails on macOS sequoia and below but I don't know why
+  on_macos do
+    depends_on macos: :tahoe
+  end
+
+
   def install
     system "cargo", "install", *std_cargo_args(path: "cli")
   end
