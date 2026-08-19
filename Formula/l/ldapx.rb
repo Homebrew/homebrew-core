@@ -14,6 +14,37 @@ class Ldapx < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/ldapx --version")
+    require "socket"
+    require "timeout"
+
+    upstream = TCPServer.new("127.0.0.1", 0)
+    target_port = upstream.addr[1]
+    listen_port = free_port
+
+    pid = spawn bin/"ldapx", "--no-shell", "--no-colors",
+                "--listen", "127.0.0.1:#{listen_port}",
+                "--target", "127.0.0.1:#{target_port}"
+    begin
+      client = nil
+      Timeout.timeout(10) do
+        loop do
+          client = TCPSocket.new("127.0.0.1", listen_port)
+          break
+        rescue Errno::ECONNREFUSED
+          sleep 0.1
+        end
+      end
+
+      Timeout.timeout(10) do
+        conn = upstream.accept
+        refute_nil conn
+        conn.close
+      end
+    ensure
+      client&.close
+      Process.kill "TERM", pid
+      Process.wait pid
+      upstream.close
+    end
   end
 end
