@@ -13,7 +13,6 @@ class LocalsendCli < Formula
     depends_on macos: :tahoe
   end
 
-
   def install
     system "cargo", "install", *std_cargo_args(path: "cli")
   end
