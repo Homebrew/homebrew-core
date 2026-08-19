@@ -9,8 +9,8 @@ class Ldapx < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/Macmod/ldapx/internal/app.version=v#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    ldflags = "-X github.com/Macmod/ldapx/internal/app.version=v#{version}"
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
