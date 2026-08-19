@@ -1,8 +1,9 @@
 class Hookdeck < Formula
   desc "Forward webhook events from Hookdeck to a local server"
   homepage "https://hookdeck.com"
-  url "https://github.com/hookdeck/hookdeck-cli/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "16b421f3af652ebbea24e445815a750cae51584bc8bd069c2ffaad718b69076c"
+  url "https://github.com/hookdeck/hookdeck-cli/archive/refs/tags/v3.0.0-pin-pre-tool-shape-review.tar.gz"
+  version "3.0.0-pin-pre-tool-shape-review"
+  sha256 "acb11c0fba88c28a9ea7300eb4d679b6aba9a02469df3634c6727a9c9e995e4e"
   license "Apache-2.0"
   head "https://github.com/hookdeck/hookdeck-cli.git", branch: "main"
 
