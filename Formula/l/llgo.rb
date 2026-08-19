@@ -1,47 +1,10 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/xgo-dev/llgo"
+  url "https://github.com/xgo-dev/llgo/archive/refs/tags/v1.0.0-pre.3.tar.gz"
+  sha256 "4f4a6469006925c46e0fd6547d8b44f49a9a2d2acc43304c153d136f410598fb"
   license "Apache-2.0"
   head "https://github.com/xgo-dev/llgo.git", branch: "main"
-
-  stable do
-    url "https://github.com/xgo-dev/llgo/archive/refs/tags/v0.13.0.tar.gz"
-    sha256 "4b413886ba07f37ce7d6b4cd088e98e2d0bddfdc1a68f33cdd7b027bffcb6990"
-
-    # Backport commit for Go 1.25+ on Linux
-    patch do
-      url "https://github.com/xgo-dev/llgo/commit/be20b8c6dae62e7e41b9dc6203bbe69d9c7190bc.patch?full_index=1"
-      sha256 "0ac5ba89d96e5f41a49e1df5ab4c0cdca682cc9ac7934134e6ae1dd11863b29e"
-      type :backport
-    end
-
-    # Backport plan9asm update to fix Go 1.25+ on arm64
-    patch do
-      url "https://github.com/xgo-dev/llgo/commit/76a913ff126cc91d500e223d84661b20e8bc4e75.patch?full_index=1"
-      sha256 "747bd47539a6900de4391f3a7e9246e58af67be32fab5358b6f7d6ff54219355"
-      type :backport
-    end
-    patch do
-      url "https://github.com/xgo-dev/llgo/commit/4a1c8967ff09a528ae80529c4e05b359455dd467.patch?full_index=1"
-      sha256 "0db29e139fd3cd4d7304d3b20b58fc483317ea93ae9f7e81ec20156bd6565010"
-      type :backport
-    end
-    patch do
-      url "https://github.com/xgo-dev/llgo/commit/b1cf3f532eb4b3629d3612e2e629334926744034.patch?full_index=1"
-      sha256 "a0df2aedf39d9a63a76e2805670f0e7e388322fbf9b3edc9e89b231027120560"
-      type :backport
-    end
-    patch do
-      url "https://github.com/xgo-dev/llgo/commit/81726f17b7d5e54bc499de028b7dc1883f0182e3.patch?full_index=1"
-      sha256 "a8e9f93a119c3553c7c4bac1d7d77eefc495a80670a6efdb2d75b6965ac9a7d4"
-      type :backport
-    end
-    patch do
-      url "https://github.com/xgo-dev/llgo/commit/5f0475cc7eac8389c48121016736a787683eb9cc.patch?full_index=1"
-      sha256 "ca9d00ab8bfb6b436ca61966e7f2d979a2fea8fc94f678d747af342035f8eeb8"
-      type :backport
-    end
-  end
 
   livecheck do
     url :stable
