@@ -40,7 +40,7 @@ class LocalsendCli < Formula
     begin
       loop { output << r1.readpartial(4096) }
     rescue EOFError, Errno::EIO
-        output << "" # EOF on macOS, EIO on Linux.
+      output << "" # EOF on macOS, EIO on Linux.
     end
 
     # Check if a peer has been discover ie: D [1]
