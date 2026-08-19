@@ -30,7 +30,7 @@ class LocalsendCli < Formula
     _r, _w, pid2 = PTY.spawn(bin/"localsend-cli", "--port=#{free_port}")
 
     # Give time to discover each other
-    sleep 1
+    sleep 10
 
     Process.kill("TERM", pid1)
     Process.kill("TERM", pid2)
