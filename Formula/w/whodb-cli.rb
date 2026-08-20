@@ -28,15 +28,23 @@ class WhodbCli < Formula
       -X github.com/clidey/whodb/cli/internal/baml.BAMLVersion=#{baml_version}
     ]
 
-    system "go", "build", *std_go_args(ldflags:), "./cli"
+    system "go", "build", *std_go_args(output: bin/"whodb", ldflags:), "./cli"
+    bin.install_symlink bin/"whodb" => "whodb-cli"
 
-    generate_completions_from_executable(bin/"whodb-cli", shell_parameter_format: :cobra)
+    generate_completions_from_executable(bin/"whodb", shell_parameter_format: :cobra)
+  end
+
+  def caveats
+    <<~EOS
+      The command was renamed from "whodb-cli" to "whodb". A "whodb-cli"
+      symlink is kept for compatibility and will be removed in a future release.
+    EOS
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/whodb-cli version")
+    assert_match version.to_s, shell_output("#{bin}/whodb version")
 
-    output = shell_output("#{bin}/whodb-cli connections list --format json")
+    output = shell_output("#{bin}/whodb connections list --format json")
     assert_kind_of Array, JSON.parse(output)
   end
 end
