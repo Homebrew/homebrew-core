@@ -1,8 +1,8 @@
 class Baguette < Formula
   desc "Headless iOS Simulator manager and host-side input injection for iOS 26"
   homepage "https://tddworks.github.io/baguette/"
-  url "https://github.com/tddworks/baguette/archive/refs/tags/v0.1.92.tar.gz"
-  sha256 "f75272129f50b4c5afc19c789444d370fd2b0a6cdb5416fbcf9f287c11ff6950"
+  url "https://github.com/tddworks/baguette/archive/refs/tags/v0.1.94.tar.gz"
+  sha256 "925994e685e39df516abdab1dcac9657d974140c6e01a6acce26e33b5c57f85d"
   license "Apache-2.0"
   head "https://github.com/tddworks/baguette.git", branch: "main"
 
@@ -20,35 +20,17 @@ class Baguette < Formula
               "let baguetteVersion = \"0.1.61\"",
               %Q(let baguetteVersion = "#{version}")
 
-    # Rebuild the iOS-Simulator injection dylibs from source: upstream ships them prebuilt and universal,
-    # which `brew audit` rejects. Mirrors VirtualCamera/build.sh and VirtualMotion/build.sh, this arch only.
-    # `-target *-simulator` stamps the iOS-Simulator platform load command, and `-headerpad_max_install_names`
-    # leaves room for the Cellar-path ID Homebrew writes during relocation. Homebrew re-signing over
-    # `-adhoc_codesign` is fine: baguette copies the dylib to a content-hashed path before injecting it.
-    arch = Hardware::CPU.arch.to_s
-    sdk = Utils.safe_popen_read("xcrun", "--sdk", "iphonesimulator", "--show-sdk-path").chomp
-    dylibs = {
-      "VirtualCamera" => %w[Foundation UIKit QuartzCore CoreGraphics AVFoundation CoreMedia CoreVideo
-                            ImageIO CoreServices],
-      "VirtualMotion" => %w[Foundation CoreMotion],
-    }
-    dylibs.each do |name, frameworks|
-      dylib = "Sources/Baguette/Resources/#{name}/#{name}.dylib"
-      rm dylib
-
-      clang_args = %W[
-        -arch #{arch} -isysroot #{sdk}
-        -target #{arch}-apple-ios17.0-simulator
-        -dynamiclib -fobjc-arc -ldl
-        -I #{name}/Sources -o #{dylib}
-        -install_name @rpath/#{name}.dylib
-        -Wl,-headerpad_max_install_names
-        -Wl,-adhoc_codesign
-      ]
-      clang_args += frameworks.flat_map { |framework| ["-framework", framework] }
-      clang_args += Dir["#{name}/Sources/*.m"]
-
-      system "xcrun", "clang", *clang_args
+    # Upstream commits the iOS-Simulator injection dylibs prebuilt and universal, which
+    # `brew audit` rejects, so rebuild them from source for this arch alone.
+    # `Injected/build.sh` loops over every `Injected/<Name>/`, so a dylib added upstream
+    # needs no change here. It honours `BAGUETTE_INJECTED_ARCHS`, links each slice with
+    # `-headerpad_max_install_names` to leave room for the Cellar-path install ID written
+    # during relocation, and stages the result where SPM copies it from. Homebrew
+    # re-signing over `-adhoc_codesign` is fine: baguette copies each dylib to a
+    # content-hashed path before injecting it.
+    rm Dir["Sources/Baguette/Resources/*/*.dylib"]
+    with_env(BAGUETTE_INJECTED_ARCHS: Hardware::CPU.arch.to_s) do
+      system "./Injected/build.sh"
     end
 
     system "swift", "build", *std_swift_args
@@ -71,5 +53,16 @@ class Baguette < Formula
     # Unknown subcommands are rejected with a usage error (exit code 64),
     # exercising real argument parsing offline with no booted simulator.
     assert_match "Usage: baguette", shell_output("#{bin}/baguette no-such-command 2>&1", 64)
+
+    # The injected dylibs must survive keg relocation as thin, non-empty Mach-O
+    # libraries. Asserted rather than assumed: clang exits 0 on an empty source
+    # list, so a formula that mis-globs the sources yields loadable 16KB stubs
+    # that inject nothing and report no error.
+    dylibs = Dir["#{libexec}/Baguette_Baguette.bundle/*/*.dylib"]
+    assert_operator dylibs.length, :>=, 3
+    dylibs.each do |dylib|
+      refute_match "universal binary", shell_output("file #{dylib}")
+      assert_match(/^[0-9a-f]+ /, shell_output("nm -gU #{dylib}"))
+    end
   end
 end
