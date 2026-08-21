@@ -1,0 +1,695 @@
+Index: COPYING
+===================================================================
+--- COPYING	(revision 1830)
++++ COPYING	(revision 1831)
+@@ -11,7 +11,7 @@
+ and GNU Readline and ncurses (in some versions).
+ 
+ Binary releases of CWB(*) may redistribute elements of the PCRE library. 
+-PCRE is licensed under the BSD Licence, which permits such binary 
++PCRE2 is licensed under the BSD Licence, which permits such binary 
+ redistribution on condition the original copyright notice and the BSD license's
+ conditions and disclaimer are included. We include this information later in 
+ this file. It is also available at the PCRE website:
+@@ -88,7 +88,7 @@
+ 
+   (1) The GNU General Public License version 2.
+   (2) The GNU General Public License version 3.
+-  (3) The contents of PCRE's "licence.txt" file,
++  (3) The contents of PCRE2's "licence.txt" file,
+       which includes the text of the BSD licence.
+   (4) The GNU Library General Public License version 2.
+   (5) The ncurses copyright and permission notice,
+@@ -1127,20 +1127,24 @@
+ ==============================================================================
+                          (3)
+ 
+-            PCRE "licence.txt"
++            PCRE2 "licence.txt"
+ 
+-PCRE LICENCE
+-------------
++PCRE2 LICENCE
++-------------
+ 
+-PCRE is a library of functions to support regular expressions whose syntax
++PCRE2 is a library of functions to support regular expressions whose syntax
+ and semantics are as close as possible to those of the Perl 5 language.
+ 
+-Release 8 of PCRE is distributed under the terms of the "BSD" licence, as
+-specified below. The documentation for PCRE, supplied in the "doc"
+-directory, is distributed under the same terms as the software itself.
++Releases 10.00 and above of PCRE2 are distributed under the terms of the "BSD"
++licence, as specified below, with one exemption for certain binary
++redistributions. The documentation for PCRE2, supplied in the "doc" directory,
++is distributed under the same terms as the software itself. The data in the
++testdata directory is not copyrighted and is in the public domain.
+ 
+ The basic library functions are written in C and are freestanding. Also
+-included in the distribution is a set of C++ wrapper functions.
++included in the distribution is a just-in-time compiler that can be used to
++optimize pattern matching. This is an optional feature that can be omitted when
++the library is built.
+ 
+ 
+ THE BASIC LIBRARY FUNCTIONS
+@@ -1147,25 +1151,38 @@
+ ---------------------------
+ 
+ Written by:       Philip Hazel
+-Email local part: ph10
+-Email domain:     cam.ac.uk
++Email local part: Philip.Hazel
++Email domain:     gmail.com
+ 
+-University of Cambridge Computing Service,
++Retired from University of Cambridge Computing Service,
+ Cambridge, England.
+ 
+-Copyright (c) 1997-2010 University of Cambridge
++Copyright (c) 1997-2021 University of Cambridge
+ All rights reserved.
+ 
+ 
+-THE C++ WRAPPER FUNCTIONS
+--------------------------
++PCRE2 JUST-IN-TIME COMPILATION SUPPORT
++--------------------------------------
+ 
+-Contributed by:   Google Inc.
++Written by:       Zoltan Herczeg
++Email local part: hzmester
++Email domain:     freemail.hu
+ 
+-Copyright (c) 2007-2010, Google Inc.
++Copyright(c) 2010-2021 Zoltan Herczeg
+ All rights reserved.
+ 
+ 
++STACK-LESS JUST-IN-TIME COMPILER
++--------------------------------
++
++Written by:       Zoltan Herczeg
++Email local part: hzmester
++Email domain:     freemail.hu
++
++Copyright(c) 2009-2021 Zoltan Herczeg
++All rights reserved.
++
++
+ THE "BSD" LICENCE
+ -----------------
+ 
+@@ -1172,17 +1189,16 @@
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ 
+-    * Redistributions of source code must retain the above copyright notice,
++    * Redistributions of source code must retain the above copyright notices,
+       this list of conditions and the following disclaimer.
+ 
+     * Redistributions in binary form must reproduce the above copyright
+-      notice, this list of conditions and the following disclaimer in the
++      notices, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+ 
+-    * Neither the name of the University of Cambridge nor the name of Google
+-      Inc. nor the names of their contributors may be used to endorse or
+-      promote products derived from this software without specific prior
+-      written permission.
++    * Neither the name of the University of Cambridge nor the names of any
++      contributors may be used to endorse or promote products derived from this
++      software without specific prior written permission.
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+@@ -1196,6 +1212,16 @@
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
++
++EXEMPTION FOR BINARY LIBRARY-LIKE PACKAGES
++------------------------------------------
++
++The second condition in the BSD licence (covering binary redistributions) does
++not apply all the way down a chain of software. If binary package A includes
++PCRE2, it must respect the condition, but if package B is software that
++includes package A, the condition is not imposed on package B unless it uses
++PCRE2 independently.
++
+ End
+ 
+ ==============================================================================
+Index: INSTALL
+===================================================================
+--- INSTALL	(revision 1830)
++++ INSTALL	(revision 1831)
+@@ -79,7 +79,7 @@
+  - GNU bison & flex for updating automatically generated parsers
+  - the pkg-config program
+  - the ncurses library (or a similar terminal control library)
+- - the PCRE library (see notes below)
++ - the PCRE library (version: PCRE2; see notes below)
+  - the Glib library (see notes below)
+ 
+ 
+@@ -361,28 +361,19 @@
+ 
+ For Glib, at least version 2 is required.
+ 
+-For PCRE, at least version 8.10 is required. You must use a copy of PCRE
+-which has been compiled with Unicode (UTF-8) support and Unicode
+-properties support. (You can find out whether this is the case using the
+-pcretest utility with the -C option.) Note that the new-and-improved PCRE2
+-library (PCRE v10.0.0 and up) is NOT a suitable substitute. 
+-
+-We strongly recommend to use a recent version of PCRE v8 (>= 8.32) with JIT
+-compilation enabled (check with "pcretest -C") in order to ensure good
++For PCRE, the new PCRE2 is required, at least version 10.0, but ideally 
++the most recent available. You must use a copy of PCRE which has been 
++compiled with Unicode (UTF-8) support and Unicode properties support. 
++(You can find out whether this is the case using the pcre2test utility 
++with the -C option.) We also strongly recommend using PCRE2 with JIT
++compilation enabled (check with "pcre2test -C") in order to ensure good
+ performance. For complex regular expressions, this will make the lexicon
+ search A LOT faster (see http://sljit.sourceforge.net/regex_perf.html).
+-Note that standard packages shipped with various Linux distributions may
+-not include JIT support and you may have to compile PCRE yourself for
+-optimal performance. The following Linux distributions appear to include 
+-a PCRE version high enough to include JIT:
+ 
+-        Ubuntu 14.10 ("Utopic") and newer
+-        Debian 7 ("Wheezy") and newer
+-        Fedora 20 ("Heisenbug") and newer
++Most actively maintained platforms, including most Linux distributions,
++distribute PCRE2 with Uni8code support and JIT enabled. 
+ 
+-For info on PCRE and Glib on Mac OS X, see the specific section above for 
+-that OS.  Note that PCRE JIT does not support Apple Silicon (M1 etc.), 
+-so regular expression performance may be unsatisfactory on this platform.
++For info on PCRE and Glib on Mac OS X, see INSTALL-MACOS.
+ 
+ The CWB build process makes the following assumptions:
+ 
+@@ -390,15 +381,15 @@
+    using the pkg-config utility (should be the case if you have used the
+    standard installation procedure);
+ 
+- - that the location of header/library files for PCRE can be discovered
+-   using the pcre-config utility (which should also be the case if you
++ - that the location of header/library files for PCR2 can be discovered
++   using the pcre2-config utility (which should also be the case if you
+    have used the standard installation procedure).
+ 
+-If you want to use your own copy of Glib or PCRE instead of the version
++If you want to use your own copy of Glib or PCRE2 instead of the version
+ provided by a standard package, set up your search path so that the 
+-appropriate pkg-config or pcre-config binary is found first.
++appropriate pkg-config or pcre2-config binary is found first.
+ 
+ If you cannot provide installation details through pkg-config and
+-pcre-config, quite a bit of tinkering with the Makefile includes will be
++pcre2-config, quite a bit of tinkering with the Makefile includes will be
+ needed to make things work.
+ 
+Index: INSTALL-MACOS
+===================================================================
+--- INSTALL-MACOS	(revision 1830)
++++ INSTALL-MACOS	(revision 1831)
+@@ -38,7 +38,7 @@
+ Enter the following shell commands:
+ 
+         brew install glib
+-        brew install pcre
++        brew install pcre2
+         brew install readline
+         brew install subversion
+ 
+@@ -142,7 +142,7 @@
+         instutils/find_readline.perl --check
+ 
+ The other libraries have to be set up so that configuration information can
+-be determined with pkg-config (Glib) and pcre-config (PCRE).
++be determined with pkg-config (Glib) and pcre2-config (PCRE2).
+ 
+ 
+         BUILDING BINARY RELEASES
+@@ -150,7 +150,7 @@
+ The MacOS configuration provides full support for building self-contained
+ binary releases, which can be unpacked on a target computer and used there
+ without any further installation.  For this purpose, statically linked
+-versions of the prerequisite libraries (Glib2, PCRE, GNU Readline) are
++versions of the prerequisite libraries (Glib2, PCRE2, GNU Readline) are
+ required, which must be marshalled into
+ 
+         assets/darwin-x86_64/
+Index: INSTALL-WIN
+===================================================================
+--- INSTALL-WIN	(revision 1830)
++++ INSTALL-WIN	(revision 1831)
+@@ -107,7 +107,7 @@
+     - ncurses               (yes, this one is on both lists!)
+     - readline
+     - glib2
+-    - pcre
++    - pcre2                 (replacing "pcre" in earlier versions of CWB)
+     - ghostscript           (only needed to build release zips)
+ 
+ Many of these packages have various dependencies, and pacman will ask you
+Index: Makefile
+===================================================================
+--- Makefile	(revision 1830)
++++ Makefile	(revision 1831)
+@@ -49,7 +49,7 @@
+ TOP = $(shell pwd)
+ include $(TOP)/config.mk
+ 
+-# targets for external libraries; currently not used (Glib and PCRE assumed to be on the system already)
++# targets for external libraries; currently not used (Glib and PCRE2 assumed to be on the system already)
+ ifdef WINDOWS
+   EXTERNALS = 
+ else
+Index: cl/regopt.c
+===================================================================
+--- cl/regopt.c	(revision 1830)
++++ cl/regopt.c	(revision 1831)
+@@ -27,9 +27,11 @@
+ 
+ 
+ #include <glib.h>
++#include <stdint.h>
+ 
+ /* include external regular expression library */
+-#include <pcre.h>
++#define PCRE2_CODE_UNIT_WIDTH 8
++#include <pcre2.h>
+ 
+ #include "globals.h"
+ #include "regtab.h"
+@@ -43,13 +45,11 @@
+ #define MAX_GRAINS 12
+ 
+ /**
+- * Underlying structure for CL_Regex object.
+- *
+- * @see regopt.c
++ * Underlying structure for opaqCL_Regex object.
+  */
+ struct _cl_regex {
+-  pcre *needle;                      /**< buffer for the actual regex object (PCRE) */
+-  pcre_extra *extra;                 /**< buffer for PCRE's internal optimisation data */
++  pcre2_code_8 *needle;              /**< buffer for the actual regex object (PCRE2) */
++  pcre2_match_data_8 *match_data;    /**< buffer where the match datga is placed (CL normally has no use for this). */
+   CorpusCharset charset;             /**< the character set in use for this regex */
+   int icase;                         /**< whether IGNORE_CASE flag was set for this regex (needs special processing) */
+   int idiac;                         /**< whether IGNORE_DIAC flag was set for this regex */
+@@ -159,6 +159,7 @@
+ static void regopt_data_copy_to_regex_object(CL_Regex rx);
+ static int regopt_analyse(char *regex);
+ 
++
+ /**
+  * Create a new CL_regex object (ie a regular expression buffer).
+  *
+@@ -206,17 +207,14 @@
+   char *preprocessed_regex;
+   char *anchored_regex;
+ 
+-  /* this will be made into a pointer to the pcre 8-bit character-data table to be used;
+-   * null == no table, IE we assume utf8 ... */
+-  const unsigned char *chardata_table = NULL;
+-
+   CL_Regex rx;
+   int optimised, l;
+ 
+-  int options_for_pcre = 0;
+-  const char *errstring_for_pcre = NULL;
+-  int erroffset_for_pcre = 0;
+-  int is_pcre_jit_available; /* in some cases, PCRE + JIT may be faster without the optimizer */
++  uint32_t options_for_pcre = 0; /* stores options to pass to pcre2_compile. */
++  int errcode_for_pcre = 0;
++  pcre2_compile_context_8 *ccontext_for_pcre = NULL; /* used to pass in a character table if need be. */
++  PCRE2_SIZE erroffset_for_pcre = 0;
++  uint32_t is_pcre_jit_available; /* in some cases, PCRE + JIT may be faster without the optimizer */
+ 
+ 
+   /* allocate temporary strings */
+@@ -244,25 +242,27 @@
+   sprintf(anchored_regex, "^(?:%s)$", preprocessed_regex);
+ 
+   /* compile regular expression with PCRE library function */
+-  options_for_pcre = PCRE_UCP; /* use Unicode properties for \w, \d, etc. */
++  options_for_pcre = PCRE2_UCP; /* use Unicode properties for \w, \d, etc. */
+   if (rx->icase)
+-    options_for_pcre |= PCRE_CASELESS; /* case folding is left to the PCRE matcher */
++    options_for_pcre |= PCRE2_CASELESS; /* case folding is left to the PCRE matcher */
+   if (charset == utf8) {
+     if (cl_debug)
+       fprintf(stderr, "CL: enabling PCRE's UTF8 mode for regex %s\n", anchored_regex);
+     /* note we assume all strings have been checked upon input (i.e. indexing or by the parser) */
+-    options_for_pcre |= PCRE_UTF8|PCRE_NO_UTF8_CHECK;
++    options_for_pcre |= PCRE2_UTF|PCRE2_NO_UTF_CHECK;
+   }
+-#if 1                                 // use of the pcre data tables turned off for now.
+   else if (charset != ascii)
++  {
+     /* prior theorem about ascii/utf8 EXPLODED!! so pick the appropriate PCRE data table for character properties. */
+-    chardata_table = tables_for_pcre[charset];
+-#endif
++    /* (might it be more efficient to have a ccontext for each charset pre-compiled on init? this is probably OK.) */
++    ccontext_for_pcre = pcre2_compile_context_create_8(NULL);
++    pcre2_set_character_tables_8(ccontext_for_pcre, tables_for_pcre[charset]);
++  }
+ 
+-  rx->needle = pcre_compile(anchored_regex, options_for_pcre, &errstring_for_pcre, &erroffset_for_pcre, chardata_table);
++  rx->needle = pcre2_compile_8((PCRE2_SPTR8)anchored_regex, PCRE2_ZERO_TERMINATED, options_for_pcre, &errcode_for_pcre, &erroffset_for_pcre, ccontext_for_pcre);
+   if (NULL == rx->needle) {
+-    strcpy(cl_regex_error, errstring_for_pcre);
+-    fprintf(stderr, "CL: Regex Compile Error: %s\n", cl_regex_error);
++      pcre2_get_error_message_8(errcode_for_pcre, (PCRE2_UCHAR *)cl_regex_error, CL_MAX_LINE_LENGTH);
++    fprintf(stderr, "CL: Regex Compile Error @ string offset %ld: %s\n", erroffset_for_pcre, cl_regex_error);
+     cl_free(rx);
+     cl_free(preprocessed_regex);
+     cl_free(anchored_regex);
+@@ -271,30 +271,33 @@
+   }
+   else if (cl_debug)
+     fprintf(stderr, "CL: Regex compiled successfully using PCRE library\n");
++  pcre2_compile_context_free_8(ccontext_for_pcre);
+ 
++  /* we set up the match data now. It lives to the end of this CL_Regex. */
++  if (!(rx->match_data = pcre2_match_data_create_from_pattern_8(rx->needle, NULL))) {
++    /* error output akin to cl_malloc's. */
++    fprintf(stderr, "CL: Out of memory while creating PCRE2 Match Data (killed).\n");
++    printf("\n");       /* for CQP's child mode */
++    exit(1);
++  }
+ 
+-  /* a spot of code to handle use with a pre-JIT version of PCRE.
+-   * Note that JIT compilation was added to PCRE v8.20. */
+-#ifdef PCRE_CONFIG_JIT
+-  pcre_config(PCRE_CONFIG_JIT, &is_pcre_jit_available);
++  /* a spot of code to handle the unexpected case of JIT not having been compiled into PCRE. */
++#ifdef PCRE2_CONFIG_JIT
++  pcre2_config_8(PCRE2_CONFIG_JIT, &is_pcre_jit_available);
+ #else
+   is_pcre_jit_available = 0;
+-#  define PCRE_STUDY_JIT_COMPILE 0
+ #endif
+   if (cl_debug)
+     fprintf(stderr, "CL: PCRE's JIT compiler is %s.\n", (is_pcre_jit_available ? "available" : "unavailable"));
+ 
+-  /* always use pcre_study because nearly all our regexes are going to be used lots of times;
+-   * with recent version of PCRE, this will also JIT-compile the expression for much faster matching */
+-  rx->extra = pcre_study(rx->needle, PCRE_STUDY_JIT_COMPILE, &errstring_for_pcre);
+-  if (NULL != errstring_for_pcre) {
+-    rx->extra = NULL;
+-    if (cl_debug)
+-      fprintf(stderr, "CL: calling pcre_study failed with message...\n   %s\n", errstring_for_pcre);
+-    /* note that failure of pcre_study is not a critical error, we can just continue without the extra info */
++  /* now, run JIT */
++  if (is_pcre_jit_available) {
++    int jit_err;
++    if (0 > (jit_err = pcre2_jit_compile_8(rx->needle, 0)))
++      if (cl_debug)
++        fprintf(stderr, "CL: PCRE's JIT compiler reported error # %d.\n", jit_err);
++    /* we assume the interpreted version will continue to work if JIT did not work. */
+   }
+-  if (cl_debug && rx->extra)
+-    fprintf(stderr, "CL: calling pcre_study produced useful information...\n");
+ 
+   /* attempt to optimise regular expression */
+   cl_regopt_utf8 = (charset == utf8);
+@@ -394,7 +397,7 @@
+   int optimised = (rx->grains > 0);
+   int i, di, k, max_i, len, jump;
+   int grain_match, result;
+-  int ovector[30]; /* memory for pcre to use for back-references in pattern matches */
++//  int ovector[30]; /* memory for pcre to use for back-references in pattern matches */
+   int do_nfc = (normalize_utf8 && (rx->charset == utf8)) ? REQUIRE_NFC : 0; /* whether we need to normalize the input to NFC */
+ 
+   if (rx->idiac || do_nfc) { /* perform accent folding on input string if necessary */
+@@ -451,35 +454,35 @@
+     /* if the regex is not optimised, always behave as if a grain was matched */
+     grain_match = 1;
+ 
+-  /* if there was a grain-match, we call pcre_exec, which might match or might not find a match in the end;
++  /* if there was a grain-match, we call pcre2_match, which might match or might not find a match in the end;
+    * but if there wasn't a grain-match, we know that PCRE won't match; so we don't bother calling it. */
+ 
+   if (!grain_match) {
+     cl_regopt_successes++;
+-    result = PCRE_ERROR_NOMATCH;  /* the return code from PCRE when there is, um, no match */
++    result = PCRE2_ERROR_NOMATCH;  /* the return code from PCRE when there is, um, no match */
+   }
+ #if 1
+-  /* you can set to 0 for debug purposes: always calls PCRE regardless of whether grains matched. */
++  /* you can set to 0 for debug purposes: if so, it always calls PCRE regardless of whether grains matched. */
+   /* this allows the code in the #if 1 below to check whether or not grains are behaving as they should. */
+   else {
+ #else
+   if (1) {
+ #endif
+-    result = pcre_exec(rx->needle, rx->extra, haystack_pcre,
+-                       len, 0, PCRE_NO_UTF8_CHECK,
+-                       ovector, 30);
+-    if (result < PCRE_ERROR_NOMATCH && cl_debug)
++
++    result = pcre2_match(rx->needle, (PCRE2_SPTR8)haystack_pcre, len, 0, PCRE2_NO_UTF_CHECK, rx->match_data, NULL);
++
++    if (0 == result)
++      fprintf(stderr, "CL: Regex Match Error: insufficient ovector memory (see `man pcre2_match` for explanation)\n");
++    else if (PCRE2_ERROR_NOMATCH > result && cl_debug)
+       /* note, "no match" is a PCRE "error", but all actual errors are lower numbers */
+-      fprintf(stderr, "CL: Regex Execute Error no. %d (see `man pcreapi` for error codes)\n", result);
++      fprintf(stderr, "CL: Regex Match Error no. %d (see `man pcre2api` for error codes)\n", result);
+   }
+ 
+ 
+-#if 1
+   /* debugging code used before version 2.2.b94, modified to pcre return values & re-enabled in 3.2.b3 */
+   /* check for critical error: optimiser didn't accept candidate, but regex matched */
+   if ((result > 0) && !grain_match)
+     fprintf(stderr, "CL ERROR: regex optimiser did not accept '%s' although it should have!\n", str);
+-#endif
+ 
+   return (result > 0); /* return true if regular expression matched */
+ }
+@@ -507,13 +510,9 @@
+     return;
+ 
+   if (rx->needle)
+-    pcre_free(rx->needle);         /* free PCRE regex buffer */
+-  if (rx->extra)
+-#ifdef PCRE_CONFIG_JIT
+-    pcre_free_study(rx->extra);    /* and "extra" buffer (iff JIT was a possibility)*/
+-#else
+-    pcre_free(rx->extra);          /* and "extra" buffer (iff we know for certain there was no JIT) */
+-#endif
++    pcre2_code_free_8(rx->needle);         /* free PCRE regex buffer */
++  if (rx->match_data)
++    pcre2_match_data_free_8(rx->match_data); /* and match data buffer */
+   cl_free(rx->haystack_buf);       /* free string buffers if they were allocated */
+   cl_free(rx->haystack_casefold);
+   for (i = 0; i < rx->grains; i++)
+Index: config/platform/darwin-brew
+===================================================================
+--- config/platform/darwin-brew	(revision 1830)
++++ config/platform/darwin-brew	(revision 1831)
+@@ -35,8 +35,8 @@
+ ## We can use pkg-config to determine suitable compiler and linker flags for
+ ## Glib and PCRE. They point to specific versions of the libraries in the Cellar,
+ ## but their install names have the stable opt/... path, so upgrades don't break.
+-PCRE_DEFINES := $(shell pkg-config --cflags libpcre)
+-PCRE_LIBS = $(shell pkg-config --libs libpcre)
++PCRE_DEFINES := $(shell pkg-config --cflags libpcre2-8)
++PCRE_LIBS = $(shell pkg-config --libs libpcre2-8)
+ 
+ GLIB_DEFINES = $(shell pkg-config --cflags glib-2.0)
+ GLIB_LIBS = $(shell pkg-config --libs glib-2.0)
+Index: config/platform/darwin-brew-release
+===================================================================
+--- config/platform/darwin-brew-release	(revision 1830)
++++ config/platform/darwin-brew-release	(revision 1831)
+@@ -55,7 +55,7 @@
+ READLINE_DEFINES = -I$(HOMEBREW_ROOT)/opt/readline/include
+ READLINE_LIBS = $(HOMEBREW_ROOT)/opt/readline/lib/libreadline.a /usr/local/opt/readline/lib/libhistory.a
+ 
+-PCRE_DEFINES = -I$(HOMEBREW_ROOT)/opt/pcre/include
++PCRE_DEFINES = -I$(HOMEBREW_ROOT)/opt/pcre2/include
+ PCRE_LIBS = $(DONT_SET_PCRE_LIBS) # disable built-in auto-configuration
+ 
+ ## GLib must be linked dynamically against system-provided libraries and frameworks
+@@ -73,4 +73,4 @@
+ RELEASE_OS = macos-$(shell sw_vers -productVersion)
+ 
+ ## extra static libraries needed for linking against the binary release
+-LIBCL_EXTRA_LIBS = $(HOMEBREW_ROOT)/opt/pcre/lib/libpcre.a $(HOMEBREW_ROOT)/opt/glib/lib/libglib-2.0.a /$(HOMEBREW_ROOT)/opt/gettext/lib/libintl.a -liconv -framework CoreFoundation -framework CoreServices -framework Foundation
++LIBCL_EXTRA_LIBS = $(HOMEBREW_ROOT)/opt/pcre2/lib/libpcre2-8.a $(HOMEBREW_ROOT)/opt/glib/lib/libglib-2.0.a /$(HOMEBREW_ROOT)/opt/gettext/lib/libintl.a -liconv -framework CoreFoundation -framework CoreServices -framework Foundation
+Index: config/platform/homebrew-formula
+===================================================================
+--- config/platform/homebrew-formula	(revision 1830)
++++ config/platform/homebrew-formula	(revision 1831)
+@@ -50,8 +50,8 @@
+ TERMCAP_DEFINES = 
+ 
+ ## Compiler and linker flags for HomeBrew-installed Glib, PCRE and Readline libraries
+-PCRE_DEFINES := $(shell pkg-config --cflags libpcre)
+-PCRE_LIBS = $(shell pkg-config --libs libpcre)
++PCRE_DEFINES := $(shell pkg-config --cflags libpcre2-8)
++PCRE_LIBS = $(shell pkg-config --libs libpcre2-8)
+ 
+ GLIB_DEFINES = $(shell pkg-config --cflags glib-2.0)
+ GLIB_LIBS = $(shell pkg-config --libs glib-2.0)
+Index: config.mk
+===================================================================
+--- config.mk	(revision 1830)
++++ config.mk	(revision 1831)
+@@ -169,8 +169,8 @@
+ # GLIB_LIBS = -L<path_to_glib_libs> -lglib-2.0
+ # GLIB_DEFINES = -I<path_to_glib_headers>
+ 
+-## PCRE regular expression library (v8.20 or newer strongly recommended)
+-# PCRE_LIBS = -L<path_to_pcre_libs> -lpcre
++## PCRE regular expression library (PCRE2 has now replaced PCRE 1; we need the 8-bit-code-unit library)
++# PCRE_LIBS = -L<path_to_pcre_libs> -lpcre2-8
+ # PCRE_DEFINES = -I<path_to_pcre_headers>
+ 
+ ## CWB uses Flex/Bison for parsing registry files and CQP commands
+Index: definitions.mk
+===================================================================
+--- definitions.mk	(revision 1830)
++++ definitions.mk	(revision 1831)
+@@ -279,7 +280,7 @@
+   # we need special treatment of the config calls for static linking on Win;
+   # otherwise, it's fine to fall through (whether Win/*nix)
+   ifndef PCRE_DEFINES
+-    PCRE_DEFINES := -DPCRE_STATIC $(shell pcre-config --cflags)
++    PCRE_DEFINES := -DPCRE_STATIC $(shell pcre2-config --cflags)
+   endif
+ 
+   ifndef GLIB_DEFINES
+@@ -288,7 +289,7 @@
+   
+   # let's also pre-define the corresponding LIBS variables
+   ifndef PCRE_LIBS
+-    PCRE_LIBS := -DPCRE_STATIC $(shell pcre-config --libs)
++    PCRE_LIBS := -DPCRE_STATIC $(shell pcre2-config --libs8)
+   endif
+ 
+   ifndef GLIB_LIBS
+@@ -300,7 +301,7 @@
+ 
+ # SECOND, any other case than static linking for Windows release
+ ifndef PCRE_DEFINES
+-  PCRE_DEFINES := $(shell pcre-config --cflags)
++  PCRE_DEFINES := $(shell pcre2-config --cflags)
+ endif
+ 
+ ifndef GLIB_DEFINES
+@@ -308,7 +309,7 @@
+ endif
+ 
+ ifndef PCRE_LIBS
+-  PCRE_LIBS := $(shell pcre-config --libs)
++  PCRE_LIBS := $(shell pcre2-config --libs8)
+ endif
+ 
+ ifndef GLIB_LIBS
+Index: install-scripts/install-linux
+===================================================================
+--- install-scripts/install-linux	(revision 1830)
++++ install-scripts/install-linux	(revision 1831)
+@@ -153,10 +153,10 @@
+         if [ "$VERCOMPARE" -lt 9 ]
+         then
+             # Older Debian/Ubuntu with old package names for libreadline*. 
+-            PACKAGES='autoconf bison flex gcc make pkg-config libc6-dev libncurses5 libncurses5-dev libpcre3-dev libglib2.0-0 libglib2.0-dev libreadline6-dev'
++            PACKAGES='autoconf bison flex gcc make pkg-config libc6-dev libncurses5 libncurses5-dev libpcre2-8-0 libpcre2-dev libglib2.0-0 libglib2.0-dev libreadline6-dev'
+         else
+             # contemporary Debian/Ubuntu
+-            PACKAGES='autoconf bison flex gcc make pkg-config libc6-dev libncurses-dev libpcre3-dev libglib2.0-dev libreadline-dev'
++            PACKAGES='autoconf bison flex gcc make pkg-config libc6-dev libncurses-dev libpcre2-8-0 libpcre2-dev libglib2.0-dev libreadline-dev'
+         fi
+         ;;
+     
+@@ -173,7 +173,7 @@
+             INSTALLER='yum install -y'
+             if [ $hide_installer_messages -eq 1 ] ; then INSTALLER="$INSTALLER -q" ; fi
+         fi
+-        PACKAGES='autoconf bison flex gcc pkgconfig glibc glibc-common glibc-devel glibc-headers make ncurses ncurses-libs ncurses-devel pcre pcre-devel glib2 glib2-devel readline readline-devel'
++        PACKAGES='autoconf bison flex gcc pkgconfig glibc glibc-common glibc-devel glibc-headers make ncurses ncurses-libs ncurses-devel pcre2 pcre2-devel glib2 glib2-devel readline readline-devel'
+         ;;
+     
+     alpine)
+@@ -180,7 +180,7 @@
+         # Alpine Linux
+         INSTALLER='apk add '
+         if [ $hide_installer_messages -eq 1 ] ; then INSTALLER="$INSTALLER -q" ; fi
+-        PACKAGES='autoconf bison flex gcc make pkgconf libc-dev ncurses ncurses-dev pcre glib glib-dev readline readline-dev'
++        PACKAGES='autoconf bison flex gcc make pkgconf libc-dev ncurses ncurses-dev pcre2 pcre2-dev glib glib-dev readline readline-dev'
+         ;;
+     
+     centos)
+@@ -187,7 +187,7 @@
+         # Older Red Hat, CentOS, etc.
+         INSTALLER='yum install -y'
+         if [ $hide_installer_messages -eq 1 ] ; then INSTALLER="$INSTALLER -q" ; fi
+-        PACKAGES='autoconf bison flex gcc pkgconfig glibc glibc-common glibc-devel glibc-headers make ncurses ncurses-libs ncurses-devel pcre pcre-devel glib2 glib2-devel readline readline-devel'
++        PACKAGES='autoconf bison flex gcc pkgconfig glibc glibc-common glibc-devel glibc-headers make ncurses ncurses-libs ncurses-devel pcre2 pcre2-devel glib2 glib2-devel readline readline-devel'
+         ;;
+     
+     suse)
+@@ -194,7 +194,7 @@
+         # SUSE or openSUSE
+         INSTALLER='zypper install -y'
+         if [ $hide_installer_messages -eq 1 ] ; then INSTALLER="$INSTALLER -q" ; fi
+-        PACKAGES='autoconf bison flex gcc make pkgconf libc-dev ncurses ncurses-dev pcre glib glib-dev readline readline-dev'
++        PACKAGES='autoconf bison flex gcc make pkgconf libc-dev ncurses ncurses-dev pcre2 glib glib-dev readline readline-dev'
+         ;;
+ esac
+ 
+Index: install-scripts/install-mac-osx
+===================================================================
+--- install-scripts/install-mac-osx	(revision 1830)
++++ install-scripts/install-mac-osx	(revision 1831)
+@@ -37,10 +37,10 @@
+         echo "Please install Glib2 with 'brew install glib', then re-run this script."
+         exit
+     fi
+-    if [[ !(-f $OPT/pcre/lib/libpcre.dylib || -f $OPT/pcre/lib/libpcre.a) ]]
++    if [[ !(-f $OPT/pcre2/lib/libpcre2-8.dylib || -f $OPT/pcre2/lib/libpcre2.a) ]]
+     then
+-        echo " *** cannot find external PCRE library (libpcre) ***"
+-        echo "Please install PCRE with 'brew install pcre', then re-run this script."
++        echo " *** cannot find external PCRE library (libpcre2-8) ***"
++        echo "Please install PCRE with 'brew install pcre2', then re-run this script."
+         exit
+     fi
+     if [[ !(-f $OPT/readline/lib/libreadline.dylib || -f $OPT/readline/lib/libreadline.a) || !(-f $OPT/readline/lib/libhistory.dylib || -f $OPT/readline/lib/libhistory.a) ]]
+@@ -67,10 +67,10 @@
+         echo "Please install Glib2 with 'port install glib2 +universal', then re-run this script."
+         exit
+     fi
+-    if [[ !(-f /opt/local/lib/libpcre.dylib || -f /opt/local/lib/libpcre.a) ]]
++    if [[ !(-f /opt/local/lib/libpcre2-8.dylib || -f /opt/local/lib/libpcre2-8.a) ]]
+     then
+-        echo " *** cannot find external PCRE library (libpcre) ***"
+-        echo "Please install PCRE with 'port install pcre +universal', then re-run this script."
++        echo " *** cannot find external PCRE library (libpcre2) ***"
++        echo "Please install PCRE with 'port install pcre2 +universal', then re-run this script."
+         exit
+     fi
+     if [[ !(-f /opt/local/lib/libreadline.dylib || -f /opt/local/lib/libreadline.a) || !(-f /opt/local/lib/libhistory.dylib || -f /opt/local/lib/libhistory.a) ]]
+@@ -89,9 +89,9 @@
+         echo "Please install Glib2, then re-run this script."
+         exit
+     fi
+-    if [[ !(-f /usr/local/lib/libpcre.dylib || -f /usr/local/lib/libpcre.a) ]]
++    if [[ !(-f /usr/local/lib/libpcre2-8.dylib || -f /usr/local/lib/libpcre2-8.a) ]]
+     then
+-        echo " *** cannot find external PCRE library (libpcre) ***"
++        echo " *** cannot find external PCRE library (libpcre2-8) ***"
+         echo "Please install PCRE, then re-run this script."
+         exit
+     fi

@@ -1,0 +1,11 @@
+--- pfind/Makefile.orig	2008-06-01 22:40:55.000000000 -0700
++++ pfind/Makefile	2008-06-01 22:40:26.000000000 -0700
+@@ -1,6 +1,6 @@
+ PROG= pfind
+ DPADD+= ../proctools/libproctools.a
+-LDADD= -L${MAKEOBJDIR} -lproctools -lkvm
++LDADD= -L${MAKEOBJDIR} -lproctools
+ CLEANFILES+= pfind.cat1
+ 
+ .if defined(OLDKVM)
+

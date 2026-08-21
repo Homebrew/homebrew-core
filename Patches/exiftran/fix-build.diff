@@ -1,0 +1,21 @@
+diff --git a/mk/Autoconf.mk b/mk/Autoconf.mk
+index 45177a2..5d1c527 100644
+--- a/mk/Autoconf.mk
++++ b/mk/Autoconf.mk
+@@ -162,7 +162,7 @@ config: Make.config
+ 	@true
+ 
+ Make.config: $(srcdir)/GNUmakefile
+-	@/bin/echo -e "$(make-config-q)" > $@
++	@/usr/bin/printf "$(make-config-q)" > $@
+ 	@echo
+ 	@echo "Make.config written, edit if needed"
+ 	@echo
+diff --git a/scripts/jpeg-version.sh b/scripts/jpeg-version.sh
+index b59411e..04a39f8 100755
+--- a/scripts/jpeg-version.sh
++++ b/scripts/jpeg-version.sh
+@@ -1,2 +1,2 @@
+ #!/bin/sh
+-echo JPEG_LIB_VERSION | cpp $CFLAGS -include jpeglib.h | tail -1
++echo JPEG_LIB_VERSION | cpp $CFLAGS -include jpeglib.h | grep '[0-9]' | tail -1

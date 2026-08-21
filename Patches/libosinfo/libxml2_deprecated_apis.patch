@@ -1,0 +1,83 @@
+From 0adf38535637ec668e658d43f04f60f11f51574f Mon Sep 17 00:00:00 2001
+From: Roman Bogorodskiy <bogorodskiy@gmail.com>
+Date: Thu, 10 Apr 2025 13:54:02 +0200
+Subject: [PATCH] loader: don't use libxml2 deprecated APIs
+
+Address the following items:
+
+ - Deprecated direct access to buf's content
+ - Mismatching error function signature
+ - Deprecated direct access to ctxt's lastError
+
+Signed-off-by: Roman Bogorodskiy <bogorodskiy@gmail.com>
+---
+ osinfo/osinfo_loader.c | 42 +++++++++++++++++++++++-------------------
+ 1 file changed, 23 insertions(+), 19 deletions(-)
+
+diff --git a/osinfo/osinfo_loader.c b/osinfo/osinfo_loader.c
+index 0a9004af..b3fd4535 100644
+--- a/osinfo/osinfo_loader.c
++++ b/osinfo/osinfo_loader.c
+@@ -354,7 +354,7 @@ osinfo_loader_doc(const char *xpath,
+         xmlXPathFreeObject(obj);
+         OSINFO_LOADER_SET_ERROR(err, "Cannot format stylesheet");
+     }
+-    ret = g_strdup((char *)buf->content);
++    ret = g_strdup((char *)xmlBufferContent(buf));
+ 
+     xmlBufferFree(buf);
+     xmlXPathFreeObject(obj);
+@@ -1902,28 +1902,32 @@ static void osinfo_loader_root(OsinfoLoader *loader,
+ }
+ 
+ static void
+-catchXMLError(void *ctx, const char *msg ATTRIBUTE_UNUSED, ...)
++catchXMLError(void *ctx, const char *msg, ...)
+ {
+     xmlParserCtxtPtr ctxt = (xmlParserCtxtPtr) ctx;
++    const xmlError *xmlErr = NULL;
++    g_autofree gchar *xmlmsg = NULL;
+ 
+-    if (ctxt && ctxt->_private) {
+-        GError **err = ctxt->_private;
+-        if (!error_is_set(err)) {
+-            gchar *xmlmsg;
+-            if (ctxt->lastError.file) {
+-                xmlmsg = g_strdup_printf("%s:%d: %s",
+-                                         ctxt->lastError.file,
+-                                         ctxt->lastError.line,
+-                                         ctxt->lastError.message);
+-            } else {
+-                xmlmsg = g_strdup_printf("at line %d: %s",
+-                                         ctxt->lastError.line,
+-                                         ctxt->lastError.message);
+-            }
+-            OSINFO_LOADER_SET_ERROR(ctxt->_private, xmlmsg);
+-            g_free(xmlmsg);
+-        }
++    if (!ctxt || !ctxt->_private)
++        return;
++
++    if (error_is_set(ctxt->_private))
++        return;
++
++    if (!(xmlErr = xmlCtxtGetLastError(ctx)))
++        return;
++
++    if (xmlErr->file) {
++        xmlmsg = g_strdup_printf("%s:%d: %s",
++                                 xmlErr->file,
++                                 xmlErr->line,
++                                 xmlErr->message);
++    } else {
++        xmlmsg = g_strdup_printf("at line %d: %s",
++                                 xmlErr->line,
++                                 xmlErr->message);
+     }
++    OSINFO_LOADER_SET_ERROR(ctxt->_private, xmlmsg);
+ }
+ 
+ static void osinfo_loader_process_xml(OsinfoLoader *loader,
+-- 
+GitLab
+

@@ -1,0 +1,95 @@
+class Cppman < Formula
+  include Language::Python::Virtualenv
+
+  desc "C++ 98/11/14/17/20 manual pages from cplusplus.com and cppreference.com"
+  homepage "https://github.com/aitjcize/cppman"
+  url "https://files.pythonhosted.org/packages/a2/97/b0c1de5b35cc4e66eb32accffd261c22d511aba964a7aed3b210a85851b7/cppman-0.6.3.tar.gz"
+  sha256 "16a782b87b0848c5202b61965402258f8fc8260cbf0867cb876992eb3d046eb0"
+  license "GPL-3.0-or-later"
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "71d4e6095d8b6bef0604e5a004809686cf2394878cf72899428efb696bf03ef3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4268e708c901a1f6e7dad5758b7140db3940aa8959bdfd73f124b91066bed353"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1778f046441e2865480b86489c0a9f99d3809e6a137c6fad4f32f3efb7400e6d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3f5a05ec0567cee78b3449953bb1642b393185b4e52163547293a35aeb0aff97"
+    sha256 cellar: :any,                 arm64_linux:   "4817ace287a2791522388bccc7d2bc11822896c97f57f44eb784a84030422ec2"
+    sha256 cellar: :any,                 x86_64_linux:  "034c523db100f91bb40ee895189e07a12a0fa5370aa4a6e5d8f0a4f79fc82459"
+  end
+
+  depends_on "python@3.14"
+
+  uses_from_macos "libxml2", since: :ventura
+  uses_from_macos "libxslt"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff"
+  end
+
+  resource "beautifulsoup4" do
+    url "https://files.pythonhosted.org/packages/f0/3c/adaf39ce1fb4afdd21b611e3d530b183bb7759c9b673d60db0e347fd4439/beautifulsoup4-4.13.3.tar.gz"
+    sha256 "1bd32405dacc920b42b83ba01644747ed77456a65760e285fbc47633ceddaf8b"
+  end
+
+  resource "bs4" do
+    url "https://files.pythonhosted.org/packages/c9/aa/4acaf814ff901145da37332e05bb510452ebed97bc9602695059dd46ef39/bs4-0.0.2.tar.gz"
+    sha256 "a48685c58f50fe127722417bae83fe6badf500d54b55f7e39ffe43b798653925"
+  end
+
+  resource "html5lib" do
+    url "https://files.pythonhosted.org/packages/ac/b6/b55c3f49042f1df3dcd422b7f224f939892ee94f22abcf503a9b7339eaf2/html5lib-1.1.tar.gz"
+    sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
+
+    # Avoid ast.Str removed in 3.14+
+    patch do
+      url "https://github.com/html5lib/html5lib-python/commit/379f9476c2a5ee370cd7ec856ee9092cace88499.patch?full_index=1"
+      sha256 "97ae2474704eedf72dc5d5c46ad86e2144c10022ea950cb1c42a9ad894705014"
+      type :unofficial
+      resolves "https://github.com/html5lib/html5lib-python/pull/583"
+    end
+
+    # Python 3.14 with setuptools 81+ compatibility (`pkg_resources` removal)
+    patch do
+      url "https://github.com/html5lib/html5lib-python/commit/1dbc19cd6db72cb919885827bc4883423e0cb647.patch?full_index=1"
+      sha256 "5951b823f353dd70806ad6e163ab8f46899496c1e8bb53970c99abe8d1df1a78"
+      type :unofficial
+      resolves "https://github.com/html5lib/html5lib-python/pull/592"
+    end
+  end
+
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/28/30/9abc9e34c657c33834eaf6cd02124c61bdf5944d802aa48e69be8da3585d/lxml-6.1.0.tar.gz"
+    sha256 "bfd57d8008c4965709a919c3e9a98f76c2c7cb319086b3d26858250620023b13"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
+  end
+
+  resource "soupsieve" do
+    url "https://files.pythonhosted.org/packages/d7/ce/fbaeed4f9fb8b2daa961f90591662df6a86c1abf25c548329a86920aedfb/soupsieve-2.6.tar.gz"
+    sha256 "e2e68417777af359ec65daac1057404a3c8a5455bb8abc36f1a9866ab1a51abb"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/76/ad/cd3e3465232ec2416ae9b983f27b9e94dc8171d56ac99b345319a9475967/typing_extensions-4.13.1.tar.gz"
+    sha256 "98795af00fb9640edec5b8e31fc647597b4691f099ad75f469a2616be1a76dff"
+  end
+
+  resource "webencodings" do
+    url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
+    sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
+  end
+
+  def install
+    virtualenv_install_with_resources
+    # NOTE: Excluding bash completion which uses GNU xargs so has issues on macOS
+    fish_completion.install_symlink libexec/"share/fish/vendor_completions.d/cppman.fish"
+    zsh_completion.install_symlink libexec/"share/zsh/vendor-completions/_cppman"
+  end
+
+  test do
+    system bin/"cppman", "-s", "cplusplus.com"
+    assert_match "std::extent", shell_output("#{bin}/cppman -n 1 -f :extent")
+  end
+end

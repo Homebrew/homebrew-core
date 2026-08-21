@@ -1,0 +1,216 @@
+From ce496551ac72c019e3895b198223d1ce892ab97c Mon Sep 17 00:00:00 2001
+From: Fabrice Fontaine <fontaine.fabrice@gmail.com>
+Date: Fri, 17 Jul 2020 21:25:03 +0200
+Subject: [PATCH 1/5] CMakeLists.txt: fix paths when FTDIPP is set
+
+Use the same project name (i.e. libftdi1 and not libftdipp1) when FTDIPP
+is enabled as suggested by Aurelien Jarno in
+http://developer.intra2net.com/mailarchive/html/libftdi/2020/msg00044.html
+
+Without this change, the libftdi1.pc config file defines the include
+path as /usr/local/include/libftdipp1 while the ftdi.h file is actually
+installed in /usr/local/include/libftdi1
+
+This is an issue for example for libsigrok which will fail on:
+
+In file included from src/hardware/asix-sigma/protocol.c:27:
+src/hardware/asix-sigma/protocol.h:28:10: fatal error: ftdi.h: No such file or directory
+   28 | #include <ftdi.h>
+      |          ^~~~~~~~
+
+Fixes:
+ - http://autobuild.buildroot.org/results/1427f44e36752c337791597fab47a1889552a2fe
+
+Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5aecafc..3b0b87c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -136,7 +136,7 @@ endif ()
+ 
+ add_subdirectory(src)
+ if ( FTDIPP )
+-  project(libftdipp1 C CXX)
++  project(libftdi1 C CXX)
+   add_subdirectory(ftdipp)
+ endif ()
+ if ( PYTHON_BINDINGS )
+-- 
+2.50.1 (Apple Git-155)
+
+
+From b23505307bb994280ab5bfb46776103ec9a2d2fe Mon Sep 17 00:00:00 2001
+From: Yegor Yefremov <yegorslists@googlemail.com>
+Date: Tue, 1 Aug 2023 11:53:35 +0200
+Subject: [PATCH 2/5] CMake: bump the minimal required version to 2.8.12
+
+The older CMake versions are deprecated.
+
+Remove support for CMake code compatible with CMake older than 2.8.8.
+
+Also move cmake_minimum_required() command before the project()
+command invocation.
+---
+ CMakeLists.txt | 46 +++++++++++++++++++++-------------------------
+ 1 file changed, 21 insertions(+), 25 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3b0b87c..41ddf58 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,3 +1,5 @@
++cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
++
+ # Project
+ project(libftdi1 C)
+ set(MAJOR_VERSION 1)
+@@ -12,7 +14,6 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "")
+    set(CMAKE_BUILD_TYPE     RelWithDebInfo)
+ endif("${CMAKE_BUILD_TYPE}" STREQUAL "")
+ set(CMAKE_COLOR_MAKEFILE ON)
+-cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
+ 
+ add_definitions(-Wall)
+ 
+@@ -202,30 +203,25 @@ set ( LIBFTDI_VERSION_MINOR ${MINOR_VERSION} )
+ 
+ set ( LIBFTDI_USE_FILE ${CMAKE_INSTALL_PREFIX}/${LIBFTDI_CMAKE_CONFIG_DIR}/UseLibFTDI1.cmake )
+ 
+-if(CMAKE_VERSION VERSION_LESS 2.8.8) 
+-  configure_file ( cmake/LibFTDI1Config.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/LibFTDI1Config.cmake @ONLY )
+-  configure_file ( cmake/LibFTDI1ConfigVersion.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/LibFTDI1ConfigVersion.cmake @ONLY )
+-else ()
+-  include(CMakePackageConfigHelpers)
+-
+-  configure_package_config_file (
+-    cmake/LibFTDI1Config.cmake.in
+-    ${CMAKE_CURRENT_BINARY_DIR}/LibFTDI1Config.cmake
+-    INSTALL_DESTINATION ${LIBFTDI_CMAKE_CONFIG_DIR}
+-    PATH_VARS
+-      LIBFTDI_USE_FILE
+-      LIBFTDI_ROOT_DIR
+-      LIBFTDI_INCLUDE_DIR
+-      LIBFTDI_INCLUDE_DIRS
+-      LIBFTDI_LIBRARY_DIRS
+-    NO_CHECK_REQUIRED_COMPONENTS_MACRO
+-  )
+-  write_basic_package_version_file (
+-    LibFTDI1ConfigVersion.cmake 
+-    VERSION ${LIBFTDI_VERSION_STRING} 
+-    COMPATIBILITY AnyNewerVersion
+-  )
+-endif ()
++include(CMakePackageConfigHelpers)
++
++configure_package_config_file (
++  cmake/LibFTDI1Config.cmake.in
++  ${CMAKE_CURRENT_BINARY_DIR}/LibFTDI1Config.cmake
++  INSTALL_DESTINATION ${LIBFTDI_CMAKE_CONFIG_DIR}
++  PATH_VARS
++    LIBFTDI_USE_FILE
++    LIBFTDI_ROOT_DIR
++    LIBFTDI_INCLUDE_DIR
++    LIBFTDI_INCLUDE_DIRS
++    LIBFTDI_LIBRARY_DIRS
++  NO_CHECK_REQUIRED_COMPONENTS_MACRO
++)
++write_basic_package_version_file (
++  LibFTDI1ConfigVersion.cmake
++  VERSION ${LIBFTDI_VERSION_STRING}
++  COMPATIBILITY AnyNewerVersion
++)
+ 
+ 
+ install ( FILES 
+-- 
+2.50.1 (Apple Git-155)
+
+
+From d47280a4aec5ba6f9dd861467b9629f14e08e3bb Mon Sep 17 00:00:00 2001
+From: Yegor Yefremov <yegorslists@googlemail.com>
+Date: Mon, 11 Sep 2023 10:04:00 +0200
+Subject: [PATCH 3/5] CMake: report CMake version
+
+---
+ CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 41ddf58..8e6ae1e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,5 +1,7 @@
+ cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+ 
++message(STATUS "CMake version: ${CMAKE_VERSION}")
++
+ # Project
+ project(libftdi1 C)
+ set(MAJOR_VERSION 1)
+-- 
+2.50.1 (Apple Git-155)
+
+
+From db895d97ff1569043f382df378c4627bf14e459c Mon Sep 17 00:00:00 2001
+From: Yegor Yefremov <yegorslists@googlemail.com>
+Date: Thu, 31 Aug 2023 09:23:29 +0200
+Subject: [PATCH 4/5] CMake: require 2.8.12 for cmake_example
+
+Make CMake minimal version requirement consistent for the entire
+project.
+---
+ examples/cmake_example/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/examples/cmake_example/CMakeLists.txt b/examples/cmake_example/CMakeLists.txt
+index fe203ed..264752d 100644
+--- a/examples/cmake_example/CMakeLists.txt
++++ b/examples/cmake_example/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required ( VERSION 2.8 )
++cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+ 
+ project ( example C )
+ 
+-- 
+2.50.1 (Apple Git-155)
+
+
+From c1f2568bf8df7b0a5f06f017a55f73a27451425e Mon Sep 17 00:00:00 2001
+From: Yegor Yefremov <yegorslists@googlemail.com>
+Date: Tue, 12 Dec 2023 14:20:36 +0100
+Subject: [PATCH 5/5] CMake: bump the minimal required version to 3.5
+
+Older CMake versions are treated as deprecated.
+---
+ CMakeLists.txt                        | 2 +-
+ examples/cmake_example/CMakeLists.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8e6ae1e..b445f71 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
++cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+ 
+ message(STATUS "CMake version: ${CMAKE_VERSION}")
+ 
+diff --git a/examples/cmake_example/CMakeLists.txt b/examples/cmake_example/CMakeLists.txt
+index 264752d..cbdd2e4 100644
+--- a/examples/cmake_example/CMakeLists.txt
++++ b/examples/cmake_example/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
++cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+ 
+ project ( example C )
+ 
+-- 
+2.50.1 (Apple Git-155)
+

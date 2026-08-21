@@ -1,0 +1,58 @@
+Index: src/libimage/gif.c
+===================================================================
+diff --git a/src/libimage/gif.c b/src/libimage/gif.c
+--- a/src/libimage/gif.c	(revision 213)
++++ b/src/libimage/gif.c	(revision 214)
+@@ -20,6 +20,7 @@
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <stdbool.h>
+ #include <string.h>
+ 
+ #include <gif_lib.h>
+@@ -179,7 +180,11 @@
+ 	}
+     }
+     
++#if GIFLIB_MAJOR >= 5
++    if (DGifCloseFile(GifFile, NULL) == GIF_ERROR) {
++#else
+     if (DGifCloseFile(GifFile) == GIF_ERROR) {
++#endif
+ 	return(0);
+     }
+ 
+@@ -240,7 +245,7 @@
+  *   Also non of the parameter are allocated by this routine.
+  *   This function returns GIF_OK if succesfull, GIF_ERROR otherwise.
+  ******************************************************************************/
+-static int
++int
+ QuantizeBuffer(unsigned int Width,
+                unsigned int Height,
+                int *ColorMapSize,
+@@ -493,7 +498,11 @@
+ static void QuitGifError(GifFileType *GifFile)
+ {
+     fprintf(stderr, "Error writing GIF file\n");
++#if GIFLIB_MAJOR >= 5
++    if (GifFile != NULL) EGifCloseFile(GifFile, NULL);
++#else
+     if (GifFile != NULL) EGifCloseFile(GifFile);
++#endif
+ }
+ 
+ int 
+@@ -589,7 +598,11 @@
+ 	Ptr += width;
+     }
+ 
++#if GIFLIB_MAJOR >= 5
++    if (EGifCloseFile(GifFile, NULL) == GIF_ERROR)
++#else
+     if (EGifCloseFile(GifFile) == GIF_ERROR)
++#endif
+ 
+     {
+ 	QuitGifError(GifFile);

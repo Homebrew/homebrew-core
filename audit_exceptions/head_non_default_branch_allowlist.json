@@ -1,0 +1,16 @@
+{
+  "awscli": "v2",
+  "flarectl": "v0",
+  "libngspice": "master",
+  "libpng": "libpng16",
+  "lmdb": "mdb.master",
+  "msgpack": "c_master",
+  "msgpack-cxx": "cpp_master",
+  "ngspice": "master",
+  "opencv": "5.x",
+  "r3": "master",
+  "rtk": "develop",
+  "stlink": "develop",
+  "swiftformat": "develop",
+  "xmrig": "dev"
+}
