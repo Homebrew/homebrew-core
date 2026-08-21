@@ -3,8 +3,8 @@ class HermesAgent < Formula
 
   desc "Self-improving AI agent that creates skills from experience"
   homepage "https://hermes-agent.nousresearch.com"
-  url "https://github.com/NousResearch/hermes-agent/archive/refs/tags/v2026.8.18.tar.gz"
-  sha256 "1e3d39d3638ec15fa9d31af262568a953e9272090deb1c50c44cd401175f5b80"
+  url "https://github.com/NousResearch/hermes-agent/archive/refs/tags/v2026.8.19.tar.gz"
+  sha256 "8e7f7d2aa6be48ae8b5550325be44aef339413ceec6ed74c18287001103de8fd"
   license "MIT"
   head "https://github.com/NousResearch/hermes-agent.git", branch: "main"
 
@@ -14,12 +14,12 @@ class HermesAgent < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "619a440b87085f4d3cfc8f40144f52e3fae0282df94ed9f6b63bff4ed0adc2c4"
-    sha256 cellar: :any, arm64_sequoia: "f22a83f010ccbd99373e1386e7e761511aea354db4097a4c90383af06789d3e5"
-    sha256 cellar: :any, arm64_sonoma:  "de7f30ff27ea4965effd77250c450e49f35a1e64740c2fd9cfd1a04b6ef6ae8d"
-    sha256 cellar: :any, sonoma:        "75e23937222538582699d33a107b6c241a0cd734e576eb5939091b36f487db49"
-    sha256 cellar: :any, arm64_linux:   "2767906b068ccaa5d58b53698901286ce868b1b402abfd04297924891a6bad3c"
-    sha256 cellar: :any, x86_64_linux:  "ff49018cf3127504d67e1254d0ecbb290e82d4a0ff37863784be8b1be631dfea"
+    sha256 cellar: :any, arm64_tahoe:   "c5ce82d33a840047d9d75f92881018cb438120616e2d43e219ffda8075ac633d"
+    sha256 cellar: :any, arm64_sequoia: "01bfee973458a3d37b8837e9bfd8be0f4151be1f97e8ab1239b9a05d7e638ba3"
+    sha256 cellar: :any, arm64_sonoma:  "e80677a1696e333b73d14142e8e73385d54a9b74d0becdcd520def39dbda36ce"
+    sha256 cellar: :any, sonoma:        "113b64393da64a1cf7c71430f9cc3bad0302bd16f548169d43dafa82474ad4f6"
+    sha256 cellar: :any, arm64_linux:   "b451ebd7777f37c2f564d76283c7396814b2423e76f8f31dde4ee3b1d9f97cff"
+    sha256 cellar: :any, x86_64_linux:  "1baccdb42d513ade89cd88d70390c34f07651da8d704ccfdc862fe7016b0f6ad"
   end
 
   depends_on "pkgconf" => :build
@@ -97,8 +97,8 @@ class HermesAgent < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
-    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
+    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
   end
 
   resource "jinja2" do
@@ -167,8 +167,8 @@ class HermesAgent < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "pyjwt" do
@@ -270,8 +270,8 @@ class HermesAgent < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/2e/28/64ca011edf31c715b4fad359c587ea52391aaffa125065695590241ff617/uvicorn-0.52.3.tar.gz"
-    sha256 "18857b9e6579300be55c91c0a1cfd37d9a2cf0cabea33b88275f199eb73b8b58"
+    url "https://files.pythonhosted.org/packages/f2/0f/3f86e61397dd33bf2ccf28188c40db6a740658aeebbbf6e7dbc101a1f487/uvicorn-0.52.4.tar.gz"
+    sha256 "73acfee47a0b133c5de13d219492d62d8a31e935f4fe6e41a232451a15379f86"
   end
 
   resource "uvloop" do
@@ -354,7 +354,7 @@ class HermesAgent < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/hermes version")
+    assert_match version.to_s, shell_output("#{bin}/hermes --version")
 
     assert_match "No sessions found", shell_output("#{bin}/hermes sessions list")
     system bin/"hermes", "status"
