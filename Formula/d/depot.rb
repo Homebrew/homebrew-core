@@ -1,8 +1,8 @@
 class Depot < Formula
   desc "Build your Docker images in the cloud"
   homepage "https://depot.dev/"
-  url "https://github.com/depot/cli/archive/refs/tags/v2.102.4.tar.gz"
-  sha256 "41f6b53d27d79e23c1bc95df789392409cdab545472799b94aa4ed33afcc51c3"
+  url "https://github.com/depot/cli/archive/refs/tags/v2.102.5.tar.gz"
+  sha256 "e12d668a533c30de1aacb00a12f6eeb0e47459e45f0c7752de211a3e493e11b2"
   license "MIT"
   head "https://github.com/depot/cli.git", branch: "main"
 
@@ -25,6 +25,8 @@ class Depot < Formula
   depends_on "go" => :build
 
   def install
+    EVN["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = %W[
       -X github.com/depot/cli/internal/build.Version=#{version}
       -X github.com/depot/cli/internal/build.Date=#{time.iso8601}
