@@ -1,8 +1,8 @@
 class Imgdiet < Formula
   desc "Optimize and resize images"
   homepage "https://git.sr.ht/~jamesponddotco/imgdiet-go"
-  url "https://git.sr.ht/~jamesponddotco/imgdiet-go/archive/v0.2.0.tar.gz"
-  sha256 "25fcdc40ad63ce2739fad6543c592d757dc59d5c7a409af87cb20884600984ce"
+  url "https://git.sr.ht/~jamesponddotco/imgdiet-go/archive/v1.0.1.tar.gz"
+  sha256 "e51b568b4006063ecd6c38e9f7a088098b4169fe2b61278c145bc798bdce4fc4"
   license "MIT"
   head "https://git.sr.ht/~jamesponddotco/imgdiet-go", branch: "trunk"
 
@@ -35,7 +35,7 @@ class Imgdiet < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
-    system "go", "build", *std_go_args, "./cmd/imgdiet"
+    system "go", "build", *std_go_args
   end
 
   test do
