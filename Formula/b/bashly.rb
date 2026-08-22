@@ -169,6 +169,7 @@ class Bashly < Formula
 
     (bin/"bashly").write_env_script libexec/"bin/bashly", GEM_HOME: ENV.fetch("GEM_HOME")
     generate_completions_from_executable(
+      "bash",
       bin/"bashly",
       "completions",
       shell_parameter_format: :none,
