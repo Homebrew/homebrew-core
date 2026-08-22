@@ -3,8 +3,8 @@ class Tracy < Formula
   homepage "https://tracy.nereid.pl/"
   # NOTE: Do not report issues with dependencies upstream as they only support
   # vendored dependencies, see https://github.com/wolfpld/tracy/issues/1079
-  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "d4efc50ebcb0bfcfdbba148995aeb75044c0d80f5d91223aebfaa8fa9e563d2b"
+  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.14.1.tar.gz"
+  sha256 "bf4af567e9c7524d07f3caa745fad02fb33bd5694f11910750382d1efbb251c1"
   license "BSD-3-Clause"
 
   bottle do
@@ -116,10 +116,14 @@ class Tracy < Formula
     args = %w[CAPSTONE GLFW FREETYPE LIBCURL PUGIXML].map { |arg| "-DDOWNLOAD_#{arg}=OFF" }
     args << "-DCMAKE_MODULE_PATH=#{staging_prefix}"
 
+    # `monitor` uses Linux `perf_event` APIs and is unguarded upstream
+    skip_dirs = %w[python test]
+    skip_dirs << "monitor" if OS.mac?
+
     buildpath.each_child do |child|
       next unless child.directory?
       next unless (child/"CMakeLists.txt").exist?
-      next if %w[python test].include?(child.basename.to_s)
+      next if skip_dirs.include?(child.basename.to_s)
 
       # Workaround to link to shared nativefiledialog-extended. Upstream only supports vendored libs
       extra_args = ["-DCMAKE_EXE_LINKER_FLAGS=-lobjc"] if OS.mac? && child.basename.to_s == "profiler"
