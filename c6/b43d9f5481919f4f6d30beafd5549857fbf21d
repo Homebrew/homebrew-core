@@ -1,0 +1,14 @@
+Formula/f/fx-agent.rb
+  h_9df9c32c3f321d 1-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "c6b43d9f5481919f4f6d30beafd5549857fbf21d",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
