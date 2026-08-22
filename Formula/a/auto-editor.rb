@@ -19,7 +19,7 @@ class AutoEditor < Formula
   depends_on "pkgconf" => :build
   depends_on "ffmpeg"
   depends_on "ggml"
-  depends_on "whisper-cpp"
+  depends_on "whisper.cpp"
 
   def install
     system "nimble", "brewmake"
@@ -34,7 +34,7 @@ class AutoEditor < Formula
     system bin/"auto-editor", mp4in, "--edit", "none"
     assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("ffprobe -hide_banner #{mp4out} 2>&1"))
 
-    whisper = Formula["whisper-cpp"]
+    whisper = Formula["whisper.cpp"]
     system bin/"auto-editor", "whisper", whisper.pkgshare/"jfk.wav",
       whisper.pkgshare/"for-tests-ggml-tiny.bin"
   end
