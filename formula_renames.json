@@ -185,6 +185,7 @@
   "vultr": "vultr-cli",
   "wcurl": "curl",
   "weboob": "woob",
+  "whisper-cpp": "whisper.cpp",
   "wires": "geckodriver",
   "wpcli-completion": "wp-cli-completion",
   "wxmac": "wxwidgets",
