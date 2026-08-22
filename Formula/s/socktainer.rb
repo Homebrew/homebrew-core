@@ -29,8 +29,9 @@ class Socktainer < Formula
     <<~EOS
       Socktainer exposes a Docker-compatible REST API. You can connect any tools you installed for Docker daemon.
 
-      To connect it to your tools, add the following to ~/.bash_profile or ~/.zshrc:
-        export DOCKER_HOST=unix://#{var}/run/socktainer/.socktainer/container.sock
+      To connect it to your tools, do this in your terminal.
+        docker context create socktainer --docker "host=unix://$HOMEBREW_PREFIX/var/run/socktainer/.socktainer/container.sock"
+        docker context use socktainer
     EOS
   end
 
