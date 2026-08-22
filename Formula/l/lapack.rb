@@ -5,6 +5,7 @@ class Lapack < Formula
   sha256 "2ca6407a001a474d4d4d35f3a61550156050c48016d949f0da0529c0aa052422"
   # LAPACK is BSD-3-Clause-Open-MPI while LAPACKE is BSD-3-Clause
   license all_of: ["BSD-3-Clause-Open-MPI", "BSD-3-Clause"]
+  revision 1
   head "https://github.com/Reference-LAPACK/lapack.git", branch: "master"
 
   livecheck do
