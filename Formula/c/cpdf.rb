@@ -15,9 +15,9 @@ class Cpdf < Formula
     sha256 cellar: :any, x86_64_linux:  "9c37e3f802f43f1c11e86cb534c5361b4fe5c2b50cbd9f58c6573c826e20bd4d"
   end
 
+  depends_on "camlpdf" => :build
+  depends_on "ocaml" => :build
   depends_on "ocaml-findlib" => :build
-  depends_on "camlpdf"
-  depends_on "ocaml"
 
   def install
     # For OCamlmakefile
