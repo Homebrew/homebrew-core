@@ -1,0 +1,19 @@
+Formula/f/fx.rb
+  s_2f8ff891dc12a4::t_c8bbed37891a9f 20-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "bd2dbdf0084eee994d89ecaf7895e2fc6608e706",
+  "prompts": {},
+  "sessions": {
+    "s_2f8ff891dc12a4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2fe2adc4-89de-4cf0-aac0-16260feff5c6",
+        "model": "us.anthropic.claude-opus-4-6-v1"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
