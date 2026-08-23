@@ -3,8 +3,8 @@ class KeeperCommander < Formula
 
   desc "Command-line and SDK interface to Keeper Password Manager"
   homepage "https://docs.keeper.io/en/privileged-access-manager/commander-cli/overview"
-  url "https://files.pythonhosted.org/packages/31/25/f07b69a6a3dc5b9ef182c9d4a4051b9675b1aa311a5a098c0f7f99de92b5/keepercommander-18.1.1.tar.gz"
-  sha256 "09974c18f7edf6f0fa7d1e37caa59f8d6d63fd5d623c4d7ac1ca75058b80758f"
+  url "https://files.pythonhosted.org/packages/84/7f/fb4055d02525048bee63e65cf35bb3b1d1c74972932d9227b6034ea18e0f/keepercommander-18.1.2.tar.gz"
+  sha256 "3e642bf08c2a09bc489a81e79814966dd92749208d1fb68bcbfdc9931269101e"
   license "MIT"
   head "https://github.com/Keeper-Security/Commander.git", branch: "master"
 
@@ -20,9 +20,11 @@ class KeeperCommander < Formula
   end
 
   # `pkgconf` and `rust` are for bcrypt
+  depends_on "maturin" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
+
   depends_on "cryptography" => :no_linkage
   depends_on "ffmpeg"
   depends_on "libvpx"
@@ -127,8 +129,8 @@ class KeeperCommander < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
-    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
+    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
   end
 
   resource "itsdangerous" do
@@ -162,8 +164,8 @@ class KeeperCommander < Formula
   end
 
   resource "keeper-pam-webrtc-rs" do
-    url "https://files.pythonhosted.org/packages/c6/dd/f1beb05662bf424b7e5a38f62306d83ee607dfbc780a58f63a65af62edcd/keeper_pam_webrtc_rs-2.1.22.tar.gz"
-    sha256 "b7281c4baf99c8a671acac4cac06a8e763f8adcc7ac7c8ccb1be51aa0097952d"
+    url "https://files.pythonhosted.org/packages/b2/1d/459d524912055cd573b6a35e3b1ad193cc5eea3b7e464dfb9c2239ac2656/keeper_pam_webrtc_rs-2.2.0.tar.gz"
+    sha256 "83a88fd2b39a7ba8fa148528dde65e6931522f78f1122086f5baddc75b89e6ac"
   end
 
   resource "keeper-secrets-manager-core" do
@@ -247,8 +249,8 @@ class KeeperCommander < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "pyngrok" do
@@ -282,8 +284,8 @@ class KeeperCommander < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz"
-    sha256 "2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3"
+    url "https://files.pythonhosted.org/packages/6a/53/ed9d74092561d4b01a2ef1349d52cdbc135e526c245f366b089cfca6de49/python_dotenv-1.2.3.tar.gz"
+    sha256 "a20a594dabeaa385725aa239d5244871c143ecb356add8a20fcf23773a6c3a35"
   end
 
   resource "pyyaml" do
