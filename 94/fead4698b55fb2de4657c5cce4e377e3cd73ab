@@ -1,0 +1,14 @@
+Formula/e/emacs.rb
+  h_9df9c32c3f321d 31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "94fead4698b55fb2de4657c5cce4e377e3cd73ab",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
